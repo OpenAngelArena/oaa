@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Powershot Damage
+  // Bonus Static Remnant Damage
   //=================================================================================================================
-  "special_bonus_unique_windranger_3"
+  "special_bonus_unique_storm_spirit_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6562"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6916"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"200" //OAA
-        "ad_linked_ability"			"windrunner_powershot"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "80" //OAA
+        "ad_linked_ability"                               "storm_spirit_static_remnant"
       }
     }
   }

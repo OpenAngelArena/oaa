@@ -5,15 +5,18 @@
   //=================================================================================================================
   "npc_dota_hero_wisp"
   {
-    "Ability16"                                           "special_bonus_hp_900"
-    "Ability17"                                           "special_bonus_unique_wisp_7" // replaces special_bonus_unique_wisp_4
+    "Ability16"                                           "special_bonus_unique_wisp_9"
+    "Ability17"                                           "special_bonus_unique_wisp_2" // replaces special_bonus_unique_wisp_4
 
     // special_bonus_unique_wisp   - Spirits Hero Damage
     // special_bonus_unique_wisp_2 - Tether Stuns                   - doesn't work
-    // special_bonus_unique_wisp_3 - Bonus Spirits Max Range
+    // special_bonus_unique_wisp_3 - +{s:value}% Tether Movement Speed
     // special_bonus_unique_wisp_4 - Attack Tethered Ally's Target  - overpowered
     // special_bonus_unique_wisp_5 - Tether Scepter Bonus           - doesn't work
     // special_bonus_unique_wisp_6 - Relocate cooldown
-    // special_bonus_unique_wisp_7 - Spirits Apply Slow
+    // special_bonus_unique_wisp_7 - Spirits Apply Slow             - scepter does this
+    // special_bonus_unique_wisp_8 - +{s:value} Attack Damage to Tethered Units
+    // special_bonus_unique_wisp_9 - +{s:value} Health to Tethered Units
+    // special_bonus_unique_wisp_10 - +{s:value}% Overcharge Max HP Regen Bonus
   }
 }

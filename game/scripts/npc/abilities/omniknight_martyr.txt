@@ -1,14 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Juggernaut Healing Ward
+  // Omniknight: Heavenly Grace
   //=================================================================================================================
-  "juggernaut_healing_ward"
+  "omniknight_martyr"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5029"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "ID"                                                  "895"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -16,27 +19,32 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
+    "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "40" //OAA
-    "AbilityDuration"                                     "25.0"
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 130 120 110 100 90"
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "healing_ward_heal_amount"  "2 3 4 5 6 7"
-      "healing_ward_aura_radius"  "500"
-      "healing_ward_movespeed_tooltip"  
+      "base_strength"       "8 18 28 38 58 78"
+      "base_hpregen"        "8 12 16 20 30 40"
+      "strength_bonus"    
       {
-        "value" "325"
+        "value"     "3 4 5 6 8 10"
+        "LinkedSpecialBonus"  "special_bonus_unique_omniknight_2"
+      }
+      "duration"        
+      {
+        "value"     "10"
+        "LinkedSpecialBonus"  "special_bonus_unique_omniknight_5"
       }
     }
   }
