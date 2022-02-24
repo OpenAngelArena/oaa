@@ -25,25 +25,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_damage"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 75 90 180 360" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_1"
+        "value"         "45 60 75 90 180 360" //OAA
+        "special_bonus_unique_broodmother_1"  "+50"
       }
-      "02"
+      "lifesteal_pct"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_pct"                                   "70 85 100 115 130 145" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_1"
+        "value"       "70 85 100 115 130 145" //OAA
+        "special_bonus_unique_broodmother_1"  "+50"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "14" //OAA
-      }
+      "duration"        "14" //OAA
     }
   }
 }

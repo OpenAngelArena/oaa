@@ -31,19 +31,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "heal_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "275 625 975 2025 3775" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_chen_2"
+        "value"             "275 625 975 2025 3775" //OAA
+        "special_bonus_unique_chen_2" "+200"
       }
-      "02"
+      "hot_duration"  "10"
+      "heal_per_second"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ancient_creeps_scepter"                          "1 2 3 4 5"
-        "RequiresShard"                                   "1"
+        "value"             "20 30 40 60 100"
+        "special_bonus_unique_chen_2" "+10"
+      }
+      "ancient_creeps_scepter"    
+      {
+        "value" "1 2 3 4 5"
+        "RequiresShard"     "1"
       }
     }
   }
