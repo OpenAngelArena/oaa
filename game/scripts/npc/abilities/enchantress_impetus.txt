@@ -37,19 +37,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "distance_damage_pct" 
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "distance_damage_pct"                             "8 12 16 20 28 52"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_4"
+        "value"     "8 12 16 20 28 52"
+        "special_bonus_unique_enchantress_4"  "+6.5"  
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance_cap"                                    "1750"
-      }
+      "distance_cap"      "1750"
+      "creep_multiplier"    "2"
     }
   }
 }

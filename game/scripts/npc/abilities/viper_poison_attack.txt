@@ -35,38 +35,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"            "4"
+      "damage"            "4 8 12 16 32 48"
+      "movement_speed"      "6 8 10 12 14 16"
+      "magic_resistance"      
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4"
+        "value"     "4 6 8 10 11 12"
+        "special_bonus_unique_viper_4"  "+8"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "4 8 12 16 32 48"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "6 8 10 12 14 16"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "4 6 8 10 11 12"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "5"
-      }
-      "06" // Viper's attack range is 575
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_range"                                     "25 65 105 145 185 225"
-      }
+      "max_stacks"      "5"
+      "bonus_range"     "25 65 105 145 185 225"
     }
   }
 }

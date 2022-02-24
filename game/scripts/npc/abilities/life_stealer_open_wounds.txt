@@ -27,7 +27,7 @@
     "AbilityCooldown"                                     "15"
 
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "8"
+    "AbilityDuration"                                     "8" // ? "duration" "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,28 +35,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_steps"                                      "-50 -50 -40 -30 -20 -10 -10 -10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_tooltip"                                    "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "8"
-      }
+      "slow_steps"      "-50 -50 -40 -30 -20 -10 -10 -10"
+      "heal_percent"      "50"
+      "damage_threshold"    "500"
+      "spread_radius"     "700"
+      "slow_tooltip"      "50"
+      "duration"        "7"
     }
   }
 

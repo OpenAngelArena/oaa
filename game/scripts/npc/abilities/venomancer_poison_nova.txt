@@ -34,58 +34,32 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"          "850 900 950 1000 1050"
+      "start_radius"        "255"
+      "duration"          
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "850 900 950 1000 1050"
-        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_6"
+        "value"     "20"
+        "LinkedSpecialBonus"    "special_bonus_unique_venomancer_4"
       }
-      "02"
+      "damage"          "3.5" //OAA
+      "cooldown_scepter"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "255"
+        "value"       "100.0 80.0 60.0 60.0 60.0"
+        "RequiresScepter"   "1"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
+      "damage_scepter"      
+      { 
+        "value"       "4.5" //OAA
+        "RequiresScepter"   "1"
       }
-      "04" // old: "40 90 140 240 340"
+      "speed"           "550"
+      "base_damage"         "20 30 40 70 120"
+      "aspd_slow"         
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "3.5" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "100.0 80.0 60.0 60.0 60.0"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
-        "RequiresScepter"                                 "1"
-      }
-      "07" // old: "75 125 175 325 475"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_scepter"                                  "4.5" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "550"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_damage"                                     "20 30 40 70 120"
+        "value"         "0"
+        "special_bonus_unique_venomancer_5" "+100"
       }
     }
   }

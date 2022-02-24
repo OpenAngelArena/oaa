@@ -33,56 +33,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "starting_aoe"    "100"
+      "distance"      "900"
+      "final_aoe"     "450"
+      "speed"       "900"
+      "damage"      "310 540 770 1230 2150" //OAA
+      "knockback_distance"  "350"
+      "knockback_duration" "1.4"
+      "cooldown_scepter"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "starting_aoe"                                    "100"
+        "value"         "40"
+        "RequiresScepter"   "1"
       }
-      "02"
+      "damage_scepter"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "final_aoe"                                       "450"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "340 560 780 1220 2100" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "40"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "420 680 940 1720 2760" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_distance"                              "350"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "1.4"
+        "value"         "420 680 940 1720 2760" //OAA
+        "RequiresScepter"   "1"
       }
     }
   }

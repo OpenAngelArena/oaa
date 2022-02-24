@@ -32,29 +32,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"          "5.0 5.5 6.0 6.5 7.0" //OAA
+      "radius"          "1200"
+      "duration_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0 5.5 6.0 6.5 7.0" //OAA
+        "value"   "6.0 6.5 7.0 7.5 8.0" //OAA
+        "RequiresScepter"   "1"
       }
-      "02"
+      "scepter_status_resist"         
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "6.0 6.5 7.0 7.5 8.0" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_regen"                                   "40 80 120 160 200" //OAA
-        "RequiresScepter"                                 "1"
+        "value"     "40"
+        "RequiresScepter"   "1"
       }
     }
   }
