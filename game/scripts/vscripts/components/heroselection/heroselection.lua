@@ -151,12 +151,16 @@ function HeroSelection:Init ()
     -- [VScript] [components\duels\duels:64] userid: 3
     -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
     local playerid = keys.PlayerID or keys.player_id
+    if not playerid then
+      print("HeroSelection module - player_reconnected event has no PlayerID or player_id key. Gj Valve.")
+      return
+    end
     if not lockedHeroes[playerid] then
       -- we don't care if they haven't locked in yet
       return
     end
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-    if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[playerid]] then
+    if (not hero or hero:GetUnitName() == FORCE_PICKED_HERO) and loadedHeroes[lockedHeroes[playerid]] then
       DebugPrint('PlayerReconnected - Giving player '..tostring(playerid)..' a hero: '..lockedHeroes[playerid]..' after reconnecting.')
       HeroSelection:GiveStartingHero(playerid, lockedHeroes[playerid])
     end
