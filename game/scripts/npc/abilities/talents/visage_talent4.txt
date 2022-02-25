@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Chilling Touch Damage
+  // Bonus Soul Assumption Damage
   //=================================================================================================================
   "special_bonus_unique_visage_4"
   {
@@ -19,7 +19,7 @@
       {
         "var_type"					"FIELD_INTEGER"
         "value"				"30" //OAA
-        "ad_linked_ability"			"visage_soul_assumption"
+        "ad_linked_abilities"			"visage_soul_assumption"
       }
     }
   }
