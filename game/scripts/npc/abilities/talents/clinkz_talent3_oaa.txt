@@ -1,15 +1,16 @@
-"DOTAAbilities"
+﻿"DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Retaliate/Return Damage
+  // Custom Clinkz talent: Death Pact ...
   //=================================================================================================================
-  "special_bonus_unique_centaur_3"
+  "special_bonus_unique_clinkz_3_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6616"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                  "86104"
+    "BaseClass"           "special_bonus_undefined"
+    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"100" //OAA
-        "ad_linked_ability"			"centaur_return"
+        "var_type"        "FIELD_INTEGER"
+        "value"           "1"
       }
     }
   }

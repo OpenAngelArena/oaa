@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // upgrades Spiders - increases their attack damage
+  // Custom Broodmother talent - upgrades Spiders - increases their health
   //=================================================================================================================
-  "special_bonus_unique_broodmother_4"
+  "special_bonus_unique_broodmother_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6362"
+    "ID"                                                  "86258"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50"  //OAA
-        "ad_linked_ability"                               "broodmother_spawn_spiderlings"
+        "value"                                           "800"
       }
     }
   }

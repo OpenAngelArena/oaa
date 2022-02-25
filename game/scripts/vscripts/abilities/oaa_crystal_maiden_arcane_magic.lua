@@ -88,7 +88,7 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:OnCreated()
     self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
     --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
     --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
-    --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
+    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
   end
 end
 
@@ -99,7 +99,7 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:OnRefresh()
     self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
     --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
     --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
-    --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
+    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
   end
 end
 
@@ -109,7 +109,7 @@ function modifier_crystal_maiden_arcane_aura_effect_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE, -- GetModifierSpellAmplify_Percentage
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
-    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
     --MODIFIER_PROPERTY_TOOLTIP, -- OnTooltip
     --MODIFIER_PROPERTY_TOOLTIP2, -- OnTooltip2
   }
@@ -131,9 +131,9 @@ end
   --return self.mana_regen or self:GetAbility():GetSpecialValueFor("mana_regen")
 --end
 
---function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierMagicalResistanceBonus()
-  --return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
---end
+function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierMagicalResistanceBonus()
+  return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
+end
 
 --function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip()
   --return self.mana_cost_reduction

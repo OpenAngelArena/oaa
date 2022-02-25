@@ -21,8 +21,8 @@ function clinkz_death_pact_oaa:OnSpellStart()
   -- get the target's max health
   local targetHealth = target:GetMaxHealth()
 
-  -- Talent that 'steals creep abilities'
-  local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_2")
+  -- Talent
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_3_oaa")
   if talent1 and talent1:GetLevel() > 0 then
 
   end
