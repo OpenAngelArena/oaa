@@ -58,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17303"
+    "ItemCost"                                            "17553"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -72,7 +72,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "50 55 60"
+        "bonus_agility"                                   "20 25 30"
       }
       "02"
       {
@@ -82,12 +82,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 30"
+        "bonus_intellect"                                 "35 40 45"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "16 20 24"
+        "spell_amp"                                       "20 24 28"
       }
       "05"
       {
