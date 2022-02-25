@@ -96,6 +96,18 @@
         "slow_health_percentage"                          "5"
         "RequiresScepter"                                 "1"
       }
+      "11" //OAA
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "castpoint_scepter"                               "0.1"
+        "RequiresScepter"                                 "1"
+      }
+      "12" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "20"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }
