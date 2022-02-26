@@ -37,12 +37,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "epicenter_radius"  // number of epicenter_radius values should be equal to max(epicenter_pulses) + talent bonus which is: 14+5  
+      "epicenter_radius"  // number of epicenter_radius values should be equal to max(epicenter_pulses) + talent bonus which is: 14+5
       {
         "value"   "500 525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950"
         "special_bonus_unique_sand_king_5"  "+100"
       }
-      "shard_radius"  
+      "shard_radius"
       {
         "value"   "425"
         "special_bonus_unique_sand_king_5"  "+100"
@@ -52,14 +52,14 @@
         "value"   "6 8 10 12 14"
         "LinkedSpecialBonus"  "special_bonus_unique_sand_king"
       }
-      "epicenter_damage"  "110 120 130"
-      "epicenter_slow"  
+      "epicenter_damage"  "100 200 300 600 900" //OAA
+      "epicenter_slow" //OAA
       {
-        "value"     "-30 -40 -50 -60 -70" //OAA
+        "value"     "-30 -40 -50 -60 -70"
       }
-      "epicenter_slow_as"   
+      "epicenter_slow_as" //OAA
       {
-        "value"     "-30 -60 -90 -120 -150" //OAA
+        "value"     "-30 -60 -90 -120 -150"
       }
     }
   }

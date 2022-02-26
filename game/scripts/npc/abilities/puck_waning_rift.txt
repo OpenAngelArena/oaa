@@ -33,23 +33,23 @@
     "AbilityValues"
     {
       "radius"        "400"
-      "silence_duration"    
+      "silence_duration"
       {
         "value"         "2.0 2.5 3.0 3.5 4.0 4.5"
         "LinkedSpecialBonus"  "special_bonus_unique_puck_7"
       }
-      "damage"        
+      "damage"
       {
         "value"   "70 140 210 280 560 1120" //OAA
         "special_bonus_unique_puck_6" "+100"
       }
       "max_distance"      "300"
-      "scepter_max_distance"  
+      "scepter_max_distance"
       {
         "RequiresScepter"   "1"
         "value"     "450"
       }
-      "scepter_radius"  
+      "scepter_radius"
       {
         "RequiresScepter"   "1"
         "value"     "550"

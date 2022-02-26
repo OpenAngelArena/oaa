@@ -15,9 +15,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_health_pct"
+      "damage_health_pct" //OAA
       {
-        "value"                                           "10" //OAA
+        "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }
