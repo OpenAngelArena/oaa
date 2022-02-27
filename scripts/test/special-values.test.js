@@ -294,7 +294,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
       abilityValuesForItem[rootItem2] = abilityValues;
     } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
-      spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are consistent');
+      spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
     }
   }
   done();
@@ -557,7 +557,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       } else if (!parentData[keyName]) {
         t.fail('Extra keyname found in AbilityValues: ' + keyName);
       } else if (!parentAbvalues[keyName]) {
-        t.fail('Unexpected AbilityValue: ' + keyName);
+        t.fail('Unexpected block AbilityValue: ' + keyName);
       }
     }
     if (parentData[keyName]) {
@@ -566,7 +566,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       actualValues.forEach(function (v, i) {
         var expectedValue = expectedValues[i];
         var actualValue = v;
-        if (actualValue !== expectedValue) {
+        if (actualValue !== expectedValue && expectedValue) {
           if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
             if (actualValue.length !== expectedValue.length) {
               var actualValueToken = actualValue.split(' ');
@@ -607,6 +607,16 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       });
     }
   });
+
+  if (parentAbvalues) {
+    Object.keys(parentData).forEach(function (name) {
+      let actualValue = actualData[name];
+      let actualKey = Object.keys(actualData).find(key => actualData[key] === actualValue);
+      if (!actualValue && !actualKey && name !== actualKey) {
+        t.fail('Vanilla ability has a key: ' + name + ' with a value: ' + parentData[name]);
+      }
+    });
+  }
 }
 
 var keyWhiteList = [
