@@ -37,24 +37,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"      
+      "duration"
       {
-        "value"           "3.5 4 4.5 4.5 4.5"
-        "LinkedSpecialBonus"    "special_bonus_unique_centaur_7"
+        "value"                                           "3.5 4 4.5 4.5 4.5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_7"
       }
-      "base_damage"   "0"
-      "strength_damage" 
+      "base_damage"                                       "0"
+      "strength_damage"
       {
-        "value"             "1.75 2.5 3.25 4.0 4.75"     
-        "CalculateSpellDamageTooltip" "1"
+        "value"                                           "1.75 2.5 3.25 4.0 4.75"
+        "CalculateSpellDamageTooltip"                     "1"
       }
-      "slow_duration"   "2.5"
-      "radius"      "105"
-      "slow_movement_speed"     "100"
-      "damage_reduction"  
+      "slow_duration"                                     "2.5"
+      "radius"                                            "105"
+      "slow_movement_speed"                               "100"
+      "damage_reduction"
       {
-        "value"       "40" //OAA
-        "RequiresScepter" "1"
+        "value"                                           "20 25 30 35 40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

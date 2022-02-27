@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5010"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5010"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -16,7 +16,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -44,13 +43,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
+      "damage" //OAA
       {
-        "value"                                           "250 450 650 1250 2250" //OAA
+        "value"                                           "250 450 650 1250 2250"
         "special_bonus_unique_axe_5"                      "+150"
       }
-      "speed_bonus"                                       "30 35 40 45 50" //OAA
-      "atk_speed_bonus"                                   "30 40 50 60 70" //OAA
+      "speed_bonus"                                       "25 30 35 40 45" //OAA
+      "atk_speed_bonus"                                   "20 30 40 50 60"
       "speed_duration"                                    "6"
       "speed_aoe"                                         "900"
       "charge_speed"                                      "1200"

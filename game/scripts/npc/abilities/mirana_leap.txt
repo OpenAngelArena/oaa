@@ -35,12 +35,12 @@
       "leap_speed"                                        "1300.0"
       "leap_acceleration"                                 "6000.0"
       "leap_speedbonus"                                   "8 16 24 32 40 48"
-      "leap_speedbonus_as"
+      "leap_speedbonus_as" //OAA
       {
         "value"                                           "25 50 75 100 150 300"
         "special_bonus_unique_mirana_1"                   "+120"
       }
-      "leap_bonus_duration"
+      "leap_bonus_duration" //OAA
       {
         "value"                                           "2.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_3_oaa"

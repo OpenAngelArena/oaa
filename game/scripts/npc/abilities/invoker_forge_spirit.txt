@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5387"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5387"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "MaxLevel"                                            "1"
@@ -43,9 +43,9 @@
         "value"     "300 365 430 495 560 625 690 755 765 775 785 795 805 825 850"
         "levelkey"    "quaslevel"
       }
-      "spirit_hp"
+      "spirit_hp" //OAA
       {
-        "value"     "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500" //OAA
+        "value"     "300 500 700 900 1100 1300 1500 1700 2100 2500 2900 3300 3700 4100 4500"
         "levelkey"    "quaslevel"
       }
       "spirit_duration"

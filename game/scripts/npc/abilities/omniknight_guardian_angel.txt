@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5266"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5266"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,17 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"          "5.0 5.5 6.0 6.5 7.0" //OAA
-      "radius"          "1200"
-      "duration_scepter"
+      "duration"                                          "5.0 5.5 6.0 6.5 7.0" //OAA
+      "radius"                                            "1200"
+      "duration_scepter" //OAA
       {
-        "value"   "6.0 6.5 7.0 7.5 8.0" //OAA
-        "RequiresScepter"   "1"
+        "value"                                           "6.0 6.5 7.0 7.5 8.0"
+        "RequiresScepter"                                 "1"
       }
-      "scepter_status_resist"         
+      "scepter_status_resist"
       {
-        "value"     "40"
-        "RequiresScepter"   "1"
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

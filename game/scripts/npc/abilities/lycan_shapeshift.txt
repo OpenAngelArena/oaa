@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5398"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5398"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -29,21 +28,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA, because of Bite
       {
-        "value"       "15" //OAA 
-        "special_bonus_unique_lycan_1"  "+6"
+        "value"                                           "15"
+        "special_bonus_unique_lycan_1"                    "+6"
       }
-      "speed"       "550"
-      "bonus_night_vision"    "1000"
-      "transformation_time"   "1.1"
-      "crit_chance"     
+      "speed"                                             "550"
+      "bonus_night_vision"                                "1000"
+      "transformation_time"                               "1.1"
+      "crit_chance"
       {
-        "value"     "40"
-        "special_bonus_unique_lycan_5"  "+30"
+        "value"                                           "40"
+        "special_bonus_unique_lycan_5"                    "+30"
       }
-      "crit_multiplier"   "150 175 200 225 250"
-      "health_bonus"    "200 400 600 1000 1400"
+      "crit_multiplier"                                   "150 175 200 225 250"
+      "health_bonus"                                      "200 400 600 1000 1800" //OAA
     }
   }
 }

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5620"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5620"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     "MaxLevel"                                            "6"
@@ -30,24 +30,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_duration"         
+      "illusion_duration"
       {
-        "value"     "34.0"
-        "special_bonus_unique_terrorblade_5"  "+10"
+        "value"                                           "34.0"
+        "special_bonus_unique_terrorblade_5"              "+10"
       }
-      "illusion_outgoing_damage"  
+      "illusion_outgoing_damage"
       {
-        "value"   "-70 -60 -50 -40 -30 -20"    
-        "special_bonus_unique_terrorblade_4"  "+10"
+        "value"                                           "-70 -60 -50 -40 -30 -10"
+        "special_bonus_unique_terrorblade_4"              "+10"
       }
-          
-      "illusion_outgoing_tooltip"     
+      "illusion_outgoing_tooltip"
       {
-        "value"       "30 40 50 60 70 80"
-        "special_bonus_unique_terrorblade_4"  "+10"
+        "value"                                           "30 40 50 60 70 90"
+        "special_bonus_unique_terrorblade_4"              "+10"
       }
-      "illusion_incoming_damage"      "220.0 200.0 180.0 160.0 120.0 80.0"
-      "illusion_incoming_damage_total_tooltip"      "320.0 300.0 280.0 260.0 220.0 180.0"
+      "illusion_incoming_damage"                          "220 200 180 160 120 80" //OAA
+      "illusion_incoming_damage_total_tooltip"            "320 300 280 260 220 180" //OAA
     }
   }
 }

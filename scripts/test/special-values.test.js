@@ -135,6 +135,7 @@ test('KV Values', function (t) {
 });
 
 var specialValuesForItem = {};
+var abilityValuesForItem = {};
 
 function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
@@ -266,6 +267,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   } else {
     done();
   }
+
   var specials = root[item].AbilitySpecial;
 
   if (specials) {
@@ -280,10 +282,23 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
       spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
     }
-    done();
-  } else {
-    done();
   }
+
+  var abilityValues = root[item].AbilityValues;
+
+  if (abilityValues) {
+    var rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
+
+    rootItem2 = rootItem2[1];
+    if (!abilityValuesForItem[rootItem2]) {
+      testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
+      abilityValuesForItem[rootItem2] = abilityValues;
+    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
+      spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are consistent');
+    }
+  }
+  done();
+
   // });
 }
 
@@ -445,6 +460,153 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
   });
 
   return result;
+}
+
+function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
+  if (!abvalues) {
+    t.fail('This ability have no AbilityValues while it should!');
+    return;
+  }
+  var normalKeys = Object.keys(abvalues.values);
+  var normalValues = Object.values(abvalues.values);
+  var complexKeys = Object.keys(abvalues).filter(a => a !== 'values');
+  var parentData = {};
+  var actualData = {};
+
+  if (parentAbvalues) {
+    var parentKeys = Object.keys(parentAbvalues.values);
+    var parentValues = Object.values(parentAbvalues.values);
+    var complexParentKeys = Object.keys(parentAbvalues).filter(a => a !== 'values');
+
+    let i = 0;
+    parentKeys.forEach(function (num) {
+      let value = parentValues[i];
+      parentData[num] = value;
+      i++;
+    });
+
+    complexParentKeys.forEach(function (num) {
+      let value = parentAbvalues[num].values;
+      parentData[num] = value;
+    });
+  }
+
+  let i = 0;
+  normalKeys.forEach(function (num) {
+    let value = normalValues[i];
+    actualData[num] = value;
+    i++;
+  });
+
+  complexKeys.forEach(function (num) {
+    let value = abvalues[num].values;
+    actualData[num] = value;
+  });
+
+  normalKeys.forEach(function (keyName) {
+    var actualValue = actualData[keyName];
+    var expectedValue = parentData[keyName];
+    if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
+      if (expectedValue) {
+        if (actualValue !== expectedValue) {
+          if (actualValue.length !== expectedValue.length) {
+            var actualValueToken = actualValue.split(' ');
+            var expectedValueToken = expectedValue.split(' ');
+            if (actualValueToken.length < expectedValueToken.length) {
+              if (actualValueToken.length === 1) {
+                if (expectedValueToken[0] !== expectedValueToken[1]) {
+                  t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                }
+              } else {
+                t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+              }
+            } else {
+              if (actualValueToken.length !== expectedValueToken.length) {
+                var size = actualValueToken.length - 2;
+                if (isItem) {
+                  size = 1;
+                }
+
+                if (expectedValueToken.length === 1) {
+                  while (expectedValueToken.length < size) {
+                    expectedValueToken.push(expectedValueToken[0]);
+                  }
+                }
+                expectedValue = expectedValueToken.join(' ');
+
+                var valueToCheck = actualValue.substr(0, expectedValue.length);
+                if (valueToCheck !== expectedValue) {
+                  t.equal(valueToCheck, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
+                }
+              } else {
+                t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+              }
+            }
+          }
+        }
+      } else if (parentAbvalues) {
+        t.fail('Extra keyname found in AbilityValues: ' + keyName);
+      }
+    }
+  });
+
+  complexKeys.forEach(function (keyName) {
+    if (parentAbvalues && (!parentAbvalues[keyName] || !parentAbvalues[keyName].values)) {
+      if (abvalues.comments && abvalues.comments[keyName] && abvalues.comments[keyName].includes('OAA')) {
+        // do nothing
+      } else if (!parentData[keyName]) {
+        t.fail('Extra keyname found in AbilityValues: ' + keyName);
+      } else if (!parentAbvalues[keyName]) {
+        t.fail('Unexpected AbilityValue: ' + keyName);
+      }
+    }
+    if (parentData[keyName]) {
+      var actualValues = Object.values(actualData[keyName]);
+      var expectedValues = Object.values(parentData[keyName]);
+      actualValues.forEach(function (v, i) {
+        var expectedValue = expectedValues[i];
+        var actualValue = v;
+        if (actualValue !== expectedValue) {
+          if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
+            if (actualValue.length !== expectedValue.length) {
+              var actualValueToken = actualValue.split(' ');
+              var expectedValueToken = expectedValue.split(' ');
+              if (actualValueToken.length < expectedValueToken.length) {
+                if (actualValueToken.length === 1) {
+                  if (expectedValueToken[0] !== expectedValueToken[1]) {
+                    t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                  }
+                } else {
+                  t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                }
+              } else {
+                if (actualValueToken.length !== expectedValueToken.length) {
+                  var size = actualValueToken.length - 2;
+                  if (isItem) {
+                    size = 1;
+                  }
+
+                  if (expectedValueToken.length === 1) {
+                    while (expectedValueToken.length < size) {
+                      expectedValueToken.push(expectedValueToken[0]);
+                    }
+                  }
+                  expectedValue = expectedValueToken.join(' ');
+
+                  var valueToCheck = actualValue.substr(0, expectedValue.length);
+                  if (valueToCheck !== expectedValue) {
+                    t.equal(valueToCheck, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
+                  }
+                } else {
+                  t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  });
 }
 
 var keyWhiteList = [

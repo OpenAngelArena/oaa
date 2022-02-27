@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5605"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5605"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"  //OAA
+    "AbilityCooldown"                                     "25" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,21 +32,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"            "20" //OAA
-      "radius"            "400"
-      "absorb_amount"         
+      "duration"                                          "20" //OAA
+      "radius"                                            "400"
+      "absorb_amount" //OAA
       {
-        "value"         "110 240 370 500 1500 3000" //OAA
-        "LinkedSpecialBonus"      "special_bonus_unique_ember_spirit_1"
-      }       
-      "tick_interval"         "0.2"
-      "damage_per_second"       
-      {
-        "value"     "25 35 45 55 110 220"
-        "LinkedSpecialBonus"      "special_bonus_unique_ember_spirit_3"
+        "value"                                           "110 240 370 500 1500 3000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_1"
       }
-      "blind_pct"       "50"
-      "shield_pct_absorb"   "70"
+      "tick_interval"                                     "0.2"
+      "damage_per_second"
+      {
+        "value"                                           "25 35 45 55 110 220"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
+      }
+      "blind_pct"                                         "50"
+      "shield_pct_absorb"                                 "70"
     }
   }
 }

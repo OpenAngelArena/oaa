@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5176"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5176"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -35,22 +34,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "starting_aoe"    "100"
-      "distance"      "900"
-      "final_aoe"     "450"
-      "speed"       "900"
-      "damage"      "310 540 770 1230 2150" //OAA
-      "knockback_distance"  "350"
-      "knockback_duration" "1.4"
-      "cooldown_scepter"  
+      "starting_aoe"                                      "100"
+      "distance"                                          "900"
+      "final_aoe"                                         "450"
+      "speed"                                             "900"
+      "damage"                                            "310 550 790 1270 2230" //OAA
+      "knockback_distance"                                "350"
+      "knockback_duration"                                "1.4"
+      "cooldown_scepter"
       {
-        "value"         "40"
-        "RequiresScepter"   "1"
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
       }
-      "damage_scepter"  
+      "damage_scepter" //OAA
       {
-        "value"         "420 680 940 1720 2760" //OAA
-        "RequiresScepter"   "1"
+        "value"                                           "420 680 940 1720 2760"
+        "RequiresScepter"                                 "1"
       }
     }
   }

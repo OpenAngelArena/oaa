@@ -32,16 +32,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_amount"
+      "heal_amount" //OAA
       {
-        "value"                                           "200 400 600 1200 2200" //OAA
-        "special_bonus_unique_chen_2"                     "+400" //OAA
+        "value"                                           "200 400 600 1200 2200"
+        "special_bonus_unique_chen_2"                     "+400"
       }
       "hot_duration"                                      "10"
-      "heal_per_second"
+      "heal_per_second" //OAA
       {
-        "value"                                           "20 40 60 120 220" //OAA
-        "special_bonus_unique_chen_2"                     "+20" //OAA
+        "value"                                           "20 40 60 120 220"
+        "special_bonus_unique_chen_2"                     "+20"
       }
       "ancient_creeps_scepter"
       {

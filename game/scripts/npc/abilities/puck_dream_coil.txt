@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5073"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5073"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -19,7 +19,7 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70 65 60 55 50" //OAA
+    "AbilityCooldown"                                     "75 70 65 60 55" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,20 +42,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "coil_duration"       "6.0"
-      "coil_break_radius"     "600"
-      "stun_duration"       "0.5"
-      "coil_initial_damage"   "125 275 425 875 1625" //OAA
+      "coil_duration"                                     "6.0"
+      "coil_break_radius"                                 "600"
+      "stun_duration"                                     "0.5"
+      "coil_initial_damage"                               "125 275 425 875 1625" //OAA
       "coil_stun_duration"
       {
-        "value"     "1.8 2.4 3.0 3.5 4.0"
-        "special_bonus_unique_puck_4" "+1"
+        "value"                                           "1.8 2.4 3.0 3.6 4.2"
+        "special_bonus_unique_puck_4"                     "+1"
       }
-      "coil_break_damage"
+      "coil_break_damage" //OAA
       {
-        "value"         "200 400 600 1200 2200"
-      } // OAA
-      "coil_radius"       "375"
+        "value"                                           "200 400 600 1200 2200"
+      }
+      "coil_radius"                                       "375"
     }
   }
 }

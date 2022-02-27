@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5465"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5465"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -34,14 +33,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "40 50 60 70 80"
-      "fade_time"       "0.0"
-      "movement_speed"    "16 18 20 22 24"
-      "bonus_damage"      "300 600 900 1800 2700"
-      "health_regen_rate_scepter"   "3"
-      "mana_regen_rate_scepter"   "3"
-      "break_duration"    "4.0"
-      "shard_magic_resist_reduction"  "17"
+      "duration"                                          "40 50 60 70 80"
+      "fade_time"                                         "0.0"
+      "movement_speed"                                    "16 18 20 22 24"
+      "bonus_damage"                                      "300 600 900 1800 2700" //OAA
+      "health_regen_rate_scepter"                         "3"
+      "mana_regen_rate_scepter"                           "3"
+      "break_duration"                                    "4.0"
+      "shard_magic_resist_reduction"                      "17"
     }
   }
 }

@@ -7,22 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5599"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5599"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "HasScepterUpgrade"                                   "1"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"    
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150" //OAA
+    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -41,23 +39,23 @@
     {
       "radius"        "500"
       "proximity_threshold"       "1.0"
-      "damage"          
+      "damage" //OAA
       {
-        "value"     "400 600 800 1600 2400" //OAA
-        "LinkedSpecialBonus"    "special_bonus_unique_techies_2" //this is a Blast Off CD talent
+        "value"                                           "400 600 800 1400 2400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - this is a Sticky Bomb talent
       }
       "building_damage_pct"   "30"
-      "activation_delay"      
+      "activation_delay"
       {
         "value"   "1"
         "special_bonus_unique_techies_4"  "-0.8"
       }
-      "cast_range_scepter_bonus"    
+      "cast_range_scepter_bonus"
       {
         "value"   "300"
         "RequiresScepter"     "1"
       }
-      "AbilityChargeRestoreTime"  
+      "AbilityChargeRestoreTime"
       {
         "value"   ""
         "LinkedSpecialBonus"    "special_bonus_unique_techies_3"

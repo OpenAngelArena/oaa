@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5282"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5282"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -27,14 +26,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"      
+      "bonus_damage" //OAA
       {
-        "value"         "45 60 75 90 180 360" //OAA
+        "value"         "45 60 75 90 180 360"
         "special_bonus_unique_broodmother_1"  "+50"
       }
-      "lifesteal_pct"     
+      "lifesteal_pct" //OAA
       {
-        "value"       "70 85 100 115 130 145" //OAA
+        "value"       "70 85 100 115 130 145"
         "special_bonus_unique_broodmother_1"  "+50"
       }
       "duration"        "14" //OAA

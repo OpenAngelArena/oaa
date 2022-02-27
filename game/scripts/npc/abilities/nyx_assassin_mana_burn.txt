@@ -11,7 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -37,9 +36,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "float_multiplier"
+      "float_multiplier" //OAA
       {
-        "value"                                           "2.4 3 3.6 4.2 4.8 5.4" //OAA
+        "value"                                           "2.4 3 3.6 4.2 4.8 5.4"
         "special_bonus_unique_nyx_5"                      "+0.5"
       }
       "aoe"

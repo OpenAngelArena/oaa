@@ -20,10 +20,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "chance_pct"      "17"
-      "duration"        "2 2.5 3 3.5 4 5"
-      "slow"      "0"
-      "armor"     "2 4 6 8 10 12"
+      "chance_pct"                                        "17"
+      "duration"                                          "2 2.5 3 3.5 4 5" //OAA, for picking screen tooltip
+      "duration_ranged"                                   "2.5 3 3.5 4 5 6" //OAA
+      "slow"                                              "0"
+      "armor"                                             "2 4 6 8 10 12"
     }
   }
 }
