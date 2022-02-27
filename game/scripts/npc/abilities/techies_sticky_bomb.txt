@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "879"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "879"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -41,9 +41,9 @@
       "duration"        "1.2"
       "countdown"       "2"
       "radius"        "250"
-      "damage"        
+      "damage"
       {
-        "value" "90 180 270 360 540 1080"
+        "value" "90 180 270 360 720 1440"
         "special_bonus_unique_techies_2"  "+100"
       }
       "slow"          "25 35 45 55 60 65"

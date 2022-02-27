@@ -28,7 +28,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"        // Physical protection.
+    "ArmorPhysical"                                       "20"        // Physical protection.
     "MagicalResistance"                                   "40"        // Magical protection.
 
     // Attack
@@ -69,7 +69,7 @@
     "StatusManaRegen"                                     "0.0"
 
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

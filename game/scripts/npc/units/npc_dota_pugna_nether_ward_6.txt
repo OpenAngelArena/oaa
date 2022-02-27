@@ -4,7 +4,7 @@
 // Pugna Nether Ward 6
 //=================================================================================
   "npc_dota_pugna_nether_ward_6"
-  {                    
+  {
     // General
     //----------------------------------------------------------------
     "Model"                                               "models/heroes/pugna/pugna_ward.vmdl"  // Model.
@@ -29,17 +29,17 @@
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
     "AttackDamageMin"                                     "0"      // Damage range min.
-    "AttackDamageMax"                                     "0"      // Damage range max.  
+    "AttackDamageMax"                                     "0"      // Damage range max.
     "AttackRate"                                          "1.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.0"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "0"      // Range within a target can be acquired.
     "AttackRange"                                         "0"      // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"      // Speed of projectile.       
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
-    "HealthBarOffset"                                     "145"           
+    "HealthBarOffset"                                     "145"
     "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
 
     // Bounty
@@ -57,7 +57,7 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "16"    // Base health.
     "StatusHealthRegen"                                   "0.0"    // Health regeneration rate.
-    
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"                                  "600"    // Range of vision during day light.
@@ -66,9 +66,9 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-  }  
+  }
 
 }
