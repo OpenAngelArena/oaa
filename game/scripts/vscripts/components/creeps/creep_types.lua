@@ -4,9 +4,9 @@ CreepTypes = {
   -- 1 "easy camp" (CreepMax is 10 for all easy camps)
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
-      {"npc_dota_neutral_custom_big_wolf",          480,  150,  35,   1.5,   30,  40}, -- expected gold is 70 and XP is 90
-      {"npc_dota_neutral_custom_small_wolf",        320,    0,  15,   0.5,   20,  25},
-      {"npc_dota_neutral_custom_small_wolf",        320,    0,  15,   0.5,   20,  25}
+      {"npc_dota_neutral_custom_big_wolf",          480,  200,  35,   1.5,   30,  40}, -- expected gold is 70 and XP is 90
+      {"npc_dota_neutral_custom_small_wolf",        320,  200,  15,   0.5,   20,  25},
+      {"npc_dota_neutral_custom_small_wolf",        320,  200,  15,   0.5,   20,  25}
     },
     {
       {"npc_dota_neutral_custom_kobold_foreman",    450,  150,  30,    1,    30,  35},
@@ -18,7 +18,7 @@ CreepTypes = {
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
       {"npc_dota_neutral_custom_harpy_storm",       650,  300,  40,   1.3,   35,  82}, -- expected gold is 60 and XP is 143
-      {"npc_dota_neutral_custom_harpy_scout",       400,    0,  30,     1,   25,  61}
+      {"npc_dota_neutral_custom_harpy_scout",       400,  200,  30,     1,   25,  61}
     },
     {
       {"npc_dota_neutral_custom_mud_golem",         525,    0,  35,    1,    15,  29}, -- multiply gold value by 2 and xp value by 2.5 because they split
@@ -33,8 +33,8 @@ CreepTypes = {
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP
       {"npc_dota_neutral_custom_ghost",             800,    0,  40,   1.5,   50,  50}, -- expected gold is 100 and XP 100
-      {"npc_dota_neutral_fel_beast",                400,    0,  30,    1,    25,  25},
-      {"npc_dota_neutral_fel_beast",                400,    0,  30,    1,    25,  25}
+      {"npc_dota_neutral_fel_beast",                400,  200,  30,    1,    25,  25},
+      {"npc_dota_neutral_fel_beast",                400,  200,  30,    1,    25,  25}
     },
     {
       {"npc_dota_neutral_custom_centaur_khan",      800,  300,  50,   1.5,   50,  50},
