@@ -42,10 +42,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22.0" //OAA
+    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "witch_blade"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250"
     "ItemCost"                                            "6200"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"

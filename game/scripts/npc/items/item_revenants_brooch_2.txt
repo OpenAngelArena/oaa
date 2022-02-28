@@ -45,10 +45,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "22.0"
+    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "witch_blade"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250"
     "ItemCost"                                            "7701"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
