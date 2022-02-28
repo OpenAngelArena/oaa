@@ -54,23 +54,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 140 190" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-6 -9 -13 -18 -24" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "7.0"
-      }
+      "bonus_damage"      "50 70 100 140 190"
+      "corruption_armor"    "-6 -9 -13 -18 -24"
+      "corruption_duration" "7.0"
+      "bonus_damage_per_kill" "2"
+      "bonus_damage_per_assist" "1"
+      "max_damage"      "25"
     }
   }
 }
