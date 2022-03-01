@@ -40,14 +40,24 @@
     {
       "duration"        "1.2"
       "countdown"       "2"
-      "radius"        "250"
+      "radius"        
+      {
+        "value"     "250"
+        "special_bonus_unique_techies_2"  "+125"
+      }
       "damage"
       {
         "value" "90 180 270 360 720 1440"
         "special_bonus_unique_techies_2"  "+100"
       }
-      "slow"          "25 35 45 55 60 65"
-      "explosion_radius"    "300"
+      "slow"          "25 35 45 55 65 75"
+      "secondary_slow"    "15 25 35 45 55 65"
+      "secondary_slow_duration"   "2"
+      "explosion_radius"    
+      {
+        "value"       "300"
+        "special_bonus_unique_techies_2"  "+125"
+      }
       "speed"         "500.0"
       "acceleration"      "2000"
       "pre_chase_time"    "0.1"
