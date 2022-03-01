@@ -525,7 +525,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
             var expectedValueToken = expectedValue.split(' ');
             if (actualValueToken.length < expectedValueToken.length) {
               if (actualValueToken.length === 1) {
-                if (expectedValueToken[0] !== expectedValueToken[1]) {
+                if ((expectedValueToken[0] !== expectedValueToken[1]) || (actualValueToken[0] !== expectedValueToken[0])) {
                   t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
                 }
               } else {
@@ -550,9 +550,11 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
                   t.equal(valueToCheck, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
                 }
               } else {
-                t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')'); // probably not needed
               }
             }
+          } else {
+            t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
           }
         }
       } else if (parentAbvalues) {
@@ -577,18 +579,22 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       actualValues.forEach(function (v, i) {
         var expectedValue = expectedValues[i];
         var actualValue = v;
-        if (actualValue !== expectedValue && expectedValue) {
+        if (actualValue && expectedValue && actualValue !== expectedValue) {
           if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
+            var actualKey = Object.keys(actualData[keyName]).find(key => actualData[keyName][key] === actualValue);
+            if (actualKey === 'value') {
+              actualKey = keyName;
+            }
             if (actualValue.length !== expectedValue.length) {
               var actualValueToken = actualValue.split(' ');
               var expectedValueToken = expectedValue.split(' ');
               if (actualValueToken.length < expectedValueToken.length) {
                 if (actualValueToken.length === 1) {
-                  if (expectedValueToken[0] !== expectedValueToken[1]) {
-                    t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                  if ((expectedValueToken[0] !== expectedValueToken[1]) || (actualValueToken[0] !== expectedValueToken[0])) {
+                    t.equal(actualValue, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
                   }
                 } else {
-                  t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                  t.equal(actualValue, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
                 }
               } else {
                 if (actualValueToken.length !== expectedValueToken.length) {
@@ -606,12 +612,14 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
 
                   var valueToCheck = actualValue.substr(0, expectedValue.length);
                   if (valueToCheck !== expectedValue) {
-                    t.equal(valueToCheck, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
+                    t.equal(valueToCheck, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
                   }
                 } else {
-                  t.equal(actualValue, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
+                  t.equal(actualValue, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')'); // probably not needed
                 }
               }
+            } else {
+              t.equal(actualValue, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + actualValue + ')');
             }
           }
         }

@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5495"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5495"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -36,23 +35,23 @@
       "pounce_speed"      "933.33"
       "pounce_acceleration" "7000.0"
       "pounce_radius"     "120"
-      "leash_duration"    
+      "leash_duration"
       {
         "value"     "2.5 2.75 3 3.25 3.5 3.75"
         "LinkedSpecialBonus"  "special_bonus_unique_slark"
       }
       "leash_radius"      "400"
-      "max_charges"     
+      "max_charges"
       {
         "value" "2"
         "RequiresScepter" "1"
       }
-      "charge_restore_time"
+      "charge_restore_time" //OAA
       {
-        "value" "10"
-        "RequiresScepter" "1"
+        "value"                                           "16 14 12 10 8 8"
+        "RequiresScepter"                                 "1"
       }
-      "pounce_distance_scepter"   
+      "pounce_distance_scepter"
       {
         "value"   "1200"
         "RequiresScepter" "1"

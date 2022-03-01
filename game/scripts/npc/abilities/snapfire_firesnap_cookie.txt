@@ -35,9 +35,9 @@
     {
       "projectile_speed"                                  "1000"
       "pre_hop_duration"                                  "0.0"
-      "jump_duration"                                     "0.431" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
-      "jump_height"                                       "228" //"228 257 285 314" // proportional to horizontal distance
-      "jump_horizontal_distance"                          "400" //"400 450 500 550"
+      "jump_duration"                                     "0.431" //OAA, "0.431 0.484 0.538 0.592" // proportional to horizontal distance
+      "jump_height"                                       "257" //"228 257 285 314" // proportional to horizontal distance
+      "jump_horizontal_distance"                          "425" //"400 450 500 550"
       "pre_land_anim_time"                                "0.14"
       "landing_gesture_duration"                          "0.6"
       "impact_radius"                                     "300"

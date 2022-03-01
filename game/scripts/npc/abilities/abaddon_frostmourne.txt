@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5587"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5587"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -22,9 +22,9 @@
     {
       "slow_duration"       "5"
       "movement_speed"      "10 15 20 25 30 35"
-      "hit_count"
+      "hit_count" //OAA
       {
-        "value"         "5" //OAA
+        "value"         "5"
         "special_bonus_unique_abaddon_3" "-1"
       }
       "curse_duration"      "4.5"
