@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Ghost King Bar 3
+  // Recipe: satanic_core (Based on Satanic)
   //=================================================================================================================
-  "item_recipe_ghost_king_bar_3"
+  "item_recipe_satanic_core_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8619"    // unique ID
+    "ID"                                                  "3648"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -21,47 +21,44 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ghost_king_bar_3"
-
+    "ItemResult"                                          "item_satanic_core_5"
     "ItemRequirements"
     {
-      "01"                                                "item_ghost_king_bar_2;item_upgrade_core_4"
+      "01"                                                "item_satanic_core_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Ghost King Bar 3
+  // satanic_core (Based on Satanic)
   //=================================================================================================================
-  "item_ghost_king_bar_3"
+  "item_satanic_core_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8620"    // unique ID
+    "ID"                                                  "3649"    // unique ID
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/ghost_king_bar.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/ghoststaff_5"
+    "ScriptFile"                                          "items/satanic_core.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/satanic_core_5"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityManaCost"                                     "100"
-    "AbilityCooldown"                                     "20.0"
-    "AbilitySharedCooldown"                               "ethereal"
+    "AbilityCooldown"                                     "25"
+    "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37554"
-    "ItemShopTags"                                        "agi;str;int;hard_to_tag"
-    "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                                         "gkb 3;ghost king bar 3;ghost staff 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "40654"
+    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "satanic core 5"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -70,67 +67,62 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 25 30"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 25 30"
+        "bonus_intelligence"                              "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 40 45"
+        "bonus_health"                                    "550 650 800 1000 1250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "24 28 32"
+        "bonus_mana"                                      "550 650 800 1000 1250"
       }
       "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.5 5.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_spell_lifesteal"                            "28 30 32 34 36"
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ethereal_damage_bonus"                           "-40 -20 0"
+        "var_type"                                        "FIELD_FLOAT"
+        "creep_spell_lifesteal"                           "6 8 10 12 14"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_heal_amp"                                 "60 65 70"
+        "unholy_hero_spell_lifesteal"                     "200"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_spell_lifesteal_amp"                      "60 65 70"
+        "unholy_creep_spell_lifesteal"                    "50"
       }
       "09"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_mana_regen_amp"                           "100"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_magic_resistance"                           "25"
+        "bonus_status_resist"                             "18 20 22 24 26"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_status_resistance"                          "20"
+        "bonus_magic_resist"                              "0"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_move_speed"                                 "25"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "5.0"
+        "hp_regen_amp"                                    "22 24 26 28 30"
       }
     }
   }

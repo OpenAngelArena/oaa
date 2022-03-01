@@ -205,26 +205,36 @@ function modifier_item_sacred_skull_non_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
     MODIFIER_EVENT_ON_DEATH,
   }
 end
 
--- Doesn't stack with Kaya items and Bloodstone
+-- Doesn't stack with Kaya items
 function modifier_item_sacred_skull_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
   local parent = self:GetParent()
-  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
-    return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
   end
-  return 0
+  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 end
 
--- Doesn't stack with Kaya items and Bloodstone
+-- Doesn't stack with Kaya items
 function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellAmplify_Percentage()
   local parent = self:GetParent()
-  if not parent:HasModifier("modifier_item_kaya") and not parent:HasModifier("modifier_item_yasha_and_kaya") and not parent:HasModifier("modifier_item_kaya_and_sange") and not parent:HasModifier("modifier_item_bloodstone_non_stacking_stats") then
-    return self:GetAbility():GetSpecialValueFor("spell_amp")
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
   end
-  return 0
+  return self:GetAbility():GetSpecialValueFor("spell_amp")
+end
+
+-- Doesn't stack with Kaya items
+function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellLifestealRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
+  end
+  return self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 end
 
 if IsServer() then
