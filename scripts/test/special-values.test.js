@@ -268,6 +268,15 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     done();
   }
 
+  var chakramIDs = [
+    '5527', // shredder_chakram
+    '5645' // shredder_chakram_2
+  ];
+
+  var ignoreValuesForIDs = [
+    '40' // item_dust
+  ];
+
   var specials = root[item].AbilitySpecial;
 
   if (specials) {
@@ -279,8 +288,12 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     if (!specialValuesForItem[rootItem]) {
       testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
       specialValuesForItem[rootItem] = specials;
-    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
-      spok(t, specials, specialValuesForItem[rootItem], 'special values are consistent');
+    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
+      spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent');
+    }
+  } else {
+    if ((parentKV ? parentKV.AbilitySpecial : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
+      t.fail('This ability have no AbilitySpecials while it should!');
     }
   }
 
@@ -288,13 +301,16 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 
   if (abilityValues) {
     var rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
-
     rootItem2 = rootItem2[1];
     if (!abilityValuesForItem[rootItem2]) {
       testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
       abilityValuesForItem[rootItem2] = abilityValues;
-    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
+    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
       spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
+    }
+  } else {
+    if ((parentKV ? parentKV.AbilityValues : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
+      t.fail('This ability have no AbilityValues while it should!');
     }
   }
   done();
@@ -371,8 +387,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
     'abilitychanneltime',
     'abilityduration',
     'AbilityCharges',
-    'AbilityChargeRestoreTime',
-    'castpoint_scepter'
+    'AbilityChargeRestoreTime'
   ];
 
   if (parentSpecials) {
@@ -463,10 +478,6 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
 }
 
 function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
-  if (!abvalues) {
-    t.fail('This ability have no AbilityValues while it should!');
-    return;
-  }
   var normalKeys = Object.keys(abvalues.values);
   var normalValues = Object.values(abvalues.values);
   var complexKeys = Object.keys(abvalues).filter(a => a !== 'values');

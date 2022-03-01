@@ -44,39 +44,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "tooltip_clones"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_clones"                                  "1 2 3"
+        "value"                                           "1 2 3"
         "LinkedSpecialBonus"                              "special_bonus_unique_meepo_5"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_share_percentage"                        "20"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_share_percentage_scepter"                "100"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "respawn"                                         "0.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_respawn"                                 "20"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-50"
-      }
+      "tooltip_share_percentage"                          "20"
+      "tooltip_share_percentage_scepter"                  "100"
+      "respawn"                                           "0.0"
+      "tooltip_respawn"                                   "20"
+      "movement_slow"                                     "-50"
+      "magic_resist"                                      "5 10 15"
     }
   }
 }
