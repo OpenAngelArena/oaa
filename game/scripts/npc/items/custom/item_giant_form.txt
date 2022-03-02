@@ -24,9 +24,8 @@
     "ItemResult"                                          "item_giant_form"
     "ItemRequirements"
     {
-      "01"                                                "item_desolator_3;item_upgrade_core_3"
-      "02"                                                "item_bfury_3;item_upgrade_core_3"
-      "03"                                                "item_devastator_3;item_upgrade_core_3"
+      "01"                                                "item_bfury_3;item_upgrade_core_3"
+      "02"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -54,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16503"
+    "ItemCost"                                            "17103"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

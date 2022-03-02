@@ -3,40 +3,40 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator_5"
+  "item_recipe_devastator_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4056"
+    "ID"                                                  "3650"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "1000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator_5"
+    "ItemResult"                                          "item_devastator_1"
 
     "ItemRequirements"
     {
-      "01"                                                "item_devastator_4;item_upgrade_core_4"
+      "01"                                                "item_desolator"
     }
   }
 
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator_5"
+  "item_devastator_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4053"
+    "ID"                                                  "3651"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -47,7 +47,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"                                  "custom/devastator_5"
+    "AbilityTextureName"                                  "custom/devastator_1"
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
@@ -57,14 +57,14 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37504"
+    "ItemCost"                                            "4500"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "devastator 5"
+    "ItemAliases"                                         "devastator"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
@@ -118,22 +118,22 @@
         "var_type"                                        "FIELD_INTEGER"
         "devastator_damage"                               "100 200 400 700 1000"
       }
-      "09"
+      "09" // like Solar Crest
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
       }
-      "10"
+      "10" // like Desolator
       {
         "var_type"                                        "FIELD_FLOAT"
         "devastator_movespeed_reduction_duration"         "7.0"
       }
-      "11"
+      "11" // better than passive
       {
         "var_type"                                        "FIELD_INTEGER"
         "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
       }
-      "12"
+      "12" // like Desolator
       {
         "var_type"                                        "FIELD_FLOAT"
         "devastator_armor_reduction_duration"             "7.0"

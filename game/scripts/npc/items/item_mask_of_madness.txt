@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "172"    // unique ID
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "1"
+    //"AbilityTextureName"                                  "custom/mask_of_madness"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "AbilityTextureName"                                  "custom/mask_of_madness"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
