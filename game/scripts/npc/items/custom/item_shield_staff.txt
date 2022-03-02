@@ -47,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "23 20 17 14 11"
+    "AbilityCooldown"                                     "20 18 16 14 12"
     "AbilitySharedCooldown"                               "force"
     "AbilityManaCost"                                     "100"
 
@@ -168,7 +168,7 @@
       "19"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "23 20 17 14 11"
+        "cooldown_tooltip"                                "20 18 16 14 12"
       }
     }
   }
