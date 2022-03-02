@@ -65,8 +65,10 @@
     "ItemAliases"                                         "pact 3;wp 3;wraith pact 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "ItemBaseLevel"                                       "1"
+    "ItemBaseLevel"                                       "3"
     "MaxUpgradeLevel"                                     "5"
+
+    "UpgradesItems"                                       "item_wraith_pact;item_wraith_pact_2;item_wraith_pact_3;item_wraith_pact_4;item_wraith_pact_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

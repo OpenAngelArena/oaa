@@ -57,8 +57,10 @@
     "ItemAliases"                                         "brooch 5;revenants brooch 5;rb 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "ItemBaseLevel"                                       "1"
+    "ItemBaseLevel"                                       "5"
     "MaxUpgradeLevel"                                     "5"
+
+    "UpgradesItems"                                       "item_revenants_brooch;item_revenants_brooch_2;item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
