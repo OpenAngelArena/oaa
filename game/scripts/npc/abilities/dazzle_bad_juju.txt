@@ -12,7 +12,6 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "LinkedAbility"                                       "dazzle_good_juju"
 
@@ -35,12 +34,12 @@
     {
       "armor_reduction"
       {
-        "value"     "1 2 3 4 5"
-        "LinkedSpecialBonus"  "special_bonus_unique_dazzle_4"
+        "value"                                           "1 2 3 4 5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
       }
-      "duration"          "8 10 12 14 16"
-      "radius"          "1200"
-      "heal_damage"       "30 40 50 100 200"
+      "duration"                                          "8 10 12 14 16"
+      "radius"                                            "1200"
+      "heal_damage"                                       "30 50 70 130 230" //OAA
     }
   }
 }

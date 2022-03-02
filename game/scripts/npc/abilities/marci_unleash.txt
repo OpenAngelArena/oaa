@@ -44,13 +44,13 @@
       "time_between_flurries" "1.75"
       "pulse_radius"      "800"
       "pulse_debuff_duration" "2.0"
-      "pulse_damage"      "50 100 150 300 600"
+      "pulse_damage"      "50 150 250 450 850" //OAA
       "pulse_move_slow_pct" "30.0"
       "pulse_attack_slow_pct" "60.0 80.0 100.0 150.0 200.0"
       "max_time_window_per_hit" "1.0"
       "bonus_movespeed"   "15"
       "recovery_fixed_attack_rate"  "2.0"
-      "shard_push_length"   "300" 
+      "shard_push_length"   "300"
     }
   }
 }

@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8000"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "8000"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
+
     "MaxLevel"                      "6"
     "RequiredLevel"                 "1"
     "LevelsBetweenUpgrades"         "2"
