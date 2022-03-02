@@ -237,7 +237,7 @@ function modifier_item_ghost_king_bar_active:GetModifierMPRegenAmplify_Percentag
   return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("active_mana_regen_amp")
 end
 
-if IsServer()
+if IsServer() then
   function modifier_item_ghost_king_bar_active:OnHealReceived(event)
     local parent = self:GetParent()
     local inflictor = event.inflictor -- Heal ability

@@ -397,7 +397,7 @@ end
 function modifier_batrider_flamebreak_instance_tracker:IsPurgable()
   return true
 end
-]]
+
 
 ---------------------------------------------------------------------------------------------------
 
