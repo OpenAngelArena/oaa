@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5601"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+    "ID"                                                  "5601"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -26,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35"
+    "AbilityCooldown"                                     "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 400 500 600 1200 2400"
+        "damage"                                          "200 300 400 500 1000 2000"
         "LinkedSpecialBonus"                              "special_bonus_unique_techies"
       }
       "03"
@@ -55,7 +54,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_cost"                                         "50"
+        "hp_cost"                                         "35 30 25 20 15 10"
       }
       "05"
       {

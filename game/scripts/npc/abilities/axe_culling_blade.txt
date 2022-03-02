@@ -7,15 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5010"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5010"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -29,11 +29,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75.0 65.0 55.0 45.0 35.0"
+    "AbilityCooldown"                                     "100 85 70 55 40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 120 180 240 300"
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -41,43 +41,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "kill_threshold"                                  "250 450 650 1250 2250" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_axe_5"
+        "value"                                           "250 450 650 1250 2250"
+        "special_bonus_unique_axe_5"                      "+150"
       }
-      "02"
+      "speed_bonus"                                       "25 30 35 40 45" //OAA
+      "atk_speed_bonus"                                   "20 30 40 50 60"
+      "speed_duration"                                    "6"
+      "speed_aoe"                                         "900"
+      "charge_speed"                                      "1200"
+      "armor_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 350 550 950 1750" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "30 35 40 45 50" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "atk_speed_bonus"                                 "30 40 50 60 70" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "speed_duration"                                  "6"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_aoe"                                       "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_speed"                                    "1200"
+        "value"                                           "1 1.5 2 2.5 3"
+        "special_bonus_unique_axe_3"                      "+1"
       }
     }
   }

@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5495"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5495"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,56 +28,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "pounce_damage"     "40"
+      "pounce_distance"   "700"
+      "pounce_speed"      "933.33"
+      "pounce_acceleration" "7000.0"
+      "pounce_radius"     "120"
+      "leash_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pounce_distance"                                 "700"
+        "value"     "2.5 2.75 3 3.25 3.5 3.75"
+        "LinkedSpecialBonus"  "special_bonus_unique_slark"
       }
-      "02"
+      "leash_radius"      "400"
+      "max_charges"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pounce_speed"                                    "933.33"
+        "value" "2"
+        "RequiresScepter" "1"
       }
-      "03"
+      "charge_restore_time" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pounce_acceleration"                             "7000.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pounce_radius"                                   "95"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "leash_duration"                                  "2.5 2.75 3 3.25 3.5 3.75"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slark"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "leash_radius"                                    "400"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
+        "value"                                           "16 14 12 10 8 8"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "pounce_distance_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "16 14 12 10 10 10" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pounce_distance_scepter"                         "1200"
-        "RequiresScepter"                                 "1"
+        "value"   "1200"
+        "RequiresScepter" "1"
       }
     }
   }

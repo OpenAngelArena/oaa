@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 14 10 6 6 6"
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_hero_damage"                               "40 80 120 160 320 640"
+        "bonus_hero_damage"                               "60 100 140 180 360 720" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -50,7 +50,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_penalty"                            "0" //OAA
+        "creep_damage_penalty"                            "0"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

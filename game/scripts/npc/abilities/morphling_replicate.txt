@@ -35,25 +35,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_morphling_8"
+        "value"           "20"
+        "LinkedSpecialBonus"    "special_bonus_unique_morphling_8"
       }
-      "02"
+      "scepter_stat_steal"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_manacost_reduction"                      "50"
-        "RequiresScepter"                                 "1"
+        "value"           "20"
+        "RequiresScepter"     "1"
       }
-      "03"
+      "scepter_spell_amplify" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range_bonus"                        "300"
-        "RequiresScepter"                                 "1"
+        "value"           "20"
+        "RequiresScepter"     "1"
+      }
+      "scepter_attack_speed"  
+      {
+        "value"           "50"
+        "RequiresScepter"     "1"
+      }
+      "scepter_status_resist" 
+      {
+        "value"           "35"
+        "RequiresScepter"     "1"
+      }
+      "scepter_cooldown_reduction"  
+      {
+        "value"     "20"
+        "RequiresScepter"     "1"
       }
     }
   }

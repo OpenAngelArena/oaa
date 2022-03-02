@@ -26,26 +26,17 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140"
+    "AbilityManaCost"                                     "140 130 120 110 100 90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "healing_ward_heal_amount"  "2 3 4 5 6 7"
+      "healing_ward_aura_radius"  "500"
+      "healing_ward_movespeed_tooltip"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "healing_ward_heal_amount"                        "2 3 4 5 6 7"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "healing_ward_aura_radius"                        "500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "healing_ward_movespeed_tooltip"                  "325"
+        "value" "325"
       }
     }
   }

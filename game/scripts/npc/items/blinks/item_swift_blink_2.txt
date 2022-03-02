@@ -68,48 +68,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blink_damage_cooldown"                           "3.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range_clamp"                               "960"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 50 70 95"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "45 50 55 60 65"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_damage"                             "45 55 75 105 145"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
-      }
+      "blink_range"     "1200"
+      "blink_damage_cooldown" "3.0"
+      "blink_range_clamp"   "960"
+      "bonus_agility"   "25 35 50 70 95"
+      "bonus_movement"    "40"
+      "bonus_agi_active"    "35 45 55 65 75"
+      "duration"    "6"
     }
   }
 }

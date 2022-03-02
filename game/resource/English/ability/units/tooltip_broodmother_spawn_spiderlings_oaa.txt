@@ -7,8 +7,6 @@
 // "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_damage"                    "DAMAGE:"
 // "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_count"                     "COUNT:"
 
-// "DOTA_Tooltip_ability_special_bonus_unique_broodmother_4"                      "+{s:value}% Spiders Damage to Buildings"
-
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa"                           "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings}"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Description"               "Every time Broodmother or her summons kill a unit, spiderlings will hatch from the unit's corpse. If killed unit is a hero or boss, giant spiderling will spawn instead. Spiderling stats scale with Broodmother's hero level."
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Lore"                      "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Lore}"
@@ -27,7 +25,8 @@
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_giant_spiderling_spawn_count"           "GIANT SPIDERLING SPAWN COUNT:"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_spiderling_max_count"                   "MAX NUMBER OF SPIDERLINGS:"
 
-"DOTA_Tooltip_ability_special_bonus_unique_broodmother_4"                          "+{s:value} Spiderlings Attack Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_broodmother_2_oaa"                      "+{s:value} Spiderlings Health"
+"DOTA_Tooltip_ability_special_bonus_unique_broodmother_4_oaa"                      "+{s:value} Spiderlings Attack Damage"
 
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Description"                            "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Description}"
 "DOTA_Tooltip_ability_broodmother_spawn_spiderlings_Note0"                                  "#{DOTA_Tooltip_ability_broodmother_spawn_spiderlings_oaa_Note0}"

@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Updgrades Gravekeeper's Cloak - gives extra layers
+  //=================================================================================================================
+  "special_bonus_unique_visage_oaa_6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_undefined"
+    "ID"                                                  "86985"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "5"
+      }
+    }
+  }
+}

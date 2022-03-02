@@ -34,58 +34,32 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "850 900 950 1000 1050"
+      "start_radius"                                      "255"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "885"
-        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_6"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "255"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "20"
+        "value"                                           "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
       }
-      "04" // old: "40 90 140 240 340"
+      "damage"                                            "3.5" //OAA
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "3.5" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "100.0 80.0 60.0 60.0 60.0"
+        "value"                                           "100.0 80.0 60.0 60.0 60.0"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "damage_scepter" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_venomancer_4"
+        "value"                                           "4.5"
         "RequiresScepter"                                 "1"
       }
-      "07" // old: "75 125 175 325 475"
+      "speed"                                             "550"
+      "base_damage"                                       "20 30 40 70 120"
+      "aspd_slow"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_scepter"                                  "4.5" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "500"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_damage"                                     "20 30 40 70 120"
+        "value"                                           "0"
+        "special_bonus_unique_venomancer_5"               "+100"
       }
     }
   }

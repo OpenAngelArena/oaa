@@ -22,35 +22,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "hits"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance"                                          "17"
-        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_5"
+        "value"                                           "6"
+        "special_bonus_unique_naga_siren_5"               "-1"
       }
-      "02"
+      "armor_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-2 -4 -6 -8 -12 -16"
+        "value"                                           "-2 -4 -6 -8 -12 -16"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_3"
       }
-      "03"
+      "damage"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 45 60 75 150 225"
+        "value"     "40 45 50 55 155 255"
+        "LinkedSpecialBonus"    "special_bonus_unique_naga_siren_2"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
+      "radius"                                            "300"
+      "duration"                                          "4.0"
+      "debuff_duration"                                   "10"
     }
   }
 }

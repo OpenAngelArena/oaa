@@ -9,11 +9,6 @@ function GameMode:OnDisconnect(keys)
   OnDisconnectEvent(keys)
   DebugPrint('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
   DebugPrintTable(keys)
-
-  local name = keys.name
-  local networkid = keys.networkid
-  local reason = keys.reason
-  local userid = keys.userid
 end
 -- The overall game state has changed
 -- game event object for OnGameRulesStateChange
@@ -264,8 +259,6 @@ function GameMode:OnPlayerReconnect(keys)
   OnPlayerReconnectEvent(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
   DebugPrintTable(keys)
-
-  local playerID = keys.PlayerID
 end
 
 -- An item was purchased by a player
@@ -489,10 +482,6 @@ function GameMode:OnConnectFull(keys)
   OnConnectFullEvent(keys)
   DebugPrint('[BAREBONES] OnConnectFull')
   DebugPrintTable(keys)
-
-  local index = keys.index  -- player slot
-  local playerID = keys.PlayerID
-  local userID = keys.userid  -- user ID on server
 end
 
 -- This function is called whenever illusions are created and tells you which was/is the original entity

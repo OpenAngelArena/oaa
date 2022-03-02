@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5597"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5597"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -18,24 +18,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "trigger_chance" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "trigger_chance"                                  "10 15 20 25 30 35" //OAA
+        "value"                                           "10 15 20 25 30 35"
         "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_3"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "1.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_leech_percent"                                "35 50 65 80 85 90" //OAA
-      }
+      "buff_duration"                                     "1.0"
+      "hp_leech_percent"                                  "35 50 65 80 85 90" //OAA
+      "bonus_damage_heroes"                               "75"
     }
   }
 }

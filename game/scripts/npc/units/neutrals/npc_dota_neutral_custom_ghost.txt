@@ -19,8 +19,8 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "ghost_frostburn_oaa"
-    "Ability2"                                            "mudgolem_cloak_aura"
-    "Ability3"                                            ""
+    "Ability2"                                            "creep_piercing"
+    "Ability3"                                            "mudgolem_cloak_aura"
     "Ability4"                                            ""
 
     // Armor
@@ -71,8 +71,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

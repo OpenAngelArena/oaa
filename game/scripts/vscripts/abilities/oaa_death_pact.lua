@@ -16,16 +16,22 @@ end
 function clinkz_death_pact_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
-  local duration = self:GetSpecialValueFor( "duration" )
+  local duration = self:GetSpecialValueFor("duration")
 
   -- get the target's max health
   local targetHealth = target:GetMaxHealth()
 
+  -- Talent
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_3_oaa")
+  if talent1 and talent1:GetLevel() > 0 then
+    -- some other time
+  end
+
   -- kill the target
-  target:Kill( self, caster )
+  target:Kill(self, caster)
 
   -- Apply the modifier that just displays duration and visual effects
-  caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_effect_oaa", {duration = duration} )
+  caster:AddNewModifier(caster, self, "modifier_clinkz_death_pact_effect_oaa", {duration = duration})
 
   -- get KV variables
   local healthPct = self:GetSpecialValueFor("health_gain_pct")
@@ -34,14 +40,12 @@ function clinkz_death_pact_oaa:OnSpellStart()
   local damageMax = self:GetSpecialValueFor("damage_gain_max")
 
   -- Talent that increases hp and dmg gain
-  local talent = caster:FindAbilityByName("special_bonus_clinkz_death_pact_oaa")
-  if talent then
-    if talent:GetLevel() > 0 then
-      healthPct = healthPct + talent:GetSpecialValueFor("value")
-      damagePct = damagePct + talent:GetSpecialValueFor("value2")
-      healthMax = healthMax + talent:GetSpecialValueFor("value3")
-      damageMax = damageMax + talent:GetSpecialValueFor("value4")
-    end
+  local talent2 = caster:FindAbilityByName("special_bonus_clinkz_death_pact_oaa")
+  if talent2 and talent2:GetLevel() > 0 then
+    healthPct = healthPct + talent2:GetSpecialValueFor("value")
+    damagePct = damagePct + talent2:GetSpecialValueFor("value2")
+    healthMax = healthMax + talent2:GetSpecialValueFor("value3")
+    damageMax = damageMax + talent2:GetSpecialValueFor("value4")
   end
 
   -- Calculate bonuses
@@ -60,17 +64,17 @@ function clinkz_death_pact_oaa:OnSpellStart()
 
   -- apply the new modifier which actually provides the stats
   -- then set its stack count to the amount of health the target had
-  local modifier = caster:AddNewModifier( caster, self, "modifier_clinkz_death_pact_oaa", {duration = duration, health = health} )
+  local modifier = caster:AddNewModifier(caster, self, "modifier_clinkz_death_pact_oaa", {duration = duration, health = health})
   modifier:SetStackCount(damage)
 
   -- play the sounds
-  caster:EmitSound( "Hero_Clinkz.DeathPact.Cast" )
-  target:EmitSound( "Hero_Clinkz.DeathPact" )
+  caster:EmitSound("Hero_Clinkz.DeathPact.Cast")
+  target:EmitSound("Hero_Clinkz.DeathPact")
 
   -- show the particle
-  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf", PATTACH_ABSORIGIN, target )
-  ParticleManager:SetParticleControlEnt( part, 1, caster, PATTACH_ABSORIGIN, "", caster:GetAbsOrigin(), true )
-  ParticleManager:ReleaseParticleIndex( part )
+  local part = ParticleManager:CreateParticle("particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf", PATTACH_ABSORIGIN, target)
+  ParticleManager:SetParticleControlEnt(part, 1, caster, PATTACH_ABSORIGIN, "", caster:GetAbsOrigin(), true)
+  ParticleManager:ReleaseParticleIndex(part)
 end
 
 ---------------------------------------------------------------------------------------------------

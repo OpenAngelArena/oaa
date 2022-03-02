@@ -27,18 +27,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "1075 1150 1225 1300 1375 1450"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_blink_range"                                 "200"
-      }
+      "blink_range"      "1075 1150 1225 1300 1375 1450"
+      "min_blink_range"   "200"
+      "shard_damage"      "250" //OAA
+      "shard_duration"  "1.75"
     }
   }
 }

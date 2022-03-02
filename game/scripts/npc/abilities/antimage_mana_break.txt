@@ -51,6 +51,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "illusion_percentage"                             "50"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "move_slow"                                       "10 20 30 40 45 50"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.75"
+      }
     }
   }
 }

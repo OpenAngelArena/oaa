@@ -7,79 +7,64 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5599"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5599"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
-
     "HasScepterUpgrade"                                   "1"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150" //OAA
+    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "20" //OAA
+    "AbilityChargeRestoreTime"                            "19 17 15 13 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 130 150 170 190 210"
+    "AbilityManaCost"                                     "110 140 170 200 230"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"        "500"
+      "proximity_threshold"       "1.0"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "value"                                           "400 600 800 1400 2400"
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - this is a Sticky Bomb talent
       }
-      "02"
+      "building_damage_pct"   "30"
+      "activation_delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "proximity_threshold"                             "1.6 1.6 1.6 1.6 1.3 1.15"
+        "value"   "1"
+        "special_bonus_unique_techies_4"  "-0.8"
       }
-      "03"
+      "cast_range_scepter_bonus"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "225 400 575 750 1500 2250" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"   "300"
+        "RequiresScepter"     "1"
       }
-      "04"
+      "AbilityChargeRestoreTime"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_duration"                                   "5"
+        "value"   ""
+        "LinkedSpecialBonus"    "special_bonus_unique_techies_3"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "building_damage_pct"                             "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "activation_delay"                                "1.75 1.75 1.75 1.75 1.5 1.25"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter_bonus"                        "300"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "AbilityChargeRestoreTime"                        ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_techies_3"
-      }
+      "outer_damage"        "50"
+      "min_distance"        "150"
+      "placement_radius"      "350"
+      "mres_reduction"      "10 15 20 25 30"
+      "burn_duration"       "5"
     }
   }
 }

@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6082"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6082"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "value"                                           "1800" //OAA
-        "ad_linked_ability"                               "brewmaster_primal_split"
+        "ad_linked_abilities"                             "brewmaster_primal_split"
       }
     }
   }

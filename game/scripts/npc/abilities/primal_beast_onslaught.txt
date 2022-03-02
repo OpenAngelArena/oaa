@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Primal Beast: Onslaught
+  //=================================================================================================================
+  "primal_beast_onslaught"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "992"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"//ABILITY_BEHAVIOR_NO_TARGET
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.15"
+    //"AbilityCastRange"                                  "2000"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25 22 19 16 13 10"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "120"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "charge_speed"        "1200"
+      "chargeup_time"       "2.0"
+      "knockback_radius"      "190"
+      "max_distance"        "2000"
+      "knockback_distance"    "200"
+      "knockback_damage"
+      {
+        "value"         "110 200 290 380 760 1520"
+        "special_bonus_unique_primal_beast_onslaught_damage"  "+120"
+      }
+      "slow_duration"       "2 2.6 3.2 3.8 4.4 5.0"
+      "knockback_duration"    "0.2"
+      "max_charge_time"     "2.0"
+      "turn_rate"         "70"
+      "base_power"        "0.15"
+      "movement_turn_rate"    "50"
+      "stun_duration"       "1 1.2 1.4 1.6 1.7 1.8"
+    }
+  }
+}

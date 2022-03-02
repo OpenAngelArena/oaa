@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5226"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5226"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -15,7 +15,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "1"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -29,7 +29,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "90 170 240 300 600 1200"
+    "AbilityDamage"                                       "80 160 240 320 640 1280"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

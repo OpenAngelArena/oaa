@@ -7,45 +7,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5276"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"                                                  "5276"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
-    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for UI tooltip
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for UI tooltip
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "375"
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0"
     "AbilityCooldown"                                     "15" //OAA
     "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_day"                                    "3.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_night"                                  "4.0 5.0 6.0 7.0 8.0 9.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
-      }
+      "duration_day"                                      "3.0"
+      "duration_night"                                    "4.0 5.0 6.0 7.0 8.0 9.0"
+      "radius"                                            "375"
     }
   }
 }

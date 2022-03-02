@@ -34,68 +34,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 150 200 400 650"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "420"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pull_speed"                                      "30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "800"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pull_rotate_speed"                               "0.25"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "animation_rate"                                  "0.2"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_pct_damage"                              "5"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "1200"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_drag_speed"                              "175"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_pull_rotate_speed"                       "0.1"
-      }
+      "damage"                      "100 150 200 400 600"
+      "radius"                      "420"
+      "pull_speed"                  "30"
+      "tick_rate"                   "0.1"
+      "duration"                    "4.0"
+      "vision_radius"               "800"
+      "pull_rotate_speed"           "0.25"
+      "animation_rate"              "0.2"
+      "scepter_pct_damage"          "5"
+      "scepter_radius"              "1000"
+      "scepter_drag_speed"          "175"
+      "scepter_pull_rotate_speed"   "0.1"
     }
   }
 }

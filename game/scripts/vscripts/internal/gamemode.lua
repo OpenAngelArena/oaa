@@ -147,7 +147,6 @@ function GameMode:_InitGameMode()
 
   -- Initialized tables for tracking state
   self.bSeenWaitForPlayers = false
-  self.vUserIds = {}
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
   GameMode._reentrantCheck = true

@@ -4,45 +4,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5112"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "5112"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_health_pct" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_health_pct"                               "5 6 7 8 9 10" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_zeus"
+        "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hop_distance"                                    "450"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hop_duration"                                    "0.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hop_height"                                      "250"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_mana_cost"                                "75"
       }
     }
   }

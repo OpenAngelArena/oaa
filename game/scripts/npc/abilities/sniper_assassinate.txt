@@ -48,31 +48,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "projectile_speed"      "2500"
+      "abilitycastpoint"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "2500"
+        "value"         ""
+        "LinkedSpecialBonus"  "special_bonus_unique_sniper_4"
+        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
       }
-      "02"
+      "scepter_stun_duration"     
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "abilitycastpoint"                                ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_4"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "value" "1 1.25 1.5 1.75 2.0"
+        "RequiresScepter"   "1"
       }
-      "03"
+      "scepter_cast_point"      
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_stun_duration"                           "1 1.25 1.5 1.75 2.0"
-        "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cast_point"                              "0.5"
-        "RequiresScepter"                                 "1"
+        "value" "0.5"
+        "RequiresScepter"   "1"
       }
     }
   }

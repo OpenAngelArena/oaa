@@ -38,13 +38,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "100 150 200 250 500 1000" //OAA
+        "bonus_gold"                                      "75 125 175 225 450 900" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen"                                           "0"
+        "armor"                                           "2 4 6 8 10 12" //OAA
       }
       "03"
       {

@@ -38,34 +38,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "shock_radius"                                     "385"
-        "LinkedSpecialBonus"                               "special_bonus_unique_ursa_5"
-      }
-      "02"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "movement_slow"                                    "-16 -24 -32 -40 -45 -50"
-      }
-      "03"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "hop_distance"                                     "250"
-      }
-      "04"
-      {
-        "var_type"                                         "FIELD_FLOAT"
-        "hop_duration"                                     "0.25"
-      }
-      "05"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "hop_height"                                       "83"
-      }
+      "shock_radius"        "385"
+      "movement_slow"       "-16 -24 -32 -40 -45 -50"
+      "hop_distance"        "250"
+      "hop_duration"        "0.25"
+      "hop_height"        "83"
     }
   }
 }

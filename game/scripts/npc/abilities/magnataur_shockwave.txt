@@ -37,50 +37,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "shock_speed"       "900"
+      "shock_width"       "200"
+      "shock_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shock_speed"                                     "900"
+        "value"     "75 150 225 300 600 1200"
+        "special_bonus_unique_magnus" "+125"
       }
-      "02"
+      "pull_duration"       "0.2"
+      "movement_slow"       "75"
+      "slow_duration"       "2"
+      "pull_distance"   "150"
+      "basic_slow_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shock_width"                                     "200"
+        "value"        "0.9"
+        "LinkedSpecialBonus"  "special_bonus_unique_magnus_6"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shock_damage"                                    "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_4"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pull_duration"                                   "0.2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "75"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pull_distance"                                   "150"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "basic_slow_duration"                             "0.9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_6"
-      }
+      "scepter_width"   "250"
+      "scepter_range"   "1400"
+      "scepter_duration"  "5"
+      "scepter_erupt_time"    "1.5"
+      "scepter_slow_pct"    "50"
+      "scepter_armor_pct"   "50"
     }
   }
 }

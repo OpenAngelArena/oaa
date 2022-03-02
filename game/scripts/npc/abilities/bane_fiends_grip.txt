@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5013"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5013"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -29,7 +29,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "6.0"
+    //"AbilityChannelTime"                                  "6.0"
     "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
@@ -54,13 +54,13 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "abilitychanneltime"                              ""
+        "abilitychanneltime"                              "6.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_bane_3"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_damage"                               "80 160 240 480 720" //OAA
+        "fiend_grip_damage"                               "70 160 250 520 790" //OAA
       }
     }
   }

@@ -30,19 +30,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "blink_range"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "925 1000 1075 1150 1225 1300"
-        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_3"
+        "value"         "925 1000 1075 1150 1225 1300"
+        "LinkedSpecialBonus"    "special_bonus_unique_antimage_3"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_blink_range"                                 "200"
-      }
+      "min_blink_range"   "200"
     }
   }
 }

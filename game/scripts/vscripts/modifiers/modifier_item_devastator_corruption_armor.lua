@@ -1,3 +1,4 @@
+
 modifier_item_devastator_corruption_armor = class(ModifierBaseClass)
 
 function modifier_item_devastator_corruption_armor:IsHidden()
@@ -16,11 +17,11 @@ end
 
 function modifier_item_devastator_corruption_armor:OnIntervalThink()
   local parent = self:GetParent()
-  -- We assume that desolator has a better (or the same) armor reduction than devastator passive
-  -- We remove this debuff safely to prevent stacking armor reductions
+
   if parent:HasModifier("modifier_desolator_buff") then
-    self:StartIntervalThink(-1)
-    self:SetDuration(0.01, false)
+    parent:RemoveModifierByName("modifier_desolator_buff")
+    --self:StartIntervalThink(-1)
+    --self:SetDuration(0.01, false)
   end
 end
 

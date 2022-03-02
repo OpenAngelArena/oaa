@@ -132,7 +132,15 @@ function modifier_item_ghost_king_bar_non_stacking_stats:DeclareFunctions()
   return funcs
 end
 
+-- Doesn't stack with Kaya items
 function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellAmplify_Percentage()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
+  end
+  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
+    return 0
+  end
   return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
 end
 
@@ -158,6 +166,7 @@ function modifier_item_ghost_king_bar_active:OnCreated()
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
     self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
     self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
+    self.mana_regen_amp = ability:GetSpecialValueFor("active_mana_regen_amp")
   end
 
   --self:StartIntervalThink(FrameTime())
@@ -169,6 +178,7 @@ function modifier_item_ghost_king_bar_active:OnRefresh()
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
     self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
     self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
+    self.mana_regen_amp = ability:GetSpecialValueFor("active_mana_regen_amp")
   end
 end
 
@@ -188,6 +198,7 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_HEAL_RECEIVED,
   }
 
@@ -222,61 +233,64 @@ function modifier_item_ghost_king_bar_active:GetModifierSpellLifestealRegenAmpli
   return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("active_spell_lifesteal_amp")
 end
 
-function modifier_item_ghost_king_bar_active:OnHealReceived(event)
-  if not IsServer() then
-    return
-  end
-  local parent = self:GetParent()
-  local inflictor = event.inflictor -- Heal ability
-  local unit = event.unit -- Healed unit
-  --local amount = event.gain -- Amount healed
+function modifier_item_ghost_king_bar_active:GetModifierMPRegenAmplify_Percentage()
+  return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("active_mana_regen_amp")
+end
 
-  local ghost_king_bar = self:GetAbility()
-  if not ghost_king_bar or ghost_king_bar:IsNull() then
-    return
-  end
+if IsServer() then
+  function modifier_item_ghost_king_bar_active:OnHealReceived(event)
+    local parent = self:GetParent()
+    local inflictor = event.inflictor -- Heal ability
+    local unit = event.unit -- Healed unit
+    --local amount = event.gain -- Amount healed
 
-  -- Don't continue if healing entity/ability doesn't exist
-  if not inflictor or inflictor:IsNull() then
-    return
-  end
-
-  -- Don't continue if healed unit doesn't exist
-  if not unit or unit:IsNull() then
-    return
-  end
-
-  local function BuffHealedUnit()
-    if not unit:HasModifier("modifier_item_ghost_king_bar_buff") then
-      unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("buff_duration")})
-    end
-  end
-
-  if inflictor.GetAbilityName == nil then
-    -- Inflictor is not an ability or item
-    if parent ~= inflictor then
-      -- Inflictor is not the parent -> parent is not the healer
+    local ghost_king_bar = self:GetAbility()
+    if not ghost_king_bar or ghost_king_bar:IsNull() then
       return
     end
 
-    -- Apply buff to the unit
-    BuffHealedUnit()
-  else
-    -- Inflictor is an ability
-    local name = inflictor:GetAbilityName()
-    local ability = parent:FindAbilityByName(name)
-    if not ability then
-      -- Parent doesn't have this ability or item -> parent is not the healer
+    -- Don't continue if healing entity/ability doesn't exist
+    if not inflictor or inflictor:IsNull() then
       return
     end
-    if ability:GetLevel() > 0 or ability:IsItem() then
-      -- Parent has this ability or item with the same name as inflictor
-      -- Check if it's exactly the same by comparing indexes
-      if ability:entindex() == inflictor:entindex() then
-        -- Indexes are the same -> parent is the healer
-        -- if index of the ability changes randomly and this never happens, then thank you Valve
-        -- Apply buff to the unit
-        BuffHealedUnit()
+
+    -- Don't continue if healed unit doesn't exist
+    if not unit or unit:IsNull() then
+      return
+    end
+
+    local function BuffHealedUnit()
+      if not unit:HasModifier("modifier_item_ghost_king_bar_buff") then
+        unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("buff_duration")})
+      end
+    end
+
+    if inflictor.GetAbilityName == nil then
+      -- Inflictor is not an ability or item
+      if parent ~= inflictor then
+        -- Inflictor is not the parent -> parent is not the healer
+        return
+      end
+
+      -- Apply buff to the unit
+      BuffHealedUnit()
+    else
+      -- Inflictor is an ability
+      local name = inflictor:GetAbilityName()
+      local ability = parent:FindAbilityByName(name)
+      if not ability then
+        -- Parent doesn't have this ability or item -> parent is not the healer
+        return
+      end
+      if ability:GetLevel() > 0 or ability:IsItem() then
+        -- Parent has this ability or item with the same name as inflictor
+        -- Check if it's exactly the same by comparing indexes
+        if ability:entindex() == inflictor:entindex() then
+          -- Indexes are the same -> parent is the healer
+          -- if index of the ability changes randomly and this never happens, then thank you Valve
+          -- Apply buff to the unit
+          BuffHealedUnit()
+        end
       end
     end
   end

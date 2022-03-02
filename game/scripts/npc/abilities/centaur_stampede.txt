@@ -35,44 +35,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.5 4 4.5 4.5 4.5"
+        "value"                                           "3.5 4 4.5 4.5 4.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_centaur_7"
       }
-      "02"
+      "base_damage"                                       "0"
+      "strength_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "strength_damage"                                 "1.75 2.5 3.25 4.0 4.75"
+        "value"                                           "1.75 2.5 3.25 4.0 4.75"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "04"
+      "slow_duration"                                     "2.5"
+      "radius"                                            "105"
+      "slow_movement_speed"                               "100"
+      "damage_reduction"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "105"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed"                             "100"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "40"
+        "value"                                           "20 25 30 35 40"
         "RequiresScepter"                                 "1"
       }
     }
