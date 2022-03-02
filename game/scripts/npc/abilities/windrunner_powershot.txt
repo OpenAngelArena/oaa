@@ -31,9 +31,9 @@
     "AbilityValues"
     {
       "powershot_damage"    "150 250 350 450 900 1800"
-        "damage_reduction"    
+        "damage_reduction" //OAA
         {
-          "value"       "10" //OAA
+          "value"       "10"
           "special_bonus_unique_windranger_3"   "-5"
           "CalculateSpellDamageTooltip" "0"
         }

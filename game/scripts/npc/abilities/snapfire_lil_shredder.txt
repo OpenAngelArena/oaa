@@ -34,7 +34,7 @@
     "AbilityValues"
     {
       "damage"          "20 45 70 95 190 380"
-      "buffed_attacks"      
+      "buffed_attacks"
       {
         "value"   "6"
         "special_bonus_unique_snapfire_2" "+2"
@@ -43,7 +43,7 @@
       "attack_range_bonus"    "75 150 225 300 375 450"
       "buff_duration_tooltip"   "6"
       "base_attack_time"      "1.0"
-      "armor_reduction_per_attack"  "0.5 0.6 0.7 0.8 1.0 1.2" //OAA
+      "armor_reduction_per_attack"  "0.5 0.6 0.7 0.8 0.9 1.0" //OAA
       "armor_duration"        "5.0"
     }
   }

@@ -52,9 +52,9 @@ function modifier_item_devastator_desolator:OnAttackLanded(event)
     return
   end
 
-  -- If the target has desolator debuff then do nothing (to prevent stacking armor reductions)
+  -- If the target has desolator debuff then remove it (to prevent stacking armor reductions)
   if target:HasModifier("modifier_desolator_buff") then
-    return
+    target:RemoveModifierByName("modifier_desolator_buff")
   end
 
   local armor_reduction = ability:GetSpecialValueFor( "devastator_armor_reduction" )
