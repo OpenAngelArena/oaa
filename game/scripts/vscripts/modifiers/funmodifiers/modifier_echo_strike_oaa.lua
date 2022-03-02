@@ -85,7 +85,7 @@ if IsServer() then
     if RandomInt(1, 100) <= self.chance then
       local useCastAttackOrb = false
       local processProcs = true
-      local skipCooldown = false
+      local skipCooldown = true
       local ignoreInvis = false
       local useProjectile = attacker:IsRangedAttacker() -- only ranged units need a projectile
       local fakeAttack = false
