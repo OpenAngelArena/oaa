@@ -24,7 +24,7 @@ function clinkz_death_pact_oaa:OnSpellStart()
   -- Talent
   local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_3_oaa")
   if talent1 and talent1:GetLevel() > 0 then
-
+    -- some other time
   end
 
   -- kill the target
