@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8614"
+    "ID"                                                  "85483"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_visage_summon_familiars.lua"
     "AbilityTextureName"                                  "visage_summon_familiars"
@@ -46,6 +46,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_armor"                                  "2 4 6 8 10"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_5"
       }
       "03"
       {
@@ -57,6 +58,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_attack_damage"                          "30 60 90 180 330"
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"

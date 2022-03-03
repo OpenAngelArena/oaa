@@ -1,0 +1,83 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Revenants Brooch 3
+  //=================================================================================================================
+  "item_recipe_revenants_brooch_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3540"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_revenants_brooch_3"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_revenants_brooch_2;item_upgrade_core_2"
+    }
+  }
+
+  //=================================================================================================================
+  // Revenants Brooch 3
+  //=================================================================================================================
+  "item_revenants_brooch_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3541"
+    "BaseClass"                                           "item_revenants_brooch"
+    "AbilityTextureName"                                  "item_revenants_brooch"
+    //"AbilityTextureName"                                  "custom/revenants_brooch_3"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22.0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "witch_blade"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250"
+    "ItemCost"                                            "11202"
+    "ItemShopTags"                                        "int;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "brooch 3;revenants brooch 3;rb 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"                                     "5"
+
+    "UpgradesItems"                                       "item_revenants_brooch;item_revenants_brooch_2;item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_intellect"   "40 50 60 70 80"      
+      "bonus_attack_speed"  "40 50 60 70 80"  
+      "bonus_armor"     "8 9 11 14 18"
+      "projectile_speed"    "300 400 500 600 700"
+      "int_damage_multiplier" "1"
+      "slow"  "25 30 35 40 45"
+      "slow_duration" "4"
+      "mana_cost"       "100"
+      "damage_penalty"    "0"
+      "passive_cooldown"    "8.0 7.0 6.0 5.0 4.0"
+      "number_of_attacks"   "5"
+      "active_duration"   "15"
+    }
+  }
+}

@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5251"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5251"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "1"
 
@@ -27,7 +26,7 @@
     "AbilityCooldown"                                     "15"
 
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "8"
+    "AbilityDuration"                                     "7" // OAA, Valve has it wrong
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,28 +34,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_steps"                                      "-50 -50 -40 -30 -20 -10 -10 -10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_tooltip"                                    "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "8"
-      }
+      "slow_steps"      "-50 -50 -40 -30 -20 -10 -10 -10"
+      "heal_percent"      "50"
+      "damage_threshold"    "500"
+      "spread_radius"     "700"
+      "slow_tooltip"      "50"
+      "duration"        "7"
     }
   }
 

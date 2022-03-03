@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "river_speed"                                     "25"
+        "river_speed"                                     "15"
       }
       "04"
       {
@@ -68,7 +68,7 @@
       "07" // bonus_speed + river_speed
       {
         "var_type"                                        "FIELD_INTEGER"
-        "river_speed_tooltip"                             "50 55 60 65 70 75" // OAA, Valve is bad at math again
+        "river_speed_tooltip"                             "40 45 50 55 60 65" // OAA, Valve gave up on doing math
       }
     }
   }

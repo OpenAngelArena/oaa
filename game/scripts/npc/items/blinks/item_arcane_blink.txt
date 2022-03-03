@@ -63,48 +63,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blink_damage_cooldown"                           "3.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range_clamp"                               "960"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 50 70 95"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_cooldown"                                   "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ultimate_cooldown"                               "30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_pct_improvement"                            "35 40 45 50 55" //OAA
-      }
+      "blink_range"     "1200"
+      "blink_damage_cooldown" "3.0"
+      "blink_range_clamp"   "960"
+      "bonus_intellect"   "25 35 50 70 95"
+      "duration"    "6"
+      "cast_pct_improvement"    "35 40 45 50 55" //OAA
+      "manacost_reduction"    "25 30 35 40 45"
+      "debuff_amp"          "20 23 26 29 32"
     }
   }
 }

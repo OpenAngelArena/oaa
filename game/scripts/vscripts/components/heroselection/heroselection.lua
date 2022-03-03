@@ -151,12 +151,16 @@ function HeroSelection:Init ()
     -- [VScript] [components\duels\duels:64] userid: 3
     -- [VScript] [components\duels\duels:64] xuid: 76561198014183519
     local playerid = keys.PlayerID or keys.player_id
+    if not playerid then
+      print("HeroSelection module - player_reconnected event has no PlayerID or player_id key. Gj Valve.")
+      return
+    end
     if not lockedHeroes[playerid] then
       -- we don't care if they haven't locked in yet
       return
     end
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-    if not hero or hero:GetUnitName() == FORCE_PICKED_HERO and loadedHeroes[lockedHeroes[playerid]] then
+    if (not hero or hero:GetUnitName() == FORCE_PICKED_HERO) and loadedHeroes[lockedHeroes[playerid]] then
       DebugPrint('PlayerReconnected - Giving player '..tostring(playerid)..' a hero: '..lockedHeroes[playerid]..' after reconnecting.')
       HeroSelection:GiveStartingHero(playerid, lockedHeroes[playerid])
     end
@@ -202,6 +206,15 @@ function HeroSelection:StartSelection ()
     if OAAOptions.settings.GAME_MODE == "ARDM" then
       --DebugPrint("OAAOptions ARDM option selected")
       local herolistFile = 'scripts/npc/herolist_ardm.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+          table.insert(rankedpickorder.bans, key)
+        end
+      end
+    end
+    if OAAOptions.settings.HEROES_MODS == "HM03" or OAAOptions.settings.HEROES_MODS_2 == "HM03" then
+      local herolistFile = 'scripts/npc/herolist_blood_magic.txt'
       local herolistTable = LoadKeyValues(herolistFile)
       for key, value in pairs(herolistTable) do
         if value == 0 then

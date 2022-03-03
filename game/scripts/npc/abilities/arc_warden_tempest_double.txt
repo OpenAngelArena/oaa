@@ -41,6 +41,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "bounty"                                          "180 240 300 750 1500"
       }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "penalty_distance"                                "2000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_damage_penalty"                           "50"
+      }
     }
   }
 }

@@ -31,29 +31,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "instances"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "instances"                                       "3 4 5 6 7 8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin"
+        "value"           "3 4 5 6 7 8"
+        "LinkedSpecialBonus"    "special_bonus_unique_templar_assassin"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 50 75 100 150 250"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_threshold"                                "5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "17.0"
-      }
+      "bonus_damage"        "25 50 75 100 150 300"
+      "damage_threshold"      "5"
+      "duration"          "17.0"
     }
   }
 

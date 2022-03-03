@@ -1,0 +1,80 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Revenants Brooch
+  //=================================================================================================================
+  "item_recipe_revenants_brooch"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "910"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "800"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_revenants_brooch"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_witch_blade;item_mystic_staff"
+    }
+  }
+
+  //=================================================================================================================
+  // Revenants Brooch
+  //=================================================================================================================
+  "item_revenants_brooch"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "911"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "item_revenants_brooch"
+    //"AbilityTextureName"                                  "custom/revenants_brooch"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "22.0" //OAA
+    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "witch_blade"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "250"
+    "ItemCost"                                            "6200"
+    "ItemShopTags"                                        "int;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "staff;misery;sm"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "ItemBaseLevel"                                       "1"
+    "MaxUpgradeLevel"                                     "5"
+
+    "UpgradesItems"                                       "item_revenants_brooch;item_revenants_brooch_2;item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_intellect"   "40 50 60 70 80" //OAA       
+      "bonus_attack_speed"  "40 50 60 70 80"  
+      "bonus_armor"     "8 9 11 14 18"
+      "projectile_speed"    "300 400 500 600 700"
+      "int_damage_multiplier" "1"
+      "slow"  "25 30 35 40 45"
+      "slow_duration" "4"
+      "mana_cost"       "100"
+      "damage_penalty"    "0"
+      "passive_cooldown"    "8.0 7.0 6.0 5.0 4.0" //OAA
+      "number_of_attacks"   "5"
+      "active_duration"   "15"
+    }
+  }
+}

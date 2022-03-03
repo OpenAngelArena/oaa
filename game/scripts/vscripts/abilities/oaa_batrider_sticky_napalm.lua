@@ -3,6 +3,7 @@ batrider_sticky_napalm_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_passive", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_batrider_sticky_napalm_oaa_debuff", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_batrider_flamebreak_instance_tracker", "abilities/oaa_batrider_sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
+
 --[[
 function batrider_sticky_napalm_oaa:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", context)
@@ -17,13 +18,27 @@ function batrider_sticky_napalm_oaa:GetIntrinsicModifierName()
 end
 
 function batrider_sticky_napalm_oaa:GetAOERadius()
-  return self:GetSpecialValueFor("radius")
+  local radius = self:GetSpecialValueFor("radius")
+
+  -- Check for Sticky Napalm bonus radius talent
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_batrider_7_oaa")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
+  end
+
+  return radius
 end
 
 function batrider_sticky_napalm_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
   local radius = self:GetSpecialValueFor("radius")
+
+  -- Check for Sticky Napalm bonus radius talent
+  local talent = caster:FindAbilityByName("special_bonus_unique_batrider_7_oaa")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
+  end
 
   -- Sounds
   caster:EmitSound("Hero_Batrider.StickyNapalm.Cast")
@@ -92,6 +107,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
     MODIFIER_EVENT_ON_ORDER,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_MODIFIER_ADDED,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 
   return funcs
@@ -113,222 +129,275 @@ function modifier_batrider_sticky_napalm_oaa_passive:GetModifierDisableTurning()
 end
 ]]
 
-function modifier_batrider_sticky_napalm_oaa_passive:OnOrder(event)
-  local parent = self:GetParent()
-  if not IsServer() or event.unit ~= parent then
-    return
-  end
+if IsServer() then
+  function modifier_batrider_sticky_napalm_oaa_passive:OnOrder(event)
+    local parent = self:GetParent()
+    if event.unit ~= parent then
+      return
+    end
 
-  if event.ability == self:GetAbility() and event.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
-    self.bActive = true
-  else
-    self.bActive = false
-  end
-end
-
-function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
-
-  local attacker = event.attacker
-  local damaged_unit = event.unit
-  local caster = self:GetParent() or self:GetCaster()
-  local ability = self:GetAbility()
-
-  -- Continue only if the caster/parent is the attacker
-  if attacker ~= caster then
-    return
-  end
-
-  -- If caster or ability don't exist -> don't continue
-  if not caster or caster:IsNull() or not ability or ability:IsNull() then
-    return
-  end
-
-  -- Don't continue if attacker is deleted or he is about to be deleted
-  if not attacker or attacker:IsNull() then
-    return
-  end
-
-  -- Don't continue if attacker is an illusion
-  if attacker:IsIllusion() then
-    return
-  end
-
-  -- Don't continue if damaged_unit is deleted or he is about to be deleted
-  if not damaged_unit or damaged_unit:IsNull() then
-    return
-  end
-
-  -- Don't continue if self damage
-  if damaged_unit == attacker then
-    return
-  end
-
-  -- Check if entity is an item, rune or something weird
-  if damaged_unit.GetUnitName == nil then
-    return
-  end
-
-  -- Don't affect buildings, wards and invulnerable units.
-  if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
-    return
-  end
-
-  -- Don't continue if damaged_unit doesn't have sticky napalm debuff
-  if not damaged_unit:HasModifier("modifier_batrider_sticky_napalm_oaa_debuff") then
-    return
-  end
-
-  local inflictor = event.inflictor
-  local non_trigger_inflictors = {
-    ["batrider_sticky_napalm"] = true,
-    ["batrider_sticky_napalm_oaa"] = true,
-    ["item_orb_of_venom"] = true,
-    ["item_orb_of_corrosion"] = true,
-    ["item_radiance"] = true,
-    ["item_radiance_2"] = true,
-    ["item_radiance_3"] = true,
-    ["item_radiance_4"] = true,
-    ["item_radiance_5"] = true,
-    ["item_urn_of_shadows"] = true,
-    ["item_spirit_vessel"] = true,
-    ["item_spirit_vessel_2"] = true,
-    ["item_spirit_vessel_3"] = true,
-    ["item_spirit_vessel_4"] = true,
-    ["item_spirit_vessel_5"] = true,
-    ["item_cloak_of_flames"] = true,
-    ["item_trumps_fists"] = true,           -- Blade of Judecca
-    ["item_trumps_fists_2"] = true,
-    ["item_silver_staff"] = true,
-    ["item_silver_staff_2"] = true,
-    ["item_paintball"] = true,              -- Fae Grenade
-  }
-
-  -- For debugging
-  --if inflictor then
-    --print("Inflictor is: "..inflictor:GetName())
-  --end
-
-  if inflictor and non_trigger_inflictors[inflictor:GetName()] then
-    return
-  end
-
-  -- Ignore damage that has the no-reflect flag
-  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-    return
-  end
-
-  local debuff = damaged_unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", caster)
-
-  -- Damaged unit has the debuff but not the same caster
-  if not debuff or debuff:IsNull() then
-    return
-  end
-
-  local stack_count = debuff:GetStackCount()
-
-  local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
-
-  local talent = caster:FindAbilityByName("special_bonus_unique_batrider_4")
-  if talent and talent:GetLevel() > 0 then
-    bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
-  end
-
-  local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
-  local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
-  local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
-
-  if not damaged_unit:IsHero() then
-    if damaged_unit:IsAncient() then
-      if damaged_unit:IsOAABoss() then
-        bonus_damage = bonus_damage * damage_bosses * 0.01
-      else
-        bonus_damage = bonus_damage * damage_ancients * 0.01
-      end
+    if event.ability == self:GetAbility() and event.order_type == DOTA_UNIT_ORDER_CAST_POSITION then
+      self.bActive = true
     else
-      bonus_damage = bonus_damage * damage_non_ancient_creeps * 0.01
+      self.bActive = false
     end
   end
 
-  -- Damage particle
-  local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, caster)
-  ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
+  function modifier_batrider_sticky_napalm_oaa_passive:OnTakeDamage(event)
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local caster = self:GetParent() or self:GetCaster()
+    local ability = self:GetAbility()
 
-  -- Apply damage
-  local damage_table = {}
-  damage_table.victim = damaged_unit
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-  damage_table.attacker = caster
-  damage_table.ability = ability
-  damage_table.damage = bonus_damage * stack_count
+    -- Continue only if the caster/parent is the attacker
+    if attacker ~= caster then
+      return
+    end
 
-  ApplyDamage(damage_table)
-end
+    -- If caster or ability don't exist -> don't continue
+    if not caster or caster:IsNull() or not ability or ability:IsNull() then
+      return
+    end
 
--- Shard effects: Flamebreak applies Sticky Napalm charge
-function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
-  if not IsServer() then
-    return
+    -- Don't continue if attacker is deleted or he is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Don't continue if attacker is an illusion
+    if attacker:IsIllusion() then
+      return
+    end
+
+    -- Don't continue if damaged_unit is deleted or he is about to be deleted
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Don't continue if self damage
+    if damaged_unit == attacker then
+      return
+    end
+
+    -- Check if entity is an item, rune or something weird
+    if damaged_unit.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards and invulnerable units.
+    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
+      return
+    end
+
+    -- Don't continue if damaged_unit doesn't have sticky napalm debuff
+    if not damaged_unit:HasModifier("modifier_batrider_sticky_napalm_oaa_debuff") then
+      return
+    end
+
+    local inflictor = event.inflictor
+    local non_trigger_inflictors = {
+      ["batrider_sticky_napalm"] = true,
+      ["batrider_sticky_napalm_oaa"] = true,
+      ["item_orb_of_venom"] = true,
+      ["item_orb_of_corrosion"] = true,
+      ["item_radiance"] = true,
+      ["item_radiance_2"] = true,
+      ["item_radiance_3"] = true,
+      ["item_radiance_4"] = true,
+      ["item_radiance_5"] = true,
+      ["item_urn_of_shadows"] = true,
+      ["item_spirit_vessel"] = true,
+      ["item_spirit_vessel_2"] = true,
+      ["item_spirit_vessel_3"] = true,
+      ["item_spirit_vessel_4"] = true,
+      ["item_spirit_vessel_5"] = true,
+      ["item_cloak_of_flames"] = true,
+      ["item_trumps_fists"] = true,           -- Blade of Judecca
+      ["item_trumps_fists_2"] = true,
+      ["item_silver_staff"] = true,
+      ["item_silver_staff_2"] = true,
+      ["item_paintball"] = true,              -- Fae Grenade
+    }
+
+    -- For debugging
+    --if inflictor then
+      --print("Inflictor is: "..inflictor:GetName())
+    --end
+
+    if inflictor and non_trigger_inflictors[inflictor:GetName()] then
+      return
+    end
+
+    -- Ignore damage that has the no-reflect flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      return
+    end
+
+    local debuff = damaged_unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", caster)
+
+    -- Damaged unit has the debuff but not the same caster
+    if not debuff or debuff:IsNull() then
+      return
+    end
+
+    local stack_count = debuff:GetStackCount()
+
+    local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
+
+    -- Check for Sticky Napalm bonus damage talent
+    local talent = caster:FindAbilityByName("special_bonus_unique_batrider_4_oaa")
+    if talent and talent:GetLevel() > 0 then
+      bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
+    end
+
+    local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
+    local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
+    local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
+
+    if not damaged_unit:IsHero() then
+      if damaged_unit:IsAncient() then
+        if damaged_unit:IsOAABoss() then
+          bonus_damage = bonus_damage * damage_bosses * 0.01
+        else
+          bonus_damage = bonus_damage * damage_ancients * 0.01
+        end
+      else
+        bonus_damage = bonus_damage * damage_non_ancient_creeps * 0.01
+      end
+    end
+
+    -- Damage particle
+    local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, caster)
+    ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
+
+    -- Apply damage
+    local damage_table = {}
+    damage_table.victim = damaged_unit
+    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+    damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+    damage_table.attacker = caster
+    damage_table.ability = ability
+    damage_table.damage = bonus_damage * stack_count
+
+    ApplyDamage(damage_table)
   end
 
-  local parent = self:GetParent()
+  function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
+    local parent = self:GetParent()
 
-  -- Check if parent has Aghanim Shard
-  if not parent:HasShardOAA() then
-    return
-  end
+    -- Check if parent has "Flamebreak applies 2 Sticky Napalm Stacks" talent
+    local talent = parent:FindAbilityByName("special_bonus_unique_batrider_2")
+    if not talent or talent:GetLevel() <= 0 then
+      return
+    end
 
-  -- Unit that gained a modifier
-  local unit = event.unit
+    -- Unit that gained a modifier
+    local unit = event.unit
 
-  -- If the unit is not actually a unit but its an entity that can gain modifiers
-  if unit.HasModifier == nil then
-    return
-  end
+    -- If the unit is not actually a unit but its an entity that can gain modifiers
+    if unit.HasModifier == nil then
+      return
+    end
 
-  local flamebreak_modifier = unit:FindModifierByNameAndCaster("modifier_flamebreak_damage", parent)
-  if not flamebreak_modifier then
-    return
-  end
+    local flamebreak_modifier = unit:FindModifierByNameAndCaster("modifier_flamebreak_damage", parent)
+    if not flamebreak_modifier then
+      return
+    end
 
-  local ability = self:GetAbility()
+    local ability = self:GetAbility()
 
-  if not ability or ability:IsNull() then
-    return
-  end
+    if not ability or ability:IsNull() then
+      return
+    end
 
-  local duration = ability:GetSpecialValueFor("duration")
-  local remaining_duration = flamebreak_modifier:GetRemainingTime()
-  local flamebreak_tracker = unit:FindModifierByNameAndCaster("modifier_batrider_flamebreak_instance_tracker", parent)
-  local sticky_debuff = unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", parent)
+    local duration = ability:GetSpecialValueFor("duration")
+    local remaining_duration = flamebreak_modifier:GetRemainingTime()
+    local flamebreak_tracker = unit:FindModifierByNameAndCaster("modifier_batrider_flamebreak_instance_tracker", parent)
+    local sticky_debuff = unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm_oaa_debuff", parent)
 
-  if sticky_debuff and flamebreak_tracker then
-    -- Unit has a debuff and a tracker
-    -- Get the remaining duration of the tracker (this represents a rough estimate remaining duration of the previous instance)
-    local previous_flame_break_remaining_duration = flamebreak_tracker:GetRemainingTime()
-    -- Check if Flamebreak was recasted recently (0.1s) on a unit already affected by Flamebreak
-    if math.abs(remaining_duration - previous_flame_break_remaining_duration) > 0.1 then
-      -- Apply tracker with new duration
+    if sticky_debuff and flamebreak_tracker then
+      -- Unit has a debuff and a tracker
+      -- Get the remaining duration of the tracker (this represents a rough estimate remaining duration of the previous instance)
+      local previous_flame_break_remaining_duration = flamebreak_tracker:GetRemainingTime()
+      -- Check if Flamebreak was recasted recently (0.1s) on a unit already affected by Flamebreak
+      if math.abs(remaining_duration - previous_flame_break_remaining_duration) > 0.1 then
+        -- Apply tracker with new duration
+        unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
+        -- Apply sticky
+        unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
+      end
+    elseif not sticky_debuff and flamebreak_tracker then
+      -- Unit has a tracker but doesn't have a debuff -> this means OnModifierAdded triggered for applying flamebreak_tracker
+      -- do nothing
+    else
+      -- Other cases:
+      -- 1) When the unit has sticky but not the tracker -> Sticky was applied through other means
+      -- 2) When the unit doesn't have sticky or a tracker -> Flamebreak was cast on a unit for the first time
+      -- Apply tracker
       unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
       -- Apply sticky
       unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
     end
-  elseif not sticky_debuff and flamebreak_tracker then
-    -- Unit has a tracker but doesn't have a debuff -> this means OnModifierAdded triggered for applying flamebreak_tracker
-    -- do nothing
-  else
-    -- Other cases:
-    -- 1) When the unit has sticky but not the tracker -> Sticky was applied through other means
-    -- 2) When the unit doesn't have sticky or a tracker -> Flamebreak was cast on a unit for the first time
-    -- Apply tracker
-    unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
-    -- Apply sticky
-    unit:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
+  end
+
+  function modifier_batrider_sticky_napalm_oaa_passive:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local target = event.target
+
+    -- Check if parent has Aghanim Shard
+    if not parent:HasShardOAA() then
+      return
+    end
+
+    -- Doesn't work on units that dont have this modifier, doesn't work on illusions
+    if parent ~= event.attacker or parent:IsIllusion() then
+      return
+    end
+
+    -- To prevent crashes:
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- If the unit is not actually a unit but its an entity that can gain modifiers
+    if target.HasModifier == nil then
+      return
+    end
+
+    -- Doesn't work on allies, towers, or wards or spell immune units
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
+      return
+    end
+
+    local chance = ability:GetSpecialValueFor("shard_attack_proc_chance")
+    if RandomInt(1, 100) <= chance then
+
+      -- Get duration
+      local duration = ability:GetSpecialValueFor("duration")
+
+      -- Apply sticky
+      target:AddNewModifier(parent, ability, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
+    end
   end
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_batrider_flamebreak_instance_tracker = class(ModifierBaseClass)
+
+function modifier_batrider_flamebreak_instance_tracker:IsHidden()
+  return true
+end
+
+function modifier_batrider_flamebreak_instance_tracker:IsDebuff()
+  return false
+end
+
+function modifier_batrider_flamebreak_instance_tracker:IsPurgable()
+  return true
+end
+
 
 ---------------------------------------------------------------------------------------------------
 
@@ -410,20 +479,4 @@ end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:StatusEffectPriority()
   return MODIFIER_PRIORITY_LOW
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_batrider_flamebreak_instance_tracker = class(ModifierBaseClass)
-
-function modifier_batrider_flamebreak_instance_tracker:IsHidden()
-  return true
-end
-
-function modifier_batrider_flamebreak_instance_tracker:IsDebuff()
-  return false
-end
-
-function modifier_batrider_flamebreak_instance_tracker:IsPurgable()
-  return true
 end

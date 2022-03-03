@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6480"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "6480"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
 
     "MaxLevel"                                            "6"
 
@@ -26,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "13 12 11 10 10 10"
+    "AbilityCooldown"               "16 14 12 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "80 90 100 110 120 130"
+    "AbilityManaCost"               "85 90 95 100 105 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 150 220 290 580 1160"
+        "damage"                                          "100 160 220 280 560 1120"
         "LinkedSpecialBonus"                              "special_bonus_unique_snapfire_7"
       }
       "02"

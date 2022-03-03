@@ -33,44 +33,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"          "325 350 375 400"
+      "tick_interval"       "0.3"
+      "total_duration"      "1.4"
+      "tick_count"      "5"
+      "stun_duration"       "0.3"
+      "projectile_speed"    "1200"
+      "avalanche_damage"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325 350 375 400 425 450"
+        "value"       "75 150 225 300 600 1200"
+        "LinkedSpecialBonus"    "special_bonus_unique_tiny"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "total_duration"                                  "1.4"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tick_count"                                      "5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "1200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "avalanche_damage"                                "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny"
-      }
+      "toss_multiplier"   "2"
     }
   }
 

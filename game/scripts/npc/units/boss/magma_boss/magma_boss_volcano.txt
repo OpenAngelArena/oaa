@@ -37,13 +37,12 @@
     "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"           // Type of attack - melee, ranged, etc.
     "AttackDamageMin"           "0"         // Damage range min.
     "AttackDamageMax"           "0"         // Damage range max.
-
     "AttackRate"                "1"         // Speed of attack.
     "AttackAnimationPoint"      "0.5"       // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "800"       // Range within a target can be acquired.
-    "AttackRange"               "500"       // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "0"       // Range within a target can be acquired.
+    "AttackRange"               "0"       // Range within a target can be attacked.
     "ProjectileModel"           "" // Particle system model for projectile.
-    "ProjectileSpeed"           "900"       // Speed of projectile.
+    "ProjectileSpeed"           "0"       // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
@@ -70,8 +69,7 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                  "DOTA_TEAM_GOODGUYS"            // Team name.
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision

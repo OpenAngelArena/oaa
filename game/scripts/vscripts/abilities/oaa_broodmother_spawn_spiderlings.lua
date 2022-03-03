@@ -153,8 +153,8 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnDeath(event)
   end
 
   -- Talents for spider stats
-  local hp_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_2")
-  local dmg_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_4")
+  local hp_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_2_oaa")
+  local dmg_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_4_oaa")
 
   if hp_talent and hp_talent:GetLevel() > 0 then
     base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
@@ -301,9 +301,10 @@ function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
   end
   local caster = self:GetCaster()
   local ability = caster:FindAbilityByName("broodmother_spin_web")
-  if not ability or ability:IsNull() then
+  if not ability or ability:IsNull() or ability:GetLevel() <= 0 then
     return
   end
+
   local parent = self:GetParent()
   local web_radius = ability:GetSpecialValueFor("radius")
   local origin = parent:GetAbsOrigin()

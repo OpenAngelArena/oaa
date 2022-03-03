@@ -7,10 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7309"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7309"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -18,19 +17,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_attack_speed" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "20 35 50 65 80 95" //OAA
+        "value"                                           "16 32 48 64 80 96"
         "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_6"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "20 35 50 65 80 95"
-      }
+      "lifesteal_percent"                                 "20 35 50 65 80 95"
+      "armor_sharing"                                     "8 12 16 20 24 28"
     }
   }
 }

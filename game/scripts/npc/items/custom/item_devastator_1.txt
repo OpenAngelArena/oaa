@@ -1,0 +1,143 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Devastator
+  //=================================================================================================================
+  "item_recipe_devastator_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3650"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_devastator_1"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_desolator"
+    }
+  }
+
+  //=================================================================================================================
+  // Devastator
+  //=================================================================================================================
+  "item_devastator_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3651"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/devastator.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/devastator_1"
+
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0"
+    "AbilityCooldown"                                     "7"
+    "AbilityManaCost"                                     "75"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4500"
+    "ItemShopTags"                                        "damage;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "devastator"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "precache"
+    {
+      "particle"                                          "particles/items/devastator/devastator_active.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "50 70 100 140 190"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "corruption_armor"                                "-6 -9 -13 -18 -24"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "corruption_duration"                             "7.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_speed"                                "1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_width_initial"                        "200"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_width_end"                            "200"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_distance"                             "800"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_damage"                               "100 200 400 700 1000"
+      }
+      "09" // like Solar Crest
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
+      }
+      "10" // like Desolator
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "devastator_movespeed_reduction_duration"         "7.0"
+      }
+      "11" // better than passive
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "devastator_armor_reduction"                      "-7 -10 -14 -19 -25"
+      }
+      "12" // like Desolator
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "devastator_armor_reduction_duration"             "7.0"
+      }
+    }
+  }
+}

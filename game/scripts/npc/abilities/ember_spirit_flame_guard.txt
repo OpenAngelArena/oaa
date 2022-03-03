@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5605"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5605"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"  //OAA
+    "AbilityCooldown"                                     "25" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,40 +30,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "20" //OAA
+      "radius"                                            "400"
+      "absorb_amount" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "20" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "absorb_amount"                                   "110 240 370 500 1500 3000"
+        "value"                                           "110 240 370 500 1500 3000"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_1"
       }
-      "04"
+      "tick_interval"                                     "0.2"
+      "damage_per_second"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "25 35 45 55 110 220"
+        "value"                                           "25 35 45 55 110 220"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blind_pct"                                       "50"
-      }
+      "blind_pct"                                         "50"
+      "shield_pct_absorb"                                 "70"
     }
   }
 }

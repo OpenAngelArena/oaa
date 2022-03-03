@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5282"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5282"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,25 +24,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45 60 75 90 180 360" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_1"
+        "value"         "45 60 75 90 180 360"
+        "special_bonus_unique_broodmother_1"  "+50"
       }
-      "02"
+      "lifesteal_pct" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_pct"                                   "70 85 100 115 130 145" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_1"
+        "value"       "70 85 100 115 130 145"
+        "special_bonus_unique_broodmother_1"  "+50"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "14" //OAA
-      }
+      "duration"        "14" //OAA
     }
   }
 }

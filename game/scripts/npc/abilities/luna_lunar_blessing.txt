@@ -16,23 +16,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"      "1200"
+      "bonus_damage"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "value"     "5 15 25 35 70 140"
+        "LinkedSpecialBonus"    "special_bonus_unique_luna_3"
       }
-      "02"
+      "bonus_night_vision"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "5 15 25 35 70 140"
-        "LinkedSpecialBonus"                              "special_bonus_unique_luna_3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "250 500 750 1000 1250 1500"
+        "value"     "250 500 750 1000 1250 1500"
+        "special_bonus_unique_luna_8" "+200"
       }
     }
   }

@@ -43,73 +43,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "requiem_radius"  "1000"
+      "requiem_reduction_ms"  "-20 -25 -30 -35 -40"
+      "requiem_reduction_mres"  "-5 -10 -15 -20 -25"
+      "requiem_slow_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_radius"                                  "1000"
+        "value"   "0.8"
+        "LinkedSpecialBonus"    "special_bonus_unique_nevermore_6"
       }
-      "02"
+      "requiem_slow_duration_max"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_ms"                            "-20 -25 -30 -35 -40"
+        "value"         "2.4"
+        "LinkedSpecialBonus"    "special_bonus_unique_nevermore_6"
+        "LinkedSpecialBonusField"   "value2"
       }
-      "03"
+      "requiem_reduction_radius"  "700"
+      "requiem_soul_conversion" "1"
+      "requiem_line_width_start"  "125"
+      "requiem_line_width_end"  "350"
+      "requiem_line_speed"  "700"
+      "soul_death_release"  "0.5"
+      "requiem_heal_pct_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "requiem_slow_duration"                           "0.8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
+        "value"     "100"
+        "RequiresScepter"     "1"
       }
-      "04"
+      "requiem_damage_pct_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "requiem_slow_duration_max"                       "2.4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
-        "LinkedSpecialBonusField"                         "value2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_reduction_radius"                        "700"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_soul_conversion"                         "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_start"                        "125"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_width_end"                          "350"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "requiem_line_speed"                              "700"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "soul_death_release"                              "0.5"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "requiem_heal_pct_scepter"                        "100"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "requiem_damage_pct_scepter"                      "40"
-        "RequiresScepter"                                 "1"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"     "40"
+        "RequiresScepter"     "1"
+        "CalculateSpellDamageTooltip" "0"
       }
     }
   }

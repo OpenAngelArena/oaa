@@ -38,38 +38,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        "1.4"
+      "grab_radius"     "300"
+      "radius"        "275"
+      "bonus_damage_pct"    "0"
+      "toss_damage"       "90 160 230 300 600 1200" //OAA
+      "AbilityCharges"    
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.4"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "grab_radius"                                     "275"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "30"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "toss_damage"                                     "90 160 230 300 600 1200" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "AbilityCharges"                                  ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_2"
+        "value"       ""
+        "LinkedSpecialBonus"  "special_bonus_unique_tiny_2"
       }
     }
   }

@@ -22,7 +22,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 600 700 800 900 1000"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -35,40 +34,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"            
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_2"
+        "value"     "6.0"
+        "special_bonus_unique_arc_warden_4" "+2"
       }
-      "02"
+      "damage_per_second"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "15 30 45 60 120 180"
-        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_2"
+        "value"   "15 30 45 60 120 180"
+        "LinkedSpecialBonus"    "special_bonus_unique_arc_warden_2"
       }
-      "03"
+      "search_radius"         "150" //OAA
+      "think_interval"        "0.5"
+      "move_speed_slow_pct"       "25 30 35 40 45 50" //OAA
+      "abilitycastrange"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "search_radius"                                   "150" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "think_interval"                                  "0.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow_pct"                             "25 30 35 40 45 50" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "abilitycastrange"                                ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_5"
+        "value"       "500 600 700 800 900 1000"
+        "special_bonus_unique_arc_warden_5" "+175"
       }
     }
   }

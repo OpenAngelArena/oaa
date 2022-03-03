@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Wraith Pact 3
+  //=================================================================================================================
+  "item_recipe_wraith_pact_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3548"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_wraith_pact_3"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_wraith_pact_2;item_upgrade_core_2"
+    }
+  }
+
+  //=================================================================================================================
+  // Wraith Pact 3
+  //=================================================================================================================
+  "item_wraith_pact_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3549"
+    "BaseClass"                                           "item_wraith_pact"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"                                  "item_wraith_pact"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    //"AbilityTextureName"                                  "custom/wraith_pact"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "350 400 450 500 550"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+    "AbilityDuration"                                     "25"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "9202"
+    "ItemShopTags"                                        "damage;armor;regen_mana"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "pact 3;wp 3;wraith pact 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    "ItemBaseLevel"                                       "3"
+    "MaxUpgradeLevel"                                     "5"
+
+    "UpgradesItems"                                       "item_wraith_pact;item_wraith_pact_2;item_wraith_pact_3;item_wraith_pact_4;item_wraith_pact_5"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"      "250 500 750 1000 1250"
+      "bonus_mana"      "250 350 500 700 950"
+      "armor_aura"    "3.0 4.0 6.0 9.0 13.0"
+      "mana_regen_aura"   "1.75 2.0 2.5 3.25 4.25"
+      "lifesteal_aura"      "15 25 35 45 55"
+      "damage_aura"     "18 26 34 42 50"
+      "aura_radius" "900"
+      "damage_penalty_aura" "25 30 35 40 45"
+      "aura_dps"  "50 100 200 400 800" //OAA
+    }
+  }
+}

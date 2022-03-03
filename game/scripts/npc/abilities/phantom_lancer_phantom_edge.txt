@@ -17,37 +17,24 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 12 8 4 4 4"
+    "AbilityCooldown"                                     "13 10 7 4 4 4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "min_distance"    "200"
+      "max_distance"        
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_distance"                                    "200"
+        "value"       "600 675 750 825 900 975"
+        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer"
       }
-      "02"
+      "bonus_speed"   "800"
+      "bonus_agility"   "10 20 30 40 60 80"
+      "agility_duration"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "600 675 750 825 900 975"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "800"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "10 20 30 40 60 80"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "agility_duration"                                "1.5"
+        "value"     "1.5"
+        "special_bonus_unique_phantom_lancer_2"   "+2.5"
       }
     }
   }

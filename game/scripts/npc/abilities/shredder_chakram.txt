@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5527"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5527"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
@@ -89,12 +89,18 @@
         "var_type"                                        "FIELD_INTEGER"
         "slow_health_percentage"                          "5"
       }
-      // "11" // npm test fails when this is uncommented
-      // {
-        // "var_type"                                        "FIELD_FLOAT"
-        // "castpoint_scepter"                               "0.1"
-        // "RequiresScepter"                                 "1"
-      // }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "castpoint_scepter"                               "0.1"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "20"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

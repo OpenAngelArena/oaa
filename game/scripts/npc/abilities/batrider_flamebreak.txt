@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "110 115 120 125 130 135"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -37,64 +37,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_impact"   "50 75 100 125 250 500" //OAA
+      "damage_per_second"   "15"
+      "damage_duration"   "2 4 6 8 10 12"
+      "explosion_radius"    "500"
+      "collision_radius"    "100"
+      "stun_duration"     "0.5"
+      "speed"         "1200"
+      "knockback_distance"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_impact"                                   "50 75 100 125 250 500" //OAA
+        "value"       "300"
+        "special_bonus_unique_batrider_3" "+75"
       }
-      "02"
+      "knockback_height"    "100"
+      "knockback_duration"  "0.35"
+      "napalm_stacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "15"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_duration"                                 "2 4 6 8 10 12"
-        "CalculateSpellDamageTooltip"                     "0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_3"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion_radius"                                "500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "collision_radius"                                "100"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_distance"                              "300"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_height"                                "100"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.35"
-      }
-      "11" // OAA
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_total_tooltip"                            "80 135 190 245 400 680" // damage_impact + damage_per_second x damage_duration
+        "value"       "0"
+        "special_bonus_unique_batrider_2" "+2"
       }
     }
   }

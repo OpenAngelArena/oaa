@@ -20,7 +20,7 @@
     //----------------------------------------------------------------
     "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap"     // Ability 1
     "Ability2"                                            "mudgolem_cloak_aura"                         // Ability 2
-    "Ability3"                                            ""                                            // Ability 3
+    "Ability3"                                            ""                                            // furbolg_enrage_damage
     "Ability4"                                            ""                                            // Ability 4
 
     // Armor
@@ -72,7 +72,7 @@
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

@@ -32,35 +32,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "illusion_duration"      
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_2"
+         "value"   "5"
+        "special_bonus_unique_terrorblade_2" "+2"
       }
-      "02"
+      "illusion_outgoing_damage"  "-45 -30 -15 0 20 40"
+      "illusion_outgoing_tooltip" "55 70 85 100 120 140"
+      "move_slow"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_damage"                        "-45 -30 -15 0 20 40"
+          "value"         "15 20 25 30 35 40"
+          "special_bonus_unique_terrorblade_6"        "+15"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_tooltip"                       "55 70 85 100 120 140"
-        "LinkedSpecialBonus"                              "special_bonus_unique_terrorblade_4"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "15 20 25 30 35 40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "475"
-      }
+      "range"           "500"   
     }
   }
 }

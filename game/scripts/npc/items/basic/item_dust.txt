@@ -30,26 +30,5 @@
     "IsTempestDoubleClonable"                             "0"
 
     "SideShop"                                            "1" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1050"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "-20"
-      }
-    }
   }
 }

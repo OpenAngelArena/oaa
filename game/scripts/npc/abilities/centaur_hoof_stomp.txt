@@ -26,23 +26,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"            "350"
+      "stomp_damage"          "120 180 240 300 600 1200"
+      "stun_duration"         
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "330"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6 1.9 2.2 2.5 2.65 2.8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stomp_damage"                                    "100 150 200 250 500 1000"
+        "value"           "1.6 1.9 2.2 2.5 2.65 2.8"
+        "LinkedSpecialBonus"    "special_bonus_unique_centaur_2"
       }
     }
   }

@@ -7,60 +7,39 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7304" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "7304"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
+
+    "LinkedAbility"                                       "dazzle_good_juju"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
+    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "50 75 100 125 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "armor_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_reduction"                              "26 38 50 50 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "armor_reduction"                                 "2 2.5 3 3.5 4" //OAA
+        "value"                                           "1 2 3 4 5"
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "800"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_count"                                   "8"
-        "RequiresScepter"                                 "1"
-      }
+      "duration"                                          "8 10 12 14 16"
+      "radius"                                            "1200"
+      "heal_damage"                                       "30 50 70 130 230" //OAA
     }
   }
 }

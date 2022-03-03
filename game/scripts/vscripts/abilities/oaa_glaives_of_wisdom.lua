@@ -196,235 +196,237 @@ function modifier_oaa_glaives_of_wisdom:DeclareFunctions()
   }
 end
 
-function modifier_oaa_glaives_of_wisdom:OnAttackStart(event)
-  -- OnAttackStart event is triggering before OnAttack event
-  -- Only AttackStart is early enough to override the projectile
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
+if IsServer() then
+  function modifier_oaa_glaives_of_wisdom:OnAttackStart(event)
+    -- OnAttackStart event is triggering before OnAttack event
+    -- Only AttackStart is early enough to override the projectile
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
 
-  if event.attacker ~= parent then
-    return
+    if event.attacker ~= parent then
+      return
+    end
+
+    if parent:IsIllusion() then
+      return
+    end
+
+    local target = event.target
+    if not target then
+      return
+    end
+
+    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
+    if target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
+      if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
+        --The Attack while Autocast is ON or manually casted (current active ability)
+
+        -- Add modifier to change attack sound
+        parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {})
+
+        -- Change Attack Projectile
+        parent:ChangeAttackProjectile()
+      end
+    end
   end
 
-  if parent:IsIllusion() then
-    return
+  function modifier_oaa_glaives_of_wisdom:OnAttack(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+
+    if event.attacker ~= parent then
+      return
+    end
+
+    local target = event.target
+    if not target then
+      return
+    end
+
+    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
+    if target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
+      if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
+        --The Attack while Autocast is ON or or manually casted (current active ability)
+        -- Enable proc for this attack record number (event.record is the same for OnAttackLanded)
+        self.procRecords[event.record] = true
+
+        -- Use mana and trigger cd while respecting reductions
+        -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
+        ability:UseResources(true, false, true)
+
+        -- Changing projectile back is too early during OnAttack,
+        -- Changing projectile back is done by removing modifier_oaa_glaives_of_wisdom_fx from the parent
+        -- it should be done during OnAttackFinished;
+      end
+    end
   end
 
-  local target = event.target
-  if not target then
-    return
-  end
+  function modifier_oaa_glaives_of_wisdom:OnAttackFinished(event)
+    local parent = self:GetParent()
+    if event.attacker == parent then
+      -- Remove modifier on every finished attack even if its a normal attack
+      parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
 
-  -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-  if target:IsNull() then
-    return
-  end
-
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
-
-  if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
-    if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-      --The Attack while Autocast is ON or manually casted (current active ability)
-
-      -- Add modifier to change attack sound
-      parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {})
-
-      -- Change Attack Projectile
+      -- Change the projectile (if a parent doesn't have modifier_oaa_glaives_of_wisdom_fx)
       parent:ChangeAttackProjectile()
     end
   end
-end
 
-function modifier_oaa_glaives_of_wisdom:OnAttack(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
+  function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local target = event.target
 
-  if event.attacker ~= parent then
-    return
-  end
-
-  local target = event.target
-  if not target then
-    return
-  end
-
-  -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-  if target:IsNull() then
-    return
-  end
-
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
-
-  if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
-    if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-      --The Attack while Autocast is ON or or manually casted (current active ability)
-      -- Enable proc for this attack record number (event.record is the same for OnAttackLanded)
-      self.procRecords[event.record] = true
-
-      -- Use mana and trigger cd while respecting reductions
-      -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
-      ability:UseResources(true, false, true)
-
-      -- Changing projectile back is too early during OnAttack,
-      -- Changing projectile back is done by removing modifier_oaa_glaives_of_wisdom_fx from the parent
-      -- it should be done during OnAttackFinished;
-    end
-  end
-end
-
-function modifier_oaa_glaives_of_wisdom:OnAttackFinished(event)
-  local parent = self:GetParent()
-  if event.attacker == parent then
-    -- Remove modifier on every finished attack even if its a normal attack
-    parent:RemoveModifierByName("modifier_oaa_glaives_of_wisdom_fx")
-
-    -- Change the projectile (if a parent doesn't have modifier_oaa_glaives_of_wisdom_fx)
-    parent:ChangeAttackProjectile()
-  end
-end
-
-function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
-
-  if event.attacker ~= parent then
-    return
-  end
-
-  if parent:IsIllusion() then
-    return
-  end
-
-  -- if target is nothing (nil), don't continue
-  if not target then
-    return
-  end
-
-  -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-  if target:IsNull() then
-    return
-  end
-
-  if self.procRecords[event.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
-
-    local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
-    local player = parent:GetPlayerOwner()
-
-    -- Bonus Glaives of Wisdom damage Talent
-    if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
-      bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
+    if event.attacker ~= parent then
+      return
     end
 
-    --if parent:HasScepter() and target:IsSilenced() then
-      --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
-    --end
-
-    -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
-    if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
-      local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
-      local intStealAmount = ability:GetSpecialValueFor("int_steal")
-
-      if intStealAmount ~= 0 and intStealDuration ~= 0 then
-        target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
-        target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
-        parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
-        parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff", {duration = intStealDuration})
-      end
+    if parent:IsIllusion() then
+      return
     end
 
-    local bonusDamage = parent:GetIntellect() * bonusDamagePct
+    -- if target is nothing (nil), don't continue
+    if not target then
+      return
+    end
 
-    local damageTable = {}
-    damageTable.victim = target
-    damageTable.attacker = parent
-    damageTable.damage = bonusDamage
-    damageTable.damage_type = ability:GetAbilityDamageType()
-    damageTable.ability = ability
+    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
+    if target:IsNull() then
+      return
+    end
 
-    --if parent:HasScepter() and target:IsMagicImmune() then
-      --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
-      --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
-    --end
+    if self.procRecords[event.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
 
-    ApplyDamage(damageTable)
+      local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
+      local player = parent:GetPlayerOwner()
 
-    -- Overhead particle message
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
-
-    -- Sound
-    target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
-
-    if parent:HasShardOAA() then
-      local bounce_radius = ability:GetSpecialValueFor("shard_bounce_range")
-      local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
-      local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
-
-      if parent:HasScepter() then
-        target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+      -- Bonus Glaives of Wisdom damage Talent
+      if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
+        bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
       end
 
-      -- Find enemies near the target's hit location
-      local enemies = FindUnitsInRadius(
-        parent:GetTeamNumber(),
-        target:GetAbsOrigin(),
-        nil,
-        bounce_radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-        target_flags,
-        FIND_CLOSEST,
-        false
-      )
+      --if parent:HasScepter() and target:IsSilenced() then
+        --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
+      --end
 
-      if #enemies > 0 and number_of_bounces > 0 then
-        for _, enemy in ipairs(enemies) do
-          if enemy and enemy ~= target and not enemy:IsAttackImmune() then
-            local projectile_info = {
-              Target = enemy,
-              Source = target,
-              Ability = ability,
-              EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
-              bDodgable = true,
-              bProvidesVision = false,
-              bVisibleToEnemies = true,
-              bReplaceExisting = false,
-              iMoveSpeed = parent:GetProjectileSpeed(),
-              bIsAttack = false,
-              iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-              ExtraData = {
-                bounces_left = number_of_bounces - 1,
-                physical_damage = event.damage,
-                spell_damage = bonusDamage
+      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
+      if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
+        local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
+        local intStealAmount = ability:GetSpecialValueFor("int_steal")
+
+        if intStealAmount ~= 0 and intStealDuration ~= 0 then
+          target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
+          target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
+          parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
+          parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+        end
+      end
+
+      local bonusDamage = parent:GetIntellect() * bonusDamagePct
+
+      local damageTable = {}
+      damageTable.victim = target
+      damageTable.attacker = parent
+      damageTable.damage = bonusDamage
+      damageTable.damage_type = ability:GetAbilityDamageType()
+      damageTable.ability = ability
+
+      --if parent:HasScepter() and target:IsMagicImmune() then
+        --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
+        --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+      --end
+
+      ApplyDamage(damageTable)
+
+      -- Overhead particle message
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+
+      -- Sound
+      target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
+
+      if parent:HasShardOAA() then
+        local bounce_radius = ability:GetSpecialValueFor("shard_bounce_range")
+        local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
+        local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
+
+        if parent:HasScepter() then
+          target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+        end
+
+        -- Find enemies near the target's hit location
+        local enemies = FindUnitsInRadius(
+          parent:GetTeamNumber(),
+          target:GetAbsOrigin(),
+          nil,
+          bounce_radius,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+          target_flags,
+          FIND_CLOSEST,
+          false
+        )
+
+        if #enemies > 0 and number_of_bounces > 0 then
+          for _, enemy in ipairs(enemies) do
+            if enemy and enemy ~= target and not enemy:IsAttackImmune() then
+              local projectile_info = {
+                Target = enemy,
+                Source = target,
+                Ability = ability,
+                EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
+                bDodgable = true,
+                bProvidesVision = false,
+                bVisibleToEnemies = true,
+                bReplaceExisting = false,
+                iMoveSpeed = parent:GetProjectileSpeed(),
+                bIsAttack = false,
+                iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+                ExtraData = {
+                  bounces_left = number_of_bounces - 1,
+                  physical_damage = event.damage,
+                  spell_damage = bonusDamage
+                }
               }
-            }
 
-            -- Create glaive bounce
-            ProjectileManager:CreateTrackingProjectile(projectile_info)
+              -- Create glaive bounce
+              ProjectileManager:CreateTrackingProjectile(projectile_info)
 
-            break
+              break
+            end
           end
         end
       end
+
+      self.procRecords[event.record] = nil
     end
-
-    self.procRecords[event.record] = nil
   end
-end
 
-function modifier_oaa_glaives_of_wisdom:OnAttackFail(event)
-  local parent = self:GetParent()
+  function modifier_oaa_glaives_of_wisdom:OnAttackFail(event)
+    local parent = self:GetParent()
 
-  if event.attacker == parent and self.procRecords[event.record] then
-    self.procRecords[event.record] = nil
+    if event.attacker == parent and self.procRecords[event.record] then
+      self.procRecords[event.record] = nil
+    end
   end
 end
 
@@ -484,10 +486,10 @@ if IsServer() then
     )
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
-    -- Check for +2 Int Steal Talent
-    --if parent:HasLearnedAbility("special_bonus_unique_silencer_2") then
-      --stealAmount = stealAmount + parent:FindAbilityByName("special_bonus_unique_silencer_2"):GetSpecialValueFor("value")
-    --end
+    -- Check for Shard (+2 Int Steal)
+    if parent:HasShardOAA() then
+      stealAmount = stealAmount + 2
+    end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
       local oldIntellect = unit:GetBaseIntellect()

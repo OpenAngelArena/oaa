@@ -35,42 +35,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "7 14 21 28 56 112"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value" "7 14 21 28 56 112"
+        "special_bonus_unique_batrider_4" "+6"
+        "CalculateSpellDamageTooltip"   "1"
       }
-      "02"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375 400 425 450 475 500"
+        "value"               "375 400 425 450 475 500"
+        "special_bonus_unique_batrider_7" "+75"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "-2 -4 -6 -8 -10 -12"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "turn_rate_pct"                                   "-10 -30 -50 -70 -75 -80"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "10"
-      }
+      "duration" "7"
+      "movement_speed_pct" "-2 -4 -6 -8 -10 -12"      
+      "turn_rate_pct"     "-10 -30 -50 -70 -75 -80"
+      "max_stacks"      "10"
+      "creep_damage_pct"      "50"
     }
   }
 }

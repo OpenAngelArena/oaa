@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15.0"
+    "AbilityCooldown"                                     "18 17 16 15 14 13"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -27,29 +27,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"          "35.0" //OAA
+      "fade_time"         "1.0 0.75 0.5 0.25 0.1 0.0"
+      "slow"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "35" //OAA
+        "value"       "16 24 32 40 48 56"
+        "special_bonus_unique_bounty_hunter_5"  "+10"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "1.0 0.75 0.5 0.25 0.1 0.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "16 24 32 40 48 56"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_5"
-      }
+      "slow_duration"       "4"
     }
   }
 }

@@ -26,7 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_ghost_king_bar_2;item_upgrade_core_4"
-      //"02"                                                "item_ethereal_blade_4;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37304"
+    "ItemCost"                                            "37554"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -71,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "50 55 60"
+        "bonus_agility"                                   "20 25 30"
       }
       "02"
       {
@@ -81,12 +80,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 30"
+        "bonus_intellect"                                 "35 40 45"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "16 20 24"
+        "spell_amp"                                       "24 28 32"
       }
       "05"
       {
@@ -111,19 +110,24 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_magic_resistance"                           "25"
+        "active_mana_regen_amp"                           "100"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_status_resistance"                          "20"
+        "buff_magic_resistance"                           "25"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_move_speed"                                 "25"
+        "buff_status_resistance"                          "20"
       }
       "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_move_speed"                                 "25"
+      }
+      "13"
       {
         "var_type"                                        "FIELD_FLOAT"
         "buff_duration"                                   "5.0"

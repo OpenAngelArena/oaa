@@ -71,6 +71,9 @@ function Duels:Init ()
       hero:RemoveModifierByName("modifier_out_of_duel")
 
       Duels:UnCountPlayerDeath(player)
+    else
+      print("Duels module - player_reconnected event has no PlayerID key. Gj Valve.")
+      return
     end
   end)
 
@@ -100,6 +103,9 @@ function Duels:Init ()
       end
 
       Duels:CountPlayerDeath(player)
+    else
+      print("Duels module - player_disconnect event has no PlayerID key. Gj Valve.")
+      return
     end
   end)
 

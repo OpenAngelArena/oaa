@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Omniknight: Degen Aura (OAA ability that improves vanilla ability)
+  // Omniknight: Degen Aura (OAA rework)
   //=================================================================================================================
   "omniknight_degen_aura_oaa"
   {
@@ -11,41 +11,42 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_omniknight_degen_aura.lua"
     "AbilityTextureName"                                  "omniknight_degen_aura"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "375"
+    "AbilityCastRange"                                    "400"
+
+    //"IsGrantedByShard"                                    "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // movement speed slow (tooltip only)
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "14 22 30 38 46 54"
-        "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_2"
+        "move_speed_slow"                                 "-45"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-10 -20 -30 -40 -50 -60"
+        "attack_speed_slow"                               "-45"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-6 -10 -14 -18 -22 -26"
+        "heal_prevent_percent"                            "-25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "radius"                                          "400"
       }
     }
   }

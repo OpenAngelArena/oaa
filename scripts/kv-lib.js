@@ -34,8 +34,8 @@ module.exports = {
 
 function dotaAbilities (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_abilities.txt'
-    // url: 'https://raw.githubusercontent.com/DarkoniusXNG/oaa_changelogs_github/master/npc_abilities.txt'
+    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/scripts/npc/npc_abilities.txt'
+    url: 'https://raw.githubusercontent.com/DarkoniusXNG/oaa_changelogs_github/master/npc_abilities.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);
@@ -59,7 +59,7 @@ function dotaItems (cb) {
 
 function dotaHeroes (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/scripts/npc/npc_heroes.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/scripts/npc/npc_heroes.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);

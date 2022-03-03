@@ -13,7 +13,6 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -41,38 +40,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "35 45 55 65 70 75" //OAA
+        "value"                                           "25 35 45 55 65 75"
+        "special_bonus_unique_broodmother_4"              "+15"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "100 175 250 325 650 975" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "6 7 8 9 18 36"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "miss_chance"                                     "40"
-      }
+      "duration"                                          "6"
+      "projectile_speed"                                  "1200"
+      "impact_damage"                                     "100 175 250 325 650 975" //OAA
+      "attack_damage"                                     "6 7 8 9 18 36"
+      "miss_chance"                                       "40"
     }
   }
 }

@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Shadow Shaman: Mass Serpent Ward 1
   //=================================================================================================================
-    "npc_dota_shadow_shaman_ward_1"
+  "npc_dota_shadow_shaman_ward_1"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -17,7 +17,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1.
+		"Ability1"					"creep_piercing"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -60,7 +60,7 @@
 
 			// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2"		// Base health.
+		"StatusHealth"				"4"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -68,8 +68,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
 		// Vision

@@ -28,28 +28,20 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "65 70 75 80 85 90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250 275 300 325 350 375" //OAA
+        "value"                                           "275 300 325 350 375 400"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_7"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "30 45 60 75 80 85"
-      }
+      "duration"                                          "6"
+      "miss_rate"                                         "30 45 60 75 80 85"
+      "dodge_chance"                                      "20 40 60 80 90 100" //OAA
     }
   }
 
