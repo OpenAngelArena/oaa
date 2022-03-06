@@ -35,13 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"          "325 350 375 400"
+      "radius"          "325 350 375 400 425 450"
       "tick_interval"       "0.3"
       "total_duration"      "1.4"
       "tick_count"      "5"
       "stun_duration"       "0.3"
       "projectile_speed"    "1200"
-      "avalanche_damage"      
+      "avalanche_damage"
       {
         "value"       "75 150 225 300 600 1200"
         "LinkedSpecialBonus"    "special_bonus_unique_tiny"

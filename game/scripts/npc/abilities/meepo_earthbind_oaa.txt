@@ -56,6 +56,11 @@
         "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_meepo_4"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_point_tooltip"                              "0.3 0.25 0.2 0.15 0.1 0"
+      }
     }
   }
 }
