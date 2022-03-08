@@ -349,7 +349,7 @@ function CapturePoints:StartSearchingForCaptureLocation()
   local defaultPosition = Vector(0, 0, 0)
   local maxDistanceFromFountain = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS) -- 6656
   --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
-  local minDistanceFromFountain = 450 -- X: 6206
+  local minDistanceFromFountain = 800 -- X: 6206
   local maxY = 4100
   local maxX = maxDistanceFromFountain - 500 -- 6156
   local minY = 0
@@ -384,14 +384,13 @@ function CapturePoints:StartSearchingForCaptureLocation()
     defaultPosition.x = 0 - defaultPosition.x
   end
 
-  local position = defaultPosition
   local loopCount = 0
   local maxSearchDuration = self.CaptureLocationSearchDuration
   local searchInterval = 2 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
   local maxLoops = math.floor(maxSearchDuration / searchInterval) - 1
 
   Timers:CreateTimer(function ()
-    position = CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minDistanceFromFountain, maxDistanceFromFountain, isGoodLead)
+    local position = CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minDistanceFromFountain, maxDistanceFromFountain, isGoodLead)
 
     loopCount = loopCount + 1
 
@@ -401,6 +400,7 @@ function CapturePoints:StartSearchingForCaptureLocation()
 
     if loopCount == maxLoops then
       DebugPrint('Couldnt find a valid capture point location, using default...')
+      position = defaultPosition
     else
       DebugPrint('Found capture point location after ' .. loopCount .. ' tries')
     end
