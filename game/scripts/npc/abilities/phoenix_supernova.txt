@@ -48,7 +48,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_sec"                                  "60 120 180 360 540" //OAA
+        "damage_per_sec"                                  "60 120 180 400 650" //OAA; Buff: OAA levels increased from 360 540.
       }
       "03"
       {
@@ -59,13 +59,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks"                                "6 10 14 16 18" //OAA
+        "max_hero_attacks"                                "6 10 14 17 21" //OAA; Buff: OAA levels increased from 16 18; parallels max_hero_attacks_scepter
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks_scepter"                        "7 12 17 19 21" //OAA
+        "max_hero_attacks_scepter"                        "7 12 17 20 24" //OAA; Buff: OAA levels increased from 19 21; parallels max_hero_attacks
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
         "RequiresScepter"                                 "1"
       }
