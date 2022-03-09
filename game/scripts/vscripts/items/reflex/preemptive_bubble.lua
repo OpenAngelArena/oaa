@@ -30,10 +30,6 @@ function item_bubble_orb_1:OnSpellStart()
   CreateModifierThinker(caster, self, "modifier_item_preemptive_bubble_aura_block", {duration = duration}, targetPoint, caster:GetTeamNumber(), false)
 
   EmitSoundOnLocationWithCaster(targetPoint, "Hero_ArcWarden.MagneticField.Cast", caster)
-  -- Particle effect
-  local bubbleEffectName = "particles/items/bubble_orb_base.vpcf"
-  local bubbleEffect = ParticleManager:CreateParticle(bubbleEffectName, PATTACH_ABSORIGIN, caster)
-  ParticleManager:SetParticleControl(bubbleEffect, 1, Vector(radius, radius, radius))
 
   -- Knockback enemies
   local enemies = FindUnitsInRadius(
@@ -82,10 +78,9 @@ function item_bubble_orb_1:OnSpellStart()
   end
 
   -- Timer to destroy particle effect
-  Timers:CreateTimer(duration, function()
-    ParticleManager:DestroyParticle(bubbleEffect, false)
-    ParticleManager:ReleaseParticleIndex(bubbleEffect)
-  end)
+  --Timers:CreateTimer(duration, function()
+    
+  --end)
 end
 
 function item_bubble_orb_1:ProcsMagicStick()
@@ -118,22 +113,42 @@ end
 
 function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
   if IsServer() then
-    self.bubbleCenter = self:GetParent():GetOrigin()
-    self.caster = self:GetCaster()
-    self.casterTeam = self.caster:GetTeamNumber()
-    self.bubbleID = "BubbleOrbID: " .. self.casterTeam .. "," .. self.bubbleCenter.x .. "," .. self.bubbleCenter.y
-    self.ability = self:GetAbility()
-    self.radius = self.ability:GetSpecialValueFor("radius")
-    self.aura_stickiness = self.ability:GetSpecialValueFor("aura_stickiness")
-    self:StartIntervalThink(self.aura_stickiness)
-    self:OnIntervalThink()
+    local caster = self:GetCaster()
+    local radius
+    local aura_stickiness
+	local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      radius = ability:GetSpecialValueFor("radius")
+	  aura_stickiness = ability:GetSpecialValueFor("aura_stickiness")
+    else
+      radius = 300
+	  aura_stickiness = 0.1
+    end
+	
+    self.radius = radius
+    self.aura_stickiness = aura_stickiness
+
+    -- Particle effect
+    local bubbleEffectName = "particles/items/bubble_orb_base.vpcf"
+    self.bubbleEffect = ParticleManager:CreateParticle(bubbleEffectName, PATTACH_ABSORIGIN, caster)
+    ParticleManager:SetParticleControl(self.bubbleEffect, 1, Vector(radius, radius, radius))
+    
+	self:OnIntervalThink()
+    self:StartIntervalThink(aura_stickiness)
   end
 end
 
 function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+  local team = caster:GetTeamNumber()
+  local center = parent:GetAbsOrigin()
+  local bubbleModifierName = "modifier_item_preemptive_bubble_block"
+
   local alliedUnitsInBubble = FindUnitsInRadius(
-    self.casterTeam,
-    self.bubbleCenter,
+    team,
+    center,
     nil,
     self.radius,
     DOTA_UNIT_TARGET_TEAM_FRIENDLY,
@@ -143,46 +158,48 @@ function modifier_item_preemptive_bubble_aura_block:OnIntervalThink()
     false
   )
 
-  local function ApplyBlockModifier(unit)
-    local bubbleModifierName = "modifier_item_preemptive_bubble_block"
-    local bubbleModifiers = unit:FindAllModifiersByName(bubbleModifierName)
-
-    -- Checks if the given modifier comes from the bubble represented by self by comparing centers
-    local function IsFromThisBubble(modifier)
-      return modifier.bubbleCenter.x == self.bubbleCenter.x and modifier.bubbleCenter.y == self.bubbleCenter.y
-    end
-
-    local duplicateModifier = nth(1, filter(IsFromThisBubble, bubbleModifiers))
-    local bubbleModifierID = self.bubbleID .. "," .. unit:entindex()
-    -- If the unit already has a modifier with the same center then refresh its timer
-    if duplicateModifier then
-      Timers:RemoveTimer(bubbleModifierID)
-      Timers:CreateTimer(bubbleModifierID, {
-        endTime = self.aura_stickiness,
-        callback = function()
-          duplicateModifier:Destroy()
-        end
-      })
-    else -- Else create a new modifier and set a timer so that it gets destroyed if not refreshed
-      local newBubbleModifier = unit:AddNewModifier(self.caster, self.ability, bubbleModifierName, {
-        aura_origin_x = self.bubbleCenter.x,
-        aura_origin_y = self.bubbleCenter.y
-      })
-      Timers:CreateTimer(bubbleModifierID, {
-        endTime = self.aura_stickiness,
-        callback = function()
-          newBubbleModifier:Destroy()
-        end
+  for _, ally in pairs(alliedUnitsInBubble) do
+    if ally and not ally:IsNull() and ally.AddNewModifier ~= nil then
+      ally:AddNewModifier(caster, ability, bubbleModifierName, {
+        duration = self.aura_stickiness,
+        aura_origin_x = center.x,
+        aura_origin_y = center.y
       })
     end
   end
 
-  foreach(ApplyBlockModifier, iter(alliedUnitsInBubble))
+
+    --local bubbleModifiers = unit:FindAllModifiersByName(bubbleModifierName)
+
+    -- Checks if the given modifier comes from the bubble represented by self by comparing centers
+    --local function IsFromThisBubble(modifier)
+      --return modifier.bubbleCenter.x == self.bubbleCenter.x and modifier.bubbleCenter.y == self.bubbleCenter.y
+    --end
+
+    --local duplicateModifier = nth(1, filter(IsFromThisBubble, bubbleModifiers))
+    --local bubbleModifierID = self.bubbleID .. "," .. unit:entindex()
+    -- If the unit already has a modifier with the same center then refresh its timer
+    --if duplicateModifier then
+      --Timers:RemoveTimer(bubbleModifierID)
+      --Timers:CreateTimer(bubbleModifierID, {
+        --endTime = self.aura_stickiness,
+        --callback = function()
+          --duplicateModifier:Destroy()
+        --end
+      --})
 end
 
-if IsServer() then
-  function modifier_item_preemptive_bubble_aura_block:OnDestroy()
-    UTIL_Remove(self:GetParent())
+function modifier_item_preemptive_bubble_aura_block:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  if self.bubbleEffect then
+    ParticleManager:DestroyParticle(self.bubbleEffect, false)
+    ParticleManager:ReleaseParticleIndex(self.bubbleEffect)
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    parent:ForceKill(false)
   end
 end
 
@@ -218,10 +235,6 @@ function modifier_item_preemptive_bubble_block:IsPurgable()
   return false
 end
 
-function modifier_item_preemptive_bubble_block:IsPurgeException()
-  return false
-end
-
 function modifier_item_preemptive_bubble_block:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
@@ -231,12 +244,14 @@ function modifier_item_preemptive_bubble_block:GetTexture()
 end
 
 function modifier_item_preemptive_bubble_block:OnCreated(keys)
-  self.bubbleCenter = Vector(keys.aura_origin_x, keys.aura_origin_y, 0)
+  if IsServer() then
+    self.bubbleCenter = Vector(keys.aura_origin_x, keys.aura_origin_y, 0)
+  end
 end
 
 function modifier_item_preemptive_bubble_block:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_ABSORB_SPELL,
+    --MODIFIER_PROPERTY_ABSORB_SPELL,
     MODIFIER_PROPERTY_AVOID_DAMAGE
   }
 end
@@ -248,7 +263,7 @@ function modifier_item_preemptive_bubble_block:GetAbsorbSpell(keys)
   if casterIsAlly or self:UnitIsInBubble(caster) then
     return 0
   else
-    self:PlayBlockEffect()
+    --self:PlayBlockEffect()
     return 1
   end
 end
@@ -263,15 +278,23 @@ function modifier_item_preemptive_bubble_block:GetModifierAvoidDamage(keys)
   if not keys.inflictor or attackerIsAlly or self:UnitIsInBubble(attacker) then
     return 0
   else
-    --self:PlayBlockEffect()
     return 1
   end
 end
 
 function modifier_item_preemptive_bubble_block:UnitIsInBubble(unit)
   local radius = self:GetAbility():GetSpecialValueFor("radius")
-  local unitsInBubble = FindUnitsInRadius(unit:GetTeamNumber(), self.bubbleCenter, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-
+  local unitsInBubble = FindUnitsInRadius(
+    unit:GetTeamNumber(),
+    center,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_ALL,
+    bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    FIND_ANY_ORDER,
+    false
+  )
   return index(unit, unitsInBubble)
 end
 

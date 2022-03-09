@@ -14,29 +14,68 @@ function BubbleOrbFilter:Init()
 end
 
 function BubbleOrbFilter:ModifierGainedFilter(keys)
-  if not keys.entindex_caster_const then
+  if not keys.entindex_parent_const or not keys.entindex_caster_const or not keys.entindex_ability_const then
     return true
   end
 
   local caster = EntIndexToHScript(keys.entindex_caster_const)
   local parent = EntIndexToHScript(keys.entindex_parent_const)
-  local bubbleModifierName = "modifier_item_preemptive_bubble_block"
+  local bubbleModifierNameAlly = "modifier_item_preemptive_bubble_block"
   local casterIsAlly = caster:GetTeamNumber() == parent:GetTeamNumber()
-  local parentHasBubbleModifier = parent:HasModifier(bubbleModifierName)
-  local bubbleModifiers = parent:FindAllModifiersByName(bubbleModifierName)
-  local casterIsInBubbles = false
+  local parentHasBubbleModifier = parent:HasModifier(bubbleModifierNameAlly)
+  local bubbleModifiers = parent:FindAllModifiersByName(bubbleModifierNameAlly)
+  local casterIsInTheSameBubble = false
 
-  local function UnitIsInSpecificBubble(unit, bubbleModifier)
-    return bubbleModifier:UnitIsInBubble(unit)
+  local function IsUnitInThisBubble(unit, modifier)
+    if not modifier or modifier:IsNull() or not unit or unit:IsNull() then
+      return
+    end
+    local ability = modifier:GetAbility()
+    if not ability or ability:IsNull() then
+	  return
+    end
+	local radius = ability:GetSpecialValueFor("radius")
+    local center = modifier.bubbleCenter
+    if not center then
+      return
+	end
+	local enemiesInBubble = FindUnitsInRadius(
+      unit:GetTeamNumber(),
+      center,
+      nil,
+      radius,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_ALL,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+      FIND_ANY_ORDER,
+      false
+    )
+
+    return index(unit, enemiesInBubble)
   end
 
-  if parentHasBubbleModifier then
-    casterIsInBubbles = reduce(operator.land, true, map(partial(UnitIsInSpecificBubble, caster), iter(bubbleModifiers)))
+  --if parentHasBubbleModifier then
+    --casterIsInBubbles = reduce(operator.land, true, map(partial(UnitIsInSpecificBubble, caster), iter(bubbleModifiers)))
+  --end
+  if parentHasBubbleModifier and not casterIsAlly then
+    for _, bubbleModifier in pairs(bubbleModifiers) do
+      if bubbleModifier and not bubbleModifier:IsNull() then
+        if IsUnitInThisBubble(caster, bubbleModifier) then
+          casterIsInTheSameBubble = true
+          break
+        end
+	  end
+    end
   end
 
-  if not parentHasBubbleModifier or casterIsAlly or casterIsInBubbles then
+  if not parentHasBubbleModifier or casterIsAlly or casterIsInTheSameBubble then
     return true
   else
-    return false
+    local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
+    local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
+    ParticleManager:ReleaseParticleIndex(blockEffect)
+    parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+
+	return false
   end
 end
