@@ -21,44 +21,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // for the tooltip
+      "bonus_armor"                                       "10 15 20 25 30" // for the tooltip
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 18 24 30 36"
-      }
-      "02" // for the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 70 110 220 440"
+        "value"                                           "30 70 110 220 330" // for the tooltip
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03" // for the tooltip
+      "tree_bonus_damage_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_reduction"                          "20 30 40 50 60"
+        "value"                                           "50" // for the tooltip
+        "special_bonus_unique_tiny_7"                     "+40"
       }
-      "04" // bonus_armor - bonus_armor(at lvl 3)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor_oaa"                                 "0 0 0 6 12"
-      }
-      "05" // bonus_damage - bonus_damage(at lvl 3)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_oaa"                                "0 0 0 110 330"
-      }
-      "06" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_reduction_oaa"                      "0 0 0 10 20"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "model_scale_oaa"                                 "0 0 0 20 40"
-      }
+      "attack_speed_reduction"                            "20 30 40 50 60" // for the tooltip
+      "toss_bonus_damage"                                 "100 250 400 850 1300" // for the tooltip
+      "bonus_armor_oaa"                                   "0 0 0 5 10" // bonus_armor - bonus_armor(at lvl 3)
+      "bonus_damage_oaa"                                  "0 0 0 110 220" // bonus_damage - bonus_damage(at lvl 3)
+      "bonus_damage_with_tree"                            "0 0 0 165 330" // 50% increase of bonus_damage_oaa
+      "bonus_damage_with_tree_and_talent"                 "0 0 0 209 418" // 90% increase of bonus_damage_oaa
+      "attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
+      "model_scale_oaa"                                   "0 0 0 20 40"
+      "bonus_toss_damage_oaa"                             "0 0 0 450 900" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
     }
   }
 }
