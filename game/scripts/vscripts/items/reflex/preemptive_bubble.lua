@@ -3,7 +3,7 @@
 -- defines modifier_item_preemptive_bubble_block
 -- Notes: Blocking of non-targeted spell effects is done by a ModifierGained filter found in components/reflexfilters/bubble.lua
 -- Uses a thinker as a pseudo-aura instead of a proper aura because those always have a stickiness of 0.5 and cause issues with
--- multiple bubles on the same team. This makes the display for the modifier a little odd.
+-- multiple bubles on the same team.
 -- Does not block hook movement.
 -- Visual effects such as screenshake from stun not always blocked.
 -- Does not block effects from non-targeted spells from being refreshed. e.g. being stunned again by the same skill
