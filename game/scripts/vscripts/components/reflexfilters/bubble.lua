@@ -14,7 +14,7 @@ function BubbleOrbFilter:Init()
 end
 
 function BubbleOrbFilter:ModifierGainedFilter(keys)
-  if not keys.entindex_parent_const or not keys.entindex_caster_const or not keys.entindex_ability_const then
+  if not keys.entindex_parent_const or not keys.entindex_caster_const then
     return true
   end
 
@@ -71,11 +71,20 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   if not parentHasBubbleModifier or casterIsAlly or casterIsInTheSameBubble then
     return true
   else
-    local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
-    local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
-    ParticleManager:ReleaseParticleIndex(blockEffect)
-    parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
-
+    if not parent or parent:IsNull() or not parent:IsRealHero() then
+      return false
+    end
+    if parent.last_bubble_blocked_modifier ~= keys.name_const and parent.last_bubble_blocked_ability ~= keys.entindex_ability_const then
+      -- Particle effect
+      local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
+      local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
+      ParticleManager:ReleaseParticleIndex(blockEffect)
+      -- Sound effect
+      parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+      -- Prevent looping particle and sound effects
+      parent.last_bubble_blocked_modifier = keys.name_const -- important for constantly reapplying spells like Chronosphere
+      parent.last_bubble_blocked_ability = keys.entindex_ability_const -- important for spells that apply multiple modifiers like Blinding Light
+    end
     return false
   end
 end
