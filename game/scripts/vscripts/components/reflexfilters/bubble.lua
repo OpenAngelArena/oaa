@@ -26,20 +26,20 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   local bubbleModifiers = parent:FindAllModifiersByName(bubbleModifierNameAlly)
   local casterIsInTheSameBubble = false
 
-  local function IsUnitInThisBubble(unit, modifier)
+  local function IsUnitInSpecificBubble(unit, modifier)
     if not modifier or modifier:IsNull() or not unit or unit:IsNull() then
       return
     end
     local ability = modifier:GetAbility()
     if not ability or ability:IsNull() then
-	  return
+      return
     end
-	local radius = ability:GetSpecialValueFor("radius")
+    local radius = ability:GetSpecialValueFor("radius")
     local center = modifier.bubbleCenter
     if not center then
       return
-	end
-	local enemiesInBubble = FindUnitsInRadius(
+    end
+    local enemiesInBubble = FindUnitsInRadius(
       unit:GetTeamNumber(),
       center,
       nil,
@@ -60,11 +60,11 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   if parentHasBubbleModifier and not casterIsAlly then
     for _, bubbleModifier in pairs(bubbleModifiers) do
       if bubbleModifier and not bubbleModifier:IsNull() then
-        if IsUnitInThisBubble(caster, bubbleModifier) then
+        if IsUnitInSpecificBubble(caster, bubbleModifier) then
           casterIsInTheSameBubble = true
           break
         end
-	  end
+      end
     end
   end
 
@@ -76,6 +76,6 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
     ParticleManager:ReleaseParticleIndex(blockEffect)
     parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
 
-	return false
+    return false
   end
 end
