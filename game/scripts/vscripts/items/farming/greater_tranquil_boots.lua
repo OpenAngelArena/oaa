@@ -526,6 +526,10 @@ function modifier_greater_tranquils_tranquilize_debuff:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
+function modifier_greater_tranquils_tranquilize_debuff:GetTexture()
+  return "custom/greater_tranquils_4"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_greater_tranquils_tranquilize_buff = class(ModifierBaseClass)
@@ -577,4 +581,8 @@ function modifier_greater_tranquils_tranquilize_buff:CheckState()
     [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
   }
   return state
+end
+
+function modifier_greater_tranquils_tranquilize_buff:GetTexture()
+  return "custom/greater_tranquils_4"
 end

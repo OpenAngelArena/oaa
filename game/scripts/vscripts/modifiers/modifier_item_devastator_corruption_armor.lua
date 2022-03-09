@@ -36,9 +36,10 @@ function modifier_item_devastator_corruption_armor:GetModifierPhysicalArmorBonus
 end
 
 function modifier_item_devastator_corruption_armor:GetTexture()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
-    return baseIconName
-  end
+  --local ability = self:GetAbility()
+  --if ability and not ability:IsNull() then
+    --local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
+    --return baseIconName
+  --end
+  return "item_desolator"
 end
