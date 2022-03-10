@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5108"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5108"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -59,7 +59,7 @@
       "03" // bonus damage against bosses
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_buildings"                          "70 100 130 160 190 220" //OAA
+        "bonus_damage_buildings"                          "55 70 85 100 130 220"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
