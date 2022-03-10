@@ -231,6 +231,10 @@ function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
   return not self:GetParent():IsOAABoss()
 end
 
+function modifier_item_meteor_hammer_oaa_dot:GetTexture()
+  return "item_meteor_hammer"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_meteor_hammer_oaa_stun = class(ModifierBaseClass)
@@ -276,4 +280,8 @@ function modifier_item_meteor_hammer_oaa_stun:CheckState()
     [MODIFIER_STATE_STUNNED] = true,
   }
   return state
+end
+
+function modifier_item_meteor_hammer_oaa_stun:GetTexture()
+  return "item_meteor_hammer"
 end

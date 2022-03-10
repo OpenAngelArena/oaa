@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85262" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85262"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_death_pact.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"

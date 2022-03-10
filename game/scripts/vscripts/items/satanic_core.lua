@@ -219,3 +219,7 @@ end
 function modifier_satanic_core_unholy:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
+
+function modifier_satanic_core_unholy:GetTexture()
+  return "custom/satanic_core"
+end

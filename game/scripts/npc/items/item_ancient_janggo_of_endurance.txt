@@ -11,7 +11,7 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ancient_janggo"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
@@ -30,7 +30,6 @@
     //"AbilityTextureName"                                  "custom/drums_1"
 
     "ItemPermanent"                                       "1"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -40,9 +39,9 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ancient_janggo;item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
+    //"MaxUpgradeLevel"                                     "5"
+    //"ItemBaseLevel"                                       "1"
+    //"UpgradesItems"                                       "item_ancient_janggo;item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

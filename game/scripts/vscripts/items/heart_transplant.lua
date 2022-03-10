@@ -214,6 +214,10 @@ function modifier_item_heart_transplant_debuff:OnDestroy()
   end
 end
 
+function modifier_item_heart_transplant_debuff:GetTexture()
+  return "custom/heart_transplant"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_heart_transplant_buff = class(ModifierBaseClass)
@@ -347,4 +351,8 @@ function modifier_item_heart_transplant_buff:GetModifierHealthRegenPercentage()
   end
 
   return 0
+end
+
+function modifier_item_heart_transplant_buff:GetTexture()
+  return "custom/heart_transplant"
 end
