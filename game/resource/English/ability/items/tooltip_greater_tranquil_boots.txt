@@ -54,8 +54,12 @@
 "DOTA_Tooltip_modifier_greater_tranquils_tranquilize_debuff"                    "Tranquilized"
 "DOTA_Tooltip_modifier_greater_tranquils_tranquilize_debuff_Description"        "Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
-"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_buff"                      "Tranquility"
-"DOTA_Tooltip_modifier_greater_tranquils_tranquilize_buff_Description"          "Tree-Walking, bonus hp regen amplification and bonus heal amplification."
+"DOTA_Tooltip_modifier_greater_tranquils_bearing_buff"                          "Tranquility"
+"DOTA_Tooltip_modifier_greater_tranquils_bearing_buff_Description"              "Tree-Walking, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 "DOTA_Tooltip_modifier_greater_tranquils_trees_buff"                            "Tree Protection"
-"DOTA_Tooltip_modifier_greater_tranquils_trees_buff_Description"                "While near a tree, taking less damage, bonus hp regen amplification, bonus heal amplification, and bonus status resist."
+"DOTA_Tooltip_modifier_greater_tranquils_trees_buff_Description"                "While near a tree, taking less damage, bonus hp regen amplification, and bonus status resist."
+
+"DOTA_Tooltip_modifier_greater_tranquils_endurance_aura_effect"                 "#{DOTA_Tooltip_modifier_item_boots_of_bearing_aura}"
+"DOTA_Tooltip_modifier_greater_tranquils_endurance_aura_effect_Description"     "#{DOTA_Tooltip_modifier_item_boots_of_bearing_aura_Description}"
+
