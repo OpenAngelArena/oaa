@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinkerer: Oil Spill
+  //=================================================================================================================
+  "tinkerer_oil_spill"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "84646"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities//tinkerer/tinkerer_oil_spill.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Time and Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "5"
+	"AbilityManaCost"                                     "75"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+      "particle"                                          "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
+	  //"particle"                                          "particles/units/heroes/hero_demonartist/demonartist_darkaspect_pool_ground_splatter.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"                                            "400"
+	  "projectile_speed"                                  "700"
+	  "slow_duration"                                     "5"
+	  "move_speed_slow"                                   "15 20 25 30 35 40"
+	  "attack_speed_slow"                                 "15 20 25 30 35 40" // percentage attack speed slow
+      "burn_dps"                                          "30 40 50 60 120 240"
+      "burn_interval"                                     "0.2"
+    }
+  }
+}

@@ -58,8 +58,8 @@ function tinkerer_smart_missiles:OnSpellStart()
   -- Multishot missiles talent
   local talent = caster:FindAbilityByName("multishot_talent") -- temporary
   if talent and talent:GetLevel() > 0 then
-    local multishot_angle = talent2:GetSpecialValueFor("multishot_angle")
-    local multishot_count = talent2:GetSpecialValueFor("multishot_count")
+    local multishot_angle = talent:GetSpecialValueFor("multishot_angle")
+    local multishot_count = talent:GetSpecialValueFor("multishot_count")
 
     -- Send additional projectiles specified by the talent
     for i = 0, multishot_count-1 do
@@ -78,12 +78,7 @@ function tinkerer_smart_missiles:OnSpellStart()
       -- Calculate velocity for this projectile
 	  projectile_table.vVelocity = direction_multishot * rocket_speed
       -- Mark this projectile as a multishot projectile
-	  projectile_table.ExtraData = {
-        ox = tostring(caster_loc.x),
-        oy = tostring(caster_loc.y),
-        oz = tostring(caster_loc.z),
-        multishot_bool = 1,
-      }
+	  projectile_table.ExtraData.multishot_bool = 1
 
       -- Create projectile
       ProjectileManager:CreateLinearProjectile(projectile_table)
@@ -109,9 +104,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return false
   end
 
-  local rocket_bonus_max_hp_damage = self:GetSpecialValueFor("rocket_bonus_max_hp_damage")
-  local rocket_bonus_damage_range = self:GetSpecialValueFor("rocket_bonus_damage_range")
-  local rocket_damage = self:GetSpecialValueFor("rocket_damage")
+  local bonus_max_hp_damage = self:GetSpecialValueFor("bonus_max_hp_damage")
+  local bonus_damage_range = self:GetSpecialValueFor("bonus_damage_range")
+  local base_damage = self:GetSpecialValueFor("base_damage")
   local stun_duration = self:GetSpecialValueFor("stun_duration")
   local rocket_vision = self:GetSpecialValueFor("rocket_vision")
   local rocket_explode_vision = self:GetSpecialValueFor("rocket_explode_vision")
@@ -120,7 +115,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   -- Check for bonus damage talent
   local talent2 = caster:FindAbilityByName("bonus_damage_talent") -- temporary
   if talent2 and talent2:GetLevel() > 0 then
-    rocket_damage = talent2:GetSpecialValueFor("value")
+    base_damage = base_damage + talent2:GetSpecialValueFor("value")
   end
 
   -- Calculate traveled distance
@@ -128,12 +123,13 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local travel_distance = (location - origin_position):Length2D()
 
   -- Calculate bonus damage if traveled distance is higher than the threshold for non-boss units
-  if travel_distance >= rocket_bonus_damage_range and not target:IsOAABoss() then
-    bonus_damage = target:GetMaxHealth() * rocket_bonus_max_hp_damage * 0.01
+  local bonus_damage = 0
+  if travel_distance >= bonus_damage_range and not target:IsOAABoss() then
+    bonus_damage = target:GetMaxHealth() * bonus_max_hp_damage * 0.01
   end
 
   -- Calculate total damage
-  local total_damage = rocket_damage + bonus_damage
+  local total_damage = base_damage + bonus_damage
 
   -- Particle
   local particle_name = "particles/units/heroes/hero_tinker/tinker_missle_explosion.vpcf"
@@ -155,6 +151,14 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   damage_table.damage_type = self:GetAbilityDamageType()
 
   ApplyDamage(damage_table)
+  
+  -- Add vision
+  local vision_radius = math.max(rocket_vision, rocket_explode_vision)
+  AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, vision_duration, false)
+  
+   -- Sound
+  local sound_name = "Hero_Tinker.Heat-Seeking_Missile.Impact"
+  EmitSoundOnLocationWithCaster(location, sound_name, caster)
 
   -- Missile explosion affects nearby units
   local talent3 = caster:FindAbilityByName("bigger_explosion_talent") -- temporary
@@ -188,14 +192,6 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
       ApplyDamage(damage_table)
     end
   end
-  
-  -- Add vision
-  local vision_radius = math.max(rocket_vision, rocket_explode_vision)
-  AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, vision_duration, false)
-  
-   -- Sound
-  local sound_name = "Hero_Tinker.Heat-Seeking_Missile.Impact"
-  EmitSoundOnLocationWithCaster(location, sound_name, caster)
 
   return true
 end

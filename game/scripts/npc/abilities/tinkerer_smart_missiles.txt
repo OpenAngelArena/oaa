@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinkerer: Smart Missiles
+  //=================================================================================================================
+  "tinkerer_smart_missiles"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85151"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities//tinkerer/tinkerer_smart_missiles.lua"
+    "AbilityTextureName"                                  "tinker_heat_seeking_missile"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "3000"
+	"AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "2 2 3 4 4 4"
+    "AbilityChargeRestoreTime"                            "5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80"
+	
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "base_damage"                                     "115 190 265 340 680 1360"
+      "rocket_speed"                                    "700"
+      "rocket_width"                                    "150"
+      "rocket_range"                                    "3000"
+      "rocket_vision"                                   "250"
+      "bonus_max_hp_damage"                             "7"
+      "bonus_damage_range"                              "1500"
+      "stun_duration"                                   "0.1"
+      "rocket_explode_vision"                           "400"
+      "vision_duration"                                 "3"
+    }
+  }
+}

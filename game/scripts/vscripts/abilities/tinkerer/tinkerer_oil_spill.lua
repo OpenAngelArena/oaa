@@ -4,29 +4,34 @@ LinkLuaModifier("modifier_tinkerer_oil_spill_debuff", "abilities/tinkerer/tinker
 tinkerer_oil_spill = class({})
 
 function tinkerer_oil_spill:GetAOERadius()
-  return self:GetSpecialValueFor("ability_aoe")
+  return self:GetSpecialValueFor("radius")
 end
 
 function tinkerer_oil_spill:OnSpellStart()
   local caster = self:GetCaster()
   local cursor = self:GetCursorPosition()
+  local caster_loc = caster:GetAbsOrigin()
   local team = caster:GetTeamNumber()
   local projectile_speed = self:GetSpecialValueFor("projectile_speed")
 
-  local thinker = CreateModifierThinker(caster, self, "modifier_tinkerer_oil_spill_thinker", {duration = 5.0}, cursor, team, false)
+  -- Calculate duration
+  local distance = (cursor - caster_loc):Length2D()
+  local thinker_duration = distance / projectile_speed + 1
+
+  -- Create a thinker at the location
+  local thinker = CreateModifierThinker(caster, self, "modifier_tinkerer_oil_spill_thinker", {duration = thinker_duration}, cursor, team, false)
 
   local projectile_table = {
-    vSourceLoc = caster:GetAbsOrigin(),
+    vSourceLoc = caster_loc,
     Target = thinker,
     iMoveSpeed = projectile_speed,
-    --flExpireTime = GameRules:GetGameTime()+5.0,
     bDodgeable = false,
     bIsAttack = false,
     bReplaceExisting = false,
     bIgnoreObstructions = true,
     bDrawsOnMinimap = false,
-    --bVisibleToEnemies = false,
-    EffectName = ".vpcf",
+    bVisibleToEnemies = true,
+    EffectName = "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf",
     Ability = self,
     Source = caster,
     bProvidesVision = true,
@@ -36,42 +41,43 @@ function tinkerer_oil_spill:OnSpellStart()
 
   ProjectileManager:CreateTrackingProjectile(projectile_table)
 
-  caster:EmitSound("Hero_Shredder.TimberChain.Impact")
+  -- Launch sound
+  --caster:EmitSound("")
 end
 
 function tinkerer_oil_spill:OnProjectileHit(target,location)
   local caster = self:GetCaster()
   local team = caster:GetTeamNumber()
 
-  local ability_aoe = self:GetSpecialValueFor("ability_aoe")
+  local radius = self:GetSpecialValueFor("radius")
   local slow_duration = self:GetSpecialValueFor("slow_duration")
 
-  local splat = ParticleManager:CreateParticle(".vpcf", PATTACH_ABSORIGIN, caster)
+  local splat = ParticleManager:CreateParticle("particles/units/heroes/hero_demonartist/demonartist_darkaspect_pool_ground_splatter.vpcf", PATTACH_ABSORIGIN, caster)
 
-  local aboveground = GetGroundPosition(location,nil)
-  ParticleManager:SetParticleControl(splat,0,aboveground)
+  local aboveground = GetGroundPosition(location, nil)
+  ParticleManager:SetParticleControl(splat, 0, aboveground)
   ParticleManager:ReleaseParticleIndex(splat)
 
-  AddFOWViewer(team,location,ability_aoe,1.0,false)
-  --DebugDrawCircle(location,Vector(255,0,0),1,ability_aoe,true,1.0)
+  AddFOWViewer(team, location, radius, 1.0, false)
+  DebugDrawCircle(location, Vector(255,0,0), 1, radius, true, 1.0)
 
   --oil near enemies
   local oiled_enemies = FindUnitsInRadius(
-      team,
-      location,
-      nil,
-      ability_aoe,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-      DOTA_UNIT_TARGET_FLAG_NONE,
-      FIND_ANY_ORDER,
-      false
+    team,
+    location,
+    nil,
+    radius,
+    self:GetAbilityTargetTeam(),
+    self:GetAbilityTargetType(),
+    self:GetAbilityTargetFlags(),
+    FIND_ANY_ORDER,
+    false
   )
 
-  -- Check for talent
-  local talent_slow_duration = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_duration")
-  if talent_slow_duration and talent_slow_duration:GetLevel() > 0 then
-    slow_duration = slow_duration + talent_slow_duration:GetSpecialValueFor("value")
+  -- Check for talent that increases the slow duration
+  local talent = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_duration") -- temporary
+  if talent and talent:GetLevel() > 0 then
+    slow_duration = slow_duration + talent:GetSpecialValueFor("value")
   end
 
   --loop enemies
@@ -81,7 +87,7 @@ function tinkerer_oil_spill:OnProjectileHit(target,location)
     end
   end
 
-  target:EmitSound("Hero_Alchemist.AcidSpray.Damage")
+  --target:EmitSound("Hero_Alchemist.AcidSpray.Damage")
 
   target:ForceKill(false)
 
@@ -128,85 +134,128 @@ function modifier_tinkerer_oil_spill_debuff:IsPurgable() return true end
 	--return "particles/status_fx/status_effect_stickynapalm.vpcf"
 --end
 
-function modifier_tinkerer_oil_spill_debuff:OnCreated( kv )
-  self.talent_ms_as_bonus = 0
-  local talent_slow_amount = self:GetCaster():FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_amount")
-  if not talent_slow_amount == false then
-     self.talent_ms_as_bonus = talent_slow_amount:GetSpecialValueFor("value")
+function modifier_tinkerer_oil_spill_debuff:OnCreated()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  local move_speed_slow = 15
+  local attack_speed_slow = 15
+  local burn_dps = 30
+  local burn_interval = 0.2
+
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    move_speed_slow = ability:GetSpecialValueFor("move_speed_slow")
+    attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
+    burn_dps = ability:GetSpecialValueFor("burn_dps")
+    burn_interval = ability:GetSpecialValueFor("burn_interval")
   end
 
-  self.move_speed_percent = self:GetAbility():GetSpecialValueFor("move_speed_percent")+self.talent_ms_as_bonus
-  self.attack_speed_percent = self:GetAbility():GetSpecialValueFor("attack_speed_percent")+self.talent_ms_as_bonus
-  self.burn_dot = self:GetAbility():GetSpecialValueFor("burn_dot")
-  self.oil_drip = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
-  self.is_burning = false
+  -- Check for talent that increases the slow amounts
+  local talent = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_amount") -- temporary
+  if talent and talent:GetLevel() > 0 then
+    move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
+    attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
+  end
+  
+  -- Check for talent that increases the burn dps
+  local talent2 = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_burn_amount") -- temporary
+  if talent2 and talent2:GetLevel() > 0 then
+    burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
+  end
+  
+  -- Status resistance fix
+  if IsServer() then
+    move_speed_slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
+    attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
+    self.oil_drip = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+  end
+
+  self.move_speed_slow = move_speed_slow
+  self.attack_speed_slow = attack_speed_slow
+  self.burn_dps = burn_dps
+  self.burn_interval = burn_interval
+  self.already_burning = false
 end
 
 function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
-    local dfuncs = {
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-        MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_TOOLTIP
-    }
-	return dfuncs
+  local funcs = {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_TOOLTIP
+  }
+  return funcs
 end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierMoveSpeedBonus_Percentage()
-    return -self.move_speed_percent
+  return 0 - math.abs(self.move_speed_slow)
 end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierAttackSpeedPercentage()
-    return -self.attack_speed_percent
+  return 0 - math.abs(self.attack_speed_slow)
 end
 
-function modifier_tinkerer_oil_spill_debuff:OnTakeDamage(event)
-  if event.attacker ~= self:GetCaster() then return end
+if IsServer() then
+  function modifier_tinkerer_oil_spill_debuff:OnTakeDamage(event)
+    local attacker = event.attacker
+    local inflictor = event.inflictor
+    local victim = event.unit
 
-  if event.unit ~= self:GetParent() then return end
+    if not attacker or attacker:IsNull() or not inflictor or not victim or victim:IsNull() then
+      return
+    end
+    
+    local caster = self:GetCaster()
+    local parent = self:GetParent()
 
-  if not event.inflictor then return end
+    if attacker ~= caster or victim ~= parent then
+      return
+    end
 
-  if event.inflictor:GetName() ~= "tinkerer_smart_missiles" then return end
+    if inflictor:GetName() ~= "tinkerer_smart_missiles" then
+      return
+    end
 
-  if self.is_burning == true then return end
+    if self.already_burning then
+      return
+    end
 
-  self.is_burning = true
+    self.already_burning = true
 
-  self.burning_particle = ParticleManager:CreateParticle(
-      "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf",
-      PATTACH_ABSORIGIN_FOLLOW,
-      self:GetParent()
-  )
+    local particle_name = "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
+	self.burning_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
 
-  self:OnIntervalThink()
-  self:StartIntervalThink(1.0)
-end
+    self:OnIntervalThink()
+    self:StartIntervalThink(self.burn_interval)
+  end
 
-function modifier_tinkerer_oil_spill_debuff:OnIntervalThink()
+  function modifier_tinkerer_oil_spill_debuff:OnIntervalThink()
     local burn_table = {
-        victim = self:GetParent(),
-        attacker = self:GetCaster(),
-        damage = self.burn_dot,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE,
-        ability = self:GetAbility()
+      victim = self:GetParent(),
+      attacker = self:GetCaster(),
+      damage = self.burn_dps * self.burn_interval,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self:GetAbility()
     }
+
     ApplyDamage(burn_table)
+  end
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnTooltip()
-    return self.burn_dot
+  return self.burn_dps
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnDestroy()
   if self.oil_drip then
-    ParticleManager:DestroyParticle(self.oil_drip,false)
+    ParticleManager:DestroyParticle(self.oil_drip, false)
     ParticleManager:ReleaseParticleIndex(self.oil_drip)
   end
 
   if self.burning_particle then
-    ParticleManager:DestroyParticle(self.burning_particle,false)
+    ParticleManager:DestroyParticle(self.burning_particle, false)
     ParticleManager:ReleaseParticleIndex(self.burning_particle)
   end
 end
