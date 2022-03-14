@@ -42,23 +42,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                                          "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+      "particle"                                          "particles/hero/tinkerer/rocket_projectile_linear.vpcf"
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                     "115 190 265 340 680 1360"
-      "rocket_speed"                                    "700"
-      "rocket_width"                                    "150"
-      "rocket_range"                                    "3000"
-      "rocket_vision"                                   "250"
-      "bonus_max_hp_damage"                             "7"
-      "bonus_damage_range"                              "1500"
-      "stun_duration"                                   "0.1"
-      "rocket_explode_vision"                           "400"
-      "vision_duration"                                 "3"
+      "base_damage"                                       "115 190 265 340 680 1360"
+      "rocket_speed"                                      "700"
+      "rocket_width"                                      "150"
+      "rocket_range"                                      "3000"
+      "rocket_vision"                                     "250"
+      "bonus_max_hp_damage"                               "7"
+      "bonus_damage_range"                                "1500"
+      "stun_duration"                                     "0.1"
+      "rocket_explode_vision"                             "400"
+      "vision_duration"                                   "3"
     }
   }
 }

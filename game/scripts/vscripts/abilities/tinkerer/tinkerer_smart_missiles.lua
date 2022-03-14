@@ -25,7 +25,7 @@ function tinkerer_smart_missiles:OnSpellStart()
 
   local projectile_table = {
     Ability = self,
-    EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf", -- temporary
+    EffectName = "particles/hero/tinkerer/rocket_projectile_linear.vpcf",
     vSpawnOrigin = caster_loc, -- temporary
     fDistance = rocket_range + caster:GetCastRangeBonus(),
     fStartRadius = rocket_width,

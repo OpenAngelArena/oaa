@@ -52,7 +52,7 @@ function tinkerer_oil_spill:OnProjectileHit(target,location)
   local radius = self:GetSpecialValueFor("radius")
   local slow_duration = self:GetSpecialValueFor("slow_duration")
 
-  local splat = ParticleManager:CreateParticle("particles/units/heroes/hero_demonartist/demonartist_darkaspect_pool_ground_splatter.vpcf", PATTACH_ABSORIGIN, caster)
+  local splat = ParticleManager:CreateParticle("particles/hero/tinkerer/ground_splatter.vpcf", PATTACH_ABSORIGIN, caster)
 
   local aboveground = GetGroundPosition(location, nil)
   ParticleManager:SetParticleControl(splat, 0, aboveground)
