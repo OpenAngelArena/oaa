@@ -198,29 +198,35 @@ function handleOAASettingsChange (n, key, settings) {
     HM14: '#game_option_rend'
   };
 
-  if (settings.HEROES_MODS !== 'HMN') {
+  if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
+    lines.push($.Localize('#hero_options_title'));
     const modifierNames = heroModifierNames;
-    lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
-    lines.push('');
+
+    if (settings.HEROES_MODS !== 'HMN') {
+      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+      lines.push('');
+    }
+
+    if (settings.HEROES_MODS_2 !== 'HMN') {
+      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
+      lines.push('');
+    }
   }
 
-  if (settings.HEROES_MODS_2 !== 'HMN') {
-    const modifierNames = heroModifierNames;
-    lines.push($.Localize('#hero_options_title') + ' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
-    lines.push('');
-  }
   if (settings.BOSSES_MODS !== 'BMN') {
     const modifierNames = {
       BM01: '#game_option_lifesteal',
       BM02: '#game_option_echo_strike',
       BM03: '#game_option_physical_immune',
       BM04: '#game_option_spell_block',
-      BM05: '#game_option_no_cast_points'
+      BM05: '#game_option_no_cast_points',
+      BM06: '#game_option_hyper_active'
     };
 
     lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
     lines.push('');
   }
+
   if (settings.GLOBAL_MODS !== 'GMN') {
     const modifierNames = {
       GM01: '#game_option_lifesteal',

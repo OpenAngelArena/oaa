@@ -15,9 +15,9 @@ local hero_mods = {
   HM05 = "modifier_echo_strike_oaa",
   HM06 = "modifier_ham_oaa",
   HM07 = "modifier_no_cast_points_oaa",
-  HM08 = "modifier_physical_immunity_oaa",
-  HM09 = "modifier_pro_active_oaa",
-  HM10 = "modifier_spell_block_oaa",
+  --HM08 = "modifier_physical_immunity_oaa",
+  --HM09 = "modifier_pro_active_oaa",
+  --HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
   HM13 = "modifier_diarrhetic_oaa",
@@ -28,8 +28,9 @@ local boss_mods = {
   BM01 = "modifier_any_damage_lifesteal_oaa",
   BM02 = "modifier_echo_strike_oaa",
   BM03 = "modifier_physical_immunity_oaa",
-  BM04 = "modifier_spell_block_oaa",
+  --BM04 = "modifier_spell_block_oaa",
   BM05 = "modifier_no_cast_points_oaa",
+  BM06 = "modifier_ham_oaa",
 }
 local global_mods = {
   GMN  = false,
@@ -40,8 +41,8 @@ local global_mods = {
   --GM05 = false, --"modifier_echo_strike_oaa",           -- lags
   --GM06 = "modifier_ham_oaa",                            -- mostly useless for neutral creeps
   --GM07 = "modifier_no_cast_points_oaa",                 -- mostly useless for any creep
-  GM08 = "modifier_physical_immunity_oaa",
-  GM09 = "modifier_pro_active_oaa",
+  --GM08 = "modifier_physical_immunity_oaa",
+  --GM09 = "modifier_pro_active_oaa",
   --GM10 = "modifier_spell_block_oaa",                    -- lags
   --GM11 = "modifier_troll_switch_oaa",                   -- lags
 }
@@ -72,8 +73,8 @@ function OAAOptions:Init ()
     elseif name == "RANDOMIZE" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
       self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
-      self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
-      self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
+      --self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
+      --self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
       self:SaveSettings()
     end
   end)
