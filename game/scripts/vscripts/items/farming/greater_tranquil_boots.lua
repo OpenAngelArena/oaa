@@ -50,7 +50,7 @@ function item_greater_tranquil_boots:OnSpellStart()
       target:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_buff", {duration = tree_buff_duration})
     else
       -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area
-      local allies = = FindUnitsInRadius(
+      local allies = FindUnitsInRadius(
         caster:GetTeamNumber(),
         caster:GetAbsOrigin(),
         nil,
@@ -101,13 +101,31 @@ function item_greater_tranquil_boots:Sprout(target)
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("sprout_duration")
   local target_loc = target:GetAbsOrigin()
+  local team = caster:GetTeamNumber()
+  
+  -- Vision
+  local vision_radius
+  if target:GetTeamNumber() == team then
+    -- same vision as the target
+    vision_radius = math.min(target:GetCurrentVisionRange(), 900)
+  else
+    vision_radius = self:GetSpecialValueFor("sprout_vision_range")
+  end
+
+  -- Create an invisible dummy/thinker
+  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, team)
+  dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
+  dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
+  dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+
+  --self:CreateVisibilityNode(target_loc, vision_radius, duration)
 
   local r = 150
   local c = math.sqrt(2) * 0.5 * r
   local x_offset = { -r, -c, 0.0, c, r, c, 0.0, -c }
   local y_offset = { 0.0, c, r, c, 0.0, -c, -r, -c }
 
-  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, nil)
+  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(nFXIndex, 0, target_loc)
   ParticleManager:SetParticleControl(nFXIndex, 1, Vector(0.0, r, 0.0))
   ParticleManager:ReleaseParticleIndex(nFXIndex)
@@ -121,21 +139,6 @@ function item_greater_tranquil_boots:Sprout(target)
   for i = 1, 8 do
     ResolveNPCPositions(target_loc + Vector(x_offset[i], y_offset[i], 0.0), 64.0)
   end
-
-  -- Vision
-  local vision_radius
-  if target:GetTeamNumber() == caster:GetTeamNumber() then
-    -- same vision as the target
-    vision_radius = target:GetCurrentVisionRange()
-  else
-    vision_radius = self:GetSpecialValueFor("sprout_vision_range")
-  end
-
-  -- Create an invisible dummy/thinker
-  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, caster:GetTeamNumber())
-  dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
-  dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
-  dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
 
   -- Sound
   EmitSoundOnLocationWithCaster(target_loc, "Hero_Furion.Sprout", caster)
@@ -730,7 +733,14 @@ function modifier_greater_tranquils_trees_dummy_stuff:IsPurgable()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:OnCreated(kv)
-  self.radius = kv.radius
+  if IsServer() then
+    local radius = kv.radius
+    if radius then
+      self:SetStackCount(radius)
+    else
+      print("radius is nil")
+    end
+  end
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:DeclareFunctions()
@@ -741,9 +751,16 @@ function modifier_greater_tranquils_trees_dummy_stuff:DeclareFunctions()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:GetBonusDayVision()
-  return self.radius or 250
+  return self.radius or self:GetStackCount()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:GetBonusNightVision()
-  return self.radius or 250
+  return self.radius or self:GetStackCount()
+end
+
+function modifier_greater_tranquils_trees_dummy_stuff:CheckState()
+  local state = {
+    [MODIFIER_STATE_FLYING] = true,
+  }
+  return state
 end
