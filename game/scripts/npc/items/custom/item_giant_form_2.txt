@@ -72,8 +72,10 @@
     "AbilityValues"
     {
       "bonus_damage"                                    "180 260"
+      "bonus_strength"                                  "0"
       "bonus_health_regen"                              "17 20"
-      "cleave_percent"                                  "130 150" // doesn't work on ranged heroes
+      "bonus_attack_range_melee"                        "50 100" // doesn't work on ranged heroes
+      "cleave_percent"                                  "100 120" // doesn't work on ranged heroes
       "cleave_starting_width"                           "150"
       "cleave_ending_width"                             "360"
       "cleave_distance"                                 "650"
