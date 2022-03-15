@@ -195,7 +195,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM11: '#game_option_troll_switch',
     HM12: '#game_option_hyper_experience',
     HM13: '#game_option_diarrhetic',
-    HM14: '#game_option_rend'
+    HM14: '#game_option_rend',
+    HM15: '#game_option_telescope',
+    HM16: '#game_option_healer'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
