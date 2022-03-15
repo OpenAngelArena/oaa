@@ -36,6 +36,8 @@
 "game_option_explosive_death"    "Explosive Death"
 "game_option_no_hp_bar"          "Hidden Health Bar"
 "game_option_agressive_bosses"   "Hostile"
+"game_option_brute"              "Brute"
+"game_option_wisdom"             "Wisdom"
 
 "game_option_lifesteal_description"          "100% lifesteal and spell lifesteal against heroes. 50% against creeps and illusions."
 "game_option_aoe_radius_description"         "Most spells' and items' radius (AoE) increased by 50%."
@@ -56,6 +58,8 @@
 "game_option_explosive_death_description"    "Explodes on death, knocking back and dealing damage to enemies in the vicinity."
 "game_option_no_hp_bar_description"          "Health Bar above your hero isn't visible to other players. You cannot see if the hero is full health or near death."
 "game_option_agressive_bosses_description"   "Bosses cannot regen, heal or lifesteal. Bosses will never deaggro once aggroed unless they are too far away from the initial aggro location. Bosses with phases never become weaker."
+"game_option_brute_description"              "Provides 1 strength per hero level and 0.08 attack damage per point of HP. Changes primary attribute to Strength if non-strength hero. Changes primary attribute randomly otherwise."
+"game_option_wisdom_description"             "Provides 1 intelligence per hero level and 0.008% spell amplification per point of mana. Changes primary attribute to Intelligence if non-intelligence hero. Changes primary attribute randomly otherwise."
 
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                      "#{game_option_lifesteal}"
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"          "100%% lifesteal and spell lifesteal against heroes. 50%% against creeps and illusions."
@@ -99,3 +103,7 @@
 "DOTA_Tooltip_modifier_no_health_bar_oaa_Description"                 "#{game_option_no_hp_bar_description}"
 "DOTA_Tooltip_modifier_boss_aggresive_oaa"                            "#{game_option_agressive_bosses}"
 "DOTA_Tooltip_modifier_boss_aggresive_oaa_Description"                "This boss cannot regen, heal or lifesteal. It will never deaggro once aggroed unless it is too far away from the initial aggro location. If this boss has phases, phase number will never go down."
+"DOTA_Tooltip_modifier_brute_oaa"                                     "#{game_option_brute}"
+"DOTA_Tooltip_modifier_brute_oaa_Description"                         "#{game_option_brute_description}"
+"DOTA_Tooltip_modifier_wisdom_oaa"                                    "#{game_option_wisdom}"
+"DOTA_Tooltip_modifier_wisdom_oaa_Description"                        "Provides 1 intelligence per hero level and 0.008%% spell amp per point of mana. Changes primary attribute to Intelligence if non-intelligence hero. Changes primary attribute randomly otherwise."

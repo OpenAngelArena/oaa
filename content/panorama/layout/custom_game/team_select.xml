@@ -67,6 +67,8 @@
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
@@ -89,6 +91,8 @@
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#boss_options_title"/>
                 <DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">

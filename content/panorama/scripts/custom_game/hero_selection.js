@@ -199,7 +199,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM15: '#game_option_telescope',
     HM16: '#game_option_healer',
     HM17: '#game_option_explosive_death',
-    HM18: '#game_option_no_hp_bar'
+    HM18: '#game_option_no_hp_bar',
+    HM19: '#game_option_brute',
+    HM20: '#game_option_wisdom'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
