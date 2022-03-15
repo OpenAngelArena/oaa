@@ -11,7 +11,7 @@
 "game_option_spp"                "2-6 Players"
 "game_option_none"               "None"
 "game_option_random"             "Random"
-"game_options_randomize"         "Randomize Modifiers"
+"game_options_randomize"         "Randomize Hero Modifiers"
 
 "hero_options_title"             "Hero Modifiers:"
 "boss_options_title"             "Boss Modifiers:"
@@ -33,6 +33,9 @@
 "game_option_rend"               "Rend"
 "game_option_telescope"          "Telescope"
 "game_option_healer"             "Healer"
+"game_option_explosive_death"    "Explosive Death"
+"game_option_no_hp_bar"          "Hidden Health Bar"
+"game_option_agressive_bosses"   "Hostile"
 
 "game_option_lifesteal_description"          "100% lifesteal and spell lifesteal against heroes. 50% against creeps and illusions."
 "game_option_aoe_radius_description"         "Most spells' and items' radius (AoE) increased by 50%."
@@ -50,6 +53,9 @@
 "game_option_rend_description"               "Every attack applies stacking armor reduction debuff. Each debuff reduces armor by 1."
 "game_option_telescope_description"          "Bonus 400 cast range and attack range."
 "game_option_healer_description"             "Bonus 75% healing amplification and bonus 75% spell lifesteal amplification."
+"game_option_explosive_death_description"    "Explodes on death, knocking back and dealing damage to enemies in the vicinity."
+"game_option_no_hp_bar_description"          "Health Bar above your hero isn't visible to other players. You cannot see if the hero is full health or near death."
+"game_option_agressive_bosses_description"   "Bosses cannot regen, heal or lifesteal. Bosses will never deaggro once aggroed unless they are too far away from the initial aggro location. Bosses with phases never become weaker."
 
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                      "#{game_option_lifesteal}"
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"          "100%% lifesteal and spell lifesteal against heroes. 50%% against creeps and illusions."
@@ -87,3 +93,9 @@
 "DOTA_Tooltip_modifier_range_increase_oaa_Description"                "#{game_option_telescope_description}"
 "DOTA_Tooltip_modifier_healer_oaa"                                    "#{game_option_healer}"
 "DOTA_Tooltip_modifier_healer_oaa_Description"                        "Bonus 75%% healing amplification and bonus 75%% spell lifesteal amplification."
+"DOTA_Tooltip_modifier_explosive_death_oaa"                           "#{game_option_explosive_death}"
+"DOTA_Tooltip_modifier_explosive_death_oaa_Description"               "On Death, knocks back and deals damage to enemies in the area. Damage is based on your max health and networth. Radius is based on your level."
+"DOTA_Tooltip_modifier_no_health_bar_oaa"                             "#{game_option_no_hp_bar}"
+"DOTA_Tooltip_modifier_no_health_bar_oaa_Description"                 "#{game_option_no_hp_bar_description}"
+"DOTA_Tooltip_modifier_boss_aggresive_oaa"                            "#{game_option_agressive_bosses}"
+"DOTA_Tooltip_modifier_boss_aggresive_oaa_Description"                "This boss cannot regen, heal or lifesteal. It will never deaggro once aggroed unless it is too far away from the initial aggro location. If this boss has phases, phase number will never go down."

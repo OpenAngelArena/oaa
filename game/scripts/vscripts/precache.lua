@@ -89,6 +89,8 @@ g_ParticlePrecache = {
   "particles/items/upgrade_2.vpcf",
   "particles/items/upgrade_3.vpcf",
   "particles/items/upgrade_4.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_netherblast_pre.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf",
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
   -- Carapace Boss

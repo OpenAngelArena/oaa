@@ -34,7 +34,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen:OnCreated( event )
-  if not IsServer() then
+  if not IsServer() or self:GetParent():HasModifier("modifier_boss_aggresive_oaa") then
     return
   end
   local spell = self:GetAbility()
@@ -53,6 +53,12 @@ end
 if IsServer() then
 	function modifier_boss_regen:OnIntervalThink()
 		local parent = self:GetParent()
+
+    if parent:HasModifier("modifier_boss_aggresive_oaa") then
+      self:StartIntervalThink(-1)
+      return
+    end
+
 		local spell = self:GetAbility()
 		local interval = spell:GetSpecialValueFor( "regen_interval" )
 

@@ -65,6 +65,8 @@
                   <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
@@ -85,6 +87,8 @@
                   <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#boss_options_title"/>
                 <DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">
@@ -96,6 +100,7 @@
                   <!-- <Label text="#game_option_spell_block" id="BM04" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_no_cast_points" id="BM05" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_active" id="BM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_agressive_bosses" id="BM07" onmouseover="UIShowTextTooltip(#game_option_agressive_bosses_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#units_options_title"/>
                 <DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">

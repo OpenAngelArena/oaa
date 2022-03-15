@@ -197,7 +197,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM13: '#game_option_diarrhetic',
     HM14: '#game_option_rend',
     HM15: '#game_option_telescope',
-    HM16: '#game_option_healer'
+    HM16: '#game_option_healer',
+    HM17: '#game_option_explosive_death',
+    HM18: '#game_option_no_hp_bar'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
@@ -222,7 +224,8 @@ function handleOAASettingsChange (n, key, settings) {
       BM03: '#game_option_physical_immune',
       BM04: '#game_option_spell_block',
       BM05: '#game_option_no_cast_points',
-      BM06: '#game_option_hyper_active'
+      BM06: '#game_option_hyper_active',
+      BM07: '#game_option_agressive_bosses'
     };
 
     lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));

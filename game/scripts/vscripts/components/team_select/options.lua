@@ -24,6 +24,8 @@ local hero_mods = {
   HM14 = "modifier_rend_oaa",
   HM15 = "modifier_range_increase_oaa",
   HM16 = "modifier_healer_oaa",
+  HM17 = "modifier_explosive_death_oaa",
+  HM18 = "modifier_no_health_bar_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -33,6 +35,7 @@ local boss_mods = {
   --BM04 = "modifier_spell_block_oaa",
   BM05 = "modifier_no_cast_points_oaa",
   BM06 = "modifier_ham_oaa",
+  BM07 = "modifier_boss_aggresive_oaa",
 }
 local global_mods = {
   GMN  = false,
@@ -103,6 +106,9 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_rend_oaa", "modifiers/funmodifiers/modifier_rend_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_range_increase_oaa", "modifiers/funmodifiers/modifier_range_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_healer_oaa", "modifiers/funmodifiers/modifier_healer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_explosive_death_oaa", "modifiers/funmodifiers/modifier_explosive_death_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_boss_aggresive_oaa", "modifiers/funmodifiers/modifier_boss_aggresive_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
