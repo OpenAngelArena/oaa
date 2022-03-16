@@ -1,13 +1,13 @@
 "DOTAUnits"
 {
-  "npc_dota_mini_roshan"
+  "npc_dota_neutral_custom_dark_troll_lord"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creature"
-    "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
-    "SoundSet"                                            "n_creep_Melee"
-    "ModelScale"                                          "0.25"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_troll_dark_b/n_creep_troll_dark_b.vmdl"  // Model.
+    "SoundSet"                                            "n_creep_Ranged"
+    "ModelScale"                                          "0.9"
     "Level"                                               "6"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "0"
@@ -16,8 +16,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mini_rosh_root"          // Ability 1.
-    "Ability2"                                            "mini_rosh_passives"      // Ability 2.
+    "Ability1"                                            "dark_troll_warlord_raise_dead"          // Ability 1.
+    "Ability2"                                            "furbolg_enrage_attack_speed"      // Ability 2.
 
     // Armor
     //----------------------------------------------------------------
@@ -26,13 +26,16 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
-    "AttackRate"                                          "1.7"     // Speed of attack.
-    "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
-    "AttackRange"                                         "150"    // Range within a target can be attacked.
+    "AttackRate"                                          "2.0"     // Speed of attack.
+    "BaseAttackSpeed"                                     "150"
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackRange"                                         "250"    // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                                     "1200"    // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
@@ -43,21 +46,21 @@
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
-    "RingRadius"                                          "80"
-    "HealthBarOffset"                                     "100"
+    "RingRadius"                                          "60"
+    "HealthBarOffset"                                     "190"
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "270"    // Speed
+    "MovementSpeed"                                       "300"    // Speed
     "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "1500"    // Base health.
     "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "0"    // Base mana.
-    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+    "StatusMana"                                          "300"    // Base mana.
+    "StatusManaRegen"                                     "1.0"    // Mana regeneration rate.
 
     // Team
     //----------------------------------------------------------------
