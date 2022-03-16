@@ -4,7 +4,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature"
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl"  // Model.
     "SoundSet"                                            "n_creep_Melee"
     "ModelScale"                                          "0.9"
