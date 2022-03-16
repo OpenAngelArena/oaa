@@ -85,7 +85,7 @@ CreepTypes = {
       {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,    8,   125, 25}
     },
 	{
-      {"npc_dota_neutral_custom_wildkin",          1500,  400,  80,    3,   125, 25}
+      {"npc_dota_neutral_custom_wildkin",          1500,  400,  80,    5,   125, 25}
     },
 	{
       {"npc_dota_neutral_custom_ice_shaman",       1500,  400,  80,    8,   125, 25}
