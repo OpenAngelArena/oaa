@@ -59,7 +59,16 @@ function CapturePoints:Init ()
   self.CapturePointLocation = Vector(0, 0, 0)
 
   self.nextCaptureTime = self:GetInitialDelay()
-  HudTimer:At(CapturePoints:GetInitialDelay() - 60, function ()
+  self.CaptureLocationSearchDuration = 20
+
+  local captureWarningTime = self.nextCaptureTime - 60
+  local captureSearchStartTime = captureWarningTime - self.CaptureLocationSearchDuration
+
+  HudTimer:At(captureSearchStartTime, function ()
+    CapturePoints:StartSearchingForCaptureLocation()
+  end)
+
+  HudTimer:At(captureWarningTime, function ()
     CapturePoints:ScheduleCapture()
   end)
 
@@ -132,9 +141,16 @@ function CapturePoints:ScheduleCapture()
   end
   PrepareCapture.broadcast(true)
 
-  self.nextCaptureTime = HudTimer:GetGameTime() + self:GetCapturePointIntervalTime() + CAPTURE_FIRST_WARN
+  local captureInterval = self:GetCapturePointIntervalTime()
+  local captureSearchStartTime = captureInterval - self.CaptureLocationSearchDuration
 
-  self.scheduleCaptureTimer = Timers:CreateTimer(CapturePoints:GetCapturePointIntervalTime(), function ()
+  self.nextCaptureTime = HudTimer:GetGameTime() + captureInterval + CAPTURE_FIRST_WARN
+
+  Timers:CreateTimer(captureSearchStartTime, function ()
+    CapturePoints:StartSearchingForCaptureLocation()
+  end)
+
+  self.scheduleCaptureTimer = Timers:CreateTimer(captureInterval, function ()
     CapturePoints:ScheduleCapture()
   end)
 
@@ -148,26 +164,24 @@ function CapturePoints:ScheduleCapture()
   -- DebugPrint('Capture number... ' .. self.NumCaptures)
   -- Chooses random zone
   --CurrentZones = Zones[RandomInt(1, NumZones)]
-  self:FindBestCapturePointLocation(function(point)
-    self.CapturePointLocation = point
-    --If statemant checks for duel interference
-    if not Duels.startDuelTimer then
-      CapturePoints:StartCapture("blue")
-    elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
-      CapturePoints:StartCapture("red")
-    else
-      CapturePoints.unlistenDuel = Duels.onEnd(function ()
-        Timers:CreateTimer(15, function ()
-          CapturePoints:StartCapture("red")
-        end)
-        if CapturePoints.unlistenDuel then
-          local unlisten = CapturePoints.unlistenDuel
-          CapturePoints.unlistenDuel = nil
-          unlisten()
-        end
+
+  -- If statemant checks for duel interference
+  if not Duels.startDuelTimer then
+    CapturePoints:StartCapture("blue")
+  elseif Timers.timers[Duels.startDuelTimer] and Timers:RemainingTime(Duels.startDuelTimer) > 90 then
+    CapturePoints:StartCapture("red")
+  else
+    CapturePoints.unlistenDuel = Duels.onEnd(function ()
+      Timers:CreateTimer(15, function ()
+        CapturePoints:StartCapture("red")
       end)
-    end
-  end)
+      if CapturePoints.unlistenDuel then
+        local unlisten = CapturePoints.unlistenDuel
+        unlisten()
+        CapturePoints.unlistenDuel = nil
+      end
+    end)
+  end
 end
 
 function CapturePoints:StartCapture(color)
@@ -194,7 +208,6 @@ function CapturePoints:StartCapture(color)
     CapturePoints.nextCaptureTime = HudTimer:GetGameTime() + CapturePoints:GetCapturePointIntervalTime() + CAPTURE_FIRST_WARN
   end)
 end
-
 
 function CapturePoints:GiveItemToWholeTeam (item, teamId)
   if CorePointsManager then
@@ -312,7 +325,7 @@ function CapturePoints:ActuallyStartCapture()
   --self.dire_dummy:AddNewModifier(dire_fountain, nil, "modifier_standard_capture_point_dummy_stuff", {})
 end
 
-function CapturePoints:EndCapture ()
+function CapturePoints:EndCapture()
   if self.currentCapture == nil then
     DebugPrint ('There is no Capture running')
     return
@@ -332,15 +345,16 @@ function CapturePoints:EndCapture ()
   end
 end
 
-function CapturePoints:FindBestCapturePointLocation(callback)
-  local maxDistanceFromFountain = self:DistanceFromFountain(Vector(0, 0, 0), DOTA_TEAM_GOODGUYS) -- 6656
+function CapturePoints:StartSearchingForCaptureLocation()
+  local defaultPosition = Vector(0, 0, 0)
+  local maxDistanceFromFountain = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS) -- 6656
   --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
-  local minDistanceFromFountain = 450 -- X: 6206
+  local minDistanceFromFountain = 800 -- X: 6206
   local maxY = 4100
   local maxX = maxDistanceFromFountain - 500 -- 6156
   local minY = 0
   local minX = 0
-  local default_pos = Vector(0, 0, 0)
+
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
@@ -361,60 +375,59 @@ function CapturePoints:FindBestCapturePointLocation(callback)
     minDistanceFromFountain = maxDistanceFromFountain / 1.25 -- 5324.8 -> X: 1331.2
     maxX = math.ceil(maxX / 5) -- 1232
   else
-    return callback(default_pos)
+    minX = 0
+    maxX = 0
   end
 
-  default_pos = Vector(math.floor((minX + maxX) / 2), minY, 0)
+  defaultPosition = Vector(math.floor((minX + maxX) / 2), minY, 0)
   if not isGoodLead then
-    default_pos.x = 0 - default_pos.x
+    defaultPosition.x = 0 - defaultPosition.x
   end
 
-  local fountain_team = DOTA_TEAM_GOODGUYS
+  local loopCount = 0
+  local maxSearchDuration = self.CaptureLocationSearchDuration
+  local searchInterval = 2 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
+  local maxLoops = math.floor(maxSearchDuration / searchInterval) - 1
+
+  Timers:CreateTimer(function ()
+    local position = CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minDistanceFromFountain, maxDistanceFromFountain, isGoodLead)
+
+    loopCount = loopCount + 1
+
+    if not position and loopCount < maxLoops then
+      return searchInterval -- repeat FindBestCapturePointLocation every searchInterval seconds
+    end
+
+    if loopCount == maxLoops then
+      DebugPrint('Couldnt find a valid capture point location, using default...')
+      position = defaultPosition
+    else
+      DebugPrint('Found capture point location after ' .. loopCount .. ' tries')
+    end
+
+    CapturePoints.CapturePointLocation = position
+  end)
+end
+
+function CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minDistance, maxDistance, isGoodLead)
+  local fountainTeam = DOTA_TEAM_GOODGUYS
   if isGoodLead then
-    fountain_team = DOTA_TEAM_BADGUYS
+    fountainTeam = DOTA_TEAM_BADGUYS
   end
 
-  local position = default_pos
-  local isValidPosition = false
-  local loop_count = 0
-
-  local function findNextPoint()
-    position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-    if RandomInt(0, 1) == 0 then
-      position.y = 0 - position.y
-    end
-    if not isGoodLead then
-      position.x = 0 - position.x
-    end
-    isValidPosition = true
-    if self:DistanceFromFountain(position, fountain_team) >= maxDistanceFromFountain or self:DistanceFromFountain(position, fountain_team) <= minDistanceFromFountain or not self:IsZonePathable(position) then
-      isValidPosition = false
-    end
-    loop_count = loop_count + 1
+  local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
+  if RandomInt(0, 1) == 0 then
+    position.y = 0 - position.y
+  end
+  if not isGoodLead then
+    position.x = 0 - position.x
   end
 
-  local function timerLoop()
-    -- find next possible spot
-    findNextPoint()
-    -- return if it's valid
-    if isValidPosition then
-      DebugPrint('Found capture point location after ' .. loop_count .. ' tries')
-      callback(position)
-      return
-    end
-    -- allow up to 2 seconds of searching
-    if loop_count > 20 then
-      DebugPrint('Couldn\'t find a valid capture point location, using center...')
-      callback(position)
-      return
-    end
-    -- otherwise, schedule the next search
-    Timers:CreateTimer(0.1, timerLoop)
-    return
+  if self:DistanceFromFountain(position, fountainTeam) >= maxDistance or self:DistanceFromFountain(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
+    return nil
   end
 
-  -- start the loop
-  timerLoop()
+  return position
 end
 
 function CapturePoints:IsLocationInFountain(location)
@@ -488,6 +501,7 @@ function CapturePoints:IsZonePathable(location)
   local zone_center = location
   local counter = 0
   local pathable_points = math.floor(math.pi * zone_radius^2)
+  local min_pathable_points = pathable_points * 75/100
   for i = 1, zone_radius do
     for j = 1, zone_radius do
       local pos1 = GetGroundPosition(Vector(zone_center.x + i, zone_center.y + j, 384), nil)
@@ -519,16 +533,16 @@ function CapturePoints:IsZonePathable(location)
         end
       end
 
-      if counter >= pathable_points * 75/100 then
+      if counter >= min_pathable_points then
         break
       end
     end
-    if counter >= pathable_points * 75/100 then
+    if counter >= min_pathable_points then
       break
     end
   end
 
-  if counter >= pathable_points * 75/100 then
+  if counter >= min_pathable_points then
     return true
   end
 

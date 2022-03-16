@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5321"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5321"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -46,7 +45,7 @@
       "collision_radius"    "100"
       "stun_duration"     "0.5"
       "speed"         "1200"
-      "knockback_distance"  
+      "knockback_distance"
       {
         "value"       "300"
         "special_bonus_unique_batrider_3" "+75"
@@ -58,6 +57,7 @@
         "value"       "0"
         "special_bonus_unique_batrider_2" "+2"
       }
+      "damage_total_tooltip"                              "80 135 190 245 400 680" //OAA, damage_impact + damage_per_second x damage_duration
     }
   }
 }

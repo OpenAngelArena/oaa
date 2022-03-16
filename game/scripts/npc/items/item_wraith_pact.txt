@@ -37,9 +37,9 @@
     "ID"                                                  "908"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityTextureName"                                  "item_wraith_pact"
+    //"AbilityTextureName"                                  "item_wraith_pact"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    //"AbilityTextureName"                                  "custom/wraith_pact"
+    "AbilityTextureName"                                  "custom/wraith_pact"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

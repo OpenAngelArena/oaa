@@ -203,3 +203,7 @@ end
 function modifier_item_silver_staff_debuff:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
+
+function modifier_item_silver_staff_debuff:GetTexture()
+  return "custom/dragonstaff_1"
+end

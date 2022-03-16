@@ -49,6 +49,7 @@ g_UnitPrecache = {
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
   "npc_dota_boss_simple_5",
+  "npc_dota_boss_simple_7",
 
   "npc_dota_boss_twin",
   "npc_dota_boss_twin_dumb",
@@ -75,6 +76,9 @@ g_UnitPrecache = {
   "npc_dota_boss_wanderer_1",
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
+  "npc_dota_creature_magma_boss",
+  "npc_dota_magma_boss_volcano",
+  "npc_dota_boss_grendel",
 }
 
 g_ModelPrecache = {
@@ -130,5 +134,6 @@ g_SoundPrecache = {
   "soundevents/music/music.vsndevts",
   "soundevents/game_sounds_creeps.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
+  "soundevents/bosses/magma_boss.vsndevts",
   "soundevents/game_sounds_items.vsndevts",
 }

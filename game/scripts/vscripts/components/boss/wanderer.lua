@@ -145,8 +145,10 @@ function Wanderer:FindWhereToSpawn ()
 
   local position = Vector(0, 0, 0)
   local isValidPosition = false
+  local loopCount = 0
 
   while not isValidPosition do
+    loopCount = loopCount + 1
     --if position then
       --print('Got a bad Wanderer spawn point: ' .. tostring(position))
     --end
@@ -158,7 +160,7 @@ function Wanderer:FindWhereToSpawn ()
       position.x = 0 - position.x
     end
     isValidPosition = true
-    if IsLocationInOffside(position) then
+    if IsLocationInOffside(position) and loopCount < 7 then
       isValidPosition = false
     end
   end

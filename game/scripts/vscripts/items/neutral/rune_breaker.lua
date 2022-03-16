@@ -141,3 +141,7 @@ end
 function modifier_item_rune_breaker_oaa_debuff:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
+
+function modifier_item_rune_breaker_oaa_debuff:GetTexture()
+  return "item_the_leveller"
+end

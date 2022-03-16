@@ -170,6 +170,8 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- this is bonus raw damage (green)
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
     MODIFIER_PROPERTY_MODEL_SCALE,
+    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
   }
 
   return funcs
@@ -190,10 +192,19 @@ end
 -- end
 
 function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
-  if not self.bonus_damage then
-    return 0
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_tiny_tree_grab") then
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return 0
+    end
+    local talent = parent:FindAbilityByName("special_bonus_unique_tiny_7")
+    if talent and talent:GetLevel() > 0 then
+      return ability:GetSpecialValueFor("bonus_damage_with_tree_and_talent")
+    end
+    return ability:GetSpecialValueFor("bonus_damage_with_tree")
   end
-  return self.bonus_damage
+  return self.bonus_damage or 0
 end
 
 function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
@@ -208,6 +219,30 @@ function modifier_tiny_grow_oaa:GetModifierModelScale()
     return 0
   end
   return self.model_scale
+end
+
+if IsServer() then
+  function modifier_tiny_grow_oaa:GetModifierOverrideAbilitySpecial(keys)
+    if not keys.ability or not keys.ability_special_value then
+      return 0
+    end
+    if keys.ability_special_value == "toss_damage" then
+      return 1
+    end
+    return 0
+  end
+
+  function modifier_tiny_grow_oaa:GetModifierOverrideAbilitySpecialValue(keys)
+    local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return value
+    end
+    if keys.ability_special_value == "toss_damage" then
+      return value + ability:GetSpecialValueFor("bonus_toss_damage_oaa")
+    end
+    return value
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
