@@ -34,7 +34,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen:OnCreated( event )
-  if not IsServer() or self:GetParent():HasModifier("modifier_boss_aggresive_oaa") then
+  if not IsServer() then
     return
   end
   local spell = self:GetAbility()
