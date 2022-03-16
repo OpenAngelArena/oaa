@@ -49,6 +49,9 @@ function item_greater_tranquil_boots:OnSpellStart()
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
       target:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_buff", {duration = tree_buff_duration})
     else
+      -- Sound
+      caster:EmitSound("DOTA_Item.DoE.Activate")
+
       -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area
       local allies = FindUnitsInRadius(
         caster:GetTeamNumber(),
@@ -102,7 +105,7 @@ function item_greater_tranquil_boots:Sprout(target)
   local duration = self:GetSpecialValueFor("sprout_duration")
   local target_loc = target:GetAbsOrigin()
   local team = caster:GetTeamNumber()
-  
+
   -- Vision
   local vision_radius
   if target:GetTeamNumber() == team then
@@ -630,6 +633,14 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
   end
 
   if IsServer() then
+    lcoal parent = self:GetParent()
+    -- Particle
+    local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+    local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
+    ParticleManager:SetParticleControl(particle, 1, Vector(0,0,0))
+    self:AddParticle(particle, false, false, -1, false, false)
+
     self:StartIntervalThink(0.1)
   end
 end
@@ -737,8 +748,6 @@ function modifier_greater_tranquils_trees_dummy_stuff:OnCreated(kv)
     local radius = kv.radius
     if radius then
       self:SetStackCount(radius)
-    else
-      print("radius is nil")
     end
   end
 end
