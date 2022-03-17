@@ -1,13 +1,13 @@
 "DOTAUnits"
 {
-  "npc_dota_mini_roshan"
+  "npc_dota_neutral_custom_ogre_mauler"
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature"
-    "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl"  // Model.
     "SoundSet"                                            "n_creep_Melee"
-    "ModelScale"                                          "0.25"
+    "ModelScale"                                          "0.9"
     "Level"                                               "6"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "0"
@@ -16,8 +16,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mini_rosh_root"          // Ability 1.
-    "Ability2"                                            "mini_rosh_passives"      // Ability 2.
+    "Ability1"                                            "ogre_bruiser_ogre_smash"          // Ability 1.
+    "Ability2"                                            "ogre_magi_frost_armor"      // Ability 2.
 
     // Armor
     //----------------------------------------------------------------
@@ -30,7 +30,7 @@
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
     "AttackRate"                                          "1.7"     // Speed of attack.
-    "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
@@ -43,8 +43,8 @@
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
-    "RingRadius"                                          "80"
-    "HealthBarOffset"                                     "100"
+    "RingRadius"                                          "60"
+    "HealthBarOffset"                                     "190"
 
     // Movement
     //----------------------------------------------------------------
@@ -56,8 +56,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "1500"    // Base health.
     "StatusHealthRegen"                                   "20"    // Health regeneration rate.
-    "StatusMana"                                          "0"    // Base mana.
-    "StatusManaRegen"                                     "0"    // Mana regeneration rate.
+    "StatusMana"                                          "400"    // Base mana.
+    "StatusManaRegen"                                     "1.0"    // Mana regeneration rate.
 
     // Team
     //----------------------------------------------------------------

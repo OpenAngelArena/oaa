@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl"
-    "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "5"
     "ModelScale"                                          "1"

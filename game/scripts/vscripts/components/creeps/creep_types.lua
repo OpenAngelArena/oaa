@@ -13,6 +13,11 @@ CreepTypes = {
       {"npc_dota_neutral_custom_kobold_soldier",    380,    0,  20,    1,    25,  30},
       {"npc_dota_neutral_custom_kobold",            250,    0,  10,   0.5,   15,  25}
     },
+	{
+      {"npc_dota_neutral_dark_troll",               450,  200,  70,    1,    30,  35},
+      {"npc_dota_neutral_forest_troll_berserker",   400,    0,  40,    1,    25,  30},
+      {"npc_dota_neutral_forest_troll_high_priest", 320,  500,  20,   0.5,   15,  25}
+    },
   },
     -- 2 "medium camp" (CreepMax is 8 for all medium camps)
   {
@@ -68,8 +73,23 @@ CreepTypes = {
    -- 6 "solo ancient mid camp" (CreepMax is 1)
   {
     {
-      {"npc_dota_mini_roshan",                     1500,  300,  80,    3,   120, 25}
-    }
+      {"npc_dota_mini_roshan",                     1500,    0,  80,    3,   125, 25}
+    },
+	{
+      {"npc_dota_neutral_custom_dark_troll_lord",  1500,  300,  80,    8,   125, 25}
+    },
+	{
+      {"npc_dota_neutral_custom_pine_cone",        1500,  300,  80,    8,   125, 25}
+    },
+	{
+      {"npc_dota_neutral_custom_ogre_mauler",      1500,  400,  80,    8,   125, 25}
+    },
+	{
+      {"npc_dota_neutral_custom_wildkin",          1500,  400,  80,    5,   125, 25}
+    },
+	{
+      {"npc_dota_neutral_custom_ice_shaman",       1500,  400,  80,    8,   125, 25}
+    },
   },
    -- 7 "solo prowler - part of the ancient camp" (CreepMax is 1)
   {
