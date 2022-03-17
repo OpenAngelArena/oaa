@@ -50,7 +50,7 @@
     "AbilityCastRange"                                    "700 750 800 850 900 950 1000 1050 1100"
     "AbilityCastPoint"                                    "0.0"
 
-    "AbilityCooldown"                                     "35.0 30.0 25.0 20.0 15.0 10.0 10.0 10.0 10.0"
+    "AbilityCooldown"                                     "24 22 19 17 15 13 12 11 10"
     "AbilitySharedCooldown"                               "dagon"
 
     "AbilityManaCost"                                     "120 140 160 180 200 210 220 230 240"
@@ -69,43 +69,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "14 16 18 20 22 27 37 52 72"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "6 8 10 12 14 20 25 30 35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agi"                                       "6 8 10 12 14 20 25 30 35"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "400 500 600 700 800 1000 1200 1400 1600"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_delay"                                    "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_cost_tooltip"                               "120 140 160 180 200 210 220 230 240"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "0 1 1 1 2 5 9 14 20"
-      }
+      "bonus_int"                                         "14 16 18 20 22 27 37 52 72"
+      "bonus_str"                                         "6 8 10 12 14 20 25 30 35"
+      "bonus_agi"                                         "6 8 10 12 14 20 25 30 35"
+      "spell_amp"                                         "0"
+      "damage"                                            "400 500 600 700 800 1000 1200 1400 1600"
+      "current_hp_dmg"                                    "0 0 0 0 0 8 10 12 14"
+      "damage_delay"                                      "0"
+      "blind_pct"                                         "0 0 0 0 0 100"
+      "blind_duration"                                    "2"
+      "mana_cost_tooltip"                                 "120 140 160 180 200 210 220 230 240"
+      "cooldown_tooltip"                                  "24 22 19 17 15 13 12 11 10"
     }
 
     "precache"

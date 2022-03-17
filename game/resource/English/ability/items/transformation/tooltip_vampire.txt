@@ -2,7 +2,7 @@
 // Vampire Fang
 //==================================================================
 "dota_tooltip_ability_item_vampire"                                             "Vampire Fang"
-"dota_tooltip_ability_item_vampire_description"                                 "<h1>Active: Vampirism</h1> Grants %active_lifesteal_percent%%% lifesteal but during the day all other sources of healing are disabled. You also take %damage_per_second_pct%%% of current health in damage per second and lose bonus status resistance. Lasts %duration% seconds.\n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt."
+"dota_tooltip_ability_item_vampire_description"                                 "<h1>Active: Vampirism</h1> Grants %active_lifesteal_percent%%% lifesteal but during the day all other sources of healing are disabled. You also take %damage_per_second_pct%%% of current health in damage per second. Lasts %duration% seconds.\n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt."
 "dota_tooltip_ability_item_vampire_Note0"                                       "Other sources of lifesteal will also be disabled while #{dota_tooltip_modifier_item_vampire_active} is active."
 //"dota_tooltip_ability_item_vampire_Note1"                                       "#{transformation_note0}"
 "dota_tooltip_ability_item_vampire_bonus_strength"                              "+$str"

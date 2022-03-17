@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_non_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa = class(ItemBaseClass)
 item_dagon_oaa_2 = item_dagon_oaa
@@ -24,6 +25,7 @@ function item_dagon_oaa:OnSpellStart()
   local particleThickness = 300 + (100 * level) --Control Point 2 in Dagon's particle effect takes a number between 400 and 2000, depending on its level.
 
   local damage = self:GetSpecialValueFor("damage") -- Damage should never be a big value because of the spells like Fatal Bonds that share dmg
+  local hp_percent = self:GetSpecialValueFor("current_hp_dmg")
   local damage_type = DAMAGE_TYPE_MAGICAL
 
   local particle = ParticleManager:CreateParticle(particleName,  PATTACH_POINT_FOLLOW, caster)
@@ -49,10 +51,15 @@ function item_dagon_oaa:OnSpellStart()
     return
   end
 
+  -- Add debuff
+  if level > 5 then
+    target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
+  end
+
   ApplyDamage({
     victim = target,
     attacker = caster,
-    damage = damage,
+    damage = damage + target:GetHealth() * hp_percent * 0.01,
     damage_type = damage_type,
     ability = self
   })
@@ -97,14 +104,7 @@ function modifier_item_oaa_dagon_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_oaa_dagon_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.int = ability:GetSpecialValueFor("bonus_int")
-    self.str = ability:GetSpecialValueFor("bonus_str")
-    self.agi = ability:GetSpecialValueFor("bonus_agi")
-  end
-end
+modifier_item_oaa_dagon_stacking_stats.OnRefresh = modifier_item_oaa_dagon_stacking_stats.OnCreated
 
 function modifier_item_oaa_dagon_stacking_stats:DeclareFunctions()
   return {
@@ -150,12 +150,7 @@ function modifier_item_oaa_dagon_non_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_oaa_dagon_non_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-  end
-end
+modifier_item_oaa_dagon_non_stacking_stats.OnRefresh = modifier_item_oaa_dagon_non_stacking_stats.OnCreated
 
 function modifier_item_oaa_dagon_non_stacking_stats:DeclareFunctions()
   return {
@@ -165,4 +160,39 @@ end
 
 function modifier_item_oaa_dagon_non_stacking_stats:GetModifierSpellAmplify_Percentage()
   return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_oaa_dagon_debuff = class(ModifierBaseClass)
+
+function modifier_item_oaa_dagon_debuff:IsHidden()
+  return false
+end
+
+function modifier_item_oaa_dagon_debuff:IsDebuff()
+  return true
+end
+
+function modifier_item_oaa_dagon_debuff:IsPurgable()
+  return true
+end
+
+function modifier_item_oaa_dagon_debuff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.blind_pct = ability:GetSpecialValueFor("blind_pct")
+  end
+end
+
+modifier_item_oaa_dagon_debuff.OnRefresh = modifier_item_oaa_dagon_debuff.OnCreated
+
+function modifier_item_oaa_dagon_debuff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MISS_PERCENTAGE,
+  }
+end
+
+function modifier_item_oaa_dagon_debuff:GetModifierMiss_Percentage()
+  return self.blind_pct or self:GetAbility():GetSpecialValueFor("blind_pct")
 end

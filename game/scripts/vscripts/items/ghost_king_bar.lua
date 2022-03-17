@@ -1,5 +1,6 @@
 item_ghost_king_bar = class(ItemBaseClass)
 
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_non_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_active", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
@@ -63,14 +64,7 @@ function modifier_item_ghost_king_bar_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.agi = ability:GetSpecialValueFor("bonus_agility")
-    self.int = ability:GetSpecialValueFor("bonus_intellect")
-  end
-end
+modifier_item_ghost_king_bar_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_stacking_stats.OnCreated
 
 function modifier_item_ghost_king_bar_stacking_stats:DeclareFunctions()
   local funcs = {
@@ -114,22 +108,33 @@ function modifier_item_ghost_king_bar_non_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
+    self.mana_regen_amp = ability:GetSpecialValueFor("mana_regen_multiplier")
   end
 end
 
-function modifier_item_ghost_king_bar_non_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-  end
-end
+modifier_item_ghost_king_bar_non_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_non_stacking_stats.OnCreated
 
 function modifier_item_ghost_king_bar_non_stacking_stats:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
   }
 
   return funcs
+end
+
+-- Doesn't stack with Kaya items
+function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
+  end
+  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
+    return 0
+  end
+  return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 end
 
 -- Doesn't stack with Kaya items
@@ -142,6 +147,18 @@ function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellAmplify
     return 0
   end
   return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
+end
+
+-- Doesn't stack with Kaya items
+function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellLifestealRegenAmplify_Percentage()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+    return 0
+  end
+  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
+    return 0
+  end
+  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
 end
 
 ---------------------------------------------------------------------------------------------------

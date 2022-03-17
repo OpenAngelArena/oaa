@@ -39,7 +39,7 @@
     "ID"                                                  "9457"       // unique ID
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/vampire_2"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -75,12 +75,12 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "130 210"
+        "bonus_damage"                                    "140 220"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resistance"                         "25 30"
+        "bonus_status_resistance"                         "20 25"
       }
       "04"
       {
