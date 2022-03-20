@@ -8,30 +8,35 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5074"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "20 18 16 14 14 14"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_block" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "12 14 16 18 24 28"
+        "value"     "5 15 25 35 55 75"
+        "special_bonus_unique_pudge_1"  "x1.6"
       }
-      "02"
+      "flesh_heap_strength_buff_amount"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "flesh_heap_strength_buff_amount"                 "1.5 2 2.5 3.0 3.5 4.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_1"
+        "value" "1.1 1.4 1.7 2 2.5 3"
+        "special_bonus_unique_pudge_1"  "x1.6"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "flesh_heap_range"                                "450"
-      }
+      "flesh_heap_range"    "450"
+      "duration"  "5 6 7 8 8.5 9"
     }
   }
 }

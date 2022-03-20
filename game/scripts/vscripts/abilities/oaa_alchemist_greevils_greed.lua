@@ -48,48 +48,46 @@ function modifier_alchemist_goblins_greed_oaa:DeclareFunctions()
   }
 end
 
-function modifier_alchemist_goblins_greed_oaa:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
+if IsServer() then
+  function modifier_alchemist_goblins_greed_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local target = event.target
 
-  -- Doesn't work on units that dont have this modifier, doesn't work on illusions or if broken
-  if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
-    return
+    -- Doesn't work on units that dont have this modifier, doesn't work on illusions or if broken
+    if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
+      return
+    end
+
+    -- To prevent crashes:
+    if not target then
+      return
+    end
+
+    if target:IsNull() then
+      return
+    end
+
+    -- Doesn't work on allies, towers, or wards
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
+      return
+    end
+
+    -- Don't continue if entity doesn't have this method
+    if target.GetMaximumGoldBounty == nil then
+      return
+    end
+
+    -- Doesn't work on units without a bounty
+    if not target:IsRealHero() and target:GetMaximumGoldBounty() == 0 then
+      return
+    end
+
+    -- Get duration
+    local duration = ability:GetSpecialValueFor("armor_reduction_duration")
+
+    target:AddNewModifier(parent, ability, "modifier_alchemist_gold_corrosion_oaa_debuff", {duration = duration})
   end
-
-  -- To prevent crashes:
-  if not target then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  if not IsServer() then
-    return
-  end
-
-  -- Doesn't work on allies, towers, or wards
-  if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
-    return
-  end
-
-  -- Don't continue if entity doesn't have this method
-  if target.GetMaximumGoldBounty == nil then
-    return
-  end
-
-  -- Doesn't work on units without a bounty
-  if not target:IsRealHero() and target:GetMaximumGoldBounty() == 0 then
-    return
-  end
-
-  -- Get duration
-  local duration = ability:GetSpecialValueFor("armor_reduction_duration")
-
-  target:AddNewModifier(parent, ability, "modifier_alchemist_gold_corrosion_oaa_debuff", {duration = duration})
 end
 
 ---------------------------------------------------------------------------------------------------

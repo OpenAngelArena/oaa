@@ -24,33 +24,23 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 150 160 170 180 190" //OAA
+    "AbilityManaCost"                                     "140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "heal_interval"     "0.5"
+      "heal"          
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_interval"                                   "0.5"
+        "value"       "4 8 12 16 32 64"
+        "LinkedSpecialBonus"  "special_bonus_unique_enchantress_5"
       }
-      "02"
+      "radius"        "275"
+      "wisp_count"      
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal"                                            "4 8 12 16 32 64"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wisp_count"                                      "8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
+        "value"       "8"
+        "LinkedSpecialBonus"  "special_bonus_unique_enchantress_2"
       }
     }
   }

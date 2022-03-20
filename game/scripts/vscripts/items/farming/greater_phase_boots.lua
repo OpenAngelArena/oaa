@@ -298,6 +298,10 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
   --self.doReduction = false
 end
 
+function modifier_item_greater_phase_boots_active:GetTexture()
+  return "custom/greater_phase_boots_4"
+end
+
 -- function modifier_item_greater_phase_boots_active:CheckState()
   -- local state = {
     -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,

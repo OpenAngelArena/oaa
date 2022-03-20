@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Aghanim Melter - item that has Core Point cost; used for upgrading Aghanim Scepter 5 into Aghanim's Blessing
+  //=================================================================================================================
+  "item_aghanim_melter"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3600"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/aghanim_melter"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "10"
+    "ItemCost"                                            "1"
+    "ItemPurchasable"                                     "1"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+  }
+}

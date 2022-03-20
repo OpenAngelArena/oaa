@@ -38,18 +38,26 @@ function visage_summon_familiars_oaa:OnSpellStart()
 
   -- Talent that increases number of familiars
   local talent = caster:FindAbilityByName("special_bonus_unique_visage_6")
-  if talent then
-    if talent:GetLevel() > 0 then
-      number_of_familiars = number_of_familiars + talent:GetSpecialValueFor("value")
-    end
+  if talent and talent:GetLevel() > 0 then
+    number_of_familiars = number_of_familiars + talent:GetSpecialValueFor("value")
+  end
+
+  -- Talent that increases armor of familiars
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_5")
+  if talent2 and talent2:GetLevel() > 0 then
+    familiar_armor = familiar_armor + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Talent that increases attack damage of familiars
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_visage_7")
+  if talent3 and talent3:GetLevel() > 0 then
+    familiar_dmg = familiar_dmg + talent3:GetSpecialValueFor("value")
   end
 
   -- Talent that increases familiar movement speed
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_2")
-  if talent2 then
-    if talent2:GetLevel() > 0 then
-      familiar_speed = familiar_speed + talent2:GetSpecialValueFor("value")
-    end
+  local talent4 = caster:FindAbilityByName("special_bonus_unique_visage_2")
+  if talent4 and talent4:GetLevel() > 0 then
+    familiar_speed = familiar_speed + talent4:GetSpecialValueFor("value")
   end
 
   for i = 1, number_of_familiars do

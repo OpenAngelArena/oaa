@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5505"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5505"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -30,80 +29,37 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "170 160 150 140 70 35" //OAA
+    "AbilityManaCost"                                     "140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "450"
+      "snake_jumps"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_unique_medusa_3"                   "+2"
       }
-      "02"
+      "jump_delay"                                        "0.25"
+      "snake_damage"                                      "80 120 160 200 400 800"
+      "snake_mana_steal"                                  "11 14 17 20 23 26"
+      "snake_scale"                                       "35"
+      "initial_speed"                                     "800"
+      "return_speed"                                      "800"
+      "stone_form_scepter_base"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "snake_jumps"                                     "3 4 5 6 8 10"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_delay"                                      "0.25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "snake_damage"                                    "80 120 160 200 400 800"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "snake_mana_steal"                                "11 14 17 20 23 26"
-        "LinkedSpecialBonus"                              "special_bonus_unique_medusa_3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "snake_scale"                                     "35"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "initial_speed"                                   "800"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "return_speed"                                    "800"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stone_form_scepter_base"                         "1.3"
+        "value"                                           "1.3"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "stone_form_scepter_increment"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stone_form_scepter_increment"                    "0.2"
+        "value"                                           "0.2"
         "RequiresScepter"                                 "1"
       }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "30"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "turn_slow"                                       "50"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "3"
-      }
+      "movement_slow"                                     "30"
+      "turn_slow"                                         "50"
+      "slow_duration"                                     "3"
     }
   }
 }

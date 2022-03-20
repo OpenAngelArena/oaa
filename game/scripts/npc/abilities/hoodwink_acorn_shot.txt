@@ -47,8 +47,8 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bounce_count"                                    "2 3 4 5 6 7" //OAA - ignore the error with LinkedSpecialBonus
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_acorn_shot_bounces" //OAA - ignore the error with LinkedSpecialBonus
+        "bounce_count"                                    "2 3 4 5 6 7"
+        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_sharpshooter_speed" // it should be 'special_bonus_unique_hoodwink_acorn_shot_bounces' but whatever
       }
       "05"
       {

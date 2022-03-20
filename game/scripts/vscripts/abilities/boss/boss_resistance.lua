@@ -47,62 +47,56 @@ function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
   return keys.damage * damageReduction / 100
 end
 
-function modifier_boss_resistance:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
-  local parent = self:GetParent()   -- boss
-  local ability = self:GetAbility() -- boss_resistance
-
-  local attacker = event.attacker
-  local victim = event.unit
-  local inflictor = event.inflictor
-  local damage = event.damage
-
-  if not attacker or attacker:IsNull() then
-    return
-  end
-
-  if not victim or victim:IsNull() then
-    return
-  end
-
-  -- Check if damaged entity is not this boss
-  if victim ~= parent then
-    return
-  end
-
-  -- Check if it's self damage
-  if attacker == victim then
-    return
-  end
-
-  -- Check if it's accidental damage
-  if parent:CheckForAccidentalDamage(inflictor) then
-    return
-  end
-
-  -- Find what tier is this boss if its defined and set the appropriate damage_threshold
-  local tier = parent.BossTier or 1
-  local damage_threshold = BOSS_AGRO_FACTOR or 15
-  damage_threshold = damage_threshold * tier
-
-  -- Check if damage is less than the threshold
-  if damage <= damage_threshold then
-    return
-  end
-
-  if not ability or ability:IsNull() then
-    return
-  end
-
-  local revealDuration = ability:GetSpecialValueFor("reveal_duration")
-
-  -- Reveal the attacker for revealDuration seconds
-  attacker:AddNewModifier(parent, ability, "modifier_boss_truesight_oaa", {duration = revealDuration})
-end
-
 if IsServer() then
+  function modifier_boss_resistance:OnTakeDamage(event)
+    local parent = self:GetParent()   -- boss
+    local ability = self:GetAbility() -- boss_resistance
+
+    local attacker = event.attacker
+    local victim = event.unit
+    local inflictor = event.inflictor
+    local damage = event.damage
+
+    if not attacker or attacker:IsNull() or not victim or victim:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity is not this boss
+    if victim ~= parent then
+      return
+    end
+
+    -- Check if it's self damage
+    if attacker == victim then
+      return
+    end
+
+    -- Check if it's accidental damage
+    if parent:CheckForAccidentalDamage(inflictor) then
+      return
+    end
+
+    -- Find what tier is this boss if its defined and set the appropriate damage_threshold
+    local tier = parent.BossTier or 1
+    local damage_threshold = BOSS_AGRO_FACTOR or 15
+    damage_threshold = damage_threshold * tier
+
+    -- Check if damage is less than the threshold and parent hp 
+    -- second check is for invis/smoked units with Radiance type damage (damage below the threshold)
+    if damage <= damage_threshold and parent:GetHealth() / parent:GetMaxHealth() > 50/100 then
+      return
+    end
+
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local revealDuration = ability:GetSpecialValueFor("reveal_duration")
+
+    -- Reveal the attacker for revealDuration seconds
+    attacker:AddNewModifier(parent, ability, "modifier_boss_truesight_oaa", {duration = revealDuration})
+  end
+
   function modifier_boss_resistance:GetModifierPhysicalArmorBonus()
     local parent = self:GetParent()
     if self.checkArmor then

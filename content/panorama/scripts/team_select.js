@@ -36,21 +36,21 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
 }());
 
-function RandomizeModifiers() {
-  $.Msg('Clicked randomize!');
-  if (!IsHost) {
-    return;
-  }
-  GameEvents.SendCustomGameEventToServer('randomizeModifiers', {
-    shuffle: true
-  });
-}
+// function RandomizeModifiers () {
+  // $.Msg('Clicked randomize!');
+  // if (!IsHost) {
+    // return;
+  // }
+  // GameEvents.SendCustomGameEventToServer('randomizeModifiers', {
+    // shuffle: true
+  // });
+// }
 
 function onStateChange (data) {
   hideShowUI(data.newState);
 }
 
-function handleOAASettingsChange(t, key, kv) {
+function handleOAASettingsChange (t, key, kv) {
   if (key === 'settings') {
     $.Msg('oaa_settings :' + key);
     loadSettings(kv);
@@ -65,13 +65,13 @@ function handleOAASettingsChange(t, key, kv) {
   if (key === 'average_team_mmr') {
     $.Msg('oaa_settings :' + key);
     loadAverageMMRValues(kv);
-    return
+    return;
   }
 }
 
-function loadAverageMMRValues(values) {
-  $('#RadiantAverageMMR').text = 'Average MMR: ' + Math.round(values.radiant)
-  $('#DireAverageMMR').text = 'Average MMR: ' + Math.round(values.dire)
+function loadAverageMMRValues (values) {
+  $('#RadiantAverageMMR').text = 'Average MMR: ' + Math.round(values.radiant);
+  $('#DireAverageMMR').text = 'Average MMR: ' + Math.round(values.dire);
 }
 
 function MMRShuffle () {

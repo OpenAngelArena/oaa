@@ -23,7 +23,7 @@ g_ItemPrecache = {
   "item_martyrs_mail_4",
   --"item_meteor_hammer_1",
   "item_pull_staff",
-  "item_reflection_shard_1",
+  --"item_reflection_shard_1",
   --"item_reflex_core",
   "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
@@ -49,6 +49,7 @@ g_UnitPrecache = {
   "npc_dota_boss_simple_1",
   "npc_dota_boss_simple_2",
   "npc_dota_boss_simple_5",
+  "npc_dota_boss_simple_7",
 
   "npc_dota_boss_twin",
   "npc_dota_boss_twin_dumb",
@@ -75,6 +76,9 @@ g_UnitPrecache = {
   "npc_dota_boss_wanderer_1",
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
+  "npc_dota_creature_magma_boss",
+  "npc_dota_magma_boss_volcano",
+  "npc_dota_boss_grendel",
 }
 
 g_ModelPrecache = {
@@ -89,6 +93,8 @@ g_ParticlePrecache = {
   "particles/items/upgrade_2.vpcf",
   "particles/items/upgrade_3.vpcf",
   "particles/items/upgrade_4.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_netherblast_pre.vpcf",
+  "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf",
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
   -- Carapace Boss
@@ -128,5 +134,6 @@ g_SoundPrecache = {
   "soundevents/music/music.vsndevts",
   "soundevents/game_sounds_creeps.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
+  "soundevents/bosses/magma_boss.vsndevts",
   "soundevents/game_sounds_items.vsndevts",
 }

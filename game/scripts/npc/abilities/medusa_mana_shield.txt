@@ -19,23 +19,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_per_mana"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_mana"                                 "1.3 1.7 2.1 2.5 3.75 5.0"
+        "value"       "1.3 1.7 2.1 2.5 3.75 5.0"
+        "special_bonus_unique_medusa_6"   "+0.5"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "absorption_pct"                                  "70"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "100 150 200 250 500 1000"
-      }
+      "absorption_pct"      "70"
+      "bonus_mana"      "100 150 200 250 500 1000"
     }
   }
 }

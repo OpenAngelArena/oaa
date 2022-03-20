@@ -39,6 +39,7 @@ function GrendelThink ()
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
     StartWandering()
+    return 1
   end
 
   if Grendel.to_location ~= nil then

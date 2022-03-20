@@ -3,9 +3,9 @@ LinkLuaModifier("modifier_item_blood_sword_lifesteal", "items/neutral/blood_swor
 
 item_blood_sword = class(ItemBaseClass)
 
-function item_blood_sword:GetCastRange(location, target)
-  return self:GetCaster():GetAttackRange()
-end
+--function item_blood_sword:GetCastRange(location, target)
+  --return self:GetCaster():GetAttackRange()
+--end
 
 function item_blood_sword:GetIntrinsicModifierName()
   return "modifier_item_blood_sword_passive"
@@ -129,7 +129,7 @@ function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
 
   local ufResult = UnitFilter(
     target,
-    DOTA_UNIT_TARGET_TEAM_BOTH,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     parent_team

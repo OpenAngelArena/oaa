@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5275"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5275"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 
     // Unit Targeting
@@ -17,7 +17,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -38,45 +37,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 160 240 320 640 1280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_night_stalker_4"
+        "value"   "80 160 240 320 640 1280"
+        "special_bonus_unique_night_stalker_4"  "+70"
       }
-      "02"
+      "duration_day"      "2.0 2.5 3.0 3.5 4.0 4.5" //OAA
+      "duration_night"    "2.5 3 3.5 4 4.5 5.0"
+      "movespeed_slow"    "-50"
+      "attackspeed_slow"    "-50"
+      "radius_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_day"                                    "2.0 2.5 3.0 3.5 4.0 4.5" //OAA
+        "value"     "900"
+        "RequiresScepter"   "1"
       }
-      "03"
+      "scepter_ministun"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_night"                                  "2.5 3 3.5 4 4.5 5.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow"                                  "-50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attackspeed_slow"                                "-50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "900"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_ministun"                                "0.5"
-        "RequiresScepter"                                 "1"
+        "value"     "0.8"
+        "RequiresScepter"   "1"
       }
     }
   }

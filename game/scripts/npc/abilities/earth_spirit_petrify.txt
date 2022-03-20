@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5648"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5648"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -36,26 +36,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3"
-        "RequiresScepter"                                 "1"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "450"
-        "RequiresScepter"                                 "1"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aoe"                                             "450"
-        "RequiresScepter"                                 "1"
-      }
+      "duration"                                          "3"
+      "damage"                                            "450"
+      "aoe"                                               "450"
+      "ally_cast_range"                                   "500"
     }
   }
 }

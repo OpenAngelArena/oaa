@@ -4,12 +4,9 @@ LinkLuaModifier("modifier_item_devastator_reduce_armor", "modifiers/modifier_ite
 LinkLuaModifier("modifier_item_devastator_desolator", "modifiers/modifier_item_devastator_desolator.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_devastator_corruption_armor", "modifiers/modifier_item_devastator_corruption_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_devastator = class(ItemBaseClass)
-item_devastator_3 = item_devastator
-item_devastator_4 = item_devastator
-item_devastator_5 = item_devastator
+item_devastator_1 = class(ItemBaseClass)
 
-function item_devastator:OnSpellStart()
+function item_devastator_1:OnSpellStart()
   local caster = self:GetCaster()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
   self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
@@ -56,7 +53,7 @@ function item_devastator:OnSpellStart()
 end
 
 -- Impact of the projectile
-function item_devastator:OnProjectileHit( hTarget, vLocation )
+function item_devastator_1:OnProjectileHit( hTarget, vLocation )
   if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) and ( not hTarget:IsAttackImmune() ) then
     local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
 
@@ -67,20 +64,22 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
     local armor_reduction = self:GetSpecialValueFor( "devastator_armor_reduction" )
     local corruption_armor = self:GetSpecialValueFor( "corruption_armor" )
 
-    -- If the target has Desolator debuff then skip applying Devastator armor reduction debuffs
-    if not hTarget:HasModifier("modifier_desolator_buff") then
-      -- if the target has Devastator passive armor reduction debuff then check which armor reduction is better
-      if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
-        -- If active armor reduction is better than passive then remove Devastator passive armor reduction debuff
-        -- and apply Devastator active armor reduction debuff
-        if math.abs(armor_reduction) > math.abs(corruption_armor) then
-          hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor")
-          hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
-        end
-      else
-        -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
+    -- If the target has Desolator debuff then remove it
+    if hTarget:HasModifier("modifier_desolator_buff") then
+      hTarget:RemoveModifierByName("modifier_desolator_buff")
+    end
+
+    -- if the target has Devastator passive armor reduction debuff then check which armor reduction is better
+    if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
+      -- If active armor reduction is better than passive then remove Devastator passive armor reduction debuff
+      -- and apply Devastator active armor reduction debuff
+      if math.abs(armor_reduction) > math.abs(corruption_armor) then
+        hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor")
         hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
       end
+    else
+      -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
+      hTarget:AddNewModifier( hTarget, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
     end
 
     -- Damage part should always be applied
@@ -109,6 +108,11 @@ function item_devastator:OnProjectileHit( hTarget, vLocation )
 end
 
 -- base modifiers for the passive effects
-function item_devastator:GetIntrinsicModifierName()
+function item_devastator_1:GetIntrinsicModifierName()
   return "modifier_item_devastator_desolator"
 end
+
+item_devastator_2 = item_devastator_1
+item_devastator_3 = item_devastator_1
+item_devastator_4 = item_devastator_1
+item_devastator_5 = item_devastator_1

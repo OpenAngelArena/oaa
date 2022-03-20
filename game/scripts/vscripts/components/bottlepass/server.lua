@@ -4,7 +4,7 @@ DebugPrint('Bottlepass script loaded')
 Bottlepass = Bottlepass or class({})
 GameStartTime = GameStartTime or (GetSystemDate() .. GetSystemTime())
 
-BATTLE_PASS_SERVER = 'http://chrisinajar.com:6969/'
+BATTLE_PASS_SERVER = 'http://chrisinajar.com:2052/'
 AUTH_KEY = GetDedicatedServerKeyV2('1')
 
 if IsInToolsMode() then

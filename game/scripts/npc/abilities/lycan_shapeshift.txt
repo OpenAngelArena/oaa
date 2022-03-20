@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5398"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5398"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -27,45 +26,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // Bite is overpowered
+      "duration" //OAA, because of Bite
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_1"
+        "value"                                           "15"
+        "special_bonus_unique_lycan_1"                    "+6"
       }
-      "02"
+      "speed"                                             "550"
+      "bonus_night_vision"                                "1000"
+      "transformation_time"                               "1.1"
+      "crit_chance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "550"
+        "value"                                           "40"
+        "special_bonus_unique_lycan_5"                    "+30"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "1000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "transformation_time"                             "1.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lycan_5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "150 175 200 225 250"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_bonus"                                    "200 400 600 1000 2200" //OAA
-      }
+      "crit_multiplier"                                   "150 175 200 225 250"
+      "health_bonus"                                      "200 400 600 1000 1800" //OAA
     }
   }
 }

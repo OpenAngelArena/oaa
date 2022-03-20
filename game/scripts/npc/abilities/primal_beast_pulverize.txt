@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Primal Beast: Pulverize
+  //=================================================================================================================
+  "primal_beast_pulverize"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "996"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED  | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "AbilityDraftUltShardAbility"                         "primal_beast_rock_throw"
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.25"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "200"
+    "AbilityCooldown"                                     "32 28 24 22 20" // "20 18 16 14"
+    "AbilityDamage"                                       "150 210 270 540 1080" // "90 120 150 180"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 115 130 145 160"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "splash_radius"       "600"
+      "interval"          "0.75"
+      "ministun"          "0.25"
+      "cast_range"        "200"
+      "animation_rate"      "1.5"     // FLAIL MULTIPLIER ON ENEMY UNITS
+      "channel_time"
+      {
+        "value"         "2.3"
+        "special_bonus_unique_primal_beast_pulverize_duration"  "+100%"
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6287" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6287"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -19,7 +19,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "value"                                           "250" //OAA
-        "ad_linked_ability"                               "arc_warden_spark_wraith"
+        "ad_linked_abilities"                             "arc_warden_spark_wraith"
       }
     }
   }

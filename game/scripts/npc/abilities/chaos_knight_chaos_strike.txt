@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5428"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5428"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -17,30 +17,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "chance"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "chance"                                          "33.33"
+        "value"                                           "33.33"
         "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_5"
       }
-      "02"
+      "crit_min"                                          "120"
+      "crit_max"                                          "140 175 210 245 280 315"
+      "lifesteal" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_min"                                        "120"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_max"                                        "140 175 210 245 280 315"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "30 40 50 60 70 80" //OAA
+        "value"                                           "30 40 50 60 70 80"
         "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_6"
       }
+      "creep_multiplier"                                  "1.5"
     }
   }
 }

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4056"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4056"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -26,9 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_devastator_4;item_upgrade_core_4"
-      //"02"                                                "item_desolator_4;item_upgrade_core_4"
-      //"03"                                                "item_bfury_4;item_upgrade_core_4"
-      //"04"                                                "item_giant_form;item_upgrade_core_4"
     }
   }
 
@@ -39,8 +36,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4053"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-
+    "ID"                                                  "4053"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -55,6 +51,8 @@
 
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
+
+    "AbilitySharedCooldown"                               "devastator"
     "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "75"
 
@@ -65,7 +63,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36504"
+    "ItemCost"                                            "37504"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator 5"
@@ -84,13 +82,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 70 110 160"
+        "bonus_damage"                                    "50 70 100 140 190"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-3 -5 -8 -12 -17"
+        "corruption_armor"                                "-6 -9 -13 -18 -24"
       }
       "03"
       {

@@ -7,14 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5071"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5071"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
+
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 13 13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,31 +31,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "400"
+      "silence_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_puck_6"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "2.0 2.5 3.0 3.5 4.0 4.5"
+        "value"                                           "2.0 2.5 3.0 3.5 4.0 4.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_puck_7"
       }
-      "03"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "70 140 210 280 560 1120" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_puck_4"
+        "value"                                           "70 140 210 280 560 1120"
+        "special_bonus_unique_puck_6"                     "+100"
       }
-      "04"
+      "max_distance"                                      "400"
+      "scepter_max_distance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "300"
-        "LinkedSpecialBonus"                              "special_bonus_unique_puck_6"
+        "RequiresScepter"                                 "1"
+        "value"                                           "550"
+      }
+      "scepter_radius"
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "550"
+      }
+      "scepter_pushback"
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "400"
       }
     }
   }

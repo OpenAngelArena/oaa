@@ -180,6 +180,9 @@ function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_STRENGTH then
     return self.str + self.bonus_to_primary_stat
@@ -188,6 +191,9 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_AGILITY then
     return self.agi + self.bonus_to_primary_stat
@@ -196,6 +202,9 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_INTELLECT then
     return self.int + self.bonus_to_primary_stat

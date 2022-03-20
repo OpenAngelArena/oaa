@@ -43,6 +43,7 @@ function WandererThink ()
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
     StartWandering()
+    return 1
   end
 
   if thisEntity.walking then
@@ -304,8 +305,10 @@ function GetNextWanderLocation (startPosition)
 
   local nextPosition = Vector(0, 0, 0)
   local isValidPosition = false
+  local loopCount = 0
 
   while not isValidPosition do
+    loopCount = loopCount + 1
     --if nextPosition then
       --print('Got a bad position option ' .. tostring(nextPosition))
     --end
@@ -318,7 +321,9 @@ function GetNextWanderLocation (startPosition)
     end
     isValidPosition = true
     if (scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 800) or (IsNearRadiantFountain(nextPosition) or IsNearDireFountain(nextPosition)) then
-      isValidPosition = false
+      if loopCount < 7 then
+        isValidPosition = false
+      end
     end
   end
 

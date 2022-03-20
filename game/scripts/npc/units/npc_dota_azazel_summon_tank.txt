@@ -19,7 +19,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""      // Ability 1
+    "Ability1"                                            "creep_siege"      // Ability 1
     "Ability2"                                            ""      // Ability 2
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
@@ -73,8 +73,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     //Inventory

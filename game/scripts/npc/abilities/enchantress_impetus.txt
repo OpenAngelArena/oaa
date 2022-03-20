@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5270"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5270"
     //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -15,7 +15,6 @@
     //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -37,19 +36,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "distance_damage_pct" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "distance_damage_pct"                             "8 12 16 20 28 52"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_4"
+        "value"                                           "8 12 16 20 40 60"
+        "special_bonus_unique_enchantress_4"              "+16"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance_cap"                                    "1750"
-      }
+      "distance_cap"                                      "1750"
+      "creep_multiplier"                                  "2"
     }
   }
 }

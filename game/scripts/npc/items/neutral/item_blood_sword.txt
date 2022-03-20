@@ -11,11 +11,12 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/neutral/blood_sword.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityTextureName"                                  "item_penta_edged_sword"
 
+    "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "25"
 
     // Item Info

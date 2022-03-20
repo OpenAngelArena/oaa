@@ -4,8 +4,12 @@ function modifier_troll_switch_oaa:IsHidden()
   return false
 end
 
+function modifier_troll_switch_oaa:IsDebuff()
+  return not self:GetParent():IsRangedAttacker()
+end
+
 function modifier_troll_switch_oaa:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_troll_switch_oaa:RemoveOnDeath()
@@ -24,7 +28,7 @@ function modifier_troll_switch_oaa:OnCreated()
 
   local parent = self:GetParent()
 
-  -- Check if parent has Berserkers Rage,
+  -- Check if parent has Berserkers Rage
   if parent:HasAbility("troll_warlord_berserkers_rage") then
     return
   end
@@ -37,7 +41,11 @@ function modifier_troll_switch_oaa:OnCreated()
     -- Parent is melee -> turn to ranged
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
     -- Change attack projectile only if parent doesn't have Metamorphosis and Dragon Form
-    if not parent:HasAbility("dragon_knight_elder_dragon_form") and not parent:HasAbility("dragon_knight_elder_dragon_form_oaa") and not parent:HasAbility("terrorblade_metamorphosis") then
+    if parent:HasAbility("dragon_knight_elder_dragon_form") and parent:HasAbility("dragon_knight_elder_dragon_form_oaa") then
+      parent:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf")
+    elseif parent:HasAbility("terrorblade_metamorphosis") then
+      parent:SetRangedProjectileName("particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf")
+    else
       parent:SetRangedProjectileName("particles/base_attacks/ranged_tower_good.vpcf")
     end
     self.set_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
@@ -45,7 +53,7 @@ function modifier_troll_switch_oaa:OnCreated()
     self.set_attack_capability = DOTA_UNIT_CAP_NO_ATTACK
   end
 
-  self:StartIntervalThink(0)
+  self:StartIntervalThink(1)
 end
 
 function modifier_troll_switch_oaa:OnIntervalThink()
@@ -54,15 +62,22 @@ function modifier_troll_switch_oaa:OnIntervalThink()
   end
 
   local parent = self:GetParent()
+  local hasTrueForm = parent:HasModifier("modifier_lone_druid_true_form")
 
   -- Check if parent has True Form
-  if parent:HasModifier("modifier_lone_druid_true_form") and self.set_attack_capability == DOTA_UNIT_CAP_MELEE_ATTACK and not parent:IsRangedAttacker() then
+  if hasTrueForm and self.set_attack_capability == DOTA_UNIT_CAP_MELEE_ATTACK and not parent:IsRangedAttacker() then
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+    -- this updates the stacks so the client side range updates correctly
+    -- otherwise you need to attack or a-click something/somewhere
+    self:GetModifierAttackRangeBonus()
     return
   end
 
-  if self.set_attack_capability ~= parent:GetAttackCapability() and not parent:HasModifier("modifier_lone_druid_true_form") then
+  if self.set_attack_capability ~= parent:GetAttackCapability() and not hasTrueForm then
     parent:SetAttackCapability(self.set_attack_capability)
+    -- this updates the stacks so the client side range updates correctly
+    -- otherwise you need to attack or a-click something/somewhere
+    self:GetModifierAttackRangeBonus()
   end
 end
 
@@ -77,49 +92,74 @@ function modifier_troll_switch_oaa:DeclareFunctions()
   return funcs
 end
 
+-- offset all stack counts by -600
+-- the max stack count we'll ever have is 600, so this makes the max 0
+-- negative stacks are allowed but don't appear in the UI, so this makes things clearer
+local RangeBufferOffset = 0 - 600
 
 function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
+  local currentStackCount = self:GetStackCount()
+  -- client side doesn't know we swapped their stuff
+  if not IsServer() then
+    return currentStackCount - RangeBufferOffset
+    -- return 0
+    -- isRangedHero = not isRangedHero
+  end
+
   local parent = self:GetParent()
-  if parent:IsRangedAttacker() then
-    return self.atkRange
+  local isRangedHero = parent:IsRangedAttacker()
+
+  local function setCurrentBonus(range)
+    if currentStackCount - RangeBufferOffset ~= range then
+      self:SetStackCount(range + RangeBufferOffset)
+    end
+    return range
+  end
+
+  if parent:HasAbility("troll_warlord_berserkers_rage") then
+    return setCurrentBonus(0)
+  end
+
+  -- if we used to be melee but now we're ranged, add exactly 600 range
+  if isRangedHero then
+    return setCurrentBonus(self.atkRange)
+
+  -- if we used to be ranged, we set our base range to either 300 or 150 depending on if the original hero had over 600 attack range base
   else
-    if self.ar_lock then
-      return 0
+    local attack_range = parent:GetBaseAttackRange()
+    if attack_range > self.atkRange then
+      return setCurrentBonus(300 - attack_range)
     else
-      self.ar_lock = true
-      local attack_range = parent:GetAttackRange()
-      self.ar_lock = false
-      if attack_range > self.atkRange then
-        return (self.atkRange / 2) - attack_range
-      else
-        return (self.atkRange / 4) - attack_range
-      end
+      return setCurrentBonus(150 - attack_range)
     end
   end
 
+  -- this cannot be reached
   return 0
 end
 
-function modifier_troll_switch_oaa:GetModifierProjectileSpeedBonus()
-  local parent = self:GetParent()
-  if not IsServer() or parent:HasModifier("modifier_item_princes_knife") then
-    return 0
-  end
-
-  if self.ps_lock then
-    return 0
-  else
-    self.ps_lock = true
-    local projectile_speed = parent:GetProjectileSpeed()
-    self.ps_lock = false
-    if projectile_speed <= self.projectileSpeed then
-      return self.projectileSpeed - projectile_speed
-    --elseif projectile_speed > self.projectileSpeed then
-      --return self.projectileSpeed - projectile_speed
+if IsServer() then
+  function modifier_troll_switch_oaa:GetModifierProjectileSpeedBonus()
+    local parent = self:GetParent()
+    if parent:HasModifier("modifier_item_princes_knife") then
+      return 0
     end
-  end
 
-  return 0
+    if self.ps_lock then
+      return 0
+    else
+      self.ps_lock = true
+      local projectile_speed = parent:GetProjectileSpeed()
+      self.ps_lock = false
+      if projectile_speed <= self.projectileSpeed then
+        return self.projectileSpeed - projectile_speed
+      --elseif projectile_speed > self.projectileSpeed then
+        --return self.projectileSpeed - projectile_speed
+      end
+    end
+
+    return 0
+  end
 end
 
 function modifier_troll_switch_oaa:GetModifierHealthBonus()

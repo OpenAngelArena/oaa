@@ -49,7 +49,7 @@ if IsServer() then
       "modifier_eternal_shroud_oaa_barrier",       -- Eternal Shroud active buff
       "modifier_shield_staff_barrier_buff",        -- Force Shield Staff buff
       --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
-      "modifier_item_ghost_king_bar_active",       -- Ghost King Bar active buff
+      --"modifier_item_ghost_king_bar_active",       -- Ghost King Bar active buff
       --"modifier_item_giant_form_grow",             -- Giant Form active buff
       "modifier_item_heart_oaa_active",            -- Heart active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff

@@ -57,58 +57,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 1000 1750 2750"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "325 425 575 775 1025"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "3 6 9 12 15"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_increase"                                   "35 45 55 65 75" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "20"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_radius"                                   "1200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "3 10 15 20 25" // old magic wand: 3 20 40 60 90
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "restore_per_charge"                              "15 25 35 45 55" // old magic wand: 15 30 60 120 240; keep in mind the heal increase
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_gain_timer"                               "10"
-      }
+      "bonus_health"      "250 500 1000 1750 2750"
+      "bonus_mana"      "300 400 550 750 1000"
+      "aura_health_regen" "3 6 9 12 15"
+      "aura_radius" "1200"
+      "heal_increase"   "35 45 55 65 75" //OAA
+      "max_charges"     "20"
+      "charge_radius"     "1200"
+      "bonus_all_stats"   "3 10 15 20 25" // old magic wand: 3 20 40 60 90
+      "restore_per_charge"  "15 25 35 45 55" // old magic wand: 15 30 60 120 240; keep in mind the heal increase
+      "charge_gain_timer"   "10 9 8 7 6"
     }
   }
 }

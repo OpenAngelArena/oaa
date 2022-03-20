@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Bonus Poison Touch DPS
-	//=================================================================================================================
-	"special_bonus_unique_dazzle_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"                                                  "6528"
-		"AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  // Bonus Poison Touch DPS
+  //=================================================================================================================
+  "special_bonus_unique_dazzle_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6528"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"                                        "FIELD_INTEGER"
-				"value"                                           "80" //OAA
-        "ad_linked_ability"                               "dazzle_poison_touch"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "80" //OAA
+        "ad_linked_abilities"                             "dazzle_poison_touch"
+      }
+    }
+  }
 }

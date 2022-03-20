@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1800"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "radius"                                          "400"
       }
       "04"
       {
@@ -56,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "speed"                                           "900" //OAA, Valve has it wrong
+        "speed"                                           "900.0"
       }
       "06"
       {
@@ -71,7 +71,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "channel_vision_radius"                           "375"
+        "channel_vision_radius"                           "400"
       }
       "09"
       {
@@ -86,7 +86,7 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "channel_vision_step"                             "150"
+        "channel_vision_step"                             "150 180 210 240 270 300"
       }
     }
   }

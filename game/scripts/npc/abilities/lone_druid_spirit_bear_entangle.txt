@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "5419" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "5419"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
@@ -17,7 +17,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "60 70 80 90 100 110" //OAA
+    "AbilityDamage"                                       "30 40 50 60 120 240" //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -26,28 +26,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "entangle_chance"                                 "20"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_duration"                                   "0.75 1.5 2.25 3.0 3.5 4.0" //OAA - ignore the error with LinkedSpecialBonus
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_damage_multiplier"                         "3" //OAA - ignore the error with LinkedSpecialBonus
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hero_entangle_chance"                            "30"
-      }
+      "damage"                                            "30 40 50 60 120 240"
+      "entangle_chance"                                   "20"
+      "hero_duration"                                     "1 1.6 2.2 2.8 3.4 4.0"
+      "creep_damage_multiplier"                           "3"
+      "hero_entangle_chance"                              "30"
     }
   }
 }

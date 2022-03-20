@@ -12,17 +12,14 @@
     "MaxLevel"                                            "6"
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "blade_dance_crit_chance" "20 25 30 35 40 45"
+      "blade_dance_crit_mult"   "180"
+      "blade_dance_lifesteal"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "blade_dance_crit_chance"                         "20 25 30 35 40 45"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blade_dance_crit_mult"                           "180"
+        "value" "0"
+        "special_bonus_unique_juggernaut_blade_dance_lifesteal" "+40"
       }
     }
   }

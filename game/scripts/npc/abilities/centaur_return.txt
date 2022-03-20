@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5516"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5516"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -18,24 +18,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "return_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "return_damage"                                   "15 30 45 60 120 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_3"
+        "value"                                           "15 30 45 60 120 240"
+        "special_bonus_unique_centaur_3"                  "+90"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "return_damage_str"                               "20 26 32 38 44 50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
+      "return_damage_str"                                 "20 26 32 38 44 50"
+      "aura_radius"                                       "1200"
     }
   }
 }

@@ -35,34 +35,31 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // number of epicenter_radius values should be equal to max(epicenter_pulses) + talent bonus which is: 14+5
+      "epicenter_radius"  // number of epicenter_radius values should be equal to max(epicenter_pulses) + talent bonus which is: 14+5
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "epicenter_radius"                                "500 525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950"
+        "value"   "500 525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950"
+        "special_bonus_unique_sand_king_5"  "+100"
       }
-      "02"
+      "shard_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "epicenter_pulses"                                "6 8 10 12 14"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king"
+        "value"   "425"
+        "special_bonus_unique_sand_king_5"  "+100"
       }
-      "03"
+      "epicenter_pulses"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "epicenter_damage"                                "100 200 300 450 600" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_5"
+        "value"   "6 8 10 12 14"
+        "LinkedSpecialBonus"  "special_bonus_unique_sand_king"
       }
-      "04"
+      "epicenter_damage"  "100 200 300 600 900" //OAA
+      "epicenter_slow" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "epicenter_slow"                                  "-30 -40 -50 -60 -70" //OAA
+        "value"     "-30 -40 -50 -60 -70"
       }
-      "05"
+      "epicenter_slow_as" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "epicenter_slow_as"                               "-30 -60 -90 -120 -150" //OAA
+        "value"     "-30 -60 -90 -120 -150"
       }
     }
   }

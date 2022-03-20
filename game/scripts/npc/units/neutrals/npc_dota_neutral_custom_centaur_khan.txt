@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl"
-    "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "5"
     "ModelScale"                                          "1"
@@ -72,7 +72,7 @@
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

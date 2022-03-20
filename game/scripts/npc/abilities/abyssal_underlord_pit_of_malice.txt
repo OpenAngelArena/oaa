@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5614"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5614"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -59,6 +59,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "ensnare_duration"                                "1.2 1.4 1.6 1.8 1.9 2.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "speed_bonus"                                     "40"
+        "RequiresScepter"                                 "1"
       }
     }
   }

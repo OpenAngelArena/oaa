@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Scream of Pain Fear
+  //=================================================================================================================
+  "special_bonus_unique_queen_of_pain_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"					"715"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "value"				"2.5" //OAA
+        "ad_linked_abilities"			"queenofpain_sonic_wave"
+      }
+    }
+  }
+}
