@@ -59,7 +59,7 @@ function tinkerer_oil_spill:OnProjectileHit(target,location)
   ParticleManager:ReleaseParticleIndex(splat)
 
   AddFOWViewer(team, location, radius, 1.0, false)
-  DebugDrawCircle(location, Vector(255,0,0), 1, radius, true, 1.0)
+  --DebugDrawCircle(location, Vector(255,0,0), 1, radius, true, 1.0)
 
   --oil near enemies
   local oiled_enemies = FindUnitsInRadius(
@@ -130,9 +130,9 @@ function modifier_tinkerer_oil_spill_debuff:IsDebuff() return true end
 
 function modifier_tinkerer_oil_spill_debuff:IsPurgable() return true end
 
---function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
-	--return "particles/status_fx/status_effect_stickynapalm.vpcf"
---end
+function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
+	return "particles/status_fx/status_effect_stickynapalm.vpcf"
+end
 
 function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local parent = self:GetParent()
@@ -157,13 +157,13 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
     attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
   end
-  
+
   -- Check for talent that increases the burn dps
   local talent2 = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_burn_amount") -- temporary
   if talent2 and talent2:GetLevel() > 0 then
     burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
   end
-  
+
   -- Status resistance fix
   if IsServer() then
     move_speed_slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
@@ -205,7 +205,7 @@ if IsServer() then
     if not attacker or attacker:IsNull() or not inflictor or not victim or victim:IsNull() then
       return
     end
-    
+
     local caster = self:GetCaster()
     local parent = self:GetParent()
 
@@ -224,7 +224,7 @@ if IsServer() then
     self.already_burning = true
 
     local particle_name = "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
-	self.burning_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+    self.burning_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
 
     self:OnIntervalThink()
     self:StartIntervalThink(self.burn_interval)

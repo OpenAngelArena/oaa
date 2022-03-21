@@ -29,8 +29,8 @@
 
     // Time and Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5"
-	"AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "15 13 11 9 8 7" // original: 18/15/12/9
+    "AbilityManaCost"                                     "50 65 80 95 110 125"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -38,19 +38,19 @@
     {
       "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
       "particle"                                          "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
-	  "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
+      "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
     }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "400"
-	  "projectile_speed"                                  "700"
-	  "slow_duration"                                     "5"
-	  "move_speed_slow"                                   "15 20 25 30 35 40"
-	  "attack_speed_slow"                                 "15 20 25 30 35 40" // percentage attack speed slow
-      "burn_dps"                                          "30 40 50 60 120 240"
+      "radius"                                            "300"
+      "projectile_speed"                                  "934"
+      "slow_duration"                                     "2 3 4 5 5.5 6"
+      "move_speed_slow"                                   "20 30 40 50 60 70" // original: 20/40/60/80%
+      "attack_speed_slow"                                 "15 20 25 30 35 40" // percentage attack speed slow; original: 10/20/30/40%
+      "burn_dps"                                          "30 40 50 60 120 240" // original: 15/20/25/30
       "burn_interval"                                     "0.2"
     }
   }

@@ -63,11 +63,11 @@ function tinkerer_smart_missiles:OnSpellStart()
 
     -- Send additional projectiles specified by the talent
     for i = 0, multishot_count-1 do
-	  -- Angle multiplier to switch sides between right and left
-	  local angle_mult = 1;
-	  if i % 2 == 1 then
-	    angle_mult = -1
-	  end
+      -- Angle multiplier to switch sides between right and left
+      local angle_mult = 1;
+      if i % 2 == 1 then
+        angle_mult = -1
+      end
 
       -- Projectiles with indices 0,1 have same angle (also applies for 2,3 or 4,5...)
       local angle = ( math.floor(i / 2) + 1 ) * multishot_angle * angle_mult
@@ -76,11 +76,11 @@ function tinkerer_smart_missiles:OnSpellStart()
       local direction_multishot = RotatePosition(Vector(0,0,0), QAngle(0, angle, 0), direction):Normalized()
 
       -- Calculate velocity for this projectile
-	  projectile_table.vVelocity = direction_multishot * rocket_speed
+      projectile_table.vVelocity = direction_multishot * rocket_speed
       -- Mark this projectile as a multishot projectile
-	  projectile_table.ExtraData.multishot_bool = 1
+      projectile_table.ExtraData.multishot_bool = 1
 
-      -- Create projectile
+      -- Create multishot projectile
       ProjectileManager:CreateLinearProjectile(projectile_table)
     end
   end
@@ -90,7 +90,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   if not target or not location then
     return false
   end
-  
+
   -- Ignore neutral creeps but not bosses
   if target:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not target:IsOAABoss() then
     return false
@@ -98,7 +98,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   local caster = self:GetCaster()
 
-  -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multiple missiles
+  -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multishot missiles
   local stunned_modifier = target:FindModifierByNameAndCaster("modifier_tinkerer_smart_missiles_stun", caster)
   if stunned_modifier and data.multishot_bool == 1 then
     return false
@@ -111,7 +111,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local rocket_vision = self:GetSpecialValueFor("rocket_vision")
   local rocket_explode_vision = self:GetSpecialValueFor("rocket_explode_vision")
   local vision_duration = self:GetSpecialValueFor("vision_duration")
-  
+
   -- Check for bonus damage talent
   local talent2 = caster:FindAbilityByName("bonus_damage_talent") -- temporary
   if talent2 and talent2:GetLevel() > 0 then
@@ -151,11 +151,11 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   damage_table.damage_type = self:GetAbilityDamageType()
 
   ApplyDamage(damage_table)
-  
+
   -- Add vision
   local vision_radius = math.max(rocket_vision, rocket_explode_vision)
   AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, vision_duration, false)
-  
+
    -- Sound
   local sound_name = "Hero_Tinker.Heat-Seeking_Missile.Impact"
   EmitSoundOnLocationWithCaster(location, sound_name, caster)
@@ -172,7 +172,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     location,
     nil,
     explode_radius,
-	self:GetAbilityTargetTeam(),
+    self:GetAbilityTargetTeam(),
     self:GetAbilityTargetType(),
     self:GetAbilityTargetFlags(),
     FIND_ANY_ORDER,
@@ -188,7 +188,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
       target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = enemy_duration})
 
       -- Damage
-	  damage_table.victim = enemy
+      damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
   end

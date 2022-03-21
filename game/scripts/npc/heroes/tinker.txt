@@ -5,7 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_tinker"
   {
-	"Ability1"                                            "tinkerer_smart_missiles" // replaces tinker_laser
+    "Ability1"                                            "tinkerer_smart_missiles" // replaces tinker_laser
     "Ability2"                                            "tinkerer_oil_spill" // replaces tinker_heat_seeking_missile
     "Ability3"                                            "tinker_defense_matrix"
     "Ability4"                                            "tinker_warp_grenade"
@@ -24,12 +24,12 @@
     "Ability16"                                           "special_bonus_unique_tinker"
     "Ability17"                                           "special_bonus_unique_tinker_3"
 
-	"Ability25"                                           "special_bonus_attributes"
-	
-	"AbilityTalentStart"                                  "10"
+    //"Ability25"                                           "special_bonus_attributes"
 
-    "ArmorPhysical"                                       "2"
-	"MagicalResistance"                                   "25"
+    //"AbilityTalentStart"                                  "10"
+
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "25"
 
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "BaseAttackSpeed"                                     "100"
@@ -38,25 +38,25 @@
     "AttackRate"                                          "1.7"
     "AttackAnimationPoint"                                "0.35"
     "AttackAcquisitionRange"                              "800"
-    "AttackRange"                                         "500"
+    "AttackRange"                                         "550"
     "ProjectileModel"                                     "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf"
-    "ProjectileSpeed"                                     "900"
+    "ProjectileSpeed"                                     "900" // original: 1500
 
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_INTELLECT"
-    "AttributeBaseStrength"                               "18"
-    "AttributeStrengthGain"                               "2.5"
-    "AttributeBaseIntelligence"                           "30"
-    "AttributeIntelligenceGain"                           "3.3"
-    "AttributeBaseAgility"                                "13"
-    "AttributeAgilityGain"                                "1.2"
+    "AttributeBaseStrength"                               "18"  // original: 19
+    "AttributeStrengthGain"                               "2.5" // original: 1.6
+    "AttributeBaseIntelligence"                           "30"  // original: 25
+    "AttributeIntelligenceGain"                           "3.0" // original: 3.0
+    "AttributeBaseAgility"                                "20"
+    "AttributeAgilityGain"                                "1.5"
 
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "290"
+    "MovementSpeed"                                       "295"
     "MovementTurnRate"                                    "1.0"
 
     "StatusHealth"                                        "200"
     "StatusMana"                                          "75"
-    "StatusManaRegen"                                     "0.75"
+    "StatusManaRegen"                                     "0"
     "StatusHealthRegen"                                   "0.25"
 
     "VisionDaytimeRange"                                  "1800"
