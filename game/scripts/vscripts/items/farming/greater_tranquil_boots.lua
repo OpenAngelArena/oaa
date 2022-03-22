@@ -633,7 +633,7 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
   end
 
   if IsServer() then
-    lcoal parent = self:GetParent()
+    local parent = self:GetParent()
     -- Particle
     local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
     local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
@@ -760,11 +760,11 @@ function modifier_greater_tranquils_trees_dummy_stuff:DeclareFunctions()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:GetBonusDayVision()
-  return self.radius or self:GetStackCount()
+  return self:GetStackCount()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:GetBonusNightVision()
-  return self.radius or self:GetStackCount()
+  return self:GetStackCount()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:CheckState()
