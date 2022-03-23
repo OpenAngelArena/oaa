@@ -372,18 +372,20 @@ function modifier_item_far_sight_true_sight:DeclareFunctions()
   }
 end
 
-function modifier_item_far_sight_true_sight:OnDeath(event)
-  if event.unit == self:GetParent() then
-    if self.particle1 then
-      ParticleManager:DestroyParticle(self.particle1, true)
-      ParticleManager:ReleaseParticleIndex(self.particle1)
-      self.particle1 = nil
-    end
+if IsServer() then
+  function modifier_item_far_sight_true_sight:OnDeath(event)
+    if event.unit == self:GetParent() then
+      if self.particle1 then
+        ParticleManager:DestroyParticle(self.particle1, true)
+        ParticleManager:ReleaseParticleIndex(self.particle1)
+        self.particle1 = nil
+      end
 
-    if self.particle2 then
-      ParticleManager:DestroyParticle(self.particle2, true)
-      ParticleManager:ReleaseParticleIndex(self.particle2)
-      self.particle2 = nil
+      if self.particle2 then
+        ParticleManager:DestroyParticle(self.particle2, true)
+        ParticleManager:ReleaseParticleIndex(self.particle2)
+        self.particle2 = nil
+      end
     end
   end
 end

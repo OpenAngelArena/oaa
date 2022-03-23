@@ -52,15 +52,15 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_generic_projectile:OnDeath(keys)
-    if IsServer() then
-        local caster = self:GetParent()
-        if keys.unit:entindex() == caster:entindex() then
-            if self.projectileTable and self.projectileTable.onDiedCallback then
-                self.projectileTable.onDiedCallback()
-            end
-        end
+if IsServer() then
+  function modifier_generic_projectile:OnDeath(keys)
+    local caster = self:GetParent()
+    if keys.unit:entindex() == caster:entindex() then
+      if self.projectileTable and self.projectileTable.onDiedCallback then
+        self.projectileTable.onDiedCallback()
+      end
     end
+  end
 end
 
 ------------------------------------------------------------------------------------
