@@ -40,6 +40,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/ghost_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/ghoststaff_5"
 
     // Stats

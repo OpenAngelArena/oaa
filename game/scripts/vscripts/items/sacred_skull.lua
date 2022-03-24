@@ -272,13 +272,13 @@ if IsServer() then
     local dead = event.unit
     local ability = self:GetAbility()
 
-    -- If dead unit is not the parent then dont continue
-    if dead ~= parent then
+    -- Check if dead unit is nil or its about to be deleted
+    if not dead or dead:IsNull() then
       return
     end
 
-    -- Check if dead unit is nil or its about to be deleted
-    if not dead or dead:IsNull() then
+    -- If dead unit is not the parent then dont continue
+    if dead ~= parent then
       return
     end
 

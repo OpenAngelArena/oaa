@@ -116,106 +116,110 @@ function modifier_item_spiked_mail_passive_return:DeclareFunctions()
   }
 end
 
-function modifier_item_spiked_mail_passive_return:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_item_spiked_mail_passive_return:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
 
-  local parent = self:GetParent()
+    -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-  -- Trigger only for this modifier
-  if parent ~= event.unit then
-    return
-  end
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
-  -- Don't trigger on illusions
-  if parent:IsIllusion() then
-    return
-  end
+    -- Trigger only for this modifier
+    if damaged_unit ~= parent then
+      return
+    end
 
-  -- If there is a stronger reflection modifier, don't continue
-  --if parent:HasModifier("modifier_item_spiked_mail_active_return")  then
-    --return
-  --end
+    -- Don't trigger on illusions
+    if parent:IsIllusion() then
+      return
+    end
 
-  -- If parent has Blade Mail passive/item or Blade Mail buff, don't continue to prevent stacking
-  if parent:HasModifier("modifier_item_blade_mail") or parent:HasModifier("modifier_item_blade_mail_reflect") then
-    return
-  end
+    -- If there is a stronger reflection modifier, don't continue
+    --if parent:HasModifier("modifier_item_spiked_mail_active_return")  then
+      --return
+    --end
 
-  -- Damage before reductions
-  local damage = event.original_damage
+    -- If parent has Blade Mail passive/item or Blade Mail buff, don't continue to prevent stacking
+    if parent:HasModifier("modifier_item_blade_mail") or parent:HasModifier("modifier_item_blade_mail_reflect") then
+      return
+    end
 
-  -- If damage is negative or 0, don't continue
-  if damage <= 0 then
-    return
-  end
+    -- Damage before reductions
+    local damage = event.original_damage
 
-  local damage_flags = event.damage_flags
-  local attacker = event.attacker
+    -- If damage is negative or 0, don't continue
+    if damage <= 0 then
+      return
+    end
 
-  -- Don't continue if damage has HP removal flag
-  if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-    return
-  end
+    local damage_flags = event.damage_flags
 
-  -- Don't continue if damage has Reflection flag
-  if bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-    return
-  end
+    -- Don't continue if damage has HP removal flag
+    if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return
+    end
 
-  -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
-  if not attacker or attacker:IsNull() then
-    return
-  end
+    -- Don't continue if damage has Reflection flag
+    if bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+      return
+    end
 
-  -- Don't trigger on self damage or on damage originating from allies
-  if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
-    return
-  end
+    -- Don't trigger on self damage or on damage originating from allies
+    if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
 
-  -- Don't trigger if attacker is dead, invulnerable or banished
-  if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
-    return
-  end
+    -- Don't trigger if attacker is dead, invulnerable or banished
+    if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
+      return
+    end
 
-  -- Don't trigger on buildings, towers and wards
-  if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
-    return
-  end
+    -- Don't trigger on buildings, towers and wards
+    if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
+      return
+    end
 
-  local ability = self:GetAbility()
-  if not ability then
-    return
-  end
+    if not ability or ability:IsNull() then
+      return
+    end
 
-  -- Fetch the damage return amount/percentage
-  local damage_return = ability:GetSpecialValueFor("passive_reflection_pct")
+    -- Fetch the damage return amount/percentage
+    local damage_return = ability:GetSpecialValueFor("passive_reflection_pct")
 
-  -- Calculating damage that will be returned to attacker
-  local new_damage = damage * damage_return / 100
+    -- Calculating damage that will be returned to attacker
+    local new_damage = damage * damage_return / 100
 
-  -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
-  if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
-    local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
-    local veil_item = veil_debuff:GetAbility()
-    if veil_item then
-      local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
-      if damage_amp then
-        new_damage = new_damage / (1 + damage_amp/100)
+    -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
+    if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
+      local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
+      local veil_item = veil_debuff:GetAbility()
+      if veil_item then
+        local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+        if damage_amp then
+          new_damage = new_damage / (1 + damage_amp/100)
+        end
       end
     end
+
+    local damage_table = {}
+    damage_table.victim = attacker
+    damage_table.attacker = parent
+    damage_table.damage_type = event.damage_type -- Same damage type as original damage
+    damage_table.ability = ability
+    damage_table.damage = new_damage
+    damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+
+    ApplyDamage(damage_table)
   end
-
-  local damage_table = {}
-  damage_table.victim = attacker
-  damage_table.attacker = parent
-  damage_table.damage_type = event.damage_type -- Same damage type as original damage
-  damage_table.ability = ability
-  damage_table.damage = new_damage
-  damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-
-  ApplyDamage(damage_table)
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -268,113 +272,117 @@ function modifier_item_spiked_mail_active_return:DeclareFunctions()
   }
 end
 
-function modifier_item_spiked_mail_active_return:OnTakeDamage(event)
-	if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_item_spiked_mail_active_return:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
 
-  local parent = self:GetParent()
+    -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-  -- Trigger only for this modifier
-  if parent ~= event.unit then
-    return
-  end
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
-  -- Don't trigger on illusions (illusions can't get this modifier through normal means)
-  if parent:IsIllusion() then
-    return
-  end
+    -- Trigger only for this modifier
+    if damaged_unit ~= parent then
+      return
+    end
 
-  -- If there is a Blade Mail modifier, remove it
-  if parent:HasModifier("modifier_item_blade_mail_reflect") then
-    parent:RemoveModifierByName("modifier_item_blade_mail_reflect")
-  end
+    -- Don't trigger on illusions (illusions can't get this modifier through normal means)
+    if parent:IsIllusion() then
+      return
+    end
 
-  -- Damage before reductions
-  local damage = event.original_damage
+    -- If there is a Blade Mail modifier, remove it
+    if parent:HasModifier("modifier_item_blade_mail_reflect") then
+      parent:RemoveModifierByName("modifier_item_blade_mail_reflect")
+    end
 
-  -- If damage is negative or 0, don't continue
-  if damage <= 0 then
-    return
-  end
+    -- Damage before reductions
+    local damage = event.original_damage
 
-  local damage_flags = event.damage_flags
-  local attacker = event.attacker
+    -- If damage is negative or 0, don't continue
+    if damage <= 0 then
+      return
+    end
 
-  -- Don't continue if damage has HP removal flag
-  if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-    return
-  end
+    local damage_flags = event.damage_flags
 
-  -- Don't continue if damage has Reflection flag
-  if bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-    return
-  end
+    -- Don't continue if damage has HP removal flag
+    if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return
+    end
 
-  -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
-  if not attacker or attacker:IsNull() then
-    return
-  end
+    -- Don't continue if damage has Reflection flag
+    if bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+      return
+    end
 
-  -- Don't trigger on self damage or on damage originating from allies
-  if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
-    return
-  end
+    -- Don't trigger on self damage or on damage originating from allies
+    if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
 
-  -- Don't trigger if attacker is dead, invulnerable or banished
-  if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
-    return
-  end
+    -- Don't trigger if attacker is dead, invulnerable or banished
+    if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
+      return
+    end
 
-  -- Don't trigger on buildings, towers and wards
-  if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
-    return
-  end
+    -- Don't trigger on buildings, towers and wards
+    if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
+      return
+    end
 
-  local ability = self:GetAbility()
-  if not ability then
-    return
-  end
+    if not ability or ability:IsNull() then
+      return
+    end
 
-  -- Fetch the damage return amount/percentage
-  local damage_return = ability:GetSpecialValueFor("active_reflection_pct")
+    -- Fetch the damage return amount/percentage
+    local damage_return = ability:GetSpecialValueFor("active_reflection_pct")
 
-  -- If parent has Blade Mail passive/item, prevent stacking with the passive damage return
-  if parent:HasModifier("modifier_item_blade_mail") then
-    local blade_mail = parent:FindItemInInventory("item_blade_mail")
-    if blade_mail then
-      if not blade_mail:IsInBackpack() then
-        damage_return = damage_return - blade_mail:GetSpecialValueFor("passive_reflection_pct")
+    -- If parent has Blade Mail passive/item, prevent stacking with the passive damage return
+    if parent:HasModifier("modifier_item_blade_mail") then
+      local blade_mail = parent:FindItemInInventory("item_blade_mail")
+      if blade_mail then
+        if not blade_mail:IsInBackpack() then
+          damage_return = damage_return - blade_mail:GetSpecialValueFor("passive_reflection_pct")
+        end
       end
     end
-  end
 
-  -- Calculating damage that will be returned to attacker
-  local new_damage = damage * damage_return / 100
+    -- Calculating damage that will be returned to attacker
+    local new_damage = damage * damage_return / 100
 
-  -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
-  if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
-    local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
-    local veil_item = veil_debuff:GetAbility()
-    if veil_item then
-      local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
-      if damage_amp then
-        new_damage = new_damage / (1 + damage_amp/100)
+    -- If attacker has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
+    if attacker:HasModifier("modifier_item_veil_of_discord_debuff") then
+      local veil_debuff = attacker:FindModifierByName("modifier_item_veil_of_discord_debuff")
+      local veil_item = veil_debuff:GetAbility()
+      if veil_item then
+        local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+        if damage_amp then
+          new_damage = new_damage / (1 + damage_amp/100)
+        end
       end
     end
+
+    local damage_table = {}
+    damage_table.victim = attacker
+    damage_table.attacker = parent
+    damage_table.damage_type = event.damage_type -- Same damage type as original damage
+    damage_table.ability = ability
+    damage_table.damage = new_damage
+    damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
+
+    ApplyDamage(damage_table)
+
+    EmitSoundOnClient("DOTA_Item.BladeMail.Damage", attacker:GetPlayerOwner())
   end
-
-  local damage_table = {}
-  damage_table.victim = attacker
-  damage_table.attacker = parent
-  damage_table.damage_type = event.damage_type -- Same damage type as original damage
-  damage_table.ability = ability
-  damage_table.damage = new_damage
-  damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
-
-  ApplyDamage(damage_table)
-
-  EmitSoundOnClient("DOTA_Item.BladeMail.Damage", attacker:GetPlayerOwner())
 end
 
 function modifier_item_spiked_mail_active_return:GetTexture()

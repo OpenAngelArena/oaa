@@ -26,7 +26,7 @@ require("components")
 require('gamemode')
 require('precache')
 
-require('libraries/keyvalues')
+--require('libraries/keyvalues')
 -- DotaStats
 --require("statcollection/init")
 
