@@ -136,6 +136,7 @@ function init () {
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
   CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
   CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
+  GameEvents.Subscribe('oaa_random_hero_message', SendMessageToTeam);
 
   // load hero selection
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
@@ -253,12 +254,12 @@ function changeHilariousLoadingText () {
   $.Schedule(1, oneDots);
   $.Schedule(2, twoDots);
   $.Schedule(3, threeDots);
-  $.Schedule(6, noDots);
-  $.Schedule(7, oneDots);
-  $.Schedule(8, twoDots);
-  $.Schedule(9, threeDots);
+  $.Schedule(4, noDots);
+  $.Schedule(5, oneDots);
+  $.Schedule(6, twoDots);
+  $.Schedule(7, threeDots);
 
-  $.Schedule(12, changeHilariousLoadingText);
+  $.Schedule(8, changeHilariousLoadingText);
 
   function noDots () {
     $('#ARDMLoading').text = incredibleWit;
@@ -1106,7 +1107,7 @@ function SelectHero (hero) {
       CaptainSelectHero();
     } else {
       $.Msg('Selecting ' + newhero);
-      let playerId = Game.GetLocalPlayerID()
+      let playerId = Game.GetLocalPlayerID();
       let playerName = Players.GetPlayerName(playerId);
       let heroName = $.Localize('#' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
@@ -1232,4 +1233,29 @@ function CreateAbilityPanel (parent, ability) {
   icon.SetPanelEvent('onmouseout', function () {
     $.DispatchEvent('DOTAHideAbilityTooltip', icon);
   });
+}
+
+function SendMessageToTeam (event) {
+  let playerName = event.player_name;
+  if (playerName === undefined || playerName === '') {
+    let playerId = event.picker_playerid;
+    if (!playerId) {
+      playerId = Game.GetLocalPlayerID();
+    }
+    playerName = Players.GetPlayerName(playerId);
+  }
+  const heroName = $.Localize('#' + event.hero);
+  let message = playerName + ' got ' + heroName;
+  const forced = event.forced === 1;
+  if (forced) {
+    const forcedToPick = event.forced_pick === 1;
+    message = playerName + ' was forced to pick ' + heroName;
+    if (!forcedToPick) {
+      message = playerName + ' was forced to random ' + heroName;
+    }
+  } else {
+    message = playerName + ' randomed ' + heroName;
+  }
+
+  Game.ServerCmd(`say_team ${message}`);
 }

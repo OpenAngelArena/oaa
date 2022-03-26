@@ -371,18 +371,33 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
+      local player_name = event.player_name or PlayerResource:GetPlayerName(event.PlayerID)
+      CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', {
+        player_name = player_name,
+        hero = choice,
+        picker_playerid = event.playerID
+      })
       --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
       --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..name, 0, 0)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
-      --local previewHero = self:GetPreviewHero(event.PlayerID)
+      local previewHero = self:GetPreviewHero(event.PlayerID)
+      local data = {
+        player_name = PlayerResource:GetPlayerName(event.PlayerID),
+        hero = choice,
+        forced = 1,
+        picker_playerid = event.playerID
+      }
       --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      --if choice == previewHero then
+      if choice == previewHero then
         --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
-      --else
+        data.forced_pick = 1
+        CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', data)
+      else
         --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
-      --end
+        CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', data)
+      end
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
