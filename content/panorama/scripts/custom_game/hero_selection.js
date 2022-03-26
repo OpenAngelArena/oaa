@@ -74,10 +74,8 @@ var hilariousLoadingPhrases = [
   'Adding another overpowered custom hero',
   'Actually doing nothing',
   'Prolonging loading screen for dramatic effect',
-  'Begging for Oracle sets',
   'Crashing tournament finals',
   'Banning spectators on a hunch',
-  'Nerfing Tinker more',
   'Replacing all heroes with Oracle',
   'Losing self in the music the moment I owned it',
   'Practicing invincible ledgedash',
@@ -113,7 +111,7 @@ var hilariousLoadingPhrases = [
   'Unclaimed Runes will be destroyed in developer\'s pits of darkness',
   'You cannot block neutral creep camps from respawning at the minute mark. Griefers get rekt',
   'Scan reveals invisible enemy units and heroes but not wards',
-  'Aghanim\'s Shard cannot be purchased until the 15 minute mark',
+  'Aghanim\'s Shard cannot be purchased until the 12 minute mark',
   'Azazel\'s Scout, unit that can be purchased from the Azazel shop, has flying vision, true sight and 100% magic resistance',
   'You can sell core points for gold by right-clicking on the special item in the main shop',
   'Bosses start regenerating rapidly to full health if not damaged for 5 seconds',
@@ -122,7 +120,6 @@ var hilariousLoadingPhrases = [
   'Tooltips usually provide answers to all your questions. But also keep in mind that Valve is a small indie company and we are not obligated to fix all their errors',
   'Remember that this is only a game',
   'Never question Darkonius\' item builds',
-  'Lich can use Frost Shield on Techies mines',
   'Dark Seer can use Ion Shell on invulnerable allies',
   'Ten years since chrisinajar stream'
 ];
@@ -1109,8 +1106,13 @@ function SelectHero (hero) {
       CaptainSelectHero();
     } else {
       $.Msg('Selecting ' + newhero);
+      let playerId = Game.GetLocalPlayerID()
+      let playerName = Players.GetPlayerName(playerId);
+      let heroName = $.Localize('#' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        hero: newhero
+        hero: newhero,
+        player_name: playerName,
+        hero_name: heroName
       });
     }
   }

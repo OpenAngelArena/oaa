@@ -371,18 +371,18 @@ function HeroSelection:RankedManager (event)
     end
     if choice == 'random' then
       choice = self:RandomHero()
-      local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..name, 0, 0)
+      --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..name, 0, 0)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
-      local previewHero = self:GetPreviewHero(event.PlayerID)
-      local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      if choice == previewHero then
-        GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
-      else
-        GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
-      end
+      --local previewHero = self:GetPreviewHero(event.PlayerID)
+      --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
+      --if choice == previewHero then
+        --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
+      --else
+        --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
+      --end
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
@@ -965,15 +965,15 @@ function HeroSelection:HeroSelected (event)
     DebugPrint('Cheater...')
     return
   end
+  local player_name = tostring(event.player_name) or tostring(PlayerResource:GetPlayerName(event.PlayerID))
+  local hero_name = tostring(event.hero_name)
   if rankedpickorder.phase == 'bans' then
     if IsInToolsMode() then
-      local name = string.gsub(event.hero, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      GameRules:SendCustomMessage("Tools Mode: "..tostring(PlayerResource:GetPlayerName(event.PlayerID)).." banned "..name, 0, 0)
+      GameRules:SendCustomMessage("Tools Mode: "..player_name.." nominated "..hero_name.." to be banned.", 0, 0)
     end
   elseif rankedpickorder.phase == 'picking' then
     if event.hero ~= 'random' and event.hero ~= 'forcerandom' then
-      local name = string.gsub(event.hero, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." picked "..name, 0, 0)
+      GameRules:SendCustomMessage(player_name.." picked "..hero_name, 0, 0)
     end
   end
   if HeroSelection.isBanning then
