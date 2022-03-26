@@ -100,6 +100,18 @@
         "AbilityCharges"                                  ""
         "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_1"
       }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_delay"                                     "1.0"
+        "RequiresShard"                                   "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_radius"                                    "725"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

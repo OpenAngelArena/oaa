@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5595"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5595"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -35,12 +34,12 @@
     {
       "damage"        "35 65 95 125 250 500"
       "damage_per_unit"   "14 16 18 20 40 80"
-      "damage_per_hero"   
+      "damage_per_hero"
       {
         "value"       "35 65 95 125 250 500"
         "LinkedSpecialBonus"  "special_bonus_unique_legion_commander_4"
       }
-      "illusion_dmg_pct"    
+      "illusion_dmg_pct"
       {
         "value"       "25"
         "CalculateSpellDamageTooltip" "1"
@@ -48,14 +47,26 @@
       "bonus_speed_creeps"    "3"
       "bonus_speed_heroes"    "9"
       "duration"        "7.0"
-      "radius"        
+      "radius"
       {
         "value"   "330 340 350 360 370 380"
         "LinkedSpecialBonus"  "special_bonus_unique_legion_commander_2"
       }
-      "armor_per_creep" "0.5"
-      "armor_per_hero"  "4"
-      "shard_duration"  "15"
+      "armor_per_creep"
+      {
+        "value"                                           "0.5"
+        "RequiresShard"                                   "1"
+      }
+      "armor_per_hero"
+      {
+        "value"                                           "4"
+        "RequiresShard"                                   "1"
+      }
+      "shard_duration"
+      {
+        "value"                                           "15"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }
