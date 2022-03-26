@@ -4,12 +4,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5178"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5178"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -64,6 +63,18 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed"                                           "1200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_ward_count"                                "2" // tooltip only
+        "RequiresShard"                                   "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_range"                               "400"
+        "RequiresShard"                                   "1"
       }
     }
   }

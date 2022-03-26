@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5289"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5289"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -73,6 +73,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "spawn_radius"                                    "300"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "2"
+        "RequiresShard"                                   "1"
       }
     }
   }

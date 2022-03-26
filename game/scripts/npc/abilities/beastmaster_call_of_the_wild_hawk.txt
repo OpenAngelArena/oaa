@@ -35,25 +35,31 @@
     {
       "01"
       {
-        "var_type"				"FIELD_INTEGER"
-        "duration"				"60"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "60"
       }
       "02"
       {
-        "var_type"					"FIELD_INTEGER"
-        "hawk_hp_tooltip"			"150 350 550 750 1150 1550" //OAA, for picking screen tooltip
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_hp_tooltip"                                 "150 350 550 750 1150 1550" //OAA, for picking screen tooltip
       }
       "03"
       {
-        "var_type"					"FIELD_INTEGER"
-        "hawk_speed_tooltip"		"300 340 380 420 460 500"
-        "LinkedSpecialBonus"    "special_bonus_unique_beastmaster_2" // - this is bonus Boar damage talent but whatever Valve
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_speed_tooltip"                              "300 340 380 420 460 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2" // - this is bonus Boar damage talent but whatever Valve
       }
       "04"
       {
-        "var_type"					"FIELD_INTEGER"
-        "hawk_vision_tooltip"		"750 800 850 900 1000 1100"
-        "LinkedSpecialBonus"    "special_bonus_unique_beastmaster_5"
+        "var_type"                                        "FIELD_INTEGER"
+        "hawk_vision_tooltip"                             "750 800 850 900 1000 1100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "7.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

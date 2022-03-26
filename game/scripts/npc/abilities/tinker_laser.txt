@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5150"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5150"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -76,12 +75,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "splash_pct"                                      "100"
       }
-      // "05" // thanks Valve
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "scepter_bounce_range"                            "200"
-        // "RequiresScepter"                                 "1"
-      // }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_cast_range"                        "200"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_reduction_pct"                           "10"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bounce_radius"                           "700"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

@@ -77,8 +77,8 @@ function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
   local playerID = parent:GetPlayerOwnerID()
 
   local illusion_table = {
-    outgoing_damage = 100 - ability:GetSpecialValueFor("illusion_damage_out_pct"),
-    incoming_damage = ability:GetSpecialValueFor("illusion_damage_in_pct") - 100,
+    outgoing_damage = 100 - ability:GetSpecialValueFor("scepter_illusion_damage_out_pct"),
+    incoming_damage = ability:GetSpecialValueFor("scepter_illusion_damage_in_pct") - 100,
     bounty_base = 0,
     bounty_growth = 0,
     outgoing_damage_structure = 0,

@@ -50,6 +50,16 @@
         "special_bonus_unique_warlock_8"                  "+2"
       }
       "tick_interval"                                     "1.0"
+      "shard_aoe"
+      {
+        "value"                                           "450"
+        "RequiresShard"                                   "1"
+      }
+      "shard_movement_speed_pct"
+      {
+        "value"                                           "10"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }
