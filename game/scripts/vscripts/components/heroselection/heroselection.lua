@@ -369,16 +369,15 @@ function HeroSelection:RankedManager (event)
       save()
       return self:RankedTimer(RANKED_PICK_TIME, "PICK")
     end
+    local playercontroller = PlayerResource:GetPlayer(event.PlayerID) or PlayerResource:FindFirstValidPlayer()
     if choice == 'random' then
       choice = self:RandomHero()
       local player_name = event.player_name or PlayerResource:GetPlayerName(event.PlayerID)
-      CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', {
+      CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', {
         player_name = player_name,
         hero = choice,
         picker_playerid = event.playerID
       })
-      --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
-      --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." randomed "..name, 0, 0)
     end
     if choice == 'forcerandom' then
       choice = self:ForceRandomHero(event.PlayerID)
@@ -391,24 +390,22 @@ function HeroSelection:RankedManager (event)
       }
       --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
       if choice == previewHero then
-        --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to pick "..name, 0, 0)
         data.forced_pick = 1
-        CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', data)
+        CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
       else
-        --GameRules:SendCustomMessage(tostring(PlayerResource:GetPlayerName(event.PlayerID)).." was forced to random "..name, 0, 0)
-        CustomGameEventManager:Send_ServerToAllClients('oaa_random_hero_message', data)
+        CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
       end
     end
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
     if rankedpickorder.order[rankedpickorder.currentOrder].team ~= PlayerResource:GetTeam(event.PlayerID) then
       -- wrong team
-      DebugPrint("This pick is from the wrong team!");
+      DebugPrint("This pick is from the wrong team!")
       save()
       return
     end
     if selectedtable[event.PlayerID] and selectedtable[event.PlayerID].selectedhero ~= 'empty' then
       -- already picked a hero
-      DebugPrint("This player already selected!");
+      DebugPrint("This player already selected!")
       save()
       return
     end

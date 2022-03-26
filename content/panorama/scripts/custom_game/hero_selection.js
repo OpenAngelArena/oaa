@@ -1257,5 +1257,5 @@ function SendMessageToTeam (event) {
     message = playerName + ' randomed ' + heroName;
   }
 
-  Game.ServerCmd(`say_team ${message}`);
+  Game.ServerCmd(`say ${message}`);
 }
