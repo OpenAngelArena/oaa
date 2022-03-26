@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5129"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5129"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -99,10 +98,16 @@
         "scepter_delay"                                   "1.75"
         "RequiresScepter"                                 "1"
       }
-      "21"
+      "12"
       {
         "var_type"                                        "FIELD_FLOAT"
         "shard_bonus_explosion"                           "20"
+        "RequiresShard"                                   "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_self_movement_speed_slow_pct"              "75"
         "RequiresShard"                                   "1"
       }
     }

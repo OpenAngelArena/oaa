@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5222"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5222"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -50,6 +49,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "beam_damage"                                     "75 150 225 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_luna_1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_search_radius"                             "325"
+        "RequiresShard"                                   "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_attack_radius"                             "500"
+        "RequiresShard"                                   "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_mana_cost_reduction"                       "50"
+        "RequiresShard"                                   "1"
       }
     }
   }

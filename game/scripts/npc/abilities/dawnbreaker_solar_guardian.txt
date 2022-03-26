@@ -7,18 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"7906"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7906"
     "AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"				"1"
 
-    "MaxLevel"                      "5"
-    "RequiredLevel"                 "6"
-    "LevelsBetweenUpgrades"         "6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -87,15 +86,22 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "airtime_scepter_bonus"                           "3.5"
+        "scepter_channel_time"                            "1.0"
+        "RequiresScepter"                                 "1"
       }
       "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "airtime_scepter_bonus"                           "3.5"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_heal"                                    "60 120 180 360 660" //OAA
         "RequiresScepter"                                 "1"
       }
-      "11"
+      "12"
       {
         "var_type"                                        "FIELD_INTEGER"
         "miss_rate"                                       "60"
