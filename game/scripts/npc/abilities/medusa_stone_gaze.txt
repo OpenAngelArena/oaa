@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5507"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5507"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -71,6 +70,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_physical_damage"                           "40 45 50 50 50"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "08"
       {

@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5464"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5464"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -55,11 +54,6 @@
         "bonus_intellect"                                 "0"
       }
       "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burrow_aoe"                                      "300"
-      }
-      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reflect_pct"                              "100"

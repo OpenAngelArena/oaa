@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5007"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5007"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -54,6 +53,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "2.0 2.4 2.8 3.2 3.4 3.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown_reduction"                      "3.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5468"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5468"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -58,11 +57,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "6"
+        "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range"                                   "400"
+        "RequiresScepter"                                 "1"
       }
     }
   }

@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5626"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5626"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -84,6 +83,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "turn_rate"                                       "25"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_move_slow_pct"                             "12"
+        "RequiresShard"                                   "1"
       }
     }
   }
