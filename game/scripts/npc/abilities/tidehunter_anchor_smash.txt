@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5120"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5120"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -46,6 +46,7 @@
         "damage_reduction"                                "-30 -40 -50 -60 -65 -70"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_3"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "03"
       {
@@ -57,11 +58,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "375"
       }
-      "05" //OAA
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_damage"                              "150" //OAA
+        "RequiresShard"                                   "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "1.0"
+        "RequiresShard"                                   "1"
+      }
+      "10" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_reduction_bosses"                         "-30 -35 -40 -45 -50 -50"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }

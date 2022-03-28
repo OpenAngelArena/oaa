@@ -82,6 +82,30 @@
         "var_type"                                        "FIELD_FLOAT"
         "point_blank_dmg_bonus_pct"                       "50.0"
       }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_knockback_distance"                        "250"
+        "RequiresShard"                                   "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_knockback_duration"                        "0.3"
+        "RequiresShard"                                   "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_stun_duration"                             "1.4"
+        "RequiresShard"                                   "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_bonus_point_blank_dmg_pct"                 "85.0"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

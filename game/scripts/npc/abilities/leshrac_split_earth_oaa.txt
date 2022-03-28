@@ -66,16 +66,19 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_extra_instances"                           "1"
+        "RequiresShard"                                   "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_extra_radius_per_instance"                 "75"
+        "RequiresShard"                                   "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "shard_interval"                                  "5.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

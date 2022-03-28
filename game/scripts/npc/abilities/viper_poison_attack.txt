@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5218"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5218"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -40,13 +40,28 @@
       "duration"            "4"
       "damage"            "4 8 12 16 32 48"
       "movement_speed"      "6 8 10 12 14 16"
-      "magic_resistance"      
+      "magic_resistance"
       {
         "value"     "4 6 8 10 11 12"
         "special_bonus_unique_viper_4"  "+8"
       }
       "max_stacks"      "5"
       "bonus_range"     "25 65 105 145 185 225"
+      "shard_armor_reduction"
+      {
+        "value"				"1"
+        "RequiresShard"		"1"
+      }
+      "shard_building_dmg_pct"
+      {
+        "value"				"40"
+        "RequiresShard"		"1"
+      }
+      "shard_bonus_max_stacks"
+      {
+        "value"				"3"
+        "RequiresShard"		"1"
+      }
     }
   }
 }

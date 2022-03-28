@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5115"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5115"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -85,6 +84,18 @@
         "var_type"                                        "FIELD_INTEGER"
         "crush_damage"                                    "70 140 210 280 560 1120"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_amp_duration"                              "5.0"
+        "RequiresShard"                                   "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_radius"                              "75"
+        "RequiresShard"                                   "1"
       }
     }
   }

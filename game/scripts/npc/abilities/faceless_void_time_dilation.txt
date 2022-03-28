@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5691"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5691"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -49,6 +49,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_stack"                                "10 11 12 13 26 52"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_6"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "10" //OAA
       {

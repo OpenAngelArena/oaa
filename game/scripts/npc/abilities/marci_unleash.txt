@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"8198"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"				"2"
+    "ID"                                                  "8198"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                      "5"
     "RequiredLevel"                 "6"
@@ -51,6 +50,11 @@
       "bonus_movespeed"   "15"
       "recovery_fixed_attack_rate"  "2.0"
       "shard_push_length"   "300"
+      "scepter_cooldown_reduction"
+      {
+        "value"					"10.0"
+        "RequiresScepter"		"1"
+      }
     }
   }
 }

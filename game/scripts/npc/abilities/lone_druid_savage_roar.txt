@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5414"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5414"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -50,6 +50,30 @@
         "var_type"                                        "FIELD_INTEGER"
         "only_affects_player_units"                       "1"
       }
+	  "05"
+	  {
+		"var_type"                                        "FIELD_INTEGER"
+		"shard_radius"                                    "700"
+		"RequiresShard"                                   "1"
+	  }
+	  "06"
+	  {
+		"var_type"                                        "FIELD_INTEGER"
+		"shard_movement_speed_pct"                        "20"
+		"RequiresShard"                                   "1"
+	  }
+	  "07"
+	  {
+		"var_type"                                        "FIELD_INTEGER"
+		"shard_attack_speed"                              "60"
+		"RequiresShard"                                   "1"
+	  }
+	  "08"
+	  {
+		"var_type"                                        "FIELD_FLOAT"
+		"shard_duration"                                  "5.0"
+		"RequiresShard"                                   "1"
+	  }
     }
   }
 

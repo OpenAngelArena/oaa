@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5233"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5233"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -43,18 +42,18 @@
     {
       "01"
       {
-        "var_type"            "FIELD_INTEGER"
-        "start_radius"        "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "200"
       }
       "02"
       {
-        "var_type"            "FIELD_INTEGER"
-        "end_radius"          "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "300"
       }
       "03"
       {
-        "var_type"            "FIELD_INTEGER"
-        "end_distance"        "600 700 800 900 1000 1100"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_distance"                                    "600 700 800 900 1000 1100"
       }
       "04"
       {
@@ -92,6 +91,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "bonus_slow"                                      "-2 -2.5 -3 -3.5 -4 -4.5"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_hex_duration"                              "1.75"
+        "RequiresShard"                                   "1"
       }
     }
   }

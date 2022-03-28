@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5448"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5448"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -64,6 +64,24 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "fall_duration"                                   "0.3"  // the portion of the lift that is falling
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_max_land_distance_bonus_pct"               "85"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_cooldown_reduction_pct"                    "30"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_teammate_throw_delay"                      "0.5"
+        "RequiresShard"                                   "1"
       }
     }
   }

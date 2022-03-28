@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6583"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6583"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -81,10 +80,41 @@
         "var_type"                                        "FIELD_FLOAT"
         "knockback_distance"                              "75"
       }
-      "10" // unused?
+      "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "7"
+        "shard_trail_duration"                            "10.0"
+        "RequiresShard"                                   "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_trail_radius"                              "200"
+        "RequiresShard"                                   "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_dps"                                       "70" //OAA
+        "RequiresShard"                                   "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_move_slow_pct"                             "20"
+        "RequiresShard"                                   "1"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_debuff_linger_duration"                    "2.0"
+        "RequiresShard"                                   "1"
+      }
+      "15"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_interval"                                  "0.5"
+        "RequiresShard"                                   "1"
       }
     }
   }

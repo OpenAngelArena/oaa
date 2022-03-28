@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85185"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85185"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_glaives_of_wisdom.lua"
     "AbilityTextureName"                                  "silencer_glaives_of_wisdom"
@@ -44,12 +44,12 @@
         "intellect_damage_pct"                            "20 40 60 80 100 120"
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_3"
       }
-      "02"
+      "02" // passive INT steal
       {
         "var_type"                                        "FIELD_INTEGER"
         "steal_range"                                     "925"
       }
-      "03" // passive INT steal when enemy dies
+      "03" // passive permanent INT steal
       {
         "var_type"                                        "FIELD_INTEGER"
         "steal_amount"                                    "2"
@@ -74,16 +74,25 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_bounce_range"                              "600"
+        "RequiresShard"                                   "1"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_bounce_count"                              "1"
+        "RequiresShard"                                   "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_bounce_damage_reduction"                   "50"
+        "RequiresShard"                                   "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_permanent_int_steal_amount_bonus"          "2"
+        "RequiresShard"                                   "1"
       }
     }
   }

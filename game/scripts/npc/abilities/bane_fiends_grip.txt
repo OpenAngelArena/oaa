@@ -16,7 +16,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -38,29 +37,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "fiend_grip_tick_interval"                          "0.5"
+      "fiend_grip_mana_drain"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fiend_grip_tick_interval"                        "0.5"
+        "value"                                           "5"
+        "special_bonus_unique_bane_9"                     "+5"
       }
-      "02"
+      "abilitychanneltime"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_mana_drain"                           "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bane_9"
+        "value"                                           "6.0"
+        "special_bonus_unique_bane_3"                     "+5"
       }
-      "03"
+      "fiend_grip_damage"                                 "70 160 250 520 790" //OAA
+      "scepter_cooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "abilitychanneltime"                              "6.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bane_3"
+        "value"                                           "45"
+        "RequiresScepter"                                 "1"
       }
-      "04"
+      "scepter_incoming_illusion_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "fiend_grip_damage"                               "70 160 250 520 790" //OAA
+        "value"                                           "200"
+        "RequiresScepter"                                 "1"
       }
     }
   }

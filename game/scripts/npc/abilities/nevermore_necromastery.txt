@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5062"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5062"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "OnCastbar"                                           "0"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -32,6 +32,7 @@
         "necromastery_damage_per_soul"                    "1 2 3 4 5 6"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "02"
       {
@@ -53,6 +54,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "attack_range_bonus"                              "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_souls_per_kill"                            "2"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_crit_pct"                                  "190"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_fear_duration"                             "0.5"
+        "RequiresShard"                                   "1"
       }
     }
   }

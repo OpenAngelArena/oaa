@@ -60,6 +60,16 @@
         "RequiresScepter"                                 "1"
         "value"                                           "400"
       }
+      "scepter_pushback_duration"
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "0.5"
+      }
+      "scepter_vision_duration"
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "5"
+      }
     }
   }
 }

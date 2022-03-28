@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5042"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5042"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -39,6 +39,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "fiery_soul_stack_duration"                       "15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_spell_damage"                        "10 10 10 10 20 40"
+        "RequiresShard"                                   "1"
       }
     }
   }
