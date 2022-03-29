@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5248"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5248"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -60,13 +59,34 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "kill_damage"                                     "6 7 8 11 16" //OAA, for picking screen tooltip
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "kill_damage_duration"                            "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "07" //OAA, for picking screen tooltip
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "60"
+        "RequiresScepter"                                 "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_min_entangle_duration"                   "2"
+        "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_max_entangle_duration"                   "3.8"
+        "RequiresScepter"                                 "1"
+      }
+      "10" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_scepter"                                  "200 300 400 700 1200" // OAA, for picking screen tooltip

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5096"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5096"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -53,6 +53,18 @@
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "8"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_passive_armor"                             "5"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_radius"                                    "1200"
+        "RequiresShard"                                   "1"
       }
     }
   }

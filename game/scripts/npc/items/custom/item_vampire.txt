@@ -38,7 +38,7 @@
     "ID"                                                  "9455"       // unique ID
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/vampire_1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -66,22 +66,22 @@
 
     "AbilitySpecial"
     {
-      "01" // same as Satanic 4-5
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_strength"                                  "70 95"
       }
-      "02" // same as Mask of Madness 4-5
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "130 210"
+        "bonus_damage"                                    "140 220"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resistance"                         "25 30"
+        "bonus_status_resistance"                         "20 25"
       }
-      "04" // same as Mask of Madness 4-5
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "40 50"
@@ -91,7 +91,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_night_vision"                              "400 600"
       }
-      "06" // same as Satanic 4-5 and Mask of Madness 4-5
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "lifesteal_percent"                               "40 45"

@@ -3,7 +3,7 @@
   "weaver_geminate_attack"
   {
     // General
-    "ID"                                                  "5291"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5291"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -37,6 +37,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "10 25 40 55 110 220"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_beetle_search_range"                       "1200"
+        "RequiresShard"                                   "1"
       }
     }
   }

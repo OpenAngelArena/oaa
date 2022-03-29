@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5565"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5565"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -74,12 +73,25 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "40"
+        "turn_rate_slow"                                  "0"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "turn_rate_slow"                                  "0"
+        "aghs_shard_move_slow"                            "40"
+        "RequiresShard"                                   "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aghs_shard_damage"                               "60"
+        "RequiresShard"                                   "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aghs_shard_depth"                                "300"
+        "RequiresShard"                                   "1"
       }
     }
   }

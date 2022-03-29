@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5009"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5009"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -44,6 +44,24 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "cooldown"                                        "0.3"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_chance"                              "10"
+        "RequiresShard"                                   "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_debuff_duration"                           "6.0"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_damage_reduction"                          "20"
+        "RequiresShard"                                   "1"
       }
     }
   }

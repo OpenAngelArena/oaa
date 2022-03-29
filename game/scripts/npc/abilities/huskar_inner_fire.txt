@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7300"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7300"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, Valve forgot about this
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -64,6 +64,30 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "knockback_duration"                              "1.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "3.0"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_movement_slow_pct"                         "40"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_hero_damage_heal_pct"                      "50"
+        "RequiresShard"                                   "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_creep_damage_heal_pct"                     "10"
+        "RequiresShard"                                   "1"
       }
     }
   }

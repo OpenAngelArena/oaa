@@ -518,7 +518,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
     var actualValue = actualData[keyName];
     var expectedValue = parentData[keyName];
     if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
-      if (expectedValue) {
+      if (expectedValue && typeof expectedValue !== 'object') {
         if (actualValue !== expectedValue) {
           if (actualValue.length !== expectedValue.length) {
             var actualValueToken = actualValue.split(' ');
@@ -649,7 +649,8 @@ var keyWhiteList = [
   'RequiresShard',
   'ad_linked_ability',
   'linked_ad_abilities',
-  'ad_linked_abilities'
+  'ad_linked_abilities',
+  'DamageTypeTooltip'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
   return keyNames.filter(a => keyWhiteList.indexOf(a) === -1);

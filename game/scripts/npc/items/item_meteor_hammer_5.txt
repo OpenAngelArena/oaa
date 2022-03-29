@@ -82,7 +82,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 22 42 72 112"
+        "bonus_strength"                                  "12 17 27 42 62"
       }
       "03"
       {
@@ -97,7 +97,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 6.25 6.75 7.5 8.5"
+        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
       }
       "06"
       {
@@ -117,7 +117,7 @@
       "09"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.5 1.75 2.0 2.25 2.5"
+        "stun_duration"                                   "2"
       }
       "10"
       {
@@ -137,12 +137,12 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "150 350 550 750 950"
+        "impact_damage_boss"                              "150 350 650 1050 1550"
       }
       "14"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "150 350 550 750 950"
+        "impact_damage"                                   "150 350 650 1050 1550"
       }
       "15"
       {

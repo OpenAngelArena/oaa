@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5182"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5182"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
     "MaxLevel"                                            "6"
@@ -43,8 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "650 675 700 725 750 775" //OAA - ignore the error with LinkedSpecialBonus
-        //"LinkedSpecialBonus"                              "special_bonus_unique_faceless_void" - this is a Chronosphere talent
+        "range"                                           "650 675 700 725 750 775" //OAA
       }
       "03"
       {
@@ -52,11 +51,17 @@
         "backtrack_duration"                              "2.0 2.0 2.0 2.0 2.5 3.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_7"
       }
-      "04"
+      "05" //OAA, Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius_scepter"                                  "350"
         "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_range"                               "400"
+        "RequiresShard"                                   "1"
       }
     }
   }

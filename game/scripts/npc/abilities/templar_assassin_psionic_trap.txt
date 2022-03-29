@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5197"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5197"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -67,11 +67,36 @@
         "var_type"                                        "FIELD_INTEGER"
         "trap_bonus_damage"                               "250 350 450 750 1050" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin_3"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "07"
       {
         "var_type"                                        "FIELD_FLOAT"
         "trap_max_charge_duration"                        "4"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_min_silence_duration"                      "1.5"
+        "RequiresShard"                                   "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_max_silence_duration"                      "3.5"
+        "RequiresShard"                                   "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_max_traps"                           "4"
+        "RequiresShard"                                   "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_vision"                              "125"
+        "RequiresShard"                                   "1"
       }
     }
   }

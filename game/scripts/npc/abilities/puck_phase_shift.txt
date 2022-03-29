@@ -30,6 +30,11 @@
     "AbilityValues"
     {
       "duration"                                          "1 1.75 2.5 3.25 3.25 3.25"
+      "shard_attack_range_bonus"
+      {
+        "RequiresShard"                                   "1"
+        "value"                                           "200"
+      }
     }
   }
 }

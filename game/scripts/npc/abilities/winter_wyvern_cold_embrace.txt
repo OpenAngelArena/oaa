@@ -4,13 +4,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5653"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5653"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -46,6 +45,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "heal_percentage"                                 "1.75 2.5 3.25 4 4.75 5.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "4.0"
+        "RequiresShard"                                   "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_splinter_range"                            "1200"
+        "RequiresShard"                                   "1"
       }
     }
   }

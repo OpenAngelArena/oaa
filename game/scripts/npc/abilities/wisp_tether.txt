@@ -50,7 +50,11 @@
       "self_bonus"                                        "0"
       "slow"                                              "15 25 35 45 55 65"
       "slow_duration"                                     "0.2"
-      "spell_lifesteal"                                   "10"
+      "shard_bonus_spell_lifesteal"
+      {
+        "value"                                           "10"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

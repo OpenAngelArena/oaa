@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5008"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5008"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -46,17 +45,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"          "9 10 11 12 12 12" //OAA
+      "duration"                                          "9 10 11 12 12 12" //OAA
       "slow"
       {
-        "value"     "-8 -17 -26 -35 -40 -45"
-        "special_bonus_unique_axe_6"  "-10"
+        "value"                                           "-8 -17 -26 -35 -40 -45"
+        "special_bonus_unique_axe_6"                      "-10"
       }
-      "damage_per_second"     "10 15 20 25 125 225"
-      "armor_multiplier"      
+      "damage_per_second"                                 "10 20 30 40 140 240" //OAA
+      "armor_multiplier"
       {
-        "value"     "1"
-        "special_bonus_unique_axe"  "x2"
+        "value"                                           "1"
+        "special_bonus_unique_axe"                        "x2"
+      }
+      "scepter_armor_change"
+      {
+        "value"                                           "7"
+        "RequiresScepter"                                 "1"
       }
     }
   }

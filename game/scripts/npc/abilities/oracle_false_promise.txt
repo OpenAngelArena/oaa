@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5640"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5640"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -44,6 +44,12 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "radius"                                          "400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_fade_time"                                 "0.15"
+        "RequiresShard"                                   "1"
       }
     }
   }

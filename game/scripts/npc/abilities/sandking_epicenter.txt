@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5105"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5105"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -42,11 +41,6 @@
         "value"   "500 525 550 575 600 625 650 675 700 725 750 775 800 825 850 875 900 925 950"
         "special_bonus_unique_sand_king_5"  "+100"
       }
-      "shard_radius"
-      {
-        "value"   "425"
-        "special_bonus_unique_sand_king_5"  "+100"
-      }
       "epicenter_pulses"
       {
         "value"   "6 8 10 12 14"
@@ -60,6 +54,22 @@
       "epicenter_slow_as" //OAA
       {
         "value"     "-30 -60 -90 -120 -150"
+      }
+      "shard_radius"
+      {
+        "value"		"425"
+        "special_bonus_unique_sand_king_5"	"+100"
+        "RequiresShard"	"1"
+      }
+      "shard_move_distance"
+      {
+        "value"				"700.0"
+        "RequiresShard"		"1"
+      }
+      "shard_epicenter_pulse_damage_bonus"
+      {
+        "value"			"20"
+        "RequiresShard"	"1"
       }
     }
   }

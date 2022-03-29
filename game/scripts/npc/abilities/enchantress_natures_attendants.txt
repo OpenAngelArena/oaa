@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5269"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5269"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -30,17 +30,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal_interval"     "0.5"
-      "heal"          
+      "heal_interval"                                     "0.5"
+      "heal"
       {
-        "value"       "4 8 12 16 32 64"
-        "LinkedSpecialBonus"  "special_bonus_unique_enchantress_5"
+        "value"                                           "4 8 12 16 32 64"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_5"
       }
-      "radius"        "275"
-      "wisp_count"      
+      "radius"                                            "275"
+      "wisp_count"
       {
-        "value"       "8"
-        "LinkedSpecialBonus"  "special_bonus_unique_enchantress_2"
+        "value"                                           "8"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
+      }
+      "shard_permanent_wisp_count"
+      {
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
       }
     }
   }

@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Divine Shards - item that has Core Point cost; used in Divine Rapier recipe
+  //=================================================================================================================
+  "item_divine_shards"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3601"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/divine_shards"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "40"
+    "ItemCost"                                            "1"
+    "ItemPurchasable"                                     "1"
+    //"ItemSellable"                                      "0"
+    "ItemKillable"                                        "1"
+    "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
+  }
+}

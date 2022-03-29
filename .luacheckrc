@@ -1507,7 +1507,7 @@ read_globals = { -- these globals can only be accessed.
 "CDOTATutorial",
 "Time",
 "ClearTeamCustomHealthbarColor",
-"CDOTAGamerules",
+"CDOTAGameRules",
 "h",
 "ACT_PRIMARY_VM_PRIMARYATTACK",
 "c",

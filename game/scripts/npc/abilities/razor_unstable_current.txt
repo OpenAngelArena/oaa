@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5084"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5084"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
     "MaxLevel"                                            "6"
@@ -22,12 +22,48 @@
         "self_movement_speed_pct"                         "12 16 20 24 28 32"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor_5"
       }
-      "05" //OAA
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_pct_chance"                                "18"
+        "RequiresShard"                                   "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_target_count"                              "3"
+        "RequiresShard"                                   "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_damage"                                    "150"
+        "RequiresShard"                                   "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_move_slow_pct"                             "50"
+        "RequiresShard"                                   "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_slow_duration"                             "1.5"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_search_radius"                             "900"
+        "RequiresShard"                                   "1"
+      }
+      "10" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_speed"                              "10 20 30 40 50 60"
       }
-      "06" //OAA
+      "11" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_projectile_speed"                   "300 400 500 600 800 1000"

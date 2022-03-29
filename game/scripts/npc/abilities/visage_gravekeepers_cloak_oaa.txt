@@ -56,6 +56,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "max_damage_reduction"                            "80"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_hp_restoration_pct"                        "35"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown"                                  "30"
+        "RequiresShard"                                   "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_manacost"                                  "125"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

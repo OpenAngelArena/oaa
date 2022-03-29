@@ -7,9 +7,19 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_unique_phantom_lancer_2" // replaces special_bonus_hp_150
+    
+    //"Ability10"     "special_bonus_hp_150"
+    //"Ability11"     "special_bonus_unique_phantom_lancer_2"
 
-    "Ability16"   "special_bonus_hp_900" // replaces special_bonus_unique_phantom_lancer_4
-    "Ability17"   "special_bonus_24_crit_2"
+    //"Ability12"     "special_bonus_strength_15"
+    //"Ability13"     "special_bonus_unique_phantom_lancer_5"
+
+    //"Ability14"     "special_bonus_unique_phantom_lancer"
+    //"Ability15"     "special_bonus_unique_phantom_lancer_6"
+
+    "Ability16"     "special_bonus_lifesteal_40" // replaces special_bonus_unique_phantom_lancer_4
+    //"Ability17"     "special_bonus_24_crit_2"
+
+    // special_bonus_hp_900
   }
 }

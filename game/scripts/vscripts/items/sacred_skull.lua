@@ -49,7 +49,7 @@ function item_sacred_skull:OnSpellStart()
   local radius = self:GetSpecialValueFor("effect_radius")
   local target_units = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 
-	local enemies = FindUnitsInRadius(
+  local enemies = FindUnitsInRadius(
     caster_team,
     caster_location,
     nil,
@@ -123,9 +123,11 @@ function modifier_item_sacred_skull_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_agi = ability:GetSpecialValueFor("bonus_agility")
     self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
     self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
   end
@@ -155,6 +157,8 @@ function modifier_item_sacred_skull_stacking_stats:DeclareFunctions()
     MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT, -- GetModifierConstantHealthRegen
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS, -- GetModifierBonusStats_Agility
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
   }
@@ -174,6 +178,14 @@ end
 
 function modifier_item_sacred_skull_stacking_stats:GetModifierConstantManaRegen()
   return self.bonus_mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
+end
+
+function modifier_item_sacred_skull_stacking_stats:GetModifierBonusStats_Strength()
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_sacred_skull_stacking_stats:GetModifierBonusStats_Agility()
+  return self.bonus_agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
 end
 
 function modifier_item_sacred_skull_stacking_stats:GetModifierBonusStats_Intellect()
@@ -201,11 +213,24 @@ function modifier_item_sacred_skull_non_stacking_stats:IsPurgable()
   return false
 end
 
+function modifier_item_sacred_skull_non_stacking_stats:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
+    self.mana_regen_amp = ability:GetSpecialValueFor("mana_regen_multiplier")
+    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+  end
+end
+
+modifier_item_sacred_skull_non_stacking_stats.OnRefresh = modifier_item_sacred_skull_non_stacking_stats.OnCreated
+
 function modifier_item_sacred_skull_non_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
     MODIFIER_EVENT_ON_DEATH,
   }
 end
@@ -216,7 +241,7 @@ function modifier_item_sacred_skull_non_stacking_stats:GetModifierMPRegenAmplify
   if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
     return 0
   end
-  return self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+  return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
 end
 
 -- Doesn't stack with Kaya items
@@ -225,7 +250,7 @@ function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellAmplify_P
   if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
     return 0
   end
-  return self:GetAbility():GetSpecialValueFor("spell_amp")
+  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
 end
 
 -- Doesn't stack with Kaya items
@@ -234,7 +259,11 @@ function modifier_item_sacred_skull_non_stacking_stats:GetModifierSpellLifesteal
   if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
     return 0
   end
-  return self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
+  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
+end
+
+function modifier_item_sacred_skull_non_stacking_stats:GetModifierHPRegenAmplify_Percentage()
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 end
 
 if IsServer() then
@@ -243,13 +272,13 @@ if IsServer() then
     local dead = event.unit
     local ability = self:GetAbility()
 
-    -- If dead unit is not the parent then dont continue
-    if dead ~= parent then
+    -- Check if dead unit is nil or its about to be deleted
+    if not dead or dead:IsNull() then
       return
     end
 
-    -- Check if dead unit is nil or its about to be deleted
-    if not dead or dead:IsNull() then
+    -- If dead unit is not the parent then dont continue
+    if dead ~= parent then
       return
     end
 

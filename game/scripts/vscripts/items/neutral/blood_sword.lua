@@ -106,47 +106,62 @@ function modifier_item_blood_sword_lifesteal:DeclareFunctions()
   return funcs
 end
 
-function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
-  if not IsServer() then
-    return
+if IsServer() then
+  function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
+    local damage = event.damage
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then
+      return
+    end
+	
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if ability/item exists
+    if not ability or ability:IsNull() then
+      self:Destroy()
+      return
+    end
+	
+    if damage <= 0 then
+      self:Destroy()
+      return
+    end
+
+    local parent_team = parent:GetTeamNumber()
+
+    local ufResult = UnitFilter(
+      target,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      parent_team
+    )
+
+    local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
+
+    --print(tostring(ufResult)) -- It returns 15, Wtf?
+    -- Maybe DOTA_UNIT_TARGET_TEAM_BOTH is bugging it out lmao
+
+    if (ufResult == UF_SUCCESS or ufResult == UF_FAIL_DEAD) and lifesteal_percent > 0 and parent:IsAlive() then
+      parent:Heal(damage * lifesteal_percent * 0.01, ability)
+
+      local part = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControl(part, 0, parent:GetAbsOrigin())
+      ParticleManager:ReleaseParticleIndex(part)
+    end
+
+    self:Destroy()
   end
-
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local attacker = event.attacker
-  local damage = event.damage
-
-  if attacker ~= parent or damage < 0 then
-    return
-  end
-
-  if not attacker or attacker:IsNull() or not ability or ability:IsNull() then
-    return
-  end
-
-  local parent_team = parent:GetTeamNumber()
-  local target = event.unit
-
-  local ufResult = UnitFilter(
-    target,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-    parent_team
-  )
-
-  local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
-
-  --print(tostring(ufResult)) -- It returns 15, Wtf?
-  -- Maybe DOTA_UNIT_TARGET_TEAM_BOTH is bugging it out lmao
-
-  if (ufResult == UF_SUCCESS or ufResult == UF_FAIL_DEAD) and lifesteal_percent > 0 and parent:IsAlive() then
-    parent:Heal(damage * lifesteal_percent * 0.01, ability)
-
-    local part = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControl(part, 0, parent:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(part)
-  end
-
-  self:Destroy()
 end

@@ -112,9 +112,6 @@ function modifier_bottle_texture_tracker:OnCreated()
 
   if IsServer() then
     local playerID = parent:GetPlayerOwnerID()
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
-    local playerName = PlayerResource:GetPlayerName(playerID)
-    DebugPrint("Steam ID of " .. playerName .. ": " .. steamid)
     self:SetStackCount(tonumber(HeroSelection:GetSelectedBottleForPlayer(playerID)) or 0)
   end
 end

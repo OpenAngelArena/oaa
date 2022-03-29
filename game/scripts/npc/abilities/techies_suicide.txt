@@ -61,6 +61,18 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "0.75"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_stun_duration"                             "1.75"
+        "RequiresShard"                                   "1"
+      }
+      "07" //OAA, spring breaking
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_cast_range"                          "300"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 

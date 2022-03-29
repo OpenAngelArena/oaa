@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5046"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5046"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -65,6 +65,18 @@
         "var_type"                                        "FIELD_INTEGER"
         "movespeed"                                       "20 25 30 35 40 45"
         "LinkedSpecialBonus"                              "special_bonus_unique_lion_6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_break_distance"                      "400"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_targets"                             "2"
+        "RequiresShard"                                   "1"
       }
     }
   }
