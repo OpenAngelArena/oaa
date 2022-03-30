@@ -57,7 +57,7 @@
                   <Label text="#game_option_hyper_active" id="HM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_no_cast_points" id="HM07" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
-                  <!-- <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_experience" id="HM12" onmouseover="UIShowTextTooltip(#game_option_hyper_experience_description)" onmouseout="UIHideTextTooltip()"/>
@@ -66,7 +66,7 @@
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
@@ -81,7 +81,7 @@
                   <Label text="#game_option_hyper_active" id="HM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_no_cast_points" id="HM07" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
-                  <!-- <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_experience" id="HM12" onmouseover="UIShowTextTooltip(#game_option_hyper_experience_description)" onmouseout="UIHideTextTooltip()"/>
@@ -90,7 +90,7 @@
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
