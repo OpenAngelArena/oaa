@@ -61,7 +61,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
   local impact_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", PATTACH_WORLDORIGIN, caster)
   ParticleManager:SetParticleControl(impact_particle, 0, aboveground)
   ParticleManager:SetParticleControl(impact_particle, 1, Vector(radius, 0, 0))
-  --ParticleManager:SetParticleControl(impact_particle, 2, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(impact_particle, 2, aboveground)
   ParticleManager:ReleaseParticleIndex(impact_particle)
 
   AddFOWViewer(team, location, radius, 1.0, false)
@@ -87,7 +87,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
 
   --loop enemies
   for _, enemy in pairs(oiled_enemies) do
-    if enemy and not enemy:IsNull() then
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
     end
   end
@@ -156,7 +156,7 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local move_speed_slow = 15
   local attack_speed_slow = 15
   local burn_dps = 30
-  local burn_interval = 0.2
+  local burn_interval = 0.25
   local magic_resist = 0
 
   local ability = self:GetAbility()

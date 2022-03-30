@@ -18,6 +18,9 @@ function tinkerer_smart_missiles:OnSpellStart()
     direction = caster:GetForwardVector() * -1
   end
 
+  -- Remove vertical component
+  direction.z = 0
+
   local rocket_width = self:GetSpecialValueFor("rocket_width")
   local rocket_speed = self:GetSpecialValueFor("rocket_speed")
   local rocket_range = self:GetSpecialValueFor("rocket_range")
@@ -64,7 +67,7 @@ function tinkerer_smart_missiles:OnSpellStart()
     -- Send additional projectiles specified by the talent
     for i = 0, multishot_count-1 do
       -- Angle multiplier to switch sides between right and left
-      local angle_mult = 1;
+      local angle_mult = 1
       if i % 2 == 1 then
         angle_mult = -1
       end
@@ -91,8 +94,8 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return false
   end
 
-  -- Ignore neutral creeps but not bosses
-  if target:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not target:IsOAABoss() then
+  -- Ignore neutral creeps and couriers but not bosses
+  if (target:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not target:IsOAABoss()) or target:IsCourier() then
     return false
   end
 
@@ -140,7 +143,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local actual_duration = target:GetValueChangedByStatusResistance(stun_duration)
 
   -- Apply Stun before damage (Applying stun after damage is bad)
-  target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = actual_duration})
+  if not target:IsMagicImmune() then
+    target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = actual_duration})
+  end
 
   -- Damage table
   local damage_table = {}
@@ -150,7 +155,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   damage_table.ability = self
   damage_table.damage_type = self:GetAbilityDamageType()
 
-  ApplyDamage(damage_table)
+  if not target:IsMagicImmune() then
+    ApplyDamage(damage_table)
+  end
 
   -- Add vision
   local vision_radius = math.max(rocket_vision, rocket_explode_vision)
@@ -180,7 +187,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   )
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and enemy ~= target then
+    if enemy and not enemy:IsNull() and enemy ~= target and not enemy:IsMagicImmune() then
       -- Status resistance fix
       local enemy_duration = target:GetValueChangedByStatusResistance(stun_duration)
 

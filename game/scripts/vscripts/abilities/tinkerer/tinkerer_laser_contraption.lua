@@ -2,50 +2,117 @@ LinkLuaModifier("modifier_tinkerer_laser_contraption_thinker", "abilities/tinker
 LinkLuaModifier("modifier_tinkerer_laser_contraption_debuff", "abilities/tinkerer/tinkerer_laser_contraption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tinkerer_laser_contraption_node", "abilities/tinkerer/tinkerer_laser_contraption.lua", LUA_MODIFIER_MOTION_NONE)
 
+local square_shape = false
+
+local function ApplyLaser(source, attach_source, target, attach_target)
+  local particle_name = "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf" --"particles/units/heroes/hero_tinker/tinker_laser.vpcf"
+  local part = ParticleManager:CreateParticle(particle_name, PATTACH_POINT_FOLLOW, target)
+  if source:ScriptLookupAttachment(attach_source) ~= 0 then
+    ParticleManager:SetParticleControlEnt(part, 9, source, PATTACH_POINT_FOLLOW, attach_source, source:GetAbsOrigin(), true)
+  else
+    ParticleManager:SetParticleControl(part, 9, source:GetAbsOrigin())
+  end
+  if target:ScriptLookupAttachment(attach_target) ~= 0 then
+    ParticleManager:SetParticleControlEnt(part, 1, target, PATTACH_POINT_FOLLOW, attach_target, target:GetAbsOrigin(), true)
+  else
+    ParticleManager:SetParticleControl(part, 1, target:GetAbsOrigin())
+  end
+  ParticleManager:ReleaseParticleIndex(part)
+end
+
 tinkerer_laser_contraption = class({})
 
 function tinkerer_laser_contraption:GetAOERadius()
   return self:GetSpecialValueFor("radius")
 end
 
+function tinkerer_laser_contraption:OnAbilityPhaseStart()
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+
+  -- Sound during casting
+  caster:EmitSound("Hero_Tinker.LaserAnim")
+
+  return true
+end
+
+function tinkerer_laser_contraption:OnAbilityPhaseInterrupted()
+  if not IsServer() then
+    return
+  end
+
+  -- Interrupt casting sound
+  self:GetCaster():StopSound("Hero_Tinker.LaserAnim")
+end
+
 function tinkerer_laser_contraption:OnSpellStart()
   local caster = self:GetCaster()
   local cursor = self:GetCursorPosition()
+  if not cursor then
+    return
+  end
   local team = caster:GetTeamNumber()
-  local node_duration = self:GetSpecialValueFor("duration")
-  local thinker_duration = node_duration + self:GetSpecialValueFor("delay")
+  local total_duration = self:GetSpecialValueFor("duration") + self:GetSpecialValueFor("delay")
   local radius = self:GetSpecialValueFor("radius")
-  local effect_radius = radius * math.sqrt(2) + 50 -- because nodes form in a square
 
-  local top = cursor + radius * Vector(0, 1, 0)
-  local bottom = cursor + radius * Vector(0, -1, 0)
-  local left = cursor + radius * Vector(-1, 0, 0)
-  local right = cursor + radius * Vector(1, 0, 0)
-
-  local top_left = left + radius * Vector(0, 1, 0)
-  local top_right = right + radius * Vector(0, 1, 0)
-
-  local bot_left = left + radius * Vector(0, -1, 0)
-  local bot_right = right + radius * Vector(0, -1, 0)
-
+  local effect_radius
   local positions = {}
-
-  table.insert(positions, top)
-  table.insert(positions, bottom)
-  table.insert(positions, left)
-  table.insert(positions, right)
-  table.insert(positions, top_left)
-  table.insert(positions, top_right)
-  table.insert(positions, bot_left)
-  table.insert(positions, bot_right)
-
   local kv = {
-    duration = thinker_duration,
-    start_x = tostring(top.x),
-    start_y = tostring(top.y),
-    end_x = tostring(bottom.x),
-    end_y = tostring(bottom.y),
+    duration = total_duration,
+    center_x = tostring(cursor.x),
+    center_y = tostring(cursor.y),
   }
+
+  if square_shape then
+	effect_radius = radius * math.sqrt(2) + 50 -- because nodes form in a square
+
+	local top = cursor + radius * Vector(0, 1, 0)
+	local bottom = cursor + radius * Vector(0, -1, 0)
+	local left = cursor + radius * Vector(-1, 0, 0)
+	local right = cursor + radius * Vector(1, 0, 0)
+
+	local top_left = left + radius * Vector(0, 1, 0)
+	local top_right = right + radius * Vector(0, 1, 0)
+
+	local bot_left = left + radius * Vector(0, -1, 0)
+	local bot_right = right + radius * Vector(0, -1, 0)
+
+	local p1 = left + radius * 0.5 * Vector(0, 1, 0)
+	local p2 = right + radius * 0.5 * Vector(0, 1, 0)
+	local p3 = left + radius * 0.5 * Vector(0, -1, 0)
+	local p4 = right + radius * 0.5 * Vector(0, -1, 0)
+	local p5 = top + radius * 0.5 * Vector(1, 0, 0)
+	local p6 = top + radius * 0.5 * Vector(-1, 0, 0)
+	local p7 = bottom + radius * 0.5 * Vector(1, 0, 0)
+	local p8 = bottom + radius * 0.5 * Vector(-1, 0, 0)
+
+	table.insert(positions, top)
+	table.insert(positions, bottom)
+	table.insert(positions, left)
+	table.insert(positions, right)
+	table.insert(positions, top_left)
+	table.insert(positions, top_right)
+	table.insert(positions, bot_left)
+	table.insert(positions, bot_right)
+	table.insert(positions, p1)
+	table.insert(positions, p2)
+	table.insert(positions, p3)
+	table.insert(positions, p4)
+	table.insert(positions, p5)
+	table.insert(positions, p6)
+	table.insert(positions, p7)
+	table.insert(positions, p8)
+  else
+    effect_radius = radius + 100
+    for i = 1, 16 do
+      local angle = math.pi * 2 / 16 * i
+      local pos = cursor + Vector(math.cos(angle), math.sin(angle), 0) * radius
+      table.insert(positions, pos)
+    end
+  end
 
   -- Create a thinker at the location
   local thinker = CreateModifierThinker(caster, self, "modifier_tinkerer_laser_contraption_thinker", kv, cursor, team, false)
@@ -56,8 +123,8 @@ function tinkerer_laser_contraption:OnSpellStart()
   -- Create nodes
   for _, pos in pairs(positions) do
     local node = CreateUnitByName("npc_dota_tinkerer_keen_node", pos, false, caster, caster, team)
-    node:AddNewModifier(caster, self, "modifier_tinkerer_laser_contraption_node", {duration = node_duration})
-    node:AddNewModifier(caster, self, 'modifier_kill', {duration = node_duration})
+    node:AddNewModifier(caster, self, "modifier_tinkerer_laser_contraption_node", {duration = total_duration})
+    node:AddNewModifier(caster, self, 'modifier_kill', {duration = total_duration})
     node:SetNeverMoveToClearSpace(true)
   end
 
@@ -73,24 +140,8 @@ function tinkerer_laser_contraption:OnSpellStart()
     false
   )
 
-  -- Unstuck all non-node units
-  for _, unit in pairs(units) do
-    if unit and not unit:IsNull() and unit:GetUnitName() ~= "npc_dota_tinkerer_keen_node" then
-      local origin = unit:GetAbsOrigin()
-      FindClearSpaceForUnit(unit, origin, true)
-    end
-  end
-
-  local enemies = FindUnitsInLine(
-    team,
-    left,
-    right,
-    nil,
-    2 * radius,
-    self:GetAbilityTargetTeam(),
-    self:GetAbilityTargetType(),
-    DOTA_UNIT_TARGET_FLAG_NONE
-  )
+  -- Visual effect
+  ApplyLaser(caster, "attach_attack2", thinker, "attach_hitloc")
 
   -- Damage table
   local damage_table = {}
@@ -99,13 +150,41 @@ function tinkerer_laser_contraption:OnSpellStart()
   damage_table.ability = self
   damage_table.damage_type = self:GetAbilityDamageType()
 
-  -- Damage enemies
-  for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      damage_table.victim = enemy
-      ApplyDamage(damage_table)
+  -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
+  for _, unit in pairs(units) do
+    if unit and not unit:IsNull() and unit:GetUnitName() ~= "npc_dota_tinkerer_keen_node" then
+      local origin = unit:GetAbsOrigin()
+      FindClearSpaceForUnit(unit, origin, true)
+      if unit:GetTeamNumber() ~= team and not unit:IsMagicImmune() and not square_shape then
+        damage_table.victim = unit
+        ApplyDamage(damage_table)
+      end
     end
   end
+
+  if square_shape then
+    local enemies = FindUnitsInLine(
+      team,
+      cursor + radius * Vector(-1, 0, 0),
+      cursor + radius * Vector(1, 0, 0),
+      nil,
+      radius,
+      self:GetAbilityTargetTeam(),
+      self:GetAbilityTargetType(),
+      DOTA_UNIT_TARGET_FLAG_NONE
+    )
+
+    -- Damage enemies in a square
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+      end
+    end
+  end
+
+  -- Sound
+  caster:EmitSound("Hero_Tinker.Laser")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -125,7 +204,7 @@ function modifier_tinkerer_laser_contraption_thinker:IsAura()
 end
 
 function modifier_tinkerer_laser_contraption_thinker:GetModifierAura()
-  return "modifier_harpy_null_field_oaa_effect"
+  return "modifier_tinkerer_laser_contraption_debuff"
 end
 
 function modifier_tinkerer_laser_contraption_thinker:GetAuraRadius()
@@ -150,7 +229,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   end
 
   local delay = 0.5
-  local dmg_interval = 0.25
+  local dmg_interval = 2
   local dps = 75
   local radius = 300
 
@@ -164,11 +243,15 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
 
   self.interval = dmg_interval
   self.dmg_per_interval = dmg_interval * dps
-  self.width = 2 * radius
+  self.rad_or_width = radius
   self.established = false
 
-  self.start_pos = Vector(tonumber(kv.start_x), tonumber(kv.start_y), 0)
-  self.end_pos = Vector(tonumber(kv.end_x), tonumber(kv.end_y), 0)
+  local center = Vector(tonumber(kv.center_x), tonumber(kv.center_y), 0)
+  self.center = center
+  if square_shape then
+    self.start_pos = center + radius * Vector(0, 1, 0)
+    self.end_pos = center + radius * Vector(0, -1, 0)
+  end
 
   -- Start thinking
   self:StartIntervalThink(delay)
@@ -179,23 +262,64 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
     return
   end
 
-  local caster = self:GetCaster() or self:GetParent()
+  local parent = self:GetParent()
+  local caster = self:GetCaster() or parent
 
-  local enemies = FindUnitsInLine(
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
+
+  local enemies = {}
+  if square_shape then
+    enemies = FindUnitsInLine(
+      caster:GetTeamNumber(),
+      self.start_pos,
+      self.end_pos,
+      nil,
+      self.rad_or_width,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE
+    )
+  else
+    enemies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      self.center,
+      nil,
+      self.rad_or_width,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+  end
+
+  local allies = FindUnitsInRadius(
     caster:GetTeamNumber(),
-    self.start_pos,
-    self.end_pos,
+    self.center,
     nil,
-    self.width,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_NONE
+    self.rad_or_width * math.sqrt(2) + 10,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
   )
+
+  -- Store nodes
+  local nodes = {}
+  for _, unit in pairs(allies) do
+    if unit and not unit:IsNull() and unit:IsAlive() and unit:GetUnitName() == "npc_dota_tinkerer_keen_node" then
+      table.insert(nodes, unit)
+    end
+  end
 
   -- Damage table
   local damage_table = {}
   damage_table.attacker = caster
-  damage_table.damage = self.dmg_per_interval
+  damage_table.damage = self.dmg_per_interval * #nodes / 16
+  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -203,13 +327,24 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
     damage_table.damage_type = ability:GetAbilityDamageType()
   end
 
+  -- Visual effect - lasers
+  for _, node in pairs(nodes) do
+    if node and not node:IsNull() and node:IsAlive() then
+      ApplyLaser(node, "attach_attack1", parent, "attach_hitloc")
+    end
+  end
+
   -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
+      -- Actual damage
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
   end
+
+  -- Sound
+  parent:EmitSound("Hero_Tinker.LaserImpact")
 
   if not self.established then
     self.established = true
@@ -223,10 +358,6 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
     return
   end
   local parent = self:GetParent()
-  if self.particle then
-    ParticleManager:DestroyParticle(self.particle, true)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-  end
   if parent and not parent:IsNull() then
     parent:ForceKill(false)
   end
@@ -296,15 +427,15 @@ function modifier_tinkerer_laser_contraption_node:RemoveOnDeath()
 end
 
 function modifier_tinkerer_laser_contraption_node:DeclareFunctions()
-	local funcs =
-	{
+  local funcs =
+  {
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
     MODIFIER_EVENT_ON_ATTACKED
-	}
-	return funcs
+  }
+  return funcs
 end
 
 function modifier_tinkerer_laser_contraption_node:GetAbsoluteNoDamagePhysical()
@@ -364,8 +495,20 @@ function modifier_tinkerer_laser_contraption_node:CheckState()
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
     [MODIFIER_STATE_SPECIALLY_DENIABLE] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    --[MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_STUNNED] = true,
   }
   return state
+end
+
+function modifier_tinkerer_laser_contraption_node:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    parent:AddNoDraw()
+    -- Sound
+    --parent:EmitSound("Hero_Rattletrap.Power_Cog.Destroy")
+  end
 end
