@@ -50,7 +50,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
   local team = caster:GetTeamNumber()
 
   local radius = self:GetSpecialValueFor("radius")
-  local slow_duration = self:GetSpecialValueFor("slow_duration")
+  local duration = self:GetSpecialValueFor("duration")
 
   local splat = ParticleManager:CreateParticle("particles/hero/tinkerer/ground_splatter.vpcf", PATTACH_ABSORIGIN, caster)
 
@@ -79,16 +79,16 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     false
   )
 
-  -- Check for talent that increases the slow duration
-  local talent = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_duration") -- temporary
+  -- Check for talent that increases the duration
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_4")
   if talent and talent:GetLevel() > 0 then
-    slow_duration = slow_duration + talent:GetSpecialValueFor("value")
+    duration = duration + talent:GetSpecialValueFor("value")
   end
 
   --loop enemies
   for _, enemy in pairs(oiled_enemies) do
     if enemy and not enemy:IsNull() then
-      enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = slow_duration})
+      enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
     end
   end
 
@@ -103,9 +103,13 @@ end
 
 modifier_tinkerer_oil_spill_thinker = class({})
 
-function modifier_tinkerer_oil_spill_thinker:IsHidden()return true end
+function modifier_tinkerer_oil_spill_thinker:IsHidden()
+  return true
+end
 
-function modifier_tinkerer_oil_spill_thinker:IsPurgable() return false end
+function modifier_tinkerer_oil_spill_thinker:IsPurgable()
+  return false
+end
 
 --function modifier_tinkerer_oil_spill_thinker:OnCreated( kv )
 
@@ -116,10 +120,10 @@ function modifier_tinkerer_oil_spill_thinker:OnDestroy()
     return
   end
   local parent = self:GetParent()
-  if self.particle then
-    ParticleManager:DestroyParticle(self.particle, true)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-  end
+  --if self.particle then
+    --ParticleManager:DestroyParticle(self.particle, true)
+    --ParticleManager:ReleaseParticleIndex(self.particle)
+  --end
   if parent and not parent:IsNull() then
     parent:ForceKill(false)
   end
@@ -129,11 +133,17 @@ end
 
 modifier_tinkerer_oil_spill_debuff = class({})
 
-function modifier_tinkerer_oil_spill_debuff:IsHidden() return false end
+function modifier_tinkerer_oil_spill_debuff:IsHidden()
+  return false
+end
 
-function modifier_tinkerer_oil_spill_debuff:IsDebuff() return true end
+function modifier_tinkerer_oil_spill_debuff:IsDebuff()
+  return true
+end
 
-function modifier_tinkerer_oil_spill_debuff:IsPurgable() return true end
+function modifier_tinkerer_oil_spill_debuff:IsPurgable()
+  return true
+end
 
 function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
   return "particles/status_fx/status_effect_stickynapalm.vpcf"
@@ -147,6 +157,7 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local attack_speed_slow = 15
   local burn_dps = 30
   local burn_interval = 0.2
+  local magic_resist = 0
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -157,16 +168,22 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   end
 
   -- Check for talent that increases the slow amounts
-  local talent = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_slow_amount") -- temporary
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_5")
   if talent and talent:GetLevel() > 0 then
     move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
     attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
   end
 
   -- Check for talent that increases the burn dps
-  local talent2 = caster:FindAbilityByName("special_bonus_tinkerer_oil_spill_burn_amount") -- temporary
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_6")
   if talent2 and talent2:GetLevel() > 0 then
     burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Check for talent that reduces magic resistance
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_7")
+  if talent3 and talent3:GetLevel() > 0 then
+    magic_resist = talent3:GetSpecialValueFor("value")
   end
 
   -- Status resistance fix
@@ -180,6 +197,7 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
+  self.magic_resistance = magic_resist
   self.already_burning = false
 end
 
@@ -188,6 +206,7 @@ function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_TOOLTIP
   }
   return funcs
@@ -199,6 +218,10 @@ end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierAttackSpeedPercentage()
   return 0 - math.abs(self.attack_speed_slow)
+end
+
+function modifier_tinkerer_oil_spill_debuff:GetModifierMagicalResistanceBonus()
+  return 0 - math.abs(self.magic_resistance)
 end
 
 if IsServer() then

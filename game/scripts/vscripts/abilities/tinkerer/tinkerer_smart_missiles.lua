@@ -56,7 +56,7 @@ function tinkerer_smart_missiles:OnSpellStart()
   caster:EmitSound("Hero_Tinker.Heat-Seeking_Missile")
 
   -- Multishot missiles talent
-  local talent = caster:FindAbilityByName("multishot_talent") -- temporary
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_1")
   if talent and talent:GetLevel() > 0 then
     local multishot_angle = talent:GetSpecialValueFor("multishot_angle")
     local multishot_count = talent:GetSpecialValueFor("multishot_count")
@@ -113,7 +113,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local vision_duration = self:GetSpecialValueFor("vision_duration")
 
   -- Check for bonus damage talent
-  local talent2 = caster:FindAbilityByName("bonus_damage_talent") -- temporary
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_2")
   if talent2 and talent2:GetLevel() > 0 then
     base_damage = base_damage + talent2:GetSpecialValueFor("value")
   end
@@ -161,7 +161,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   EmitSoundOnLocationWithCaster(location, sound_name, caster)
 
   -- Missile explosion affects nearby units
-  local talent3 = caster:FindAbilityByName("bigger_explosion_talent") -- temporary
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_3")
   if not talent3 or talent3:GetLevel() <= 0 then
     return true
   end
