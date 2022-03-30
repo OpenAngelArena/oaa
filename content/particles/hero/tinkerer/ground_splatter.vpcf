@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 32
-	m_flConstantRadius = 30.0
+	m_flConstantRadius = 300.0
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 9
 	m_controlPointConfigurations = 
@@ -55,7 +55,7 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 250.0
+			m_flRadiusMin = 300.0
 			m_flRadiusMax = 400.0
 		},
 		{

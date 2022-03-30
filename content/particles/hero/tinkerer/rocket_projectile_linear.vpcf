@@ -1,7 +1,7 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
 {
 	_class = "CParticleSystemDefinition"
-	m_flConstantRadius = 48.0
+	m_flConstantRadius = 48.8
 	m_flConstantLifespan = 0.0
 	m_nConstantSequenceNumber = 6
 	m_nMaxParticles = 4
@@ -113,7 +113,7 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/units/heroes/hero_rattletrap/rattletrap_rocket_flare_model.vpcf"
+			m_ChildRef = resource:"particles/hero/tinkerer/rocket_model.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_tinker/tinker_rockets_launch.vpcf"

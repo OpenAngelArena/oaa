@@ -31,7 +31,7 @@ function tinkerer_oil_spill:OnSpellStart()
     bIgnoreObstructions = true,
     bDrawsOnMinimap = false,
     bVisibleToEnemies = true,
-    EffectName = "particles/units/heroes/hero_tinker/tinker_base_attack.vpcf",
+    EffectName = "particles/units/heroes/hero_shadow_demon/shadow_demon_base_attack.vpcf",
     Ability = self,
     Source = caster,
     bProvidesVision = true,
@@ -45,7 +45,7 @@ function tinkerer_oil_spill:OnSpellStart()
   --caster:EmitSound("")
 end
 
-function tinkerer_oil_spill:OnProjectileHit(target,location)
+function tinkerer_oil_spill:OnProjectileHit(target, location)
   local caster = self:GetCaster()
   local team = caster:GetTeamNumber()
 
@@ -58,10 +58,15 @@ function tinkerer_oil_spill:OnProjectileHit(target,location)
   ParticleManager:SetParticleControl(splat, 0, aboveground)
   ParticleManager:ReleaseParticleIndex(splat)
 
+  local impact_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf", PATTACH_WORLDORIGIN, caster)
+  ParticleManager:SetParticleControl(impact_particle, 0, aboveground)
+  ParticleManager:SetParticleControl(impact_particle, 1, Vector(radius, 0, 0))
+  --ParticleManager:SetParticleControl(impact_particle, 2, caster:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(impact_particle)
+
   AddFOWViewer(team, location, radius, 1.0, false)
   --DebugDrawCircle(location, Vector(255,0,0), 1, radius, true, 1.0)
 
-  --oil near enemies
   local oiled_enemies = FindUnitsInRadius(
     team,
     location,
@@ -131,7 +136,7 @@ function modifier_tinkerer_oil_spill_debuff:IsDebuff() return true end
 function modifier_tinkerer_oil_spill_debuff:IsPurgable() return true end
 
 function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
-	return "particles/status_fx/status_effect_stickynapalm.vpcf"
+  return "particles/status_fx/status_effect_stickynapalm.vpcf"
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnCreated()

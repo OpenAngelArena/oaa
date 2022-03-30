@@ -26,7 +26,7 @@ function tinkerer_smart_missiles:OnSpellStart()
   local projectile_table = {
     Ability = self,
     EffectName = "particles/hero/tinkerer/rocket_projectile_linear.vpcf",
-    vSpawnOrigin = caster_loc, -- temporary
+    vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack3")),
     fDistance = rocket_range + caster:GetCastRangeBonus(),
     fStartRadius = rocket_width,
     fEndRadius = rocket_width,
@@ -156,7 +156,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local vision_radius = math.max(rocket_vision, rocket_explode_vision)
   AddFOWViewer(caster:GetTeamNumber(), location, vision_radius, vision_duration, false)
 
-   -- Sound
+  -- Sound
   local sound_name = "Hero_Tinker.Heat-Seeking_Missile.Impact"
   EmitSoundOnLocationWithCaster(location, sound_name, caster)
 
