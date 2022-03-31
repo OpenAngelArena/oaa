@@ -16,7 +16,7 @@ local hero_mods = {
   HM06 = "modifier_ham_oaa",
   HM07 = "modifier_no_cast_points_oaa",
   --HM08 = "modifier_physical_immunity_oaa",
-  --HM09 = "modifier_pro_active_oaa",
+  HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
@@ -25,7 +25,7 @@ local hero_mods = {
   HM15 = "modifier_range_increase_oaa",
   HM16 = "modifier_healer_oaa",
   HM17 = "modifier_explosive_death_oaa",
-  HM18 = "modifier_no_health_bar_oaa",
+  --HM18 = "modifier_no_health_bar_oaa",
   HM19 = "modifier_brute_oaa",
   HM20 = "modifier_wisdom_oaa",
 }
