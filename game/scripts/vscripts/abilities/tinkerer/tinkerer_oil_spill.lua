@@ -234,16 +234,15 @@ if IsServer() then
       return
     end
 
-    local caster = self:GetCaster()
     local parent = self:GetParent()
 
-    if attacker ~= caster or victim ~= parent then
+    if victim ~= parent then
       return
     end
 
-    if inflictor:GetName() ~= "tinkerer_smart_missiles" then
-      return
-    end
+    --if inflictor:GetName() ~= "tinkerer_smart_missiles" then
+      --return
+    --end
 
     if self.already_burning then
       return

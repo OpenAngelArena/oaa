@@ -60,7 +60,7 @@
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_stun_duration"                    "STUN DURATION:"
 
 "DOTA_Tooltip_ability_tinkerer_oil_spill"                                       "Tar Spill"
-"DOTA_Tooltip_ability_tinkerer_oil_spill_Description"                           "Target a location to smother enemy units in tar. Applies percentage movement and attack speed slow to all enemies on hit. If an enemy is hit with a smart missile while having a Tar Spill debuff it will start burning for the remaining duration. "
+"DOTA_Tooltip_ability_tinkerer_oil_spill_Description"                           "Target a location to smother enemy units in tar. Applies percentage movement and attack speed slow to all enemies in the target area when the tar projectile hits the ground. Enemy units Covered in Tar will ignite for the remaining duration once they take any spell or item damage."
 "DOTA_Tooltip_ability_tinkerer_oil_spill_Lore"                                  "Tinkerer is a fan of tar and feathers prank."
 "DOTA_Tooltip_ability_tinkerer_oil_spill_radius"                                "RADIUS:"
 "DOTA_Tooltip_ability_tinkerer_oil_spill_duration"                              "DEBUFF DURATION:"
@@ -112,6 +112,6 @@
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:value} Tar Spill Burn Damage"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Reduces Magic Resistance"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Reduces magic resistance by 25%."
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Reduces magic resistance by 45%."
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          ""
