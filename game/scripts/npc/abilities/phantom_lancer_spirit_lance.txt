@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5065"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5065"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -78,6 +77,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_damage"                         "20 20 20 20 25 30"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "08"
       {
@@ -90,11 +90,30 @@
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_illusion_total_damage_in_pct"            "300" //OAA
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
         "fake_lance_distance"                             "675"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bounce_radius"                             "750"
+        "RequiresShard"                                   "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_illusion_damage"                     "40"
+        "RequiresShard"                                   "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_total_hits"                                "2"
+        "RequiresShard"                                   "1"
       }
     }
   }

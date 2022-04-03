@@ -1,12 +1,12 @@
 //===========================================================================
 // Nullifier
 //===========================================================================
-//"DOTA_Tooltip_ability_item_nullifier_Description"         "<h1>Active: Nullify</h1> Dispels the target and applies a debuff for %mute_duration% seconds. Continuously dispels the target. Anytime the target is attacked, it will be slowed by %slow_pct%%% for %slow_interval_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+//"DOTA_Tooltip_Ability_item_recipe_nullifier"              "Nullifier Recipe"
+"DOTA_Tooltip_ability_item_nullifier_Description"         "<h1>Active: Nullify</h1> Continuously dispels the target for %mute_duration% seconds.<br><br>Range: %abilitycastrange%<br>Projectile Speed: %projectile_speed%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 //"DOTA_Tooltip_ability_item_nullifier_lore"                "A dangerous weapon pilfered from an inverse dimension."
 //"DOTA_Tooltip_ability_item_nullifier_bonus_damage"        "+$damage"
 //"DOTA_Tooltip_ability_item_nullifier_bonus_armor"         "+$armor"
 //"DOTA_Tooltip_ability_item_nullifier_bonus_regen"         "+$hp_regen"
-"DOTA_Tooltip_ability_item_nullifier_projectile_speed"    "PROJECTILE SPEED:"
 
 "DOTA_Tooltip_Ability_item_nullifier_2"                   "#{DOTA_Tooltip_Ability_item_nullifier}"
 "DOTA_Tooltip_Ability_item_recipe_nullifier_2"            "#{DOTA_Tooltip_Ability_item_recipe_nullifier}"
@@ -15,7 +15,6 @@
 "DOTA_Tooltip_ability_item_nullifier_2_bonus_damage"      "#{DOTA_Tooltip_ability_item_nullifier_bonus_damage}"
 "DOTA_Tooltip_ability_item_nullifier_2_bonus_armor"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_armor}"
 "DOTA_Tooltip_ability_item_nullifier_2_bonus_regen"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_regen}"
-"DOTA_Tooltip_ability_item_nullifier_2_projectile_speed"  "#{DOTA_Tooltip_ability_item_nullifier_projectile_speed}"
 
 "DOTA_Tooltip_Ability_item_nullifier_3"                   "#{DOTA_Tooltip_Ability_item_nullifier}"
 "DOTA_Tooltip_Ability_item_recipe_nullifier_3"            "#{DOTA_Tooltip_Ability_item_recipe_nullifier}"
@@ -24,7 +23,6 @@
 "DOTA_Tooltip_ability_item_nullifier_3_bonus_damage"      "#{DOTA_Tooltip_ability_item_nullifier_bonus_damage}"
 "DOTA_Tooltip_ability_item_nullifier_3_bonus_armor"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_armor}"
 "DOTA_Tooltip_ability_item_nullifier_3_bonus_regen"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_regen}"
-"DOTA_Tooltip_ability_item_nullifier_3_projectile_speed"  "#{DOTA_Tooltip_ability_item_nullifier_projectile_speed}"
 
 "DOTA_Tooltip_Ability_item_nullifier_4"                   "#{DOTA_Tooltip_Ability_item_nullifier}"
 "DOTA_Tooltip_Ability_item_recipe_nullifier_4"            "#{DOTA_Tooltip_Ability_item_recipe_nullifier}"
@@ -33,7 +31,6 @@
 "DOTA_Tooltip_ability_item_nullifier_4_bonus_damage"      "#{DOTA_Tooltip_ability_item_nullifier_bonus_damage}"
 "DOTA_Tooltip_ability_item_nullifier_4_bonus_armor"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_armor}"
 "DOTA_Tooltip_ability_item_nullifier_4_bonus_regen"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_regen}"
-"DOTA_Tooltip_ability_item_nullifier_4_projectile_speed"  "#{DOTA_Tooltip_ability_item_nullifier_projectile_speed}"
 
 "DOTA_Tooltip_Ability_item_nullifier_5"                   "#{DOTA_Tooltip_Ability_item_nullifier}"
 "DOTA_Tooltip_Ability_item_recipe_nullifier_5"            "#{DOTA_Tooltip_Ability_item_recipe_nullifier}"
@@ -42,4 +39,3 @@
 "DOTA_Tooltip_ability_item_nullifier_5_bonus_damage"      "#{DOTA_Tooltip_ability_item_nullifier_bonus_damage}"
 "DOTA_Tooltip_ability_item_nullifier_5_bonus_armor"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_armor}"
 "DOTA_Tooltip_ability_item_nullifier_5_bonus_regen"       "#{DOTA_Tooltip_ability_item_nullifier_bonus_regen}"
-"DOTA_Tooltip_ability_item_nullifier_5_projectile_speed"  "#{DOTA_Tooltip_ability_item_nullifier_projectile_speed}"

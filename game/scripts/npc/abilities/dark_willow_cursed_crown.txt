@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6342"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6342"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -49,6 +49,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "stun_radius"                                     "360"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_delay_reduction"                           "1"
+        "RequiresShard"                                   "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bramble_amount"                            "4"
+        "RequiresShard"                                   "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_spawn_radius"                              "175"
+        "RequiresShard"                                   "1"
       }
     }
   }

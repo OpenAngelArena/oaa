@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5606"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5606"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "AbilityChargeRestoreTime"                        "25" //OAA
+        "AbilityChargeRestoreTime"                        ""
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
@@ -80,6 +80,24 @@
         "var_type"                                        "FIELD_INTEGER"
         "scepter_max_charges"                             "5"
         "RequiresScepter"                                 "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_radius"                                    "600"
+        "RequiresShard"                                   "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_damage_per_second"                         "90" //OAA
+        "RequiresShard"                                   "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_charge_radius"                             "400"
+        "RequiresShard"                                   "1"
       }
     }
   }

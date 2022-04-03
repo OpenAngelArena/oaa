@@ -4,14 +4,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5089"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5089"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -65,12 +64,25 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700" //OAA
+        "scepter_aura_radius"                             "700" //OAA
+        "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_radius_tooltip_scepter"                     "700" //OAA
+        "scepter_attack_speed"                            "75"
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_move_speed_pct"                          "25"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_skeleton_count"                            "3"
         "RequiresScepter"                                 "1"
       }
     }

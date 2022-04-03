@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85248"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85248"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/furion_wrath_of_nature_oaa.lua"
     "AbilityTextureName"                                  "furion_wrath_of_nature"
@@ -15,7 +15,6 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -75,11 +74,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "kill_damage"                                     "6 7 8 11 16"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "kill_damage_duration"                            "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "09"
       {

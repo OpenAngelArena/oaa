@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5613"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5613"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -15,7 +15,6 @@
 
     "AbilityCastRange"                                    "600 625 650 675 700 725"
     "AbilityCastPoint"                                    "0.5"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -33,22 +32,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"          
+      "radius"
       {
-        "value"         "425"
-        "LinkedSpecialBonus"      "special_bonus_unique_underlord_8"
+        "value"                                           "425"
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_8"
       }
-      "wave_duration"         "7.0"
-      "wave_count"          "6"
-      "wave_damage"         "25 40 55 70 140 280"
-      "wave_interval"         "1.0"
-      "burn_damage"         
+      "wave_duration"                                     "7.0"
+      "wave_count"                                        "6"
+      "wave_damage"                                       "25 40 55 70 140 280"
+      "wave_interval"                                     "1.0"
+      "burn_damage"
       {
-        "value"         "1 2 3 4 5 6"
-        "LinkedSpecialBonus"      "special_bonus_unique_underlord_4"
+        "value"                                           "1 2 3 4 5 6"
+        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_4"
       }
-      "burn_interval"         "1.0"
-      "burn_duration"         "2.0"
+      "burn_interval"                                     "1.0"
+      "burn_duration"                                     "2.0"
+      "shard_wave_count_bonus"
+      {
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
+      }
+      "shard_wave_interval_reduction"
+      {
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

@@ -50,31 +50,25 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impale_burn_range_increase_pct_tooltip"          "75"
+        "impale_bonus_cast_range"                         "525"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_burn_burrow_range_tooltip"                  "1050"
+        "mana_burn_bonus_cast_range"                      "450"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impale_burrow_range_tooltip"                     "1225"
+        "impale_cooldown_reduction"                       "4" //OAA
         "RequiresScepter"                                 "1"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impale_burrow_cooldown_tooltip"                  "10" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "carapace_burrow_range_tooltip"                   "300"
+        "carapace_radius"                                 "300"
         "RequiresScepter"                                 "1"
       }
     }

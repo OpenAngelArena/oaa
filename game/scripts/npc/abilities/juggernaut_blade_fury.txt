@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5028"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5028"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -33,25 +32,40 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blade_fury_damage_tick"  
+      "blade_fury_damage_tick"
       {
-        "value"         "0.2"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "0.2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "blade_fury_radius"     
+      "blade_fury_radius"
       {
-        "value"           "260"
-        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut"
+        "value"                                           "260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut"
       }
-      "blade_fury_damage"     
+      "blade_fury_damage"
       {
-        "value"       "90 115 140 165 330 660"
-        "LinkedSpecialBonus"    "special_bonus_unique_juggernaut_3"
+        "value"                                           "90 115 140 165 330 660"
+        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_3"
       }
-      "duration"          
+      "duration"
       {
-        "value"       "5.0"
-        "special_bonus_unique_juggernaut_4" "+1"
+        "value"                                           "5.0"
+        "special_bonus_unique_juggernaut_4"               "+1"
+      }
+      "shard_bonus_move_speed"
+      {
+        "value"                                           "100"
+        "RequiresShard"                                   "1"
+      }
+      "shard_attack_rate"
+      {
+        "value"                                           "1.0"
+        "RequiresShard"                                   "1"
+      }
+      "shard_damage_pct"
+      {
+        "value"                                           "75"
+        "RequiresShard"                                   "1"
       }
     }
   }

@@ -16,7 +16,7 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.2" //OAA
+    "AbilityCastPoint"                                    "0.3 0.3 0.3 0.2 0.1" //OAA
     "AbilityCastRange"                                    "500"
 
     "AbilityCooldown"                                     "50 45 40 35 30" //OAA
@@ -31,11 +31,10 @@
         "cooldown_scepter"                                "50 45 40 35 30" //OAA
         "RequiresScepter"                                 "1"
       }
-      "02"
+      "10" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "500"
-        "RequiresScepter"                                 "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_point_tooltip"                              "0.3 0.3 0.3 0.2 0.1"
       }
     }
   }

@@ -10,12 +10,11 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/dev_dagon.lua"
     "AbilityTextureName"                                  "custom/dev_dagon"
-    "ID"                                                  "2010"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "2010"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

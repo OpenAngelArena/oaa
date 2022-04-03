@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5174"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5174"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
     "MaxLevel"                                            "6"
@@ -31,8 +31,21 @@
     {
       "blink_range"      "1075 1150 1225 1300 1375 1450"
       "min_blink_range"   "200"
-      "shard_damage"      "250" //OAA
-      "shard_duration"  "1.75"
+      "shard_damage" //OAA
+      {
+        "RequiresShard"				"1"
+        "value"						"250"
+      }
+      "shard_duration"
+      {
+        "RequiresShard"				"1"
+        "value"						"1.75"
+      }
+      "shard_aoe"
+      {
+        "RequiresShard"				"1"
+        "value"						"300"
+      }
     }
   }
 }

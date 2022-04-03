@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5346"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5346"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -55,6 +55,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "spell_resist_pct"                                "-16 -19 -22 -25 -30 -35"
         "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_4"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "05"
       {
@@ -69,7 +70,14 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "vortex_shard_dps"                                "40"
+        "vortex_shard_dps"                                "60" //OAA
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_attack_speed_reduction"                    "40" //OAA
+        "RequiresShard"                                   "1"
       }
     }
   }

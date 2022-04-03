@@ -29,14 +29,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"          "35.0" //OAA
-      "fade_time"         "1.0 0.75 0.5 0.25 0.1 0.0"
+      "duration"                                          "35" //OAA
+      "fade_time"                                         "1.0 0.75 0.5 0.25 0.1 0.0"
       "slow"        
       {
-        "value"       "16 24 32 40 48 56"
-        "special_bonus_unique_bounty_hunter_5"  "+10"
+        "value"                                           "16 24 32 40 48 56"
+        "special_bonus_unique_bounty_hunter_5"            "+10"
       }
-      "slow_duration"       "4"
+      "slow_duration"                                     "4"
+      "shard_damage_reduction_pct"
+      {
+        "value"                                           "35"
+        "RequiresShard"                                   "1"
+      }
+      "shard_stun_duration"
+      {
+        "value"                                           "1.0"
+        "RequiresShard"                                   "1"
+      }
+      "shard_cooldown_reduction"
+      {
+        "value"                                           "5.0"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

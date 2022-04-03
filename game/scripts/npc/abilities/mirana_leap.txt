@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5050"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5050"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -38,17 +38,38 @@
       "leap_speedbonus_as" //OAA
       {
         "value"                                           "25 50 75 100 150 300"
-        "special_bonus_unique_mirana_1"                   "+120"
+        "special_bonus_unique_mirana_1"                   "+100"
       }
       "leap_bonus_duration" //OAA
       {
         "value"                                           "2.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_3_oaa"
       }
-      "aoe"                                               "300"
-      "aoe_damage"                                        "150"
-      "aoe_slow"                                          "30"
-      "aoe_duration"                                      "2.5"
+      "shard_radius"
+      {
+        "value"                                           "300"
+        "RequiresShard"                                   "1"
+      }
+      "shard_damage"
+      {
+        "value"                                           "150"
+        "RequiresShard"                                   "1"
+      }
+      "shard_slow_pct"
+      {
+        "value"                                           "30"
+        "RequiresShard"                                   "1"
+      }
+      "shard_slow_duration"
+      {
+        "value"                                           "2.5"
+        "RequiresShard"                                   "1"
+      }
+      "shard_bonus_charges"
+      {
+        "value"                                           "1"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

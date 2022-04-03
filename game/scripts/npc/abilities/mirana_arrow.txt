@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5048"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5048"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -80,7 +79,19 @@
         "var_type"                                        "FIELD_INTEGER"
         "arrow_vision"                                    "400"
       }
-      "09" //OAA, for picking screen tooltip
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "650" //OAA, same as Starfall
+        "RequiresScepter"                                 "1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_starstorm_target_pct"                    "75" //OAA, same as Starfall
+        "RequiresScepter"                                 "1"
+      }
+      "20" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "arrow_pierce_count"                              "0 1 1 2 3 4"

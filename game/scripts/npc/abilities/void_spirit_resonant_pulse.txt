@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "7710"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "7710"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"               "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -91,6 +90,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "silence_duration_scepter"                        "2.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

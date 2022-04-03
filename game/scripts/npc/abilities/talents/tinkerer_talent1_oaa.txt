@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Smart Missiles Multishot
+  //=================================================================================================================
+  "special_bonus_unique_tinkerer_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3603"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "multishot_angle"                                 "30"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "multishot_count"                                 "2"
+      }
+    }
+  }
+}

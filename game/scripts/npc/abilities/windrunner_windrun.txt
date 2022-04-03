@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5132"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5132"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -40,24 +40,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movespeed_bonus_pct" "60"    
-      "evasion_pct_tooltip" "100"
-      "enemy_movespeed_bonus_pct" 
+      "movespeed_bonus_pct"                               "60"
+      "evasion_pct_tooltip"                               "100"
+      "enemy_movespeed_bonus_pct"
       {
-        "value"   "-15 -20 -25 -30 -35 -40"
+        "value"                                           "-15 -20 -25 -30 -35 -40"
       }
-      "radius"          
-      { 
-        "value"     "325"
-        "special_bonus_unique_windranger" "+225"
-      }
-      "scepter_movespeed_bonus_pct"     
+      "radius"
       {
-        "RequiresScepter" "1"
-        "value"     "-35 -40 -45 -50 -55 -60"
+        "value"                                           "325"
+        "special_bonus_unique_windranger"                 "+225"
       }
-      "scepter_blind"       "40"
-      "duration"          "3 4 5 6 6.5 7"
+      "scepter_movespeed_bonus_pct"
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "-35 -40 -45 -50 -55 -60"
+      }
+      "scepter_blind"
+      {
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
+      }
+      "duration"                                          "3 4 5 6 6.5 7"
     }
   }
 }

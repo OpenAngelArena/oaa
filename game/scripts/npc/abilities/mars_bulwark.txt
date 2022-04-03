@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6582"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6582"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 
     "MaxLevel"                                            "6"
@@ -69,6 +69,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "soldier_offset"                                  "200"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_movement_slow_pct"                       "30"
+        "RequiresScepter"                                 "1"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_movement_slow_duration"                  "1.0"
+        "RequiresScepter"                                 "1"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_damage"                            "75"
+        "RequiresScepter"                                 "1"
       }
     }
   }

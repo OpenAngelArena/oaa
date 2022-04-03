@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5188"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5188"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -60,10 +59,17 @@
         "attacks_to_destroy_tooltip"                      "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_6"
       }
+      "06" //OAA, Spring Breaking
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spell_damage_reduction"                          "10 15 20 25 26 27"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_damage_reduction"                          "10 15 20 25 25 25"
+        "shard_ward_bonus_cast_range"                     "350"
+        "RequiresShard"                                   "1"
       }
     }
   }

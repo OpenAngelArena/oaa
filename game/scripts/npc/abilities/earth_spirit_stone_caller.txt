@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5611"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5611"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
@@ -24,7 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
     "AbilityCharges"                                      "10" //OAA
-    "AbilityChargeRestoreTime"                            "20" //OAA
+    "AbilityChargeRestoreTime"                            "20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +38,18 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "120" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bonus_charges"                             "4"
+        "RequiresShard"                                   "1"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_vision_radius"                             "375"
+        "RequiresShard"                                   "1"
       }
     }
   }

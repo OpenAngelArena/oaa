@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5378"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5378"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -53,12 +53,36 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_range"                                   "600"
+        "shard_range"                                     "600"
+        "RequiresShard"                                   "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_bounce_count"                            "1"
+        "shard_bounce_count"                              "1"
+        "RequiresShard"                                   "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_attack_damage_pct"                         "50"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_permanent_int_steal_amount_bonus"          "2"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "permanent_int_steal_range"                       "925"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "permanent_int_steal_amount"                      "2"
       }
     }
   }

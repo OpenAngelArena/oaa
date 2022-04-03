@@ -488,7 +488,7 @@ if IsServer() then
 
     -- Check for Shard (+2 Int Steal)
     if parent:HasShardOAA() then
-      stealAmount = stealAmount + 2
+      stealAmount = stealAmount + ability:GetSpecialValueFor("shard_permanent_int_steal_amount_bonus")
     end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
