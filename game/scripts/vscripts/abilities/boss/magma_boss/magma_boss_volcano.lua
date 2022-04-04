@@ -546,29 +546,42 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   GridNav:DestroyTreesAroundPoint(center, self.radius, false)
 end
 
-function modifier_magma_boss_volcano_thinker:OnAttackLanded(params)
-  if not IsServer() then
-    return
-  end
-  local parent = self:GetParent()
-  if params.target == parent and not parent:IsNull() then
+if IsServer() then
+  function modifier_magma_boss_volcano_thinker:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked unit is the parent
+    if target ~= parent then
+      return
+    end
+
     local ability = self:GetAbility()
-    local attacker = params.attacker
-    if attacker and not attacker:IsNull() then
-      local damage_dealt = 1
-      if attacker:IsRealHero() then
-        if ability and not ability:IsNull() then
-          damage_dealt = math.ceil(ability:GetSpecialValueFor("totem_health") / ability:GetSpecialValueFor("totem_hero_attacks_to_destroy"))
-        else
-          damage_dealt = 4
-        end
-      end
-      -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
-      if parent:GetHealth() - damage_dealt <= 0 then
-        parent:Kill(ability, attacker)
+    local damage_dealt = 1
+    if attacker:IsRealHero() then
+      if ability and not ability:IsNull() then
+        damage_dealt = math.ceil(ability:GetSpecialValueFor("totem_health") / ability:GetSpecialValueFor("totem_hero_attacks_to_destroy"))
       else
-        parent:SetHealth(parent:GetHealth() - damage_dealt)
+        damage_dealt = 4
       end
+    end
+
+    -- To prevent dead staying in memory (preventing SetHealth(0) or SetHealth(-value) )
+    if parent:GetHealth() - damage_dealt <= 0 then
+      parent:Kill(ability, attacker)
+    else
+      parent:SetHealth(parent:GetHealth() - damage_dealt)
     end
   end
 end
