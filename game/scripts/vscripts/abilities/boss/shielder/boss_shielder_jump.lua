@@ -82,7 +82,7 @@ if IsServer() then
     end
 
     -- Don't trigger if attacker is dead, invulnerable, banished, a building or a ward
-    if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() or attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
+    if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() or attacker:IsTower() or attacker:IsOther() then
       return
     end
 
