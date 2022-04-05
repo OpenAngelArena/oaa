@@ -142,7 +142,7 @@ function modifier_item_silver_staff_debuff:OnCreated()
 
     -- Do reduced damage to bosses
     if parent:IsOAABoss() then
-      damage_table.damage = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01) * 85/100
+      damage_table.damage = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
     end
 
     ApplyDamage(damage_table)
@@ -195,7 +195,7 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
 
   -- Do reduced damage to bosses
   if parent:IsOAABoss() then
-    damage_table.damage = base_damage + (percent_damage * parent:GetMaxHealth() * 0.01) * 85/100
+    damage_table.damage = base_damage + (percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
   end
 
   ApplyDamage(damage_table)
