@@ -67,44 +67,44 @@ function tinkerer_laser_contraption:OnSpellStart()
   }
 
   if square_shape then
-	effect_radius = radius * math.sqrt(2) + 50 -- because nodes form in a square
+    effect_radius = radius * math.sqrt(2) + 50 -- because nodes form in a square
 
-	local top = cursor + radius * Vector(0, 1, 0)
-	local bottom = cursor + radius * Vector(0, -1, 0)
-	local left = cursor + radius * Vector(-1, 0, 0)
-	local right = cursor + radius * Vector(1, 0, 0)
+    local top = cursor + radius * Vector(0, 1, 0)
+    local bottom = cursor + radius * Vector(0, -1, 0)
+    local left = cursor + radius * Vector(-1, 0, 0)
+    local right = cursor + radius * Vector(1, 0, 0)
 
-	local top_left = left + radius * Vector(0, 1, 0)
-	local top_right = right + radius * Vector(0, 1, 0)
+    local top_left = left + radius * Vector(0, 1, 0)
+    local top_right = right + radius * Vector(0, 1, 0)
 
-	local bot_left = left + radius * Vector(0, -1, 0)
-	local bot_right = right + radius * Vector(0, -1, 0)
+    local bot_left = left + radius * Vector(0, -1, 0)
+    local bot_right = right + radius * Vector(0, -1, 0)
 
-	local p1 = left + radius * 0.5 * Vector(0, 1, 0)
-	local p2 = right + radius * 0.5 * Vector(0, 1, 0)
-	local p3 = left + radius * 0.5 * Vector(0, -1, 0)
-	local p4 = right + radius * 0.5 * Vector(0, -1, 0)
-	local p5 = top + radius * 0.5 * Vector(1, 0, 0)
-	local p6 = top + radius * 0.5 * Vector(-1, 0, 0)
-	local p7 = bottom + radius * 0.5 * Vector(1, 0, 0)
-	local p8 = bottom + radius * 0.5 * Vector(-1, 0, 0)
+    local p1 = left + radius * 0.5 * Vector(0, 1, 0)
+    local p2 = right + radius * 0.5 * Vector(0, 1, 0)
+    local p3 = left + radius * 0.5 * Vector(0, -1, 0)
+    local p4 = right + radius * 0.5 * Vector(0, -1, 0)
+    local p5 = top + radius * 0.5 * Vector(1, 0, 0)
+    local p6 = top + radius * 0.5 * Vector(-1, 0, 0)
+    local p7 = bottom + radius * 0.5 * Vector(1, 0, 0)
+    local p8 = bottom + radius * 0.5 * Vector(-1, 0, 0)
 
-	table.insert(positions, top)
-	table.insert(positions, bottom)
-	table.insert(positions, left)
-	table.insert(positions, right)
-	table.insert(positions, top_left)
-	table.insert(positions, top_right)
-	table.insert(positions, bot_left)
-	table.insert(positions, bot_right)
-	table.insert(positions, p1)
-	table.insert(positions, p2)
-	table.insert(positions, p3)
-	table.insert(positions, p4)
-	table.insert(positions, p5)
-	table.insert(positions, p6)
-	table.insert(positions, p7)
-	table.insert(positions, p8)
+    table.insert(positions, top)
+    table.insert(positions, bottom)
+    table.insert(positions, left)
+    table.insert(positions, right)
+    table.insert(positions, top_left)
+    table.insert(positions, top_right)
+    table.insert(positions, bot_left)
+    table.insert(positions, bot_right)
+    table.insert(positions, p1)
+    table.insert(positions, p2)
+    table.insert(positions, p3)
+    table.insert(positions, p4)
+    table.insert(positions, p5)
+    table.insert(positions, p6)
+    table.insert(positions, p7)
+    table.insert(positions, p8)
   else
     effect_radius = radius + 100
     for i = 1, 16 do
@@ -185,6 +185,10 @@ function tinkerer_laser_contraption:OnSpellStart()
 
   -- Sound
   caster:EmitSound("Hero_Tinker.Laser")
+end
+
+function tinkerer_laser_contraption:ProcsMagicStick()
+  return true
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -384,6 +388,7 @@ function modifier_tinkerer_laser_contraption_debuff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
+    self.heal_prevent_percent = ability:GetSpecialValueFor("scepter_heal_prevent_percent")
   end
 end
 
@@ -392,11 +397,31 @@ modifier_tinkerer_laser_contraption_debuff.OnRefresh = modifier_tinkerer_laser_c
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MISS_PERCENTAGE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
 function modifier_tinkerer_laser_contraption_debuff:GetModifierMiss_Percentage()
   return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
+end
+
+function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
+  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+end
+
+function modifier_tinkerer_laser_contraption_debuff:GetModifierHPRegenAmplify_Percentage()
+  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+end
+
+function modifier_tinkerer_laser_contraption_debuff:GetModifierLifestealRegenAmplify_Percentage()
+  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
+end
+
+function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
+  return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
 function modifier_tinkerer_laser_contraption_debuff:CheckState()

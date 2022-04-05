@@ -11,7 +11,23 @@ function tinkerer_smart_missiles:OnSpellStart()
     return
   end
 
-  local direction = (target - caster_loc):Normalized()
+  local rocket_width = self:GetSpecialValueFor("rocket_width")
+  local rocket_speed = self:GetSpecialValueFor("rocket_speed")
+  local rocket_range = self:GetSpecialValueFor("rocket_range")
+  local rocket_vision = self:GetSpecialValueFor("rocket_vision")
+
+  -- Calculate offset and starting width
+  local attachment = caster:ScriptLookupAttachment("attach_attack3")
+  local rocket_spawn_loc = caster_loc
+  local offset = 0
+  if attachment ~= 0 then
+    rocket_spawn_loc = caster:GetAttachmentOrigin(attachment)
+    offset = (caster_loc - rocket_spawn_loc):Length2D()
+  end
+  local start_width = rocket_width + offset
+
+  -- Calculate direction
+  local direction = (target - rocket_spawn_loc):Normalized()
 
   -- Reverse cast direction for self point cast
   if target == caster_loc then
@@ -21,20 +37,15 @@ function tinkerer_smart_missiles:OnSpellStart()
   -- Remove vertical component
   direction.z = 0
 
-  local rocket_width = self:GetSpecialValueFor("rocket_width")
-  local rocket_speed = self:GetSpecialValueFor("rocket_speed")
-  local rocket_range = self:GetSpecialValueFor("rocket_range")
-  local rocket_vision = self:GetSpecialValueFor("rocket_vision")
-
   local projectile_table = {
     Ability = self,
     EffectName = "particles/hero/tinkerer/rocket_projectile_linear.vpcf",
-    vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack3")),
+    vSpawnOrigin = rocket_spawn_loc,
     fDistance = rocket_range + caster:GetCastRangeBonus(),
-    fStartRadius = rocket_width,
+    fStartRadius = start_width,
     fEndRadius = rocket_width,
     Source = caster,
-    bHasFrontalCone = false,
+    bHasFrontalCone = true,
     bReplaceExisting = false,
     iUnitTargetTeam = self:GetAbilityTargetTeam(),
     iUnitTargetType = self:GetAbilityTargetType(),
@@ -200,6 +211,10 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     end
   end
 
+  return true
+end
+
+function tinkerer_smart_missiles:ProcsMagicStick()
   return true
 end
 

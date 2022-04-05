@@ -64,6 +64,11 @@
         "value"                                           "100"
         "RequiresScepter"                                 "1"
       }
+      "scepter_heal_prevent_percent"
+      {
+        "value"                                           "-25"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

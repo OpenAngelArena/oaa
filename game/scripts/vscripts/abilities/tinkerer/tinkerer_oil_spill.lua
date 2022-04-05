@@ -92,10 +92,14 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     end
   end
 
-  --target:EmitSound("Hero_Alchemist.AcidSpray.Damage")
+  target:EmitSound("Hero_Grimstroke.InkOver.Target")
 
   target:ForceKill(false)
 
+  return true
+end
+
+function tinkerer_oil_spill:ProcsMagicStick()
   return true
 end
 
@@ -147,6 +151,10 @@ end
 
 function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
   return "particles/status_fx/status_effect_stickynapalm.vpcf"
+end
+
+function modifier_tinkerer_oil_spill_debuff:StatusEffectPriority()
+  return MODIFIER_PRIORITY_LOW
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnCreated()
