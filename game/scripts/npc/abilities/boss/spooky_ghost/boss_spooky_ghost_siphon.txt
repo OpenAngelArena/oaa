@@ -19,7 +19,7 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "2.0"
 
     "AbilityCooldown"                                     "15"
@@ -59,7 +59,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1000"
+        "radius"                                          "800"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buffer_range"                                    "400"
       }
     }
   }

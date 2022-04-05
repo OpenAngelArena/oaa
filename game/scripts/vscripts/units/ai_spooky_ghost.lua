@@ -170,6 +170,8 @@ function GhostThink()
       if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() and RandomInt(1, 100) <= chance then
         local ability = thisEntity.aoe_ability
         local radius = ability:GetSpecialValueFor("radius")
+        local cast_point = ability:GetCastPoint()
+        local duration = ability:GetSpecialValueFor("duration")
         local enemies = FindUnitsInRadius(
           thisEntity:GetTeamNumber(),
           thisEntity:GetAbsOrigin(),
@@ -182,6 +184,9 @@ function GhostThink()
           false
         )
         if #enemies >= 2 then
+          if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+            thisEntity:AddNewModifier(enemies[1], nil, "modifier_provide_vision", { duration = duration + cast_point } )
+          end
           ExecuteOrderFromTable({
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
@@ -204,6 +209,8 @@ function GhostThink()
       if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() then
         local ability = thisEntity.aoe_ability
         local radius = ability:GetSpecialValueFor("radius")
+        local cast_point = ability:GetCastPoint()
+        local duration = ability:GetSpecialValueFor("duration")
         local enemies = FindUnitsInRadius(
           thisEntity:GetTeamNumber(),
           thisEntity:GetAbsOrigin(),
@@ -216,6 +223,9 @@ function GhostThink()
           false
         )
         if #enemies > 0 then
+          if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+            thisEntity:AddNewModifier(enemies[1], nil, "modifier_provide_vision", { duration = duration + cast_point } )
+          end
           ExecuteOrderFromTable({
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,

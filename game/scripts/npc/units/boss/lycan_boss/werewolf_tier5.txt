@@ -11,17 +11,17 @@
 
     // General
     //----------------------------------------------------------------
-    "BaseClass"					"npc_dota_creature"
+    "BaseClass"					"npc_dota_creep_neutral"
     "Model"						"models/creeps/knoll_1/knoll_1.vmdl"
     "SoundSet"					"n_creep_Melee"
-    "Level"						"1"
+    "Level"						"3"
     "IsAncient"					"1"
     "ModelScale" 				"1.7"
     "ConsideredHero"    "1"
     "IsAncient"         "1"
     "IsBossMonster"     "1"
     "CanBeDominated"                                      "0"
-    "UseNeutralCreepBehavior"                             "1"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------

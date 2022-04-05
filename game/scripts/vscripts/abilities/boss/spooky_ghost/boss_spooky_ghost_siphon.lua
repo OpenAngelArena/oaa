@@ -142,9 +142,10 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnIntervalThink()
 
   local distance = (caster:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
   local radius = ability:GetSpecialValueFor("radius")
+  local buffer_range = ability:GetSpecialValueFor("buffer_range")
 
   -- If parent goes out of range then destroy this debuff
-  if distance > radius then
+  if distance > radius + buffer_range then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
