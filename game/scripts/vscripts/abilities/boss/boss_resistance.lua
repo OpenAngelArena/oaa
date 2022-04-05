@@ -242,26 +242,6 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
     end
   end
 
-   -- Special case for tinker with aghanim shard
-  if name == "tinker_laser" and attacker:HasShardOAA() then
-    if hasVeilDebuff then
-      return -100
-    else
-      return 0 - damageReduction
-    end
-  end
-
-  -- Leshrac Diabolic Edict bonus damage
-  if name == "leshrac_diabolic_edict" and IsServer() then
-    local ability = attacker:FindAbilityByName(name)
-    if ability then
-      local damage_increase_pct = ability:GetSpecialValueFor("tower_bonus")
-      if damage_increase_pct and damage_increase_pct > 0 then
-        return damage_increase_pct
-      end
-    end
-  end
-
   -- Greater Travels Boots affecting spell damage
   if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") and IsServer() then
     local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")

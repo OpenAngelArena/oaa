@@ -1,5 +1,4 @@
 -- Component for handling the ModifierGained Filter used to block silence and stuns on Silt Bosses
-require("internal/util")
 
 if not BossProtectionFilter then
   DebugPrint("Creating filter for Preemptive protect from stun")
