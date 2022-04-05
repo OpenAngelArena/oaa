@@ -44,11 +44,11 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
     "AbilitySharedCooldown"                               "silver_staff"
-    "AbilityCooldown"                                     "22.0"
+    "AbilityCooldown"                                     "20"
     "AbilityTextureName"                                  "custom/dragonstaff_5"
 
-    "AbilityCastRange"                                    "900"
-    "AbilityManaCost"                                     "50"
+    "AbilityCastRange"                                    "950"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -58,7 +58,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                        "35844"
-    "ItemAliases"                     "silver staff 2; break staff 2"
+    "ItemAliases"                     "silver staff 2; break staff 2; dragon staff 2"
     "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
@@ -73,7 +73,7 @@
       "02"
       {
         "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "3.0 4.0"
+        "bonus_mana_regen"            "3.25 4.25"
       }
       "03"
       {
