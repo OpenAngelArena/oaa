@@ -265,8 +265,8 @@ if IsServer() then
       return
     end
 
-    -- Don't affect buildings, wards, spell immune units and invulnerable units.
-    if target:IsMagicImmune() or target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+    -- Don't affect towers, wards, spell immune units and invulnerable units.
+    if target:IsMagicImmune() or target:IsTower() or target:IsOther() or target:IsInvulnerable() then
       return
     end
 
