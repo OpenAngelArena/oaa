@@ -138,8 +138,12 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   -- Calculate bonus damage if traveled distance is higher than the threshold for non-boss units
   local bonus_damage = 0
-  if travel_distance >= bonus_damage_range and not target:IsOAABoss() then
+  if travel_distance >= bonus_damage_range then
     bonus_damage = target:GetMaxHealth() * bonus_max_hp_damage * 0.01
+  end
+
+  if target:IsOAABoss() then
+    bonus_damage = bonus_damage * 15/100
   end
 
   -- Calculate total damage
