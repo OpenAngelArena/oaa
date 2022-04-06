@@ -1,17 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magma Boss: Magma Blood - Passive, decreases in size when losing hp, sends pool of Lava to the source of damage
+  // Spooky Ghost: Spirit Siphon - DoT, move and attack speed slow, heals the Spooky Ghost
+  // Notes: Dispellable; Silence/hex cancels it; Spell block blocks it;
   //=================================================================================================================
-  "magma_boss_magma_blood"
+  "boss_spooky_ghost_siphon"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "86482"
+    "ID"                                                  "85685"
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/boss/magma_boss/magma_boss_magma_blood.lua"
-    "AbilityTextureName"                                  "snapfire_mortimer_kisses"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ScriptFile"                                          "abilities/boss/spooky_ghost/boss_spooky_ghost_siphon.lua"
+    "AbilityTextureName"                                  "death_prophet_spirit_siphon"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -20,9 +19,13 @@
 
     "MaxLevel"                                            "1"
 
-    "AbilityCooldown"                                     "3.5"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "2.0"
+
+    "AbilityCooldown"                                     "15"
 
     "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,48 +33,38 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "proc_delay"                                      "1.25"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "700"
+        "max_hp_dmg"                                      "7"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_radius"                                   "275"
+        "lifesteal_pct"                                   "25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "1700"
+        "move_speed_slow"                                 "-50"
       }
-      "05" // blob is just a visual effect
+      "05"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "blob_duration"                                   "3.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-350"
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "800"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow"                                 "-40"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_threshold"                                "50"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_scale"                                       "110"
+        "buffer_range"                                    "400"
       }
     }
   }

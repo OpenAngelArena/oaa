@@ -9,7 +9,7 @@
     //----------------------------------------------------------------
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
-    "vscripts"                                            "units/ai_simple.lua"
+    "vscripts"                                            "units/ai_spooky_ghost.lua"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "30"
     "ModelScale"                                          "3.0"
@@ -20,9 +20,11 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_frostbite"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
+    "Ability2"                                            "boss_spooky_ghost_ethereal"
+    "Ability3"                                            "boss_spooky_ghost_siphon"
+    "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
+    "Ability6"                                            "boss_regen"
 
     // Armor
     //-----------------------------------------------------------------
@@ -60,9 +62,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "15000"        // Base health.
+    "StatusHealth"                                        "20000"        // Base health.
     "StatusHealthRegen"                                   "0"     // Health regeneration rate.
-    "StatusMana"                                          "7500"         // Base mana.
+    "StatusMana"                                          "10000"         // Base mana.
     "StatusManaRegen"                                     "20"         // Mana regeneration rate.
 
     // Creature data

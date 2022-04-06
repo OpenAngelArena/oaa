@@ -96,7 +96,7 @@ function AlchemistThink()
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
         Position = nearest_enemy:GetAbsOrigin(),
-        Queue = 0,
+        Queue = true,
       })
     end
     thisEntity.aggro_target = nearest_enemy
@@ -169,7 +169,7 @@ function AlchemistThink()
           UnitIndex = thisEntity:entindex(),
           OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
           Position = thisEntity.lastRoamPoint,
-          Queue = 0,
+          Queue = true,
         })
       end
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
@@ -204,7 +204,6 @@ function AlchemistThink()
     if thisEntity:HasModifier("modifier_alchemist_chemical_rage") then
       -- Check if aggro_target exists
       if thisEntity.aggro_target then
-        --print(thisEntity.aggro_target:GetUnitName())
         -- Check if aggro_target is getting deleted soon from c++
         if thisEntity.aggro_target:IsNull() then
           thisEntity.aggro_target = nil
@@ -231,8 +230,6 @@ function AlchemistThink()
         if not thisEntity:GetAggroTarget() or thisEntity:IsIdle() then
           thisEntity.aggro_target = nil
         end
-        -- OLD: if not thisEntity.aggro_target:IsAttackingEntity(thisEntity) then
-        -- OLD: thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
       else
         -- Check HP of the boss
         if current_hp_pct < aggro_hp_pct then

@@ -11,36 +11,36 @@
 
     // General
     //----------------------------------------------------------------
-    "BaseClass"					"npc_dota_creature"
+    "BaseClass"					"npc_dota_creep_neutral"
     "Model"						"models/creeps/knoll_1/knoll_1.vmdl"
     "SoundSet"					"n_creep_Melee"
-    "Level"						"1"
+    "Level"						"3"
     "IsAncient"					"1"
     "ModelScale" 				"1.7"
     "ConsideredHero"    "1"
     "IsAncient"         "1"
     "IsBossMonster"     "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"					"werewolf_howl"
-    "Ability2"					""
-    "Ability3"					""
-    "Ability4"					""
+    "Ability2"					"boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "0"
-    "MagicalResistance"                                   "0"
+    "ArmorPhysical"                                       "25"
+    "MagicalResistance"                                   "25"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"			"300"
-    "AttackDamageMax"			"400"
-    "AttackRate"				"1.7"
+    "AttackDamageMin"                                     "1200"
+    "AttackDamageMax"                                     "1200"
+    "AttackRate"                                          "1.0"
     "AttackAnimationPoint"		"0.43"
-    "AttackAcquisitionRange"	"500"
+    "AttackAcquisitionRange"                              "800"
     "AttackRange"				"128"
     "ProjectileModel"			""
     "ProjectileSpeed"			"0"
@@ -63,10 +63,10 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "7500"
+    "StatusHealth"                                        "3000"
     "StatusHealthRegen"                                   "1"
-    "StatusMana"				"300"
-    "StatusManaRegen"			"3"
+    "StatusMana"                                          "1500"
+    "StatusManaRegen"                                     "750"
 
     // Vision
     //----------------------------------------------------------------
@@ -84,17 +84,7 @@
     //----------------------------------------------------------------
     "Creature"
     {
-      "DefensiveAbilities"
-      {
-        "Ability3"
-        {
-          "Name"				"werewolf_howl"
-          "AOE"				"1"
-          "Heal"				"1"
-          "Radius"			"300"
-          "MinimumTargets"	"2"
-        }
-      }
+      "DisableResistance"                                 "80.0"
     }
 
     "precache"

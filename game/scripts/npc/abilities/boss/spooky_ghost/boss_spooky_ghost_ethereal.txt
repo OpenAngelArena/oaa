@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spooky Ghost: Ghost Form - becomes immune to physical damage, disarms itself and silences those that do damage
+  // Notes: Dispellable
+  //=================================================================================================================
+  "boss_spooky_ghost_ethereal"
+  {
+    "ID"                                                  "85160"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/spooky_ghost/boss_spooky_ghost_ethereal.lua"
+    "AbilityTextureName"                                  "necrolyte_sadist"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastPoint"                                    "0.0"
+
+    "AbilityCooldown"                                     "12"
+
+    "AbilityManaCost"                                     "50"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "ethereal_duration"                               "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "silence_duration"                                "2"
+      }
+    }
+  }
+}

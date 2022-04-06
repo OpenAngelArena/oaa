@@ -46,7 +46,6 @@ function modifier_wanderer_team_buff:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    -- MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
   }
 end
 
@@ -58,11 +57,9 @@ end
 -- end
 
 function modifier_wanderer_team_buff:GetModifierBaseDamageOutgoing_Percentage ()
--- function modifier_wanderer_team_buff:GetModifierPreAttack_BonusDamage ()
   if self:GetStackCount() > 1000 then
     return 0
   end
-  -- return self:GetParent():GetBaseDamageMax() * 0.2
   return 20
 end
 
@@ -73,8 +70,8 @@ function modifier_wanderer_team_buff:GetModifierMoveSpeedBonus_Percentage ()
   return 20
 end
 
-function modifier_wanderer_team_buff:OnTakeDamage(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_wanderer_team_buff:OnTakeDamage(event)
     local damaged_entity = event.unit
     local attacker = event.attacker
 

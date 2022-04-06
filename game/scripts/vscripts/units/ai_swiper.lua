@@ -73,20 +73,14 @@ function SwiperBossThink()
 	end
 
 	local canUseRush = true
-	local canUseTeleport = false
 
 	if thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.75 then -- phase 1
 		canUseRush = false
 	elseif thisEntity:GetHealth() / thisEntity:GetMaxHealth() > 0.5 then -- phase 2
 		canUseRush = true
-	else
-		canUseTeleport = true
 	end
 
-	-- canUseRush = true
-
 	-- Swipe
-
 	local swipeRange = thisEntity.hFrontswipeAbility:GetCastRange(thisEntity:GetAbsOrigin(), thisEntity)
 
 	if thisEntity.hFrontswipeAbility:IsCooldownReady() then
@@ -108,7 +102,6 @@ function SwiperBossThink()
 	end
 
 	-- Thrust
-
 	local thrustRange = thisEntity.hThrustAbility:GetSpecialValueFor("range")
 	local thrustWidth = thisEntity.hThrustAbility:GetSpecialValueFor("width")
 	local thrustMinRange = thisEntity.hThrustAbility:GetSpecialValueFor("target_min_range")
@@ -119,15 +112,16 @@ function SwiperBossThink()
 		for k,v in pairs(enemies) do
 			local d = (v:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
 			if d < thrustRange and d > thrustMinRange then
-				local thrustEnemies = FindUnitsInLine(
-					thisEntity:GetTeamNumber(),
-					thisEntity:GetAbsOrigin(),
-					v:GetAbsOrigin(),
-					nil,
-					thrustWidth,
-					DOTA_UNIT_TARGET_TEAM_ENEMY,
-					DOTA_UNIT_TARGET_ALL,
-					DOTA_UNIT_TARGET_FLAG_NONE)
+        local thrustEnemies = FindUnitsInLine(
+          thisEntity:GetTeamNumber(),
+          thisEntity:GetAbsOrigin(),
+          v:GetAbsOrigin(),
+          nil,
+          thrustWidth,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_ALL,
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+        )
 
 				if #thrustEnemies > thrustCount then
 					thrustCount = #thrustEnemies
@@ -142,7 +136,6 @@ function SwiperBossThink()
 	end
 
 	-- Reaper's Rush
-
 	local reapersMinRange = thisEntity.hReapersRushAbility:GetSpecialValueFor("min_range")
 	local reapersMaxRange = thisEntity.hReapersRushAbility:GetSpecialValueFor("max_range")
 	local reapersRushRadius = thisEntity.hReapersRushAbility:GetSpecialValueFor("radius")
@@ -151,15 +144,17 @@ function SwiperBossThink()
 	local reapersRushCount = 0
 	for k,v in pairs(enemies) do
 		local d = (v:GetAbsOrigin() - thisEntity:GetAbsOrigin()):Length2D()
-		local closeEnemies = FindUnitsInRadius(
-			thisEntity:GetTeamNumber(),
-			v:GetOrigin(), nil,
-			reapersRushRadius,
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
-			FIND_CLOSEST,
-			false)
+    local closeEnemies = FindUnitsInRadius(
+      thisEntity:GetTeamNumber(),
+      v:GetOrigin(),
+      nil,
+      reapersRushRadius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+      FIND_CLOSEST,
+      false
+    )
 
 		if #closeEnemies > reapersRushCount then
 			if d < reapersMaxRange and d > reapersMinRange then

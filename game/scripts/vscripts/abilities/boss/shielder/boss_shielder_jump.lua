@@ -44,77 +44,75 @@ function modifier_boss_shielder_shield_crash_passive:DeclareFunctions()
   }
 end
 
-function modifier_boss_shielder_shield_crash_passive:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_boss_shielder_shield_crash_passive:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local unit = event.unit -- damaged unit
 
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local attacker = event.attacker
-  local unit = event.unit -- damaged unit
-
-  -- Do nothing if damaged unit doesn't have this buff
-  if unit ~= parent or not ability or ability:IsNull() then
-    return
-  end
-
-  -- Don't continue if damage has HP removal flag
-  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-    return
-  end
-
-  -- Don't continue if damage has Reflection flag
-  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-    return
-  end
-
-  -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
-  if not attacker or attacker:IsNull() then
-    return
-  end
-
-  -- Don't trigger on self damage or on damage originating from allies
-  if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
-    return
-  end
-
-  -- Don't trigger if attacker is dead, invulnerable or banished
-  if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() then
-    return
-  end
-
-  -- Don't trigger on buildings, towers and wards
-  if attacker:IsBuilding() or attacker:IsTower() or attacker:IsOther() then
-    return
-  end
-
-  if not ability:IsCooldownReady() then
-    return
-  end
-
-  local chance = ability:GetSpecialValueFor("proc_chance")/100
-
-  -- Get number of failures
-  local prngMult = self:GetStackCount() + 1
-
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset failure count
-    self:SetStackCount(0)
-
-    -- Interrupt existing motion controllers
-    if parent:IsCurrentlyVerticalMotionControlled() or parent:IsCurrentlyHorizontalMotionControlled() then
-      parent:InterruptMotionControllers(false)
+    -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
     end
 
-    -- Apply a jump modifier
-    parent:AddNewModifier(parent, ability, "modifier_boss_shielder_jump", {duration = ability:GetSpecialValueFor("jump_duration")})
+    -- Check if damaged unit exists
+    if not unit or unit:IsNull() then
+      return
+    end
 
-    -- Start cooldown
-    ability:UseResources(true, true, true)
-  else
-    -- Increment number of failures
-    self:SetStackCount(prngMult)
+    -- Do nothing if damaged unit doesn't have this buff or if ability doesn't exist
+    if unit ~= parent or not ability or ability:IsNull() then
+      return
+    end
+
+    -- Don't continue if damage has HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return
+    end
+
+    -- Don't continue if damage has Reflection flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
+      return
+    end
+
+    -- Don't trigger on self damage or on damage originating from allies
+    if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
+
+    -- Don't trigger if attacker is dead, invulnerable, banished, a building or a ward
+    if not attacker:IsAlive() or attacker:IsInvulnerable() or attacker:IsOutOfGame() or attacker:IsTower() or attacker:IsOther() then
+      return
+    end
+
+    if not ability:IsCooldownReady() then
+      return
+    end
+
+    local chance = ability:GetSpecialValueFor("proc_chance")/100
+
+    -- Get number of failures
+    local prngMult = self:GetStackCount() + 1
+
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+      -- Reset failure count
+      self:SetStackCount(0)
+
+      -- Interrupt existing motion controllers
+      if parent:IsCurrentlyVerticalMotionControlled() or parent:IsCurrentlyHorizontalMotionControlled() then
+        parent:InterruptMotionControllers(false)
+      end
+
+      -- Apply a jump modifier
+      parent:AddNewModifier(parent, ability, "modifier_boss_shielder_jump", {duration = ability:GetSpecialValueFor("jump_duration")})
+
+      -- Start cooldown
+      ability:UseResources(true, true, true)
+    else
+      -- Increment number of failures
+      self:SetStackCount(prngMult)
+    end
   end
 end
 
@@ -285,7 +283,7 @@ function modifier_boss_shielder_jump:OnDestroy()
     local debuff_duration = ability:GetSpecialValueFor("debuff_duration")
     local target_team = ability:GetAbilityTargetTeam()
     local target_type = ability:GetAbilityTargetType()
-    local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent_origin, nil, radius, target_team, target_type, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+    local enemies = FindUnitsInRadius(parent:GetTeamNumber(), parent_origin, nil, radius, target_team, target_type, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
     local damage_type = ability:GetAbilityDamageType()
     local damage_table = {
       attacker = parent,

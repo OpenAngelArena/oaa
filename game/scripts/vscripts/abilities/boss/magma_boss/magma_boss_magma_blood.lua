@@ -138,72 +138,70 @@ function modifier_magma_boss_magma_blood_passive:GetModifierModelScale()
   return math.max(1, math.ceil(current_hp_pct * self.max_scale))
 end
 
-function modifier_magma_boss_magma_blood_passive:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_magma_boss_magma_blood_passive:OnTakeDamage(event)
+    local caster = self:GetParent() or self:GetCaster()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local damage = event.damage
+    local damaged_unit = event.unit
 
-  local attacker = event.attacker
-  local damage = event.damage
-  local damaged_unit = event.unit
-  local caster = self:GetParent() or self:GetCaster()
-  local ability = self:GetAbility()
+    -- Don't continue if attacker doesn't exist or it is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-  -- Continue only if the caster/parent is the damaged unit
-  if damaged_unit ~= caster then
-    return
-  end
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
-  -- Don't continue if caster is the attacker (self damage)
-  if caster == attacker then
-    return
-  end
+    -- Continue only if the caster/parent is the damaged unit
+    if damaged_unit ~= caster then
+      return
+    end
 
-  -- Don't continue If caster or ability doesn't exist
-  if not caster or caster:IsNull() or not ability or ability:IsNull() then
-    return
-  end
+    -- Don't continue if caster is the attacker (self damage)
+    if caster == attacker then
+      return
+    end
 
-  -- if not aggroed -> don't continue
-  --if caster.isAggro == false then
-    --return
-  --end
+    -- Don't continue If ability doesn't exist
+    if not ability or ability:IsNull() then
+      return
+    end
 
-  -- Don't continue if attacker doesn't exist or it is about to be deleted
-  if not attacker or attacker:IsNull() then
-    return
-  end
+    -- Don't proc while on cooldown
+    if not ability:IsCooldownReady() then
+      return
+    end
 
-  -- Don't proc while on cooldown
-  if not ability:IsCooldownReady() then
-    return
-  end
+    -- Don't continue if the attacker entity doesn't have IsHero method -> attacker entity is something weird
+    if attacker.IsHero == nil then
+      return
+    end
 
-  -- Don't continue if the attacker entity doesn't have IsHero method -> attacker entity is something weird
-  if attacker.IsHero == nil then
-    return
-  end
+    local damage_threshold = self.threshold
+    -- If the damage is below the threshold -> don't continue
+    if damage <= damage_threshold then
+      return
+    end
 
-  local damage_threshold = self.threshold
-  -- If the damage is below the threshold -> don't continue
-  if damage <= damage_threshold then
-    return
-  end
-
-  if attacker:IsHero() then
-    self:ProcMagmaBlood(caster, ability, attacker)
-  else
-    if attacker.GetPlayerOwner then
-      local player = attacker:GetPlayerOwner()
-      local hero_owner
-      if player then
-        hero_owner = player:GetAssignedHero()
-      end
-      if not hero_owner then
-        hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
-      end
-      if hero_owner then
-        self:ProcMagmaBlood(caster, ability, hero_owner)
+    if attacker:IsHero() then
+      self:ProcMagmaBlood(caster, ability, attacker)
+    else
+      if attacker.GetPlayerOwner then
+        local player = attacker:GetPlayerOwner()
+        local hero_owner
+        if player then
+          hero_owner = player:GetAssignedHero()
+        end
+        if not hero_owner then
+          hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
+        end
+        if hero_owner then
+          self:ProcMagmaBlood(caster, ability, hero_owner)
+        end
       end
     end
   end

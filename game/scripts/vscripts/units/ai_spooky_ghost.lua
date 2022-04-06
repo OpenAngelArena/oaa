@@ -9,11 +9,12 @@ function Spawn(entityKeyValues)
   if not thisEntity or not IsServer() then
     return
   end
-  thisEntity.slam_ability = thisEntity:FindAbilityByName("boss_killer_tomato_clap")
-  thisEntity:SetContextThink("TomatoThink", TomatoThink, 1)
+  thisEntity.aoe_ability = thisEntity:FindAbilityByName("boss_spooky_ghost_siphon")
+  thisEntity.ethereal_ability = thisEntity:FindAbilityByName("boss_spooky_ghost_ethereal")
+  thisEntity:SetContextThink("GhostThink", GhostThink, 1)
 end
 
-function TomatoThink()
+function GhostThink()
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
     return -1
   end
@@ -164,27 +165,74 @@ function TomatoThink()
       end
     end
 
-    if thisEntity.slam_ability and thisEntity.slam_ability:IsFullyCastable() then
-      local ability = thisEntity.slam_ability
-      local radius = ability:GetSpecialValueFor("radius")
-      local enemies = FindUnitsInRadius(
-        thisEntity:GetTeamNumber(),
-        thisEntity:GetAbsOrigin(),
-        nil,
-        radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-        DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_ANY_ORDER,
-        false
-      )
-      if #enemies >= 2 then
+    if current_hp_pct > 50/100 then -- phase 1
+      local chance = 25
+      if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() and RandomInt(1, 100) <= chance then
+        local ability = thisEntity.aoe_ability
+        local radius = ability:GetSpecialValueFor("radius")
+        local cast_point = ability:GetCastPoint()
+        local duration = ability:GetSpecialValueFor("duration")
+        local enemies = FindUnitsInRadius(
+          thisEntity:GetTeamNumber(),
+          thisEntity:GetAbsOrigin(),
+          nil,
+          radius,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+          DOTA_UNIT_TARGET_FLAG_NONE,
+          FIND_ANY_ORDER,
+          false
+        )
+        if #enemies >= 2 then
+          if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+            thisEntity:AddNewModifier(enemies[1], nil, "modifier_provide_vision", { duration = duration + cast_point } )
+          end
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+            AbilityIndex = ability:entindex(),
+            Queue = false,
+          })
+        end
+      end
+    else -- phase 2
+      if thisEntity.ethereal_ability and thisEntity.ethereal_ability:IsFullyCastable() then
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-          AbilityIndex = ability:entindex(),
+          AbilityIndex = thisEntity.ethereal_ability:entindex(),
           Queue = false,
         })
+        thisEntity.aoe_ability:EndCooldown()
+      end
+
+      if thisEntity.aoe_ability and thisEntity.aoe_ability:IsFullyCastable() then
+        local ability = thisEntity.aoe_ability
+        local radius = ability:GetSpecialValueFor("radius")
+        local cast_point = ability:GetCastPoint()
+        local duration = ability:GetSpecialValueFor("duration")
+        local enemies = FindUnitsInRadius(
+          thisEntity:GetTeamNumber(),
+          thisEntity:GetAbsOrigin(),
+          nil,
+          radius,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          FIND_ANY_ORDER,
+          false
+        )
+        if #enemies > 0 then
+          if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+            thisEntity:AddNewModifier(enemies[1], nil, "modifier_provide_vision", { duration = duration + cast_point } )
+          end
+          ExecuteOrderFromTable({
+            UnitIndex = thisEntity:entindex(),
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+            AbilityIndex = ability:entindex(),
+            Queue = false,
+          })
+        end
       end
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then

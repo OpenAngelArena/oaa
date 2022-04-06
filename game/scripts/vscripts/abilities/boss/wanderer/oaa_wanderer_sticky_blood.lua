@@ -54,13 +54,23 @@ function modifier_wanderer_sticky_blood_passive:DeclareFunctions()
   return funcs
 end
 
-function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
+    local caster = self:GetParent() or self:GetCaster()
+    local ability = self:GetAbility()
     local attacker = event.attacker
     local damage = event.damage
     local damaged_unit = event.unit
-    local caster = self:GetParent() or self:GetCaster()
-    local ability = self:GetAbility()
+
+    -- Don't continue if attacker doesn't exist or it is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
     -- Continue only if the caster/parent is the damaged unit
     if damaged_unit ~= caster then
@@ -72,18 +82,13 @@ function modifier_wanderer_sticky_blood_passive:OnTakeDamage(event)
       return
     end
 
-    -- Don't continue If caster or ability doesn't exist
-    if not caster or caster:IsNull() or not ability or ability:IsNull() then
+    -- Don't continue If ability doesn't exist
+    if not ability or ability:IsNull() then
       return
     end
 
     -- if Wanderer is not aggroed -> don't continue (It will continue if caster.isAggro is true or nil - intentional)
     if caster.isAggro == false then
-      return
-    end
-
-    -- Don't continue if attacker doesn't exist or it is about to be deleted
-    if not attacker or attacker:IsNull() then
       return
     end
 
@@ -228,26 +233,25 @@ function modifier_wanderer_sticky_blood_debuff:GetModifierTurnRate_Percentage()
   return self.turn_speed_slow
 end
 
-function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
     local parent = self:GetParent()
     local caster = self:GetCaster()
-
     local attacker = event.attacker
     local target = event.target
 
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
     -- If attacked target isn't the parent -> don't continue
     if target ~= parent then
-      return
-    end
-
-    -- If parent doesn't exist or it is about to be deleted -> don't continue
-    if not parent or parent:IsNull() then
-      return
-    end
-
-    -- If attacker isn't the caster -> don't continue
-    if attacker ~= caster then
       return
     end
 
@@ -256,7 +260,17 @@ function modifier_wanderer_sticky_blood_debuff:OnAttackLanded(event)
       return
     end
 
-    if not caster:IsIllusion() and not parent:IsMagicImmune() then
+    -- If attacker isn't the caster -> don't continue
+    if attacker ~= caster then
+      return
+    end
+
+    -- Don't affect towers, wards, spell immune units and invulnerable units.
+    if target:IsMagicImmune() or target:IsTower() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
+
+    if not caster:IsIllusion() then
       -- Damage particle
       local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, parent)
       ParticleManager:ReleaseParticleIndex(damage_debuff_particle)

@@ -44,9 +44,32 @@ function TempleGuardianThink()
     thisEntity.bInitialized = true
   end
 
-  local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, thisEntity:GetCurrentVisionRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
+  local function IsValidTarget(target)
+    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+  end
 
-  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR;
+  local function FindValidTarget(candidates)
+    for _, enemy in ipairs(candidates) do
+      if IsValidTarget(enemy) then
+        return enemy
+      end
+    end
+    return nil
+  end
+
+  local enemies = FindUnitsInRadius(
+    thisEntity:GetTeamNumber(),
+    thisEntity:GetOrigin(),
+    nil,
+    thisEntity:GetCurrentVisionRange(),
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE),
+    FIND_CLOSEST,
+    false
+  )
+
+  local hasDamageThreshold = thisEntity:GetMaxHealth() - thisEntity:GetHealth() > thisEntity.BossTier * BOSS_AGRO_FACTOR
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   --Agro
@@ -71,14 +94,14 @@ function TempleGuardianThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
     return 1
   end
 
-  thisEntity.fFuzz = RandomFloat( 0, 0.2 ) -- Adds some timing separation to these units
+  thisEntity.fFuzz = RandomFloat(0.1, 0.5) -- Adds some timing separation to these units
 
   local hGuardians = {}
 
@@ -94,15 +117,15 @@ function TempleGuardianThink()
 		thisEntity.fTimeEnrageStarted = GameRules:GetGameTime()
 	end
 
-	if thisEntity.WrathAbility ~= nil and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.WrathAbility and thisEntity.WrathAbility:IsCooldownReady() and #hGuardians == 1 and thisEntity:GetHealthPercent() < 90 then
 		if thisEntity.fTimeEnrageStarted and ( GameRules:GetGameTime() > ( thisEntity.fTimeEnrageStarted + 5 ) ) then
 			return Wrath()
 		end
 	end
 
-	if thisEntity.HammerThrowAbility ~= nil and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
+	if thisEntity.HammerThrowAbility and thisEntity.HammerThrowAbility:IsCooldownReady() and thisEntity:GetHealthPercent() < 90 then
 		local hLastEnemy = enemies[ #enemies ]
-		if hLastEnemy ~= nil then
+		if hLastEnemy then
 			local flDist = (hLastEnemy:GetOrigin() - thisEntity:GetOrigin()):Length2D()
 			if flDist > 450 then
 				return Throw( hLastEnemy )
@@ -111,18 +134,18 @@ function TempleGuardianThink()
 	end
 
 	for _, hGuardian in pairs( hGuardians ) do
-		if hGuardian ~= nil and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and thisEntity.PurificationAbility ~= nil and thisEntity.PurificationAbility:IsFullyCastable() then
+		if hGuardian and not hGuardian:IsNull() and hGuardian:IsAlive() and ( hGuardian ~= thisEntity or #hGuardians == 1 ) and ( hGuardian:GetHealthPercent() < 80 ) and thisEntity.PurificationAbility and thisEntity.PurificationAbility:IsFullyCastable() then
 			return Purification( hGuardian )
 		end
 	end
 
 	if not thisEntity.bIsEnraged then
-		if thisEntity.HammerSmashAbility ~= nil and thisEntity.HammerSmashAbility:IsCooldownReady() then
-			return Smash( enemies[ 1 ] )
+		if thisEntity.HammerSmashAbility and thisEntity.HammerSmashAbility:IsCooldownReady() then
+			return Smash(FindValidTarget(enemies))
 		end
 	else
-		if thisEntity.RageHammerSmashAbility ~= nil and thisEntity.RageHammerSmashAbility:IsFullyCastable() then
-			return RageSmash( enemies[ 1 ] )
+		if thisEntity.RageHammerSmashAbility and thisEntity.RageHammerSmashAbility:IsFullyCastable() then
+			return RageSmash(FindValidTarget(enemies))
 		end
 	end
 
@@ -138,78 +161,121 @@ function FrendlyHasAgro()
 end
 
 function RetreatHome()
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos + Vector(0,15,0),
-		Queue = false,
+  local current_loc = thisEntity:GetAbsOrigin()
+  local destination = thisEntity.vInitialSpawnPos + Vector(0,15,0)
+  local distance = (destination - current_loc):Length2D()
+  local speed = thisEntity:GetIdealSpeed()
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = destination,
+    Queue = false,
   })
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = thisEntity.vInitialSpawnPos,
-		Queue = true,
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = thisEntity.vInitialSpawnPos,
+    Queue = true,
   })
-  return 6
+  return distance/speed + 15/speed + 0.5
 end
 
 function Wrath()
-	--print( "ai_temple_guardian - Wrath" )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		AbilityIndex = thisEntity.WrathAbility:entindex(),
-		Queue = false,
-	})
-	return 8
+  local wrath_ability = thisEntity.WrathAbility
+  local cast_point = wrath_ability:GetCastPoint()
+  local channel_duration = wrath_ability:GetChannelTime()
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = wrath_ability:entindex(),
+    Queue = false,
+  })
+  return cast_point + channel_duration + 1
 end
 
 function Throw( enemy )
-	--print( "ai_temple_guardian - Throw" )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.HammerThrowAbility:entindex(),
-		Position = enemy:GetOrigin(),
-		Queue = false,
-	})
-	return 3 + thisEntity.fFuzz
+  if not enemy then
+    return 0.5
+  end
+
+  local hammer_throw_ability = thisEntity.HammerThrowAbility
+  local cast_point = hammer_throw_ability:GetCastPoint()
+  local throw_duration = hammer_throw_ability:GetSpecialValueFor("throw_duration")
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = hammer_throw_ability:entindex(),
+    Position = enemy:GetOrigin(),
+    Queue = false,
+  })
+  return cast_point + throw_duration + thisEntity.fFuzz
 end
 
 function Purification( friendly )
-	--print( "ai_temple_guardian - Purification" )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = thisEntity.PurificationAbility:entindex(),
-		TargetIndex = friendly:entindex(),
-		Queue = false,
-	})
-	return 1.3 + thisEntity.fFuzz
+  local purification_ability = thisEntity.PurificationAbility
+  local cast_point = purification_ability:GetCastPoint()
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+    AbilityIndex = purification_ability:entindex(),
+    TargetIndex = friendly:entindex(),
+    Queue = false,
+  })
+  return cast_point + thisEntity.fFuzz
 end
 
 function Smash( enemy )
-	--print( "ai_temple_guardian - Smash" )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.HammerSmashAbility:entindex(),
-		Position = enemy:GetOrigin(),
-		Queue = false,
-	})
-	return 1.4 + thisEntity.fFuzz
+  if not enemy then
+    return 0.5
+  end
+
+  local smash_ability = thisEntity.HammerSmashAbility
+  local cast_point = smash_ability:GetCastPoint()
+  local swing_time = smash_ability:GetSpecialValueFor("base_swing_speed")
+  local total = cast_point + swing_time + 0.5
+
+  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+  end
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = smash_ability:entindex(),
+    Position = enemy:GetOrigin(),
+    Queue = false,
+  })
+
+  return cast_point + swing_time + thisEntity.fFuzz
 end
 
 function RageSmash( enemy )
-	--print( "ai_temple_guardian - RageSmash" )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		AbilityIndex = thisEntity.RageHammerSmashAbility:entindex(),
-		Position = enemy:GetOrigin(),
-		Queue = false,
-	})
-	return 1.1 + thisEntity.fFuzz
+  if not enemy then
+    return 0.5
+  end
+
+  local rage_smash_ability = thisEntity.RageHammerSmashAbility
+  local cast_point = rage_smash_ability:GetCastPoint()
+  local swing_time = rage_smash_ability:GetSpecialValueFor("base_swing_speed")
+  local total = cast_point + swing_time + 0.5
+
+  if not thisEntity:HasModifier( "modifier_provide_vision" ) then
+    --print( "If player can't see me, provide brief vision to his team as I start my Smash" )
+    thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = total } )
+  end
+
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    AbilityIndex = rage_smash_ability:entindex(),
+    Position = enemy:GetOrigin(),
+    Queue = false,
+  })
+
+  return total
 end
-
-

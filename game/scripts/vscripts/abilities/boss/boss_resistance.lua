@@ -28,26 +28,24 @@ function modifier_boss_resistance:DeclareFunctions()
   }
 end
 
-function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
-  local parent = self:GetParent()
-  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+if IsServer() then
+  function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
+    local parent = self:GetParent()
+    local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
 
-  if keys.attacker == parent then -- boss degen nonsense
-    return 0
-  end
+    if keys.attacker == parent then -- boss degen nonsense
+      return 0
+    end
 
-  local inflictor = keys.inflictor
-  if IsServer() then
+    local inflictor = keys.inflictor
     if parent:CheckForAccidentalDamage(inflictor) then
       -- Block all damage if it was accidental
       return keys.damage
     end
+
+    return keys.damage * damageReduction / 100
   end
 
-  return keys.damage * damageReduction / 100
-end
-
-if IsServer() then
   function modifier_boss_resistance:OnTakeDamage(event)
     local parent = self:GetParent()   -- boss
     local ability = self:GetAbility() -- boss_resistance
@@ -81,7 +79,7 @@ if IsServer() then
     local damage_threshold = BOSS_AGRO_FACTOR or 15
     damage_threshold = damage_threshold * tier
 
-    -- Check if damage is less than the threshold and parent hp 
+    -- Check if damage is less than the threshold
     -- second check is for invis/smoked units with Radiance type damage (damage below the threshold)
     if damage <= damage_threshold and parent:GetHealth() / parent:GetMaxHealth() > 50/100 then
       return
@@ -241,26 +239,6 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
       return -100
     else
       return 0 - damageReduction
-    end
-  end
-
-   -- Special case for tinker with aghanim shard
-  if name == "tinker_laser" and attacker:HasShardOAA() then
-    if hasVeilDebuff then
-      return -100
-    else
-      return 0 - damageReduction
-    end
-  end
-
-  -- Leshrac Diabolic Edict bonus damage
-  if name == "leshrac_diabolic_edict" and IsServer() then
-    local ability = attacker:FindAbilityByName(name)
-    if ability then
-      local damage_increase_pct = ability:GetSpecialValueFor("tower_bonus")
-      if damage_increase_pct and damage_increase_pct > 0 then
-        return damage_increase_pct
-      end
     end
   end
 

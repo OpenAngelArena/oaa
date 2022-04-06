@@ -18,6 +18,8 @@
     "ConsideredHero"    "1"
     "IsAncient"         "1"
     "IsBossMonster"     "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -63,8 +65,8 @@
     //----------------------------------------------------------------
     "StatusHealth"                                        "2000"
     "StatusHealthRegen"                                   "1"
-    "StatusMana"				"100"
-    "StatusManaRegen"			"1"
+    "StatusMana"                                          "1000"
+    "StatusManaRegen"                                     "10"
 
     // Vision
     //----------------------------------------------------------------

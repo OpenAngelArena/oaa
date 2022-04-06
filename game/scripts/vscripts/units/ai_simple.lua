@@ -75,7 +75,7 @@ function SimpleBossThink()
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
         Position = nearest_enemy:GetAbsOrigin(),
-        Queue = 0,
+        Queue = false,
       })
     end
     thisEntity.aggro_target = nearest_enemy
@@ -87,9 +87,10 @@ function SimpleBossThink()
     return 1
   end
 
+  local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT / 100
+
   if thisEntity.state == SIMPLE_AI_STATE_IDLE then
-    local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-    local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
@@ -146,8 +147,6 @@ function SimpleBossThink()
         end
       end
       -- Check HP of the boss
-      local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-      local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
       if current_hp_pct > aggro_hp_pct then
         thisEntity.aggro_target = nil
       end
@@ -159,8 +158,6 @@ function SimpleBossThink()
       -- OLD: thisEntity:MoveToTargetToAttack(thisEntity.aggro_target)
     else
       -- Check HP of the boss and if its able to attack
-      local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-      local aggro_hp_pct = SIMPLE_BOSS_AGGRO_HP_PERCENT/100
       if current_hp_pct < aggro_hp_pct then -- not thisEntity:IsOutOfGame() and not thisEntity:IsDisarmed() then
         AttackNearestTarget(thisEntity)
       end
@@ -180,5 +177,6 @@ function SimpleBossThink()
       thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
   end
+
   return 1
 end
