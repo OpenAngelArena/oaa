@@ -42,6 +42,7 @@
       "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf"
       "particle"                                          "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
       "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
     }
 
     // Special
@@ -62,7 +63,7 @@
       }
       "attack_speed_slow"
       {
-        "value"                                           "15 20 25 30 35 40" // percentage attack speed slow; original: 10/20/30/40%
+        "value"                                           "10 20 30 40 45 50" // percentage attack speed slow; original: 10/20/30/40%
         "special_bonus_unique_tinkerer_5"                 "+10"
       }
       "burn_dps"

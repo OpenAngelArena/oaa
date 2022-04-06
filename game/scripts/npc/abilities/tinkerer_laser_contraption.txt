@@ -50,9 +50,9 @@
       "radius"                                            "300" // original: 800 x 100
       "duration"                                          "8"
       "delay"                                             "0.5"
-      "initial_damage"                                    "200 300 400 700 1200" // original: 200/300/400
-      "damage_per_second"                                 "75 150 225 375 675" // original: 75 125 175
-      "damage_interval"                                   "2"
+      "initial_damage"                                    "200 400 600 1200 1800" // original: 200/300/400
+      "damage_per_second"                                 "75 175 275 575 875" // original: 75 125 175
+      "damage_interval"                                   "2" // 5 damage instances
       "attacks_to_destroy"                                "1 2 3 4 5"
       "scepter_cast_range" // unused
       {
@@ -62,6 +62,11 @@
       "scepter_blind"
       {
         "value"                                           "100"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_heal_prevent_percent"
+      {
+        "value"                                           "-25"
         "RequiresScepter"                                 "1"
       }
     }
