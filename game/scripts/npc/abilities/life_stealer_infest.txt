@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5252"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5252"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -16,7 +16,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
 
@@ -42,23 +41,38 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"        "700"
-      "damage"        "150 400 650 1400 2150" //OAA
-      "damage_increase_pct"       "50"
-      "bonus_movement_speed"  "15 20 25 30 35"
-      "bonus_health"  "400 800 1200 2400 3600"
-      "cooldown_scepter"  
+      "radius"                                            "700"
+      "damage"                                            "150 400 650 1400 2150" //OAA
+      "damage_increase_pct"                               "50"
+      "bonus_movement_speed"                              "15 20 25 30 35"
+      "bonus_health"                                      "400 800 1200 2400 3600"
+      "self_regen"                                        "3 4 5 6 7"
+      "damage_threshold"                                  "500"
+      "infest_duration_scepter"
       {
-        "value"       "20"
-        "RequiresScepter"   "1"
+        "value"                                           "5.0"
+        "RequiresScepter"                                 "1"
       }
-      "cast_range_scepter"  
+      "cooldown_scepter"
       {
-        "value"       "500"
-        "RequiresScepter"   "1"
+        "value"                                           "20"
+        "RequiresScepter"                                 "1"
       }
-      "self_regen"  "3 4 5 6 7"
-      "damage_threshold"  "500"
+      "cast_range_scepter"
+      {
+        "value"                                           "500"
+        "RequiresScepter"                                 "1"
+      }
+      "attack_rate_scepter"
+      {
+        "value"                                           "1.25"
+        "RequiresScepter"                                 "1"
+      }
+      "bonus_regen_pct_scepter"
+      {
+        "value"                                           "100"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

@@ -98,9 +98,15 @@ end
 if IsServer() then
   function modifier_spark_midas:OnAttackLanded(event)
     local parent = self:GetParent()
+    local attacker = event.attacker
     local target = event.target
 
-    if parent ~= event.attacker then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then
       return
     end
 
@@ -108,12 +114,8 @@ if IsServer() then
       return
     end
 
-    -- To prevent crashes:
-    if not target then
-      return
-    end
-
-    if target:IsNull() then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
@@ -129,7 +131,7 @@ if IsServer() then
     end
 
     -- Instant kill should work only on neutrals (not bosses)
-	  -- and never in duels and number of charges is equal or above charges_needed_for_kill trigger naturalize eating
+    -- and never in duels and number of charges is equal or above charges_needed_for_kill trigger naturalize eating
     if target:IsNeutralCreep(true) and Gold:IsGoldGenActive() and self.stack_count >= self.charges_needed_for_kill then
       local player = parent:GetPlayerOwner()
 
@@ -164,7 +166,7 @@ if IsServer() then
       -- kill the target
       target:Kill(nil, parent)
     end
-	end
+  end
 end
 
 function modifier_spark_midas:OnTooltip()

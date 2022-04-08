@@ -212,24 +212,28 @@ function WandererThink ()
         thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
       end
       if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
-        local enemiesToCleanse = FindUnitsInRadius(
-          thisEntity:GetTeamNumber(),
-          thisEntity:GetAbsOrigin(),
-          nil,
-          1000,
-          DOTA_UNIT_TARGET_TEAM_ENEMY,
-          DOTA_UNIT_TARGET_ALL,
-          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-          FIND_ANY_ORDER,
-          false
-        )
-        if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() and #enemiesToCleanse > 1 then
-          ExecuteOrderFromTable({
-            UnitIndex = thisEntity:entindex(),
-            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-            AbilityIndex = thisEntity.cleanseAbility:entindex(),
-            Queue = false,
-          })
+        if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() then
+          local ability = thisEntity.cleanseAbility
+          local radius = ability:GetSpecialValueFor("radius")
+          local enemiesToCleanse = FindUnitsInRadius(
+            thisEntity:GetTeamNumber(),
+            thisEntity:GetAbsOrigin(),
+            nil,
+            radius,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            DOTA_UNIT_TARGET_ALL,
+            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+            FIND_ANY_ORDER,
+            false
+          )
+          if #enemiesToCleanse > 1 then
+            ExecuteOrderFromTable({
+              UnitIndex = thisEntity:entindex(),
+              OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+              AbilityIndex = ability:entindex(),
+              Queue = false,
+            })
+          end
         end
       end
     end

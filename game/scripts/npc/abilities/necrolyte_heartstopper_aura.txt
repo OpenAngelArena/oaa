@@ -7,9 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5159"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5159"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
@@ -26,6 +27,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "aura_damage"                                     "0.6 1.2 1.8 2.4 3.0 3.6"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_2"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "03"
       {

@@ -17,5 +17,3 @@ function werewolf_howl:OnSpellStart()
 
 	caster:AddNewModifier( caster, self, "modifier_werewolf_howl_aura", { duration = self:GetSpecialValueFor( "duration" ) } )
 end
-
-werewolf_howl_tier5 = werewolf_howl

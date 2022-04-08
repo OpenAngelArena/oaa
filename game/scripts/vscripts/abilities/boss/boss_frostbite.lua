@@ -49,17 +49,36 @@ function modifier_boss_frostbite_applier:DeclareFunctions()
   return funcs
 end
 
-function modifier_boss_frostbite_applier:OnAttackLanded(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_boss_frostbite_applier:OnAttackLanded(event)
+    local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
-    local parent = self:GetParent()
-    if not parent or parent:IsNull() then
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
-    if attacker == self:GetParent() and not attacker:IsIllusion() and not attacker:PassivesDisabled() and not target:IsMagicImmune() then
-      target:AddNewModifier(attacker, self:GetAbility(), "modifier_boss_frostbite_effect", {duration = self.heal_prevent_duration})
+
+    if attacker ~= parent then
+      return
     end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
+      return
+    end
+
+    -- Don't affect buildings, wards, spell immune units and invulnerable units.
+    if target:IsMagicImmune() or target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
+
+    target:AddNewModifier(parent, self:GetAbility(), "modifier_boss_frostbite_effect", {duration = self.heal_prevent_duration})
   end
 end
 
@@ -84,7 +103,7 @@ function modifier_boss_frostbite_effect:OnCreated()
   if ability then
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
   else
-    self.heal_prevent_percent = -40
+    self.heal_prevent_percent = -60
   end
 end
 
@@ -93,7 +112,7 @@ function modifier_boss_frostbite_effect:OnRefresh()
   if ability then
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
   else
-    self.heal_prevent_percent = -40
+    self.heal_prevent_percent = -60
   end
 end
 

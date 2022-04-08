@@ -33,34 +33,39 @@ function modifier_spider_boss_incapacitating_bite:DeclareFunctions()
   }
 end
 
-function modifier_spider_boss_incapacitating_bite:OnAttackLanded(event)
-  if not IsServer() then
-    return
+if IsServer() then
+  function modifier_spider_boss_incapacitating_bite:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Don't proc on units that dont have this modifier or if broken
+    if attacker ~= parent or parent:PassivesDisabled() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Don't affect buildings, wards, spell immune units and invulnerable units.
+    if target:IsMagicImmune() or target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
+
+    -- Get duration
+    local duration = ability:GetSpecialValueFor("duration")
+
+    -- Apply debuff
+    target:AddNewModifier(parent, ability, "modifier_spider_boss_incapacitating_bite_debuff", {duration = duration})
   end
-
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
-
-  if parent ~= event.attacker or parent:PassivesDisabled() then
-    return
-  end
-
-  -- To prevent crashes:
-  if not target or target:IsNull() then
-    return
-  end
-
-  -- Don't affect buildings, wards, spell immune units and invulnerable units.
-  if target:IsMagicImmune() or target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
-    return
-  end
-
-  -- Get duration
-  local duration = ability:GetSpecialValueFor("duration")
-
-  -- Apply debuff
-  target:AddNewModifier(parent, ability, "modifier_spider_boss_incapacitating_bite_debuff", {duration = duration})
 end
 
 ---------------------------------------------------------------------------------------------------

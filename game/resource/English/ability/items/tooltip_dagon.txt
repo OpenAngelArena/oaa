@@ -3,13 +3,16 @@
 //============================================================================
 "DOTA_Tooltip_Ability_item_dagon_oaa"                                       "Dagon"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa"                                "Dagon Recipe"
-"DOTA_Tooltip_Ability_item_dagon_oaa_Description"                           "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit. <br><br>Damage: %damage%<br>Range: %abilitycastrange%<br>Mana Cost: %mana_cost_tooltip%"
+"DOTA_Tooltip_Ability_item_dagon_oaa_Description"                           "<h1>Active: Energy Burst</h1> Emits a powerful burst of magical damage upon a targeted enemy unit and blinds it for a short time. <br><br>Damage: %damage%<br>Current HP as Damage: %current_hp_dmg%%%<br>Blind Miss Chance: %blind_pct%%%<br>Blind Duration: %blind_duration%<br>Range: %abilitycastrange%<br>Mana Cost: %mana_cost_tooltip%<br>Cooldown: %cooldown_tooltip% seconds"
 "DOTA_Tooltip_Ability_item_dagon_oaa_Lore"                                  "A lesser wand that grows in power the longer it is used, it brings magic to the fingertips of the user."
 "DOTA_Tooltip_ability_item_dagon_oaa_Note0"                                 "Instantly kills illusions."
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int"                             "+$int"
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str"                             "+$str"
 "DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi"                             "+$agi"
-"DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp"                             "%+Spell Amplification"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp"                             "%+Spell Amplification"
+
+"DOTA_Tooltip_modifier_item_oaa_dagon_debuff"                               "Blinded with Dagon"
+"DOTA_Tooltip_modifier_item_oaa_dagon_debuff_Description"                   "100%% miss chance"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_2"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_2"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -19,7 +22,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_2_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_2_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_2_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_2_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_2_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_3"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_3"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -29,7 +32,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_3_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_3_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_3_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_3_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_3_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_4"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_4"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -39,7 +42,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_4_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_4_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_4_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_4_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_4_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_5"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_5"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -49,7 +52,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_5_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_5_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_5_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_5_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_5_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_6"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_6"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -59,7 +62,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_6_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_6_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_6_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_6_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_6_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_7"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_7"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -69,7 +72,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_7_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_7_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_7_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_7_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_7_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_8"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_8"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -79,7 +82,7 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_8_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_8_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_8_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_8_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_8_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
 
 "DOTA_Tooltip_Ability_item_dagon_oaa_9"                                     "#{DOTA_Tooltip_Ability_item_dagon_oaa}"
 "DOTA_Tooltip_Ability_item_recipe_dagon_oaa_9"                              "#{DOTA_Tooltip_Ability_item_recipe_dagon_oaa}"
@@ -89,4 +92,4 @@
 "DOTA_Tooltip_Ability_item_dagon_oaa_9_bonus_int"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_int}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_9_bonus_str"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_str}"
 "DOTA_Tooltip_Ability_item_dagon_oaa_9_bonus_agi"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_bonus_agi}"
-"DOTA_Tooltip_Ability_item_dagon_oaa_9_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"
+//"DOTA_Tooltip_Ability_item_dagon_oaa_9_spell_amp"                           "#{DOTA_Tooltip_Ability_item_dagon_oaa_spell_amp}"

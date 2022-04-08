@@ -75,7 +75,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
     false
   )
 
-  -- Find wards in a double radius
+  -- Find wards in a radius
   local wards = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster_location,
@@ -112,7 +112,7 @@ function wanderer_aoe_cleanse:OnSpellStart()
     end
   end
 
-  -- Kill wards
+  -- Wards
   for _, ward in pairs(wards) do
     if ward and not ward:IsNull() then
       if ward.HasModifier and ward.IsInvulnerable then

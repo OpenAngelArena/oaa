@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5356"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5356"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -16,7 +16,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -42,8 +41,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"        "125 275 425 875 1625" //OAA
-      "fade_time"       "1.0"
+      "damage"                                            "125 275 425 875 1625" //OAA
+      "fade_time"                                         "1.0"
+      "shard_bonus_damage"
+      {
+        "value"                                           "200"
+        "RequiresShard"                                   "1"
+      }
+      "shard_break_duration"
+      {
+        "value"                                           "4.0"
+        "RequiresShard"                                   "1"
+      }
+      "shard_spell_immune_duration"
+      {
+        "value"                                           "2.0"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 

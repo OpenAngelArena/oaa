@@ -40,24 +40,23 @@ function modifier_wanderer_point_aversion_passive:DeclareFunctions()
   return funcs
 end
 
-function modifier_wanderer_point_aversion_passive:OnAttackLanded(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_wanderer_point_aversion_passive:OnAttackLanded(event)
     local parent = self:GetParent()
-
     local attacker = event.attacker
     local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
     -- If attacker isnt the parent -> don't continue
     if attacker ~= parent then
       return
     end
 
-    -- If parent doesn't exist or its about to be deleted -> don't continue
-    if not parent or parent:IsNull() then
-      return
-    end
-
-    -- If target doesn't exist or its about to be deleted -> don't continue
+    -- If attacked unit doesn't exist or its about to be deleted -> don't continue
     if not target or target:IsNull() then
       return
     end
@@ -79,14 +78,14 @@ function modifier_wanderer_point_aversion_passive:OnAttackLanded(event)
     elseif target_team == DOTA_TEAM_BADGUYS then
       oposite_team = DOTA_TEAM_GOODGUYS
     else
-      print("Wanderer attacked a hero on and invalid team.")
+      print("Wanderer attacked a hero with an invalid team.")
       return
     end
 
     local difference = PointsManager:GetPoints(target_team) - PointsManager:GetPoints(oposite_team)
 
-    -- If the score difference is negative, it means this team is losing, don't do bonus damage
-    if difference < 0 then
+    -- If the score difference is negative or 0, it means this team is losing or even, don't do bonus damage
+    if difference <= 0 then
       return
     end
 

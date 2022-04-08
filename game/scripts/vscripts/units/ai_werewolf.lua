@@ -7,7 +7,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.HowlAbility = thisEntity:FindAbilityByName( "werewolf_howl" )
+	thisEntity.HowlAbility = thisEntity:FindAbilityByName("werewolf_howl")
 	thisEntity:SetContextThink( "WerewolfThink", WerewolfThink, 1 )
 end
 
@@ -34,19 +34,23 @@ function WerewolfThink()
     return 1
   end
 
-
-	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
-	if #enemies == 0 then
-		return 1
-	end
-
-	local friendlies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE , FIND_CLOSEST, false )
-	if #friendlies == 0 then
-		return 1
-	end
-
-	if thisEntity.HowlAbility ~= nil and thisEntity.HowlAbility:IsCooldownReady() then
-		return Howl()
+	if thisEntity.HowlAbility and thisEntity.HowlAbility:IsFullyCastable() then
+    local ability = thisEntity.HowlAbility
+    local radius = ability:GetSpecialValueFor("radius")
+    local friendlies = FindUnitsInRadius(
+      thisEntity:GetTeamNumber(),
+      thisEntity:GetAbsOrigin(),
+      nil,
+      radius,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    if #friendlies > 1 then
+      return Howl()
+    end
 	end
 
 	return 0.5

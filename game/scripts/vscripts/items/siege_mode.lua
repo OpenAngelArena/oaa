@@ -324,99 +324,101 @@ function modifier_item_siege_mode_non_stacking_stats:GetModifierAttackRangeBonus
   return self.attack_range or self:GetAbility():GetSpecialValueFor("bonus_attack_range")
 end
 
-function modifier_item_siege_mode_non_stacking_stats:OnAttackLanded(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_item_siege_mode_non_stacking_stats:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-  local parent = self:GetParent()
-  if event.attacker ~= parent then
-    return
-  end
-
-  if not parent or parent:IsNull() then
-    return
-  end
-
-  -- Splash doesn't work on illusions and melee units
-  if parent:IsIllusion() or not parent:IsRangedAttacker() then
-    return
-  end
-
-  local target = event.target
-  if not target or target:IsNull() then
-    return
-  end
-
-  if target.GetUnitName == nil then
-    return
-  end
-
-  -- Don't affect buildings, wards and invulnerable units.
-  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
-    return
-  end
-
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return
-  end
-
-  local origin = target:GetAbsOrigin()
-
-  -- set the targeting requirements for the actual targets
-  local targetTeam = ability:GetAbilityTargetTeam()
-  local targetType = ability:GetAbilityTargetType()
-  local targetFlags = ability:GetAbilityTargetFlags()
-
-  -- Splash parameters
-  local splash_radius = ability:GetSpecialValueFor("passive_splash_radius")
-  local splash_percent = ability:GetSpecialValueFor("passive_splash_percent")
-
-  -- find all appropriate targets around the initial target
-  local units = FindUnitsInRadius(
-    parent:GetTeamNumber(),
-    origin,
-    nil,
-    splash_radius,
-    targetTeam,
-    targetType,
-    targetFlags,
-    FIND_ANY_ORDER,
-    false
-  )
-
-  -- get the wearer's damage
-  local damage = event.original_damage
-
-  -- get the damage modifier
-  local actual_damage = damage * splash_percent * 0.01
-
-  -- Damage table
-  local damage_table = {}
-  damage_table.attacker = parent
-  damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
-  damage_table.ability = ability
-  damage_table.damage = actual_damage
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-
-  -- Show particle only if damage is above zero and only if there are units nearby
-  if actual_damage > 0 and #units > 1 then
-    local part = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, parent)
-    ParticleManager:SetParticleControl(part, 3, origin)
-    ParticleManager:ReleaseParticleIndex(part)
-  end
-
-  -- iterate through all targets
-  for _, unit in pairs(units) do
-    if unit and not unit:IsNull() and unit ~= target then
-      damage_table.victim = unit
-      ApplyDamage(damage_table)
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
     end
-  end
 
-  -- sound
-  target:EmitSound("dota_fountain.ProjectileImpact")
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Splash doesn't work on illusions and melee units
+    if parent:IsIllusion() or not parent:IsRangedAttacker() then
+      return
+    end
+
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards and invulnerable units.
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
+
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local origin = target:GetAbsOrigin()
+
+    -- set the targeting requirements for the actual targets
+    local targetTeam = ability:GetAbilityTargetTeam()
+    local targetType = ability:GetAbilityTargetType()
+    local targetFlags = ability:GetAbilityTargetFlags()
+
+    -- Splash parameters
+    local splash_radius = ability:GetSpecialValueFor("passive_splash_radius")
+    local splash_percent = ability:GetSpecialValueFor("passive_splash_percent")
+
+    -- find all appropriate targets around the initial target
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      origin,
+      nil,
+      splash_radius,
+      targetTeam,
+      targetType,
+      targetFlags,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    -- get the wearer's damage
+    local damage = event.original_damage
+
+    -- get the damage modifier
+    local actual_damage = damage * splash_percent * 0.01
+
+    -- Damage table
+    local damage_table = {}
+    damage_table.attacker = parent
+    damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
+    damage_table.ability = ability
+    damage_table.damage = actual_damage
+    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+
+    -- Show particle only if damage is above zero and only if there are units nearby
+    if actual_damage > 0 and #units > 1 then
+      local part = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_CUSTOMORIGIN, parent)
+      ParticleManager:SetParticleControl(part, 3, origin)
+      ParticleManager:ReleaseParticleIndex(part)
+    end
+
+    -- iterate through all targets
+    for _, unit in pairs(units) do
+      if unit and not unit:IsNull() and unit ~= target then
+        damage_table.victim = unit
+        ApplyDamage(damage_table)
+      end
+    end
+
+    -- sound
+    target:EmitSound("dota_fountain.ProjectileImpact")
+  end
 end
 
 ---------------------------------------------------------------------------------------------------

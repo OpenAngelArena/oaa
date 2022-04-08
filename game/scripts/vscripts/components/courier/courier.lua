@@ -129,14 +129,33 @@ function modifier_custom_courier_stuff:CheckState()
   return state
 end
 
-function modifier_custom_courier_stuff:OnTakeDamage(event)
-  if event.unit == self:GetParent() then
-    --print("Courier has taken damage")
+if IsServer() then
+  function modifier_custom_courier_stuff:OnTakeDamage(event)
     local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    if damaged_unit ~= parent then
+      return
+    end
+
+    --print("Courier has taken damage")
     parent.taken_damage = true
 
     Timers:CreateTimer(1, function()
-      parent.taken_damage = false
+      if parent and not parent:IsNull() then
+        parent.taken_damage = false
+      end
     end)
   end
 end

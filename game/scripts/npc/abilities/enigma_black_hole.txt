@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5149"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5149"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -44,10 +43,26 @@
       "vision_radius"               "800"
       "pull_rotate_speed"           "0.25"
       "animation_rate"              "0.2"
-      "scepter_pct_damage"          "5"
-      "scepter_radius"              "1000"
-      "scepter_drag_speed"          "175"
-      "scepter_pull_rotate_speed"   "0.1"
+      "scepter_pct_damage"
+      {
+        "value"                     "5"
+        "RequiresScepter"           "1"
+      }
+      "shard_radius"
+      {
+        "value"                     "1000"
+        "RequiresShard"             "1"
+      }
+      "shard_drag_speed"
+      {
+        "value"                     "175"
+        "RequiresShard"             "1"
+      }
+      "shard_pull_rotate_speed"
+      {
+        "value"                     "0.1"
+        "RequiresShard"             "1"
+      }
     }
   }
 }

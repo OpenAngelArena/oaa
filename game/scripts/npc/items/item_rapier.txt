@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "40"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "50000" // OAA
     "ItemShopTags"                                        ""
 
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_rapier"
     "ItemRequirements" // OAA
     {
-      "01"                                                "item_relic;item_demon_edge"
+      "01"                                                "item_relic;item_demon_edge;item_divine_shards"
     }
   }
 
@@ -41,7 +41,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "40"
-    "ItemCost"                                            "55950" // OAA
+    "ItemCost"                                            "55951" // OAA
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "divine rapier"

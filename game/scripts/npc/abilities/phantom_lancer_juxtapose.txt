@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5067"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5067"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
@@ -82,6 +82,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_bonus_duration"                          "10"
+        "RequiresScepter"                                 "1"
       }
       "11"
       {

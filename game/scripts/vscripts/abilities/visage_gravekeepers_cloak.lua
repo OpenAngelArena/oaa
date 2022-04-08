@@ -35,7 +35,7 @@ end
 
 function visage_gravekeepers_cloak_oaa:GetManaCost(level)
   if self:GetCaster():HasShardOAA() then
-    return 100
+    return self:GetSpecialValueFor("shard_manacost")
   end
 
   return 0
@@ -43,7 +43,7 @@ end
 
 function visage_gravekeepers_cloak_oaa:GetCooldown(level)
   if self:GetCaster():HasShardOAA() then
-    return 30
+    return self:GetSpecialValueFor("shard_cooldown")
   end
 
   return 0
@@ -55,10 +55,8 @@ function visage_gravekeepers_cloak_oaa:OnUpgrade()
   local max_layers = self:GetSpecialValueFor("max_layers")
   -- Talent that increases number of layers
   local talent = caster:FindAbilityByName("special_bonus_unique_visage_oaa_6")
-  if talent then
-    if talent:GetLevel() > 0 then
-      max_layers = max_layers + talent:GetSpecialValueFor("value")
-    end
+  if talent and talent:GetLevel() > 0 then
+    max_layers = max_layers + talent:GetSpecialValueFor("value")
   end
   if mod then
     mod:SetStackCount(max_layers)

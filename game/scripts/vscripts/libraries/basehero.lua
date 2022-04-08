@@ -83,10 +83,10 @@ function CDOTA_BaseNPC_Hero:GetBaseRangedProjectileName()
     return ""
   end
   local unit_name = self:GetUnitName()
-  local unit_table
-  if self:IsHero() and KeyValues then
-    unit_table = KeyValues.HeroKV[unit_name] or KeyValues.UnitKV[unit_name]
-  end
+  local unit_table = GetUnitKeyValuesByName(unit_name)
+  --if self:IsHero() and KeyValues then
+    --unit_table = KeyValues.HeroKV[unit_name] or KeyValues.UnitKV[unit_name]
+  --end
 
   if not unit_table or not unit_table["ProjectileModel"] then
     return self:GetRangedProjectileName()
@@ -109,6 +109,9 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
 
   elseif unit:HasModifier("modifier_item_trumps_fists_passive") then
     unit:SetRangedProjectileName("particles/items/trumps_fists/trumps_fists_projectile.vpcf")
+
+  elseif unit:HasModifier("modifier_item_devastator_desolator") then
+    unit:SetRangedProjectileName("particles/items_fx/desolator_projectile.vpcf")
 
   elseif unit:HasModifier("modifier_oaa_glaives_of_wisdom_fx") then
     unit:SetRangedProjectileName("particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf")

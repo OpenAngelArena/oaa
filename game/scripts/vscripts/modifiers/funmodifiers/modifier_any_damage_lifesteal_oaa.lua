@@ -137,5 +137,5 @@ if IsServer() then
 end
 
 function modifier_any_damage_lifesteal_oaa:GetTexture()
-  return "item_lifesteal"
+  return "item_vampire_fangs"
 end

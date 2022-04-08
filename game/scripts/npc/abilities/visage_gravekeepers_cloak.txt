@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5482"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5482"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -48,6 +48,24 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_damage_reduction"                            "80"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_hp_restoration_pct"                        "35"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown"                                  "30" //OAA
+        "RequiresShard"                                   "1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_manacost"                                  "125"
+        "RequiresShard"                                   "1"
       }
     }
   }

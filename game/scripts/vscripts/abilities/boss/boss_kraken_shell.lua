@@ -46,60 +46,62 @@ function modifier_boss_kraken_shell_passive:DeclareFunctions()
   }
 end
 
-function modifier_boss_kraken_shell_passive:OnTakeDamage(event)
-  if not IsServer() then
-    return
-  end
-  local attacker = event.attacker
-  local damaged_unit = event.unit
-  local damage = event.damage
-  local parent = self:GetParent()
+if IsServer() then
+  function modifier_boss_kraken_shell_passive:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local damage = event.damage
 
-  if damaged_unit ~= parent then
-    return
-  end
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-  if not parent or parent:IsNull() then
-    return
-  end
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
-  if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
-    return
-  end
+    -- Check if damaged entity has this modifier
+    if damaged_unit ~= parent then
+      return
+    end
 
-  if not attacker or attacker:IsNull() then
-    return
-  end
+    if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsAlive() then
+      return
+    end
 
-  -- Don't trigger on self damage or on damage originating from allies
-  if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
-    return
-  end
+    -- Don't trigger on self damage or on damage originating from allies
+    if attacker == parent or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
 
-  if damage <= 0 then
-    return
-  end
+    if damage <= 0 then
+      return
+    end
 
-  -- Init dmg counter
-  if not self.damage_received then
-    self.damage_received = 0
-  end
+    -- Init dmg counter
+    if not self.damage_received then
+      self.damage_received = 0
+    end
 
-  -- Increase dmg counter
-  self.damage_received = self.damage_received + damage
+    -- Increase dmg counter
+    self.damage_received = self.damage_received + damage
 
-  if self.damage_received >= self.damage_threshold then
-    -- Sound
-    parent:EmitSound("Hero_Tidehunter.KrakenShell")
+    if self.damage_received >= self.damage_threshold then
+      -- Sound
+      parent:EmitSound("Hero_Tidehunter.KrakenShell")
 
-    -- Particle
-    local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, parent)
-    ParticleManager:ReleaseParticleIndex(fx)
+      -- Particle
+      local fx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_krakenshell_purge.vpcf", PATTACH_ABSORIGIN, parent)
+      ParticleManager:ReleaseParticleIndex(fx)
 
-    -- Strong Dispel
-    parent:Purge(false, true, false, true, true)
+      -- Strong Dispel
+      parent:Purge(false, true, false, true, true)
 
-    -- Reset the dmg counter
-    self.damage_received = 0
+      -- Reset the dmg counter
+      self.damage_received = 0
+    end
   end
 end

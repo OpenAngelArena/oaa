@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "225"
+    "AbilityManaCost"                                     "150"
     "ItemCost"                                            "9852"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -115,6 +115,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen_degen_aura"                             "25"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_tooltip"                               "100 125 150 175 200"
       }
     }
   }

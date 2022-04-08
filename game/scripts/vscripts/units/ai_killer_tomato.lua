@@ -127,7 +127,6 @@ function TomatoThink()
 
     -- Check if aggro_target exists
     if thisEntity.aggro_target then
-      --print(thisEntity.aggro_target:GetUnitName())
       -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
@@ -165,14 +164,28 @@ function TomatoThink()
       end
     end
 
-    local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-    if thisEntity.slam_ability and thisEntity.slam_ability:IsFullyCastable() and #enemies > 2 then
-      ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-        AbilityIndex = thisEntity.slam_ability:entindex(),
-        Queue = false,
-      })
+    if thisEntity.slam_ability and thisEntity.slam_ability:IsFullyCastable() then
+      local ability = thisEntity.slam_ability
+      local radius = ability:GetSpecialValueFor("radius")
+      local enemies = FindUnitsInRadius(
+        thisEntity:GetTeamNumber(),
+        thisEntity:GetAbsOrigin(),
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+      )
+      if #enemies >= 2 then
+        ExecuteOrderFromTable({
+          UnitIndex = thisEntity:entindex(),
+          OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+          AbilityIndex = ability:entindex(),
+          Queue = false,
+        })
+      end
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_LEASH then
     -- Actual leashing
@@ -185,5 +198,6 @@ function TomatoThink()
       thisEntity.state = SIMPLE_AI_STATE_IDLE
     end
   end
+
   return 1
 end

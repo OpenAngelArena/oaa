@@ -7,9 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "item_blink"
-    "ID"                                                  "2009"                                                     // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/dev_blink_dagger.lua"
+    "ID"                                                  "3602"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityTextureName"                                  "item_blink"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -17,7 +19,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "0.0"
     "AbilityManaCost"                                     "0"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1"
@@ -27,26 +29,11 @@
     "ItemPurchasable"                                     "0"
     "SideShop"                                            "0"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "20000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blink_damage_cooldown"                           "0.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range_clamp"                               "960"
-      }
     }
   }
 }

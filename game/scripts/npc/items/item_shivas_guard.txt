@@ -113,6 +113,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen_degen_aura"                             "25"
       }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_tooltip"                               "100 125 150 175 200"
+      }
     }
   }
 }

@@ -45,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "torrent_damage"                                  "2700"
+        "torrent_damage"                                  "2500"
       }
       "03"
       {
@@ -80,12 +80,12 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_damage_per_second"                         "400"
+        "magma_damage_per_second"                         "360"
       }
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "magma_damage_interval"                           "0.2"
+        "magma_damage_interval"                           "0.25"
       }
       "11" // 8 damage from heroes, 1 damage from non-heroes
       {
@@ -105,7 +105,7 @@
       "14" // max volcano duration in seconds
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_duration_max"                              "60"
+        "totem_duration_max"                              "50"
       }
     }
   }

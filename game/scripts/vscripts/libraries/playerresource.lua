@@ -47,9 +47,22 @@ end
 
 function CDOTA_PlayerResource:IsBotOrPlayerConnected(id)
   local connectionState = self:GetConnectionState(id)
-  return connectionState == 2 or connectionState == 1
+  return connectionState == DOTA_CONNECTION_STATE_CONNECTED or connectionState == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED
 end
 
 function CDOTA_PlayerResource:SafeGetTeamPlayerCount()
   return length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_GOODGUYS)) + length(PlayerResource:GetConnectedTeamPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
+end
+
+function CDOTA_PlayerResource:FindFirstValidPlayer()
+  local player
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+    if self:IsValidPlayerID(playerID) then
+      player = self:GetPlayer(playerID)
+      if player then
+        break
+      end
+    end
+  end
+  return player
 end

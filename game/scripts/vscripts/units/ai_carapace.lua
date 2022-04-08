@@ -36,8 +36,6 @@ function CarapaceBossThink()
     thisEntity.initialized = true
   end
 
-  local carapace_boss_aggro_percent = 100 * (1 - ((thisEntity.BossTier * BOSS_AGRO_FACTOR) / thisEntity:GetMaxHealth()))
-
   local function IsNonHostileWard(entity)
     if entity.HasModifier then
       return entity:HasModifier("modifier_item_buff_ward") or entity:HasModifier("modifier_ward_invisibility")
@@ -90,9 +88,10 @@ function CarapaceBossThink()
     return 1
   end
 
+  local current_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+  local aggro_hp_pct = 1 - ((thisEntity.BossTier * BOSS_AGRO_FACTOR) / thisEntity:GetMaxHealth())
+
   if thisEntity.state == AI_STATE_IDLE then
-    local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-    local aggro_hp_pct = carapace_boss_aggro_percent/100
     if current_hp_pct < aggro_hp_pct then
       -- Issue an attack-move command towards the nearast unit that is attackable and assign it as aggro_target.
       -- Because of attack priorities (wards have the lowest attack priority) aggro_target will not always be
@@ -129,7 +128,6 @@ function CarapaceBossThink()
 
     -- Check if aggro_target exists
     if thisEntity.aggro_target then
-      --print(thisEntity.aggro_target:GetUnitName())
       -- Check if aggro_target is getting deleted soon from c++
       if thisEntity.aggro_target:IsNull() then
         thisEntity.aggro_target = nil
@@ -149,8 +147,6 @@ function CarapaceBossThink()
         end
       end
       -- Check HP of the boss
-      local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-      local aggro_hp_pct = carapace_boss_aggro_percent/100
       if current_hp_pct > aggro_hp_pct then
         thisEntity.aggro_target = nil
       end
@@ -159,9 +155,7 @@ function CarapaceBossThink()
         thisEntity.aggro_target = nil
       end
     else
-      -- Check HP of the boss and if its able to attack
-      local current_hp_pct = thisEntity:GetHealth()/thisEntity:GetMaxHealth()
-      local aggro_hp_pct = carapace_boss_aggro_percent/100
+      -- Check HP of the boss
       if current_hp_pct < aggro_hp_pct then
         AttackNearestTarget(thisEntity)
       end
@@ -189,6 +183,7 @@ function CarapaceBossThink()
       thisEntity.state = AI_STATE_IDLE
     end
   end
+
   return 1
 end
 

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "639" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "639"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -49,9 +49,27 @@
       }
       "duration"                                          "6"
       "projectile_speed"                                  "1200"
-      "impact_damage"                                     "100 175 250 325 650 975" //OAA
-      "attack_damage"                                     "6 7 8 9 18 36"
+      "impact_damage" //OAA
+      {
+        "value"                                           "100 175 250 325 650 975"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "attack_damage"
+      {
+        "value"                                           "6 7 8 9 18 36"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
       "miss_chance"                                       "40"
+      "shard_radius"
+      {
+        "value"                                           "550"
+        "RequiresShard"                                   "1"
+      }
+      "shard_miss_chance"
+      {
+        "value"                                           "80"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

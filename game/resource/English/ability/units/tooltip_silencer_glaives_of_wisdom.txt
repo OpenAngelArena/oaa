@@ -10,7 +10,7 @@
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_int_steal"                         "TEMPORARY INT STEAL:"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_int_steal_duration"                "TEMPORARY INT STEAL DURATION:"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_scepter_description"               "Glaives of Wisdom damage pierces spell immunity."
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_shard_description"                 "Causes Glaives to bounce once towards the closest enemy unit, dealing 50%% of Silencer's attack damage. Bounce range is 600."
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_shard_description"                 "Causes Glaives to bounce %shard_bounce_count% time towards the closest enemy unit, dealing %shard_bounce_damage_reduction%%% of Silencer's attack damage. Bounce range is %shard_bounce_range%. Additionally, it increases the Intelligence stolen per kill by %shard_permanent_int_steal_amount_bonus%."
 
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Description"                           "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description}"
 

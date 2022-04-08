@@ -103,6 +103,7 @@ if IsServer() then
       "modifier_item_kaya",
       "modifier_item_ethereal_blade",
       "modifier_item_sacred_skull_non_stacking_stats",
+      "modifier_item_ghost_king_bar_non_stacking_stats",
       "modifier_item_yasha_and_kaya",
       "modifier_item_kaya_and_sange",
     }

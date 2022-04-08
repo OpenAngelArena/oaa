@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5192"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5192"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -49,10 +49,16 @@
         "var_type"                                        "FIELD_FLOAT"
         "fade_duration"                                   "0.5"
       }
-      "05"
+      "06" //OAA, Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "6" //OAA
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_fade_duration"                           "0.75"
         "RequiresScepter"                                 "1"
       }
     }

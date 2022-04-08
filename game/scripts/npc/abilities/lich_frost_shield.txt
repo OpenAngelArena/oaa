@@ -1,6 +1,5 @@
 "DOTAAbilities"
 {
-
   //=================================================================================================================
   // Lich: Frost Shield
   //=================================================================================================================
@@ -8,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5136"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5136"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -40,6 +39,7 @@
         "damage_reduction"                                "30 40 50 60 65 70"
         "CalculateSpellDamageTooltip"                     "0"
         "LinkedSpecialBonus"                              "special_bonus_unique_lich_8"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "02"
       {

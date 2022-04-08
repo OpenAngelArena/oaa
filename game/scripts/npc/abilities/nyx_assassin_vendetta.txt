@@ -40,7 +40,21 @@
       "health_regen_rate_scepter"                         "3"
       "mana_regen_rate_scepter"                           "3"
       "break_duration"                                    "4.0"
-      "shard_magic_resist_reduction"                      "17"
+      "shard_debuff_duration"
+      {
+        "value"                                           "4.0"
+        "RequiresShard"                                   "1"
+      }
+      "shard_magic_resist_reduction"
+      {
+        "value"                                           "17"
+        "RequiresShard"                                   "1"
+      }
+      "shard_movement_speed_bonus"
+      {
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

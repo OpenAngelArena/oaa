@@ -93,6 +93,18 @@
         "var_type"                                        "FIELD_INTEGER"
         "spirit_amount"                                   "5"
       }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_slow_pct"                                "15"
+        "RequiresScepter"                                 "1"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_slow_duration"                           "0.3"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }

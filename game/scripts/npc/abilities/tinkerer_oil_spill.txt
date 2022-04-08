@@ -1,0 +1,77 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinkerer: Oil Spill
+  //=================================================================================================================
+  "tinkerer_oil_spill"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "84646"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities//tinkerer/tinkerer_oil_spill.lua"
+    "AbilityTextureName"                                  "custom/tinkerer_oil_spill"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Time and Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 13 11 9 8 7" // original: 18/15/12/9
+    "AbilityManaCost"                                     "50 65 80 95 110 125"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_shadow_demon/shadow_demon_base_attack.vpcf"
+      "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+      "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf"
+      "particle"                                          "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
+      "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"                                            "300"
+      "projectile_speed"                                  "934"
+      "duration"
+      {
+        "value"                                           "3.5 4 4.5 5 5.5 6" // original 2/3/4/5
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_4"
+      }
+      "move_speed_slow"
+      {
+        "value"                                           "20 30 40 50 60 70" // original: 20/40/60/80%
+        "special_bonus_unique_tinkerer_5"                 "+10"
+      }
+      "attack_speed_slow"
+      {
+        "value"                                           "10 20 30 40 45 50" // percentage attack speed slow; original: 10/20/30/40%
+        "special_bonus_unique_tinkerer_5"                 "+10"
+      }
+      "burn_dps"
+      {
+        "value"                                           "30 40 50 60 120 240" // original: 15/20/25/30
+        "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_6"
+      }
+      "burn_interval"                                     "0.25"
+    }
+  }
+}

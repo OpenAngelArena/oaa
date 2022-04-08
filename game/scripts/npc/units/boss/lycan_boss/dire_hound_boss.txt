@@ -21,6 +21,8 @@
     "ConsideredHero"    "1"
     "IsAncient"         "1"
     "IsBossMonster"     "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
@@ -29,7 +31,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "0"
+    "ArmorPhysical"                                       "10"
     "MagicalResistance"                                   "25"
 
     // Attack
@@ -63,9 +65,9 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "2500"
-    "StatusHealthRegen"                                   "0"
-    "StatusMana"				"350"
-    "StatusManaRegen"			"1"
+    "StatusHealthRegen"                                   "1"
+    "StatusMana"                                          "1250"
+    "StatusManaRegen"                                     "10"
 
     // Vision
     //----------------------------------------------------------------
@@ -78,6 +80,13 @@
     "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "DisableResistance"                                 "50.0"
+    }
 
     "PathfindingSearchDepthScale"		"0.1"
 

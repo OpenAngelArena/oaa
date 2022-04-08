@@ -41,7 +41,8 @@ function LycanBossThink()
     thisEntity.bInitialized = true
   end
 
-  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < 98/100
+  local aggro_hp_pct = 1 - ((thisEntity.BossTier * BOSS_AGRO_FACTOR) / thisEntity:GetMaxHealth())
+  local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < aggro_hp_pct
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
 
   if hasDamageThreshold then
@@ -112,11 +113,12 @@ function LycanBossThink()
 
   -- Have we hit our minion limit?
   if #thisEntity.LYCAN_BOSS_SUMMONED_UNITS < thisEntity.LYCAN_BOSS_MAX_SUMMONS then
-    if thisEntity.hSummonWolvesAbility ~= nil and thisEntity.hSummonWolvesAbility:IsFullyCastable() and thisEntity.hSummonWolvesAbility:IsOwnersManaEnough() then
+    if thisEntity.hSummonWolvesAbility and thisEntity.hSummonWolvesAbility:IsFullyCastable() and thisEntity.hSummonWolvesAbility:IsOwnersManaEnough() then
       return CastSummonWolves()
     end
   end
 
+  -- Tier 5 Lycan boss is slightly smarter than normal Lycan boss (ignores attack-immune units)
   local function FindNearestValidUnit(entity, unit_group)
     for i = 1, #unit_group do
       local enemy = unit_group[i]
@@ -142,14 +144,14 @@ function LycanBossThink()
     end
   end
 
-  thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
+  thisEntity.bShapeshift = thisEntity:HasModifier("modifier_lycan_boss_shapeshift")
   if thisEntity.bShapeshift then
-    if thisEntity.hClawLungeAbility ~= nil and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() and not thisEntity:IsRooted() then
+    if thisEntity.hClawLungeAbility and thisEntity.hClawLungeAbility:IsFullyCastable() and thisEntity.hClawLungeAbility:IsOwnersManaEnough() and not thisEntity:IsRooted() then
       return CastClawLunge(valid_enemy)
     end
   else
     if thisEntity:GetHealthPercent() < 50 then
-      if thisEntity.hShapeshiftAbility:IsFullyCastable() and thisEntity.hShapeshiftAbility:IsOwnersManaEnough() then
+      if thisEntity.hShapeshiftAbility and thisEntity.hShapeshiftAbility:IsFullyCastable() and thisEntity.hShapeshiftAbility:IsOwnersManaEnough() then
         return CastShapeshift()
       end
     end
@@ -172,13 +174,13 @@ function LycanBossThink()
 	end
 
 	-- Cast Rupture Ball on someone far away
-	if thisEntity.hRuptureBallAbility ~= nil and thisEntity.hRuptureBallAbility:IsFullyCastable() then
+	if thisEntity.hRuptureBallAbility and thisEntity.hRuptureBallAbility:IsFullyCastable() then
 		if #hRuptureTargets > 0 then
 			return CastRuptureBall( hRuptureTargets[ RandomInt( 1, #hRuptureTargets ) ] )
 		end
 	end
 
-	if thisEntity.hClawAttackAbility ~= nil and thisEntity.hClawAttackAbility:IsFullyCastable() then
+	if thisEntity.hClawAttackAbility and thisEntity.hClawAttackAbility:IsFullyCastable() then
 		return CastClawAttack( hEnemies[ 1 ] )
 	end
 

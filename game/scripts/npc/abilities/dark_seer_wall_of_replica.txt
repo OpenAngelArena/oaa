@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5258"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5258"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -63,6 +62,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_replica_total_damage_incoming"           "200 200 200 175 125"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "06"
       {
@@ -85,7 +85,7 @@
         "slow_duration"                                   "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
-      "10"
+      "10" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_length_multiplier"                       "2"

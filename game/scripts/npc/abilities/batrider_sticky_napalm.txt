@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5320" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5320"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -39,20 +39,25 @@
     {
       "damage"
       {
-        "value" "7 14 21 28 56 112"
-        "special_bonus_unique_batrider_4" "+6"
-        "CalculateSpellDamageTooltip"   "1"
+        "value"                                           "7 14 21 28 56 112"
+        "special_bonus_unique_batrider_4"                 "+6"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
       {
-        "value"               "375 400 425 450 475 500"
-        "special_bonus_unique_batrider_7" "+75"
+        "value"                                           "375 400 425 450 475 500"
+        "special_bonus_unique_batrider_7"                 "+75"
       }
-      "duration" "7"
-      "movement_speed_pct" "-2 -4 -6 -8 -10 -12"      
-      "turn_rate_pct"     "-10 -30 -50 -70 -75 -80"
-      "max_stacks"      "10"
-      "creep_damage_pct"      "50"
+      "duration"                                          "7"
+      "movement_speed_pct"                                "-2 -4 -6 -8 -10 -12"
+      "turn_rate_pct"                                     "-10 -30 -50 -70 -75 -80"
+      "max_stacks"                                        "10"
+      "creep_damage_pct"                                  "75" //OAA, for picking screen
+      "shard_napalm_on_attack_chance_pct"
+      {
+        "value"                                           "50"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

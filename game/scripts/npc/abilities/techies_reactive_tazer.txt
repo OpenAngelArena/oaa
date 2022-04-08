@@ -39,11 +39,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "6"
-      "disarm_duration"   "2.4 2.7 3 3.3 3.6 3.9"
-      "bonus_ms"        "15 20 25 30 35 40"
-      "stun_radius"     "400"
-      "scepter_damage"    "300"
+      "duration"                                          "6"
+      "disarm_duration"                                   "2.4 2.7 3 3.3 3.6 3.9"
+      "bonus_ms"                                          "15 20 25 30 35 40"
+      "stun_radius"                                       "400"
+      "scepter_damage"
+      {
+        "value"                                           "300"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }
