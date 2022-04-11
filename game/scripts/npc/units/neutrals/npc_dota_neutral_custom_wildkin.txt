@@ -16,8 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "enraged_wildkin_hurricane"          // Ability 1.
-    "Ability2"                                            "enraged_wildkin_toughness_aura"      // Ability 2.
+    "Ability1"                                            "enraged_wildkin_hurricane"
+    "Ability2"                                            "enraged_wildkin_toughness_aura"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -29,10 +31,10 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
-    "AttackRate"                                          "2.0"     // Speed of attack.
-    "BaseAttackSpeed"                                     "150"
+    "AttackRate"                                          "1.7"     // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounty

@@ -34,8 +34,9 @@
     "AttackDamageMin"                                     "30"    // Damage range min.
     "AttackDamageMax"                                     "37"    // Damage range max.
     "AttackRate"                                          "1.6"   // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "200"   // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "300"   // Range within a target can be acquired.
     "AttackRange"                                         "250"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1200"  // Speed of projectile.

@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_harpy_a/n_creep_harpy_a.vmdl"  // Model.
-    "BaseClass"                                           "npc_dota_creep_neutral"
     "SoundSet"                                            "n_creep_Ranged"
     "Level"                                               "2"
     "ModelScale"                                          "0.85"
@@ -17,10 +17,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "harpy_scout_take_off"      // Ability 1
-    "Ability2"                                            "creep_piercing"      // Ability 2
-    "Ability3"                                            ""      // Ability 3
-    "Ability4"                                            ""      // Ability 4
+    "Ability1"                                            "harpy_scout_take_off"
+    "Ability2"                                            "creep_piercing"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -33,8 +33,9 @@
     "AttackDamageMin"                                     "28"    // Damage range min.
     "AttackDamageMax"                                     "37"    // Damage range max.
     "AttackRate"                                          "1.6"    // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "200"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
     "AttackRange"                                         "200"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1200"    // Speed of projectile.

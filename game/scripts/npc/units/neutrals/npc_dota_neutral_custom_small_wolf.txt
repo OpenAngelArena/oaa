@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_worg_small/n_creep_worg_small.vmdl"
     "BaseClass"                                           "npc_dota_creep_neutral"   // npc_dota_creature
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_worg_small/n_creep_worg_small.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "3"
     "ModelScale"                                          "0.90"
@@ -18,10 +18,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "giant_wolf_intimidate"        // Ability 1
-    "Ability2"                                            ""        // Ability 2
-    "Ability3"                                            ""        // Ability 3
-    "Ability4"                                            ""        // Ability 4
+    "Ability1"                                            "giant_wolf_intimidate"
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -33,7 +33,8 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "29"      // Damage range min.
     "AttackDamageMax"                                     "33"      // Damage range max.
-    "AttackRate"                                          "1.45"    // Speed of attack.
+    "AttackRate"                                          "2.0"    // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.33"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"     // Range within a target can be acquired.
     "AttackRange"                                         "90"      // Range within a target can be attacked.

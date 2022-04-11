@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_kobold/kobold_a/n_creep_kobold_a.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_kobold/kobold_a/n_creep_kobold_a.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "2"
     "ModelScale"                                          "1"
@@ -34,6 +34,7 @@
     "AttackDamageMin"                                     "14"    // Damage range min.
     "AttackDamageMax"                                     "15"    // Damage range max.
     "AttackRate"                                          "1.35"  // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.38"  // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "110"   // Range within a target can be attacked.
