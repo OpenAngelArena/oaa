@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "4"
     "ModelScale"                                          "0.7"
@@ -34,6 +34,7 @@
     "AttackDamageMin"                                     "29"    // Damage range min.
     "AttackDamageMax"                                     "33"    // Damage range max.
     "AttackRate"                                          "1.35"  // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.

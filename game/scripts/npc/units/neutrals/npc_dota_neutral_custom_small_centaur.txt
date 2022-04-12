@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_centaur_med/n_creep_centaur_med.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_centaur_med/n_creep_centaur_med.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "2"
     "ModelScale"                                          "0.80"
@@ -18,15 +18,15 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""      // Ability 1
-    "Ability2"                                            ""      // Ability 2
-    "Ability3"                                            ""      // Ability 3
-    "Ability4"                                            ""      // Ability 4
+    "Ability1"                                            "mudgolem_cloak_aura"
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "1"     // Physical protection.
-    "MagicalResistance"                                   "25"    // Magical protection.
+    "MagicalResistance"                                   "5"    // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -34,6 +34,7 @@
     "AttackDamageMin"                                     "18"    // Damage range min.
     "AttackDamageMax"                                     "21"    // Damage range max.
     "AttackRate"                                          "1.3"   // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.5"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.

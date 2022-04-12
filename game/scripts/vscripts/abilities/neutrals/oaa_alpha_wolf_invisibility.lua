@@ -1,19 +1,15 @@
-alpha_wolf_invisibility_oaa = class(AbilityBaseClass)
-
 LinkLuaModifier("modifier_alpha_invisibility_oaa_buff", "abilities/neutrals/oaa_alpha_wolf_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
+
+alpha_wolf_invisibility_oaa = class(AbilityBaseClass)
 
 function alpha_wolf_invisibility_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
-  local fade_time = self:GetSpecialValueFor("fade_time")
 
   -- Sound
   caster:EmitSound("Hero_BountyHunter.WindWalk")
 
-  -- Apply a buff after fade time
-  Timers:CreateTimer(fade_time, function()
-    caster:AddNewModifier(caster, self, "modifier_alpha_invisibility_oaa_buff", { duration = duration } )
-  end)
+  caster:AddNewModifier(caster, self, "modifier_alpha_invisibility_oaa_buff", { duration = duration } )
 end
 --------------------------------------------------------------------------------
 
@@ -32,6 +28,8 @@ function modifier_alpha_invisibility_oaa_buff:IsPurgable()
 end
 
 function modifier_alpha_invisibility_oaa_buff:OnCreated()
+  self.fade_time = self:GetAbility():GetSpecialValueFor("fade_time")
+
   local particle = ParticleManager:CreateParticle("particles/generic_hero_status/status_invisibility_start.vpcf", PATTACH_ABSORIGIN, self:GetParent())
   ParticleManager:ReleaseParticleIndex(particle)
 end
@@ -46,33 +44,52 @@ function modifier_alpha_invisibility_oaa_buff:DeclareFunctions()
 end
 
 function modifier_alpha_invisibility_oaa_buff:GetModifierInvisibilityLevel()
-  if IsClient() then
-    return 1
-  end
+  return math.min(1, self:GetElapsedTime() / self.fade_time)
 end
+
 if IsServer() then
   function modifier_alpha_invisibility_oaa_buff:OnAbilityExecuted(event)
-    if event.unit ~= self:GetParent() then
+    local unit = event.unit
+
+    -- Check if unit exists
+    if not unit or unit:IsNull() then
       return
     end
+
+    if unit ~= self:GetParent() then
+      return
+    end
+
     self:Destroy()
   end
 
   function modifier_alpha_invisibility_oaa_buff:OnAttack(event)
-    if event.attacker ~= self:GetParent() then
+    local attacker = event.attacker
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
+
+    if attacker ~= self:GetParent() then
+      return
+    end
+
     self:Destroy()
   end
+end
 
-  function modifier_alpha_invisibility_oaa_buff:CheckState()
-    local state = {
+function modifier_alpha_invisibility_oaa_buff:CheckState()
+  if self:GetElapsedTime() >= self.fade_time then
+    return {
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
       [MODIFIER_STATE_INVISIBLE] = true,
-      [MODIFIER_STATE_NO_UNIT_COLLISION] = true
     }
-    return state
+  else
+    return {}
   end
 end
+
 function modifier_alpha_invisibility_oaa_buff:GetPriority()
   return MODIFIER_PRIORITY_ULTRA
 end

@@ -1,7 +1,7 @@
-ghost_frostburn_oaa = class(AbilityBaseClass)
+LinkLuaModifier("modifier_frostburn_oaa_applier", "abilities/neutrals/oaa_ghost_frostburn.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_frostburn_oaa_effect", "abilities/neutrals/oaa_ghost_frostburn.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_frostburn_oaa_applier", "abilities/neutrals/oaa_ghost_frostburn.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_frostburn_oaa_effect", "abilities/neutrals/oaa_ghost_frostburn.lua", LUA_MODIFIER_MOTION_NONE )
+ghost_frostburn_oaa = class(AbilityBaseClass)
 
 function ghost_frostburn_oaa:GetIntrinsicModifierName()
   return "modifier_frostburn_oaa_applier"
@@ -41,16 +41,35 @@ function modifier_frostburn_oaa_applier:DeclareFunctions()
   return funcs
 end
 
-function modifier_frostburn_oaa_applier:OnAttackLanded(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_frostburn_oaa_applier:OnAttackLanded(event)
+    local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
-    local parent = self:GetParent()
-    if not parent or parent:IsNull() then
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
-    if attacker == self:GetParent() and not attacker:IsIllusion() and not attacker:PassivesDisabled() and not target:IsMagicImmune() then
-      target:AddNewModifier(attacker, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Don't continue if the attacked entity doesn't have IsMagicImmune method -> attacked entity is something weird
+    if target.IsMagicImmune == nil then
+      return
+    end
+
+    -- Don't proc for illusions, when broken or on spell immune units
+    if not parent:IsIllusion() and not parent:PassivesDisabled() and not target:IsMagicImmune() then
+      target:AddNewModifier(parent, self:GetAbility(), "modifier_frostburn_oaa_effect", {duration = self.heal_prevent_duration})
     end
   end
 end

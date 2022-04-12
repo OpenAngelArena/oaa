@@ -16,8 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "ogre_bruiser_ogre_smash"          // Ability 1.
-    "Ability2"                                            "ogre_magi_frost_armor"      // Ability 2.
+    "Ability1"                                            "ogre_bruiser_ogre_smash"
+    "Ability2"                                            "ogre_magi_frost_armor"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -30,8 +32,9 @@
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
     "AttackRate"                                          "1.7"     // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounty

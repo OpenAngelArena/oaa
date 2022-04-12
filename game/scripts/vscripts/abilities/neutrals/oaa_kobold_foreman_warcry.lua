@@ -1,6 +1,6 @@
-kobold_foreman_warcry_oaa = class(AbilityBaseClass)
-
 LinkLuaModifier("modifier_kobold_foreman_warcry_oaa_buff", "abilities/neutrals/oaa_kobold_foreman_warcry.lua", LUA_MODIFIER_MOTION_NONE)
+
+kobold_foreman_warcry_oaa = class(AbilityBaseClass)
 
 function kobold_foreman_warcry_oaa:OnSpellStart()
   local caster = self:GetCaster()

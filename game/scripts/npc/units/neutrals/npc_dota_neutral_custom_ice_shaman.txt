@@ -16,8 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "ice_shaman_incendiary_bomb"          // Ability 1.
-    "Ability2"                                            "frostbitten_golem_time_warp_aura"      // Ability 2.
+    "Ability1"                                            "ice_shaman_incendiary_bomb"
+    "Ability2"                                            "frostbitten_golem_time_warp_aura"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -33,7 +35,7 @@
     "BaseAttackSpeed"                                     "150"
     "AttackAnimationPoint"                                "0.7"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
-    "AttackRange"                                         "250"    // Range within a target can be attacked.
+    "AttackRange"                                         "300"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1500"    // Speed of projectile.
 
