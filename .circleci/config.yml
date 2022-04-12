@@ -10,32 +10,34 @@ jobs:
       - image: cimg/python:3.10.4-node
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@7'
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: install-npm-wee
+          name: install npm
           command: npm install
-      - run:
-          command: pip install --user hererocks
-      - run:
-          command: hererocks here --lua 5.3 -r https://github.com/mpeterv/luarocks@upgrade-install
-      - run:
-          command: export PATH="$PWD/here/bin:$PATH"
-      - run:
-          command: luarocks install luacheck --upgrade --upgrade-deps
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+
       - run:
-          command: luacheck -q ./game/scripts/vscripts
+          name: install hererocks and lua
+          command: |
+            pip install --user hererocks
+            hererocks here --lua 5.3 -r https://github.com/mpeterv/luarocks@upgrade-install
       - run:
-          command: lua contrib/test_oaa.lua
+          name: luacheck
+          command: |
+            source here/bin/activate
+            luarocks install luacheck --upgrade --upgrade-deps
+            luacheck -q ./game/scripts/vscripts
       - run:
-          name: test
+          name: lua test oaa
+          command: |
+            source here/bin/activate
+            lua contrib/test_oaa.lua
+      - run:
+          name: node tests
           command: npm test
 environment:
   global:
