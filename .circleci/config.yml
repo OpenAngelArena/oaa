@@ -7,14 +7,17 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:17.2.0
     steps:
       - checkout
       - run:
-          name: install-npm
-          command: npm install
+          name: update-npm
+          command: 'sudo npm install -g npm@7'
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
       - run:
           command: pip install --user hererocks
       - run:
