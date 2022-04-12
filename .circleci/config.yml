@@ -7,7 +7,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/node:17.2.0
+      - image: cimg/python:3.10.4-node
     steps:
       - checkout
       - run:
