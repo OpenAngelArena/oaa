@@ -109,7 +109,7 @@ function CorePointsManager:FilterOrders(keys)
         end
       else
         -- Error - not enough core points
-        local needed = core_points_cost - purchaser_core_points
+        --local needed = core_points_cost - purchaser_core_points
         local error_msg2 = "#oaa_hud_error_not_enough_core_points" --.. tostring(needed) .. "#oaa_hud_error_more_needed"
         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = error_msg2})
         return false
@@ -321,9 +321,6 @@ function CorePointsManager:GetCorePointsOnHero(unit, playerID)
   end
 
   local hero = unit
-  --if not hero then
-    --hero = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(unit))
-  --end
 
   if not unit:HasModifier("modifier_core_points_counter_oaa") then
     hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -331,7 +328,7 @@ function CorePointsManager:GetCorePointsOnHero(unit, playerID)
 
   if not hero then
     print("CorePointsManager (GetCorePointsOnHero): Couldnt find a hero.")
-    return 0
+    return self.playerID_table[UnitVarToPlayerID(unit)]
   end
 
   local counter = hero:FindModifierByName("modifier_core_points_counter_oaa")
@@ -350,9 +347,6 @@ function CorePointsManager:SetCorePointsOnHero(number, unit, playerID)
   end
 
   local hero = unit
-  --if not hero then
-    --hero = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(unit))
-  --end
 
   if not unit:HasModifier("modifier_core_points_counter_oaa") then
     hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -360,6 +354,7 @@ function CorePointsManager:SetCorePointsOnHero(number, unit, playerID)
 
   if not hero then
     print("CorePointsManager (SetCorePointsOnHero): Couldnt find a hero.")
+    self.playerID_table[UnitVarToPlayerID(unit)] = number
     return
   end
 
@@ -470,7 +465,13 @@ end
 
 function modifier_core_points_counter_oaa:OnCreated()
   if IsServer() then
-    local count = CorePointsManager.playerID_table[UnitVarToPlayerID(self:GetParent())] or 0
+    local parent = self:GetParent()
+    if parent:IsTempestDouble() or parent:IsClone() then
+      self:Destroy()
+      return
+    end
+
+    local count = CorePointsManager.playerID_table[UnitVarToPlayerID(parent)] or 0
     self:SetStackCount(count)
   end
 end

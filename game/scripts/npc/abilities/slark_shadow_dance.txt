@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5497"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5497"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -29,39 +28,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4 4.25 4.5 4.75 5"
+        "value"                                           "4 4.25 4.5 4.75 5.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark_3"
       }
-      "02"
+      "fade_time"                                         "0.0"
+      "bonus_movement_speed"                              "24 36 48 60 72"
+      "bonus_regen_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "0.0"
+        "value"                                           "5 6 7 8 9"
+        "special_bonus_unique_slark_8"                    "+1.5"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "24 36 48 60 72"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_regen_pct"                                 "5 6 7 8 9"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "activation_delay"                                "0.5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "neutral_disable"                                 "0.0" //OAA
-      }
+      "activation_delay"                                  "0.5"
+      "neutral_disable"                                   "0.0" //OAA
     }
   }
 }

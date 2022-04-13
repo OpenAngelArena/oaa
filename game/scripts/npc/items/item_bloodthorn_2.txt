@@ -61,56 +61,27 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "7776"
+    "ItemCost"                                            "8301"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 50 70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "85 90 95 100 105"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 60 90 130"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.5 5.75 6.25 7.0 8.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_damage_percent"                          "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "target_crit_multiplier"                          "125 130 140 155 175"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_crit_chance"                             "100"
-      }
+      "bonus_intellect"                                   "20 30 45 65 90"
+      "bonus_attack_speed"                                "60 70 80 90 100"
+      "bonus_damage"                                      "50 60 80 110 150"
+      "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5"
+      "bonus_magic_resist"                                "20 21 22 23 24"
+      "silence_duration"                                  "5"
+      "silence_damage_percent"                            "30"
+      "target_crit_multiplier"                            "130 135 145 160 180"
+      "tooltip_crit_chance"                               "100"
+      "duration"                                          "6"
+      "spell_amp_debuff"                                  "35 36 38 41 45"
     }
   }
 }

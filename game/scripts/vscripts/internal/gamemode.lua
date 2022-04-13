@@ -147,7 +147,6 @@ function GameMode:_InitGameMode()
 
   -- Initialized tables for tracking state
   self.bSeenWaitForPlayers = false
-  self.vUserIds = {}
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
   GameMode._reentrantCheck = true
@@ -220,6 +219,7 @@ function GameMode:_CaptureGameMode()
     mode:SetForceRightClickAttackDisabled(true)
     mode:SetCustomBackpackSwapCooldown(3.0)
     mode:SetDefaultStickyItem("item_aghanims_shard")
+    mode:DisableHudFlip(true)
 
     self:OnFirstPlayerLoaded()
   end

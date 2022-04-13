@@ -43,7 +43,6 @@ modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
 
 function modifier_item_vampire:DeclareFunctions()
   local funcs = {
-    -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
@@ -64,11 +63,7 @@ function modifier_item_vampire:GetModifierBonusStats_Strength()
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
-  if not self:GetParent():HasModifier( "modifier_item_vampire_active" ) then
-    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
-  else
-    return 0
-  end
+  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
 end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
@@ -79,19 +74,49 @@ function modifier_item_vampire:GetBonusNightVision()
   return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
 end
 
--- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
-function modifier_item_vampire:OnAttackLanded(event)
-  local parent = self:GetParent()
-  if event.attacker ~= parent or not event.process_procs then
-    return
-  end
-  self.procRecords[event.record] = true
-end
+if IsServer() then
+  -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
+  function modifier_item_vampire:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-function modifier_item_vampire:OnTakeDamage( event )
-  if IsServer() then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then --or not event.process_procs
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    self.procRecords[event.record] = true
+  end
+
+  function modifier_item_vampire:OnTakeDamage(event)
     local parent = self:GetParent()
     local spell = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
     vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('lifesteal_percent'))
   end
@@ -134,8 +159,8 @@ end
 
 function modifier_item_vampire_active:OnDestroy()
   if IsServer() then
-    if self.nPreviewFX ~= nil then
-      ParticleManager:DestroyParticle( self.nPreviewFX, false )
+    if self.nPreviewFX then
+      ParticleManager:DestroyParticle(self.nPreviewFX, false)
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
       self.nPreviewFX = nil
     end
@@ -170,7 +195,6 @@ end
 
 function modifier_item_vampire_active:DeclareFunctions()
   local funcs = {
-    -- MODIFIER_EVENT_ON_HEALTH_GAINED,
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
@@ -178,8 +202,8 @@ function modifier_item_vampire_active:DeclareFunctions()
   return funcs
 end
 
-function modifier_item_vampire_active:GetDisableHealing( kv )
-  if IsServer() then
+if IsServer() then
+  function modifier_item_vampire_active:GetDisableHealing( kv )
     -- Don't disable healing during the night
     if not GameRules:IsDaytime() then
       return 0
@@ -190,40 +214,81 @@ function modifier_item_vampire_active:GetDisableHealing( kv )
     end
     return 1
   end
-end
 
--- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
-function modifier_item_vampire_active:OnAttackLanded(event)
-  local parent = self:GetParent()
-  if event.attacker ~= parent or not event.process_procs then
-    return
+  -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
+  function modifier_item_vampire_active:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then --or not event.process_procs
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    self.procRecords[event.record] = true
   end
-  self.procRecords[event.record] = true
-end
 
-function modifier_item_vampire_active:OnTakeDamage( event )
-  if IsServer() then
+  function modifier_item_vampire_active:OnTakeDamage(event)
     local parent = self:GetParent()
     local spell = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
     self.isVampHeal = true
     vampire.lifesteal(self, event, spell, parent, spell:GetSpecialValueFor('active_lifesteal_percent'))
     self.isVampHeal = false
   end
-end
 
-function vampire:lifesteal(event, spell, parent, amount)
-  if IsServer() then
+  function vampire:lifesteal(event, spell, parent, amount)
+    if not event or not parent or parent:IsNull() or not amount then
+      return
+    end
 
-    if event.attacker ~= parent or not self.procRecords[event.record] then
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local damage = event.damage
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent or not self.procRecords[event.record] then
+      return
+    end
+
+    -- Check if damaged entity exists (recently dead units could be marked as Null)
+    if not damaged_unit or damaged_unit:IsNull() then
       return
     end
 
     self.procRecords[event.record] = nil
 
-    local damage = event.damage
-
-    if damage < 0 then
+    if damage <= 0 or amount <= 0 then
       return
     end
 
@@ -232,10 +297,9 @@ function vampire:lifesteal(event, spell, parent, amount)
     end
 
     local parentTeam = parent:GetTeamNumber()
-    local target = event.unit
 
     local ufResult = UnitFilter(
-      target,
+      damaged_unit,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
@@ -251,17 +315,17 @@ function vampire:lifesteal(event, spell, parent, amount)
       if parent:HasModifier( "modifier_item_vampire_active" ) then
         ProjectileManager:CreateTrackingProjectile( {
           Target = parent,
-          Source = target,
+          Source = damaged_unit,
           EffectName = "particles/items/vampire/vampire_projectile.vpcf",
           iMoveSpeed = 600,
-          vSourceLoc = target:GetOrigin(),
+          vSourceLoc = damaged_unit:GetOrigin(),
           bDodgeable = false,
           bProvidesVision = false,
         } )
-     end
+      end
 
     else
-      DebugPrint('Not lifestealing from ' .. tostring(target:GetName()))
+      DebugPrint('Not lifestealing from ' .. tostring(damaged_unit:GetName()))
     end
   end
 end

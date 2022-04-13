@@ -140,10 +140,12 @@ function modifier_item_silver_staff_debuff:OnCreated()
       ability = ability,
     }
 
-    -- Don't do damage to bosses
-    if not parent:IsOAABoss() then
-      ApplyDamage(damage_table)
+    -- Do reduced damage to bosses
+    if parent:IsOAABoss() then
+      damage_table.damage = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
     end
+
+    ApplyDamage(damage_table)
 
     self:StartIntervalThink(1.0)
   end
@@ -167,14 +169,12 @@ function modifier_item_silver_staff_debuff:CheckState()
 end
 
 function modifier_item_silver_staff_debuff:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
   local parent = self:GetParent()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
-
-  -- Don't do damage to bosses
-  if parent:IsOAABoss() then
-    return
-  end
 
   local base_damage = self.base_damage
   local percent_damage = self.percent_damage
@@ -193,6 +193,11 @@ function modifier_item_silver_staff_debuff:OnIntervalThink()
     ability = ability,
   }
 
+  -- Do reduced damage to bosses
+  if parent:IsOAABoss() then
+    damage_table.damage = base_damage + (percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
+  end
+
   ApplyDamage(damage_table)
 end
 
@@ -202,4 +207,8 @@ end
 
 function modifier_item_silver_staff_debuff:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_item_silver_staff_debuff:GetTexture()
+  return "custom/dragonstaff_1"
 end

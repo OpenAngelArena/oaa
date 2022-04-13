@@ -12,24 +12,22 @@ LinkLuaModifier("modifier_elixier_hybrid_not_allowed", "items/elixier_hybrid.lua
 item_elixier_hybrid = class(ItemBaseClass)
 
 function item_elixier_hybrid:OnSpellStart()
-  if IsServer() then
-    local caster = self:GetCaster()
+  local caster = self:GetCaster()
 
-    caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
+  caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
 
-    caster:RemoveModifierByName("modifier_elixier_burst_active")
-    caster:RemoveModifierByName("modifier_elixier_burst_trigger")
-    caster:RemoveModifierByName("modifier_elixier_burst_bonus")
-    caster:RemoveModifierByName("modifier_elixier_sustain_active")
-    caster:RemoveModifierByName("modifier_elixier_sustain_trigger")
-    caster:RemoveModifierByName("modifier_elixier_hybrid_active")
-    caster:RemoveModifierByName("modifier_elixier_hybrid_trigger")
+  caster:RemoveModifierByName("modifier_elixier_burst_active")
+  caster:RemoveModifierByName("modifier_elixier_burst_trigger")
+  caster:RemoveModifierByName("modifier_elixier_burst_bonus")
+  caster:RemoveModifierByName("modifier_elixier_sustain_active")
+  caster:RemoveModifierByName("modifier_elixier_sustain_trigger")
+  caster:RemoveModifierByName("modifier_elixier_hybrid_active")
+  caster:RemoveModifierByName("modifier_elixier_hybrid_trigger")
 
-    caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_active", {duration = self:GetSpecialValueFor("bonus_duration")})
-    caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_trigger", {duration = self:GetSpecialValueFor("bonus_duration")})
+  caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_active", {duration = self:GetSpecialValueFor("bonus_duration")})
+  caster:AddNewModifier(caster, self, "modifier_elixier_hybrid_trigger", {duration = self:GetSpecialValueFor("bonus_duration")})
 
-    self:SpendCharge()
-  end
+  self:SpendCharge()
 end
 
 --------------------------------------------------------------------------------
@@ -142,14 +140,25 @@ function modifier_elixier_hybrid_trigger:DeclareFunctions()
   return funcs
 end
 
-function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
     local parent = self:GetParent()
     --local ability = self:GetAbility() -- always nil, probably because its a consumable item, thx Valve
+    local attacker = event.attacker
     local unit = event.unit -- damaged unit
 
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
     -- Do nothing if attacker doesn't have this buff
-    if parent ~= event.attacker then
+    if attacker ~= parent then
+      return
+    end
+
+    -- Don't continue if unit doesn't exist or if unit is about to be deleted
+    if not unit or unit:IsNull() then
       return
     end
 
@@ -165,11 +174,6 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
 
 	-- Don't continue if damage has Reflection flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-      return
-    end
-
-    -- Don't continue if unit doesn't exist or if unit is about to be deleted
-    if not unit or unit:IsNull() then
       return
     end
 
@@ -245,15 +249,19 @@ function modifier_elixier_hybrid_trigger:OnTakeDamage(event)
 
     parent:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
   end
-end
 
-function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
-  if IsServer() then
+  function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
     local parent = self:GetParent()
+    local attacker = event.attacker
     local target = event.target -- attacked unit
 
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
     -- Do nothing if attacker doesn't have this buff
-    if parent ~= event.attacker then
+    if attacker ~= parent then
       return
     end
 

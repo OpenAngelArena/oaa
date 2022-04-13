@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shielder: Damage reduction and damage return for all damage dealt from the front; shield size increases
+  //=================================================================================================================
+  "boss_shielder_shield"
+  {
+    "ID"                                                  "9904"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/shielder/boss_shielder_shield.lua"
+    "AbilityTextureName"                                  "mars_bulwark"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "3"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reduction_pct"                            "100"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shield_width"                                    "0.5 -0.173 -0.766" // In terms of cosine
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_return_pct"                               "50"
+      }
+    }
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/shielder/hex_shield_1.vpcf"
+      "particle"                                          "particles/shielder/hex_shield_2.vpcf"
+      "particle"                                          "particles/shielder/hex_shield_3.vpcf"
+    }
+  }
+}

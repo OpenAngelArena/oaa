@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5078"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5078"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -55,7 +54,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "targets"                                         "7" //OAA - ignore the error with LinkedSpecialBonus
-        //"LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" - this is Hex Breaks talent
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" // - this is Hex Breaks talent
       }
       "05"
       {

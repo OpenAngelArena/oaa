@@ -6,7 +6,7 @@
     //
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/creeps/roshan/roshan.vmdl"  // Model.
-    "SoundSet"                                            "n_creep_Ranged"
+    "SoundSet"                                            "n_creep_Melee"
     "ModelScale"                                          "0.25"
     "Level"                                               "6"
     "IsAncient"                                           "1"
@@ -16,12 +16,14 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mini_rosh_root"          // Ability 1.
-    "Ability2"                                            "mini_rosh_passives"      // Ability 2.
+    "Ability1"                                            "mini_rosh_root"
+    "Ability2"                                            "mini_rosh_passives"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "15.0"      // Physical protection.
+    "ArmorPhysical"                                       "5"      // Physical protection.
     "MagicalResistance"                                   "50"                  // Magical protection (percentage).
 
     // Attack
@@ -30,11 +32,10 @@
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
     "AttackRate"                                          "1.7"     // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
-    "ProjectileModel"                                     "particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
-    "ProjectileSpeed"                                     "1000"    // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
@@ -56,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "5500"    // Base health.
+    "StatusHealth"                                        "1500"    // Base health.
     "StatusHealthRegen"                                   "20"    // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.

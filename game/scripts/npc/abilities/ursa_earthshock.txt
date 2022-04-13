@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5357"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5357"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -38,33 +37,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "shock_radius"                                      "385"
+      "movement_slow"                                     "-16 -24 -32 -40 -45 -50"
+      "hop_distance"                                      "250"
+      "hop_duration"                                      "0.25"
+      "hop_height"                                        "83"
+      "shard_enrage_duration"
       {
-        "var_type"                                         "FIELD_INTEGER"
-        "shock_radius"                                     "385"
-        "LinkedSpecialBonus"                               "special_bonus_unique_ursa_5"
-      }
-      "02"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "movement_slow"                                    "-16 -24 -32 -40 -45 -50"
-      }
-      "03"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "hop_distance"                                     "250"
-      }
-      "04"
-      {
-        "var_type"                                         "FIELD_FLOAT"
-        "hop_duration"                                     "0.25"
-      }
-      "05"
-      {
-        "var_type"                                         "FIELD_INTEGER"
-        "hop_height"                                       "83"
+        "value"                                           "1.5"
+        "RequiresShard"                                   "1"
       }
     }
   }

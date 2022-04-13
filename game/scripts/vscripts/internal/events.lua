@@ -122,15 +122,6 @@ function GameMode:_OnConnectFull(keys)
 
   GameMode:_CaptureGameMode()
 
-  local entIndex = keys.index+1
-  -- The Player entity of the joining user
-  local ply = EntIndexToHScript(entIndex)
-
-  local userID = keys.userid
-
-  self.vUserIds = self.vUserIds or {}
-  self.vUserIds[userID] = ply
-
   GameMode._reentrantCheck = true
   GameMode:OnConnectFull( keys )
   GameMode._reentrantCheck = false

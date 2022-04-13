@@ -19,6 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasShardUpgrade"                                     "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 600 650 700 750 800"
@@ -41,13 +43,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_per_stack"                                "7 14 21 28 56 112"
-        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4_oaa"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "375 400 425 450 475 500"
+        "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7_oaa"
       }
       "03"
       {
@@ -83,6 +86,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_bosses"                                   "50"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_attack_proc_chance"                        "50"
+        "RequiresShard"                                   "1"
       }
     }
   }

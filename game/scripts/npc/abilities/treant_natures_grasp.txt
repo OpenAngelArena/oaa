@@ -37,13 +37,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 50 70 90 180 360" //OAA
+        "damage_per_second"                               "30 60 90 120 240 480" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_9"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "25 30 35 40 45 50"
+        "movement_slow"                                   "25 30 35 40 45 50" //OAA
       }
       "03"
       {

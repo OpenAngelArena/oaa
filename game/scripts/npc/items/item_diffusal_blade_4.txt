@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_diffusal_blade_3;item_upgrade_core_3"
-      //"02"                                                "item_mage_slayer_3;item_upgrade_core_3"
     }
   }
 
@@ -42,8 +41,8 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/diffusal_blade_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 650 700 750 800"
@@ -55,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "16153"
+    "ItemCost"                                            "15503"
     "ItemShopTags"                                        "agi;int;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "diffusal blade 4;diffusal 4"
@@ -66,53 +65,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "24 34 49 69 94"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "12 17 27 42 62"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn"                              "40 60 90 130 180"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_melee"               "12 20 32 48 68"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "feedback_mana_burn_illusion_ranged"              "8 16 24 32 40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "purge_rate"                                      "5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "purge_root_duration"                             "3.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "purge_slow_duration"                             "4.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_burn"                                 "1"
-      }
+      "bonus_agility"                                     "15 30 50 75 105"
+      "bonus_intellect"                                   "10 15 25 40 60"
+      "feedback_mana_burn"                                "40 60 90 130 180"
+      "feedback_mana_burn_illusion_melee"                 "8 16 24 32 40"
+      "feedback_mana_burn_illusion_ranged"                "8 16 24 32 40"
+      "purge_rate"                                        "5"
+      "purge_root_duration"                               "3.0"
+      "purge_slow_duration"                               "4.0"
+      "damage_per_burn"                                   "1"
     }
   }
 }

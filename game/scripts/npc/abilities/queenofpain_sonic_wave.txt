@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5176"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5176"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -33,56 +32,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "starting_aoe"                                      "100"
+      "distance"                                          "900"
+      "final_aoe"                                         "450"
+      "speed"                                             "900"
+      "damage"                                            "310 550 790 1270 2230" //OAA
+      "knockback_distance"                                "350"
+      "knockback_duration"                                "1.4"
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "starting_aoe"                                    "100"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "final_aoe"                                       "450"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "340 560 780 1220 2100" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "40"
+        "value"                                           "40"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "damage_scepter" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "420 680 940 1720 2760" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_4"
+        "value"                                           "420 680 940 1720 2760"
         "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_distance"                              "350"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "1.4"
       }
     }
   }

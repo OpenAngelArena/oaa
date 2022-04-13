@@ -74,10 +74,8 @@ var hilariousLoadingPhrases = [
   'Adding another overpowered custom hero',
   'Actually doing nothing',
   'Prolonging loading screen for dramatic effect',
-  'Begging for Oracle sets',
   'Crashing tournament finals',
   'Banning spectators on a hunch',
-  'Nerfing Tinker more',
   'Replacing all heroes with Oracle',
   'Losing self in the music the moment I owned it',
   'Practicing invincible ledgedash',
@@ -90,7 +88,7 @@ var hilariousLoadingPhrases = [
   'Each capture point is worth more points than the previous',
   'Each hero on a capture point speeds up the capture time',
   'Use your glyph hotkey to drop a free ward',
-  'Before -0:10 on the clock, you cannot leave base',
+  'Before -0:10 on the clock, you cannot leave the base',
   'Bosses spawn into the map at 3:00',
   'First Wanderer spawns between 12:00 and 15:00',
   'If you think you found a bug or a weird interaction, please share it on our discord server. Thank you',
@@ -113,7 +111,7 @@ var hilariousLoadingPhrases = [
   'Unclaimed Runes will be destroyed in developer\'s pits of darkness',
   'You cannot block neutral creep camps from respawning at the minute mark. Griefers get rekt',
   'Scan reveals invisible enemy units and heroes but not wards',
-  'Aghanim\'s Shard cannot be purchased until the 15 minute mark',
+  'Aghanim\'s Shard cannot be purchased until the 12 minute mark',
   'Azazel\'s Scout, unit that can be purchased from the Azazel shop, has flying vision, true sight and 100% magic resistance',
   'You can sell core points for gold by right-clicking on the special item in the main shop',
   'Bosses start regenerating rapidly to full health if not damaged for 5 seconds',
@@ -122,7 +120,6 @@ var hilariousLoadingPhrases = [
   'Tooltips usually provide answers to all your questions. But also keep in mind that Valve is a small indie company and we are not obligated to fix all their errors',
   'Remember that this is only a game',
   'Never question Darkonius\' item builds',
-  'Lich can use Frost Shield on Techies mines',
   'Dark Seer can use Ion Shell on invulnerable allies',
   'Ten years since chrisinajar stream'
 ];
@@ -138,6 +135,8 @@ function init () {
 
   CustomNetTables.SubscribeNetTableListener('hero_selection', onPlayerStatChange);
   CustomNetTables.SubscribeNetTableListener('bottlepass', UpdateBottleList);
+  CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
+  GameEvents.Subscribe('oaa_random_hero_message', SendMessageToTeam);
 
   // load hero selection
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
@@ -152,15 +151,100 @@ function init () {
   onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
   ReloadCMStatus(CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
   UpdatePreviews(CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
+
+  handleOAASettingsChange(null, 'locked', CustomNetTables.GetTableValue('oaa_settings', 'locked'));
+
   changeHilariousLoadingText();
   UpdateBottleList();
 
-  // I will figure out how to fix chat in captain's mode some other time
-  if (currentMap !== 'captains_mode') {
-    EnableChatWindow();
-  }
+  // there are rumors this makes CM worse but i'll believe it when i see it
+  EnableChatWindow();
 
   $('#ARDMLoading').style.opacity = 0;
+}
+
+function handleOAASettingsChange (n, key, settings) {
+  if (key !== 'locked') {
+    return;
+  }
+
+  const infoPanel = $('#ExtraInfo');
+
+  if (!infoPanel) {
+    return;
+  }
+
+  const lines = [];
+
+  lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
+  lines.push('');
+
+  const heroModifierNames = {
+    HM01: '#game_option_lifesteal',
+    HM02: '#game_option_aoe_radius',
+    HM03: '#game_option_blood_magic',
+    HM04: '#game_option_timeless_relic',
+    HM05: '#game_option_echo_strike',
+    HM06: '#game_option_hyper_active',
+    HM07: '#game_option_no_cast_points',
+    HM08: '#game_option_physical_immune',
+    HM09: '#game_option_pro_active',
+    HM10: '#game_option_spell_block',
+    HM11: '#game_option_troll_switch',
+    HM12: '#game_option_hyper_experience',
+    HM13: '#game_option_diarrhetic',
+    HM14: '#game_option_rend',
+    HM15: '#game_option_telescope',
+    HM16: '#game_option_healer',
+    HM17: '#game_option_explosive_death',
+    HM18: '#game_option_no_hp_bar',
+    HM19: '#game_option_brute',
+    HM20: '#game_option_wisdom'
+  };
+
+  if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
+    lines.push($.Localize('#hero_options_title'));
+    const modifierNames = heroModifierNames;
+
+    if (settings.HEROES_MODS !== 'HMN') {
+      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+      lines.push('');
+    }
+
+    if (settings.HEROES_MODS_2 !== 'HMN') {
+      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
+      lines.push('');
+    }
+  }
+
+  if (settings.BOSSES_MODS !== 'BMN') {
+    const modifierNames = {
+      BM01: '#game_option_lifesteal',
+      BM02: '#game_option_echo_strike',
+      BM03: '#game_option_physical_immune',
+      BM04: '#game_option_spell_block',
+      BM05: '#game_option_no_cast_points',
+      BM06: '#game_option_hyper_active',
+      BM07: '#game_option_agressive_bosses'
+    };
+
+    lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));
+    lines.push('');
+  }
+
+  if (settings.GLOBAL_MODS !== 'GMN') {
+    const modifierNames = {
+      GM01: '#game_option_lifesteal',
+      GM02: '#game_option_aoe_radius',
+      GM08: '#game_option_physical_immune',
+      GM09: '#game_option_pro_active'
+    };
+
+    lines.push($.Localize('#units_options_title') + ' ' + $.Localize(modifierNames[settings.GLOBAL_MODS] + '_description'));
+    lines.push('');
+  }
+
+  infoPanel.text = lines.join('\n');
 }
 
 function changeHilariousLoadingText () {
@@ -170,12 +254,12 @@ function changeHilariousLoadingText () {
   $.Schedule(1, oneDots);
   $.Schedule(2, twoDots);
   $.Schedule(3, threeDots);
-  $.Schedule(6, noDots);
-  $.Schedule(7, oneDots);
-  $.Schedule(8, twoDots);
-  $.Schedule(9, threeDots);
+  $.Schedule(4, noDots);
+  $.Schedule(5, oneDots);
+  $.Schedule(6, twoDots);
+  $.Schedule(7, threeDots);
 
-  $.Schedule(12, changeHilariousLoadingText);
+  $.Schedule(8, changeHilariousLoadingText);
 
   function noDots () {
     $('#ARDMLoading').text = incredibleWit;
@@ -228,12 +312,7 @@ function onPlayerStatChange (table, key, data) {
       var newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
-      newheroimage.heroname = heroName;
-      var tempHeroName = newheroimage.heroname;
-      if (tempHeroName === 'sohei' || tempHeroName === 'electrician') {
-        newheroimage.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + tempHeroName + '.png")';
-        newheroimage.style.backgroundSize = '100% 100%';
-      }
+      ChangeHeroImage(newheroimage, heroName);
     });
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
@@ -260,7 +339,7 @@ function onPlayerStatChange (table, key, data) {
         newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
         newimage.hittest = false;
         newimage.AddClass('PlayerImage');
-        newimage.heroname = data[nkey].selectedhero;
+        ChangeHeroImage(newimage, data[nkey].selectedhero);
         var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
         newlabel.AddClass('PlayerLabel');
         newlabel.steamid = data[nkey].steamid;
@@ -268,7 +347,7 @@ function onPlayerStatChange (table, key, data) {
         DisableHero(data[nkey].selectedhero);
         if (iscm) {
           if (data[nkey].selectedhero !== 'empty') {
-            FindDotaHudElement('CMStep' + nkey).heroname = data[nkey].selectedhero;
+            ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
             var label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
 
             label.style.visibility = 'collapse';
@@ -286,7 +365,7 @@ function onPlayerStatChange (table, key, data) {
         var cmData = CustomNetTables.GetTableValue('hero_selection', 'CMdata');
         Object.keys(cmData['order']).forEach(function (nkey) {
           var obj = cmData['order'][nkey];
-          FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+          ChangeHeroImage(FindDotaHudElement('CMStep' + nkey).heroname, obj.hero);
           FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
           if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
             var label = FindDotaHudElement('CMHeroPickLabel_' + obj.hero);
@@ -299,7 +378,7 @@ function onPlayerStatChange (table, key, data) {
       Object.keys(data).forEach(function (nkey) {
         let currentplayer = FindDotaHudElement(data[nkey].steamid);
         if (currentplayer !== null) {
-          currentplayer.heroname = data[nkey].selectedhero;
+          ChangeHeroImage(currentplayer, data[nkey].selectedhero);
           currentplayer.RemoveClass('PreviewHero');
         }
 
@@ -387,7 +466,7 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('CaptainLockIn').AddClass(currentPick.type + 'Hero');
 
       if (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero && data['order'][data['currentstage']].hero !== 'empty') {
-        FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
+        ChangeHeroImage(FindDotaHudElement('CMStep' + data['currentstage']), data['order'][data['currentstage']].hero);
         FindDotaHudElement('CMStep' + data['currentstage']).RemoveClass('active');
         DisableHero(data['order'][data['currentstage']].hero);
       }
@@ -402,7 +481,7 @@ function onPlayerStatChange (table, key, data) {
         PreviewHero();
       }
     } else if (data['currentstage'] === data['totalstages']) {
-      FindDotaHudElement('CMStep' + data['currentstage']).heroname = data['order'][data['currentstage']].hero;
+      ChangeHeroImage(FindDotaHudElement('CMStep' + data['currentstage']), data['order'][data['currentstage']].hero);
       DisableHero(data['order'][data['currentstage']].hero);
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
@@ -642,14 +721,26 @@ function UpdatePreviews (data) {
     }
     var player = FindDotaHudElement(steamid);
     if (player) {
-      player.heroname = data[teamID][steamid];
+      ChangeHeroImage(player, data[teamID][steamid]);
       player.AddClass('PreviewHero');
     }
   });
   Object.keys(heroesBySteamid).forEach(function (steamid) {
     var player = FindDotaHudElement(steamid);
-    player.heroname = heroesBySteamid[steamid];
+    ChangeHeroImage(player, heroesBySteamid[steamid]);
   });
+}
+
+function ChangeHeroImage (container, hero) {
+  // if you give this long "npc_dota_hero_blah" or short "blah" names they both work
+  container.heroname = hero;
+  // when we read the value, it's always the short-hand version without the prefix
+  const shortHeroName = container.heroname;
+  if (shortHeroName === 'sohei' || shortHeroName === 'electrician') {
+    // re-add prefix
+    container.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + shortHeroName + '.png")';
+    container.style.backgroundSize = '100% 100%';
+  }
 }
 
 function ReloadCMStatus (data) {
@@ -701,7 +792,7 @@ function ReloadCMStatus (data) {
 
       // the CM picking order phase thingy
       if (obj.hero && obj.hero !== 'empty') {
-        FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
+        ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), obj.hero);
         FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
 
         FindDotaHudElement('CMRadiant').RemoveClass('Pick');
@@ -1016,8 +1107,13 @@ function SelectHero (hero) {
       CaptainSelectHero();
     } else {
       $.Msg('Selecting ' + newhero);
+      let playerId = Game.GetLocalPlayerID();
+      let playerName = Players.GetPlayerName(playerId);
+      let heroName = $.Localize('#' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
-        hero: newhero
+        hero: newhero,
+        player_name: playerName,
+        hero_name: heroName
       });
     }
   }
@@ -1137,4 +1233,29 @@ function CreateAbilityPanel (parent, ability) {
   icon.SetPanelEvent('onmouseout', function () {
     $.DispatchEvent('DOTAHideAbilityTooltip', icon);
   });
+}
+
+function SendMessageToTeam (event) {
+  let playerName = event.player_name;
+  if (playerName === undefined || playerName === '') {
+    let playerId = event.picker_playerid;
+    if (!playerId) {
+      playerId = Game.GetLocalPlayerID();
+    }
+    playerName = Players.GetPlayerName(playerId);
+  }
+  const heroName = $.Localize('#' + event.hero);
+  let message = playerName + ' got ' + heroName;
+  const forced = event.forced === 1;
+  if (forced) {
+    const forcedToPick = event.forced_pick === 1;
+    message = playerName + ' was forced to pick ' + heroName;
+    if (!forcedToPick) {
+      message = playerName + ' was forced to random ' + heroName;
+    }
+  } else {
+    message = playerName + ' randomed ' + heroName;
+  }
+
+  Game.ServerCmd(`say ${message}`);
 }

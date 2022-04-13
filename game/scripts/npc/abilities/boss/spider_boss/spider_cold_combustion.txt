@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Spider Cold Combustion
+  //=================================================================================================================
+  "spider_cold_combustion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "8485"
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/boss/spider_boss/spider_cold_combustion.lua"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"        "crystal_maiden_crystal_nova"
+    "MaxLevel"                  "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"                "1000"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"                "350"
+      }
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+      "soundfile"                                          "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+    }
+  }
+}

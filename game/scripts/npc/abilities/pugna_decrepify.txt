@@ -7,8 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5187"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "ID"                                                  "5187"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK |  DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60"
+    "AbilityManaCost"                                     "80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +38,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_spell_damage_pct_allies"                   "-25"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "02"
       {
@@ -48,6 +49,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_spell_damage_pct"                          "-30 -40 -50 -60 -70 -80"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "04"
       {

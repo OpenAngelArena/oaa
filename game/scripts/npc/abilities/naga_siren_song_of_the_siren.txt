@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5470"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5470"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -60,7 +59,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "regen_rate_self"                                 "10.0"
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "regen_rate_tooltip_scepter"                      "10"
@@ -71,6 +70,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "scepter_cooldown"                                "100 95 90 85 80" //OAA
         "RequiresScepter"                                 "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_heal_pct"                                  "5"
+        "RequiresShard"                                   "1"
       }
     }
   }

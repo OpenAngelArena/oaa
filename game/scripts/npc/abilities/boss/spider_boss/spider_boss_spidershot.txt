@@ -1,0 +1,89 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Spider Boss: Spidershot
+  //=================================================================================================================
+  "spider_boss_spidershot"
+  {
+    "ID"                            "8573"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/boss/spider_boss/spider_boss_spidershot.lua"
+    "AbilityTextureName"            "broodmother_spawn_spiderlings"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                      "1"
+    "RequiredLevel"                 "1"
+    "LevelsBetweenUpgrades"         "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "1500"
+    "AbilityCastPoint"              "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "impact_damage"             "800"
+      }
+      "02"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "impact_slow_rate"          "-40"
+      }
+      "03"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "impact_slow_duration"      "4.0"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "explode_time"              "5.0"
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "spiders_count"             "3"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "projectile_speed"          "0.03"
+      }
+      "07"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "projectile_height"         "300"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                    "particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf"
+      "particle"                    "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
+      "particle"                    "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn_b_lv.vpcf"
+      "particle"                    "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf"
+      "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+      "soundfile"                   "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+    }
+  }
+}

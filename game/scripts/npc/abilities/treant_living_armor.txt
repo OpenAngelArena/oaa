@@ -35,19 +35,19 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_heal"                                      "180 270 360 450 900 1800" //OAA
+        "total_heal"                                      "150 300 450 600 1200 2400" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_8"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 6 7 8 10 12"
+        "bonus_armor"                                     "5 6 7 8 10 12" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_13"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12.0"
+        "duration"                                        "15 20 25 30 30 30"
       }
     }
   }

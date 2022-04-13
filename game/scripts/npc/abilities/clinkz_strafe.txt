@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityChannelTime"                                  "1.5 1.9 2.3 2.7 2.7 2.7"
+    "AbilityChannelTime"                                  "1.2 1.6 2.0 2.4 2.4 2.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCastGestureSlot"                              "DEFAULT"
     "AbilityChannelAnimation"                             "ACT_DOTA_CHANNEL_ABILITY_1"
@@ -37,29 +37,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "wave_count"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_count"                                      "3 4 5 6 7 8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_12"
+        "value"     "3 4 5 6 7 8"
+        "LinkedSpecialBonus"    "special_bonus_unique_clinkz_12"
       }
-      "02"
+      "range" "750 800 850 900 950 1000"       
+      "damage_pct"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "90 120 150 180 210 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "750 800 850 900 950 1000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "65 65 65 65 80 100"
+        "value"   "65 65 65 65 80 100"        
+        "special_bonus_unique_clinkz_4" "+25"
       }
     }
   }

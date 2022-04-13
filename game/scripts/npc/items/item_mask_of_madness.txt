@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "172"    // unique ID
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "1"
+    //"AbilityTextureName"                                  "custom/mask_of_madness"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -38,8 +38,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_mask_of_madness;item_mask_of_madness_2"
-    "AbilityTextureName"                                  "custom/mask_of_madness"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "25"
@@ -48,7 +47,7 @@
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom;mask of madness"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,27 +56,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 70 130 210"
+        "bonus_damage"                                    "10"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 20 30 40 50"
+        "bonus_attack_speed"                              "10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "25 30 35 40 45" //OAA
+        "lifesteal_percent"                               "20"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "100 110 130 160 200" //OAA
+        "berserk_bonus_attack_speed"                      "80" //OAA
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "30 35 40 45 50"
+        "berserk_bonus_movement_speed"                    "30"
       }
       "06"
       {

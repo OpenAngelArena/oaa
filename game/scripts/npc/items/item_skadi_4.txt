@@ -47,7 +47,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 4;eye of skadi 4;skadi 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
@@ -55,43 +55,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "25 30 40 55 75"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "200 300 450 650 900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "200 300 450 650 900"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_melee"                                 "-25 -30 -35 -40 -45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cold_slow_ranged"                                "-50 -55 -60 -65 -70"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cold_duration"                                   "3.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_reduction"                                  "40 45 50 55 60"
-      }
+      "bonus_all_stats"   "22 27 37 52 72"
+      "bonus_health"      "220 320 470 670 920"
+      "bonus_mana"      "220 320 470 670 920"
+      "cold_slow_melee" "-25 -30 -35 -40 -45"
+      "cold_slow_ranged"  "-50 -55 -60 -65 -70"
+      "cold_duration" "3.0"
+      "heal_reduction"  "40 45 50 55 60"
     }
   }
 }

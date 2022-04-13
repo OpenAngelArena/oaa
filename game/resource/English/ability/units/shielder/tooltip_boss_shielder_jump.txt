@@ -1,0 +1,13 @@
+//=============================================================================
+// Shielder Shield Crash
+//=============================================================================
+"DOTA_Tooltip_Ability_boss_shielder_jump"                             "Shield Crash"
+"DOTA_Tooltip_Ability_boss_shielder_jump_Description"                 "Every time Ambriel takes damage (before reductions), Ambriel has a %proc_chance%%% to jump in place, damage all enemies around him and reduces their total attack damage."
+"DOTA_Tooltip_Ability_boss_shielder_jump_Lore"                        "Ambriel joyfully jumps into the air when he takes damage. So many have tried to do damage and so many have failed."
+"DOTA_Tooltip_Ability_boss_shielder_jump_damage"                      "DAMAGE:"
+"DOTA_Tooltip_Ability_boss_shielder_jump_attack_damage_reduction"     "%ATTACK DAMAGE REDUCTION:"
+"DOTA_Tooltip_Ability_boss_shielder_jump_debuff_duration"             "DEBUFF DURATION:"
+"DOTA_Tooltip_Ability_boss_shielder_jump_radius"                      "RADIUS:"
+
+"DOTA_Tooltip_modifier_boss_shielder_shield_crash_debuff"             "#{DOTA_Tooltip_Ability_boss_shielder_jump}"
+"DOTA_Tooltip_modifier_boss_shielder_shield_crash_debuff_Description" "Reduced attack damage."

@@ -11,11 +11,10 @@
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ancient_janggo"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements" //OAA
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "ItemRequirements"
     {
       "01"                                                "item_belt_of_strength;item_robe;item_wind_lace"
-      "02"                                                "item_belt_of_strength;item_robe;item_wind_lace"
     }
   }
 
@@ -27,11 +26,10 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "185"    // unique ID
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/drums_1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    //"AbilityTextureName"                                  "custom/drums_1"
 
     "ItemPermanent"                                       "1"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -41,9 +39,9 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ancient_janggo;item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
+    //"MaxUpgradeLevel"                                     "5"
+    //"ItemBaseLevel"                                       "1"
+    //"UpgradesItems"                                       "item_ancient_janggo;item_ancient_janggo_2;item_ancient_janggo_3;item_ancient_janggo_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -51,10 +49,10 @@
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "drum of endurance;drums"
-    "ItemInitialCharges"                                  "322" //OAA
+    "ItemInitialCharges"                                  "8"
     "ItemDisplayCharges"                                  "1"
     //"ItemRequiresCharges"                                 "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -63,27 +61,27 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_movement_speed"                             "35 40 45 50 55" //OAA
+        "aura_movement_speed"                             "25" //OAA
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_str"                                       "7 10 15 20 25"
+        "bonus_str"                                       "7"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_int"                                       "7 10 15 20 25"
+        "bonus_int"                                       "7"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed_pct"                          "45 55 65 75 85"
+        "bonus_attack_speed_pct"                          "45"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_pct"                        "25" //OAA
+        "bonus_movement_speed_pct"                        "15" //OAA
       }
       "06"
       {
@@ -98,7 +96,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "charges_tooltip"                                 "322" //OAA
+        "charges_tooltip"                                 "8"
       }
     }
   }

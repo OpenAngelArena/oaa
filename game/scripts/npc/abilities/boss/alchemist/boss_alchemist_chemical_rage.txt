@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alchemist Boss: Chemical Rage
+  //=================================================================================================================
+  "boss_alchemist_chemical_rage"
+  {
+    "ID"                                                  "3634"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/alchemist/boss_alchemist_chemical_rage.lua"
+    "AbilityTextureName"                                  "alchemist_chemical_rage"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+
+    "AbilityCooldown"                                     "40"
+
+    "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "25.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health_regen"                              "100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movespeed"                                 "500"
+      }
+    }
+  }
+}

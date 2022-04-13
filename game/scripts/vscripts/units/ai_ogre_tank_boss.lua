@@ -15,8 +15,8 @@ function Spawn( entityKeyValues )
 end
 
 function FrendlyHasAgro()
-  for i, hSummonedUnit in ipairs( thisEntity.OgreSummonSeers ) do
-    if ( IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro) then
+  for i, hSummonedUnit in pairs( thisEntity.OgreSummonSeers ) do
+    if IsValidEntity(hSummonedUnit) and hSummonedUnit:IsAlive() and hSummonedUnit.bHasAgro then
       local hasDamageThreshold = hSummonedUnit:GetHealth() / hSummonedUnit:GetMaxHealth() < 98/100
       if hasDamageThreshold then
         return true
@@ -27,11 +27,11 @@ function FrendlyHasAgro()
 end
 
 function OgreTankBossThink()
-	if ( not IsValidEntity(thisEntity) or not thisEntity:IsAlive() ) then
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
 		return -1
 	end
 
-	if GameRules:IsGamePaused() == true then
+	if GameRules:IsGamePaused() then
 		return 1
 	end
 
@@ -43,13 +43,26 @@ function OgreTankBossThink()
     thisEntity.bInitialized = true
   end
 
+  local function IsValidTarget(target)
+    return not target:IsNull() and target:IsAlive() and not target:IsAttackImmune() and not target:IsInvulnerable() and not target:IsOutOfGame() and not target:IsCourier()
+  end
+
+  local function FindValidTarget(candidates)
+    for _, enemy in ipairs(candidates) do
+      if IsValidTarget(enemy) then
+        return enemy
+      end
+    end
+    return nil
+  end
+
   local enemies = FindUnitsInRadius(
     thisEntity:GetTeamNumber(),
     thisEntity.vInitialSpawnPos,
     nil,
     BOSS_LEASH_SIZE,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
     DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     FIND_CLOSEST,
     false
@@ -71,34 +84,38 @@ function OgreTankBossThink()
   end
 
   -- Leash
-  if not thisEntity.bHasAgro or #enemies==0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
+  if not thisEntity.bHasAgro or #enemies == 0 or fDistanceToOrigin > BOSS_LEASH_SIZE then
     if fDistanceToOrigin > 10 then
       return RetreatHome()
     end
     return 1
   end
 
-	local nCloseEnemies = 0
-  for i = 1, #enemies do
-		local enemy = enemies[i]
-		if enemy ~= nil then
-			local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-			if flDist < 300 then
-				nCloseEnemies = nCloseEnemies + 1
-				table.remove( enemies, i )
-			end
-		end
+  local closeRadius = 400
+  if thisEntity.JumpAbility then
+    closeRadius = thisEntity.JumpAbility:GetSpecialValueFor("impact_radius")
+  end
+  local nCloseEnemies = 0
+  for i, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
+      if flDist <= closeRadius and IsValidTarget(enemy) then
+        nCloseEnemies = nCloseEnemies + 1
+        enemies[i] = nil
+      end
+    end
   end
 
-	if thisEntity.JumpAbility ~= nil and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies > 0 then
-		return Jump()
-	end
+  if thisEntity.JumpAbility and thisEntity.JumpAbility:IsFullyCastable() and nCloseEnemies > 0 then
+    return Jump()
+  end
 
-	if thisEntity.SmashAbility ~= nil and thisEntity.SmashAbility:IsFullyCastable() then
-		return Smash( enemies[ 1 ] )
-	end
+  local smashTarget = FindValidTarget(enemies)
+  if thisEntity.SmashAbility and thisEntity.SmashAbility:IsFullyCastable() and smashTarget then
+    return Smash(smashTarget)
+  end
 
-	return 0.5
+  return 0.5
 end
 
 function SpawnAllies()
@@ -133,9 +150,9 @@ function Smash( enemy )
 		return 0.5
 	end
 
-	if ( not thisEntity:HasModifier( "modifier_provide_vision" ) ) then
+	if not thisEntity:HasModifier( "modifier_provide_vision" ) then
 		--print( "If player can't see me, provide brief vision to his team as I start my Smash" )
-		thisEntity:AddNewModifier( thisEntity, nil, "modifier_provide_vision", { duration = 1.5 } )
+		thisEntity:AddNewModifier( enemy, nil, "modifier_provide_vision", { duration = 1.5 } )
 	end
 
 	ExecuteOrderFromTable({

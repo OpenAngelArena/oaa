@@ -51,7 +51,7 @@
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "guardian greaves"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAlertable"                                       "1"
 
     "MaxUpgradeLevel"                                     "1"
@@ -88,8 +88,8 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "16"
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen_bonus"                         "18.5"
       }
       "07"
       {

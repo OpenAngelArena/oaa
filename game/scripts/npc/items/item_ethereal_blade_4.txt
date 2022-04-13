@@ -42,13 +42,13 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/ethereal_blade_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "ethereal"
 
     // Spicy Parameters
@@ -60,67 +60,30 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "17303"
+    "ItemCost"                                            "17553"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "eb 4;ethereal blade 4;eblade 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "40 45 50 55 60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 15 20 25 30"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 15 20 25 30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_slow"                             "-80"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blast_agility_multiplier"                        "1.5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_damage_base"                               "125 225 325 425 525"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_ally"                                   "4.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ethereal_damage_bonus"                           "-40 -45 -50 -55 -60"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1275"
-      }
+      "bonus_agility"                                     "5 10 15 20 25"
+      "bonus_strength"                                    "5 10 15 20 25"
+      "bonus_intellect"                                   "25 30 35 40 45"
+      "spell_amp"                                         "12 16 20 24 28"
+      "spell_lifesteal_amp"                               "24 26 28 30 32"
+      "mana_regen_multiplier"                             "60 70 80 90 100"
+      "blast_movement_slow"                               "-80"
+      "duration"                                          "4.0"
+      "blast_agility_multiplier"                          "1.5"
+      "blast_damage_base"                                 "50 150 250 350 450"
+      "duration_ally"                                     "4.0"
+      "ethereal_damage_bonus"                             "-40 -45 -50 -55 -60"
+      "projectile_speed"                                  "1275"
     }
   }
 }

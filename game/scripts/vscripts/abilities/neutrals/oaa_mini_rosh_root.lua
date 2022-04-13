@@ -1,7 +1,7 @@
-mini_rosh_root = class(AbilityBaseClass)
-
 LinkLuaModifier("modifier_mini_rosh_root_applier", "abilities/neutrals/oaa_mini_rosh_root.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_mini_rosh_root_effect", "abilities/neutrals/oaa_mini_rosh_root.lua", LUA_MODIFIER_MOTION_NONE)
+
+mini_rosh_root = class(AbilityBaseClass)
 
 function mini_rosh_root:GetIntrinsicModifierName()
   return "modifier_mini_rosh_root_applier"
@@ -49,86 +49,87 @@ function modifier_mini_rosh_root_applier:DeclareFunctions()
   return funcs
 end
 
-function modifier_mini_rosh_root_applier:OnAttackLanded(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_mini_rosh_root_applier:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-  local ability = self:GetAbility()
-  local attacker = event.attacker
-  local target = event.target
-  local parent = self:GetParent()
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-  if not attacker or attacker:IsNull() then
-    return
-  end
+    -- Check if attacker has this modifier
+    if parent ~= attacker then
+      return
+    end
 
-  if parent ~= attacker then
-    return
-  end
+    -- No root while broken or illusion
+    if parent:PassivesDisabled() or parent:IsIllusion() then
+      return
+    end
 
-  -- No root while broken or illusion
-  if parent:PassivesDisabled() or parent:IsIllusion() then
-    return
-  end
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
 
-  -- To prevent crashes:
-  if not target or target:IsNull() then
-    return
-  end
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
 
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
+    -- Don't affect buildings, wards and invulnerable units.
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
 
-  -- Don't affect buildings, wards and invulnerable units.
-  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
-    return
-  end
-  
-  if not ability or ability:IsNull() then
-    return
-  end
+    -- Check if ability exists
+    if not ability or ability:IsNull() then
+      return
+    end
 
-  -- Don't root while on cooldown
-  if not ability:IsCooldownReady() then
-    return
-  end
+    -- Don't root while on cooldown
+    if not ability:IsCooldownReady() then
+      return
+    end
 
-  local chance = self.chance / 100
-  local damage = self.damage
+    local chance = self.chance / 100
+    local damage = self.damage
 
-  -- Get number of failures
-  local prngMult = self:GetStackCount() + 1
+    -- Get number of failures
+    local prngMult = self:GetStackCount() + 1
 
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset failure count
-    self:SetStackCount(0)
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+      -- Reset failure count
+      self:SetStackCount(0)
 
-    -- Apply root
-    target:AddNewModifier(attacker, self:GetAbility(), "modifier_mini_rosh_root_effect", {duration = self.duration})
+      -- Apply root
+      target:AddNewModifier(attacker, self:GetAbility(), "modifier_mini_rosh_root_effect", {duration = self.duration})
 
-    -- Sound
-    parent:EmitSound("n_creep_TrollWarlord.Ensnare")
+      -- Sound
+      parent:EmitSound("n_creep_TrollWarlord.Ensnare")
 
-    -- Damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = damage
-    damage_table.victim = target
+      -- Damage table
+      local damage_table = {}
+      damage_table.attacker = parent
+      damage_table.damage_type = ability:GetAbilityDamageType()
+      damage_table.ability = ability
+      damage_table.damage = damage
+      damage_table.victim = target
 
-    -- Apply bonus damage
-    ApplyDamage(damage_table)
-	
-	-- Start cooldown respecting cooldown reductions
-    ability:UseResources(true, true, true)
-  else
-    -- Increment number of failures
-    self:SetStackCount(prngMult)
+      -- Apply bonus damage
+      ApplyDamage(damage_table)
+
+      -- Start cooldown respecting cooldown reductions
+      ability:UseResources(true, true, true)
+    else
+      -- Increment number of failures
+      self:SetStackCount(prngMult)
+    end
   end
 end
 
@@ -153,9 +154,16 @@ function modifier_mini_rosh_root_effect:GetEffectName()
 end
 
 function modifier_mini_rosh_root_effect:CheckState()
+  local parent = self:GetParent()
   local state = {
     [MODIFIER_STATE_ROOTED] = true,
   }
+
+  -- Reveal the affected unit if not under Shadow Dance
+  if not parent:HasModifier("modifier_slark_shadow_dance") then
+    state[MODIFIER_STATE_INVISIBLE] = false
+  end
+
   return state
 end
 

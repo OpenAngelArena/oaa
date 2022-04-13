@@ -48,7 +48,7 @@
       "03" // calculated with values: 20s cd, -7s cd talent, 0.3s cast point, 0.5s creation delay and 0.1s inactivity delay
       {
         "var_type"              "FIELD_FLOAT"
-        "placement_duration"        "8" //OAA
+        "placement_duration"        "7" //OAA
       }
       "04"
       {
@@ -63,7 +63,7 @@
       "06"
       {
         "var_type"              "FIELD_INTEGER"
-        "latch_damage"          "120 160 200 240 480 960"
+        "damage_per_tick"       "50 50 50 50 100 150"
       }
       "07"
       {

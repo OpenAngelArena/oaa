@@ -37,10 +37,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/magic_lamp"
 
-    "ItemCost"                                            "36854"
+    "ItemCost"                                            "37604"
     "ItemShopTags"                                        "health_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
 
     //"AbilitySharedCooldown"                               "combobreaker"
     "AbilityCooldown"                                     "35.0"

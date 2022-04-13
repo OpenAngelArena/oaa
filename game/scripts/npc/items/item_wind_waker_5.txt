@@ -70,7 +70,7 @@
     "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"					"rare"
     "ItemAliases"					"cyclone 5;wind waker 5;ww 5"
-    "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"				"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

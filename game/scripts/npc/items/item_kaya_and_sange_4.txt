@@ -52,48 +52,20 @@
     "ItemQuality"         "artifact"
     "ItemAliases"         "snk 4;s&k 4;sk 4;sange and kaya 4"
     "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"        "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48 72"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 24 32 48 72"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "18 20 22 24 26"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "50 60 70 80 90"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "16 20 24 28 32"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "22 24 26 28 30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_lifesteal_amp"                             "26 28 30 32 34"
-      }
+      "bonus_strength"    "16 24 32 48 72"
+      "bonus_intellect"     "16 24 32 48 72"
+      "status_resistance"       "18 20 22 24 26"
+      "mana_regen_multiplier"   "50 60 70 80 90"
+      "spell_amp"     "16 20 24 28 32"
+      "hp_regen_amp"      "22 24 26 28 30"
+      "spell_lifesteal_amp" "26 28 30 32 34"
     }
   }
 }

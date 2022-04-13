@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_lucience_3;item_upgrade_core_4"
-      //"02"                                                "item_ancient_janggo_4;item_upgrade_core_4"
     }
   }
 
@@ -57,7 +56,7 @@
     "ItemShopTags"                                        "str;agi;int;damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 4;lucio 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------

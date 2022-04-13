@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl"	// Model.
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_ghost_a/n_creep_ghost_a.vmdl"	// Model.
     "SoundSet"                                            "n_creep_Ranged"
     "Level"                                               "3"
     "ModelScale"                                          "0.90"
@@ -20,7 +20,7 @@
     //----------------------------------------------------------------
     "Ability1"                                            "ghost_frostburn_oaa"
     "Ability2"                                            "mudgolem_cloak_aura"
-    "Ability3"                                            ""
+    "Ability3"                                            "creep_piercing"
     "Ability4"                                            ""
 
     // Armor
@@ -33,10 +33,11 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                                     "45"    // Damage range min.
     "AttackDamageMax"                                     "50"    // Damage range max.
-    "AttackRate"                                          "1.0"   // Speed of attack.
+    "AttackRate"                                          "2.0"   // Speed of attack.
+    "BaseAttackSpeed"                                     "150"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "300"   // Range within a target can be acquired.
-    "AttackRange"                                         "400"   // Range within a target can be attacked.
+    "AttackRange"                                         "300"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/neutral_fx/ghost_base_attack.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "900"   // Speed of projectile.
 
@@ -61,7 +62,7 @@
     "StatusHealth"                                        "500"   // Base health.
     "StatusHealthRegen"                                   "0.5"   // Health regeneration rate.
     "StatusMana"                                          "0"   // Base mana.
-    "StatusManaRegen"                                     "1.0"   // Mana regeneration rate.
+    "StatusManaRegen"                                     "0.0"   // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------
@@ -71,8 +72,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

@@ -39,13 +39,13 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3571"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
     "BaseClass"                                           "item_overwhelming_blink"
     "AbilityTextureName"                                  "custom/overwhelming_blink_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilityManaCost"                                     "0"
@@ -63,8 +63,7 @@
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "blink dagger;str blink"
-    //"SideShop"                                          "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"                                   "1"
 
     // Special

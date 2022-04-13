@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5061"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5061"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "OnLearnbar"                                          "0"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,39 +31,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "shadowraze_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shadowraze_damage"                               "90 160 230 300 650 1000"
+        "value"                                           "90 160 230 300 600 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_2"
       }
-      "02"
+      "shadowraze_radius"                                 "250"
+      "shadowraze_range"                                  "700"
+      "shadowraze_cooldown"                               "3"
+      "stack_bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shadowraze_radius"                               "250"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shadowraze_range"                                "700"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shadowraze_cooldown"                             "3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stack_bonus_damage"                              "20 40 60 80 160 240"  //OAA
+        "value"                                           "50 60 70 80 160 320"
         "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_unique_nevermore_7"                "+25"
       }
-      "06"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8"
+        "value"                                           "8"
       }
     }
   }

@@ -511,19 +511,46 @@ RadioButton.Disabled:selected {
   width: 100%;
 }
 
-#HeroSelector {
-  width: 37%;
+#PreviewPanel {
+  margin-top: 20px;
+  width: fill-parent-flow(1.0);
+  height: fill-parent-flow(1.0);
+  horizontal-align: center;
+}
+
+#APHeroPreview {
+  flow-children: right;
+  horizontal-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#APHeroPreview #LeftMenuOptions {
+  width: 30%;
+}
+
+#APHeroPreview #HeroSelector {
+  width: 30%;
   height: fill-parent-flow(1.0);
   flow-children: right;
   horizontal-align: center;
   margin-bottom: 15px;
 }
 
-#PreviewPanel {
-  margin-top: 20px;
+#APHeroPreview #HeroPickContainer {
+  width: 215px;
+  height: 100%;
+  flow-children: down;
+  margin-bottom: 30px;
+  vertical-align: bottom;
+  horizontal-align: right;
+}
+
+#APHeroPreview .BottlePassSelection
+{
+  height: 100%;
   width: fill-parent-flow(1.0);
-  height: fill-parent-flow(1.0);
-  horizontal-align: center;
+  vertical-align: top;
 }
 
 #ChatBoxHolder {
@@ -630,15 +657,6 @@ DOTAScenePanel {
   margin: 0px 5px;
   border: 2px solid grey;
   border-radius: 8px;
-}
-
-#HeroPickContainer {
-  width: 32%;
-  height: 100%;
-  flow-children: down;
-  margin-bottom: 30px;
-  vertical-align: bottom;
-  horizontal-align: right;
 }
 
 .HeroPickerButton {
@@ -928,14 +946,6 @@ DOTAScenePanel {
 
 .captains_mode #AbilityPreview{
   height: 80px;
-}
-
-.BottlePassSelection
-{
-  height: 600px;
-  width: 400px;
-  horizontal-align: right;
-  vertical-align: top;
 }
 
 #BottlePassSelectionTitle
@@ -1241,4 +1251,7 @@ DOTAScenePanel {
 }
 #Bottle58 Panel{
   background-image: url("file://panorama/images/items/custom/bottles/bottle_hastedd.png");
+}
+#Bottle59 Panel{
+  background-image: url("file://panorama/images/items/custom/bottles/bottle_nate.png");
 }

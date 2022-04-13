@@ -46,9 +46,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
+    "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "23 20 17 14 11"
+    "AbilityCooldown"                                     "20 18 16 14 12"
     "AbilitySharedCooldown"                               "force"
 
     // Item Info
@@ -58,75 +58,27 @@
     "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 4;pike 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 20 30 45 65"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "200 400 600 800 1000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "20 30 45 65 90"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 20 30 45 65"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_attack_range"                               "140 150 160 170 180"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "600"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "enemy_length"                                    "450"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "range_duration"                                  "6"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_enemy"                                "400"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "5 6 7 8 9"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "100 110 120 130 140"
-      }
-      "20" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "23 20 17 14 11"
-      }
+      "bonus_intellect"                                   "15 20 30 45 65"
+      "bonus_health"                                      "200 400 600 800 1000"
+      "bonus_agility"                                     "20 30 45 65 90"
+      "bonus_strength"                                    "15 20 30 45 65"
+      "base_attack_range"                                 "150 160 170 180 190"
+      "push_length"                                       "600"
+      "enemy_length"                                      "450"
+      "range_duration"                                    "6"
+      "cast_range_enemy"                                  "450"
+      "max_attacks"                                       "5 6 7 8 9"
+      "bonus_attack_speed"                                "100 110 120 130 140"
+      "cooldown_tooltip"                                  "20 18 16 14 12"
     }
   }
 }

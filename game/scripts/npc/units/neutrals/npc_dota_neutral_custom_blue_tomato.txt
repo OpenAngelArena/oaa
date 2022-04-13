@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creep_neutral" //"npc_dota_creature"
     "Model"                                               "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
-    "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "5"
     "ModelScale"                                          "0.95"
@@ -18,10 +18,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap"     // Ability 1
-    "Ability2"                                            "mudgolem_cloak_aura"                         // Ability 2
-    "Ability3"                                            ""                                            // Ability 3
-    "Ability4"                                            ""                                            // Ability 4
+    "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap"
+    "Ability2"                                            "mudgolem_cloak_aura"
+    "Ability3"                                            "" // furbolg_enrage_damage
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -34,6 +34,7 @@
     "AttackDamageMin"                                     "49"    // Damage range min.
     "AttackDamageMax"                                     "55"    // Damage range max.
     "AttackRate"                                          "1.55"  // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.
@@ -72,7 +73,7 @@
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

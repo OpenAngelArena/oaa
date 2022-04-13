@@ -23,7 +23,11 @@ function Spawn( entityKeyValues )
 end
 
 function GrendelThink ()
-  if GameRules:IsGamePaused() == true or GameRules:State_Get() == DOTA_GAMERULES_STATE_POST_GAME or thisEntity:IsAlive() == false then
+  if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
+    return -1
+  end
+
+  if GameRules:IsGamePaused() then
     return 1
   end
 
@@ -35,6 +39,7 @@ function GrendelThink ()
   if not thisEntity.hasSpawned then
     thisEntity.hasSpawned = true
     StartWandering()
+    return 1
   end
 
   if Grendel.to_location ~= nil then
@@ -153,14 +158,14 @@ function GrendelThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = nearestEnemy:GetAbsOrigin(),
-          Queue = 0,
+          Queue = true,
         })
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = thisEntity.aggroOrigin,
-          Queue = 1,
+          Queue = true,
         })
       else
         ExecuteOrderFromTable({
@@ -168,7 +173,7 @@ function GrendelThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = thisEntity.aggroOrigin,
-          Queue = 0,
+          Queue = true,
         })
       end
     end

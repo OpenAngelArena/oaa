@@ -17,8 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_bfury_3;item_upgrade_core_3"
-      //"02"                                                "item_desolator_3;item_upgrade_core_3"
-      //"03"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -48,11 +46,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17133"
+    "ItemCost"                                            "17103"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -107,6 +105,16 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "cleave_distance"                                 "650"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "upgraded_cleave_bonus"                           "25"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "upgraded_damage_bonus"                           "15"
       }
     }
   }

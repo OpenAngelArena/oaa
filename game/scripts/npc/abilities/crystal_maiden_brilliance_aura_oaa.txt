@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Crystal Maiden: Arcane Magic (OAA ability that improves vanilla ability)
+  // Crystal Maiden: Arcane Magic (OAA rework)
   //=================================================================================================================
   "crystal_maiden_arcane_magic_oaa"
   {
@@ -18,18 +18,34 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "AbilityValues"
+    {
+      "mana_regen"                                        "1 2 3 4 5 6"
+      "self_factor"                                       "3.0"
+      "mana_per_cast"
+      {
+        "value"                                           "6 12 18 24 48 96"
+        "special_bonus_unique_crystal_maiden_4"           "+20"
+      }
+      "radius"                                            "20000"
+      //"cd_reduction"                                      "0"
+      //"mana_cost_reduction_pct"                           "0"
+      //"bonus_magic_resistance"                            "2 3 4 5 7 10"
+      //"bonus_spell_amp"                                   "5 6 7 8 9 10"
+    }
+
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "1 2 3 4 5 6"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_factor"                                     "3.0"
-      }
+      // "01" // tooltip only
+      // {
+        // "var_type"                                        "FIELD_FLOAT"
+        // "mana_regen"                                      "1 2 3 4 5 6"
+      // }
+      // "02" // tooltip only
+      // {
+        // "var_type"                                        "FIELD_INTEGER"
+        // "mana_per_cast"                                   "6 12 18 24 48 96"
+      // }
       "03" // Arcane Rune: 30%
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -38,13 +54,12 @@
       "04" // Arcane Rune: 30%; old talent: 14%
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_reduction_pct"                         "2 3 4 5 7 14"
+        "mana_cost_reduction_pct"                         "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_4"
+        "bonus_magic_resistance"                          "2 3 4 5 7 10"
       }
       "06"
       {

@@ -64,7 +64,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
@@ -84,7 +84,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "5 8 11 14"
+        "bonus_health_regen"                              "4 7 10 13"
       }
       "03"
       {
@@ -114,7 +114,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "250 300 350 400"
+        "bonus_cast_range"                                "275 325 375 425"
       }
       "09"
       {

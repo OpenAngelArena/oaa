@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5252"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5252"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -16,7 +16,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
 
@@ -40,59 +39,39 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "700"
+      "damage"                                            "150 400 650 1400 2150" //OAA
+      "damage_increase_pct"                               "50"
+      "bonus_movement_speed"                              "15 20 25 30 35"
+      "bonus_health"                                      "400 800 1200 2400 3600"
+      "self_regen"                                        "3 4 5 6 7"
+      "damage_threshold"                                  "500"
+      "infest_duration_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 400 650 1400 2150" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_increase_pct"                             "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "15 20 25 30 35"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 2400 3600"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "20"
+        "value"                                           "5.0"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "500"
+        "value"                                           "20"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "cast_range_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_regen"                                      "3 4 5 6 7"
+        "value"                                           "500"
+        "RequiresScepter"                                 "1"
       }
-      "09"
+      "attack_rate_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "extra_armor"                                     "0"
+        "value"                                           "1.25"
+        "RequiresScepter"                                 "1"
       }
-      "10"
+      "bonus_regen_pct_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "extra_damage"                                    "0"
+        "value"                                           "100"
+        "RequiresScepter"                                 "1"
       }
     }
   }

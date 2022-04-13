@@ -1,0 +1,105 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Magma Boss
+  //=================================================================================
+  "npc_dota_creature_magma_boss"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/items/invoker/forge_spirit/infernus/infernus.vmdl"
+    //"Model"                                               "models/items/invoker/forge_spirit/cadenza_spirit/cadenza_spirit.vmdl"
+    "vscripts"                                            "units/ai_magma_boss.lua"
+    "SoundSet"                                            "Magma_Boss"
+    "ModelScale"                                          "1.0"
+    "Level"                                               "30"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "magma_boss_volcano"
+    "Ability2"                                            "magma_boss_projectile"
+    "Ability3"                                            "magma_boss_magma_blood"
+    "Ability4"                                            "boss_resistance"
+    "Ability5"                                            "boss_cliffwalk"
+    "Ability6"                                            "boss_regen"
+    "Ability7"                                            "siltbreaker_boss_protection"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "32"
+    "MagicalResistance"                                   "-50"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "2000"
+    "AttackDamageMax"                                     "2000"
+    "AttackRate"                                          "1.0"
+    "BaseAttackSpeed"                                     "180"
+    "AttackAnimationPoint"                                "0.2"
+    "AttackAcquisitionRange"                              "500"
+    "AttackRange"                                         "500"
+    "ProjectileModel"                                     "particles/magma_boss/sniper_big_attack.vpcf"
+    "ProjectileSpeed"                                     "700"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "3000"  // Experience earn.
+    "BountyGoldMin"                                       "0"     // Gold earned min.
+    "BountyGoldMax"                                       "0"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+    "RingRadius"                                          "100"
+    "HealthBarOffset"                                     "280"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "520"
+    "MovementTurnRate"                                    "0.8"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "10000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "5000"
+    "StatusManaRegen"                                     "10"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "precache"
+    {
+      "particle"                                          "particles/magma_boss/sniper_big_attack.vpcf"
+      "soundfile"                                         "soundevents/bosses/magma_boss.vsndevts"
+    }
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "DisableResistance"                                 "50.0"
+    }
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+}

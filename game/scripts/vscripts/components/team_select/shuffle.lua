@@ -6,6 +6,47 @@ function MMRShuffle:Init ()
   DebugPrint('MMR Shuffle init!')
   self.moduleName = "MMR Shuffle"
   CustomGameEventManager:RegisterListener('mmrShuffle', partial(Dynamic_Wrap(MMRShuffle, 'Shuffle'), MMRShuffle))
+
+  ListenToGameEvent("player_team", Dynamic_Wrap(MMRShuffle, 'UpdateAverageMMRs'), MMRShuffle)
+  self:UpdateAverageMMRs();
+  Timers:CreateTimer(2.0, function()
+    self:UpdateAverageMMRs();
+  end)
+end
+
+function MMRShuffle:UpdateAverageMMRs ()
+  CustomNetTables:SetTableValue('oaa_settings', 'average_team_mmr', {
+    dire = '--',
+    radiant = '--',
+  })
+  Timers:CreateTimer(0.3, function()
+    local direTeam = totable(PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_BADGUYS))
+    local radTeam = totable(PlayerResource:GetPlayerIDsForTeam(DOTA_TEAM_GOODGUYS))
+
+    self.averageTeamMMR = {
+      dire = self:AverageMMR(direTeam),
+      radiant = self:AverageMMR(radTeam)
+    }
+
+    CustomNetTables:SetTableValue('oaa_settings', 'average_team_mmr', self.averageTeamMMR)
+  end)
+end
+
+function MMRShuffle:AverageMMR (teamIds, extraPlayer)
+  local total = 0
+  local playerCount = #teamIds
+  if extraPlayer then
+    total = self:GetMMR(extraPlayer)
+    playerCount = playerCount + 1
+  end
+  if playerCount == 0 then
+    return total
+  end
+  for _,playerId in ipairs(teamIds) do
+    total = total + self:GetMMR(playerId)
+  end
+
+  return total / playerCount
 end
 
 local fakeMMR = {}
@@ -80,23 +121,6 @@ function MMRShuffle:Shuffle (aNumber, event)
   local diffPreswap = math.abs(direPreswap - radPreswap)
   DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
-  local function avgMMR (teamIds, extraPlayer)
-    local total = 0
-    local playerCount = #teamIds
-    if extraPlayer then
-      total = self:GetMMR(extraPlayer)
-      playerCount = playerCount + 1
-    end
-    if playerCount == 0 then
-      return total
-    end
-    for _,playerId in ipairs(teamIds) do
-      total = total + self:GetMMR(playerId)
-    end
-
-    return total / playerCount
-  end
-
   local function without (teamIds, excluded)
     local newList = {}
     for _,playerId in ipairs(teamIds) do
@@ -123,18 +147,20 @@ function MMRShuffle:Shuffle (aNumber, event)
     for j = 1,#direPlayerIds do
       local otherPlayerId = direPlayerIds[j]
       local newDire = without(direPlayerIds, otherPlayerId)
-      local newDireMMR = avgMMR(newDire, playerId)
-      local newRadMMR = avgMMR(newRad, otherPlayerId)
+      local newDireMMR = self:AverageMMR(newDire, playerId)
+      local newRadMMR = self:AverageMMR(newRad, otherPlayerId)
       local newDiff = math.abs(newDireMMR - newRadMMR)
       if newDiff < diffPreswap then
         diffPreswap = newDiff
         swapPlayers(i, j)
+        playerId = radPlayerIds[i]
+        newRad = without(radPlayerIds, playerId)
       end
     end
   end
 
-  direPreswap = avgMMR(direPlayerIds)
-  radPreswap = avgMMR(radPlayerIds)
+  direPreswap = self:AverageMMR(direPlayerIds)
+  radPreswap = self:AverageMMR(radPlayerIds)
   diffPreswap = math.abs(direPreswap - radPreswap)
   DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 

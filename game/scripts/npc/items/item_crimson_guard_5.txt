@@ -59,72 +59,24 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard 5"
     "ItemAlertable"                                       "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "350 700 1050 1400 1750"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "12 15 18 21 24"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 7 9 12 16"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 120 170 220 270"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 70 105 140 175"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_aoe_radius"                                "1200"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee_active"                       "100 150 200 250 300"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged_active"                      "100 150 200 250 300"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance_active"                             "100"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_reapply_time"                            "20"
-      }
+      "bonus_health"      "350 700 1050 1400 1750"
+      "bonus_health_regen"  "12 15 18 21 24"
+      "bonus_armor"     "6 7 9 12 16"
+      "block_damage_melee"  "70 120 170 220 270"
+      "block_damage_ranged" "35 70 105 140 175"
+      "block_chance"      "60"
+      "duration"  "12"
+      "bonus_aoe_radius"    "1200"
+      "block_damage_melee_active" "100 150 200 250 300"
+      "block_damage_ranged_active"  "100 150 200 250 300"
+      "block_chance_active"     "100"
+      "tooltip_reapply_time"  "20"
     }
   }
 }

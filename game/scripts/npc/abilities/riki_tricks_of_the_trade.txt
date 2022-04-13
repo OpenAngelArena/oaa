@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5145"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -28,50 +28,39 @@
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 16 14 12 11 10" //OAA
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "55"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "value"                                           "450"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_4"
       }
-      "02"
+      "attack_count"                                      "4"
+      "damage_pct"                                        "40 45 50 55 60 65" //OAA
+      "agility_pct"                                       "75 80 85 90 95 100" //OAA
+      "scepter_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_count"                                    "4"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_pct"                                      "35 40 45 50 50 50" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "agility_pct"                                     "75 80 85 90 95 100" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "2"
+        "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "scepter_attacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_attacks"                                 "5"
+        "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "scepter_cast_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range"                              "700"
+        "value"                                           "700"
         "RequiresScepter"                                 "1"
+      }
+      "dispel"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_riki_5"                     "+1"
       }
     }
   }

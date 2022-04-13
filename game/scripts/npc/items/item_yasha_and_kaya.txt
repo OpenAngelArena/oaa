@@ -23,48 +23,20 @@
     "ItemQuality"         "artifact"
     "ItemAliases"         "ynk;y&k;sk;yasha and kaya"
     "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemDeclarations"        "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"        "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "16 24 32 48 72"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 17 22 27 32"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "50 60 70 80 90"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 10 12 14 16" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "16 20 24 28 32"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_lifesteal_amp"                             "26 28 30 32 34" //OAA
-      }
+      "bonus_agility"     "16 24 32 48 72"
+      "bonus_intellect"     "16 24 32 48 72"
+      "bonus_attack_speed"  "12 17 22 27 32"
+      "mana_regen_multiplier"   "50 60 70 80 90"
+      "movement_speed_percent_bonus"  "8 10 12 14 16" //OAA
+      "spell_amp"     "16 20 24 28 32"
+      "spell_lifesteal_amp" "26 28 30 32 34" //OAA
     }
   }
 }

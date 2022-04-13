@@ -53,7 +53,7 @@
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd;halberd"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "15 20 25 30 35" //OAA
+        "bonus_evasion"                                   "20 25 30 35 40"
       }
       "02"
       {
@@ -81,7 +81,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "disarm_melee"                                    "2.0 2.5 3.0 3.5 4.0" //OAA
+        "disarm_melee"                                    "2.4 2.8 3.2 3.6 4.0" //OAA
       }
       "05"
       {

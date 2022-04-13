@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_bloodstone_4"
   {
-
     "ID"                                                  "3126"      // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
@@ -18,7 +17,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_bloodstone_3;item_upgrade_core_3"
-      "02"                                                "item_sacred_skull_2;item_upgrade_core_3"
     }
   }
 
@@ -55,7 +53,7 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs 4;bloodstone 4"
     "ItemDisplayCharges"                                  "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "AllowedInBackpack"                                   "0"
 

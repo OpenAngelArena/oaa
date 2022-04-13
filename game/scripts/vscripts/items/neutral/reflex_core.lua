@@ -119,7 +119,7 @@ function modifier_item_reflex_core_invulnerability:GetEffectName()
 end
 
 function modifier_item_reflex_core_invulnerability:GetTexture()
-  return self:GetAbility():GetAbilityTextureName()
+  return "custom/reflex_core"
 end
 
 function modifier_item_reflex_core_invulnerability:DeclareFunctions()
@@ -165,4 +165,8 @@ end
 
 function modifier_item_reflex_core_cooldown:IsPurgable()
   return false
+end
+
+function modifier_item_reflex_core_cooldown:GetTexture()
+  return "custom/reflex_core"
 end

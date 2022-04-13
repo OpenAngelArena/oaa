@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Omniknight: Heavenly Grace
+  //=================================================================================================================
+  "omniknight_martyr"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "895"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "FightRecapLevel"                                     "1"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80 90 100 110 120 130"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "base_strength"       "8 18 28 38 58 78"
+      "base_hpregen"        "8 12 16 20 28 36"
+      "strength_bonus"
+      {
+        "value"     "3 4 5 6 8 10"
+        "LinkedSpecialBonus"  "special_bonus_unique_omniknight_2"
+      }
+      "duration"
+      {
+        "value"     "10"
+        "LinkedSpecialBonus"  "special_bonus_unique_omniknight_5"
+      }
+    }
+  }
+}

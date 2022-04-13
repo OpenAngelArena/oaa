@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5336"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5336"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -34,6 +34,18 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_radius"                                      "700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_dagger_damage"                             "300"
+        "RequiresShard"                                   "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_dagger_cooldown"                           "7.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

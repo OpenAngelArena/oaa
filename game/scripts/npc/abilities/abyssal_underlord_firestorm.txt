@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5613"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5613"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -15,7 +15,6 @@
 
     "AbilityCastRange"                                    "600 625 650 675 700 725"
     "AbilityCastPoint"                                    "0.5"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,63 +30,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "425"
+        "value"                                           "425"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord_8"
       }
-      "02"
+      "wave_duration"                                     "7.0"
+      "wave_count"                                        "6"
+      "wave_damage"                                       "25 40 55 70 140 280"
+      "wave_interval"                                     "1.0"
+      "burn_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_duration"                                   "7.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_count"                                      "6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_damage"                                     "25 40 55 70 140 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_interval"                                   "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_damage"                                     "1 2 3 4 5 6"
+        "value"                                           "1 2 3 4 5 6"
         "LinkedSpecialBonus"                              "special_bonus_unique_underlord_4"
-        "CalculateSpellDamageTooltip"                     "0"
       }
-      "07"
+      "burn_interval"                                     "1.0"
+      "burn_duration"                                     "2.0"
+      "shard_wave_count_bonus"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "1.0"
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
       }
-      "08"
+      "shard_wave_interval_reduction"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_duration"                                   "2.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "first_wave_delay"                                "0.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "building_damage"                                 "33"
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
       }
     }
   }

@@ -8,7 +8,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5247"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5247"
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "furion_force_of_nature"
     "ScriptFile"                                          "abilities/oaa_force_of_nature.lua"
@@ -22,8 +22,8 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
 
-    "AbilityCooldown"                                     "37"
-    "AbilityManaCost"                                     "130 140 150 160 170 180"
+    "AbilityCooldown"                                     "30"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

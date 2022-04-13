@@ -1,0 +1,141 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Greater Guardian Greaves 4
+  //=================================================================================================================
+  "item_recipe_greater_guardian_greaves_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "20000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_greater_guardian_greaves_4"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
+      //"02"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
+      //"03"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
+      //"04"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
+      //"05"                                                "item_greater_power_treads_3;item_upgrade_core_4"
+      //"06"                                                "item_sonic;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Greater Guardian Greaves 4
+  //=================================================================================================================
+  "item_greater_guardian_greaves_4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3038"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/farming/greater_guardian_greaves.lua"
+
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/greater_guardian_greaves_4"
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
+    "AbilityCastRange"                                    "1200"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "36704"
+    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "greater guardian greaves 4;guardian greaves 4;ggg 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemAlertable"                                       "1"
+
+    "MaxUpgradeLevel"                                     "4"
+    "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_greater_guardian_greaves_4"
+    "UpgradeRecipe"                                       "item_recipe_greater_guardian_greaves"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement"                                  "55 60 65 70"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana"                                      "350 500 700 950"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "5 7 10 14"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_health_regen"                               "6 9 12 15"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "aura_armor"                                      "4 5 6 7"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_health_regen_bonus"                         "19 22 25 28"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_armor_bonus"                                "11 12 13 14"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_bonus_threshold"                            "20"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_health"                                "400 600 900 1300"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_mana"                                  "300 400 550 750"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "replenish_radius"                                "1200"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "0"
+      }
+    }
+  }
+}

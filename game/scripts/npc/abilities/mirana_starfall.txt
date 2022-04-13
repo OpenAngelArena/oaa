@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5051"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5051"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -28,32 +27,19 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 105 130 155 180 205"
+    "AbilityManaCost"                                     "80 95 110 125 140 155"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "starfall_radius"                                   "650"
+      "starfall_secondary_radius"                         "425"
+      "secondary_starfall_damage_percent"                 "75"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "starfall_radius"                                 "650"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "starfall_secondary_radius"                       "425"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "secondary_starfall_damage_percent"               "75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_7"
+        "value"                                           "75 150 225 300 600 1200"
+        "special_bonus_unique_mirana_7"                   "+250"
       }
     }
   }

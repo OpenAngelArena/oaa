@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5008"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5008"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -44,40 +43,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "9 10 11 12 12 12" //OAA
+      "slow"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9 10 11 12 12 12" //OAA
+        "value"                                           "-8 -17 -26 -35 -40 -45"
+        "special_bonus_unique_axe_6"                      "-10"
       }
-      "02"
+      "damage_per_second"                                 "10 20 30 40 140 240" //OAA
+      "armor_multiplier"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-12 -13 -14 -15 -16 -17"
+        "value"                                           "1"
+        "special_bonus_unique_axe"                        "x2"
       }
-      "03"
+      "scepter_armor_change"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "12 13 14 15 16 17"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "16 24 32 40 140 240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_axe"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_scepter"                        "30"
-        "CalculateSpellDamageTooltip"                     "0"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_range"                                   "400"
+        "value"                                           "7"
         "RequiresScepter"                                 "1"
       }
     }

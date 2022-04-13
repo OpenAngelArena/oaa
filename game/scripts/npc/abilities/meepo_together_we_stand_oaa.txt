@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Meepo: Together We Stand (OAA unique ability, main meepo and each clone has damage reduction aura that stacks with itself)
+  //=================================================================================================================
+  "meepo_together_we_stand_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85433"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_meepo_together_we_stand.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityTextureName"                                  "meepo_divided_we_stand"
+
+    "MaxLevel"                                            "3"
+    "LevelsBetweenUpgrades"                               "12"
+    "RequiredLevel"                                       "25"
+
+    "AbilityCastRange"                                    "700"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_dmg_reduction_pct"                         "3 6 9"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "700"
+      }
+    }
+  }
+}

@@ -48,7 +48,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "23 20 17 14 11"
+    "AbilityCooldown"                                     "20 18 16 14 12"
     "AbilitySharedCooldown"                               "force"
     "AbilityManaCost"                                     "100"
 
@@ -60,7 +60,7 @@
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff 3;shield 3;force 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
@@ -84,7 +84,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "400 800 1200 1600 2000"
+        "bonus_health"                                    "400 500 650 850 1100"
       }
       "03"
       {
@@ -169,7 +169,7 @@
       "19"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "23 20 17 14 11"
+        "cooldown_tooltip"                                "20 18 16 14 12"
       }
     }
   }

@@ -66,7 +66,7 @@ end
 
 if IsServer() then
   function modifier_boss_capture_point:OnCreated(keys)
-    self.radius = keys.radius or 300
+    self.radius = keys.radius or CAPTURE_POINT_RADIUS
     self.captureTime = keys.captureTime or 10
     self.captureProgress = 0
     self.thinkInterval = 0.02

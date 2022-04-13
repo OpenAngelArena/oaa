@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "639" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "639"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -41,37 +40,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "35 45 55 65 70 75" //OAA
+        "value"                                           "25 35 45 55 65 75"
+        "special_bonus_unique_broodmother_4"              "+15"
       }
-      "02"
+      "duration"                                          "6"
+      "projectile_speed"                                  "1200"
+      "impact_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
+        "value"                                           "100 175 250 325 650 975"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "03"
+      "attack_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
+        "value"                                           "6 7 8 9 18 36"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "04"
+      "miss_chance"                                       "40"
+      "shard_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "100 175 250 325 650 975" //OAA
+        "value"                                           "550"
+        "RequiresShard"                                   "1"
       }
-      "05"
+      "shard_miss_chance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "6 7 8 9 18 36"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "miss_chance"                                     "40"
+        "value"                                           "80"
+        "RequiresShard"                                   "1"
       }
     }
   }

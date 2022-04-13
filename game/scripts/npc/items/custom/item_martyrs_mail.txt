@@ -55,11 +55,11 @@
     "ItemBaseLevel"                                       "1"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7375"
+    "ItemCost"                                            "7350"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mm;martyrs mail;martyrsmail"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "martyr_heal_aoe"                                 "900"
+        "martyr_heal_aoe"                                 "1200"
       }
       "06"
       {

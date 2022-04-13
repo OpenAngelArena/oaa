@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6864"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"					"6864"
     "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -19,7 +19,7 @@
       {
         "var_type"					"FIELD_INTEGER"
         "value"				"6" //OAA
-        "ad_linked_ability"			"rubick_telekinesis"
+        "ad_linked_abilities"			"rubick_telekinesis"
       }
     }
   }

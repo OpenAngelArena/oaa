@@ -47,42 +47,25 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18103"
+    "ItemCost"                                            "18053"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "radiance 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "UpgradesItems"                                       "item_radiance_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 120 180 260"
-      }
-      "03" // 02
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "60 90 150 240 360"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_damage_illusions"                           "35 52 87 140 210"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blind_pct"                                       "17 18 19 20 21"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700 750 800 850 900"
-      }
+      "bonus_damage"                                      "60 80 120 180 260"
+      "aura_damage"                                       "60 90 150 240 360"
+      "aura_damage_illusions"                             "35 52 87 140 210"
+      "upgrade_day_vision"                                "250"
+      "evasion"                                           "15 16 17 18 19"
+      "blind_pct"                                         "10"
+      "aura_radius"                                       "700 750 800 850 900"
     }
   }
 }

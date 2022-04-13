@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5123"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5123"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
@@ -15,7 +15,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,12 +39,20 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "100"
+        "scepter_illusion_damage_out_pct"                 "100"
+        "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "100"
+        "scepter_illusion_damage_in_pct"                  "100"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_illusion_ms_bonus_pct"                   "12"
+        "RequiresScepter"                                 "1"
       }
     }
   }

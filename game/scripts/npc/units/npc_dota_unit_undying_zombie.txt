@@ -33,8 +33,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"			"64"		// Damage range min.
-    "AttackDamageMax"			"68"		// Damage range max.
+    "AttackDamageMin"			"33"		// Damage range min.
+    "AttackDamageMax"			"36"		// Damage range max.
     "AttackRate"				"1.6"		// Speed of attack.
     "AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -70,8 +70,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
@@ -110,8 +110,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"			"64"		// Damage range min.
-    "AttackDamageMax"			"68"		// Damage range max.
+    "AttackDamageMin"			"33"		// Damage range min.
+    "AttackDamageMax"			"36"		// Damage range max.
     "AttackRate"				"1.6"		// Speed of attack.
     "AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -147,8 +147,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

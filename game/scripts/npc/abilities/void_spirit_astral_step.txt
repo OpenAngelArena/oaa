@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7705"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7705"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -62,17 +61,19 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_travel_distance"                             "700 850 1000 1150 1300"
+        "max_travel_distance"                             "800 900 1000 1100 1200"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "pop_damage_delay"                                "1.25"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "pop_damage"                                      "150 250 350 650 950"
+        "pop_damage"                                      "150 300 450 750 1650" //OAA
       }
       "08"
       {

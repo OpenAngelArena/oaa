@@ -38,7 +38,7 @@
     "ItemShopTags"                                        "move_speed;boost_mana;mana_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "octarine core 4;octarine 4"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
@@ -56,7 +56,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "250 300 350 400 450"
+        "cast_range_bonus"                                "225 275 325 375 425"
       }
       "03"
       {

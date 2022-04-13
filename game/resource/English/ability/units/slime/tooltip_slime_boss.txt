@@ -1,9 +1,8 @@
 //=============================================================================
 // Slime abilities
 //=============================================================================
-
 "DOTA_Tooltip_Ability_boss_slime_split"                               "Split"
-"DOTA_Tooltip_Ability_boss_slime_split_Description"                   "The Slime boss will split into 2 smaller slimes after Death, Smaller slimes have 75%% HP of the Slime boss and same abilities as the Slime boss."
+"DOTA_Tooltip_Ability_boss_slime_split_Description"                   "The Slime boss will split into 2 smaller slimes after Death, Smaller slimes have 100%% HP of the Slime boss and same abilities as the Slime boss."
 
 "DOTA_Tooltip_Ability_boss_slime_slam"                                "Slam"
 "DOTA_Tooltip_Ability_boss_slime_slam_Description"                    "The Slime slams its whole body into the enemy direction. Slammed enemies are damaged, knockbacked and slowed. The Slime is stunned for a few seconds after using this ability."
@@ -29,3 +28,15 @@
 "DOTA_Tooltip_Ability_boss_slime_jump_damage"                         "DAMAGE:"
 "DOTA_Tooltip_Ability_boss_slime_jump_slow"                           "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_boss_slime_jump_slow_duration"                  "SLOW DURATION:"
+
+//=============================================================================
+// Slime modifiers
+//=============================================================================
+"DOTA_Tooltip_modifier_boss_slime_slam_slow"                	"Slowed"
+"DOTA_Tooltip_modifier_boss_slime_slam_slow_Description"    	""
+
+"DOTA_Tooltip_modifier_boss_slime_shake_slow"                	"Slowed"
+"DOTA_Tooltip_modifier_boss_slime_shake_slow_Description"    	""
+
+"DOTA_Tooltip_modifier_boss_slime_jump_slow"                	"Slowed"
+"DOTA_Tooltip_modifier_boss_slime_jump_slow_Description"    	""

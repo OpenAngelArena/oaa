@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "40"
+    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "50000" // OAA
     "ItemShopTags"                                        ""
 
@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_rapier"
     "ItemRequirements" // OAA
     {
-      "01"                                                "item_relic;item_demon_edge"
+      "01"                                                "item_relic;item_demon_edge;item_divine_shards"
     }
   }
 
@@ -41,14 +41,14 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "40"
-    "ItemCost"                                            "55950" // OAA
+    "ItemCost"                                            "55951" // OAA
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "divine rapier"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
     "ItemSellable"                                        "0"
     "ItemKillable"                                        "0"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
     "ItemContributesToNetWorthWhenDropped"                "0"
     "AllowedInBackpack"                                   "0"
     "IsTempestDoubleClonable"                             "0"

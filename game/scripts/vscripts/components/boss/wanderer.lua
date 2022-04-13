@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_team_buff", "modifiers/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wanderer_team_buff", "abilities/boss/wanderer/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 Wanderer = Components:Register('Wanderer', COMPONENT_STRATEGY)
 
@@ -144,8 +145,10 @@ function Wanderer:FindWhereToSpawn ()
 
   local position = Vector(0, 0, 0)
   local isValidPosition = false
+  local loopCount = 0
 
   while not isValidPosition do
+    loopCount = loopCount + 1
     --if position then
       --print('Got a bad Wanderer spawn point: ' .. tostring(position))
     --end
@@ -157,7 +160,7 @@ function Wanderer:FindWhereToSpawn ()
       position.x = 0 - position.x
     end
     isValidPosition = true
-    if IsLocationInOffside(position) then
+    if IsLocationInOffside(position) and loopCount < 7 then
       isValidPosition = false
     end
   end

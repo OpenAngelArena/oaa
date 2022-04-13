@@ -280,7 +280,7 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
 
   for _, unit in pairs(units) do
     -- we don't hit units that have already been hit by this cast
-    if not self:HasHitUnit(unit) then
+    if unit and not unit:IsNull() and not self:HasHitUnit(unit) then
       -- add the unit to the targets hit list
       table.insert( self.hitTargets, unit )
 
@@ -296,6 +296,10 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
 
   -- undo the damage reduction, so it doesn't leak into actual attacks
   --self.doReduction = false
+end
+
+function modifier_item_greater_phase_boots_active:GetTexture()
+  return "custom/greater_phase_boots_4"
 end
 
 -- function modifier_item_greater_phase_boots_active:CheckState()

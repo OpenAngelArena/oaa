@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Techies: Sticky Bomb
+  //=================================================================================================================
+  "techies_sticky_bomb"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "879"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    "HasScepterUpgrade"                                   "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1000"
+    "AbilityCastPoint"                                    "0.2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "12 10 8 6 6 6"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100 115 130 145 160 175"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportValue"                         "0.25"  // generally used for damage only
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"        "1.2"
+      "countdown"       "2"
+      "radius"        
+      {
+        "value"     "250"
+        "special_bonus_unique_techies_2"  "+125"
+      }
+      "damage"
+      {
+        "value" "90 180 270 360 720 1440"
+        "special_bonus_unique_techies_2"  "+100"
+      }
+      "slow"          "25 35 45 55 65 75"
+      "secondary_slow"    "15 25 35 45 55 65"
+      "secondary_slow_duration"   "2"
+      "explosion_radius"    
+      {
+        "value"       "300"
+        "special_bonus_unique_techies_2"  "+125"
+      }
+      "speed"         "500.0"
+      "acceleration"      "2000"
+      "pre_chase_time"    "0.1"
+    }
+  }
+}

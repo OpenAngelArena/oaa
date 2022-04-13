@@ -26,7 +26,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_4;item_upgrade_core_4"
-      "02"                                                "item_stoneskin;item_upgrade_core_4"
+      //"02"                                                "item_stoneskin;item_upgrade_core_4"
       //"03"                                                "item_spiked_mail_4;item_upgrade_core_4"
     }
   }
@@ -55,13 +55,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "225"
+    "AbilityManaCost"                                     "200"
     "ItemCost"                                            "37854"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "shiva's guard 5;shivas guard 5;shiva 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -116,6 +116,11 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "hp_regen_degen_aura"                             "25"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_tooltip"                               "100 125 150 175 200"
       }
     }
   }

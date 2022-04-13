@@ -30,60 +30,31 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0 6.0 7.0 8.0 9.0 10.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "50 125 200 275 550 1100"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_burn"                                       "50 80 110 140 280 560"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_8"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attacks_to_destroy"                              "2 2 2 2 3 4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "300"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "push_duration"                                   "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cogs_radius"                                     "215"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "trigger_distance"                                "185"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "extra_pull_buffer"                               "-10"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
-      }
+      "duration"      "5.0 6.0 7.0 8.0 9.0 10.0"
+        "damage"    "50 125 200 275 550 1100"
+        "mana_burn"   
+        {
+          "value"       "50 80 110 140 280 560"
+          "LinkedSpecialBonus"    "special_bonus_unique_clockwerk_8"
+        }
+        "attacks_to_destroy"  
+        {
+          "value"         "2 2 2 2 3 4"
+          "LinkedSpecialBonus"    "special_bonus_unique_clockwerk_5"
+        }
+        "push_length"   "300"
+        "push_duration"   "1"
+        "cogs_radius"     "215"
+        "trigger_distance"      "185"
+        "extra_pull_buffer"     "-10"
+        "bonus_armor"   "0"
+        "leash"     
+        {
+          "value"     "0"
+          "special_bonus_unique_clockwerk_2"  "+1"
+        }
     }
   }
 }

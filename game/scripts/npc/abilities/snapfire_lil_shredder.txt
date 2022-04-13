@@ -31,48 +31,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"          "20 45 70 95 190 380"
+      "buffed_attacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 45 70 95 190 380"
+        "value"   "6"
+        "special_bonus_unique_snapfire_2" "+2"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "buffed_attacks"                                  "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "300"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range_bonus"                              "75 150 225 300 375 450"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "buff_duration_tooltip"                           "6"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_attack_time"                                "1.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "armor_reduction_per_attack"                      "0.75"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "armor_duration"                                  "5.0"
-      }
+      "attack_speed_bonus"    "300"
+      "attack_range_bonus"    "75 150 225 300 375 450"
+      "buff_duration_tooltip"   "6"
+      "base_attack_time"      "1.0"
+      "armor_reduction_per_attack"  "0.5 0.6 0.7 0.8 0.9 1.0" //OAA
+      "armor_duration"        "5.0"
     }
   }
 }

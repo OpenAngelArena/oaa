@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5396"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5396"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -32,28 +32,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "howl_duration"   "8"
+      "attack_damage_reduction"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "howl_duration"                                   "8"
+        "value"   "25 30 35 40 45 50"
+        "special_bonus_unique_lycan_6"  "+20"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage_reduction"                         "25 30 35 40 45 50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor"                                           "4 5 6 7 9 15"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "2000"
-      }
+      "armor"     "4 5 6 7 9 15"
+      "radius"      "2000"
     }
   }
 }

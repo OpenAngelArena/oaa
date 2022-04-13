@@ -33,38 +33,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "move_slow"         "-50"
+      "dagger_speed"      "1200"
+      "duration"      "2.2 2.8 3.4 4 4.6 5.2"
+      "base_damage"     "65"
+      "attack_factor"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "-50"
+        "value"       "-75 -60 -45 -30 -15 0"
+        "special_bonus_unique_phantom_assassin_5" "+20"
       }
-      "02"
+      "attack_factor_tooltip" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "dagger_speed"                                    "1200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.2 2.8 3.4 4 4.6 5.2"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "65"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_factor"                                   "-75 -60 -45 -30 -15 0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_factor_tooltip"                           "25 40 55 70 85 100"
+        "value"       "25 40 55 70 85 100"
+        "special_bonus_unique_phantom_assassin_5" "+20"
       }
     }
   }

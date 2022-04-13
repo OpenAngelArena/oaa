@@ -57,7 +57,7 @@
     "ItemShopTags"                                        "support;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "wards;upgradable;stack"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "UpgradesItems"                                       "item_ward_stack"
     "IsTempestDoubleClonable"                             "0"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -68,8 +68,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "2 5 8 11 14"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "1.5 4 7 10 13"
       }
       "02"
       {

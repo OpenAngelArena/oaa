@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5551"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5551"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -38,12 +38,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stack_duration"                                  "16.0 18.0 20.0 22.0 24.0"
+        "stack_duration"                                  "16.0 18.0 20.0 20.0 20.0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "5 7 9 9 9"
+        "max_stacks"                                      "6 8 10 10 10"
       }
     }
   }

@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5515"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5515"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,7 +24,6 @@
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.3"
 
-    //------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
     // Special
@@ -48,7 +46,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "220"
       }
-      "04"
+      "04" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range"                                   "500"
@@ -57,11 +55,31 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_str_pct"                                   "15"
+        "RequiresShard"                                   "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "shard_str_duration"                              "15"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_max_stacks"                                "5"
+        "RequiresShard"                                   "1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_movement_slow"                             "25"
+        "RequiresShard"                                   "1"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_movement_slow_duration"                    "2.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

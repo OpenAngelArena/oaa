@@ -28,7 +28,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "25"        // Physical protection.
+    "ArmorPhysical"                                       "20"        // Physical protection.
     "MagicalResistance"                                   "40"        // Magical protection.
 
     // Attack
@@ -36,7 +36,8 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                                     "1000"       // Damage range min.
     "AttackDamageMax"                                     "1000"       // Damage range max.
-    "AttackRate"                                          "1.0"
+    "AttackRate"                                          "2.0"
+    "BaseAttackSpeed"                                     "200"
     "AttackAnimationPoint"                                "0.6"
     "AttackAcquisitionRange"                              "700"
     "AttackRange"                                         "700"       // Range within a target can be attacked.
@@ -69,7 +70,7 @@
     "StatusManaRegen"                                     "0.0"
 
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

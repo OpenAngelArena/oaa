@@ -39,13 +39,13 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3561"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
     "BaseClass"                                           "item_arcane_blink"
     "AbilityTextureName"                                  "custom/arcane_blink_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilityManaCost"                                     "0"
@@ -63,54 +63,21 @@
     "ItemShopTags"                                        "teleport"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "blink dagger;int blink"
-    //"SideShop"                                          "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range"                                     "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blink_damage_cooldown"                           "3.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blink_range_clamp"                               "960"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 35 50 70 95"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_cooldown"                                   "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ultimate_cooldown"                               "30"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_pct_improvement"                            "35 40 45 50 55"
-      }
+      "blink_range"     "1200"
+      "blink_damage_cooldown" "3.0"
+      "blink_range_clamp"   "960"
+      "bonus_intellect"   "25 35 50 70 95"
+      "duration"    "6"
+      "cast_pct_improvement"    "35 40 45 50 55"
+      "manacost_reduction"    "25 30 35 40 45"
+      "debuff_amp"          "20 23 26 29 32"
     }
   }
 }

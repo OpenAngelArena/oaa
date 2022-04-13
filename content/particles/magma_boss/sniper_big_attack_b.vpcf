@@ -1,0 +1,173 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 64
+	m_nInitialParticles = 2
+	m_flConstantRadius = 15.0
+	m_ConstantColor = [ 255, 255, 255, 90 ]
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 7
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_nCP1 = 4
+			m_vecCP1Pos = [ -90.0, 0.0, 0.0 ]
+			m_nCP2 = 5
+			m_nCP3 = 5
+			m_nCP4 = 5
+			m_nHeadLocation = 3
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 64.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMax = 1.2
+			m_fLifetimeMin = 0.85
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 255, 108, 228, 255 ]
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_nFieldOutput = 22
+			m_ColorMax = [ 15, 8, 2, 255 ]
+			m_ColorMin = [ 17, 9, 2, 255 ]
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 3
+			m_fRadiusMax = 1.0
+		},
+		{
+			_class = "C_INIT_CreationNoise"
+			m_flOutputMax = 30.0
+			m_flOutputMin = 17.0
+			m_flNoiseScale = 2.0
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RandomYaw"
+			m_flDegreesMax = 4.0
+			m_flDegreesMin = -4.0
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_vecOutputMax = [ 14.0, 24.0, 66.0 ]
+			m_vecOutputMin = [ -24.0, -24.0, 32.0 ]
+			m_bLocalSpace = true
+		},
+		{
+			_class = "C_INIT_RandomYawFlip"
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = [ 0.0, 0.0, 30.0 ]
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.5
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
+		},
+		{
+			_class = "C_OP_Noise"
+			m_fl4NoiseScale = 0.00131
+			m_nFieldOutput = 4
+			m_flOutputMax = 130.0
+			m_bAdditive = true
+		},
+		{
+			_class = "C_OP_Noise"
+			m_bAdditive = true
+			m_flOutputMax = 90.0
+			m_nFieldOutput = 12
+			m_fl4NoiseScale = 0.0011
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.75
+			m_flStartScale = 0.0
+			m_flEndTime = 0.14
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_Rate = 150.0
+			m_flEndTime = 9999.0
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_nField = 16
+			m_Rate = -6.0
+			m_flEndTime = 99999.0
+		},
+	]
+	m_Constraints = 
+	[
+		{
+			_class = "C_OP_ConstrainDistanceToPath"
+			m_flMaxDistance0 = 0.0
+			m_flTravelTime = 0.85
+			m_PathParameters = 
+			{
+				m_nStartControlPointNumber = 3
+				m_nEndControlPointNumber = 4
+				m_flMidPoint = 0.4
+			}
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_flStartFadeSize = 0.575
+			m_flEndFadeSize = 0.65
+			m_flMaxSize = 0.75
+			m_flOverbrightFactor = 5.0
+			m_flAddSelfAmount = 1.5
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAnimationRate = 1.0
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/fire_particle_4/fire_particle_4_flat.vtex"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_lina/lina_base_attack_trail_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_lina/lina_base_attack_trail_d.vpcf"
+		},
+	]
+}

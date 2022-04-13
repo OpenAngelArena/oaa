@@ -25,8 +25,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_4;item_upgrade_core_4"
-      //"02"                                                "item_reflection_shard_3;item_upgrade_core_4"
-      //"03"                                                "item_aeon_disk_4;item_upgrade_core_4"
+      //"02"                                                "item_aeon_disk_4;item_upgrade_core_4"
     }
   }
 
@@ -55,7 +54,7 @@
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 5;linken's sphere 5;linkens 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ActiveDescriptionLine"                               "2"
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
@@ -85,6 +84,16 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "block_cooldown"                                  "12.0 11.0 10.0 9.0 8.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "upgrade_absorb_duration"                         "10.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_absorb"                                   "300"
       }
     }
   }

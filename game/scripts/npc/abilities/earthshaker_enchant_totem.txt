@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5024"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5024"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,7 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.6"
-    "FightRecapLevel"                                     "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,56 +37,50 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "totem_damage_percentage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "totem_damage_percentage"                         "100 200 300 400 500 600"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"   "100 200 300 400 500 600"
+        "CalculateSpellDamageTooltip" "0"
+        "special_bonus_unique_earthshaker_totem_damage" "+50"
       }
-      "02"
+      "distance_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance_scepter"                                "950"
-        "RequiresScepter"                                 "1"
+        "value"   "950"
+        "RequiresScepter"   "1"
       }
-      "03"
+      "aftershock_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aftershock_range"                                "300"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
+        "value"   "300"
+        "LinkedSpecialBonus"    "special_bonus_unique_earthshaker_5"
       }
-      "04"
+      "scepter_height"      "950"
+      "scepter_height_arcbuffer"  "100"
+      "scepter_acceleration_z"  "4000"
+      "scepter_acceleration_horizontal" "3000"
+      "scepter_leap_duration"   "0.8"
+      "scepter_cleave_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_height"                                  "950"
+        "value"					"40"
+        "RequiresScepter"		"1"
       }
-      "05"
+      "scepter_cleave_starting_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_height_arcbuffer"                        "100"
+        "value"					"150"
+        "RequiresScepter"		"1"
       }
-      "06"
+      "scepter_cleave_ending_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_acceleration_z"                          "4000"
+        "value"					"360"
+        "RequiresScepter"		"1"
       }
-      "07"
+      "scepter_cleave_distance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_acceleration_horizontal"                 "3000"
+        "value"					"650"
+        "RequiresScepter"		"1"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_leap_duration"                           "0.8"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "75"
-      }
+      "bonus_attack_range"    "75"
     }
   }
 }

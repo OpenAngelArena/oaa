@@ -32,24 +32,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_attack_speed"      "300 400 500 550 600"
+      "focusfire_damage_reduction"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "475"
+        "value"           "-30"
+        "LinkedSpecialBonus"    "special_bonus_unique_windranger_8"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "focusfire_damage_reduction"                      "-50 -40 -30 -15 0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_8"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "focusfire_fire_on_the_move"                      "1"
-      }
+      "focusfire_fire_on_the_move"  "1"
     }
   }
 }

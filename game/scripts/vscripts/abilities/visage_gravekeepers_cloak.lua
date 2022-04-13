@@ -35,7 +35,7 @@ end
 
 function visage_gravekeepers_cloak_oaa:GetManaCost(level)
   if self:GetCaster():HasShardOAA() then
-    return 100
+    return self:GetSpecialValueFor("shard_manacost")
   end
 
   return 0
@@ -43,7 +43,7 @@ end
 
 function visage_gravekeepers_cloak_oaa:GetCooldown(level)
   if self:GetCaster():HasShardOAA() then
-    return 30
+    return self:GetSpecialValueFor("shard_cooldown")
   end
 
   return 0
@@ -54,11 +54,9 @@ function visage_gravekeepers_cloak_oaa:OnUpgrade()
   local mod = caster:FindModifierByName("modifier_visage_gravekeepers_cloak_oaa")
   local max_layers = self:GetSpecialValueFor("max_layers")
   -- Talent that increases number of layers
-  local talent = caster:FindAbilityByName("special_bonus_unique_visage_5")
-  if talent then
-    if talent:GetLevel() > 0 then
-      max_layers = max_layers + talent:GetSpecialValueFor("value")
-    end
+  local talent = caster:FindAbilityByName("special_bonus_unique_visage_oaa_6")
+  if talent and talent:GetLevel() > 0 then
+    max_layers = max_layers + talent:GetSpecialValueFor("value")
   end
   if mod then
     mod:SetStackCount(max_layers)
@@ -125,30 +123,36 @@ function modifier_visage_gravekeepers_cloak_oaa:RemoveOnDeath()
 end
 
 function modifier_visage_gravekeepers_cloak_oaa:OnCreated()
+  local caster = self:GetCaster()
   if IsServer() then
-    local caster = self:GetCaster()
     local ability = self:GetAbility()
     local max_layers = ability:GetSpecialValueFor("max_layers")
     -- Talent that increases number of layers
-    local talent = caster:FindAbilityByName("special_bonus_unique_visage_5")
-    if talent then
-      if talent:GetLevel() > 0 then
-        max_layers = max_layers + talent:GetSpecialValueFor("value")
-      end
+    local talent = caster:FindAbilityByName("special_bonus_unique_visage_oaa_6")
+    if talent and talent:GetLevel() > 0 then
+      max_layers = max_layers + talent:GetSpecialValueFor("value")
     end
     self:SetStackCount(max_layers)
+  end
+
+  -- Talent that increases armor of Visage
+  self.armor = 0
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_5")
+  if talent2 and talent2:GetLevel() > 0 then
+    self.armor = talent2:GetSpecialValueFor("value")
   end
 end
 
 modifier_visage_gravekeepers_cloak_oaa.OnRefresh = modifier_visage_gravekeepers_cloak_oaa.OnCreated
 
-if IsServer() then
-  function modifier_visage_gravekeepers_cloak_oaa:DeclareFunctions()
-    return {
-      MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
-    }
-  end
+function modifier_visage_gravekeepers_cloak_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+  }
+end
 
+if IsServer() then
   function modifier_visage_gravekeepers_cloak_oaa:DecreaseStacks()
     local stackCount = self:GetStackCount()
     self:SetStackCount(math.max(0, stackCount - 1))
@@ -160,7 +164,7 @@ if IsServer() then
     local stackCount = self:GetStackCount()
     local max_layers = ability:GetSpecialValueFor("max_layers")
     -- Talent that increases number of layers
-    local talent = parent:FindAbilityByName("special_bonus_unique_visage_5")
+    local talent = parent:FindAbilityByName("special_bonus_unique_visage_oaa_6")
     if talent then
       if talent:GetLevel() > 0 then
         max_layers = max_layers + talent:GetSpecialValueFor("value")
@@ -194,8 +198,9 @@ if IsServer() then
     local damageReduction = math.min(max_damage_reduction, damage_reduction_per_layer * stackCount)
 
     -- Talent that decreases recovery time
-    if parent:HasLearnedAbility("special_bonus_unique_visage_oaa_5") then
-      recovery_time = recovery_time - math.abs(parent:FindAbilityByName("special_bonus_unique_visage_oaa_5"):GetSpecialValueFor("value"))
+    local talent3 = parent:FindAbilityByName("special_bonus_unique_visage_oaa_5")
+    if talent3 and talent3:GetLevel() > 0 then
+      recovery_time = recovery_time - math.abs(talent3:GetSpecialValueFor("value"))
     end
 
     -- Does not interact at all with damage instances lower than the threshold.
@@ -219,6 +224,13 @@ if IsServer() then
 
     return block_amount
   end
+end
+
+function modifier_visage_gravekeepers_cloak_oaa:GetModifierPhysicalArmorBonus()
+  if not self:GetParent():PassivesDisabled() then
+    return self.armor
+  end
+  return 0
 end
 
 --------------------------------------------------------------------------

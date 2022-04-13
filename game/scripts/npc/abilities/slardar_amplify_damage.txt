@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5117"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5117"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -38,19 +38,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "6.0"  // Very valuable compared to cost.
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "armor_reduction" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-10 -13 -16 -20 -25" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_5"
+        "value"       "-10 -13 -16 -20 -25"
+        "special_bonus_unique_slardar_5"  "-4"
       }
-      "02"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_6"
+        "value"     "18"
+      }
+      "undispellable"
+      {
+        "value"     "0"
+        "special_bonus_unique_slardar_3"  "+1"
+      }
+      "puddle_radius"
+      {
+        "value"     "100"
+      }
+      "puddle_duration"
+      {
+        "value"     "8"
       }
     }
   }

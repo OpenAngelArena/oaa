@@ -10,12 +10,12 @@
     "ID"                                                  "3219"    // unique ID
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,8 +24,7 @@
     "ItemResult"                                          "item_satanic_core_2"
     "ItemRequirements"
     {
-      "01"                                                "item_satanic_core;item_upgrade_core_3"
-      //"02"                                                "item_eternal_shroud_oaa_3;item_upgrade_core_3"
+      "01"                                                "item_satanic_core;item_upgrade_core"
     }
   }
 
@@ -50,17 +49,16 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_satanic_core_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16303"
+    "ItemCost"                                            "9251"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic core 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -69,7 +67,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "50 85 120"
+        "bonus_strength"                                  "25 35 50 70 95"
       }
       "02"
       {
@@ -79,22 +77,22 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "0"
+        "bonus_health"                                    "550 650 800 1000 1250"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "0"
+        "bonus_mana"                                      "550 650 800 1000 1250"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_spell_lifesteal"                            "32 34 36"
+        "hero_spell_lifesteal"                            "28 30 32 34 36"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "10 12 14"
+        "creep_spell_lifesteal"                           "6 8 10 12 14"
       }
       "07"
       {
@@ -114,12 +112,17 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resist"                             "10 15 20"
+        "bonus_status_resist"                             "18 20 22 24 26"
       }
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resist"                              "22 23 24"
+        "bonus_magic_resist"                              "0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_amp"                                    "22 24 26 28 30"
       }
     }
   }

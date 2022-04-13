@@ -543,7 +543,9 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   Timers:CreateTimer(1/30, function()
-    local player = PlayerResource:GetPlayer(playerID)
+    if not player then
+      player = PlayerResource:GetPlayer(playerID)
+    end
     if player then
       if player:GetAssignedHero() ~= new_hero then
         DebugPrint("ReplaceHero - Reassigning the new hero again")

@@ -45,7 +45,7 @@
     "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special-----------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -79,6 +79,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "sheep_movement_speed"                            "140"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "upgrade_radius"                                  "200"
       }
     }
   }
