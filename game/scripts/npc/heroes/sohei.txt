@@ -63,10 +63,18 @@
     "Ability13"                 "special_bonus_sohei_dash_slow"
 
     "Ability14"                 "special_bonus_cleave_40"
-    "Ability15"                 "special_bonus_sohei_dash_cast_range"
+    "Ability15"                 "special_bonus_unique_sohei_7"
 
     "Ability16"                 "special_bonus_sohei_momentum_strike_crit"
     "Ability17"                 "special_bonus_sohei_stun"
+
+    // special_bonus_sohei_stun                             - Momentum Strike bonus stun duration if the target collides with an obstacle
+    // special_bonus_sohei_dash_slow                        - Dash bonus slow
+    // special_bonus_sohei_dash_cast_range                  - Dash bonus max range
+    // special_bonus_sohei_fob_radius                       - Flurry of Blows bonus AoE
+    // special_bonus_sohei_momentum_strike_crit             - Momentum Strike bonus crit damage
+    // special_bonus_sohei_wholeness_knockback              - Wholeness of Body Knockback
+    // special_bonus_unique_sohei_7                         - Dash bonus damage
 
     "AbilityTalentStart"        "10"
 
