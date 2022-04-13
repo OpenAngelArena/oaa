@@ -21,11 +21,11 @@ function clinkz_death_pact_oaa:OnSpellStart()
   -- get the target's max health
   local targetHealth = target:GetMaxHealth()
 
-  -- Talent
-  local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_3_oaa")
-  if talent1 and talent1:GetLevel() > 0 then
-    -- some other time
-  end
+  -- Talent - some other time
+  --local talent1 = caster:FindAbilityByName("special_bonus_unique_clinkz_3_oaa")
+  --if talent1 and talent1:GetLevel() > 0 then
+
+  --end
 
   -- kill the target
   target:Kill(self, caster)

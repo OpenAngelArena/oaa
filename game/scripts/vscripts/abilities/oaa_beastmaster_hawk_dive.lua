@@ -12,7 +12,7 @@ function beastmaster_hawk_dive_oaa:OnAbilityPhaseStart()
   end
 
   local caster = self:GetCaster()
-  
+
   -- Possible with reflection spells and items
   if caster:IsRealHero() then
     return
@@ -80,7 +80,7 @@ function beastmaster_hawk_dive_oaa:OnSpellStart()
   -- Hide the caster
   caster:AddNoDraw()
 
-  -- Create a tracking projectile 
+  -- Create a tracking projectile
   -- Valve doesn't use a tracking projectile, they use a motion controller on the hawk
   -- Using tracking projectile is scuffed but more stable
   local projectile_info = {
@@ -122,7 +122,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   -- Explosion particle
   local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_beastmaster/beastmaster_shard_dive_impact.vpcf", PATTACH_WORLDORIGIN, caster)
   ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
-  
+
   -- Bird exploding sound
   target:EmitSound("Hero_Beastmaster.Hawk.Target")
 
@@ -152,7 +152,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   damage_table.ability = self
 
   ApplyDamage(damage_table)
-  
+
   -- Add vision over stunned unit
   AddFOWViewer(caster:GetTeamNumber(), location, caster:GetCurrentVisionRange(), duration, false)
 

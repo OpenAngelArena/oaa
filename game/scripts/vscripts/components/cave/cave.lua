@@ -234,18 +234,18 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
     end
   end
 
-  local function handleCreepDeath (gold, exp, _teamID, _roomID)
-    local playerIDs = PlayerResource:GetPlayerIDsForTeam(_teamID)
+  local function handleCreepDeath (gold, exp, teamID_local, roomID_local)
+    local playerIDs = PlayerResource:GetPlayerIDsForTeam(teamID_local)
     local bounty = math.ceil(gold / playerIDs:length())
-    exp = exp / playerIDs:length()
+    local xp = exp / playerIDs:length()
 
-    local multiplier = calculateMultiplier(_teamID)
+    local multiplier = calculateMultiplier(teamID_local)
     bounty = bounty * multiplier
-    exp = exp * multiplier
+    xp = xp * multiplier
 
-    each(partial(giveBounty, bounty, exp), playerIDs)
+    each(partial(giveBounty, bounty, xp), playerIDs)
 
-    self:CreepDeath(_teamID, _roomID)
+    self:CreepDeath(teamID_local, roomID_local)
   end
 
   creep:OnDeath(partial(handleCreepDeath, properties.gold, properties.exp, teamID, roomID))
