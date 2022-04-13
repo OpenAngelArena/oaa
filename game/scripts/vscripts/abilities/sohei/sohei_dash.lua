@@ -83,9 +83,9 @@ local forbidden_modifiers = {
 
 function sohei_dash:GetBehavior()
   local caster = self:GetCaster()
-  -- Shard that makes Electric Shield toggle
+  -- Shard that changes behavior
   if caster:HasShardOAA() then
-    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
   end
   return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
 end
@@ -106,6 +106,10 @@ function sohei_dash:CastFilterResultTarget(target)
     if target:HasModifier(modifier) then
       return UF_FAIL_CUSTOM
     end
+  end
+
+  if defaultFilterResult == UF_FAIL_FRIENDLY then
+    return UF_SUCCESS
   end
 
   return defaultFilterResult
@@ -141,14 +145,10 @@ function sohei_dash:OnSpellStart()
   local distance = 850
   local speed = 1200
 
-  -- if has_shard then
-    -- local allowed_cast_range = self:GetSpecialValueFor("shard_unit_cast_range") + caster:GetCastRangeBonus()
-    -- if target and (caster_loc - target:GetAbsOrigin()):Length2D() > allowed_cast_range then
-      -- -- Unit targetting not allowed -> trigger point target
-      -- target_loc = target:GetAbsOrigin()
-      -- target = nil
-    -- end
-  -- end
+  if target and has_shard and self:GetAutoCastState() == false then
+    target_loc = target:GetAbsOrigin()
+    target = nil
+  end
 
   if target and has_shard then
     speed = self:GetSpecialValueFor("shard_push_pull_speed")
@@ -481,7 +481,7 @@ function modifier_sohei_dash_movement:GetOverrideAnimation()
     return ACT_DOTA_RUN
   end
 
-   return ACT_DOTA_FLAIL
+  return ACT_DOTA_FLAIL
 end
 
 function modifier_sohei_dash_movement:GetPriority()
@@ -671,7 +671,7 @@ function modifier_sohei_dash_slow:OnCreated(event)
   -- Talent that increases the slow amount
   local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
   if talent and talent:GetLevel() > 0 then
-    movement_slow = movement_slow - talent:GetSpecialValueFor("value")
+    movement_slow = movement_slow + talent:GetSpecialValueFor("value")
   end
 
   if IsServer() then
@@ -689,7 +689,7 @@ function modifier_sohei_dash_slow:OnRefresh(event)
   -- Talent that increases the slow amount
   local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
   if talent and talent:GetLevel() > 0 then
-    movement_slow = movement_slow - talent:GetSpecialValueFor("value")
+    movement_slow = movement_slow + talent:GetSpecialValueFor("value")
   end
 
   if IsServer() then
@@ -709,5 +709,5 @@ function modifier_sohei_dash_slow:DeclareFunctions()
 end
 
 function modifier_sohei_dash_slow:GetModifierMoveSpeedBonus_Percentage()
-  return self.slow
+  return 0 - math.abs(self.slow)
 end
