@@ -16,8 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "dark_troll_warlord_raise_dead"          // Ability 1.
-    "Ability2"                                            "furbolg_enrage_attack_speed"      // Ability 2.
+    "Ability1"                                            "dark_troll_warlord_raise_dead"
+    "Ability2"                                            "furbolg_enrage_attack_speed"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -33,7 +35,7 @@
     "BaseAttackSpeed"                                     "150"
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
-    "AttackRange"                                         "250"    // Range within a target can be attacked.
+    "AttackRange"                                         "300"    // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_badguy.vpcf" // Particle system model for projectile.
     "ProjectileSpeed"                                     "1200"    // Speed of projectile.
 

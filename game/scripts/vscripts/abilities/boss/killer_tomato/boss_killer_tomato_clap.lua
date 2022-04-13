@@ -18,7 +18,7 @@ function boss_killer_tomato_clap:OnAbilityPhaseStart()
 
     -- Make the caster uninterruptible while casting this ability
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
-	
+
     Timers:CreateTimer(delay/2, function()
       caster:EmitSound("n_creep_Ursa.Clap")
     end)
@@ -40,7 +40,7 @@ function boss_killer_tomato_clap:OnAbilityPhaseInterrupted()
       ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
       self.nPreviewFX = nil
     end
-    caster:StopSound("n_creep_Ursa.Clap")
+    self:GetCaster():StopSound("n_creep_Ursa.Clap")
   end
 end
 

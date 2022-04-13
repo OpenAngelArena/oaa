@@ -1,7 +1,7 @@
-alpha_wolf_critical_strike_aura_oaa = class(AbilityBaseClass)
+LinkLuaModifier("modifier_alpha_critical_strike_aura_oaa_applier", "abilities/neutrals/oaa_alpha_wolf_critical_strike_aura.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_alpha_critical_strike_aura_oaa_effect", "abilities/neutrals/oaa_alpha_wolf_critical_strike_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_alpha_critical_strike_aura_oaa_applier", "abilities/neutrals/oaa_alpha_wolf_critical_strike_aura.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_alpha_critical_strike_aura_oaa_effect", "abilities/neutrals/oaa_alpha_wolf_critical_strike_aura.lua", LUA_MODIFIER_MOTION_NONE )
+alpha_wolf_critical_strike_aura_oaa = class(AbilityBaseClass)
 
 function alpha_wolf_critical_strike_aura_oaa:GetIntrinsicModifierName()
   return "modifier_alpha_critical_strike_aura_oaa_applier"
@@ -83,18 +83,18 @@ function modifier_alpha_critical_strike_aura_oaa_effect:DeclareFunctions()
   return funcs
 end
 
-function modifier_alpha_critical_strike_aura_oaa_effect:GetModifierPreAttack_CriticalStrike(params)
-  if IsServer() then
+if IsServer() then
+  function modifier_alpha_critical_strike_aura_oaa_effect:GetModifierPreAttack_CriticalStrike(params)
     local ability = self:GetAbility()
     local parent = self:GetParent()
     local target = params.target
 
-     -- Don't crit on allies, towers, or wards
+    -- Don't crit on allies, towers, or wards
     if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber() ) ~= UF_SUCCESS then
       return 0
     end
 
-    if not ability then
+    if not ability or ability:IsNull() then
       return 0
     end
 

@@ -1,7 +1,7 @@
-black_dragon_dragonhide_aura_oaa = class(AbilityBaseClass)
+LinkLuaModifier("modifier_dragonhide_aura_oaa_applier", "abilities/neutrals/oaa_black_dragon_dragonhide_aura.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dragonhide_aura_oaa_effect", "abilities/neutrals/oaa_black_dragon_dragonhide_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_dragonhide_aura_oaa_applier", "abilities/neutrals/oaa_black_dragon_dragonhide_aura.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_dragonhide_aura_oaa_effect", "abilities/neutrals/oaa_black_dragon_dragonhide_aura.lua", LUA_MODIFIER_MOTION_NONE )
+black_dragon_dragonhide_aura_oaa = class(AbilityBaseClass)
 
 function black_dragon_dragonhide_aura_oaa:GetIntrinsicModifierName()
   return "modifier_dragonhide_aura_oaa_applier"

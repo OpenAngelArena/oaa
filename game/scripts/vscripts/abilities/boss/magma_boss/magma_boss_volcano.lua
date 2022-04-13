@@ -420,7 +420,17 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
         damage_type = self.damage_type,
         ability = ability,
     }
-    local units = FindUnitsInRadius(parent:GetTeamNumber(), parent:GetAbsOrigin(), parent, self.magma_radius, DOTA_UNIT_TARGET_TEAM_BOTH, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self.magma_radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
 
     for _, unit in pairs(units) do
       if unit and not unit:IsNull() then
@@ -428,17 +438,13 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
         local ground_origin = GetGroundPosition(unit_origin, unit)
         local unit_z = unit_origin.z
         local ground_z = ground_origin.z
-        if not unit:HasFlyMovementCapability() and unit_z - ground_z < 10 then
-          -- Heals allies, damages enemies only if touching the magma on the ground or underground
-          if unit:GetTeamNumber() == parent:GetTeamNumber() then
-            --unit:Heal(heal_per_interval, ability)
-          elseif not unit:HasModifier("modifier_magma_boss_volcano") then
-            -- Visual Effect
-            unit:AddNewModifier(damage_table.attacker, ability, "modifier_magma_boss_volcano_burning_effect", {duration = self.interval+0.1})
-            -- Damage
-            damage_table.victim = unit
-            ApplyDamage(damage_table)
-          end
+        if not unit:HasFlyMovementCapability() and unit_z - ground_z < 10 and not unit:HasModifier("modifier_magma_boss_volcano") then
+          -- Damage enemies only if touching the magma on the ground or underground
+          -- Visual Effect
+          unit:AddNewModifier(damage_table.attacker, ability, "modifier_magma_boss_volcano_burning_effect", {duration = self.interval+0.1})
+          -- Damage
+          damage_table.victim = unit
+          ApplyDamage(damage_table)
         end
       end
     end

@@ -16,8 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "warpine_raider_seed_shot"          // Ability 1.
-    "Ability2"                                            "alpha_wolf_command_aura"      // Ability 2.
+    "Ability1"                                            "warpine_raider_seed_shot"
+    "Ability2"                                            "alpha_wolf_command_aura"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -30,8 +32,9 @@
     "AttackDamageMin"                                     "65"    // Damage range min.
     "AttackDamageMax"                                     "65"    // Damage range max.
     "AttackRate"                                          "1.7"     // Speed of attack.
+    "BaseAttackSpeed"                                     "125"
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounty
@@ -49,7 +52,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "310"    // Speed
+    "MovementSpeed"                                       "320"    // Speed
     "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status

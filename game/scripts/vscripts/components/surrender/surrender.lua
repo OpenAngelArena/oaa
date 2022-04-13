@@ -30,7 +30,7 @@ function SurrenderManager:UpdateVisibility()
   local now = HudTimer:GetGameTime()
   if direScore < radiantScore then
     loserTeamID = DOTA_TEAM_BADGUYS
-  else 
+  else
     loserTeamID = DOTA_TEAM_GOODGUYS
   end
   PlayerResource:GetPlayerIDsForTeam(loserTeamID):each(function (playerId)

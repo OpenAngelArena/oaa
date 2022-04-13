@@ -1,7 +1,7 @@
-harpy_storm_null_field_oaa = class(AbilityBaseClass)
+LinkLuaModifier("modifier_harpy_null_field_oaa_applier", "abilities/neutrals/oaa_harpy_storm_null_field.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_harpy_null_field_oaa_effect", "abilities/neutrals/oaa_harpy_storm_null_field.lua", LUA_MODIFIER_MOTION_NONE)
 
-LinkLuaModifier("modifier_harpy_null_field_oaa_applier", "abilities/neutrals/oaa_harpy_storm_null_field.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_harpy_null_field_oaa_effect", "abilities/neutrals/oaa_harpy_storm_null_field.lua", LUA_MODIFIER_MOTION_NONE )
+harpy_storm_null_field_oaa = class(AbilityBaseClass)
 
 function harpy_storm_null_field_oaa:GetIntrinsicModifierName()
   return "modifier_harpy_null_field_oaa_applier"

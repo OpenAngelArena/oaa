@@ -134,7 +134,7 @@ if IsServer() then
     local victim = keys.unit
     local attacker = keys.attacker
     local damage = keys.damage
-	
+
     -- Don't trigger if attacker doesn't exist
     if not attacker or attacker:IsNull() then
       return

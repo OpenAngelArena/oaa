@@ -133,9 +133,6 @@ function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
       return setCurrentBonus(150 - attack_range)
     end
   end
-
-  -- this cannot be reached
-  return 0
 end
 
 if IsServer() then
