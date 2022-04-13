@@ -12,15 +12,6 @@ function modifier_oaa_thinker:IsPurgable()
   return false
 end
 
-function modifier_oaa_thinker:OnCreated(keys)
-  if IsServer() then
-    --print("caster: "..tostring(self:GetCaster()))
-    --print("ability: "..tostring(self:GetAbility()))
-    --print("thinker: "..tostring(self:GetParent()))
-    --print("location: "..tostring(self:GetParent():GetAbsOrigin()))
-  end
-end
-
 function modifier_oaa_thinker:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,

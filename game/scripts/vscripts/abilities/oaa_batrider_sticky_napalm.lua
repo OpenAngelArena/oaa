@@ -149,18 +149,18 @@ if IsServer() then
     local caster = self:GetParent() or self:GetCaster()
     local ability = self:GetAbility()
 
-    -- Continue only if the caster/parent is the attacker
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
     if attacker ~= caster then
       return
     end
 
-    -- If caster or ability don't exist -> don't continue
-    if not caster or caster:IsNull() or not ability or ability:IsNull() then
-      return
-    end
-
-    -- Don't continue if attacker is deleted or he is about to be deleted
-    if not attacker or attacker:IsNull() then
+    -- If ability doesn't exist -> don't continue
+    if not ability or ability:IsNull() then
       return
     end
 
@@ -330,6 +330,7 @@ if IsServer() then
     elseif not sticky_debuff and flamebreak_tracker then
       -- Unit has a tracker but doesn't have a debuff -> this means OnModifierAdded triggered for applying flamebreak_tracker
       -- do nothing
+      return
     else
       -- Other cases:
       -- 1) When the unit has sticky but not the tracker -> Sticky was applied through other means
@@ -345,6 +346,7 @@ if IsServer() then
   function modifier_batrider_sticky_napalm_oaa_passive:OnAttackLanded(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
     local target = event.target
 
     -- Check if parent has Aghanim Shard
@@ -352,12 +354,17 @@ if IsServer() then
       return
     end
 
-    -- Doesn't work on units that dont have this modifier, doesn't work on illusions
-    if parent ~= event.attacker or parent:IsIllusion() then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
 
-    -- To prevent crashes:
+    -- Check if attacker has this modifier + doesn't work on illusions
+    if attacker ~= parent or parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
     if not target or target:IsNull() then
       return
     end
@@ -399,7 +406,6 @@ end
 function modifier_batrider_flamebreak_instance_tracker:IsPurgable()
   return true
 end
-
 
 ---------------------------------------------------------------------------------------------------
 
