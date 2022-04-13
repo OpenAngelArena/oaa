@@ -151,7 +151,7 @@ if IsServer() then
     if not attacker or attacker:IsNull() then
       return
     end
-	
+
     -- Do nothing if attacker doesn't have this buff
     if attacker ~= parent then
       return

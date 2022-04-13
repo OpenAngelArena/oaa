@@ -298,13 +298,13 @@ function modifier_boss_shielder_jump:OnDestroy()
         -- Apply debuff
         enemy:AddNewModifier(parent, ability, "modifier_boss_shielder_shield_crash_debuff", {duration = debuff_duration})
 
+        -- Particle (on hit enemies)
+        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_shield_impact.vpcf", PATTACH_ABSORIGIN, enemy)
+        ParticleManager:ReleaseParticleIndex(particle)
+
         -- Apply damage
         damage_table.victim = enemy
         ApplyDamage(damage_table)
-
-        -- Particle (on hit enemies)
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_shield_impact.vpcf", PATTACH_ABSORIGIN, target)
-        ParticleManager:ReleaseParticleIndex(particle)
       end
     end
 

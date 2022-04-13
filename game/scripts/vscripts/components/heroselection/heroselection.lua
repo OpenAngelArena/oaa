@@ -715,13 +715,13 @@ function HeroSelection:CMBecomeCaptain (event)
   if PlayerResource:GetTeam(event.PlayerID) == 2 then
     cmpickorder["captainradiant"] = event.PlayerID
     CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-    if not cmpickorder["captaindire"] == "empty" then
+    if not (cmpickorder["captaindire"] == "empty") then
       HeroSelection:CMManager({dummy = "dummy"})
     end
   elseif PlayerResource:GetTeam(event.PlayerID) == 3 then
     cmpickorder["captaindire"] = event.PlayerID
     CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-    if not cmpickorder["captainradiant"] == "empty" then
+    if not (cmpickorder["captainradiant"] == "empty") then
       HeroSelection:CMManager({dummy = "dummy"})
     end
   end
