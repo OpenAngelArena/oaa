@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "4"
     "ModelScale"                                          "0.80"
@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""      // furbolg_enrage_attack_speed
+    "Ability1"                                            "kobold_disarm"      // furbolg_enrage_attack_speed
     "Ability2"                                            ""      // Ability 2
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
@@ -33,7 +33,8 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "39"    // Damage range min.
     "AttackDamageMax"                                     "44"    // Damage range max.
-    "AttackRate"                                          "1.5"   // Speed of attack.
+    "AttackRate"                                          "2.0"   // Speed of attack.
+    "BaseAttackSpeed"                                     "200"
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.

@@ -22,7 +22,7 @@ function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
     local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, FIND_UNITS_EVERYWHERE, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 
     local function IsNotCaster(entity)
-      return not (entity == hCaster)
+      return entity ~= hCaster
     end
     local hTarget = nth(1, filter(IsNotCaster, iter(units)))
 
@@ -49,7 +49,7 @@ function item_greater_travel_boots:OnSpellStart()
   local hCaster = self:GetCaster()
   local hTarget = self:GetCursorTarget()
   local casterTeam = hCaster:GetTeamNumber()
-  
+
   -- Disable working on Meepo Clones
   if hCaster:IsClone() then
     self:RefundManaCost()

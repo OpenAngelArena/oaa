@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_drake/n_creep_black_drake.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_black_drake/n_creep_black_drake.vmdl"
     "SoundSet"                                            "n_creep_Ranged"
     "Level"                                               "6"
     "IsAncient"                                           "1"
@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "3"       // Physical protection.
-    "MagicalResistance"                                   "25"      // Magical protection.
+    "MagicalResistance"                                   "30"      // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -34,8 +34,9 @@
     "AttackDamageMin"                                     "48"      // Damage range min.
     "AttackDamageMax"                                     "81"      // Damage range max.
     "AttackRate"                                          "1.5"     // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.94"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "300"     // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "500"     // Range within a target can be acquired.
     "AttackRange"                                         "300"     // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/neutral_fx/black_drake_attack.vpcf"
     "ProjectileSpeed"                                     "900"    // Speed of projectile.

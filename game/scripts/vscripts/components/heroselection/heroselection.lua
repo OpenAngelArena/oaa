@@ -712,16 +712,16 @@ end
 function HeroSelection:CMBecomeCaptain (event)
   DebugPrint("Selecting captain")
   DebugPrintTable(event)
-  if PlayerResource:GetTeam(event.PlayerID) == 2 then
+  if PlayerResource:GetTeam(event.PlayerID) == DOTA_TEAM_GOODGUYS then
     cmpickorder["captainradiant"] = event.PlayerID
     CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-    if not cmpickorder["captaindire"] == "empty" then
+    if cmpickorder["captaindire"] and cmpickorder["captaindire"] ~= "empty" then
       HeroSelection:CMManager({dummy = "dummy"})
     end
-  elseif PlayerResource:GetTeam(event.PlayerID) == 3 then
+  elseif PlayerResource:GetTeam(event.PlayerID) == DOTA_TEAM_BADGUYS then
     cmpickorder["captaindire"] = event.PlayerID
     CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
-    if not cmpickorder["captainradiant"] == "empty" then
+    if cmpickorder["captainradiant"] and cmpickorder["captainradiant"] ~= "empty" then
       HeroSelection:CMManager({dummy = "dummy"})
     end
   end

@@ -108,7 +108,7 @@ if IsServer() then
     if not attacker or attacker:IsNull() then
       return
     end
-	
+
     if attacker ~= parent then
       return
     end
@@ -248,7 +248,7 @@ if IsServer() then
     if not attacker or attacker:IsNull() then
       return
     end
-	
+
     if attacker ~= parent then
       return
     end

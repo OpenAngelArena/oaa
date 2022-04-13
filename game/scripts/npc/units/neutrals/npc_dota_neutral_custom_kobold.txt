@@ -7,8 +7,8 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"
     "SoundSet"                                            "n_creep_Melee"
     "Level"                                               "1"
     "ModelScale"                                          "0.9"
@@ -26,7 +26,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "0"     // Physical protection.
-    "MagicalResistance"                                   "0"     // Magical protection.
+    "MagicalResistance"                                   "25"     // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -34,6 +34,7 @@
     "AttackDamageMin"                                     "10"    // Damage range min.
     "AttackDamageMax"                                     "11"    // Damage range max.
     "AttackRate"                                          "1.35"  // Speed of attack.
+    "BaseAttackSpeed"                                     "100"
     "AttackAnimationPoint"                                "0.38"  // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
     "AttackRange"                                         "100"   // Range within a target can be attacked.
@@ -54,7 +55,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "270"   // Speed.
+    "MovementSpeed"                                       "290"   // Speed.
 
     // Status
     //----------------------------------------------------------------

@@ -34,7 +34,7 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
   local unit_name
 
   if caster_is_a_hero then
-    -- Doom, Morphling, Rubick when he casts spell steal on Doom/Morphling
+    -- Doom or Morphling when morphed into Doom
     unit_name = "npc_dota_neutral_mud_golem_split_doom"
   else
     unit_name = "npc_dota_neutral_custom_mud_golem_split"

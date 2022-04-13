@@ -129,6 +129,8 @@ end
 
 modifier_azazel_summon_scout_innate = class(ModifierBaseClass)
 
+-- old flying vision
+--[[
 function modifier_azazel_summon_scout_innate:OnCreated()
   self:StartIntervalThink(0.1)
 end
@@ -136,10 +138,11 @@ end
 function modifier_azazel_summon_scout_innate:OnIntervalThink()
   if IsServer() then
     local parent = self:GetParent()
-    -- No other way to have unobstructed vision without making the unit flying
+    -- unobstructed vision
     AddFOWViewer(parent:GetTeam(), parent:GetAbsOrigin(), parent:GetCurrentVisionRange(), 0.1, false)
   end
 end
+]]
 
 function modifier_azazel_summon_scout_innate:IsHidden()
   return true
@@ -176,4 +179,12 @@ end
 
 function modifier_azazel_summon_scout_innate:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+-- Flying Vision
+function modifier_azazel_summon_scout_innate:CheckState()
+  local state = {
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+  }
+  return state
 end
