@@ -52,7 +52,7 @@ function magma_boss_magma_blood:OnProjectileHit(target, location)
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Apply debuff
-      enemy:AddNewModifier(caster, ability, "modifier_magma_boss_magma_blood_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
+      enemy:AddNewModifier(caster, self, "modifier_magma_boss_magma_blood_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
       -- Apply damage
       damage_table.victim = enemy
       ApplyDamage(damage_table)

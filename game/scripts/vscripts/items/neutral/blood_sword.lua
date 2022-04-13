@@ -122,7 +122,7 @@ if IsServer() then
     if attacker ~= parent then
       return
     end
-	
+
     -- Check if attacked unit exists
     if not target or target:IsNull() then
       return
@@ -133,7 +133,7 @@ if IsServer() then
       self:Destroy()
       return
     end
-	
+
     if damage <= 0 then
       self:Destroy()
       return
