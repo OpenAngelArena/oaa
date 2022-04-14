@@ -26,6 +26,16 @@ function tinkerer_laser_contraption:GetAOERadius()
   return self:GetSpecialValueFor("radius")
 end
 
+function tinkerer_laser_contraption:GetCastRange(location, target)
+  local caster = self:GetCaster()
+
+  if caster:HasScepter() then
+    return self:GetSpecialValueFor("scepter_cast_range")
+  end
+
+  return self.BaseClass.GetCastRange(self, location, target)
+end
+
 function tinkerer_laser_contraption:OnAbilityPhaseStart()
   if not IsServer() then
     return
@@ -126,6 +136,7 @@ function tinkerer_laser_contraption:OnSpellStart()
     node:AddNewModifier(caster, self, "modifier_tinkerer_laser_contraption_node", {duration = total_duration})
     node:AddNewModifier(caster, self, 'modifier_kill', {duration = total_duration})
     node:SetNeverMoveToClearSpace(true)
+    node:MakePhantomBlocker()
   end
 
   local units = FindUnitsInRadius(
@@ -148,7 +159,7 @@ function tinkerer_laser_contraption:OnSpellStart()
   damage_table.attacker = caster
   damage_table.damage = self:GetSpecialValueFor("initial_damage")
   damage_table.ability = self
-  damage_table.damage_type = self:GetAbilityDamageType()
+  damage_table.damage_type = DAMAGE_TYPE_PURE
 
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
