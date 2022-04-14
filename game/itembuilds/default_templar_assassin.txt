@@ -1,6 +1,6 @@
 "itembuilds"
 {
-	"author"		"Valve"
+	"author"		"OAA"
 	"hero"			"npc_dota_hero_templar_assassin"
 	"Title"			"Recommended items for Templar Assassin"
 
@@ -12,38 +12,32 @@
 			"item"		"item_blight_stone"
 		}
 
-		"#DOTA_Item_Build_Early_Game"
+		"#DOTA_Item_Build_Core_Items"
 		{
-      			"item"    	"item_desolator"
-			"item"		"item_lesser_crit"
-		}
-
-		"#DOTA_Item_Build_Mid_Items"
-		{
-            		"item"      	"item_blink"
+			"item"		"item_devastator_1"
 			"item"		"item_greater_crit"
-      			"item"		"item_satanic"
-			"item"		"item_skadi"
+			"item"		"item_swift_blink"
+			"item"		"item_satanic"
+			"item"		"item_black_king_bar_1"
 		}
 
-		"#DOTA_Item_Build_Late_Items"
+		"#DOTA_Item_Build_Shard"
 		{
-			"item"		"item_black_king_bar_1"
-            		"item"      	"item_swift_blink"
-			"item"		"item_devastator_3"
 			"item"		"item_aghanims_shard"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
+			"item"		"item_skadi"
 			"item"		"item_bloodthorn"
-      			"item"		"item_monkey_king_bar"
+			"item"		"item_monkey_king_bar"
 			"item"		"item_sheepstick_4"
 			"item"		"item_hurricane_pike"
 			"item"		"item_silver_edge"
-			"item"		"item_trumps_fists"
-      			"item"    	"item_rapier"
-            		"item"      	"item_sange_and_yasha"
+			"item"		"item_rapier"
+			"item"		"item_sange_and_yasha"
+			"item"		"item_manta"
+			"item"		"item_ultimate_scepter"
 		}
 	}
 }

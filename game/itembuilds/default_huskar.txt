@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_huskar"
     "Title"         "Recommended items for Huskar"
 
@@ -12,37 +12,27 @@
             "item"      "item_flask"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Core_Items"
         {
             "item"      "item_armlet"
-            "item"      "item_sange"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
             "item"      "item_sange_and_yasha"
             "item"      "item_satanic"
             "item"      "item_black_king_bar_1"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Shard"
         {
-            "item"      "item_skadi"
-            "item"      "item_monkey_king_bar"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
+            "item"      "item_skadi"
+            "item"      "item_monkey_king_bar"
             "item"      "item_ultimate_scepter"
             "item"      "item_mjollnir"
-            "item"      "item_solar_crest"
-            "item"      "item_trumps_fists"
             "item"      "item_heavens_halberd"
             "item"      "item_heart_oaa"
-            "item"      "item_etheral_blade"
-            "item"      "item_dagger_of_moriah"
-            "item"      "item_spiked_mail_1"
         }
     }
 }

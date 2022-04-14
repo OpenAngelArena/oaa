@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"     "Valve"
+  "author"     "OAA"
   "hero"       "npc_dota_hero_furion"
   "Title"      "Recommended items for Nature's Prophet"
 
@@ -14,24 +14,23 @@
       "item"   		"item_flask"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Physical_Core"
     {
-      "item"   		"item_helm_of_the_dominator"
-      "item"   		"item_vladmir"
+      "item"   		"item_greater_crit"
+      "item"      "item_bloodthorn"
+      "item"   		"item_black_king_bar_1"
+      "item"      "item_sheepstick_4"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Treants"
     {
       "item"		"item_helm_of_the_overlord"
       "item"		"item_assault"
-      "item"		"item_ancient_janggo"
-      "item"		"item_desolator"
+      "item"		"item_lucience"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"		"item_black_king_bar_1"
-      "item"		"item_bloodthorn"
       "item"		"item_aghanims_shard"
     }
 
@@ -39,14 +38,13 @@
     {
       "item"    	"item_monkey_king_bar"
       "item"    	"item_ultimate_scepter"
-      "item"    	"item_witch_blade"
-      "item"    	"item_greater_crit"
-      "item"    	"item_lucience"
+      "item"    	"item_revenants_brooch"
+      "item"    	"item_devastator_1"
+      "item"    	"item_solar_crest"
+      "item"      "item_wraith_pact"
       "item"    	"item_silver_edge"
       "item"    	"item_skadi"
-      "item"    	"item_trumps_fists"
       "item"    	"item_satanic"
-      "item"		"item_sheepstick_4"
     }
   }
 }

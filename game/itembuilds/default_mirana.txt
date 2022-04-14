@@ -1,6 +1,6 @@
 "itembuilds"
 {
-	"author"		"Valve"
+	"author"		"OAA"
 	"hero"			"npc_dota_hero_mirana"
 	"Title"			"Recommended items for Mirana"
 
@@ -8,43 +8,43 @@
 	{
 		"#DOTA_Item_Build_Starting_Items"
 		{
-			"item"		"item_wraith_band"
-      "item"    "item_flask"
-		}
-
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_magic_wand"
+			"item"      "item_wraith_band"
 			"item"		"item_boots"
+      		"item"      "item_flask"
 		}
 
-		"#DOTA_Item_Build_Mid_Items"
+		"#DOTA_Item_Build_Physical_Core"
+		{
+			"item"		"item_maelstrom"
+			"item"		"item_greater_crit"
+			"item"		"item_satanic"
+			"item"		"item_black_king_bar_1"
+		}
+
+		"#DOTA_Item_Build_Magical_Core"
 		{
 			"item"		"item_cyclone"
+			"item"		"item_ethereal_blade"
+			"item"		"item_ultimate_scepter"
+			"item"		"item_octarine_core"
 		}
 
-		"#DOTA_Item_Build_Late_Items"
+		"#DOTA_Item_Build_Shard"
 		{
-			"item"		"item_blink"
-			"item"		"item_ethereal_blade"
-			"item"		"item_yasha_and_kaya"
-      "item"    "item_bloodstone_1"
 			"item"		"item_aghanims_shard"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_ultimate_scepter"
-			"item"		"item_desolator"
+			"item"		"item_devastator_1"
 			"item"		"item_monkey_king_bar"
-			"item"		"item_greater_crit"
-			"item"		"item_sphere"
 			"item"		"item_manta"
 			"item"		"item_skadi"
-			"item"		"item_lotus_orb"
-			"item"		"item_mjollnir"
-			"item"		"item_hurricane_pike"
 			"item"		"item_bloodthorn"
+			"item"		"item_veil_of_discord"
+			"item"		"item_yasha_and_kaya"
+			"item"		"item_dagger_of_moriah"
+			"item"		"item_refresher_4"
 		}
 	}
 }
