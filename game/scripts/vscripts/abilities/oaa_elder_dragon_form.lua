@@ -111,7 +111,7 @@ function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
 end
 
 ---------------------------------------------------------------------------------------------------
-
+-- This modifier handles lvl 5 and scepter equip/unequip edge cases
 modifier_dragon_knight_elder_dragon_form_oaa = class(ModifierBaseClass)
 
 function modifier_dragon_knight_elder_dragon_form_oaa:IsHidden()
@@ -146,6 +146,7 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnRefresh()
   self:OnIntervalThink()
 end
 
+-- Check periodically if parent has scepter or not if the ability is level 5 or above
 function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
   if not IsServer() then
     return
@@ -168,6 +169,7 @@ function modifier_dragon_knight_elder_dragon_form_oaa:OnIntervalThink()
   end
 
   if ability:GetLevel() >= 5 then
+    -- Vanilla Dragon Form modifier
     local modifier = parent:FindModifierByName("modifier_dragon_knight_dragon_form")
     if parent:HasScepter() then
       if not modifier then
@@ -197,58 +199,74 @@ end
 --[[
 function modifier_dragon_knight_elder_dragon_form_oaa:DeclareFunctions()
   local funcs = {
-    --MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 
   return funcs
 end
 
--- Rage chance - chance to transform into Dragon Form when attack lands
-function modifier_dragon_knight_elder_dragon_form_oaa:OnAttackLanded(event)
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-
-  if event.attacker == parent and event.process_procs then
+-- Rage chance - chance to transform into Dragon Form when attack lands, doesn't matter what is the attacked target
+if IsServer() then
+  function modifier_dragon_knight_elder_dragon_form_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
     local spell = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-    if spell:GetLevel() == 4 then
-      -- no rage while broken
-      if parent:PassivesDisabled() then
-        return
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- no rage while broken
+    if parent:PassivesDisabled() then
+      return
+    end
+
+    if not spell or spell:GetLevel() ~= 4 then
+      return
+    end
+
+    local chance = spell:GetSpecialValueFor( "rage_chance" ) / 100
+
+    -- we're using the modifier's stack to store the amount of prng failures
+    -- this could be something else but since this modifier is hidden anyway ...
+    local prngMult = self:GetStackCount() + 1
+
+    -- compared prng to slightly less prng
+    if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult ) then
+      -- reset failure count
+      self:SetStackCount( 0 )
+
+      local duration = spell:GetSpecialValueFor( "rage_duration" )
+
+      -- check if the ability is already active, and if so, grab the current
+      -- duration
+      local mod = parent:FindModifierByName( "modifier_dragon_knight_dragon_form" )
+
+      if mod then
+        duration = duration + mod:GetRemainingTime()
       end
 
-      local chance = spell:GetSpecialValueFor( "rage_chance" ) / 100
+      local edfMods = {
+        "modifier_dragon_knight_dragon_form",
+        "modifier_dragon_knight_corrosive_breath",
+        "modifier_dragon_knight_splash_attack",
+        "modifier_dragon_knight_frost_breath",
+      }
 
-      -- we're using the modifier's stack to store the amount of prng failures
-      -- this could be something else but since this modifier is hidden anyway ...
-      local prngMult = self:GetStackCount() + 1
-
-      -- compared prng to slightly less prng
-      if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult ) then
-        -- reset failure count
-        self:SetStackCount( 0 )
-
-        local duration = spell:GetSpecialValueFor( "rage_duration" )
-
-        -- check if the ability is already active, and if so, grab the current
-        -- duration
-        local mod = parent:FindModifierByName( "modifier_dragon_knight_dragon_form" )
-
-        if mod then
-          duration = duration + mod:GetRemainingTime()
-        end
-
-        -- apply the edf modifiers with the new duration
-        for _, modName in pairs( self.edfMods ) do
-          parent:AddNewModifier( parent, spell, modName, { duration = duration } )
-        end
-      else
-        -- increment failure count
-        self:SetStackCount( prngMult )
+      -- apply the edf modifiers with the new duration
+      for _, modName in pairs( edfMods ) do
+        parent:AddNewModifier( parent, spell, modName, { duration = duration } )
       end
+    else
+      -- increment failure count
+      self:SetStackCount( prngMult )
     end
   end
 end
@@ -303,46 +321,50 @@ function modifier_dragon_knight_max_level_oaa:GetModifierMagicalResistanceBonus(
   return self.bonus_mr
 end
 
-function modifier_dragon_knight_max_level_oaa:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
+if IsServer() then
+  function modifier_dragon_knight_max_level_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-  if parent ~= event.attacker then
-    return
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- No effect while broken or illusion
+    if parent:PassivesDisabled() or parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards, spell-immune units and invulnerable units.
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
+      return
+    end
+
+    local duration = ability:GetSpecialValueFor("frost_duration")
+
+    -- Apply the debuff
+    target:AddNewModifier(parent, ability, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = duration})
   end
-
-  -- No effect while broken or illusion
-  if parent:PassivesDisabled() or parent:IsIllusion() then
-    return
-  end
-
-  -- To prevent crashes:
-  if not target then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item (or rune)
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
-
-  -- Don't affect buildings, wards and invulnerable units.
-  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
-    return
-  end
-
-  local duration = ability:GetSpecialValueFor("frost_duration")
-
-  -- Apply the debuff
-  target:AddNewModifier(parent, ability, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = duration})
 end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_dragon_knight_frostbite_debuff_oaa = class(ModifierBaseClass)

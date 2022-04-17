@@ -202,8 +202,16 @@ if IsServer() then
     -- Only AttackStart is early enough to override the projectile
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-    if event.attacker ~= parent then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
@@ -211,13 +219,8 @@ if IsServer() then
       return
     end
 
-    local target = event.target
-    if not target then
-      return
-    end
-
-    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-    if target:IsNull() then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
@@ -229,7 +232,7 @@ if IsServer() then
 
     if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
       if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
-        --The Attack while Autocast is ON or manually casted (current active ability)
+        -- The Attack while Autocast is ON or manually casted (current active ability)
 
         -- Add modifier to change attack sound
         parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_of_wisdom_fx", {})
@@ -243,18 +246,25 @@ if IsServer() then
   function modifier_oaa_glaives_of_wisdom:OnAttack(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-
-    if event.attacker ~= parent then
-      return
-    end
-
+    local attacker = event.attacker
     local target = event.target
-    if not target then
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
 
-    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-    if target:IsNull() then
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    if parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
@@ -267,6 +277,7 @@ if IsServer() then
     if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (ability:CastFilterResultTarget(target) == UF_SUCCESS) then
       if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
         --The Attack while Autocast is ON or or manually casted (current active ability)
+
         -- Enable proc for this attack record number (event.record is the same for OnAttackLanded)
         self.procRecords[event.record] = true
 
@@ -295,9 +306,16 @@ if IsServer() then
   function modifier_oaa_glaives_of_wisdom:OnAttackLanded(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
     local target = event.target
 
-    if event.attacker ~= parent then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
@@ -305,22 +323,21 @@ if IsServer() then
       return
     end
 
-    -- if target is nothing (nil), don't continue
-    if not target then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
-    -- Check if the target is going to be deleted soon by C++ garbage collector, if true don't continue
-    if target:IsNull() then
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
       return
     end
 
     if self.procRecords[event.record] and ability:CastFilterResultTarget(target) == UF_SUCCESS then
-
       local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
       local player = parent:GetPlayerOwner()
 
-      -- Bonus Glaives of Wisdom damage Talent
+      -- Talent that increases Glaives of Wisdom damage
       if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
         bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
       end
@@ -434,12 +451,16 @@ end
 
 modifier_oaa_glaives_of_wisdom_fx = class(ModifierBaseClass)
 
-function modifier_oaa_glaives_of_wisdom_fx:IsPurgable()
+function modifier_oaa_glaives_of_wisdom_fx:IsHidden()
+  return true
+end
+
+function modifier_oaa_glaives_of_wisdom_fx:IsDebuff()
   return false
 end
 
-function modifier_oaa_glaives_of_wisdom_fx:IsHidden()
-  return true
+function modifier_oaa_glaives_of_wisdom_fx:IsPurgable()
+  return false
 end
 
 function modifier_oaa_glaives_of_wisdom_fx:DeclareFunctions()

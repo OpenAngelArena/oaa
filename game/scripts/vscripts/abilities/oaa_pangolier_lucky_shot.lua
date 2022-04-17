@@ -31,79 +31,89 @@ function modifier_pangolier_lucky_shot_oaa:DeclareFunctions()
   }
 end
 
-function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
+if IsServer() then
+  function modifier_pangolier_lucky_shot_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-  -- Don't proc on units that dont have this modifier, don't proc on illusion or if broken
-  if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
-    return
-  end
-
-  -- To prevent crashes:
-  if not target then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  if not IsServer() then
-    return
-  end
-
-  -- Can't proc on allies, towers, or wards
-  if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
-    return
-  end
-
-  local chance = ability:GetSpecialValueFor("chance_pct")/100
-
-  -- Get number of failures
-  local prngMult = self:GetStackCount() + 1
-
-  -- Roll proc chance
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset PRD failure count on successful proc
-    self:SetStackCount(0)
-
-    -- Calculate duration
-    local duration = ability:GetSpecialValueFor("duration")
-    -- Different for ranged units
-    if target:IsRangedAttacker() then
-      duration = ability:GetSpecialValueFor("duration_ranged")
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
     end
 
-    -- Armor reduction and disarm duration with status resistance in mind
-    local disarm_duration = target:GetValueChangedByStatusResistance(duration)
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
 
-    -- Apply slow debuff
-    --target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
+    -- Don't proc on illusion or if broken
+    if parent:IsIllusion() or parent:PassivesDisabled() then
+      return
+    end
 
-    -- Apply armor reduction and disarm debuff (don't apply disarm to bosses)
-    if not target:IsOAABoss() then
-      target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Can't proc on allies, towers, or wards
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
+      return
+    end
+
+    local chance = ability:GetSpecialValueFor("chance_pct")/100
+
+    -- Get number of failures
+    local prngMult = self:GetStackCount() + 1
+
+    -- Roll proc chance
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+      -- Reset PRD failure count on successful proc
+      self:SetStackCount(0)
+
+      -- Calculate duration
+      local duration = ability:GetSpecialValueFor("duration")
+      -- Different for ranged units
+      if target:IsRangedAttacker() then
+        duration = ability:GetSpecialValueFor("duration_ranged")
+      end
+
+      -- Armor reduction and disarm duration with status resistance in mind
+      local disarm_duration = target:GetValueChangedByStatusResistance(duration)
+
+      -- Apply slow debuff
+      --target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
+
+      -- Apply armor reduction and disarm debuff (don't apply disarm to bosses)
+      if not target:IsOAABoss() then
+        target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
+      else
+        -- If debuff applies only armor reduction, don't change duration with status resistance
+        target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
+      end
+
+      -- Play proc sound
+      if target:IsConsideredHero() then
+        target:EmitSound("Hero_Pangolier.LuckyShot.Proc")
+      else
+        target:EmitSound("Hero_Pangolier.LuckyShot.Proc.Creep")
+      end
+
+      -- Play particle effect
+      local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_luckyshot_disarm_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
+      ParticleManager:ReleaseParticleIndex(particle)
     else
-      -- If debuff applies only armor reduction, don't change duration with status resistance
-      target:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
+      -- Didn't proc; Increment number of failures
+      self:SetStackCount(prngMult)
     end
-
-    -- Play proc sound
-    if target:IsConsideredHero() then
-      target:EmitSound("Hero_Pangolier.LuckyShot.Proc")
-    else
-      target:EmitSound("Hero_Pangolier.LuckyShot.Proc.Creep")
-    end
-
-    -- Play particle effect
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_luckyshot_disarm_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(particle)
-  else
-    -- Didn't proc; Increment number of failures
-    self:SetStackCount(prngMult)
   end
 end
 
