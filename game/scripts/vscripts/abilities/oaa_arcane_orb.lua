@@ -57,6 +57,17 @@ function modifier_oaa_arcane_orb:RemoveOnDeath()
   return false
 end
 
+function modifier_oaa_arcane_orb:OnCreated()
+  if not IsServer() then
+    return
+  end
+  if not self.procRecords then
+    self.procRecords = {}
+  end
+end
+
+modifier_oaa_arcane_orb.OnRefresh = modifier_oaa_arcane_orb.OnCreated
+
 function modifier_oaa_arcane_orb:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_START,
