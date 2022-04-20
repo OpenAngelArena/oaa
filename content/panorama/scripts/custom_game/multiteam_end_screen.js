@@ -200,7 +200,7 @@ function EndScoreboard (table, key, args) {
     values.gold.text = player.info.player_gold;
     values.dmgDone.text = stats[player.id].damage_dealt;
     values.dmgReceived.text = Entities.GetTotalDamageTaken(heroentity);
-    values.healing.text = stats[player.id].healing;;
+    values.healing.text = stats[player.id].healing;
     values.level.text = player.info.player_level;
 
     // PLACEHOLDERS: testing purpose only, remove it
