@@ -270,7 +270,12 @@ if IsServer() then
       return
     end
 
-	-- Create a damage table for proc damage
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Create a damage table for proc damage
     local damage_table = {}
     damage_table.attacker = parent
     damage_table.victim = target

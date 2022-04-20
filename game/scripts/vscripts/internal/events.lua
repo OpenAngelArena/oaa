@@ -25,10 +25,9 @@ function GameMode:_OnGameRulesStateChange(keys)
   })
 
   if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
-    self.bSeenWaitForPlayers = true
+
   elseif newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
     OnCustomGameSetupEvent(keys)
-    --Timers:RemoveTimer("alljointimer")
   elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     GameMode:PostLoadPrecache()
     GameMode:OnAllPlayersLoaded()
@@ -94,10 +93,6 @@ function GameMode:_OnEntityKilled( keys )
       killerTeam = killerEntity:GetTeam()
       DebugPrint("KILLED, KILLER: " .. killedUnit:GetName() .. " -- " .. killerEntity:GetName())
     end
-    if END_GAME_ON_KILLS and GetTeamHeroKills(killerTeam) >= KILLS_TO_END_GAME_FOR_TEAM then
-      GameRules:SetSafeToLeave( true )
-      GameRules:SetGameWinner( killerTeam )
-    end
 
     -- if SHOW_KILLS_ON_TOPBAR then
       -- GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_BADGUYS, GetTeamHeroKills(DOTA_TEAM_BADGUYS) )
@@ -125,12 +120,4 @@ function GameMode:_OnConnectFull(keys)
   GameMode._reentrantCheck = true
   GameMode:OnConnectFull( keys )
   GameMode._reentrantCheck = false
-end
-
-OnItemUpdateEvent = CreateGameEvent('OnItemUpdate')
-function GameMode:OnItemUpdate( keys )
-  -- Debug:EnableDebugging()
-  -- DebugPrint('on item update!')
-  -- DebugPrintTable(keys)
-  OnItemUpdateEvent(keys)
 end

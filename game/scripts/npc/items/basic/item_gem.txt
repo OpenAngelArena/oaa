@@ -5,12 +5,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "30"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "30"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityCastRange"                                    "300"
     "Model"                                               "models/props_gameplay/gem01.vmdl"
     "Effect"                                              "particles/generic_gameplay/dropped_gem.vpcf"
-    
+
     "AbilityCooldown"                                     "12"
 
     // Item Info

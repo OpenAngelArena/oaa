@@ -21,8 +21,7 @@
 						<Panel class="es-team" id="es-radiant">
 							<Panel class="es-team-title">
 								<Label class="es-team-name" text="Radiant" />
-								<Label id="es-team-score-radiant" class="es-team-score"
-									text="N/A" />
+								<Label id="es-team-score-radiant" class="es-team-score" text="N/A" />
 							</Panel>
 
 							<Panel class="es-legend">
@@ -31,6 +30,9 @@
 								<Label class="es-legend-kdalevel" text="D" />
 								<Label class="es-legend-kdalevel" text="A" />
 								<Label class="es-legend-gold" text="Gold" />
+                                <Label class="es-legend-dmg-done" text="Dmg Done" />
+                                <Label class="es-legend-dmg-received" text="Dmg Rec" />
+                                <Label class="es-legend-healing" text="Heal" />
 								<Label class="es-legend-imr" text="MMR" />
 								<Label class="es-legend-xp" text="Bottlepass XP" />
 							</Panel>
@@ -50,6 +52,9 @@
 								<Label class="es-legend-kdalevel" text="D" />
 								<Label class="es-legend-kdalevel" text="A" />
 								<Label class="es-legend-gold" text="Gold" />
+                                <Label class="es-legend-dmg-done" text="DMG Done" />
+                                <Label class="es-legend-dmg-received" text="DMG Rec" />
+                                <Label class="es-legend-healing" text="Heal" />
 								<Label class="es-legend-imr" text="MMR" />
 								<Label class="es-legend-xp" text="Bottlepass XP" />
 							</Panel>

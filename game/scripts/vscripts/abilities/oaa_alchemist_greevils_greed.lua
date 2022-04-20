@@ -52,29 +52,36 @@ if IsServer() then
   function modifier_alchemist_goblins_greed_oaa:OnAttackLanded(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
     local target = event.target
 
-    -- Doesn't work on units that dont have this modifier, doesn't work on illusions or if broken
-    if parent ~= event.attacker or parent:IsIllusion() or parent:PassivesDisabled() then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
 
-    -- To prevent crashes:
-    if not target then
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
-    if target:IsNull() then
+    -- Doesn't work on illusions or if broken
+    if parent:IsIllusion() or parent:PassivesDisabled() then
       return
     end
 
-    -- Doesn't work on allies, towers, or wards
-    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
       return
     end
 
     -- Don't continue if entity doesn't have this method
     if target.GetMaximumGoldBounty == nil then
+      return
+    end
+
+    -- Doesn't work on allies, towers, or wards
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber()) ~= UF_SUCCESS then
       return
     end
 

@@ -137,13 +137,22 @@ end
 
 function PointsManager:SetWinner(teamID)
   -- actually need to implement lose win logic for teams
+  self.hasGameEnded = true
   Music:FinishMatch(teamID)
   GAME_WINNER_TEAM = teamID
+  GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
+
   Bottlepass:SendWinner(teamID)
 
-  GAME_TIME_ELAPSED = GameRules:GetDOTATime(false, false)
-  GameRules:SetGameWinner(teamID)
-  self.hasGameEnded = true
+  Timers:CreateTimer(2, function()
+    GameRules:SetGameWinner(teamID)
+    --if teamID == DOTA_TEAM_GOODGUYS then
+      --GameRules:SetCustomVictoryMessage("#dota_post_game_radiant_victory")
+    --elseif teamID == DOTA_TEAM_BADGUYS then
+      --GameRules:SetCustomVictoryMessage("#dota_post_game_dire_victory")
+    --end
+    GameRules:SetCustomVictoryMessageDuration(POST_GAME_TIME)
+  end)
 end
 
 function PointsManager:SetPoints(teamID, amount)

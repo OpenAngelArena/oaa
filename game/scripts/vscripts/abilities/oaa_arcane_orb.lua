@@ -57,241 +57,267 @@ function modifier_oaa_arcane_orb:RemoveOnDeath()
   return false
 end
 
+function modifier_oaa_arcane_orb:OnCreated()
+  if not IsServer() then
+    return
+  end
+  if not self.procRecords then
+    self.procRecords = {}
+  end
+end
+
+modifier_oaa_arcane_orb.OnRefresh = modifier_oaa_arcane_orb.OnCreated
+
 function modifier_oaa_arcane_orb:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_START,
     MODIFIER_EVENT_ON_ATTACK,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_FAIL,
     MODIFIER_EVENT_ON_ATTACK_FINISHED
   }
 end
 
-function modifier_oaa_arcane_orb:OnAttack(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-
-  if event.attacker ~= parent then
-    return
-  end
-
-  if parent:GetCurrentActiveAbility() ~= ability then
-    return
-  end
-
-  -- To prevent crashes:
-  local target
-  if event.target == nil then
-    return
-  else
-    target = event.target
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
-
-  -- This happens only when Arcane Orb is cast manually.
-  self.manual_cast = true
-
-  -- This is here just in case if the changing projectile fails during OnAttackStart when manually casting
-  if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
-    parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
-  end
-end
-
-function modifier_oaa_arcane_orb:OnAttackStart(event)
-  -- OnAttackStart event is triggering before OnAttack event
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-
-  if event.attacker ~= parent then
-    return
-  end
-
-  if parent:IsIllusion() then
-	return
-  end
-
-  -- To prevent crashes:
-  local target
-  if event.target == nil then
-    return
-  else
-    target = event.target
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  -- Check for existence of GetUnitName method to determine if target is a unit or an item
-  -- items don't have that method -> nil; if the target is an item, don't continue
-  if target.GetUnitName == nil then
-    return
-  end
-
-  if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
-    if ability:GetAutoCastState() == true then
-      --The Attack while Autocast is ON
-      parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_sound", {})
-	  -- Change Attack Projectile
-      parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
-    else
-      --The Attack while Autocast is OFF
-      if parent:GetCurrentActiveAbility() == ability then
-        -- Arcane Orb Manual Cast
-        parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_sound", {})
-        parent:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
-      end
-    end
-  end
-end
-
-function modifier_oaa_arcane_orb:OnAttackFinished(event)
-  local parent = self:GetParent()
-  if event.attacker == parent then
-    -- This happens even during a normal attack
-    parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
-
-    -- Change the projectile (if a parent doesn't have modifier_oaa_arcane_orb_sound)
-    parent:ChangeAttackProjectile()
-  end
-end
-
-function modifier_oaa_arcane_orb:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local target = event.target
-
-  if event.attacker ~= parent then
-    return
-  end
-
-  -- To prevent crashes:
-  if target == nil then
-    return
-  end
-
-  if target:IsNull() then
-    return
-  end
-
-  if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
-    if ability:GetAutoCastState() == true then
-      -- The Attack while Autocast is ON
-      self:ArcaneOrbEffect(event)
-    else
-      -- The Attack while Autocast is OFF
-      if self.manual_cast then
-        self:ArcaneOrbEffect(event)
-      end
-    end
-  end
-end
-
-function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
-  if IsServer() and event then
-    local attacker = event.attacker or self:GetParent()
-    local target = event.target
+if IsServer() then
+  function modifier_oaa_arcane_orb:OnAttackStart(event)
+    -- OnAttackStart event is triggering before OnAttack event
+    local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-    if attacker:IsIllusion() then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
       return
     end
 
-    -- to prevent crashes:
-    if target:IsNull() then
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
-    -- Don't affect buildings, wards, spell immune units and invulnerable units.
-    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
+    if parent:IsIllusion() then
       return
     end
 
-    local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
-
-    -- Talent that increases mana pool damage percent
-    if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-      mana_pool_damage_pct = mana_pool_damage_pct + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
     end
 
-    -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
-    if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
-      local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
-      local intStealAmount = ability:GetSpecialValueFor("int_steal")
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
 
-      if intStealAmount ~= 0 and intStealDuration ~= 0 then
-        -- Talent that increases int steal duration
-        if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-          intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+    if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
+      if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
+        --The Attack while Autocast is ON or manually casted (current active ability)
+
+        -- Add modifier to change attack sound
+        parent:AddNewModifier(parent, ability, "modifier_oaa_arcane_orb_sound", {})
+
+        -- Change Attack Projectile
+        parent:ChangeAttackProjectile()
+      end
+    end
+  end
+
+  function modifier_oaa_arcane_orb:OnAttack(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    if parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check for existence of GetUnitName method to determine if target is a unit or an item
+    -- items don't have that method -> nil; if the target is an item, don't continue
+    if target.GetUnitName == nil then
+      return
+    end
+
+    if ability:IsOwnersManaEnough() and ability:IsCooldownReady() and (not parent:IsSilenced()) and (not target:IsMagicImmune()) then
+      if ability:GetAutoCastState() == true or parent:GetCurrentActiveAbility() == ability then
+        --The Attack while Autocast is ON or or manually casted (current active ability)
+
+        -- Enable proc for this attack record number (event.record is the same for OnAttackLanded)
+        self.procRecords[event.record] = true
+
+        -- Using attack modifier abilities doesn't actually fire any cast events so we need to do it manually
+        -- Using CastAbility (ability needs to have OnSpellStart()) to trigger Essence Flux
+        ability:CastAbility()
+
+        -- Changing projectile back is too early during OnAttack,
+        -- Changing projectile back is done by removing modifier_oaa_arcane_orb_sound from the parent
+        -- it should be done during OnAttackFinished;
+      end
+    end
+  end
+
+  function modifier_oaa_arcane_orb:OnAttackFinished(event)
+    local parent = self:GetParent()
+    if event.attacker == parent then
+      -- Remove modifier on every finished attack even if its a normal attack
+      parent:RemoveModifierByName("modifier_oaa_arcane_orb_sound")
+
+      -- Change the projectile (if a parent doesn't have modifier_oaa_arcane_orb_sound)
+      parent:ChangeAttackProjectile()
+    end
+  end
+
+  function modifier_oaa_arcane_orb:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    if parent:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    if self.procRecords[event.record] and not target:IsMagicImmune() then
+      self:ArcaneOrbEffect(event)
+    end
+  end
+
+  function modifier_oaa_arcane_orb:OnAttackFail(event)
+    local parent = self:GetParent()
+
+    if event.attacker == parent and self.procRecords[event.record] then
+      self.procRecords[event.record] = nil
+    end
+  end
+
+  function modifier_oaa_arcane_orb:ArcaneOrbEffect(event)
+    if event then
+      local attacker = event.attacker or self:GetParent()
+      local target = event.target
+      local ability = self:GetAbility()
+
+      -- Don't affect buildings, wards, spell immune units and invulnerable units.
+      if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
+        return
+      end
+
+      local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
+
+      -- Talent that increases mana pool damage percent
+      if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
+        mana_pool_damage_pct = mana_pool_damage_pct + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+      end
+
+      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
+      if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
+        local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
+        local intStealAmount = ability:GetSpecialValueFor("int_steal")
+
+        if intStealAmount ~= 0 and intStealDuration ~= 0 then
+          -- Talent that increases int steal duration
+          if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
+            intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
+          end
+
+          target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
+          target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
+          attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
+          attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
         end
-
-        target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
-        target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
-        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
-        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff", {duration = intStealDuration})
       end
-    end
 
-    -- Mana increase if the target is a hero, an illusion or tempest double
-    if target:IsRealHero() or target:IsIllusion() then
-      local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
-      local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
+      -- Mana increase if the target is a hero, an illusion or tempest double
+      if target:IsRealHero() or target:IsIllusion() then
+        local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
+        local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
 
-      if manaIncreaseAmount ~= 0 and manaIncreaseDuration ~= 0 then
-        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff_counter", {duration = manaIncreaseDuration})
-        attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff", {duration = manaIncreaseDuration})
-      end
-    end
-
-    local bonus_damage = attacker:GetMana() * mana_pool_damage_pct * 0.01
-    local player = attacker:GetPlayerOwner()
-    local point = target:GetAbsOrigin() -- store the location before we apply damage to the target
-
-    local damage_table = {}
-    damage_table.attacker = attacker
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = bonus_damage
-    damage_table.victim = target
-
-    -- Apply bonus damage to the attacked target (after all Arcane Orb debuffs)
-    ApplyDamage(damage_table)
-    SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
-    target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
-
-    -- Splash damage around the target (after dealing damage to the attacked target)
-    local radius = ability:GetSpecialValueFor("radius")
-    local splash_pct = ability:GetSpecialValueFor("splash_damage_percent")
-    if radius ~= 0 and splash_pct ~= 0 then
-      local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
-      local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
-      local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
-      local splash_damage = bonus_damage * splash_pct * 0.01
-      damage_table.damage = splash_damage
-
-      local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
-      for _, enemy in ipairs(enemies) do
-        if enemy ~= target then
-          damage_table.victim = enemy
-          ApplyDamage(damage_table)
-          SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
+        if manaIncreaseAmount ~= 0 and manaIncreaseDuration ~= 0 then
+          attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff_counter", {duration = manaIncreaseDuration})
+          attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_mana_buff", {duration = manaIncreaseDuration})
         end
       end
+
+      local bonus_damage = attacker:GetMana() * mana_pool_damage_pct * 0.01
+      local player = attacker:GetPlayerOwner()
+      local point = target:GetAbsOrigin() -- store the location before we apply damage to the target
+
+      local damage_table = {}
+      damage_table.attacker = attacker
+      damage_table.damage_type = ability:GetAbilityDamageType()
+      damage_table.ability = ability
+      damage_table.damage = bonus_damage
+      damage_table.victim = target
+
+      -- Apply bonus damage to the attacked target (after all Arcane Orb debuffs)
+      ApplyDamage(damage_table)
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
+      target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
+
+      -- Splash damage around the target (after dealing damage to the attacked target)
+      local radius = ability:GetSpecialValueFor("radius")
+      local splash_pct = ability:GetSpecialValueFor("splash_damage_percent")
+      if radius ~= 0 and splash_pct ~= 0 then
+        local target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+        local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
+        local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
+        local splash_damage = bonus_damage * splash_pct * 0.01
+        damage_table.damage = splash_damage
+
+        local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+        for _, enemy in pairs(enemies) do
+          if enemy and not enemy:IsNull() and enemy ~= target then
+            damage_table.victim = enemy
+            ApplyDamage(damage_table)
+            SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
+          end
+        end
+      end
+
+      -- Use mana and trigger cd while respecting reductions
+      --ability:UseResources(true, false, true)
+
+      -- Using CastAbility to trigger Essence Flux
+      --ability:CastAbility()
+
+      self.procRecords[event.record] = nil
     end
-
-    -- Use mana and trigger cd while respecting reductions
-    --ability:UseResources(true, false, true)
-    ability:CastAbility()
-
-    self.manual_cast = nil
   end
 end
 --------------------------------------------------------------------------------

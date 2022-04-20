@@ -83,32 +83,39 @@ function modifier_item_trumps_fists_passive:GetModifierManaBonus()
 end
 
 if IsServer() then
-  -- function modifier_item_trumps_fists_passive:OnAttackLanded(event)
-    -- local parent = self:GetParent()
-    -- local attacker = event.attacker
-    -- local target = event.target
+  --[[
+  function modifier_item_trumps_fists_passive:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-    -- -- Check if attacker exists
-    -- if not attacker or attacker:IsNull() then
-      -- return
-    -- end
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-    -- if attacker ~= parent then
-      -- return
-    -- end
+    if attacker ~= parent then
+      return
+    end
 
-    -- -- Check if attacked unit exists
-    -- if not target or target:IsNull() then
-      -- return
-    -- end
+    if parent:IsIllusion() then
+      return
+    end
 
-    -- if parent:IsIllusion() then
-      -- return
-    -- end
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
+      return
+    end
 
-    -- local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
-    -- target:AddNewModifier(parent, self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
-  -- end
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
+    target:AddNewModifier(parent, self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
+  end
+  ]]
 
   function modifier_item_trumps_fists_passive:OnTakeDamage(event)
     local parent = self:GetParent()
