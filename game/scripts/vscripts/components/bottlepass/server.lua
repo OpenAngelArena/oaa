@@ -118,6 +118,10 @@ function Bottlepass:SendWinner (winner)
     // player.xp.level = 2;
 ]]
   end)
+
+  if IsInToolsMode() then
+    Bottlepass:SendEndGameStats()
+  end
 end
 
 function Bottlepass:SendTeams ()

@@ -1,4 +1,4 @@
-/* global $, CustomNetTables, Game, DOTATeam_t, Entities */
+/* global $, CustomNetTables, Game, DOTATeam_t */
 
 'use strict';
 
@@ -117,7 +117,9 @@ function EndScoreboard (table, key, args) {
     let steamid = null;
     let playerSteamId = playerInfo.player_steamid + '';
 
-    resultInfo = playerResults[id + ''];
+    if (playerResults !== undefined) {
+	  resultInfo = playerResults[id + ''];
+    }
 
     for (steamid in xpInfo) {
       if (playerSteamId === steamid) {
@@ -199,7 +201,7 @@ function EndScoreboard (table, key, args) {
     values.assists.text = player.info.player_assists;
     values.gold.text = player.info.player_gold;
     values.dmgDone.text = stats[player.id].damage_dealt;
-    values.dmgReceived.text = Entities.GetTotalDamageTaken(heroentity);
+    values.dmgReceived.text = stats[player.id].damage_taken;
     values.healing.text = stats[player.id].healing;
     values.level.text = player.info.player_level;
 
