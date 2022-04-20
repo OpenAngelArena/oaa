@@ -16,47 +16,62 @@ function modifier_boss_stopfightingyourself_dupe_items:DeclareFunctions()
   }
 end
 
-function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(event)
-  local attacker = event.attacker
-  local target = event.target
-  local parent = self:GetParent()
-  local blacklist = {
-    "item_gem",
-    "item_rapier"
-  }
+if IsServer() then
+  function modifier_boss_stopfightingyourself_dupe_items:OnAttacked(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-  if target ~= parent then
-    return
-  end
-
-  if not attacker:IsHero() or not attacker:HasInventory() then
-    return
-  end
-
-  local ability = self:GetAbility()
-  if not ability:IsCooldownReady() then
-    return
-  end
-
-  for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-    local theirItem = attacker:GetItemInSlot(slot)
-    local oldItem = parent:GetItemInSlot(slot)
-
-    if oldItem then
-      parent:RemoveItem(oldItem)
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
     end
 
-    if theirItem then
-      if not contains(theirItem:GetName(), blacklist) then
-        local ourItem = parent:AddItemByName(theirItem:GetAbilityName())
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return
+    end
 
-        if ourItem:RequiresCharges() then
-          local charges = theirItem:GetCurrentCharges()
-          ourItem:SetCurrentCharges(charges)
+    -- Check if attacked entity has this modifier
+    if target ~= parent then
+      return
+    end
+
+    -- Check if attacker is a hero or illusion and if it has inventory
+    if not attacker:IsHero() or not attacker:HasInventory() then
+      return
+    end
+
+    local ability = self:GetAbility()
+    if not ability:IsCooldownReady() then
+      return
+    end
+
+    local blacklist = {
+      "item_gem",
+      "item_rapier"
+    }
+
+    for slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      local theirItem = attacker:GetItemInSlot(slot)
+      local oldItem = parent:GetItemInSlot(slot)
+
+      if oldItem then
+        parent:RemoveItem(oldItem)
+      end
+
+      if theirItem then
+        if not contains(theirItem:GetName(), blacklist) then
+          local ourItem = parent:AddItemByName(theirItem:GetAbilityName())
+
+          if ourItem:RequiresCharges() then
+            local charges = theirItem:GetCurrentCharges()
+            ourItem:SetCurrentCharges(charges)
+          end
         end
       end
     end
-  end
 
-  ability:StartCooldown(ability:GetSpecialValueFor('cooldown'))
+    ability:StartCooldown(ability:GetSpecialValueFor('cooldown'))
+  end
 end

@@ -170,7 +170,7 @@ if IsServer() then
       return
     end
 
-    local chance = ability:GetSpecialValueFor("chance_pct")/100
+    local chance = ability:GetSpecialValueFor("chance_pct") / 100
 
     -- Get number of failures
     local prngMult = self:GetStackCount() + 1

@@ -12,7 +12,7 @@ function abaddon_borrowed_time_oaa:GetCooldown(level)
   local caster = self:GetCaster()
   local base_cd = self.BaseClass.GetCooldown(self, level)
 
-  -- Let's see if Valve made FindAbilityByName available on the client
+  -- Talent that reduces cooldown
   local talent = caster:FindAbilityByName("special_bonus_unique_abaddon_5")
   if talent and talent:GetLevel() > 0 then
     return base_cd - math.abs(talent:GetSpecialValueFor("value"))
@@ -22,29 +22,36 @@ function abaddon_borrowed_time_oaa:GetCooldown(level)
 end
 
 function abaddon_borrowed_time_oaa:OnSpellStart()
-  if IsServer() then
-    local caster = self:GetCaster()
-    local buff_duration = self:GetSpecialValueFor("duration")
+  local caster = self:GetCaster()
+  local buff_duration = self:GetSpecialValueFor("duration")
 
-    if caster:HasScepter() then
-      buff_duration = self:GetSpecialValueFor("duration_scepter")
-    end
-
-    -- Strong Dispel
-    caster:Purge(false, true, false, true, true)
-
-    -- Add the Borrowed Time modifier to the caster
-    caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
-
-    -- Caster responses (not really important)
-    --local responses = {"abaddon_abad_borrowedtime_02","abaddon_abad_borrowedtime_03","abaddon_abad_borrowedtime_04","abaddon_abad_borrowedtime_05","abaddon_abad_borrowedtime_06","abaddon_abad_borrowedtime_07","abaddon_abad_borrowedtime_08","abaddon_abad_borrowedtime_09","abaddon_abad_borrowedtime_10","abaddon_abad_borrowedtime_11"}
-    --if not caster:EmitCasterSound("npc_dota_hero_abaddon", responses, 50, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS, nil, nil) then
-      --caster:EmitCasterSound("npc_dota_hero_abaddon", {"abaddon_abad_borrowedtime_01"}, 1, DOTA_CAST_SOUND_FLAG_BOTH_TEAMS, nil, nil)
-    --end
-
-    -- Play Sound
-    caster:EmitSound("Hero_Abaddon.BorrowedTime")
+  if caster:HasScepter() then
+    buff_duration = self:GetSpecialValueFor("duration_scepter")
   end
+
+  -- Strong Dispel
+  caster:Purge(false, true, false, true, true)
+
+  -- Add the Borrowed Time modifier to the caster
+  caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
+
+  -- Caster responses (not really important)
+  -- local responses = {
+    -- "abaddon_abad_borrowedtime_01",
+    -- "abaddon_abad_borrowedtime_02",
+    -- "abaddon_abad_borrowedtime_03",
+    -- "abaddon_abad_borrowedtime_04",
+    -- "abaddon_abad_borrowedtime_05",
+    -- "abaddon_abad_borrowedtime_06",
+    -- "abaddon_abad_borrowedtime_07",
+    -- "abaddon_abad_borrowedtime_08",
+    -- "abaddon_abad_borrowedtime_09",
+    -- "abaddon_abad_borrowedtime_10",
+    -- "abaddon_abad_borrowedtime_11"
+  -- }
+
+  -- Play Sound
+  caster:EmitSound("Hero_Abaddon.BorrowedTime")
 end
 
 function abaddon_borrowed_time_oaa:ProcsMagicStick()
@@ -97,7 +104,7 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
     local current_hp = parent:GetHealth()
     if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
       parent:CastAbilityImmediately(ability, parent:GetPlayerID())
-      -- ^ this is not good because it cancels channeling but its not gamebreaking either
+      -- ^ this is not good because it cancels channeling but it's not gamebreaking either
     end
   end
 end
@@ -110,24 +117,37 @@ function modifier_oaa_borrowed_time_passive:DeclareFunctions()
   return funcs
 end
 
-function modifier_oaa_borrowed_time_passive:OnTakeDamage(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_oaa_borrowed_time_passive:OnTakeDamage(event)
     local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
 
-    if parent ~= event.unit then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity has this modifier
+    if damaged_unit ~= parent then
       return
     end
 
     -- Do nothing if damage has HP removal flag
     -- Necro Hearstopper Aura (modifier_necrolyte_heartstopper_aura_effect) doesn't trigger OnTakeDamage event
-    -- maybe its intentional
+    -- maybe it's intentional
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
       return
     end
 
     -- Do nothing if damaged by non-player controlled creep or neutral creep
     -- Boss damage can still proc Borrowed Time
-    if event.attacker:IsNeutralCreep(false) then
+    if attacker:IsNeutralCreep(false) then
       return
     end
 
@@ -171,14 +191,14 @@ function modifier_oaa_borrowed_time_buff_caster:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK -- using this instead of MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     -- because Necrophos Aura (modifier_necrolyte_heartstopper_aura_effect) ignores damage reduction but it doesn't ...
-    -- ... ignore damage block
+    -- ... ignore total damage block
   }
 
   return funcs
 end
 
-function modifier_oaa_borrowed_time_buff_caster:GetModifierTotal_ConstantBlock(kv)
-  if IsServer() then
+if IsServer() then
+  function modifier_oaa_borrowed_time_buff_caster:GetModifierTotal_ConstantBlock(kv)
     local parent = self:GetParent()
 
     -- Show borrowed time heal particle
@@ -249,8 +269,8 @@ function modifier_oaa_borrowed_time_buff_ally:DeclareFunctions()
   return funcs
 end
 
-function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percentage(kv)
-  if IsServer() then
+if IsServer() then
+  function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percentage(kv)
     local caster = self:GetCaster()
     local ability = self:GetAbility()
 
@@ -274,7 +294,7 @@ function modifier_oaa_borrowed_time_buff_ally:GetModifierIncomingDamage_Percenta
     end
 
     -- Block the amount of damage on the ally
-    return -(redirect_pct)
+    return 0 - math.abs(redirect_pct)
   end
 end
 

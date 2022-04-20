@@ -56,7 +56,7 @@ function modifier_spider_boss_rage:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     MODIFIER_PROPERTY_MODEL_SCALE,
-    MODIFIER_EVENT_ON_ATTACKED,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_TOOLTIP,
   }
   return funcs
@@ -84,18 +84,55 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_spider_boss_rage:OnAttacked( params )
-	if IsServer() then
-		if params.attacker == self:GetParent() then
-			local hTarget = params.target
-			if hTarget and not hTarget:IsNull() and not hTarget:IsBuilding() and not hTarget:IsOther() then
-				local fHealAmt = math.min( params.damage, hTarget:GetHealth() ) * self.lifesteal_pct / 100
-				--print( "fHealAmt == " .. fHealAmt )
-				self:GetCaster():Heal( fHealAmt, self:GetAbility() )
-				ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() ) )
-			end
-		end
-	end
+if IsServer() then
+  function modifier_spider_boss_rage:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    local damage = event.damage
+    if damage <= 0 or event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+      return
+    end
+
+    local ufResult = UnitFilter(
+      target,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
+      parent:GetTeamNumber()
+    )
+
+		if ufResult == UF_SUCCESS then
+      -- Calculate Lifesteal, max amount is target's current hp)
+      local amount = math.min(damage * self.lifesteal_pct / 100, target:GetHealth())
+      -- Apply Lifesteal
+      parent:Heal(amount, self:GetAbility())
+      -- Lifesteal particle
+      local particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:ReleaseParticleIndex(particle)
+    end
+  end
 end
 
 --------------------------------------------------------------------------------

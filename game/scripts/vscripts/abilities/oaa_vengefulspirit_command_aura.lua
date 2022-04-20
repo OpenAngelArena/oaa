@@ -59,68 +59,73 @@ function modifier_vengefulspirit_command_aura_oaa:DeclareFunctions()
   }
 end
 
-function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
-  local parent = self:GetParent()
-  if not parent:HasScepter() or parent:IsIllusion() or not IsServer() then
-    return
+if IsServer() then
+  function modifier_vengefulspirit_command_aura_oaa:OnDeath(event)
+    local parent = self:GetParent()
+    if not parent:HasScepter() or parent:IsIllusion() then
+      return
+    end
+
+    if event.unit ~= parent then
+      return
+    end
+
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local playerID = parent:GetPlayerOwnerID()
+
+    local illusion_table = {
+      outgoing_damage = 100 - ability:GetSpecialValueFor("scepter_illusion_damage_out_pct"),
+      incoming_damage = ability:GetSpecialValueFor("scepter_illusion_damage_in_pct") - 100,
+      bounty_base = 0,
+      bounty_growth = 0,
+      outgoing_damage_structure = 0,
+      outgoing_damage_roshan = 0,
+    }
+    local illusions = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
+    for _, illusion in pairs(illusions) do
+      illusion:SetHealth(illusion:GetMaxHealth())
+      illusion:SetMana(illusion:GetMaxMana())
+      illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
+      --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
+      self.illusion = illusion
+
+      Timers:CreateTimer(1/30, function()
+        local player = PlayerResource:GetPlayer(playerID)
+        if player then
+          CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = illusion:GetEntityIndex(), entity_to_remove = parent:GetEntityIndex()})
+        end
+      end)
+    end
   end
 
-  if event.unit ~= parent then
-    return
-  end
+  function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
+    local parent = self:GetParent()
+    if not parent:HasScepter() or parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+      return
+    end
 
-  local ability = self:GetAbility()
-  if not ability or ability:IsNull() then
-    return
-  end
-
-  local playerID = parent:GetPlayerOwnerID()
-
-  local illusion_table = {
-    outgoing_damage = 100 - ability:GetSpecialValueFor("scepter_illusion_damage_out_pct"),
-    incoming_damage = ability:GetSpecialValueFor("scepter_illusion_damage_in_pct") - 100,
-    bounty_base = 0,
-    bounty_growth = 0,
-    outgoing_damage_structure = 0,
-    outgoing_damage_roshan = 0,
-  }
-  local illusions = CreateIllusions(parent, parent, illusion_table, 1, parent:GetHullRadius(), true, true)
-  for _, illusion in pairs(illusions) do
-    illusion:SetHealth(illusion:GetMaxHealth())
-    illusion:SetMana(illusion:GetMaxMana())
-    illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_hybrid_special", {})
-    --illusion:AddNewModifier(parent, ability, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker", {})
-    self.illusion = illusion
-
-    Timers:CreateTimer(1/30, function()
-      local player = PlayerResource:GetPlayer(playerID)
-      if player then
-        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = illusion:GetEntityIndex(), entity_to_remove = parent:GetEntityIndex()})
+    if event.unit ~= parent then
+      return
+    end
+    --[[
+    if self.illusion and not self.illusion:IsNull() then
+      self.illusion:AddNoDraw()
+      self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
+    end
+    ]]
+    local playerID = parent:GetPlayerOwnerID()
+    local player = PlayerResource:GetPlayer(playerID)
+    if player then
+      if self.illusion and not self.illusion:IsNull() then
+        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex(), entity_to_remove = self.illusion:GetEntityIndex()})
+      else
+        CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex()})
       end
-    end)
-  end
-end
-
-
-function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
-  local parent = self:GetParent()
-  if not parent:HasScepter() or parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not IsServer() then
-    return
-  end
-
-  if event.unit ~= parent then
-    return
-  end
-  --[[
-  if self.illusion and not self.illusion:IsNull() then
-    self.illusion:AddNoDraw()
-    self.illusion:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
-  end
-  ]]
-  local playerID = parent:GetPlayerOwnerID()
-  local player = PlayerResource:GetPlayer(playerID)
-  if player then
-    CustomGameEventManager:Send_ServerToPlayer(player, "AddRemoveSelection", {entity_to_add = parent:GetEntityIndex(), entity_to_remove = self.illusion:GetEntityIndex()})
+    end
   end
 end
 
@@ -157,6 +162,7 @@ end
 function modifier_vengefulspirit_command_aura_oaa_damage_buff:GetModifierBaseDamageOutgoing_Percentage()
   local caster = self:GetCaster()
   if caster and not caster:IsNull() then
+    -- Talent that increases bonus damage
     local talent = caster:FindAbilityByName("special_bonus_unique_vengeful_spirit_2")
     if talent and talent:GetLevel() > 0 then
       return self.damage + math.abs(talent:GetSpecialValueFor("value"))
@@ -188,19 +194,21 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:Decla
   }
 end
 
-function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:OnDeath(event)
-  local parent = self:GetParent()
-  if not parent:HasScepter() or not parent:IsIllusion() or not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_tracker:OnDeath(event)
+    local parent = self:GetParent()
+    if not parent:HasScepter() or not parent:IsIllusion() then
+      return
+    end
 
-  if event.unit ~= parent then
-    return
-  end
+    if event.unit ~= parent then
+      return
+    end
 
-  parent:RespawnUnit() -- idk if this works on illusions
-  parent:AddNoDraw()
-  parent:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
+    parent:RespawnUnit() -- idk if this works on illusions
+    parent:AddNoDraw()
+    parent:AddNewModifier(parent, nil, "modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide", {})
+  end
 end
 
 ---------------------------------------------------------------------------------------------------

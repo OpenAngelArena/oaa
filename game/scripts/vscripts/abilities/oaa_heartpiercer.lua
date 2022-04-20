@@ -26,54 +26,74 @@ function modifier_pangolier_heartpiercer_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_pangolier_heartpiercer_oaa:OnCreated()
-  self:SetStackCount(1)
-end
-
 function modifier_pangolier_heartpiercer_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
 end
 
-function modifier_pangolier_heartpiercer_oaa:OnAttackLanded(keys)
-  local parent = self:GetParent()
-  if keys.attacker ~= parent or not keys.process_procs or parent:PassivesDisabled() then
-    return
-  end
+if IsServer() then
+  function modifier_pangolier_heartpiercer_oaa:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-  local target = keys.target
-
-  -- Can't proc on allies, towers, or wards
-  if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
-    return
-  end
-
-  local ability = self:GetAbility()
-  local procChance = ability:GetSpecialValueFor("chance_pct")
-  local prdMult = self:GetStackCount()
-
-  -- Roll proc chance
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(procChance / 100) * prdMult) then
-    self:SetStackCount(1) -- Reset PRD counter on successful proc
-
-    -- If the target already has the debuff, then refresh it
-    if target:HasModifier(debuffModName) then
-      target:AddNewModifier(parent, ability, debuffModName, {duration = ability:GetSpecialValueFor("duration")})
-    -- Only apply the delay handler if the target doesn't already have it
-    elseif not target:HasModifier(delayModName) then
-      target:AddNewModifier(parent, ability, delayModName, {duration = ability:GetSpecialValueFor("debuff_delay")})
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
     end
 
-    -- Play proc sound
-    if target:IsHero() then
-      target:EmitSound("Hero_Pangolier.HeartPiercer")
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if broken
+    if parent:PassivesDisabled() then
+      return
+    end
+
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Can't proc on allies, towers, or wards
+    if UnitFilter(target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber()) ~= UF_SUCCESS then
+      return
+    end
+
+    local ability = self:GetAbility()
+    local procChance = ability:GetSpecialValueFor("chance_pct") / 100
+    local prdMult = self:GetStackCount() + 1
+
+    -- Roll proc chance
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(procChance) * prdMult) then
+      self:SetStackCount(0) -- Reset PRD counter on successful proc
+
+      -- If the target already has the debuff, then refresh it
+      if target:HasModifier(debuffModName) then
+        target:AddNewModifier(parent, ability, debuffModName, {duration = ability:GetSpecialValueFor("duration")})
+      -- Only apply the delay handler if the target doesn't already have it
+      elseif not target:HasModifier(delayModName) then
+        target:AddNewModifier(parent, ability, delayModName, {duration = ability:GetSpecialValueFor("debuff_delay")})
+      end
+
+      -- Play proc sound
+      if target:IsHero() then
+        target:EmitSound("Hero_Pangolier.HeartPiercer")
+      else
+        target:EmitSound("Hero_Pangolier.HeartPiercer.Creep")
+      end
     else
-      target:EmitSound("Hero_Pangolier.HeartPiercer.Creep")
+      -- Didn't proc; increment PRD counter
+      self:IncrementStackCount()
     end
-  else
-    -- Didn't proc; increment PRD counter
-    self:IncrementStackCount()
   end
 end
 
@@ -82,6 +102,10 @@ end
 modifier_pangolier_heartpiercer_oaa_delay = class(ModifierBaseClass)
 
 function modifier_pangolier_heartpiercer_oaa_delay:IsDebuff()
+  return true
+end
+
+function modifier_pangolier_heartpiercer_oaa_delay:IsPurgable()
   return true
 end
 
@@ -110,6 +134,10 @@ end
 modifier_pangolier_heartpiercer_oaa_debuff = class(ModifierBaseClass)
 
 function modifier_pangolier_heartpiercer_oaa_debuff:IsDebuff()
+  return true
+end
+
+function modifier_pangolier_heartpiercer_oaa_debuff:IsPurgable()
   return true
 end
 
