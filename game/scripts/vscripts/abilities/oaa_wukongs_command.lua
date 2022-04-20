@@ -617,7 +617,7 @@ function modifier_monkey_clone_oaa:OnIntervalThink()
       local target_position = parent.target:GetAbsOrigin()
       local distance = (parent_position - target_position):Length2D()
       local real_target = parent:GetAttackTarget() or parent.target  -- GetAttackTarget is nil sometimes
-      if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius then
+      if parent.target:IsAttackImmune() or parent.target:IsInvulnerable() or (not caster:HasScepter() and not real_target:IsHero()) or distance > search_radius or not caster:CanEntityBeSeenByMyTeam(real_target) then
         StopAttacking(parent)
       end
     else
@@ -628,7 +628,12 @@ function modifier_monkey_clone_oaa:OnIntervalThink()
       local target_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE)
       local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent_position, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, target_type, target_flags, FIND_CLOSEST, false)
 
-      parent.target = enemies[1]
+      for _, enemy in ipairs(enemies) do
+        if caster:CanEntityBeSeenByMyTeam(enemy) then
+          parent.target = enemy
+          break
+        end
+      end
 
       -- If target is found, enable auto-attacking of the parent and force him to attack found target
       -- SetAttacking doesn't work; SetAttackTarget doesn't exist; SetAggroTarget probably doesn't work too
