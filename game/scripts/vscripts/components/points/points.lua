@@ -144,7 +144,7 @@ function PointsManager:SetWinner(teamID)
 
   Bottlepass:SendWinner(teamID)
 
-  Timers:CreateTimer(1, function()
+  Timers:CreateTimer(2, function()
     GameRules:SetGameWinner(teamID)
     --if teamID == DOTA_TEAM_GOODGUYS then
       --GameRules:SetCustomVictoryMessage("#dota_post_game_radiant_victory")

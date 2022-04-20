@@ -29,10 +29,10 @@
 								<Label class="es-legend-kdalevel" text="K" />
 								<Label class="es-legend-kdalevel" text="D" />
 								<Label class="es-legend-kdalevel" text="A" />
-								<Label class="es-legend-gold" text="#dota_page_post_game_death_stats_gold" />
-                <Label class="es-legend-dmg-done" text="#dota_page_post_game_damage_dealt" />
-                <Label class="es-legend-dmg-received" text="#dota_page_post_game_damage_received" />
-                <Label class="es-legend-healing" text="Healing" />
+								<Label class="es-legend-gold" text="Gold" />
+                                <Label class="es-legend-dmg-done" text="Dmg Done" />
+                                <Label class="es-legend-dmg-received" text="Dmg Rec" />
+                                <Label class="es-legend-healing" text="Heal" />
 								<Label class="es-legend-imr" text="MMR" />
 								<Label class="es-legend-xp" text="Bottlepass XP" />
 							</Panel>
@@ -52,9 +52,9 @@
 								<Label class="es-legend-kdalevel" text="D" />
 								<Label class="es-legend-kdalevel" text="A" />
 								<Label class="es-legend-gold" text="Gold" />
-                <Label class="es-legend-dmg-done" text="#dota_page_post_game_damage_dealt" />
-                <Label class="es-legend-dmg-received" text="#dota_page_post_game_damage_received" />
-                <Label class="es-legend-healing" text="Healing" />
+                                <Label class="es-legend-dmg-done" text="DMG Done" />
+                                <Label class="es-legend-dmg-received" text="DMG Rec" />
+                                <Label class="es-legend-healing" text="Heal" />
 								<Label class="es-legend-imr" text="MMR" />
 								<Label class="es-legend-xp" text="Bottlepass XP" />
 							</Panel>
