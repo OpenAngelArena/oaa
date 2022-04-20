@@ -366,7 +366,7 @@ function modifier_furion_wrath_of_nature_hit_debuff:DeclareFunctions()
   return funcs
 end
 
-If IsServer() then
+if IsServer() then
   function modifier_furion_wrath_of_nature_hit_debuff:OnDeath(event)
     local parent = self:GetParent()
     if event.unit == parent then
