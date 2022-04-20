@@ -73,7 +73,7 @@ function GameMode:OnNPCSpawned(keys)
       local playerID = UnitVarToPlayerID(npc)
       local hero = PlayerResource:GetSelectedHeroEntity(playerID)
       if hero then
-        local force_of_nature_ability = hero:FindAbilityByName("furion_force_of_nature")
+        local force_of_nature_ability = hero:FindAbilityByName("furion_force_of_nature_oaa")
         if force_of_nature_ability then
           local ability_level = force_of_nature_ability:GetLevel()
           if ability_level > 0 then

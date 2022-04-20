@@ -38,7 +38,7 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
 end
 
 function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
-  return "furion_force_of_nature"
+  return "furion_force_of_nature_oaa"
 end
 
 -- This would be needed if furion_force_of_nature was a vanilla ability
@@ -187,7 +187,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
 
   -- Apply a scepter debuff before applying damage
   if bHasScepter and hTarget:IsRealHero() then
-    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
+    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
     if force_of_nature_ability and force_of_nature_ability:GetLevel() > 0 then
       hTarget:AddNewModifier(caster, force_of_nature_ability, "modifier_furion_wrath_of_nature_scepter_debuff", {duration = self.scepter_debuff_duration})
     end
@@ -204,7 +204,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
         nTargetsHit = nTargetsHit + 1
       end
     end
-    --nTargetsHit = #self.targets_hit
   end
   local flDamagePct = math.pow(1.0+(self.damage_percent_add/100.0), nTargetsHit)
   local flDamage = self.damage
@@ -313,7 +312,7 @@ if IsServer() then
       if not caster then
         return
       end
-      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
+      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
 
       -- Rubick stole Wrath of Nature but he doesn't have Force of Nature for some reason
       if not force_of_nature_ability then
