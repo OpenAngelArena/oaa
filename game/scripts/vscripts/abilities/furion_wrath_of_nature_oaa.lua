@@ -199,7 +199,12 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
   -- Calculate damage
   local nTargetsHit = 0
   if self.targets_hit then
-    nTargetsHit = #self.targets_hit
+    for _, v in pairs(self.targets_hit) do
+      if v then
+        nTargetsHit = nTargetsHit + 1
+      end
+    end
+    --nTargetsHit = #self.targets_hit
   end
   local flDamagePct = math.pow(1.0+(self.damage_percent_add/100.0), nTargetsHit)
   local flDamage = self.damage
