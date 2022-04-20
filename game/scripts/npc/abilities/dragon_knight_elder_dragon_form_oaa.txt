@@ -58,7 +58,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_attack_damage"                             "0"
       }
-      "05"
+      "05" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "corrosive_breath_damage"                         "20 40 60 120 120"
@@ -73,19 +73,19 @@
         "var_type"                                        "FIELD_INTEGER"
         "splash_radius"                                   "350"
       }
-      "08"
+      "08" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75 75 75 100 115"
+        "splash_damage_percent"                           "75 75 75 100 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_6"
       }
-      "09"
+      "09" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -60"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
-      "10"
+      "10" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80"
@@ -106,7 +106,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "magic_resistance"                                "0 0 0 25 40"
       }
-      "14"
+      "14" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "model_scale"                                     "0 0 0 30 30"

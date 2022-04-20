@@ -38,7 +38,7 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
 end
 
 function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
-  return "furion_force_of_nature"
+  return "furion_force_of_nature_oaa"
 end
 
 -- This would be needed if furion_force_of_nature was a vanilla ability
@@ -117,8 +117,8 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnCreated()
   end
 end
 
-function modifier_furion_wrath_of_nature_thinker_oaa:OnIntervalThink()
-  if IsServer() then
+if IsServer() then
+  function modifier_furion_wrath_of_nature_thinker_oaa:OnIntervalThink()
     local parent = self:GetParent()
     local new_target = self:GetNextTarget()
     if not new_target then
@@ -130,13 +130,22 @@ function modifier_furion_wrath_of_nature_thinker_oaa:OnIntervalThink()
     -- Bounce Particle
     self:CreateBounceFX(new_target)
     -- Move the thinker to the new target for easier searching
-    parent:SetOrigin(new_target:GetAbsOrigin())
+    parent:SetAbsOrigin(new_target:GetAbsOrigin())
     -- Damage and scepter effect
 	  self:HitTarget(new_target)
 
     if #self.targets_hit >= self.max_targets then
       --print("Wrath of Nature thinker reached max number of targets, destroying!")
       self:Destroy()
+    end
+  end
+
+  function modifier_furion_wrath_of_nature_thinker_oaa:OnDestroy()
+    local parent = self:GetParent()
+
+    -- Kill the thinker entity if it exists
+    if parent and not parent:IsNull() then
+      parent:ForceKill(false)
     end
   end
 end
@@ -156,41 +165,11 @@ function modifier_furion_wrath_of_nature_thinker_oaa:GetNextTarget()
     false
   )
 
-  if #enemies ~= 0 then
-    for i = 1, #enemies do
-      if enemies[i] then
-        -- Remove couriers and units that cannot be seen by caster's team (invisible but not revealed)
-        if enemies[i]:IsCourier() or not caster:CanEntityBeSeenByMyTeam(enemies[i]) then
-          table.remove(enemies, i)
-        end
-      end
-    end
-  end
-
   local nearest_enemy
-  local flClosestDist = 0.0
-  if #enemies > 0 then
-    for _,enemy in pairs(enemies) do
-      if enemy then
-        local bHitByWrath = false
-        if self.targets_hit then
-          for _, hHitEnemy in ipairs(self.targets_hit) do
-            if enemy == hHitEnemy then
-              bHitByWrath = true
-            end
-          end
-        end
-
-        if bHitByWrath == false then
-          local vToTarget = enemy:GetOrigin() - parent:GetOrigin()
-          local flDistToTarget = vToTarget:Length()
-
-          if nearest_enemy == nil or flDistToTarget < flClosestDist then
-            nearest_enemy = enemy
-            flClosestDist = flDistToTarget
-          end
-        end
-      end
+  for _, enemy in ipairs(enemies) do
+    if not enemy:IsCourier() and caster:CanEntityBeSeenByMyTeam(enemy) and self.targets_hit[tostring(enemy:GetEntityIndex())] ~= 1 then
+      nearest_enemy = enemy
+      break
     end
   end
 
@@ -208,7 +187,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
 
   -- Apply a scepter debuff before applying damage
   if bHasScepter and hTarget:IsRealHero() then
-    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
+    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
     if force_of_nature_ability and force_of_nature_ability:GetLevel() > 0 then
       hTarget:AddNewModifier(caster, force_of_nature_ability, "modifier_furion_wrath_of_nature_scepter_debuff", {duration = self.scepter_debuff_duration})
     end
@@ -220,7 +199,11 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
   -- Calculate damage
   local nTargetsHit = 0
   if self.targets_hit then
-    nTargetsHit = #self.targets_hit
+    for _, v in pairs(self.targets_hit) do
+      if v then
+        nTargetsHit = nTargetsHit + 1
+      end
+    end
   end
   local flDamagePct = math.pow(1.0+(self.damage_percent_add/100.0), nTargetsHit)
   local flDamage = self.damage
@@ -252,9 +235,6 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
     hTarget:AddNewModifier(caster, ability, "modifier_furion_wrath_of_nature_scepter_root_oaa", {duration = actual_duration})
   end
 
-  -- Apply damage
-  ApplyDamage(damage_table)
-
   -- Sounds
   if hTarget:IsHero() then
     hTarget:EmitSound("Hero_Furion.WrathOfNature_Damage")
@@ -263,8 +243,10 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
   end
 
   -- Add hTarget to the already hit table
-  table.insert(self.targets_hit, hTarget)
+  self.targets_hit[tostring(hTarget:GetEntityIndex())] = 1
 
+  -- Apply damage
+  ApplyDamage(damage_table)
 end
 
 function modifier_furion_wrath_of_nature_thinker_oaa:CreateBounceFX(hTarget)
@@ -287,16 +269,16 @@ function modifier_furion_wrath_of_nature_thinker_oaa:CreateBounceFX(hTarget)
   vTarget3.z = vTarget3.z + math.max( flDistance, 128 )
   vTarget4.z = vTarget4.z + 100
 
-  local nFXIndexHit = ParticleManager:CreateParticle( "particles/units/heroes/hero_furion/furion_wrath_of_nature.vpcf", PATTACH_CUSTOMORIGIN, nil );
-  ParticleManager:SetParticleControl( nFXIndexHit, 0, vTarget1 );
-  ParticleManager:SetParticleControl( nFXIndexHit, 1, vTarget2 );
-  ParticleManager:SetParticleControl( nFXIndexHit, 2, vTarget3 );
-  ParticleManager:SetParticleControl( nFXIndexHit, 3, vTarget4 );
-  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 0, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) );
-  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 1, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) );
-  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 2, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) );
-  ParticleManager:SetParticleControlEnt( nFXIndexHit, 4, self.target, PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), false );
-  ParticleManager:ReleaseParticleIndex( nFXIndexHit );
+  local nFXIndexHit = ParticleManager:CreateParticle( "particles/units/heroes/hero_furion/furion_wrath_of_nature.vpcf", PATTACH_CUSTOMORIGIN, nil )
+  ParticleManager:SetParticleControl( nFXIndexHit, 0, vTarget1 )
+  ParticleManager:SetParticleControl( nFXIndexHit, 1, vTarget2 )
+  ParticleManager:SetParticleControl( nFXIndexHit, 2, vTarget3 )
+  ParticleManager:SetParticleControl( nFXIndexHit, 3, vTarget4 )
+  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 0, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) )
+  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 1, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) )
+  ParticleManager:SetParticleControlOrientation( nFXIndexHit, 2, Vector( 0, 0, 1), Vector( 0, 1, 0), Vector( 1, 0, 0 ) )
+  ParticleManager:SetParticleControlEnt( nFXIndexHit, 4, self.target, PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), false )
+  ParticleManager:ReleaseParticleIndex( nFXIndexHit )
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -322,15 +304,15 @@ function modifier_furion_wrath_of_nature_scepter_debuff:DeclareFunctions()
   return funcs
 end
 
-function modifier_furion_wrath_of_nature_scepter_debuff:OnDeath(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_furion_wrath_of_nature_scepter_debuff:OnDeath(event)
     local parent = self:GetParent()
     if event.unit == parent then
       local caster = self:GetCaster()
       if not caster then
         return
       end
-      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
+      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
 
       -- Rubick stole Wrath of Nature but he doesn't have Force of Nature for some reason
       if not force_of_nature_ability then
@@ -388,8 +370,8 @@ function modifier_furion_wrath_of_nature_hit_debuff:DeclareFunctions()
   return funcs
 end
 
-function modifier_furion_wrath_of_nature_hit_debuff:OnDeath(event)
-  if IsServer() then
+if IsServer() then
+  function modifier_furion_wrath_of_nature_hit_debuff:OnDeath(event)
     local parent = self:GetParent()
     if event.unit == parent then
       local caster = self:GetCaster()

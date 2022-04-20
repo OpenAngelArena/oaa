@@ -15,7 +15,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /*
 // PLACEHOLDERS: testing purpose only
-var args = {
+let args = {
   xp_info: {
     0: {
       progress: 0.7,
@@ -56,21 +56,22 @@ function EndScoreboard (table, key, args) {
   }
 
   // Hide all other UI
-  var MainPanel = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent();
+  let MainPanel = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent();
   MainPanel.FindChildTraverse('topbar').style.visibility = 'collapse';
   MainPanel.FindChildTraverse('minimap_container').style.visibility = 'collapse';
   MainPanel.FindChildTraverse('lower_hud').style.visibility = 'collapse';
-  MainPanel.FindChildTraverse('HudChat').style.visibility = 'collapse'; // can be useful to keep but in 10v10 panels override on it
+  // MainPanel.FindChildTraverse('HudChat').style.visibility = 'collapse'; // can be useful to keep but in 10v10 panels override on it
   MainPanel.FindChildTraverse('NetGraph').style.visibility = 'collapse';
   MainPanel.FindChildTraverse('quickstats').style.visibility = 'collapse';
 
   // Gather info
-  var playerResults = args.players;
-  var serverInfo = args.info;
-  var xpInfo = args.xp_info;
-  var mapInfo = Game.GetMapInfo();
-  var radiantPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
-  var direPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS);
+  let playerResults = args.players;
+  let serverInfo = args.info;
+  let xpInfo = args.xp_info;
+  let stats = args.stats;
+  let mapInfo = Game.GetMapInfo();
+  let radiantPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS);
+  let direPlayerIds = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS);
 
   $.Msg(serverInfo);
 
@@ -84,8 +85,8 @@ function EndScoreboard (table, key, args) {
   });
 
   // Victory Info text
-  var victoryMessage = 'winning_team_name Victory!';
-  var victoryMessageLabel = $('#es-victory-info-text');
+  let victoryMessage = 'winning_team_name Victory!';
+  let victoryMessageLabel = $('#es-victory-info-text');
 
   if (serverInfo.winner === 2) {
     victoryMessage = victoryMessage.replace('winning_team_name', $.Localize('#DOTA_GoodGuys'));
@@ -96,9 +97,9 @@ function EndScoreboard (table, key, args) {
   victoryMessageLabel.text = victoryMessage;
 
   // Load frequently used panels
-  // var teamsContainer = $('#es-teams');
+  // let teamsContainer = $('#es-teams');
 
-  var panels = {
+  let panels = {
     radiant: $('#es-radiant'),
     dire: $('#es-dire'),
     radiantPlayers: $('#es-radiant-players'),
@@ -106,17 +107,19 @@ function EndScoreboard (table, key, args) {
   };
 
   // the panorama xml file used for the player lines
-  var playerXmlFile = 'file://{resources}/layout/custom_game/multiteam_end_screen_player.xml';
+  let playerXmlFile = 'file://{resources}/layout/custom_game/multiteam_end_screen_player.xml';
 
   // sort a player by merging results from server and using getplayerinfo
-  var loadPlayer = function (id) {
-    var playerInfo = Game.GetPlayerInfo(id);
-    var resultInfo = null;
-    var xp = null;
-    var steamid = null;
-    var playerSteamId = playerInfo.player_steamid + '';
+  let loadPlayer = function (id) {
+    let playerInfo = Game.GetPlayerInfo(id);
+    let resultInfo = null;
+    let xp = null;
+    let steamid = null;
+    let playerSteamId = playerInfo.player_steamid + '';
 
-    resultInfo = playerResults[id + ''];
+    if (playerResults !== undefined) {
+      resultInfo = playerResults[id + ''];
+    }
 
     for (steamid in xpInfo) {
       if (playerSteamId === steamid) {
@@ -133,24 +136,24 @@ function EndScoreboard (table, key, args) {
   };
 
   // Load players = sort our data we got from above
-  var radiantPlayers = [];
-  var direPlayers = [];
+  let radiantPlayers = [];
+  let direPlayers = [];
 
   $.Each(radiantPlayerIds, function (id) { radiantPlayers.push(loadPlayer(id)); });
   $.Each(direPlayerIds, function (id) { direPlayers.push(loadPlayer(id)); });
 
-  var createPanelForPlayer = function (player, parent) {
+  let createPanelForPlayer = function (player, parent) {
     // Create a new Panel for this player
-    var pp = $.CreatePanel('Panel', parent, 'es-player-' + player.id);
+    let pp = $.CreatePanel('Panel', parent, 'es-player-' + player.id);
     pp.AddClass('es-player');
     pp.BLoadLayout(playerXmlFile, false, false);
 
-    var xpBar = pp.FindChildrenWithClassTraverse('es-player-xp');
+    let xpBar = pp.FindChildrenWithClassTraverse('es-player-xp');
 
     //    $.Msg("Player:");
     //    $.Msg(player);
 
-    var values = {
+    let values = {
       name: pp.FindChildInLayoutFile('es-player-name'),
       avatar: pp.FindChildInLayoutFile('es-player-avatar'),
       hero: pp.FindChildInLayoutFile('es-player-hero'),
@@ -160,6 +163,9 @@ function EndScoreboard (table, key, args) {
       assists: pp.FindChildInLayoutFile('es-player-a'),
       imr: pp.FindChildInLayoutFile('es-player-imr'),
       gold: pp.FindChildInLayoutFile('es-player-gold'),
+      dmgDone: pp.FindChildInLayoutFile('es-player-dmg-done'),
+      dmgReceived: pp.FindChildInLayoutFile('es-player-dmg-received'),
+      healing: pp.FindChildInLayoutFile('es-player-healing'),
       level: pp.FindChildInLayoutFile('es-player-level'),
       xp: {
         bar: xpBar,
@@ -170,9 +176,9 @@ function EndScoreboard (table, key, args) {
       }
     };
 
-    var rp = $('#es-player-reward-container');
+    let rp = $('#es-player-reward-container');
 
-    var rewards = {
+    let rewards = {
       name: rp.FindChildInLayoutFile('es-player-reward-name'),
       rarity: rp.FindChildInLayoutFile('es-player-reward-rarity'),
       image: rp.FindChildInLayoutFile('es-player-reward-image')
@@ -182,15 +188,20 @@ function EndScoreboard (table, key, args) {
     values.avatar.steamid = player.info.player_steamid;
     values.hero.heroname = player.info.player_selected_hero;
 
+    let heroname = '#' + player.info.player_selected_hero;
+
     // Steam Name + Hero name
     values.name.text = player.info.player_name;
-    values.desc.text = $.Localize(player.info.player_selected_hero);
+    values.desc.text = $.Localize(heroname);
 
     // Stats
     values.kills.text = player.info.player_kills;
     values.deaths.text = player.info.player_deaths;
     values.assists.text = player.info.player_assists;
     values.gold.text = player.info.player_gold;
+    values.dmgDone.text = stats[player.id].damage_dealt;
+    values.dmgReceived.text = stats[player.id].damage_taken;
+    values.healing.text = stats[player.id].healing;
     values.level.text = player.info.player_level;
 
     // PLACEHOLDERS: testing purpose only, remove it
@@ -215,8 +226,8 @@ function EndScoreboard (table, key, args) {
         values.imr.text = 'TBD';
       } else {
         $.Msg('MMR correct!');
-        var imr = Math.floor(player.result.imr);
-        var diff = Math.floor(player.result.imr_diff);
+        let imr = Math.floor(player.result.imr);
+        let diff = Math.floor(player.result.imr_diff);
 
         if (diff === 0) {
           values.imr.text = imr;
@@ -235,8 +246,8 @@ function EndScoreboard (table, key, args) {
 
     // XP
     if (player.result != null) {
-      // var xp = Math.floor(player.result.xp);
-      var xpDiff = Math.floor(player.result.xp_diff);
+      // let xp = Math.floor(player.result.xp);
+      let xpDiff = Math.floor(player.result.xp_diff);
 
       if (xpDiff > 0) {
         values.xp.earned.text = '+' + xpDiff;
@@ -274,7 +285,7 @@ function EndScoreboard (table, key, args) {
 
               // PLACEHOLDERS
               // item earned info
-              var item = {
+              let item = {
                 name: 'Dash Staff',
                 rarity: 'Arcana',
                 image: 'dash_staff'

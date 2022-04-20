@@ -123,8 +123,13 @@ if IsServer() then
       return
     end
 
-    -- Check if attacked unit exists
+    -- Check if attacked entity exists
     if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
       return
     end
 

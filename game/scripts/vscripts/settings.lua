@@ -202,9 +202,6 @@ ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection 
 REMOVE_ILLUSIONS_ON_DEATH = false       -- Should we remove all illusions if the main hero dies?
 DISABLE_GOLD_SOUNDS = false             -- Should we disable the gold sound when players get gold?
 
-END_GAME_ON_KILLS = false               -- Should the game end after a certain number of kills?
-KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
-
 MAX_LEVEL = 50                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 

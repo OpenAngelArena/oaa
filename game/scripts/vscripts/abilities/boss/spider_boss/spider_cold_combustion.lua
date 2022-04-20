@@ -33,6 +33,13 @@ function spider_cold_combustion:Boom(parent)
 
     -- iterate through 'em
     for _, unit in pairs( units ) do
+      -- apply felfrost and increase its stack count
+      local mod = unit:AddNewModifier( parent, self, "modifier_felfrost", {} )
+
+      if mod then
+        mod:IncrementStackCount()
+      end
+
       -- deal damage
       ApplyDamage( {
         victim = unit,
@@ -42,13 +49,6 @@ function spider_cold_combustion:Boom(parent)
         damage_flags = DOTA_DAMAGE_FLAG_NONE,
         ability = self,
       } )
-
-      -- apply felfrost and increase its stack count
-      local mod = unit:AddNewModifier( parent, self, "modifier_felfrost", {} )
-
-      if mod then
-        mod:IncrementStackCount()
-      end
     end
 
     -- play sound effect

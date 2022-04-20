@@ -1,4 +1,7 @@
 GameEvents:OnEntityFatalDamage(function (keys)
+  if not keys.entindex_killed or not keys.entindex_attacker then
+    return
+  end
   local killedUnit = EntIndexToHScript(keys.entindex_killed)
   if killedUnit.IsCreep == nil or not killedUnit:IsCreep() then
     return
@@ -28,7 +31,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
   if killedUnit:IsNeutralUnitType() then
     local allies = FindUnitsInRadius(
       PlayerResource:GetTeam(playerID),
-      attacker:GetOrigin(),
+      killedUnit:GetAbsOrigin(),
       nil,
       CREEP_BOUNTY_SHARE_RADIUS,
       DOTA_UNIT_TARGET_TEAM_FRIENDLY,
