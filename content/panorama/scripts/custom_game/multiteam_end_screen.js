@@ -118,7 +118,7 @@ function EndScoreboard (table, key, args) {
     let playerSteamId = playerInfo.player_steamid + '';
 
     if (playerResults !== undefined) {
-	  resultInfo = playerResults[id + ''];
+      resultInfo = playerResults[id + ''];
     }
 
     for (steamid in xpInfo) {
@@ -189,7 +189,6 @@ function EndScoreboard (table, key, args) {
     values.hero.heroname = player.info.player_selected_hero;
 
     let heroname = '#' + player.info.player_selected_hero;
-    let heroentity = player.info.player_selected_hero_entity_index;
 
     // Steam Name + Hero name
     values.name.text = player.info.player_name;
