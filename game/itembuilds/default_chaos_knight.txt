@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_chaos_knight"
     "Title"         "Recommended items for Chaos Knight"
 
@@ -11,42 +11,31 @@
             "item"      "item_boots"
             "item"      "item_clarity"
             "item"      "item_flask"
-            "item"      "item_mango"
-            "item"      "item_mango"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Core_Items"
         {
-            "item"      "item_power_treads"
-            "item"      "item_armlet"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_sange_and_yasha"
+            "item"      "item_ultimate_scepter"
             "item"      "item_black_king_bar_1"
-            "item"      "item_heart_oaa"
+            "item"      "item_sange_and_yasha"
+            "item"      "item_skadi"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Shard"
         {
-            "item"      "item_skadi"
-            "item"      "item_assault"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
+            "item"      "item_silver_edge"
             "item"      "item_monkey_king_bar"
             "item"      "item_abyssal_blade_2"
             "item"      "item_bloodthorn"
-            "item"      "item_manta_style"
-            "item"      "item_desolator"
+            "item"      "item_devastator_1"
             "item"      "item_heavens_halberd"
-            "item"      "item_solar_crest"
-            "item"      "item_ultimate_scepter"
-            "item"      "item_trumps_fists"
-            "item"      "item_blink"
+            "item"      "item_heart_oaa"
+            "item"      "item_overwhelming_blink"
         }
     }
 }

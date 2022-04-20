@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA"
   "hero"          "npc_dota_hero_ogre_magi"
   "Title"         "Recommended items for Ogre Magi"
 
@@ -15,38 +15,30 @@
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_arcane_boots"
       "item"      "item_hand_of_midas_1"
+      "item"      "item_octarine_core"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_sheepstick_4"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"      "item_rod_of_atos"
-      "item"      "item_aether_lens"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"    "item_heavens_halberd"
-      "item"    "item_ethereal_blade"
-      "item"    "item_octarine_core"
-      "item"    "item_sheepstick_4"
-      "item"    "item_aghanims_shard"
-    }
-
-    "#DOTA_Item_Build_Luxury"
-    {
-      "item"    "item_pipe"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_lotus_orb"
-      "item"    "item_bloodstone_1"
-      "item"    "item_dagon_oaa"
-      "item"    "item_guardian_greaves"
-      "item"    "item_veil_of_discord"
-      "item"    "item_pull_staff"
-      "item"    "item_devastator_3"
+      "item"      "item_heavens_halberd"
+      "item"      "item_silver_staff"
+      "item"      "item_ethereal_blade"
+      "item"      "item_dagon_oaa"
+      "item"      "item_shield_staff"
+      "item"      "item_lotus_orb"
+      "item"      "item_wind_waker"
+      "item"      "item_veil_of_discord"
+      "item"      "item_pull_staff"
     }
   }
 }

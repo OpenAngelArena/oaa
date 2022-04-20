@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA"
   "hero"          "npc_dota_hero_wisp"
   "Title"         "Recommended items for Io"
 
@@ -10,41 +10,35 @@
     {
       "item"      "item_clarity"
       "item"      "item_flask"
-      "item"      "item_mango"
+      "item"      "item_headdress"
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_holy_locket"
+      "item"      "item_guardian_greaves"
+      "item"      "item_ghost_king_bar"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_stoneskin"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_heart_oaa"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
       "item"      "item_kaya_and_sange"
-      "item"      "item_regen_crystal_1"
-      "item"      "item_heart_transplant"
-      "item"      "item_ghost_king_bar"
-      "item"      "item_aghanims_shard"
-    }
-
-    "#DOTA_Item_Build_Luxury"
-    {
-      "item"      "item_guardian_greaves"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_heart_oaa"
       "item"      "item_shivas_guard"
       "item"      "item_lucience"
       "item"      "item_heavens_halberd"
       "item"      "item_helm_of_the_dominator"
       "item"      "item_solar_crest"
-      "item"      "item_sheepstick_4"
       "item"      "item_aeon_disk_2"
-      "item"      "item_stoneskin"
       "item"      "item_radiance"
       "item"      "item_ethereal_blade"
     }

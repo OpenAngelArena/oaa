@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_treant_protector"
     "Title"         "Recommended items for Treant Protector"
 
@@ -12,40 +12,32 @@
             "item"      "item_orb_of_vemon"
         }
 
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_arcane_boots"
-            "item"      "item_blink"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_octarine_core"
-            "item"      "item_rod_of_atos"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Core_Items"
         {
             "item"      "item_ultimate_scepter"
-            "item"      "item_guardian_greaves"
-            "item"      "item_meteor_hammer_1"
-            "item"      "item_refresher_4"
-            "item"      "item_sheepstick_4"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_overwhelming_blink"
+            "item"      "item_wraith_pact"
+            "item"      "item_shivas_guard"
+            "item"      "item_heart_oaa"
+        }
+
+        "#DOTA_Item_Build_Shard"
+        {
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
+            "item"      "item_guardian_greaves"
+            "item"      "item_meteor_hammer_1"
+            "item"      "item_refresher_4"
+            "item"      "item_sheepstick_4"
             "item"      "item_lotus_orb"
             "item"      "item_solar_crest"
-            "item"      "item_shivas_guard"
             "item"      "item_pipe"
-            "item"      "item_vladmir"
+            "item"      "item_octarine_core"
             "item"      "item_crimson_guard"
-            "item"      "item_holy_locket"
             "item"      "item_heavens_halberd"
-            "item"      "item_heart_oaa"
-            "item"      "item_lucience"
             "item"      "item_aeon_disk_2"
         }
     }

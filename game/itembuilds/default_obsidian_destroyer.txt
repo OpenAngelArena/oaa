@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA"
   "hero"          "npc_dota_hero_obsidian_destroyer"
   "Title"         "Recommended items for Outworld Devourer"
 
@@ -9,43 +9,33 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_null_talisman"
-      "item"      "item_clarity"
-      "item"      "item_flask"
-      "item"      "item_mango"
-      "item"      "item_mango"
+      "item"      "item_boots"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"    "item_arcane_boots"
-      "item"    "item_aether_lens"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_rod_of_atos"
-    }
-
-    "#DOTA_Item_Build_Mid_Items"
-    {
-      "item"    "item_gungir"
-      "item"    "item_meteor_hammer_1"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"    "item_guardian_greaves"
-      "item"    "item_bloodstone_1"
-      "item"    "item_octarine_core"
-      "item"    "item_shivas_guard"
+      "item"    "item_revenants_brooch"
+      "item"    "item_bloodthorn"
+      "item"    "item_black_king_bar_1"
       "item"    "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"    "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_black_king_bar_1"
+      "item"    "item_guardian_greaves"
+      "item"    "item_satanic_core"
+      "item"    "item_satanic"
+      "item"    "item_octarine_core"
+      "item"    "item_shivas_guard"
+      "item"    "item_ethereal_blade"
       "item"    "item_blink"
       "item"    "item_hurricane_pike"
       "item"    "item_skadi"
-      "item"    "item_trumps_fists"
     }
   }
 }

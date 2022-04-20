@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_venomancer"
     "Title"         "Recommended items for Venomancer"
 
@@ -9,41 +9,33 @@
         "#DOTA_Item_Build_Starting_Items"
         {
             "item"      "item_flask"
-            "item"      "item_crown"
+            "item"      "item_boots"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Core_Items"
         {
-            "item"      "item_veil_of_discord"
-            "item"      "item_kaya"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_octarine_core"
             "item"      "item_ultimate_scepter"
-            "item"      "item_skadi"
+            "item"      "item_octarine_core"
+            "item"      "item_kaya_and_sange"
+            "item"      "item_satanic_core"
+            "item"      "item_stoneskin"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Shard"
         {
-            "item"      "item_bloodstone_1"
-            "item"      "item_satanic_core"
-            "item"      "item_dagger_of_moriah"
-            "item"      "item_trumps_fists"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
+            "item"      "item_greater_power_treads"
+            "item"      "item_dagger_of_moriah"
+            "item"      "item_trumps_fists"
             "item"      "item_wind_waker"
             "item"      "item_aeon_disk_2"
             "item"      "item_black_king_bar_1"
-            "item"      "item_arcane_blink"
-            "item"      "item_spirit_vessel"
-            "item"      "item_lotus_orb"
+            "item"      "item_blink"
             "item"      "item_ethereal_blade"
-            "item"      "item_shivas_guard"
             "item"      "item_sacred_skull"
         }
     }
