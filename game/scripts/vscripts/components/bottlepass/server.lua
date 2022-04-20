@@ -49,7 +49,7 @@ function Bottlepass:SendWinner (winner)
 
   if winner == DOTA_TEAM_GOODGUYS then
     winner = 'radiant'
-  else
+  elseif winner == DOTA_TEAM_BADGUYS then
     winner = 'dire'
   end
   self.winner = winner
@@ -84,7 +84,7 @@ function Bottlepass:SendWinner (winner)
     if data and data.ok then
       local mmrDiffs = {}
       DebugPrintTable(data)
-      for _,bottlePlayer in ipairs(data.playerDiffs) do
+      for _, bottlePlayer in ipairs(data.playerDiffs) do
         local playerID = playerBySteamid[bottlePlayer.steamid]
         mmrDiffs[playerID] = {
           imr = bottlePlayer.mmr,
@@ -193,10 +193,10 @@ function Bottlepass:Request(api, data, cb)
     cb("No bottlepass in ARDM", {})
     return
   end
-  if HeroSelection.is10v10 then
-    cb("No bottlepass in 10v10", {})
-    return
-  end
+  --if HeroSelection.is10v10 then
+    --cb("No bottlepass in 10v10", {})
+    --return
+  --end
   if GameRules:IsCheatMode() and not IsInToolsMode() then
     cb("No Bottlepass while in cheats mode", {})
     return

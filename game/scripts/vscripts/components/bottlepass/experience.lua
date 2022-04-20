@@ -3,6 +3,7 @@ if Bottlepass == nil then Bottlepass = Bottlepass or class({}) end
 
 function Bottlepass:SendEndGameStats()
   local xpInfo = {}
+  local playerStats = {}
 
   local players = {}
   for i = 0, PlayerResource:GetPlayerCount() - 1 do
@@ -10,10 +11,10 @@ function Bottlepass:SendEndGameStats()
   end
 
   for k, v in pairs(players) do
---    local level = Bottlepass:GetXPLevelByXp(v.xp)
---    local title = Bottlepass:GetTitleIXP(level)
---    local color = Bottlepass:GetTitleColorIXP(title, true)
---    local progress = Bottlepass:GetXpProgressToNextLevel(v.xp)
+    -- local level = Bottlepass:GetXPLevelByXp(v.xp)
+    -- local title = Bottlepass:GetTitleIXP(level)
+    -- local color = Bottlepass:GetTitleColorIXP(title, true)
+    -- local progress = Bottlepass:GetXpProgressToNextLevel(v.xp)
 
     -- PLACEHOLDERS: testing purpose, remove once the above are added
     local level = 7
@@ -31,11 +32,25 @@ function Bottlepass:SendEndGameStats()
         progress = progress
       }
     end
+    if PlayerResource:IsValidPlayerID(k) then
+      playerStats[k] = {
+        damage_dealt = PlayerResource:GetRawPlayerDamage(k),
+        damage_taken = PlayerResource:GetCreepDamageTaken(k, true) + PlayerResource:GetHeroDamageTaken(k, true),
+        healing = PlayerResource:GetHealing(k),
+      }
+    else
+      playerStats[k] = {
+        damage_dealt = 0,
+        damage_taken = 0,
+        healing = 0,
+      }
+    end
   end
 
   CustomNetTables:SetTableValue("end_game_scoreboard", "game_info", {
     players = Bottlepass.mmrDiffs,
     xp_info = xpInfo,
+    stats = playerStats,
     info = {
       winner = GAME_WINNER_TEAM,
       radiant_score = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS),
