@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_boss_spooky_ghost_siphon_debuff", "abilities/boss/spooky_ghost/boss_spooky_ghost_siphon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_frostbite_effect", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_spooky_ghost_siphon = class(AbilityBaseClass)
 
@@ -48,6 +49,7 @@ function boss_spooky_ghost_siphon:OnSpellStart()
 
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("radius")
+  local debuff_duration = self:GetSpecialValueFor("duration")
 
   local caster_location = caster:GetAbsOrigin()
 
@@ -64,15 +66,23 @@ function boss_spooky_ghost_siphon:OnSpellStart()
     false
   )
 
+  local do_sound
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() and not enemy:TriggerSpellAbsorb(self) then
-      -- Apply debuff
-      enemy:AddNewModifier(caster, self, "modifier_boss_spooky_ghost_siphon_debuff", {duration = self:GetSpecialValueFor("duration")})
+      do_sound = true
+      -- Apply Spirit Siphon debuff
+      enemy:AddNewModifier(caster, self, "modifier_boss_spooky_ghost_siphon_debuff", {duration = debuff_duration})
+      -- Apply frostbite debuff if disarmed or ethereal
+      if caster:IsAttackImmune() or caster:IsDisarmed() then
+        enemy:AddNewModifier(caster, nil, "modifier_boss_frostbite_effect", {duration = debuff_duration})
+      end
     end
   end
 
   -- Sound
-  EmitSoundOnLocationWithCaster(caster_location, "Hero_DeathProphet.SpiritSiphon.Cast", caster)
+  if do_sound then
+    EmitSoundOnLocationWithCaster(caster_location, "Hero_DeathProphet.SpiritSiphon.Cast", caster)
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
