@@ -46,10 +46,8 @@ function sohei_quivering_palm:OnSpellStart()
 
   local heroes_with_modifier = {}
   for _, hero in pairs(heroes) do
-    if hero and not hero:IsNull() then
-      if hero:HasModifier("modifier_sohei_quivering_palm_debuff") then
-        table.insert(heroes_with_modifier, hero)
-      end
+    if hero and not hero:IsNull() and hero:HasModifier("modifier_sohei_quivering_palm_debuff") then
+      table.insert(heroes_with_modifier, hero)
     end
   end
 
@@ -155,15 +153,25 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
   local caster_str = caster:GetStrength()
   local victim_str = victim:GetStrength()
   local diff_multiplier = self:GetSpecialValueFor("str_diff_multiplier")
+  local base_damage = self:GetSpecialValueFor("base_damage")
+  local attack_damage = caster:GetAverageTrueAttackDamage(nil)
   local bonus_damage = math.max((caster_str - victim_str) * diff_multiplier, 0)
 
   local damage_table = {}
   damage_table.attacker = caster
   damage_table.damage_type = self:GetAbilityDamageType()
   damage_table.ability = self
-  damage_table.damage = self:GetSpecialValueFor("base_damage") + bonus_damage
+  damage_table.damage = base_damage + attack_damage + bonus_damage
   damage_table.victim = victim
   ApplyDamage(damage_table)
+end
+
+function sohei_quivering_palm:OnUnStolen()
+  local caster = self:GetCaster()
+  local modifier = caster:FindModifierByName("modifier_sohei_quivering_palm_passive")
+  if modifier then
+    caster:RemoveModifierByName("modifier_sohei_quivering_palm_passive")
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -192,46 +200,48 @@ function modifier_sohei_quivering_palm_passive:DeclareFunctions()
   }
 end
 
-function modifier_sohei_quivering_palm_passive:OnAttackLanded(event)
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local attacker = event.attacker
-  local target = event.target
+if IsServer() then
+  function modifier_sohei_quivering_palm_passive:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local target = event.target
 
-  if attacker ~= parent then
-    return
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if attacker is an illusion
+    if attacker:IsIllusion() then
+      return
+    end
+
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if its an item, rune, or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Check if its a hero or illusion of a hero
+    if not target:IsHero() then
+      return
+    end
+
+    -- Applying the debuff
+    target:AddNewModifier(attacker, ability, "modifier_sohei_quivering_palm_debuff", {duration = ability:GetSpecialValueFor("max_duration")})
+
+    -- Last attacked hero (can be illusion too)
+    self.last_attacked_unit = target
   end
-
-  -- Check if attacker exists
-  if not attacker or attacker:IsNull() then
-    return
-  end
-
-  -- Check if attacker is an illusion
-  if attacker:IsIllusion() then
-    return
-  end
-
-  -- Check if attacked entity exists
-  if not target or target:IsNull() then
-    return
-  end
-
-  -- Check if its an item, rune, or something weird
-  if target.GetUnitName == nil then
-    return
-  end
-
-  -- Check if its a hero or illusion of a hero
-  if not target:IsHero() then
-    return
-  end
-
-  -- Applying the debuff
-  target:AddNewModifier(attacker, ability, "modifier_sohei_quivering_palm_debuff", {duration = ability:GetSpecialValueFor("max_duration")})
-
-  -- Last attacked hero (can be illusion too)
-  self.last_attacked_unit = target
 end
 
 ---------------------------------------------------------------------------------------------------

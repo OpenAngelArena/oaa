@@ -12,9 +12,12 @@
 "DOTA_Tooltip_Ability_sohei_dash_damage"                                        "DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_dash_move_speed_slow_pct"                           "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_slow_duration"                                 "SLOW DURATION:"
-"DOTA_Tooltip_Ability_sohei_dash_shard_base_heal"                               "SHARD BASE HEAL:"
-"DOTA_Tooltip_Ability_sohei_dash_shard_hp_as_heal"                              "%SHARD CURRENT HP AS HEAL:"
-"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Sohei heals allies he dashed through for 100 plus 10%% of his current health and pulls them along the way. Sohei and his allies are invulnerable during Dash and disjoint projectiles."
+"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Increases Dash range and heals allies. Dash can be toggled to change targeting behavior - allows targeting allies or enemies. Targeted allies are forced in the direction they are facing. Targeted enemies are pulled towards Sohei. Sohei during Dash and affected allies are invulnerable and disjoint projectiles."
+"DOTA_Tooltip_Ability_sohei_dash_shard_damage_to_heal_ratio"                    "DAMAGE/HEAL RATIO:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_hp_as_heal"                              "%SOHEI'S CURRENT HP AS HEAL:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_push_pull_length"                        "PUSH/PULL LENGTH:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_bonus_dash_range"                        "SHARD BONUS RANGE:"
+"DOTA_Tooltip_Ability_sohei_dash_shard_unit_cast_range"                         "SHARD UNIT CAST RANGE:"
 
 "DOTA_Tooltip_Ability_sohei_guard"                                              "Guard"
 "DOTA_Tooltip_Ability_sohei_guard_description"                                  "Removes most negative effects and reflects all projectiles that would hit you for the next %guard_duration% seconds. Can be used while stunned but consumes %charges_required% charges of Dash if used while stunned.\n\nDISPEL TYPE: Strong Dispel"
@@ -22,14 +25,15 @@
 "DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body"                                  "Wholeness of Body"
-"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Description"                      "Grants bonus magic resistance to the target for the duration. When the buff expires, target will be healed for a base amount plus a percentage of the damage target took while the buff was active. Removes most debuffs and stuns on cast.\n\nDISPEL TYPE: Strong Dispel"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Description"                      "Heals the target and grants bonus magic resistance to it for the duration. When the buff expires, target will be healed for a base amount plus a percentage of the damage target took while the buff was active. Removes most debuffs and stuns on cast.\n\nDISPEL TYPE: Strong Dispel"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Lore"                             "Takuan can mend any illness or damage with his ki energy."
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Note0"                            "Cannot be used while stunned."
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Note1"                            "Heal per damage taken is based on damage before reductions."
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_heal_immediate"                   "INITIAL HEAL:"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_bonus_magic_resistance"           "%MAGIC RESISTANCE:"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_duration"                         "DURATION:"
-"DOTA_Tooltip_Ability_sohei_wholeness_of_body_post_heal"                        "BASE HEAL:"
-"DOTA_Tooltip_Ability_sohei_wholeness_of_body_damage_taken_heal"                "%HEAL PER DAMAGE TAKEN:"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_post_heal"                        "EXPIRE BASE HEAL:"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_damage_taken_as_heal"             "%HEAL PER DAMAGE TAKEN:"
 
 "DOTA_Tooltip_Ability_sohei_momentum"                                           "Momentum"
 "DOTA_Tooltip_Ability_sohei_momentum_description"                               "When toggled ON: After moving %trigger_distance% units your next attack is a critical strike and pushes your target %knockback_distance% units. If an enemy unit is pushed into a cliff or tree then that unit is slowed and the knockback stops. If colliding with another enemy hero, both heroes are slowed."
@@ -79,7 +83,7 @@
 "DOTA_Tooltip_Ability_sohei_quivering_palm_description"                         "When activated, last attacked hero by Sohei will be affected by lesser Momentum Strike knockback and damaged based on the difference between the hero's strength and Sohei's. Can only affect heroes attacked in the last %max_duration% seconds. If there is no valid target, cooldown is reduced to 1 second."
 "DOTA_Tooltip_Ability_sohei_quivering_palm_Lore"                                "Takuan sets up lethal vibrations in someone's body."
 "DOTA_Tooltip_Ability_sohei_quivering_palm_base_damage"                         "BASE DAMAGE:"
-"DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                 "STRENGTH DIFFERENCE DAMAGE MULTIPLIER:"
+"DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                 "STR DIFFERENCE MULTIPLIER:"
 
 // modifiers
 "DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"
@@ -106,7 +110,7 @@
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_dash_slow"                            "+{s:value}% Dash Slow"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_cast_range"                      "+{s:value} Dash Cast Range"
+"DOTA_Tooltip_Ability_special_bonus_sohei_dash_cast_range"                      "+{s:value} Dash Range"
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+{s:value} Flurry of Blows AoE"
 
@@ -114,3 +118,5 @@
 
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback"                  "Wholeness of Body Knockback"
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback_Description"      "Whenever Wholeness of Body is applied, push all nearby enemies with Momentum Strike knockback."
+
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_7"                             "+{s:value} Dash Damage"
