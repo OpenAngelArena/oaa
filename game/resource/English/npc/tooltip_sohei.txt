@@ -56,19 +56,14 @@
 "DOTA_Tooltip_Ability_sohei_momentum_strike_stun_duration"                      "COLLISION STUN DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows"                                    "Flurry of Blows"
-//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"                        "CHANNELED - Sohei becomes invulnerable, randomly attacking one target at a time in a selected area with the intention of pushing them back into the epicenter. Each hit triggers Momentum. Ends after either the duration or the maximum amount of attacks have run out."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Description"                        "Sohei briefly becomes rooted and invulnerable, and after a delay attacks every enemy unit in the targeted area of effect at the same time with bonus damage. Sohei can attack, use some abilities and items while Flurry of Blows is active."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_description"                        "Sohei becomes rooted and invulnerable, and starts randomly attacking one target at a time in a selected area with bonus magic damage. Ends after either the duration or the max amount of attacks have run out. Sohei can use most abilities and items while Flurry of Blows is active."
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_Lore"                               "Offensive ki feature created through meditation."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note0"                              "Targets are determined after a delay."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note1"                              "Flurry of Blows delayed attack applies attack modifiers and has True Strike."
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note2"                              "Flurry of Blows delayed attack will not work if Sohei is disarmed."
-//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note3"                              "Flurry of Blows delayed attack can crit if a target is affected by Momentum Strike knockback."
-//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"                        "ATTACKS:"
-//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"                    "ATTACK INTERVAL:"
-//"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_Note0"                              "Flurry of Blows attacks apply attack modifiers and have True Strike."
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_attacks"                        "ATTACKS:"
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_attack_interval"                    "ATTACK INTERVAL:"
+"DOTA_Tooltip_Ability_sohei_flurry_of_blows_max_duration"                       "MAX DURATION:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_bonus_damage"                       "BONUS DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_flurry_of_blows_flurry_radius"                      "RADIUS:"
-"DOTA_Tooltip_Ability_sohei_flurry_of_blows_delay"                              "DELAY:"
 
 //"DOTA_Tooltip_Ability_sohei_palm_of_life_Lore"                                  "Healing is more prevalent than damaging for monks like Takuan."
 
@@ -113,3 +108,6 @@
 "DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback_Description"      "Whenever Wholeness of Body is applied, push all nearby enemies with Ki Strike knockback."
 
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_7"                             "+{s:value} Dash Damage"
+
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8"                             "+{s:value} Flurry of Blows Attacks"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8_Description"                 "Increases Flurry of Blows duration by 2 as well."
