@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"		"Valve"
+  "author"		"OAA"
   "hero"			"npc_dota_hero_winter_wyvern"
   "Title"			"Recommended items for Winter Wyvern"
 
@@ -13,39 +13,37 @@
       "item"		"item_clarity"
     }
 
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"    "item_magic_wand"
-      "item"    "item_maelstrom"
-      "item"    "item_witch_blade"
-    }
-
-    "#DOTA_Item_Build_Mid_Items"
-    {
-      "item"    "item_greater_crit"
-      "item"    "item_gungir"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"    "item_ultimate_scepter"
+      "item"    "item_revenants_brooch"
       "item"    "item_bloodthorn"
       "item"    "item_skadi"
-      "item"    "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"    "item_ward_stack"
+      "item"    "item_octarine_core"
+      "item"    "item_ghost_king_bar"
+      "item"    "item_bubble_orb_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"    "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"    "item_black_king_bar_1"
       "item"    "item_mjollnir"
-      "item"    "item_hurricane_pike"
+      "item"    "item_sheepstick_4"
+      "item"    "item_silver_edge"
       "item"    "item_yasha_and_kaya"
-      "item"    "item_bloodstone_1"
       "item"    "item_monkey_king_bar"
       "item"    "item_meteor_hammer_1"
       "item"    "item_blink"
-      "item"    "item_lotus_orb"
-      "item"    "item_sphere"
       "item"    "item_refresher_4"
       "item"    "item_solar_crest"
     }

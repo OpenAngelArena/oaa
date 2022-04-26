@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"		"Valve"
+  "author"		"OAA"
   "hero"			"npc_dota_hero_lich"
   "Title"			"Recommended items for Lich"
 
@@ -8,38 +8,34 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_flask"
-      "item"		"item_ward_stack"
+      "item"    "item_boots"
+      "item"    "item_ward_stack"
+      "item"    "item_wind_lace"
+      "item"    "item_flask"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"		"item_boots"
-      "item"    "item_magic_wand"
+      "item"    "item_blink"
+      "item"    "item_ultimate_scepter"
+      "item"    "item_octarine_core"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"		"item_guardian_greaves"
-      "item"		"item_aether_lens"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"		"item_ultimate_scepter"
-      "item"		"item_octarine_core"
-      "item"		"item_aghanims_shard"
+      "item"    "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_cyclone"
-      "item"		"item_shivas_guard"
-      "item"		"item_veil_of_discord"
-      "item"		"item_rod_of_atos"
-      "item"		"item_lotus_orb"
-      "item"		"item_pipe"
-      "item"		"item_silver_edge"
+      "item"    "item_guardian_greaves"
+      "item"    "item_wind_waker"
+      "item"    "item_shivas_guard"
+      "item"    "item_dagger_of_moriah"
+      "item"    "item_bubble_orb_1"
+      "item"    "item_lotus_orb"
+      "item"    "item_pipe"
+      "item"    "item_ethereal_blade"
     }
   }
 }

@@ -1,0 +1,41 @@
+"itembuilds"
+{
+    "author"        "OAA"
+    "hero"          "npc_dota_hero_primal_beast"
+    "Title"         "Recommended items for Primal Beast"
+
+    "Items"
+    {
+        "#DOTA_Item_Build_Starting_Items"
+        {
+            "item"      "item_boots"
+            "item"      "item_ward_stack"
+        }
+
+        "#DOTA_Item_Build_Core_Items"
+        {
+            "item"      "item_radiance"
+            "item"      "item_satanic_core"
+            "item"      "item_kaya_and_sange"
+            "item"      "item_black_king_bar_1"
+        }
+
+        "#DOTA_Item_Build_Shard"
+        {
+            "item"      "item_aghanims_shard"
+        }
+
+        "#DOTA_Item_Build_Luxury"
+        {
+            "item"    "item_heart_oaa"
+            "item"    "item_octarine_core"
+            "item"    "item_shield_staff"
+            "item"    "item_greater_tranquil_boots"
+            "item"    "item_shivas_guard"
+            "item"    "item_lotus_orb"
+            "item"    "item_ethereal_blade"
+            "item"    "item_sacred_skull"
+            "item"    "item_overwhelming_blink"
+        }
+    }
+}

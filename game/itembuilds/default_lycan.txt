@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_lycan"
     "Title"         "Recommended items for Lycan"
 
@@ -8,15 +8,17 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      "item_boots"
-            "item"      "item_clarity"
+            "item"      "item_quelling_blade"
+            "item"      "item_buckler"
             "item"      "item_flask"
-            "item"      "item_mango"
             "item"      "item_mango"
         }
 
         "#DOTA_Item_Build_Early_Game"
         {
+            "item"      "item_helm_of_iron_will"
+            "item"      "item_helm_of_the_dominator"
+            "item"      "item_ring_of_basilius"
             "item"      "item_vladmir"
         }
 
@@ -24,28 +26,39 @@
         {
             "item"      "item_ancient_janggo"
             "item"      "item_solar_crest"
+            "item"      "item_azazel_summon_tank"
         }
 
+		"#DOTA_Item_Build_Core_Items"
+		{
+            "item"      "item_helm_of_the_overlord"
+            "item"      "item_assault"
+            "item"      "item_lucience"
+            "item"      "item_ultimate_scepter"
+            "item"      "item_aghanims_shard"
+		}
+		
         "#DOTA_Item_Build_Late_Items"
         {
-            "item"      "item_assault"
-            "item"      "item_helm_of_the_dominator"
-            "item"      "item_vladmir_2"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_martyrs_mail_4"
+            "item"      "item_azazel_summon_fighter"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
-            "item"      "item_pipe"
-            "item"      "item_ultimate_scepter"
             "item"      "item_black_king_bar_1"
-            "item"      "item_skadi"
-            "item"      "item_satanic"
-            "item"      "item_desolator"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_nullifier"
             "item"      "item_abyssal_blade_2"
+            "item"      "item_echo_sabre"
+            "item"      "item_desolator"
+            "item"      "item_satanic"
+            "item"      "item_skadi"
+            "item"      "item_sheepstick_4"
+            "item"      "item_bloodthorn"
             "item"      "item_heart_oaa"
+            "item"      "item_overwhelming_blink"
+            "item"      "item_heavens_halberd"
+            "item"      "item_pipe"
+            "item"      "item_nullifier"
         }
     }
 }

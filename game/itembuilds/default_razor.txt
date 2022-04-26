@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_razor"
     "Title"         "Recommended items for Razor"
 
@@ -13,32 +13,27 @@
             "item"      "item_flask"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Core_Items"
         {
-            "item"      "item_lesser_crit"
-            "item"      "item_butterfly_oaa"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
+            "item"      "item_greater_crit"
             "item"      "item_satanic"
             "item"      "item_skadi"
             "item"      "item_octarine_core"
+            "item"      "item_black_king_bar_1"
+            "item"      "item_refresher_4"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Shard"
         {
-            "item"      "item_black_king_bar_1"
-            "item"      "item_greater_crit"
-            "item"      "item_refresher_4"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
+            "item"      "item_butterfly_oaa"
             "item"      "item_ultimate_scepter"
             "item"      "item_monkey_king_bar"
-            "item"      "item_mage_slayer"
+            "item"      "item_bloodthorn"
             "item"      "item_trumps_fists"
             "item"      "item_sange_and_yasha"
             "item"      "item_silver_edge"

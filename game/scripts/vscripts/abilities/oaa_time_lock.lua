@@ -131,9 +131,16 @@ if IsServer() then
   function modifier_faceless_void_time_lock_oaa:OnAttackLanded(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
+    local attacker = event.attacker
     local target = event.target
 
-    if parent ~= event.attacker then
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
@@ -142,12 +149,8 @@ if IsServer() then
       return
     end
 
-    -- To prevent crashes:
-    if not target then
-      return
-    end
-
-    if target:IsNull() then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
@@ -167,7 +170,7 @@ if IsServer() then
       return
     end
 
-    local chance = ability:GetSpecialValueFor("chance_pct")/100
+    local chance = ability:GetSpecialValueFor("chance_pct") / 100
 
     -- Get number of failures
     local prngMult = self:GetStackCount() + 1
@@ -242,7 +245,7 @@ if IsServer() then
     -- Delay is hard-coded in normal dota to 0.33 seconds as per the particle constraints
     local delay = ability:GetSpecialValueFor("second_attack_delay") or 0.33
     Timers:CreateTimer(delay, function()
-      if target:IsAlive() and not target:IsNull() then
+      if target:IsAlive() and not target:IsNull() then -- and target:HasModifier("modifier_faceless_void_time_lock_oaa")
         -- Perform the second attack (can trigger attack modifiers)
         parent:PerformAttack(target, false, true, true, false, false, false, false)
         -- Emit sound again
@@ -251,7 +254,7 @@ if IsServer() then
     end)
   end
 
-  -- Scepter effects: Time Walk applies AoE Time Lock and Chronosphere applies Frozen Time modifier
+  -- Scepter effects: Time Walk applies AoE Time Lock
   function modifier_faceless_void_time_lock_oaa:OnModifierAdded(event)
     local parent = self:GetParent()
 
@@ -263,7 +266,7 @@ if IsServer() then
     -- Unit that gained a modifier
     local unit = event.unit
 
-    if parent == unit then
+    if parent == unit and not parent:HasModifier("modifier_faceless_void_time_walk_scepter_proc_oaa") then
       local time_walk_modifier = parent:FindModifierByName("modifier_faceless_void_time_walk")
       if not time_walk_modifier then
         return
@@ -360,10 +363,8 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
   )
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      if not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not parent:IsDisarmed() and not enemy:IsInvulnerable() then
-        time_lock_modifier:ApplyTimeLock(time_lock_ability, enemy)
-      end
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsAttackImmune() and not enemy:IsInvulnerable() and not parent:IsDisarmed() then
+      time_lock_modifier:ApplyTimeLock(time_lock_ability, enemy)
     end
   end
 end

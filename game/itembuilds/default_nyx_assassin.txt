@@ -1,6 +1,6 @@
 "itembuilds"
 {
-	"author"		"Valve"
+	"author"		"OAA"
 	"hero"			"npc_dota_hero_nyx_assassin"
 	"Title"			"Recommended items for Nyx Assassin"
 
@@ -10,43 +10,32 @@
 		{
 			"item"		"item_flask"
 			"item"		"item_boots"
-			"item"		"item_magic_stick"
+			"item"		"item_magic_wand"
 		}
 
-		"#DOTA_Item_Build_Early_Game"
+		"#DOTA_Item_Build_Core_Items"
 		{
-			"item"		""
-			"item"		""
-			"item"		"item_force_staff"
-			"item"		""
-		}
-
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		""
-			"item"		"item_spirit_vessel"
-			"item"		"item_shivas_guard"
-			"item"		""
-			"item"		"item_octarine_core"
-		}
-
-		"#DOTA_Item_Build_Late_Items"
-		{
-
-			"item"		""
+			"item"		"item_shield_staff"
+			"item"		"item_wind_waker"
 			"item"		"item_ultimate_scepter"
+			"item"		"item_shivas_guard"
+		}
+
+		"#DOTA_Item_Build_Shard"
+		{
 			"item"		"item_aghanims_shard"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
-			"item"		"item_lucience"
+			"item"		"item_spirit_vessel"
+			"item"		"item_heart_oaa"
+			"item"		"item_octarine_core"
 			"item"		"item_sheepstick_4"
-			"item"		"item_cyclone"
 			"item"		"item_lotus_orb"
 			"item"		"item_ethereal_blade"
-      "item"    "item_stoneskin"
-      "item"    "item_bubble_orb_1"
+			"item"		"item_stoneskin"
+			"item"		"item_bubble_orb_1"
 		}
 	}
 }

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_tidehunter"
     "Title"         "Recommended items for Tidehunter"
 
@@ -8,51 +8,44 @@
     {
         "#DOTA_Item_Build_Starting_Items"
         {
-            "item"      ""
-            "item"      "item_flask"
-            "item"      "item_enchanted_mango"
-            "item"      "item_branches"
-            "item"      "item_branches"
-            "item"      "item_magic_wand"
+            "item"      "item_boots"
+            "item"      "item_bracer"
+            "item"      "item_blight_stone"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Physical_Core"
         {
-            "item"      "item_desolator"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
+            "item"      "item_devastator_1"
             "item"      "item_greater_crit"
             "item"      "item_assault"
+            "item"      "item_satanic"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Support_Core"
         {
-            "item"      "item_bloodthorn"
-            "item"      "item_abyssal_blade_2"
-            "item"      "item_satanic"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_blink"
+            "item"      "item_ultimate_scepter"
+            "item"      "item_wraith_pact"
+            "item"      "item_refresher_4"
+        }
+
+        "#DOTA_Item_Build_Shard"
+        {
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
-            "item"      "item_echo_sabre"
+            "item"      "item_skadi"
             "item"      "item_sange_and_yasha"
-            "item"      "item_blink"
-            "item"      "item_ward_stack"
+            "item"      "item_monkey_king_bar"
+            "item"      "item_abyssal_blade_2"
             "item"      "item_heart_oaa"
-            "item"      "item_heart_transplant"
             "item"      "item_shivas_guard"
             "item"      "item_pipe"
-            "item"      "item_refresher_4"
-            "item"      "item_ancient_janggo"
             "item"      "item_guardian_greaves"
-            "item"      "item_ultimate_scepter"
             "item"      "item_octarine_core"
             "item"      "item_lotus_orb"
-            "item"      "item_vladmir"
-            "item"      "item_devastator_3"
         }
     }
 }

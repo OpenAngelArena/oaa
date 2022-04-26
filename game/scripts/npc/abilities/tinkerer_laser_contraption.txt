@@ -33,7 +33,7 @@
 
     // Time and Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" // original: 65/55/45
+    "AbilityCooldown"                                     "55 50 45 40 35" // original: 65/55/45
     "AbilityManaCost"                                     "140 180 220 260 300"
 
     // Precache
@@ -48,13 +48,17 @@
     "AbilityValues"
     {
       "radius"                                            "300" // original: 800 x 100
-      "duration"                                          "8"
+      "duration"                                          "8.55"
       "delay"                                             "0.5"
-      "initial_damage"                                    "200 400 600 1200 1800" // original: 200/300/400
+      "initial_damage"
+      {
+        "value"                                           "200 400 600 1200 1800" // original: 200/300/400
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
       "damage_per_second"                                 "75 175 275 575 875" // original: 75 125 175
       "damage_interval"                                   "2" // 5 damage instances
       "attacks_to_destroy"                                "1 2 3 4 5"
-      "scepter_cast_range" // unused
+      "scepter_cast_range"
       {
         "value"                                           "1000"
         "RequiresScepter"                                 "1"

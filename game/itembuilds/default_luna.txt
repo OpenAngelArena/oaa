@@ -1,6 +1,6 @@
 "itembuilds"
 {
-    "author"        "Valve"
+    "author"        "OAA"
     "hero"          "npc_dota_hero_luna"
     "Title"         "Recommended items for Luna"
 
@@ -12,35 +12,35 @@
             "item"      "item_flask"
         }
 
-        "#DOTA_Item_Build_Early_Game"
+        "#DOTA_Item_Build_Physical_Core"
         {
-            "item"      "item_dragon_lance"
-            "item"      "item_yasha"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
+            "item"      "item_manta"
             "item"      "item_greater_crit"
-            "item"      "item_satanic"
-            "item"      "item_sange_and_yasha"
             "item"      "item_skadi"
+            "item"      "item_satanic"
+            "item"      "item_black_king_bar_1"
         }
 
-        "#DOTA_Item_Build_Late_Items"
+        "#DOTA_Item_Build_Magical_Core"
         {
-            "item"      "item_black_king_bar_1"
-	    "item"	"item_aghanims_shard"
+            "item"      "item_ultimate_scepter"
+            "item"      "item_ethereal_blade"
+            "item"      "item_octarine_core"
+            "item"      "item_refresher_4"
+        }
+
+        "#DOTA_Item_Build_Shard"
+        {
+            "item"      "item_aghanims_shard"
         }
 
         "#DOTA_Item_Build_Luxury"
         {
             "item"      "item_butterfly_oaa"
+            "item"      "item_hurricane_pike"
             "item"      "item_monkey_king_bar"
-            "item"      "item_ultimate_scepter"
-            "item"      "item_trumps_fists"
+            "item"      "item_sange_and_yasha"
             "item"      "item_ethereal_blade"
-            "item"      "item_bloodstone_1"
-            "item"      "item_refresher_4"
             "item"      "item_sheepstick_4"
             "item"      "item_dagger_of_moriah"
         }

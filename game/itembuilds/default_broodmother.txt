@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA"
   "hero"          "npc_dota_hero_broodmother"
   "Title"         "Recommended items for Broodmother"
 
@@ -8,45 +8,51 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_flask"
-      "item"      "item_clarity"
-      "item"      "item_wraith_band"
-      "item"      "item_ring_of_protection"
       "item"      "item_quelling_blade"
+      "item"      "item_blight_stone"
+      "item"      "item_flask"
+      "item"      "item_faerie_fire"
     }
 
     "#DOTA_Item_Build_Early_Game"
     {
-      "item"      "item_magic_wand"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_orb_of_corrosion"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
+      "item"      "item_yasha"
       "item"      "item_desolator"
-      "item"      "item_solar_crest"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_assault"
-      "item"      "item_bloodthorn"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_devastator_1"
+      "item"      "item_butterfly_oaa"
       "item"      "item_skadi"
-      "item"      "item_abyssal_blade_2"
-      "item"	  "item_aghanims_shard"
+      "item"      "item_silver_edge"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_abyssal_blade_2"
       "item"      "item_monkey_king_bar"
+      "item"      "item_swift_blink"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_greater_power_treads"
       "item"      "item_nullifier"
-      "item"      "item_ancient_janggo"
-      "item"      "item_manta"
-      "item"      "item_diffusal_blade"
-      "item"      "item_butterfly_oaa"
-      "item"      "item_pipe"
       "item"      "item_sphere"
+      "item"      "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Broodmother_spiders"
+    {
+      "item"      "item_solar_crest"
+      "item"      "item_assault"
+      "item"      "item_bloodthorn"
     }
   }
 }

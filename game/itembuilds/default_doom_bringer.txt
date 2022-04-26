@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"		"Valve"
+  "author"		"OAA"
   "hero"			"npc_dota_hero_doom_bringer"
   "Title"			"Recommended items for Doom"
 
@@ -8,44 +8,35 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_flask"
+      "item"		"item_bracer"
       "item"		"item_branches"
       "item"		"item_clarity"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"		"item_magic_wand"
+      "item"		"item_radiance"
+      "item"    "item_octarine_core"
+      "item"    "item_overwhelming_blink"
+      "item"    "item_black_king_bar_1"
+      "item"    "item_refresher_4"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"		"item_heavens_halberd"
+      "item"		"item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Luxury"
     {
       "item"    "item_ethereal_blade"
       "item"    "item_kaya_and_sange"
       "item"		"item_shivas_guard"
       "item"		"item_assault"
-      "item"    "item_refresher_4"
-      "item"    "item_aghanims_shard"
-    }
-
-    "#DOTA_Item_Build_Luxury"
-    {
-      "item"    "item_blink"
       "item"    "item_ultimate_scepter"
       "item"		"item_hand_of_midas_1"
-      "item"		"item_ancient_janggo"
-      "item"		"item_silver_edge"
       "item"		"item_heart_oaa"
-      "item"		"item_abyssal_blade_2"
-      "item"		"item_radiance"
-      "item"		"item_echo_sabre"
-      "item"		"item_lotus_orb"
-      "item"		"item_pipe"
+      "item"		"item_satanic_core"
     }
   }
 }
