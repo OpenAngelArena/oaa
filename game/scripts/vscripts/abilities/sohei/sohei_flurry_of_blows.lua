@@ -1,9 +1,7 @@
-﻿sohei_flurry_of_blows = class(AbilityBaseClass)
-
-LinkLuaModifier("modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
+﻿LinkLuaModifier("modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_flurry_of_blows_damage", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 
----------------------------------------------------------------------------------------------------
+sohei_flurry_of_blows = class(AbilityBaseClass)
 
 -- old Flurry of Blows, channeling, uses Momentum
 --[[
@@ -118,13 +116,13 @@ function modifier_sohei_flurry_self:IsPurgable()
   return false
 end
 
-function modifier_sohei_flurry_self:StatusEffectPriority()
-  return 20
-end
+-- function modifier_sohei_flurry_self:StatusEffectPriority()
+  -- return 20
+-- end
 
-function modifier_sohei_flurry_self:GetStatusEffectName()
-  return "particles/status_fx/status_effect_omnislash.vpcf"
-end
+-- function modifier_sohei_flurry_self:GetStatusEffectName()
+  -- return "particles/status_fx/status_effect_omnislash.vpcf"
+-- end
 
 function modifier_sohei_flurry_self:CheckState()
   local state = {
@@ -146,9 +144,6 @@ function modifier_sohei_flurry_self:OnCreated(event)
   end
   local parent = self:GetParent()
 
-  -- Hide the parent
-  --parent:AddNoDraw()
-
   -- Data sent with AddNewModifier (not available on the client)
   self.radius = event.radius
   self.remaining_attacks = event.max_attacks
@@ -156,7 +151,6 @@ function modifier_sohei_flurry_self:OnCreated(event)
 
   self.center = GetGroundPosition(parent:GetAbsOrigin(), parent)
 
-  -- Start thinking after a delay
   self:StartIntervalThink(self.attack_interval)
 end
 
@@ -166,7 +160,9 @@ function modifier_sohei_flurry_self:OnIntervalThink()
   end
 
   if self.remaining_attacks <= 0 then
+    self:StartIntervalThink(-1)
     self:Destroy()
+    return
   end
 
   local caster = self:GetCaster() or self:GetParent()
@@ -203,15 +199,17 @@ function modifier_sohei_flurry_self:OnIntervalThink()
   -- Change attacker's position and facing and attack the unit
   if unit_to_attack and not unit_to_attack:IsNull() then
     local unit_origin = unit_to_attack:GetAbsOrigin()
-    local unit_facing = unit_to_attack:GetForwardVector()
-    local new_origin = unit_origin + unit_facing * 150
-
-    -- Reveal the attacker
-    --caster:RemoveNoDraw()
+    --local unit_facing = unit_to_attack:GetForwardVector()
+    local new_origin = unit_origin + RandomVector(1) * 150
 
     caster:SetAbsOrigin(new_origin)
-    --caster:SetForwardVector(self.center - unit_origin):Normalized())
     caster:FaceTowards(unit_origin)
+
+    -- Animations
+    --ACT_DOTA_CHANNEL_ABILITY_4 -- spinning
+    --ACT_DOTA_OVERRIDE_ABILITY_4 -- omnislash
+    caster:RemoveGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+    caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
 
     -- Add a bonus damage buff before the instant attack
     local buff = caster:AddNewModifier(caster, ability, "modifier_sohei_flurry_of_blows_damage", {})
@@ -223,9 +221,13 @@ function modifier_sohei_flurry_self:OnIntervalThink()
     buff:Destroy()
 
     self.remaining_attacks = self.remaining_attacks - 1
+  else
+    -- Put caster in the middle of the circle little above ground
+    caster:SetAbsOrigin(self.center + Vector(0, 0, 200))
 
-    -- Hide the attacker
-    --caster:AddNoDraw()
+    -- Animations
+    caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
+    caster:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_4, 1.15)
   end
 end
 
@@ -236,8 +238,9 @@ function modifier_sohei_flurry_self:OnDestroy()
     -- Unstuck the caster at the center
     FindClearSpaceForUnit(caster, self.center, false)
 
-    -- Reveal the caster
-    --caster:RemoveNoDraw()
+    -- Animations
+    caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
+    caster:RemoveGesture(ACT_DOTA_CHANNEL_ABILITY_4)
 
     if caster.flurry_ground_pfx then
       ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
@@ -387,7 +390,7 @@ if IsServer() then
       return 0
     end
 
-    --SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, self.bonus_damage, nil)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, self.bonus_damage, nil)
 
     return self.bonus_damage
   end

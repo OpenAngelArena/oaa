@@ -8,40 +8,10 @@ function sohei_momentum_strike:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
 
-  -- Projectile parameters
-  local projectile_name = "particles/hero/sohei/momentum_strike_projectile.vpcf"
-  local projectile_distance = self:GetSpecialValueFor("projectile_distance")
-  local projectile_speed = self:GetSpecialValueFor("projectile_speed")
-  local projectile_width = self:GetSpecialValueFor("projectile_width")
-  local projectile_vision = self:GetSpecialValueFor("projectile_vision")
-
   -- Calculate direction
   local direction = point - caster:GetAbsOrigin()
   direction.z = 0
   direction = direction:Normalized()
-
-  -- Projectile info
-  local info = {
-    Source = caster,
-    Ability = self,
-    EffectName = projectile_name,
-    vSpawnOrigin = caster:GetAbsOrigin(),
-    fDistance = projectile_distance + caster:GetCastRangeBonus(),
-    fStartRadius = projectile_width,
-    fEndRadius = projectile_width,
-    bHasFrontalCone = false,
-    bReplaceExisting = false,
-    iUnitTargetTeam = self:GetAbilityTargetTeam(),
-    iUnitTargetType = self:GetAbilityTargetType(),
-    iUnitTargetFlags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE),
-    --bDeleteOnHit = true, -- DOESN'T WORK
-    vVelocity = direction*projectile_speed,
-    bProvidesVision = true,
-    iVisionRadius = projectile_vision,
-    iVisionTeamNumber = caster:GetTeamNumber(),
-  }
-
-  ProjectileManager:CreateLinearProjectile(info)
 
   -- Strike parameters
   local width = self:GetSpecialValueFor("strike_radius")
@@ -75,16 +45,25 @@ function sohei_momentum_strike:OnSpellStart()
   elseif caster:HasModifier("modifier_arcana_pepsi") then
     particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
   end
+  
+  local ki_strike_particle = ParticleManager:CreateParticle("particles/hero/sohei/ki_strike.vpcf", PATTACH_CUSTOMORIGIN, caster)
+  ParticleManager:SetParticleControl(ki_strike_particle, 0, start_point)
+  ParticleManager:SetParticleControl(ki_strike_particle, 1, end_point)
+  ParticleManager:ReleaseParticleIndex(ki_strike_particle)
 
   -- Slow duration
   local slow_duration = self:GetSpecialValueFor("slow_duration")
+  
+  -- Sounds
+  EmitSoundOnLocationWithCaster(start_point, "Sohei.Momentum", caster)
+  EmitSoundOnLocationWithCaster(end_point, "Sohei.Momentum", caster)
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Apply knockback and slow to the enemy if not spell immune
       if not enemy:IsMagicImmune() then
         -- Impact sound
-        enemy:EmitSound("Sohei.Momentum")
+        --enemy:EmitSound("Sohei.Momentum")
         -- Remove previous instance of knockback
         enemy:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
         -- Apply new knockback
@@ -113,61 +92,6 @@ function sohei_momentum_strike:OnSpellStart()
     end
   end
 end
-
---[[
-function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectile_id)
-  if not target or target:IsNull() or not projectile_id then
-    return true
-  end
-
-  local caster = self:GetCaster()
-  local projectile_velocity = ProjectileManager:GetLinearProjectileVelocity(projectile_id)
-  local projectile_speed = self:GetSpecialValueFor("projectile_speed")
-
-  -- Knockback parameters
-  local knockback_distance = self:GetSpecialValueFor("knockback_distance")
-  local knockback_speed = self:GetSpecialValueFor("knockback_speed")
-  local knockback_duration = knockback_distance / knockback_speed
-  local collision_radius = self:GetSpecialValueFor("collision_radius")
-  local direction = projectile_velocity/projectile_speed
-
-  -- Apply knockback to the target
-  if not target:IsMagicImmune() then
-    target:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
-    target:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_knockback", {
-      duration = knockback_duration,
-      distance = knockback_distance,
-      speed = knockback_speed,
-      collision_radius = collision_radius,
-      direction_x = direction.x,
-      direction_y = direction.y,
-    })
-
-    -- Apply slow debuff
-    target:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_slow", {duration =  self:GetSpecialValueFor("slow_duration")})
-
-    -- Hit particle
-    local particleName = "particles/hero/sohei/momentum.vpcf"
-
-    if caster:HasModifier("modifier_arcana_dbz") then
-      particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
-    elseif caster:HasModifier("modifier_arcana_pepsi") then
-      particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
-    end
-
-    local momentum_pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-    ParticleManager:SetParticleControl(momentum_pfx, 0, target:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(momentum_pfx)
-  end
-
-  -- Hit the unit with normal attack that cant miss
-  if not caster:IsDisarmed() and not target:IsAttackImmune() then
-    caster:PerformAttack(target, true, true, true, false, false, false, true)
-  end
-
-  return false
-end
-]]
 
 ---------------------------------------------------------------------------------------------------
 

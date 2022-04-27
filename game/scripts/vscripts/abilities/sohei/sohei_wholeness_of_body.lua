@@ -103,7 +103,7 @@ function modifier_sohei_wholeness_of_body_buff:GetEffectName()
 end
 
 function modifier_sohei_wholeness_of_body_buff:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_CENTER_FOLLOW
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnCreated()

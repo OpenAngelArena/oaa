@@ -13,7 +13,7 @@ function sohei_momentum:GetAbilityTextureName()
     return baseName .. "_inactive"
   end
 
-	return baseName
+  return baseName
 end
 
 function sohei_momentum:GetIntrinsicModifierName()
@@ -51,8 +51,11 @@ end
 function modifier_sohei_momentum_passive:IsMomentumReady()
   local ability = self:GetAbility()
   local distanceFull = ability:GetSpecialValueFor("trigger_distance")
-
-  return self:GetStackCount() >= distanceFull and ability:IsCooldownReady()
+  if IsServer() then
+    return self:GetStackCount() >= distanceFull and ability:IsCooldownReady()
+  else
+    return self:GetStackCount() >= distanceFull
+  end
 end
 
 function modifier_sohei_momentum_passive:OnCreated()

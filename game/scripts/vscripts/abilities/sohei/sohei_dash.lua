@@ -467,11 +467,9 @@ function modifier_sohei_dash_movement:IsStunDebuff()
 end
 
 function modifier_sohei_dash_movement:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_sohei_dash_movement:GetOverrideAnimation()
