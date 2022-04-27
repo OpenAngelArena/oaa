@@ -45,7 +45,7 @@ function sohei_momentum_strike:OnSpellStart()
   elseif caster:HasModifier("modifier_arcana_pepsi") then
     particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
   end
-  
+
   local ki_strike_particle = ParticleManager:CreateParticle("particles/hero/sohei/ki_strike.vpcf", PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(ki_strike_particle, 0, start_point)
   ParticleManager:SetParticleControl(ki_strike_particle, 1, end_point)
@@ -53,7 +53,7 @@ function sohei_momentum_strike:OnSpellStart()
 
   -- Slow duration
   local slow_duration = self:GetSpecialValueFor("slow_duration")
-  
+
   -- Sounds
   EmitSoundOnLocationWithCaster(start_point, "Sohei.Momentum", caster)
   EmitSoundOnLocationWithCaster(end_point, "Sohei.Momentum", caster)
