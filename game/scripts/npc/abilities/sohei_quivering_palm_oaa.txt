@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sohei: Quivering Palm
+  // Sohei: Quivering Palm - scepter ability
   //=================================================================================================================
   "sohei_quivering_palm"
   {
@@ -25,7 +25,8 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
+    "AnimationPlaybackRate"                               "2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +62,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "str_diff_multiplier"                             "20"
+        "str_diff_multiplier"                             "25"
         "RequiresScepter"                                 "1"
       }
     }

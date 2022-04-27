@@ -1,15 +1,11 @@
-sohei_momentum = class( AbilityBaseClass )
-
 LinkLuaModifier("modifier_sohei_momentum_passive", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_sohei_momentum_slow", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 
---------------------------------------------------------------------------------
+sohei_momentum = class(AbilityBaseClass)
 
 function sohei_momentum:GetAbilityTextureName()
-  local baseName = self.BaseClass.GetAbilityTextureName( self )
+  local baseName = self.BaseClass.GetAbilityTextureName(self)
 
-  if self:GetSpecialValueFor( "trigger_distance" ) <= 0 then
+  if self:GetSpecialValueFor("trigger_distance") <= 0 then
     return baseName
   end
 
@@ -17,62 +13,24 @@ function sohei_momentum:GetAbilityTextureName()
     return baseName .. "_inactive"
   end
 
-  -- When toggled off, there is no modifier, => make icon inactive
-  if not self:GetCaster():HasModifier("modifier_sohei_momentum_passive") then
-    return baseName .. "_inactive"
-  end
-
-	return baseName
+  return baseName
 end
 
--- Uncomment if the ability is passive
---function sohei_momentum:GetIntrinsicModifierName()
-	--return "modifier_sohei_momentum_passive"
+function sohei_momentum:GetIntrinsicModifierName()
+	return "modifier_sohei_momentum_passive"
+end
+
+--function sohei_momentum:OnUpgrade()
+
 --end
 
-function sohei_momentum:IsHiddenWhenStolen( arg )
+function sohei_momentum:ShouldUseResources()
   return true
 end
 
-function sohei_momentum:IsStealable()
-  return false
-end
-
--- Remove if the ability is passive
-function sohei_momentum:OnToggle()
-  local caster = self:GetCaster()
-  if not self:GetToggleState() then
-    caster:RemoveModifierByName("modifier_sohei_momentum_passive")
-	else
-		caster:AddNewModifier(caster, self, "modifier_sohei_momentum_passive", {})
-	end
-end
-
--- Remove if the ability is passive
-function sohei_momentum:OnUpgrade()
-  if self:GetLevel() == 1 then
-    -- Toggle on when the ability is leveled-up for the first time
-		if not self:GetToggleState() then
-			self:ToggleAbility()
-		end
-	end
-end
-
--- Remove if the ability is passive
-function sohei_momentum:OnOwnerSpawned()
-  if self:GetLevel() >= 1 then
-    if not self:GetToggleState() then
-      self:ToggleAbility()
-    end
-  end
-end
-
---------------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------------------------
 -- Momentum's passive modifier
-modifier_sohei_momentum_passive = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
+modifier_sohei_momentum_passive = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_passive:IsHidden()
   return true
@@ -86,38 +44,31 @@ function modifier_sohei_momentum_passive:IsDebuff()
   return false
 end
 
--- Uncomment if the ability is passive
---function modifier_sohei_momentum_passive:GetAttributes()
-	--return MODIFIER_ATTRIBUTE_PERMANENT
---end
-
---------------------------------------------------------------------------------
-
-function modifier_sohei_momentum_passive:IsMomentumReady()
-  -- special case flurry of blows to always have momentum ready
-  if self:GetParent():HasModifier( "modifier_sohei_flurry_self" ) then
-    return true
-  end
-
-  local distanceFull = self:GetAbility():GetSpecialValueFor( "trigger_distance" )
-
-  return self:GetStackCount() >= distanceFull
+function modifier_sohei_momentum_passive:RemoveOnDeath()
+  return false
 end
 
---------------------------------------------------------------------------------
+function modifier_sohei_momentum_passive:IsMomentumReady()
+  local ability = self:GetAbility()
+  local distanceFull = ability:GetSpecialValueFor("trigger_distance")
+  if IsServer() then
+    return self:GetStackCount() >= distanceFull and ability:IsCooldownReady()
+  else
+    return self:GetStackCount() >= distanceFull
+  end
+end
 
-function modifier_sohei_momentum_passive:OnCreated( event )
+function modifier_sohei_momentum_passive:OnCreated()
   self:GetAbility().intrMod = self
 
   self.parentOrigin = self:GetParent():GetAbsOrigin()
   self.attackPrimed = false -- necessary for cases when sohei starts an attack while moving
   -- i.e. force staff
   -- and gets charged before the attack finishes, causing an attack with knockback but no crit
-
-  self:StartIntervalThink( 1 / 30 )
+  if IsServer() then
+    self:StartIntervalThink( 1 / 30 )
+  end
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_sohei_momentum_passive:OnIntervalThink()
@@ -128,49 +79,55 @@ if IsServer() then
     self.parentOrigin = parent:GetAbsOrigin()
 
     if not self:IsMomentumReady() then
-      if spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() then
+      if spell:IsCooldownReady() and not parent:PassivesDisabled() then
         self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
         if self:IsMomentumReady() then
-          local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
-          local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
+          local dbzArcana = parent:FindModifierByName("modifier_arcana_dbz")
+          local pepsiArcana = parent:FindModifierByName("modifier_arcana_pepsi")
 
           if dbzArcana then
-            ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
+            ParticleManager:SetParticleControl(dbzArcana.Glow, 2, Vector(30, 0, 0))
           elseif pepsiArcana then
-            ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
+            ParticleManager:SetParticleControl(pepsiArcana.Glow, 2, Vector(100, 0, 0))
           end
         end
       end
     end
   end
-end
 
---------------------------------------------------------------------------------
+  function modifier_sohei_momentum_passive:DeclareFunctions()
+    local funcs = {
+      MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+      MODIFIER_EVENT_ON_ATTACK_LANDED,
+    }
 
-function modifier_sohei_momentum_passive:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
-  }
+    return funcs
+  end
 
-  return funcs
-end
-
---------------------------------------------------------------------------------
-
-if IsServer() then
-  function modifier_sohei_momentum_passive:GetModifierPreAttack_CriticalStrike( event )
+  function modifier_sohei_momentum_passive:GetModifierPreAttack_CriticalStrike(event)
     local parent = self:GetParent()
     local spell = self:GetAbility()
-    if self:IsMomentumReady() and ( ( spell:IsCooldownReady() and not parent:PassivesDisabled() and not spell:IsHidden() ) or parent:HasModifier( "modifier_sohei_flurry_self" ) ) then
+    local target = event.target
+
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return 0
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return 0
+    end
+
+    if self:IsMomentumReady() and not parent:PassivesDisabled() then -- or target:FindModifierByNameAndCaster("modifier_sohei_momentum_strike_knockback", parent)
 
       -- make sure the target is valid
       local ufResult = UnitFilter(
-        event.target,
+        target,
         spell:GetAbilityTargetTeam(),
         spell:GetAbilityTargetType(),
-        spell:GetAbilityTargetFlags(),
-        self:GetParent():GetTeamNumber()
+        bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE),
+        parent:GetTeamNumber()
       )
 
       if ufResult ~= UF_SUCCESS then
@@ -179,90 +136,118 @@ if IsServer() then
 
       self.attackPrimed = true
 
-      return spell:GetSpecialValueFor( "crit_damage" )
+      local crit_damage = spell:GetSpecialValueFor("crit_damage")
+      -- Talent that increases crit damage
+      local talent = parent:FindAbilityByName("special_bonus_unique_sohei_5")
+      if talent and talent:GetLevel() > 0 then
+        crit_damage = crit_damage + talent:GetSpecialValueFor("value")
+      end
+
+      return crit_damage
     end
 
     self.attackPrimed = false
     return 0
   end
 
---------------------------------------------------------------------------------
+  function modifier_sohei_momentum_passive:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
-  function modifier_sohei_momentum_passive:OnAttackLanded( event )
-    if event.attacker == self:GetParent() and self.attackPrimed == true then
-      local attacker = self:GetParent()
-      local target = event.target
-      local spell = self:GetAbility()
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-      -- Consume the buff
-      if not attacker:HasModifier( "modifier_sohei_flurry_self" ) then
-        self:SetStackCount( 0 )
-        local dbzArcana = attacker:FindModifierByName( 'modifier_arcana_dbz' )
-        local pepsiArcana = attacker:FindModifierByName( 'modifier_arcana_pepsi' )
-        if dbzArcana then
-          ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(0,0,0) )
-        elseif pepsiArcana then
-          ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(0,0,0) )
-        end
-      end
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
 
-      -- Knock the enemy back
-			local distance = spell:GetSpecialValueFor( "knockback_distance" )
-			local speed = spell:GetSpecialValueFor( "knockback_speed" )
-			local duration = distance / speed
-			local collision_radius = spell:GetSpecialValueFor( "collision_radius" )
-			target:RemoveModifierByName( "modifier_sohei_momentum_knockback" )
-			target:AddNewModifier( attacker, spell, "modifier_sohei_momentum_knockback", {
-				duration = duration,
-				distance = distance,
-				speed = speed,
-				collision_radius = collision_radius
-			} )
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return
+    end
 
-			-- Play the impact sound
-      target:EmitSound( "Sohei.Momentum" )
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
 
-      local particleName = "particles/hero/sohei/momentum.vpcf"
+    if self.attackPrimed == false then
+      return
+    end
 
-      if target:HasModifier('modifier_arcana_dbz') then
-        particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
-      elseif target:HasModifier('modifier_arcana_pepsi') then
-        particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
-      end
+    local spell = self:GetAbility()
 
-      -- Play the impact particle
-      local momentum_pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
-      ParticleManager:SetParticleControl( momentum_pfx, 0, target:GetAbsOrigin() )
-      ParticleManager:ReleaseParticleIndex( momentum_pfx )
+    -- Reset stack counter - Momentum attack landed
+    self:SetStackCount(0)
 
-      -- Reduce guard cd if they skilled the talent
-      local guard = attacker:FindAbilityByName( "sohei_guard" )
-      local talent = attacker:FindAbilityByName( "special_bonus_sohei_momentum_guard_cooldown" )
+    -- Remove Arcana Glow particles
+    local dbzArcana = parent:FindModifierByName("modifier_arcana_dbz")
+    local pepsiArcana = parent:FindModifierByName("modifier_arcana_pepsi")
+    if dbzArcana then
+      ParticleManager:SetParticleControl(dbzArcana.Glow, 2, Vector(0, 0, 0))
+    elseif pepsiArcana then
+      ParticleManager:SetParticleControl(pepsiArcana.Glow, 2, Vector(0, 0, 0))
+    end
 
-      if talent and talent:GetLevel() > 0 then
-        local cooldown_reduction = talent:GetSpecialValueFor( "value" )
+    --[[
+    -- Knock the enemy back
+    local distance = spell:GetSpecialValueFor( "knockback_distance" )
+    local speed = spell:GetSpecialValueFor( "knockback_speed" )
+    local duration = distance / speed
+    local collision_radius = spell:GetSpecialValueFor( "collision_radius" )
+    target:RemoveModifierByName( "modifier_sohei_momentum_knockback" )
+    target:AddNewModifier( parent, spell, "modifier_sohei_momentum_knockback", {
+      duration = duration,
+      distance = distance,
+      speed = speed,
+      collision_radius = collision_radius
+    } )
 
-        if not guard:IsCooldownReady() then
-          local newCooldown = guard:GetCooldownTimeRemaining() - cooldown_reduction
-          guard:EndCooldown()
-          guard:StartCooldown( newCooldown )
-        end
-      end
+    -- Play the impact sound
+    target:EmitSound( "Sohei.Momentum" )
 
-      -- start momentum cooldown if not used during flurry
-      if not self:GetParent():HasModifier( "modifier_sohei_flurry_self" ) then
-        spell:UseResources( true, true, true )
+    local particleName = "particles/hero/sohei/momentum.vpcf"
+
+    if target:HasModifier('modifier_arcana_dbz') then
+      particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
+    elseif target:HasModifier('modifier_arcana_pepsi') then
+      particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
+    end
+
+    -- Play the impact particle
+    local momentum_pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, target )
+    ParticleManager:SetParticleControl( momentum_pfx, 0, target:GetAbsOrigin() )
+    ParticleManager:ReleaseParticleIndex( momentum_pfx )
+
+    -- Reduce guard cd if they skilled the talent
+    local guard = parent:FindAbilityByName( "sohei_guard" )
+    local talent = parent:FindAbilityByName( "special_bonus_sohei_momentum_guard_cooldown" )
+
+    if talent and talent:GetLevel() > 0 then
+      local cooldown_reduction = talent:GetSpecialValueFor( "value" )
+
+      if not guard:IsCooldownReady() then
+        local newCooldown = guard:GetCooldownTimeRemaining() - cooldown_reduction
+        guard:EndCooldown()
+        guard:StartCooldown( newCooldown )
       end
     end
+    ]]
+
+    -- start momentum cooldown
+    spell:UseResources(true, true, true)
   end
 end
 
+--[[
 --------------------------------------------------------------------------------
-
+LinkLuaModifier("modifier_sohei_momentum_knockback", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 -- Momentum's knockback modifier
 modifier_sohei_momentum_knockback = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_knockback:IsDebuff()
   return true
@@ -284,8 +269,6 @@ function modifier_sohei_momentum_knockback:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_knockback:GetEffectName()
   if self:GetCaster():HasModifier('modifier_arcana_dbz') then
     return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
@@ -293,13 +276,9 @@ function modifier_sohei_momentum_knockback:GetEffectName()
   return "particles/hero/sohei/knockback.vpcf"
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_knockback:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_knockback:CheckState()
   local state = {
@@ -308,8 +287,6 @@ function modifier_sohei_momentum_knockback:CheckState()
 
   return state
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_knockback:DeclareFunctions()
   local funcs = {
@@ -320,13 +297,9 @@ function modifier_sohei_momentum_knockback:DeclareFunctions()
   return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_knockback:GetOverrideAnimation( event )
   return ACT_DOTA_FLAIL
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_sohei_momentum_knockback:OnCreated( event )
@@ -347,16 +320,12 @@ if IsServer() then
     end
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_momentum_knockback:OnDestroy()
     local parent = self:GetParent()
 
     parent:RemoveHorizontalMotionController( self )
     ResolveNPCPositions( parent:GetAbsOrigin(), 128 )
   end
-
---------------------------------------------------------------------------------
 
   function modifier_sohei_momentum_knockback:UpdateHorizontalMotion( parent, deltaTime )
     local caster = self:GetCaster()
@@ -405,8 +374,6 @@ if IsServer() then
     end
   end
 
---------------------------------------------------------------------------------
-
   function modifier_sohei_momentum_knockback:SlowAndStun( unit, caster, ability )
     unit:AddNewModifier( caster, ability, "modifier_sohei_momentum_slow", { duration = ability:GetSpecialValueFor( "slow_duration" ) } )
 
@@ -422,11 +389,9 @@ if IsServer() then
 end
 
 --------------------------------------------------------------------------------
-
+LinkLuaModifier("modifier_sohei_momentum_slow", "abilities/sohei/sohei_momentum.lua", LUA_MODIFIER_MOTION_NONE)
 -- Momentum's knockback modifier
 modifier_sohei_momentum_slow = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_slow:IsDebuff()
   return true
@@ -444,8 +409,6 @@ function modifier_sohei_momentum_slow:IsStunDebuff()
   return false
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_slow:OnCreated( event )
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
@@ -455,8 +418,6 @@ function modifier_sohei_momentum_slow:OnCreated( event )
     self.slow = movement_slow
   end
 end
-
---------------------------------------------------------------------------------
 
 function modifier_sohei_momentum_slow:OnRefresh( event )
   local parent = self:GetParent()
@@ -468,8 +429,6 @@ function modifier_sohei_momentum_slow:OnRefresh( event )
   end
 end
 
---------------------------------------------------------------------------------
-
 -- slows don't show correctly if they're in an IsServer() block govs
 function modifier_sohei_momentum_slow:DeclareFunctions()
   local funcs = {
@@ -479,8 +438,7 @@ function modifier_sohei_momentum_slow:DeclareFunctions()
   return funcs
 end
 
---------------------------------------------------------------------------------
-
 function modifier_sohei_momentum_slow:GetModifierMoveSpeedBonus_Percentage()
   return self.slow
 end
+]]

@@ -22,18 +22,18 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0" // old: 1.0
-    "AbilityCastRange"                                    "400"
+    "AbilityCastPoint"                                    "0.5" // old: 1.0
+    "AbilityCastRange"                                    "450"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AnimationPlaybackRate"                               "2"
+    "AnimationPlaybackRate"                               "3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10" // old: 75
+    "AbilityCooldown"                                     "75"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50" // old: 150
+    "AbilityManaCost"                                     "100"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -46,38 +46,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "flurry_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "flurry_radius"                                   "450"
+        "value"                                           "450"
         "LinkedSpecialBonus"                              "special_bonus_sohei_fob_radius"
       }
-      "02" // unused KV
+      "max_attacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "6 10 12 14 18"
+        "value"                                           "6 9 12 15 18"
+        "special_bonus_unique_sohei_8"                    "+6"
       }
-      "03" // unused KV
+      "max_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_duration"                                    "3.0 4.0 5.0 5.5 6.0"
+        "value"                                           "3 4 5 5.5 6" // min is: max_attacks * attack_interval
+        "special_bonus_unique_sohei_8"                    "+2"
       }
-      "04" // unused KV
+      "attack_interval"                                   "0.3"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_interval"                                 "0.4"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "120 175 230 460 920"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1.0"
+        "value"                                           "30 35 40 55 80"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }
   }

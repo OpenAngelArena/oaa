@@ -1,144 +1,113 @@
-sohei_momentum_strike = class( AbilityBaseClass )
-
-LinkLuaModifier("modifier_sohei_momentum_strike_passive", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_momentum_strike_knockback", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_momentum_strike_slow", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_momentum_strike_stun", "abilities/sohei/sohei_momentum_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
----------------------------------------------------------------------------------------------------
-
-function sohei_momentum_strike:GetIntrinsicModifierName()
-	return "modifier_sohei_momentum_strike_passive"
-end
+sohei_momentum_strike = class(AbilityBaseClass)
 
 function sohei_momentum_strike:OnSpellStart()
   local caster = self:GetCaster()
   local point = self:GetCursorPosition()
 
-  -- Projectile parameters
-  local projectile_name = "particles/hero/sohei/momentum_strike_projectile.vpcf"
-  local projectile_distance = self:GetSpecialValueFor("max_travel_distance")
-  local projectile_speed = self:GetSpecialValueFor("projectile_speed")
-  local projectile_width = self:GetSpecialValueFor("collision_radius")
-  local projectile_vision = self:GetSpecialValueFor("vision_radius")
-
-  -- Projectile direction
+  -- Calculate direction
   local direction = point - caster:GetAbsOrigin()
   direction.z = 0
   direction = direction:Normalized()
 
-  -- Projectile info
-  local info = {
-    Source = caster,
-    Ability = self,
-    EffectName = projectile_name,
-    vSpawnOrigin = caster:GetAbsOrigin(),
-    fDistance = projectile_distance + caster:GetCastRangeBonus(),
-    fStartRadius = projectile_width,
-    fEndRadius = projectile_width,
-    bHasFrontalCone = false,
-    bReplaceExisting = false,
-    iUnitTargetTeam = self:GetAbilityTargetTeam(),
-    iUnitTargetType = self:GetAbilityTargetType(),
-    iUnitTargetFlags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE), --self:GetAbilityTargetFlags(),
-    --bDeleteOnHit = true, -- DOESN'T WORK
-    vVelocity = direction*projectile_speed,
-    bProvidesVision = true,
-    iVisionRadius = projectile_vision,
-    iVisionTeamNumber = caster:GetTeamNumber(),
-  }
+  -- Strike parameters
+  local width = self:GetSpecialValueFor("strike_radius")
+  local range = self:GetSpecialValueFor("strike_range")
 
-  ProjectileManager:CreateLinearProjectile(info)
+  -- Find start and end location
+  local start_point = caster:GetAbsOrigin()
+  local end_point = start_point + direction * (range + caster:GetCastRangeBonus())
 
-  -- Play sound
-  caster:EmitSound("Sohei.Momentum")
-
-  -- Remove Arcana Glow particle
-  local dbzArcana = caster:FindModifierByName('modifier_arcana_dbz')
-  local pepsiArcana = caster:FindModifierByName('modifier_arcana_pepsi')
-  if dbzArcana then
-    ParticleManager:SetParticleControl(dbzArcana.Glow, 2, Vector(0,0,0))
-  elseif pepsiArcana then
-    ParticleManager:SetParticleControl(pepsiArcana.Glow, 2, Vector(0,0,0))
-  end
-end
-
-function sohei_momentum_strike:OnProjectileHitHandle(target, location, projectile_id)
-  if not target or target:IsNull() or not projectile_id then
-    return true
-  end
-
-  -- Ignore couriers
-  if target:IsCourier() then
-    return false
-  end
-
-  local caster = self:GetCaster()
-  local projectile_velocity = ProjectileManager:GetLinearProjectileVelocity(projectile_id)
-  local projectile_speed = self:GetSpecialValueFor("projectile_speed")
+  local enemies = FindUnitsInLine(
+    caster:GetTeamNumber(),
+    start_point,
+    end_point,
+    nil,
+    width,
+    self:GetAbilityTargetTeam(),
+    self:GetAbilityTargetType(),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE)
+  )
 
   -- Knockback parameters
-  local distance = self:GetSpecialValueFor("knockback_distance")
-  local speed = self:GetSpecialValueFor("knockback_speed")
-  local duration = distance / speed
+  local knockback_distance = self:GetSpecialValueFor("knockback_distance")
+  local knockback_speed = self:GetSpecialValueFor("knockback_speed")
+  local knockback_duration = knockback_distance / knockback_speed
   local collision_radius = self:GetSpecialValueFor("collision_radius")
-  local direction = projectile_velocity/projectile_speed
-
-  -- Apply Momentum Strike Knockback to the target
-  target:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
-  target:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_knockback", {
-    duration = duration,
-    distance = distance,
-    speed = speed,
-    collision_radius = collision_radius,
-    direction_x = direction.x,
-    direction_y = direction.y,
-  })
 
   -- Hit particle
   local particleName = "particles/hero/sohei/momentum.vpcf"
-
-  if caster:HasModifier('modifier_arcana_dbz') then
-    particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_strike_dbz.vpcf"
-  elseif caster:HasModifier('modifier_arcana_pepsi') then
-    particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_strike_pepsi.vpcf"
+  if caster:HasModifier("modifier_arcana_dbz") then
+    particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
+  elseif caster:HasModifier("modifier_arcana_pepsi") then
+    particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
   end
 
-  local momentum_pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-  ParticleManager:SetParticleControl(momentum_pfx, 0, target:GetAbsOrigin())
-  ParticleManager:ReleaseParticleIndex(momentum_pfx)
+  local ki_strike_particle = ParticleManager:CreateParticle("particles/hero/sohei/ki_strike.vpcf", PATTACH_CUSTOMORIGIN, caster)
+  ParticleManager:SetParticleControl(ki_strike_particle, 0, start_point)
+  ParticleManager:SetParticleControl(ki_strike_particle, 1, end_point)
+  ParticleManager:ReleaseParticleIndex(ki_strike_particle)
 
-  -- Hit the unit with normal attack that cant miss
-  if not caster:IsDisarmed() and not target:IsAttackImmune() then
-    caster:PerformAttack(target, true, true, true, false, false, false, true)
-    -- Crit is done with the passive modifier
-  end
+  -- Slow duration
+  local slow_duration = self:GetSpecialValueFor("slow_duration")
 
-  return true -- destroys the projectile
-end
+  -- Sounds
+  EmitSoundOnLocationWithCaster(start_point, "Sohei.Momentum", caster)
+  EmitSoundOnLocationWithCaster(end_point, "Sohei.Momentum", caster)
 
-function sohei_momentum_strike:OnUnStolen()
-  local caster = self:GetCaster()
-  local modifier = caster:FindModifierByName("modifier_sohei_momentum_strike_passive")
-  if modifier then
-    caster:RemoveModifierByName("modifier_sohei_momentum_strike_passive")
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      -- Apply knockback and slow to the enemy if not spell immune
+      if not enemy:IsMagicImmune() then
+        -- Impact sound
+        --enemy:EmitSound("Sohei.Momentum")
+        -- Remove previous instance of knockback
+        enemy:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
+        -- Apply new knockback
+        enemy:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_knockback", {
+          duration = knockback_duration,
+          distance = knockback_distance,
+          speed = knockback_speed,
+          collision_radius = collision_radius,
+          direction_x = direction.x,
+          direction_y = direction.y,
+        })
+
+        -- Apply slow debuff
+        enemy:AddNewModifier(caster, self, "modifier_sohei_momentum_strike_slow", {duration = slow_duration})
+
+        -- Hit particle
+        local momentum_pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
+        ParticleManager:SetParticleControl(momentum_pfx, 0, enemy:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex(momentum_pfx)
+      end
+
+      -- Hit the enemy with normal attack that cant miss
+      if not caster:IsDisarmed() and not enemy:IsAttackImmune() then
+        caster:PerformAttack(enemy, true, true, true, false, false, false, true)
+      end
+    end
   end
 end
 
 ---------------------------------------------------------------------------------------------------
 
--- Momentum Strike knockback modifier
-modifier_sohei_momentum_strike_knockback = class( ModifierBaseClass )
-
-function modifier_sohei_momentum_strike_knockback:IsDebuff()
-  return true
-end
+-- Knockback modifier
+modifier_sohei_momentum_strike_knockback = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_strike_knockback:IsHidden()
   return true
 end
 
+function modifier_sohei_momentum_strike_knockback:IsDebuff()
+  return true
+end
+
 function modifier_sohei_momentum_strike_knockback:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_sohei_momentum_strike_knockback:IsStunDebuff()
@@ -150,7 +119,7 @@ function modifier_sohei_momentum_strike_knockback:GetPriority()
 end
 
 function modifier_sohei_momentum_strike_knockback:GetEffectName()
-  if self:GetCaster():HasModifier('modifier_arcana_dbz') then
+  if self:GetCaster():HasModifier("modifier_arcana_dbz") then
     return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
   end
   return "particles/hero/sohei/knockback.vpcf"
@@ -171,13 +140,12 @@ end
 function modifier_sohei_momentum_strike_knockback:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-    MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
   }
 
   return funcs
 end
 
-function modifier_sohei_momentum_strike_knockback:GetOverrideAnimation( event )
+function modifier_sohei_momentum_strike_knockback:GetOverrideAnimation()
   return ACT_DOTA_FLAIL
 end
 
@@ -224,7 +192,7 @@ if IsServer() then
     local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
     for _, thinker in pairs(thinkers) do
       if thinker and thinker:IsPhantomBlocker() then
-        self:SlowAndStun(parent, caster, ability)
+        self:ApplyStun(parent, caster, ability)
         self:Destroy()
         return
       end
@@ -234,14 +202,14 @@ if IsServer() then
     local previous_loc = GetGroundPosition(parentOrigin, parent)
     local new_loc = GetGroundPosition(tickOrigin, parent)
     if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
-      self:SlowAndStun(parent, caster, ability)
+      self:ApplyStun(parent, caster, ability)
       self:Destroy()
       return
     end
 
     -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
     if GridNav:IsNearbyTree(tickOrigin, 120, false) then
-      self:SlowAndStun(parent, caster, ability)
+      self:ApplyStun(parent, caster, ability)
       GridNav:DestroyTreesAroundPoint(tickOrigin, self.collision_radius, false)
       self:Destroy()
       return
@@ -249,7 +217,7 @@ if IsServer() then
 
     -- Check for buildings (requires buildings lua library, otherwise it will return an error)
     if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
-      self:SlowAndStun(parent, caster, ability)
+      self:ApplyStun(parent, caster, ability)
       self:Destroy()
       return
     end
@@ -272,8 +240,8 @@ if IsServer() then
         hero_to_impact = heroes[2]
       end
       if hero_to_impact then
-        self:SlowAndStun(parent, caster, ability)
-        self:SlowAndStun(hero_to_impact, caster, ability)
+        self:ApplyStun(parent, caster, ability)
+        self:ApplyStun(hero_to_impact, caster, ability)
         self:Destroy()
         return
       end
@@ -284,13 +252,11 @@ if IsServer() then
     parent:SetOrigin(tickOrigin)
   end
 
-  function modifier_sohei_momentum_strike_knockback:SlowAndStun( unit, caster, ability )
-    -- Apply slow debuff
-    unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_strike_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
-
+  function modifier_sohei_momentum_strike_knockback:ApplyStun(unit, caster, ability)
     local stun_duration = ability:GetSpecialValueFor("stun_duration")
-    local talent = caster:FindAbilityByName("special_bonus_sohei_stun")
 
+    -- Talent that increases stun duration
+    local talent = caster:FindAbilityByName("special_bonus_sohei_stun")
     if talent and talent:GetLevel() > 0 then
       stun_duration = stun_duration + talent:GetSpecialValueFor("value")
     end
@@ -299,7 +265,7 @@ if IsServer() then
     stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
 
     -- Apply stun debuff
-    unit:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+    unit:AddNewModifier(caster, ability, "modifier_sohei_momentum_strike_stun", {duration = stun_duration})
 
     -- Collision Impact Sound
     unit:EmitSound("Sohei.Momentum.Collision")
@@ -308,15 +274,15 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Momentum Strike slow modifier
-modifier_sohei_momentum_strike_slow = class( ModifierBaseClass )
-
-function modifier_sohei_momentum_strike_slow:IsDebuff()
-  return true
-end
+-- Slow debuff
+modifier_sohei_momentum_strike_slow = class(ModifierBaseClass)
 
 function modifier_sohei_momentum_strike_slow:IsHidden()
   return false
+end
+
+function modifier_sohei_momentum_strike_slow:IsDebuff()
+  return true
 end
 
 function modifier_sohei_momentum_strike_slow:IsPurgable()
@@ -327,23 +293,23 @@ function modifier_sohei_momentum_strike_slow:IsStunDebuff()
   return false
 end
 
-function modifier_sohei_momentum_strike_slow:OnCreated( event )
+function modifier_sohei_momentum_strike_slow:OnCreated()
   local parent = self:GetParent()
-  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  local movement_slow = self:GetAbility():GetSpecialValueFor("movement_slow")
   if IsServer() then
     -- Slow is reduced with Status Resistance
-    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
   else
     self.slow = movement_slow
   end
 end
 
-function modifier_sohei_momentum_strike_slow:OnRefresh( event )
+function modifier_sohei_momentum_strike_slow:OnRefresh()
   local parent = self:GetParent()
-  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
+  local movement_slow = self:GetAbility():GetSpecialValueFor("movement_slow")
   if IsServer() then
     -- Slow is reduced with Status Resistance
-    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
   else
     self.slow = movement_slow
   end
@@ -363,86 +329,48 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Momentum Strike passive modifier
-modifier_sohei_momentum_strike_passive = class( ModifierBaseClass )
+-- Stun debuff
+modifier_sohei_momentum_strike_stun = class(ModifierBaseClass)
 
-function modifier_sohei_momentum_strike_passive:IsHidden()
+function modifier_sohei_momentum_strike_stun:IsHidden()
+  return false
+end
+
+function modifier_sohei_momentum_strike_stun:IsDebuff()
   return true
 end
 
-function modifier_sohei_momentum_strike_passive:IsPurgable()
-  return false
+function modifier_sohei_momentum_strike_stun:IsStunDebuff()
+  return true
 end
 
-function modifier_sohei_momentum_strike_passive:IsDebuff()
-  return false
+function modifier_sohei_momentum_strike_stun:IsPurgable()
+  return true
 end
 
-function modifier_sohei_momentum_strike_passive:DeclareFunctions()
+function modifier_sohei_momentum_strike_stun:GetEffectName()
+  return "particles/generic_gameplay/generic_stunned.vpcf"
+end
+
+function modifier_sohei_momentum_strike_stun:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_sohei_momentum_strike_stun:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
 
   return funcs
 end
 
-function modifier_sohei_momentum_strike_passive:GetModifierPreAttack_CriticalStrike(event)
-  local parent = self:GetParent()
-
-  if parent ~= event.attacker then
-    return 0
-  end
-
-  if not IsServer() then
-    return 0
-  end
-
-  local ability = self:GetAbility()
-  local ufResult = UnitFilter(
-    event.target,
-    ability:GetAbilityTargetTeam(),
-    ability:GetAbilityTargetType(),
-    bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE),
-    parent:GetTeamNumber()
-  )
-
-  if ufResult ~= UF_SUCCESS then
-    return 0
-  end
-  local crit_damage = ability:GetSpecialValueFor("crit_damage")
-  local talent = parent:FindAbilityByName("special_bonus_sohei_momentum_strike_crit")
-  if talent and talent:GetLevel() > 0 then
-    crit_damage = crit_damage + talent:GetSpecialValueFor("value")
-  end
-  -- Crit only if the target is affected by Momentum Strike from the parent
-  if event.target:FindModifierByNameAndCaster("modifier_sohei_momentum_strike_knockback", parent) then
-    return crit_damage
-  end
-
-  return 0
+function modifier_sohei_momentum_strike_stun:GetOverrideAnimation()
+  return ACT_DOTA_DISABLED
 end
 
-function modifier_sohei_momentum_strike_passive:OnCreated()
-  self:StartIntervalThink(0.1)
-end
-
-function modifier_sohei_momentum_strike_passive:OnIntervalThink()
-  local ability = self:GetAbility()
-  local parent = self:GetParent()
-
-  if not IsServer() then
-    return
-  end
-
-  -- If Momentum Strike is not on cooldown, make arcana particles glow
-  if ability and ability:IsCooldownReady() then
-    local dbzArcana = parent:FindModifierByName( 'modifier_arcana_dbz' )
-    local pepsiArcana = parent:FindModifierByName( 'modifier_arcana_pepsi' )
-
-    if dbzArcana then
-      ParticleManager:SetParticleControl( dbzArcana.Glow, 2, Vector(30,0,0) )
-    elseif pepsiArcana then
-      ParticleManager:SetParticleControl( pepsiArcana.Glow, 2, Vector(100,0,0) )
-    end
-  end
+function modifier_sohei_momentum_strike_stun:CheckState()
+  local state = {
+    [MODIFIER_STATE_STUNNED] = true,
+  }
+  return state
 end
