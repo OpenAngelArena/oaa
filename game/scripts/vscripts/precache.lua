@@ -40,24 +40,31 @@ g_ItemPrecache = {
 }
 
 g_UnitPrecache = {
+  "dota_fountain",
+  "npc_dota_demon_stone_demon",
   "npc_dota_monkey_clone_oaa",
-  "npc_dota_visage_familiar",
+  "npc_dota_tinkerer_keen_node",
+  --"npc_dota_visage_familiar", -- should be precached together with Visage
+  --"npc_dota_witch_doctor_death_ward_oaa", -- should be precached together with Witch Doctor
   "npc_dota_hero_sohei",
   "npc_dota_hero_electrician",
-  "dota_fountain",
   --"npc_azazel_tower_watch",
-  "npc_dota_boss_simple_1",
-  "npc_dota_boss_simple_2",
-  "npc_dota_boss_simple_5",
-  "npc_dota_boss_simple_7",
-
+  "npc_dota_boss_simple_1", -- Skeleton boss
+  "npc_dota_boss_simple_5", -- Cleave boss
+  "npc_dota_boss_simple_7", -- Dire Creep boss
+  --"npc_dota_boss_tier_1", -- Roshan (precached with normal dota)
   "npc_dota_boss_twin",
   "npc_dota_boss_twin_dumb",
+  "npc_dota_boss_simple_2", -- Bear boss
   "npc_dota_boss_shielder",
   "npc_dota_boss_charger",
   "npc_dota_boss_charger_pillar",
-  "npc_dota_boss_stopfightingyourself",
-
+  "npc_dota_boss_carapace", -- Weaver boss
+  "npc_dota_boss_slime",
+  "npc_dota_boss_swiper",  -- Sven boss
+  "npc_dota_boss_spiders", -- Alchemist boss
+  "npc_dota_creature_magma_boss",
+  "npc_dota_magma_boss_volcano",
   "npc_dota_creature_ogre_tank_boss",
   "npc_dota_creature_ogre_seer",
   "npc_dota_creature_lycan_boss",
@@ -65,19 +72,17 @@ g_UnitPrecache = {
   "npc_dota_creature_dire_hound_boss",
   "npc_dota_creature_werewolf",
   "npc_dota_hero_bloodseeker", -- For Lycan Boss Wolf transformation
-
+  "npc_dota_boss_tier_4", -- Killer Tomato
+  "npc_dota_boss_tier_6", -- Spooky Ghost
   "npc_dota_creature_temple_guardian",
   "npc_dota_creature_temple_guardian_spawner",
-
-  --"npc_dota_creature_small_lycosidae",
   "npc_dota_creature_spider_boss",
-  "npc_dota_boss_spiders",
-  "npc_dota_boss_swiper",
+  "npc_dota_boss_spiders_spiderball",
+  "npc_dota_boss_spiders_spider",
+  "npc_dota_boss_stopfightingyourself",
   "npc_dota_boss_wanderer_1",
   "npc_dota_boss_wanderer_2",
   "npc_dota_boss_wanderer_3",
-  "npc_dota_creature_magma_boss",
-  "npc_dota_magma_boss_volcano",
   "npc_dota_boss_grendel",
 }
 
@@ -106,6 +111,7 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
   "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
+  "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf", -- Tinkerer
 }
 
 g_ParticleFolderPrecache = {
@@ -124,16 +130,22 @@ g_ParticleFolderPrecache = {
   "particles/items/trumps_fists",
   "particles/items/vampire",
   "particles/hero/electrician",
+  "particles/hero/tinkerer",
 }
 
 g_SoundPrecache = {
   "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", -- For Ogre Boss kill sound
   "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
   -- Ambient sounds
-  "soundevents/ambient/doors.vsndevts",
+  --"soundevents/ambient/doors.vsndevts",
   "soundevents/music/music.vsndevts",
+  -- Gameplay sounds
   "soundevents/game_sounds_creeps.vsndevts",
+  "soundevents/game_sounds_items.vsndevts",
+  "soundevents/items/oaa_items_sfx.vsndevts",
+  "soundevents/abilities/fountain_attack.vsndevts",
+  -- Boss sounds
+  "soundevents/bosses/charger.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
   "soundevents/bosses/magma_boss.vsndevts",
-  "soundevents/game_sounds_items.vsndevts",
 }

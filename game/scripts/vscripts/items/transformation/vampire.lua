@@ -86,12 +86,18 @@ if IsServer() then
       return
     end
 
-    if attacker ~= parent then --or not event.process_procs
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
-    -- Check if attacked unit exists
+    -- Check if attacked entity exists
     if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
       return
     end
 
@@ -109,6 +115,7 @@ if IsServer() then
       return
     end
 
+    -- Check if attacker has this modifier
     if attacker ~= parent then
       return
     end
@@ -226,12 +233,18 @@ if IsServer() then
       return
     end
 
-    if attacker ~= parent then --or not event.process_procs
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
       return
     end
 
-    -- Check if attacked unit exists
+    -- Check if attacked entity exists
     if not target or target:IsNull() then
+      return
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
       return
     end
 
@@ -249,6 +262,7 @@ if IsServer() then
       return
     end
 
+    -- Check if attacker has this modifier
     if attacker ~= parent then
       return
     end

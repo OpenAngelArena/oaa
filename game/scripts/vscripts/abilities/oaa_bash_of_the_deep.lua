@@ -59,6 +59,11 @@ if IsServer() then
 
     local target = event.target
 
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return
+    end
+
     -- can't bash allies, towers, or wards
     if UnitFilter( target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor( DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC ), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, parent:GetTeamNumber() ) ~= UF_SUCCESS then
       return 0

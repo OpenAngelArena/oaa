@@ -4,8 +4,6 @@ sohei_dash = class(AbilityBaseClass)
 LinkLuaModifier("modifier_sohei_dash_movement", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 --LinkLuaModifier("modifier_sohei_dash_charges", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_dash_slow", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sohei_dash_movement_ally", "abilities/sohei/sohei_dash.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-
 
 ---------------------------------------------------------------------------------------------------
 
@@ -76,59 +74,172 @@ function sohei_dash:OnUnStolen()
 end
 ]]
 
+local forbidden_modifiers = {
+  "modifier_enigma_black_hole_pull",
+  "modifier_faceless_void_chronosphere_freeze",
+  "modifier_legion_commander_duel",
+  "modifier_batrider_flaming_lasso",
+}
+
+function sohei_dash:GetBehavior()
+  local caster = self:GetCaster()
+  -- Shard that changes behavior
+  if caster:HasShardOAA() then
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
+  end
+  return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+end
+
+function sohei_dash:GetCastRange(location, target)
+  local caster = self:GetCaster()
+  if target and caster:HasShardOAA() then
+    return self:GetSpecialValueFor("shard_unit_cast_range")
+  end
+
+  return self.BaseClass.GetCastRange(self, location, target)
+end
+
+function sohei_dash:CastFilterResultTarget(target)
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+
+  for _, modifier in pairs(forbidden_modifiers) do
+    if target:HasModifier(modifier) then
+      return UF_FAIL_CUSTOM
+    end
+  end
+
+  if defaultFilterResult == UF_FAIL_FRIENDLY then
+    return UF_SUCCESS
+  end
+
+  return defaultFilterResult
+end
+
+function sohei_dash:GetCustomCastErrorTarget(target)
+  if target:HasModifier("modifier_enigma_black_hole_pull") then
+    return "#oaa_hud_error_pull_staff_black_hole"
+  end
+  if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+    return "#oaa_hud_error_pull_staff_chronosphere"
+  end
+  if target:HasModifier("modifier_legion_commander_duel") then
+    return "#oaa_hud_error_pull_staff_duel"
+  end
+  if target:HasModifier("modifier_batrider_flaming_lasso") then
+    return "#oaa_hud_error_pull_staff_lasso"
+  end
+end
+
 function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
-  local caster_loc = caster:GetAbsOrigin()
   local target_loc = self:GetCursorPosition()
-  local max_speed = self:GetSpecialValueFor("dash_speed")
-  local width = self:GetSpecialValueFor("dash_width")
-  local range = self:GetSpecialValueFor("dash_range")
+  local target = self:GetCursorTarget()
 
-  -- Bonus range talent
-  local talent = caster:FindAbilityByName("special_bonus_sohei_dash_cast_range")
-  if talent and talent:GetLevel() > 0 then
-    range = range + talent:GetSpecialValueFor("value")
+  local caster_loc = caster:GetAbsOrigin()
+  local has_shard = caster:HasShardOAA()
+
+  local width = self:GetSpecialValueFor("dash_width")
+  local max_speed = self:GetSpecialValueFor("dash_speed")
+  local move_speed_multiplier = self:GetSpecialValueFor("move_speed_multiplier")
+  local direction = caster:GetForwardVector()
+  local distance = 850
+  local speed = 1200
+
+  if target and has_shard and self:GetAutoCastState() == false then
+    target_loc = target:GetAbsOrigin()
+    target = nil
   end
 
-  -- Calculate range with cast range bonuses
-  range = range + caster:GetCastRangeBonus()
+  if target and has_shard then
+    speed = self:GetSpecialValueFor("shard_push_pull_speed")
+    local reposition_range = self:GetSpecialValueFor("shard_push_pull_length")
 
-  -- Calculate direction
-  local direction = target_loc - caster_loc
-  direction.z = 0.0
+    -- Do nothing if target has a forbidden modifier
+    -- (this will happen rarely (lotus orb maybe) because the cast filter already checks this)
+    for _, modifier in pairs(forbidden_modifiers) do
+      if target:HasModifier(modifier) then
+        return
+      end
+    end
+
+    -- Check if enemy or ally
+    if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+      -- Don't do anything if target has Linken's effect or it's spell-immune
+      if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+        return
+      end
+
+      -- Interrupt
+      target:Stop()
+
+      direction = caster_loc - target:GetAbsOrigin()
+      distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
+      if distance > reposition_range then
+        distance = reposition_range
+      end
+      if distance <= 0 then
+        distance = 1
+      end
+    else
+      direction = target:GetForwardVector()
+      distance = reposition_range
+      if target == caster then
+        -- Calculate speed - its based on caster's movement speed
+        speed = math.min(caster:GetIdealSpeed() * move_speed_multiplier, max_speed)
+      end
+    end
+  elseif target_loc then
+    local range = self:GetSpecialValueFor("dash_range")
+
+    -- Bonus dash range talent
+    local talent = caster:FindAbilityByName("special_bonus_sohei_dash_cast_range")
+    if talent and talent:GetLevel() > 0 then
+      range = range + talent:GetSpecialValueFor("value")
+    end
+
+    if has_shard then
+      range = range + self:GetSpecialValueFor("shard_bonus_dash_range")
+    end
+
+    -- Calculate range with cast range bonuses
+    range = range + caster:GetCastRangeBonus()
+
+    -- Calculate direction
+    direction = target_loc - caster_loc
+
+    -- Calculate and cap the distance
+    distance = direction:Length2D()
+    if distance > range then
+      distance = range
+    end
+
+    -- Calculate speed - its based on caster's movement speed
+    speed = math.min(caster:GetIdealSpeed() * move_speed_multiplier, max_speed)
+
+    -- Caster is the target
+    target = caster
+  end
+
+  -- Normalize direction
+  direction.z = 0
   direction = direction:Normalized()
 
-  -- Calculate and cap the distance
-  local distance = (target_loc - caster_loc):Length2D()
-  if distance > range then
-    distance = range
+  -- Interrupt existing motion controllers (it should also interrupt existing instances of Dash)
+  if target:IsCurrentlyHorizontalMotionControlled() then
+    target:InterruptMotionControllers(false)
   end
 
-  -- Calculate speed - its based on caster's movement speed
-  local move_speed = caster:GetIdealSpeed()
-  local speed = move_speed * 7
-  -- Cap the Dash speed
-  speed = math.min(speed, max_speed)
+  -- Dash sound
+  target:EmitSound("Sohei.Dash")
 
-  -- Calculate duration
-  local duration = distance / speed
-
-  caster:RemoveModifierByName("modifier_sohei_dash_movement")
-  caster:EmitSound("Sohei.Dash")
-  caster:StartGesture(ACT_DOTA_RUN)
-
-  caster:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
-    duration = duration,
+  -- Apply motion controller
+  target:AddNewModifier(caster, self, "modifier_sohei_dash_movement", {
     distance = distance,
     speed = speed,
     direction_x = direction.x,
     direction_y = direction.y,
     width = width,
-  } )
-
-  if caster:HasShardOAA() then
-    ProjectileManager:ProjectileDodge(caster)
-  end
+  })
 end
 --[[
 function sohei_dash:OnSpellStart()
@@ -355,6 +466,22 @@ function modifier_sohei_dash_movement:IsStunDebuff()
   return false
 end
 
+function modifier_sohei_dash_movement:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
+end
+
+function modifier_sohei_dash_movement:GetOverrideAnimation()
+  local caster = self:GetCaster()
+  local parent = self:GetParent()
+  if parent == caster then
+    return ACT_DOTA_RUN
+  end
+
+  return ACT_DOTA_FLAIL
+end
+
 function modifier_sohei_dash_movement:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
 end
@@ -365,8 +492,9 @@ function modifier_sohei_dash_movement:CheckState()
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
   }
 
-  local caster = self:GetParent()
-  if caster:HasShardOAA() then
+  local caster = self:GetCaster()
+  local parent = self:GetParent()
+  if caster:HasShardOAA() and parent:GetTeamNumber() == caster:GetTeamNumber() then
     state[MODIFIER_STATE_NO_HEALTH_BAR] = true
     state[MODIFIER_STATE_INVULNERABLE] = true
     state[MODIFIER_STATE_MAGIC_IMMUNE] = true
@@ -379,12 +507,18 @@ if IsServer() then
   function modifier_sohei_dash_movement:OnCreated(event)
     -- Movement parameters
     local parent = self:GetParent()
+    local caster = self:GetCaster()
     self.start_pos = parent:GetAbsOrigin()
     -- Data sent with AddNewModifier (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1
     self.speed = event.speed
     self.width = event.width
+
+    -- Disjoint projectiles if same team as the caster
+    if parent:GetTeamNumber() == caster:GetTeamNumber() then
+      ProjectileManager:ProjectileDodge(parent)
+    end
 
     if self:ApplyHorizontalMotionController() == false then
       self:Destroy()
@@ -393,16 +527,16 @@ if IsServer() then
 
     local particleName = "particles/hero/sohei/sohei_trail.vpcf"
 
-    if parent:HasModifier('modifier_arcana_dbz') then
+    if caster:HasModifier('modifier_arcana_dbz') then
       particleName = "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
-    elseif parent:HasModifier('modifier_arcana_pepsi') then
+    elseif caster:HasModifier('modifier_arcana_pepsi') then
       particleName = "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
     end
 
     local end_pos = self.start_pos + self.direction * self.distance
 
     -- Trail particle
-    local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
+    local trail_pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, parent)
     ParticleManager:SetParticleControl(trail_pfx, 0, self.start_pos)
     ParticleManager:SetParticleControl(trail_pfx, 1, end_pos)
     ParticleManager:ReleaseParticleIndex(trail_pfx)
@@ -410,71 +544,76 @@ if IsServer() then
 
   function modifier_sohei_dash_movement:OnDestroy()
     local parent = self:GetParent()
+    local caster = self:GetCaster()
     local ability = self:GetAbility()
     local parent_origin = parent:GetAbsOrigin()
+    local caster_team = caster:GetTeamNumber()
 
-    parent:FadeGesture(ACT_DOTA_RUN)
     parent:RemoveHorizontalMotionController(self)
+
+    -- Unstuck the parent
+    FindClearSpaceForUnit(parent, parent_origin, false)
     ResolveNPCPositions(parent_origin, 128)
+
+    -- Change facing of the parent
     parent:FaceTowards(parent_origin + 128*self.direction)
 
-    local enemies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+    local damage = ability:GetSpecialValueFor("damage")
+
+    -- Talent that increases damage
+    local talent = caster:FindAbilityByName("special_bonus_unique_sohei_7")
+    if talent and talent:GetLevel() > 0 then
+      damage = damage + talent:GetSpecialValueFor("value")
+    end
+
     local damage_table = {}
-    damage_table.attacker = parent
+    damage_table.attacker = caster
     damage_table.damage_type = ability:GetAbilityDamageType()
     damage_table.ability = ability
-    damage_table.damage = ability:GetSpecialValueFor("damage")
+    damage_table.damage = damage
 
-    for _,unit in pairs(enemies) do
-      if unit and not unit:IsNull() then
-        unit:AddNewModifier(parent, ability, "modifier_sohei_dash_slow", { duration = ability:GetSpecialValueFor("slow_duration") })
-        damage_table.victim = unit
+    -- Damage enemies in a line
+    local enemies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        -- Apply debuff first
+        enemy:AddNewModifier(caster, ability, "modifier_sohei_dash_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
+        -- Then damage
+        damage_table.victim = enemy
         ApplyDamage(damage_table)
       end
     end
 
-    -- Dash with Shard heals allies
-    if parent:HasShardOAA() then
+    -- Heal allies in a line (requires Shard)
+    if caster:HasShardOAA() then
       local do_sound = false
-      local allies = FindUnitsInLine(parent:GetTeamNumber(), self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
-      for _,ally in pairs(allies) do
-        if ally and not ally:IsNull() and ally ~= parent then
+      local allies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
+      for _, ally in pairs(allies) do
+        if ally and not ally:IsNull() and ally ~= caster then
           do_sound = true
 
-          -- Relocate the ally to parent's position
-          ProjectileManager:ProjectileDodge(ally)
-          local ally_loc = ally:GetAbsOrigin()
-          local direction = parent_origin - ally_loc
-          local distance = direction:Length2D()
-          direction.z = 0.0
-          direction = direction:Normalized()
-
-          ally:AddNewModifier(parent, ability, "modifier_sohei_dash_movement_ally", {
-            duration = distance / self.speed,
-            distance = distance,
-            speed = self.speed,
-            direction_x = direction.x,
-            direction_y = direction.y,
-            width = self.width,
-          } )
-
           -- Healing
-          local base_heal_amount = ability:GetSpecialValueFor("shard_base_heal")
+          local base_heal_amount = damage * ability:GetSpecialValueFor("shard_damage_to_heal_ratio")
           local hp_as_heal = ability:GetSpecialValueFor("shard_hp_as_heal")
-          local heal_amount_based_on_hp = parent:GetHealth() * hp_as_heal/100
+          local heal_amount_based_on_hp = caster:GetMaxHealth() * hp_as_heal * 0.01
+          local total_heal = base_heal_amount + heal_amount_based_on_hp
 
-          ally:Heal(base_heal_amount+heal_amount_based_on_hp, ability)
+          ally:Heal(total_heal, ability)
 
           local part = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
-          ParticleManager:SetParticleControl(part, 0, ally_loc)
+          ParticleManager:SetParticleControl(part, 0, ally:GetAbsOrigin())
           ParticleManager:SetParticleControl(part, 1, Vector(ally:GetModelRadius(), 1, 1 ))
           ParticleManager:ReleaseParticleIndex(part)
 
-          SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, base_heal_amount+heal_amount_based_on_hp, nil)
+          SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, total_heal, nil)
         end
       end
       if do_sound then
-        parent:EmitSound("Sohei.PalmOfLife.Heal")
+        if parent and not parent:IsNull() then
+          parent:EmitSound("Sohei.PalmOfLife.Heal")
+        else
+          caster:EmitSound("Sohei.PalmOfLife.Heal")
+        end
       end
     end
   end
@@ -482,13 +621,17 @@ if IsServer() then
   function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
     local parentOrigin = parent:GetAbsOrigin()
 
-    local tickSpeed = self.speed * deltaTime
-    tickSpeed = math.min(tickSpeed, self.distance)
-    local tickOrigin = parentOrigin + (tickSpeed * self.direction)
+    local tickTraveled = deltaTime * self.speed
+    tickTraveled = math.min(tickTraveled, self.distance)
+    if tickTraveled <= 0 then
+      self:Destroy()
+    end
+    local tickOrigin = parentOrigin + tickTraveled * self.direction
+    tickOrigin = Vector(tickOrigin.x, tickOrigin.y, GetGroundHeight(tickOrigin, parent))
 
     parent:SetAbsOrigin(tickOrigin)
 
-    self.distance = self.distance - tickSpeed
+    self.distance = self.distance - tickTraveled
 
     GridNav:DestroyTreesAroundPoint(tickOrigin, self.width, false)
   end
@@ -496,73 +639,6 @@ if IsServer() then
   function modifier_sohei_dash_movement:OnHorizontalMotionInterrupted()
     self:Destroy()
   end
-end
-
----------------------------------------------------------------------------------------------------
-
--- Dash movement modifier on allies
-modifier_sohei_dash_movement_ally = class(modifier_sohei_dash_movement)
-
-function modifier_sohei_dash_movement_ally:IsHidden()
-  return true
-end
-
-function modifier_sohei_dash_movement_ally:CheckState()
-  local state = {
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-  }
-
-  return state
-end
-
-function modifier_sohei_dash_movement_ally:OnCreated(event)
-  if not IsServer() then
-    return
-  end
-  -- Movement parameters
-  local parent = self:GetParent()
-  self.start_pos = parent:GetAbsOrigin()
-  -- Data sent with AddNewModifier (not available on the client)
-  self.direction = Vector(event.direction_x, event.direction_y, 0)
-  self.distance = event.distance + 1
-  self.speed = event.speed
-  self.width = event.width
-
-  if self:ApplyHorizontalMotionController() == false then
-    self:Destroy()
-    return
-  end
-
-  local particleName = "particles/hero/sohei/sohei_trail.vpcf"
-  local caster = self:GetCaster()
-  if caster:HasModifier('modifier_arcana_dbz') then
-    particleName = "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
-  elseif caster:HasModifier('modifier_arcana_pepsi') then
-    particleName = "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
-  end
-
-  local end_pos = self.start_pos + self.direction * self.distance
-
-  -- Trail particle
-  local trail_pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, parent )
-  ParticleManager:SetParticleControl(trail_pfx, 0, self.start_pos)
-  ParticleManager:SetParticleControl(trail_pfx, 1, end_pos)
-  ParticleManager:ReleaseParticleIndex(trail_pfx)
-end
-
-function modifier_sohei_dash_movement_ally:OnDestroy()
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-  local parent_origin = parent:GetAbsOrigin()
-
-  parent:RemoveHorizontalMotionController(self)
-  ResolveNPCPositions(parent_origin, 128)
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -590,11 +666,13 @@ function modifier_sohei_dash_slow:OnCreated(event)
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
 
+  -- Talent that increases the slow amount
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
+  if talent and talent:GetLevel() > 0 then
+    movement_slow = movement_slow + talent:GetSpecialValueFor("value")
+  end
+
   if IsServer() then
-    local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
-    if talent and talent:GetLevel() > 0 then
-      movement_slow = movement_slow - talent:GetSpecialValueFor("value")
-    end
     -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
   else
@@ -606,11 +684,13 @@ function modifier_sohei_dash_slow:OnRefresh(event)
   local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
 
+  -- Talent that increases the slow amount
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
+  if talent and talent:GetLevel() > 0 then
+    movement_slow = movement_slow + talent:GetSpecialValueFor("value")
+  end
+
   if IsServer() then
-    local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
-    if talent and talent:GetLevel() > 0 then
-      movement_slow = movement_slow - talent:GetSpecialValueFor("value")
-    end
     -- Slow is reduced with Status Resistance
     self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
   else
@@ -627,5 +707,5 @@ function modifier_sohei_dash_slow:DeclareFunctions()
 end
 
 function modifier_sohei_dash_slow:GetModifierMoveSpeedBonus_Percentage()
-  return self.slow
+  return 0 - math.abs(self.slow)
 end

@@ -1,10 +1,7 @@
-﻿sohei_flurry_of_blows = class(AbilityBaseClass)
-
-LinkLuaModifier("modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_flurry_of_blows_radius", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
+﻿LinkLuaModifier("modifier_sohei_flurry_self", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sohei_flurry_of_blows_damage", "abilities/sohei/sohei_flurry_of_blows.lua", LUA_MODIFIER_MOTION_NONE)
 
----------------------------------------------------------------------------------------------------
+sohei_flurry_of_blows = class(AbilityBaseClass)
 
 -- old Flurry of Blows, channeling, uses Momentum
 --[[
@@ -40,107 +37,92 @@ function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
 end
 ]]
 
-if IsServer() then
-  function sohei_flurry_of_blows:OnSpellStart()
-    local caster = self:GetCaster()
-    local target_loc = self:GetCursorPosition()
-    local flurry_radius = self:GetSpecialValueFor("flurry_radius")
-    --local max_attacks = self:GetSpecialValueFor("max_attacks")
-    --local max_duration = self:GetSpecialValueFor("max_duration")
-    --local attack_interval = self:GetSpecialValueFor("attack_interval")
-    local delay = self:GetSpecialValueFor("delay")
+function sohei_flurry_of_blows:OnSpellStart()
+  local caster = self:GetCaster()
+  local target_loc = self:GetCursorPosition()
+  local radius = self:GetSpecialValueFor("flurry_radius")
+  local max_attacks = self:GetSpecialValueFor("max_attacks")
+  local max_duration = self:GetSpecialValueFor("max_duration")
+  local attack_interval = self:GetSpecialValueFor("attack_interval")
 
-    -- Bonus AoE talent
-    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
-    if talent and talent:GetLevel() > 0 then
-      flurry_radius = flurry_radius + talent:GetSpecialValueFor("value")
-    end
-
-    -- Emit sound
-    caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
-
-    -- Remove the particle of the previous instance if it still exists
-    if caster.flurry_ground_pfx then
-      ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
-      ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
-    end
-
-    -- Default particle
-    caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
-    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
-    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(flurry_radius, 0, 0))
-
-    -- Disjoint projectiles
-    ProjectileManager:ProjectileDodge(caster)
-
-    -- Put caster in the middle of the circle little above ground
-    caster:SetAbsOrigin(target_loc + Vector(0, 0, 200))
-
-    -- Add a modifier that does actual spell effect
-    caster:AddNewModifier(caster, self, "modifier_sohei_flurry_self", {
-      duration = delay + 0.1,
-      flurry_radius = flurry_radius,
-      --attack_interval = attack_interval,
-    } )
-
-    -- Give vision over the area
-    AddFOWViewer(caster:GetTeamNumber(), target_loc, flurry_radius, delay + 0.1, false)
+  -- Bonus AoE talent
+  local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
   end
 
-  function sohei_flurry_of_blows:OnHeroCalculateStatBonus()
-    local caster = self:GetCaster()
-    --print("[SOHEI FLURRY OF BLOWS] OnHeroCalculateStatBonus on Server")
-    -- Check for talent that increases radius
-    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
-    if talent and talent:GetLevel() > 0 then
-      if not caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") then
-        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_flurry_of_blows_radius", {})
-      end
-    else
-      caster:RemoveModifierByName("modifier_special_bonus_unique_flurry_of_blows_radius")
-    end
+  -- Talent that increases max number of attacks and max duration
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_sohei_8")
+  if talent2 and talent2:GetLevel() > 0 then
+    max_attacks = max_attacks + talent2:GetSpecialValueFor("value")
+    max_duration = max_duration + talent2:GetSpecialValueFor("value2")
   end
+
+  -- Emit sound
+  caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
+
+  -- Remove the particle of the previous instance if it still exists
+  if caster.flurry_ground_pfx then
+    ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
+    ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
+  end
+
+  -- Default particle
+  caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
+  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
+  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius, 0, 0))
+
+  -- Disjoint projectiles
+  ProjectileManager:ProjectileDodge(caster)
+
+  -- Put caster in the middle of the circle little above ground
+  caster:SetAbsOrigin(target_loc + Vector(0, 0, 200))
+
+  -- Add a modifier that does actual spell effect
+  caster:AddNewModifier(caster, self, "modifier_sohei_flurry_self", {
+    duration = max_duration,
+    radius = radius,
+    attack_interval = attack_interval,
+    max_attacks = max_attacks,
+  })
 end
 
--- GetAOERadius is not called on a Server at all?
 function sohei_flurry_of_blows:GetAOERadius()
   local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("flurry_radius")
-  if caster:HasModifier("modifier_special_bonus_unique_flurry_of_blows_radius") and caster.special_bonus_unique_flurry_of_blows_radius then
-    radius = radius + caster.special_bonus_unique_flurry_of_blows_radius
+
+  -- Bonus AoE talent
+  local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+  if talent and talent:GetLevel() > 0 then
+    radius = radius + talent:GetSpecialValueFor("value")
   end
 
   return radius
 end
 
 ---------------------------------------------------------------------------------------------------
-
 -- Flurry of Blows' self buff
 modifier_sohei_flurry_self = class(ModifierBaseClass)
 
-function modifier_sohei_flurry_self:IsDebuff()
-  return false
-end
-
 function modifier_sohei_flurry_self:IsHidden()
   return true
+end
+
+function modifier_sohei_flurry_self:IsDebuff()
+  return false
 end
 
 function modifier_sohei_flurry_self:IsPurgable()
   return false
 end
 
-function modifier_sohei_flurry_self:IsStunDebuff()
-  return false
-end
+-- function modifier_sohei_flurry_self:StatusEffectPriority()
+  -- return 20
+-- end
 
-function modifier_sohei_flurry_self:StatusEffectPriority()
-  return 20
-end
-
-function modifier_sohei_flurry_self:GetStatusEffectName()
-  return "particles/status_fx/status_effect_omnislash.vpcf"
-end
+-- function modifier_sohei_flurry_self:GetStatusEffectName()
+  -- return "particles/status_fx/status_effect_omnislash.vpcf"
+-- end
 
 function modifier_sohei_flurry_self:CheckState()
   local state = {
@@ -148,7 +130,9 @@ function modifier_sohei_flurry_self:CheckState()
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_ROOTED] = true
+    [MODIFIER_STATE_DISARMED] = true,
+    [MODIFIER_STATE_ROOTED] = true,
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
 
   return state
@@ -158,29 +142,36 @@ function modifier_sohei_flurry_self:OnCreated(event)
   if not IsServer() then
     return
   end
-  -- Data sent with AddNewModifier (not available on the client)
-  self.radius = event.flurry_radius
-  -- self.remaining_attacks = event.max_attacks
-  -- self.attack_interval = event.attack_interval
-  -- self.position = self:GetParent():GetAbsOrigin()
-  -- self.positionGround = self.position - Vector(0, 0, 200)
+  local parent = self:GetParent()
 
-  -- Do stuff with a delay
-  local delay = event.duration - 0.1
-  self:StartIntervalThink(delay)
+  -- Data sent with AddNewModifier (not available on the client)
+  self.radius = event.radius
+  self.remaining_attacks = event.max_attacks
+  self.attack_interval = event.attack_interval
+
+  self.center = GetGroundPosition(parent:GetAbsOrigin(), parent)
+
+  self:StartIntervalThink(self.attack_interval)
 end
 
 function modifier_sohei_flurry_self:OnIntervalThink()
   if not IsServer() then
     return
   end
-  local caster = self:GetCaster()
+
+  if self.remaining_attacks <= 0 then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  local caster = self:GetCaster() or self:GetParent()
   local ability = self:GetAbility()
 
   -- Find enemies in a radius
-  local units = FindUnitsInRadius(
+  local enemies = FindUnitsInRadius(
     caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
+    self.center,
     nil,
     self.radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -196,30 +187,66 @@ function modifier_sohei_flurry_self:OnIntervalThink()
     bUseProjectile = true
   end
 
-  -- Add a bonus damage buff before instant attacks
-  local buff = caster:AddNewModifier(caster, ability, "modifier_sohei_flurry_of_blows_damage", {})
-
-  -- Instant attack on every enemy if not disarmed
-  for _,unit in pairs(units) do
-    if unit and not unit:IsNull() and not caster:IsDisarmed() then
-      caster:PerformAttack(unit, true, true, true, false, bUseProjectile, false, true)
+  -- Find a random unit to attack
+  local unit_to_attack
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      unit_to_attack = enemy
+      break
     end
   end
 
-  -- Remove bonus damage buff when instant attacks are over
-  buff:Destroy()
+  -- Change attacker's position and facing and attack the unit
+  if unit_to_attack and not unit_to_attack:IsNull() then
+    local unit_origin = unit_to_attack:GetAbsOrigin()
+    --local unit_facing = unit_to_attack:GetForwardVector()
+    local new_origin = unit_origin + RandomVector(1) * 150
 
-  --caster:Interrupt()
-  --caster:RemoveNoDraw()
-  self:Destroy()
+    caster:SetAbsOrigin(new_origin)
+    caster:FaceTowards(unit_origin)
+
+    -- Animations
+    --ACT_DOTA_CHANNEL_ABILITY_4 -- spinning
+    --ACT_DOTA_OVERRIDE_ABILITY_4 -- omnislash
+    caster:RemoveGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+    caster:StartGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
+
+    -- Add a bonus damage buff before the instant attack
+    local buff = caster:AddNewModifier(caster, ability, "modifier_sohei_flurry_of_blows_damage", {})
+
+    -- Instant attack
+    caster:PerformAttack(unit_to_attack, true, true, true, false, bUseProjectile, false, true)
+
+    -- Remove bonus damage buff when the instant attack is over
+    buff:Destroy()
+
+    self.remaining_attacks = self.remaining_attacks - 1
+  else
+    -- Put caster in the middle of the circle little above ground
+    caster:SetAbsOrigin(self.center + Vector(0, 0, 200))
+
+    -- Animations
+    caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
+    caster:StartGestureWithPlaybackRate(ACT_DOTA_CHANNEL_ABILITY_4, 1.15)
+  end
 end
 
 function modifier_sohei_flurry_self:OnDestroy()
   if IsServer() then
     local caster = self:GetCaster()
-    ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
-    ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
-    caster.flurry_ground_pfx = nil
+
+    -- Unstuck the caster at the center
+    FindClearSpaceForUnit(caster, self.center, false)
+
+    -- Animations
+    caster:RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_4)
+    caster:RemoveGesture(ACT_DOTA_CHANNEL_ABILITY_4)
+
+    if caster.flurry_ground_pfx then
+      ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
+      ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
+      caster.flurry_ground_pfx = nil
+    end
   end
 end
 
@@ -309,38 +336,6 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Modifier on caster used for talent that improves Flurry of Blows radius
-modifier_special_bonus_unique_flurry_of_blows_radius = class(ModifierBaseClass)
-
-function modifier_special_bonus_unique_flurry_of_blows_radius:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_unique_flurry_of_blows_radius:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_unique_flurry_of_blows_radius:RemoveOnDeath()
-  return false
-end
-
-function modifier_special_bonus_unique_flurry_of_blows_radius:OnCreated()
-  if not IsServer() then
-    local parent = self:GetParent()
-    local talent = self:GetAbility()
-    parent.special_bonus_unique_flurry_of_blows_radius = talent:GetSpecialValueFor("value")
-  end
-end
-
-function modifier_special_bonus_unique_flurry_of_blows_radius:OnDestroy()
-  local parent = self:GetParent()
-  if parent and parent.special_bonus_unique_flurry_of_blows_radius then
-    parent.special_bonus_unique_flurry_of_blows_radius = nil
-  end
-end
-
----------------------------------------------------------------------------------------------------
-
 modifier_sohei_flurry_of_blows_damage = class(ModifierBaseClass)
 
 function modifier_sohei_flurry_of_blows_damage:IsHidden()
@@ -368,12 +363,35 @@ end
 
 function modifier_sohei_flurry_of_blows_damage:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    --MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
+    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
   }
 
   return funcs
 end
 
-function modifier_sohei_flurry_of_blows_damage:GetModifierBaseAttack_BonusDamage()
-  return self.bonus_damage
+--function modifier_sohei_flurry_of_blows_damage:GetModifierBaseAttack_BonusDamage()
+  --return self.bonus_damage
+--end
+
+if IsServer() then
+  function modifier_sohei_flurry_of_blows_damage:GetModifierProcAttack_BonusDamage_Magical(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local target = event.target
+
+    -- Check if attacked entity exists
+    if not target or target:IsNull() then
+      return 0
+    end
+
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
+      return 0
+    end
+
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, self.bonus_damage, nil)
+
+    return self.bonus_damage
+  end
 end

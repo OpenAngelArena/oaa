@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Flurry of Blows talent: Increases max number of attacks and max duration
+  //=================================================================================================================
+  "special_bonus_unique_sohei_8"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3672"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value2"                                          "2"
+      }
+    }
+  }
+}

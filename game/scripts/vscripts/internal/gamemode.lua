@@ -99,7 +99,6 @@ function GameMode:_InitGameMode()
   ListenToGameEvent('dota_non_player_used_ability', Dynamic_Wrap(GameMode, 'OnNonPlayerUsedAbility'), self)
   ListenToGameEvent('player_changename', Dynamic_Wrap(GameMode, 'OnPlayerChangedName'), self)
   ListenToGameEvent('dota_rune_activated_server', Dynamic_Wrap(GameMode, 'OnRuneActivated'), self)
-  ListenToGameEvent('dota_player_take_tower_damage', Dynamic_Wrap(GameMode, 'OnPlayerTakeTowerDamage'), self)
   ListenToGameEvent('tree_cut', Dynamic_Wrap(GameMode, 'OnTreeCut'), self)
   ListenToGameEvent('entity_hurt', Dynamic_Wrap(GameMode, 'OnEntityHurt'), self)
   ListenToGameEvent('player_connect', Dynamic_Wrap(GameMode, 'PlayerConnect'), self)
@@ -119,14 +118,7 @@ function GameMode:_InitGameMode()
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
 
-  -- not all of these work
-  ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
-  ListenToGameEvent("dota_inventory_changed", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
-  ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
-  ListenToGameEvent("dota_item_gifted", Dynamic_Wrap(GameMode, 'OnItemUpdate'), self)
-
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
-
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)
   --ListenToGameEvent('dota_unit_event', Dynamic_Wrap(GameMode, 'OnDotaUnitEvent'), self)
   --ListenToGameEvent('nommed_tree', Dynamic_Wrap(GameMode, 'OnPlayerAteTree'), self)
@@ -145,8 +137,6 @@ function GameMode:_InitGameMode()
   local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '^0+','')
   math.randomseed(tonumber(timeTxt))
 
-  -- Initialized tables for tracking state
-  self.bSeenWaitForPlayers = false
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
   GameMode._reentrantCheck = true

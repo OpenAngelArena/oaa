@@ -289,35 +289,33 @@ function modifier_visage_gravekeepers_cloak_oaa_aura:DeclareFunctions()
   }
 end
 
-function modifier_visage_gravekeepers_cloak_oaa_aura:GetModifierTotal_ConstantBlock(keys)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_visage_gravekeepers_cloak_oaa_aura:GetModifierTotal_ConstantBlock(keys)
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
 
-  local caster = self:GetCaster()
-  local ability = self:GetAbility()
-
-  -- Ignore damage that has HP removal flag
-  if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-    return 0
-  end
-
-  local mod = caster:FindModifierByName("modifier_visage_gravekeepers_cloak_oaa")
-  if mod and ability then
-    local stackCount = mod:GetStackCount()
-    local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction")
-    local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction")
-    local damageReduction = math.min(max_damage_reduction, damage_reduction_per_layer * stackCount)
-
-    local block_amount = keys.damage * damageReduction / 100
-
-    if block_amount > 0 then
-      -- Visual effect (TODO: add unique visual effect)
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, self:GetParent(), block_amount, nil)
+    -- Ignore damage that has HP removal flag
+    if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
     end
 
-    return block_amount
-  end
+    local mod = caster:FindModifierByName("modifier_visage_gravekeepers_cloak_oaa")
+    if mod and ability then
+      local stackCount = mod:GetStackCount()
+      local damage_reduction_per_layer = ability:GetSpecialValueFor("damage_reduction")
+      local max_damage_reduction = ability:GetSpecialValueFor("max_damage_reduction")
+      local damageReduction = math.min(max_damage_reduction, damage_reduction_per_layer * stackCount)
 
-  return 0
+      local block_amount = keys.damage * damageReduction / 100
+
+      if block_amount > 0 then
+        -- Visual effect (TODO: add unique visual effect)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, self:GetParent(), block_amount, nil)
+      end
+
+      return block_amount
+    end
+
+    return 0
+  end
 end

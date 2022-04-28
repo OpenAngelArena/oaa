@@ -115,26 +115,31 @@ function modifier_zuus_cloud_oaa:GetAbsoluteNoDamagePure()
   return 1
 end
 
-function modifier_zuus_cloud_oaa:OnAttacked(event)
-  local parent = self:GetParent()
-  if event.target ~= parent then
-    return
-  end
-
-  local attacker = event.attacker
-  -- These damage values are ok if total hp of nimbus is 16.
-  local damage = 1
-  if attacker:IsRealHero() then
-    damage = 4
-    if attacker:IsRangedAttacker() then
-      damage = 2
+if IsServer() then
+  function modifier_zuus_cloud_oaa:OnAttacked(event)
+    local parent = self:GetParent()
+    if event.target ~= parent then
+      return
     end
-  end
-  -- To prevent dead nimbuses staying in memory (preventing SetHealth(0) or SetHealth(-value) )
-  if parent:GetHealth() - damage <= 0 then
-    parent:Kill(self.ability, attacker)
-  else
-    parent:SetHealth(parent:GetHealth() - damage)
+
+    local attacker = event.attacker
+    if not attacker or attacker:IsNull() then
+      return
+    end
+    -- These damage values are ok if total hp of nimbus is 16.
+    local damage = 1
+    if attacker:IsRealHero() then
+      damage = 4
+      if attacker:IsRangedAttacker() then
+        damage = 2
+      end
+    end
+    -- To prevent dead nimbuses staying in memory (preventing SetHealth(0) or SetHealth(-value) )
+    if parent:GetHealth() - damage <= 0 then
+      parent:Kill(self.ability, attacker)
+    else
+      parent:SetHealth(parent:GetHealth() - damage)
+    end
   end
 end
 

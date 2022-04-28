@@ -1,0 +1,133 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_flConstantRadius = 250.0
+	m_flConstantLifespan = 0.3
+	m_ConstantColor = [ 245, 207, 58, 255 ]
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 2
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 1
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_flMin = 100.0
+			m_flMax = 100.0
+			m_nFieldOutput = 18
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 128.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 128.0 ]
+		},
+		{
+			_class = "C_INIT_PositionPlaceOnGround"
+			m_flMaxTraceLength = 256.0
+			m_CollisionGroupName = "DEBRIS"
+			m_bIncludeWater = true
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_SetChildControlPoints"
+			m_nFirstControlPoint = 2
+			m_bSetOrientation = true
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.5
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_vecTexturesInput = 
+			[
+				{
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_MOD2X"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_dark.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_dust1.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_dust.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_streaks.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_streaks_l.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_model.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_energy.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_tip_impact.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_ground_ember.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_core.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_monkey_king/monkey_king_strike_shake.vpcf"
+		},
+	]
+}

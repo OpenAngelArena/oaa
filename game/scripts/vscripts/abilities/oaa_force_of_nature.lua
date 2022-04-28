@@ -7,15 +7,15 @@
   Modified by: Trildar
   Date: 10.03.2017
 ]]
-furion_force_of_nature = class(AbilityBaseClass)
+furion_force_of_nature_oaa = class(AbilityBaseClass)
 LinkLuaModifier( "modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE )
 
-function furion_force_of_nature:GetAOERadius()
+function furion_force_of_nature_oaa:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
 end
 
 -- Check for trees in cast area and throw a cast error if there are none
-function furion_force_of_nature:CastFilterResultLocation( target_point )
+function furion_force_of_nature_oaa:CastFilterResultLocation( target_point )
   if IsServer() then
     local area_of_effect = self:GetSpecialValueFor( "area_of_effect" )
 
@@ -27,15 +27,32 @@ function furion_force_of_nature:CastFilterResultLocation( target_point )
   end
 end
 
-function furion_force_of_nature:GetCustomCastErrorLocation( target_point )
+function furion_force_of_nature_oaa:GetCustomCastErrorLocation( target_point )
   return "#dota_hud_error_must_target_tree"
+end
+
+-- Lazy hack to make shard work
+function furion_force_of_nature_oaa:OnUpgrade()
+  local caster = self:GetCaster()
+  local ability_level = self:GetLevel()
+  local vanilla_ability = caster:FindAbilityByName("furion_force_of_nature")
+
+  if not vanilla_ability then
+    return
+  end
+
+  if vanilla_ability:GetLevel() == 4 or ability_level >= 5 then
+    return
+  end
+
+  vanilla_ability:SetLevel(ability_level)
 end
 
 --[[
   Gets all tree entities that would be destroyed by the ability and counts them then spawns treants up to that tree count.
   Prioritizes spawning Giant Treants first before spawning normal Treants if tree count allows it.
 ]]
-function furion_force_of_nature:OnSpellStart()
+function furion_force_of_nature_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local pID = caster:GetPlayerID()
   local target_point = self:GetCursorPosition()
@@ -77,7 +94,7 @@ function furion_force_of_nature:OnSpellStart()
   local treants_to_spawn = math.min( max_treants, tree_count )
 
   -- Spawn Treants
-  for i=1,treants_to_spawn do
+  for i = 1, treants_to_spawn do
     local treant = CreateUnitByName( treant_names[ability_level], target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
     treant:SetControllableByPlayer( pID, false )
     treant:SetOwner( caster )
@@ -89,7 +106,7 @@ function furion_force_of_nature:OnSpellStart()
   EmitSoundOnLocationWithCaster( target_point, "Hero_Furion.ForceOfNature", caster )
 end
 
-function furion_force_of_nature:OnStolen(hSourceAbility)
+function furion_force_of_nature_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   self:SetHidden(true) -- Decide later if it will unhide
 

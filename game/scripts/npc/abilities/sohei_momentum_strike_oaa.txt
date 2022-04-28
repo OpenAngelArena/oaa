@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Ki Strike - Attacks and slows all units in line, knocks them back, stuns them if they collide with something
+  //=================================================================================================================
+  "sohei_momentum_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85716"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/sohei/sohei_momentum_strike.lua"
+    "AbilityTextureName"                                  "custom/ronin_momentum"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // damage pierces spell immunity but slow and stun don't
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    "LinkedAbility"                                       "sohei_momentum"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "600 700 800 900 1000 1100"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK_STATUE"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16 15 14 13 12 11"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "70 75 80 85 90 95"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/sohei/momentum.vpcf"
+      "particle"                                          "particles/hero/sohei/knockback.vpcf"
+      "particle"                                          "particles/hero/sohei/ki_strike.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "movement_slow"                                     "-20 -25 -30 -35 -40 -45"
+      "slow_duration"                                     "4.0"
+      "strike_radius"                                     "150"
+      "strike_range"                                      "600 700 800 900 1000 1100"
+      "knockback_distance"                                "400"
+      "knockback_speed"                                   "1200"
+      "collision_radius"                                  "125" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
+      "stun_duration"
+      {
+        "value"                                           "1.0"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
+      }
+    }
+  }
+}

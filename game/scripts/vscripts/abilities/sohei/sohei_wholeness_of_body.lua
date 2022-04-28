@@ -7,12 +7,21 @@ LinkLuaModifier("modifier_sohei_wholeness_of_body_buff", "abilities/sohei/sohei_
 function sohei_wholeness_of_body:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget() or caster
+
   -- Activation sound
   target:EmitSound("Sohei.Guard")
+
   -- Strong Dispel
   target:Purge(false, true, false, true, true)
+
+  -- Immediate heal
+  local heal_amount = self:GetSpecialValueFor("heal_immediate")
+  target:Heal(heal_amount, self)
+  SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, heal_amount, nil)
+
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
+
   -- Knockback talent
   local talent = caster:FindAbilityByName("special_bonus_sohei_wholeness_knockback")
   if talent and talent:GetLevel() > 0 then
@@ -77,11 +86,11 @@ end
 -- wholeness_of_body modifier
 modifier_sohei_wholeness_of_body_buff = class(ModifierBaseClass)
 
-function modifier_sohei_wholeness_of_body_buff:IsDebuff()
+function modifier_sohei_wholeness_of_body_buff:IsHidden()
   return false
 end
 
-function modifier_sohei_wholeness_of_body_buff:IsHidden()
+function modifier_sohei_wholeness_of_body_buff:IsDebuff()
   return false
 end
 
@@ -94,30 +103,45 @@ function modifier_sohei_wholeness_of_body_buff:GetEffectName()
 end
 
 function modifier_sohei_wholeness_of_body_buff:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+  return PATTACH_CENTER_FOLLOW
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnCreated()
   local ability = self:GetAbility()
-  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
-  self.damageheal = ability:GetSpecialValueFor("damage_taken_heal") / 100
-  self.endHeal = 0
+  if ability and not ability:IsNull() then
+    self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+    self.post_heal_base = ability:GetSpecialValueFor("post_heal")
+    self.dmg_taken_as_heal = ability:GetSpecialValueFor("damage_taken_as_heal") / 100
+  else
+    self.magic_resistance = 50
+    self.post_heal_base = 75
+    self.dmg_taken_as_heal = 25 / 100
+  end
+
+  self.post_heal_from_dmg_taken = 0
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnRefresh()
   local ability = self:GetAbility()
-  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
-  self.damageheal = ability:GetSpecialValueFor("damage_taken_heal") / 100
+  if ability and not ability:IsNull() then
+    self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
+    self.post_heal_base = ability:GetSpecialValueFor("post_heal")
+    self.dmg_taken_as_heal = ability:GetSpecialValueFor("damage_taken_as_heal") / 100
+  else
+    self.magic_resistance = 50
+    self.post_heal_base = 75
+    self.dmg_taken_as_heal = 25 / 100
+  end
 end
 
 function modifier_sohei_wholeness_of_body_buff:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local heal_amount = self.endHeal + ability:GetSpecialValueFor("post_heal")
+    local total_heal = self.post_heal_base + self.post_heal_from_dmg_taken
 
-    parent:Heal(heal_amount, ability)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, heal_amount, nil)
+    parent:Heal(total_heal, ability)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, total_heal, nil)
   end
 end
 
@@ -131,11 +155,41 @@ function modifier_sohei_wholeness_of_body_buff:DeclareFunctions()
 end
 
 function modifier_sohei_wholeness_of_body_buff:GetModifierMagicalResistanceBonus()
-  return self.magic_resistance
+  return self.magic_resistance or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
 end
 
-function modifier_sohei_wholeness_of_body_buff:OnTakeDamage( params )
-  if params.unit == self:GetParent() then
-    self.endHeal = self.endHeal + params.original_damage * self.damageheal
+if IsServer() then
+  function modifier_sohei_wholeness_of_body_buff:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity has this modifier
+    if damaged_unit ~= parent then
+      return
+    end
+
+    local damage = event.original_damage
+
+    -- Check if damage is somehow 0 or negative
+    if damage <= 0 then
+      return
+    end
+
+    if not self.post_heal_from_dmg_taken then
+      self.post_heal_from_dmg_taken = 0
+    end
+
+    self.post_heal_from_dmg_taken = self.post_heal_from_dmg_taken + damage * self.dmg_taken_as_heal
   end
 end
