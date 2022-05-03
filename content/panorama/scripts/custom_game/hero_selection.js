@@ -204,15 +204,14 @@ function handleOAASettingsChange (n, key, settings) {
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
     lines.push($.Localize('#hero_options_title'));
-    const modifierNames = heroModifierNames;
 
     if (settings.HEROES_MODS !== 'HMN') {
-      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
       lines.push('');
     }
 
     if (settings.HEROES_MODS_2 !== 'HMN') {
-      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
       lines.push('');
     }
   }
