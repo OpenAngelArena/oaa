@@ -31,6 +31,7 @@ local hero_mods = {
   HM21 = "modifier_aghanim_oaa",
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
+  HM24 = "modifier_any_damage_crit_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -119,6 +120,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_aghanim_oaa", "modifiers/funmodifiers/modifier_aghanim_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_nimble_oaa", "modifiers/funmodifiers/modifier_nimble_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_sorcerer_oaa", "modifiers/funmodifiers/modifier_sorcerer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_any_damage_crit_oaa", "modifiers/funmodifiers/modifier_any_damage_crit_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end

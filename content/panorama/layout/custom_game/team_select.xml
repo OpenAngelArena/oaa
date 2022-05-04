@@ -72,6 +72,7 @@
                   <Label text="#game_option_aghanim" id="HM21" onmouseover="UIShowTextTooltip(#game_option_aghanim_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_nimble" id="HM22" onmouseover="UIShowTextTooltip(#game_option_nimble_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_sorcerer" id="HM23" onmouseover="UIShowTextTooltip(#game_option_sorcerer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
@@ -99,6 +100,7 @@
                   <Label text="#game_option_aghanim" id="HM21" onmouseover="UIShowTextTooltip(#game_option_aghanim_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_nimble" id="HM22" onmouseover="UIShowTextTooltip(#game_option_nimble_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_sorcerer" id="HM23" onmouseover="UIShowTextTooltip(#game_option_sorcerer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#boss_options_title"/>
                 <DropDown class="SettingsItem" id="BOSSES_MODS" oninputsubmit="onPanelChange('BOSSES_MODS')">

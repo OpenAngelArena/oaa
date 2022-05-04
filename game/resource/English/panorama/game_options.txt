@@ -41,7 +41,9 @@
 "game_option_aghanim"            "Aghanim"
 "game_option_nimble"             "Nimble"
 "game_option_sorcerer"           "Sorcerer"
+"game_option_max_power"          "Max Power"
 
+"game_option_random_description"             "This modifier will be revealed when the game starts!"
 "game_option_lifesteal_description"          "100% lifesteal and spell lifesteal against heroes. 50% against creeps and illusions."
 "game_option_aoe_radius_description"         "Most spells' and items' radius (AoE) increased by 50%."
 "game_option_blood_magic_description"        "All mana turned into health. All mana regen turned into health regen. Spells use health instead of mana."
@@ -66,6 +68,7 @@
 "game_option_aghanim_description"            "Heroes start with consumed Aghanim Scepter and Aghanim Shard."
 "game_option_nimble_description"             "Grants 1 agility per hero level, and for each point in agility grants 0.08% movement speed and 0.05% evasion. Changes primary attribute to Agility if non-agility hero. Removes max move speed and max attack speed limits."
 "game_option_sorcerer_description"           "25% chance to refresh the last used spell and 25% chance to refresh all spells on hero kill. Chance for items and charge-based abilities is reduced to 5%."
+"game_option_max_power_description"          "25% chance to do 2.5x critical damage on each attack and spell damage instance (Normal Crit + Spell Crit)."
 
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                      "#{game_option_lifesteal}"
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"          "100%% lifesteal and spell lifesteal against heroes. 50%% against creeps and illusions."
