@@ -33,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
@@ -60,13 +60,13 @@
       }
       "max_duration"
       {
-        "value"                                           "3 4 5 5.5 6" // min is: max_attacks * attack_interval
+        "value"                                           "2.5 3.5 4.5 5.5 6" // min is: max_attacks * attack_interval
         "special_bonus_unique_sohei_8"                    "+2"
       }
       "attack_interval"                                   "0.3"
       "bonus_damage"
       {
-        "value"                                           "30 35 40 55 80"
+        "value"                                           "20 25 30 60 120"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
