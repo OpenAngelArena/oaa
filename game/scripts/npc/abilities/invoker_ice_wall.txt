@@ -24,51 +24,32 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5 14.0 14.5 14.75 15.0 15.25 15.5 16.0"
-        "levelkey"                                        "quaslevel"
+        "value"       "3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5 14.0 14.5 14.75 15.0 15.25 15.5 16.0"
+        "levelkey"      "quaslevel"
       }
-      "02"
+      "slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-20 -40 -60 -80 -100 -120 -140 -160 -165 -170 -175 -180 -185 -190 -195"
-        "levelkey"                                        "quaslevel"
+        "value"       "-20 -40 -60 -80 -100 -120 -140 -160 -165 -170 -175 -180 -185 -190 -195"
+        "levelkey"      "quaslevel"
       }
-      "03"
+      "slow_duration"     "2.0"
+      "damage_per_second"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.0"
+        "value"       "6 12 18 24 30 36 42 48 84 100.8 117.6 134.4 161.2 168 184.8"
+        "levelkey"      "exortlevel"
       }
-      "04"
+      "wall_place_distance" "200"
+      "num_wall_elements"   "15"
+      "wall_element_spacing"  "80"
+      "wall_element_radius" "105"
+      "vector_cast_range"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "6 12 18 24 30 36 42 48 84 100.8 117.6 134.4 161.2 168 184.8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_13"
-        "levelkey"                                        "exortlevel"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wall_place_distance"                             "200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_wall_elements"                               "15"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wall_element_spacing"                            "80"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wall_element_radius"                             "105"
+        "value"       "0"
+        "special_bonus_unique_invoker_12" "+1200"
       }
     }
   }
