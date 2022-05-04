@@ -199,7 +199,10 @@ function handleOAASettingsChange (n, key, settings) {
     HM17: '#game_option_explosive_death',
     HM18: '#game_option_no_hp_bar',
     HM19: '#game_option_brute',
-    HM20: '#game_option_wisdom'
+    HM20: '#game_option_wisdom',
+    HM21: '#game_option_aghanim',
+    HM22: '#game_option_nimble',
+    HM23: '#game_option_sorcerer'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
