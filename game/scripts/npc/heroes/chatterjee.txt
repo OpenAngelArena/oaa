@@ -58,24 +58,24 @@
     // Attributes
     //-------------------------------------------------------------------------------------------------------------
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"     "23"
+    "AttributeBaseStrength"     "21"
     "AttributeStrengthGain"     "3.5"
     "AttributeBaseAgility"      "13"
     "AttributeAgilityGain"      "2.0"
-    "AttributeBaseIntelligence" "25"
+    "AttributeBaseIntelligence" "21"
     "AttributeIntelligenceGain" "3.4"
 
     // Movement
     //-------------------------------------------------------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
     "MovementSpeed"             "290"
-    "MovementTurnRate"          "0.5"
+    "MovementTurnRate"          "0.6"
     "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
 
     // Status
     //-------------------------------------------------------------------------------------------------------------
     "StatusHealth"              "200"
-    "StatusHealthRegen"         "1.5"
+    "StatusHealthRegen"         "1.0"
     "StatusMana"                "75"
     "StatusManaRegen"           "0.0"
 
