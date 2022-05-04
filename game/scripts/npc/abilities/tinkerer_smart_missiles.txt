@@ -32,7 +32,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "2 2 3 4 4 4" // original: 1/2/3/4
-    "AbilityChargeRestoreTime"                            "3"
+    "AbilityChargeRestoreTime"                            "4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_2"
       }
       "rocket_speed"                                      "1200"
-      "rocket_width"                                      "115" // original: 75
+      "rocket_width"                                      "110" // original: 75
       "rocket_range"                                      "3000"
       "rocket_vision"                                     "400"
       "bonus_max_hp_damage"                               "7"

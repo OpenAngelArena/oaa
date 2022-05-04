@@ -416,7 +416,10 @@ function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
 end
 
 function modifier_tinkerer_laser_contraption_debuff:GetModifierMiss_Percentage()
-  return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
+  if not self:GetParent():IsMagicImmune() then
+    return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
+  end
+  return 0
 end
 
 function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
