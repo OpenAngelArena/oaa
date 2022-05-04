@@ -77,12 +77,13 @@
       "bonus_health"      "250 500 750 1000 1250"
       "bonus_mana"      "250 350 500 700 950"
       "armor_aura"    "3.0 4.0 6.0 9.0 13.0"
-      "mana_regen_aura"   "1.75 2.0 2.5 3.25 4.25"
-      "lifesteal_aura"      "15 25 35 45 55"
+      "mana_regen_aura"   "2.0 2.0 2.5 3.25 4.25"
+      "lifesteal_aura"      "18 27 36 45 54"
       "damage_aura"     "18 26 34 42 50"
-      "aura_radius" "900"
-      "damage_penalty_aura" "24 28 32 36 40"
-      "aura_dps"  "40 80 160 320 640"
+      "aura_radius" "1200"
+      "pact_aura_radius" "900"
+      "damage_penalty_aura" "24 28 32 36 40" //OAA
+      "aura_dps"  "40 80 160 320 640" //OAA
     }
   }
 }

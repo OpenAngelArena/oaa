@@ -43,7 +43,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "16"
+        "damage"                                          "10 12 14 16 32 64"
       }
       "02"
       {
@@ -82,7 +82,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "shard_fear_duration"                             "2"
+        "shard_fear_duration"                             "1.5"
         "RequiresShard"                                   "1"
       }
       "09"

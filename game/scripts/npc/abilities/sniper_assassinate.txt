@@ -51,12 +51,7 @@
     "AbilityValues"
     {
       "projectile_speed"      "2500"
-      "abilitycastpoint"
-      {
-        "value"         ""
-        "LinkedSpecialBonus"  "special_bonus_unique_sniper_4"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
-      }
+
       "scepter_stun_duration"     
       {
         "value" "1 1.25 1.5 1.75 2.0"

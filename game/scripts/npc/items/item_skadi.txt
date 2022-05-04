@@ -56,7 +56,9 @@
       "bonus_health"      "220 320 470 670 920"
       "bonus_mana"      "220 320 470 670 920"
       "cold_slow_melee" "-25 -30 -35 -40 -45"
-      "cold_slow_ranged"  "-50 -55 -60 -65 -70"
+      "cold_attack_slow_melee" "-35 -35 -45 -50 -55"
+      "cold_slow_ranged"  "-40 -45 -50 -55 -60"
+      "cold_attack_slow_ranged"  "-60 -65 -70 -75 -80"
       "cold_duration" "3.0"
       "heal_reduction"  "40 45 50 55 60"
     }

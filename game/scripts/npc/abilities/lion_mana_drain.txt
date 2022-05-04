@@ -37,46 +37,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"          "5.0"
+      "mana_per_second"  //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "value"   "20 60 100 140 280 420"
+        "special_bonus_unique_lion_5" "+50"
       }
-      "02"
+      "break_distance"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_per_second"                                 "20 60 100 140 280 420" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lion_5"
+        "value" "1100"
+        "special_bonus_shard"   "+400"  
       }
-      "03"
+      "tick_interval"       "0.1"
+      "movespeed"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_distance"                                  "1100"
+        "value"       "20 25 30 35 40 45"
+        "special_bonus_unique_lion_6" "+15"
       }
-      "04"
+      "shard_bonus_break_distance"      //OBSOLETE
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.1"
-      }
-      "05"
+        "value" "400"
+        "RequiresShard"       "1"
+      } 
+      "shard_bonus_targets"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "20 25 30 35 40 45"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lion_6"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_break_distance"                      "400"
-        "RequiresShard"                                   "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_targets"                             "2"
-        "RequiresShard"                                   "1"
+        "value"   "2"
+        "RequiresShard"       "1"
       }
     }
   }
