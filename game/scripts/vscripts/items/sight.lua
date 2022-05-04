@@ -249,7 +249,7 @@ end
 function modifier_item_far_sight_non_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
-    MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
   }
 end
 
@@ -257,7 +257,7 @@ function modifier_item_far_sight_non_stacking_stats:GetBonusVisionPercentage()
   return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_percentage")
 end
 
-function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonus()
+function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
   -- Prevent stacking with Octarine Core and Aether Lens

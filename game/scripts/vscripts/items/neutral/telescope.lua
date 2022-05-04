@@ -94,7 +94,7 @@ end
 function modifier_item_telescope_oaa_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-    MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
     MODIFIER_PROPERTY_BONUS_DAY_VISION,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
   }
@@ -108,7 +108,7 @@ function modifier_item_telescope_oaa_effect:GetModifierAttackRangeBonus()
   return 0
 end
 
-function modifier_item_telescope_oaa_effect:GetModifierCastRangeBonus()
+function modifier_item_telescope_oaa_effect:GetModifierCastRangeBonusStacking()
   return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
 end
 

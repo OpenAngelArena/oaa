@@ -30,7 +30,6 @@ local other_keywords = {
   scepter_range = true,
   arrow_range_multiplier = true,
   wave_width = true,
-  agility_range = true,
   aftershock_range = true,
   echo_slam_damage_range = true,
   echo_slam_echo_search_range = true,
@@ -58,6 +57,14 @@ local other_keywords = {
   bounce_range = true,
   attack_spill_range = true,
   attack_spill_width = true,
+  dash_width = true,
+}
+
+local ignore_abilities = {
+  arc_warden_flux = true,
+  monkey_king_wukongs_command_oaa = true,
+  phantom_assassin_blur = true,
+  spectre_desolate = true,
 }
 
 function modifier_aoe_radius_increase_oaa:OnCreated()
@@ -73,6 +80,10 @@ end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)
   if not keys.ability or not keys.ability_special_value or not aoe_keywords then
+    return 0
+  end
+
+  if ignore_abilities[keys.ability:GetAbilityName()] then
     return 0
   end
 

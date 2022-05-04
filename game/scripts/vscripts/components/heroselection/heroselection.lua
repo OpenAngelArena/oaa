@@ -503,10 +503,10 @@ function HeroSelection:ChooseBans ()
     end
     --DeepPrintTable(list_of_hero_names)
 
-    -- Randomly ban 70 heroes
-    print("RANDOM DRAFT: Banning 70 random heroes")
+    -- Randomly ban 75 heroes
+    print("RANDOM DRAFT: Banning 75 random heroes")
     local i = 0
-    while i <= 70 do
+    while i <= 75 do
       local random_number = RandomInt(1, #list_of_hero_names)
       local hero_name = list_of_hero_names[random_number]
       -- Check if already banned

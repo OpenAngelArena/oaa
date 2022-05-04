@@ -52,9 +52,9 @@ if IsServer() then
       return
     end
 
-    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsReincarnating() then
-      return
-    end
+    --if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsReincarnating() then
+      --return
+    --end
 
     if not self.precache then
       parent:PrecacheScriptSound("Hero_Pugna.NetherBlastPreCast")
