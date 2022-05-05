@@ -56,38 +56,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 35 50 70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 80 140 220"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "25 30 35 40 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_percent"                        "175 170 165 160 155"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_lifesteal_total_tooltip"                  "200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "unholy_duration"                                 "6.0"
-      }
+      "bonus_strength"    "25 35 50 70 95"
+      "bonus_damage"      "20 40 80 140 220"
+      "lifesteal_percent"   "25 30 35 40 45"
+      "unholy_lifesteal_percent"  "175 170 165 160 155"
+      "unholy_lifesteal_total_tooltip"  "200"
+      "unholy_duration"   "6.0"
     }
   }
 }

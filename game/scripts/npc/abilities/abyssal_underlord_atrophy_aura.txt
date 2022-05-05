@@ -27,9 +27,9 @@
     "AbilityValues"
     {
       "radius"            "900"
-      "damage_reduction_pct"
+      "damage_reduction_pct" //OAA
       {
-        "value"   "14 21 28 35 36 38" //OAA
+        "value"   "14 21 28 35 36 38"
         "special_bonus_unique_underlord_3"  "+15"
       }
       "bonus_damage_from_creep"   "2 4 6 8 16 32"
