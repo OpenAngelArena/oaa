@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5365"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5365"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -31,17 +31,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
-      "radius"        "475 525 575 625 650 675"
-      "duration"        "16"
-      "damage"        "20 25 30 35 70 140"
-      "armor_reduction"   
+      "radius"                                            "475 525 575 625 650 675"
+      "duration"                                          "16"
+      "damage"                                            "20 25 30 35 70 140"
+      "armor_reduction"
       {
-        "value"           "4 5 6 7 9 15"
-        "special_bonus_unique_alchemist_5"    "+3"
+        "value"                                           "4 5 6 7 9 15"
+        "special_bonus_unique_alchemist_5"                "+3"
       }
-      "tick_rate"       "1.0"
+      "tick_rate"                                         "1.0"
     }
   }
 }

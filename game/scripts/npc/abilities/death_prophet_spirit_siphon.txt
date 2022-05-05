@@ -37,36 +37,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
-      "damage"          "10 12 14 16 32 64"
-        "damage_pct" //OAA          
-        {
-          "value"     "1.0 2.0 3.0 4.0 6.0 8.0"
-        "special_bonus_unique_death_prophet_3"  "+1"
-        }
-        "haunt_duration"        "6"
-        "siphon_buffer"     "250"
-        "AbilityChargeRestoreTime"  //OAA
-        {
-          "value"         "30"
-          "special_bonus_unique_death_prophet_5" "-20"
-        }
-        "shard_bonus_charges"     
-        {
-          "value" "1"
-          "RequiresShard"       "1"
-        }
-        "shard_fear_duration"     
-        {
-          "value"   "1.5"
-          "RequiresShard"       "1"
-        }
-        "shard_consecutive_siphon_duration"     
-        {
-          "value"   "3"
-          "RequiresShard"       "1"
-        }
+      "damage"                                            "10 12 14 16 32 64"
+      "damage_pct" //OAA
+      {
+        "value"                                           "1.0 2.0 3.0 4.0 6.0 8.0"
+        "special_bonus_unique_death_prophet_3"            "+1"
+      }
+      "haunt_duration"                                    "6"
+      "siphon_buffer"                                     "250"
+      "AbilityChargeRestoreTime" //OAA
+      {
+        "value"                                           "30"
+        "special_bonus_unique_death_prophet_5"            "-20"
+      }
+      "shard_bonus_charges"
+      {
+        "value"                                           "1"
+        "RequiresShard"                                   "1"
+      }
+      "shard_fear_duration"
+      {
+        "value"                                           "1.5"
+        "RequiresShard"                                   "1"
+      }
+      "shard_consecutive_siphon_duration"
+      {
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }
