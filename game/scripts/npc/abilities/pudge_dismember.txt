@@ -28,88 +28,62 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "3.0"
     "AbilityCooldown"                                     "30 25 20 19 18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 130 170 220 280"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "dismember_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "dismember_damage"                                "60 120 180 360 540" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
-        "LinkedSpecialBonusField"                         "value"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "value"         "80 130 180 360 540"
+        "special_bonus_unique_pudge_3"  "x1.8"
       }
-      "02"
+      "strength_damage"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "strength_damage"                                 "0.3 0.6 0.9 1.0 1.1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_3"
-        "LinkedSpecialBonusField"                         "value"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"       "0.3 0.6 0.9 1.0 1.1"
+        "special_bonus_unique_pudge_3"  "x1.8"
+        "CalculateSpellDamageTooltip" "0"
       }
-      "03"
+      "ticks"   
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ticks"                                           "6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_6"
-        "LinkedSpecialBonusField"                         "value2"
+        "value"           "6"
+        "special_bonus_unique_pudge_6"  "+2"
       }
-      "04"
+      "pull_units_per_second"   "75"
+      "pull_distance_limit"   "125"
+      "animation_rate"    "1.5"
+      "AbilityChannelTime"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pull_units_per_second"                           "75"
+        "value"       "3.0"
+        "special_bonus_unique_pudge_6"  "+0.8"
       }
-      "05"
+      "creep_dismember_duration_tooltip"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pull_distance_limit"                             "125"
+        "value"   "6.0"
+        "special_bonus_unique_pudge_6"  "+0.8"
       }
-      "06"
+      "shard_regen_pct"     
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "animation_rate"                                  "1.5"
+            "value"     "5"
+        "RequiresShard"     "1"
       }
-      "07"
+      "order_lock_duration"   
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "abilitychanneltime"                              ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_pudge_6"
+        "value"       "3"
+        "RequiresShard"     "1"
       }
-      "08"
+      "shard_cast_range"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_dismember_duration_tooltip"                "6.0"
+        "value"       "300"
+        "RequiresShard"     "1"
       }
-      "09"
+      "shard_cooldown_reduction"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_regen_pct"                                 "5"
-        "RequiresShard"                                   "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "order_lock_duration"                             "3"
-        "RequiresShard"                                   "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_cast_range"                                "300"
-        "RequiresShard"                                   "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_cooldown_reduction"                        "5.0"
-        "RequiresShard"                                   "1"
+        "value"         "5.0"
+        "RequiresShard"     "1"
       }
     }
   }

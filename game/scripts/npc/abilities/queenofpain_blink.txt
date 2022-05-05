@@ -8,13 +8,13 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5174"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
 
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "1075 1150 1225 1300 1375 1450"
     "AbilityCastPoint"                                    "0.33"
 
     // Time
@@ -29,7 +29,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"      "1075 1150 1225 1300 1375 1450"
       "min_blink_range"   "200"
       "shard_damage" //OAA
       {

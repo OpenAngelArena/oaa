@@ -27,11 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70.0"
-
+    
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 200 300 400 500"
@@ -42,25 +38,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "AbilityCooldown"       
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_void_damage_per_mana"                       "0.8 0.95 1.1 1.25 1.4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_6"
+        "value"     "70"
+        "special_bonus_unique_antimage_2" "-50"
       }
-      "02"
+      "mana_void_damage_per_mana"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_void_ministun"                              "0.3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_8"
-      }
-      "03"
+        "value"       "0.8 0.95 1.1 1.25 1.4"
+        "special_bonus_unique_antimage_6" "+0.1"
+      }     
+      "mana_void_ministun"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_void_aoe_radius"                            "500"
-      }
+        "value"         "0.3"
+        "special_bonus_unique_antimage_8" "+0.7"
+      }     
+      "mana_void_aoe_radius"      "500"
     }
   }
 }

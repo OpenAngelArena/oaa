@@ -44,12 +44,12 @@
       "damage_per_second"       
       {
         "value"   "15 30 45 60 120 180"
-        "LinkedSpecialBonus"    "special_bonus_unique_arc_warden_2"
+        "special_bonus_unique_arc_warden_2" "+40"
       }
       "search_radius"         "150" //OAA
       "think_interval"        "0.5"
       "move_speed_slow_pct"       "25 30 35 40 45 50" //OAA
-      "abilitycastrange"      
+      "AbilityCastRange"      
       {
         "value"       "500 600 700 800 900 1000"
         "special_bonus_unique_arc_warden_5" "+175"

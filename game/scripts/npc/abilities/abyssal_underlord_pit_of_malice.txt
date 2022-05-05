@@ -31,40 +31,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_6"
+        "value"         "400"
+        "special_bonus_unique_underlord_6"  "+75"
       }
-      "02" // the root from multiple pits do not stack - once the root wears off, the unit becomes immune to all pits for (pit_interval-ensnare_duration) seconds.
+
+      "pit_duration"          "12.0"
+      "pit_interval"          "3.6"
+      "pit_damage"          "0"
+      "ensnare_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pit_duration"                                    "12.0"
+        "value" "1.2 1.4 1.6 1.8 1.9 2.0"
+        "special_bonus_unique_underlord" "+0.65"
       }
-      "03"
+      "speed_bonus"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pit_interval"                                    "3.6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pit_damage"                                      "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ensnare_duration"                                "1.2 1.4 1.6 1.8 1.9 2.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "speed_bonus"                                     "40"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter" "+40"
       }
     }
   }

@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_base"                                     "55 60 65 70 140 280" //OAA
+        "damage_base"                                     "40 60 80 120 240 480" //OAA
       }
       "02"
       {
@@ -52,7 +52,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_max"                                      "1.0 1.5 2.0 2.5 3.5 6.5"
+        "damage_max"                                      "1.0 1.5 2.0 2.5 4.0 5.5"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"

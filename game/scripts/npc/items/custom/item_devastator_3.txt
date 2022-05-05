@@ -53,7 +53,7 @@
     "AbilityCastPoint"                                    "0"
 
     "AbilitySharedCooldown"                               "devastator"
-    "AbilityCooldown"                                     "7"
+    "AbilityCooldown"                                     "9 8.5 8 7.5 7"
     "AbilityManaCost"                                     "75"
 
     // Stats
@@ -63,7 +63,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10002"
+    "ItemCost"                                            "9902"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator 3"
@@ -118,7 +118,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "100 200 400 700 1000"
+        "devastator_damage"                               "75 150 300 525 825"
       }
       "09"
       {

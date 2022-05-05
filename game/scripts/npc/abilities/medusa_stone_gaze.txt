@@ -19,64 +19,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCastRange"          "1200"
+      "AbilityCooldown"         "90"
+      "AbilityManaCost"         "150"
+      "radius"              "1200"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "value"             "5 5.5 6 6.5 7"
+        "special_bonus_unique_medusa" "+2"
       }
-      "02"
+      "slow"                "35"
+      "stone_duration"          "3.0"
+      "face_duration"           "2.0"
+      "vision_cone"           "0.08715"   // 85 degree cone
+      "bonus_physical_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5 5.5 6 6.5 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_medusa"
+        "value"             "40 45 50 50 50"
+        "DamageTypeTooltip"       "DAMAGE_TYPE_PHYSICAL"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "35"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stone_duration"                                  "3.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "face_duration"                                   "2.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_cone"                                     "0.08715"   // 85 degree cone
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_physical_damage"                           "40 45 50 50 50"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_boost"                                     "50"
-      }
+      "speed_boost"           "50"
     }
   }
 }

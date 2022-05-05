@@ -19,45 +19,35 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA, for picking screen tooltip
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "AbilityCooldown"  //OAA, for picking screen tooltip 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_threshold"                                    "400"
+        "value"               "60 55 50 45 40"
+        "special_bonus_unique_abaddon_5"  "-8"
       }
-      "02"
+      "hp_threshold"              "400"
+      "duration"                "4.0 4.25 4.5 4.75 5.0" //OAA, for picking screen tooltip
+      "duration_scepter" //OAA, for picking screen tooltip
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.25 4.5 4.75 5.0" //OAA, for picking screen tooltip
+        "value"               "4.5 5.5 6.5 7.0 8.0"
+        "RequiresScepter"         "1"
       }
-      "03"
+      "ally_threshold_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "4.5 5.5 6.5 7.0 8.0"	//OAA, for picking screen tooltip
-        "RequiresScepter"                                 "1"
+        "value"               "525"
+        "RequiresScepter"         "1"
       }
-      "04"
+      "redirect_range_scepter" //OAA, for picking screen tooltip
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ally_threshold_scepter"                          "525"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_range_scepter"                          "900" //OAA, for picking screen tooltip
-        "RequiresScepter"                                 "1"
+        "value"               "900"
+        "RequiresScepter"         "1"
       }
     }
   }

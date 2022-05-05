@@ -23,51 +23,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "delay"           "1.7"
+      "area_of_effect"      "175"
+      "damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1.7"
+        "value"         "100 162.5 225 287.5 350 412.5 475 537.5 950 1140 1330 1520 1710 1900 2090"
+        "levelkey"        "exortlevel"
       }
-      "02"
+      "vision_distance"     "400"
+      "vision_duration"     "4.0"
+      "cataclysm_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "175"
+        "value"         "0"
+        "special_bonus_scepter" "+2"
+        "RequiresScepter"   "1"
       }
-      "03"
+      "cataclysm_cooldown"  //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "100 162.5 225 287.5 350 412.5 475 537.5 950 1140 1330 1520 1710 1900 2090"
-        "levelkey"                                        "exortlevel"
+        "value"         "60"
+        "RequiresScepter"   "1"
       }
-      "04"
+      "cataclysm_min_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "vision_distance"                                 "400"
+        "value"         "160"
+        "RequiresScepter"   "1"
       }
-      "05"
+      "cataclysm_max_range"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cataclysm_cooldown"                              "50" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cataclysm_min_range"                             "160"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cataclysm_max_range"                             "200"
-        "RequiresScepter"                                 "1"
+        "value"         "200"
+        "RequiresScepter"   "1"
       }
     }
   }

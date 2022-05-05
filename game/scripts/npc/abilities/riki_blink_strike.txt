@@ -27,7 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.1"
     "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "25 20 15 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,17 +36,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "abilitycastrange"
-      { 
-        "value"         ""
-        "LinkedSpecialBonus"  "special_bonus_unique_riki_3"
-      }
       "bonus_damage"        "40 60 80 100 200 400"
       "AbilityChargeRestoreTime"
       {
-        "value"             ""
-        "LinkedSpecialBonus"      "special_bonus_unique_riki_9"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
+        "value"             "25 20 15 10 10 10"
+        "special_bonus_unique_riki_9" "-4"
       }
       "slow"  
       {

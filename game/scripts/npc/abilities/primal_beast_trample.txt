@@ -38,12 +38,12 @@
     {
       "effect_radius"       "230"
       "step_distance"       "140"
-      "base_damage"       "20 35 50 65 165 265"
+      "base_damage"       "12 28 44 60 160 260"
       "duration"          "5.5"
       "attack_damage"
       {
-        "value"         "40"
-        "special_bonus_unique_primal_beast_trample_attack_damage" "+30"
+        "value"         "35"
+        "special_bonus_unique_primal_beast_trample_attack_damage" "+25"
       }
     }
   }

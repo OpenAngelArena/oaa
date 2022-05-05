@@ -45,20 +45,24 @@
         "value"                                           "5"
         "special_bonus_unique_bane_9"                     "+5"
       }
-      "abilitychanneltime"
+      "AbilityChannelTime"
       {
-        "value"                                           "6.0"
+        "value"                                           "5.0 5.5 6.0 6.0 6.0"
         "special_bonus_unique_bane_3"                     "+5"
       }
       "fiend_grip_damage"                                 "70 160 250 520 790" //OAA
-      "scepter_cooldown"
+      "AbilityCooldown"       
       {
-        "value"                                           "45"
-        "RequiresScepter"                                 "1"
+        "value" "120 110 100"
+        "special_bonus_scepter" "-45"
+      }
+      "illusion_count"
+      {
+        "special_bonus_scepter" "+2"
       }
       "scepter_incoming_illusion_damage"
       {
-        "value"                                           "200"
+        "value"                                           "+200"
         "RequiresScepter"                                 "1"
       }
     }

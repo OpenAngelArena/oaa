@@ -36,29 +36,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
-        "LinkedSpecialBonus"                              "special_bonus_unique_axe_2"
+        "value"             "300"
+        "special_bonus_unique_axe_2"  "+100"
       }
-      "02"
+        "bonus_armor"     "25 25 25 25 50 75"
+      "duration"        "2.0 2.4 2.8 3.2 3.4 3.6"
+      "scepter_cooldown_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "30 30 30 30 60 90"
+        "special_bonus_scepter" "+3.0"
       }
-      "03"
+      "applies_battle_hunger"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0 2.4 2.8 3.2 3.4 3.6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown_reduction"                      "3.0"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter" "+1"
       }
     }
   }

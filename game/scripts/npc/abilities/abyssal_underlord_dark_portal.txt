@@ -40,6 +40,10 @@
       "bonus_ms"                                          "10 20 30 40 50"
       "buff_duration"                                     "5.0 6.0 7.0 8.0 9.0"
       "minimum_distance"                                  "2000"
+      "spawn_pit_on_cast"
+      {
+        "special_bonus_scepter" "+1"
+      }
     }
   }
 }

@@ -19,10 +19,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilityValues" 
     {
-      "attack_speed_per_instance" "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
-      "move_speed_per_instance" "1 2 3 4 5 6 7 8 9 10 11 12 13 14" //OAA
+      "attack_speed_per_instance"
+      {
+        "value"         "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
+        "special_bonus_unique_invoker_13" "x3"
+      }
+      "move_speed_per_instance" //OAA
+      {
+        "value"         "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
+        "special_bonus_unique_invoker_13" "x3"
+      }
     }
   }
 }

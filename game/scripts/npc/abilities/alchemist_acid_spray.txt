@@ -31,34 +31,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "radius"        "475 525 575 625 650 675"
+      "duration"        "16"
+      "damage"        "20 25 30 35 70 140"
+      "armor_reduction"   
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "475 525 575 625 650 675"
+        "value"           "4 5 6 7 9 15"
+        "special_bonus_unique_alchemist_5"    "+3"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 25 30 35 70 140"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "4 5 6 7 9 15"
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "1.0"
-      }
+      "tick_rate"       "1.0"
     }
   }
 }
