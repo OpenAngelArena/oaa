@@ -32,69 +32,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "radius"                  "375"
+      "activation_delay"              "2.0"
+      "duration"                  "45"
+      "wraith_speed"                "400"
+      "spark_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+      
+        "value"                 "100 180 260 340 680 1020"
+        "special_bonus_unique_arc_warden"   "+125"
       }
-      "02"
+      "think_interval"              "0.2"
+      "wraith_vision_radius"            "300"
+      "wraith_vision_duration"          "3.34"
+      "ministun_duration"             "0.4 0.5 0.6 0.7 0.8 0.9"
+      "move_speed_slow_pct"           "100"
+      "scepter_activation_delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "activation_delay"                                "2.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "45"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wraith_speed"                                    "400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spark_damage"                                    "100 180 260 340 680 1020"
-        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "think_interval"                                  "0.2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "wraith_vision_radius"                            "300"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "wraith_vision_duration"                          "3.34"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration"                               "0.4 0.5 0.6 0.7 0.8 0.9"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow_pct"                             "100"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_bonus_duration"                          "0.0"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_activation_delay"                        "2.0"
-      }
+        "value"                 "2.0"
+        "RequiresScepter"           "1"
+      } 
     }
   }
 }

@@ -18,49 +18,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "percent_damage_per_burn"   "50"
+      "mana_per_hit"      "28 40 52 64 76 88"
+      "mana_per_hit_pct" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "percent_damage_per_burn"                         "50"
+        "value"   "1 1.5 2 2.5 3 3.5"
+        "special_bonus_unique_antimage_7" "+0.6"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_per_hit"                                    "28 40 52 64 76 88"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_per_hit_pct"                                "1 1.5 2 2.5 3 3.5" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_antimage_7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "silence_chance"                                  "15"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_percentage"                             "50"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "10 20 30 40 45 50"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.75"
-      }
+      "illusion_percentage"   "50"
+      "move_slow"       "10 20 30 40 45 50"
+      "slow_duration"     "0.75"
     }
   }
 }

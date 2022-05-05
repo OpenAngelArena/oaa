@@ -25,10 +25,6 @@
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastRange"                                    "625"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 15 13 11 10 9"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 120 140 160 180 200"
@@ -40,20 +36,18 @@
         "value"                                           "100 200 300 400 800 1200"
         "special_bonus_unique_bane_2"                     "+400"
       }
-      "bonus_abilitycooldown"
+      "AbilityCooldown"
       {
-        "value"                                           "0"
-        "special_bonus_unique_bane_8"                     "3"
+        "value"                                           "17 15 13 11 10 9"
+        "special_bonus_unique_bane_8"                     "-3"
       }
       "shard_radius"
       {
-        "value"                                           "550"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "+550"
       }
       "shard_secondary_target_heal_pct"
       {
-        "value"                                           "25"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard"                             "+25"
       }
     }
   }

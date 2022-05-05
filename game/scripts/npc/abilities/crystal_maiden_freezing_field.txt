@@ -19,96 +19,55 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "10"
-    "AbilityCastPoint"                                    "0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60" //OAA
-    "AbilityDuration"                                     "10.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 400 600 800 1000"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.35"  // Primarily about the damage
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"    
     {
-      "01"
+      "AbilityChannelTime"      "10"
+      "AbilityCastPoint"        "0"
+      "AbilityCooldown"       "60" //OAA
+      "AbilityDuration"       "10.0"
+      "AbilityManaCost"       "200 400 600 800 1000"
+      "radius"            "810"
+      "explosion_radius"        "320"
+      "bonus_armor"         "20 30 40 50 60"  //OAA
+      "explosion_interval"      "0.1"
+      "movespeed_slow"        "-40 -50 -60 -70 -80" //OAA
+      "attack_slow"         "-60 -90 -120 -150 -180" //OAA
+      "slow_duration"         "1.0"
+      "explosion_min_dist"      "195"
+      "explosion_max_dist"      "785"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "810"
+        "value"                   "110 250 390 810 1510"
+        "special_bonus_unique_crystal_maiden_3"   "+50"
       }
-      "02"
+      "frostbite_delay" // negative means don't apply.
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion_radius"                                "300"
+        "value"           "-1"
+        "special_bonus_scepter"   "+2.75"
+        "RequiresScepter"     "1"
       }
-      "03"
+      "shard_bonus_explosion"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20 30 40 50 60"  //OAA
+        "shard_bonus_explosion"   "0"
+        "special_bonus_shard"   "+20"
+        "RequiresShard"       "1"
       }
-      "04"
+      "shard_self_movement_speed_slow_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "explosion_interval"                              "0.1"
+        "value"           "0"
+        "special_bonus_shard"   "-75"
+        "RequiresShard"       "1"
       }
-      "05"
+      "can_move"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow"                                  "-30 -40 -50 -60 -70" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_slow"                                     "-60 -90 -120 -150 -180" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion_min_dist"                              "195"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "explosion_max_dist"                              "785"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "110 250 390 810 1510" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_3"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_delay"                                   "1.75"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_bonus_explosion"                           "20"
-        "RequiresShard"                                   "1"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_self_movement_speed_slow_pct"              "75"
-        "RequiresShard"                                   "1"
+        "value"           "0"
+        "special_bonus_shard"   "+1"
       }
     }
   }

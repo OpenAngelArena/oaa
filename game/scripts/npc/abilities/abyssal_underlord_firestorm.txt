@@ -20,10 +20,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 120 130 140 150 160"
@@ -32,31 +28,42 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value" "12.0"
+        "special_bonus_unique_underlord_5"  "-4"
+      }
       "radius"
       {
         "value"                                           "425"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_8"
+        "special_bonus_unique_underlord_8" "+100"
       }
-      "wave_duration"                                     "7.0"
+      "wave_duration"
+      {
+        "value" "7.0"
+        "special_bonus_unique_underlord_7"  "+2"
+      }
       "wave_count"                                        "6"
       "wave_damage"                                       "25 40 55 70 140 280"
       "wave_interval"                                     "1.0"
       "burn_damage"
       {
         "value"                                           "1 2 3 4 5 6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_underlord_4"
+        "special_bonus_unique_underlord_4" "+1"
       }
       "burn_interval"                                     "1.0"
       "burn_duration"                                     "2.0"
-      "shard_wave_count_bonus"
+      "can_target_units"
       {
-        "value"                                           "3"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard" "+1"
       }
-      "shard_wave_interval_reduction"
+      "shard_wave_count_bonus"  
       {
-        "value"                                           "25"
-        "RequiresShard"                                   "1"
+        "special_bonus_shard" "+3"
+      }
+      "shard_wave_interval_reduction" 
+      {
+        "special_bonus_shard" "+25"
       }
     }
   }

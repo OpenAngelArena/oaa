@@ -21,54 +21,31 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
-    "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 6 6"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 135 145 155 165 175"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // Applies multiple modifiers
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "AbilityCastRange"        "550"
+      "AbilityCastPoint"        "0.3"
+      "AbilityCooldown"       "9 8 7 6 6 6"
+      "AbilityManaCost"       "125 135 145 155 165 175"
+      "damage_per_second"       "100 100 100 100 200 300"
+      "creep_damage_per_second"   "100 100 100 100 200 300"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "100 100 100 100 200 300"
+        "value"                   "1.5 2.0 2.5 3.0 3.5 4.5"
+        "special_bonus_unique_crystal_maiden_1"   "+1.25"
       }
-      "02"
+      "creep_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_damage_per_second"                         "100"
+        "value"                   "10"
+        "special_bonus_unique_crystal_maiden_1"   "+1.25"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.5 2.0 2.5 3.0 3.5 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_duration"                                  "10.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_crystal_maiden_1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.25"
-      }
+      "tick_interval"         "0.25"
     }
   }
 }

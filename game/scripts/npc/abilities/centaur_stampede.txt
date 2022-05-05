@@ -20,10 +20,6 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 90 80 70 60" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 200 250 300 350"
@@ -39,7 +35,11 @@
       "duration"
       {
         "value"                                           "3.5 4 4.5 4.5 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_centaur_7"
+        "special_bonus_unique_centaur_7"                  "+1"
+      }
+      "scepter_bonus_duration"     
+      {
+        "special_bonus_scepter"                          "+1"
       }
       "base_damage"                                       "0"
       "strength_damage"
@@ -52,13 +52,17 @@
       "slow_movement_speed"                               "100"
       "damage_reduction"
       {
-        "value"                                           "20 25 30 35 40"
+        "value"                                           "+20 +25 +30 +35 +40"
         "RequiresScepter"                                 "1"
       }
-      "scepter_bonus_duration"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "1"
-        "RequiresScepter"                                 "1"
+        "value"         "100 90 80 70 60"
+        "special_bonus_unique_centaur_5"  "-25"
+      }
+      "has_flying_movement" 
+      {
+        "special_bonus_scepter" "+1"
       }
     }
   }
