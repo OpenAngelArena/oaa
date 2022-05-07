@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5679"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5679"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,17 +31,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
       "radius"                  "375"
       "activation_delay"              "2.0"
       "duration"                  "45"
       "wraith_speed"                "400"
-      "spark_damage"
+      "spark_damage" //OAA
       {
-      
+
         "value"                 "100 180 260 340 680 1020"
-        "special_bonus_unique_arc_warden"   "+125"
+        "special_bonus_unique_arc_warden"   "+250"
       }
       "think_interval"              "0.2"
       "wraith_vision_radius"            "300"
@@ -53,7 +52,7 @@
       {
         "value"                 "2.0"
         "RequiresScepter"           "1"
-      } 
+      }
     }
   }
 }
