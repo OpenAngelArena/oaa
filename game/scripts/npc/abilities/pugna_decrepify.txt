@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5187"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK |  DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL" //OAA, Valve has extra space there
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0 13.0 10.0 7.0 7.0 7.0"
+    "AbilityCooldown"                                     "13 11 9 7 6 6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,19 +33,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_spell_damage_pct_allies" 
+      "bonus_spell_damage_pct_allies"
       {
         "value" "-25"
         "DamageTypeTooltip"     "DAMAGE_TYPE_MAGICAL"
       }
       "bonus_movement_speed_allies"   "0"
-      "bonus_spell_damage_pct"  
+      "bonus_spell_damage_pct"
       {
         "value"   "-30 -40 -50 -60 -70 -80"
         "DamageTypeTooltip"     "DAMAGE_TYPE_MAGICAL"
       }
       "bonus_movement_speed"    "-30 -40 -50 -60 -70 -80"
-      "AbilityDuration"       
+      "AbilityDuration"
       {
         "value"       "3.5"
         "special_bonus_unique_pugna_5" "+1.0"

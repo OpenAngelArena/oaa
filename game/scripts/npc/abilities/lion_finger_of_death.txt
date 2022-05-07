@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5047"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5047"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -37,36 +36,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // Modifier just delays damage
 
-    // Special80""
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA     
+      "damage" //OAA
       {
-        "value"       "600 850 1100 1850 2600"
-        "special_bonus_scepter"   "+100 +100 +100 +350 +600"
+        "value"                                           "600 850 1100 1850 2600"
+        "special_bonus_scepter"                           "+100 +100 +100 +350 +600"
       }
       "damage_per_kill" //OAA
       {
-        "value"       "80"
-        "special_bonus_unique_lion_8" "+20"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "80"
+        "special_bonus_unique_lion_8"                     "+20"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "grace_period"        "3"
-      "damage_delay"        
+      "grace_period"                                      "3"
+      "damage_delay"
       {
-        "value"       "0.25"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "0.25"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "cooldown_scepter" //OAA
       {
-        "value" "35 30 25 20 15"
-        "RequiresScepter"     "1"
+        "value"                                           "35 30 25 20 15"
+        "RequiresScepter"                                 "1"
       }
-      "splash_radius_scepter"   
+      "splash_radius_scepter"
       {
-        "value"   "325"
-        "RequiresScepter"     "1"
+        "value"                                           "325"
+        "RequiresScepter"                                 "1"
       }
     }
   }

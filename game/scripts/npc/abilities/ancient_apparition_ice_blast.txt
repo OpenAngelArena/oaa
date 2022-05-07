@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5348"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5348"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -38,17 +37,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"   
+    "AbilityValues"
     {
       "radius_min"      "275"
       "radius_grow"     "50.0"
       "radius_max"      "1000"
       "path_radius"     "275"
-      "frostbite_duration"  "10 11 12 13 14 12.5"
-      "dot_damage"      "20.0 32.0 48.5 69.5" //OAA
+      "frostbite_duration"                                "10 11 12 13 14"
+      "dot_damage"                                        "12.5 20.0 32.0 48.5 69.5"
       "speed"         "1500"
       "kill_pct" //OAA
-      { 
+      {
         "value"       "10 11 12 13 14"
         "special_bonus_unique_ancient_apparition_5" "+4"
       }
