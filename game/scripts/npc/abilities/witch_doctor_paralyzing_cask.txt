@@ -42,7 +42,7 @@
     {
       "hero_duration"     "1.0"
       "creep_duration"    "1"
-      "hero_damage"     "40 50 60 70 140 210" //OAA
+      "base_damage"      "40 50 60 70 140 210" //OAA
       "bounce_range"      "575"
       "bounces"       
       { 
@@ -52,6 +52,7 @@
       "speed"         "1000"
       "bounce_delay"      "0.3"
       "bounce_bonus_damage"     "20 30 40 50 100 200" //OAA
+      "creep_damage_pct"            "200"
     }
   }
 }
