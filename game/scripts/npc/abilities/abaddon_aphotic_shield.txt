@@ -35,24 +35,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        "15.0"
+      "radius"        "675"
+      "damage_absorb"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_absorb"                                   "110 140 170 200 400 600"
-        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "675"
+        "value"     "110 140 170 200 400 600"
+        "special_bonus_unique_abaddon"    "+100"
+        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
       }
     }
   }

@@ -18,7 +18,7 @@ end
 
 function modifier_diarrhetic_oaa:OnCreated()
   local interval = 30
-  self.check_for_ward_radius = 200
+  self.check_for_ward_radius = 300
 
   if IsServer() then
     self:StartIntervalThink(interval)

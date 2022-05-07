@@ -39,73 +39,39 @@
     "AbilityModifierSupportValue"	"0.25"	// generally used for damage only
 
     // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    //------------------------------------------------------------------------------------------------------------- 
+    "AbilityValues"
     {
-      "01"
+      "airtime_duration"        "0.8"
+      "radius"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "airtime_duration"                                "0.8"
+        "value" "500"
+        "LinkedSpecialBonus"  "special_bonus_unique_dawnbreaker_solar_guardian_radius"
       }
-      "02"
+      "base_damage"     "30 70 110 230 430" //OAA
+      "base_heal" //OAA 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_solar_guardian_radius"
+        "value"       "45 95 145 295 545"
+        "special_bonus_scepter" "+15 25 35 65 115"
       }
-      "03"
+      "pulse_interval"        "0.5"
+      "land_damage"     "130 190 250 500 750"  //OAA
+      "land_stun_duration"      "1.5 1.75 2 2.25 2.5"
+      "max_offset_distance"     "350"
+      "scepter_channel_time"        
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_damage"                                     "30 70 110 230 430" //OAA
+        "value" "1.0"
+        "RequiresScepter"     "1"
       }
-      "04"
+      "airtime_scepter_bonus" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_heal"                                       "45 95 145 295 545" //OAA
+        "value"       "3.5"
+        "RequiresScepter"     "1"
       }
-      "05"
+      "miss_rate"       
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pulse_interval"                                  "0.5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "land_damage"                                     "130 190 250 500 750" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "land_stun_duration"                              "1.5 1.75 2 2.25 2.5"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_offset_distance"                             "350"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_channel_time"                            "1.0"
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "airtime_scepter_bonus"                           "3.5"
-        "RequiresScepter"                                 "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_heal"                                    "60 120 180 360 660" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "miss_rate"                                       "60"
-        "RequiresScepter"                                 "1"
+        "value"     "60"
+        "RequiresScepter"     "1"
       }
     }
   }

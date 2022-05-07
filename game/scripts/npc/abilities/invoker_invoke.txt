@@ -21,20 +21,12 @@
     "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "0"
 
-    // Special
+    // Special 
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_invoked_spells"                              "2"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_reduction_per_orb"                      "0.16" // OAA, so it doesn't bug out at OAA levels
-      }
+      "max_invoked_spells"      "2"
+      "cooldown_reduction_per_orb"  "0.16" // OAA, so it doesn't bug out at OAA levels
     }
   }
 }

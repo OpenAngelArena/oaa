@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "19328"
+    "ItemCost"                                            "19178"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 4;helm of the overlord 4;helm 4;overlord 4"
@@ -133,12 +133,12 @@
       "14"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_regen_aura"                                 "1.75 2.0 2.5 3.25 4.25"
+        "mana_regen_aura"                                 "2.0 2.25 2.75 3.50 4.50"
       }
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_aura"                                  "15 25 35 45 55"
+        "lifesteal_aura"                                  "18 27 36 45 54"
       }
       "16"
       {

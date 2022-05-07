@@ -31,46 +31,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "30 40 50 60 65 70"
-        "CalculateSpellDamageTooltip"                     "0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lich_8"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "value" "30 40 50 60 65 70"
+        "CalculateSpellDamageTooltip" "0"
+        "special_bonus_unique_lich_8" "+10"
+        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
       }
-      "02"
+      "movement_slow"     "20 25 30 35 40 45"
+      "slow_duration"     "0.5"
+      "damage"        "20 30 40 50 100 200"
+      "interval"        "1"
+      "radius"        "600"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "20 25 30 35 40 45"
+        "value" "6"
+        "special_bonus_unique_lich_4" "+4"
       }
-      "03"
+      "health_regen"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 30 40 50 100 200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "interval"                                        "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lich_4"
+        "special_bonus_unique_lich_1" "+50"
       }
     }
   }

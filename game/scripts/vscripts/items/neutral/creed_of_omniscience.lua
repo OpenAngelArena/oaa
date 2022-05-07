@@ -55,7 +55,7 @@ function modifier_item_creed_of_omniscience_passive:DeclareFunctions()
     MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     --MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-    MODIFIER_PROPERTY_CAST_RANGE_BONUS,
+    MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
     --MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
   }
 end
@@ -72,7 +72,7 @@ function modifier_item_creed_of_omniscience_passive:GetModifierAttackRangeBonus(
   return self.attack_range_melee or self:GetAbility():GetSpecialValueFor("bonus_attack_range_melee")
 end
 
-function modifier_item_creed_of_omniscience_passive:GetModifierCastRangeBonus()
+function modifier_item_creed_of_omniscience_passive:GetModifierCastRangeBonusStacking()
   return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
 end
 

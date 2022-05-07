@@ -29,7 +29,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
-    "AbilityDuration"                                     "1.4 1.8 2.2 2.6 2.8 3.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,40 +36,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "electric_vortex_pull_distance"                   "180 220 260 300 340 380"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "electric_vortex_pull_tether_range"               "1200.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "electric_vortex_self_slow"                       "-50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "electric_vortex_self_slow_duration"              "1.4 1.8 2.2 2.6 2.8 3.0" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "abilityduration"                                 ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "475"
-        "RequiresScepter"                                 "1"
-      }
+     "electric_vortex_pull_distance"    "180 220 260 300 340 380"   
+     "electric_vortex_pull_tether_range"     "1200.0"    
+     "electric_vortex_self_slow" "-50"
+     "electric_vortex_self_slow_duration"  "1.4 1.8 2.2 2.6 2.8 3.0" //OAA
+     "AbilityDuration"
+     {
+       "value"       "1.4 1.8 2.2 2.6 2.8 3.0"
+       "special_bonus_unique_storm_spirit" "+0.4"
+     }
+     "radius_scepter"  
+     {
+       "value"     "475"
+       "RequiresScepter"     "1"
+     }
     }
   }
 }

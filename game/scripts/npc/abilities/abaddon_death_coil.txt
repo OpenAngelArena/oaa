@@ -34,29 +34,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "self_damage"     "50"
+      "missile_speed"     "1300"
+      "target_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_damage"                                     "50"
+        "value"     "110 160 210 260 520 780"
+        "special_bonus_unique_abaddon_2"  "+50"
       }
-      "02"
+      "heal_amount"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "target_damage"                                   "110 160 210 260 520 780"
-        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
-      }
-      "03"
+        "value"     "110 160 210 260 520 780"
+        "special_bonus_unique_abaddon_2"  "+50"
+      }     
+      
+      "effect_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_amount"                                     "110 160 210 260 520 780"
-        "LinkedSpecialBonus"                              "special_bonus_unique_abaddon_2"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "missile_speed"                                   "1300"
+        "value"       "0"
+        "special_bonus_unique_abaddon_4"  "+400"
       }
     }
   }

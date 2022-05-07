@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "75 150 225 300 600 1200"
+        "total_damage"                                    "90 160 230 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark_2"
       }
       "05"
@@ -64,6 +64,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "pulse_interval"                                  "0.1"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "self_damage_pct"                                 "30"
       }
     }
   }

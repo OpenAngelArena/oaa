@@ -23,30 +23,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "2.9"
-        "levelkey"                                        "wexlevel"
+        "value"         "2.9"
+        "levelkey"        "wexlevel"
       }
-      "02"
+      "area_of_effect"    "675"
+      "mana_burned"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "675"
+        "value"     "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
+        "levelkey"        "wexlevel"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_burned"                                     "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
-        "levelkey"                                        "wexlevel"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_mana_pct"                             "60"
-      }
+      "damage_per_mana_pct" "60"
     }
   }
 }

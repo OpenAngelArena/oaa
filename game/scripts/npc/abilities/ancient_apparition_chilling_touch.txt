@@ -21,45 +21,31 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 9 6 3 3 3"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 40 50 60 70 80"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "40 80 120 160 320 480"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_2"
+        "value"       "40 80 120 160 320 480"
+        "special_bonus_unique_ancient_apparition_2"   "+80"
       }
-      "02"
+      "slow"          "100"
+      "duration"        "0.5"
+      "attack_range_bonus"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "100"
+        "value"       "60 120 180 240 260 280"
+        "special_bonus_unique_ancient_apparition_7"   "+200"
       }
-      "03"
+      "AbilityManaCost"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "0.5"
+        "value"                   "30 40 50 60 70 80"
+        "special_bonus_scepter"           "-50%"
       }
-      "04"
+      "AbilityCooldown"       
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_range_bonus"                              "60 120 180 240 260 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ancient_apparition_7"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_mana_cost_reduction_pct"                 "50"
-        "RequiresScepter"                                 "1"
+        "value"     "12 9 6 3 3 3"
+        "special_bonus_scepter"           "-100%"
       }
     }
   }

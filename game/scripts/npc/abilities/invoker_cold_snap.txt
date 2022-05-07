@@ -25,7 +25,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "20"
     "AbilityManaCost"                                     "100"
 
     // Stats
@@ -34,37 +33,31 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"   
     {
-      "01"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0"
-        "levelkey"                                        "quaslevel"
-        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_7"
+        "value"         "20"
+        "special_bonus_unique_invoker_9"  "-8"
       }
-      "02"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "freeze_duration"                                 "0.4"
+        "value"         "3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0"
+        "levelkey"        "quaslevel" 
+        "special_bonus_unique_invoker_7"  "+3"
       }
-      "03"
+      "freeze_duration"     "0.4"
+      "freeze_cooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "freeze_cooldown"                                 "0.83 0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.5 0.5 0.5 0.5"
-        "levelkey"                                        "quaslevel"
+        "value"         "0.83 0.80 0.77 0.74 0.71 0.68 0.65 0.62 0.59 0.56 0.53 0.5 0.5 0.5 0.5"
+        "levelkey"        "quaslevel" 
       }
-      "04"
+      "freeze_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "freeze_damage"                                   "8 16 24 32 40 48 56 64 112 134.4 156.8 179.2 201.6 224 246.4"
-        "levelkey"                                        "quaslevel"
+        "value"         "8 16 24 32 40 48 56 64 112 134.4 156.8 179.2 201.6 224 246.4"
+        "levelkey"        "quaslevel" 
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_trigger"                                  "10.0"
-      }
+      "damage_trigger"      "10.0"
     }
   }
 }

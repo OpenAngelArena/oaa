@@ -27,7 +27,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "19 17 15 13 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -57,8 +56,8 @@
       }
       "AbilityChargeRestoreTime"
       {
-        "value"   ""
-        "LinkedSpecialBonus"    "special_bonus_unique_techies_3"
+        "value"   "19 17 15 13 11"
+        "special_bonus_unique_techies_3"   "-3"
       }
       "outer_damage"        "50"
       "min_distance"        "150"

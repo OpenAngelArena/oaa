@@ -24,7 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
-    "AbilityCastRange"                                    "400"
+    "AbilityCastRange"                                    "350"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "radius"                                          "350"
       }
       "02"
       {
@@ -51,7 +51,7 @@
       "03" // original: 12/16/20/24
       {
         "var_type"                                        "FIELD_INTEGER"
-        "mana_absorb_base"                                "28 40 52 64 76 88"
+        "mana_absorb_base"                                "16 28 40 52 64 76"
       }
       "04" // original: 8/10/12/14%
       {

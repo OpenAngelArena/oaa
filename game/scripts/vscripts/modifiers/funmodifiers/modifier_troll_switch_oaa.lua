@@ -17,8 +17,8 @@ function modifier_troll_switch_oaa:RemoveOnDeath()
 end
 
 function modifier_troll_switch_oaa:OnCreated()
-  self.atkRange = 600
-  self.projectileSpeed = 900
+  self.atkRange = 500
+  self.projectileSpeed = 1100
   self.bonus_health_per_lvl = 50
   self.bonus_attack_speed_per_lvl = 5
 
@@ -92,10 +92,10 @@ function modifier_troll_switch_oaa:DeclareFunctions()
   return funcs
 end
 
--- offset all stack counts by -600
--- the max stack count we'll ever have is 600, so this makes the max 0
+-- offset all stack counts by -500
+-- the max stack count we'll ever have is 500, so this makes the max 0
 -- negative stacks are allowed but don't appear in the UI, so this makes things clearer
-local RangeBufferOffset = 0 - 600
+local RangeBufferOffset = 0 - 500
 
 function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
   local currentStackCount = self:GetStackCount()
@@ -120,11 +120,11 @@ function modifier_troll_switch_oaa:GetModifierAttackRangeBonus()
     return setCurrentBonus(0)
   end
 
-  -- if we used to be melee but now we're ranged, add exactly 600 range
+  -- if we used to be melee but now we're ranged, add exactly 500 range
   if isRangedHero then
     return setCurrentBonus(self.atkRange)
 
-  -- if we used to be ranged, we set our base range to either 300 or 150 depending on if the original hero had over 600 attack range base
+  -- if we used to be ranged, we set our base range to either 300 or 150 depending on if the original hero had over 500 attack range base
   else
     local attack_range = parent:GetBaseAttackRange()
     if attack_range > self.atkRange then

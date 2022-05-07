@@ -36,28 +36,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_bonus"                                     "4 6 8 10 22 36"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed"                             "-8 -16 -24 -32 -40 -48"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed"                               "-8 -16 -24 -32 -40 -48"
-      }
+      "armor_bonus"     "4 6 8 10 22 36"
+      "slow_duration"     "2.0"
+      "slow_movement_speed" "-8 -16 -24 -32 -40 -48"
+      "slow_attack_speed"   "-8 -16 -24 -32 -40 -48"
     }
   }
 }

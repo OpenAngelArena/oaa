@@ -30,7 +30,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "2 2 3 4 4 4" //OAA
-    "AbilityChargeRestoreTime"                            "30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,59 +37,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "16"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_pct"                                      "1.0 2.0 3.0 4.0 6.0 8.0" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet_3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "haunt_duration"                                  "6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_steal"                                  "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "siphon_buffer"                                   "250"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "AbilityChargeRestoreTime"                        ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet_5"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_charges"                             "1"
-        "RequiresShard"                                   "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_fear_duration"                             "2"
-        "RequiresShard"                                   "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_consecutive_siphon_duration"               "3"
-        "RequiresShard"                                   "1"
-      }
+      "damage"          "10 12 14 16 32 64"
+        "damage_pct" //OAA          
+        {
+          "value"     "1.0 2.0 3.0 4.0 6.0 8.0"
+        "special_bonus_unique_death_prophet_3"  "+1"
+        }
+        "haunt_duration"        "6"
+        "siphon_buffer"     "250"
+        "AbilityChargeRestoreTime"  //OAA
+        {
+          "value"         "30"
+          "special_bonus_unique_death_prophet_5" "-20"
+        }
+        "shard_bonus_charges"     
+        {
+          "value" "1"
+          "RequiresShard"       "1"
+        }
+        "shard_fear_duration"     
+        {
+          "value"   "1.5"
+          "RequiresShard"       "1"
+        }
+        "shard_consecutive_siphon_duration"     
+        {
+          "value"   "3"
+          "RequiresShard"       "1"
+        }
     }
   }
 }

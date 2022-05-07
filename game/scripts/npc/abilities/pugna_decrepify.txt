@@ -18,13 +18,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400 500 600 700 800 900"
+    "AbilityCastRange"                                    "400 475 550 625 700 775"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15.0 12.0 9.0 6.0 6.0 6.0"
-    "AbilityDuration"                                     "3.5"
+    "AbilityCooldown"                                     "16.0 13.0 10.0 7.0 7.0 7.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,35 +31,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_spell_damage_pct_allies" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_damage_pct_allies"                   "-25"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "value" "-25"
+        "DamageTypeTooltip"     "DAMAGE_TYPE_MAGICAL"
       }
-      "02"
+      "bonus_movement_speed_allies"   "0"
+      "bonus_spell_damage_pct"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed_allies"                     "0"
+        "value"   "-30 -40 -50 -60 -70 -80"
+        "DamageTypeTooltip"     "DAMAGE_TYPE_MAGICAL"
       }
-      "03"
+      "bonus_movement_speed"    "-30 -40 -50 -60 -70 -80"
+      "AbilityDuration"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_damage_pct"                          "-30 -40 -50 -60 -70 -80"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-30 -40 -50 -60 -70 -80"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "abilityduration"                                 ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_pugna_5"
+        "value"       "3.5"
+        "special_bonus_unique_pugna_5" "+1.0"
       }
     }
   }

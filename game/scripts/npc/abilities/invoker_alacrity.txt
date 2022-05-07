@@ -28,27 +28,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_attack_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
-        "levelkey"                                        "wexlevel"
-        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
+        "value"         "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
+        "levelkey"        "wexlevel"
+        "special_bonus_unique_invoker_5"  "+30"
       }
-      "02"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
-        "levelkey"                                        "exortlevel"
-        "LinkedSpecialBonus"                              "special_bonus_unique_invoker_5"
+        "value"         "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
+        "levelkey"        "exortlevel"
+        "special_bonus_unique_invoker_5"  "+30"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9"
-      }
+      "duration"          "9"
     }
   }
 }

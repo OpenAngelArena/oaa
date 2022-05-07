@@ -25,7 +25,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "7 14 21 28 56 112"
+    "AbilityDamage"                                       "12 18 24 30 60 120"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,11 +40,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "radius"                                          "180"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_6"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "abilityduration"                                 ""
       }
       "03" // this is the percentage of the lost health as damage
       {

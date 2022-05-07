@@ -24,12 +24,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-    "AbilityCastRange"                                    "0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100" //OAA
-    "AbilityDuration"                                     "3.6 5.4 7.2 9.0 10.8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,62 +31,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "beams" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "beams"                                           "6 9 12 15 18"
+        "value"         "6 9 12 15 18"
+        "special_bonus_scepter" "+2 +4 +6 +6 +6"
       }
-      "02" // max beams per unit without scepter
+      "beam_interval" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "6 9 12 15 18" //OAA
+        "value"         "0.6"
+        "special_bonus_scepter" "-0.2"
       }
-      "03"
+      "beam_interval_scepter"   "0.3" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
+      "radius"          "675"
+      "hit_count" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "beam_interval"                                   "0.6"
+        "value"         "6 9 12 15 18"
+        "special_bonus_scepter" "+2 +4 +6 +6 +6"
       }
-      "04" // double the value of special_bonus_unique_luna_5
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "beam_interval_scepter"                           "0.4" //OAA
-        "RequiresScepter"                                 "1"
+        "value"         "0"
+        "special_bonus_scepter" "+2500"
       }
-      "06" // 05
+      "AbilityDuration" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "675"
+        "value"         "3.6 5.4 7.2 9.0 10.8"
+        "special_bonus_scepter" "-0.4 +0.2 -0 +0.6 +1.2"
       }
-      "07" // 06
+      "night_duration"  "10.0"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "beams_scepter"                                   "8 13 18 21 24" //OAA
-        "RequiresScepter"                                 "1"
+        "value"             "0.0"
+        "special_bonus_unique_luna_5" "+0.2"
       }
-      "08" // 07
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hit_count_scepter"                               "8 13 18 21 24" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "09" // beam_interval_scepter x beams_scepter
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_tooltip_scepter"                        "3.2 5.2 7.2 8.4 9.6" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "10" // 09
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "2500"
-        "RequiresScepter"                                 "1"
-      }
-      "11" // 10
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "night_duration"                                  "10.0"
+        "value"             "100.0"
+        "special_bonus_unique_luna_6" "-25.0"
       }
     }
   }

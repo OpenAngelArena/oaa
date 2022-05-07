@@ -18,23 +18,14 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
-    "AbilityCastPoint"                                    "0.2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"                                  "700"
+      "AbilityCastPoint"                                  "0.2"
+      "AbilityCooldown"                                   "10"
+      "AbilityManaCost"                                   "140"
       "radius"                                            "450"
       "snake_jumps"
       {
@@ -49,13 +40,13 @@
       "return_speed"                                      "800"
       "stone_form_scepter_base"
       {
-        "value"                                           "1.3"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1.3"
       }
       "stone_form_scepter_increment"
       {
-        "value"                                           "0.2"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+0.2"
       }
       "movement_slow"                                     "30"
       "turn_slow"                                         "50"

@@ -22,51 +22,45 @@
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.4"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9.0 8.0 7.0 6.0 6.0 6.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // Mostly about the damage
 
-    // Special
+    // Special 
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_luna_4"
+        "value"         "9.0 8.0 7.0 6.0 6.0 6.0"
+        "special_bonus_unique_luna_2" "-3.0"
       }
-      "02"
+      "AbilityManaCost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "beam_damage"                                     "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_luna_1"
+        "value"         "90 100 110 120 130 140"
+        "special_bonus_shard" "-50"
       }
-      "03"
+      "beam_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_search_radius"                             "325"
-        "RequiresShard"                                   "1"
+        "value"         "75 150 225 300 600 1200"
+        "special_bonus_unique_luna_1" "+100"
       }
-      "04"
+      "shard_search_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_attack_radius"                             "500"
-        "RequiresShard"                                   "1"
+        "value"         "0"
+        "special_bonus_shard" "+325"
+        "RequiresShard"     "1"
       }
-      "05"
+      "shard_attack_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_mana_cost_reduction"                       "50"
-        "RequiresShard"                                   "1"
+        "value"         "0"
+        "special_bonus_shard" "+500"
+        "RequiresShard"     "1"
+      }
+      "stun_duration"
+      {
+        "value"         "0.8"
+        "special_bonus_unique_luna_4" "+0.4"
       }
     }
   }

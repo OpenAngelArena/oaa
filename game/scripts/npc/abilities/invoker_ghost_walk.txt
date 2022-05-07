@@ -16,41 +16,31 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "45"
     "AbilityManaCost"                                     "200"
     "AbilityCastPoint"                                    "0.05"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "100.0"
+        "value"         "45"
+        "special_bonus_unique_invoker_10" "-25"
       }
-      "02"
+      "duration"        "100.0"
+      "area_of_effect"    "400"
+      "enemy_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "400"
+        "value"         "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"
+        "levelkey"        "quaslevel"
       }
-      "03"
+      "self_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "enemy_slow"                                      "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"
-        "levelkey"                                        "quaslevel"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_slow"                                       "-15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55"
-        "levelkey"                                        "wexlevel"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_fade_time"                                  "2.0"
-      }
+        "value"         "-15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55"
+        "levelkey"        "wexlevel"
+      }   
+      "aura_fade_time"      "2.0"
     }
   }
 }

@@ -180,6 +180,7 @@ function handleOAASettingsChange (n, key, settings) {
   lines.push('');
 
   const heroModifierNames = {
+    HMR: '#game_option_random',
     HM01: '#game_option_lifesteal',
     HM02: '#game_option_aoe_radius',
     HM03: '#game_option_blood_magic',
@@ -199,26 +200,30 @@ function handleOAASettingsChange (n, key, settings) {
     HM17: '#game_option_explosive_death',
     HM18: '#game_option_no_hp_bar',
     HM19: '#game_option_brute',
-    HM20: '#game_option_wisdom'
+    HM20: '#game_option_wisdom',
+    HM21: '#game_option_aghanim',
+    HM22: '#game_option_nimble',
+    HM23: '#game_option_sorcerer',
+    HM24: '#game_option_max_power'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
     lines.push($.Localize('#hero_options_title'));
-    const modifierNames = heroModifierNames;
 
     if (settings.HEROES_MODS !== 'HMN') {
-      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
       lines.push('');
     }
 
     if (settings.HEROES_MODS_2 !== 'HMN') {
-      lines.push(' ' + $.Localize(modifierNames[settings.HEROES_MODS_2] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
       lines.push('');
     }
   }
 
   if (settings.BOSSES_MODS !== 'BMN') {
     const modifierNames = {
+      BMR: '#game_option_random',
       BM01: '#game_option_lifesteal',
       BM02: '#game_option_echo_strike',
       BM03: '#game_option_physical_immune',
@@ -234,6 +239,7 @@ function handleOAASettingsChange (n, key, settings) {
 
   if (settings.GLOBAL_MODS !== 'GMN') {
     const modifierNames = {
+      GMR: '#game_option_random',
       GM01: '#game_option_lifesteal',
       GM02: '#game_option_aoe_radius',
       GM08: '#game_option_physical_immune',

@@ -33,50 +33,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "brew_time"                                       "5.0"
+      "brew_time"         "5.0"
+      "brew_explosion"      "5.5"
+      "min_stun"          "0.25"
+      "max_stun"          "1.75 2.5 3.25 4.0 4.75 5.5"
+      "min_damage"        "0"
+      "max_damage"  //OAA
+      { 
+        "value"         "160 240 320 400 800 1600"
+        "special_bonus_unique_alchemist_2"    "+400"
       }
-      "02"
+
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "brew_explosion"                                  "5.5"
+        "value"         "250"
+        "special_bonus_unique_alchemist"  "+125"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "min_stun"                                        "0.25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_stun"                                        "1.75 2.5 3.25 4.0 4.75 5.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "160 240 320 400 800 1600" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250"
-        "LinkedSpecialBonus"                              "special_bonus_unique_alchemist"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed"                                      "5 10 15 20 25 30"
-      }
+      "move_speed"        "5 10 15 20 25 30"
     }
   }
 }

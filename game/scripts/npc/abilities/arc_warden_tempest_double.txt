@@ -28,28 +28,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "duration" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "18 20 22 24 26" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_arc_warden_6"
+        "value"       "18 20 22 24 26"
+        "special_bonus_unique_arc_warden_6"   "+12"
       }
-      "02"
+      "bounty"        "180 240 300 750 1500"
+      "penalty_distance"        "2000"
+      "attack_damage_penalty"       "50"
+      "tempest_double_cooldown_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bounty"                                          "180 240 300 750 1500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "penalty_distance"                                "2000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage_penalty"                           "50"
+        "value"             "0"
+        "special_bonus_unique_arc_warden_7"   "+50"
       }
     }
   }
