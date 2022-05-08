@@ -1,6 +1,3 @@
-// NOT USED, SEE TINY_GROW_OAA
-// THIS ABILITY CRASHES THE GAME MOST OF THE TIME
-
 "DOTAAbilities"
 {
   //=================================================================================================================
@@ -29,8 +26,8 @@
       }
       "tree_bonus_damage_pct" //OAA
       {
-        "value"                                           "50"
-        "special_bonus_unique_tiny_7"                     "+20"
+        "value"                                           "40"
+        "special_bonus_unique_tiny_7"                     "+30"
       }
       "attack_speed_reduction"                            "20 30 40 50 60"
       "toss_bonus_damage"                                 "100 250 400 850 1300" //OAA
