@@ -7,9 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5444"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5444"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "FightRecapLevel"                                     "1"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"

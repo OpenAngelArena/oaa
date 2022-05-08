@@ -4,13 +4,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5111"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5111"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -21,7 +20,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "125 200 275 350 700 1050" // Static Field increases this
+    "AbilityDamage"                                       "125 200 275 350 700 1050"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
