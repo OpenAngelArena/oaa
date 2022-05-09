@@ -77,8 +77,16 @@ function GameMode:OnNPCSpawned(keys)
         if force_of_nature_ability then
           local ability_level = force_of_nature_ability:GetLevel()
           if ability_level > 0 then
-            local correct_damage = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage_bonus", ability_level-1)
-            local correct_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_hp_bonus", ability_level-1)
+            local correct_damage = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage", ability_level-1)
+            local correct_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_health", ability_level-1)
+            local correct_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", ability_level-1)
+            local correct_armor = force_of_nature_ability:GetLevelSpecialValueFor("treant_armor", ability_level-1)
+            -- Talent that increases health and damage of treants with a multiplier
+            local talent1 = hero:FindAbilityByName("special_bonus_unique_furion")
+            if talent1 and talent1:GetLevel() > 0 then
+              correct_hp = correct_hp * talent1:GetSpecialValueFor("value")
+              correct_damage = correct_damage * talent1:GetSpecialValueFor("value")
+            end
             -- Fix DAMAGE
             npc:SetBaseDamageMin(correct_damage)
             npc:SetBaseDamageMax(correct_damage)
@@ -86,10 +94,10 @@ function GameMode:OnNPCSpawned(keys)
             npc:SetBaseMaxHealth(correct_hp)
             npc:SetMaxHealth(correct_hp)
             npc:SetHealth(correct_hp)
-            -- Check for talent
-            if hero:HasLearnedAbility("special_bonus_unique_furion") then
-              npc:AddNewModifier(hero, force_of_nature_ability, "modifier_treant_bonus_oaa", {})
-            end
+            -- Fix ARMOR
+            npc:SetPhysicalArmorBaseValue(correct_armor)
+            -- Fix Movement speed
+            npc:SetBaseMoveSpeed(correct_speed)
           end
         end
       end

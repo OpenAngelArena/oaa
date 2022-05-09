@@ -48,37 +48,37 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_health_tooltip"                           "550 650 750 850 1850 2850"
+        "treant_health"                                   "550 650 750 850 1700 2550"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_dmg_tooltip"                              "24 32 40 48 148 248"
+        "treant_damage"                                   "24 32 40 48 148 248"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "06" // same as treant_health_tooltip
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_hp_bonus"                                 "550 650 750 850 1850 2850"
+        "treant_armor"                                    "0"
       }
-      "07" // same as treant_dmg_tooltip
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_damage_bonus"                             "24 32 40 48 148 248"
+        "treant_move_speed"                               "300 320 340 360 380 400"
       }
-      "08" // treant_health_tooltip x 3
+      "08" // treant_health x 2
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_hp_bonus"                           "1650 1950 2250 2550 5550 8550"
+        "treant_large_health"                             "1100 1300 1500 1700 3400 5100"
       }
-      "09" // treant_dmg_tooltip x 3
+      "09" // treant_damage x 2.5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage_bonus"                       "72 96 120 144 444 744"
+        "treant_large_damage"                             "60 80 100 120 370 620"
       }
     }
   }
