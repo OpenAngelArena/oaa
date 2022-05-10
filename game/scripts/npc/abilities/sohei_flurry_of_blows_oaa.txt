@@ -23,13 +23,13 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5" // old: 1.0
-    "AbilityCastRange"                                    "450"
+    "AbilityCastRange"                                    "425"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AnimationPlaybackRate"                               "3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "75"
+    "AbilityCooldown"                                     "85"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@
     {
       "flurry_radius"
       {
-        "value"                                           "450"
+        "value"                                           "425"
         "LinkedSpecialBonus"                              "special_bonus_sohei_fob_radius"
       }
       "max_attacks"

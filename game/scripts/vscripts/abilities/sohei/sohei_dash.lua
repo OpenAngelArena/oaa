@@ -99,6 +99,16 @@ function sohei_dash:GetCastRange(location, target)
   return self.BaseClass.GetCastRange(self, location, target)
 end
 
+function sohei_dash:CastFilterResultLocation(location)
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResultLocation(self, location)
+  if defaultFilterResult == UF_SUCCESS and location and caster:HasShardOAA() and caster:IsRooted() then
+    return UF_FAIL_CUSTOM
+  end
+
+  return defaultFilterResult
+end
+
 function sohei_dash:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
@@ -130,6 +140,13 @@ function sohei_dash:GetCustomCastErrorTarget(target)
   end
 end
 
+function sohei_dash:GetCustomCastErrorLocation(location)
+  local caster = self:GetCaster()
+  if location and caster:HasShardOAA() and caster:IsRooted() then
+    return "#dota_hud_error_ability_disabled_by_root"
+  end
+end
+
 function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
   local target_loc = self:GetCursorPosition()
@@ -142,7 +159,7 @@ function sohei_dash:OnSpellStart()
   local max_speed = self:GetSpecialValueFor("dash_speed")
   local move_speed_multiplier = self:GetSpecialValueFor("move_speed_multiplier")
   local direction = caster:GetForwardVector()
-  local distance = 850
+  local distance = 600
   local speed = 1200
 
   if target and has_shard and self:GetAutoCastState() == false then
@@ -170,7 +187,7 @@ function sohei_dash:OnSpellStart()
       end
 
       -- Interrupt
-      target:Stop()
+      --target:Stop()
 
       direction = caster_loc - target:GetAbsOrigin()
       distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
@@ -451,7 +468,7 @@ end
 modifier_sohei_dash_movement = class(ModifierBaseClass)
 
 function modifier_sohei_dash_movement:IsDebuff()
-  return false
+  return self:GetParent():GetTeamNumber() ~= self:GetCaster():GetTeamNumber()
 end
 
 function modifier_sohei_dash_movement:IsHidden()
@@ -459,7 +476,7 @@ function modifier_sohei_dash_movement:IsHidden()
 end
 
 function modifier_sohei_dash_movement:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_sohei_dash_movement:IsStunDebuff()
@@ -620,6 +637,11 @@ if IsServer() then
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
     local parentOrigin = parent:GetAbsOrigin()
+
+    if parent == self:GetCaster() and parent:IsRooted() then
+      self:Destroy()
+      return
+    end
 
     local tickTraveled = deltaTime * self.speed
     tickTraveled = math.min(tickTraveled, self.distance)
