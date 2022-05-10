@@ -7,9 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					          "7231"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, for picking screen tooltip
-    "AbilitySound"					"Hero_Beastmaster.Call.Hawk"
+    "ID"                                                  "7231"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has extra empty space
 
     "MaxLevel"                                            "6"
 
@@ -17,17 +16,17 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"				"0"
-    "AbilityCastPoint"				"0.3"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"30" //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "30" //OAA, for picking screen tooltip
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"				"30"
+    "AbilityManaCost"                                     "30"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +40,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hawk_hp_tooltip"                                 "150 350 550 750 1150 1550" //OAA, for picking screen tooltip
+        "hawk_hp_tooltip"                                 "150 250 350 450 900 1800" //OAA, for picking screen tooltip
       }
       "03"
       {

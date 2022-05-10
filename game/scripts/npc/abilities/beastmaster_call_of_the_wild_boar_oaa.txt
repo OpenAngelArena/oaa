@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "87230"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "87230"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_call_of_the_wild.lua"
     "AbilityTextureName"                                  "beastmaster_call_of_the_wild_boar"
@@ -42,26 +42,36 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_hp_tooltip"                                 "300 600 900 1200 2200 3200"
+        "boar_health"                                     "300 550 800 1050 2100 3150"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_damage_tooltip"                             "20 40 60 80 180 280"
+        "boar_damage"                                     "20 40 60 80 180 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_moveslow_tooltip"                           "10 20 30 40 50 60"
+        "boar_armor"                                      "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "boar_attackslow_tooltip"                         "10 20 30 40 80 160"
+        "boar_move_speed"                                 "320 330 340 350 360 370"
       }
       "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_moveslow_tooltip"                           "10 20 30 40 50 60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "boar_attackslow_tooltip"                         "10 20 30 40 80 160"
+      }
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "boar_poison_duration_tooltip"                    "3.0"
