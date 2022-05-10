@@ -23,12 +23,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilityValues"
     {
-      "damage"
+      "damage" //OAA
       {
         "value"       "40 80 120 160 320 480"
-        "special_bonus_unique_ancient_apparition_2"   "+80"
+        "special_bonus_unique_ancient_apparition_2"   "+100"
       }
       "slow"          "100"
       "duration"        "0.5"
@@ -42,7 +42,7 @@
         "value"                   "30 40 50 60 70 80"
         "special_bonus_scepter"           "-50%"
       }
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"     "12 9 6 3 3 3"
         "special_bonus_scepter"           "-100%"

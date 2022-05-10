@@ -35,10 +35,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    //"AbilityCastRange"                                    "800"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.0"  // Only does damage
@@ -57,7 +53,7 @@
       {
         "value" "10"
         "CalculateSpellDamageTooltip" "0"
-        "LinkedSpecialBonus"    "special_bonus_unique_bloodseeker_7"        
+        "special_bonus_unique_bloodseeker_7" "+10"
       }
       "damage_cap_amount"     
       {
@@ -67,17 +63,12 @@
       "AbilityCastRange"      
       {
         "value" "800"
-        "LinkedSpecialBonus"    "special_bonus_unique_bloodseeker_3"        
+        "special_bonus_unique_bloodseeker_3" "+475"
       }
-      "max_charges_scepter"   
+      "AbilityCharges"    
       {
-        "value" "2"
-        "RequiresScepter"   "1"
-      }
-      "charge_restore_time_scepter"   
-      {
-        "value" "40"
-        "RequiresScepter"   "1"
+        "value" "0"
+        "special_bonus_unique_bloodseeker_rupture_charges"  "+2"
       }
     }
   }

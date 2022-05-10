@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5375"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5375"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
@@ -21,7 +21,7 @@
     "AbilityCooldown"                                     "7"
     "AbilityManaCost"                                     "0"
 
-    // Special 
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {

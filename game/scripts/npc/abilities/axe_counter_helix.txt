@@ -30,12 +30,12 @@
         "special_bonus_unique_axe_4" "+30"
       }
       "radius"          "275"
-      "trigger_chance"      "17 18 19 20 21 22"
-      "cooldown"          "0.3"
-      "shard_bonus_chance"
+      "trigger_chance"
       {
+        "value"       "17 18 19 20 21 22"
         "special_bonus_shard"   "+10"
       }
+      "cooldown"          "0.3"
       "shard_debuff_duration"
       {
         "special_bonus_shard"   "+6.0"
@@ -43,6 +43,10 @@
       "shard_damage_reduction"
       {
         "special_bonus_shard"   "+20"
+      }
+      "shard_max_stacks"
+      {
+        "special_bonus_shard"   "+5"  
       }
     }
   }

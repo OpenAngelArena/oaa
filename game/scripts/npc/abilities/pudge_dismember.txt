@@ -38,52 +38,52 @@
     {
       "dismember_damage" //OAA
       {
-        "value"         "80 130 180 360 540"
-        "special_bonus_unique_pudge_3"  "x1.8"
+        "value"                                           "80 130 180 360 540"
+        "special_bonus_unique_pudge_3"                    "x1.8"
       }
-      "strength_damage"   
+      "strength_damage"
       {
-        "value"       "0.3 0.6 0.9 1.0 1.1"
-        "special_bonus_unique_pudge_3"  "x1.8"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "0.3 0.6 0.9 1.0 1.1"
+        "special_bonus_unique_pudge_3"                    "x1.8"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "ticks"   
+      "ticks"
       {
-        "value"           "6"
-        "special_bonus_unique_pudge_6"  "+2"
+        "value"                                           "6"
+        "special_bonus_unique_pudge_6"                    "+2"
       }
-      "pull_units_per_second"   "75"
-      "pull_distance_limit"   "125"
-      "animation_rate"    "1.5"
-      "AbilityChannelTime"      
+      "pull_units_per_second"                             "75"
+      "pull_distance_limit"                               "125"
+      "animation_rate"                                    "1.5"
+      "AbilityChannelTime"
       {
-        "value"       "3.0"
-        "special_bonus_unique_pudge_6"  "+0.8"
+        "value"                                           "3.0"
+        "special_bonus_unique_pudge_6"                    "+0.8"
       }
-      "creep_dismember_duration_tooltip"  
+      "creep_dismember_duration_tooltip"
       {
-        "value"   "6.0"
-        "special_bonus_unique_pudge_6"  "+0.8"
+        "value"                                           "6.0"
+        "special_bonus_unique_pudge_6"                    "+0.8"
       }
-      "shard_regen_pct"     
+      "shard_regen_pct"
       {
-            "value"     "5"
-        "RequiresShard"     "1"
+        "value"                                           "5"
+        "RequiresShard"                                   "1"
       }
-      "order_lock_duration"   
+      "order_lock_duration"
       {
-        "value"       "3"
-        "RequiresShard"     "1"
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
       }
-      "shard_cast_range"    
+      "shard_cast_range"
       {
-        "value"       "300"
-        "RequiresShard"     "1"
+        "value"                                           "300"
+        "RequiresShard"                                   "1"
       }
-      "shard_cooldown_reduction"    
+      "shard_cooldown_reduction"
       {
-        "value"         "5.0"
-        "RequiresShard"     "1"
+        "value"                                           "5.0"
+        "RequiresShard"                                   "1"
       }
     }
   }

@@ -44,7 +44,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_health_tooltip"                           "550 650 750 850 1850 2850" // OAA, for picking screen tooltip
+        "treant_health_tooltip"                           "550 650 750 850 1700 2550" // OAA, for picking screen tooltip
         "LinkedSpecialBonus"                              "special_bonus_unique_furion"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
@@ -59,23 +59,23 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_hp_bonus"                                 "825"
+        "treant_hp_bonus"                                 "0" // OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_damage_bonus"                             "27 39 51 63"
+        "treant_damage_bonus"                             "0" // OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_hp_bonus"                           "1320"
+        "treant_large_hp_bonus"                           "0" // OAA
         "RequiresScepter"                                 "1"
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage_bonus"                       "57 67 77 87"
+        "treant_large_damage_bonus"                       "0" // OAA
         "RequiresScepter"                                 "1"
       }
     }

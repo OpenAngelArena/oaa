@@ -26,11 +26,6 @@
     "AbilityCastRange"                                    "625"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    //"AbilityChannelTime"                                  "6.0"
-    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "200 300 400 500 600"
@@ -50,20 +45,19 @@
         "value"                                           "5.0 5.5 6.0 6.0 6.0"
         "special_bonus_unique_bane_3"                     "+5"
       }
-      "fiend_grip_damage"                                 "70 160 250 520 790" //OAA
-      "AbilityCooldown"       
+      "fiend_grip_damage"                                 "70 150 230 470 870" //OAA
+      "AbilityCooldown" //OAA
       {
-        "value" "120 110 100"
-        "special_bonus_scepter" "-45"
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-45"
       }
       "illusion_count"
       {
-        "special_bonus_scepter" "+2"
+        "special_bonus_scepter"                           "+2"
       }
       "scepter_incoming_illusion_damage"
       {
-        "value"                                           "+200"
-        "RequiresScepter"                                 "1"
+        "special_bonus_scepter"                           "+200"
       }
     }
   }

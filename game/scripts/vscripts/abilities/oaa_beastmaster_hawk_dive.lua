@@ -193,11 +193,9 @@ function modifier_hawk_dive_stun:GetEffectAttachType()
 end
 
 function modifier_hawk_dive_stun:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_hawk_dive_stun:GetOverrideAnimation()
@@ -205,8 +203,7 @@ function modifier_hawk_dive_stun:GetOverrideAnimation()
 end
 
 function modifier_hawk_dive_stun:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
 end

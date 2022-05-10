@@ -1,0 +1,24 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Eidolon
+  //=================================================================================
+  "npc_dota_eidolon"
+  {
+    "include_keys_from"                                   "npc_dota_lesser_eidolon"
+
+    "ModelScale"                                          "0.8"
+    "Level"                                               "2"
+
+    "ArmorPhysical"                                       "3"     // Physical protection.
+
+    "AttackDamageMin"                                     "32"		// Damage range min.
+    "AttackDamageMax"                                     "32"		// Damage range max.
+
+    "HealthBarOffset"                                     "135"
+
+    "MovementSpeed"                                       "310"		// Speed
+
+    "StatusHealth"                                        "200"		// Base health.
+  }
+}

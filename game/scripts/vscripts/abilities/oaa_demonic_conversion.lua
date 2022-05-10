@@ -1,6 +1,6 @@
-enigma_demonic_conversion = class(AbilityBaseClass)
+enigma_demonic_conversion_oaa = class(AbilityBaseClass)
 
-function enigma_demonic_conversion:OnSpellStart()
+function enigma_demonic_conversion_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local targetOrigin = target:GetOrigin()
   local caster = self:GetCaster()
@@ -42,7 +42,7 @@ function enigma_demonic_conversion:OnSpellStart()
 end
 
 -- Runs on client side first
-function enigma_demonic_conversion:CastFilterResultTarget(target)
+function enigma_demonic_conversion_oaa:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
   local lvlRequirement = self:GetSpecialValueFor("creep_level")
 
@@ -53,6 +53,6 @@ function enigma_demonic_conversion:CastFilterResultTarget(target)
   return defaultFilterResult
 end
 
-function enigma_demonic_conversion:GetCustomCastErrorTarget(target)
+function enigma_demonic_conversion_oaa:GetCustomCastErrorTarget(target)
   return "#dota_hud_error_cant_cast_creep_level"
 end

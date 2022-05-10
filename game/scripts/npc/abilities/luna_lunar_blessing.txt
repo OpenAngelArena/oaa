@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5224"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5224"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -19,12 +19,12 @@
     "AbilityValues"
     {
       "radius"      "1200"
-      "bonus_damage"      
+      "bonus_damage" //OAA
       {
         "value"     "5 15 25 35 70 140"
-        "special_bonus_unique_luna_3" "+35"
+        "special_bonus_unique_luna_3" "+70"
       }
-      "bonus_night_vision"    
+      "bonus_night_vision"
       {
         "value"     "250 500 750 1000 1250 1500"
         "special_bonus_unique_luna_8" "+200"

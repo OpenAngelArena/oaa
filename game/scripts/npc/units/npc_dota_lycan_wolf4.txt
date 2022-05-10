@@ -5,75 +5,36 @@
   //=================================================================================
   "npc_dota_lycan_wolf4"
   {
-    // General
-    //----------------------------------------------------------------
-    "Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
-    "BaseClass"					"npc_dota_creep_neutral"
-    "SoundSet"					"Lycan_Wolf"
-    "IsSummoned"				"1"
-    "Level"						"4"
-    "ModelScale" 					".99"
-    "UnitLabel"			"lycan_wolf"
-    "UseNeutralCreepBehavior"	"0"
+    "include_keys_from"                                   "npc_dota_lycan_wolf1"
+
+    "Level"                                               "4"
+    "ModelScale"                                          "0.99"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					"lycan_summon_wolves_invisibility"			// Ability 1
-    "Ability2"					"lycan_summon_wolves_critical_strike"			// Ability 2
-    "Ability3"					""			// Ability 3
-    "Ability4"					""			// Ability 4
+    "Ability1"                                            "lycan_summon_wolves_invisibility"
+    "Ability2"                                            "lycan_summon_wolves_critical_strike"
 
-    // Armor
-    //----------------------------------------------------------------
-    "ArmorPhysical"				"0"			// Physical protection.
-    "MagicalResistance"                                   "70"		// Magical protection.
+    "MagicalResistance"                                   "70" // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "80" // OAA
     "AttackDamageMax"                                     "80" // OAA
-    "AttackRate"				"0.9"		// Speed of attack.
-    "AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-    "AttackRange"				"90"		// Range within a target can be attacked.
-    "ProjectileModel"			""			// Particle system model for projectile.
-    "ProjectileSpeed"			"0"			// Speed of projectile.
-
-    // Bounds
-    //----------------------------------------------------------------
-    "RingRadius"				"70"
-    "HealthBarOffset"			"160"
-    "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+    "AttackRate"                                          "0.9" // BAT
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "20"		// Experience earn.
-    "BountyGoldMin"                                       "46"		// Gold earned min.
-    "BountyGoldMax"                                       "46"		// Gold earned max.
+    "BountyXP"                                            "35" // OAA
+    "BountyGoldMin"                                       "46" // OAA, Valve has it wrong
+    "BountyGoldMax"                                       "46" // OAA, Valve has it wrong
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"460"		// Speed.
+    "MovementSpeed"                                       "460" // Speed.
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "625" // OAA
-    "StatusHealthRegen"			"0.5"		// Health regeneration rate.
-    "StatusMana"				"0"			// Base mana.
-    "StatusManaRegen"			"0"			// Mana regeneration rate.
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"		"1200"		// Range of vision during day light.
-    "VisionNighttimeRange"		"800"		// Range of vision at night time.
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }
