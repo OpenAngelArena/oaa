@@ -35,7 +35,6 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   handleOAASettingsChange(null, 'settings', CustomNetTables.GetTableValue('oaa_settings', 'settings'));
   handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
 
-
   GameEvents.SendCustomGameEventToServer('updateAverageMMR');
 }());
 
