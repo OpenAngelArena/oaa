@@ -136,6 +136,7 @@ g_ParticleFolderPrecache = {
 g_SoundPrecache = {
   "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", -- For Ogre Boss kill sound
   "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
+  "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", -- For Explosive Death modifier
   -- Ambient sounds
   --"soundevents/ambient/doors.vsndevts",
   "soundevents/music/music.vsndevts",
