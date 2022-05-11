@@ -468,7 +468,16 @@ end
 modifier_sohei_dash_movement = class(ModifierBaseClass)
 
 function modifier_sohei_dash_movement:IsDebuff()
-  return self:GetParent():GetTeamNumber() ~= self:GetCaster():GetTeamNumber()
+  local parent = self:GetParent()
+  local parentTeam = parent:GetTeamNumber()
+  local caster = self:GetCaster()
+  local casterTeam = caster:GetTeamNumber()
+
+  if parent == caster or parentTeam == casterTeam then
+    return false
+  end
+
+  return true
 end
 
 function modifier_sohei_dash_movement:IsHidden()
@@ -637,8 +646,18 @@ if IsServer() then
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
     local parentOrigin = parent:GetAbsOrigin()
+    local parentTeam = parent:GetTeamNumber()
+    local caster = self:GetCaster()
+    local casterTeam = caster:GetTeamNumber()
 
-    if parent == self:GetCaster() and parent:IsRooted() then
+    -- Check if caster is rooted
+    local isCasterRooted = parent == caster and parent:IsRooted()
+    -- Check if an ally and if affected by nullifier
+    local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
+    -- Check if enemy and if spell-immune or under dispel orb effect
+    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_preemptive_purge") or parent:IsMagicImmune())
+
+    if isCasterRooted or isParentNullified or isParentDispelled then
       self:Destroy()
       return
     end
