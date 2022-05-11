@@ -11,7 +11,7 @@ function item_hand_of_midas_1:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
    -- Don't allow targeting Necronomicon units or Undying zombies
   if defaultFilterResult == UF_SUCCESS then
-    if (string.sub(target:GetUnitName(), 1, 21) == "npc_dota_necronomicon" then
+    if string.sub(target:GetUnitName(), 1, 21) == "npc_dota_necronomicon" then
       return UF_FAIL_CUSTOM
     elseif IsServer() then
       if target:IsZombie() then
