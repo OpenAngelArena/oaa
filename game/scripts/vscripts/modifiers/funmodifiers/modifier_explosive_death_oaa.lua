@@ -23,13 +23,6 @@ function modifier_explosive_death_oaa:OnCreated()
   self.base_damage = 75
   self.hp_percent = 5
   self.networth_percent = 1
-
-  if IsServer() then
-    local parent = self:GetParent()
-    parent:PrecacheScriptSound("Hero_Pugna.NetherBlastPreCast")
-    parent:PrecacheScriptSound("Hero_Pugna.NetherBlast")
-    self.precache = true
-  end
 end
 
 function modifier_explosive_death_oaa:DeclareFunctions()
@@ -55,12 +48,6 @@ if IsServer() then
     --if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsReincarnating() then
       --return
     --end
-
-    if not self.precache then
-      parent:PrecacheScriptSound("Hero_Pugna.NetherBlastPreCast")
-      parent:PrecacheScriptSound("Hero_Pugna.NetherBlast")
-      self.precache = true
-    end
 
     local death_location = parent:GetAbsOrigin()
     local level = parent:GetLevel()
