@@ -102,7 +102,7 @@ end
 function sohei_dash:CastFilterResultLocation(location)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultLocation(self, location)
-  if defaultFilterResult == UF_SUCCESS and location and caster:HasShardOAA() and caster:IsRooted() then
+  if defaultFilterResult == UF_SUCCESS and location and caster:HasShardOAA() and (caster:IsRooted() or caster:IsLeashedOAA()) then
     return UF_FAIL_CUSTOM
   end
 
@@ -142,8 +142,12 @@ end
 
 function sohei_dash:GetCustomCastErrorLocation(location)
   local caster = self:GetCaster()
-  if location and caster:HasShardOAA() and caster:IsRooted() then
-    return "#dota_hud_error_ability_disabled_by_root"
+  if location and caster:HasShardOAA() then
+    if caster:IsRooted() then
+      return "#dota_hud_error_ability_disabled_by_root"
+    elseif caster:IsLeashedOAA() then
+      return "#dota_hud_error_ability_disabled_by_tether"
+    end
   end
 end
 
@@ -651,7 +655,7 @@ if IsServer() then
     local casterTeam = caster:GetTeamNumber()
 
     -- Check if caster is rooted
-    local isCasterRooted = parent == caster and parent:IsRooted()
+    local isCasterRooted = parent == caster and (parent:IsRooted() or parent:IsLeashedOAA())
     -- Check if an ally and if affected by nullifier
     local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
     -- Check if enemy and if spell-immune or under dispel orb effect

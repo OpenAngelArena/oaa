@@ -272,6 +272,40 @@ if CDOTA_BaseNPC then
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
     return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
   end
+
+  function CDOTA_BaseNPC:IsLeashedOAA()
+    local normal_leashes = {
+      "modifier_slark_pounce_leash",
+      "modifier_grimstroke_soul_chain",
+      "modifier_furion_sprout_tether",
+      "modifier_puck_coiled",
+      "modifier_tinkerer_laser_contraption_debuff",
+    }
+
+    for _, v in pairs(normal_leashes) do
+      if self:HasModifier(v) then
+        return true
+      end
+    end
+    local stampede_slow = self:FindModifierByName("modifier_centaur_stampede_slow")
+    if stampede_slow then
+      local caster = stampede_slow:GetCaster()
+      if caster and caster:HasScepter() then
+        return true
+      end
+    end
+    local power_cogs = self:FindModifierByName("modifier_rattletrap_cog_marker")
+    if power_cogs then
+      local caster = power_cogs:GetCaster()
+      if caster then
+        local talent = caster:FindAbilityByName("special_bonus_unique_clockwerk_2")
+        if talent and talent:GetLevel() then
+          return true
+        end
+      end
+    end
+    return false
+  end
 end
 
 -- On Client:
@@ -300,5 +334,23 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
     return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
+  end
+
+  function C_DOTA_BaseNPC:IsLeashedOAA()
+    local normal_leashes = {
+      "modifier_slark_pounce_leash",
+      "modifier_grimstroke_soul_chain",
+      "modifier_furion_sprout_tether",
+      "modifier_puck_coiled",
+      "modifier_tinkerer_laser_contraption_debuff",
+    }
+
+    for _, v in pairs(normal_leashes) do
+      if self:HasModifier(v) then
+        return true
+      end
+    end
+
+    return false
   end
 end
