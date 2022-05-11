@@ -25,10 +25,10 @@
     "ItemRequirements"
     {
       "01"                                                "item_phase_boots;item_upgrade_core"
-      "02"                                                "item_power_treads;item_upgrade_core"
-      "03"                                                "item_tranquil_boots;item_upgrade_core"
-      "04"                                                "item_travel_boots_oaa;item_upgrade_core"
-      "05"                                                "item_arcane_boots;item_upgrade_core"
+      //"02"                                                "item_power_treads;item_upgrade_core"
+      //"03"                                                "item_tranquil_boots;item_upgrade_core"
+      //"04"                                                "item_travel_boots_oaa;item_upgrade_core"
+      //"05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2426"
+    "ItemCost"                                            "3001"
     "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots;phase boots;phase"
