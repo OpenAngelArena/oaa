@@ -8,10 +8,12 @@ function MMRShuffle:Init ()
   CustomGameEventManager:RegisterListener('mmrShuffle', partial(Dynamic_Wrap(MMRShuffle, 'Shuffle'), MMRShuffle))
 
   ListenToGameEvent("player_team", Dynamic_Wrap(MMRShuffle, 'UpdateAverageMMRs'), MMRShuffle)
+  -- sent on each player load
+  -- this makes us get real values on first load
+  -- ....... maybe
+  CustomGameEventManager:RegisterListener('updateAverageMMR', partial(Dynamic_Wrap(MMRShuffle, 'UpdateAverageMMRs'), MMRShuffle))
+
   self:UpdateAverageMMRs();
-  Timers:CreateTimer(2.0, function()
-    self:UpdateAverageMMRs();
-  end)
 end
 
 function MMRShuffle:UpdateAverageMMRs ()
@@ -46,7 +48,7 @@ function MMRShuffle:AverageMMR (teamIds, extraPlayer)
     total = total + self:GetMMR(playerId)
   end
 
-  return total / playerCount
+  return math.floor((total / playerCount) * 10) / 10
 end
 
 local fakeMMR = {}
