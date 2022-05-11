@@ -7,9 +7,9 @@ BAREBONES_VERSION = "1.00"
 BAREBONES_DEBUG_SPEW = false
 
 if GameMode == nil then
-    DebugPrint( '[BAREBONES] creating barebones game mode' )
-    print("Lua Version: " .. _VERSION)
-    GameMode = class({})
+  DebugPrint( '[BAREBONES] creating barebones game mode' )
+  print("Lua Version: " .. _VERSION)
+  GameMode = class({})
 end
 
 -- functional library, sugar for excellent code. this should be usable in any library, so we include it first
@@ -34,7 +34,7 @@ require('libraries/animations')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
 -- This library can be used to create container inventories or container shops
-require('libraries/containers')
+--require('libraries/containers')
 -- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
 --require('libraries/modmaker')
 -- This library provides an automatic graph construction of path_corner entities within the map
