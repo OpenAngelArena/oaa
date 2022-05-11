@@ -32,6 +32,7 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
+  HM25 = "modifier_hp_mana_switch_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -93,6 +94,7 @@ function OAAOptions:Init ()
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
+  --FilterManager:AddFilter(FilterManager.Damage, self, Dynamic_Wrap(OAAOptions, "DamageFilter"))
 
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
@@ -121,6 +123,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_nimble_oaa", "modifiers/funmodifiers/modifier_nimble_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_sorcerer_oaa", "modifiers/funmodifiers/modifier_sorcerer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_any_damage_crit_oaa", "modifiers/funmodifiers/modifier_any_damage_crit_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_hp_mana_switch_oaa", "modifiers/funmodifiers/modifier_hp_mana_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -301,4 +304,28 @@ function OAAOptions:ChangeDefaultSettings()
 
   self:RestoreDefaults()
   self:SaveSettings()
+end
+
+function OAAOptions:DamageFilter(filter_table)
+  local attacker
+  local victim
+  local damage_type = filter_table.damagetype_const
+  local inflictor = filter_table.entindex_inflictor_const	-- entindex_inflictor_const is nil if damage is not caused by an ability
+  local damage_after_reductions = filter_table.damage 	-- damage is damage after reductions without spell amplifications
+
+  if filter_table.entindex_attacker_const and filter_table.entindex_victim_const then
+    attacker = EntIndexToHScript(filter_table.entindex_attacker_const)
+    victim = EntIndexToHScript(filter_table.entindex_victim_const)
+  end
+
+  local damaging_ability
+  if inflictor then
+    damaging_ability = EntIndexToHScript(inflictor)
+  end
+
+  -- if attacker and victim and not attacker:IsNull() and not victim:IsNull() then
+
+  -- end
+
+  return true
 end
