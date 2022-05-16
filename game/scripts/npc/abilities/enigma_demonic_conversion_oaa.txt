@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Enigma: Demonic Conversion
+  //=================================================================================================================
+  "enigma_demonic_conversion_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85147"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_demonic_conversion.lua"
+    "AbilityTextureName"                                  "enigma_demonic_conversion"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "35"
+    "AbilityDuration"                                     "40"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "140 150 160 170 180 190"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spawn_count"                                     "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "split_attack_count"                              "6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "eidolon_hp_tooltip"                              "180 200 220 240 1240 2240"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_7"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "life_extension"                                  "2.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "eidolon_dmg_tooltip"                             "24 32 40 48 96 192"
+        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_level"                                     "7"
+      }
+    }
+  }
+}

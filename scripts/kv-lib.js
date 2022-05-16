@@ -34,13 +34,13 @@ module.exports = {
 
 function dotaAbilities (cb) {
   request.get({
-    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/scripts/npc/npc_abilities.txt'
-    url: 'https://raw.githubusercontent.com/DarkoniusXNG/oaa_changelogs_github/master/npc_abilities.txt'
+    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/scripts/npc/npc_abilities.txt'
+    // url: 'https://raw.githubusercontent.com/DarkoniusXNG/oaa_changelogs_github/master/npc_abilities.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);
     }
-    var data = parseKV(result.body.replace(/[^\\/]\/ Damage/ig, '// Damage'));
+    var data = parseKV(result.body.replace(/[^\\/]\/ Damage/ig, '// Damage').replace(/[\s]-1\n/g, '"-1"\n'));
     cb(null, data.DOTAAbilities);
   });
 }

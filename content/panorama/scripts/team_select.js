@@ -34,6 +34,8 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
   handleOAASettingsChange(null, 'settings', CustomNetTables.GetTableValue('oaa_settings', 'settings'));
   handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
+
+  GameEvents.SendCustomGameEventToServer('updateAverageMMR');
 }());
 
 // function RandomizeModifiers () {
@@ -70,8 +72,8 @@ function handleOAASettingsChange (t, key, kv) {
 }
 
 function loadAverageMMRValues (values) {
-  $('#RadiantAverageMMR').text = 'Average MMR: ' + Math.round(values.radiant);
-  $('#DireAverageMMR').text = 'Average MMR: ' + Math.round(values.dire);
+  $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant;
+  $('#DireAverageMMR').text = 'Average MMR: ' + values.dire;
 }
 
 function MMRShuffle () {

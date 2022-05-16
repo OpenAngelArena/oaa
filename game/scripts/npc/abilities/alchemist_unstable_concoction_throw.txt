@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5367"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5367"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -29,24 +29,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
-      "brew_time"         "5.0"
-      "min_stun"          "0.25"
-      "max_stun"          "1.75 2.5 3.25 4.0 4.75 5.5"
-      "min_damage"        "0"
+      "brew_time"                                         "5.0"
+      "min_stun"                                          "0.25"
+      "max_stun"                                          "1.75 2.5 3.25 4.0 4.75 5.5"
+      "min_damage"                                        "0"
       "max_damage" //OAA
-      { 
-        "value"         "160 240 320 400 800 1600"
-        "special_bonus_unique_alchemist_2"    "+400"
+      {
+        "value"                                           "160 240 320 400 800 1600"
+        "special_bonus_unique_alchemist_2"                "+400"
       }
-      "projectile_speed"      "900"
+      "projectile_speed"                                  "900"
       "midair_explosion_radius"
       {
-        "value"         "250"
-        "special_bonus_unique_alchemist"  "+125"
-      }     
-      "brew_explosion"      "7.0"
+        "value"                                           "250"
+        "special_bonus_unique_alchemist"                  "+125"
+      }
+      "brew_explosion"                                    "7.0"
+      //"vision_range"                                      "300"
     }
   }
 }

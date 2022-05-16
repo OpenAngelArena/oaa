@@ -4,13 +4,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5165"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5165"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -58,7 +57,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip"                                "1000 3000 5000 9000 17000" //OAA
+        "golem_hp_tooltip"                                "1400 3200 5000 10400 15800" //OAA
       }
       "05"
       {
@@ -86,7 +85,7 @@
       "09" // 0.8 x golem_hp_tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
-        "golem_hp_tooltip_scepter"                        "800 2400 4000 7200 13600" //OAA
+        "golem_hp_tooltip_scepter"                        "1120 2560 4000 8320 12640" //OAA
         "RequiresScepter"                                 "1"
       }
         "10" // at least 75% of golem_dmg_tooltip

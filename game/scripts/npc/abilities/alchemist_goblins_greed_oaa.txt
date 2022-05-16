@@ -21,27 +21,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01"
+      "01" // just for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "duration"                                        "36"
       }
-      "02"
+      "02" // just for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_gold"                                      "3 4 5 6 8 14"
       }
-      "03"
+      "03" // just for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_bonus_gold"                                "3 4 5 6 8 14"
       }
-      "04"
+      "04" // just for the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_gold_cap"                                  "15 18 21 24 60 96"
       }
-      "05"
+      "05" // just for the tooltip
       {
         "var_type"                                        "FIELD_FLOAT"
         "bounty_multiplier"                               "1.5 2.0 2.5 3.0 3.5 4.0"
@@ -60,7 +60,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_duration"                        "4"
+        "armor_reduction_duration"                        "5"
       }
       "09"
       {

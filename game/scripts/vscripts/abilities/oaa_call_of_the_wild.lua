@@ -39,16 +39,37 @@ end
 function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abilityLevel, duration)
   local baseUnitName = "npc_dota_beastmaster_boar"
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
+  local boar_hp = self:GetLevelSpecialValueFor("boar_health", abilityLevel-1)
+  local boar_dmg = self:GetLevelSpecialValueFor("boar_damage", abilityLevel-1)
+  local boar_armor = self:GetLevelSpecialValueFor("boar_armor", abilityLevel-1)
+  local boar_speed = self:GetLevelSpecialValueFor("boar_move_speed", abilityLevel-1)
 
   -- Spawn boar and orient it to face the same way as the caster
   local boar = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
   boar:AddNewModifier(caster, self, "modifier_beastmaster_boar_poison", {})
+
+  -- Fix stats of boars
+  -- HP
+  boar:SetBaseMaxHealth(boar_hp)
+  boar:SetMaxHealth(boar_hp)
+  boar:SetHealth(boar_hp)
+
+  -- DAMAGE
+  boar:SetBaseDamageMin(boar_dmg)
+  boar:SetBaseDamageMax(boar_dmg)
+
+  -- ARMOR
+  boar:SetPhysicalArmorBaseValue(boar_armor)
+
+  -- MOVEMENT SPEED
+  boar:SetBaseMoveSpeed(boar_speed)
 
   -- Level the boar's poison ability to match abilityLevel
   local boarPoisonAbility = boar:FindAbilityByName("beastmaster_boar_poison")
   if boarPoisonAbility then
     boarPoisonAbility:SetLevel(abilityLevel)
   end
+
   -- Create particle effects
   local particleName = "particles/units/heroes/hero_beastmaster/beastmaster_call_boar.vpcf"
   local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -95,7 +116,7 @@ function beastmaster_call_of_the_wild_hawk_oaa:OnSpellStart()
   caster:EmitSound("Hero_Beastmaster.Call.Hawk")
 
   Timers:CreateTimer(2/30, function()
-	if hawk and target_loc then
+    if hawk and target_loc then
       hawk:MoveToPosition(target_loc)
     end
   end)
@@ -158,7 +179,7 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
     end
 
     if number_of_hawks == 1 then
-	  return hawk
+      return hawk
     end
   end
 end
@@ -201,8 +222,9 @@ function modifier_hawk_invisibility_oaa:OnCreated()
 end
 
 function modifier_hawk_invisibility_oaa:DeclareFunctions()
-  local funcs = { MODIFIER_PROPERTY_INVISIBILITY_LEVEL, }
-  return funcs
+  return {
+    MODIFIER_PROPERTY_INVISIBILITY_LEVEL,
+  }
 end
 
 function modifier_hawk_invisibility_oaa:GetModifierInvisibilityLevel()
@@ -212,10 +234,9 @@ function modifier_hawk_invisibility_oaa:GetModifierInvisibilityLevel()
 end
 
 function modifier_hawk_invisibility_oaa:CheckState()
-  if IsServer() then
-    local state = { [MODIFIER_STATE_INVISIBLE] = true}
-    return state
-  end
+  return {
+    [MODIFIER_STATE_INVISIBLE] = true,
+  }
 end
 
 function modifier_hawk_invisibility_oaa:GetPriority()

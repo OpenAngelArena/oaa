@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5366"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5366"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -35,23 +34,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "brew_time"         "5.0"
-      "brew_explosion"      "5.5"
-      "min_stun"          "0.25"
-      "max_stun"          "1.75 2.5 3.25 4.0 4.75 5.5"
-      "min_damage"        "0"
-      "max_damage"  //OAA
-      { 
-        "value"         "160 240 320 400 800 1600"
-        "special_bonus_unique_alchemist_2"    "+400"
+      "brew_time"                                         "5.0"
+      "brew_explosion"                                    "5.5"
+      "min_stun"                                          "0.25"
+      "max_stun"                                          "1.75 2.5 3.25 4.0 4.75 5.5"
+      "min_damage"                                        "0"
+      "max_damage" //OAA
+      {
+        "value"                                           "160 240 320 400 800 1600"
+        "special_bonus_unique_alchemist_2"                "+400"
       }
-
       "radius"
       {
-        "value"         "250"
-        "special_bonus_unique_alchemist"  "+125"
+        "value"                                           "250"
+        "special_bonus_unique_alchemist"                  "+125"
       }
-      "move_speed"        "5 10 15 20 25 30"
+      "move_speed"                                        "5 10 15 20 25 30"
     }
   }
 }

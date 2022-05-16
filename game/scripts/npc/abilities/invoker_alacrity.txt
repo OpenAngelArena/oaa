@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5384"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5384"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "MaxLevel"                                            "1"
     "HotKeyOverride"                                      "Z"
@@ -30,17 +30,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"
+      "bonus_attack_speed" //OAA
       {
         "value"         "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"        "wexlevel"
-        "special_bonus_unique_invoker_5"  "+30"
+        "special_bonus_unique_invoker_5"  "+60"
       }
-      "bonus_damage"
+      "bonus_damage" //OAA
       {
         "value"         "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"        "exortlevel"
-        "special_bonus_unique_invoker_5"  "+30"
+        "special_bonus_unique_invoker_5"  "+60"
       }
       "duration"          "9"
     }

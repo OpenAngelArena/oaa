@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5268"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5268"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -24,7 +24,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
-    "AbilityDuration"                                     "3.75 4.5 5.25 6 6.75 7.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,38 +31,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "dominate_duration"                               "30 60 90 120 150 180"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "enchant_health"                                  "200 400 600 800 1600 3200" //OAA, this is bonus hp, not minimum hp
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "enchant_armor"                                   "2 4 6 8 12 16"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "enchant_damage"                                  "10 30 50 70 140 280"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed"                             "-55"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "level_req"                                       "6" //OAA
-      } 
+      "dominate_duration"     "30 60 90 120 150 180"
+      "enchant_health"      "200 400 600 800 1600 3200"  //OAA, this is bonus hp, not minimum hp
+      "enchant_armor"       "2 4 6 8 12 16"
+      "enchant_damage"      "10 30 50 70 140 280"
+      "slow_movement_speed"   "-55"
+      "slow_duration"       "3.75 4.5 5.25 6 6.75 7.5"
+      "level_req"         "6" //OAA
     }
   }
 }

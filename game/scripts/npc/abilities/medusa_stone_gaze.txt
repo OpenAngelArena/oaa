@@ -23,25 +23,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"          "1200"
-      "AbilityCooldown"         "90"
-      "AbilityManaCost"         "150"
-      "radius"              "1200"
-      "duration"
+      "AbilityCastRange"                                  "1200"
+      "AbilityCooldown"                                   "90"
+      "AbilityManaCost"                                   "150"
+      "radius"                                            "1200"
+      "duration" //OAA
       {
-        "value"             "5 5.5 6 6.5 7"
-        "special_bonus_unique_medusa" "+2"
+        "value"                                           "5 5.5 6 6.5 7"
+        "special_bonus_unique_medusa"                     "+1.5"
       }
-      "slow"                "35"
-      "stone_duration"          "3.0"
-      "face_duration"           "2.0"
-      "vision_cone"           "0.08715"   // 85 degree cone
+      "slow"                                              "35"
+      "stone_duration"                                    "3.0"
+      "face_duration"                                     "2.0"
+      "vision_cone"                                       "0.08715"   // 85 degree cone
       "bonus_physical_damage"
       {
-        "value"             "40 45 50 50 50"
-        "DamageTypeTooltip"       "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "40 45 50 50 50"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "speed_boost"           "50"
+      "speed_boost"                                       "50"
     }
   }
 }

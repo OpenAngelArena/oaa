@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5225"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5225"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -15,7 +15,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
@@ -43,7 +42,7 @@
         "value"         "0.6"
         "special_bonus_scepter" "-0.2"
       }
-      "beam_interval_scepter"   "0.3" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
+      "beam_interval_scepter"   "0.4" // OAA, purely for the tooltip Note, since the scepter tooltip doesn't show this.
       "radius"          "675"
       "hit_count" //OAA
       {
@@ -58,7 +57,7 @@
       "AbilityDuration" //OAA
       {
         "value"         "3.6 5.4 7.2 9.0 10.8"
-        "special_bonus_scepter" "-0.4 +0.2 -0 +0.6 +1.2"
+        "special_bonus_scepter" "-0.4 +0.2 +0 +0.6 +1.2"
       }
       "night_duration"  "10.0"
       "stun_duration"

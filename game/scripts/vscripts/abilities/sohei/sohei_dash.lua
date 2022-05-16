@@ -99,6 +99,16 @@ function sohei_dash:GetCastRange(location, target)
   return self.BaseClass.GetCastRange(self, location, target)
 end
 
+function sohei_dash:CastFilterResultLocation(location)
+  local caster = self:GetCaster()
+  local defaultFilterResult = self.BaseClass.CastFilterResultLocation(self, location)
+  if defaultFilterResult == UF_SUCCESS and location and caster:HasShardOAA() and (caster:IsRooted() or caster:IsLeashedOAA()) then
+    return UF_FAIL_CUSTOM
+  end
+
+  return defaultFilterResult
+end
+
 function sohei_dash:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
@@ -130,6 +140,17 @@ function sohei_dash:GetCustomCastErrorTarget(target)
   end
 end
 
+function sohei_dash:GetCustomCastErrorLocation(location)
+  local caster = self:GetCaster()
+  if location and caster:HasShardOAA() then
+    if caster:IsRooted() then
+      return "#dota_hud_error_ability_disabled_by_root"
+    elseif caster:IsLeashedOAA() then
+      return "#dota_hud_error_ability_disabled_by_tether"
+    end
+  end
+end
+
 function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
   local target_loc = self:GetCursorPosition()
@@ -142,7 +163,7 @@ function sohei_dash:OnSpellStart()
   local max_speed = self:GetSpecialValueFor("dash_speed")
   local move_speed_multiplier = self:GetSpecialValueFor("move_speed_multiplier")
   local direction = caster:GetForwardVector()
-  local distance = 850
+  local distance = 600
   local speed = 1200
 
   if target and has_shard and self:GetAutoCastState() == false then
@@ -170,7 +191,7 @@ function sohei_dash:OnSpellStart()
       end
 
       -- Interrupt
-      target:Stop()
+      --target:Stop()
 
       direction = caster_loc - target:GetAbsOrigin()
       distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
@@ -451,7 +472,16 @@ end
 modifier_sohei_dash_movement = class(ModifierBaseClass)
 
 function modifier_sohei_dash_movement:IsDebuff()
-  return false
+  local parent = self:GetParent()
+  local parentTeam = parent:GetTeamNumber()
+  local caster = self:GetCaster()
+  local casterTeam = caster:GetTeamNumber()
+
+  if parent == caster or parentTeam == casterTeam then
+    return false
+  end
+
+  return true
 end
 
 function modifier_sohei_dash_movement:IsHidden()
@@ -459,7 +489,7 @@ function modifier_sohei_dash_movement:IsHidden()
 end
 
 function modifier_sohei_dash_movement:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_sohei_dash_movement:IsStunDebuff()
@@ -620,6 +650,21 @@ if IsServer() then
 
   function modifier_sohei_dash_movement:UpdateHorizontalMotion(parent, deltaTime)
     local parentOrigin = parent:GetAbsOrigin()
+    local parentTeam = parent:GetTeamNumber()
+    local caster = self:GetCaster()
+    local casterTeam = caster:GetTeamNumber()
+
+    -- Check if caster is rooted
+    local isCasterRooted = parent == caster and (parent:IsRooted() or parent:IsLeashedOAA())
+    -- Check if an ally and if affected by nullifier
+    local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
+    -- Check if enemy and if spell-immune or under dispel orb effect
+    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_preemptive_purge") or parent:IsMagicImmune())
+
+    if isCasterRooted or isParentNullified or isParentDispelled then
+      self:Destroy()
+      return
+    end
 
     local tickTraveled = deltaTime * self.speed
     tickTraveled = math.min(tickTraveled, self.distance)

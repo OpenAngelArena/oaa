@@ -1,7 +1,6 @@
 furion_wrath_of_nature_oaa = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_furion_wrath_of_nature_thinker_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_treant_bonus_oaa", "modifiers/modifier_treant_bonus_oaa", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_debuff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -399,23 +398,49 @@ if IsServer() then
         return
       end
       local level = force_of_nature_ability:GetLevel()
+
+      -- Treant stats
+      local treant_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_health", level-1)
+      local treant_armor = force_of_nature_ability:GetLevelSpecialValueFor("treant_armor", level-1)
+      local treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_damage", level-1)
+      local treant_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", level-1)
+
       local treantName = "npc_dota_furion_treant_" .. level
-      if parent:IsHero() then
+      if parent:IsRealHero() then
         treantName = "npc_dota_furion_treant_large_" .. level
+        treant_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_health", level-1)
+        treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage", level-1)
       end
 
-      -- Check whether the caster has learnt the 2x Treant health/damage talent
-      local has_talent = caster:HasLearnedAbility("special_bonus_unique_furion")
+      -- Talent that increases health and damage of treants with a multiplier
+      local talent1 = caster:FindAbilityByName("special_bonus_unique_furion")
+      if talent1 and talent1:GetLevel() > 0 then
+        treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
+        treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
+      end
 
       local treant = CreateUnitByName(treantName, parent:GetAbsOrigin(), true, caster, caster:GetOwner(), caster:GetTeamNumber())
       if treant then
         treant:SetControllableByPlayer(caster:GetPlayerID(), false)
         treant:SetOwner(caster)
-        if has_talent then
-          treant:AddNewModifier(caster, force_of_nature_ability, "modifier_treant_bonus_oaa", {})
-        end
-
         treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = force_of_nature_ability:GetSpecialValueFor("duration")})
+
+        -- Fix stats of treants
+        -- HP
+        treant:SetBaseMaxHealth(treant_hp)
+        treant:SetMaxHealth(treant_hp)
+        treant:SetHealth(treant_hp)
+
+        -- DAMAGE
+        treant:SetBaseDamageMin(treant_dmg)
+        treant:SetBaseDamageMax(treant_dmg)
+
+        -- ARMOR
+        treant:SetPhysicalArmorBaseValue(treant_armor)
+
+        -- Movement speed
+        treant:SetBaseMoveSpeed(treant_speed)
+
         EmitSoundOnLocationWithCaster(parent:GetAbsOrigin(), "Hero_Furion.ForceOfNature", caster)
       end
     end

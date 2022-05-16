@@ -11,7 +11,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
 
@@ -96,13 +95,7 @@
         "slow_health_percentage"                          "5"
         "RequiresScepter"                                 "1"
       }
-      "11" //OAA
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "castpoint_scepter"                               "0.1"
-        "RequiresScepter"                                 "1"
-      }
-      "12" //OAA
+      "11"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_bonus_damage"                            "20"

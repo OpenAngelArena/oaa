@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5280"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5280"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -24,7 +24,6 @@
 
     "AbilityCooldown"                                     "0.0"
     "AbilityCharges"                                      "4 6 8 10 12 14"
-    //"AbilityChargeRestoreTime"                            "30"
 
     "AbilityManaCost"                                     "40"
 
