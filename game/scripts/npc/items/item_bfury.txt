@@ -11,9 +11,9 @@
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements" //OAA
+    "ItemRequirements"
     {
-      "01"                                                "item_broadsword;item_claymore;item_void_stone;item_quelling_blade"
+      "01"                                                "item_broadsword;item_claymore;item_pers;item_quelling_blade"
     }
   }
 
@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3275" //OAA
+    "ItemCost"                                            "4100"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver"
