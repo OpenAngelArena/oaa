@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Moon Shard
+  //=================================================================================================================
+  "item_recipe_moon_shard"                                "REMOVE"
+
+  //=================================================================================================================
+  // Moon Shard
+  //=================================================================================================================
+  "item_moon_shard"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "247"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "30"
+    "ItemCost"                                            "1" //OAA
+    "ItemShopTags"                                        "attack_speed"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "moon shard"
+    "ShouldBeSuggested"                                   "1"
+    "ItemPurchasable"                                     "1" //OAA
+    "SecretShop"                                          "1" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "140"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_night_vision"                              "400"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "consumed_bonus"                                  "70" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "consumed_bonus_night_vision"                     "200"
+      }
+    }
+  }
+}
