@@ -1,17 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Stonework Pendant - neutral tier 5 item
+  // Ancient Relic - neutral tier 4 item
   //=================================================================================================================
-  "item_stonework_pendant"
+  "item_ancient_relic"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80370"
+    "ID"                                                  "80578"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/stonework_pendant.lua"
+    "ScriptFile"                                          "items/neutral/ancient_relic.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/stonework_pendant"
+    "AbilityTextureName"                                  "item_ancient_perseverance"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -25,11 +25,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "hero_spell_lifesteal"                              "50"
-      "creep_spell_lifesteal"                             "25"
-      "hp_cost_multiplier"                                "3"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "45"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp_regen"                                  "15"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_spell_amp"                                 "10"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "4"
+      }
     }
   }
 }
