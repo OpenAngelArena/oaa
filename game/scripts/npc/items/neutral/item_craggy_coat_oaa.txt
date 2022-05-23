@@ -27,23 +27,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "5"
-      }
+      "bonus_strength"                                    "20"
+      "bonus_armor"                                       "12"
+      "damage_conversion_pct"                             "50"
+      "duration"                                          "5"
     }
   }
 }
