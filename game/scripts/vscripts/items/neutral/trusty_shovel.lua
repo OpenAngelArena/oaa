@@ -163,6 +163,7 @@ function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location)
   if CreepCamps then
     local unit_properties = CreepCamps:GetCreepProperties(unit)
     local new_properties = CreepCamps:AdjustCreepPropertiesByPowerLevel(unit_properties, minute)
+    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, new_properties, minute)
     CreepCamps:SetCreepPropertiesOnHandle(unit, new_properties)
   end
 end
