@@ -163,10 +163,64 @@ function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location)
   if CreepCamps then
     local unit_properties = CreepCamps:GetCreepProperties(unit)
     local new_properties = CreepCamps:AdjustCreepPropertiesByPowerLevel(unit_properties, minute)
-    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, new_properties, minute)
+    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, unit_properties, 1/10)
     CreepCamps:SetCreepPropertiesOnHandle(unit, new_properties)
   end
 end
+
+-- function item_trusty_shovel_oaa:GetCreepProperties(creepHandle)
+  -- local creepProperties = {}
+
+  -- creepProperties[1] = creepHandle:GetMaxHealth()
+  -- creepProperties[2] = (creepHandle:GetBaseDamageMin() + creepHandle:GetBaseDamageMax()) / 2
+  -- creepProperties[3] = creepHandle:GetPhysicalArmorBaseValue()
+  -- creepProperties[4] = (creepHandle:GetMinimumGoldBounty() + creepHandle:GetMaximumGoldBounty()) / 2
+  -- creepProperties[5] = creepHandle:GetDeathXP()
+
+  -- return creepProperties
+-- end
+
+-- function item_trusty_shovel_oaa:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
+  -- local upgradedCreepProperties = {}
+
+  -- -- Never downgrade stats
+  -- upgradedCreepProperties[1] = math.max(propertiesOne[1], propertiesTwo[1] * scale)
+  -- upgradedCreepProperties[2] = math.max(propertiesOne[2], propertiesTwo[2] * scale)
+  -- upgradedCreepProperties[3] = math.max(propertiesOne[3], propertiesTwo[3] * scale)
+
+  -- -- Sum up bounties
+  -- upgradedCreepProperties[4] = propertiesOne[4] + propertiesTwo[4] * scale
+  -- upgradedCreepProperties[5] = propertiesOne[5] + propertiesTwo[5] * scale
+
+  -- return upgradedCreepProperties
+-- end
+
+-- function item_trusty_shovel_oaa:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
+
+  -- --HEALTH
+  -- local intendedMaxHealth = creepProperties[1]
+  -- local currentHealthPercent = creepHandle:GetHealth() / creepHandle:GetMaxHealth()
+  -- local missingHealth = creepHandle:GetMaxHealth() - creepHandle:GetHealth()
+  -- local targetHealth = math.max(1, currentHealthPercent * intendedMaxHealth, intendedMaxHealth - missingHealth)
+
+  -- creepHandle:SetBaseMaxHealth(math.ceil(intendedMaxHealth))
+  -- creepHandle:SetMaxHealth(math.ceil(intendedMaxHealth))
+  -- creepHandle:SetHealth(math.ceil(targetHealth))
+
+  -- --DAMAGE
+  -- creepHandle:SetBaseDamageMin(math.ceil(creepProperties[2]))
+  -- creepHandle:SetBaseDamageMax(math.ceil(creepProperties[2]))
+
+  -- --ARMOR
+  -- creepHandle:SetPhysicalArmorBaseValue(creepProperties[3])
+
+  -- --GOLD BOUNTY
+  -- creepHandle:SetMinimumGoldBounty(math.ceil(creepProperties[4]))
+  -- creepHandle:SetMaximumGoldBounty(math.ceil(creepProperties[4]))
+
+  -- --EXP BOUNTY
+  -- creepHandle:SetDeathXP(math.floor(creepProperties[5]))
+-- end
 
 ---------------------------------------------------------------------------------------------------
 

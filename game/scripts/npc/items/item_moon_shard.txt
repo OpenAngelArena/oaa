@@ -1,33 +1,17 @@
 "DOTAAbilities"
 {
-  //=================================================================================================================
-  // Recipe: Moon Shard
-  //=================================================================================================================
-  "item_recipe_moon_shard"
-  {
-    "ID"                                                  "246"
-    "ItemCorePointCost"                                   "30"
-    "ItemCost"                                            "1" //OAA
-    "ItemPurchasable"                                     "1"
-    "SecretShop"                                          "1"
-
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_moon_shard"
-
-    "ItemRequirements" //OAA
-    {
-      "01"                                                ""
-    }
-  }
+  "item_recipe_moon_shard"                                "REMOVE"
+  "item_moon_shard"                                       "REMOVE"
 
   //=================================================================================================================
-  // Moon Shard
+  // Moon Shard (OAA override because vanilla recipe cant be empty)
   //=================================================================================================================
-  "item_moon_shard"
+  "item_moon_shard_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "247"
+    "ID"                                                  "80247"
+    "BaseClass"                                           "item_moon_shard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
@@ -35,13 +19,13 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "30"
-    "ItemCost"                                            "1" //OAA
+    "ItemCost"                                            "1"
     "ItemShopTags"                                        "attack_speed"
     "ItemQuality"                                         "consumable"
     "ItemAliases"                                         "moon shard"
     "ShouldBeSuggested"                                   "1"
-    "ItemPurchasable"                                     "1" //OAA
-    "SecretShop"                                          "1" //OAA
+    "ItemPurchasable"                                     "1"
+    "SecretShop"                                          "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "consumed_bonus"                                  "70" //OAA
+        "consumed_bonus"                                  "70"
       }
       "04"
       {
