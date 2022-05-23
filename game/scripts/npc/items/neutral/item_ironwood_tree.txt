@@ -1,25 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Moon Crest - neutral tier 1 item
+  // Ironwood Tree - neutral tier 1 item
   //=================================================================================================================
-  "item_moon_crest"
+  "item_ironwood_tree_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80238"
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/neutral/moon_crest.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/moon_crest"
+    "ID"                                                  "80304"
+    "BaseClass"                                           "item_ironwood_tree"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCooldown"                                     "10" //OAA
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
-
+    "ItemCost"                                            "0" //OAA
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
 
     "Model"                                               "models/props_gameplay/neutral_box.vmdl"
 
@@ -30,17 +31,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15"
+        "bonus_all_stats"                                 "8" //OAA
       }
       "02"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_armor"                                     "2"
-      }
-      "03"
-      {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "5"
+        "tree_duration"                                   "10" //OAA
       }
     }
   }
