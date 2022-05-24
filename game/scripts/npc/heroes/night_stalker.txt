@@ -1,0 +1,14 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Night Stalker
+  //=================================================================================================================
+  "npc_dota_hero_night_stalker"
+  {
+    // Abilities
+    //-------------------------------------------------------------------------------------------------------------
+    "Ability12"    "special_bonus_strength_20" // replaces special_bonus_unique_night_stalker_3
+
+    "Ability15"   "special_bonus_unique_night_stalker_3" // replaces special_bonus_strength_20
+  }
+}
