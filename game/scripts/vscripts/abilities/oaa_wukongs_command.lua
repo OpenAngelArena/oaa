@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_monkey_clone_oaa", "abilities/oaa_wukongs_command", LU
 LinkLuaModifier("modifier_monkey_clone_oaa_status_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa_idle_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_wukongs_command_oaa_no_lifesteal", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
   -- For Rubick OnUpgrade never happens, that's why OnStolen is needed but then it will lag
@@ -760,8 +761,12 @@ if IsServer() then
     if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * pseudo_rng_mult ) then
       -- Reset failure count
       parent.failure_count = 0
+      -- Apply no-lifesteal modifier
+      local mod = caster:AddNewModifier(caster, ability, "modifier_wukongs_command_oaa_no_lifesteal", {})
       -- Apply caster's attack that cannot miss
       caster:PerformAttack(target, true, true, true, false, false, false, true)
+      -- Remove no-lifesteal modifier
+      mod:Destroy()
     else
       -- Increment failure count
       parent.failure_count = pseudo_rng_mult
@@ -877,4 +882,30 @@ function modifier_monkey_clone_oaa_hidden:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
   }
   return state
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_wukongs_command_oaa_no_lifesteal = class(ModifierBaseClass)
+
+function modifier_wukongs_command_oaa_no_lifesteal:IsHidden()
+  return true
+end
+
+function modifier_wukongs_command_oaa_no_lifesteal:IsDebuff()
+  return false
+end
+
+function modifier_wukongs_command_oaa_no_lifesteal:IsPurgable()
+  return false
+end
+
+function modifier_wukongs_command_oaa_no_lifesteal:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
+  }
+end
+
+function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
+  return -200
 end
