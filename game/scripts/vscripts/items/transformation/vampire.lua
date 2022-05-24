@@ -310,6 +310,10 @@ if IsServer() then
       return
     end
 
+    if parent:HasModifier("modifier_wukongs_command_oaa_no_lifesteal") then
+      return
+    end
+
     local parentTeam = parent:GetTeamNumber()
 
     local ufResult = UnitFilter(
