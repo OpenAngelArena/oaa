@@ -1,0 +1,12 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Invoker
+  //=================================================================================================================
+  "npc_dota_hero_invoker"
+  {
+    "Ability18"                                           "special_bonus_unique_invoker_11" // replaces special_bonus_unique_invoker_6
+
+    "Ability19"                                           "special_bonus_unique_invoker_6" // replaces special_bonus_unique_invoker_11
+  }
+}

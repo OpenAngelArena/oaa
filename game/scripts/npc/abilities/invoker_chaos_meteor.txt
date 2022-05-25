@@ -49,16 +49,16 @@
       }
       "vision_distance"     "500"
       "end_vision_duration"   "3.0"
-      "main_damage"
+      "main_damage" //OAA
       {
-        "value"         "52 71 90 109 128 147 166 185 332 398.4 464.8 531.2 597.6 664 730.4"
+        "value"         "50 80 110 140 170 200 230 260 320 380 440 500 560 620 680"
         "levelkey"        "exortlevel"
         "special_bonus_unique_invoker_6"  "+40%"
       }
       "burn_duration"       "3.0"
-      "burn_dps"
+      "burn_dps" //OAA
       {
-        "value"         "10 14 18 22 26 30 34 38 68 81.6 95.2 108.8 122.4 136 149.6"
+        "value"         "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
         "levelkey"        "exortlevel"
         "CalculateSpellDamageTooltip" "1"
         "special_bonus_unique_invoker_6"  "+40%"
