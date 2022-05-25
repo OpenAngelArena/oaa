@@ -25,27 +25,27 @@ function modifier_wisdom_oaa:OnCreated()
     return
   end
 
-  local parent = self:GetParent()
+  -- local parent = self:GetParent()
 
-  -- Check if parent has the stuff
-  if parent.GetPrimaryAttribute == nil then
-    return
-  end
+  -- -- Check if parent has the stuff
+  -- if parent.GetPrimaryAttribute == nil then
+    -- return
+  -- end
 
-  local primary_attribute = parent:GetPrimaryAttribute()
-  local new_primary_attribute
-  if primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
-    if RandomInt(0, 1) == 0 then
-      new_primary_attribute = DOTA_ATTRIBUTE_AGILITY
-    else
-      new_primary_attribute = DOTA_ATTRIBUTE_STRENGTH
-    end
-  else
-    new_primary_attribute = DOTA_ATTRIBUTE_INTELLECT
-  end
+  -- local primary_attribute = parent:GetPrimaryAttribute()
+  -- local new_primary_attribute
+  -- if primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
+    -- if RandomInt(0, 1) == 0 then
+      -- new_primary_attribute = DOTA_ATTRIBUTE_AGILITY
+    -- else
+      -- new_primary_attribute = DOTA_ATTRIBUTE_STRENGTH
+    -- end
+  -- else
+    -- new_primary_attribute = DOTA_ATTRIBUTE_INTELLECT
+  -- end
 
-  -- Change Primary attribute
-  parent:SetPrimaryAttribute(new_primary_attribute)
+  -- -- Change Primary attribute
+  -- parent:SetPrimaryAttribute(new_primary_attribute)
 end
 
 function modifier_wisdom_oaa:DeclareFunctions()
