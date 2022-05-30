@@ -92,15 +92,6 @@ function modifier_item_aeon_disk_oaa_tracker:IsPurgable()
   return false
 end
 
-function modifier_item_aeon_disk_oaa_tracker:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-
-  end
-end
-
-modifier_item_aeon_disk_oaa_tracker.OnRefresh = modifier_item_aeon_disk_oaa_tracker.OnCreated
-
 function modifier_item_aeon_disk_oaa_tracker:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
