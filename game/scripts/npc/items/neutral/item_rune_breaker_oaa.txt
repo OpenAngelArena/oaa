@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80379" // unique ID
+    "ID"                                                  "80379"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/neutral/rune_breaker.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -15,8 +15,9 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "item_the_leveller"
 
-    "AbilityCastRange"                                    "400"
-    "AbilityCooldown"                                     "25"
+    "AbilityCastRange"                                    "600"
+    "AbilityCooldown"                                     "20"
+    "AbilityManaCost"                                     "75"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

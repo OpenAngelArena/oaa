@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Craggy Coat (OAA Rework) - neutral tier 4 item
+  //=================================================================================================================
+  "item_craggy_coat_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "80298"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/craggy_coat.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "item_craggy_coat"
+
+    "AbilityCooldown"                                     "15"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_strength"                                    "20"
+      "bonus_armor"                                       "12"
+      "damage_conversion_pct"                             "50"
+      "duration"                                          "5"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+//==========================================================================
+// Moon Shard
+//==========================================================================
+// "DOTA_Tooltip_Ability_item_moon_shard"                                "Moon Shard"
+// "DOTA_Tooltip_ability_item_moon_shard_Description"                    "<h1>Use: Consume</h1> Consume the Moon Shard to permanently gain %consumed_bonus% attack speed and %consumed_bonus_night_vision% bonus night vision. Max 1 use.\n<h1>Passive: Shade Sight</h1>Grants bonus night vision."
+// "DOTA_Tooltip_ability_item_moon_shard_bonus_attack_speed"             "+$attack"
+// "DOTA_Tooltip_ability_item_moon_shard_bonus_night_vision"             "+Bonus Night Vision"
+// "DOTA_Tooltip_ability_item_moon_shard_Lore"                           "Said to be a tear from the lunar goddess Selemene."
+
+"DOTA_Tooltip_Ability_item_moon_shard_oaa"                            "#{DOTA_Tooltip_Ability_item_moon_shard}"
+"DOTA_Tooltip_ability_item_moon_shard_oaa_Description"                "#{DOTA_Tooltip_ability_item_moon_shard_Description}<br><br><font color='#FF0000'>Costs 30 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_ability_item_moon_shard_oaa_bonus_attack_speed"         "#{DOTA_Tooltip_ability_item_moon_shard_bonus_attack_speed}"
+"DOTA_Tooltip_ability_item_moon_shard_oaa_bonus_night_vision"         "#{DOTA_Tooltip_ability_item_moon_shard_bonus_night_vision}"
+"DOTA_Tooltip_ability_item_moon_shard_oaa_Lore"                       "#{DOTA_Tooltip_ability_item_moon_shard_Lore}"

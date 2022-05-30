@@ -65,6 +65,14 @@ local function SafeTeleport(unit, location, maxDistance)
   end)
 end
 
+local function CheckIfUnitIsValidForTeleport(unit)
+  local name = unit:GetUnitName()
+  local valid_name = name ~= "npc_dota_custom_dummy_unit" and name ~= "npc_dota_elder_titan_ancestral_spirit" and name ~= "aghsfort_mars_bulwark_soldier"
+  local not_thinker = not unit:HasModifier("modifier_oaa_thinker") and not unit:IsPhantomBlocker()
+
+  return not unit:IsCourier() and not unit:IsZombie() and unit:HasMovementCapability() and not_thinker and valid_name
+end
+
 local function SafeTeleportAll(mainUnit, location, maxDistance)
   -- Teleport the main hero first
   SafeTeleport(mainUnit, location, maxDistance)
@@ -87,7 +95,7 @@ local function SafeTeleportAll(mainUnit, location, maxDistance)
 
   iter(playerAdditionalUnits)
     :filter(function (unit)
-      return unit ~= mainUnit and unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and not unit:IsCourier() and not unit:HasModifier("modifier_oaa_thinker") and unit:GetUnitName() ~= "npc_dota_custom_dummy_unit" and not unit:IsZombie() and unit:HasMovementCapability()
+      return unit ~= mainUnit and unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and CheckIfUnitIsValidForTeleport(unit)
     end)
     :foreach(function (unit)
       SafeTeleport(unit, location, maxDistance)

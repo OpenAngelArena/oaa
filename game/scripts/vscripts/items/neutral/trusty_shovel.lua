@@ -32,7 +32,6 @@ function item_trusty_shovel_oaa:OnSpellStart()
   elseif game_time > 12*60 and game_time <= 24*60 then
     self.rewards = {
       "kobold_soldier",
-      "enchanted_mango",
       "burst_elixir",
       "bottle",
     }
@@ -95,9 +94,24 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
     return
   end
 
-  random_int = RandomInt(1, #self.rewards)
+  local rewards = {}
+  for _, v in pairs(self.rewards) do
+    if v and v ~= self.last_reward then
+      table.insert(rewards, v)
+    end
+  end
 
-  local random_reward = self.rewards[random_int]
+  local function GetRandomTableElement(t)
+    -- iterate over whole table to get all keys
+    local keyset = {}
+    for k in pairs(t) do
+        table.insert(keyset, k)
+    end
+    -- now you can reliably return a random key
+    return t[keyset[RandomInt(1, #keyset)]]
+  end
+
+  local random_reward = GetRandomTableElement(rewards)
 
   if random_reward == "flask" then
     self:DigOutItem("item_flask", position)
@@ -106,15 +120,15 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
   elseif random_reward == "bottle" then
     self:DigOutItem("item_infinite_bottle", position)
   elseif random_reward == "kobold" then
-    CreateUnitByName("npc_dota_neutral_kobold", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_kobold", position)
   elseif random_reward == "kobold_soldier" then
-    CreateUnitByName("npc_dota_neutral_custom_kobold_soldier", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_soldier", position)
   elseif random_reward == "kobold_commander" then
-    CreateUnitByName("npc_dota_neutral_custom_kobold_foreman", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_foreman", position)
   elseif random_reward == "ghost" then
-    CreateUnitByName("npc_dota_neutral_custom_ghost", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_ghost", position)
   elseif random_reward == "prowler" then
-    CreateUnitByName("npc_dota_neutral_prowler_shaman", position, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_prowler_shaman", position)
   elseif random_reward == "burst_elixir" then
     self:DigOutItem("item_elixier_burst", position)
   elseif random_reward == "hybrid_elixir" then
@@ -125,15 +139,88 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
     -- This is not supposed to happen but whatever
     self:DigOutItem("item_tpscroll", position)
   end
+
+  self.last_reward = random_reward
 end
 
-function item_trusty_shovel_oaa:DigOutItem(item_name, position)
+function item_trusty_shovel_oaa:DigOutItem(item_name, location)
   local item = CreateItem(item_name, nil, nil)
   item:SetSellable(false)
   item:SetShareability(ITEM_FULLY_SHAREABLE)
   item:SetStacksWithOtherOwners(true)
-  CreateItemOnPositionSync(position, item)
+  CreateItemOnPositionSync(location, item)
 end
+
+function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location)
+  local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  local game_time = 0 -- game time in seconds
+  if HudTimer then
+    game_time = HudTimer:GetGameTime()
+  else
+    game_time = GameRules:GetGameTime()
+  end
+  local minute = math.ceil(game_time/60)
+  if CreepCamps then
+    local unit_properties = CreepCamps:GetCreepProperties(unit)
+    local new_properties = CreepCamps:AdjustCreepPropertiesByPowerLevel(unit_properties, minute)
+    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, unit_properties, 1/10)
+    CreepCamps:SetCreepPropertiesOnHandle(unit, new_properties)
+  end
+end
+
+-- function item_trusty_shovel_oaa:GetCreepProperties(creepHandle)
+  -- local creepProperties = {}
+
+  -- creepProperties[1] = creepHandle:GetMaxHealth()
+  -- creepProperties[2] = (creepHandle:GetBaseDamageMin() + creepHandle:GetBaseDamageMax()) / 2
+  -- creepProperties[3] = creepHandle:GetPhysicalArmorBaseValue()
+  -- creepProperties[4] = (creepHandle:GetMinimumGoldBounty() + creepHandle:GetMaximumGoldBounty()) / 2
+  -- creepProperties[5] = creepHandle:GetDeathXP()
+
+  -- return creepProperties
+-- end
+
+-- function item_trusty_shovel_oaa:UpgradeCreepProperties(propertiesOne, propertiesTwo, scale)
+  -- local upgradedCreepProperties = {}
+
+  -- -- Never downgrade stats
+  -- upgradedCreepProperties[1] = math.max(propertiesOne[1], propertiesTwo[1] * scale)
+  -- upgradedCreepProperties[2] = math.max(propertiesOne[2], propertiesTwo[2] * scale)
+  -- upgradedCreepProperties[3] = math.max(propertiesOne[3], propertiesTwo[3] * scale)
+
+  -- -- Sum up bounties
+  -- upgradedCreepProperties[4] = propertiesOne[4] + propertiesTwo[4] * scale
+  -- upgradedCreepProperties[5] = propertiesOne[5] + propertiesTwo[5] * scale
+
+  -- return upgradedCreepProperties
+-- end
+
+-- function item_trusty_shovel_oaa:SetCreepPropertiesOnHandle(creepHandle, creepProperties)
+
+  -- --HEALTH
+  -- local intendedMaxHealth = creepProperties[1]
+  -- local currentHealthPercent = creepHandle:GetHealth() / creepHandle:GetMaxHealth()
+  -- local missingHealth = creepHandle:GetMaxHealth() - creepHandle:GetHealth()
+  -- local targetHealth = math.max(1, currentHealthPercent * intendedMaxHealth, intendedMaxHealth - missingHealth)
+
+  -- creepHandle:SetBaseMaxHealth(math.ceil(intendedMaxHealth))
+  -- creepHandle:SetMaxHealth(math.ceil(intendedMaxHealth))
+  -- creepHandle:SetHealth(math.ceil(targetHealth))
+
+  -- --DAMAGE
+  -- creepHandle:SetBaseDamageMin(math.ceil(creepProperties[2]))
+  -- creepHandle:SetBaseDamageMax(math.ceil(creepProperties[2]))
+
+  -- --ARMOR
+  -- creepHandle:SetPhysicalArmorBaseValue(creepProperties[3])
+
+  -- --GOLD BOUNTY
+  -- creepHandle:SetMinimumGoldBounty(math.ceil(creepProperties[4]))
+  -- creepHandle:SetMaximumGoldBounty(math.ceil(creepProperties[4]))
+
+  -- --EXP BOUNTY
+  -- creepHandle:SetDeathXP(math.floor(creepProperties[5]))
+-- end
 
 ---------------------------------------------------------------------------------------------------
 

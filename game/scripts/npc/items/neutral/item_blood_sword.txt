@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Blood Sword - neutral tier 4 item
+  // Blood Sword - neutral tier 3 item
   //=================================================================================================================
   "item_blood_sword"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80638" // unique ID
+    "ID"                                                  "80638"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/neutral/blood_sword.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -17,7 +17,7 @@
     "AbilityTextureName"                                  "item_penta_edged_sword"
 
     "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "15"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

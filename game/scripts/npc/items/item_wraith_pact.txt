@@ -48,7 +48,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                     "35" //OAA
     "AbilityDuration"                                     "25"
 
     // Cost
@@ -80,8 +80,8 @@
       "damage_aura"                                       "18 26 34 42 50"
       "aura_radius"                                       "1200"
       "pact_aura_radius"                                  "900"
-      "damage_penalty_aura"                               "30 32 34 36 38"
-      "aura_dps"                                          "40 80 160 320 640" //OAA
+      "damage_penalty_aura"                               "30"
+      "aura_dps"                                          "30 60 120 240 480"
     }
   }
 }

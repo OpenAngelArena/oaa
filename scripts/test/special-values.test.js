@@ -746,12 +746,12 @@ function buildItemTree (t, data, cb) {
           return;
         }
       }
-      var requirements = recipeData.ItemRequirements.values;
+      var requirements = recipeData.ItemRequirements.values; // some neutral items have a recipe without ItemRequirements, because of that an error will appear saying it's 'undefined'
       var numIndex = 1;
       requirements = Object.keys(requirements)
         .sort(function (a, b) { return Number(a) - Number(b); })
         .map(function (index) {
-          t.equal(Number(index), numIndex++, 'requirements indexes are in oreder for ' + item);
+          t.equal(Number(index), numIndex++, 'requirements indexes are in order for ' + item);
           return requirements[index].split(';').filter(a => !!a);
         });
 

@@ -38,13 +38,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shard_dagger_damage"                             "400" //OAA
+        "shard_dagger_damage"                             "300"
         "RequiresShard"                                   "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "shard_dagger_cooldown"                           "7.0"
+        "shard_dagger_cooldown"                           "6.0" //OAA
         "RequiresShard"                                   "1"
       }
     }

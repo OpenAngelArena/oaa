@@ -1,0 +1,66 @@
+"DOTAUnits"
+{
+  "npc_dota_elder_titan_ancestral_spirit"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"						"models/heroes/elder_titan/ancestral_spirit.vmdl"	// Model.
+    "BaseClass"					"npc_dota_elder_titan_ancestral_spirit"
+    "SoundSet"					"0"			// Name of sound set.
+    "Level"						"1"
+    "ModelScale"				"1.0"
+    "ConsideredHero"			"1"
+    "IsAncient"					"1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"					"elder_titan_echo_stomp_spirit"			// Ability 1
+    "Ability2"					"elder_titan_return_spirit"			// Ability 2
+    "Ability3"					"elder_titan_natural_order_spirit"			// Ability 3
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"				"0"			// Physical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"			"0"			// Damage range min.
+    "AttackDamageMax"			"0"			// Damage range max.
+    "AttackRate"				"1.0"		// Speed of attack.
+    "AttackAnimationPoint"		"0.0"		// Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
+    "AttackRange"				"0"			// Range within a target can be attacked.
+    "ProjectileModel"			""			// Particle system model for projectile.
+    "ProjectileSpeed"			"0"			// Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+    "MovementSpeed"				"315"			// Speed
+    "MovementTurnRate"			"0.5"		// Turning rate.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "1000000"	// OAA
+    "StatusHealthRegen"                                   "999999"  // OAA
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"		"0"		// Range of vision during day light.
+    "VisionNighttimeRange"		"0"		// Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "ImmuneToOmnislash"			"1"
+  }
+}

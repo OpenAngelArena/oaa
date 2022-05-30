@@ -26,17 +26,17 @@ function modifier_nimble_oaa:OnCreated()
     return
   end
 
-  local parent = self:GetParent()
+  -- local parent = self:GetParent()
 
-  -- Check if parent has the stuff
-  if parent.GetPrimaryAttribute == nil then
-    return
-  end
+  -- -- Check if parent has the stuff
+  -- if parent.GetPrimaryAttribute == nil then
+    -- return
+  -- end
 
-  -- Change Primary attribute to Agility
-  if parent:GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_AGILITY then
-    parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
-  end
+  -- -- Change Primary attribute to Agility
+  -- if parent:GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_AGILITY then
+    -- parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
+  -- end
 end
 
 function modifier_nimble_oaa:DeclareFunctions()
