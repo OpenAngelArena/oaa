@@ -104,74 +104,10 @@ modifier_item_aeon_disk_oaa_tracker.OnRefresh = modifier_item_aeon_disk_oaa_trac
 function modifier_item_aeon_disk_oaa_tracker:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    --MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 if IsServer() then
-  -- function modifier_item_aeon_disk_oaa_tracker:OnTakeDamage(event)
-    -- local parent = self:GetParent()
-    -- local ability = self:GetAbility()
-    -- local attacker = event.attacker
-    -- local unit = event.unit -- damaged unit
-    -- local damage = event.damage
-    -- local damage_flags = event.damage_flags
-
-    -- -- Check if attacker exists
-    -- if not attacker or attacker:IsNull() then
-      -- return
-    -- end
-
-    -- -- Check if damaged entity exists
-    -- if not unit or unit:IsNull() then
-      -- return
-    -- end
-
-    -- -- Do nothing if damaged unit doesn't have this buff
-    -- if unit ~= parent then
-      -- return
-    -- end
-
-    -- -- Don't trigger on self damage
-    -- if attacker == parent then
-      -- return
-    -- end
-
-    -- -- Don't trigger on non-player damage
-    -- if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then -- and not attacker:IsOAABoss()
-      -- return 0
-    -- end
-
-    -- -- Don't trigger for illusions
-    -- if parent:IsIllusion() then
-      -- return
-    -- end
-
-    -- -- Don't trigger if parent already has Combo Breaker buff
-    -- if parent:HasModifier("modifier_item_aeon_disk_oaa_buff") then
-      -- return
-    -- end
-
-    -- -- Don't trigger if item is not in the inventory
-    -- if not ability or ability:IsNull() then
-      -- return
-    -- end
-
-    -- if not ability:IsCooldownReady() then
-      -- return
-    -- end
-
-    -- -- Don't trigger for 0 or negative damage
-    -- if damage <= 0 then
-      -- return
-    -- end
-
-    -- -- Don't trigger on damage with HP removal flag
-    -- if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-      -- return
-    -- end
-  -- end
-
   -- "The damage instance triggering Combo Breaker is negated." That's why we use this instead of OnTakeDamage
   -- OnTakeDamage event also ignores some damage that has hp removal flag
   function modifier_item_aeon_disk_oaa_tracker:GetModifierIncomingDamage_Percentage(keys)
@@ -278,24 +214,15 @@ function modifier_item_aeon_disk_oaa_buff:OnCreated()
     self.status_resist = ability:GetSpecialValueFor("status_resistance")
   end
 
-  -- if IsServer() then
-    -- local parent = self:GetParent()
-    -- local particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    -- ParticleManager:SetParticleControlEnt(particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    -- self:AddParticle(particle, false, false, -1, true, false)
-  -- end
+  if IsServer() then
+    local parent = self:GetParent()
+    local particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    self:AddParticle(particle, false, false, -1, true, false)
+  end
 end
 
 modifier_item_aeon_disk_oaa_buff.OnRefresh = modifier_item_aeon_disk_oaa_buff.OnCreated
-
--- function modifier_item_aeon_disk_oaa_buff:OnDestroy()
-  -- if IsServer() then
-    -- if self.particle then
-      -- ParticleManager:DestroyParticle(self.particle, false)
-      -- ParticleManager:ReleaseParticleIndex(self.particle)
-    -- end
-  -- end
--- end
 
 function modifier_item_aeon_disk_oaa_buff:DeclareFunctions()
   return {
@@ -332,12 +259,12 @@ end
   -- return 1
 -- end
 
-function modifier_item_aeon_disk_oaa_buff:GetEffectName()
-  return "particles/items4_fx/combo_breaker_buff.vpcf"
+function modifier_item_aeon_disk_oaa_buff:GetStatusEffectName()
+  return "particles/status_fx/status_effect_combo_breaker.vpcf"
 end
 
-function modifier_item_aeon_disk_oaa_buff:GetEffectAttachType()
-  return PATTACH_ABSORIGIN_FOLLOW
+function modifier_item_aeon_disk_oaa_buff:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
 end
 
 function modifier_item_aeon_disk_oaa_buff:GetTexture()
