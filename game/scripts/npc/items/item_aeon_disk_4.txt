@@ -1,21 +1,22 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Combo Breaker 4
+  // Recipe: Aeon Disk 4
   //=================================================================================================================
   "item_recipe_aeon_disk_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8403"   // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8403"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
 
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_aeon_disk_4"
     "ItemRequirements"
     {
@@ -25,24 +26,37 @@
   }
 
   //=================================================================================================================
-  // Combo Breaker 4
+  // Aeon Disk 4
   //=================================================================================================================
   "item_aeon_disk_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8404"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_aeon_disk"
+    "ID"                                                  "8404"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/aeon_disk.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/combo_breaker_4"
 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "105 95 85 75 65"
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    "ItemCost"                                            "17603"
-    "ItemAliases"                                         "ad 4;aeon disk 4"
+    "UpgradesItems"                                       "item_aeon_disk_4;item_aeon_disk_5"
 
-    "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "80"
-    "AbilityTextureName"                                  "custom/combo_breaker_4"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "17603"
+    "ItemShopTags"                                        "health_pool;mana_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "ad 4;aeon disk 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,13 +89,8 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_level"                                       "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_duration"                               "80"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "105 95 85 75 65"
       }
     }
   }

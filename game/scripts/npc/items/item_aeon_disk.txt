@@ -1,13 +1,17 @@
 "DOTAAbilities"
 {
+  //"item_recipe_aeon_disk"                                 "REMOVE"
+  //"item_aeon_disk"                                        "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Aeon Disk
+  // Recipe: Aeon Disk 1
   //=================================================================================================================
-  "item_recipe_aeon_disk"
+  "item_recipe_aeon_disk_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "255"
+    "ID"                                                  "80255"
+    "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -15,32 +19,50 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1200"
-    "ItemShopTags"          ""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_aeon_disk"
+    "ItemResult"                                          "item_aeon_disk_oaa"
     "ItemRequirements"
     {
       "01"                                                "item_vitality_booster;item_energy_booster"
     }
   }
+
   //=================================================================================================================
-  // Combo Breaker
+  // Aeon Disk 1
   //=================================================================================================================
-  "item_aeon_disk"
+  "item_aeon_disk_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "256"
+    "ID"                                                  "80256"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/aeon_disk.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/combo_breaker"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "105 95 85 75 65" // OAA old: "105 95 75 55 35"
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "ItemAliases"         "ad;aeon disk"
+    "UpgradesItems"                                       "item_aeon_disk_oaa;item_aeon_disk_2;item_aeon_disk_3;item_aeon_disk_4;item_aeon_disk_5"
 
-    "AbilityCooldown"                                     "80" // OAA old: "105.0 95.0 75.0 55.0 35.0"
-    "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityTextureName"                                  "custom/combo_breaker"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3000"
+    "ItemShopTags"                                        "health_pool;mana_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "ad;aeon disk"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -73,13 +95,8 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_level"                                       "1" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_duration"                               "80" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "105 95 85 75 65"
       }
     }
   }
