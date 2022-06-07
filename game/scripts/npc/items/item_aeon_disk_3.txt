@@ -1,21 +1,22 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Combo Breaker 3
+  // Recipe: Aeon Disk 3
   //=================================================================================================================
   "item_recipe_aeon_disk_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8401"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8401"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
 
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_aeon_disk_3"
     "ItemRequirements"
     {
@@ -25,24 +26,37 @@
   }
 
   //=================================================================================================================
-  // Combo Breaker 3
+  // Aeon Disk 3
   //=================================================================================================================
   "item_aeon_disk_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8402"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_aeon_disk"
+    "ID"                                                  "8402"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/aeon_disk.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/combo_breaker_3"
 
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "105 95 85 75 65"
+    "AbilitySharedCooldown"                               "combobreaker"
+    "AbilityManaCost"                                     "0"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-    "ItemCost"                                            "9602"
-    "ItemAliases"                                         "ad 3;aeon disk 3"
+    "UpgradesItems"                                       "item_aeon_disk_3;item_aeon_disk_4;item_aeon_disk_5"
 
-    "AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "80"
-    "AbilityTextureName"                                  "custom/combo_breaker_3"
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "9602"
+    "ItemShopTags"                                        "health_pool;mana_pool"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "ad 3;aeon disk 3"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,13 +89,8 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_level"                                       "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_duration"                               "80"
+        "var_type"                                        "FIELD_INTEGER"
+        "cooldown_tooltip"                                "105 95 85 75 65"
       }
     }
   }
