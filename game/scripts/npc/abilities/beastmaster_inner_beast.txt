@@ -17,43 +17,13 @@
     "LevelsBetweenUpgrades"                               "2"
 
     // Casting
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "radius"        "1200"
+      "bonus_attack_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15 25 35 45 65 85"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_4"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "scepter_multiplier"  "2"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "scepter_duration"    "4"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "scepter_radius"        "1200"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "scepter_cooldown"        "35"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "scepter_manacost"        "50"
+        "value"                 "15 25 35 45 65 85"
+        "special_bonus_unique_beastmaster_4"    "+30"
       }
     }
   }
