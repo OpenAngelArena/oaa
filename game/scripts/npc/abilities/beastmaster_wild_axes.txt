@@ -28,8 +28,7 @@
     "AbilityCastPoint"                                    "0.4"
 
     // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8"
+    //----------------------------------------------------------------------------------------------------------
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,56 +36,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"          "175"
+      "spread"          "450"
+      "range"           "1500"
+      "axe_damage"          "40 70 100 130 260 520"
+      "duration"            "12"
+      "damage_amp"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "175"
+        "value"       "6 8 10 12 14 16"
+        "special_bonus_unique_beastmaster_9"    "+2.5"
       }
-      "02"
+      "AbilityCooldown"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spread"                                          "450"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "40 70 100 130 260 520"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "12"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_amp"                                      "6 8 10 12 14 16"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_9"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "0"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "min_throw_duration"                              "0.4"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_throw_duration"                              "1.0"
-      }
+        "value"     "8"
+        "special_bonus_scepter"           "-100%"
+      }     
+      "min_throw_duration"            "0.4"
+      "max_throw_duration"            "1.0"
     }
   }
 }
