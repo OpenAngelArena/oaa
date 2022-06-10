@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "3730"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3730"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -16,15 +16,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
-    "ItemShopTags"          ""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_glimmer_cape_2"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_glimmer_cape_2"
     "ItemRequirements"
     {
-      "01"                                                "item_pipe;item_upgrade_core"
+      "01"                                                "item_glimmer_cape;item_upgrade_core"
     }
   }
 
@@ -35,12 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "3731"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                          "3731"
     "BaseClass"                   "item_glimmer_cape"
     "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"             "1"
     "AbilityTextureName"          "custom/glimmer_cape_2"
 
     // Stats
@@ -52,11 +51,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "4976"
+    "ItemCost"                    "3451"
     "ItemShopTags"                ""
     "ItemQuality"                 "rare"
     "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                 "glimmer cape 2;glimmer 2"
+
     "MaxUpgradeLevel"             "5"
     "ItemBaseLevel"               "2"
 
@@ -67,17 +67,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor"                             "16 17 18 19 20"
+        "bonus_magical_armor"                             "15 16 17 18 19"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_delay"                                      "0.65 0.6 0.55 0.5 0.45"
+        "fade_delay"                                      "0.6"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_magical_armor"                            "45 50 55 60 65"
+        "active_magical_armor"                            "50 54 58 62 66"
       }
       "04"
       {

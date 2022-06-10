@@ -62,13 +62,17 @@
       "item"        "item_mask_of_madness"
       "item"        "item_aether_lens"
     }
-	
+
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_satanic"
       "item"      "item_skadi"
       "item"      "item_silver_edge"
       "item"      "item_ultimate_scepter"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
@@ -76,7 +80,6 @@
     {
       "item"        "item_martyrs_mail_4"
       "item"        "item_reduction_orb_3"
-      "item"        "item_force_boots_1"
     }
 
     "#DOTA_Item_Build_Luxury"
@@ -93,6 +96,7 @@
       "item"                                                "item_bfury"
       "item"                                                "item_blade_mail"
       "item"                                                "item_bloodthorn"
+      "item"                                                "item_boots_of_bearing"
       "item"                                                "item_bubble_orb_1"
       "item"                                                "item_butterfly_oaa"
       "item"                                                "item_crimson_guard"
@@ -109,11 +113,10 @@
       "item"                                                "item_ethereal_blade"
       "item"                                                "item_eternal_shroud_oaa"
       "item"                                                "item_far_sight"
-      "item"                                                "item_force_boots_1"
       "item"                                                "item_force_staff"
       "item"                                                "item_ghost_king_bar"
       "item"                                                "item_giant_form"
-      "item"                                                "item_glimmer_cape_2"
+      "item"                                                "item_glimmer_cape"
       "item"                                                "item_greater_crit"
       "item"                                                "item_greater_phase_boots"
       "item"                                                "item_greater_power_treads"
@@ -129,7 +132,6 @@
       "item"                                                "item_helm_of_the_overlord"
       "item"                                                "item_holy_locket"
       "item"                                                "item_hurricane_pike"
-      "item"                                                "item_imp_claw_1"
       "item"                                                "item_kaya_and_sange"
       "item"                                                "item_lotus_orb"
       "item"                                                "item_lucience"
@@ -206,14 +208,14 @@
       "item"                                                "item_cloak"
       "item"                                                "item_energy_booster"
       "item"                                                "item_void_stone"
-    
+
       "item"                                                "item_shadow_amulet"
       "item"                                                "item_vitality_booster"
       "item"                                                "item_point_booster"
       "item"                                                "item_ghost"
       "item"                                                "item_blink"
       "item"                                                "item_relic"
- 
+
       "item"                                                "item_azazel_summon_tank"
       "item"                                                "item_azazel_summon_scout"
       "item"                                                "item_azazel_summon_fighter"
@@ -221,6 +223,9 @@
       "item"                                                "item_elixier_burst"
       "item"                                                "item_elixier_hybrid"
       "item"                                                "item_elixier_sustain"
+
+      "item"                                                "item_moon_shard_oaa"
+      "item"                                                "item_refresher_shard"
     }
   }
 }
