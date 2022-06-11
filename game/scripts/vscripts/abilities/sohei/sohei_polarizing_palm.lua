@@ -8,7 +8,20 @@ local forbidden_modifiers = {
   "modifier_faceless_void_chronosphere_freeze",
   "modifier_legion_commander_duel",
   "modifier_batrider_flaming_lasso",
+  "modifier_disruptor_kinetic_field",
 }
+
+function sohei_polarizing_palm:GetCastRange(location, target)
+  local caster = self:GetCaster()
+  local default_range = self.BaseClass.GetCastRange(self, location, target)
+
+  local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
+  if talent and talent:GetLevel() > 0 then
+    return default_range + talent:GetSpecialValueFor("value")
+  end
+
+  return default_range
+end
 
 function sohei_polarizing_palm:CastFilterResultTarget(target)
   local caster = self:GetCaster()
@@ -39,6 +52,8 @@ function sohei_polarizing_palm:GetCustomCastErrorTarget(target)
     return "#oaa_hud_error_pull_staff_duel"
   elseif target:HasModifier("modifier_batrider_flaming_lasso") then
     return "#oaa_hud_error_pull_staff_lasso"
+  elseif target:HasModifier("modifier_disruptor_kinetic_field") then
+    return "#oaa_hud_error_pull_staff_kinetic_field"
   end
 end
 
@@ -67,15 +82,21 @@ function sohei_polarizing_palm:OnSpellStart()
   local speed = self:GetSpecialValueFor("push_pull_speed")
   local reposition_range = self:GetSpecialValueFor("push_pull_length")
 
-  local direction
+  local direction = target_loc - caster_loc -- default is pushing
   local distance = reposition_range
 
-  if caster:HasModifier("modifier_sohei_way_of_the_ki_buff") then
-    -- Pulling
+  local pulling = caster:HasModifier("modifier_sohei_way_of_the_ki_buff")
+  local flurry = caster:HasModifier("modifier_sohei_flurry_self")
+  if pulling then
+    -- Pulling towards the caster
     direction = caster_loc - target_loc
-  else
-    -- Pushing
-    direction = target_loc - caster_loc
+    -- Pulling towards Flurry of Blows center during Flurry of Blows
+    if flurry then
+      local flurry_mod = caster:FindModifierByName("modifier_sohei_flurry_self")
+      if flurry_mod.center then
+        direction = flurry_mod.center - target_loc
+      end
+    end
   end
 
   if isTargetAnEnemy then
@@ -85,7 +106,7 @@ function sohei_polarizing_palm:OnSpellStart()
     end
 
     -- For pulling when not in Flurry of Blows
-    if not caster:HasModifier("modifier_sohei_flurry_self") then
+    if pulling and not flurry then
       distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
       if distance > reposition_range then
         distance = reposition_range
@@ -283,6 +304,8 @@ if IsServer() then
     self.distance = self.distance - tickTraveled
 
     if parentTeam ~= casterTeam then
+      local ability = self:GetAbility()
+
       -- Check for phantom (thinkers) blockers (Fissure, Ice Shards etc.)
       local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
       for _, thinker in pairs(thinkers) do
@@ -345,7 +368,7 @@ if IsServer() then
 
     -- Move the unit to the new location if nothing above was detected;
     -- Unstucking (ResolveNPCPositions) is happening OnDestroy;
-    parent:SetOrigin(tickOrigin)
+    parent:SetAbsOrigin(tickOrigin)
   end
 
   function modifier_sohei_polarizing_palm_movement:OnHorizontalMotionInterrupted()

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sohei: Polarizing Palm - Pushes and damage the target enemy, stuns if enemy collides with something. Can pull with shard ability.
+  // Sohei: Polarizing Palm - Pushes and damage the target enemy, stuns if enemy collides with something. Can pull with shard.
   //=================================================================================================================
   "sohei_polarizing_palm"
   {
@@ -24,9 +24,9 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
-    "AnimationPlaybackRate"                               "2"
+    "AnimationPlaybackRate"                               "2.5"
     "AbilityCastRange"                                    "450"
 
     // Time

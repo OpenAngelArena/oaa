@@ -172,10 +172,12 @@ function modifier_sohei_way_of_the_ki_debuff:GetModifierTotalDamageOutgoing_Perc
   if not self:GetCaster():HasModifier("modifier_sohei_way_of_the_ki_buff") then
     return self:GetAbility():GetSpecialValueFor("push_enemy_damage_reduction")
   end
+  return 0
 end
 
 function modifier_sohei_way_of_the_ki_debuff:GetModifierIncomingDamage_Percentage(keys)
   if self:GetCaster():HasModifier("modifier_sohei_way_of_the_ki_buff") then
     return self:GetAbility():GetSpecialValueFor("pull_damage_amp")
   end
+  return 0
 end
