@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dash talent: Increases max dash range - unused
+  //  talent:
   //=================================================================================================================
-  "special_bonus_sohei_dash_cast_range"
+  "special_bonus_unique_sohei_9"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8625"
+    "ID"                                                  "3675"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "200"
+        "value"                                           "0"
       }
     }
   }
