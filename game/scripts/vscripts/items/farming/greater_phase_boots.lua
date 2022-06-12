@@ -80,13 +80,11 @@ end
 modifier_item_greater_phase_boots_passives.OnRefresh = modifier_item_greater_phase_boots_passives.OnCreated
 
 function modifier_item_greater_phase_boots_passives:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_greater_phase_boots_passives:GetModifierMoveSpeedBonus_Special_Boots()
@@ -303,20 +301,16 @@ function modifier_item_greater_phase_boots_active:GetTexture()
 end
 
 -- function modifier_item_greater_phase_boots_active:CheckState()
-  -- local state = {
+  -- return {
     -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   -- }
-
-  -- return state
 -- end
 
 -- function modifier_item_greater_phase_boots_active:DeclareFunctions()
-  -- local funcs = {
+  -- return {
     -- MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     -- MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
   -- }
-
-  -- return funcs
 -- end
 
 -- function modifier_item_greater_phase_boots_active:GetModifierMoveSpeedBonus_Percentage()
