@@ -98,10 +98,10 @@
         "var_type"                                        "FIELD_FLOAT"
         "hero_spell_lifesteal"                            "20 22 24 26 28"
       }
-      "07"
+      "07" // hero_spell_lifesteal / 5 is the minimum
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "4 6 8 10 12"
+        "creep_spell_lifesteal"                           "4 5 6 7 8"
       }
     }
   }

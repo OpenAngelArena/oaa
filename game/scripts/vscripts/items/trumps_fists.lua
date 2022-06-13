@@ -45,7 +45,7 @@ function modifier_item_trumps_fists_passive:OnDestroy()
 end
 
 function modifier_item_trumps_fists_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
@@ -55,7 +55,6 @@ function modifier_item_trumps_fists_passive:DeclareFunctions()
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-  return funcs
 end
 
 function modifier_item_trumps_fists_passive:GetModifierBonusStats_Strength()
@@ -158,6 +157,11 @@ if IsServer() then
       return
     end
 
+    -- Disable multiplicative stacking with Skadi
+    if damaged_unit:HasModifier("modifier_item_skadi_slow") then
+      return
+    end
+
     local ability = self:GetAbility()
     if not ability or ability:IsNull() then
       return
@@ -189,11 +193,22 @@ end
 
 modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 
-function modifier_item_trumps_fists_frostbite:OnCreated()
-  if IsServer() then
-    self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor( "heal_prevent_percent" )
-    --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
-    --self.health_fraction = 0
+function modifier_item_trumps_fists_frostbite:IsHidden()
+  return false
+end
+
+if IsServer() then
+  function modifier_item_trumps_fists_frostbite:OnCreated()
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor("heal_prevent_percent")
+      --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+      --self.health_fraction = 0
+    end
+  end
+
+  function modifier_item_trumps_fists_frostbite:OnRefresh()
+    self:OnCreated()
   end
 end
 
@@ -206,11 +221,10 @@ function modifier_item_trumps_fists_frostbite:IsPurgable()
 end
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
-  local funcs = {
+  return {
     --MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_EVENT_ON_HEALTH_GAINED,
   }
-  return funcs
 end
 
 --function modifier_item_trumps_fists_frostbite:GetDisableHealing()
@@ -236,24 +250,57 @@ end
 ]]
 
 if IsServer() then
-  -- Deals damage every time a unit gains hp; damage is equal to percent of gained hp;
-  function modifier_item_trumps_fists_frostbite:OnHealthGained( kv )
-    local unit = kv.unit
+  -- Deals damage every time a unit gains hp; damage is equal to a percent of gained hp;
+  function modifier_item_trumps_fists_frostbite:OnHealthGained(event)
     local caster = self:GetCaster()
-    if unit == self:GetParent() and kv.gain and not unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
-      if kv.gain > 0 and caster:IsAlive() then
-        local heal_to_damage = self.heal_prevent_percent / 100
-        local damage = kv.gain * heal_to_damage
-        local damage_table = {
-          victim = unit,
-          attacker = caster,
-          damage = damage,
-          damage_type = DAMAGE_TYPE_MAGICAL,
-          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL),
-          ability = self:GetAbility(),
-        }
-        ApplyDamage(damage_table)
-      end
+    local unit = event.unit
+    local gained_hp = event.gain or 0
+
+    -- Check if unit exists
+    if not unit or unit:IsNull() then
+      return
     end
+
+    -- Check if unit has this modifier
+    if unit ~= self:GetParent() then
+      return
+    end
+
+    if gained_hp <= 0 then
+      return
+    end
+
+    -- Check if caster exists
+    if not caster or caster:IsNull() then
+      return
+    end
+
+    -- Check if caster is alive
+    if not caster:IsAlive() then
+      return
+    end
+
+    -- Check if unit has vanilla Sticky Napalm
+    if unit:FindModifierByNameAndCaster("modifier_batrider_sticky_napalm", caster) then
+      return
+    end
+
+    -- Disable multiplicative stacking with Skadi
+    if unit:HasModifier("modifier_item_skadi_slow") then
+      return
+    end
+
+    local heal_to_damage = self.heal_prevent_percent or 45
+    local damage = gained_hp * heal_to_damage / 100
+    local damage_table = {
+      victim = unit,
+      attacker = caster,
+      damage = damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      ability = self:GetAbility(),
+    }
+
+    ApplyDamage(damage_table)
   end
 end
