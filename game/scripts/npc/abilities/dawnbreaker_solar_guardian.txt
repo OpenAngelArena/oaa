@@ -28,7 +28,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"80" //OAA
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,36 +39,36 @@
     "AbilityModifierSupportValue"	"0.25"	// generally used for damage only
 
     // Special
-    //------------------------------------------------------------------------------------------------------------- 
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "airtime_duration"        "0.8"
-      "radius"        
+      "radius"
       {
         "value" "500"
         "LinkedSpecialBonus"  "special_bonus_unique_dawnbreaker_solar_guardian_radius"
       }
-      "base_damage"     "30 70 110 230 430" //OAA
-      "base_heal" //OAA 
+      "base_damage"                                       "30 70 110 230 430" //OAA
+      "base_heal" //OAA
       {
-        "value"       "45 95 145 295 545"
-        "special_bonus_scepter" "+15 25 35 65 115"
+        "value"                                           "45 95 145 295 545"
+        "special_bonus_scepter"                           "+15 25 35 65 115"
       }
       "pulse_interval"        "0.5"
-      "land_damage"     "130 190 250 500 750"  //OAA
-      "land_stun_duration"      "1.5 1.75 2 2.25 2.5"
+      "land_damage"                                       "130 190 250 500 750"  //OAA
+      "land_stun_duration"                                "1.5 1.75 2 2.25 2.5"
       "max_offset_distance"     "350"
-      "scepter_channel_time"        
+      "scepter_channel_time"
       {
         "value" "1.0"
         "RequiresScepter"     "1"
       }
-      "airtime_scepter_bonus" 
+      "airtime_scepter_bonus"
       {
         "value"       "3.5"
         "RequiresScepter"     "1"
       }
-      "miss_rate"       
+      "miss_rate"
       {
         "value"     "60"
         "RequiresScepter"     "1"
