@@ -31,7 +31,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "175"
-    "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,43 +38,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        "3.0 3.5 4.0 4.5 5.0"
+      "drag_distance"     "300"
+      "break_distance"    "425"
+      "damage"    "40 80 120 240 440" //OAA
+      "grab_radius_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 3.5 4.0 4.5 5.0"
+        "value"   "600"
+        "RequiresScepter"   "1"
       }
-      "02"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "drag_distance"                                   "300"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "break_distance"                                  "425"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "grab_radius"                                     "400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "grab_radius_scepter"                             "600"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage"                                          "40 80 120 240 440" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "allied_cooldown"                                 "20"
+        "value"       "100 95 90 85 80"
+        "special_bonus_unique_batrider_6"     "-10"
       }
     }
   }
