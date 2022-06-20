@@ -93,14 +93,12 @@ function modifier_zuus_cloud_oaa:OnDestroy()
 end
 
 function modifier_zuus_cloud_oaa:DeclareFunctions()
-	local funcs =
-	{
+  return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
-    MODIFIER_EVENT_ON_ATTACKED
-	}
-	return funcs
+    MODIFIER_EVENT_ON_ATTACKED,
+  }
 end
 
 function modifier_zuus_cloud_oaa:GetAbsoluteNoDamagePhysical()

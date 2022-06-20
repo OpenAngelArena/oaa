@@ -25,10 +25,11 @@
 //"DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_polarizing_palm"                                    "Polarizing Palm"
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Applies damage if an enemy. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be stunned."
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Applies damage based on Sohei's strength if an enemy. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be stunned."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_Lore"                               "Takuan's ki can be repulsive and attractive."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_push_pull_length"                   "PUSH/PULL LENGTH:"
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_damage"                             "DAMAGE:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_damage"                             "BASE DAMAGE:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_strength_damage"                    "%STRENGTH DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_stun_duration"                      "COLLISION STUN DURATION:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_shard_description"                  "When Way of the Ki is toggled on, it pulls instead of push."
 

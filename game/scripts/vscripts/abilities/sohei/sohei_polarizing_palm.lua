@@ -260,13 +260,15 @@ if IsServer() then
 
     -- Damage only enemies without spell immunity
     if parent:GetTeamNumber() ~= caster:GetTeamNumber() and not parent:IsMagicImmune() then
-      local damage = ability:GetSpecialValueFor("damage")
+      local base_damage = ability:GetSpecialValueFor("damage")
+      local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+      local bonus_damage = str_multiplier * caster:GetStrength() / 100
 
       local damage_table = {}
       damage_table.attacker = caster
       damage_table.damage_type = ability:GetAbilityDamageType()
       damage_table.ability = ability
-      damage_table.damage = damage
+      damage_table.damage = base_damage + bonus_damage
       damage_table.victim = parent
 
       ApplyDamage(damage_table)

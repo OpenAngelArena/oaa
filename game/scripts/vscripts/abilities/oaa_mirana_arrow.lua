@@ -1,6 +1,4 @@
 LinkLuaModifier("modifier_mirana_arrow_stun_oaa", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_mirana_global_arrow", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_mirana_arrow_cooldown", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 
 mirana_arrow_oaa = class( AbilityBaseClass )
 
@@ -365,22 +363,12 @@ end
 --------------------------------------------------------------------------------
 
 function mirana_arrow_oaa:GetCooldown( level )
-  local caster = self:GetCaster()
   local base_cd = self.BaseClass.GetCooldown( self, level )
-  if IsServer() then
-    local talent = caster:FindAbilityByName("special_bonus_unique_mirana_3")
-    if talent and talent:GetLevel() > 0 then
-      if not caster:HasModifier("modifier_special_bonus_unique_mirana_arrow_cooldown") then
-        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_mirana_arrow_cooldown", {})
-      end
-      return base_cd - math.abs(talent:GetSpecialValueFor("value"))
-    else
-      caster:RemoveModifierByName("modifier_special_bonus_unique_mirana_arrow_cooldown")
-    end
-  else
-    if caster:HasModifier("modifier_special_bonus_unique_mirana_arrow_cooldown") and caster.special_bonus_unique_mirana_arrow_cd then
-      return base_cd - math.abs(caster.special_bonus_unique_mirana_arrow_cd)
-    end
+
+  -- Talent that reduces cooldown
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_mirana_3")
+  if talent and talent:GetLevel() > 0 then
+    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
   end
 
   return base_cd
@@ -389,22 +377,10 @@ end
 --------------------------------------------------------------------------------
 
 function mirana_arrow_oaa:GetCastRange(location, target)
-  local caster = self:GetCaster()
-
-  if IsServer() then
-    local talent = caster:FindAbilityByName("special_bonus_mirana_arrow_global")
-    if talent and talent:GetLevel() > 0 then
-      if not caster:HasModifier("modifier_special_bonus_unique_mirana_global_arrow") then
-        caster:AddNewModifier(caster, talent, "modifier_special_bonus_unique_mirana_global_arrow", {})
-      end
-      return talent:GetSpecialValueFor("cast_range")
-    else
-      caster:RemoveModifierByName("modifier_special_bonus_unique_mirana_global_arrow")
-    end
-  else
-    if caster:HasModifier("modifier_special_bonus_unique_mirana_global_arrow") and caster.special_bonus_unique_mirana_arrow_range then
-      return caster.special_bonus_unique_mirana_arrow_range
-    end
+  -- Talent that gives global range
+  local talent = self:GetCaster():FindAbilityByName("special_bonus_mirana_arrow_global")
+  if talent and talent:GetLevel() > 0 then
+    return talent:GetSpecialValueFor("cast_range")
   end
 
   return self.BaseClass.GetCastRange( self, location, target )
@@ -439,11 +415,9 @@ function modifier_mirana_arrow_stun_oaa:GetEffectAttachType()
 end
 
 function modifier_mirana_arrow_stun_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_mirana_arrow_stun_oaa:GetOverrideAnimation()
@@ -451,72 +425,7 @@ function modifier_mirana_arrow_stun_oaa:GetOverrideAnimation()
 end
 
 function modifier_mirana_arrow_stun_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
-end
-
----------------------------------------------------------------------------------------------------
-
--- Modifier on caster used for talent that improves arrow cast range
-modifier_special_bonus_unique_mirana_global_arrow = class(ModifierBaseClass)
-
-function modifier_special_bonus_unique_mirana_global_arrow:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_unique_mirana_global_arrow:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_unique_mirana_global_arrow:RemoveOnDeath()
-  return false
-end
-
-function modifier_special_bonus_unique_mirana_global_arrow:OnCreated()
-  if not IsServer() then
-    local parent = self:GetParent()
-    local talent = self:GetAbility()
-    parent.special_bonus_unique_mirana_arrow_range = talent:GetSpecialValueFor("cast_range")
-  end
-end
-
-function modifier_special_bonus_unique_mirana_global_arrow:OnDestroy()
-  local parent = self:GetParent()
-  if parent and parent.special_bonus_unique_mirana_arrow_range then
-    parent.special_bonus_unique_mirana_arrow_range = nil
-  end
-end
-
----------------------------------------------------------------------------------------------------
-
--- Modifier on caster used for talent that improves arrow cooldown
-modifier_special_bonus_unique_mirana_arrow_cooldown = class(ModifierBaseClass)
-
-function modifier_special_bonus_unique_mirana_arrow_cooldown:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_unique_mirana_arrow_cooldown:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_unique_mirana_arrow_cooldown:RemoveOnDeath()
-  return false
-end
-
-function modifier_special_bonus_unique_mirana_arrow_cooldown:OnCreated()
-  if not IsServer() then
-    local parent = self:GetParent()
-    local talent = self:GetAbility()
-    parent.special_bonus_unique_mirana_arrow_cd = talent:GetSpecialValueFor("value")
-  end
-end
-
-function modifier_special_bonus_unique_mirana_arrow_cooldown:OnDestroy()
-  local parent = self:GetParent()
-  if parent and parent.special_bonus_unique_mirana_arrow_cd then
-    parent.special_bonus_unique_mirana_arrow_cd = nil
-  end
 end
