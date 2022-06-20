@@ -62,7 +62,7 @@ function modifier_skeleton_global_aura_emitter:GetAuraRadius()
 end
 
 function modifier_skeleton_global_aura_emitter:GetAuraEntityReject(hEntity)
-  if not hEntity:GetUnitName() ~= "npc_dota_wraith_king_skeleton_warrior" then
+  if hEntity:GetUnitName() ~= "npc_dota_wraith_king_skeleton_warrior" then
     return true
   end
   return false
