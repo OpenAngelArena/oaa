@@ -2,7 +2,7 @@
 {
   "item_recipe_spirit_vessel"                             "REMOVE"
   "item_spirit_vessel"                                    "REMOVE"
-  
+
   //=================================================================================================================
   // Recipe: Spirit Vessel 1
   //=================================================================================================================
@@ -37,7 +37,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "80267"
-	"BaseClass"                                           "item_lua"
+    "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
