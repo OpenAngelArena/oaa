@@ -1,33 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Battlefury 5
+  // Recipe: Small Cleaver
   //=================================================================================================================
-  "item_recipe_bfury_5"
+  "item_recipe_small_cleaver_oaa"
   {
-    "ID"                                                  "3864"    // unique ID
+    "ID"                                                  "3677"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "item_recipe_bfury"
+
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "10"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bfury_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "ItemResult"                                          "item_small_cleaver_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_bfury_4;item_upgrade_core_4"
+      "01"                                                "item_claymore;item_broadsword;item_quelling_blade"
     }
   }
 
   //=================================================================================================================
-  // Battlefury 5
+  // Small Cleaver
   //=================================================================================================================
-  "item_bfury_5"
+  "item_small_cleaver_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3865"    // unique ID
+    "ID"                                                  "3678"
     "BaseClass"                                           "item_bfury"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
@@ -36,19 +38,14 @@
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "4.0"
-    "AbilityTextureName"                                  "custom/battle_fury_5"
-
-    //Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    //"AbilityTextureName"                                  "custom/small_cleaver"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "37114"
+    "ItemCost"                                            "2460"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "cleaver 5"
+    "ItemAliases"                                         "small cleaver"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -58,37 +55,37 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 120 180 260"
+        "bonus_damage"                                    "35"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "7.5 11 14 17 20"
+        "bonus_health_regen"                              "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.75 3.0 3.5 4.25 5.25"
+        "bonus_mana_regen"                                "0"
       }
       "04" // Cleave against heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "70 90 110 130 150"
+        "cleave_damage_percent"                           "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent_creep"                     "40 60 80 100 120"
+        "cleave_damage_percent_creep"                     "40"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "15"
+        "quelling_bonus"                                  "8"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "15" //OAA
+        "quelling_bonus_ranged"                           "8"
       }
       "08"
       {
