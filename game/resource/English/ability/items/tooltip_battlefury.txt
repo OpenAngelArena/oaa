@@ -12,6 +12,15 @@
 "DOTA_Tooltip_ability_item_bfury_bonus_health_regen"                    "+$hp_regen"
 "DOTA_Tooltip_ability_item_bfury_bonus_mana_regen"                      "+$mana_regen"
 
+"DOTA_Tooltip_Ability_item_recipe_small_cleaver_oaa"                    "Small Cleaver Recipe"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa"                           "Small Cleaver"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_Description"               "<h1>Active: Chop Tree</h1> Destroy a target tree.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: Quell</h1> Increases attack damage against non-hero units by %quelling_bonus%. \n<h1>Passive: Minor Cleave</h1> Deals %cleave_damage_percent_creep%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target against creeps only. (Melee Only)"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_Lore"                      "Small cleaving axe."
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_Note0"                     "#{DOTA_Tooltip_ability_item_bfury_Note0}"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_Note1"                     "#{DOTA_Tooltip_ability_item_bfury_Note1}"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_Note2"                     "#{DOTA_Tooltip_ability_item_bfury_Note2}"
+"DOTA_Tooltip_Ability_item_small_cleaver_oaa_bonus_damage"              "#{DOTA_Tooltip_ability_item_bfury_bonus_damage}"
+
 "DOTA_Tooltip_Ability_item_bfury_2"                                     "#{DOTA_Tooltip_Ability_item_bfury}"
 "DOTA_Tooltip_Ability_item_recipe_bfury_2"                              "#{DOTA_Tooltip_Ability_item_recipe_bfury}"
 "DOTA_Tooltip_Ability_item_bfury_2_Description"                         "#{DOTA_Tooltip_ability_item_bfury_Description}"
