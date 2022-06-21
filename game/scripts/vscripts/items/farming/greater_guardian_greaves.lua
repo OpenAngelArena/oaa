@@ -160,12 +160,21 @@ function modifier_item_greater_guardian_greaves:DeclareFunctions()
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Agility()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Intellect()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
@@ -202,7 +211,7 @@ function modifier_item_greater_guardian_greaves:GetModifierAura()
 end
 
 ------------------------------------------------------------------------------
-
+-- Custom Greaves aura effect, unused
 modifier_item_greater_guardian_greaves_aura = class({})
 
 function modifier_item_greater_guardian_greaves_aura:DeclareFunctions()

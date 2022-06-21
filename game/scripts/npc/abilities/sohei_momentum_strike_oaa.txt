@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sohei: Ki Strike - Attacks and slows all units in line, knocks them back, stuns them if they collide with something
+  // Sohei: Ki Strike - Attacks and slows all units in line, knocks them back, stuns them if they collide with something; - unused
   //=================================================================================================================
   "sohei_momentum_strike"
   {
@@ -48,7 +48,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilityValues" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
     {
       "movement_slow"                                     "-20 -25 -30 -35 -40 -45"
       "slow_duration"                                     "4.0"
@@ -56,7 +56,6 @@
       "strike_range"                                      "600 700 800 900 1000 1100"
       "knockback_distance"                                "400"
       "knockback_speed"                                   "1200"
-      "collision_radius"                                  "125" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
       "stun_duration"
       {
         "value"                                           "1.0 1.1 1.2 1.3 1.4 1.5"

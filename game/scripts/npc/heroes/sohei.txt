@@ -40,35 +40,35 @@
 
     "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
     "AttributeBaseStrength"     "23"
-    "AttributeStrengthGain"     "4.0"
+    "AttributeStrengthGain"     "3.8"
     "AttributeBaseAgility"      "15"
     "AttributeAgilityGain"      "2.1"
     "AttributeBaseIntelligence" "17"
     "AttributeIntelligenceGain" "1.5"
 
     "Ability1"                  "sohei_dash"
-    "Ability2"                  "sohei_wholeness_of_body"
-    "Ability3"                  "sohei_momentum_strike"
-    "Ability4"                  "sohei_momentum"
-    "Ability5"                  "sohei_quivering_palm"
+    "Ability2"                  "sohei_polarizing_palm"
+    "Ability3"                  "sohei_momentum"
+    "Ability4"                  "sohei_way_of_the_ki"
+    "Ability5"                  "sohei_wholeness_of_body"
     "Ability6"                  "sohei_flurry_of_blows"
     "Ability7"                  "generic_hidden"
     "Ability8"                  "generic_hidden"
     "Ability9"                  "generic_hidden"
 
     "Ability10"                 "special_bonus_strength_10"
-    "Ability11"                 "special_bonus_movement_speed_20"
+    "Ability11"                 "special_bonus_sohei_dash_cast_range"
 
-    "Ability12"                 "special_bonus_sohei_wholeness_knockback"
+    "Ability12"                 "special_bonus_unique_sohei_7"
     "Ability13"                 "special_bonus_sohei_dash_slow"
 
     "Ability14"                 "special_bonus_sohei_stun"
-    "Ability15"                 "special_bonus_unique_sohei_7"
+    "Ability15"                 "special_bonus_unique_sohei_9"
 
     "Ability16"                 "special_bonus_unique_sohei_5"
     "Ability17"                 "special_bonus_unique_sohei_8"
 
-    // special_bonus_sohei_stun                             - Ki Strike bonus stun duration if the target collides with an obstacle
+    // special_bonus_sohei_stun                             - Polarizing Palm bonus stun duration if the target collides with an obstacle
     // special_bonus_sohei_dash_slow                        - Dash bonus slow
     // special_bonus_sohei_dash_cast_range                  - Dash bonus max range
     // special_bonus_sohei_fob_radius                       - Flurry of Blows bonus AoE
@@ -76,6 +76,7 @@
     // special_bonus_sohei_wholeness_knockback              - Wholeness of Body Knockback
     // special_bonus_unique_sohei_7                         - Dash bonus damage
     // special_bonus_unique_sohei_8                         - Flurry of Blows bonus attacks and duration
+    // special_bonus_unique_sohei_9                         - Polarizing Palm bonus cast range
 
     "AbilityTalentStart"        "10"
 

@@ -85,11 +85,9 @@ function modifier_lycan_feral_movement_effect_oaa:IsPurgable()
 end
 
 function modifier_lycan_feral_movement_effect_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
-
-  return state
 end
 
 function modifier_lycan_feral_movement_effect_oaa:DeclareFunctions()

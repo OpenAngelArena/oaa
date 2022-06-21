@@ -9,10 +9,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "85259"
     "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_clinkz_strafe.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/clinkz_strafe_oaa"
-    "ScriptFile"                                          "abilities/oaa_clinkz_strafe.lua"
 
     "MaxLevel"                                            "1"
 
@@ -38,7 +38,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "200" // old "90 120 150 180 210 240"
+        "bonus_attack_speed"                              "180" // old "90 120 150 180 210 240"
       }
       "03"
       {

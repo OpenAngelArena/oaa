@@ -8,7 +8,35 @@ function broodmother_incapacitating_bite_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
-  -- Sound
+  -- Create the projectile
+  local info = {
+    Target = target,
+    Source = caster,
+    Ability = self,
+    EffectName = "particles/units/heroes/hero_broodmother/broodmother_web_cast.vpcf",
+    bDodgeable = true,
+    bProvidesVision = true,
+    bVisibleToEnemies = true,
+    bReplaceExisting = false,
+    iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
+    iVisionRadius = 250,
+    iVisionTeamNumber = caster:GetTeamNumber(),
+  }
+
+  ProjectileManager:CreateTrackingProjectile(info)
+
+  -- Cast Sound
+  caster:EmitSound("Hero_Broodmother.SpawnSpiderlingsCast")
+end
+
+function broodmother_incapacitating_bite_oaa:OnProjectileHit(target, location)
+  local caster = self:GetCaster()
+
+  if not target or target:IsNull() then
+    return
+  end
+
+  -- Impact Sound
   caster:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
 
   -- Don't do anything if target has Linken's effect or it's spell-immune
@@ -30,9 +58,10 @@ function broodmother_incapacitating_bite_oaa:OnSpellStart()
   -- Calculate damage
   local target_max_health = target:GetMaxHealth()
   local actual_damage = base_damage + max_hp_damage_percent * target_max_health * 0.01
-  -- Don't do percentage damage to bosses
+
+  -- Do reduced damage to bosses
   if target:IsOAABoss() then
-    actual_damage = base_damage
+    actual_damage = base_damage + (max_hp_damage_percent * target_max_health * 0.01) * 15/100
   end
 
   local damage_table = {
@@ -72,11 +101,9 @@ function modifier_broodmother_incapacitating_bite_debuff_oaa:IsPurgable()
 end
 
 function modifier_broodmother_incapacitating_bite_debuff_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_DISABLE_TURNING,
   }
-
-  return funcs
 end
 
 function modifier_broodmother_incapacitating_bite_debuff_oaa:GetModifierDisableTurning()
@@ -84,14 +111,13 @@ function modifier_broodmother_incapacitating_bite_debuff_oaa:GetModifierDisableT
 end
 
 function modifier_broodmother_incapacitating_bite_debuff_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ROOTED] = true,
     [MODIFIER_STATE_DISARMED] = true,
     [MODIFIER_STATE_BLOCK_DISABLED] = true,
     [MODIFIER_STATE_EVADE_DISABLED] = true,
     [MODIFIER_STATE_FROZEN] = true,
   }
-  return state
 end
 
 function modifier_broodmother_incapacitating_bite_debuff_oaa:GetEffectName()

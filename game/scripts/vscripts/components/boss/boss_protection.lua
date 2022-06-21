@@ -83,10 +83,6 @@ if not BossProtectionFilter then
     winter_wyvern_winters_curse = true
   }
 
-  BossProtectionFilter.UniqueStunItems = {
-    item_allied_cyclone = true
-  }
-
   BossProtectionFilter.HexItems = {
     item_sheepstick = true
   }
@@ -94,16 +90,6 @@ if not BossProtectionFilter then
   BossProtectionFilter.HexSpells = {
     lion_voodoo = true,
     shadow_shaman_voodoo = true
-  }
-
-  BossProtectionFilter.ProblematicSpells = {
-    death_prophet_spirit_siphon = false,
-    doom_bringer_infernal_blade = false,
-    huskar_life_break = false,
-    jakiro_liquid_ice = false,
-    necrolyte_reapers_scythe = false,
-    tinker_shrink_ray = false,
-    winter_wyvern_arctic_burn = false
   }
 
 end
@@ -126,10 +112,6 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
 
   local abilityName = ability:GetName()
   local modifierName = keys.name_const
-
-  if parent:IsOAABoss() and BossProtectionFilter.ProblematicSpells[abilityName] then
-    return false
-  end
 
   -- Anchor Smash override
   if parent:IsOAABoss() and abilityName == "tidehunter_anchor_smash" and modifierName == "modifier_tidehunter_anchor_smash" then
@@ -157,7 +139,6 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
   if parent:HasModifier("modifier_siltbreaker_boss_protection") then
     if modifierName == 'modifier_stunned'
         or BossProtectionFilter.UniqueStunSpells[abilityName]
-        or BossProtectionFilter.UniqueStunItems[abilityName]
         or BossProtectionFilter.HexSpells[abilityName]
         or BossProtectionFilter.HexItems[abilityName] then
       return false

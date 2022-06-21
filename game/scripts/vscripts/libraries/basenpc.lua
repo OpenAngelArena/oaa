@@ -146,6 +146,7 @@ if IsServer() then
       "modifier_windrunner_windrun",
       "modifier_windrunner_windrun_invis",
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
+      "modifier_sohei_flurry_self",
     }
 
     local undispellable_rune_modifiers = {

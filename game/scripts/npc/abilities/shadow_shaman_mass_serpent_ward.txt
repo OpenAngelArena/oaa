@@ -12,7 +12,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -76,7 +75,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hits_to_destroy_tooltip_creeps"                   "4"
+        "hits_to_destroy_tooltip_creeps"                  "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
       }
     }

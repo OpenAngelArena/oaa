@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dazzle: Bad Juju
+  // Dazzle: Good Juju
   //=================================================================================================================
   "dazzle_good_juju"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "933" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "933"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -28,14 +28,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cooldown_reduction"    "1.5" //OAA
+      "cooldown_reduction"                                "1.5" //OAA
       "item_cooldown_reduction"
       {
-        "value"   "50"
-        "RequiresScepter" "1"
+        "value"                                           "50"
+        "RequiresScepter"                                 "1"
       }
-      "scepter_mana_cost"     "250"
-      "scepter_cooldown"      "90" //OAA
+      "scepter_mana_cost"                                 "250"
+      "scepter_cooldown"                                  "100" //OAA
     }
   }
 }

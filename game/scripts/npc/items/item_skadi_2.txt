@@ -7,10 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3190"    // unique ID
+    "ID"                                                  "3190"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -34,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3194"    // unique ID
+    "ID"                                                  "3194"
     "BaseClass"                                           "item_skadi"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_2"
@@ -55,15 +56,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"   "22 27 32 37 42"
-      "bonus_health"      "220 320 470 670 920"
-      "bonus_mana"      "220 320 470 670 920"
-      "cold_slow_melee" "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee" "-30 -35 -45 -50 -55"
-      "cold_slow_ranged"  "-40 -45 -50 -55 -60"
-      "cold_attack_slow_ranged"  "-60 -65 -70 -75 -80"
-      "cold_duration" "3.0"
-      "heal_reduction"  "40 45 50 55 60"
+      "bonus_all_stats"                                   "22 27 32 37 42"
+      "bonus_health"                                      "220 320 470 670 920"
+      "bonus_mana"                                        "220 320 470 670 920"
+      "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
+      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
+      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_duration"                                     "3.0"
+      "heal_reduction"                                    "40 45 50 55 60"
     }
   }
 }

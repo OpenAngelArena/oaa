@@ -35,11 +35,13 @@
 "DOTA_Tooltip_Ability_electrician_energy_absorption_bonus_mana_cap"             "EXCESS MANA CAP:"
 
 "DOTA_Tooltip_Ability_electrician_cleansing_shock"                              "Cleansing Shock"
-"DOTA_Tooltip_Ability_electrician_cleansing_shock_Description"                  "Strikes a unit with a purging bolt that removes most debuffs from an ally and grants them bonus movement speed, or removes most buffs from an enemy and slows them. Both movement speed effects decay over their duration. Bolt bounces prioritizing heroes.\n\nDISPEL TYPE: Basic Dispel"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_Description"                  "Strikes a unit with a purging bolt that removes most debuffs from an ally and grants them bonus movement and attack speed, or removes most buffs from an enemy and slows them. Both speed effects decay over their duration. Bolt bounces prioritizing heroes.\n\nDISPEL TYPE: Basic Dispel"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_Lore"                         "Zapping, cleansing, shocking. Pew pew."
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_duration"                     "DURATION:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_move_speed_bonus"             "%ALLY MOVE SPEED BONUS:"
-"DOTA_Tooltip_Ability_electrician_cleansing_shock_slow"                         "%ENEMY SLOW:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_attack_speed_bonus"           "ALLY ATTACK SPEED BONUS:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_move_slow"                    "%ENEMY MOVE SLOW:"
+"DOTA_Tooltip_Ability_electrician_cleansing_shock_attack_slow"                  "ENEMY ATTACK SLOW:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_bounces"                      "BOUNCES:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_bounces_scepter"              "SCEPTER BOUNCES:"
 "DOTA_Tooltip_Ability_electrician_cleansing_shock_bounce_range"                 "BOUNCE RANGE:"
@@ -64,10 +66,10 @@
 "DOTA_Tooltip_modifier_electrician_bonus_mana_count_Description"                "Excess mana absorbed from enemies."
 
 "DOTA_Tooltip_modifier_electrician_cleansing_shock_ally"                        "Cleansed"
-"DOTA_Tooltip_modifier_electrician_cleansing_shock_ally_Description"            "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed, decaying over time."
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_ally_Description"            "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, decaying over time."
 
 "DOTA_Tooltip_modifier_electrician_cleansing_shock_enemy"                       "Shocked"
-"DOTA_Tooltip_modifier_electrician_cleansing_shock_enemy_Description"           "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, decaying over time."
+"DOTA_Tooltip_modifier_electrician_cleansing_shock_enemy_Description"           "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, decaying over time."
 
 // talents
 "DOTA_Tooltip_Ability_special_bonus_electrician_energy_absorption_mana"                  "+{s:value}% Energy Absorption Max Mana Absorbed"

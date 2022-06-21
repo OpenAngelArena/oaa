@@ -210,6 +210,14 @@ function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
+-- Prevent stacking with Veil of Discord
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
+  if hEntity:HasModifier("modifier_item_veil_of_discord_debuff") then
+    return true
+  end
+  return false
+end
+
 function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --local spell = self:GetAbility()
 
@@ -328,28 +336,30 @@ end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:OnCreated()
   local ability = self:GetAbility()
-  if ability then
-    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+  if ability and not ability:IsNull() then
+    --self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+    self.magic_dmg_amp = ability:GetSpecialValueFor("magic_dmg_amp")
   end
 end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:OnRefresh()
-  local ability = self:GetAbility()
-  if ability then
-    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
-  end
+  self:OnCreated()
 end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+  return {
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
-  return funcs
 end
 
-function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierMagicalResistanceBonus()
-  if self.magic_resistance then
-    return self.magic_resistance
+--function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierMagicalResistanceBonus()
+  --return self.magic_resistance or -25
+--end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierIncomingDamage_Percentage(keys)
+  if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == DAMAGE_TYPE_MAGICAL then
+    return self.magic_dmg_amp or 35
   end
-  return -15
+  return 0
 end

@@ -28,8 +28,8 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "20"        // Physical protection.
-    "MagicalResistance"                                   "40"        // Magical protection.
+    "ArmorPhysical"                                       "25"        // Physical protection.
+    "MagicalResistance"                                   "25"        // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
@@ -59,12 +59,12 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "320"
+    "MovementSpeed"                                       "380"
     "MovementTurnRate"                                    "1"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "40000"
+    "StatusHealth"                                        "25000"
     "StatusHealthRegen"                                   "1.0"
     "StatusMana"                                          "0"
     "StatusManaRegen"                                     "0.0"

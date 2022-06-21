@@ -37,11 +37,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_slardar_bash_oaa:DeclareFunctions()
-  local funcs = {
-  MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
-}
-
-return funcs
+  return {
+    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
+  }
 end
 
 --------------------------------------------------------------------------------

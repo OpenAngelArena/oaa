@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Sohei: Polarizing Palm - Pushes and damage the target enemy, stuns if enemy collides with something. Can pull with shard.
+  //=================================================================================================================
+  "sohei_polarizing_palm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3674"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/sohei/sohei_polarizing_palm.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityTextureName"                                  "custom/ronin_palm_of_life"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
+    "AnimationPlaybackRate"                               "2.5"
+    "AbilityCastRange"                                    "450"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14 12 10 8 7 6"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/hero/sohei/momentum.vpcf"
+      "particle"                                          "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
+      "particle"                                          "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
+      "particle"                                          "particles/hero/sohei/sohei_trail.vpcf"
+      "particle"                                          "particles/hero/sohei/arcana/dbz/sohei_trail_dbz.vpcf"
+      "particle"                                          "particles/hero/sohei/arcana/pepsi/sohei_trail_pepsi.vpcf"
+      "particle"                                          "particles/hero/sohei/knockback.vpcf"
+      "particle"                                          "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
+      "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
+    {
+      "damage"                                            "70 140 210 280 560 1120"
+      "strength_damage"                                   "30 60 90 120 140 160"
+      "push_pull_length"                                  "200 250 300 350 400 450"
+      "push_pull_speed"                                   "1200"
+      "stun_duration"
+      {
+        "value"                                           "1.0 1.1 1.2 1.3 1.4 1.5"
+        "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
+      }
+    }
+  }
+}

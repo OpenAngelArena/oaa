@@ -36,36 +36,34 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 225 300 375 450"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "450"
+      "stun_duration"                                     "2.25 2.5 2.75 3.0 3.25"
+      "damage"                                            "250 450 650 1050 1850"
+      "minimum_range"                                     "0"
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "value"                                           "80 75 70 65 60"
+        "RequiresScepter"                                 "1"
       }
-      "02"
+      "damage_reduction"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2.25 2.5 2.75 3.0 3.25"
+        "value"                                           "10 20 30 35 40"
+        "RequiresScepter"                                 "1"
       }
-      "03"
+      "bonus_ms"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "250 450 650 1050 1850"
+        "value"                                           "10 20 30 40 50"
+        "RequiresScepter"                                 "1"
       }
-      "04"
+      "buff_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "minimum_range"                                   "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "80 75 70 65 60"
+        "value"                                           "6"
         "RequiresScepter"                                 "1"
       }
     }
