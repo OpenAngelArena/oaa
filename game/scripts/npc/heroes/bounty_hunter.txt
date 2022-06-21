@@ -5,6 +5,10 @@
   //=================================================================================================================
   "npc_dota_hero_bounty_hunter"
   {
+    "Ability11"                                           "special_bonus_unique_bounty_hunter" // replaces special_bonus_unique_bounty_hunter_4
+
+    "Ability15"                                           "special_bonus_unique_bounty_hunter_4" // replaces special_bonus_unique_bounty_hunter
+
     "Ability16"                                           "special_bonus_unique_bounty_hunter_7"
     "Ability17"                                           "special_bonus_cast_range_350" // replaces special_bonus_unique_bounty_hunter_3
   }
