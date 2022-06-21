@@ -36,7 +36,6 @@ function sohei_momentum_strike:OnSpellStart()
   local knockback_distance = self:GetSpecialValueFor("knockback_distance")
   local knockback_speed = self:GetSpecialValueFor("knockback_speed")
   local knockback_duration = knockback_distance / knockback_speed
-  local collision_radius = self:GetSpecialValueFor("collision_radius")
 
   -- Hit particle
   local particleName = "particles/hero/sohei/momentum.vpcf"
@@ -71,7 +70,6 @@ function sohei_momentum_strike:OnSpellStart()
           duration = knockback_duration,
           distance = knockback_distance,
           speed = knockback_speed,
-          collision_radius = collision_radius,
           direction_x = direction.x,
           direction_y = direction.y,
         })
@@ -115,7 +113,7 @@ function modifier_sohei_momentum_strike_knockback:IsStunDebuff()
 end
 
 function modifier_sohei_momentum_strike_knockback:GetPriority()
-  return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST--DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
+  return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
 end
 
 function modifier_sohei_momentum_strike_knockback:GetEffectName()
@@ -130,19 +128,15 @@ function modifier_sohei_momentum_strike_knockback:GetEffectAttachType()
 end
 
 function modifier_sohei_momentum_strike_knockback:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
-
-  return state
 end
 
 function modifier_sohei_momentum_strike_knockback:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_sohei_momentum_strike_knockback:GetOverrideAnimation()
@@ -155,7 +149,6 @@ if IsServer() then
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1
     self.speed = event.speed
-    self.collision_radius = event.collision_radius
 
     if self:ApplyHorizontalMotionController() == false then
       self:Destroy()
@@ -210,7 +203,7 @@ if IsServer() then
     -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
     if GridNav:IsNearbyTree(tickOrigin, 120, false) then
       self:ApplyStun(parent, caster, ability)
-      GridNav:DestroyTreesAroundPoint(tickOrigin, self.collision_radius, false)
+      GridNav:DestroyTreesAroundPoint(tickOrigin, 120, false)
       self:Destroy()
       return
     end
@@ -316,11 +309,9 @@ function modifier_sohei_momentum_strike_slow:OnRefresh()
 end
 
 function modifier_sohei_momentum_strike_slow:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_sohei_momentum_strike_slow:GetModifierMoveSpeedBonus_Percentage()
@@ -357,11 +348,9 @@ function modifier_sohei_momentum_strike_stun:GetEffectAttachType()
 end
 
 function modifier_sohei_momentum_strike_stun:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_sohei_momentum_strike_stun:GetOverrideAnimation()
@@ -369,8 +358,7 @@ function modifier_sohei_momentum_strike_stun:GetOverrideAnimation()
 end
 
 function modifier_sohei_momentum_strike_stun:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
 end

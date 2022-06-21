@@ -20,10 +20,6 @@ function sohei_momentum:GetIntrinsicModifierName()
 	return "modifier_sohei_momentum_passive"
 end
 
---function sohei_momentum:OnUpgrade()
-
---end
-
 function sohei_momentum:ShouldUseResources()
   return true
 end
@@ -96,12 +92,10 @@ if IsServer() then
   end
 
   function modifier_sohei_momentum_passive:DeclareFunctions()
-    local funcs = {
+    return {
       MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
       MODIFIER_EVENT_ON_ATTACK_LANDED,
     }
-
-    return funcs
   end
 
   function modifier_sohei_momentum_passive:GetModifierPreAttack_CriticalStrike(event)
@@ -281,20 +275,16 @@ function modifier_sohei_momentum_knockback:GetEffectAttachType()
 end
 
 function modifier_sohei_momentum_knockback:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
-
-  return state
 end
 
 function modifier_sohei_momentum_knockback:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
   }
-
-  return funcs
 end
 
 function modifier_sohei_momentum_knockback:GetOverrideAnimation( event )
@@ -431,11 +421,9 @@ end
 
 -- slows don't show correctly if they're in an IsServer() block govs
 function modifier_sohei_momentum_slow:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_sohei_momentum_slow:GetModifierMoveSpeedBonus_Percentage()

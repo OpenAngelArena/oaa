@@ -2,7 +2,7 @@ faceless_void_time_lock_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_faceless_void_time_lock_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_faceless_void_time_walk_scepter_proc_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_faceless_void_chronosphere_scepter_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_faceless_void_chronosphere_scepter_oaa", "abilities/oaa_time_lock.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -39,13 +39,11 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_faceless_void_time_lock_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     --MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL, -- old time lock
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_MODIFIER_ADDED,
   }
-
-  return funcs
 end
 
 --------------------------------------------------------------------------------
@@ -242,8 +240,7 @@ if IsServer() then
     ParticleManager:ReleaseParticleIndex(particle)
 
     -- Second attack
-    -- Delay is hard-coded in normal dota to 0.33 seconds as per the particle constraints
-    local delay = ability:GetSpecialValueFor("second_attack_delay") or 0.33
+    local delay = ability:GetSpecialValueFor("second_attack_delay") or 0.4
     Timers:CreateTimer(delay, function()
       if target:IsAlive() and not target:IsNull() then -- and target:HasModifier("modifier_faceless_void_time_lock_oaa")
         -- Perform the second attack (can trigger attack modifiers)
@@ -390,18 +387,15 @@ function modifier_faceless_void_chronosphere_scepter_oaa:IsPurgable()
 end
 
 function modifier_faceless_void_chronosphere_scepter_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_EVADE_DISABLED] = true,
   }
-
-  return state
 end
 
 function modifier_faceless_void_chronosphere_scepter_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_DISABLE_HEALING,
   }
-  return funcs
 end
 
 function modifier_faceless_void_chronosphere_scepter_oaa:GetDisableHealing()

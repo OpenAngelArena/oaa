@@ -2,7 +2,18 @@ sohei_wholeness_of_body = class( AbilityBaseClass )
 
 LinkLuaModifier("modifier_sohei_wholeness_of_body_buff", "abilities/sohei/sohei_wholeness_of_body.lua", LUA_MODIFIER_MOTION_NONE)
 
----------------------------------------------------------------------------------------------------
+function sohei_wholeness_of_body:OnHeroCalculateStatBonus()
+  local caster = self:GetCaster()
+
+  if caster:HasScepter() or self:IsStolen() then
+    self:SetHidden(false)
+    if self:GetLevel() <= 0 then
+      self:SetLevel(1)
+    end
+  else
+    self:SetHidden(true)
+  end
+end
 
 function sohei_wholeness_of_body:OnSpellStart()
   local caster = self:GetCaster()
@@ -15,9 +26,9 @@ function sohei_wholeness_of_body:OnSpellStart()
   target:Purge(false, true, false, true, true)
 
   -- Immediate heal
-  local heal_amount = self:GetSpecialValueFor("heal_immediate")
-  target:Heal(heal_amount, self)
-  SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, heal_amount, nil)
+  --local heal_amount = self:GetSpecialValueFor("heal_immediate")
+  --target:Heal(heal_amount, self)
+  --SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, heal_amount, nil)
 
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
@@ -146,12 +157,10 @@ function modifier_sohei_wholeness_of_body_buff:OnDestroy()
 end
 
 function modifier_sohei_wholeness_of_body_buff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-
-  return funcs
 end
 
 function modifier_sohei_wholeness_of_body_buff:GetModifierMagicalResistanceBonus()

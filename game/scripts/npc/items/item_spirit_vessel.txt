@@ -1,14 +1,18 @@
 "DOTAAbilities"
 {
+  "item_recipe_spirit_vessel"                             "REMOVE"
+  "item_spirit_vessel"                                    "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Spirit Vessel
+  // Recipe: Spirit Vessel 1
   //=================================================================================================================
-  "item_recipe_spirit_vessel"
+  "item_recipe_spirit_vessel_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "266"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"             "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "80266"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
@@ -19,20 +23,22 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"          "1"
-    "ItemResult"          "item_spirit_vessel"
-    "ItemRequirements" //OAA
+    "ItemResult"                                          "item_spirit_vessel_oaa"
+    "ItemRequirements"
     {
-      "01"            "item_urn_of_shadows;item_vitality_booster"
+      "01"                                                "item_urn_of_shadows;item_vitality_booster"
     }
   }
   //=================================================================================================================
-  // Spirit Vessel
+  // Spirit Vessel 1
   //=================================================================================================================
-  "item_spirit_vessel"
+  "item_spirit_vessel_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "267"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "80267"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/spirit_vessel.lua"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
@@ -55,68 +61,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_health"                "250 500 1000 1750 2750"
-      }
-      "02"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "1.75 2.0 2.5 3.25 4.25"
-      }
-      "03"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_all_stats"             "2 10 15 20 25"
-      }
-      "04"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "bonus_armor"                 "2 3 5 8 12"
-      }
-      "05"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_radius"                 "1400"
-      }
-      "06"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_initial_charge"         "2"
-      }
-      "07"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_additional_charges"     "1"
-      }
-      "08"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_heal_amount"            "40 55 75 100 130"
-      }
-      "09"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "soul_damage_amount"          "35 50 70 95 125"
-      }
-      "10"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "duration"                    "8.0"
-      }
-      "11"
-      {
-        "var_type"                    "FIELD_INTEGER"
-        "hp_regen_reduction_enemy"    "45 50 55 60 65"
-      }
-      "12"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "enemy_hp_drain"              "4"
-      }
+      "bonus_health"                                      "250 500 1000 1750 2750"
+      "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
+      "bonus_all_stats"                                   "2 10 15 20 25"
+      "bonus_armor"                                       "2 3 5 8 12"
+      "soul_radius"                                       "1400"
+      "kill_charges"                                      "1"
+      "soul_heal_amount"                                  "50 60 80 110 150"
+      "soul_damage_amount"                                "35 45 65 95 135"
+      "duration"                                          "8.0"
+      "heal_reduction_with_charge"                        "45 50 55 60 65"
+      "heal_reduction_no_charge"                          "25"
+      "current_hp_as_dmg"                                 "4"
     }
   }
 }

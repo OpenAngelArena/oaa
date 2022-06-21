@@ -76,17 +76,17 @@
       "01"
       {
         "var_type"                          "FIELD_INTEGER"
-        "summon_health"                     "4000"
+        "summon_health"                     "2500"
       }
       "02"
       {
         "var_type"                          "FIELD_INTEGER"
-        "summon_armor"                      "0"
+        "summon_armor"                      "15"
       }
       "03"
       {
         "var_type"                          "FIELD_INTEGER"
-        "summon_ms"                         "400"
+        "summon_ms"                         "500"
       }
       "04"
       {
@@ -96,7 +96,7 @@
       "05" // needs to be changed on the unit as well
       {
         "var_type"                          "FIELD_INTEGER"
-        "summon_vision"                     "1200"
+        "summon_vision"                     "900"
       }
     }
   }

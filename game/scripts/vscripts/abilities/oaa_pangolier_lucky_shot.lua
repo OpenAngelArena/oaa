@@ -158,10 +158,9 @@ function modifier_pangolier_lucky_shot_oaa_slow_debuff:OnRefresh(event)
 end
 
 function modifier_pangolier_lucky_shot_oaa_slow_debuff:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_pangolier_lucky_shot_oaa_slow_debuff:GetModifierMoveSpeedBonus_Percentage()
@@ -193,17 +192,15 @@ function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:GetEffectName
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_DISARMED] = true
   }
-  return state
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:GetModifierPhysicalArmorBonus()
@@ -227,10 +224,9 @@ function modifier_pangolier_lucky_shot_oaa_armor_debuff:IsPurgable()
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_debuff:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_debuff:GetModifierPhysicalArmorBonus()

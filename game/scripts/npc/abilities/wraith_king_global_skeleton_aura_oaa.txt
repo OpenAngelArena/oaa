@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Wraith King: Global Skeleton Aura - buffs skeletons with damage and attack speed
+  //=================================================================================================================
+  "wraith_king_global_skeleton_aura_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3676"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_wraith_king_global_skeleton_aura.lua"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "skeleton_attack_damage_per_level"                  "2"
+      "skeleton_attack_speed_per_level"                   "1"
+      "skeleton_bonus_damage_against_creeps"              "10"
+      "skeleton_bonus_damage_against_bosses"              "50"
+    }
+  }
+}

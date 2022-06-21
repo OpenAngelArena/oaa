@@ -70,11 +70,10 @@ function modifier_elixier_hybrid_active:OnCreated()
 end
 
 function modifier_elixier_hybrid_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     --MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
   }
-  return funcs
 end
 
 function modifier_elixier_hybrid_active:GetModifierConstantManaRegen()
@@ -133,11 +132,10 @@ function modifier_elixier_hybrid_trigger:OnCreated(keys)
 end
 
 function modifier_elixier_hybrid_trigger:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -172,7 +170,7 @@ if IsServer() then
       return
     end
 
-	-- Don't continue if damage has Reflection flag
+    -- Don't continue if damage has Reflection flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
       return
     end
@@ -206,6 +204,7 @@ if IsServer() then
       --["item_radiance_5"] = true,
       --["item_urn_of_shadows"] = true,
       --["item_spirit_vessel"] = true,
+      --["item_spirit_vessel_oaa"] = true,
       --["item_spirit_vessel_2"] = true,
       --["item_spirit_vessel_3"] = true,
       --["item_spirit_vessel_4"] = true,
@@ -222,9 +221,13 @@ if IsServer() then
       return
     end
 
-    if parent:HasModifier("modifier_elixier_hybrid_not_allowed") then
+    -- Check if modifier_elixier_hybrid_not_allowed is applied to prevent proccing on DOTs with with short time intervals
+    if unit:FindModifierByNameAndCaster("modifier_elixier_hybrid_not_allowed", parent) then
       return
     end
+
+    -- Add a modifier before dealing damage
+    unit:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
 
     -- Create a damage table for proc damage
     local damage_table = {}
@@ -246,8 +249,6 @@ if IsServer() then
 
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, unit, damage_dealt, parent:GetPlayerOwner())
-
-    parent:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
   end
 
   function modifier_elixier_hybrid_trigger:OnAttackLanded(event)
@@ -265,7 +266,7 @@ if IsServer() then
       return
     end
 
-	-- Don't continue if target doesn't exist or if target is about to be deleted
+    -- Don't continue if target doesn't exist or if target is about to be deleted
     if not target or target:IsNull() then
       return
     end
@@ -304,5 +305,5 @@ function modifier_elixier_hybrid_not_allowed:IsDebuff()
 end
 
 function modifier_elixier_hybrid_not_allowed:RemoveOnDeath()
-  return false
+  return true
 end

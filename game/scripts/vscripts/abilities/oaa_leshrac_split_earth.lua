@@ -206,11 +206,9 @@ function modifier_leshrac_split_earth_oaa_debuff:GetEffectAttachType()
 end
 
 function modifier_leshrac_split_earth_oaa_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_leshrac_split_earth_oaa_debuff:GetOverrideAnimation()
@@ -218,9 +216,7 @@ function modifier_leshrac_split_earth_oaa_debuff:GetOverrideAnimation()
 end
 
 function modifier_leshrac_split_earth_oaa_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-
-  return state
 end
