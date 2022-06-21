@@ -210,6 +210,14 @@ function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
+-- Prevent stacking with Veil of Discord
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
+  if hEntity:HasModifier("modifier_item_veil_of_discord_debuff") then
+    return true
+  end
+  return false
+end
+
 function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --local spell = self:GetAbility()
 
@@ -346,12 +354,12 @@ function modifier_item_dagger_of_moriah_sangromancy_effect:DeclareFunctions()
 end
 
 --function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierMagicalResistanceBonus()
-  --return self.magic_resistance or -22
+  --return self.magic_resistance or -25
 --end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierIncomingDamage_Percentage(keys)
   if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == DAMAGE_TYPE_MAGICAL then
-    return self.magic_dmg_amp or 25
+    return self.magic_dmg_amp or 35
   end
   return 0
 end

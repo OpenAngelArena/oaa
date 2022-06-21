@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "159"    // unique ID
+    "ID"                                                  "159"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
@@ -32,7 +32,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "160"    // unique ID
+    "ID"                                                  "160"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_1"
 
@@ -52,15 +52,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"   "22 27 32 37 42"
-      "bonus_health"      "220 320 470 670 920"
-      "bonus_mana"      "220 320 470 670 920"
-      "cold_slow_melee" "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee" "-30 -35 -45 -50 -55"
-      "cold_slow_ranged"  "-40 -45 -50 -55 -60"
-      "cold_attack_slow_ranged"  "-60 -65 -70 -75 -80"
-      "cold_duration" "3.0"
-      "heal_reduction"  "40 45 50 55 60"
+      "bonus_all_stats"                                   "22 27 32 37 42"
+      "bonus_health"                                      "220 320 470 670 920"
+      "bonus_mana"                                        "220 320 470 670 920"
+      "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
+      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
+      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_duration"                                     "3.0"
+      "heal_reduction"                                    "40 45 50 55 60"
     }
   }
 }
