@@ -6,8 +6,7 @@
 "DOTA_Tooltip_Ability_sohei_dash_Description"                                   "Consumes a charge to dash towards the target location. Sohei damages and slows enemies he dashes through. Dash speed is based on Sohei's current movement speed."
 "DOTA_Tooltip_Ability_sohei_dash_Lore"                                          "Takuan likes manipulating his movement for good unlike others." // This doesn't seem very good lmao. Probably needs to use his ki to dash swiftly or some shit
 "DOTA_Tooltip_Ability_sohei_dash_Note0"                                         "Can be used to traverse over cliffs or through trees. Destroys trees."
-"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash."  // Seems weird to leave this in
-"DOTA_Tooltip_Ability_sohei_dash_Note2"                                         "Dash Max Range can be increased with cast range bonuses."
+"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Dash Max Range can be increased with cast range bonuses."
 "DOTA_Tooltip_Ability_sohei_dash_dash_speed"                                    "DASH MAX SPEED:"
 "DOTA_Tooltip_Ability_sohei_dash_dash_width"                                    "DASH WIDTH:"
 "DOTA_Tooltip_Ability_sohei_dash_dash_range"                                    "DASH MAX RANGE:"
@@ -15,6 +14,7 @@
 "DOTA_Tooltip_Ability_sohei_dash_move_speed_slow_pct"                           "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_attack_speed_slow"                             "ATTACK SPEED SLOW:"
 "DOTA_Tooltip_Ability_sohei_dash_slow_duration"                                 "SLOW DURATION:"
+//"DOTA_Tooltip_Ability_sohei_dash_Note1"                                         "Sohei is not invulnerable during Dash."
 //"DOTA_Tooltip_Ability_sohei_dash_shard_description"                             "Increases Dash range and heals allies. Dash provides invulnerability and disjoints projectiles."
 //"DOTA_Tooltip_Ability_sohei_dash_damage_to_heal_ratio"                          "DAMAGE/HEAL RATIO:"
 //"DOTA_Tooltip_Ability_sohei_dash_hp_as_heal"                                    "%SOHEI'S MAX HP AS HEAL:"
@@ -83,7 +83,7 @@
 // "DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                 "STR DIFFERENCE MULTIPLIER:"
 
 "DOTA_Tooltip_Ability_sohei_way_of_the_ki"                                      "Way of the Ki"
-"DOTA_Tooltip_Ability_sohei_way_of_the_ki_Description"                          "Enemies damaged by Dash or Polarizing Palm deal %push_enemy_damage_reduction%%% less damage for %debuff_duration% seconds. If Way of the Ki is toggled on, enemies will instead take %pull_damage_amp%%% more damage for %debuff_duration% seconds."
+"DOTA_Tooltip_Ability_sohei_way_of_the_ki_Description"                          "Enemies damaged by Dash or Polarizing Palm deal %push_enemy_damage_reduction%%% less damage for %debuff_duration% seconds. If Way of the Ki is toggled on, enemies will take %pull_damage_amp%%% more damage instead."
 "DOTA_Tooltip_Ability_sohei_way_of_the_ki_Lore"                                 "Ki is an energy, a power, a primal force and a way of life."
 "DOTA_Tooltip_Ability_sohei_way_of_the_ki_pull_damage_amp"                      "%TOGGLED DAMAGE AMP:"
 "DOTA_Tooltip_Ability_sohei_way_of_the_ki_push_enemy_damage_reduction"          "%UNTOGGLED DAMAGE REDUCTION:"
