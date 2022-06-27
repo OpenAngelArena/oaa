@@ -172,7 +172,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
   if creepHandle ~= nil then
     self:SetCreepPropertiesOnHandle(creepHandle, newCreepProperties)
-    creepHandle:AddNewModifier(nil, nil, "modifier_creep_loot", {locationString = locationString})
+    creepHandle:AddNewModifier(creepHandle, nil, "modifier_creep_loot", {locationString = locationString})
   end
 
   return true

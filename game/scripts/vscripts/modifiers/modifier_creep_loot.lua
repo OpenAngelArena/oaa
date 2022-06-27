@@ -1,6 +1,7 @@
 modifier_creep_loot = class(ModifierBaseClass)
 
 function modifier_creep_loot:OnCreated(keys)
+  if not IsServer() then return end
   self.locationString = keys.locationString
 end
 

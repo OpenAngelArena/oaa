@@ -5,7 +5,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "44"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "44"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
     "Model"             "models/props_gameplay/tango.vmdl"
     "Effect"            "particles/generic_gameplay/dropped_tango.vpcf"
@@ -16,7 +16,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"        "165"
     "AbilityCastPoint"        "0.0"
-    
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"            "60" //OAA
@@ -29,7 +29,7 @@
     "IsTempestDoubleClonable"   "0"
     "ShouldBeInitiallySuggested"  "1"
 
-    // Special  
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
