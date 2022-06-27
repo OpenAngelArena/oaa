@@ -1,16 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Oil Spill amplifies damage
+  // Bonus Jinada Damage talent
   //=================================================================================================================
-  "special_bonus_unique_tinkerer_7"
+  "special_bonus_unique_bounty_hunter_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3669"
-    "BaseClass"                                           "special_bonus_undefined"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"					"484"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,8 +17,9 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "25"
+        "var_type"					"FIELD_INTEGER"
+        "value"				"120" //OAA
+        "ad_linked_abilities"			"bounty_hunter_jinada"
       }
     }
   }

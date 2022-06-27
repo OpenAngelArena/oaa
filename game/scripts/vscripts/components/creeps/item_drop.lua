@@ -84,15 +84,25 @@ end
 -- end
 
 function CreepItemDrop:RandomDropItemName(campLocationString)
-  local CampPRDCounters = CreepCamps.CampPRDCounters
-
-  if CampPRDCounters[campLocationString] == nil then
-    CampPRDCounters[campLocationString] = 0
+  if not CreepCamps then
+    return ""
   end
+
+  if not CreepCamps.CampPRDCounters then
+    CreepCamps.CampPRDCounters = {}
+    return ""
+  end
+
+  if CreepCamps.CampPRDCounters[campLocationString] == nil then
+    CreepCamps.CampPRDCounters[campLocationString] = 1
+  end
+
+  local prng_multiplier = CreepCamps.CampPRDCounters[campLocationString]
+
   --first we need to check against the drop percentage.
-  if RandomFloat(0, 1) > math.min(1, PrdCFinder:GetCForP(DROP_CHANCE) * CampPRDCounters[campLocationString]) then
+  if RandomFloat(0, 1) > (PrdCFinder:GetCForP(DROP_CHANCE) * prng_multiplier) then
     -- Increment PRD counter if nothing was dropped
-    CampPRDCounters[campLocationString] = CampPRDCounters[campLocationString] + 1
+    CreepCamps.CampPRDCounters[campLocationString] = prng_multiplier + 1
     return ""
   end
 
@@ -118,7 +128,7 @@ function CreepItemDrop:RandomDropItemName(campLocationString)
     passedItemsCumulativeChance = passedItemsCumulativeChance + 1.0 / filteredItemTable[i][RARITY_ENUM]
     if passedItemsCumulativeChance >= dropChance then
       -- Reset PRD counter on successful drop roll
-      CampPRDCounters[campLocationString] = 1
+      CreepCamps.CampPRDCounters[campLocationString] = 1
       return filteredItemTable[i][NAME_ENUM]
     end
   end
