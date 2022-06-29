@@ -105,54 +105,64 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_TAKEDAMAGE,
-	}
-
-	return funcs
+  return {
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+  }
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
-  function modifier_boss_regen:OnTakeDamage( event )
-    local parent = self:GetParent()
-    local damage_threshold = BOSS_AGRO_FACTOR or 15
+  function modifier_boss_regen:OnTakeDamage(event)
+    local parent = self:GetParent()   -- boss
+    local ability = self:GetAbility() -- boss_regen
 
-    if event.unit ~= parent then
+    local attacker = event.attacker
+    local victim = event.unit
+    local inflictor = event.inflictor
+    local damage = event.damage
+
+    if not attacker or attacker:IsNull() or not victim or victim:IsNull() then
+      return
+    end
+
+    -- Check if damaged entity is not this boss
+    if victim ~= parent then
+      return
+    end
+
+    -- Don't trigger on self-damage (bleeding and other)
+    if attacker == parent then
+      return
+    end
+
+    -- Don't react to damage if it was accidental
+    if parent:CheckForAccidentalDamage(inflictor) then
       return
     end
 
     -- Find what tier is this boss if its defined and set the appropriate damage_threshold
     local tier = parent.BossTier or 1
+    local damage_threshold = BOSS_AGRO_FACTOR or 15
     damage_threshold = damage_threshold * tier
 
-    -- Don't trigger on self-damage (bleeding and other)
-    if event.attacker == parent then
-      return
-    end
-
     -- Don't trigger if damage is 0 or negative
-    if event.damage <= 0 then
+    if damage <= 0 then
       return
     end
 
-    local spell = self:GetAbility()
-
-    local inflictor = event.inflictor
-    if parent:CheckForAccidentalDamage(inflictor) then
-      -- Don't react to damage if it was accidental
+    if not ability or ability:IsNull() then
       return
     end
 
     -- Don't trigger bleeding when damage is below min aggro dmg (tier * BOSS_AGRO_FACTOR)
-    if event.damage > damage_threshold then
-      parent:AddNewModifier( parent, spell, "modifier_boss_regen_degen", {duration = spell:GetSpecialValueFor( "degen_duration" )} )
+    if damage > damage_threshold then
+      parent:AddNewModifier( parent, ability, "modifier_boss_regen_degen", {duration = ability:GetSpecialValueFor( "degen_duration" )} )
     end
 
     -- Remove regen every time a boss takes dmg (doesnt matter how much dmg)
-    spell:EndCooldown()
-    spell:UseResources( false, false, true )
+    ability:EndCooldown()
+    ability:UseResources( false, false, true )
   end
 end
 
@@ -232,11 +242,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_regen_degen:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_TOOLTIP,
-	}
-
-	return funcs
+  return {
+    MODIFIER_PROPERTY_TOOLTIP,
+  }
 end
 
 --------------------------------------------------------------------------------

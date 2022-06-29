@@ -7,14 +7,12 @@
     "ScriptFile"                                          "abilities/boss/stopfightingyourself/dupe_items.lua"
     "AbilityTextureName"                                  "custom/stopfightingyourself_dupe_items"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
-
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
-
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
 
     "AbilitySpecial"
     {

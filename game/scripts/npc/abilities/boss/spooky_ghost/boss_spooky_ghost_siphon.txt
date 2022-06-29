@@ -2,7 +2,7 @@
 {
   //=================================================================================================================
   // Spooky Ghost: Spirit Siphon - DoT, move and attack speed slow, heals the Spooky Ghost
-  // Notes: Dispellable; Silence/hex cancels it; Spell block blocks it;
+  // Notes: Dispellable; Silence/hex cancels it;
   //=================================================================================================================
   "boss_spooky_ghost_siphon"
   {
@@ -39,7 +39,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hp_dmg"                                      "10"
+        "max_hp_dmg"                                      "12"
       }
       "03"
       {
