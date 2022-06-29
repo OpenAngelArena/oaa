@@ -65,12 +65,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_initial_radius"                            "200"
+        "magma_initial_radius"                            "175"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_radius_max"                                "800"
+        "magma_radius_max"                                "700"
       }
       "08" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
       {
