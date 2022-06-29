@@ -18,7 +18,7 @@ function modifier_range_increase_oaa:RemoveOnDeath()
 end
 
 function modifier_range_increase_oaa:OnCreated()
-  self.bonus_range = 400
+  self.bonus_range = 350
 end
 
 function modifier_range_increase_oaa:DeclareFunctions()

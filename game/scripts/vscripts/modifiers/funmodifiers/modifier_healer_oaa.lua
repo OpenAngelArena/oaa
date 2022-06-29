@@ -18,7 +18,7 @@ function modifier_healer_oaa:RemoveOnDeath()
 end
 
 function modifier_healer_oaa:OnCreated()
-  self.heal_amp = 75
+  self.heal_amp = 50
 end
 
 function modifier_healer_oaa:DeclareFunctions()
