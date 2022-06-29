@@ -20,6 +20,8 @@ function modifier_ham_oaa:OnCreated()
   self.ignore_abilities = {
     brewmaster_primal_split = true,
     dark_willow_shadow_realm = true,
+    dazzle_good_juju = true,
+    dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
     obsidian_destroyer_astral_imprisonment = true,
     phantom_lancer_doppelwalk = true,
