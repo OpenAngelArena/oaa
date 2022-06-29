@@ -27,7 +27,7 @@ local function UseAbility(ability, caster, target, maxRange)
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
+      Queue = false
     })
   elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
     -- point
@@ -73,7 +73,7 @@ local function UseAbility(ability, caster, target, maxRange)
       UnitIndex = caster:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_TOGGLE,
       AbilityIndex = ability:entindex(), --Optional.  Only used when casting abilities
-      Queue = 0 --Optional.  Used for queueing up abilities
+      Queue = false
     })
   end
 end
@@ -101,7 +101,6 @@ local function UseRandomItem()
 
       if target then
         UseAbility(item, thisEntity, target, BOSS_LEASH_SIZE)
-        return true
       end
     end
   end
@@ -140,7 +139,7 @@ function StopFightingYourselfThink()
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
         Position = GLOBAL_origin, --Optional.  Only used when targeting the ground
-        Queue = 0 --Optional.  Used for queueing up abilities
+        Queue = false
       })
       return 5
     end
@@ -152,15 +151,33 @@ function StopFightingYourselfThink()
   end
 
   if IsHeroInRange(thisEntity:GetAbsOrigin(), BOSS_LEASH_SIZE) then
-    local dice = RandomFloat(0, 1)
-    if dice <= 0.33 and healthpct <= 50/100 then
-      UseRandomItem()
-      return 0.5
-    elseif dice <= 0.66 and healthpct <= 75/100 then
-      -- IllusionsCast()
-      if thisEntity:GetUnitName() == "npc_dota_boss_stopfightingyourself_tier5" then
+    local dice_for_items = RandomFloat(0, 1)
+    local dice_for_illusions = RandomFloat(0, 1)
+    if healthpct >= 75/100 then -- phase 1
+      if dice_for_items <= 0.33 then
         UseRandomItem()
       end
+      if dice_for_illusions <= 0.15 then
+        IllusionsCast()
+      end
+      return 0.5
+    elseif healthpct >= 50/100 then -- phase 2
+      if dice_for_items <= 0.66 then
+        UseRandomItem()
+      end
+      if dice_for_illusions <= 0.3 then
+        IllusionsCast()
+      end
+      return 1
+    elseif healthpct >= 25/100 then -- phase 3
+      UseRandomItem()
+      if dice_for_illusions <= 0.5 or thisEntity:GetUnitName() == "npc_dota_boss_stopfightingyourself_tier5" then
+        IllusionsCast()
+      end
+      return 1
+    else -- phase 4
+      UseRandomItem()
+      IllusionsCast()
       return 1
     end
   end

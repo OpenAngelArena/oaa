@@ -68,7 +68,7 @@ function boss_spooky_ghost_siphon:OnSpellStart()
 
   local do_sound
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() and not enemy:TriggerSpellAbsorb(self) then
+    if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
       do_sound = true
       -- Apply Spirit Siphon debuff
       enemy:AddNewModifier(caster, self, "modifier_boss_spooky_ghost_siphon_debuff", {duration = debuff_duration})

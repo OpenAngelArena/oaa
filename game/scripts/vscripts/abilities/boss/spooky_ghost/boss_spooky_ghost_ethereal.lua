@@ -33,12 +33,10 @@ function modifier_boss_spooky_ghost_ethereal_buff:IsPurgable()
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-
-  return funcs
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:GetAbsoluteNoDamagePhysical()
@@ -120,11 +118,9 @@ function modifier_boss_spooky_ghost_silence_debuff:IsPurgable()
 end
 
 function modifier_boss_spooky_ghost_silence_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_SILENCED] = true,
   }
-
-  return state
 end
 
 function modifier_boss_spooky_ghost_silence_debuff:GetEffectName()
