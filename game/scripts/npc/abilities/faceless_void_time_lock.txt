@@ -23,21 +23,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
-      "duration"        
+      "duration"
       {
-        "value"     "0.65"
-        "LinkedSpecialBonus"  "special_bonus_unique_faceless_void_8"
+        "value"                                           "0.65"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8" // Valve this is a Time Dilation talent
       }
-      "duration_creep"    "2.0"
-      "chance_pct"      "12 16 20 24 25 26"
+      "duration_creep"                                    "2.0"
+      "chance_pct"                                        "12 16 20 24 25 26"
       "bonus_damage" //OAA
       {
-        "value"       "35 45 55 65 130 260"
-        "LinkedSpecialBonus"  "special_bonus_unique_faceless_void_3"
+        "value"                                           "35 45 55 65 130 260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
-      "delay"     "0.4"
+      "delay"                                             "0.4"
+      "tooltip_cooldown"                                  "2" //OAA
     }
   }
 }

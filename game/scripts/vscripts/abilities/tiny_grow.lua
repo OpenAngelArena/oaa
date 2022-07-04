@@ -164,7 +164,7 @@ function modifier_tiny_grow_oaa:OnRefresh()
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- this is bonus raw damage (green)
@@ -173,8 +173,6 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
   }
-
-  return funcs
 end
 
 function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus()

@@ -1,16 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Power Treads 2
+  // Recipe: Greater Power Treads 2
   //=================================================================================================================
   "item_recipe_greater_power_treads_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3011"                            // unique ID
+    "ID"                                                  "3011"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -32,13 +33,13 @@
   }
 
   //=================================================================================================================
-  // Power Treads 2
+  // Greater Power Treads 2
   //=================================================================================================================
   "item_greater_power_treads_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3016"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3016"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
     //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -93,7 +94,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "7 8 9 10"
+        "bonus_spell_amp"                                 "6 8 10 12"
       }
       "08"
       {

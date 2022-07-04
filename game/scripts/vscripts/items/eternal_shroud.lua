@@ -112,16 +112,32 @@ function modifier_eternal_shroud_oaa_barrier:OnCreated()
   if ability and not ability:IsNull() then
     self.barrier_health = ability:GetSpecialValueFor("barrier_block")
   end
+  if IsServer() then
+    local parent = self:GetParent()
+    if not self.particle then
+      self.particle = ParticleManager:CreateParticle("particles/items2_fx/eternal_shroud.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
+      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_origin", parent:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControl(self.particle, 2, Vector(parent:GetModelRadius()*1.1, 0, 0))
+    end
+  end
 end
 
 modifier_eternal_shroud_oaa_barrier.OnRefresh = modifier_eternal_shroud_oaa_barrier.OnCreated
 
+function modifier_eternal_shroud_oaa_barrier:OnDestroy()
+  if IsServer() then
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+    end
+  end
+end
+
 function modifier_eternal_shroud_oaa_barrier:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT,
   }
-
-  return funcs
 end
 
 function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConstant(keys)
@@ -154,12 +170,4 @@ function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConst
 
     return 0
   end
-end
-
-function modifier_eternal_shroud_oaa_barrier:GetEffectName()
-  return "particles/items2_fx/pipe_of_insight.vpcf"
-end
-
-function modifier_eternal_shroud_oaa_barrier:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
 end

@@ -65,12 +65,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_initial_radius"                            "200"
+        "magma_initial_radius"                            "175"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magma_radius_max"                                "800"
+        "magma_radius_max"                                "700"
       }
       "08" // AREA increase per second not distance (to look more natural); new radius every interval: previous_radius + sqrt(magma_spread_speed * interval / PI)
       {
@@ -90,12 +90,12 @@
       "11" // 8 damage from heroes, 1 damage from non-heroes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_health"                                    "32"
+        "totem_health"                                    "36"
       }
       "12" // advice: totem_health should be divideable with totem_hero_attacks_to_destroy
       {
         "var_type"                                        "FIELD_INTEGER"
-        "totem_hero_attacks_to_destroy"                   "8"
+        "totem_hero_attacks_to_destroy"                   "6"
       }
       "13"
       {

@@ -167,7 +167,7 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
 end
 
 function item_greater_tranquil_boots:IsBreakable()
-	local break_time = self:GetSpecialValueFor("break_time")
+  local break_time = self:GetSpecialValueFor("break_time")
   return break_time and break_time > 0
 end
 
@@ -180,15 +180,15 @@ item_greater_tranquil_boots_4 = item_greater_tranquil_boots
 modifier_item_greater_tranquil_boots_non_stacking_stats = class(ModifierBaseClass)
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:IsAura()
@@ -212,9 +212,9 @@ function modifier_item_greater_tranquil_boots_non_stacking_stats:GetModifierAura
 end
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:OnCreated()
-	local spell = self:GetAbility()
+  local spell = self:GetAbility()
   if spell and not spell:IsNull() then
-	  self.moveSpd = spell:GetSpecialValueFor("bonus_movement_speed")
+    self.moveSpd = spell:GetSpecialValueFor("bonus_movement_speed")
   end
 end
 
@@ -270,12 +270,10 @@ end
 ]]
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
 -- if IsServer() then
@@ -309,10 +307,9 @@ function modifier_item_greater_tranquil_boots_non_stacking_stats:GetModifierMove
 end
 
 function modifier_item_greater_tranquil_boots_non_stacking_stats:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -320,25 +317,25 @@ end
 modifier_item_greater_tranquil_boots_stacking_stats = class(ModifierBaseClass)
 
 function modifier_item_greater_tranquil_boots_stacking_stats:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:IsPurgable()
-	return false
+  return false
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:OnCreated()
-	local ability = self:GetAbility()
+  local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-	  self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.str = ability:GetSpecialValueFor("bonus_str")
     self.int = ability:GetSpecialValueFor("bonus_int")
   end
@@ -347,13 +344,11 @@ end
 modifier_item_greater_tranquil_boots_stacking_stats.OnRefresh = modifier_item_greater_tranquil_boots_stacking_stats.OnCreated
 
 function modifier_item_greater_tranquil_boots_stacking_stats:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierConstantHealthRegen()
@@ -361,10 +356,16 @@ function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierConstant
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierBonusStats_Strength()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
 end
 
 function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierBonusStats_Intellect()
+  if self:GetParent():IsClone() then
+    return 0
+  end
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
@@ -582,11 +583,10 @@ end
 modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranquils_tranquilize_debuff.OnCreated
 
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
   }
-  return funcs
 end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBonus_Constant()
@@ -673,10 +673,9 @@ function modifier_greater_tranquils_bearing_buff:GetModifierAttackSpeedBonus_Con
 end
 
 function modifier_greater_tranquils_bearing_buff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
   }
-  return state
 end
 
 function modifier_greater_tranquils_bearing_buff:GetTexture()
@@ -768,8 +767,7 @@ function modifier_greater_tranquils_trees_dummy_stuff:GetBonusNightVision()
 end
 
 function modifier_greater_tranquils_trees_dummy_stuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FLYING] = true,
   }
-  return state
 end

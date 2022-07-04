@@ -1,11 +1,23 @@
 
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pull_staff_active_buff", "items/pull_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_pull_staff_echo_strike_passive", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pull_staff_echo_strike_cd", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pull_staff_echo_strike_buff", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pull_staff_echo_strike_slow", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_pull_staff = class(ItemBaseClass)
 
 function item_pull_staff:GetIntrinsicModifierName()
-  return "modifier_generic_bonus"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_pull_staff:GetIntrinsicModifierNames()
+  return {
+    "modifier_generic_bonus",
+    "modifier_pull_staff_echo_strike_passive",
+  }
 end
 
 function item_pull_staff:CastFilterResultTarget(target)
@@ -70,8 +82,8 @@ function item_pull_staff:OnSpellStart()
 
   -- Interrupt enemies only
   if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-    -- Check if the enemy target has spell block
-    if target:TriggerSpellAbsorb(self) then
+    -- Don't do anything if target has Linken's effect or it's spell-immune
+    if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
       return
     end
 
@@ -164,6 +176,7 @@ function modifier_pull_staff_active_buff:CheckState()
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
   }
 end
+
 if IsServer() then
   function modifier_pull_staff_active_buff:OnCreated(event)
     local parent = self:GetParent()
@@ -208,6 +221,16 @@ if IsServer() then
       FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), false)
       local parent_origin = parent:GetAbsOrigin()
       ResolveNPCPositions(parent_origin, 128)
+
+      local ability = self:GetAbility()
+      local echo_strike_slow_duration = 0.8
+      if ability and not ability:IsNull() then
+        echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
+      end
+      if not parent:IsMagicImmune() and parent:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
+        parent:AddNewModifier(self:GetCaster(), ability, "modifier_pull_staff_echo_strike_slow", {duration = echo_strike_slow_duration})
+      end
+
       if parent.pull_staff_particle then
         ParticleManager:DestroyParticle(parent.pull_staff_particle, false)
         ParticleManager:ReleaseParticleIndex(parent.pull_staff_particle)
@@ -215,4 +238,293 @@ if IsServer() then
       end
     end
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+-- Helper function to determine if target is valid
+local function CheckIfValidTarget(target)
+  -- Check if target exists
+  if not target or target:IsNull() then
+    return false
+  end
+
+  -- Check if target is an item, rune or something weird
+  if target.GetUnitName == nil then
+    return false
+  end
+
+  -- Don't affect buildings, wards, spell immune units and invulnerable units.
+  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+    return false
+  end
+
+  return true
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_pull_staff_echo_strike_passive = class({})
+
+function modifier_pull_staff_echo_strike_passive:IsHidden()
+  return true
+end
+
+function modifier_pull_staff_echo_strike_passive:IsPurgable()
+  return false
+end
+
+function modifier_pull_staff_echo_strike_passive:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_pull_staff_echo_strike_passive:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_FAIL,
+  }
+end
+
+if IsServer() then
+  function modifier_pull_staff_echo_strike_passive:TriggerEchoStrike(target, slow)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local echo_strike_cd = 6
+    local echo_strike_slow_duration = 0.8
+    if ability and not ability:IsNull() then
+      echo_strike_cd = ability:GetSpecialValueFor("echo_strike_cooldown")
+      echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
+    end
+
+    local real_cd = echo_strike_cd * parent:GetCooldownReduction()
+
+    parent:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_cd", {duration = real_cd})
+    parent:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_buff", {})
+
+    -- Trigger cd on all Echo Sabres
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+      local item = parent:GetItemInSlot(i)
+      if item and item:GetName() == "item_echo_sabre" then
+        item:StartCooldown(6*self:GetParent():GetCooldownReduction())
+      end
+    end
+
+    if slow and not target:IsMagicImmune() then
+      target:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_slow", {duration = echo_strike_slow_duration})
+    end
+  end
+
+  function modifier_pull_staff_echo_strike_passive:OnAttackFail(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+	if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    if parent:FindAllModifiersByName(self:GetName())[1] ~= self then
+      return
+    end
+
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") then
+      return
+    end
+
+    -- Trigger Echo Strike without the slow
+    self:TriggerEchoStrike(target, false)
+  end
+
+
+  function modifier_pull_staff_echo_strike_passive:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+	if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    if parent:FindAllModifiersByName(self:GetName())[1] ~= self then
+      return
+    end
+
+    if parent:HasModifier("modifier_pull_staff_echo_strike_cd") then
+      return
+    end
+
+    if not CheckIfValidTarget(target) then
+      return
+    end
+
+    -- Trigger Echo Strike with the slow
+	self:TriggerEchoStrike(target, true)
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_pull_staff_echo_strike_cd = class({})
+
+function modifier_pull_staff_echo_strike_cd:IsHidden()
+  return true
+end
+
+function modifier_pull_staff_echo_strike_cd:IsPurgable()
+  return false
+end
+
+function modifier_pull_staff_echo_strike_cd:RemoveOnDeath()
+  return false
+end
+
+function modifier_pull_staff_echo_strike_cd:IsDebuff()
+  return true
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_pull_staff_echo_strike_buff = class({})
+
+function modifier_pull_staff_echo_strike_buff:IsHidden()
+  return true
+end
+
+function modifier_pull_staff_echo_strike_buff:IsPurgable()
+  return false
+end
+
+function modifier_pull_staff_echo_strike_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_ATTACK_FAIL,
+  }
+end
+
+function modifier_pull_staff_echo_strike_buff:GetModifierAttackSpeedBonus_Constant()
+  return 500
+end
+
+function modifier_pull_staff_echo_strike_buff:OnCreated()
+  if not IsServer() then
+    return
+  end
+  self:StartIntervalThink(0.2)
+end
+
+if IsServer() then
+  function modifier_pull_staff_echo_strike_buff:OnIntervalThink()
+    if self:GetParent():IsRangedAttacker() or not self:GetAbility() then
+      self:Destroy()
+    end
+  end
+
+  function modifier_pull_staff_echo_strike_buff:OnAttackLanded(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+	if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    if not CheckIfValidTarget(target) then
+      return
+    end
+
+	local ability = self:GetAbility()
+    local echo_strike_slow_duration = 0.8
+    if ability and not ability:IsNull() then
+      echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
+    end
+
+    if not target:IsMagicImmune() then
+      target:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_slow", {duration = echo_strike_slow_duration})
+    end
+
+    self:Destroy()
+  end
+
+  function modifier_pull_staff_echo_strike_buff:OnAttackFail(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+	if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    self:Destroy()
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_pull_staff_echo_strike_slow = class({})
+
+function modifier_pull_staff_echo_strike_slow:IsHidden()
+  return false
+end
+
+function modifier_pull_staff_echo_strike_slow:IsPurgable()
+  return true
+end
+
+function modifier_pull_staff_echo_strike_slow:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    --MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+  }
+end
+
+function modifier_pull_staff_echo_strike_slow:GetModifierMoveSpeedBonus_Percentage()
+  return -100
+end
+
+--function modifier_pull_staff_echo_strike_slow:GetModifierAttackSpeedBonus_Constant()
+  --return -100
+--end
+
+function modifier_pull_staff_echo_strike_slow:GetTexture()
+  return "item_echo_sabre"
 end

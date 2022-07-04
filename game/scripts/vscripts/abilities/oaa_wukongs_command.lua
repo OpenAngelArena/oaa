@@ -446,10 +446,9 @@ function modifier_wukongs_command_oaa_thinker:GetAuraEntityReject(hEntity)
 end
 
 function modifier_wukongs_command_oaa_thinker:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
 if IsServer() then
@@ -535,10 +534,9 @@ function modifier_wukongs_command_oaa_buff:OnRefresh()
 end
 
 function modifier_wukongs_command_oaa_buff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_wukongs_command_oaa_buff:GetModifierPhysicalArmorBonus()
@@ -648,13 +646,12 @@ function modifier_monkey_clone_oaa:OnIntervalThink()
 end
 
 function modifier_monkey_clone_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_EVENT_ON_ATTACK_START
+    MODIFIER_EVENT_ON_ATTACK_START,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -782,7 +779,7 @@ if IsServer() then
 end
 
 function modifier_monkey_clone_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ROOTED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
@@ -796,7 +793,6 @@ function modifier_monkey_clone_oaa:CheckState()
     [MODIFIER_STATE_OUT_OF_GAME] = true,
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -838,10 +834,9 @@ function modifier_monkey_clone_oaa_idle_effect:IsPurgable()
 end
 
 function modifier_monkey_clone_oaa_idle_effect:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
+  return {
+    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
   }
-  return funcs
 end
 
 function modifier_monkey_clone_oaa_idle_effect:GetActivityTranslationModifiers()
@@ -865,7 +860,7 @@ function modifier_monkey_clone_oaa_hidden:IsPurgable()
 end
 
 function modifier_monkey_clone_oaa_hidden:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ROOTED] = true,
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
@@ -881,7 +876,6 @@ function modifier_monkey_clone_oaa_hidden:CheckState()
     [MODIFIER_STATE_DISARMED] = true,
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------

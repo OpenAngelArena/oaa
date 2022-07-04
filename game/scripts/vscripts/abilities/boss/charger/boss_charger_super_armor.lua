@@ -45,6 +45,15 @@ function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(event)
     return 0
   end
 
+  local tier = parent.BossTier or 2
+  local aggro_factor = BOSS_AGRO_FACTOR or 15
+  local current_hp_pct = parent:GetHealth() / parent:GetMaxHealth()
+  local aggro_hp_pct = math.min(1 - ((tier * aggro_factor) / parent:GetMaxHealth()), 99/100)
+
+  if current_hp_pct >= aggro_hp_pct then
+    return 0
+  end
+
   local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
   local blockAmount = event.damage * damageReduction / 100
 

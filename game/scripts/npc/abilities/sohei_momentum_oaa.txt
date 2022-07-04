@@ -19,8 +19,6 @@
 
     "MaxLevel"                                            "6"
 
-    "LinkedAbility"                                       "sohei_momentum_strike"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
@@ -31,7 +29,7 @@
     {
       "crit_damage"
       {
-        "value"                                           "120 150 180 210 240 270"
+        "value"                                           "120 140 160 180 200 220"
         "LinkedSpecialBonus"                              "special_bonus_unique_sohei_5"
         "CalculateSpellDamageTooltip"                     "0"
       }

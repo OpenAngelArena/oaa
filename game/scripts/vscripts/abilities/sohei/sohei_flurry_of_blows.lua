@@ -105,7 +105,7 @@ end
 modifier_sohei_flurry_self = class(ModifierBaseClass)
 
 function modifier_sohei_flurry_self:IsHidden()
-  return true
+  return false
 end
 
 function modifier_sohei_flurry_self:IsDebuff()
@@ -125,7 +125,7 @@ end
 -- end
 
 function modifier_sohei_flurry_self:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
@@ -134,8 +134,6 @@ function modifier_sohei_flurry_self:CheckState()
     [MODIFIER_STATE_ROOTED] = true,
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
-
-  return state
 end
 
 function modifier_sohei_flurry_self:OnCreated(event)
@@ -362,12 +360,10 @@ function modifier_sohei_flurry_of_blows_damage:OnCreated(event)
 end
 
 function modifier_sohei_flurry_of_blows_damage:DeclareFunctions()
-  local funcs = {
+  return {
     --MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
   }
-
-  return funcs
 end
 
 --function modifier_sohei_flurry_of_blows_damage:GetModifierBaseAttack_BonusDamage()

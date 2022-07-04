@@ -64,7 +64,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
   ParticleManager:SetParticleControl(impact_particle, 2, aboveground)
   ParticleManager:ReleaseParticleIndex(impact_particle)
 
-  AddFOWViewer(team, location, radius, 1.0, false)
+  AddFOWViewer(team, location, radius, 2, false)
   --DebugDrawCircle(location, Vector(255,0,0), 1, radius, true, 1.0)
 
   local oiled_enemies = FindUnitsInRadius(
@@ -115,19 +115,11 @@ function modifier_tinkerer_oil_spill_thinker:IsPurgable()
   return false
 end
 
---function modifier_tinkerer_oil_spill_thinker:OnCreated( kv )
-
---end
-
 function modifier_tinkerer_oil_spill_thinker:OnDestroy()
   if not IsServer() then
     return
   end
   local parent = self:GetParent()
-  --if self.particle then
-    --ParticleManager:DestroyParticle(self.particle, true)
-    --ParticleManager:ReleaseParticleIndex(self.particle)
-  --end
   if parent and not parent:IsNull() then
     parent:ForceKill(false)
   end
@@ -150,7 +142,7 @@ function modifier_tinkerer_oil_spill_debuff:IsPurgable()
 end
 
 function modifier_tinkerer_oil_spill_debuff:GetStatusEffectName()
-  return "particles/status_fx/status_effect_stickynapalm.vpcf"
+  return "particles/status_fx/status_effect_grimstroke_ink_over.vpcf"
 end
 
 function modifier_tinkerer_oil_spill_debuff:StatusEffectPriority()
@@ -165,7 +157,8 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local attack_speed_slow = 15
   local burn_dps = 30
   local burn_interval = 0.25
-  local magic_resist = 0
+  local damage_amp = 0
+  local extra_duration = 3
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -173,6 +166,7 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
     burn_dps = ability:GetSpecialValueFor("burn_dps")
     burn_interval = ability:GetSpecialValueFor("burn_interval")
+    extra_duration = ability:GetSpecialValueFor("ignite_extra_duration")
   end
 
   -- Check for talent that increases the slow amounts
@@ -188,10 +182,10 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
   end
 
-  -- Check for talent that reduces magic resistance
+  -- Check for talent that amplifies the damage
   local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_7")
   if talent3 and talent3:GetLevel() > 0 then
-    magic_resist = talent3:GetSpecialValueFor("value")
+    damage_amp = talent3:GetSpecialValueFor("value")
   end
 
   -- Status resistance fix
@@ -205,19 +199,72 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
-  self.magic_resistance = magic_resist
+  self.damage_amp = damage_amp
+  self.bonus_duration = extra_duration
   self.already_burning = false
 end
 
+function modifier_tinkerer_oil_spill_debuff:OnRefresh()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  local move_speed_slow = 15
+  local attack_speed_slow = 15
+  local burn_dps = 30
+  local burn_interval = 0.25
+  local damage_amp = 0
+  local extra_duration = 3
+
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    move_speed_slow = ability:GetSpecialValueFor("move_speed_slow")
+    attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
+    burn_dps = ability:GetSpecialValueFor("burn_dps")
+    burn_interval = ability:GetSpecialValueFor("burn_interval")
+    extra_duration = ability:GetSpecialValueFor("ignite_extra_duration")
+  end
+
+  -- Check for talent that increases the slow amounts
+  local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_5")
+  if talent and talent:GetLevel() > 0 then
+    move_speed_slow = move_speed_slow + talent:GetSpecialValueFor("value")
+    attack_speed_slow = attack_speed_slow + talent:GetSpecialValueFor("value2")
+  end
+
+  -- Check for talent that increases the burn dps
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_6")
+  if talent2 and talent2:GetLevel() > 0 then
+    burn_dps = burn_dps + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Check for talent that amplifies the damage
+  local talent3 = caster:FindAbilityByName("special_bonus_unique_tinkerer_7")
+  if talent3 and talent3:GetLevel() > 0 then
+    damage_amp = talent3:GetSpecialValueFor("value")
+  end
+
+  -- Status resistance fix
+  if IsServer() then
+    move_speed_slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
+    attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
+  end
+
+  self.move_speed_slow = move_speed_slow
+  self.attack_speed_slow = attack_speed_slow
+  self.burn_dps = burn_dps
+  self.burn_interval = burn_interval
+  self.damage_amp = damage_amp
+  self.bonus_duration = extra_duration
+end
+
 function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_TOOLTIP
   }
-  return funcs
 end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierMoveSpeedBonus_Percentage()
@@ -228,8 +275,8 @@ function modifier_tinkerer_oil_spill_debuff:GetModifierAttackSpeedPercentage()
   return 0 - math.abs(self.attack_speed_slow)
 end
 
-function modifier_tinkerer_oil_spill_debuff:GetModifierMagicalResistanceBonus()
-  return 0 - math.abs(self.magic_resistance)
+function modifier_tinkerer_oil_spill_debuff:GetModifierIncomingDamage_Percentage()
+  return self.damage_amp
 end
 
 if IsServer() then
@@ -263,6 +310,11 @@ if IsServer() then
 
     self:OnIntervalThink()
     self:StartIntervalThink(self.burn_interval)
+
+    -- Increase the duration when ignited
+    --self:ForceRefresh()
+    local new_duration = self.bonus_duration + self:GetRemainingTime()
+    self:SetDuration(new_duration, true)
   end
 
   function modifier_tinkerer_oil_spill_debuff:OnIntervalThink()

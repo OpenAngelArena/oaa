@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3220"    // unique ID
+    "ID"                                                  "3220"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3223"    // unique ID
+    "ID"                                                  "3223"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -44,7 +44,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "satanic_core"
 
     // Spicy Parameters
@@ -87,22 +87,22 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_spell_lifesteal"                            "28 30 32 34 36"
+        "hero_spell_lifesteal"                            "30 32 34 36 38"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "6 8 10 12 14"
+        "creep_spell_lifesteal"                           "6 7 8 9 10"
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_hero_spell_lifesteal"                     "200"
+        "unholy_hero_spell_lifesteal"                     "175"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "unholy_creep_spell_lifesteal"                    "50"
+        "unholy_creep_spell_lifesteal"                    "35"
       }
       "09"
       {
@@ -122,7 +122,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "22 24 26 28 30"
+        "hp_regen_amp"                                    "20 22 24 26 28"
       }
     }
   }

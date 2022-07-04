@@ -26,14 +26,16 @@ if IsServer() then
 
     -- Scepter
     if not parent:HasScepter() then
-      local scepter = CreateItem("item_ultimate_scepter_2", parent, parent)
-      parent:AddItem(scepter)
+      --local scepter = CreateItem("item_ultimate_scepter_2", parent, parent)
+      --parent:AddItem(scepter)
+      parent:AddNewModifier(parent, nil, "modifier_item_ultimate_scepter_consumed", {})
     end
 
     -- Shard
     if not parent:HasShardOAA() then
-      local shard = CreateItem("item_aghanims_shard", parent, parent)
-      parent:AddItem(shard)
+      --local shard = CreateItem("item_aghanims_shard", parent, parent)
+      --parent:AddItem(shard)
+      parent:AddNewModifier(parent, nil, "modifier_item_aghanims_shard", {})
     end
   end
 end

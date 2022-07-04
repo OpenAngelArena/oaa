@@ -22,9 +22,6 @@ function abyssal_underlord_cancel_dark_rift_oaa:OnSpellStart()
   local destination = caster.dark_rift_origin
   local radius = self:GetSpecialValueFor("radius")
 
-  -- play modified gesture (dancing)
-  caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_4 )
-
   -- Don't continue if there are no stored locations on the caster
   if not start or not destination then
     return
