@@ -53,25 +53,25 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "400"
+        "splash_radius"                                   "500"
         "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_grab_radius"                                "700"
+        "tree_grab_radius"                                "1000"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "interval"                                        "0.4"
+        "interval"                                        "0.25"
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage"                                    "100"
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
