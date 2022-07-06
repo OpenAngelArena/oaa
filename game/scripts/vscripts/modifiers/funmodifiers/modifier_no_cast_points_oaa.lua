@@ -22,13 +22,18 @@ end
 
 function modifier_no_cast_points_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_CASTTIME_PERCENTAGE
+    MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+    MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
   }
 end
 
 if IsServer() then
   function modifier_no_cast_points_oaa:GetModifierPercentageCasttime()
     return 100
+  end
+
+  function modifier_no_cast_points_oaa:GetModifierIgnoreCastAngle()
+    return 1
   end
 end
 

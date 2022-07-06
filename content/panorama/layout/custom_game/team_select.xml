@@ -120,8 +120,8 @@
                 <DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
                   <Label text="#game_option_none" id="GMN"/>
                   <Label text="#game_option_random" id="GMR"/>
-                  <Label text="#game_option_lifesteal" id="GM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_aoe_radius" id="GM02" onmouseover="UIShowTextTooltip(#game_option_aoe_radius_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_lifesteal_global" id="GM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_global_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_aoe_radius" id="GM02" onmouseover="UIShowTextTooltip(#game_option_aoe_radius_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_physical_immune" id="GM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_pro_active" id="GM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/> -->
                 </DropDown>

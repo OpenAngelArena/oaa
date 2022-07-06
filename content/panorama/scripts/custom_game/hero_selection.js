@@ -241,7 +241,7 @@ function handleOAASettingsChange (n, key, settings) {
   if (settings.GLOBAL_MODS !== 'GMN') {
     const modifierNames = {
       GMR: '#game_option_random',
-      GM01: '#game_option_lifesteal',
+      GM01: '#game_option_lifesteal_global',
       GM02: '#game_option_aoe_radius',
       GM08: '#game_option_physical_immune',
       GM09: '#game_option_pro_active'

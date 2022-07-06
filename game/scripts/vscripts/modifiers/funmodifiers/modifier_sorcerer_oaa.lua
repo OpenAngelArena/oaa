@@ -21,8 +21,8 @@ function modifier_sorcerer_oaa:OnCreated()
   self.chance_for_abilities_on_cast = 25
   self.chance_for_abilities_on_kill = 25
   self.chance_for_charge_based_abilities = 5
-  self.chance_for_items_on_use = 5
-  self.chance_for_items_on_kill = 5
+  self.chance_for_items_on_use = 2
+  self.chance_for_items_on_kill = 2
 
   -- Put ability exemption in here
   self.exempt_ability_table = {
@@ -91,7 +91,7 @@ if IsServer() then
   end
 
   function modifier_sorcerer_oaa:OnHeroKilled(event)
-	  local parent = self:GetParent()
+    local parent = self:GetParent()
     local killer = event.attacker
     local target = event.target
 
