@@ -180,6 +180,7 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:OnIntervalThink()
     "item_tranquil_boots",
     "item_arcane_boots",
     "item_guardian_greaves",
+    "item_boots_of_bearing",
   }
 
   local custom_boots = {
@@ -217,6 +218,7 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:OnIntervalThink()
   local found_boots = false
   local has_vanilla_boots = false
 
+  -- HasItemInInventory counts backpack slots as valid item slots!!!
   for _, boots in pairs(vanilla_boots) do
     if parent:HasItemInInventory(boots) then
       has_vanilla_boots = true

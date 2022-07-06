@@ -1,9 +1,12 @@
 //=====================================================================================
 // Pull Staff
 //=====================================================================================
+//"DOTA_Tooltip_modifier_echo_sabre_debuff"                               "Echo Sabre Slow"
+//"DOTA_Tooltip_modifier_echo_sabre_debuff_Description"                   "Movement speed reduced by 100%%."
+
 "DOTA_Tooltip_Ability_item_pull_staff"                                  "Pull Staff"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff"                           "Pull Staff Recipe"
-"DOTA_Tooltip_Ability_item_pull_staff_Description"                      "<h1>Active: Pull</h1> Pulls any target unit up to %distance% units towards you.<br><br>Range: %tooltip_range%<br>Cooldown: %cooldown_tooltip% seconds"
+"DOTA_Tooltip_Ability_item_pull_staff_Description"                      "<h1>Active: Echo Pull</h1> Pulls any target unit up to %distance% units towards you. Slows enemies briefly.<br><br>Range: %tooltip_range%<br>Cooldown: %cooldown_tooltip% seconds.\n<h1>Passive: Echo Strike</h1> Causes melee attacks to attack twice in quick succession. The double attacks apply a 100%% movement slow for %echo_strike_slow_duration% seconds on each strike.<br>Cooldown: %echo_strike_cooldown% seconds."
 "DOTA_Tooltip_Ability_item_pull_staff_Lore"                             "A Keen Folk invention, used in hunting to pull-in fleeing animals and prey."
 "DOTA_Tooltip_Ability_item_pull_staff_Note0"                            "Pull Staff stops channeling."
 "DOTA_Tooltip_Ability_item_pull_staff_Note1"                            "Casting on self pulls you backwards."
@@ -12,6 +15,8 @@
 "DOTA_Tooltip_Ability_item_pull_staff_bonus_armor"                      "+$armor"
 "DOTA_Tooltip_Ability_item_pull_staff_bonus_health_regen"               "+$hp_regen"
 "DOTA_Tooltip_Ability_item_pull_staff_bonus_attack_speed"               "+$attack"
+"DOTA_Tooltip_Ability_item_pull_staff_bonus_intellect"                  "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_pull_staff_bonus_mana_regen"                 "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_pull_staff_2"                                "#{DOTA_Tooltip_Ability_item_pull_staff}"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff_2"                         "#{DOTA_Tooltip_Ability_item_recipe_pull_staff}"
@@ -24,6 +29,8 @@
 "DOTA_Tooltip_Ability_item_pull_staff_2_bonus_armor"                    "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_armor}"
 "DOTA_Tooltip_Ability_item_pull_staff_2_bonus_health_regen"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_pull_staff_2_bonus_attack_speed"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_attack_speed}"
+"DOTA_Tooltip_Ability_item_pull_staff_2_bonus_intellect"                "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_pull_staff_2_bonus_mana_regen"               "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_pull_staff_3"                                "#{DOTA_Tooltip_Ability_item_pull_staff}"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff_3"                         "#{DOTA_Tooltip_Ability_item_recipe_pull_staff}"
@@ -36,6 +43,8 @@
 "DOTA_Tooltip_Ability_item_pull_staff_3_bonus_armor"                    "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_armor}"
 "DOTA_Tooltip_Ability_item_pull_staff_3_bonus_health_regen"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_pull_staff_3_bonus_attack_speed"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_attack_speed}"
+"DOTA_Tooltip_Ability_item_pull_staff_3_bonus_intellect"                "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_pull_staff_3_bonus_mana_regen"               "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_pull_staff_4"                                "#{DOTA_Tooltip_Ability_item_pull_staff}"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff_4"                         "#{DOTA_Tooltip_Ability_item_recipe_pull_staff}"
@@ -48,6 +57,8 @@
 "DOTA_Tooltip_Ability_item_pull_staff_4_bonus_armor"                    "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_armor}"
 "DOTA_Tooltip_Ability_item_pull_staff_4_bonus_health_regen"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_pull_staff_4_bonus_attack_speed"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_attack_speed}"
+"DOTA_Tooltip_Ability_item_pull_staff_4_bonus_intellect"                "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_pull_staff_4_bonus_mana_regen"               "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_pull_staff_5"                                "#{DOTA_Tooltip_Ability_item_pull_staff}"
 "DOTA_Tooltip_Ability_item_recipe_pull_staff_5"                         "#{DOTA_Tooltip_Ability_item_recipe_pull_staff}"
@@ -60,9 +71,14 @@
 "DOTA_Tooltip_Ability_item_pull_staff_5_bonus_armor"                    "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_armor}"
 "DOTA_Tooltip_Ability_item_pull_staff_5_bonus_health_regen"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_pull_staff_5_bonus_attack_speed"             "#{DOTA_Tooltip_Ability_item_pull_staff_bonus_attack_speed}"
+"DOTA_Tooltip_Ability_item_pull_staff_5_bonus_intellect"                "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_pull_staff_5_bonus_mana_regen"               "#{DOTA_Tooltip_Ability_item_echo_sabre_bonus_mana_regen}"
 
 "oaa_hud_error_pull_staff_black_hole"                                   "Ability Can't Target Units in Black Hole"
 "oaa_hud_error_pull_staff_chronosphere"                                 "Ability Can't Target Units in Chronosphere"
 "oaa_hud_error_pull_staff_duel"                                         "Ability Can't Target Dueling Heroes"
 "oaa_hud_error_pull_staff_lasso"                                        "Ability Can't Target Lassoed Units"
 "oaa_hud_error_pull_staff_kinetic_field"                                "Ability Can't Target Units in Kinetic Field"
+
+"DOTA_Tooltip_modifier_pull_staff_echo_strike_slow"                     "Echo Slow"
+"DOTA_Tooltip_modifier_pull_staff_echo_strike_slow_Description"         "#{DOTA_Tooltip_modifier_echo_sabre_debuff_Description}"

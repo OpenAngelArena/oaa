@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5257"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5257"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -48,6 +48,12 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "speed_boost"                                     "550"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_9"
       }
     }
   }

@@ -23,35 +23,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0" //OAA, for picking screen tooltip
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8" // - this is a Time Dilation talent
+        "value"                                           "0.65"
+        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8" // Valve this is a Time Dilation talent
       }
-      "02"
+      "duration_creep"                                    "2.0"
+      "chance_pct"                                        "12 16 20 24 25 26"
+      "bonus_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_creep"                                  "2.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "12 16 20 24 25 26"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35 45 55 65 130 260"  //OAA, for picking screen tooltip
+        "value"                                           "35 45 55 65 130 260"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
-      "05" //OAA, for picking screen tooltip
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_cooldown"                                "2"
-      }
+      "delay"                                             "0.4"
+      "tooltip_cooldown"                                  "2" //OAA
     }
   }
 }

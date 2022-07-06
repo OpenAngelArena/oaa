@@ -215,12 +215,10 @@ function modifier_item_greater_travel_boots_unique_passive:OnIntervalThink()
 end
 
 function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()

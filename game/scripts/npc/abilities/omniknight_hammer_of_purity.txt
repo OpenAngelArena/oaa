@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "656"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "656"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -24,10 +23,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10"
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
@@ -41,14 +36,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage" 
+      "AbilityCooldown"
       {
-        "value"   "60 70 80 90 180 360"
-        "special_bonus_unique_omniknight_4" "+75"
+        "value"                                           "10"
+        "special_bonus_unique_omniknight_3"               "-6"
       }
-      "bonus_damage"  "50 75 100 125 250 500"
-      "duration"  "5"
-      "movement_slow"       "14 22 30 38 46 54"
+      "base_damage"
+      {
+        "value"                                           "55 70 85 100 200 300"
+        "special_bonus_unique_omniknight_4"               "+75"
+      }
+      "bonus_damage"                                      "50 75 100 125 250 500"
+      "duration"                                          "5"
+      "movement_slow"                                     "14 22 30 38 46 54"
     }
   }
 }

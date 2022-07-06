@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5514"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5514"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -28,12 +27,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"            "350"
-      "stomp_damage"          "120 180 240 300 600 1200"
-      "stun_duration"         
+      "radius"                                            "350"
+      "stomp_damage"                                      "120 180 240 300 600 1200"
+      "stun_duration"
       {
-        "value"           "1.6 1.9 2.2 2.5 2.65 2.8"
-        "special_bonus_unique_centaur_2" "+1.0"
+        "value"                                           "2.0 2.2 2.4 2.6 2.7 2.8"
+        "special_bonus_unique_centaur_2"                  "+1.0"
       }
     }
   }

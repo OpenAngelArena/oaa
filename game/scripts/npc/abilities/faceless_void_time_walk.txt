@@ -54,13 +54,13 @@
       "05" //OAA, Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "350"
+        "radius_scepter"                                  "400"
         "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_range"                               "400"
+        "shard_bonus_range"                               "300" //OAA
         "RequiresShard"                                   "1"
       }
     }

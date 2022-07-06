@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"							"8192"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"							"8192"
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"				"1"
 
     "MaxLevel"                    	"6"
     "RequiredLevel"              	"1"
@@ -22,7 +21,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-
     "AbilityCastPoint"				"0.2"
     "AbilityCastRange"				"175"
     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
@@ -63,7 +61,7 @@
       "05"
       {
         "var_type"							"FIELD_INTEGER"
-        "throw_distance_behind"						"350"
+        "throw_distance_behind"						"300"
       }
       "06"
       {

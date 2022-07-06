@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "mana_multiplier"                                 "1.0 1.25 1.50 1.75 2.0 2.25"
+        "mana_multiplier"                                 "0.75 1.0 1.25 1.50 1.75 2.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_3"
       }
       "04" // Max mana percentage as negative mana regen
@@ -62,7 +62,7 @@
       "06" //OAA, Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spell_damage_reduction"                          "10 15 20 25 26 27"
+        "spell_damage_reduction"                          "14 16 18 20 24 28"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "06"

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5145"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5145"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -27,7 +27,7 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 11 10" //OAA
+    "AbilityCooldown"                                     "18 16 14 12 11 10"
     "AbilityManaCost"                                     "55"
 
     // Special

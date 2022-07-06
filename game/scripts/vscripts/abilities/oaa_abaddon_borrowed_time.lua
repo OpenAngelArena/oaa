@@ -103,18 +103,20 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
     local hp_threshold = self.hp_threshold
     local current_hp = parent:GetHealth()
     if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
-      parent:CastAbilityImmediately(ability, parent:GetPlayerID())
-      -- ^ this is not good because it cancels channeling but it's not gamebreaking either
+      if parent:IsChanneling() then
+        ability:OnSpellStart()
+        ability:UseResources(true, true, true)
+      else
+        parent:CastAbilityImmediately(ability, parent:GetPlayerID())
+      end
     end
   end
 end
 
 function modifier_oaa_borrowed_time_passive:DeclareFunctions()
-  local funcs = {
-    MODIFIER_EVENT_ON_TAKEDAMAGE
+  return {
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-
-  return funcs
 end
 
 if IsServer() then
@@ -188,13 +190,11 @@ function modifier_oaa_borrowed_time_buff_caster:StatusEffectPriority()
 end
 
 function modifier_oaa_borrowed_time_buff_caster:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK -- using this instead of MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     -- because Necrophos Aura (modifier_necrolyte_heartstopper_aura_effect) ignores damage reduction but it doesn't ...
     -- ... ignore total damage block
   }
-
-  return funcs
 end
 
 if IsServer() then
@@ -262,11 +262,9 @@ function modifier_oaa_borrowed_time_buff_ally:IsPurgable()
 end
 
 function modifier_oaa_borrowed_time_buff_ally:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  return {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
-
-  return funcs
 end
 
 if IsServer() then

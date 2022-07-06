@@ -117,11 +117,10 @@
     "item"                                                "item_hand_of_midas_1"
     "item"                                                "item_greater_phase_boots"
     "item"                                                "item_greater_power_treads"
-    "item"                                                "item_greater_tranquil_boots"
     "item"                                                "item_greater_travel_boots"
+    "item"                                                "item_boots_of_bearing"
     "item"                                                "item_guardian_greaves"
     "item"                                                "item_sonic"
-    "item"                                                "item_force_boots_1"
     "item"                                                "item_heart_oaa"
     "item"                                                "item_crimson_guard"
     "item"                                                "item_regen_crystal_1"
@@ -130,6 +129,7 @@
     "item"                                                "item_ultimate_scepter"
     "item"                                                "item_ultimate_scepter_2"
     "item"                                                "item_core_info"
+    "item"                                                ""
     "item"                                                ""
   }
 
@@ -141,16 +141,16 @@
     "item"                                                "item_wraith_pact"
     "item"                                                "item_helm_of_the_dominator"
     "item"                                                "item_helm_of_the_overlord"
-    "item"                                                "item_spirit_vessel"
+    "item"                                                "item_spirit_vessel_oaa"
     "item"                                                "item_silver_staff"
     "item"                                                "item_pipe"
-    "item"                                                "item_glimmer_cape_2"
-    "item"                                                "item_eternal_shroud_oaa"
-    "item"                                                "item_bloodstone"
-    "item"                                                "item_satanic_core"
+    "item"                                                "item_glimmer_cape"
     "item"                                                "item_solar_crest"
     "item"                                                "item_far_sight"
     "item"                                                "item_holy_locket"
+    "item"                                                "item_shield_staff"
+    "item"                                                ""
+    "item"                                                ""
     "item"                                                ""
   }
 
@@ -159,8 +159,10 @@
     "item"                                                "item_veil_of_discord"
     "item"                                                "item_dagger_of_moriah"
     "item"                                                "item_dagon_oaa"
-    "item"                                                "item_gungir"
+    "item"                                                "item_cyclone"
     "item"                                                "item_wind_waker"
+    "item"                                                "item_rod_of_atos"
+    "item"                                                "item_gungir"
     "item"                                                "item_meteor_hammer_1"
     "item"                                                "item_sheepstick_4"
     "item"                                                "item_octarine_core"
@@ -171,8 +173,6 @@
     "item"                                                "item_overwhelming_blink"
     "item"                                                "item_swift_blink"
     "item"                                                "item_arcane_blink"
-    "item"                                                ""
-    "item"                                                ""
   }
 
   "defense"
@@ -191,9 +191,9 @@
     "item"                                                "item_sphere"
     "item"                                                "item_aeon_disk_2"
     "item"                                                "item_magic_lamp_1"
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
+    "item"                                                "item_eternal_shroud_oaa"
+    "item"                                                "item_bloodstone"
+    "item"                                                "item_satanic_core"
   }
 
   "weapons"
@@ -207,7 +207,6 @@
     "item"                                                "item_bloodthorn"
     "item"                                                "item_nullifier"
     "item"                                                "item_silver_edge"
-    "item"                                                "item_imp_claw_1"
     "item"                                                "item_manta"
     "item"                                                "item_heavens_halberd"
     "item"                                                "item_echo_sabre"
@@ -215,11 +214,11 @@
     "item"                                                "item_witch_blade"
     "item"                                                "item_revenants_brooch"
     "item"                                                "item_rapier"
+    "item"                                                ""
   }
 
   "artifacts"
   {
-    "item"                                                "item_shield_staff"
     "item"                                                "item_hurricane_pike"
     "item"                                                "item_siege_mode"
     "item"                                                "item_diffusal_blade"
@@ -236,6 +235,7 @@
     "item"                                                "item_sange_and_yasha"
     "item"                                                "item_kaya_and_sange"
     "item"                                                "item_yasha_and_kaya"
+    "item"                                                ""
   }
 
   // Column 1, Duel Shop

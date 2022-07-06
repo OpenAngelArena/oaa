@@ -230,7 +230,6 @@ local OnInitGameModeEvent = CreateGameEvent('OnInitGameMode')
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function GameMode:InitGameMode()
-  GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(Components)
@@ -246,6 +245,7 @@ function GameMode:InitGameMode()
   --InitModule(VectorTarget)
   InitModule(CorePointsManager)
   InitModule(TeamVision)
+  InitModule(CustomTalentSystem)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
@@ -255,25 +255,7 @@ function GameMode:InitGameMode()
     Convars:SetInt('tv_delay', 0)
   end
 
-  -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
-  -- Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", FCVAR_CHEAT )
-
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 
   OnInitGameModeEvent()
 end
-
--- This is an example console command
--- function GameMode:ExampleConsoleCommand()
---   print( '******* Example Console Command ***************' )
---   local cmdPlayer = Convars:GetCommandClient()
---   if cmdPlayer then
---     local playerID = cmdPlayer:GetPlayerID()
---     if playerID ~= nil and playerID ~= -1 then
---       -- Do something here for the player who called this command
---       PlayerResource:ReplaceHeroWith(playerID, "npc_dota_hero_viper", 1000, 1000)
---     end
---   end
-
---   print( '*********************************************' )
--- end

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5250"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5250"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -28,7 +28,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_damage_percent"                               "0.6 0.8 1 1.2 1.4 1.6"
+        "hp_damage_percent"                               "0.8 1 1.2 1.4 1.6 1.8"
       }
     }
   }

@@ -1,24 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sohei: Wholeness of Body
+  // Sohei: Wholeness of Body - scepter ability
   //=================================================================================================================
   "sohei_wholeness_of_body"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "ability_lua"
     "ID"                                                  "3587"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/sohei/sohei_wholeness_of_body.lua"
+    "AbilityTextureName"                                  "custom/ronin_guard"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"                                  "custom/ronin_guard"
-    "ScriptFile"                                          "abilities/sohei/sohei_wholeness_of_body.lua"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "1"
+    "IsGrantedByScepter"                                  "1"
+    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,18 +30,18 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12"
+    "AbilityCooldown"                                     "14" // old: "17 16 15 14 13 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 85 90 95 100 105"
+    "AbilityManaCost"                                     "90" // old: "80 85 90 95 100 105"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
       "particle"                                          "particles/hero/sohei/guard.vpcf"
-      "particle"                                          "particles/hero/sohei/knockback.vpcf"
+      //"particle"                                          "particles/hero/sohei/knockback.vpcf"
       "soundfile"                                         "soundevents/units/game_sounds_sohei.vsndevts"
     }
 
@@ -48,8 +50,8 @@
     "AbilityValues"
     {
       "bonus_magic_resistance"                            "50"
-      "duration"                                          "6.0 6.5 7.0 7.5 8.0 8.5"
-      "heal_immediate"                                    "100 150 200 250 500 750"
+      "duration"                                          "6" // old: "6.0 6.5 7.0 7.5 8.0 8.5"
+      //"heal_immediate"                                    "100 150 200 250 500 750"
       "post_heal"                                         "75"
       "damage_taken_as_heal"
       {

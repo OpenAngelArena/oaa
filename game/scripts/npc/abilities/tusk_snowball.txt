@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5566"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5566"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -46,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "snowball_speed"                                  "600 625 650 675 700 725"
+        "snowball_speed"                                  "625 650 675 700 725 750"
       }
       "03"
       {

@@ -280,7 +280,7 @@ function modifier_death_ward_oaa:OnDestroy()
 end
 
 function modifier_death_ward_oaa:DeclareFunctions()
-  local funcs ={
+  return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
@@ -290,7 +290,6 @@ function modifier_death_ward_oaa:DeclareFunctions()
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_EVENT_ON_ORDER,
   }
-  return funcs
 end
 
 function modifier_death_ward_oaa:GetAbsoluteNoDamagePhysical()
@@ -701,12 +700,11 @@ if IsServer() then
 end
 
 function modifier_voodoo_switcheroo_oaa:DeclareFunctions()
-  local funcs ={
+  return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
   }
-  return funcs
 end
 
 function modifier_voodoo_switcheroo_oaa:GetAbsoluteNoDamagePhysical()
@@ -722,7 +720,7 @@ function modifier_voodoo_switcheroo_oaa:GetAbsoluteNoDamagePure()
 end
 
 function modifier_voodoo_switcheroo_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
@@ -732,7 +730,6 @@ function modifier_voodoo_switcheroo_oaa:CheckState()
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_DISARMED] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -765,12 +762,11 @@ if IsServer() then
 end
 
 function modifier_death_ward_hidden_oaa:DeclareFunctions()
-  local funcs ={
+  return {
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
   }
-  return funcs
 end
 
 function modifier_death_ward_hidden_oaa:GetAbsoluteNoDamagePhysical()
@@ -786,7 +782,7 @@ function modifier_death_ward_hidden_oaa:GetAbsoluteNoDamagePure()
 end
 
 function modifier_death_ward_hidden_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
@@ -795,7 +791,6 @@ function modifier_death_ward_hidden_oaa:CheckState()
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
     [MODIFIER_STATE_DISARMED] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------

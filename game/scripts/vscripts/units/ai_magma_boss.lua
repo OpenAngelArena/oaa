@@ -172,9 +172,9 @@ function MagmaBossThink()
       local active_volcanos = ability:GetNumVolcanos()
       local max_number_of_volcanos = 0
       local enemies = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-      if current_hp_pct > 0.75 then -- phase 1
+      if current_hp_pct > 0.66 then -- phase 1
         max_number_of_volcanos = 1
-      elseif current_hp_pct > 0.5 then -- phase 2
+      elseif current_hp_pct > 0.33 then -- phase 2
         max_number_of_volcanos = 2
       else -- phase 3
         max_number_of_volcanos = 3
@@ -183,9 +183,17 @@ function MagmaBossThink()
         local main_target = ability:FindValidTarget(enemies[1]:GetAbsOrigin())
         if max_number_of_volcanos > 1 then
           ability.target_points = {}
-          for i = 1, math.max(max_number_of_volcanos - active_volcanos - 1, 0) do
-            local next_target = ability:FindValidTarget(enemies[math.max(#enemies + 1 - i, 1)]:GetAbsOrigin(), main_target)
-            table.insert(ability.target_points, next_target)
+          local secondary_volcanos = max_number_of_volcanos - active_volcanos - 1
+          if secondary_volcanos > 0 then
+            if secondary_volcanos == 1 and #enemies > 1 then
+              -- Hit the farthest unit
+              table.insert(ability.target_points, ability:FindValidTarget(enemies[#enemies]:GetAbsOrigin(), main_target))
+            elseif #enemies > 2 then
+              -- Hit the farthest unit
+              table.insert(ability.target_points, ability:FindValidTarget(enemies[#enemies]:GetAbsOrigin(), main_target))
+              -- Hit the second nearest unit
+              table.insert(ability.target_points, ability:FindValidTarget(enemies[2]:GetAbsOrigin(), main_target))
+            end
           end
         end
         CastOnPoint(ability, main_target)

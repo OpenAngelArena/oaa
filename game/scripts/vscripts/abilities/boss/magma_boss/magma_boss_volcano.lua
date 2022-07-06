@@ -101,8 +101,11 @@ function magma_boss_volcano:GetNumVolcanos()
     local NumVolcanos = 0
     if #volcanos > 0 then
       for _, volcano in pairs(volcanos) do
-        if volcano and volcano:HasModifier(self.modifier_name) and volcano:FindModifierByName(self.modifier_name):GetCaster() == self:GetCaster() then
-          NumVolcanos = NumVolcanos + 1
+        if volcano then
+          local volcano_mod = volcano:FindModifierByNameAndCaster(self.modifier_name, self:GetCaster())
+          if volcano_mod then
+            NumVolcanos = NumVolcanos + 1
+          end
         end
       end
     end
@@ -140,7 +143,7 @@ function magma_boss_volcano:FindValidTarget(potential_target, main_target)
   -- Try not to overlap locations, but use the last position attempted if we spend too long in the loop
   local nMaxAttempts = 7
   local nAttempts = 0
-  local position
+  local position = caster_loc
 
   repeat
     position = potential_target + RandomVector(RandomInt(self:GetSpecialValueFor("torrent_aoe"), 1500))
@@ -154,6 +157,10 @@ function magma_boss_volcano:FindValidTarget(potential_target, main_target)
 
     nAttempts = nAttempts + 1
     if nAttempts >= nMaxAttempts then
+      -- If extremely unlucky
+      if main_target and (position - main_target):Length2D() <= self:GetSpecialValueFor("torrent_aoe") then
+        position = main_target + RandomVector(RandomInt(self:GetSpecialValueFor("torrent_aoe"), 1500))
+      end
       break
     end
   until (#overlapping == 0 and (position - caster_loc):Length2D() <= 1500)
@@ -200,10 +207,9 @@ function modifier_magma_boss_volcano:GetEffectAttachType()
 end
 
 function modifier_magma_boss_volcano:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-  return funcs
 end
 
 function modifier_magma_boss_volcano:GetOverrideAnimation()
@@ -253,10 +259,9 @@ function modifier_magma_boss_volcano:OnVerticalMotionInterrupted()
 end
 
 function modifier_magma_boss_volcano:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -308,14 +313,13 @@ function modifier_magma_boss_volcano_thinker:RemoveOnDeath()
 end
 
 function modifier_magma_boss_volcano_thinker:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 function modifier_magma_boss_volcano_thinker:OnCreated()
@@ -415,10 +419,10 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
 
     local ability = self:GetAbility()
     local damage_table = {
-        attacker = self:GetCaster(),
-        damage = damage_per_interval,
-        damage_type = self.damage_type,
-        ability = ability,
+      attacker = self:GetCaster(),
+      damage = damage_per_interval,
+      damage_type = self.damage_type,
+      ability = ability,
     }
     local units = FindUnitsInRadius(
       parent:GetTeamNumber(),
@@ -516,7 +520,17 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
 
   parent:AddNewModifier(caster, ability, "modifier_magma_boss_volcano_thinker_child", {duration = self.totem_rising_duration})
 
-  local enemies = FindUnitsInRadius(parent:GetTeamNumber(), center, parent, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    center,
+    parent,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 
   local damage_table = {
     attacker = caster,
@@ -579,7 +593,7 @@ if IsServer() then
       if ability and not ability:IsNull() then
         damage_dealt = math.ceil(ability:GetSpecialValueFor("totem_health") / ability:GetSpecialValueFor("totem_hero_attacks_to_destroy"))
       else
-        damage_dealt = 4
+        damage_dealt = 6
       end
     end
 
@@ -646,10 +660,9 @@ function modifier_magma_boss_volcano_thinker_child:OnIntervalThink()
 end
 
 function modifier_magma_boss_volcano_thinker_child:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
   }
-  return state
 end

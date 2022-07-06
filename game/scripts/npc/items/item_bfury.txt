@@ -5,15 +5,15 @@
   //=================================================================================================================
   "item_recipe_bfury"
   {
-    "ID"                                                  "144"    // unique ID
+    "ID"                                                  "144"
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_broadsword;item_claymore;item_pers;item_quelling_blade"
+      "01"                                                "item_small_cleaver_oaa;item_pers"
     }
   }
 
@@ -24,7 +24,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "145"    // unique ID
+    "ID"                                                  "145"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4100"
+    "ItemCost"                                            "4110" //OAA
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "cleaver"

@@ -42,7 +42,7 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       if talent and talent:GetLevel() > 0 then
         max_duration = max_duration + talent:GetSpecialValueFor("value2")
       end
-      victim:AddNewModifier(caster, ability, "modifier_oaa_requiem_allowed", {duration = math.min(max_duration, 6.5), immune_time = 3})
+      victim:AddNewModifier(caster, ability, "modifier_oaa_requiem_allowed", {duration = math.min(max_duration, 6.5), immune_time = 2})
     end
   elseif ability_name == "faceless_void_time_dilation" and modifier_name == "modifier_faceless_void_time_dilation_slow" then
     victim:AddNewModifier(caster, ability, "modifier_faceless_void_time_dilation_degen_oaa", {duration = modifier_duration})

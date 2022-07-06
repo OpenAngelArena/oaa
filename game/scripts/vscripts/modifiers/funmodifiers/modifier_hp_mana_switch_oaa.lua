@@ -20,12 +20,19 @@ function modifier_hp_mana_switch_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_SPELLS_REQUIRE_HP,
     --MODIFIER_PROPERTY_MIN_HEALTH,
+    MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 function modifier_hp_mana_switch_oaa:GetModifierSpellsRequireHP()
   return 1
+end
+
+function modifier_hp_mana_switch_oaa:GetModifierManaBonus()
+  if self:GetParent():GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_INTELLECT then
+    return 500
+  end
 end
 
 function modifier_hp_mana_switch_oaa:GetMinHealth()

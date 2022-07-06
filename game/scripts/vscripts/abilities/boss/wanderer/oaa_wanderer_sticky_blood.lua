@@ -110,19 +110,17 @@ if IsServer() then
 
     if attacker:IsHero() then
       self:ProcStickyBlood(caster, ability, attacker)
-    else
-      if attacker.GetPlayerOwner then
-        local player = attacker:GetPlayerOwner()
-        local hero_owner
-        if player then
-          hero_owner = player:GetAssignedHero()
-        end
-        if not hero_owner then
-          hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
-        end
-        if hero_owner then
-          self:ProcStickyBlood(caster, ability, hero_owner)
-        end
+    elseif attacker.GetPlayerOwner then
+      local player = attacker:GetPlayerOwner()
+      local hero_owner
+      if player then
+        hero_owner = player:GetAssignedHero()
+      end
+      if not hero_owner then
+        hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
+      end
+      if hero_owner then
+        self:ProcStickyBlood(caster, ability, hero_owner)
       end
     end
   end

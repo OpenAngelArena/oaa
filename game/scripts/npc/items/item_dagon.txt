@@ -75,10 +75,10 @@
       "bonus_str"                                         "6 8 10 12 14 20 25 30 35"
       "bonus_agi"                                         "6 8 10 12 14 20 25 30 35"
       "spell_amp"                                         "0"
-      "damage"                                            "400 500 600 700 800 1000 1200 1400 1600"
-      "current_hp_dmg"                                    "0 0 0 0 0 8 10 12 14"
+      "damage"                                            "400 500 600 700 800 950 1150 1400 1700"
+      "current_hp_dmg"                                    "0 0 0 0 0 9 12 15 18"
       "damage_delay"                                      "0"
-      "blind_pct"                                         "0 0 0 0 0 100"
+      "blind_pct"                                         "100" // Blind is applied only for Dagons 6+
       "blind_duration"                                    "2"
       "mana_cost_tooltip"                                 "120 140 160 180 200 210 220 230 240"
       "cooldown_tooltip"                                  "24 22 19 17 15 13 12 11 10"

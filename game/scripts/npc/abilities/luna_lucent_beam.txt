@@ -26,41 +26,41 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.5"  // Mostly about the damage
 
-    // Special 
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "AbilityCooldown"
       {
-        "value"         "9.0 8.0 7.0 6.0 6.0 6.0"
-        "special_bonus_unique_luna_2" "-3.0"
+        "value"                                           "9.0 8.0 7.0 6.0 6.0 6.0"
+        "special_bonus_unique_luna_2"                     "-3.0"
       }
       "AbilityManaCost"
       {
-        "value"         "90 100 110 120 130 140"
-        "special_bonus_shard" "-50"
+        "value"                                           "90 100 110 120 130 140"
+        "special_bonus_shard"                             "-50"
       }
       "beam_damage"
       {
-        "value"         "75 150 225 300 600 1200"
-        "special_bonus_unique_luna_1" "+100"
+        "value"                                           "80 160 240 320 640 1280"
+        "special_bonus_unique_luna_1"                     "+100"
       }
       "shard_search_radius"
       {
-        "value"         "0"
-        "special_bonus_shard" "+325"
-        "RequiresShard"     "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+325"
+        "RequiresShard"                                   "1"
       }
       "shard_attack_radius"
       {
-        "value"         "0"
-        "special_bonus_shard" "+500"
-        "RequiresShard"     "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+500"
+        "RequiresShard"                                   "1"
       }
       "stun_duration"
       {
-        "value"         "0.8"
-        "special_bonus_unique_luna_4" "+0.4"
+        "value"                                           "0.8"
+        "special_bonus_unique_luna_4"                     "+0.4"
       }
     }
   }

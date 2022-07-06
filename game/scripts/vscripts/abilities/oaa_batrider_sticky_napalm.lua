@@ -101,7 +101,7 @@ function modifier_batrider_sticky_napalm_oaa_passive:IsPurgable()
 end
 
 function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
     --MODIFIER_PROPERTY_DISABLE_TURNING,
     MODIFIER_EVENT_ON_ORDER,
@@ -109,8 +109,6 @@ function modifier_batrider_sticky_napalm_oaa_passive:DeclareFunctions()
     MODIFIER_EVENT_ON_MODIFIER_ADDED,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
 function modifier_batrider_sticky_napalm_oaa_passive:GetModifierIgnoreCastAngle()
@@ -207,6 +205,7 @@ if IsServer() then
       ["item_radiance_5"] = true,
       ["item_urn_of_shadows"] = true,
       ["item_spirit_vessel"] = true,
+      ["item_spirit_vessel_oaa"] = true,
       ["item_spirit_vessel_2"] = true,
       ["item_spirit_vessel_3"] = true,
       ["item_spirit_vessel_4"] = true,
@@ -364,12 +363,12 @@ if IsServer() then
       return
     end
 
-    -- Check if attacked unit exists
+    -- Check if attacked entity exists
     if not target or target:IsNull() then
       return
     end
 
-    -- If the unit is not actually a unit but its an entity that can gain modifiers
+    -- Check if attacked entity can gain modifiers
     if target.HasModifier == nil then
       return
     end
@@ -466,11 +465,10 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:GetModifierMoveSpeedBonus_Percentage()

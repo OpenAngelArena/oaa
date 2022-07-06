@@ -55,7 +55,7 @@ end
 function modifier_vengefulspirit_command_aura_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
-    MODIFIER_EVENT_ON_RESPAWN
+    MODIFIER_EVENT_ON_RESPAWN,
   }
 end
 
@@ -298,7 +298,7 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:GetPrior
 end
 
 function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
@@ -314,6 +314,5 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:CheckSta
     [MODIFIER_STATE_BLIND] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
   }
-  return state
 end
 ]]

@@ -7,20 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"7918"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+    "ID"                                                  "7918"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                    	"6"
-    "RequiredLevel"              	"1"
-    "LevelsBetweenUpgrades"         "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_3"
-    "AbilityCastGestureSlot"		"DEFAULT"
-    "AbilityCastPoint"				"0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_3"
+    "AbilityCastGestureSlot"                              "DEFAULT"
+    "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "120 140 160 180 200 220"
+        "bonus_damage"                                    "125 150 175 200 225 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_crit"
       }
       "04"

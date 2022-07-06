@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5074"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5074"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -27,16 +27,16 @@
     {
       "damage_block" //OAA
       {
-        "value"     "5 15 25 35 55 75"
-        "special_bonus_unique_pudge_1"  "x1.6"
+        "value"                                           "7 17 27 37 57 77"
+        "special_bonus_unique_pudge_1"                    "x1.6"
       }
       "flesh_heap_strength_buff_amount"
       {
-        "value" "1.1 1.4 1.7 2 2.5 3"
-        "special_bonus_unique_pudge_1"  "x1.6"
+        "value"                                           "1.1 1.4 1.7 2 2.3 2.6"
+        "special_bonus_unique_pudge_1"                    "x1.6"
       }
-      "flesh_heap_range"    "450"
-      "duration"  "5 6 7 8 8.5 9"
+      "flesh_heap_range"                                  "450"
+      "duration"                                          "5 6 7 8 8.5 9"
     }
   }
 }

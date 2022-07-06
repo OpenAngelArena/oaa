@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "910"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "910"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -34,7 +34,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "911"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "911"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     //"AbilityTextureName"                                  "item_revenants_brooch"
     "AbilityTextureName"                                  "custom/revenants_brooch"
@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250"
+    "AbilityManaCost"                                     "300"
     "ItemCost"                                            "6200"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -63,18 +63,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"   "45 50 60 75 95"
-      "bonus_attack_speed"  "40 45 50 55 60"
-      "bonus_armor"     "6 8 10 12 14" //OAA
-      "projectile_speed"    "300 400 500 600 700"
-      "int_damage_multiplier" "1"
-      "slow"  "25 30 35 40 45"
-      "slow_duration" "4"
-      "mana_cost"       "100"
-      "damage_penalty"    "0"
-      "passive_cooldown"    "8.0" //OAA
-      "number_of_attacks"   "419" //OAA
-      "active_duration"   "3.5" //OAA
+      "bonus_intellect"                                   "45 50 60 75 95"
+      "bonus_attack_speed"                                "40 45 50 55 60"
+      "bonus_armor"                                       "6 8 10 12 14" //OAA
+      "projectile_speed"                                  "300 400 500 600 700"
+      "int_damage_multiplier"                             "1"
+      "slow"                                              "25 30 35 40 45"
+      "slow_duration"                                     "4"
+      "mana_cost"                                         "100" // what is this Valve?
+      "damage_penalty"                                    "0"
+      "passive_cooldown"                                  "8.0" //OAA
+      "number_of_attacks"                                 "69" //OAA
+      "active_duration"                                   "3.5" //OAA
     }
   }
 }

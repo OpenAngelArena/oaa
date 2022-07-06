@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5127"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5127"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -15,7 +15,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -27,25 +26,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilityValues"
     {
-      "AbilityCastRange"        "550"
-      "AbilityCastPoint"        "0.3"
-      "AbilityCooldown"       "9 8 7 6 6 6"
-      "AbilityManaCost"       "125 135 145 155 165 175"
-      "damage_per_second"       "100 100 100 100 200 300"
-      "creep_damage_per_second"   "100 100 100 100 200 300"
+      "AbilityCastRange"                                  "600"
+      "AbilityCastPoint"                                  "0.3"
+      "AbilityCooldown"                                   "9 8 7 6 6 6"
+      "AbilityManaCost"                                   "125 135 145 155 165 175"
+      "damage_per_second"                                 "100 100 100 100 200 400"
+      "creep_damage_per_second"                           "100 100 100 100 200 400"
       "duration"
       {
-        "value"                   "1.5 2.0 2.5 3.0 3.5 4.5"
-        "special_bonus_unique_crystal_maiden_1"   "+1.25"
+        "value"                                           "1.5 2.0 2.5 3.0 3.5 4.0"
+        "special_bonus_unique_crystal_maiden_1"           "+1.25"
       }
       "creep_duration"
       {
-        "value"                   "10"
-        "special_bonus_unique_crystal_maiden_1"   "+1.25"
+        "value"                                           "10"
+        "special_bonus_unique_crystal_maiden_1"           "+1.25"
       }
-      "tick_interval"         "0.25"
+      "tick_interval"                                     "0.25"
     }
   }
 }

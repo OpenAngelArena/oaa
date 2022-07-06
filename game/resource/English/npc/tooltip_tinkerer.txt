@@ -53,14 +53,15 @@
 // "DOTA_Tooltip_ability_tinker_keen_teleport_Description"		"After channeling for %abilitychanneltime%s teleport to a target friendly structure. Level 2 allows teleporting to friendly units and Level 3 to friendly heroes."
 
 "DOTA_Tooltip_ability_tinkerer_smart_missiles"                                  "Smart Missiles"
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a smart missile in that direction, hitting the first non-neutral enemy it touches. The missile deals damage and applies a mini-stun. The missile will deal bonus damage equal to the percentage of target's max health if it travelled %bonus_damage_range% units or more. Smart Missiles grant vision around themselves and don't ignore bosses."
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a missile in that direction, hitting the first enemy unit it touches. The missile deals damage and applies a mini-stun. The missile will deal bonus damage equal to the percentage of target's max health if it travelled %bonus_damage_range% units or more. Smart Missiles grant vision around themselves."
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_Lore"                             "#{DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore}"
+"DOTA_Tooltip_Ability_tinkerer_smart_missiles_Note0"                            "Smart Missiles will not hit Neutral Creeps, but they will hit Bosses."
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_base_damage"                      "BASE DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_max_hp_damage"              "%MAX HP DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_stun_duration"                    "STUN DURATION:"
 
 "DOTA_Tooltip_ability_tinkerer_oil_spill"                                       "Tar Spill"
-"DOTA_Tooltip_ability_tinkerer_oil_spill_Description"                           "Target a location to smother enemy units in tar. Applies percentage movement and attack speed slow to all enemies in the target area when the tar projectile hits the ground. Enemy units Covered in Tar will ignite for the remaining duration once they take any spell or item damage."
+"DOTA_Tooltip_ability_tinkerer_oil_spill_Description"                           "Target a location to smother enemy units in tar. Applies percentage movement and attack speed slow to all enemies in the target area when the tar projectile hits the ground. Enemy units covered in tar will ignite once they take any spell or item damage. Igniting will cause the unit to take %burn_dps% damage per second and increase the duration by %ignite_extra_duration% seconds."
 "DOTA_Tooltip_ability_tinkerer_oil_spill_Lore"                                  "Tinkerer is a fan of tar and feathers prank."
 "DOTA_Tooltip_ability_tinkerer_oil_spill_radius"                                "RADIUS:"
 "DOTA_Tooltip_ability_tinkerer_oil_spill_duration"                              "DEBUFF DURATION:"
@@ -113,7 +114,7 @@
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:value} Tar Spill Burn Damage"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Reduces Magic Resistance"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Reduces magic resistance by 45%."
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Amplifies Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by 25%."
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          ""

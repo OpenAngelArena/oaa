@@ -12,7 +12,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -24,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
+    "AbilityCooldown"                                     "120 110 100 95 90" //OAA
     "AbilityDuration"                                     "4.5 5.25 6.0 6.5 7.0"
 
     // Cost

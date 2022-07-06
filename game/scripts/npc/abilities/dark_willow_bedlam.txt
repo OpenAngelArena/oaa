@@ -7,13 +7,12 @@
  {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6340" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6340"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // OAA, Valve has it wrong
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
 

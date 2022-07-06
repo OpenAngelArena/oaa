@@ -19,6 +19,7 @@ end
 function modifier_diarrhetic_oaa:OnCreated()
   local interval = 30
   self.check_for_ward_radius = 300
+  self.duration = 2 * interval -- POOP_WARD_DURATION
 
   if IsServer() then
     self:StartIntervalThink(interval)
@@ -53,7 +54,7 @@ if IsServer() then
 
     if no_wards_nearby then
       local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, parent, team)
-      ward:AddNewModifier(ward, nil, "modifier_kill", {duration = POOP_WARD_DURATION})
+      ward:AddNewModifier(ward, nil, "modifier_kill", {duration = self.duration})
       ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", {})
     end
   end

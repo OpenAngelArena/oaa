@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "60 70 80 90 100 110" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -76,17 +76,17 @@
       }
       "scepter_erupt_damage_pct"
       {
-        "value"                                           "50"
+        "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
       "scepter_slow_pct"
       {
-        "value"                                           "50"
+        "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
       "scepter_armor_pct"
       {
-        "value"                                           "50"
+        "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
     }

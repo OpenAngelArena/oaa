@@ -5,49 +5,30 @@
     "ID"                                                  "9912"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/stopfightingyourself/dupe_heroes.lua"
-    "AbilityTextureName"                                  "custom/stopfightingyourself_dupe_heroes"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-
-    "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
-
+    "AbilityTextureName"                                  "terrorblade_reflection"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown"                                        "5"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_damage"                        "-100"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_incoming_damage"                        "200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_illusions"                                   "32"
-      }
-    }
+    "MaxLevel"                                            "1"
 
-    "precache"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "2.0"
+
+    "AbilityCooldown"                                     "16"
+
+    "AbilityManaCost"                                     "0"
+    "AbilityProcsMagicStick"                              "1"
+
+    "AbilityValues"
     {
-      "soundfile"                                             "sounds/vo/announcer_dlc_rick_and_morty/generic_illusion_based_hero_02.vsnd"
+      "radius"                                            "800"
+      "illusion_duration"                                 "16"
+      "illusion_outgoing_damage"                          "100"
+      "illusion_incoming_damage"                          "150"
+      "max_illusions"                                     "3"
     }
   }
 }

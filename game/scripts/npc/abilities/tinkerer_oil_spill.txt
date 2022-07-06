@@ -24,7 +24,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
 
@@ -41,6 +41,7 @@
       "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
       "particle"                                          "particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf"
       "particle"                                          "particles/econ/items/huskar/huskar_2021_immortal/huskar_2021_immortal_burning_spear_debuff_flame_circulate.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_grimstroke_ink_over.vpcf"
       "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_grimstroke.vsndevts"
     }
@@ -53,7 +54,7 @@
       "projectile_speed"                                  "934"
       "duration"
       {
-        "value"                                           "3.5 4 4.5 5 5.5 6" // original 2/3/4/5
+        "value"                                           "3.75 4.0 4.25 4.5 4.75 5" // original 2/3/4/5
         "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_4"
       }
       "move_speed_slow"
@@ -72,6 +73,7 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_6"
       }
       "burn_interval"                                     "0.25"
+      "ignite_extra_duration"                             "3"
     }
   }
 }

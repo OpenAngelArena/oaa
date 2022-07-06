@@ -171,10 +171,9 @@ function modifier_alchemist_gold_corrosion_oaa_debuff:OnRefresh()
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_alchemist_gold_corrosion_oaa_debuff:GetModifierPhysicalArmorBonus()

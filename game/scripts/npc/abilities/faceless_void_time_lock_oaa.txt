@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85184"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "85184"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_time_lock.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -34,10 +34,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // in normal dota: min stun time is second_attack_delay + vanilla duration (0.65) =  0.98;
+      "01" // in normal dota: min stun time is second_attack_delay + vanilla duration (0.65) =  1.05;
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0"
+        "duration"                                        "1.05"
       }
       "02"
       {
@@ -49,7 +49,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "chance_pct"                                      "12 16 20 24 25 26"
       }
-      "04" // this should be at minimum: vanilla value x 2
+      "04" // minimum should be: vanilla value x 2
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "35 45 55 65 130 260"
@@ -58,7 +58,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "second_attack_delay"                             "0.33"
+        "second_attack_delay"                             "0.4"
       }
       "06"
       {

@@ -187,21 +187,28 @@ if IsServer() then
       return
     end
 
+    local tier = caster.BossTier or 3
+    local aggro_factor = BOSS_AGRO_FACTOR or 15
+    local current_hp_pct = caster:GetHealth() / caster:GetMaxHealth()
+    local aggro_hp_pct = math.min(1 - ((tier * aggro_factor) / caster:GetMaxHealth()), 99/100)
+
+    if current_hp_pct >= aggro_hp_pct then
+      return
+    end
+
     if attacker:IsHero() then
       self:ProcMagmaBlood(caster, ability, attacker)
-    else
-      if attacker.GetPlayerOwner then
-        local player = attacker:GetPlayerOwner()
-        local hero_owner
-        if player then
-          hero_owner = player:GetAssignedHero()
-        end
-        if not hero_owner then
-          hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
-        end
-        if hero_owner then
-          self:ProcMagmaBlood(caster, ability, hero_owner)
-        end
+    elseif attacker.GetPlayerOwner then
+      local player = attacker:GetPlayerOwner()
+      local hero_owner
+      if player then
+        hero_owner = player:GetAssignedHero()
+      end
+      if not hero_owner then
+        hero_owner = PlayerResource:GetSelectedHeroEntity(UnitVarToPlayerID(attacker))
+      end
+      if hero_owner then
+        self:ProcMagmaBlood(caster, ability, hero_owner)
       end
     end
   end

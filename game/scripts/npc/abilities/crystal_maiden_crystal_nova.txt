@@ -22,27 +22,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"        "700"
-      "AbilityCastPoint"        "0.3"
+      "AbilityCastRange"                                  "700"
+      "AbilityCastPoint"                                  "0.3"
       "AbilityCooldown" //OAA
       {
-        "value"                   "8"
-        "special_bonus_unique_crystal_maiden_5"   "-3"
+        "value"                                           "10 9.5 9 8.5 8 8"
+        "special_bonus_unique_crystal_maiden_5"           "-3"
       }
-      "AbilityManaCost"       "115 135 155 175 195 215"
+      "AbilityManaCost"                                   "115 135 155 175 195 215"
       "radius"
       {
-        "value"                   "425"
-        "special_bonus_unique_crystal_maiden_6"   "+125"
+        "value"                                           "425"
+        "special_bonus_unique_crystal_maiden_6"           "+125"
       }
-      "movespeed_slow"        "-20 -30 -40 -50 -60 -70"
-      "attackspeed_slow"        "-30 -45 -60 -75 -90 -105"
-      "duration"            "4.5"
-      "vision_duration"       "6.0"
+      "movespeed_slow"                                    "-20 -30 -40 -50 -60 -70"
+      "attackspeed_slow"                                  "-30 -45 -60 -75 -90 -105"
+      "duration"                                          "5"
+      "vision_duration"                                   "6.0"
       "nova_damage" //OAA
       {
-        "value"                   "130 170 210 260 520 1040"
-        "special_bonus_unique_crystal_maiden_2"   "+480"
+        "value"                                           "130 170 210 260 520 1040"
+        "special_bonus_unique_crystal_maiden_2"           "+300"
       }
 
     }

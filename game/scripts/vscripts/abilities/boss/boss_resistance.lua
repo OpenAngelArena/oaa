@@ -111,68 +111,27 @@ if IsServer() then
     end
     return 0
   end
-end
 
-function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
-  --print('--')
-  --for k, v in pairs(keys) do
-    --print(k .. ': ' .. tostring(v))
-  --end
-  --print('--')
+  function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
+    local percentDamageSpells = {
+      anti_mage_mana_void = true,
+      bloodseeker_bloodrage = false,          -- doesn't work on vanilla Roshan
+      death_prophet_spirit_siphon = true,     -- doesn't work on vanilla Roshan
+      doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
+      huskar_life_break = true,               -- doesn't work on vanilla Roshan
+      jakiro_liquid_ice = false,
+      necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
+      phantom_assassin_fan_of_knives = false,
+      tinker_shrink_ray = true,               -- doesn't work on vanilla Roshan
+      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+    }
 
--- [   VScript              ]: process_procs: true
--- [   VScript              ]: order_type: 0
--- [   VScript              ]: issuer_player_index: 1982289334
--- [   VScript              ]: fail_type: 0
--- [   VScript              ]: damage_category: 0
--- [   VScript              ]: reincarnate: false
--- [   VScript              ]: distance: 0
--- [   VScript              ]: gain: 98.332176208496
--- [   VScript              ]: attacker: table: 0x00636d38
--- [   VScript              ]: ranged_attack: false
--- [   VScript              ]: record: 5
--- [   VScript              ]: activity: -1
--- [   VScript              ]: do_not_consume: false
--- [   VScript              ]: damage_type: 4
--- [   VScript              ]: heart_regen_applied: false
--- [   VScript              ]: diffusal_applied: false
--- [   VScript              ]: no_attack_cooldown: false
--- [   VScript              ]: cost: 0
--- [   VScript              ]: inflictor: table: 0x004bfe30
--- [   VScript              ]: damage_flags: 0
--- [   VScript              ]: original_damage: 650
--- [   VScript              ]: ignore_invis: false
--- [   VScript              ]: damage: 650
--- [   VScript              ]: basher_tested: false
--- [   VScript              ]: target: table: 0x00524320
+    local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+    local attacker = keys.attacker
+    local inflictor = keys.inflictor
 
--- [   VScript              ]: new_pos: Vector 00000000043FFC08 [0.000000 -28480297238528.000000 0.000000]
--- [   VScript              ]: octarine_tested: false
--- [   VScript              ]: stout_tested: false
--- [   VScript              ]: locket_amp_applied: false
--- [   VScript              ]: sange_amp_applied: false
--- [   VScript              ]: mkb_tested: false
-
-  local percentDamageSpells = {
-    anti_mage_mana_void = true,
-    bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
-    death_prophet_spirit_siphon = true,     -- doesn't work on vanilla Roshan
-    doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
-    huskar_life_break = true,               -- doesn't work on vanilla Roshan
-    jakiro_liquid_ice = false,
-    necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
-    phantom_assassin_fan_of_knives = false,
-    tinker_shrink_ray = true,               -- doesn't work on vanilla Roshan
-    winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
-  }
-
-  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  local attacker = keys.attacker
-  local inflictor = keys.inflictor
-
-  if not inflictor then
-    -- Damage was not done with an ability
-    if IsServer() then
+    if not inflictor then
+      -- Damage was not done with an ability
       -- Lone Druid Bear Demolish bonus damage
       if attacker:HasModifier("modifier_lone_druid_spirit_bear_demolish") then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
@@ -224,71 +183,72 @@ function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
           end
         end
       end
+
+      return 0
     end
-    return 0
-  end
 
-  -- We will not overcomplicate the interaction with damage amp from Veil:
-  -- if parent has Veil debuff, set damage reduction to 100%
-  local parent = self:GetParent()
-  local hasVeilDebuff = parent:HasModifier("modifier_item_veil_of_discord_debuff")
+    -- We will not overcomplicate the interaction with damage amp from Veil:
+    -- if parent has Veil debuff, set damage reduction to 100%
+    local parent = self:GetParent()
+    local hasVeilDebuff = parent:HasModifier("modifier_item_veil_of_discord_debuff")
 
-  local name = inflictor:GetAbilityName()
-  if percentDamageSpells[name] then
-    if hasVeilDebuff then
-      return -100
-    else
-      return 0 - damageReduction
+    local name = inflictor:GetAbilityName()
+    if percentDamageSpells[name] then
+      if hasVeilDebuff then
+        return -100
+      else
+        return 0 - damageReduction
+      end
     end
-  end
 
-  -- Greater Travels Boots affecting spell damage
-  if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") and IsServer() then
-    local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
-    if modifier then
-      local ability = modifier:GetAbility()
-      if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
+    -- Greater Travels Boots affecting spell damage
+    if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") then
+      local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
+      if modifier then
+        local ability = modifier:GetAbility()
+        if ability then
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct
+          end
         end
       end
     end
+
+  --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
+  --   local damageAmpModifiers = {
+  --     "modifier_bloodseeker_bloodrage",
+  --     "modifier_chen_penitence",
+  --     "modifier_shadow_demon_soul_catcher"
+  --   }
+  --   -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
+  --   local ampAbilitySpecialKeys = {
+  --     "damage_increase_pct",
+  --     "bonus_damage_taken",
+  --     "bonus_damage_taken"
+  --   }
+
+  --   -- Calculates a value that will counteract damage amplification from the named modifier such that
+  --   -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
+  --   local function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
+  --     local modifiers = parent:FindAllModifiersByName(modifierName)
+
+  --     local function CalculateAmp(modifier)
+  --       if modifier:IsNull() then
+  --         return 0
+  --       else
+  --         local modifierDamageAmp = modifier:GetAbility():GetSpecialValueFor(ampValueKey)
+  --         return (100 - damageReduction) / 100 * modifierDamageAmp - modifierDamageAmp
+  --       end
+  --     end
+
+  --     return sum(map(CalculateAmp, modifiers))
+  --   end
+
+  --   local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
+  --   return 0 - damageReduction + damageAmpReduction
+    return 0
   end
-
---   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
---   local damageAmpModifiers = {
---     "modifier_bloodseeker_bloodrage",
---     "modifier_chen_penitence",
---     "modifier_shadow_demon_soul_catcher"
---   }
---   -- A list matched with the previous one for the AbilitySpecial keys that contain the damage amp values of the modifiers
---   local ampAbilitySpecialKeys = {
---     "damage_increase_pct",
---     "bonus_damage_taken",
---     "bonus_damage_taken"
---   }
-
---   -- Calculates a value that will counteract damage amplification from the named modifier such that
---   -- it's as if the damage amplification stacks multiplicatively with Boss Resistance
---   local function CalculateMultiplicativeAmpStack(modifierName, ampValueKey)
---     local modifiers = parent:FindAllModifiersByName(modifierName)
-
---     local function CalculateAmp(modifier)
---       if modifier:IsNull() then
---         return 0
---       else
---         local modifierDamageAmp = modifier:GetAbility():GetSpecialValueFor(ampValueKey)
---         return (100 - damageReduction) / 100 * modifierDamageAmp - modifierDamageAmp
---       end
---     end
-
---     return sum(map(CalculateAmp, modifiers))
---   end
-
---   local damageAmpReduction = sum(map(CalculateMultiplicativeAmpStack, zip(damageAmpModifiers, ampAbilitySpecialKeys)))
---   return 0 - damageReduction + damageAmpReduction
-  return 0
 end
 
 -----------------------------------------------------------------------------------------
@@ -311,7 +271,7 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
 
-    if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") then
+    if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
       return {}
     end
 
@@ -342,7 +302,7 @@ function modifier_boss_truesight_oaa:IsHidden()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
-  if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") then
+  if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
     return true
   end
 

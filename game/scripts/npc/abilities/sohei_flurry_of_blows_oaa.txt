@@ -22,10 +22,10 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.5" // old: 1.0
+    "AbilityCastPoint"                                    "0.7" // old: 1.0
     "AbilityCastRange"                                    "425"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AnimationPlaybackRate"                               "3"
+    "AnimationPlaybackRate"                               "2.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@
       "max_duration"
       {
         "value"                                           "2.5 3.5 4.5 5.5 6" // min is: max_attacks * attack_interval
-        "special_bonus_unique_sohei_8"                    "+2"
+        "special_bonus_unique_sohei_8"                    "+1.8"
       }
       "attack_interval"                                   "0.3"
       "bonus_damage"

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3835"        // unique ID
+    "ID"                                                  "3835"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -36,11 +36,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3836"                                                      // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3836"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/reflex/postactive_regen.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/regen_crystal_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
@@ -82,7 +83,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "400 500 600"
+        "active_hp_regen"                                 "400 450 500"
       }
       "05"
       {
