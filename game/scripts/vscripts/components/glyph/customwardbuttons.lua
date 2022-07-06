@@ -41,7 +41,7 @@ function CustomWardButtons:InitCustomWardCharges(hero)
 end
 
 function CustomWardButtons:CastWard(event)
-  local playerID = event.playerID
+  local playerID = event.PlayerID
   local ward_type = event.type
 
   local modifier_name = "modifier_ui_custom_observer_ward_charges"
@@ -84,7 +84,7 @@ end
 modifier_ui_custom_observer_ward_charges = class({})
 
 function modifier_ui_custom_observer_ward_charges:IsHidden()
-  return not IsInToolsMode()
+  return true
 end
 
 function modifier_ui_custom_observer_ward_charges:IsPurgable()
@@ -107,7 +107,7 @@ function modifier_ui_custom_observer_ward_charges:OnCreated(kv)
 
     self:SetStackCount(1)
     self:StartIntervalThink(0.1)
-    self:SetDuration(self.cd)
+    self:SetDuration(self.cd, false)
   end
 end
 
@@ -115,7 +115,7 @@ function modifier_ui_custom_observer_ward_charges:OnIntervalThink()
   local remaining = self:GetRemainingTime()
   if remaining < 1 then
     self:IncrementStackCount()
-    self:SetDuration(self.cd)
+    self:SetDuration(self.cd, false)
   end
 end
 
@@ -124,7 +124,7 @@ end
 modifier_ui_custom_sentry_ward_charges = class({})
 
 function modifier_ui_custom_sentry_ward_charges:IsHidden()
-  return not IsInToolsMode()
+  return true
 end
 
 function modifier_ui_custom_sentry_ward_charges:IsPurgable()
@@ -147,7 +147,7 @@ function modifier_ui_custom_sentry_ward_charges:OnCreated(kv)
 
     self:SetStackCount(1)
     self:StartIntervalThink(0.1)
-    self:SetDuration(self.cd)
+    self:SetDuration(self.cd, false)
   end
 end
 
@@ -155,8 +155,6 @@ function modifier_ui_custom_sentry_ward_charges:OnIntervalThink()
   local remaining = self:GetRemainingTime()
   if remaining < 1 then
     self:IncrementStackCount()
-    self:SetDuration(self.cd)
+    self:SetDuration(self.cd, false)
   end
 end
-
-

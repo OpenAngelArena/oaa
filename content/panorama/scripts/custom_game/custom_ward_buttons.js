@@ -58,7 +58,7 @@ function ButtonsUpdate () {
   let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
   if (HasModifier(hero, 'modifier_ui_custom_observer_ward_charges')) {
-    ObserverCountLabel.text = String(GetStackCount('modifier_ui_custom_observer_ward_charges'));
+    ObserverCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
 
     let time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges')));
     let min = Math.trunc(time / 60);
@@ -79,7 +79,7 @@ function ButtonsUpdate () {
   }
 
   if (HasModifier(hero, 'modifier_ui_custom_sentry_ward_charges')) {
-    SentryCountLabel.text = String(GetStackCount('modifier_ui_custom_sentry_ward_charges'));
+    SentryCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_sentry_ward_charges'));
 
     let time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_sentry_ward_charges')));
     let min = Math.trunc(time / 60);
@@ -99,7 +99,7 @@ function ButtonsUpdate () {
     // }
   }
 
-  $.Schedule(1 / 144, ButtonsUpdate);
+  $.Schedule(0.1, ButtonsUpdate);
 }
 
 (function () {
