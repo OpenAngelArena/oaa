@@ -20,128 +20,24 @@ function GetStackCount (unit, modifier) {
 }
 
 function GetStackCountLocal(modifier) {
-  let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+  let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
   return GetStackCount(hero, modifier)
 }
 
-const parentHUDElements = $.GetContextPanel().GetParent().GetParent().GetParent().FindChild("HUDElements");
-const center_block = parentHUDElements.FindChildTraverse("center_block");
-const buffs =  parentHUDElements.FindChildTraverse("buffs");
-const debuffs = parentHUDElements.FindChildTraverse("debuffs");
-let default_button_for_observer
-let default_button_for_sentry
-
 function CreateAllButtons () {
+  let ObserverWardMain = $("#ObserverWardPanel");
+  let SentryWardMain = $("#SentryWardPanel");
 
-	// buffs.style.marginBottom = "176px"
-	// debuffs.style.marginBottom = "176px"
+  SetObserver(ObserverWardMain);
+  SetSentry(SentryWardMain);
 
-	// for (let i = 0; i < center_block.GetChildCount(); i++) {
-		// if (center_block.GetChild(i).id == "AllCustomButtons") {
-			// center_block.GetChild(i).DeleteAsync(0)
-		// }
-	// }
+  let ObserverWard = $("#ObserverWardIcon");
+  let SentryWard = $("#SentryWardIcon");
 
-	// let AllCustomButtons = $.CreatePanel("Panel", center_block, "AllCustomButtons");
-	// AllCustomButtons.style.align = "right top"
-	// AllCustomButtons.style.flowChildren = "right"
-	// AllCustomButtons.style.marginTop = "52px"
-	// AllCustomButtons.style.marginRight = "49px"
+  $.CreatePanelWithProperties("DOTAItemImage", ObserverWard, "observer_image", { style: "width:100%;height:100%;", src: "file://{images}/items/ward_observer.png",});
+  $.CreatePanelWithProperties("DOTAItemImage", SentryWard, "sentry_image", { style: "width:100%;height:100%;", src: "file://{images}/items/ward_sentry.png" });
 
-	// let ObserverWardMain = $.CreatePanel("Panel", AllCustomButtons, "ObserverWard");
-	// ObserverWardMain.style.width = "60px"
-	// ObserverWardMain.style.height = "35px"
-	// ObserverWardMain.style.margin = "5px"
-
-	// let SentryWardMain = $.CreatePanel("Panel", AllCustomButtons, "SentryWard");
-	// SentryWardMain.style.width = "60px"
-	// SentryWardMain.style.height = "35px"
-	// SentryWardMain.style.margin = "5px"
-
-	let ObserverWardMain = $("#ObserverWardPanel");
-	let SentryWardMain = $("#SentryWardPanel");
-
-	SetObserver(ObserverWardMain);
-	SetSentry(SentryWardMain);
-
-	// let ObserverWardButtonHotkey = $.CreatePanel("Panel", ObserverWardMain, "ObserverWardButtonHotkey");
-	// ObserverWardButtonHotkey.style.backgroundColor = "#2127268a"
-	// ObserverWardButtonHotkey.style.boxShadow = "fill #000000bb 1px 0px 1px 1px"
-	// ObserverWardButtonHotkey.style.border = "1px solid black"
-	// ObserverWardButtonHotkey.style.borderRadius = "2px"
-	// ObserverWardButtonHotkey.style.zIndex = "1"
-	// ObserverWardButtonHotkey.style.height = "13px"
-
-	// let ObserverWardHotkeyLabel = $.CreatePanel("Label", ObserverWardButtonHotkey, "ObserverWardHotkeyLabel");
-	// ObserverWardHotkeyLabel.text = String(GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_LEARN_STATS))
-	// ObserverWardHotkeyLabel.style.fontSize = "10px"
-	// ObserverWardHotkeyLabel.style.color = "white"
-
-	// let SentryWardButtonHotkey = $.CreatePanel("Panel", SentryWardMain, "SentryWardButtonHotkey");
-	// SentryWardButtonHotkey.style.backgroundColor = "#2127268a"
-	// SentryWardButtonHotkey.style.boxShadow = "fill #000000bb 1px 0px 1px 1px"
-	// SentryWardButtonHotkey.style.border = "1px solid black"
-	// SentryWardButtonHotkey.style.borderRadius = "2px"
-	// SentryWardButtonHotkey.style.zIndex = "1"
-	// SentryWardButtonHotkey.style.height = "13px"
-
-	// let SentryWardHotkeyLabel = $.CreatePanel("Label", SentryWardButtonHotkey, "SentryWardHotkeyLabel");
-	// SentryWardHotkeyLabel.text = String(GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_PAUSE))
-	// SentryWardHotkeyLabel.style.fontSize = "10px"
-	// SentryWardHotkeyLabel.style.color = "white"
-
-	// let ObserverCooldownLabel = $.CreatePanel("Label", ObserverWardMain, "ObserverCooldownLabel");
-	// ObserverCooldownLabel.text = ""
-	// ObserverCooldownLabel.style.fontSize = "14px"
-	// ObserverCooldownLabel.style.color = "white"
-	// ObserverCooldownLabel.style.zIndex = "1"
-	// ObserverCooldownLabel.style.verticalAlign = "bottom"
-	// ObserverCooldownLabel.style.marginLeft = "1px"
-	// ObserverCooldownLabel.style.textShadow = "1px 1px 0px 2 #000000"
-
-	// let SentryCooldownLabel = $.CreatePanel("Label", SentryWardMain, "SentryCooldownLabel");
-	// SentryCooldownLabel.text = ""
-	// SentryCooldownLabel.style.fontSize = "14px"
-	// SentryCooldownLabel.style.color = "white"
-	// SentryCooldownLabel.style.zIndex = "1"
-	// SentryCooldownLabel.style.verticalAlign = "bottom"
-	// SentryCooldownLabel.style.marginLeft = "1px"
-	// SentryCooldownLabel.style.textShadow = "1px 1px 0px 2 #000000"
-
-	// ObserverWardHotkeyLabel.style.textShadow = "1px 1px 0px 2 #000000"
-	// SentryWardHotkeyLabel.style.textShadow = "1px 1px 0px 2 #000000"
-	// ObserverWardHotkeyLabel.style.textAlign = "center"
-	// SentryWardHotkeyLabel.style.textAlign = "center"
-
-	// let ObserverWard = $.CreatePanel("Panel", ObserverWardMain, "ObserverWardIcon");
-	// ObserverWard.style.width = "60px"
-	// ObserverWard.style.height = "30px"
-	// ObserverWard.style.backgroundImage = "url('s2r://panorama/images/conduct/ovw-bar-bg_png.vtex')"
-	// ObserverWard.style.verticalAlign = "bottom"
-
-	// let SentryWard = $.CreatePanel("Panel", SentryWardMain, "SentryWardIcon");
-	// SentryWard.style.width = "60px"
-	// SentryWard.style.height = "30px"
-	// SentryWard.style.backgroundImage = "url('s2r://panorama/images/conduct/ovw-bar-bg_png.vtex')"
-	// SentryWard.style.verticalAlign = "bottom"
-
-	let ObserverWard = $("#ObserverWardIcon");
-	let SentryWard = $("#SentryWardIcon");
-
-	$.CreatePanelWithProperties("DOTAItemImage", ObserverWard, "observer_image", { style: "width:100%;height:100%;", src: "file://{images}/items/ward_observer.png",});
-	$.CreatePanelWithProperties("DOTAItemImage", SentryWard, "sentry_image", { style: "width:100%;height:100%;", src: "file://{images}/items/ward_sentry.png" });
-
-	// let SentryWardCount = $.CreatePanel("Label", SentryWard, "SentryWardCount");
-	// let ObserverWardCount = $.CreatePanel("Label", ObserverWard, "ObserverWardCount");
-	// SentryWardCount.style.color = "white"
-	// ObserverWardCount.style.color = "white"
-	// SentryWardCount.style.align = "right bottom"
-	// ObserverWardCount.style.align = "right bottom"
-	// SentryWardCount.style.textShadow = "0px 0px 3px 1 red"
-	// ObserverWardCount.style.textShadow = "0px 0px 3px 1 red"
-
-	$.Schedule( 1/144, ButtonsUpdate );
-	$.Schedule( 1/144, WardParticlesUpdate );
+  $.Schedule(1/144, ButtonsUpdate);
 }
 
 function ButtonsUpdate () {
@@ -153,31 +49,17 @@ function ButtonsUpdate () {
   if (Players.GetLocalPlayerPortraitUnit() != Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID()) ) {
     ObserverWardPanel.style.opacity = 0;
     ObserverWardPanel.style.visibility = 'collapse';
-	SentryWardPanel.style.opacity = 0;
+    SentryWardPanel.style.opacity = 0;
     SentryWardPanel.style.visibility = 'collapse';
   } else {
     ObserverWardPanel.style.opacity = 1;
     ObserverWardPanel.style.visibility = 'visible';
-	SentryWardPanel.style.opacity = 1;
+    SentryWardPanel.style.opacity = 1;
     SentryWardPanel.style.visibility = 'visible';
   }
 
 	let observer_button_label = $("#ObserverWardCountLabel");
 	let sentry_button_label = $("#SentryWardCountLabel");
-
-	let ObserverWardHotkeyLabel = $("#ObserverWardHotkeyLabel");
-	let SentryWardHotkeyLabel = $("#SentryWardHotkeyLabel");
-
-	// ObserverWardHotkeyLabel.text = String(GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_ACTIVATE_GLYPH));
-	// SentryWardHotkeyLabel.text = String(GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_SPRAY_WHEEL));
-
-	// if (default_button_for_observer != GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_LEARN_STATS) ) {
-		// RegisterKeybindObserver();
-	// }
-
-	// if (default_button_for_sentry != GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_PAUSE) ) {
-		// RegisterKeybindSentry();
-	// }
 
     // let ability_id_2 = -1;
     // for (let i = 0; i < 45; i++) {
@@ -256,79 +138,19 @@ function ButtonsUpdate () {
         // }
     // }
 
-	$.Schedule( 1/144, ButtonsUpdate );
-}
-
-let ParticleWard;
-let lastAbilityWard = -1;
-
-function WardParticlesUpdate () {
-	//$.Msg( Abilities.GetLocalPlayerActiveAbility())
-
-	if (Abilities.GetLocalPlayerActiveAbility() != lastAbilityWard) {
-		lastAbilityWard = Abilities.GetLocalPlayerActiveAbility()
-		if (ParticleWard) {
-			Particles.DestroyParticleEffect(ParticleWard, true)
-			ParticleWard = undefined;
-		}
-		if ( (Abilities.GetLocalPlayerActiveAbility() != 1) && (Abilities.GetAbilityName(Abilities.GetLocalPlayerActiveAbility()) == "custom_ability_observer") ) {
-			ParticleWard = Particles.CreateParticle("particles/ui_mouseactions/range_finder_ward_aoe.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID()) );
-		}
-		if ( (Abilities.GetLocalPlayerActiveAbility() != 1) && (Abilities.GetAbilityName(Abilities.GetLocalPlayerActiveAbility()) == "custom_ability_sentry") ) {
-			ParticleWard = Particles.CreateParticle("particles/ui_mouseactions/range_finder_ward_aoe.vpcf", ParticleAttachment_t.PATTACH_ABSORIGIN_FOLLOW, Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID()) );
-		}
-
-	}
-
-	if (ParticleWard) {
-		const cursor = GameUI.GetCursorPosition();
-		const worldPosition = GameUI.GetScreenWorldPosition(cursor);
-		Particles.SetParticleControl(ParticleWard, 0, Entities.GetAbsOrigin( Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID())) );
-		Particles.SetParticleControl(ParticleWard, 1, [ 255, 255, 255 ]);
-		Particles.SetParticleControl(ParticleWard, 6, [ 255, 255, 255 ]);
-	    Particles.SetParticleControl(ParticleWard, 2, worldPosition);
-
-		if ( (Abilities.GetLocalPlayerActiveAbility() != 1) && (Abilities.GetAbilityName(Abilities.GetLocalPlayerActiveAbility()) == "custom_ability_observer") ) {
-			Particles.SetParticleControl(ParticleWard, 11, [ 0, 0, 0 ]);
-			Particles.SetParticleControl(ParticleWard, 3, [ 1600, 1600, 1600 ]);
-
-		} else if ( (Abilities.GetLocalPlayerActiveAbility() != 1) && (Abilities.GetAbilityName(Abilities.GetLocalPlayerActiveAbility()) == "custom_ability_sentry") ) {
-			Particles.SetParticleControl(ParticleWard, 11, [ 1, 0, 0 ]);
-			Particles.SetParticleControl(ParticleWard, 3, [ 700, 700, 700 ]);
-		}
-	}
-
-    $.Schedule(1/144, WardParticlesUpdate)
+	$.Schedule(1/144, ButtonsUpdate);
 }
 
 (function () {
-  //RegisterKeybindObserver()
-  //RegisterKeybindSentry()
-  CreateAllButtons()
+  CreateAllButtons();
 })();
 
-function RegisterKeybindObserver () {
-  default_button_for_observer = GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_ACTIVATE_GLYPH);
-  Game.CreateCustomKeyBind(default_button_for_observer, "use_observer");
-  Game.AddCommand("use_observer", CastAbilityObserver, "", 0);
-}
-
-function RegisterKeybindSentry () {
-  default_button_for_sentry = GetGameKeybind(DOTAKeybindCommand_t.DOTA_KEYBIND_SPRAY_WHEEL);
-  Game.CreateCustomKeyBind(default_button_for_sentry, "use_sentry");
-  Game.AddCommand("use_sentry", CastAbilitySentry, "", 0);
-}
-
-function GetGameKeybind (command) {
-  return Game.GetKeybindForCommand(command);
-}
-
 function CastAbilityObserver() {
-
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'observer'});
 }
 
 function CastAbilitySentry() {
-
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'sentry'});
 }
 
 function SetObserver (panel) {

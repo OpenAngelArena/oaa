@@ -11,18 +11,18 @@
       <Panel id="ObserverWardIcon" class="WardIcon">
 	      <Label id="ObserverWardCountLabel" text="1" html="true"/>
       </Panel>
-	    <Panel class="WardButtonHotkey">
-	      <Label id="ObserverWardHotkeyLabel" text="Z" html="true"/>
-	    </Panel>
+	    <!-- <Panel class="WardButtonHotkey"> -->
+	      <!-- <Label id="ObserverWardHotkeyLabel" text="Z" html="true"/> -->
+	    <!-- </Panel> -->
 	    <Label id="ObserverCooldownLabel" text="2" html="true"/>
     </Panel>
     <Panel id="SentryWardPanel" class="WardPanel" onmouseover="UIShowTextTooltip('Sentries')" onmouseout="UIHideTextTooltip()">
       <Panel id="SentryWardIcon" class="WardIcon">
 	      <Label id="SentryWardCountLabel" text="1" html="true"/>
       </Panel>
-	    <Panel class="WardButtonHotkey">
-	      <Label id="SentryWardHotkeyLabel" text="U" html="true"/>
-	    </Panel>
+	    <!-- <Panel class="WardButtonHotkey"> -->
+	      <!-- <Label id="SentryWardHotkeyLabel" text="U" html="true"/> -->
+	    <!-- </Panel> -->
 	    <Label id="SentryCooldownLabel" text="2" html="true"/>
     </Panel>
   </Panel>
