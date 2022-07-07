@@ -43,7 +43,7 @@ ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = ONE_V_ONE_LIMIT_INC
 
 -- poop wards
 POOP_WARD_DURATION = 360
-POOP_WARD_COOLDOWN = 120
+POOP_WARD_COOLDOWN = 240
 POOP_WARD_RADIUS = 150
 
 -- scan reveal
