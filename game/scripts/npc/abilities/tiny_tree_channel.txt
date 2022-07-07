@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "2.4"
+    "AbilityChannelTime"                                  "1.5" //oaa
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
@@ -48,30 +48,30 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "range"                                           "1200"
-        "RequiresScepter"                                 "1"
+        "RequiresScepter"                                 "1" 
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "500"
+        "splash_radius"                                   "500" //oaa
         "RequiresScepter"                                 "1"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_grab_radius"                                "1000"
+        "tree_grab_radius"                                "1000" //oaa
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "interval"                                        "0.25"
+        "interval"                                        "0.25" //oaa
         "RequiresScepter"                                 "1"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "100"
+        "bonus_damage"                                    "0"
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
