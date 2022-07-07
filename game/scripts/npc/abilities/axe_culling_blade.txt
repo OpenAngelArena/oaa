@@ -53,9 +53,9 @@
       "speed_duration"                                    "6"
       "speed_aoe"                                         "900"
       "charge_speed"                                      "1200"
-      "armor_per_stack"
+      "armor_per_stack" //OAA
       {
-        "value"                                           "1 1.5 2 2.5 3"
+        "value"                                           "1 1.25 1.5 1.75 2"
         "special_bonus_unique_axe_3"                      "+1"
       }
     }

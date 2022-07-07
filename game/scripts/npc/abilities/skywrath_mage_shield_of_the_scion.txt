@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Skywrath Mage: Shield of the Scion (shard)
+  //=================================================================================================================
+  "skywrath_mage_shield_of_the_scion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "833"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "IsGrantedByShard"        "1"
+    "MaxLevel"            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "stack_duration"      "25" //OAA
+      "bonus_intelligence"    "10" //OAA
+      "bonus_armor"       "2" //OAA
+    }
+  }
+}

@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shredder Flamethrower (shard ability)
+  //=================================================================================================================
+  "shredder_flamethrower"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "651"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "MaxLevel"            "1"
+    "FightRecapLevel"       "1"
+    "IsGrantedByShard"        "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "15" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "100"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "damage_per_second"   "80"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"    "7"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "width"   "275"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "length"    "400"
+      }
+      "05"
+      {
+        "var_type"    "FIELD_INTEGER"
+        "move_slow_pct" "50" //OAA
+      }
+      "06"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "building_dmg_pct"  "40"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "debuff_linger_duration"  "2.0"
+      }
+    }
+  }
+}
