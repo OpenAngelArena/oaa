@@ -53,8 +53,8 @@
     "AbilityCastPoint"                                    "0"
 
     "AbilitySharedCooldown"                               "devastator"
-    "AbilityCooldown"                                     "9 8.5 8 7.5 7"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "11 10 9 8 7"
+    "AbilityManaCost"                                     "125"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18003"
+    "ItemCost"                                            "18153"
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator 4"
