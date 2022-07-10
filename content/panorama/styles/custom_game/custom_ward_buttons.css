@@ -1,20 +1,21 @@
 .AllWardsPanel
 {
-  width: 170px;
+  width: 130px;
   /* width: 115px; */
-  height:  60px;
+  height:  56px;
   align: right bottom;
   /* align: right top; */
   flow-children: right;
-  margin-right: 450px;
+  margin-bottom: 130px;
+  margin-right: 10px;
   /* margin-right: 49px;  */
   /* margin-top: 52px; */
 }
 
 .WardPanel
 {
-  width: 88px;
-  height: 64px;
+  width: 60px;
+  height: 100%;
   /* margin: 5px; */
   opacity:  0.6;
   tooltip-position: left;
@@ -24,10 +25,10 @@
 
 .WardIcon
 {
-  width: 88px;
-  height: 64px;
+  width: 60px;
+  height: 40px;
   horizontal-align: center;
-  vertical-align: bottom;
+  vertical-align: top;
   background-image: url("s2r://panorama/images/conduct/ovw-bar-bg_png.vtex");
 }
 

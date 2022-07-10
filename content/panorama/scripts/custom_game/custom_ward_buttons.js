@@ -60,7 +60,7 @@ function ButtonsUpdate () {
   if (HasModifier(hero, 'modifier_ui_custom_observer_ward_charges')) {
     ObserverCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
 
-    let time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges')));
+    let time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges'))));
     let min = Math.trunc(time / 60);
     let seconds = time - 60 * min;
 
