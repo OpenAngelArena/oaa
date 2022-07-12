@@ -39,10 +39,16 @@ end
 function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abilityLevel, duration)
   local baseUnitName = "npc_dota_beastmaster_boar"
   local levelUnitName = baseUnitName .. "_" .. abilityLevel
-  local boar_hp = self:GetLevelSpecialValueFor("boar_base_max_health", abilityLevel-1)
-  local boar_dmg = self:GetLevelSpecialValueFor("boar_base_damage", abilityLevel-1)
+  local boar_hp = self:GetLevelSpecialValueFor("boar_health", abilityLevel-1)
+  local boar_dmg = self:GetLevelSpecialValueFor("boar_damage", abilityLevel-1)
   local boar_armor = self:GetLevelSpecialValueFor("boar_armor", abilityLevel-1)
-  local boar_speed = self:GetLevelSpecialValueFor("boar_base_movespeed", abilityLevel-1)
+  local boar_speed = self:GetLevelSpecialValueFor("boar_move_speed", abilityLevel-1)
+
+  -- Talent that increases attack damage of boars
+  local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_2_oaa")
+  if talent and talent:GetLevel() > 0 then
+    boar_dmg = boar_dmg + talent:GetSpecialValueFor("value")
+  end
 
   -- Spawn boar and orient it to face the same way as the caster
   local boar = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
@@ -58,7 +64,7 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   boar:SetBaseDamageMin(boar_dmg)
   boar:SetBaseDamageMax(boar_dmg)
 
-  -- ARMOR // There's no Armor value anymore, this could be deleted but idk if breaks everything
+  -- ARMOR
   boar:SetPhysicalArmorBaseValue(boar_armor)
 
   -- MOVEMENT SPEED

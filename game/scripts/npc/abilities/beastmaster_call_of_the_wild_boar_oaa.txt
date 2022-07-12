@@ -34,18 +34,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"              "60"
-      "boar_base_max_health"        "300 550 800 1050 2100 3150"
-      "boar_base_damage"          "20 40 60 80 180 280"
-      "boar_bonus_damage" //OAA
+      "duration"                                          "60"
+      "boar_health"                                       "300 550 800 1050 2100 3150"
+      "boar_damage"
       {
-        "value"                   "0"
-        "special_bonus_unique_beastmaster_2"    "+70"
+        "value"                                           "20 40 60 80 180 280"
+        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2_oaa"
       }
-      "boar_base_xp_bounty"       "60 70 80 90 180 360"
-      "boar_base_movespeed"       "320 330 340 350 360 370"
-      "boar_moveslow_tooltip"       "10 20 30 40 50 60"
-      "boar_poison_duration_tooltip"    "3.0"
+      "boar_armor"                                        "0"
+      "boar_move_speed"                                   "320 330 340 350 360 370"
+      "boar_xp_bounty"                                    "60 70 80 90 180 360"
+      "boar_moveslow_tooltip"                             "10 20 30 40 50 60"
+      "boar_attackslow_tooltip"                           "10 20 30 40 80 160"
+      "boar_poison_duration_tooltip"                      "3.0"
     }
   }
 }
