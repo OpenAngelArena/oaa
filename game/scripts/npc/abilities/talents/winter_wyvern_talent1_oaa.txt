@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Boar Damage talent
+  // Cold Embrace Max HP Heal
   //=================================================================================================================
-  "special_bonus_unique_beastmaster_2"
+  "special_bonus_unique_winter_wyvern_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6517"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "85386"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"70" //OAA
-        "ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1.5"
       }
     }
   }
