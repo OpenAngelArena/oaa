@@ -164,10 +164,8 @@ if IsServer() then
     local max_layers = ability:GetSpecialValueFor("max_layers")
     -- Talent that increases number of layers
     local talent = parent:FindAbilityByName("special_bonus_unique_visage_oaa_6")
-    if talent then
-      if talent:GetLevel() > 0 then
-        max_layers = max_layers + talent:GetSpecialValueFor("value")
-      end
+    if talent and talent:GetLevel() > 0 then
+      max_layers = max_layers + talent:GetSpecialValueFor("value")
     end
     if stackCount < max_layers then
       self:SetStackCount(stackCount + 1)

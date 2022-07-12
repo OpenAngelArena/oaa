@@ -34,6 +34,9 @@ local abilities_with_custom_talents = {
   winter_wyvern_cold_embrace = {
     heal_percentage = "special_bonus_unique_winter_wyvern_1_oaa",
   },
+  mirana_leap = {
+    leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+  },
 }
 
 ---------------------------------------------------------------------------------------------------
