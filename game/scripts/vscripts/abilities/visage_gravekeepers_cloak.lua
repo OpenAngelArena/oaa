@@ -200,6 +200,12 @@ if IsServer() then
       recovery_time = recovery_time - math.abs(talent3:GetSpecialValueFor("value"))
     end
 
+    -- Talent that increases damage threshold
+    local talent4 = parent:FindAbilityByName("special_bonus_unique_visage_oaa_1")
+    if talent4 and talent4:GetLevel() > 0 then
+      damageThreshold = damageThreshold + talent4:GetSpecialValueFor("value")
+    end
+
     -- Does not interact at all with damage instances lower than the threshold.
     if keys.damage <= damageThreshold then
       return 0
