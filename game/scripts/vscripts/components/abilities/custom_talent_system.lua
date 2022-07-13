@@ -37,6 +37,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
+  visage_gravekeepers_cloak_oaa = {
+    minimum_damage = "special_bonus_unique_visage_1_oaa",
+  },
 }
 
 ---------------------------------------------------------------------------------------------------

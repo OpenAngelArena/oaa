@@ -26,7 +26,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "8 12 16 20 22 24"
+        "damage_reduction"                                "8 12 16 20 24 28"
       }
       "03"
       {
@@ -37,7 +37,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "minimum_damage"                                  "40"
+        "minimum_damage"                                  "40 55 70 85 170 255" //OAA
       }
       "05"
       {
