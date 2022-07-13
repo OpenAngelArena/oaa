@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Boar Damage talent
+  // Glaives of Wisdom talent: Piercing Spell Immunity
   //=================================================================================================================
-  "special_bonus_unique_beastmaster_2"
+  "special_bonus_unique_silencer_3_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6517"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "86879"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"70" //OAA
-        "ad_linked_abilities"			"beastmaster_call_of_the_wild_boar"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "1"
       }
     }
   }

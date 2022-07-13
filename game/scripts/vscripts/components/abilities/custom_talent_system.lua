@@ -28,6 +28,15 @@ local abilities_with_custom_talents = {
   invoker_sun_strike = {
     damage = "special_bonus_unique_invoker_2_oaa",
   },
+  faceless_void_time_dilation = {
+    radius = "special_bonus_unique_faceless_void_1_oaa",
+  },
+  winter_wyvern_cold_embrace = {
+    heal_percentage = "special_bonus_unique_winter_wyvern_1_oaa",
+  },
+  mirana_leap = {
+    leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+  },
 }
 
 ---------------------------------------------------------------------------------------------------

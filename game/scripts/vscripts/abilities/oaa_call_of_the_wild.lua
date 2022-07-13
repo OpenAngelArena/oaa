@@ -44,6 +44,12 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   local boar_armor = self:GetLevelSpecialValueFor("boar_armor", abilityLevel-1)
   local boar_speed = self:GetLevelSpecialValueFor("boar_move_speed", abilityLevel-1)
 
+  -- Talent that increases attack damage of boars
+  local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_2_oaa")
+  if talent and talent:GetLevel() > 0 then
+    boar_dmg = boar_dmg + talent:GetSpecialValueFor("value")
+  end
+
   -- Spawn boar and orient it to face the same way as the caster
   local boar = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
   boar:AddNewModifier(caster, self, "modifier_beastmaster_boar_poison", {})

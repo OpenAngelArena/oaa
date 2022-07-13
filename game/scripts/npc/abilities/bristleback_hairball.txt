@@ -5,52 +5,52 @@
   //=================================================================================================================
   "bristleback_hairball"
   {
-  // General
-  //-------------------------------------------------------------------------------------------------------------
-  "ID"              "643"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
-  "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
-  "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-  "MaxLevel"            "1"
-  "FightRecapLevel"       "1"
-  "IsGrantedByShard"          "1"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"              "643"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
 
-  // Casting
-  //-------------------------------------------------------------------------------------------------------------
-  "AbilityCastRange"        "1500"
-  "AbilityCastPoint"        "0.1"
-  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
-    
-    
-  // Time   
-  //-------------------------------------------------------------------------------------------------------------
+    "MaxLevel"            "1"
+    "IsGrantedByShard"          "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1500"
+    "AbilityCastPoint"        "0.1"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"       "12" //OAA
 
-  // Cost
-  //-------------------------------------------------------------------------------------------------------------
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"       "100"
-    
-  // Special
-  //-------------------------------------------------------------------------------------------------------------
-  "AbilitySpecial"
-  {
-    "01"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
     {
-      "var_type"      "FIELD_INTEGER"
-      "projectile_speed"    "1200"
-    }
-    "02"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "radius"      "700"
-    }
-    "03"
-    {
-      "var_type"      "FIELD_INTEGER"
-      "quill_stacks"    "2"
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "projectile_speed"    "1200"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "700"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "quill_stacks"    "2"
+      }
     }
   }
 }

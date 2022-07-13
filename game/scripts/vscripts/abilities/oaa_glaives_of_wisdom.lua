@@ -15,7 +15,15 @@ end
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
   local caster = self:GetCaster()
-  if caster:HasScepter() and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
+
+  -- Talent that allows Glaives of Wisdom to pierce spell immunity
+  local pierce_bkb = false
+  local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  if talent and talent:GetLevel() > 0 then
+    pierce_bkb = true
+  end
+
+  if pierce_bkb and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     return UF_SUCCESS
   end
 
@@ -56,16 +64,25 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Number of bounces left (Data of the current projectile is read-only !!!)
   local bounces_left = data.bounces_left
 
-  -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
-  if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
-    local intStealDuration = self:GetSpecialValueFor("int_steal_duration")
-    local intStealAmount = self:GetSpecialValueFor("int_steal")
+  -- Talent that allows Glaives of Wisdom to pierce spell immunity
+  local pierce_bkb = false
+  local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  if talent and talent:GetLevel() > 0 then
+    pierce_bkb = true
+  end
 
-    if intStealAmount ~= 0 and intStealDuration ~= 0 then
-      target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
-      target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
-      caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
-      caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+  -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
+  if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
+    if pierce_bkb or not target:IsMagicImmune() then
+      local intStealDuration = self:GetSpecialValueFor("int_steal_duration")
+      local intStealAmount = self:GetSpecialValueFor("int_steal")
+
+      if intStealAmount ~= 0 and intStealDuration ~= 0 then
+        target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
+        target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
+        caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
+        caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+      end
     end
   end
 
@@ -98,7 +115,8 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
     local bounce_radius = self:GetSpecialValueFor("shard_bounce_range")
     local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
-    if caster:HasScepter() then
+    -- Talent that allows Glaives of Wisdom to pierce spell immunity
+    if pierce_bkb then
       target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
     end
 
@@ -338,24 +356,34 @@ if IsServer() then
       local player = parent:GetPlayerOwner()
 
       -- Talent that increases Glaives of Wisdom damage
-      if parent:HasLearnedAbility("special_bonus_unique_silencer_3") then
-        bonusDamagePct = bonusDamagePct + parent:FindAbilityByName("special_bonus_unique_silencer_3"):GetSpecialValueFor("value") / 100
+      local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
+      if talent and talent:GetLevel() > 0 then
+        bonusDamagePct = bonusDamagePct + talent:GetSpecialValueFor("value") / 100
+      end
+
+      -- Talent that allows Glaives of Wisdom to pierce spell immunity
+      local pierce_bkb = false
+      local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+      if talent2 and talent2:GetLevel() > 0 then
+        pierce_bkb = true
       end
 
       --if parent:HasScepter() and target:IsSilenced() then
         --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
       --end
 
-      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
-      if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) and (not target:IsMagicImmune()) then
-        local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
-        local intStealAmount = ability:GetSpecialValueFor("int_steal")
+      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
+      if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
+        if pierce_bkb or not target:IsMagicImmune() then
+          local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
+          local intStealAmount = ability:GetSpecialValueFor("int_steal")
 
-        if intStealAmount ~= 0 and intStealDuration ~= 0 then
-          target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
-          target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
-          parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
-          parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+          if intStealAmount ~= 0 and intStealDuration ~= 0 then
+            target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
+            target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
+            parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff_counter", {duration = intStealDuration})
+            parent:AddNewModifier(parent, ability, "modifier_oaa_glaives_buff", {duration = intStealDuration})
+          end
         end
       end
 
@@ -386,7 +414,7 @@ if IsServer() then
         local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
         local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
-        if parent:HasScepter() then
+        if pierce_bkb then
           target_flags = bit.bor(target_flags, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
         end
 

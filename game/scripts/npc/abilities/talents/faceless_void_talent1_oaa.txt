@@ -1,15 +1,16 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Inner Beast Attack Speed talent
+  // Time Dilation Bonus Range
   //=================================================================================================================
-  "special_bonus_unique_beastmaster_4"
+  "special_bonus_unique_faceless_void_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6612"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "85385"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"60" //OAA
-        "ad_linked_abilities"			"beastmaster_inner_beast"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "200"
       }
     }
   }

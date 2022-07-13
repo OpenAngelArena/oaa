@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Updgrades Gravekeeper's Cloak - decreases recovery time
+  // Custom Beastmaster talent - upgrades Boars - increases their damage
   //=================================================================================================================
-  "special_bonus_unique_visage_oaa_5"
+  "special_bonus_unique_beastmaster_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "86984"
+    "ID"                                                  "86517"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "1.5"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "70"
       }
     }
   }

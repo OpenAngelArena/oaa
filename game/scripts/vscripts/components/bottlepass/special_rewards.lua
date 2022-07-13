@@ -196,6 +196,7 @@ SPECIAL_BOTTLES = {
   [211047291] = {3,4,5,56}, -- Mungeon
   [290575742] = {3,4,5,54}, -- Obby
   [858631509] = {3,4,5,54}, -- Obby
+  [256293935] = {3,4,5,9}, -- Woozi
 
   -- twitch donators 50 Custom
 
