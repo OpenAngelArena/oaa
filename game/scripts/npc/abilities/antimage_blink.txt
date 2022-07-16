@@ -14,7 +14,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -26,14 +26,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilityValues"
     {
-      "AbilityCooldown" //OAA       
+      "AbilityCooldown" //OAA
       {
         "value"     "15 13 11 9 7 6"
         "special_bonus_unique_antimage" "-1"
       }
-      "AbilityCastRange"      
+      "AbilityCastRange"
       {
         "value"         "925 1000 1075 1150 1225 1300"
         "special_bonus_unique_antimage_3" "+250"

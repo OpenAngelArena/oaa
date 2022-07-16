@@ -50,12 +50,6 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})
     end
-  elseif ability_name == "mirana_leap" and modifier_name == "modifier_mirana_leap_buff" then
-    local duration = ability:GetSpecialValueFor("leap_bonus_duration")
-    local talent = caster:FindAbilityByName("special_bonus_unique_mirana_3_oaa")
-    if talent and talent:GetLevel() > 0 then
-      keys.duration = duration + talent:GetSpecialValueFor("value")
-    end
   end
 
   return true

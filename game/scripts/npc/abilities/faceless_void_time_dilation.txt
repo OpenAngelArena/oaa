@@ -47,14 +47,14 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "10 11 12 13 26 52"
+        "damage_per_stack"                                "16 17 18 19 38 76" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "10" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-10 -15 -20 -25 -30 -35"
+        "heal_prevent_percent"                            "-30 -35 -40 -45 -50 -55"
       }
     }
   }
