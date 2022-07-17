@@ -7,72 +7,71 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "8235"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"       "1"
+    "ID"                                                  "8235"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                      "6"
-    "RequiredLevel"               "1"
-    "LevelsBetweenUpgrades"         "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.1"
-    "AbilityCastRange"        "800"
-    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_2"
+    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "17 15 13 11 10 9"
+    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "move_speed"      "2000"
-      "min_jump_distance"   "450"
-      "max_jump_distance"   
+      "move_speed"                                        "2000"
+      "min_jump_distance"                                 "450"
+      "max_jump_distance"
       {
-         "value"       "800"
-          "LinkedSpecialBonus"  "special_bonus_unique_marci_lunge_range"
+        "value"                                           "800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_range"
       }
-      "landing_radius"    "325"
-      "impact_damage"     
+      "landing_radius"                                    "325"
+      "impact_damage"
       {
-        "value"       "90 160 230 300 600 1200"
-        "LinkedSpecialBonus"  "special_bonus_unique_marci_lunge_damage"
+        "value"                                           "90 160 230 300 600 1200"
+        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_damage"
       }
-      "movement_slow_pct"   "30 40 50 60 70 80"
-      "debuff_duration"   "3.0"
-      "min_lob_travel_time" "0.1"
-      "max_lob_travel_time" "0.2"
-      "min_height_above_lowest" "250.0"
-      "min_height_above_highest"  "200.0"
-      "min_acceleration"    "6000.0"
-      "max_acceleration"    "6000.0"
-      "vector_preview_radius" "100"
-      "ally_buff_duration"  "5.0"
-      "ally_movespeed_pct"  "45.0"
-      "impact_position_offset"  "64"
-      "target_abort_distance"   "700"
+      "movement_slow_pct"                                 "30 40 50 60 70 80"
+      "debuff_duration"                                   "3.0"
+      "min_lob_travel_time"                               "0.1"
+      "max_lob_travel_time"                               "0.2"
+      "min_height_above_lowest"                           "250.0"
+      "min_height_above_highest"                          "200.0"
+      "min_acceleration"                                  "6000.0"
+      "max_acceleration"                                  "6000.0"
+      "vector_preview_radius"                             "100"
+      "ally_buff_duration"                                "5.0"
+      "ally_movespeed_pct"                                "45.0"
+      "impact_position_offset"                            "64"
+      "target_abort_distance"                             "700"
       "scepter_heal"
       {
-        "value" "300"
-        "RequiresScepter" "1"
+        "value"                                           "300"
+        "RequiresScepter"                                 "1"
       }
       "scepter_armor"
       {
-        "value" "15"
-        "RequiresScepter" "1"
+        "value"                                           "15"
+        "RequiresScepter"                                 "1"
       }
     }
   }

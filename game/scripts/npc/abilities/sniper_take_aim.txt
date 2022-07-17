@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5156"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5156"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -18,7 +18,7 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-    "AbilityCooldown"                                     "22 20 18 16 14 12" //OAA
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
 
     "AbilityManaCost"                                     "50"
 
@@ -41,7 +41,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "50 45 40 35 30 25" //OAA
+        "slow"                                            "45 40 35 30 25 20"
       }
       "04"
       {

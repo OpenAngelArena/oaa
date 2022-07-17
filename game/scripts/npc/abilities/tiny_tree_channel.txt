@@ -8,10 +8,9 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "7850"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "1"
 
@@ -41,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1000.0"
+        "speed"                                           "1300" //OAA
         "RequiresScepter"                                 "1"
       }
       "02"
