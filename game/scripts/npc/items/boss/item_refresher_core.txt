@@ -10,7 +10,7 @@
     "ID"                                                  "3212"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "item_recipe"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -40,19 +40,16 @@
     "ScriptFile"                                          "items/refresher_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/refresher_core"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "160.0 140.0 120.0"
+    "AbilityCooldown"                                     "120"
     "AbilitySharedCooldown"                               "refresher"
-
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_refresher_core;item_refresher_core_2"
+    "AbilityManaCost"                                     "300"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "600"
     "ItemCost"                                            "74059"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -61,48 +58,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "15 17 19"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5 6 7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "28 45 65"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "500"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "27 30 33"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_lifesteal"                                  "30"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_lifesteal"                                 "10"
-      }
+      "bonus_health"                                    "4250"
+      "bonus_mana"                                      "2850"
+      "bonus_health_regen"                              "25"
+      "bonus_mana_regen"                                "7"
+      "bonus_cast_range"                                "450"
+      "cooldown_reduction"                              "33"
+
+      "bonus_intelligence"                              "25"
+      "hero_spell_lifesteal"                            "30"
+      "creep_spell_lifesteal"                           "10"
     }
   }
 }
