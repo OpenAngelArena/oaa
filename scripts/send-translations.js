@@ -1,7 +1,7 @@
-var request = require('request');
-var fs = require('fs');
-var parseKV = require('parse-kv');
-var parseTranslation = require('./parse-translation');
+const request = require('request');
+const fs = require('fs');
+const parseKV = require('parse-kv');
+const parseTranslation = require('./parse-translation');
 
 // setTimeout(function () { var result = {body: fs.readFileSync('./scripts/dota_english.txt', {encoding: 'utf8'})};
 request.get({
@@ -11,15 +11,15 @@ request.get({
   if (err) {
     throw err;
   }
-  var dotaKVs = parseKV(result.body);
+  const dotaKVs = parseKV(result.body);
 
-  var data = parseTranslation(true, null, dotaKVs);
+  const data = parseTranslation(true, null, dotaKVs);
 
-  var englishStrings = {};
-  var foundStrings = {};
+  const englishStrings = {};
+  const foundStrings = {};
 
   Object.keys(data.lang.Tokens.values).forEach(function (key) {
-    var str = data.lang.Tokens.values[key];
+    const str = data.lang.Tokens.values[key];
     if (foundStrings[str]) {
       console.log('Deduplicating', key);
       return;
@@ -29,7 +29,7 @@ request.get({
     englishStrings[key.toLowerCase()] = str;
   });
 
-  var transByValue = {};
+  const transByValue = {};
   Object.keys(dotaKVs.lang.Tokens.values).forEach(function (key) {
     if (!transByValue[dotaKVs.lang.Tokens.values[key]]) {
       transByValue[dotaKVs.lang.Tokens.values[key]] = key;

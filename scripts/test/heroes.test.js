@@ -1,8 +1,8 @@
 const test = require('tape');
-var Lib = require('../kv-lib');
+const Lib = require('../kv-lib');
 
-var heroes = null;
-var dotaHeroes = null;
+let heroes = null;
+let dotaHeroes = null;
 test('before', function (t) {
   t.plan(4);
   Lib.heroes(function (err, result) {
@@ -25,7 +25,7 @@ test('test', function (t) {
         .filter(a => a !== 'values')
         .forEach(function (heroName) {
           const hero = (data.DOTAHeroes || data.DOTAUnits)[heroName];
-          var abilityMap = {};
+          const abilityMap = {};
           if (dotaHeroes[heroName]) {
             Object.keys(dotaHeroes[heroName].values)
               .filter(a => a.startsWith('Ability'))

@@ -23,7 +23,7 @@ test('before', function (t) {
 });
 
 test('can parse addon_english', function (t) {
-  var fileData = fs.readFileSync(path.join(__dirname, '../../game/resource/addon_english.txt'), {
+  const fileData = fs.readFileSync(path.join(__dirname, '../../game/resource/addon_english.txt'), {
     encoding: 'ucs2'
   });
   t.doesNotThrow(function () { parseKV(fileData); }, 'can parse with kv');

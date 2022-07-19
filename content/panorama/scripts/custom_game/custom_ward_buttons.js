@@ -1,4 +1,4 @@
-/* global Game, GameEvents, GameUI, Players, Entities, Buffs */
+/* global $, Game, GameEvents, Players, Entities, Buffs */
 
 'use strict';
 
@@ -15,19 +15,19 @@ function HasModifier (unit, modifier) {
 }
 
 function GetStackCount (unit, modifier) {
-  let m = FindModifier(unit, modifier);
+  const m = FindModifier(unit, modifier);
   return m ? Buffs.GetStackCount(unit, m) : 0;
 }
 
 function CreateAllButtons () {
-  let ObserverWardMain = $('#ObserverWardPanel');
-  let SentryWardMain = $('#SentryWardPanel');
+  const ObserverWardMain = $('#ObserverWardPanel');
+  const SentryWardMain = $('#SentryWardPanel');
 
   SetObserver(ObserverWardMain);
   SetSentry(SentryWardMain);
 
-  let ObserverWard = $('#ObserverWardIcon');
-  let SentryWard = $('#SentryWardIcon');
+  const ObserverWard = $('#ObserverWardIcon');
+  const SentryWard = $('#SentryWardIcon');
 
   $.CreatePanelWithProperties('DOTAItemImage', ObserverWard, 'observer_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_observer.png' });
   $.CreatePanelWithProperties('DOTAItemImage', SentryWard, 'sentry_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_sentry.png' });
@@ -36,10 +36,10 @@ function CreateAllButtons () {
 }
 
 function ButtonsUpdate () {
-  let ObserverWardPanel = $('#ObserverWardPanel');
-  let SentryWardPanel = $('#SentryWardPanel');
-  let ObserverCooldownLabel = $('#ObserverCooldownLabel');
-  let SentryCooldownLabel = $('#SentryCooldownLabel');
+  const ObserverWardPanel = $('#ObserverWardPanel');
+  const SentryWardPanel = $('#SentryWardPanel');
+  const ObserverCooldownLabel = $('#ObserverCooldownLabel');
+  const SentryCooldownLabel = $('#SentryCooldownLabel');
 
   if (Players.GetLocalPlayerPortraitUnit() !== Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID())) {
     ObserverWardPanel.style.opacity = 0;
@@ -53,14 +53,14 @@ function ButtonsUpdate () {
     SentryWardPanel.style.visibility = 'visible';
   }
 
-  let ObserverCountLabel = $('#ObserverWardCountLabel');
-  let SentryCountLabel = $('#SentryWardCountLabel');
-  let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
+  const ObserverCountLabel = $('#ObserverWardCountLabel');
+  const SentryCountLabel = $('#SentryWardCountLabel');
+  const hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
   if (HasModifier(hero, 'modifier_ui_custom_observer_ward_charges')) {
     ObserverCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
 
-    let time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges'))));
+    const time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges'))));
     let min = Math.trunc(time / 60);
     let seconds = time - 60 * min;
 
@@ -72,16 +72,16 @@ function ButtonsUpdate () {
 
     ObserverCooldownLabel.text = min + ':' + seconds;
     // if (time > 120) {
-      // ObserverCooldownLabel.visible = false;
+    // ObserverCooldownLabel.visible = false;
     // } else {
-      // ObserverCooldownLabel.visible = true;
+    // ObserverCooldownLabel.visible = true;
     // }
   }
 
   if (HasModifier(hero, 'modifier_ui_custom_sentry_ward_charges')) {
     SentryCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_sentry_ward_charges'));
 
-    let time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_sentry_ward_charges')));
+    const time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_sentry_ward_charges')));
     let min = Math.trunc(time / 60);
     let seconds = time - 60 * min;
 
@@ -93,9 +93,9 @@ function ButtonsUpdate () {
 
     SentryCooldownLabel.text = min + ':' + seconds;
     // if (time > 120) {
-      // SentryCooldownLabel.visible = false;
+    // SentryCooldownLabel.visible = false;
     // } else {
-      // SentryCooldownLabel.visible = true;
+    // SentryCooldownLabel.visible = true;
     // }
   }
 
@@ -107,11 +107,11 @@ function ButtonsUpdate () {
 })();
 
 function CastAbilityObserver () {
-  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'observer'});
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', { type: 'observer' });
 }
 
 function CastAbilitySentry () {
-  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'sentry'});
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', { type: 'sentry' });
 }
 
 function SetObserver (panel) {

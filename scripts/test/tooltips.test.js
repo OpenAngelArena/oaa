@@ -14,7 +14,7 @@ test('can read in tooltip list', function (t) {
     if (err) {
       t.fail(err);
     }
-    let dotaEnglish = parseKV(result.body);
+    const dotaEnglish = parseKV(result.body);
     t.ok(dotaEnglish);
 
     t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');
@@ -29,7 +29,7 @@ test('can read list of items', function (t) {
     t.end();
   });
 });
-var itemPaths = null;
+let itemPaths = null;
 test('lists item paths', function (t) {
   luaEntitiesUtil.listAllItems(function (err, lines) {
     t.notOk(err);
@@ -40,8 +40,8 @@ test('lists item paths', function (t) {
 });
 
 test('can parse item', function (t) {
-  var index = ~~(Math.random() * itemPaths.length);
-  var path = itemPaths[index];
+  const index = ~~(Math.random() * itemPaths.length);
+  const path = itemPaths[index];
   console.log('Running tests with', path);
   t.ok(path);
 

@@ -1,12 +1,12 @@
 /* global FindDotaHudElement, GameEvents, $, DOTA_GameState, Game */
 'use strict';
-var GlyphScanContainer = /** @class */ (function () {
+const GlyphScanContainer = /** @class */ (function () {
   // constructor
   function GlyphScanContainer () {
-    var _this = this;
+    const _this = this;
     this.root = FindDotaHudElement('GlyphScanContainer');
     $.GetContextPanel().RemoveAndDeleteChildren();
-    var panel = $.CreatePanel('Panel', $.GetContextPanel(), '');
+    const panel = $.CreatePanel('Panel', $.GetContextPanel(), '');
     panel.BLoadLayoutSnippet('CustomGlyphRadarContainerSnippet');
     this.RadarCooldown = $('#OAARadarCooldown');
     this.GlyphCooldown = $('#OAAGlyphCooldown');
@@ -25,7 +25,7 @@ var GlyphScanContainer = /** @class */ (function () {
     this.GlyphTooltip.FindChildTraverse('cooldown_duration').text = this.NumberToTime(120);
   }
   GlyphScanContainer.prototype.Initialize = function () {
-    var _this = this;
+    const _this = this;
     this.DisableDotaGlyphAndRadar();
     this.UpdateCooldowns();
     this.StartRadarCooldown(210);
@@ -41,7 +41,7 @@ var GlyphScanContainer = /** @class */ (function () {
     this.CreateRadarTooltip();
   };
   GlyphScanContainer.prototype.UpdateCooldowns = function () {
-    var _this = this;
+    const _this = this;
     $.Schedule(1, function () {
       if (_this.GlyphCDRemain > 0) {
         _this.GlyphCDRemain--;
@@ -57,31 +57,31 @@ var GlyphScanContainer = /** @class */ (function () {
     });
   };
   GlyphScanContainer.prototype.NumberToTime = function (seconds) {
-    var date = new Date(0);
+    const date = new Date(0);
     date.setSeconds(seconds);
     return date.toUTCString().substr(21, 4);
   };
   GlyphScanContainer.prototype.CreateGlyphTooltip = function () {
-    var _this = this;
+    const _this = this;
     this.GlyphTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
     this.GlyphTooltip.BLoadLayoutSnippet('DotaCustomTooltipGlyph');
     this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseover' /* ON_MOUSE_OVER */, function () {
       _this.GlyphTooltip.SetHasClass('Hidden', false);
-      var gl = FindDotaHudElement('DOTAHUDGlyphTooltip');
+      const gl = FindDotaHudElement('DOTAHUDGlyphTooltip');
       if (gl) {
         gl.visible = false;
       }
     });
     this.root.FindChildTraverse('glyph').SetPanelEvent('onmouseout' /* ON_MOUSE_OUT */, function () {
       _this.GlyphTooltip.SetHasClass('Hidden', true);
-      var el = FindDotaHudElement('DOTAHUDRadarTooltip');
+      const el = FindDotaHudElement('DOTAHUDRadarTooltip');
       if (el) {
         el.visible = false;
       }
     });
   };
   GlyphScanContainer.prototype.CreateRadarTooltip = function () {
-    var _this = this;
+    const _this = this;
     this.RadarTooltip = $.CreatePanel('Panel', $.GetContextPanel(), '');
     this.RadarTooltip.BLoadLayoutSnippet('DotaCustomTooltipScan');
     this.root.FindChildTraverse('RadarButton').SetPanelEvent('onmouseover' /* ON_MOUSE_OVER */, function () { _this.RadarTooltip.SetHasClass('Hidden', false); });
@@ -103,10 +103,10 @@ var GlyphScanContainer = /** @class */ (function () {
   };
   GlyphScanContainer.prototype.DisableDotaGlyphAndRadar = function () {
     // disable default Dota cover because it starts the game with style changed by script that we can't override
-    var vanilaRadarCD = this.root.FindChildTraverse('CooldownCover');
+    const vanilaRadarCD = this.root.FindChildTraverse('CooldownCover');
     vanilaRadarCD.visible = false;
     vanilaRadarCD.style.opacity = '0';
-    var vanilaGlyphCD = this.root.FindChildTraverse('GlyphCooldown');
+    const vanilaGlyphCD = this.root.FindChildTraverse('GlyphCooldown');
     vanilaGlyphCD.visible = false;
     vanilaGlyphCD.style.opacity = '0';
   };
@@ -127,7 +127,7 @@ var GlyphScanContainer = /** @class */ (function () {
     });
   };
   GlyphScanContainer.prototype.StartGlyphCooldown = function (duration) {
-    var _this = this;
+    const _this = this;
     this.GlyphCDRemain = duration;
     this.GlyphTooltip.FindChildTraverse('cooldown_duration').text = this.NumberToTime(duration);
     this.StartPanelCooldown(this.GlyphCooldown, duration, function (IsActive) {
@@ -135,7 +135,7 @@ var GlyphScanContainer = /** @class */ (function () {
     });
   };
   GlyphScanContainer.prototype.StartRadarCooldown = function (duration) {
-    var _this = this;
+    const _this = this;
     this.RadarCDRemain = duration;
     this.RadarTooltip.FindChildTraverse('cooldown_duration').text = this.NumberToTime(duration);
     this.StartPanelCooldown(this.RadarCooldown, duration, function (IsActive) {
@@ -144,11 +144,12 @@ var GlyphScanContainer = /** @class */ (function () {
   };
   return GlyphScanContainer;
 }());
-var controller = new GlyphScanContainer();
+const controller = new GlyphScanContainer();
+let eventHandler;
 if (!Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS)) {
   controller.Initialize();
 } else {
-  var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
+  eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
     if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
       controller.Initialize();
       $.Msg(args.newState);

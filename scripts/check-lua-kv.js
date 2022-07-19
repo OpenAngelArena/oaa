@@ -11,7 +11,7 @@ var walk = (directoryName, action) => {
       return;
     }
     files.forEach((file) => {
-      var fullPath = path.join(directoryName, file);
+      const fullPath = path.join(directoryName, file);
       fs.stat(fullPath, (err, f) => {
         if (err) {
           console.error(chalk.red(err));
@@ -29,7 +29,7 @@ var walk = (directoryName, action) => {
 
 function checkLuaItemFile (path) {
   // console.log(chalk.blue('Checking "' + path + '".'));
-  var data = parseKV(fs.readFileSync(path)).DOTAItems;
+  const data = parseKV(fs.readFileSync(path)).DOTAItems;
   for (var item in data) {
     if (item === 'values') {
       continue;
@@ -59,31 +59,31 @@ function checkLuaItemFile (path) {
       if (err === null) {
         // console.log(chalk.blue('-> Checking "' + ScriptFilePath + '".'));
 
-        var lineReader = readline.createInterface({
+        const lineReader = readline.createInterface({
           input: fs.createReadStream(ScriptFilePath)
         });
 
-        var lineNumber = 0;
+        let lineNumber = 0;
         lineReader.on('line', (line) => {
           lineNumber++;
-          var SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
-          var SpecialValueMatches = line.match(SpecialValueRegex);
+          const SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
+          const SpecialValueMatches = line.match(SpecialValueRegex);
 
           if (SpecialValueMatches) {
-            var start = SpecialValueMatches[0].indexOf('"') + 1;
-            var SpecialValueKey = SpecialValueMatches[0].slice(start, SpecialValueMatches[0].indexOf('"', start));
+            const start = SpecialValueMatches[0].indexOf('"') + 1;
+            const SpecialValueKey = SpecialValueMatches[0].slice(start, SpecialValueMatches[0].indexOf('"', start));
 
             if (data[item].AbilitySpecial === undefined) {
               console.error(chalk.red('ERR') + ' Trying to access Value ' + chalk.bold(SpecialValueKey) + ' of non existing Key: "' + chalk.bold('SpecialValues') + '"\n  from ScriptFile "' + chalk.bold(ScriptFilePath) + '"\n    in Item "' + chalk.bold(item) + '"\n      in Path "' + chalk.bold(path) + '"\n');
             }
 
-            var foundSpecialValue = false;
-            for (var AbilitySpecialKey in data[item].AbilitySpecial) {
+            let foundSpecialValue = false;
+            for (const AbilitySpecialKey in data[item].AbilitySpecial) {
               if (AbilitySpecialKey === 'values') {
                 continue;
               }
               if (data[item].AbilitySpecial.hasOwnProperty(AbilitySpecialKey)) {
-                for (var AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
+                for (const AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
                   if (AbilitySpecialName === SpecialValueKey) {
                     foundSpecialValue = true;
                   }
@@ -110,7 +110,7 @@ function checkLuaItemFile (path) {
 
 function checkLuaAbilityFile (path) {
   // console.log(chalk.blue('Checking "' + path + '".'));
-  var data = parseKV(fs.readFileSync(path)).DOTAAbilities;
+  const data = parseKV(fs.readFileSync(path)).DOTAAbilities;
   for (var item in data) {
     if (item === 'values') {
       continue;
@@ -140,31 +140,31 @@ function checkLuaAbilityFile (path) {
       if (err === null) {
         // console.log(chalk.blue('-> Checking "' + ScriptFilePath + '".'));
 
-        var lineReader = readline.createInterface({
+        const lineReader = readline.createInterface({
           input: fs.createReadStream(ScriptFilePath)
         });
 
-        var lineNumber = 0;
+        let lineNumber = 0;
         lineReader.on('line', (line) => {
           lineNumber++;
-          var SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
-          var SpecialValueMatches = line.match(SpecialValueRegex);
+          const SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
+          const SpecialValueMatches = line.match(SpecialValueRegex);
 
           if (SpecialValueMatches) {
-            var start = SpecialValueMatches[0].indexOf('"') + 1;
-            var SpecialValueKey = SpecialValueMatches[0].slice(start, SpecialValueMatches[0].indexOf('"', start));
+            const start = SpecialValueMatches[0].indexOf('"') + 1;
+            const SpecialValueKey = SpecialValueMatches[0].slice(start, SpecialValueMatches[0].indexOf('"', start));
 
             if (data[item].AbilitySpecial === undefined) {
               console.error(chalk.red('ERR') + ' Trying to access Value ' + chalk.bold(SpecialValueKey) + ' of non existing Key: "' + chalk.bold('SpecialValues') + '"\n  from ScriptFile "' + chalk.bold(ScriptFilePath) + '"\n    in Ability "' + chalk.bold(item) + '"\n      in Path "' + chalk.bold(path) + '"\n');
             }
 
-            var foundSpecialValue = false;
-            for (var AbilitySpecialKey in data[item].AbilitySpecial) {
+            let foundSpecialValue = false;
+            for (const AbilitySpecialKey in data[item].AbilitySpecial) {
               if (AbilitySpecialKey === 'values') {
                 continue;
               }
               if (data[item].AbilitySpecial.hasOwnProperty(AbilitySpecialKey)) {
-                for (var AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
+                for (const AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
                   if (AbilitySpecialName === SpecialValueKey) {
                     foundSpecialValue = true;
                   }

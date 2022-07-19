@@ -1,4 +1,4 @@
-/* global GameEvents, Players, Entities, Buffs */
+/* global $, GameEvents, Players, Entities, Buffs */
 
 'use strict';
 
@@ -15,7 +15,7 @@ function HasModifier (unit, modifier) {
 }
 
 function GetStackCount (unit, modifier) {
-  let m = FindModifier(unit, modifier);
+  const m = FindModifier(unit, modifier);
   return m ? Buffs.GetStackCount(unit, m) : 0;
 }
 
@@ -36,5 +36,5 @@ function OnCorePointsChanged (args) {
 
 (function () {
   GameEvents.Subscribe('core_point_number_changed', OnCorePointsChanged);
-  OnCorePointsChanged({cp: '-'});
+  OnCorePointsChanged({ cp: '-' });
 })();

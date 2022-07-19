@@ -9,39 +9,42 @@
 'use strict';
 
 // settings
-var useFormatting = 'half';
+const useFormatting = 'half';
+let eventHandler;
 
-// subscribe only after the game start (fix loading problems)
-var eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
-  if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
-    PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
-    GameEvents.Subscribe('dota_player_update_query_unit', onQueryChange); // This doesn't work but I'm leaving it in
-    GameEvents.Subscribe('dota_player_update_selected_unit', onQueryChange);
-    GameEvents.Unsubscribe(eventHandler);
-  }
-});
+(function () {
+  // subscribe only after the game start (fix loading problems)
+  eventHandler = GameEvents.Subscribe('oaa_state_change', function (args) {
+    if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
+      PlayerTables.SubscribeNetTableListener('gold', onGoldChange);
+      GameEvents.Subscribe('dota_player_update_query_unit', onQueryChange); // This doesn't work but I'm leaving it in
+      GameEvents.Subscribe('dota_player_update_selected_unit', onQueryChange);
+      GameEvents.Unsubscribe(eventHandler);
+    }
+  });
+})();
 
 function onQueryChange () {
   onGoldChange('gold', PlayerTables.GetAllTableValues('gold'));
 }
 
 function onGoldChange (table, data) {
-  let unit = Players.GetLocalPlayerPortraitUnit();
-  let localPlayerID = Game.GetLocalPlayerID();
+  const unit = Players.GetLocalPlayerPortraitUnit();
+  const localPlayerID = Game.GetLocalPlayerID();
   let playerID = Entities.GetPlayerOwnerID(unit);
 
   if (playerID === -1 || Entities.GetTeamNumber(unit) !== Players.GetTeam(localPlayerID)) {
     playerID = localPlayerID;
   }
 
-  let gold = data.gold[playerID];
+  const gold = data.gold[playerID];
 
   UpdateGoldHud(gold);
   UpdateGoldTooltip(gold);
 }
 
 function UpdateGoldHud (gold) {
-  var GoldLabel = FindDotaHudElement('ShopButton').FindChildTraverse('GoldLabel');
+  const GoldLabel = FindDotaHudElement('ShopButton').FindChildTraverse('GoldLabel');
 
   if (useFormatting === 'full') {
     GoldLabel.text = FormatGold(gold);
@@ -55,9 +58,9 @@ function UpdateGoldHud (gold) {
 function UpdateGoldTooltip (gold) {
   // HACK this spews error when attempting to change the tooltip if it is not visible
   try {
-    var tooltipLabels = FindDotaHudElement('DOTAHUDGoldTooltip').FindChildTraverse('Contents');
+    const tooltipLabels = FindDotaHudElement('DOTAHUDGoldTooltip').FindChildTraverse('Contents');
 
-    var label = tooltipLabels.GetChild(0);
+    let label = tooltipLabels.GetChild(0);
     label.text = label.text.replace(/: [0-9]+/, ': ' + gold);
 
     label = tooltipLabels.GetChild(1);
@@ -75,7 +78,7 @@ function UpdateGoldTooltip (gold) {
     Returns gold with commas and k
 */
 function FormatGold (gold) {
-  var formatted = FormatComma(gold);
+  const formatted = FormatComma(gold);
   if (gold.toString().length > 6) {
     return FormatGold(gold.toString().substring(0, gold.toString().length - 5) / 10) + 'M';
   } else if (gold.toString().length > 4) {

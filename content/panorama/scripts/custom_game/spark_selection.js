@@ -1,7 +1,7 @@
-/* global CustomNetTables, Game, GameEvents, Players */
+/* global $, CustomNetTables, Game, GameEvents, Players */
 
-var forcedPickSpark = false;
-var currentSpark = null;
+let forcedPickSpark = false;
+let currentSpark = null;
 
 (function () {
   if (Game.GetLocalPlayerID() === -1) {
@@ -27,15 +27,15 @@ function SparkSelection (table, key, args) {
   if (key !== 'team_sparks') {
     return;
   }
-  var playerID = Game.GetLocalPlayerID();
-  var teamID = Players.GetTeam(playerID);
+  const playerID = Game.GetLocalPlayerID();
+  const teamID = Players.GetTeam(playerID);
   if (!args) {
     args = {
       hasSpark: {},
       cooldowns: {}
     };
   }
-  var teamData = args[teamID] || {};
+  const teamData = args[teamID] || {};
   teamData.gpm = teamData.gpm || 0;
   teamData.midas = teamData.midas || 0;
   teamData.power = teamData.power || 0;
@@ -54,10 +54,10 @@ function SparkSelection (table, key, args) {
     }
   }
 
-  var selectedSpark = currentSpark || args.hasSpark[playerID];
+  const selectedSpark = currentSpark || args.hasSpark[playerID];
 
   Object.keys(teamData).forEach(function (value) {
-    var elem = $('#' + value + 'Count');
+    const elem = $('#' + value + 'Count');
     elem.text = teamData[value];
     if (selectedSpark === value) {
       $('#' + value + 'Panel').AddClass('active');

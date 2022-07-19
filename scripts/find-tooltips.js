@@ -26,7 +26,7 @@ function findMissingTooltips (cb) {
     // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
     url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt'
   }, function (err, dotaEnglish) {
-    var done = after(3, function (err) {
+    const done = after(3, function (err) {
       cb(err, result);
     });
 
@@ -36,7 +36,7 @@ function findMissingTooltips (cb) {
     }
     dotaEnglish = parseKV(dotaEnglish.body);
 
-    var translations = getTranslations(true, false, dotaEnglish);
+    let translations = getTranslations(true, false, dotaEnglish);
     translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
       return name.toLowerCase();
     });
@@ -66,9 +66,9 @@ function findMissingTooltips (cb) {
         return done(err);
       }
       data.map(function (name) {
-        var prefix = 'DOTA_Tooltip_Ability_';
-        var title = prefix + name;
-        var description = (prefix + name + '_description').toLowerCase();
+        const prefix = 'DOTA_Tooltip_Ability_';
+        let title = prefix + name;
+        const description = (prefix + name + '_description').toLowerCase();
 
         title = title.toLowerCase();
 
@@ -100,13 +100,13 @@ function findMissingTooltips (cb) {
         return done(err);
       }
       data.map(function (name) {
-        var prefix = 'DOTA_Tooltip_';
-        var requiredTitle = !name.startsWith('item_recipe');
+        let prefix = 'DOTA_Tooltip_';
+        const requiredTitle = !name.startsWith('item_recipe');
 
         if (name.startsWith('item_')) {
           prefix = prefix + 'Ability_';
         }
-        var title = prefix + name;
+        let title = prefix + name;
         // var requiredDescription = (name.startsWith('item_') && !name.startsWith('item_recipe'));
         // var description = (prefix + name + '_description').toLowerCase();
 

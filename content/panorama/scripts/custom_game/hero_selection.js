@@ -13,28 +13,28 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 // for testing
-var neverHideStrategy = false;
+const neverHideStrategy = false;
 
-var heroAbilities = {};
-var currentMap = Game.GetMapInfo().map_display_name;
-var hasGoneToStrategy = false;
-var selectedhero = 'empty';
-var disabledheroes = [];
-var herolocked = false;
-var panelscreated = 0;
-var iscm = false;
-var selectedherocm = 'empty';
-var isPicking = true;
-var isBanning = false;
-var isCMLocking = false;
-var canRandom = true;
-var currentHeroPreview = '';
-var stepsCompleted = {
+const heroAbilities = {};
+const currentMap = Game.GetMapInfo().map_display_name;
+let hasGoneToStrategy = false;
+let selectedhero = 'empty';
+let disabledheroes = [];
+let herolocked = false;
+let panelscreated = 0;
+let iscm = false;
+let selectedherocm = 'empty';
+let isPicking = true;
+let isBanning = false;
+let isCMLocking = false;
+let canRandom = true;
+let currentHeroPreview = '';
+let stepsCompleted = {
   2: 0,
   3: 0
 };
-var lastPickIndex = 0;
-var hilariousLoadingPhrases = [
+let lastPickIndex = 0;
+const hilariousLoadingPhrases = [
   'Precaching all heroes',
   'Filling bottles',
   'Spawning extra Ogres',
@@ -255,7 +255,7 @@ function handleOAASettingsChange (n, key, settings) {
 }
 
 function changeHilariousLoadingText () {
-  var incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
+  const incredibleWit = hilariousLoadingPhrases[~~(Math.random() * hilariousLoadingPhrases.length)];
 
   noDots();
   $.Schedule(1, oneDots);
@@ -283,8 +283,8 @@ function changeHilariousLoadingText () {
 }
 
 function onPlayerStatChange (table, key, data) {
-  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
-  var newimage = null;
+  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  let newimage = null;
   if (data &&
     (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
     key === 'abilities_DOTA_ATTRIBUTE_AGILITY' ||
@@ -296,11 +296,11 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'rankedData' && data != null) {
     UpdatedRankedPickState(data);
   } else if (key === 'herolist' && data != null) {
-    var strengthholder = FindDotaHudElement('StrengthHeroes');
-    var agilityholder = FindDotaHudElement('AgilityHeroes');
-    var intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
+    const strengthholder = FindDotaHudElement('StrengthHeroes');
+    const agilityholder = FindDotaHudElement('AgilityHeroes');
+    const intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
     Object.keys(data.herolist).sort().forEach(function (heroName) {
-      var currentstat = null;
+      let currentstat = null;
 
       switch (data.herolist[heroName]) {
         case 'DOTA_ATTRIBUTE_STRENGTH':
@@ -313,10 +313,10 @@ function onPlayerStatChange (table, key, data) {
           currentstat = intelligenceholder;
           break;
       }
-      var newhero = $.CreatePanel('RadioButton', currentstat, heroName);
+      const newhero = $.CreatePanel('RadioButton', currentstat, heroName);
       newhero.group = 'HeroChoises';
       newhero.SetPanelEvent('onactivate', function () { PreviewHero(heroName); });
-      var newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
+      const newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
       newheroimage.hittest = false;
       newheroimage.AddClass('HeroCard');
       ChangeHeroImage(newheroimage, heroName);
@@ -324,15 +324,15 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
   } else if (key === 'APdata' && data != null) {
-    var length = Object.keys(data).length;
+    const length = Object.keys(data).length;
     if (panelscreated !== length) {
-      var teamdire = FindDotaHudElement('TeamDire');
-      var teamradiant = FindDotaHudElement('TeamRadiant');
+      const teamdire = FindDotaHudElement('TeamDire');
+      const teamradiant = FindDotaHudElement('TeamRadiant');
       panelscreated = length;
       teamdire.RemoveAndDeleteChildren();
       teamradiant.RemoveAndDeleteChildren();
       Object.keys(data).forEach(function (nkey) {
-        var currentteam = null;
+        let currentteam = null;
         switch (data[nkey].team) {
           case 2:
             currentteam = teamradiant;
@@ -341,13 +341,13 @@ function onPlayerStatChange (table, key, data) {
             currentteam = teamdire;
             break;
         }
-        var newelement = $.CreatePanel('Panel', currentteam, '');
+        const newelement = $.CreatePanel('Panel', currentteam, '');
         newelement.AddClass('Player');
         newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
         newimage.hittest = false;
         newimage.AddClass('PlayerImage');
         ChangeHeroImage(newimage, data[nkey].selectedhero);
-        var newlabel = $.CreatePanel('DOTAUserName', newelement, '');
+        const newlabel = $.CreatePanel('DOTAUserName', newelement, '');
         newlabel.AddClass('PlayerLabel');
         newlabel.steamid = data[nkey].steamid;
 
@@ -355,7 +355,7 @@ function onPlayerStatChange (table, key, data) {
         if (iscm) {
           if (data[nkey].selectedhero !== 'empty') {
             ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
-            var label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
+            const label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
 
             label.style.visibility = 'collapse';
             label.steamid = null;
@@ -369,13 +369,13 @@ function onPlayerStatChange (table, key, data) {
       });
     } else {
       if (iscm) {
-        var cmData = CustomNetTables.GetTableValue('hero_selection', 'CMdata');
-        Object.keys(cmData['order']).forEach(function (nkey) {
-          var obj = cmData['order'][nkey];
+        const cmData = CustomNetTables.GetTableValue('hero_selection', 'CMdata');
+        Object.keys(cmData.order).forEach(function (nkey) {
+          const obj = cmData.order[nkey];
           ChangeHeroImage(FindDotaHudElement('CMStep' + nkey).heroname, obj.hero);
           FindDotaHudElement('CMStep' + nkey).RemoveClass('active');
           if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
-            var label = FindDotaHudElement('CMHeroPickLabel_' + obj.hero);
+            const label = FindDotaHudElement('CMHeroPickLabel_' + obj.hero);
 
             label.style.visibility = 'collapse';
             label.steamid = null;
@@ -383,7 +383,7 @@ function onPlayerStatChange (table, key, data) {
         });
       }
       Object.keys(data).forEach(function (nkey) {
-        let currentplayer = FindDotaHudElement(data[nkey].steamid);
+        const currentplayer = FindDotaHudElement(data[nkey].steamid);
         if (currentplayer !== null) {
           ChangeHeroImage(currentplayer, data[nkey].selectedhero);
           currentplayer.RemoveClass('PreviewHero');
@@ -406,7 +406,7 @@ function onPlayerStatChange (table, key, data) {
     UpdatePreviews();
   } else if (key === 'CMdata' && data != null) {
     iscm = true;
-    var teamName = teamID === 2 ? 'radiant' : 'dire';
+    const teamName = teamID === 2 ? 'radiant' : 'dire';
     if (data['captain' + teamName] === 'empty') {
       isPicking = false;
       // "BECOME CAPTAIN" button
@@ -425,11 +425,11 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
     }
-    FindDotaHudElement('RadiantReserve').text = data['reserveradiant'];
-    FindDotaHudElement('DireReserve').text = data['reservedire'];
+    FindDotaHudElement('RadiantReserve').text = data.reserveradiant;
+    FindDotaHudElement('DireReserve').text = data.reservedire;
 
-    if (data['currentstage'] < data['totalstages'] || (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero === 'empty')) {
-      if (!data['order'][data['currentstage']]) {
+    if (data.currentstage < data.totalstages || (data.order[data.currentstage] && data.order[data.currentstage].hero === 'empty')) {
+      if (!data.order[data.currentstage]) {
         return;
       }
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
@@ -437,14 +437,14 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
-      var currentPick = null;
-      var currentPickIndex = 0;
-      if (data['order'][data['currentstage']].hero === 'empty') {
-        currentPickIndex = data['currentstage'];
-        currentPick = data['order'][currentPickIndex];
+      let currentPick = null;
+      let currentPickIndex = 0;
+      if (data.order[data.currentstage].hero === 'empty') {
+        currentPickIndex = data.currentstage;
+        currentPick = data.order[currentPickIndex];
       } else {
-        currentPickIndex = data['currentstage'] + 1;
-        currentPick = data['order'][currentPickIndex];
+        currentPickIndex = data.currentstage + 1;
+        currentPick = data.order[currentPickIndex];
       }
       if (currentPickIndex > lastPickIndex) {
         stepsCompleted[currentPick.side]++;
@@ -453,8 +453,8 @@ function onPlayerStatChange (table, key, data) {
       $.Msg(currentPick);
       $.Msg(stepsCompleted);
 
-      FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
-      FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
+      FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data.totalstages / 2) * 100) + '%';
+      FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data.totalstages / 2) * 100) + '%';
       FindDotaHudElement('CMStep' + currentPickIndex).AddClass('active');
 
       FindDotaHudElement('CMRadiant').RemoveClass('Pick');
@@ -472,12 +472,12 @@ function onPlayerStatChange (table, key, data) {
       FindDotaHudElement('CaptainLockIn').RemoveClass('BanHero');
       FindDotaHudElement('CaptainLockIn').AddClass(currentPick.type + 'Hero');
 
-      if (data['order'][data['currentstage']] && data['order'][data['currentstage']].hero && data['order'][data['currentstage']].hero !== 'empty') {
-        ChangeHeroImage(FindDotaHudElement('CMStep' + data['currentstage']), data['order'][data['currentstage']].hero);
-        FindDotaHudElement('CMStep' + data['currentstage']).RemoveClass('active');
-        DisableHero(data['order'][data['currentstage']].hero);
+      if (data.order[data.currentstage] && data.order[data.currentstage].hero && data.order[data.currentstage].hero !== 'empty') {
+        ChangeHeroImage(FindDotaHudElement('CMStep' + data.currentstage), data.order[data.currentstage].hero);
+        FindDotaHudElement('CMStep' + data.currentstage).RemoveClass('active');
+        DisableHero(data.order[data.currentstage].hero);
       }
-      $.Msg(data['currentstage'] + ', ' + currentPick.side);
+      $.Msg(data.currentstage + ', ' + currentPick.side);
       if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
@@ -487,16 +487,16 @@ function onPlayerStatChange (table, key, data) {
         isPicking = false;
         PreviewHero();
       }
-    } else if (data['currentstage'] === data['totalstages']) {
-      ChangeHeroImage(FindDotaHudElement('CMStep' + data['currentstage']), data['order'][data['currentstage']].hero);
-      DisableHero(data['order'][data['currentstage']].hero);
+    } else if (data.currentstage === data.totalstages) {
+      ChangeHeroImage(FindDotaHudElement('CMStep' + data.currentstage), data.order[data.currentstage].hero);
+      DisableHero(data.order[data.currentstage].hero);
       FindDotaHudElement('CMPanel').style.visibility = 'visible';
       FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
       FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
       FindDotaHudElement('HeroPreview').style.visibility = 'collapse';
       FindDotaHudElement('BecomeCaptain').style.visibility = 'collapse';
       FindDotaHudElement('CaptainLockIn').style.visibility = 'collapse';
-      DisableHero(data['order'][data['currentstage']].hero);
+      DisableHero(data.order[data.currentstage].hero);
 
       ReloadCMStatus(data);
       disabledheroes = [];
@@ -526,7 +526,7 @@ function onPlayerStatChange (table, key, data) {
 function UpdatedRankedPickState (data) {
   $.Msg(data);
 
-  var bans = Object.keys(data.bans)
+  const bans = Object.keys(data.bans)
     .map(function (key) { return data.bans[key]; })
     .filter(function (banned) { return banned !== 'empty'; });
 
@@ -560,8 +560,8 @@ function UpdatedRankedPickState (data) {
         DisableHero(banned);
       }
     });
-  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
-  var order = data.order[data.currentOrder + ''];
+  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  const order = data.order[data.currentOrder + ''];
 
   switch (data.phase) {
     case 'start':
@@ -578,7 +578,7 @@ function UpdatedRankedPickState (data) {
     case 'picking':
       isBanning = false;
       if (order.team === teamID) {
-        var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
+        const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
         isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
         herolocked = !isPicking;
         canRandom = order.canRandom !== false;
@@ -613,43 +613,43 @@ function SetupTopBar () {
   }
 
   $.GetContextPanel().SetHasClass('TenVTen', true);
-  var topbar = FindDotaHudElement('topbar');
+  const topbar = FindDotaHudElement('topbar');
   topbar.style.width = '1550px';
 
   // Top Bar Radiant
-  var TopBarRadiantTeam = FindDotaHudElement('TopBarRadiantTeam');
+  const TopBarRadiantTeam = FindDotaHudElement('TopBarRadiantTeam');
   TopBarRadiantTeam.style.width = '690px';
 
-  var topbarRadiantPlayers = FindDotaHudElement('TopBarRadiantPlayers');
+  const topbarRadiantPlayers = FindDotaHudElement('TopBarRadiantPlayers');
   topbarRadiantPlayers.style.width = '690px';
 
-  var topbarRadiantPlayersContainer = FindDotaHudElement('TopBarRadiantPlayersContainer');
+  const topbarRadiantPlayersContainer = FindDotaHudElement('TopBarRadiantPlayersContainer');
   topbarRadiantPlayersContainer.style.width = '630px';
   FillTopBarPlayer(topbarRadiantPlayersContainer);
 
-  var RadiantTeamContainer = FindDotaHudElement('RadiantTeamContainer');
+  const RadiantTeamContainer = FindDotaHudElement('RadiantTeamContainer');
   RadiantTeamContainer.style.height = '737px';
 
   // Top Bar Dire
-  var TopBarDireTeam = FindDotaHudElement('TopBarDireTeam');
+  const TopBarDireTeam = FindDotaHudElement('TopBarDireTeam');
   TopBarDireTeam.style.width = '690px';
 
-  var topbarDirePlayers = FindDotaHudElement('TopBarDirePlayers');
+  const topbarDirePlayers = FindDotaHudElement('TopBarDirePlayers');
   topbarDirePlayers.style.width = '690px';
 
-  var topbarDirePlayersContainer = FindDotaHudElement('TopBarDirePlayersContainer');
+  const topbarDirePlayersContainer = FindDotaHudElement('TopBarDirePlayersContainer');
   topbarDirePlayersContainer.style.width = '630px';
   FillTopBarPlayer(topbarDirePlayersContainer);
 
-  var DireTeamContainer = FindDotaHudElement('DireTeamContainer');
+  const DireTeamContainer = FindDotaHudElement('DireTeamContainer');
   DireTeamContainer.style.height = '737px';
 }
 
 function FillTopBarPlayer (TeamContainer) {
   // Fill players top bar in case on partial lobbies
-  var playerCount = TeamContainer.GetChildCount();
-  for (var i = playerCount + 1; i <= 10; i++) {
-    var newPlayer = $.CreatePanel('DOTATopBarPlayer', TeamContainer, 'RadiantPlayer-1');
+  const playerCount = TeamContainer.GetChildCount();
+  for (let i = playerCount + 1; i <= 10; i++) {
+    const newPlayer = $.CreatePanel('DOTATopBarPlayer', TeamContainer, 'RadiantPlayer-1');
     if (newPlayer) {
       newPlayer.FindChildTraverse('PlayerColor').style.backgroundColor = '#FFFFFFFF';
     }
@@ -658,50 +658,50 @@ function FillTopBarPlayer (TeamContainer) {
 }
 
 function EnableChatWindow () {
-  let pregamePanel = FindDotaHudElement('PreGame');
+  const pregamePanel = FindDotaHudElement('PreGame');
   pregamePanel.style.zIndex = 10;
   pregamePanel.style.backgroundColor = 'transparent';
-  let contentPanel = pregamePanel.FindChildTraverse('MainContents');
+  const contentPanel = pregamePanel.FindChildTraverse('MainContents');
   if (contentPanel) {
     contentPanel.style.visibility = 'collapse';
   }
-  let backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
+  const backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
   if (backgroundPanel) {
     backgroundPanel.style.visibility = 'collapse';
   }
-  let backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+  const backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
   if (backgroundDashboardPanel) {
     backgroundDashboardPanel.style.visibility = 'collapse';
   }
-  let radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+  const radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
   if (radiantTeamPanel) {
     radiantTeamPanel.style.visibility = 'collapse';
   }
-  let direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+  const direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
   if (direTeamPanel) {
     direTeamPanel.style.visibility = 'collapse';
   }
-  let headerPanel = pregamePanel.FindChildTraverse('Header');
+  const headerPanel = pregamePanel.FindChildTraverse('Header');
   if (headerPanel) {
     headerPanel.style.visibility = 'collapse';
   }
-  let minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+  const minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
   if (minimapPanel) {
     minimapPanel.style.visibility = 'collapse';
   }
-  let friendsAndFoesPanel = pregamePanel.FindChildTraverse('FriendsAndFoes');
+  const friendsAndFoesPanel = pregamePanel.FindChildTraverse('FriendsAndFoes');
   if (friendsAndFoesPanel) {
     friendsAndFoesPanel.style.visibility = 'collapse';
   }
-  let panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
+  const panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
   if (panel2) {
     panel2.style.visibility = 'collapse';
   }
-  let panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
+  const panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
   if (panel3) {
     panel3.style.visibility = 'collapse';
   }
-  let panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
+  const panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
   if (panel4) {
     panel4.style.visibility = 'collapse';
   }
@@ -714,26 +714,26 @@ function UpdatePreviews (data) {
   if (!data) {
     return;
   }
-  var apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
-  var heroesBySteamid = {};
+  const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
+  const heroesBySteamid = {};
   Object.keys(apData).forEach(function (playerId) {
     if (apData[playerId].selectedhero && apData[playerId].selectedhero !== 'empty' && apData[playerId].selectedhero !== 'random') {
       heroesBySteamid[apData[playerId].steamid] = apData[playerId].selectedhero;
     }
   });
-  var teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
   Object.keys(data[teamID] || {}).forEach(function (steamid) {
     if (heroesBySteamid[steamid]) {
       return;
     }
-    var player = FindDotaHudElement(steamid);
+    const player = FindDotaHudElement(steamid);
     if (player) {
       ChangeHeroImage(player, data[teamID][steamid]);
       player.AddClass('PreviewHero');
     }
   });
   Object.keys(heroesBySteamid).forEach(function (steamid) {
-    var player = FindDotaHudElement(steamid);
+    const player = FindDotaHudElement(steamid);
     ChangeHeroImage(player, heroesBySteamid[steamid]);
   });
 }
@@ -755,27 +755,27 @@ function ReloadCMStatus (data) {
     return;
   }
   // reset all data for people, who lost it
-  let teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
   stepsCompleted = {
     2: 0,
     3: 0
   };
 
-  var currentPick = null;
-  if (!data['order'][data['currentstage']]) {
+  let currentPick = null;
+  if (!data.order[data.currentstage]) {
     return;
   }
-  if (data['order'][data['currentstage']].hero === 'empty') {
-    currentPick = data['currentstage'];
+  if (data.order[data.currentstage].hero === 'empty') {
+    currentPick = data.currentstage;
   } else {
-    currentPick = data['currentstage'] + 1;
+    currentPick = data.currentstage + 1;
   }
-  var currentPickData = data['order'][currentPick];
+  const currentPickData = data.order[currentPick];
 
-  if (data['currentstage'] === data['totalstages']) {
+  if (data.currentstage === data.totalstages) {
     FindDotaHudElement('CMHeroPreview').RemoveAndDeleteChildren();
-    Object.keys(data['order']).forEach(function (nkey) {
-      let obj = data['order'][nkey];
+    Object.keys(data.order).forEach(function (nkey) {
+      const obj = data.order[nkey];
       // FindDotaHudElement('CMStep' + nkey).heroname = obj.hero;
       if (obj.hero !== 'empty') {
         DisableHero(obj.hero);
@@ -785,14 +785,14 @@ function ReloadCMStatus (data) {
       if (obj.side === teamID && obj.type === 'Pick' && obj.hero !== 'empty') {
         $('#MainContent').SetHasClass('CMHeroChoices', true);
 
-        let newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
+        const newbutton = $.CreatePanel('RadioButton', FindDotaHudElement('CMHeroPreview'), '');
         newbutton.group = 'CMHeroChoises';
         newbutton.AddClass('CMHeroPreviewItem');
         newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
-        $.CreatePanelWithProperties('Label', newbutton, '', {class: 'HeroPickLabel', text: '#' + obj.hero});
+        $.CreatePanelWithProperties('Label', newbutton, '', { class: 'HeroPickLabel', text: '#' + obj.hero });
 
         CreateHeroPanel(newbutton, obj.hero);
-        let newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
+        const newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
         newlabel.style.visibility = 'collapse';
         newlabel.steamid = null;
       }
@@ -815,9 +815,9 @@ function ReloadCMStatus (data) {
     });
   }
   $.Msg(stepsCompleted);
-  FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data['totalstages'] / 2) * 100) + '%';
-  FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data['totalstages'] / 2) * 100) + '%';
-  if (currentPick < data['totalstages']) {
+  FindDotaHudElement('CMRadiantProgress').style.width = ~~(stepsCompleted[2] / (data.totalstages / 2) * 100) + '%';
+  FindDotaHudElement('CMDireProgress').style.width = ~~(stepsCompleted[3] / (data.totalstages / 2) * 100) + '%';
+  if (currentPick < data.totalstages) {
     FindDotaHudElement('CMStep' + currentPick).AddClass('active');
 
     if (currentPickData.side === 2) {
@@ -848,7 +848,7 @@ function IsHeroDisabled (name) {
 }
 
 function PreviewHero (name) {
-  var lockButton = null;
+  let lockButton = null;
   if (iscm) {
     lockButton = FindDotaHudElement('CaptainLockIn');
   } else {
@@ -862,17 +862,17 @@ function PreviewHero (name) {
     name = selectedhero;
   }
   if (!herolocked || iscm) {
-    var preview = FindDotaHudElement('HeroPreview');
+    const preview = FindDotaHudElement('HeroPreview');
     if (name !== 'random' && currentHeroPreview !== name) {
       currentHeroPreview = name;
       preview.RemoveAndDeleteChildren();
       CreateHeroPanel(preview, name);
       $('#SectionTitle').text = $.Localize('#' + name, $('#SectionTitle'));
 
-      var abilityPreview = $('#AbilityPreview');
+      const abilityPreview = $('#AbilityPreview');
       abilityPreview.RemoveAndDeleteChildren();
       Object.keys(heroAbilities[name]).forEach(function (i) {
-        var ability = heroAbilities[name][i];
+        const ability = heroAbilities[name][i];
         if (ability === 'generic_hidden') {
           return;
         }
@@ -893,7 +893,7 @@ function PreviewHero (name) {
 }
 
 function UpdateBottlePassArcana (heroName) {
-  var playerID = Game.GetLocalPlayerID();
+  const playerID = Game.GetLocalPlayerID();
   $('#ArcanaSelection').RemoveAndDeleteChildren();
 
   if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
@@ -902,7 +902,7 @@ function UpdateBottlePassArcana (heroName) {
   }
   $('#ArcanaPanel').SetHasClass('HasArcana', true);
 
-  let selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  const selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
   let selectedArcana = 'DefaultSet';
 
   if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
@@ -911,15 +911,15 @@ function UpdateBottlePassArcana (heroName) {
 
   $.Schedule(0.2, function () {
     $.Msg('UpdateBottlePassArcana(' + heroName + ')');
-    var arcanas = null;
+    let arcanas = null;
 
-    var specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
-    for (var arcanaIndex in specialArcanas) {
+    const specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
+    for (const arcanaIndex in specialArcanas) {
       if (specialArcanas[arcanaIndex].PlayerId === playerID) {
         arcanas = specialArcanas[arcanaIndex].Arcanas;
       }
     }
-    var radio = null;
+    let radio = null;
     if (heroName === 'npc_dota_hero_sohei') {
       radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultSoheiSet');
       radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -927,7 +927,7 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      for (var index in arcanas) {
+      for (const index in arcanas) {
         if (arcanas[index] === 'DBZSohei') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DBZSoheiSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -950,7 +950,7 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      for (var index2 in arcanas) {
+      for (const index2 in arcanas) {
         if (arcanas[index2] === 'RockElectrician') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -965,17 +965,17 @@ function UpdateBottlePassArcana (heroName) {
 }
 
 function SelectArcana () {
-  let arcanasList = $('#ArcanaSelection');
+  const arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
-    let selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+    const selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
 
     if (!selectedArcana) {
       $.Schedule(0.1, SelectArcana);
       return;
     }
 
-    let id = 'Scene' + ~~(Math.random() * 100);
-    let preview = FindDotaHudElement('HeroPreview');
+    const id = 'Scene' + ~~(Math.random() * 100);
+    const preview = FindDotaHudElement('HeroPreview');
     preview.RemoveAndDeleteChildren();
     if (selectedArcana.setName !== 'DefaultSet') {
       $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
@@ -1020,7 +1020,7 @@ function SelectArcana () {
       }
     }
 
-    let data = {
+    const data = {
       Hero: selectedArcana.hero,
       Arcana: selectedArcana.setName
     };
@@ -1031,13 +1031,13 @@ function SelectArcana () {
 }
 
 function UpdateBottleList () {
-  var playerID = Game.GetLocalPlayerID();
-  var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+  const playerID = Game.GetLocalPlayerID();
+  const specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
   if (!specialBottles) {
     $.Schedule(0.2, UpdateBottleList);
     return;
   }
-  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
+  const bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled
@@ -1047,17 +1047,17 @@ function UpdateBottleList () {
   $('#BottleSelection').RemoveAndDeleteChildren();
   // Wait the parent be updated
   $.Schedule(0.2, function () {
-    var selectedBottle;
+    let selectedBottle;
 
-    var selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
+    const selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
     if (selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined) {
       selectedBottle = selectedBottles[playerID.toString()];
     }
 
     CreateBottleRadioElement(0, selectedBottle === 0);
-    var bottleCount = Object.keys(bottles).length;
+    const bottleCount = Object.keys(bottles).length;
     Object.keys(bottles).forEach(function (bottleId, i) {
-      var id = bottles[bottleId];
+      const id = bottles[bottleId];
       CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount - 1 : id === selectedBottle);
     });
 
@@ -1066,7 +1066,7 @@ function UpdateBottleList () {
 }
 
 function CreateBottleRadioElement (id, isChecked) {
-  var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+  const radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
   radio.BLoadLayoutSnippet('BottleRadio');
   radio.bottleId = id;
   radio.checked = isChecked;
@@ -1074,11 +1074,11 @@ function CreateBottleRadioElement (id, isChecked) {
 
 function SelectBottle () {
   let bottleId = 0;
-  let btn = $('#Bottle0');
+  const btn = $('#Bottle0');
   if (btn != null) {
     bottleId = $('#Bottle0').GetSelectedButton().bottleId;
   }
-  let data = {
+  const data = {
     BottleId: bottleId
   };
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
@@ -1098,7 +1098,7 @@ function SelectHero (hero) {
     }
   }
   if (!herolocked) {
-    var newhero = 'empty';
+    let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
       newhero = selectedherocm;
     } else if (!iscm && selectedhero !== 'empty' && !IsHeroDisabled(selectedhero)) {
@@ -1114,9 +1114,9 @@ function SelectHero (hero) {
       CaptainSelectHero();
     } else {
       $.Msg('Selecting ' + newhero);
-      let playerId = Game.GetLocalPlayerID();
-      let playerName = Players.GetPlayerName(playerId);
-      let heroName = $.Localize('#' + newhero);
+      const playerId = Game.GetLocalPlayerID();
+      const playerName = Players.GetPlayerName(playerId);
+      const heroName = $.Localize('#' + newhero);
       GameEvents.SendCustomGameEventToServer('hero_selected', {
         hero: newhero,
         player_name: playerName,
@@ -1182,7 +1182,7 @@ function RandomHero () {
 }
 
 function CreateHeroPanel (parent, hero) {
-  let id = 'Scene' + ~~(Math.random() * 100);
+  const id = 'Scene' + ~~(Math.random() * 100);
   let scene = null;
   if (hero === 'npc_dota_hero_sohei') {
     scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
@@ -1231,9 +1231,9 @@ function CreateHeroPanel (parent, hero) {
 }
 
 function CreateAbilityPanel (parent, ability) {
-  let id = 'Ability_' + ability;
-  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, {abilityname: ability});
-  let icon = $('#' + id);
+  const id = 'Ability_' + ability;
+  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, { abilityname: ability });
+  const icon = $('#' + id);
   icon.SetPanelEvent('onmouseover', function () {
     $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);
   });

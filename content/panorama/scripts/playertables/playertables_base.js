@@ -1,6 +1,6 @@
 /* global $, GameUI, GameEvents, Players */
 
-var PT = {
+const PT = {
   listeners: {},
   tableListeners: {},
   nextListener: 0,
@@ -10,10 +10,10 @@ var PT = {
 
 $.Msg('[playertables_base.js] Loaded');
 
-var PlayerTables = {};
+const PlayerTables = {};
 
 PlayerTables.GetAllTableValues = function (tableName) {
-  var table = PT.tables[tableName];
+  const table = PT.tables[tableName];
   if (table) {
     return JSON.parse(JSON.stringify(table));
   }
@@ -22,12 +22,12 @@ PlayerTables.GetAllTableValues = function (tableName) {
 };
 
 PlayerTables.GetTableValue = function (tableName, keyName) {
-  var table = PT.tables[tableName];
+  const table = PT.tables[tableName];
   if (!table) {
     return null;
   }
 
-  var val = table[keyName];
+  const val = table[keyName];
 
   if (typeof val === 'object') {
     return JSON.parse(JSON.stringify(val));
@@ -37,13 +37,13 @@ PlayerTables.GetTableValue = function (tableName, keyName) {
 };
 
 PlayerTables.SubscribeNetTableListener = function (tableName, callback) {
-  var listeners = PT.tableListeners[tableName];
+  let listeners = PT.tableListeners[tableName];
   if (!listeners) {
     listeners = {};
     PT.tableListeners[tableName] = listeners;
   }
 
-  var ID = PT.nextListener;
+  const ID = PT.nextListener;
   PT.nextListener++;
 
   listeners[ID] = callback;
@@ -53,10 +53,10 @@ PlayerTables.SubscribeNetTableListener = function (tableName, callback) {
 };
 
 PlayerTables.UnsubscribeNetTableListener = function (callbackID) {
-  var tableName = PT.listeners[callbackID];
+  const tableName = PT.listeners[callbackID];
   if (tableName) {
     if (PT.tableListeners[tableName]) {
-      var listener = PT.tableListeners[tableName][callbackID];
+      const listener = PT.tableListeners[tableName][callbackID];
       if (listener) {
         delete PT.tableListeners[tableName][callbackID];
       }
@@ -67,15 +67,15 @@ PlayerTables.UnsubscribeNetTableListener = function (callbackID) {
 };
 
 function isEquivalent (a, b) {
-  var aProps = Object.getOwnPropertyNames(a);
-  var bProps = Object.getOwnPropertyNames(b);
+  const aProps = Object.getOwnPropertyNames(a);
+  const bProps = Object.getOwnPropertyNames(b);
 
   if (aProps.length !== bProps.length) {
     return false;
   }
 
-  for (var i = 0; i < aProps.length; i++) {
-    var propName = aProps[i];
+  for (let i = 0; i < aProps.length; i++) {
+    const propName = aProps[i];
 
     if (a[propName] !== b[propName]) {
       return false;
@@ -86,9 +86,9 @@ function isEquivalent (a, b) {
 }
 
 function ProcessTable (newTable, oldTable, changes, dels) {
-  for (var k in newTable) {
-    var n = newTable[k];
-    var old = oldTable[k];
+  for (const k in newTable) {
+    const n = newTable[k];
+    const old = oldTable[k];
 
     if (typeof (n) === typeof (old) && typeof (n) === 'object') {
       if (!isEquivalent(n, old)) {
@@ -104,14 +104,14 @@ function ProcessTable (newTable, oldTable, changes, dels) {
     }
   }
 
-  for (k in oldTable) {
+  for (const k in oldTable) {
     dels[k] = true;
   }
 }
 
 function SendPID () {
-  var pid = Players.GetLocalPlayer();
-  var spec = Players.IsSpectator(pid);
+  const pid = Players.GetLocalPlayer();
+  const spec = Players.IsSpectator(pid);
   // $.Msg(pid, ' -- ', spec)
   if (pid === -1 && !spec) {
     $.Schedule(1 / 30, SendPID);
@@ -124,8 +124,8 @@ function SendPID () {
 function TableFullUpdate (msg) {
   // $.Msg('TableFullUpdate -- ', msg)
   // msg.table = UnprocessTable(msg.table)
-  var newTable = msg.table;
-  var oldTable = PT.tables[msg.name];
+  const newTable = msg.table;
+  const oldTable = PT.tables[msg.name];
 
   if (!newTable) {
     delete PT.tables[msg.name];
@@ -133,10 +133,10 @@ function TableFullUpdate (msg) {
     PT.tables[msg.name] = newTable;
   }
 
-  var listeners = PT.tableListeners[msg.name] || {};
-  var len = Object.keys(listeners).length;
-  var changes = null;
-  var dels = null;
+  const listeners = PT.tableListeners[msg.name] || {};
+  const len = Object.keys(listeners).length;
+  let changes = null;
+  let dels = null;
 
   if (len > -1 && newTable) {
     if (!oldTable) {
@@ -149,7 +149,7 @@ function TableFullUpdate (msg) {
     }
   }
 
-  for (var k in listeners) {
+  for (const k in listeners) {
     try {
       listeners[k](msg.name, changes, dels);
     } catch (err) {
@@ -162,16 +162,16 @@ function UpdateTable (msg) {
   // $.Msg('UpdateTable -- ', msg)
   // msg.changes = UnprocessTable(msg.changes)
 
-  var table = PT.tables[msg.name];
+  const table = PT.tables[msg.name];
   if (!table) {
     $.Msg('PlayerTables.UpdateTable invoked on nonexistent playertable.');
     return;
   }
 
-  var t = {};
+  const t = {};
 
-  for (var k in msg.changes) {
-    var value = msg.changes[k];
+  for (const k in msg.changes) {
+    const value = msg.changes[k];
 
     table[k] = value;
     if (typeof value === 'object') {
@@ -181,8 +181,8 @@ function UpdateTable (msg) {
     }
   }
 
-  var listeners = PT.tableListeners[msg.name] || {};
-  for (k in listeners) {
+  const listeners = PT.tableListeners[msg.name] || {};
+  for (const k in listeners) {
     if (listeners[k]) {
       try {
         listeners[k](msg.name, t, {});
@@ -195,18 +195,18 @@ function UpdateTable (msg) {
 
 function DeleteTableKeys (msg) {
   // $.Msg('DeleteTableKeys -- ', msg)
-  var table = PT.tables[msg.name];
+  const table = PT.tables[msg.name];
   if (!table) {
     $.Msg('PlayerTables.DeleteTableKey invoked on nonexistent playertable.');
     return;
   }
 
-  for (var k in msg.keys) {
+  for (const k in msg.keys) {
     delete table[k];
   }
 
-  var listeners = PT.tableListeners[msg.name] || {};
-  for (k in listeners) {
+  const listeners = PT.tableListeners[msg.name] || {};
+  for (const k in listeners) {
     if (listeners[k]) {
       try {
         listeners[k](msg.name, {}, msg.keys);
