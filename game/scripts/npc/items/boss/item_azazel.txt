@@ -1,7 +1,5 @@
 "DOTAAbilities"
 {
-
-  
   //=================================================================================================================
   // Azazel
   //=================================================================================================================
@@ -13,12 +11,11 @@
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 
-    // Stats    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20"
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.0"
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -32,8 +29,8 @@
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_azazel"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -45,10 +42,10 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_amount"                                   "500 1000"        
+        "damage_amount"                                   "500 1000"
       }
     }
   }
 
-  
+
 }

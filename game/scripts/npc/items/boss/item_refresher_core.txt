@@ -1,45 +1,45 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: refresher_core (Based on Refresher)
+  // Recipe: Refresher Core
   //=================================================================================================================
-  "item_recipe_refresher_core_3"
+  "item_recipe_refresher_core"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3214" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3212"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_refresher_core_3"
+    "ItemResult"                                          "item_refresher_core"
     "ItemRequirements"
     {
-      "01"                                                "item_refresher_core_2;item_upgrade_core_4"
+      "01"                                                "item_refresher_5;item_octarine_core_5;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // refresher_core (Based on Refresher)
+  // Refresher Core
   //=================================================================================================================
-  "item_refresher_core_3"
+  "item_refresher_core"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3217"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3215"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/refresher_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/refresher_core_3"
+    "AbilityTextureName"                                  "custom/refresher_core"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -47,15 +47,16 @@
     "AbilitySharedCooldown"                               "refresher"
 
     "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+    "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_refresher_core;item_refresher_core_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "1200"
-    "ItemCost"                                            "44780"
+    "AbilityManaCost"                                     "600"
+    "ItemCost"                                            "74059"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "refresher core 3;refresher 5"
+    "ItemAliases"                                         "refresher core;refresher 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
