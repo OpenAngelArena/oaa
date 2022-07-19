@@ -61,10 +61,10 @@
         "max_hero_attacks"                                "6 10 14 16 18" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
-      "05" // max_hero_attacks + 1/2/3/4/5
+      "05" // max_hero_attacks + 3
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks_scepter"                        "7 12 17 20 23" //OAA
+        "max_hero_attacks_scepter"                        "9 13 17 19 21" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
         "RequiresScepter"                                 "1"
       }
