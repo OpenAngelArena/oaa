@@ -37,7 +37,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3306"
-    "BaseClass"                                           "item_lua"
+    "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
     "AbilityTextureName"                                  "item_halloween_rapier"
 
