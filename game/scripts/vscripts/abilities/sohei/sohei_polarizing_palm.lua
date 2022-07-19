@@ -258,21 +258,7 @@ if IsServer() then
     --FindClearSpaceForUnit(parent, parent_origin, false)
     ResolveNPCPositions(parent_origin, 128)
 
-    -- Damage only enemies without spell immunity
-    if parent:GetTeamNumber() ~= caster:GetTeamNumber() and not parent:IsMagicImmune() then
-      local base_damage = ability:GetSpecialValueFor("damage")
-      local str_multiplier = ability:GetSpecialValueFor("strength_damage")
-      local bonus_damage = str_multiplier * caster:GetStrength() / 100
-
-      local damage_table = {}
-      damage_table.attacker = caster
-      damage_table.damage_type = ability:GetAbilityDamageType()
-      damage_table.ability = ability
-      damage_table.damage = base_damage + bonus_damage
-      damage_table.victim = parent
-
-      ApplyDamage(damage_table)
-    end
+    self:PolarizingPalmDamage(parent, caster, ability)
   end
 
   function modifier_sohei_polarizing_palm_movement:UpdateHorizontalMotion(parent, deltaTime)
@@ -342,7 +328,7 @@ if IsServer() then
         return
       end
 
-      -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs to both heroes
+      -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs and damage to both heroes
       if parent:IsRealHero() then
         local heroes = FindUnitsInRadius(
           casterTeam,
@@ -362,6 +348,7 @@ if IsServer() then
         if hero_to_impact then
           self:ApplyStun(parent, caster, ability)
           self:ApplyStun(hero_to_impact, caster, ability)
+          self:PolarizingPalmDamage(hero_to_impact, caster, ability)
           self:Destroy()
           return
         end
@@ -378,7 +365,7 @@ if IsServer() then
   end
 
   function modifier_sohei_polarizing_palm_movement:ApplyStun(unit, caster, ability)
-    if unit:IsMagicImmune() then
+    if not unit or unit:IsMagicImmune() then
       return
     end
 
@@ -398,6 +385,26 @@ if IsServer() then
 
     -- Collision Impact Sound
     unit:EmitSound("Sohei.Momentum.Collision")
+  end
+
+  function modifier_sohei_polarizing_palm_movement:PolarizingPalmDamage(unit, caster, ability)
+    -- Damage only enemies without spell immunity
+    if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
+      return
+    end
+
+    local base_damage = ability:GetSpecialValueFor("damage")
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage") / 100
+    local bonus_damage = str_multiplier * caster:GetStrength()
+
+    local damage_table = {}
+    damage_table.attacker = caster
+    damage_table.damage_type = ability:GetAbilityDamageType()
+    damage_table.ability = ability
+    damage_table.damage = base_damage + bonus_damage
+    damage_table.victim = unit
+
+    ApplyDamage(damage_table)
   end
 end
 

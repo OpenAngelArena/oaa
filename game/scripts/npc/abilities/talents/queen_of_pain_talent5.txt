@@ -1,15 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Scream of Pain Fear
+  // Sonic Wave Fear
   //=================================================================================================================
   "special_bonus_unique_queen_of_pain_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"715"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "715"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_FLOAT"
-        "value"				"2.5" //OAA
-        "ad_linked_abilities"			"queenofpain_sonic_wave"
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "1.5"
+        "ad_linked_abilities"                             "queenofpain_sonic_wave"
       }
     }
   }
