@@ -21,8 +21,8 @@ function modifier_explosive_death_oaa:OnCreated()
   self.radius = 400
   self.delay = 0.9
   self.base_damage = 75
-  self.hp_percent = 5
-  self.networth_percent = 1
+  self.hp_percent = 7
+  self.networth_percent = 1.5
 end
 
 function modifier_explosive_death_oaa:DeclareFunctions()

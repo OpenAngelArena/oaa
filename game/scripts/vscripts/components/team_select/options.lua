@@ -8,7 +8,7 @@ end
 
 local hero_mods = {
   HMN  = false,
-  --HM01 = "modifier_any_damage_lifesteal_oaa",
+  HM01 = "modifier_any_damage_lifesteal_oaa",
   HM02 = "modifier_aoe_radius_increase_oaa",
   --HM03 = "modifier_blood_magic_oaa",
   HM04 = "modifier_debuff_duration_oaa",
@@ -18,7 +18,7 @@ local hero_mods = {
   --HM08 = "modifier_physical_immunity_oaa",
   HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
-  HM11 = "modifier_troll_switch_oaa",
+  --HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
   HM13 = "modifier_diarrhetic_oaa",
   HM14 = "modifier_rend_oaa",
@@ -32,7 +32,8 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
-  HM25 = "modifier_hp_mana_switch_oaa",
+  --HM25 = "modifier_hp_mana_switch_oaa",
+  HM26 = "modifier_magus_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -47,7 +48,7 @@ local boss_mods = {
 local global_mods = {
   GMN  = false,
   GM01 = false,--"modifier_any_damage_lifesteal_oaa",
-  GM02 = "modifier_aoe_radius_increase_oaa",
+  --GM02 = "modifier_aoe_radius_increase_oaa",
   --GM03 = "modifier_blood_magic_oaa",                    -- lags
   --GM04 = "modifier_debuff_duration_oaa",                -- doesn't work on non-hero units
   --GM05 = false, --"modifier_echo_strike_oaa",           -- lags
@@ -57,6 +58,7 @@ local global_mods = {
   --GM09 = "modifier_pro_active_oaa",
   --GM10 = "modifier_spell_block_oaa",                    -- lags
   --GM11 = "modifier_troll_switch_oaa",                   -- lags
+  GM12 = true,
 }
 
 function OAAOptions:Init ()
@@ -124,6 +126,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_sorcerer_oaa", "modifiers/funmodifiers/modifier_sorcerer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_any_damage_crit_oaa", "modifiers/funmodifiers/modifier_any_damage_crit_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hp_mana_switch_oaa", "modifiers/funmodifiers/modifier_hp_mana_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_magus_oaa", "modifiers/funmodifiers/modifier_magus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -144,6 +147,10 @@ function OAAOptions:SetupGame()
     POOP_WARD_COOLDOWN = 30
     Glyph.ward.cooldown = 30
     Glyph:ResetWardCooldowns()
+  end
+  if self.settings.GLOBAL_MODS == "GM12" then
+    local mode = GameRules:GetGameModeEntity()
+    mode:SetBuybackEnabled(true)
   end
 end
 
@@ -202,19 +209,22 @@ function OAAOptions:AdjustGameMode()
     if self.settings.GLOBAL_MODS == "GMR" then
       self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
     end
-    self.global_mod = global_mods[self.settings.GLOBAL_MODS]
+    local global_setting = self.settings.GLOBAL_MODS
+    self.global_mod = global_mods[global_setting]
 
     if self.global_mod == false then
       local global_event_mods = {
         GM01 = "modifier_any_damage_lifesteal_oaa",
         GM05 = "modifier_echo_strike_oaa",
       }
-      local global_event_mod = global_event_mods[self.settings.GLOBAL_MODS]
+      local global_event_mod = global_event_mods[global_setting]
       if global_event_mod then
         local global_thinker = CreateUnitByName("npc_dota_custom_dummy_unit", Vector(0, 0, 0), false, nil, nil, DOTA_TEAM_NEUTRALS)
         global_thinker:AddNewModifier(global_thinker, nil, "modifier_oaa_thinker", {})
         global_thinker:AddNewModifier(global_thinker, nil, global_event_mod, {isGlobal = 1})
       end
+    -- elseif global_setting == "GM12" then
+      -- self.heroes_extra_mod =
     end
   end
 
@@ -253,28 +263,28 @@ function OAAOptions:OnUnitSpawn(event)
     return
   end
 
-  if self.global_mod then
-    if not npc:HasModifier(self.global_mod) then
-      npc:AddNewModifier(npc, nil, self.global_mod, {})
-    end
-  end
-
   if (npc:IsRealHero() or npc:IsTempestDouble() or npc:IsClone()) and npc:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
     -- npc is a non-neutral hero
-    if self.heroes_mod and self.heroes_mod ~= self.global_mod then
+    if self.heroes_mod then
       if not npc:HasModifier(self.heroes_mod) then
         npc:AddNewModifier(npc, nil, self.heroes_mod, {})
       end
     end
 
-    if self.heroes_mod_2 and self.heroes_mod_2 ~= self.global_mod then
+    if self.heroes_mod_2 then
       if not npc:HasModifier(self.heroes_mod_2) then
         npc:AddNewModifier(npc, nil, self.heroes_mod_2, {})
       end
     end
+
+    -- if self.heroes_extra_mod then
+      -- if not npc:HasModifier(self.heroes_extra_mod) then
+        -- npc:AddNewModifier(npc, nil, self.heroes_extra_mod, {})
+      -- end
+    -- end
   elseif npc:IsOAABoss() then
     -- npc is a boss
-    if self.bosses_mod and self.bosses_mod ~= self.global_mod then
+    if self.bosses_mod then
       if not npc:HasModifier(self.bosses_mod) then
         npc:AddNewModifier(npc, nil, self.bosses_mod, {})
       end
