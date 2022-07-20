@@ -8,7 +8,7 @@ end
 
 local hero_mods = {
   HMN  = false,
-  --HM01 = "modifier_any_damage_lifesteal_oaa",
+  HM01 = "modifier_any_damage_lifesteal_oaa",
   HM02 = "modifier_aoe_radius_increase_oaa",
   --HM03 = "modifier_blood_magic_oaa",
   HM04 = "modifier_debuff_duration_oaa",
@@ -18,7 +18,7 @@ local hero_mods = {
   --HM08 = "modifier_physical_immunity_oaa",
   HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
-  HM11 = "modifier_troll_switch_oaa",
+  --HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
   HM13 = "modifier_diarrhetic_oaa",
   HM14 = "modifier_rend_oaa",
@@ -32,7 +32,7 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
-  HM25 = "modifier_hp_mana_switch_oaa",
+  --HM25 = "modifier_hp_mana_switch_oaa",
 }
 local boss_mods = {
   BMN  = false,
