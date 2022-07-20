@@ -245,7 +245,8 @@ function handleOAASettingsChange (n, key, settings) {
       GM01: '#game_option_lifesteal_global',
       GM02: '#game_option_aoe_radius',
       GM08: '#game_option_physical_immune',
-      GM09: '#game_option_pro_active'
+      GM09: '#game_option_pro_active',
+      GM12: '#game_option_buyback'
     };
 
     lines.push($.Localize('#units_options_title') + ' ' + $.Localize(modifierNames[settings.GLOBAL_MODS] + '_description'));

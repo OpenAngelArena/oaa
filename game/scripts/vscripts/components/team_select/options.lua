@@ -58,6 +58,7 @@ local global_mods = {
   --GM09 = "modifier_pro_active_oaa",
   --GM10 = "modifier_spell_block_oaa",                    -- lags
   --GM11 = "modifier_troll_switch_oaa",                   -- lags
+  GM12 = true,
 }
 
 function OAAOptions:Init ()
@@ -146,6 +147,10 @@ function OAAOptions:SetupGame()
     POOP_WARD_COOLDOWN = 30
     Glyph.ward.cooldown = 30
     Glyph:ResetWardCooldowns()
+  end
+  if self.settings.GLOBAL_MODS == "GM12" then
+    local mode = GameRules:GetGameModeEntity()
+    mode:SetBuybackEnabled(true)
   end
 end
 
