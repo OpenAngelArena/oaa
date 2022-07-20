@@ -7,8 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "86984"
     "BaseClass"                                           "special_bonus_undefined"
-    "ID"                                                  "86984"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "1.5"
       }
     }
   }

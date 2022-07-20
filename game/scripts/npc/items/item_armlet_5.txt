@@ -10,7 +10,7 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_armlet_5"
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35504"
+    "ItemCost"                                            "32504"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "armlet of mordiggian 5;armlet 5"
@@ -61,7 +61,7 @@
       "bonus_armor"                                       "6 7 9 12 16"
       "bonus_health_regen"                                "5 8 11 14 17"
       "unholy_bonus_damage"                               "35 40 50 65 85"
-      "unholy_bonus_attack_speed"                         "0"
+      "unholy_bonus_attack_speed"                         "0 5 10 15 20"
       "unholy_bonus_strength"                             "25 35 50 70 95"
       "unholy_bonus_armor"                                "4 5 6 7 8"
       "unholy_health_drain_per_second"                    "45 65 90 120 155"

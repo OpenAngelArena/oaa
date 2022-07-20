@@ -10,7 +10,7 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "20000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_satanic_5"
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "38054"
+    "ItemCost"                                            "35054"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 5"
@@ -59,7 +59,7 @@
     "AbilityValues"
     {
       "bonus_strength"    "25 35 50 70 95"
-      "bonus_damage"      "20 40 80 140 220"
+      "bonus_damage"      "20 40 70 110 160"
       "lifesteal_percent"   "25 30 35 40 45"
       "unholy_lifesteal_percent"  "150 145 140 135 130"
       "unholy_lifesteal_total_tooltip"  "175"

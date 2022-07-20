@@ -14,7 +14,7 @@
     "AbilityTextureName"                                  "custom/ronin_palm_of_life"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -56,13 +56,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
     {
-      "damage"                                            "70 140 210 280 560 1120"
-      "strength_damage"                                   "30 60 90 120 140 160"
+      "damage"                                            "90 160 230 300 600 1200"
+      "strength_damage"                                   "30 60 90 120 150 180"
       "push_pull_length"                                  "200 250 300 350 400 450"
       "push_pull_speed"                                   "1200"
       "stun_duration"
       {
-        "value"                                           "1.0 1.1 1.2 1.3 1.4 1.5"
+        "value"                                           "1.0 1.2 1.4 1.6 1.8 2.0"
         "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
       }
     }

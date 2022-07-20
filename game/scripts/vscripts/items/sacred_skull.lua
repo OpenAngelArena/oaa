@@ -78,6 +78,8 @@ function item_sacred_skull:OnSpellStart()
   local max_hp = caster:GetMaxHealth()
   local missing_hp = 100*(max_hp - caster:GetHealth())/max_hp
   damage_table.damage = missing_hp * dmg_per_missing_hp
+  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
   local heal_amount = missing_hp * heal_per_missing_hp
 
   -- Damage enemies
@@ -88,8 +90,6 @@ function item_sacred_skull:OnSpellStart()
       ParticleManager:DestroyParticle(particle, false)
       ParticleManager:ReleaseParticleIndex(particle)
       -- Damage
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
@@ -298,7 +298,7 @@ if IsServer() then
       heal_radius = ability:GetSpecialValueFor("death_heal_radius")
     end
 
-    local units = FindUnitsInRadius(
+    local allies = FindUnitsInRadius(
       parent_team,
       death_location,
       nil,
@@ -310,7 +310,7 @@ if IsServer() then
       false
     )
 
-    for _, ally in pairs(units) do
+    for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
         -- Heal particle
         local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
@@ -329,6 +329,41 @@ if IsServer() then
     dummy:AddNewModifier(parent, ability, "modifier_sacred_skull_dummy_stuff", {})
     dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
     --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
+
+    if ability and ability:IsCooldownReady() then
+      local enemies = FindUnitsInRadius(
+        parent_team,
+        death_location,
+        nil,
+        heal_radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+      )
+      -- Calculate damage and heal
+      local dmg_per_missing_hp = ability:GetSpecialValueFor("damage_per_missing_hp")
+      local damage_table = {}
+      damage_table.attacker = parent
+      damage_table.ability = ability
+      damage_table.damage = 50 * dmg_per_missing_hp
+      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+
+      -- Damage enemies
+      for _, enemy in pairs(enemies) do
+        if enemy and not enemy:IsNull() then
+          -- Hit particle
+          local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+          ParticleManager:DestroyParticle(particle, false)
+          ParticleManager:ReleaseParticleIndex(particle)
+          -- Damage
+          damage_table.victim = enemy
+          ApplyDamage(damage_table)
+        end
+      end
+    end
   end
 end
 

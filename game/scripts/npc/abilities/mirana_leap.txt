@@ -40,19 +40,15 @@
         "value"                                           "25 50 75 100 150 300"
         "special_bonus_unique_mirana_1"                   "+100"
       }
-      "leap_bonus_duration" //OAA
-      {
-        "value"                                           "2.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_3_oaa"
-      }
+      "leap_bonus_duration"                               "2.5"
       "shard_radius"
       {
         "value"                                           "300"
         "RequiresShard"                                   "1"
       }
-      "shard_damage"
+      "shard_damage" //OAA
       {
-        "value"                                           "150"
+        "value"                                           "60 90 120 150 300 450"
         "RequiresShard"                                   "1"
       }
       "shard_slow_pct"

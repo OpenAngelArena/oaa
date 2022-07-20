@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7850"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA
+    "ID"                                                  "7850"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has extra space
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "1"
 
@@ -41,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1000.0"
+        "speed"                                           "1300" //OAA
         "RequiresScepter"                                 "1"
       }
       "02"
@@ -59,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_grab_radius"                                "700"
+        "tree_grab_radius"                                "1000" //OAA
         "RequiresScepter"                                 "1"
       }
       "05"
@@ -71,7 +70,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
+        "bonus_damage"                                    "20" //OAA
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }

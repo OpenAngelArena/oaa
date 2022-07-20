@@ -12,7 +12,6 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -38,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "40 85 130 175 350 700"
+        "attack_damage"                                   "40 85 130 175 350 525"
       }
       "02"
       {
@@ -61,7 +60,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_damage"                              "150" //OAA
+        "shard_bonus_damage"                              "30 70 110 150 190 230" //OAA
         "RequiresShard"                                   "1"
       }
       "06"
