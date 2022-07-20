@@ -205,7 +205,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM22: '#game_option_nimble',
     HM23: '#game_option_sorcerer',
     HM24: '#game_option_max_power',
-    HM25: '#game_option_hp_mana_switch'
+    HM25: '#game_option_hp_mana_switch',
+    HM26: '#game_option_magus'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
