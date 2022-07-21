@@ -65,7 +65,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"				"175"
-    "ItemCost"						"11827"
+    "ItemCost"						"11152"
     "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"					"rare"
     "ItemAliases"                                         "cyclone 3;wind waker 3;ww 3"
@@ -83,7 +83,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 6.25 6.75 7.5 8.5"
+        "bonus_mana_regen"                                "5 5.25 5.75 6.5 7.5"
       }
       "03"
       {

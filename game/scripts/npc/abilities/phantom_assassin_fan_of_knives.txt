@@ -20,7 +20,7 @@
     "AbilityCastPoint"        "0.15"
     "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
 
-    // Time   
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"       "15"
 
@@ -34,33 +34,38 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
-        "pct_health_damage_initial"     "12" //OAA
+        "var_type"                                        "FIELD_FLOAT"
+        "pct_health_damage_initial"                       "12" //OAA
       }
       "02"
       {
-        "var_type"        "FIELD_FLOAT"
-        "pct_health_damage"     "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "pct_health_damage"                               "2"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "degen"     "-50"
+        "var_type"                                        "FIELD_INTEGER"
+        "degen"                                           "-50"
       }
       "04"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"    "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3"
       }
       "05"
       {
-        "var_type"        "FIELD_INTEGER"
-        "radius"      "550"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "550"
       }
       "06"
       {
-        "var_type"        "FIELD_INTEGER"
-        "projectile_speed"      "1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1000"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_damage_initial"                              "-1"
       }
     }
   }

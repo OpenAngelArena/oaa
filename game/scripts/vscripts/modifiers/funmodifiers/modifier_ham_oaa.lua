@@ -18,12 +18,15 @@ end
 
 function modifier_ham_oaa:OnCreated()
   self.ignore_abilities = {
+    abaddon_borrowed_time_oaa = true,
     brewmaster_primal_split = true,
     dark_willow_shadow_realm = true,
     dazzle_good_juju = true,
     dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
     obsidian_destroyer_astral_imprisonment = true,
+    oracle_fates_edict = true,
+    oracle_false_promise = true,
     phantom_lancer_doppelwalk = true,
     puck_phase_shift = true,
     riki_tricks_of_the_trade = true,
@@ -33,6 +36,11 @@ function modifier_ham_oaa:OnCreated()
     venomancer_plague_ward = true,
     void_spirit_dissimilate = true,
     witch_doctor_voodoo_switcheroo_oaa = true,
+    item_sphere = true,
+    item_sphere_2 = true,
+    item_sphere_3 = true,
+    item_sphere_4 = true,
+    item_sphere_5 = true,
   }
 
   self.cdr_penalty = 5

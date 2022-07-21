@@ -205,7 +205,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM22: '#game_option_nimble',
     HM23: '#game_option_sorcerer',
     HM24: '#game_option_max_power',
-    HM25: '#game_option_hp_mana_switch'
+    HM25: '#game_option_hp_mana_switch',
+    HM26: '#game_option_magus'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
@@ -241,10 +242,11 @@ function handleOAASettingsChange (n, key, settings) {
   if (settings.GLOBAL_MODS !== 'GMN') {
     const modifierNames = {
       GMR: '#game_option_random',
-      GM01: '#game_option_lifesteal',
+      GM01: '#game_option_lifesteal_global',
       GM02: '#game_option_aoe_radius',
       GM08: '#game_option_physical_immune',
-      GM09: '#game_option_pro_active'
+      GM09: '#game_option_pro_active',
+      GM12: '#game_option_buyback'
     };
 
     lines.push($.Localize('#units_options_title') + ' ' + $.Localize(modifierNames[settings.GLOBAL_MODS] + '_description'));

@@ -13,47 +13,43 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "MaxLevel"                      "5"
-    "RequiredLevel"                 "6"
-    "LevelsBetweenUpgrades"         "6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"				"0.2"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"80 70 60 60 60" //OAA
+    "AbilityCooldown"                                     "80 70 60 60 60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"				"100 125 150 175 200"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"	"0.25"	// generally used for damage only
+    "AbilityManaCost"                                     "100 125 150 175 200"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "16"
-      "charges_per_flurry"  "3 4 5 6 7"
-      "flurry_bonus_attack_speed" "700 975 1325 1325 1325"
-      "time_between_flurries" "1.75"
-      "pulse_radius"      "800"
-      "pulse_debuff_duration" "2.0"
-      "pulse_damage"      "50 150 250 450 850" //OAA
-      "pulse_move_slow_pct" "30.0"
-      "pulse_attack_slow_pct" "60.0 80.0 100.0 150.0 200.0"
-      "max_time_window_per_hit" "1.0"
-      "bonus_movespeed"   "15"
-      "recovery_fixed_attack_rate"  "2.0"
-      "shard_push_length"   "300"
+      "duration"                                          "16"
+      "charges_per_flurry"                                "3 4 5 6 7"
+      "flurry_bonus_attack_speed"                         "700 975 1325 1325 1325"
+      "time_between_flurries"                             "1.75"
+      "pulse_radius"                                      "800"
+      "pulse_debuff_duration"                             "2.0"
+      "pulse_damage"                                      "50 150 250 450 850" //OAA
+      "pulse_move_slow_pct"                               "30.0"
+      "pulse_attack_slow_pct"                             "60.0 80.0 100.0 120.0 140.0"
+      "max_time_window_per_hit"                           "1.0"
+      "bonus_movespeed"                                   "15"
+      "recovery_fixed_attack_rate"                        "2.0"
+      "shard_push_length"                                 "300"
       "scepter_cooldown_reduction"
       {
-        "value"					"10.0"
-        "RequiresScepter"		"1"
+        "value"                                           "10.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }
