@@ -51,7 +51,7 @@ function modifier_magus_oaa:OnCreated()
     zuus_thundergods_wrath = 1,
     enigma_demonic_conversion = 1,
     enigma_demonic_conversion_oaa = true,
-    --silencer_global_silence = 1,
+    silencer_global_silence = 1,
     chen_holy_persuasion = 1,
     ember_spirit_sleight_of_fist = 1,
     enchantress_enchant = 1,
@@ -80,6 +80,12 @@ function modifier_magus_oaa:OnCreated()
     void_spirit_astral_step = 1,
     night_stalker_hunter_in_the_night = true,
     sohei_flurry_of_blows = true,
+    spectre_reality = 1,
+    medusa_stone_gaze = 1,
+    pangolier_swashbuckle = 1,
+    tiny_toss_tree = 1,
+    snapfire_gobble_up = 1,
+    juggernaut_omnislash = 1,
   }
 end
 
