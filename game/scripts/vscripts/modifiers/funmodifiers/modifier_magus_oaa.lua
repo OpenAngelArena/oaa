@@ -30,62 +30,111 @@ end
 
 function modifier_magus_oaa:OnCreated()
   self.chance = 25
+  self.penalty_chance = 1
   self.cooldown = 0.5
   self.ignore_abilities = {
-    abaddon_borrowed_time_oaa = true,
-    brewmaster_primal_split = true,
-    dark_willow_shadow_realm = true,
-    --dazzle_good_juju = true,
-    dazzle_shallow_grave = true,
-    earth_spirit_petrify = true,
-    --obsidian_destroyer_astral_imprisonment = true,
-    --oracle_fates_edict = true,
-    oracle_false_promise = true,
-    phantom_lancer_doppelwalk = true,
-    puck_phase_shift = true,
-    riki_tricks_of_the_trade = true,
-    --shadow_demon_disruption = true,
-    tusk_snowball = true,
-    void_spirit_dissimilate = true,
-    witch_doctor_voodoo_switcheroo_oaa = true,
-    zuus_thundergods_wrath = 1,
-    enigma_demonic_conversion = 1,
-    enigma_demonic_conversion_oaa = true,
-    silencer_global_silence = 1,
-    chen_holy_persuasion = 1,
-    ember_spirit_sleight_of_fist = 1,
-    enchantress_enchant = 1,
+    abaddon_borrowed_time = 1,                           -- invulnerability
+    abaddon_borrowed_time_oaa = 1,                       -- invulnerability
+    alchemist_unstable_concoction = 1,                   -- self grief
+    --antimage_mana_overload = 1,                        -- lag maybe
+    arc_warden_tempest_double = 1,                       -- multiple Tempest Doubles and lag
+    bane_nightmare_end = 1,                              -- self grief
+    brewmaster_primal_split = 1,                         -- invulnerability
+    chaos_knight_phantasm = 1,                           -- invulnerability and lag
+    chen_holy_persuasion = 1,                            -- dominating every creep or hero on attack
+    clinkz_death_pact = 1,                               -- instant kill
+    clinkz_death_pact_oaa = 1,                           -- instant kill
+    crystal_maiden_freezing_field_stop = 1,              -- self grief
+    dark_willow_shadow_realm = 1,                        -- untargettable ranged hero, powerful
+    --dazzle_good_juju = 1,                              -- powerful
+    dazzle_shallow_grave = 1,                            -- invulnerability
+    doom_bringer_devour = 1,                             -- instant kill
+    earth_spirit_petrify = 1,                            -- invulnerability and trolling
+    elder_titan_return_spirit = 1,                       -- self grief
+    elder_titan_move_spirit = 1,                         -- self grief
+    --ember_spirit_sleight_of_fist = 1,                  -- invulnerability and looping
+    enchantress_enchant = 1,                             -- dominating every creep on attack
+    enigma_demonic_conversion = 1,                       -- instant kill
+    enigma_demonic_conversion_oaa = 1,                   -- instant kill
+    faceless_void_time_walk_reverse = 1,                 -- self grief
     --furion_wrath_of_nature = 1,
-    --furion_wrath_of_nature_oaa = true,
-    life_stealer_infest = 1,
-    morphling_morph = 1,
-    --warlock_upheaval = 1,
-    --wisp_spirits = 1,
-    clinkz_death_pact = 1,
-    clinkz_death_pact_oaa = true,
-    treant_eyes_in_the_forest = 1,
-    rubick_telekinesis_land_self = 1,
-    monkey_king_wukongs_command = 1,
-    monkey_king_wukongs_command_oaa = true,
-    --antimage_blink = 1,
-    chaos_knight_phantasm = 1,
-    naga_siren_mirror_image = 1,
-    --phantom_lancer_spirit_lance = 1,
-    spectre_haunt = 1,
-    terrorblade_conjure_image = 1,
-    arc_warden_tempest_double = 1,
-    tidehunter_anchor_smash = 1,
-    monkey_king_boundless_strike = 1,
-    mars_gods_rebuke = 1,
-    void_spirit_astral_step = 1,
-    night_stalker_hunter_in_the_night = true,
-    sohei_flurry_of_blows = true,
-    spectre_reality = 1,
-    medusa_stone_gaze = 1,
-    pangolier_swashbuckle = 1,
-    tiny_toss_tree = 1,
-    snapfire_gobble_up = 1,
-    juggernaut_omnislash = 1,
+    --furion_wrath_of_nature_oaa = 1,                    -- powerful (but needs vision)
+    --juggernaut_omnislash = 1,                          -- invulnerability and looping
+    keeper_of_the_light_illuminate_end = 1,              -- self grief
+    keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
+    kunkka_return = 1,                                   -- self grief
+    life_stealer_infest = 1,                             -- self grief and maybe instant kill
+    mars_gods_rebuke = 1,                                -- looping, lag maybe
+    meepo_petrify = 1,                                   -- invulnerability
+    monkey_king_boundless_strike = 1,                    -- looping, lag maybe
+    monkey_king_wukongs_command = 1,                     -- lag
+    monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
+    morphling_morph_replicate = 1,                       -- self grief
+    naga_siren_mirror_image = 1,                         -- invulnerability and lag
+    night_stalker_hunter_in_the_night = 1,               -- instant kill
+    --obsidian_destroyer_astral_imprisonment = 1,        -- self grief, invulnerability, trolling
+    oracle_false_promise = 1,                            -- invulnerability
+    --oracle_fates_edict = 1,                            -- self grief, trolling
+    --pangolier_swashbuckle = 1,                         -- looping, powerful
+    phantom_lancer_doppelwalk = 1,                       -- invulnerability and lag
+    --phantom_lancer_spirit_lance = 1,                   -- lag maybe
+    phoenix_icarus_dive_stop = 1,                        -- self grief
+    phoenix_sun_ray_stop = 1,                            -- self grief
+    puck_ethereal_jaunt = 1,                             -- self grief
+    puck_phase_shift = 1,                                -- invulnerability
+    pudge_eject = 1,                                     -- self grief
+    riki_tricks_of_the_trade = 1,                        -- invulnerability and looping
+    rubick_telekinesis_land_self = 1,                    -- self grief
+    --shadow_demon_disruption = 1,                       -- self grief, invulnerability, trolling
+    shadow_demon_shadow_poison_release = 1,              -- self grief
+    snapfire_gobble_up = 1,                              -- instant kill and other bugs
+    sohei_flurry_of_blows = 1,                           -- invulnerability and looping
+    spectre_haunt = 1,                                   -- lag
+    spectre_reality = 1,                                 -- self grief
+    terrorblade_conjure_image = 1,                       -- lag
+    --tidehunter_anchor_smash = 1,                       -- looping
+    tiny_toss_tree = 1,                                  -- self grief
+    treant_eyes_in_the_forest = 1,                       -- bugged
+    tusk_snowball = 1,                                   -- invulnerability
+    visage_gravekeepers_cloak = 1,                       -- invulnerability
+    visage_gravekeepers_cloak_oaa = 1,                   -- invulnerability
+    visage_stone_form_self_cast = 1,                     -- self grief
+    void_spirit_astral_step = 1,                         -- looping, lag maybe
+    void_spirit_dissimilate = 1,                         -- invulnerability
+    wisp_tether_break = 1,                               -- self grief
+    witch_doctor_voodoo_switcheroo_oaa = 1,              -- invulnerability
+    zuus_thundergods_wrath = 1,                          -- powerful, trolling (doesn't need vision)
+  }
+  self.low_chance_to_proc = {
+    dark_seer_wall_of_replica = 1,                       -- lag
+    doom_bringer_doom = 1,                               -- powerful
+    ember_spirit_sleight_of_fist = 1,                    -- invulnerability and looping
+    enigma_black_hole = 1,                               -- powerful
+    faceless_void_chronosphere = 1,                      -- powerful
+    faceless_void_time_walk = 1,                         -- invulnerability and looping
+    furion_teleportation = 1,                            -- self grief in most cases
+    hoodwink_acorn_shot = 1,                             -- looping
+    juggernaut_omnislash = 1,                            -- invulnerability and looping
+    juggernaut_swift_slash = 1,                          -- invulnerability and looping
+    leshrac_diabolic_edict = 1,                          -- powerful
+    lycan_summon_wolves = 1,                             -- self grief in most cases
+    lone_druid_spirit_bear = 1,                          -- self grief in most cases
+    medusa_stone_gaze = 1,                               -- powerful
+    morphling_waveform = 1,                              -- invulnerability and looping
+    obsidian_destroyer_astral_imprisonment = 1,          -- self grief, invulnerability, trolling
+    oracle_fates_edict = 1,                              -- self grief, trolling
+    pangolier_swashbuckle = 1,                           -- looping, powerful
+    razor_eye_of_the_storm = 1,                          -- powerful
+    shadow_demon_disruption = 1,                         -- self grief, invulnerability, trolling
+    silencer_global_silence = 1,                         -- powerful
+    slark_depth_shroud = 1,                              -- untargettable melee hero, powerful
+    slark_shadow_dance = 1,                              -- untargettable melee hero, powerful
+    tidehunter_anchor_smash = 1,                         -- looping
+    troll_warlord_battle_trance = 1,                     -- self grief or unkillable
+    visage_summon_familiars = 1,                         -- self grief in most cases
+    visage_summon_familiars_oaa = 1,                     -- self grief in most cases
+    weaver_time_lapse = 1,                               -- self grief or unkillable
+    wisp_relocate = 1,                                   -- self grief in most cases
   }
 end
 
@@ -148,6 +197,10 @@ function modifier_magus_oaa:CastASpell(caster, target)
     return
   end
 
+  if self.low_chance_to_proc[ability:GetName()] and RandomInt(1, 100) > ((self.penalty_chance / self.chance) * 100) then
+    return
+  end
+
   local target_team = ability:GetAbilityTargetTeam() or DOTA_UNIT_TARGET_TEAM_BOTH
   local behavior = ability:GetBehaviorInt()
   local real_target = target
@@ -186,29 +239,16 @@ function modifier_magus_oaa:CastASpell(caster, target)
     end
 
     -- Spell Block check
-    if real_target:TriggerSpellAbsorb(ability) and isUnitTargetting then
+    if real_target:TriggerSpellAbsorb(ability) and isUnitTargetting and target_team ~= DOTA_UNIT_TARGET_TEAM_FRIENDLY then
       return
     end
 
-    local modern = false
-    if modern then
-      local storedcooldown = ability:GetCooldownTimeRemaining()
-      local storedmanacost = ability:GetManaCost(ability:GetLevel())
-      ability:EndCooldown()
-      real_caster:CastAbilityImmediately(ability, real_caster:GetPlayerOwnerID())
-      ability:EndCooldown()
-      if (storedcooldown > 0) then
-        ability:StartCooldown(storedcooldown)
-      end
-      real_caster:GiveMana(storedmanacost)
+    if isChannel then
+      -- Create a dummy and cast the spell
+      return
     else
-      if isChannel then
-        -- Create a dummy and cast the spell
-        return
-      else
-        ability:OnAbilityPhaseStart()
-        ability:OnSpellStart()
-      end
+      ability:OnAbilityPhaseStart()
+      ability:OnSpellStart()
     end
   end
 end
@@ -288,7 +328,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
 end
 
 function modifier_magus_oaa:GetTexture()
-  return "wisp_spirits"
+  return "warlock_golem_flaming_fists"
 end
 
 ---------------------------------------------------------------------------------------------------
