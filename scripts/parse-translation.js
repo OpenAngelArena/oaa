@@ -108,7 +108,7 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
       try {
         const filePath = path.join(dir, file);
         const fileData = fs.readFileSync(filePath);
-        if (fileData.toString().match(new RegExp('[^\x00-\x7F]'))) { // eslint-disable-line no-control-regex
+        if (fileData.toString().match(new RegExp('[^\x00-\x7F]'))) { // eslint-disable-line
           throw new Error(filePath.substr(basePath.length) + ' contains invalid text or bad formatting');
         }
         return [filePath, fileData];

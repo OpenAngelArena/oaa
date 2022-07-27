@@ -40,7 +40,7 @@ function findMissingTooltips (cb) {
     translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
       return name.toLowerCase();
     });
-    var result = [];
+    let result = []; // eslint-disable-line
 
     luaEntitiesUtil.findAllUnits(function (err, data) {
       if (err) {

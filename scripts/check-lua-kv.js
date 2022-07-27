@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const readline = require('readline');
 
-var walk = (directoryName, action) => {
+const walk = (directoryName, action) => {
   fs.readdir(directoryName, (err, files) => {
     if (err) {
       console.error(chalk.red(err));
@@ -30,7 +30,7 @@ var walk = (directoryName, action) => {
 function checkLuaItemFile (path) {
   // console.log(chalk.blue('Checking "' + path + '".'));
   const data = parseKV(fs.readFileSync(path)).DOTAItems;
-  for (var item in data) {
+  for (const item in data) {
     if (item === 'values') {
       continue;
     }
@@ -53,7 +53,7 @@ function checkLuaItemFile (path) {
       console.error(chalk.yellow('WARN') + ' Missing Key: "' + chalk.bold('SpecialValues') + '"\n  in Item "' + chalk.bold(item) + '"\n    in Path "' + chalk.bold(path) + '"\n');
     }
 
-    var ScriptFilePath = 'game/scripts/vscripts/' + data[item].values.ScriptFile;
+    const ScriptFilePath = 'game/scripts/vscripts/' + data[item].values.ScriptFile;
 
     fs.stat(ScriptFilePath, (err, stat) => {
       if (err === null) {
@@ -66,7 +66,7 @@ function checkLuaItemFile (path) {
         let lineNumber = 0;
         lineReader.on('line', (line) => {
           lineNumber++;
-          const SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
+          const SpecialValueRegex = /GetSpecialValueFor\(\s*"[^"]+"\s*\)/;
           const SpecialValueMatches = line.match(SpecialValueRegex);
 
           if (SpecialValueMatches) {
@@ -82,7 +82,7 @@ function checkLuaItemFile (path) {
               if (AbilitySpecialKey === 'values') {
                 continue;
               }
-              if (data[item].AbilitySpecial.hasOwnProperty(AbilitySpecialKey)) {
+              if (Object.prototype.hasOwnProperty.call(data[item].AbilitySpecial, AbilitySpecialKey)) {
                 for (const AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
                   if (AbilitySpecialName === SpecialValueKey) {
                     foundSpecialValue = true;
@@ -111,7 +111,7 @@ function checkLuaItemFile (path) {
 function checkLuaAbilityFile (path) {
   // console.log(chalk.blue('Checking "' + path + '".'));
   const data = parseKV(fs.readFileSync(path)).DOTAAbilities;
-  for (var item in data) {
+  for (const item in data) {
     if (item === 'values') {
       continue;
     }
@@ -134,7 +134,7 @@ function checkLuaAbilityFile (path) {
       console.error(chalk.yellow('WARN') + ' Missing Key: "' + chalk.bold('SpecialValues') + '"\n  in Ability "' + chalk.bold(item) + '"\n    in Path "' + chalk.bold(path) + '"\n');
     }
 
-    var ScriptFilePath = 'game/scripts/vscripts/' + data[item].values.ScriptFile;
+    const ScriptFilePath = 'game/scripts/vscripts/' + data[item].values.ScriptFile;
 
     fs.stat(ScriptFilePath, (err, stat) => {
       if (err === null) {
@@ -147,7 +147,7 @@ function checkLuaAbilityFile (path) {
         let lineNumber = 0;
         lineReader.on('line', (line) => {
           lineNumber++;
-          const SpecialValueRegex = new RegExp(/GetSpecialValueFor\(\s*"[^"]+"\s*\)/);
+          const SpecialValueRegex = /GetSpecialValueFor\(\s*"[^"]+"\s*\)/;
           const SpecialValueMatches = line.match(SpecialValueRegex);
 
           if (SpecialValueMatches) {
@@ -163,7 +163,7 @@ function checkLuaAbilityFile (path) {
               if (AbilitySpecialKey === 'values') {
                 continue;
               }
-              if (data[item].AbilitySpecial.hasOwnProperty(AbilitySpecialKey)) {
+              if (Object.prototype.hasOwnProperty.call(data[item].AbilitySpecial, AbilitySpecialKey)) {
                 for (const AbilitySpecialName in data[item].AbilitySpecial[AbilitySpecialKey].values) {
                   if (AbilitySpecialName === SpecialValueKey) {
                     foundSpecialValue = true;

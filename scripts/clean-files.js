@@ -14,7 +14,7 @@ function stringRepeat (string, num) {
   return result;
 }
 
-var walk = function (directoryName, action) {
+const walk = function (directoryName, action) {
   fs.readdir(directoryName, function (err, files) {
     if (err) {
       console.error(chalk.red(err));
