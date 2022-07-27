@@ -34,33 +34,33 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.25"  // generally used for damage only
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "1.2"
-      "countdown"       "2"
-      "radius"        
+      "duration"                                          "1.2"
+      "countdown"                                         "2"
+      "radius"
       {
-        "value"     "250"
-        "special_bonus_unique_techies_2"  "+125"
+        "value"                                           "250"
+        "special_bonus_unique_techies_2"                  "+125"
       }
       "damage"
       {
-        "value" "90 180 270 360 720 1440"
-        "special_bonus_unique_techies_2"  "+100"
+        "value"                                           "90 180 270 360 720 1440"
       }
-      "slow"          "25 35 45 55 65 75"
-      "secondary_slow"    "15 25 35 45 55 65"
-      "secondary_slow_duration"   "2.5"
-      "explosion_radius"    
+      "slow"                                              "25 35 45 55 65 75"
+      "secondary_slow"                                    "15 25 35 45 55 65"
+      "secondary_slow_duration"                           "2.5"
+      "explosion_radius"
       {
-        "value"       "300"
-        "special_bonus_unique_techies_2"  "+125"
+        "value"                                           "300"
+        "special_bonus_unique_techies_2"                  "+125"
       }
-      "speed"         "500.0"
-      "acceleration"      "2000"
-      "pre_chase_time"    "0.1"
+      "speed"                                             "500.0"
+      "acceleration"                                      "2000"
+      "pre_chase_time"                                    "0.1"
     }
   }
 }

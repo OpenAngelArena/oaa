@@ -28,13 +28,13 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "heal_radius"				"650"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_radius"                                     "900" //OAA
       }
       "02"
       {
-        "var_type"					"FIELD_INTEGER"
-        "heal_pct"					"30 40 50 60 70 80"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_pct"                                        "30 40 50 60 70 80"
       }
       "03"
       {
@@ -51,18 +51,18 @@
       }
       "05"
       {
-        "var_type"					"FIELD_FLOAT"
-        "proc_cooldown"				"0.00"
+        "var_type"                                        "FIELD_FLOAT"
+        "proc_cooldown"                                   "0.00"
       }
       "06"
       {
-        "var_type"					"FIELD_INTEGER"
-        "heal_from_creeps"			"50"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_from_creeps"                                "50"
       }
       "07"
       {
-        "var_type"					"FIELD_INTEGER"
-        "allied_healing_pct"		"50"
+        "var_type"                                        "FIELD_INTEGER"
+        "allied_healing_pct"                              "50 55 60 65 70 75" //OAA
       }
     }
   }
