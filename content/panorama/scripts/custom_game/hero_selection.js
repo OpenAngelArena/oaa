@@ -206,7 +206,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM23: '#game_option_sorcerer',
     HM24: '#game_option_max_power',
     HM25: '#game_option_hp_mana_switch',
-    HM26: '#game_option_magus'
+    HM26: '#game_option_magus',
+    HM27: '#game_option_brawler'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
@@ -232,7 +233,8 @@ function handleOAASettingsChange (n, key, settings) {
       BM04: '#game_option_spell_block',
       BM05: '#game_option_no_cast_points',
       BM06: '#game_option_hyper_active',
-      BM07: '#game_option_agressive_bosses'
+      BM07: '#game_option_agressive_bosses',
+      BM08: '#game_option_brawler'
     };
 
     lines.push($.Localize('#boss_options_title') + ' ' + $.Localize(modifierNames[settings.BOSSES_MODS] + '_description'));

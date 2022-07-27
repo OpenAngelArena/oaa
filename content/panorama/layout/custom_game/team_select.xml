@@ -49,6 +49,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_hp_mana_switch" id="HM25" onmouseover="UIShowTextTooltip(#game_option_hp_mana_switch_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
@@ -79,6 +80,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_hp_mana_switch" id="HM25" onmouseover="UIShowTextTooltip(#game_option_hp_mana_switch_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
@@ -117,6 +119,7 @@
                   <Label text="#game_option_no_cast_points" id="BM05" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_active" id="BM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_agressive_bosses" id="BM07" onmouseover="UIShowTextTooltip(#game_option_agressive_bosses_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_brawler" id="BM08" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#units_options_title"/>
                 <DropDown class="SettingsItem" id="GLOBAL_MODS" oninputsubmit="onPanelChange('GLOBAL_MODS')">
