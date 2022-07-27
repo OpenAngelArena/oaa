@@ -1077,8 +1077,8 @@ function CreateBottleRadioElement (id, isChecked) {
 function SelectBottle () {
   let bottleId = 0;
   const btn = $('#Bottle0');
-  if (btn != null) {
-    bottleId = $('#Bottle0').GetSelectedButton().bottleId;
+  if (btn != null && btn.GetSelectedButton() !== null) {
+    bottleId = btn.GetSelectedButton().bottleId;
   }
   const data = {
     BottleId: bottleId

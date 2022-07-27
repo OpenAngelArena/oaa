@@ -132,13 +132,13 @@ function CreateBottleRadioElement (id, isChecked) {
 function SelectBottle () {
   let bottleId = 0;
   const btn = $('#Bottle0');
-  if (btn != null) {
-    bottleId = $('#Bottle0').GetSelectedButton().bottleId;
+  if (btn != null && btn.GetSelectedButton() !== null) {
+    bottleId = btn.GetSelectedButton().bottleId;
   }
   const data = {
     BottleId: bottleId
   };
-  $('#Bottle0').SetHasClass('Selected', true);
+  btn.SetHasClass('Selected', true);
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
