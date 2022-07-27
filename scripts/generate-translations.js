@@ -163,6 +163,7 @@ function generateFileForTranslations (languageName, translations, cb) {
     Object.keys(translatedKeys).map(function (key) {
       const indent = (new Array(100 - key.length)).join(' ');
       lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translatedKeys[key]));
+      return key;
     });
 
     Object.keys(translations).forEach(function (key) {

@@ -56,6 +56,7 @@ function findMissingTooltips (cb) {
           }
           result.push([name, name]);
         }
+        return name;
       });
       done();
     });
@@ -90,6 +91,7 @@ function findMissingTooltips (cb) {
           }
           result.push([name, description]);
         }
+        return name;
       });
       done();
     });
@@ -119,8 +121,6 @@ function findMissingTooltips (cb) {
             console.log(name, 'is missing a title - Add the key: "' + title + '"');
           }
           result.push([name, title]);
-        } else {
-          // console.log(translations.lang.Tokens.values[title]);
         }
         // if (translations.indexOf(description) === -1 && requiredDescription) {
         //   if (name.length < 39) {
@@ -130,6 +130,7 @@ function findMissingTooltips (cb) {
         //   }
         //   result.push([name, description]);
         // }
+        return name;
       });
       done();
     });
