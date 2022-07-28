@@ -1,5 +1,5 @@
-var test = require('tape');
-var Lib = require('../kv-lib');
+const test = require('tape');
+const Lib = require('../kv-lib');
 
 test('kv lib', function (t) {
   t.plan(8);

@@ -1,6 +1,6 @@
 /* global Players $ GameEvents CustomNetTables Game */
 
-var musicPlaying = true;
+let musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
 CustomNetTables.SubscribeNetTableListener('music', SetMusic);
 SetMusic(null, 'info', CustomNetTables.GetTableValue('music', 'info'));
@@ -40,7 +40,7 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 function SetMute (data) {
-  var mute = data[Players.GetLocalPlayer()];
+  const mute = data[Players.GetLocalPlayer()];
   if (!mute || mute === 1) {
     return;
   }

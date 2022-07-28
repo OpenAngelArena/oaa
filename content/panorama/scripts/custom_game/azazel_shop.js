@@ -1,13 +1,13 @@
 'use strict';
 /* global FindDotaHudElement, $, CustomNetTables */
-var secretShopColumnsParent = FindDotaHudElement('GridSecretShopItems');
-var buildingsColumn = CreateOrSelectBuildingsColumn();
-var summonsColumn = CreateOrSelectSummonsColumn();
-var elixirColumn = CreateOrSelectElixirColumn();
-var secretShopColumn = secretShopColumnsParent.FindChild('ShopItems_secretshop');
+const secretShopColumnsParent = FindDotaHudElement('GridSecretShopItems');
+const buildingsColumn = CreateOrSelectBuildingsColumn();
+const summonsColumn = CreateOrSelectSummonsColumn();
+const elixirColumn = CreateOrSelectElixirColumn();
+const secretShopColumn = secretShopColumnsParent.FindChild('ShopItems_secretshop');
 secretShopColumn.Children().forEach(function (item) {
-  var itemName = (item.FindChild('ItemImage')).itemname;
-  var itemTable = CustomNetTables.GetTableValue('info', itemName);
+  const itemName = (item.FindChild('ItemImage')).itemname;
+  const itemTable = CustomNetTables.GetTableValue('info', itemName);
   if (itemTable !== null && itemTable !== undefined) {
     if (itemTable.SecretShopType === 'Buildings') {
       item.SetParent(buildingsColumn);
@@ -27,7 +27,7 @@ secretShopColumn.Children().forEach(function (item) {
 secretShopColumn.visible = false;
 // =================== Functions ===========================
 function CreateOrSelectBuildingsColumn () {
-  var column = secretShopColumnsParent.FindChildTraverse('ShopItems_Buildings');
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Buildings');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Buildings');
   }
@@ -36,7 +36,7 @@ function CreateOrSelectBuildingsColumn () {
   return column;
 }
 function CreateOrSelectSummonsColumn () {
-  var column = secretShopColumnsParent.FindChildTraverse('ShopItems_Summons');
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Summons');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Summons');
   }
@@ -45,7 +45,7 @@ function CreateOrSelectSummonsColumn () {
   return column;
 }
 function CreateOrSelectElixirColumn () {
-  var column = secretShopColumnsParent.FindChildTraverse('ShopItems_Elixir');
+  let column = secretShopColumnsParent.FindChildTraverse('ShopItems_Elixir');
   if (column === null) {
     column = $.CreatePanel('Panel', $.GetContextPanel(), 'ShopItems_Elixir');
   }

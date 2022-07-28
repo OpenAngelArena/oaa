@@ -1,22 +1,22 @@
 /* global $ GameEvents CustomNetTables FindDotaHudElement Game */
 
-var heroNamePanel = FindDotaHudElement('HeroInspectHeroName');
-var info = FindDotaHudElement('HeroInspectInfo');
-var tooltipManager = FindDotaHudElement('Tooltips');
-var abilities = info.GetParent().FindChildTraverse('HeroAbilities');
-var currentMap = Game.GetMapInfo().map_display_name;
+const heroNamePanel = FindDotaHudElement('HeroInspectHeroName');
+const info = FindDotaHudElement('HeroInspectInfo');
+const tooltipManager = FindDotaHudElement('Tooltips');
+const abilities = info.GetParent().FindChildTraverse('HeroAbilities');
+const currentMap = Game.GetMapInfo().map_display_name;
 $.Msg(currentMap);
 
-var altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
+let altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
 if (altTooltip == null) {
   FindDotaHudElement('DOTAHUDStatBranchTooltipAlt').SetParent(tooltipManager);
   altTooltip = tooltipManager.FindChildTraverse('DOTAHUDStatBranchTooltipAlt');
 }
 
 function CreateAbilityPanel (parent, ability) {
-  var id = 'Ability_' + ability;
-  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, {abilityname: ability});
-  var icon = parent.FindChildTraverse(id);
+  const id = 'Ability_' + ability;
+  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, { abilityname: ability });
+  const icon = parent.FindChildTraverse(id);
 
   icon.SetPanelEvent('onmouseover', function () {
     $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);
@@ -28,7 +28,7 @@ function CreateAbilityPanel (parent, ability) {
 }
 
 function OnUpdateHeroSelection (key) {
-  var portrait = info.FindChildTraverse('HeroPortrait');
+  const portrait = info.FindChildTraverse('HeroPortrait');
   if (heroNamePanel && heroNamePanel.text === 'SOHEI') {
     SetupSohei(portrait);
   } else if (heroNamePanel && heroNamePanel.text === 'CHATTERJEE') {
@@ -44,8 +44,8 @@ function SetupElectrician (portrait) {
   CreateAbilityPanel(abilities, 'electrician_static_grip');
   CreateAbilityPanel(abilities, 'electrician_electric_shield');
   CreateAbilityPanel(abilities, 'electrician_energy_absorption');
-  var lastAbility = CreateAbilityPanel(abilities, 'electrician_cleansing_shock');
-  var talents = abilities.GetChild(0);
+  const lastAbility = CreateAbilityPanel(abilities, 'electrician_cleansing_shock');
+  const talents = abilities.GetChild(0);
   talents.SetPanelEvent('onmouseover', function () {
     altTooltip.SetHasClass('visible', true);
     SetTalentsElectrician();
@@ -63,8 +63,8 @@ function SetupSohei (portrait) {
   CreateAbilityPanel(abilities, 'sohei_dash');
   CreateAbilityPanel(abilities, 'sohei_wholeness_of_body');
   CreateAbilityPanel(abilities, 'sohei_palm_of_life');
-  var lastAbility = CreateAbilityPanel(abilities, 'sohei_flurry_of_blows');
-  var talents = abilities.GetChild(0);
+  const lastAbility = CreateAbilityPanel(abilities, 'sohei_flurry_of_blows');
+  const talents = abilities.GetChild(0);
   talents.SetPanelEvent('onmouseover', function () {
     altTooltip.SetHasClass('visible', true);
   });
@@ -88,13 +88,13 @@ function SetTalentsElectrician () {
 }
 
 function UpdateBottleList () {
-  var playerID = Game.GetLocalPlayerID();
-  var specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
+  const playerID = Game.GetLocalPlayerID();
+  const specialBottles = CustomNetTables.GetTableValue('bottlepass', 'special_bottles');
   if (!specialBottles) {
     $.Schedule(0.2, UpdateBottleList);
     return;
   }
-  var bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
+  const bottles = specialBottles[playerID.toString()] ? specialBottles[playerID.toString()].Bottles : {};
 
   if ($('#BottleSelection').GetChildCount() === Object.keys(bottles).length + 1) {
     // ignore repaint if radio is already filled
@@ -104,17 +104,17 @@ function UpdateBottleList () {
   $('#BottleSelection').RemoveAndDeleteChildren();
   // Wait the parent be updated
   $.Schedule(0.2, function () {
-    var selectedBottle;
+    let selectedBottle;
 
-    var selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
+    const selectedBottles = CustomNetTables.GetTableValue('bottlepass', 'selected_bottles');
     if (selectedBottles !== undefined && selectedBottles[playerID.toString()] !== undefined) {
       selectedBottle = selectedBottles[playerID.toString()];
     }
 
     CreateBottleRadioElement(0, selectedBottle === 0);
-    var bottleCount = Object.keys(bottles).length;
+    const bottleCount = Object.keys(bottles).length;
     Object.keys(bottles).forEach(function (bottleId, i) {
-      var id = bottles[bottleId];
+      const id = bottles[bottleId];
       CreateBottleRadioElement(bottles[bottleId], selectedBottle === undefined ? i === bottleCount - 1 : id === selectedBottle);
     });
 
@@ -123,28 +123,28 @@ function UpdateBottleList () {
 }
 
 function CreateBottleRadioElement (id, isChecked) {
-  var radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
+  const radio = $.CreatePanel('RadioButton', $('#BottleSelection'), 'Bottle' + id);
   radio.BLoadLayoutSnippet('BottleRadio');
   radio.bottleId = id;
   radio.checked = isChecked;
 }
 
 function SelectBottle () {
-  var bottleId = 0;
-  var btn = $('#Bottle0');
-  if (btn != null) {
-    bottleId = $('#Bottle0').GetSelectedButton().bottleId;
+  let bottleId = 0;
+  const btn = $('#Bottle0');
+  if (btn != null && btn.GetSelectedButton() !== null) {
+    bottleId = btn.GetSelectedButton().bottleId;
   }
-  var data = {
+  const data = {
     BottleId: bottleId
   };
-  $('#Bottle0').SetHasClass('Selected', true);
+  btn.SetHasClass('Selected', true);
   $.Msg('Selecting Bottle #' + data.BottleId + ' for Player #' + Game.GetLocalPlayerID());
   GameEvents.SendCustomGameEventToServer('bottle_selected', data);
 }
 
 function UpdateBottlePassArcana (heroName) {
-  var playerID = Game.GetLocalPlayerID();
+  const playerID = Game.GetLocalPlayerID();
   $('#ArcanaSelection').RemoveAndDeleteChildren();
 
   if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
@@ -153,8 +153,8 @@ function UpdateBottlePassArcana (heroName) {
   }
   $('#ArcanaPanel').SetHasClass('HasArcana', true);
 
-  var selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
-  var selectedArcana = 'DefaultSet';
+  const selectedArcanas = CustomNetTables.GetTableValue('bottlepass', 'selected_arcanas');
+  let selectedArcana = 'DefaultSet';
 
   if (selectedArcanas !== undefined && selectedArcanas[playerID.toString()] !== undefined) {
     selectedArcana = selectedArcanas[playerID.toString()][heroName];
@@ -162,15 +162,15 @@ function UpdateBottlePassArcana (heroName) {
 
   $.Schedule(0.2, function () {
     $.Msg('UpdateBottlePassArcana(' + heroName + ')');
-    var arcanas = null;
+    let arcanas = null;
 
-    var specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
-    for (var arcanaIndex in specialArcanas) {
+    const specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
+    for (const arcanaIndex in specialArcanas) {
       if (specialArcanas[arcanaIndex].PlayerId === playerID) {
         arcanas = specialArcanas[arcanaIndex].Arcanas;
       }
     }
-    var radio = null;
+    let radio = null;
     if (heroName === 'npc_dota_hero_sohei') {
       radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultSoheiSet');
       radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -178,7 +178,7 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      for (var index in arcanas) {
+      for (const index in arcanas) {
         if (arcanas[index] === 'DBZSohei') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DBZSoheiSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -201,7 +201,7 @@ function UpdateBottlePassArcana (heroName) {
       radio.setName = 'DefaultSet';
       radio.checked = selectedArcana === radio.setName;
 
-      for (var index2 in arcanas) {
+      for (const index2 in arcanas) {
         if (arcanas[index2] === 'RockElectrician') {
           radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'RockElectricianSet');
           radio.BLoadLayoutSnippet('ArcanaRadio');
@@ -216,13 +216,13 @@ function UpdateBottlePassArcana (heroName) {
 }
 
 function SelectArcana () {
-  var arcanasList = $('#ArcanaSelection');
+  const arcanasList = $('#ArcanaSelection');
   if (arcanasList.GetChildCount() > 0) {
-    var selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
+    const selectedArcana = $('#ArcanaSelection').Children()[0].GetSelectedButton();
     if (selectedArcana == null) {
       return;
     }
-    var data = {
+    const data = {
       Hero: selectedArcana.hero,
       Arcana: selectedArcana.setName
     };
@@ -244,12 +244,12 @@ function init () {
   FindDotaHudElement('PreGame').FindChildTraverse('Header').style.visibility = 'visible';
 
   // SetMinimap
-  var minimap = FindDotaHudElement('HeroPickMinimap');
+  const minimap = FindDotaHudElement('HeroPickMinimap');
   minimap.style.backgroundImage = 'url("s2r://materials/overviews/oaa.tga")';
   minimap.style.borderRadius = '20px';
 
-  for (var i = 0; i < minimap.GetChildCount(); i++) {
-    var lastPanel = minimap.GetChild(i);
+  for (let i = 0; i < minimap.GetChildCount(); i++) {
+    const lastPanel = minimap.GetChild(i);
     lastPanel.style.visibility = 'collapse';
   }
 

@@ -21,7 +21,7 @@ test('before', function (t) {
 });
 
 test('parse translations', function (t) {
-  var testData = parseTranslation(true, path.join(__dirname, './fixtures/English'), dotaEnglish);
+  const testData = parseTranslation(true, path.join(__dirname, './fixtures/English'), dotaEnglish);
   console.log(testData.lang.Tokens);
   t.end();
 });

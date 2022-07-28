@@ -1,6 +1,6 @@
 /* global Players, $, GameEvents, CustomNetTables, Game */
 
-var console = {
+const console = {
   log: $.Msg.bind($)
 };
 
@@ -9,10 +9,10 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 function onNGPChange () {
-  var playerID = Game.GetLocalPlayerID();
-  var teamID = Players.GetTeam(playerID);
-  var teamName = teamID === 2 ? 'good' : 'bad';
-  var data = CustomNetTables.GetTableValue('ngp', teamName);
+  const playerID = Game.GetLocalPlayerID();
+  const teamID = Players.GetTeam(playerID);
+  const teamName = teamID === 2 ? 'good' : 'bad';
+  const data = CustomNetTables.GetTableValue('ngp', teamName);
 
   console.log(data);
 
@@ -21,18 +21,18 @@ function onNGPChange () {
   }
 
   Object.keys(data).forEach(function (i) {
-    var item = data[i];
+    const item = data[i];
     item.buildsInto = Object.keys(item.buildsInto).map(function (i) { return item.buildsInto[i]; });
     OnNeedGreedPass(item);
   });
 }
 
-var NGPOption = {
+const NGPOption = {
 };
 
 function SelectNGP (option) {
-  var panel = $.GetContextPanel();
-  var id = panel.id.split('ItemPanel_');
+  const panel = $.GetContextPanel();
+  let id = panel.id.split('ItemPanel_');
 
   if (id.length !== 2) {
     return;
@@ -56,7 +56,7 @@ function SelectNGP (option) {
 }
 
 function RemoveNeedGreedPass (data) {
-  var activePanel = getPanelForId(data.id);
+  const activePanel = getPanelForId(data.id);
   activePanel.style['animation-direction'] = 'reverse';
 
   $.Schedule(0.2, function () {
@@ -74,8 +74,8 @@ function idNameForId (id) {
 }
 
 // group id doesn't work
-var ngpGroupIndex = 0;
-var existingPanels = {};
+let ngpGroupIndex = 0;
+const existingPanels = {};
 function generateNGPPanel (id, item, title, description, buildsInto) {
   console.log('Generating panel for item id ', id);
   if (existingPanels[id]) {
@@ -83,7 +83,7 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
   }
 
   existingPanels[id] = true;
-  var panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
+  const panel = $.CreatePanel('Panel', $('#NGPItemHopper'), idNameForId(id));
   panel.BLoadLayout('file://{resources}/layout/custom_game/need_greed_pass/panel.xml', false, false);
 
   panel.FindChildrenWithClassTraverse('DataItemId').forEach(function (elem) {
@@ -98,13 +98,13 @@ function generateNGPPanel (id, item, title, description, buildsInto) {
   panel.FindChildrenWithClassTraverse('DataUpgradesInto').forEach(function (elem) {
     elem.text = description;
     buildsInto.forEach(function (item) {
-      var itemImage = $.CreatePanel('DOTAItemImage', elem, '');
+      const itemImage = $.CreatePanel('DOTAItemImage', elem, '');
       itemImage.itemname = item;
     });
   });
 
   // setting group doesn't work :/
-  var ngpId = ngpGroupIndex++;
+  const ngpId = ngpGroupIndex++;
   panel.FindChildrenWithClassTraverse('NGPRadio').forEach(function (elem) {
     elem.group = 'NGP' + ngpId;
   });

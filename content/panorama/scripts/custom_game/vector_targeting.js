@@ -1,30 +1,30 @@
-/* global GameEvents, Entities, Abilities, $, Particles, ParticleAttachment_t, Game, CLICK_BEHAVIORS */
-var CONSUME_EVENT = true;
-var CONTINUE_PROCESSING_EVENT = false;
+/* global GameEvents, GameUI, Entities, Abilities, $, Particles, ParticleAttachment_t, Game, CLICK_BEHAVIORS */
+const CONSUME_EVENT = true;
+const CONTINUE_PROCESSING_EVENT = false;
 
 // Constants
-var defaultVectorWidth = 125;
-var defaultVectorRange = 800;
-var particleInstances = {};
-var abilityInstances = {};
+const defaultVectorWidth = 125;
+const defaultVectorRange = 800;
+const particleInstances = {};
+const abilityInstances = {};
 
 // Start the vector targeting
 function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   // Get caster
-  var caster = Abilities.GetCaster(ability);
+  const caster = Abilities.GetCaster(ability);
 
   // Get start (cursor) position of the vector cast on the map
-  var cursor = GameUI.GetCursorPosition();
-  var worldPosition = GameUI.GetScreenWorldPosition(cursor);
+  const cursor = GameUI.GetCursorPosition();
+  const worldPosition = GameUI.GetScreenWorldPosition(cursor);
 
   // Particle variables
-  var startWidth = fStartWidth || defaultVectorWidth;
-  var endWidth = fEndWidth || startWidth;
-  var vectorRange = fCastLength || defaultVectorRange;
-  var casterLoc = Entities.GetAbsOrigin(caster);
+  const startWidth = fStartWidth || defaultVectorWidth;
+  const endWidth = fEndWidth || startWidth;
+  const vectorRange = fCastLength || defaultVectorRange;
+  const casterLoc = Entities.GetAbsOrigin(caster);
 
   // Initialize the particle (range finder)
-  var vectorTargetParticle = Particles.CreateParticle('particles/ui_mouseactions/range_finder_cone.vpcf', ParticleAttachment_t.PATTACH_CUSTOMORIGIN, caster);
+  const vectorTargetParticle = Particles.CreateParticle('particles/ui_mouseactions/range_finder_cone.vpcf', ParticleAttachment_t.PATTACH_CUSTOMORIGIN, caster);
   Particles.SetParticleControl(vectorTargetParticle, 0, casterLoc);
   Particles.SetParticleControl(vectorTargetParticle, 1, VectorRaiseZ(worldPosition, 50));
   Particles.SetParticleControl(vectorTargetParticle, 2, [0, 0, 0]);
@@ -33,10 +33,10 @@ function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
   Particles.SetParticleControl(vectorTargetParticle, 6, [1, 0, 0]);
 
   // Calculate initial particle CPs
-  var direction = VectorSub(worldPosition, casterLoc);
+  let direction = VectorSub(worldPosition, casterLoc);
   direction = VectorFlatten(direction);
   direction = VectorNormalize(direction);
-  var newPosition = VectorAdd(worldPosition, VectorMult(direction, vectorRange));
+  const newPosition = VectorAdd(worldPosition, VectorMult(direction, vectorRange));
   Particles.SetParticleControl(vectorTargetParticle, 2, newPosition);
 
   // Store particle instance
@@ -51,9 +51,9 @@ function OnVectorTargetingStart (ability, fStartWidth, fEndWidth, fCastLength) {
 // Updates the particle effect and detects when the ability is actually casted
 function ShowVectorTargetingParticle (particle, ability, startPosition, length) {
   if (particle !== undefined) {
-    var caster = Abilities.GetCaster(ability);
-    var cursor = GameUI.GetCursorPosition();
-    var endPosition = GameUI.GetScreenWorldPosition(cursor);
+    const caster = Abilities.GetCaster(ability);
+    const cursor = GameUI.GetCursorPosition();
+    let endPosition = GameUI.GetScreenWorldPosition(cursor);
     if (!endPosition) {
       $.Schedule(1 / 10000, function () {
         ShowVectorTargetingParticle(particle, ability, startPosition, length);
@@ -61,10 +61,10 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
       return;
     }
     // Calculate direction and distance
-    var newDirection = VectorSub(endPosition, startPosition);
+    let newDirection = VectorSub(endPosition, startPosition);
     newDirection = VectorFlatten(newDirection);
     newDirection = VectorNormalize(newDirection);
-    var distance = Game.Length2D(endPosition, startPosition);
+    const distance = Game.Length2D(endPosition, startPosition);
 
     if (distance < 0.05) {
       newDirection = VectorSub(startPosition, Entities.GetAbsOrigin(caster));
@@ -79,17 +79,16 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
 
     Particles.SetParticleControl(particle, 2, endPosition);
 
-    var data = {};
+    const data = {};
     data.unit = caster;
     data.startPosition = startPosition;
     data.endPosition = endPosition;
-    var mouseHold = GameUI.IsMouseDown(0); // 0 is left click button
+    const mouseHold = GameUI.IsMouseDown(0); // 0 is left click button
     if (mouseHold) {
       // Holding Click
       $.Schedule(1 / 10000, function () {
         ShowVectorTargetingParticle(particle, ability, startPosition, length);
       });
-      return;
     } else {
       FinishVectorCast(data);
     }
@@ -97,8 +96,8 @@ function ShowVectorTargetingParticle (particle, ability, startPosition, length) 
 }
 
 function FinishVectorCast (table) {
-  var unit = table.unit;
-  var notInterrupted = abilityInstances[unit];
+  const unit = table.unit;
+  const notInterrupted = abilityInstances[unit];
 
   if (notInterrupted) {
     StopVectorCast(unit);
@@ -117,25 +116,25 @@ function RemoveParticle (particle) {
 
 // Send the final data to the server; It doesnt send data during quickcast
 function SendPosition (table) {
-  var ability = table.ability;
-  var ePos = table.endPosition;
-  var cPos = table.startPosition;
-  var unit = table.unit;
-  var pID = Entities.GetPlayerOwnerID(unit);
-  GameEvents.SendCustomGameEventToServer('send_vector_position', {'playerID': pID, 'unit': unit, 'abilityIndex': ability, 'PosX': cPos[0], 'PosY': cPos[1], 'PosZ': cPos[2], 'Pos2X': ePos[0], 'Pos2Y': ePos[1], 'Pos2Z': ePos[2]});
+  const ability = table.ability;
+  const ePos = table.endPosition;
+  const cPos = table.startPosition;
+  const unit = table.unit;
+  const pID = Entities.GetPlayerOwnerID(unit);
+  GameEvents.SendCustomGameEventToServer('send_vector_position', { playerID: pID, unit: unit, abilityIndex: ability, PosX: cPos[0], PosY: cPos[1], PosZ: cPos[2], Pos2X: ePos[0], Pos2Y: ePos[1], Pos2Z: ePos[2] });
 }
 
 // Mouse Callback to detect custom vector targeting on the client; quickcast doesnt use mouse clicks;
 GameUI.SetMouseCallback(function (eventName, arg) {
-  var clickBehavior = GameUI.GetClickBehaviors();
+  const clickBehavior = GameUI.GetClickBehaviors();
 
   // Check click behavior
   if (clickBehavior === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_CAST) {
-    var ability = Abilities.GetLocalPlayerActiveAbility();
-    var unit = Abilities.GetCaster(ability);
-    var isVectorTargetingAbility = Abilities.GetSpecialValueFor(ability, 'vector_targeting');
+    const ability = Abilities.GetLocalPlayerActiveAbility();
+    const unit = Abilities.GetCaster(ability);
+    const isVectorTargetingAbility = Abilities.GetSpecialValueFor(ability, 'vector_targeting');
 
-  // If there is no vector targeting instance on this unit then ...
+    // If there is no vector targeting instance on this unit then ...
     if (abilityInstances[unit] === undefined) {
       // If mouse click is not left click then return false
       if (arg !== 0) return CONTINUE_PROCESSING_EVENT;
@@ -169,9 +168,9 @@ GameUI.SetMouseCallback(function (eventName, arg) {
 // Start vector targeting ability
 function StartVectorCast (ability) {
   if (GameUI.IsMouseDown(0)) {
-    var startWidth = Abilities.GetSpecialValueFor(ability, 'vector_start_width');
-    var endWidth = Abilities.GetSpecialValueFor(ability, 'vector_end_width');
-    var castLength = Abilities.GetSpecialValueFor(ability, 'vector_length');
+    const startWidth = Abilities.GetSpecialValueFor(ability, 'vector_start_width');
+    const endWidth = Abilities.GetSpecialValueFor(ability, 'vector_end_width');
+    const castLength = Abilities.GetSpecialValueFor(ability, 'vector_length');
     OnVectorTargetingStart(ability, startWidth, endWidth, castLength);
   }
 }
@@ -185,7 +184,7 @@ function StopVectorCast (unit) {
 
 // Some Vector Functions here:
 function VectorNormalize (vec) {
-  var val = 1 / Math.sqrt(Math.pow(vec[0], 2) + Math.pow(vec[1], 2) + Math.pow(vec[2], 2));
+  const val = 1 / Math.sqrt(Math.pow(vec[0], 2) + Math.pow(vec[1], 2) + Math.pow(vec[2], 2));
   return [vec[0] * val, vec[1] * val, vec[2] * val];
 }
 
@@ -202,7 +201,7 @@ function VectorSub (vec1, vec2) {
 }
 
 // function VectorNegate (vec) {
-  // return [-vec[0], -vec[1], -vec[2]];
+// return [-vec[0], -vec[1], -vec[2]];
 // }
 
 function VectorFlatten (vec) {

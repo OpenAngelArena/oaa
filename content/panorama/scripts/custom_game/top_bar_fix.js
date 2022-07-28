@@ -1,11 +1,11 @@
-/* global  GameEvents, DOTALimits_t, Game, DOTA_GameState */
+/* global  $, GameEvents, DOTALimits_t, Game, DOTA_GameState, Players */
 function FindDotaHudElement (panel) {
   return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
 
 function OverrideHeroImage (panel) {
   if (panel) {
-    let name = panel.heroname;
+    const name = panel.heroname;
     if (name === 'sohei' || name === 'electrician') {
       panel.style.backgroundImage = 'url("file://{images}/heroes/npc_dota_hero_' + name + '.png")';
       panel.style.backgroundSize = '100% 100%';
@@ -17,9 +17,9 @@ function OverrideHeroImagesForTeam (team) {
   if (team) {
     let i;
     for (i = 0; i < DOTALimits_t.DOTA_MAX_TEAM_PLAYERS - 1; i++) {
-      let topBarPanel = FindDotaHudElement(team + 'Player' + i);
+      const topBarPanel = FindDotaHudElement(team + 'Player' + i);
       if (topBarPanel && Players.IsValidPlayerID(i)) {
-        let panel = topBarPanel.FindChildTraverse('HeroImage');
+        const panel = topBarPanel.FindChildTraverse('HeroImage');
         OverrideHeroImage(panel);
       }
     }

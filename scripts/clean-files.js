@@ -7,21 +7,21 @@ const tab = '  ';
 const padLenght = 59;
 
 function stringRepeat (string, num) {
-  var result = '';
-  for (var i = 0; i < num; i++) {
+  let result = '';
+  for (let i = 0; i < num; i++) {
     result += string;
   }
   return result;
 }
 
-var walk = function (directoryName, action) {
+const walk = function (directoryName, action) {
   fs.readdir(directoryName, function (err, files) {
     if (err) {
       console.error(chalk.red(err));
       return;
     }
     files.forEach(function (file) {
-      var fullPath = path.join(directoryName, file);
+      const fullPath = path.join(directoryName, file);
       fs.stat(fullPath, function (err, f) {
         if (err) {
           console.error(chalk.red(err));
@@ -44,7 +44,7 @@ function cleanTooltipFile (file) {
     if (err) {
       return console.error(chalk.red(err));
     }
-    var result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
+    const result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
 
     fs.writeFile(file, result, 'utf8', function (err) {
       if (err) {
@@ -61,14 +61,14 @@ function cleanKVFile (file) {
 
   console.log('Cleaning ' + chalk.green(file));
 
-  var lineReader = readline.createInterface({
+  const lineReader = readline.createInterface({
     input: fs.createReadStream(file)
   });
 
-  var indent = 0;
-  var result = '';
-  var error = false;
-  var lineNumber = 0;
+  let indent = 0;
+  let result = '';
+  let error = false;
+  let lineNumber = 0;
   lineReader.on('line', (line) => {
     lineNumber++;
     // replace tabs
@@ -88,8 +88,8 @@ function cleanKVFile (file) {
     // fix padding
     line = line.replace(/" +"/g, '"  "'); // remove spaces between "'s
 
-    var indices = [];
-    for (var i = 0; i < line.length; i++) {
+    const indices = [];
+    for (let i = 0; i < line.length; i++) {
       if (line[i] === '"') indices.push(i);
     }
 

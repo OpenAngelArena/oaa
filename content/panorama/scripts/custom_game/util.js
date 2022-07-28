@@ -12,7 +12,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.ColoredText = ColoredText;
   module.exports.LuaTableToArray = LuaTableToArray;
 }
-var HudNotFoundException = /** @class */ (function () {
+const HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
     this.message = message;
   }
@@ -22,7 +22,7 @@ function FindDotaHudElement (id) {
   return GetDotaHud().FindChildTraverse(id);
 }
 function GetDotaHud () {
-  var p = $.GetContextPanel();
+  let p = $.GetContextPanel();
   while (p !== null && p.id !== 'Hud') {
     p = p.GetParent();
   }
@@ -38,8 +38,8 @@ function GetDotaHud () {
  * Order of elements is preserved.
  */
 function LuaTableToArray (table) {
-  var array = [];
-  for (var i = 1; table[i.toString()] !== undefined; i++) {
+  const array = [];
+  for (let i = 1; table[i.toString()] !== undefined; i++) {
     array.push(table[i.toString()]);
   }
   return array;
@@ -48,9 +48,9 @@ function LuaTableToArray (table) {
  * Takes an integer and returns a hex code string of the color represented by the integer
  */
 function ColorToHexCode (color) {
-  var red = (color & 0xff).toString(16);
-  var green = ((color & 0xff00) >> 8).toString(16);
-  var blue = ((color & 0xff0000) >> 16).toString(16);
+  let red = (color & 0xff).toString(16);
+  let green = ((color & 0xff00) >> 8).toString(16);
+  let blue = ((color & 0xff0000) >> 16).toString(16);
   if (red === '0') {
     red = '00';
   }

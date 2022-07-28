@@ -1,4 +1,4 @@
-/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables */
+/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players */
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -8,7 +8,7 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
-let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
+const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
 (function () {
   hideShowUI(Game.GetState());
@@ -19,7 +19,7 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
   hostTitle();
 
   if (Game.GetMapInfo().map_display_name === '1v1') {
-    let smallPlayerPoolButton = $('#small_player_pool');
+    const smallPlayerPoolButton = $('#small_player_pool');
     if (smallPlayerPoolButton) {
       smallPlayerPoolButton.enabled = false;
       smallPlayerPoolButton.style.opacity = 0;
@@ -39,13 +39,13 @@ let IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 }());
 
 // function RandomizeModifiers () {
-  // $.Msg('Clicked randomize!');
-  // if (!IsHost) {
-    // return;
-  // }
-  // GameEvents.SendCustomGameEventToServer('randomizeModifiers', {
-    // shuffle: true
-  // });
+// $.Msg('Clicked randomize!');
+// if (!IsHost) {
+// return;
+// }
+// GameEvents.SendCustomGameEventToServer('randomizeModifiers', {
+// shuffle: true
+// });
 // }
 
 function onStateChange (data) {
@@ -67,7 +67,6 @@ function handleOAASettingsChange (t, key, kv) {
   if (key === 'average_team_mmr') {
     $.Msg('oaa_settings :' + key);
     loadAverageMMRValues(kv);
-    return;
   }
 }
 
@@ -110,7 +109,7 @@ function FindDotaHudElement (id) {
 }
 
 function GetDotaHud () {
-  var p = $.GetContextPanel();
+  let p = $.GetContextPanel();
   try {
     while (true) {
       if (p.id === 'Hud') {
@@ -123,7 +122,7 @@ function GetDotaHud () {
 }
 
 function listenToGameEvent (event, handler) {
-  let handle = GameEvents.Subscribe(event, handleWrapper);
+  const handle = GameEvents.Subscribe(event, handleWrapper);
   let doneListening = false;
 
   return unlisten;
@@ -142,7 +141,7 @@ function listenToGameEvent (event, handler) {
 
 function hostTitle () {
   if ($('#Host')) {
-    for (let i of Game.GetAllPlayerIDs()) {
+    for (const i of Game.GetAllPlayerIDs()) {
       if (Game.GetPlayerInfo(i) && Game.GetPlayerInfo(i).player_has_host_privileges) {
         $('#Host').text = 'HOST: ' + Players.GetPlayerName(i);
       }
@@ -155,8 +154,8 @@ function hostTitle () {
 
 function loadSettings (kv, secondTime) {
   if (kv) {
-    for (let i in kv) {
-      updatePanel({setting: i, value: kv[i]});
+    for (const i in kv) {
+      updatePanel({ setting: i, value: kv[i] });
     }
     $.Msg('Succesfully loaded/changed Game Settings.');
   }
@@ -184,20 +183,20 @@ function onPanelChange (name) {
     }
   }
   if (val !== undefined) {
-    GameEvents.SendCustomGameEventToAllClients('oaa_setting_changed', {setting: name, value: val});
-    GameEvents.SendCustomGameEventToServer('oaa_setting_changed', {setting: name, value: val});
+    GameEvents.SendCustomGameEventToAllClients('oaa_setting_changed', { setting: name, value: val });
+    GameEvents.SendCustomGameEventToServer('oaa_setting_changed', { setting: name, value: val });
   }
   if (panelType === 'Button') {
-    GameEvents.SendCustomGameEventToServer('oaa_button_clicked', {button: name});
+    GameEvents.SendCustomGameEventToServer('oaa_button_clicked', { button: name });
   }
 }
 
 function updatePanel (kv) {
-  let name = kv.setting;
-  let val = kv.value;
-  let panel = $('#' + name);
+  const name = kv.setting;
+  const val = kv.value;
+  const panel = $('#' + name);
   if (panel) {
-    let panelType = panel.paneltype;
+    const panelType = panel.paneltype;
     switch (panelType) {
       case 'DropDown':
         panel.SetSelected(val);
@@ -224,8 +223,8 @@ function onFocus (name) {
   if (!IsHost) {
     return;
   }
-  let panel = $('#' + name);
-  let panelType = panel.paneltype;
+  const panel = $('#' + name);
+  const panelType = panel.paneltype;
   if (panelType === 'TextEntry') {
     panel.text = parseFloat(panel.text);
   }

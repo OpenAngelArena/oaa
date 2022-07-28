@@ -2,9 +2,9 @@
 
 'use strict';
 
-var isRunning = false;
-var timeout;
-var returnEventName;
+let isRunning = false;
+let timeout;
+let returnEventName;
 
 GameEvents.Subscribe('show_yes_no_poll', Open);
 GameEvents.Subscribe('surrender_visbility_changed', UpdateVisibility);
