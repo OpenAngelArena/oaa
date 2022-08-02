@@ -77,9 +77,8 @@
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL LASER DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "MAX DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range. Trapped enemies are blinded, leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%. Leash and healing reduction pierce spell immunity but blind doesn't."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range. Trapped enemies are leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%. Leash and healing reduction pierce spell immunity."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_blind"                 "%SCEPTER BLIND:"
 
 // modifiers
 // "DOTA_Tooltip_modifier_tinker_laser_blind"					"Laser Blind"
@@ -98,7 +97,7 @@
 "DOTA_Tooltip_modifier_tinkerer_oil_spill_debuff_Description"                   "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%. If ignited, this unit will take %dMODIFIER_PROPERTY_TOOLTIP% damage."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff"                       "Laser Contraption (Scepter)"
-"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "Leashed and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
+"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "Leashed and all healing, regeneration, lifesteal and spell lifesteal reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
 
 // talents
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1"                          "+{s:multishot_count} Multishot Smart Missiles"

@@ -379,7 +379,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Scepter Blind and Leash effect provided by an aura of the thinker
+-- Scepter effect provided by an aura of the thinker
 
 modifier_tinkerer_laser_contraption_debuff = class({})
 
@@ -398,7 +398,7 @@ end
 function modifier_tinkerer_laser_contraption_debuff:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
+    --self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
     self.heal_prevent_percent = ability:GetSpecialValueFor("scepter_heal_prevent_percent")
   end
 end
@@ -407,7 +407,7 @@ modifier_tinkerer_laser_contraption_debuff.OnRefresh = modifier_tinkerer_laser_c
 
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MISS_PERCENTAGE,
+    --MODIFIER_PROPERTY_MISS_PERCENTAGE, -- blind
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
@@ -415,12 +415,12 @@ function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   }
 end
 
-function modifier_tinkerer_laser_contraption_debuff:GetModifierMiss_Percentage()
-  if not self:GetParent():IsMagicImmune() then
-    return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
-  end
-  return 0
-end
+-- function modifier_tinkerer_laser_contraption_debuff:GetModifierMiss_Percentage()
+  -- if not self:GetParent():IsMagicImmune() then
+    -- return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
+  -- end
+  -- return 0
+-- end
 
 function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
@@ -439,10 +439,9 @@ function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealReg
 end
 
 function modifier_tinkerer_laser_contraption_debuff:CheckState()
-  local state = {
-    [MODIFIER_STATE_TETHERED] = true,
+  return {
+    [MODIFIER_STATE_TETHERED] = true, -- leash
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -466,15 +465,13 @@ function modifier_tinkerer_laser_contraption_node:RemoveOnDeath()
 end
 
 function modifier_tinkerer_laser_contraption_node:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
-    MODIFIER_EVENT_ON_ATTACKED
+    MODIFIER_EVENT_ON_ATTACKED,
   }
-  return funcs
 end
 
 function modifier_tinkerer_laser_contraption_node:GetAbsoluteNoDamagePhysical()
@@ -529,7 +526,7 @@ if IsServer() then
 end
 
 function modifier_tinkerer_laser_contraption_node:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
@@ -537,7 +534,6 @@ function modifier_tinkerer_laser_contraption_node:CheckState()
     --[MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
 end
 
 function modifier_tinkerer_laser_contraption_node:OnDestroy()
