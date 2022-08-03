@@ -147,7 +147,7 @@ function sohei_polarizing_palm:OnSpellStart()
     if caster:HasModifier("modifier_arcana_dbz") then
       particleName1 = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
     elseif caster:HasModifier("modifier_arcana_pepsi") then
-      particleName1 = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
+      particleName1 = "particles/hero/sohei/arcana/pepsi/sohei_momentum_pepsi.vpcf"
     end
 
     local particle_enemy = ParticleManager:CreateParticle(particleName1, PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -452,4 +452,3 @@ function modifier_sohei_polarizing_palm_stun:CheckState()
     [MODIFIER_STATE_STUNNED] = true,
   }
 end
-

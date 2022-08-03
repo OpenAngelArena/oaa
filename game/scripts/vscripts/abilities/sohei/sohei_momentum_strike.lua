@@ -42,7 +42,7 @@ function sohei_momentum_strike:OnSpellStart()
   if caster:HasModifier("modifier_arcana_dbz") then
     particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
   elseif caster:HasModifier("modifier_arcana_pepsi") then
-    particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
+    particleName = "particles/hero/sohei/arcana/pepsi/sohei_momentum_pepsi.vpcf"
   end
 
   local ki_strike_particle = ParticleManager:CreateParticle("particles/hero/sohei/ki_strike.vpcf", PATTACH_CUSTOMORIGIN, caster)

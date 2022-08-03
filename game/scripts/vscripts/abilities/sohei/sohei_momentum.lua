@@ -209,7 +209,7 @@ if IsServer() then
     if target:HasModifier('modifier_arcana_dbz') then
       particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_dbz.vpcf"
     elseif target:HasModifier('modifier_arcana_pepsi') then
-      particleName = "particles/hero/sohei/arcana/dbz/sohei_momentum_pepsi.vpcf"
+      particleName = "particles/hero/sohei/arcana/pepsi/sohei_momentum_pepsi.vpcf"
     end
 
     -- Play the impact particle
