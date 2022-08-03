@@ -1,7 +1,4 @@
-/* global  $, GameEvents, DOTALimits_t, Game, DOTA_GameState, Players */
-function FindDotaHudElement (panel) {
-  return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
-}
+/* global  GameEvents, DOTALimits_t, Game, DOTA_GameState, Players, FindDotaHudElement */
 
 function OverrideHeroImage (panel) {
   if (panel) {
