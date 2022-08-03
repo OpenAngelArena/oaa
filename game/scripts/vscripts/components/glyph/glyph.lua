@@ -109,6 +109,7 @@ function Glyph:DistanceFromFountain(location, team)
   if not location or not team then
     return nil
   end
+  local fountain
   if team == DOTA_TEAM_GOODGUYS then
     fountain = self.radiant_fountain
   elseif team == DOTA_TEAM_BADGUYS then

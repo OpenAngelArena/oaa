@@ -1,0 +1,14 @@
+//=============================================================================
+// OAA Custom PoopWard Scan
+//=============================================================================
+"DOTA_Tooltip_ability_fountain_glyph"                 "Glyph of Protection {s:glyph_hotkey}"
+"DOTA_Tooltip_ability_fountain_glyph_Description"     "Kicks enemies out of your base. Grants your structures invincibility for 6 seconds."
+
+"DOTA_Tooltip_ability_radar"                          "Scan & Reveal {s:scan_hotkey}"
+"DOTA_Tooltip_ability_radar_Description"              "Scans a targeted 900 AoE for 14 seconds. <font color='#FFA500'>Grants True Sight</font> and indicates whether there are enemy heroes in that area."
+
+//"Dota_tooltip_oaa_poop_ward_title"                    "Poop Wards"
+//"Dota_tooltip_oaa_poop_ward_description"              "Spawn a ward that lasts for 6 minutes but is visible to enemies within a 200 unit radius"
+
+"Dota_tooltip_oaa_scan_title"                         "#{DOTA_Tooltip_ability_radar}"
+"Dota_tooltip_oaa_scan_description"                   "#{DOTA_Tooltip_ability_radar_Description}"
