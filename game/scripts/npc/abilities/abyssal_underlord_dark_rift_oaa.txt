@@ -14,7 +14,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
@@ -26,8 +25,8 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastRange"                                    "1350 1400 1450 1500 1550"
-    "AbilityCastPoint"                                    "1.6"
+    "AbilityCastRange"                                    "1400"
+    "AbilityCastPoint"                                    "1.65"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
@@ -42,28 +41,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "450"
+      "radius"                                            "375 400 425 450 475"
       "stun_duration"                                     "2.25 2.5 2.75 3.0 3.25"
       "damage"                                            "250 450 650 1050 1850"
       "minimum_range"                                     "0"
       "cooldown_scepter"
       {
-        "value"                                           "80 75 70 65 60"
+        "value"                                           "90 85 80 75 70"
         "RequiresScepter"                                 "1"
       }
       "damage_reduction"
       {
-        "value"                                           "10 20 30 35 40"
+        "value"                                           "10 15 20 25 30"
         "RequiresScepter"                                 "1"
       }
       "bonus_ms"
       {
-        "value"                                           "10 20 30 40 50"
+        "value"                                           "10 15 20 25 30"
         "RequiresScepter"                                 "1"
       }
       "buff_duration"
       {
-        "value"                                           "6"
+        "value"                                           "5 5.5 6 6.5 7"
         "RequiresScepter"                                 "1"
       }
     }

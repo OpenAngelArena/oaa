@@ -26,18 +26,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"            "900"
+      "radius"                                            "900"
       "damage_reduction_pct" //OAA
       {
-        "value"   "14 21 28 35 36 38"
-        "special_bonus_unique_underlord_3"  "+15"
+        "value"                                           "14 21 28 35 36 38"
+        "special_bonus_unique_underlord_3"                "+15"
       }
-      "bonus_damage_from_creep"   "2 4 6 8 16 32"
-      "bonus_damage_from_hero"    "30 35 40 45 90 180"
-      "bonus_damage_duration"     "75" //OAA
+      "bonus_damage_from_creep"                           "2 4 6 8 16 32"
+      "bonus_damage_from_hero"                            "30 35 40 45 90 180"
+      "bonus_damage_duration"                             "75" //OAA
       "bonus_shared_by_allies_pct"
       {
-        "special_bonus_unique_underlord_9"  "+50"
+        "special_bonus_unique_underlord_9"                "+50"
       }
     }
   }
