@@ -52,6 +52,9 @@ SCAN_REVEAL_RADIUS = 900
 SCAN_REVEAL_DURATION = 14
 SCAN_DURATION = 14
 
+-- glyph
+GLYPH_COOLDOWN = 120
+
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban

@@ -148,8 +148,8 @@ end
 function OAAOptions:SetupGame()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
-    Glyph.ward.cooldown = 30
-    Glyph:ResetWardCooldowns()
+    CustomWardButtons.obs_cooldown = 30
+    CustomWardButtons.sentry_cooldown = 30
   end
   if self.settings.GLOBAL_MODS == "GM12" then
     local mode = GameRules:GetGameModeEntity()
