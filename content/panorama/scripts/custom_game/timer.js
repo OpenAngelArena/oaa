@@ -1,9 +1,9 @@
 /* global CustomNetTables $ FindDotaHudElement  */
-var topBar = FindDotaHudElement('topbar');
-var extraInfo = FindDotaHudElement('ExtraInfo');
-var killLimit = FindDotaHudElement('KillLimitValue');
-var nextDuel = FindDotaHudElement('TimeToNextDuelValue');
-var nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
+const topBar = FindDotaHudElement('topbar');
+let extraInfo = FindDotaHudElement('ExtraInfo');
+let killLimit = FindDotaHudElement('KillLimitValue');
+let nextDuel = FindDotaHudElement('TimeToNextDuelValue');
+let nextCapture = FindDotaHudElement('TimeToNextCaptureValue');
 
 if (extraInfo.GetParent().id !== 'topbar') {
   extraInfo.SetParent(topBar);
@@ -38,9 +38,9 @@ function UpdateClock (table, name, data) {
 
   $('#TimeHider').style.visibility = 'visible';
   $('#GameTime').text = formatTime(data.time);
-  var dayTime = $('#DayTime');
-  var nightTime = $('#NightTime');
-  var nightstalkerNight = $('#NightstalkerNight');
+  const dayTime = $('#DayTime');
+  const nightTime = $('#NightTime');
+  const nightstalkerNight = $('#NightstalkerNight');
   dayTime.style.visibility = 'collapse';
   nightTime.style.visibility = 'collapse';
   nightstalkerNight.style.visibility = 'collapse';
@@ -54,7 +54,7 @@ function UpdateClock (table, name, data) {
 }
 
 function formatTime (time) {
-  var seconds = time % 60;
+  let seconds = time % 60;
   if (seconds >= 0) {
     return [Math.floor(time / 60), seconds < 10 ? '0' + seconds : seconds].join(':');
   } else {

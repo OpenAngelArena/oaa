@@ -17,9 +17,9 @@ const languageShortNames = {
 };
 
 let englishData = null;
-let transByValue = {};
+const transByValue = {};
 let dotaEnglish = {};
-let unchagedKeys = {};
+const unchagedKeys = {};
 
 request.get({
   // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
@@ -31,7 +31,7 @@ request.get({
   dotaEnglish = parseKV(result.body);
   console.log(dotaEnglish);
 
-  var englishFileString = parseTranslation(false, null, dotaEnglish);
+  let englishFileString = parseTranslation(false, null, dotaEnglish);
   console.log(englishFileString);
   englishData = parseKV(englishFileString);
 
@@ -72,11 +72,11 @@ request.get({
 // functions
 
 function getDuplicateStrings () {
-  var foundStrings = {};
-  var duplicateStrings = {};
+  const foundStrings = {};
+  const duplicateStrings = {};
 
   Object.keys(englishData.lang.Tokens.values).forEach(function (key) {
-    var str = englishData.lang.Tokens.values[key];
+    const str = englishData.lang.Tokens.values[key];
     if (foundStrings[str]) {
       if (!duplicateStrings[foundStrings[str]]) {
         duplicateStrings[foundStrings[str]] = {
@@ -130,8 +130,8 @@ function getUnchangedStrings (languageName, cb) {
       console.error(languageName);
       throw err;
     }
-    var dotaKVs = parseKV(result.body);
-    var translatedKeys = {};
+    const dotaKVs = parseKV(result.body);
+    const translatedKeys = {};
     Object.keys(dotaKVs.lang.Tokens.values).forEach(function (key) {
       dotaKVs.lang.Tokens.values[key.toLowerCase()] = dotaKVs.lang.Tokens.values[key];
     });
@@ -147,9 +147,9 @@ function getUnchangedStrings (languageName, cb) {
 }
 
 function generateFileForTranslations (languageName, translations, cb) {
-  var duplicateStrings = getDuplicateStrings();
+  const duplicateStrings = getDuplicateStrings();
   getUnchangedStrings(languageName, function (translatedKeys) {
-    var lines = [];
+    const lines = [];
     lines.push('"lang"');
     lines.push('{');
     lines.push('  "Language"      "' + languageName + '"');
@@ -161,8 +161,9 @@ function generateFileForTranslations (languageName, translations, cb) {
     lines.push();
 
     Object.keys(translatedKeys).map(function (key) {
-      var indent = (new Array(100 - key.length)).join(' ');
+      const indent = (new Array(100 - key.length)).join(' ');
       lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translatedKeys[key]));
+      return key;
     });
 
     Object.keys(translations).forEach(function (key) {
@@ -172,12 +173,12 @@ function generateFileForTranslations (languageName, translations, cb) {
       if (duplicateStrings[key]) {
         lines.push();
       }
-      var indent = (new Array(100 - key.length)).join(' ');
+      const indent = (new Array(100 - key.length)).join(' ');
       lines.push('    ' + JSON.stringify(key) + indent + JSON.stringify(translations[key]));
 
       if (duplicateStrings[key]) {
         duplicateStrings[key].keys.forEach(function (dupKey) {
-          var indent = (new Array(100 - dupKey.length)).join(' ');
+          const indent = (new Array(100 - dupKey.length)).join(' ');
           lines.push('    ' + JSON.stringify(dupKey) + indent + JSON.stringify(translations[key]));
         });
       }

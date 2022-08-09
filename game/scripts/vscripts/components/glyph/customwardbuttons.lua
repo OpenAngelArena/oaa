@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ui_custom_observer_ward_charges", "components/glyph/customwardbuttons.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ui_custom_sentry_ward_charges", "components/glyph/customwardbuttons.lua", LUA_MODIFIER_MOTION_NONE)
@@ -60,6 +59,11 @@ function CustomWardButtons:CastWard(event)
   local current_charges = modifier:GetStackCount()
   if current_charges == 0 then
     CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 61, message = ""})
+    return
+  elseif not hero:IsAlive() then
+    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason = 80, message = "Dead"})
+    return
+  elseif GameRules:IsGamePaused() then
     return
   end
 

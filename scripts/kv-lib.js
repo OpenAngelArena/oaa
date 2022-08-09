@@ -1,16 +1,16 @@
-var request = require('request');
-var parseKV = require('parse-kv');
-var fs = require('fs');
-var path = require('path');
-var after = require('after');
+const request = require('request');
+const parseKV = require('parse-kv');
+const fs = require('fs');
+const path = require('path');
+const after = require('after');
 
-var gameDir = path.join(__dirname, '../game/');
-var scriptDir = path.join(gameDir, 'scripts/');
-var vscriptDir = path.join(scriptDir, 'vscripts');
-var npcDir = path.join(scriptDir, 'npc');
-var abilityDir = path.join(npcDir, 'abilities');
-var itemDir = path.join(npcDir, 'items');
-var heroDir = path.join(npcDir, 'heroes');
+const gameDir = path.join(__dirname, '../game/');
+const scriptDir = path.join(gameDir, 'scripts/');
+const vscriptDir = path.join(scriptDir, 'vscripts');
+const npcDir = path.join(scriptDir, 'npc');
+const abilityDir = path.join(npcDir, 'abilities');
+const itemDir = path.join(npcDir, 'items');
+const heroDir = path.join(npcDir, 'heroes');
 
 module.exports = {
   itemFiles: findAllItems,
@@ -40,7 +40,7 @@ function dotaAbilities (cb) {
     if (err) {
       return cb(err);
     }
-    var data = parseKV(result.body.replace(/[^\\/]\/ Damage/ig, '// Damage').replace(/[\s]-1\n/g, '"-1"\n'));
+    const data = parseKV(result.body.replace(/[^\\/]\/ Damage/ig, '// Damage').replace(/[\s]-1\n/g, '"-1"\n'));
     cb(null, data.DOTAAbilities);
   });
 }
@@ -52,7 +52,7 @@ function dotaItems (cb) {
     if (err) {
       return cb(err);
     }
-    var data = parseKV(result.body);
+    const data = parseKV(result.body);
     cb(null, data.DOTAAbilities);
   });
 }
@@ -64,14 +64,14 @@ function dotaHeroes (cb) {
     if (err) {
       return cb(err);
     }
-    var data = parseKV(result.body);
+    const data = parseKV(result.body);
     cb(null, data.DOTAHeroes);
   });
 }
 
 function getAll (cb) {
-  var list = [];
-  var done = after(2, function (err) {
+  let list = [];
+  const done = after(2, function (err) {
     if (err) {
       return cb(err);
     }
@@ -117,8 +117,8 @@ function allHeroes (cb) {
 }
 
 function parseAllKVs (list, cb) {
-  var result = {};
-  var done = after(list.length, function (err) {
+  const result = {};
+  const done = after(list.length, function (err) {
     if (err) {
       return cb(err);
     }
@@ -157,12 +157,12 @@ function findAllKVFiles (dir, cb) {
     if (err) {
       return cb(err);
     }
-    var result = [];
-    var done = after(data.length, function (err) {
+    let result = [];
+    const done = after(data.length, function (err) {
       cb(err, result);
     });
     data.forEach(function (file) {
-      var filePath = path.join(dir, file);
+      const filePath = path.join(dir, file);
       fs.stat(filePath, function (err, stat) {
         if (err) {
           return done(err);

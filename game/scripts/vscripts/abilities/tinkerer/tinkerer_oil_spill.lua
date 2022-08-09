@@ -85,7 +85,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     duration = duration + talent:GetSpecialValueFor("value")
   end
 
-  --loop enemies
+  -- Apply debuff to enemies
   for _, enemy in pairs(oiled_enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})

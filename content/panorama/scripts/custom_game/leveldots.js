@@ -13,35 +13,38 @@
 function InjectAbilityDotsStyle (abilitiesPanel, numAbilitiesClassPanel, dotStyles, containerStyles) {
   abilitiesPanel.ApplyStyles(false);
   //  Figure out style groups to apply based on number of abilities
-  for (var numAbilitiesClass in dotStyles) {
+  let numAbilitiesClass;
+  for (numAbilitiesClass in dotStyles) {
     if (numAbilitiesClassPanel.BHasClass(numAbilitiesClass)) {
       break;
     }
   }
   //  Loop through ability panels
   abilitiesPanel.Children().forEach(function (abilityPanel) {
-    var abilityLevelContainer = abilityPanel.FindChildTraverse('AbilityLevelContainer');
+    const abilityLevelContainer = abilityPanel.FindChildTraverse('AbilityLevelContainer');
     // Figure out the group of styles in dotStyles to apply
-    for (var dotClassName in dotStyles[numAbilitiesClass]) {
+    let dotClassName;
+    for (dotClassName in dotStyles[numAbilitiesClass]) {
       if (abilityPanel.BHasClass(dotClassName)) {
         break;
       }
     }
     if (containerStyles !== null) {
       // Figure out the group of styles in containerStyles to apply
-      for (var containerClassName in containerStyles[numAbilitiesClass]) {
+      let containerClassName;
+      for (containerClassName in containerStyles[numAbilitiesClass]) {
         if (abilityPanel.BHasClass(containerClassName)) {
           break;
         }
       }
       // Apply styles to AbilityLevelContainer
-      for (var attribute in containerStyles[numAbilitiesClass][containerClassName]) {
+      for (const attribute in containerStyles[numAbilitiesClass][containerClassName]) {
         abilityLevelContainer.style[attribute] = containerStyles[numAbilitiesClass][containerClassName][attribute];
       }
     }
     //  Loop through level dots and apply style
     abilityLevelContainer.Children().forEach(function (levelDot) {
-      for (var attribute in dotStyles[numAbilitiesClass][dotClassName]) {
+      for (const attribute in dotStyles[numAbilitiesClass][dotClassName]) {
         levelDot.style[attribute] = dotStyles[numAbilitiesClass][dotClassName][attribute];
       }
     });
@@ -50,9 +53,9 @@ function InjectAbilityDotsStyle (abilitiesPanel, numAbilitiesClassPanel, dotStyl
 }
 
 function InjectBottomAbilityDotsStyle () {
-  var abilitiesPanel = FindDotaHudElement('abilities');
-  var numAbilitiesClassPanel = FindDotaHudElement('center_block');
-  var dotStyles = {
+  const abilitiesPanel = FindDotaHudElement('abilities');
+  const numAbilitiesClassPanel = FindDotaHudElement('center_block');
+  const dotStyles = {
     SixAbilities: {
       AbilityMaxLevel6: {
         width: '7px',
@@ -94,9 +97,9 @@ function InjectBottomAbilityDotsStyle () {
 }
 
 function InjectQueryAbilityDotsStyle () {
-  var abilitiesPanel = FindDotaHudElement('Abilities');
-  var numAbilitiesClassPanel = FindDotaHudElement('QueryUnit');
-  var dotStyles = {
+  const abilitiesPanel = FindDotaHudElement('Abilities');
+  const numAbilitiesClassPanel = FindDotaHudElement('QueryUnit');
+  const dotStyles = {
     default: {
       AbilityMaxLevel6: {
         width: '3px',
@@ -115,12 +118,12 @@ function InjectQueryAbilityDotsStyle () {
       }
     }
   };
-  var containerStyles = {
+  const containerStyles = {
     AbilityMaxLevel6: {
       'margin-left': '1px'
     },
     default: {
-      'margin': null
+      margin: null
     }
   };
   InjectAbilityDotsStyle(abilitiesPanel, numAbilitiesClassPanel, dotStyles, containerStyles);

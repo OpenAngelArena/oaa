@@ -4,7 +4,7 @@ const path = require('path');
 
 const basePath = path.join(__dirname, '../');
 let SPACE_PADDING = '                                                         ';
-var filenameByKey = {};
+const filenameByKey = {};
 
 function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
   key = key.toLowerCase();
@@ -16,14 +16,14 @@ function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
   recursionCheck[key] = recursionCheck[key] || 0;
 
   let value = allTooltips[key];
-  let tokens = value.match(/#{[_\- A-Za-z0-9]+}/g); // alphanumeric, _- and space
+  const tokens = value.match(/#{[_\- A-Za-z0-9]+}/g); // alphanumeric, _- and space
   if (!tokens) {
     return value;
   }
   recursionCheck[key]++;
 
   tokens.forEach(function (token) {
-    let tokenKey = token.substr(2, token.length - 3).toLowerCase();
+    const tokenKey = token.substr(2, token.length - 3).toLowerCase();
     if (!allTooltips[tokenKey]) {
       throw new Error([
         'References invalid token name, ',
@@ -43,7 +43,7 @@ function checkReplaceTokens (allTooltips, key, recursionCheck, source) {
 
 function generateTooltips (fileData, allTooltips) {
   return Object.keys(fileData).map(function (fileName) {
-    let tooltipData = fileData[fileName];
+    const tooltipData = fileData[fileName];
     return [
       '//---------------------------------------------------------------------------',
       '//      Generated from ' + fileName,
@@ -64,7 +64,7 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
   languageFolder = languageFolder || path.join(basePath, 'game/resource/English/');
   let fileData = readdir(languageFolder);
 
-  let allTooltips = {};
+  const allTooltips = {};
 
   if (dotaLanguage) {
     Object.keys(dotaLanguage.lang.Tokens.values).forEach(function (key) {
@@ -74,7 +74,7 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
 
   // read EVERYTHING first so that order doesn't matter...
   Object.keys(fileData).forEach(function (fileName) {
-    let tooltipData = fileData[fileName];
+    const tooltipData = fileData[fileName];
     Object.keys(tooltipData).forEach(function (key) {
       allTooltips[key.toLowerCase()] = tooltipData[key];
       filenameByKey[key.toLowerCase()] = fileName;
@@ -82,7 +82,7 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
   });
   // then populate tokens
   Object.keys(fileData).forEach(function (fileName) {
-    let tooltipData = fileData[fileName];
+    const tooltipData = fileData[fileName];
     Object.keys(tooltipData).forEach(function (key) {
       key = key.toLowerCase();
       allTooltips[key] = checkReplaceTokens(allTooltips, key);
@@ -103,12 +103,12 @@ module.exports = function (shouldParse, languageFolder, dotaLanguage) {
   return shouldParse === false ? fileData : parseKV(fileData);
 
   function readdir (dir) {
-    let fileList = fs.readdirSync(dir);
-    let fileData = fileList.map(function (file) {
+    const fileList = fs.readdirSync(dir);
+    const fileData = fileList.map(function (file) {
       try {
-        let filePath = path.join(dir, file);
-        let fileData = fs.readFileSync(filePath);
-        if (fileData.toString().match(new RegExp('[^\x00-\x7F]'))) { // eslint-disable-line no-control-regex
+        const filePath = path.join(dir, file);
+        const fileData = fs.readFileSync(filePath);
+        if (fileData.toString().match(new RegExp('[^\x00-\x7F]'))) { // eslint-disable-line
           throw new Error(filePath.substr(basePath.length) + ' contains invalid text or bad formatting');
         }
         return [filePath, fileData];

@@ -34,6 +34,7 @@ local hero_mods = {
   HM24 = "modifier_any_damage_crit_oaa",
   --HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
+  HM27 = "modifier_brawler_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -44,6 +45,7 @@ local boss_mods = {
   BM05 = "modifier_no_cast_points_oaa",
   BM06 = "modifier_ham_oaa",
   BM07 = "modifier_boss_aggresive_oaa",
+  BM08 = "modifier_brawler_oaa",
 }
 local global_mods = {
   GMN  = false,
@@ -127,6 +129,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_any_damage_crit_oaa", "modifiers/funmodifiers/modifier_any_damage_crit_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hp_mana_switch_oaa", "modifiers/funmodifiers/modifier_hp_mana_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_magus_oaa", "modifiers/funmodifiers/modifier_magus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_brawler_oaa", "modifiers/funmodifiers/modifier_brawler_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -145,8 +148,8 @@ end
 function OAAOptions:SetupGame()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
-    Glyph.ward.cooldown = 30
-    Glyph:ResetWardCooldowns()
+    CustomWardButtons.obs_cooldown = 30
+    CustomWardButtons.sentry_cooldown = 30
   end
   if self.settings.GLOBAL_MODS == "GM12" then
     local mode = GameRules:GetGameModeEntity()

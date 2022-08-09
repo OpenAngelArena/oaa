@@ -1,10 +1,10 @@
-var parseKV = require('parse-kv');
-var fs = require('fs');
-var path = require('path');
-var after = require('after');
+const parseKV = require('parse-kv');
+const fs = require('fs');
+const path = require('path');
+const after = require('after');
 
-var npcDir = path.join(__dirname, '../game/scripts/npc/');
-var vscriptsDir = path.join(__dirname, '../game/scripts/vscripts/');
+const npcDir = path.join(__dirname, '../game/scripts/npc/');
+const vscriptsDir = path.join(__dirname, '../game/scripts/vscripts/');
 
 module.exports = {
   listAllItems: listAllItems,
@@ -28,7 +28,7 @@ function listAllItems (cb) {
       return cb(err);
     }
 
-    var lines = data.split('\n')
+    const lines = data.split('\n')
       .filter(function (line) {
         return line.substr(0, 5) === '#base';
       })
@@ -48,7 +48,7 @@ function listAllUnits (cb) {
       return cb(err);
     }
 
-    var lines = data.split('\n')
+    const lines = data.split('\n')
       .filter(function (line) {
         return line.substr(0, 5) === '#base';
       })
@@ -68,7 +68,7 @@ function listAllAbilities (cb) {
       return cb(err);
     }
 
-    var lines = data.split('\n')
+    const lines = data.split('\n')
       .filter(function (line) {
         return line.substr(0, 5) === '#base';
       })
@@ -81,23 +81,23 @@ function listAllAbilities (cb) {
 }
 
 function listAllLuaFiles (cb) {
-  var luaFileRegex = /\.lua$/;
-  var luaFileFilter = function (fileName) {
+  const luaFileRegex = /\.lua$/;
+  const luaFileFilter = function (fileName) {
     return luaFileRegex.test(fileName);
   };
 
-  var luaScripts = getFilesFromDirectory(vscriptsDir);
+  const luaScripts = getFilesFromDirectory(vscriptsDir);
   return luaScripts.filter(luaFileFilter);
 }
 
 function findAllAbilities (cb) {
-  var result = [];
+  let result = [];
   listAllAbilities(function (err, lines) {
     if (err) {
       return cb(err);
     }
-    var done = after(lines.length, function () {
-      var foundList = {};
+    const done = after(lines.length, function () {
+      const foundList = {};
       result = result.sort().filter(function (n) {
         if (foundList[n]) {
           return false;
@@ -113,7 +113,7 @@ function findAllAbilities (cb) {
         if (err) {
           return done(err);
         }
-        var unitList = getAbilitiesFromKV(kvData);
+        const unitList = getAbilitiesFromKV(kvData);
         result = result.concat(unitList);
         done();
       });
@@ -122,13 +122,13 @@ function findAllAbilities (cb) {
 }
 
 function findAllUnits (cb) {
-  var result = [];
+  let result = [];
   listAllUnits(function (err, lines) {
     if (err) {
       return cb(err);
     }
-    var done = after(lines.length, function () {
-      var foundList = {};
+    const done = after(lines.length, function () {
+      const foundList = {};
       result = result.sort().filter(function (n) {
         if (foundList[n]) {
           return false;
@@ -144,7 +144,7 @@ function findAllUnits (cb) {
         if (err) {
           return done(err);
         }
-        var unitList = getUnitsFromKV(kvData);
+        const unitList = getUnitsFromKV(kvData);
         result = result.concat(unitList);
         done();
       });
@@ -153,13 +153,13 @@ function findAllUnits (cb) {
 }
 
 function findAllItems (cb) {
-  var result = [];
+  let result = [];
   listAllItems(function (err, lines) {
     if (err) {
       return cb(err);
     }
-    var done = after(lines.length, function () {
-      var foundList = {};
+    const done = after(lines.length, function () {
+      const foundList = {};
       result = result.sort().filter(function (n) {
         if (foundList[n]) {
           return false;
@@ -175,11 +175,11 @@ function findAllItems (cb) {
         if (err) {
           return done(err);
         }
-        var itemList = getItemsFromKV(kvData);
+        const itemList = getItemsFromKV(kvData);
         result = result.concat(itemList);
-        var luaPathList = getLuaPathsFromKV(kvData);
+        const luaPathList = getLuaPathsFromKV(kvData);
 
-        var luaPathDone = after(luaPathList.length, done);
+        const luaPathDone = after(luaPathList.length, done);
         luaPathList.forEach(function (luaPath) {
           findLinkLuaModifiersInFile(luaPath, function (err, modifiers) {
             if (err) {
@@ -235,20 +235,20 @@ function getLuaPathsFromKV (data) {
     }, []);
 }
 
-var hiddenModifiers = {};
+const hiddenModifiers = {};
 function isModifierHidden (modPair, cb) {
   if (hiddenModifiers[modPair[0]] !== undefined) {
     return cb(null, hiddenModifiers[modPair[0]]);
   }
-  var functionString = ['function ', modPair[0], ':IsHidden()'].join('');
+  const functionString = ['function ', modPair[0], ':IsHidden()'].join('');
   fs.readFile(path.join(vscriptsDir, modPair[1]), {
     encoding: 'utf8'
   }, function (err, data) {
     if (err) {
       return cb(err);
     }
-    var foundLine = false;
-    var result = false;
+    let foundLine = false;
+    let result = false;
     data.split('\n')
       .forEach(function (line) {
         line = line.trim();
@@ -269,40 +269,40 @@ function isModifierHidden (modPair, cb) {
 }
 
 function findLinkLuaModifiersInFile (script, cb, fullPathProvided = false, failOnNonExistentPath = false) {
-  var scriptPath = fullPathProvided ? script : path.join(vscriptsDir, script);
-  var linkModifierRegex = /^\s*LinkLuaModifier.*/;
+  const scriptPath = fullPathProvided ? script : path.join(vscriptsDir, script);
+  const linkModifierRegex = /^\s*LinkLuaModifier.*/;
   fs.readFile(scriptPath, {
     encoding: 'utf8'
   }, function (err, data) {
     if (err) {
       return cb(err);
     }
-    var result = [];
-    var modifierList = data.split('\n')
+    const result = [];
+    const modifierList = data.split('\n')
       .filter(function (line) {
         return linkModifierRegex.test(line) && line.split(',').length === 3;
       })
       .map(function (link) {
-        var modifierParts = link.split(',');
-        var modifierPath = modifierParts[1].trim();
-        var modifierName = modifierParts[0].trim().substr(16).trim();
+        const modifierParts = link.split(',');
+        let modifierPath = modifierParts[1].trim();
+        let modifierName = modifierParts[0].trim().substr(16).trim();
         modifierName = modifierName.substr(1, modifierName.length - 2);
         modifierPath = modifierPath.substr(1, modifierPath.length - 2);
 
         return [modifierName, modifierPath];
       });
-    var done = after(modifierList.length * 2, function () {
+    const done = after(modifierList.length * 2, function () {
       cb(null, result);
     });
 
     modifierList.forEach(function (modifier) {
-      var relativePath = modifier[1];
+      let relativePath = modifier[1];
       if (!relativePath.endsWith('.lua')) {
         relativePath = relativePath + '.lua';
       }
       fs.access(path.join(vscriptsDir, relativePath), function (err, data) {
         if (err) {
-          var missingFileMsg = 'LinkLuaModifier referenced non-existent file:' + modifier;
+          const missingFileMsg = 'LinkLuaModifier referenced non-existent file:' + modifier;
           console.error(missingFileMsg);
           if (failOnNonExistentPath) {
             cb(missingFileMsg);
@@ -343,9 +343,9 @@ function parseFile (file, cb) {
 function getFilesFromDirectory (dir, fileList) {
   fileList = fileList || [];
 
-  var files = fs.readdirSync(dir);
-  for (var i in files) {
-    var name = dir + '/' + files[i];
+  const files = fs.readdirSync(dir);
+  for (const i in files) {
+    const name = dir + '/' + files[i];
     if (fs.statSync(name).isDirectory()) {
       getFilesFromDirectory(name, fileList);
     } else {

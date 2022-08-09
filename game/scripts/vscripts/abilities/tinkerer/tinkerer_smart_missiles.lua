@@ -251,11 +251,9 @@ function modifier_tinkerer_smart_missiles_stun:GetEffectAttachType()
 end
 
 function modifier_tinkerer_smart_missiles_stun:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_tinkerer_smart_missiles_stun:GetOverrideAnimation()
@@ -263,8 +261,7 @@ function modifier_tinkerer_smart_missiles_stun:GetOverrideAnimation()
 end
 
 function modifier_tinkerer_smart_missiles_stun:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
 end

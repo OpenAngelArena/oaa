@@ -1,10 +1,8 @@
-LinkLuaModifier("modifier_kill", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
-
 LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_custom_glyph_knockback", "components/glyph/glyph.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 if Glyph == nil then
   -- Debug:EnableDebugging()
@@ -13,121 +11,85 @@ if Glyph == nil then
 end
 
 function Glyph:Init()
-  self.moduleName = "Glyph (Poop Ward and Scan)"
-  self.ward = {}
-  self.scan = {}
+  self.moduleName = "Glyph and Scan"
 
-  self.ward.cooldown = POOP_WARD_COOLDOWN
-  self.scan.cooldown = SCAN_REVEAL_COOLDOWN
+  local glyph_cooldown = GLYPH_COOLDOWN or 120
+  local scan_cooldown = SCAN_REVEAL_COOLDOWN
 
-  self.ward.cooldowns = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))
-  self.scan.cooldowns = {
-    [DOTA_TEAM_GOODGUYS] = 0,
-    [DOTA_TEAM_BADGUYS] = 0,
-  }
+  local game_mode = GameRules:GetGameModeEntity()
+  --GameRules:SetGlyphCooldown(DOTA_TEAM_GOODGUYS, glyph_cooldown)
+  --GameRules:SetGlyphCooldown(DOTA_TEAM_BADGUYS, glyph_cooldown)
+  game_mode:SetCustomGlyphCooldown(glyph_cooldown)
+  game_mode:SetCustomScanCooldown(scan_cooldown)
+
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      self.radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      self.dire_fountain = entity
+    end
+  end
 
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(Glyph, "Filter"))
 end
 
 function Glyph:Filter(keys)
   local order = keys.order_type
-  local abilityEID = keys.entindex_ability
-  local ability = EntIndexToHScript(abilityEID)
   local issuerID = keys.issuer_player_id_const
-  local target = EntIndexToHScript(keys.entindex_target)
-
 
   if order == DOTA_UNIT_ORDER_GLYPH then
-    -- Handle Glyph aka Ward Button
-    DebugPrintTable(keys)
-    self:CastWard(issuerID)
-    return false
+    self:CustomGlyphEffect(issuerID)
   elseif order == DOTA_UNIT_ORDER_RADAR then
-    -- Handle Scan
-    DebugPrintTable(keys)
-    self:CastScan(issuerID, keys)
-    return false
+    self:CustomScanEffect(issuerID, keys)
   end
 
   return true
 end
 
-function Glyph:CastWard(playerID)
-  if self:GetWardCooldown(playerID) > 0 then
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
-    return
-  end
-  self:ResetWardCooldown(playerID)
+function Glyph:CustomGlyphEffect(playerID)
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-  local position = hero:GetAbsOrigin()
-  --[[for i=0,256 do
-    Timers:CreateTimer(i * 2, function ()
-      print('Message ' .. i)
-      DebugDrawText(position, 'Message ' .. i, true, 2)
-      CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=i, message="message"})
-    end)
-  end]]
+  local team = hero:GetTeamNumber()
+  local oposite_team = DOTA_TEAM_BADGUYS
+  local fountain = self.radiant_fountain
+  if team == DOTA_TEAM_BADGUYS then
+    oposite_team = DOTA_TEAM_GOODGUYS
+    fountain = self.dire_fountain
+  end
 
-  local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, hero, hero:GetTeam())
-  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = POOP_WARD_DURATION })
-  ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", { })
-end
+  local units = FindUnitsInRadius(
+    oposite_team,
+    Vector(0, 0, 0),
+    nil,
+    FIND_UNITS_EVERYWHERE,
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 
-function Glyph:ResetWardCooldowns()
-  PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    self:ResetWardCooldown(playerID)
-  end)
-  GameRules:GetGameModeEntity():SetCustomGlyphCooldown(self:GetWardCooldown())
-end
-
-function Glyph:ResetWardCooldown(playerID)
-  self:SetWardCooldown(playerID, self:GetWardCooldown())
-end
-
-function Glyph:SetWardCooldown(playerID, time)
-  local player = PlayerResource:GetPlayer(playerID)
-  time = time or 0
-
-  self.ward.cooldowns[playerID] = time
-  CustomGameEventManager:Send_ServerToPlayer(player, "glyph_ward_cooldown", { cooldown = time, maxCooldown = self:GetWardCooldown() })
-  Timers:CreateTimer(time, function ()
-    Glyph.ward.cooldowns[playerID] = 0
-  end)
-end
-
-function Glyph:GetWardCooldown(playerID)
-  if playerID then
-    return self.ward.cooldowns[playerID]
-  else
-    return self.ward.cooldown
+  for _, unit in pairs(units) do
+    local unit_loc = unit:GetAbsOrigin()
+    if (team == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(unit_loc)) or (team == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(unit_loc)) then
+      local direction = unit_loc - fountain:GetAbsOrigin()
+      -- Normalize direction
+      direction.z = 0
+      direction = direction:Normalized()
+      -- Calculate distance
+      local distance = math.max(400, 4200 - (3800/4200) * self:DistanceFromFountain(unit_loc, team))
+      -- Push away from the fountain (off highground)
+      unit:AddNewModifier(hero, nil, "modifier_custom_glyph_knockback", {
+        distance = distance,
+        speed = 1200,
+        direction_x = direction.x,
+        direction_y = direction.y,
+      })
+    end
   end
 end
 
-
---[[
-{
-  ["entindex_ability"] = 0,
-  ["sequence_number_const"] = 34,
-  ["queue"] = 0,
-  ["units"] = {
-    ["0"] = 364,
-   } ,
-  ["entindex_target"] = 0,
-  ["position_z"] = 228.81585693359,
-  ["position_x"] = -3273.6315917969,
-  ["order_type"] = 31,
-  ["position_y"] = -197.20104980469,
-  ["issuer_player_id_const"] = 0,
-}
-]]--
-
-function Glyph:CastScan(playerID, keys)
-
-  if self:GetScanCooldown(playerID) > 0 then
-    CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "custom_dota_hud_error_message", {reason=61, message=""})
-    return
-  end
-
+function Glyph:CustomScanEffect(playerID, keys)
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
   local position = Vector(keys.position_x, keys.position_y, keys.position_z)
   local team = hero:GetTeamNumber()
@@ -141,32 +103,115 @@ function Glyph:CastScan(playerID, keys)
   local scan_thinker2 = CreateUnitByName("npc_dota_custom_dummy_unit", position, false, hero, hero, team)
   scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_thinker", {duration = SCAN_DURATION})
   scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION})
-
-  self:ResetScanCooldown(playerID)
 end
 
-function Glyph:ResetScanCooldown(playerID)
-  self:SetScanCooldown(playerID, self:GetScanCooldown())
+function Glyph:DistanceFromFountain(location, team)
+  if not location or not team then
+    return nil
+  end
+  local fountain
+  if team == DOTA_TEAM_GOODGUYS then
+    fountain = self.radiant_fountain
+  elseif team == DOTA_TEAM_BADGUYS then
+    fountain = self.dire_fountain
+  end
+  if not fountain then
+    return nil
+  end
+
+  return (fountain:GetAbsOrigin() - location):Length2D()
 end
 
-function Glyph:SetScanCooldown(playerID, time)
-  local player = PlayerResource:GetPlayer(playerID)
-  local team = player:GetTeam()
-  time = time or 0
+---------------------------------------------------------------------------------------------------
 
-  self.scan.cooldowns[team] = time
-  CustomGameEventManager:Send_ServerToTeam( team, "glyph_scan_cooldown", { cooldown = time, maxCooldown = self:GetScanCooldown() } )
-  Timers:CreateTimer(time, function ()
-    Glyph.scan.cooldowns[team] = 0
-  end)
+modifier_custom_glyph_knockback = class(ModifierBaseClass)
+
+function modifier_custom_glyph_knockback:IsDebuff()
+  return true
 end
 
-function Glyph:GetScanCooldown(playerID)
-  if playerID then
-    local player = PlayerResource:GetPlayer(playerID)
-    local team = player:GetTeam()
-    return self.scan.cooldowns[team]
-  else
-    return self.scan.cooldown
+function modifier_custom_glyph_knockback:IsHidden()
+  return true
+end
+
+function modifier_custom_glyph_knockback:IsPurgable()
+  return false
+end
+
+function modifier_custom_glyph_knockback:IsStunDebuff()
+  return false
+end
+
+function modifier_custom_glyph_knockback:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
+end
+
+function modifier_custom_glyph_knockback:GetOverrideAnimation()
+  return ACT_DOTA_FLAIL
+end
+
+function modifier_custom_glyph_knockback:GetPriority()
+  return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
+end
+
+function modifier_custom_glyph_knockback:CheckState()
+  return {
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_STUNNED] = true,
+  }
+end
+
+if IsServer() then
+  function modifier_custom_glyph_knockback:OnCreated(event)
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+
+    -- Data sent with AddNewModifier (not available on the client)
+    self.direction = Vector(event.direction_x, event.direction_y, 0)
+    self.distance = event.distance + 1
+    self.speed = event.speed
+
+    if self:ApplyHorizontalMotionController() == false then
+      self:Destroy()
+      return
+    end
+  end
+
+  function modifier_custom_glyph_knockback:OnDestroy()
+    local parent = self:GetParent()
+    local parent_origin = parent:GetAbsOrigin()
+
+    parent:RemoveHorizontalMotionController(self)
+
+    -- Unstuck the parent
+    FindClearSpaceForUnit(parent, parent_origin, false)
+    ResolveNPCPositions(parent_origin, 128)
+    GridNav:DestroyTreesAroundPoint(parent_origin, 200, true)
+  end
+
+  function modifier_custom_glyph_knockback:UpdateHorizontalMotion(parent, deltaTime)
+    if not parent or parent:IsNull() or not parent:IsAlive() then
+      return
+    end
+
+    local parentOrigin = parent:GetAbsOrigin()
+    local tickTraveled = deltaTime * self.speed
+    tickTraveled = math.min(tickTraveled, self.distance)
+    if tickTraveled <= 0 then
+      self:Destroy()
+    end
+    local tickOrigin = parentOrigin + tickTraveled * self.direction
+    tickOrigin = Vector(tickOrigin.x, tickOrigin.y, GetGroundHeight(tickOrigin, parent))
+
+    self.distance = self.distance - tickTraveled
+
+    -- Unstucking (ResolveNPCPositions) is happening OnDestroy;
+    parent:SetAbsOrigin(tickOrigin)
+  end
+
+  function modifier_custom_glyph_knockback:OnHorizontalMotionInterrupted()
+    self:Destroy()
   end
 end

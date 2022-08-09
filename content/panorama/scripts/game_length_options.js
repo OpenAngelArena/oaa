@@ -1,6 +1,6 @@
 /* global Players, $, GameEvents */
 
-var console = {
+const console = {
   log: $.Msg.bind($)
 };
 
@@ -11,7 +11,7 @@ if (typeof module !== 'undefined' && module.exports) {
 function SetPlayerVote (vote) {
   // return
 
-  var options = [
+  const options = [
     'short',
     'normal',
     'long'

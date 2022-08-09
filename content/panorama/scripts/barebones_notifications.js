@@ -13,14 +13,14 @@ function BottomRemoveNotification (msg) {
   RemoveNotification(msg, $('#BottomNotifications'));
 }
 function RemoveNotification (msg, panel) {
-  var count = msg.count;
+  const count = msg.count;
   if (count > 0 && panel.GetChildCount() > 0) {
-    var start = panel.GetChildCount() - count;
+    let start = panel.GetChildCount() - count;
     if (start < 0) {
       start = 0;
     }
-    for (var i = start; i < panel.GetChildCount(); i++) {
-      var lastPanel = panel.GetChild(i);
+    for (let i = start; i < panel.GetChildCount(); i++) {
+      const lastPanel = panel.GetChild(i);
       // lastPanel.SetAttributeInt("deleted", 1)
       // lastPanel.deleted = true;
       lastPanel.DeleteAsync(0);
@@ -28,14 +28,14 @@ function RemoveNotification (msg, panel) {
   }
 }
 function AddNotification (msg, panel) {
-  var lastNotification = panel.GetChild(panel.GetChildCount() - 1);
+  let lastNotification = panel.GetChild(panel.GetChildCount() - 1);
   // $.Msg(msg)
-  var continueLast = msg['continue'] === 1;
+  const continueLast = msg.continue === 1;
   if (typeof (msg.duration) !== 'number') {
     // $.Msg("[Notifications] Notification Duration is not a number!")
     msg.duration = 3;
   }
-  var newNotification = !(lastNotification != null && continueLast);
+  const newNotification = !(lastNotification != null && continueLast);
   if (newNotification) {
     lastNotification = $.CreatePanel('Panel', panel, '');
     lastNotification.AddClass('NotificationLine');
@@ -56,7 +56,7 @@ function AddNotification (msg, panel) {
     return msg.item !== undefined;
   }
   // End of type guard functions
-  var notification;
+  let notification;
   if (isHeroImage(msg)) {
     notification = $.CreatePanel('DOTAHeroImage', lastNotification, '');
     notification.heroimagestyle = msg.imagestyle || 'icon';
@@ -78,8 +78,8 @@ function AddNotification (msg, panel) {
     notification = $.CreatePanel('Label', lastNotification, '');
     notification.html = true;
     if (msg.replacement_map) {
-      for (var key in msg.replacement_map) {
-        var val = msg.replacement_map[key];
+      for (const key in msg.replacement_map) {
+        const val = msg.replacement_map[key];
         if (typeof val === 'number') {
           notification.SetDialogVariableInt(key, val);
         } else {
@@ -87,21 +87,21 @@ function AddNotification (msg, panel) {
         }
       }
     }
-    var text = msg.text || 'No Text provided';
+    let text = msg.text || 'No Text provided';
     text = $.Localize(text, notification);
     // text = ReplaceSpecialTokens($.Localize(text), msg.replacement_map);
     notification.text = text;
     notification.hittest = false;
     notification.AddClass('TitleText');
   }
-  if (msg['class']) {
-    notification.AddClass(msg['class']);
+  if (msg.class) {
+    notification.AddClass(msg.class);
   } else {
     notification.AddClass('NotificationMessage');
   }
   if (msg.style) {
-    for (var styleKey in msg.style) {
-      var value = msg.style[styleKey];
+    for (const styleKey in msg.style) {
+      const value = msg.style[styleKey];
       notification.style[styleKey] = value;
     }
   }

@@ -1,18 +1,18 @@
-var test = require('tape');
-var Lib = require('../kv-lib');
-var path = require('path');
-var fs = require('fs');
-var after = require('after');
-var spok = require('spok');
-var extend = require('xtend');
-var partial = require('ap').partial;
+const test = require('tape');
+const Lib = require('../kv-lib');
+const path = require('path');
+const fs = require('fs');
+const after = require('after');
+const spok = require('spok');
+const extend = require('xtend');
+const partial = require('ap').partial;
 
-var dotaItems = null;
-var dotaItemIDs = null;
-var dotaAbilities = null;
-var dotaItemList = null;
-var dotaAbilityList = null;
-var stupidItemNames = [
+let dotaItems = null;
+let dotaItemIDs = null;
+let dotaAbilities = null;
+let dotaItemList = null;
+let dotaAbilityList = null;
+const stupidItemNames = [
   'item_recipe',
   'item_halloween_candy_corn',
   'item_halloween_rapier',
@@ -21,11 +21,11 @@ var stupidItemNames = [
   'nothing'
 ];
 
-var itemsFound = {};
-var idsFound = {};
-var itemFileMap = {};
-var nextAvailableId = 3500;
-var usedIDs = {};
+let itemsFound = {};
+const idsFound = {};
+const itemFileMap = {};
+let nextAvailableId = 3500;
+const usedIDs = {};
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -55,10 +55,10 @@ test('KV Values', function (t) {
     });
   });
   t.test('Testing all item KV values', function (t) {
-    dotaItems['item_lua'] = true;
-    dotaAbilities['ability_lua'] = true;
-    dotaItems['item_datadriven'] = true;
-    dotaAbilities['ability_datadriven'] = true;
+    dotaItems.item_lua = true;
+    dotaAbilities.ability_lua = true;
+    dotaItems.item_datadriven = true;
+    dotaAbilities.ability_datadriven = true;
     Lib.items(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while item reading kvs');
@@ -66,8 +66,8 @@ test('KV Values', function (t) {
         return t.end();
       }
 
-      var keys = Object.keys(data);
-      var done = after(keys.length + 1, t.end);
+      const keys = Object.keys(data);
+      const done = after(keys.length + 1, t.end);
       keys.forEach(function (name) {
         checkKVData(t, name, data[name], true, done);
       });
@@ -82,8 +82,8 @@ test('KV Values', function (t) {
         return t.end();
       }
 
-      var keys = Object.keys(data);
-      var done = after(keys.length, t.end);
+      const keys = Object.keys(data);
+      const done = after(keys.length, t.end);
       keys.forEach(function (name) {
         checkKVData(t, name, data[name], false, done);
       });
@@ -95,9 +95,9 @@ test('KV Values', function (t) {
     }
     t.ok(nextAvailableId, 'found an available id');
     console.log('Next available ID is', nextAvailableId);
-    var iter = 0;
-    var idToCheck = 0;
-    var j = 0;
+    let iter = 0;
+    let idToCheck = 0;
+    let j = 0;
     // short unsigned (0, 65535) 65536 is equivalent to 0; 65537 is equivalent to 1 etc.
     console.log('items/abilities with potentially bad ID if unique ID is short unsigned type:');
     for (iter = 8000; iter < 9999999; iter++) {
@@ -134,13 +134,13 @@ test('KV Values', function (t) {
   });
 });
 
-var specialValuesForItem = {};
-var abilityValuesForItem = {};
+const specialValuesForItem = {};
+const abilityValuesForItem = {};
 
 function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
-    var root = data;
-    var foundRoot = false;
+    let root = data;
+    let foundRoot = false;
     if (root.DOTAAbilities) {
       root = root.DOTAAbilities;
       foundRoot = true;
@@ -150,8 +150,8 @@ function checkKVData (t, name, data, isItem, cb) {
     }
     t.ok(foundRoot, 'Starts with DOTAAbilities');
 
-    var keys = Object.keys(root).filter(a => a !== 'values');
-    var done = after(keys.length, function (err) {
+    const keys = Object.keys(root).filter(a => a !== 'values');
+    const done = after(keys.length, function (err) {
       t.notOk(err, 'no error at very end');
       t.end();
       cb(err);
@@ -161,19 +161,19 @@ function checkKVData (t, name, data, isItem, cb) {
 }
 
 function testKVItem (t, root, isItem, fileName, cb, item) {
-  var iconDirectory = isItem
+  const iconDirectory = isItem
     ? 'items'
     : 'spellicons';
   // t.test(item, function (t) {
 
   itemFileMap[item] = fileName;
-  var done = after(3, function (err) {
+  const done = after(3, function (err) {
     t.notOk(err, 'no error at very end');
     // t.end();
     cb(err);
   });
-  var values = root[item].values;
-  var isBuiltIn = isItem
+  const values = root[item].values;
+  const isBuiltIn = isItem
     ? dotaItems[item] && dotaItems[item] !== true
     : dotaAbilities[item] && dotaAbilities[item] !== true;
 
@@ -199,7 +199,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     nextAvailableId += 1;
   }
 
-  var icon = values.AbilityTextureName;
+  let icon = values.AbilityTextureName;
 
   if (icon) {
     t.equal(values.AbilityTextureName.toLowerCase(), values.AbilityTextureName, 'Icon names must be lowercase');
@@ -208,7 +208,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       if (icon.substr(-4) === '.png') {
         t.fail('AbilityTextureName should not contain file extension');
       }
-      var iconParts = icon.split('/');
+      const iconParts = icon.split('/');
       if (iconParts[0] === 'item_custom') {
         iconParts[0] = 'custom';
       }
@@ -227,7 +227,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   } else {
     done();
   }
-  var parentKV = null;
+  let parentKV = null;
   if (values.BaseClass) {
     if (isItem) {
       t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
@@ -268,20 +268,20 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     done();
   }
 
-  var chakramIDs = [
+  const chakramIDs = [
     '5527', // shredder_chakram
     '5645' // shredder_chakram_2
   ];
 
-  var ignoreValuesForIDs = [
+  const ignoreValuesForIDs = [
     '40' // item_dust
   ];
 
-  var specials = root[item].AbilitySpecial;
+  const specials = root[item].AbilitySpecial;
 
   if (specials) {
     // check specials!
-    var rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
+    let rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
     t.ok(rootItem, 'can parse basic item name out');
     // var version = rootItem[2];
     rootItem = rootItem[1];
@@ -297,10 +297,10 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     }
   }
 
-  var abilityValues = root[item].AbilityValues;
+  const abilityValues = root[item].AbilityValues;
 
   if (abilityValues) {
-    var rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
+    let rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
     rootItem2 = rootItem2[1];
     if (!abilityValuesForItem[rootItem2]) {
       testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
@@ -322,7 +322,7 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
   if (values.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
-  var keys = [
+  const keys = [
     'AbilityBehavior',
     'ItemCost',
     'AbilityCastRange',
@@ -348,19 +348,19 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
   }
   keys.forEach(function (key) {
     if (values[key] && (!comments[key] || !comments[key].includes('OAA'))) {
-      var baseValue = '';
-      var parentValue = parentValues[key] || '';
+      let baseValue = '';
+      let parentValue = parentValues[key] || '';
 
       if (values[key].length < parentValue.length) {
         baseValue = parentValue.split(' ').map(function (entry) {
           return values[key];
         }).join(' ');
       } else {
-        var size = values[key].split(' ').length - 2;
+        let size = values[key].split(' ').length - 2;
         if (isItem) {
           size = 1;
         }
-        var parentArr = parentValue.split(' ');
+        const parentArr = parentValue.split(' ');
         if (parentArr.length === 1) {
           while (parentArr.length < size) {
             parentArr.push(parentArr[0]);
@@ -377,11 +377,11 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
 }
 
 function testSpecialValues (t, isItem, specials, parentSpecials) {
-  var values = Object.keys(specials).filter(a => a !== 'values');
-  var result = {};
-  var parentData = {};
+  const values = Object.keys(specials).filter(a => a !== 'values');
+  const result = {};
+  const parentData = {};
 
-  var stupidSpecialValueNames = [
+  const stupidSpecialValueNames = [
     'abilitycastrange',
     'abilitycastpoint',
     'abilitychanneltime',
@@ -391,23 +391,23 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
   ];
 
   if (parentSpecials) {
-    var parentValues = Object.keys(parentSpecials).filter(a => a !== 'values');
+    const parentValues = Object.keys(parentSpecials).filter(a => a !== 'values');
     parentValues.forEach(function (num) {
-      var value = parentSpecials[num].values;
-      var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
+      const value = parentSpecials[num].values;
+      const keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
 
       parentData[keyNames[0]] = value;
     });
   }
 
   values.forEach(function (num) {
-    var value = specials[num].values;
+    const value = specials[num].values;
     t.ok(value.var_type, 'has a var_type ' + num);
 
-    var keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
+    const keyNames = filterExtraKeysFromSpecialValue(Object.keys(value));
     t.equal(keyNames.length, 1, 'gets keyname after filtering out extra values');
 
-    var keyName = keyNames[0];
+    const keyName = keyNames[0];
 
     if (parentSpecials && (!parentSpecials[num] || !parentSpecials[num].values[keyName])) {
       if (specials.comments && specials.comments[num] && specials.comments[num].indexOf('OAA') !== -1) {
@@ -417,7 +417,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
       } else if (!parentSpecials[num]) {
         t.fail('Unexpected special value: ' + keyName);
       } else {
-        var expectedName = filterExtraKeysFromSpecialValue(Object.keys(parentSpecials[num].values))[0];
+        const expectedName = filterExtraKeysFromSpecialValue(Object.keys(parentSpecials[num].values))[0];
         if (stupidSpecialValueNames.indexOf(expectedName) === -1) {
           t.fail('special value in wrong order: ' + keyName + ' should be ' + expectedName);
         }
@@ -425,7 +425,7 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
     }
     if (parentData[keyName]) {
       // console.log(parentData[keyName], value);
-      var compareValue = extend(value);
+      const compareValue = extend(value);
       compareValue[keyName] = parentData[keyName][keyName];
       compareValue.var_type = parentData[keyName].var_type;
       spok(t, compareValue, parentData[keyName], keyName + ' has all the special values from parent ');
@@ -436,19 +436,19 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
 
       if (!specials[num].comments[keyName] || !specials[num].comments[keyName].includes('OAA')) {
         // test base dota values
-        var baseValue = '';
-        var parentValue = parentData[keyName][keyName];
+        let baseValue = '';
+        let parentValue = parentData[keyName][keyName];
 
         if (value[keyName].length < parentValue.length) {
           baseValue = parentValue.split(' ').map(function (entry) {
             return value[keyName];
           }).join(' ');
         } else {
-          var size = value[keyName].split(' ').length - 2;
+          let size = value[keyName].split(' ').length - 2;
           if (isItem) {
             size = 1;
           }
-          var parentArr = parentValue.split(' ');
+          const parentArr = parentValue.split(' ');
           if (parentArr.length === 1) {
             while (parentArr.length < size) {
               parentArr.push(parentArr[0]);
@@ -478,51 +478,51 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
 }
 
 function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
-  var normalKeys = Object.keys(abvalues.values);
-  var normalValues = Object.values(abvalues.values);
-  var complexKeys = Object.keys(abvalues).filter(a => a !== 'values');
-  var parentData = {};
-  var actualData = {};
+  const normalKeys = Object.keys(abvalues.values);
+  const normalValues = Object.values(abvalues.values);
+  const complexKeys = Object.keys(abvalues).filter(a => a !== 'values');
+  const parentData = {};
+  const actualData = {};
 
   if (parentAbvalues) {
-    var parentKeys = Object.keys(parentAbvalues.values);
-    var parentValues = Object.values(parentAbvalues.values);
-    var complexParentKeys = Object.keys(parentAbvalues).filter(a => a !== 'values');
+    const parentKeys = Object.keys(parentAbvalues.values);
+    const parentValues = Object.values(parentAbvalues.values);
+    const complexParentKeys = Object.keys(parentAbvalues).filter(a => a !== 'values');
 
     let i = 0;
     parentKeys.forEach(function (num) {
-      let value = parentValues[i];
+      const value = parentValues[i];
       parentData[num] = value;
       i++;
     });
 
     complexParentKeys.forEach(function (num) {
-      let value = parentAbvalues[num].values;
+      const value = parentAbvalues[num].values;
       parentData[num] = value;
     });
   }
 
   let i = 0;
   normalKeys.forEach(function (num) {
-    let value = normalValues[i];
+    const value = normalValues[i];
     actualData[num] = value;
     i++;
   });
 
   complexKeys.forEach(function (num) {
-    let value = abvalues[num].values;
+    const value = abvalues[num].values;
     actualData[num] = value;
   });
 
   normalKeys.forEach(function (keyName) {
-    var actualValue = actualData[keyName];
-    var expectedValue = parentData[keyName];
+    const actualValue = actualData[keyName];
+    let expectedValue = parentData[keyName];
     if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
       if (expectedValue && typeof expectedValue !== 'object') {
         if (actualValue !== expectedValue) {
           if (actualValue.length !== expectedValue.length) {
-            var actualValueToken = actualValue.split(' ');
-            var expectedValueToken = expectedValue.split(' ');
+            const actualValueToken = actualValue.split(' ');
+            const expectedValueToken = expectedValue.split(' ');
             if (actualValueToken.length < expectedValueToken.length) {
               if (actualValueToken.length === 1) {
                 if ((expectedValueToken[0] !== expectedValueToken[1]) || (actualValueToken[0] !== expectedValueToken[0])) {
@@ -533,7 +533,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
               }
             } else {
               if (actualValueToken.length !== expectedValueToken.length) {
-                var size = actualValueToken.length - 2;
+                let size = actualValueToken.length - 2;
                 if (isItem) {
                   size = 1;
                 }
@@ -545,7 +545,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
                 }
                 expectedValue = expectedValueToken.join(' ');
 
-                var valueToCheck = actualValue.substr(0, expectedValue.length);
+                const valueToCheck = actualValue.substr(0, expectedValue.length);
                 if (valueToCheck !== expectedValue) {
                   t.equal(valueToCheck, expectedValue, keyName + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
                 }
@@ -574,20 +574,20 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       }
     }
     if (parentData[keyName]) {
-      var actualValues = Object.values(actualData[keyName]);
-      var expectedValues = Object.values(parentData[keyName]);
+      const actualValues = Object.values(actualData[keyName]);
+      const expectedValues = Object.values(parentData[keyName]);
       actualValues.forEach(function (v, i) {
-        var expectedValue = expectedValues[i];
-        var actualValue = v;
+        let expectedValue = expectedValues[i];
+        const actualValue = v;
         if (actualValue && expectedValue && actualValue !== expectedValue) {
           if (!abvalues.comments[keyName] || !abvalues.comments[keyName].includes('OAA')) {
-            var actualKey = Object.keys(actualData[keyName]).find(key => actualData[keyName][key] === actualValue);
+            let actualKey = Object.keys(actualData[keyName]).find(key => actualData[keyName][key] === actualValue);
             if (actualKey === 'value') {
               actualKey = keyName;
             }
             if (actualValue.length !== expectedValue.length) {
-              var actualValueToken = actualValue.split(' ');
-              var expectedValueToken = expectedValue.split(' ');
+              const actualValueToken = actualValue.split(' ');
+              const expectedValueToken = expectedValue.split(' ');
               if (actualValueToken.length < expectedValueToken.length) {
                 if (actualValueToken.length === 1) {
                   if ((expectedValueToken[0] !== expectedValueToken[1]) || (actualValueToken[0] !== expectedValueToken[0])) {
@@ -598,7 +598,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
                 }
               } else {
                 if (actualValueToken.length !== expectedValueToken.length) {
-                  var size = actualValueToken.length - 2;
+                  let size = actualValueToken.length - 2;
                   if (isItem) {
                     size = 1;
                   }
@@ -610,7 +610,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
                   }
                   expectedValue = expectedValueToken.join(' ');
 
-                  var valueToCheck = actualValue.substr(0, expectedValue.length);
+                  const valueToCheck = actualValue.substr(0, expectedValue.length);
                   if (valueToCheck !== expectedValue) {
                     t.equal(valueToCheck, expectedValue, actualKey + ' should inherit vanilla dota values (' + expectedValue + ' vs ' + valueToCheck + ')');
                   }
@@ -629,8 +629,8 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
 
   if (parentAbvalues) {
     Object.keys(parentData).forEach(function (name) {
-      let actualValue = actualData[name];
-      let actualKey = Object.keys(actualData).find(key => actualData[key] === actualValue);
+      const actualValue = actualData[name];
+      const actualKey = Object.keys(actualData).find(key => actualData[key] === actualValue);
       if (!actualValue && !actualKey && name !== actualKey) {
         t.fail('Vanilla ability has a key: ' + name + ' with a value: ' + parentData[name]);
       }
@@ -638,7 +638,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
   }
 }
 
-var keyWhiteList = [
+const keyWhiteList = [
   'var_type',
   'LinkedSpecialBonus',
   'LinkedSpecialBonusField',
@@ -658,23 +658,23 @@ function filterExtraKeysFromSpecialValue (keyNames) {
 
 // check upgrade paths and costs
 function buildItemTree (t, data, cb) {
-  var items = {};
-  var recipes = {};
-  var recipesByResult = {};
-  var allItemNames = [];
-  var allRecipeNames = [];
+  const items = {};
+  const recipes = {};
+  const recipesByResult = {};
+  const allItemNames = [];
+  const allRecipeNames = [];
   t.test('item upgrade paths', function (t) {
     Object.keys(data).forEach(function (fileName) {
-      var entry = data[fileName].DOTAAbilities;
+      const entry = data[fileName].DOTAAbilities;
       if (!entry) {
         t.fail('Could not find the DOTAAbilities entry for ' + fileName);
         return;
       }
-      var itemNames = Object.keys(entry).filter(a => a !== 'values');
+      const itemNames = Object.keys(entry).filter(a => a !== 'values');
       itemNames.forEach(function (item) {
-        var itemData = entry[item];
-        var purchasable = itemData.values.ItemPurchasable !== '0';
-        var itemCost = itemData.values.ItemCost;
+        const itemData = entry[item];
+        const purchasable = itemData.values.ItemPurchasable !== '0';
+        let itemCost = itemData.values.ItemCost;
 
         if (!itemCost && dotaItems[item]) {
           itemCost = dotaItems[item].values.ItemCost;
@@ -726,14 +726,14 @@ function buildItemTree (t, data, cb) {
       });
     });
     allItemNames.forEach(function (item) {
-      var itemData = items[item];
-      var itemNameParts = item.split('_');
-      var itemRecipeParts = itemNameParts.concat();
+      const itemData = items[item];
+      const itemNameParts = item.split('_');
+      const itemRecipeParts = itemNameParts.concat();
       itemRecipeParts.splice(1, 0, 'recipe');
-      var probableRecipeName = itemRecipeParts.join('_');
+      const probableRecipeName = itemRecipeParts.join('_');
 
-      var recipe = recipesByResult[item];
-      var recipeData = recipe
+      let recipe = recipesByResult[item];
+      let recipeData = recipe
         ? recipes[recipe]
         : null;
 
@@ -746,8 +746,8 @@ function buildItemTree (t, data, cb) {
           return;
         }
       }
-      var requirements = recipeData.ItemRequirements.values; // some neutral items have a recipe without ItemRequirements, because of that an error will appear saying it's 'undefined'
-      var numIndex = 1;
+      let requirements = recipeData.ItemRequirements.values; // some neutral items have a recipe without ItemRequirements, because of that an error will appear saying it's 'undefined'
+      let numIndex = 1;
       requirements = Object.keys(requirements)
         .sort(function (a, b) { return Number(a) - Number(b); })
         .map(function (index) {
@@ -763,13 +763,13 @@ function buildItemTree (t, data, cb) {
 
       calculateCost(item);
 
-      var upgradeCores = [];
-      var firstReq = null;
-      var firstCore = null;
+      const upgradeCores = [];
+      let firstReq = null;
+      let firstCore = null;
       requirements.forEach(function (reqList) {
-        var coreTier = null;
+        let coreTier = null;
         reqList.forEach(function (reqItem) {
-          var match = reqItem.match(/item_upgrade_core_?([0-9])?/);
+          const match = reqItem.match(/item_upgrade_core_?([0-9])?/);
           if (!match) {
             if (!firstReq) {
               firstReq = reqItem;
@@ -793,11 +793,11 @@ function buildItemTree (t, data, cb) {
       });
 
       // if (upgradeCores.length && !recipeData.comments.ItemRequirements.includes('OAA')) {
-        // var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
-        // console.log(item, 'is made with tier', minCore, 'items');
-        // for (var i = minCore; i < 5; ++i) {
-          // t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
-        // }
+      // var minCore = upgradeCores.reduce((a, b) => Math.min(a, b), 5);
+      // console.log(item, 'is made with tier', minCore, 'items');
+      // for (var i = minCore; i < 5; ++i) {
+      // t.notEqual(upgradeCores.indexOf(i), -1, item + ' has reverse compatible upgrade core ' + i);
+      // }
       // }
 
       /*
@@ -840,12 +840,12 @@ function buildItemTree (t, data, cb) {
       // this chunk of code will write the item costs in the file for you
       // useful...
       if (items[item].baseCost !== items[item].cost) {
-        var fileName = itemFileMap[item];
-        var foundIt = false;
-        var lines = fs.readFileSync(fileName, { encoding: 'utf8' })
+        const fileName = itemFileMap[item];
+        let foundIt = false;
+        const lines = fs.readFileSync(fileName, { encoding: 'utf8' })
           .split('\n')
           .map(function (line) {
-            var parts = line.split(/[\s ]+/).filter(a => a && a.length);
+            const parts = line.split(/[\s ]+/).filter(a => a && a.length);
             if (parts[0] === '"' + item + '"') {
               foundIt = true;
             }
@@ -874,12 +874,12 @@ function buildItemTree (t, data, cb) {
 
   function calculateCost (item, skipChildren) {
     // console.log('Calculating the cost for', item);
-    var itemData = items[item];
-    var requirements = itemData.recipes;
+    const itemData = items[item];
+    const requirements = itemData.recipes;
 
     requirements.forEach(function (reqList) {
-      var cost = Number(itemData.recipe.values.ItemCost);
-      var totalCost = Number(itemData.recipe.values.ItemCost);
+      let cost = Number(itemData.recipe.values.ItemCost);
+      let totalCost = Number(itemData.recipe.values.ItemCost);
       reqList.forEach(function (reqItem) {
         if (item === reqItem) {
           // this item builds into itself
@@ -889,14 +889,14 @@ function buildItemTree (t, data, cb) {
           totalCost = Number.MAX_VALUE;
           return;
         }
-        var parentItem = items[reqItem];
+        let parentItem = items[reqItem];
         if (!parentItem) {
           if (!dotaItems[reqItem] && !recipes[reqItem]) {
             t.fail('Item ' + item + ' is made out of an unknown item ' + reqItem);
             return;
           }
-          var baseItem = recipes[reqItem] || dotaItems[reqItem];
-          var baseItemCost = Number(baseItem.values.ItemCost);
+          const baseItem = recipes[reqItem] || dotaItems[reqItem];
+          const baseItemCost = Number(baseItem.values.ItemCost);
           parentItem = {
             baseCost: baseItemCost,
             cost: baseItemCost,
@@ -943,7 +943,7 @@ function buildItemTree (t, data, cb) {
 }
 
 function baseItemName (name) {
-  var nameParts = name.split('_');
+  const nameParts = name.split('_');
   if (Number.isFinite(Number(nameParts.pop()))) {
     return nameParts.join('_');
   }

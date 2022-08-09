@@ -11,22 +11,22 @@
 
 function DisplayAbilityLevelError (data) {
   // Localise hero level requirement error message and insert hero level number
-  var errorMessageText = $.Localize('#dota_hud_error_ability_cant_upgrade_hero_level').replace('%s1', data.requiredLevel);
+  const errorMessageText = $.Localize('#dota_hud_error_ability_cant_upgrade_hero_level').replace('%s1', data.requiredLevel);
 
-  var errorData = { reason: 80, message: errorMessageText };
+  const errorData = { reason: 80, message: errorMessageText };
   GameEvents.SendEventClientSide('dota_hud_error_message', errorData);
 }
 
 function CheckLevelUpBubbles (data) {
-  var canLevelUp = data.canLevelUp;
+  const canLevelUp = data.canLevelUp;
 
-  var abilitiesPanel = FindDotaHudElement('abilities');
+  const abilitiesPanel = FindDotaHudElement('abilities');
   abilitiesPanel.ApplyStyles(false);
   $.Schedule(0.1, function () {
     abilitiesPanel.Children().forEach(function (abilityPanel, i) {
-      var requiredLevel = canLevelUp[i + 1];
+      const requiredLevel = canLevelUp[i + 1];
       abilityPanel.FindChildTraverse('AbilityLevelContainer').Children().forEach(function (levelDot) {
-        levelDot.style['border'] = null;
+        levelDot.style.border = null;
         levelDot.style['border-radius'] = null;
         levelDot.style['box-shadow'] = null;
       });
@@ -34,9 +34,9 @@ function CheckLevelUpBubbles (data) {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = 'collapse';
-        var levelDot = abilityPanel.FindChildrenWithClassTraverse('next_level')[0];
+        const levelDot = abilityPanel.FindChildrenWithClassTraverse('next_level')[0];
         if (levelDot) {
-          levelDot.style['border'] = '0px none black';
+          levelDot.style.border = '0px none black';
           levelDot.style['border-radius'] = '1px';
           levelDot.style['box-shadow'] = 'none';
         }
@@ -51,11 +51,11 @@ function CheckLevelUpBubbles (data) {
 }
 
 function CheckLevelUpOnSelectionChange (data) {
-  var playerID = Players.GetLocalPlayer();
-  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
+  const playerID = Players.GetLocalPlayer();
+  const selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (selectedEntity !== undefined) {
     if (Entities.GetPlayerOwnerID(selectedEntity) === playerID && Entities.IsRealHero(selectedEntity)) {
-      var level = Entities.GetLevel(selectedEntity);
+      const level = Entities.GetLevel(selectedEntity);
       GameEvents.SendCustomGameEventToServer('check_level_up_selection', {
         selectedEntity: selectedEntity,
         level: level

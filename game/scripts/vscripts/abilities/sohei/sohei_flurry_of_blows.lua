@@ -70,7 +70,7 @@ function sohei_flurry_of_blows:OnSpellStart()
   -- Default particle
   caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
   ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
-  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius, 0, 0))
+  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius+10, 0, 0))
 
   -- Disjoint projectiles
   ProjectileManager:ProjectileDodge(caster)

@@ -60,7 +60,7 @@
       }
       "max_duration"
       {
-        "value"                                           "2.5 3.5 4.5 5.5 6" // min is: max_attacks * attack_interval
+        "value"                                           "2.5 3.5 4.5 5.5 6" // min is: (max_attacks + 1) * attack_interval
         "special_bonus_unique_sohei_8"                    "+1.8"
       }
       "attack_interval"                                   "0.3"

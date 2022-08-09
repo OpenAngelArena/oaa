@@ -1,13 +1,13 @@
 /* global FindDotaHudElement, GameEvents, Players, CustomNetTables, DOTA_GameState */
 'use strict';
 
-var HealthRegenLabel = null;
-var ManaRegenLabel = null;
+let HealthRegenLabel = null;
+let ManaRegenLabel = null;
 
 // subscribe only after the game start (fix loading problems)
 GameEvents.Subscribe('oaa_state_change', function (args) {
   if (args.newState >= DOTA_GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) {
-    var HealthManaContainer = FindDotaHudElement('HealthManaContainer');
+    const HealthManaContainer = FindDotaHudElement('HealthManaContainer');
 
     // Populate global elements
     HealthRegenLabel = HealthManaContainer.FindChildTraverse('HealthRegenLabel');
@@ -30,7 +30,7 @@ GameEvents.Subscribe('oaa_state_change', function (args) {
 });
 
 function HandleStatChange () {
-  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
+  const selectedEntity = Players.GetLocalPlayerPortraitUnit();
   GameEvents.SendCustomGameEventToServer('statprovider_entities_request', {
     entity: selectedEntity
   });
@@ -38,15 +38,15 @@ function HandleStatChange () {
 }
 
 function onEntityStatChange (arg, updatedEntity, data) {
-  var selectedEntity = Players.GetLocalPlayerPortraitUnit();
+  const selectedEntity = Players.GetLocalPlayerPortraitUnit();
   if (String(updatedEntity) !== String(selectedEntity) || !data) { return; }
 
   if (HealthRegenLabel !== null) {
-    HealthRegenLabel.text = FormatRegen(data['HealthRegen']);
+    HealthRegenLabel.text = FormatRegen(data.HealthRegen);
   }
 
   if (ManaRegenLabel !== null) {
-    ManaRegenLabel.text = FormatRegen(data['ManaRegen']);
+    ManaRegenLabel.text = FormatRegen(data.ManaRegen);
   }
 }
 

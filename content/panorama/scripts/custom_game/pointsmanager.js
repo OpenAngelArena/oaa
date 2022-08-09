@@ -10,12 +10,12 @@ function onScoreChange (table, key, data) {
   // console.log('[PointsManager] onScoreChange')
 
   if (key === 'score') {
-    var goodguys = data['goodguys'];
-    var badguys = data['badguys'];
+    const goodguys = data.goodguys;
+    const badguys = data.badguys;
     UpdatePointsHud(goodguys, badguys);
   } else if (key === 'limit') {
     // assuming this only happens on gamestart
-    var length = data['name'];
+    const length = data.name;
     FindDotaHudElement('PreGame').FindChildTraverse('GameModeLabel').text = $.Localize(('#oaa_game_length_' + length + '_title').toLowerCase());
   }
 }

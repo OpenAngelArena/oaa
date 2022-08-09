@@ -1,29 +1,30 @@
 <root>
-  <styles>
-    <include src="file://{resources}/styles/custom_game/custom_ward_buttons.css" />
-  </styles>
+  <!-- <styles> -->
+    <!-- <include src="file://{resources}/styles/custom_game/custom_ward_buttons.css" /> -->
+  <!-- </styles> -->
   <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/custom_ward_buttons.js"/>
   </scripts>
 
   <Panel class="AllWardsPanel">
-    <Panel id="ObserverWardPanel" class="WardPanel" onmouseover="UIShowTextTooltip('Observers')" onmouseout="UIHideTextTooltip()">
-      <Panel id="ObserverWardIcon" class="WardIcon">
-	      <Label id="ObserverWardCountLabel" text="0" html="true"/>
-      </Panel>
+    <!-- <Panel id="ObserverWardPanel" class="WardPanel" onmouseover="UIShowTextTooltip('Observers')" onmouseout="UIHideTextTooltip()"> -->
+      <!-- <Panel id="ObserverWardIcon" class="WardIcon"> -->
+	      <!-- <Label id="ObserverWardCountLabel" text="0" html="true"/> -->
+      <!-- </Panel> -->
 	    <!-- <Panel class="WardButtonHotkey"> -->
 	      <!-- <Label id="ObserverWardHotkeyLabel" text="Z" html="true"/> -->
 	    <!-- </Panel> -->
-	    <Label id="ObserverCooldownLabel" text="00:00" html="true"/>
-    </Panel>
-    <Panel id="SentryWardPanel" class="WardPanel" onmouseover="UIShowTextTooltip('Sentries')" onmouseout="UIHideTextTooltip()">
-      <Panel id="SentryWardIcon" class="WardIcon">
-	      <Label id="SentryWardCountLabel" text="0" html="true"/>
-      </Panel>
+	    <!-- <Label id="ObserverCooldownLabel" text="00:00" html="true"/> -->
+    <!-- </Panel> -->
+    <!-- <Panel id="SentryWardPanel" class="WardPanel" onmouseover="UIShowTextTooltip('Sentries')" onmouseout="UIHideTextTooltip()"> -->
+      <!-- <Panel id="SentryWardIcon" class="WardIcon"> -->
+	      <!-- <Label id="SentryWardCountLabel" text="0" html="true"/> -->
+      <!-- </Panel> -->
 	    <!-- <Panel class="WardButtonHotkey"> -->
 	      <!-- <Label id="SentryWardHotkeyLabel" text="U" html="true"/> -->
 	    <!-- </Panel> -->
-	    <Label id="SentryCooldownLabel" text="00:00" html="true"/>
-    </Panel>
+	    <!-- <Label id="SentryCooldownLabel" text="00:00" html="true"/> -->
+    <!-- </Panel> -->
   </Panel>
 </root>

@@ -4,7 +4,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = ToggleInfo;
 }
 
-var isopen = false;
+let isopen = false;
 
 function ToggleInfo () {
   if (isopen) {

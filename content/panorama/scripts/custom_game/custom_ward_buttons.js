@@ -1,4 +1,4 @@
-/* global Game, GameEvents, GameUI, Players, Entities, Buffs */
+/* global $, Game, GameEvents, Players, Entities, Buffs, FindDotaHudElement */
 
 'use strict';
 
@@ -15,37 +15,143 @@ function HasModifier (unit, modifier) {
 }
 
 function GetStackCount (unit, modifier) {
-  let m = FindModifier(unit, modifier);
+  const m = FindModifier(unit, modifier);
   return m ? Buffs.GetStackCount(unit, m) : 0;
 }
 
+const HUDElements = FindDotaHudElement('HUDElements');
+const centerBlock = HUDElements.FindChildTraverse('center_block');
+let ObserverWardPanel;
+let SentryWardPanel;
+let ObserverCooldownLabel;
+let SentryCooldownLabel;
+let ObserverWardCount;
+let SentryWardCount;
+
 function CreateAllButtons () {
-  let ObserverWardMain = $('#ObserverWardPanel');
-  let SentryWardMain = $('#SentryWardPanel');
+  // Delete previous instances of 'CustomWardsPanel' for testing purposes in tools,
+  // because of constant recompiling after every change
+  for (let i = 0; i < centerBlock.GetChildCount(); i++) {
+    if (centerBlock.GetChild(i).id === 'CustomWardsPanel') {
+      centerBlock.GetChild(i).DeleteAsync(0);
+    }
+  }
 
-  SetObserver(ObserverWardMain);
-  SetSentry(SentryWardMain);
+  const customButtons = $.CreatePanel('Panel', centerBlock, 'CustomWardsPanel');
+  customButtons.style.align = 'right top';
+  customButtons.style.flowChildren = 'right';
+  customButtons.style.marginTop = '52px';
+  customButtons.style.marginRight = '125px';
 
-  let ObserverWard = $('#ObserverWardIcon');
-  let SentryWard = $('#SentryWardIcon');
+  ObserverWardPanel = $.CreatePanel('Panel', customButtons, 'ObserverWardPanel');
+  ObserverWardPanel.style.width = '60px';
+  ObserverWardPanel.style.height = '35px';
+  ObserverWardPanel.style.margin = '5px';
+  ObserverWardPanel.style.tooltipPosition = 'left';
+  ObserverWardPanel.style.horizontalAlign = 'right';
+  ObserverWardPanel.style.verticalAlign = 'center';
 
-  $.CreatePanelWithProperties('DOTAItemImage', ObserverWard, 'observer_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_observer.png' });
-  $.CreatePanelWithProperties('DOTAItemImage', SentryWard, 'sentry_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_sentry.png' });
+  SentryWardPanel = $.CreatePanel('Panel', customButtons, 'SentryWardPanel');
+  SentryWardPanel.style.width = '60px';
+  SentryWardPanel.style.height = '35px';
+  SentryWardPanel.style.margin = '5px';
+  SentryWardPanel.style.tooltipPosition = 'left';
+  SentryWardPanel.style.horizontalAlign = 'right';
+  SentryWardPanel.style.verticalAlign = 'center';
+
+  // const ObserverWardButtonHotkey = $.CreatePanel("Panel", ObserverWardPanel, "ObserverWardButtonHotkey");
+  // ObserverWardButtonHotkey.style.backgroundColor = "#2127268a"
+  // ObserverWardButtonHotkey.style.boxShadow = "fill #000000bb 1px 0px 1px 1px"
+  // ObserverWardButtonHotkey.style.border = "1px solid black"
+  // ObserverWardButtonHotkey.style.borderRadius = "2px"
+  // ObserverWardButtonHotkey.style.zIndex = "1"
+  // ObserverWardButtonHotkey.style.height = "13px"
+
+  // const ObserverWardHotkeyLabel = $.CreatePanel("Label", ObserverWardButtonHotkey, "ObserverWardHotkeyLabel");
+  // ObserverWardHotkeyLabel.text = "Z"
+  // ObserverWardHotkeyLabel.style.fontSize = "10px"
+  // ObserverWardHotkeyLabel.style.color = "white"
+  // ObserverWardHotkeyLabel.style.textShadow = "1px 1px 0px 2 #000000"
+  // ObserverWardHotkeyLabel.style.textAlign = "center"
+
+  // const SentryWardButtonHotkey = $.CreatePanel("Panel", SentryWardPanel, "SentryWardButtonHotkey");
+  // SentryWardButtonHotkey.style.backgroundColor = "#2127268a"
+  // SentryWardButtonHotkey.style.boxShadow = "fill #000000bb 1px 0px 1px 1px"
+  // SentryWardButtonHotkey.style.border = "1px solid black"
+  // SentryWardButtonHotkey.style.borderRadius = "2px"
+  // SentryWardButtonHotkey.style.zIndex = "1"
+  // SentryWardButtonHotkey.style.height = "13px"
+
+  // const SentryWardHotkeyLabel = $.CreatePanel("Label", SentryWardButtonHotkey, "SentryWardHotkeyLabel");
+  // SentryWardHotkeyLabel.text = "Y"
+  // SentryWardHotkeyLabel.style.fontSize = "10px"
+  // SentryWardHotkeyLabel.style.color = "white"
+  // SentryWardHotkeyLabel.style.textShadow = "1px 1px 0px 2 #000000"
+  // SentryWardHotkeyLabel.style.textAlign = "center"
+
+  ObserverCooldownLabel = $.CreatePanel('Label', ObserverWardPanel, 'ObserverCooldownLabel');
+  ObserverCooldownLabel.text = '00:00';
+  ObserverCooldownLabel.style.fontSize = '14px';
+  ObserverCooldownLabel.style.color = 'white';
+  ObserverCooldownLabel.style.zIndex = '1';
+  ObserverCooldownLabel.style.verticalAlign = 'bottom';
+  ObserverCooldownLabel.style.marginLeft = '1px';
+  ObserverCooldownLabel.style.textShadow = '1px 1px 0px 2 #000000';
+
+  SentryCooldownLabel = $.CreatePanel('Label', SentryWardPanel, 'SentryCooldownLabel');
+  SentryCooldownLabel.text = '00:00';
+  SentryCooldownLabel.style.fontSize = '14px';
+  SentryCooldownLabel.style.color = 'white';
+  SentryCooldownLabel.style.zIndex = '1';
+  SentryCooldownLabel.style.verticalAlign = 'bottom';
+  SentryCooldownLabel.style.marginLeft = '1px';
+  SentryCooldownLabel.style.textShadow = '1px 1px 0px 2 #000000';
+
+  const ObserverWardIcon = $.CreatePanel('Panel', ObserverWardPanel, 'ObserverWardIcon');
+  ObserverWardIcon.style.width = '60px';
+  ObserverWardIcon.style.height = '40px';
+  ObserverWardIcon.style.backgroundImage = "url('s2r://panorama/images/conduct/ovw-bar-bg_png.vtex')";
+  ObserverWardIcon.style.verticalAlign = 'top';
+  ObserverWardIcon.style.horizontalAlign = 'center';
+
+  const SentryWardIcon = $.CreatePanel('Panel', SentryWardPanel, 'SentryWardIcon');
+  SentryWardIcon.style.width = '60px';
+  SentryWardIcon.style.height = '40px';
+  SentryWardIcon.style.backgroundImage = "url('s2r://panorama/images/conduct/ovw-bar-bg_png.vtex')";
+  SentryWardIcon.style.verticalAlign = 'top';
+  SentryWardIcon.style.horizontalAlign = 'center';
+
+  ObserverWardCount = $.CreatePanel('Label', ObserverWardIcon, 'ObserverWardCountLabel');
+  ObserverWardCount.text = '0';
+  ObserverWardCount.style.color = 'white';
+  ObserverWardCount.style.align = 'right bottom';
+  ObserverWardCount.style.textShadow = '0px 0px 3px 1 red';
+  ObserverWardCount.style.zIndex = '1';
+
+  SentryWardCount = $.CreatePanel('Label', SentryWardIcon, 'SentryWardCountLabel');
+  SentryWardCount.text = '0';
+  SentryWardCount.style.color = 'white';
+  SentryWardCount.style.align = 'right bottom';
+  SentryWardCount.style.textShadow = '0px 0px 3px 1 red';
+  SentryWardCount.style.zIndex = '1';
+
+  $.CreatePanelWithProperties('DOTAItemImage', ObserverWardIcon, 'observer_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_observer.png' });
+  $.CreatePanelWithProperties('DOTAItemImage', SentryWardIcon, 'sentry_image', { style: 'width:100%;height:100%;', src: 'file://{images}/items/ward_sentry.png' });
+
+  SetObserver(ObserverWardPanel);
+  SetSentry(SentryWardPanel);
 
   $.Schedule(1 / 144, ButtonsUpdate);
 }
 
 function ButtonsUpdate () {
-  let ObserverWardPanel = $('#ObserverWardPanel');
-  let SentryWardPanel = $('#SentryWardPanel');
-  let ObserverCooldownLabel = $('#ObserverCooldownLabel');
-  let SentryCooldownLabel = $('#SentryCooldownLabel');
-
   if (Players.GetLocalPlayerPortraitUnit() !== Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID())) {
     ObserverWardPanel.style.opacity = 0;
     ObserverWardPanel.style.visibility = 'collapse';
     SentryWardPanel.style.opacity = 0;
     SentryWardPanel.style.visibility = 'collapse';
+    $.Schedule(0.1, ButtonsUpdate);
+    return;
   } else {
     ObserverWardPanel.style.opacity = 1;
     ObserverWardPanel.style.visibility = 'visible';
@@ -53,14 +159,18 @@ function ButtonsUpdate () {
     SentryWardPanel.style.visibility = 'visible';
   }
 
-  let ObserverCountLabel = $('#ObserverWardCountLabel');
-  let SentryCountLabel = $('#SentryWardCountLabel');
-  let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
+  const hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
   if (HasModifier(hero, 'modifier_ui_custom_observer_ward_charges')) {
-    ObserverCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
+    ObserverWardCount.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
 
-    let time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges'))));
+    if (ObserverWardCount.text === '0') {
+      ObserverWardPanel.style.opacity = 0.8;
+    } else {
+      ObserverWardPanel.style.opacity = 1;
+    }
+
+    const time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_observer_ward_charges'))));
     let min = Math.trunc(time / 60);
     let seconds = time - 60 * min;
 
@@ -72,16 +182,22 @@ function ButtonsUpdate () {
 
     ObserverCooldownLabel.text = min + ':' + seconds;
     // if (time > 120) {
-      // ObserverCooldownLabel.visible = false;
+    // ObserverCooldownLabel.visible = false;
     // } else {
-      // ObserverCooldownLabel.visible = true;
+    // ObserverCooldownLabel.visible = true;
     // }
   }
 
   if (HasModifier(hero, 'modifier_ui_custom_sentry_ward_charges')) {
-    SentryCountLabel.text = String(GetStackCount(hero, 'modifier_ui_custom_sentry_ward_charges'));
+    SentryWardCount.text = String(GetStackCount(hero, 'modifier_ui_custom_sentry_ward_charges'));
 
-    let time = Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_sentry_ward_charges')));
+    if (SentryWardCount.text === '0') {
+      SentryWardPanel.style.opacity = 0.8;
+    } else {
+      SentryWardPanel.style.opacity = 1;
+    }
+
+    const time = Math.max(0, Math.ceil(Buffs.GetRemainingTime(hero, FindModifier(hero, 'modifier_ui_custom_sentry_ward_charges'))));
     let min = Math.trunc(time / 60);
     let seconds = time - 60 * min;
 
@@ -93,9 +209,9 @@ function ButtonsUpdate () {
 
     SentryCooldownLabel.text = min + ':' + seconds;
     // if (time > 120) {
-      // SentryCooldownLabel.visible = false;
+    // SentryCooldownLabel.visible = false;
     // } else {
-      // SentryCooldownLabel.visible = true;
+    // SentryCooldownLabel.visible = true;
     // }
   }
 
@@ -107,11 +223,11 @@ function ButtonsUpdate () {
 })();
 
 function CastAbilityObserver () {
-  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'observer'});
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', { type: 'observer' });
 }
 
 function CastAbilitySentry () {
-  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', {'type': 'sentry'});
+  GameEvents.SendCustomGameEventToServer('custom_ward_button_pressed', { type: 'sentry' });
 }
 
 function SetObserver (panel) {

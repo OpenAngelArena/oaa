@@ -3,13 +3,13 @@
 'use strict';
 
 function OnClientCheckIn (args) {
-  var playerInfo = Game.GetLocalPlayerInfo();
-  var hostInfo = 0;
+  const playerInfo = Game.GetLocalPlayerInfo();
+  let hostInfo = 0;
   if (playerInfo) {
     hostInfo = playerInfo.player_has_host_privileges;
   }
 
-  var payload = {
+  const payload = {
     modIdentifier: args.modID,
     steamID32: GetSteamID32(),
     isHost: hostInfo,
@@ -30,11 +30,11 @@ function OnClientCheckIn (args) {
 }
 
 function GetSteamID32 () {
-  var playerInfo = Game.GetPlayerInfo(Game.GetLocalPlayerID());
+  const playerInfo = Game.GetPlayerInfo(Game.GetLocalPlayerID());
 
-  var steamID64 = playerInfo.player_steamid;
-  var steamIDPart = Number(steamID64.substring(3));
-  var steamID32 = String(steamIDPart - 61197960265728);
+  const steamID64 = playerInfo.player_steamid;
+  const steamIDPart = Number(steamID64.substring(3));
+  const steamID32 = String(steamIDPart - 61197960265728);
 
   return steamID32;
 }
