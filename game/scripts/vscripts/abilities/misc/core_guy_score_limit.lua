@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_core_shrine", "abilities/misc/core_shrine.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_core_shrine", "abilities/misc/core_shrine.lua", LUA_MODIFIER_MOTION_NONE)
 
 core_guy_score_limit = class(AbilityBaseClass)
 

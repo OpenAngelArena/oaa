@@ -30,15 +30,23 @@ function modifier_core_shrine_effect:GetEffectName()
     return
   end
   if stackCount == 1 then
-    return  "particles/misc/aqua_oaa_rays.vpcf"
+    return "particles/misc/aqua_oaa_rays.vpcf"
   elseif stackCount == 2 then
-    return   "particles/misc/ruby_oaa_rays.vpcf"
+    return "particles/misc/ruby_oaa_rays.vpcf"
   end
 end
 
 ---------------------------------------------------------------------------------------------------
 
 modifier_core_shrine = class(ModifierBaseClass)
+
+function modifier_core_shrine:IsHidden()
+  return true
+end
+
+function modifier_core_shrine:IsPurgable()
+  return false
+end
 
 function modifier_core_shrine:OnCreated()
   if IsServer() then
@@ -53,12 +61,23 @@ function modifier_core_shrine:OnIntervalThink()
   self:CheckEffectModifier()
 end
 
-function modifier_core_shrine:IsHidden()
-  return true
+function modifier_core_shrine:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_ORDER,
+  }
 end
 
-function modifier_core_shrine:CheckEffectModifier()
-  if IsServer() then
+function modifier_core_shrine:CheckState()
+  return {
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+  }
+end
+
+if IsServer() then
+  function modifier_core_shrine:CheckEffectModifier()
     if self.effectMod and self.effectMod:IsNull() then
       self.effectMod = nil
     end
@@ -76,42 +95,22 @@ function modifier_core_shrine:CheckEffectModifier()
       self:StartIntervalThink(1)
     end
   end
-end
 
-function modifier_core_shrine:DeclareFunctions()
-  local funcs =
-  {
-    MODIFIER_EVENT_ON_ORDER,
-  }
-  return funcs
-end
-
-function modifier_core_shrine:CheckState()
-  local state = {
-    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
-    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
-    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_INVULNERABLE] = true,
-  }
-
-  return state
-end
-
-function modifier_core_shrine:OnOrder( params )
-  if IsServer() then
+  function modifier_core_shrine:OnOrder(params)
     local parent = self:GetParent() -- shrine entity
     local hOrderedUnit = params.unit
     local hTargetUnit = params.target
     local nOrderType = params.order_type
+
     if nOrderType ~= DOTA_UNIT_ORDER_MOVE_TO_TARGET then
       return
     end
 
-    if hTargetUnit == nil or hTargetUnit ~= parent then
+    if not hTargetUnit or hTargetUnit ~= parent then
       return
     end
 
-    if hOrderedUnit == nil or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
+    if not hOrderedUnit or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
       return
     end
 
@@ -122,16 +121,12 @@ function modifier_core_shrine:OnOrder( params )
       if distance < 300 then
         Grendel:GoNearTeam(parent:GetTeamNumber())
       end
-
       return
     end
 
     if distance < 300 then
       self:GetAbility():CastAbility()
       self:CheckEffectModifier()
-      return 1
     end
   end
-
-  return 0
 end

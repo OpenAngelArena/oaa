@@ -49,11 +49,13 @@ POOP_WARD_RADIUS = 150
 -- scan reveal
 SCAN_REVEAL_COOLDOWN = 60
 SCAN_REVEAL_RADIUS = 900
-SCAN_REVEAL_DURATION = 14
-SCAN_DURATION = 14
+SCAN_REVEAL_DURATION = 14                 -- dust duration is 12 seconds
+SCAN_DURATION = 14                        -- vanilla duration is 8 seconds
 
 -- glyph
 GLYPH_COOLDOWN = 120
+GLYPH_DURATION = 7
+GLYPH_INTERVAL = 1
 
 -- PICK SCREEN
 CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the captain chair
