@@ -6,7 +6,6 @@ LinkLuaModifier("modifier_custom_glyph_knockback", "components/glyph/glyph.lua",
 
 if Glyph == nil then
   -- Debug:EnableDebugging()
-  DebugPrint('Creating new Glyph Filter Object')
   Glyph = class({})
 end
 

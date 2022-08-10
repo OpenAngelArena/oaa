@@ -37,6 +37,12 @@ function CreateAllButtons () {
     }
   }
 
+  // Move buffs and debuffs a little bit up
+  const buffs = HUDElements.FindChildTraverse('buffs');
+  const debuffs = HUDElements.FindChildTraverse('debuffs');
+  buffs.style.marginBottom = '176px';
+  debuffs.style.marginBottom = '176px';
+
   const customButtons = $.CreatePanel('Panel', centerBlock, 'CustomWardsPanel');
   customButtons.style.align = 'right top';
   customButtons.style.flowChildren = 'right';
