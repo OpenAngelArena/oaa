@@ -43,18 +43,19 @@
     "ScriptFile"                                          "items/reflex/postactive_regen.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/regen_crystal_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
     "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "regen_crystal"
+    "AbilityManaCost"                                     "200"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
     "ItemCost"                                            "34304"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
@@ -69,7 +70,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1750 2450 3150"
+        "bonus_health"                                    "1500 2100 2850"
       }
       "02"
       {
@@ -79,12 +80,12 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "max_mana_to_hp_regen"                            "5"
+        "max_mana_to_hp_regen"                            "4.25"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "400 450 500"
+        "active_hp_regen"                                 "200 225 250"
       }
       "05"
       {
@@ -94,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "5"
+        "duration"                                        "6"
       }
     }
 

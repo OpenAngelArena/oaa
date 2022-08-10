@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3258"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3258"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -37,7 +37,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3260"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3260"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/heart_transplant.lua"
     "AbilityTextureName"                                  "custom/heart_transplant"
@@ -112,9 +112,9 @@
       "07" // same as Heart lvls 4-5
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_health"                         "1000 1250"
+        "transplant_bonus_health"                         "700 950"
       }
-      "08" // same as Heart lvls 3-4
+      "08"
       {
         "var_type"                                        "FIELD_FLOAT"
         "transplant_health_regen_pct"                     "1.5"
@@ -127,7 +127,7 @@
       "10" // same as Solar Crest
       {
         "var_type"                                        "FIELD_INTEGER"
-        "transplant_max_duration"                         "7"
+        "transplant_max_duration"                         "12"
       }
     }
   }
