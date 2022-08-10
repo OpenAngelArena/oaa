@@ -26,9 +26,17 @@ function modifier_sorcerer_oaa:OnCreated()
 
   -- Put ability exemption in here
   self.exempt_ability_table = {
-    tinker_rearm = true,
+    dazzle_good_juju = true,
     riki_permanent_invisibility = true,
+    tinker_rearm = true,
     treant_natures_guise = true
+  }
+
+  -- Put item exemption in here
+  self.exempt_item_table = {
+    item_ex_machina = true,
+    item_refresher_shard = true,
+    item_tranquil_boots = true,
   }
 end
 
@@ -138,7 +146,7 @@ if IsServer() then
       -- Reset cooldown for items
       for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
         local item = parent:GetItemInSlot(i)
-        if item and item:IsRefreshable() then
+        if item and item:IsRefreshable() and not self.exempt_item_table[item:GetAbilityName()] then
           item:EndCooldown()
         end
       end
@@ -151,7 +159,7 @@ if IsServer() then
 
       -- Reset neutral item cooldown
       local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-      if neutral_item and neutral_item:IsNeutralDrop() then
+      if neutral_item and neutral_item:IsNeutralDrop() and not self.exempt_item_table[neutral_item:GetAbilityName()] then
         neutral_item:EndCooldown()
       end
     end
