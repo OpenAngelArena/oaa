@@ -165,7 +165,7 @@ function ButtonsUpdate () {
     ObserverWardCount.text = String(GetStackCount(hero, 'modifier_ui_custom_observer_ward_charges'));
 
     if (ObserverWardCount.text === '0') {
-      ObserverWardPanel.style.opacity = 0.8;
+      ObserverWardPanel.style.opacity = 0.7;
     } else {
       ObserverWardPanel.style.opacity = 1;
     }
@@ -181,18 +181,13 @@ function ButtonsUpdate () {
     }
 
     ObserverCooldownLabel.text = min + ':' + seconds;
-    // if (time > 120) {
-    // ObserverCooldownLabel.visible = false;
-    // } else {
-    // ObserverCooldownLabel.visible = true;
-    // }
   }
 
   if (HasModifier(hero, 'modifier_ui_custom_sentry_ward_charges')) {
     SentryWardCount.text = String(GetStackCount(hero, 'modifier_ui_custom_sentry_ward_charges'));
 
     if (SentryWardCount.text === '0') {
-      SentryWardPanel.style.opacity = 0.8;
+      SentryWardPanel.style.opacity = 0.7;
     } else {
       SentryWardPanel.style.opacity = 1;
     }
@@ -208,11 +203,6 @@ function ButtonsUpdate () {
     }
 
     SentryCooldownLabel.text = min + ':' + seconds;
-    // if (time > 120) {
-    // SentryCooldownLabel.visible = false;
-    // } else {
-    // SentryCooldownLabel.visible = true;
-    // }
   }
 
   $.Schedule(0.1, ButtonsUpdate);

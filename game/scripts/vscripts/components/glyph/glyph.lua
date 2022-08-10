@@ -14,6 +14,8 @@ function Glyph:Init()
   self.moduleName = "Glyph and Scan"
 
   local glyph_cooldown = GLYPH_COOLDOWN or 120
+  self.glyph_duration = GLYPH_DURATION or 7
+  self.glyph_interval = GLYPH_INTERVAL or 1
   local scan_cooldown = SCAN_REVEAL_COOLDOWN
 
   local game_mode = GameRules:GetGameModeEntity()
@@ -32,6 +34,7 @@ function Glyph:Init()
   end
 
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(Glyph, "Filter"))
+  FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(Glyph, "ModifierFilter"))
 end
 
 function Glyph:Filter(keys)
@@ -41,7 +44,16 @@ function Glyph:Filter(keys)
   if order == DOTA_UNIT_ORDER_GLYPH then
     self:CustomGlyphEffect(issuerID)
   elseif order == DOTA_UNIT_ORDER_RADAR then
-    self:CustomScanEffect(issuerID, keys)
+    self:CustomScanEffect(keys)
+  end
+
+  return true
+end
+
+-- Disable vanilla scan
+function Glyph:ModifierFilter(keys)
+  if keys.name_const == "modifier_radar_thinker" then
+    return false
   end
 
   return true
@@ -57,40 +69,55 @@ function Glyph:CustomGlyphEffect(playerID)
     fountain = self.dire_fountain
   end
 
-  local units = FindUnitsInRadius(
-    oposite_team,
-    Vector(0, 0, 0),
-    nil,
-    FIND_UNITS_EVERYWHERE,
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
+  local function KnockbackUnitsFromHighGround()
+    local units = FindUnitsInRadius(
+      oposite_team,
+      Vector(0, 0, 0),
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
 
-  for _, unit in pairs(units) do
-    local unit_loc = unit:GetAbsOrigin()
-    if (team == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(unit_loc)) or (team == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(unit_loc)) then
-      local direction = unit_loc - fountain:GetAbsOrigin()
-      -- Normalize direction
-      direction.z = 0
-      direction = direction:Normalized()
-      -- Calculate distance
-      local distance = math.max(400, 4200 - (3800/4200) * self:DistanceFromFountain(unit_loc, team))
-      -- Push away from the fountain (off highground)
-      unit:AddNewModifier(hero, nil, "modifier_custom_glyph_knockback", {
-        distance = distance,
-        speed = 1200,
-        direction_x = direction.x,
-        direction_y = direction.y,
-      })
+    for _, unit in pairs(units) do
+      local unit_loc = unit:GetAbsOrigin()
+      if (team == DOTA_TEAM_GOODGUYS and IsLocationInRadiantOffside(unit_loc)) or (team == DOTA_TEAM_BADGUYS and IsLocationInDireOffside(unit_loc)) then
+        local direction = unit_loc - fountain:GetAbsOrigin()
+        -- Normalize direction
+        direction.z = 0
+        direction = direction:Normalized()
+        -- Calculate distance
+        local distance = math.max(400, 4200 - (3800/4200) * Glyph:DistanceFromFountain(unit_loc, team))
+        -- Push away from the fountain (off highground)
+        unit:AddNewModifier(hero, nil, "modifier_custom_glyph_knockback", {
+          distance = distance,
+          speed = 1200,
+          direction_x = direction.x,
+          direction_y = direction.y,
+        })
+      end
     end
   end
+
+  local duration = self.glyph_duration
+  local interval = self.glyph_interval
+  local loop_count = 0
+  local max_loops = duration / interval
+
+  Timers:CreateTimer(function ()
+    KnockbackUnitsFromHighGround()
+    loop_count = loop_count + 1
+    if loop_count < max_loops then
+      return interval -- repeat KnockbackUnitsFromHighGround every interval seconds
+    end
+  end)
 end
 
-function Glyph:CustomScanEffect(playerID, keys)
-  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+function Glyph:CustomScanEffect(keys)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.issuer_player_id_const)
   local position = Vector(keys.position_x, keys.position_y, keys.position_z)
   local team = hero:GetTeamNumber()
 

@@ -31,13 +31,25 @@ if IsServer() then
       false
     )
 
-    local function IsNotNeutral(unit)
-      return unit:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS
+    local function CheckIfValid(unit)
+      return unit:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and unit:GetUnitName() ~= "npc_dota_core_guy"
     end
-    -- Filter out neutral team
-    units = filter(IsNotNeutral, units)
+
+    if not self.count then
+      self.count = 0
+    else
+      self.count = self.count + 1
+    end
+
+    local sound_ping = self.count >= 2 and (self.count % 2 == 0)
+
+    -- Filter out neutral team and some creep hero units
+    units = filter(CheckIfValid, units)
+
     if nth(1, units) then
-      EmitSoundOnLocationForAllies(parentLoc, "minimap_radar.target", parent)
+      if sound_ping then
+        EmitSoundOnLocationForAllies(parentLoc, "minimap_radar.target", parent)
+      end
       MinimapEvent(parentTeam, parent, parentLoc.x, parentLoc.y, DOTA_MINIMAP_EVENT_RADAR_TARGET, 1)
     else
       EmitSoundOnLocationForAllies(parentLoc, "minimap_radar.cycle", parent)
@@ -53,6 +65,7 @@ if IsServer() then
 end
 
 ---------------------------------------------------------------------------------------------------
+
 modifier_oaa_scan_debuff = class(ModifierBaseClass)
 
 function modifier_oaa_scan_debuff:IsHidden()
