@@ -216,27 +216,29 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       damage_table.victim = target
 
       -- Static Field damage comes from Zeus but cannot be reflected back to him
-      local static_field_damage = 0
-      -- Check for Static Field if its leveled up
-      local static_field_ability = caster:FindAbilityByName("zuus_static_field")
-      if static_field_ability and static_field_ability:GetLevel() > 0 then
-        static_field_damage = static_field_ability:GetSpecialValueFor("damage_health_pct")
+      if not caster:PassivesDisabled() then
+		local static_field_damage = 0
+		-- Check for Static Field if its leveled up
+		local static_field_ability = caster:FindAbilityByName("zuus_static_field")
+		if static_field_ability and static_field_ability:GetLevel() > 0 then
+          static_field_damage = static_field_ability:GetSpecialValueFor("damage_health_pct")
 
-        -- Check for the talent (static field bonus damage)
-        local static_field_talent = caster:FindAbilityByName("special_bonus_unique_zeus")
-        if static_field_talent and static_field_talent:GetLevel() > 0 then
-          static_field_damage = static_field_damage + static_field_talent:GetSpecialValueFor("value")
+          -- Check for the talent (static field bonus damage)
+          --local static_field_talent = caster:FindAbilityByName("special_bonus_unique_zeus")
+          --if static_field_talent and static_field_talent:GetLevel() > 0 then
+            --static_field_damage = static_field_damage + static_field_talent:GetSpecialValueFor("value")
+          --end
         end
-      end
 
-      if not target:IsOAABoss() then
-        damage_table.attacker = caster
-        damage_table.damage = (target:GetHealth()/100)*static_field_damage
-        damage_table.ability = static_field_ability
-        damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+        if not target:IsOAABoss() then
+          damage_table.attacker = caster
+          damage_table.damage = (target:GetHealth()/100)*static_field_damage
+          damage_table.ability = static_field_ability
+          damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
 
-        -- Apply Static Field damage (before lightning bolt damage)
-        ApplyDamage(damage_table)
+          -- Apply Static Field damage (before lightning bolt damage)
+          ApplyDamage(damage_table)
+        end
       end
 
       -- Lightning bolt damage table values
