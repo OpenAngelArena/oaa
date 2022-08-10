@@ -24,6 +24,7 @@ function modifier_ham_oaa:OnCreated()
     dazzle_good_juju = true,
     dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
+    meepo_petrify = true,
     obsidian_destroyer_astral_imprisonment = true,
     oracle_fates_edict = true,
     oracle_false_promise = true,
@@ -34,13 +35,10 @@ function modifier_ham_oaa:OnCreated()
     skeleton_king_reincarnation = true,
     tusk_snowball = true,
     venomancer_plague_ward = true,
+    visage_gravekeepers_cloak = true,
+    visage_gravekeepers_cloak_oaa = true,
     void_spirit_dissimilate = true,
     witch_doctor_voodoo_switcheroo_oaa = true,
-    item_sphere = true,
-    item_sphere_2 = true,
-    item_sphere_3 = true,
-    item_sphere_4 = true,
-    item_sphere_5 = true,
   }
 
   self.cdr_penalty = 5
@@ -61,7 +59,8 @@ function modifier_ham_oaa:GetModifierPercentageCooldown(keys)
   if self:GetParent():HasModifier("modifier_pro_active_oaa") then
     return 0
   end
-  if keys.ability and self.ignore_abilities[keys.ability:GetName()] then
+  local ability = keys.ability
+  if ability and (self.ignore_abilities[ability:GetName()] or ability:IsItem()) then
     return self.cdr_penalty
   else
     return self.cdr
