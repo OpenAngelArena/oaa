@@ -216,7 +216,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       damage_table.victim = target
 
       -- Static Field damage comes from Zeus but cannot be reflected back to him
-	  if not caster:PassivesDisabled() then
+      if not caster:PassivesDisabled() then
 		local static_field_damage = 0
 		-- Check for Static Field if its leveled up
 		local static_field_ability = caster:FindAbilityByName("zuus_static_field")
@@ -240,6 +240,7 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
           ApplyDamage(damage_table)
         end
       end
+
       -- Lightning bolt damage table values
       damage_table.attacker = parent
       damage_table.damage = lightning_bolt_ability:GetAbilityDamage()
