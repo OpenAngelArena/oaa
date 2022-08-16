@@ -52,6 +52,7 @@ function modifier_magus_oaa:OnCreated()
     earth_spirit_petrify = 1,                            -- invulnerability and trolling
     elder_titan_return_spirit = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- self grief
+    electrician_electric_shield = 1,                     -- self grief
     --ember_spirit_sleight_of_fist = 1,                  -- invulnerability and looping
     enchantress_enchant = 1,                             -- dominating every creep on attack
     enigma_demonic_conversion = 1,                       -- instant kill
@@ -70,7 +71,7 @@ function modifier_magus_oaa:OnCreated()
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
-    naga_siren_mirror_image = 1,                         -- invulnerability and lag
+    --naga_siren_mirror_image = 1,                       -- invulnerability and lag
     night_stalker_hunter_in_the_night = 1,               -- instant kill
     --obsidian_destroyer_astral_imprisonment = 1,        -- self grief, invulnerability, trolling
     oracle_false_promise = 1,                            -- invulnerability
@@ -99,7 +100,7 @@ function modifier_magus_oaa:OnCreated()
     visage_gravekeepers_cloak = 1,                       -- invulnerability
     visage_gravekeepers_cloak_oaa = 1,                   -- invulnerability
     visage_stone_form_self_cast = 1,                     -- self grief
-    void_spirit_astral_step = 1,                         -- looping, buggy
+    void_spirit_astral_step = 1,                         -- looping, bugged
     void_spirit_dissimilate = 1,                         -- invulnerability
     wisp_tether_break = 1,                               -- self grief
     witch_doctor_voodoo_switcheroo_oaa = 1,              -- invulnerability
@@ -123,6 +124,8 @@ function modifier_magus_oaa:OnCreated()
     medusa_stone_gaze = 1,                               -- powerful
     monkey_king_boundless_strike = 1,                    -- looping, sometimes doesn't do damage
     morphling_waveform = 1,                              -- invulnerability and looping
+    naga_siren_mirror_image = 1,                         -- invulnerability and lag
+    naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
     obsidian_destroyer_astral_imprisonment = 1,          -- self grief, invulnerability, trolling
     oracle_fates_edict = 1,                              -- self grief, trolling
     pangolier_swashbuckle = 1,                           -- looping, powerful
@@ -131,7 +134,9 @@ function modifier_magus_oaa:OnCreated()
     silencer_global_silence = 1,                         -- powerful
     slark_depth_shroud = 1,                              -- untargettable melee hero, powerful
     slark_shadow_dance = 1,                              -- untargettable melee hero, powerful
+    sniper_take_aim = 1,                                 -- self grief in most cases
     tidehunter_anchor_smash = 1,                         -- looping
+    tinkerer_laser_contraption = 1,                      -- lag
     troll_warlord_battle_trance = 1,                     -- self grief or unkillable
     visage_summon_familiars = 1,                         -- self grief in most cases
     visage_summon_familiars_oaa = 1,                     -- self grief in most cases
