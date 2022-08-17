@@ -82,7 +82,7 @@ end
 function modifier_brawler_stack_oaa:OnCreated()
   self.as_per_stack = 5
   self.ms_per_stack = 5
-  self.dmg_per_stack = 5
+  self.dmg_per_stack = 2
 
   if IsServer() then
     self:SetStackCount(1)
@@ -92,7 +92,7 @@ end
 function modifier_brawler_stack_oaa:OnRefresh()
   self.as_per_stack = 5
   self.ms_per_stack = 5
-  self.dmg_per_stack = 5
+  self.dmg_per_stack = 2
 
   if IsServer() then
     self:IncrementStackCount()
