@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 100 80 70 60" //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "120 110 100 90 80" //OAA, for picking screen tooltip
     "AbilityDuration"                                     "13.0"
 
     // Cost
@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "second_radius"                                   "700" //OAA
+        "second_radius"                                   "750" //OAA, for picking screen tooltip
       }
       "03"
       {
@@ -101,7 +101,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "90 80 70 60 50" //OAA
+        "cooldown_scepter"                                "70" //OAA
         "RequiresScepter"                                 "1"
       }
       "14"
