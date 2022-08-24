@@ -36,9 +36,9 @@
       "stone_duration"                                    "3.0"
       "face_duration"                                     "2.0"
       "vision_cone"                                       "0.08715"   // 85 degree cone
-      "bonus_physical_damage"
+      "bonus_physical_damage" //OAA
       {
-        "value"                                           "40 45 50 50 50"
+        "value"                                           "30 35 40 45 50"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
       "speed_boost"                                       "50"

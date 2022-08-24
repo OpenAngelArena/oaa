@@ -25,40 +25,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "reflect_duration"      
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "reflect_duration"                                "2.0"
+        "value"     "2.0"
+        "special_bonus_unique_nyx_carapace_reflect_duration"      "+0.5"
       }
-      "02"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.6 1.2 1.8 2.4 2.5 2.6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nyx_6"
+        "value"         "0.6 1.2 1.8 2.4 2.5 2.6"
+        "special_bonus_unique_nyx_6"  "+0.6"
       }
-      "03" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
-      }
-      "04" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
-      }
-      "05" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reflect_pct"                              "100"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nyx"
-      }
+      "damage_reflect_pct"        "100"
     }
   }
 }

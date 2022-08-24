@@ -26,18 +26,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "mana_pool_damage_pct"  //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_pool_damage_pct"                            "11 12 13 14 15 16" //OAA, for picking screen tooltip
-        "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer"
+        "value"                   "11 12 13 14 15 16"
+        "special_bonus_unique_outworld_devourer"  "+2"
       }
-      "02"
+      "mana_cost_percentage"              "20"
+      "bounce_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "20"
+        "value"                   "0"     
       }
     }
   }

@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
+    "AbilityCastRange"                                    "450"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -57,7 +57,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_cast_range"                          "125"
+        "shard_bonus_cast_range"                          "75"
         "RequiresShard"                                   "1"
       }
       "05"

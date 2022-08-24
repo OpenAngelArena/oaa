@@ -22,7 +22,7 @@
     "HasScepterUpgrade"                                   "1"
 
     "AbilityCastRange"                                    "650"
-    "AbilityCastPoint"                                    "0.45"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "decay_damage"                                    "20 50 80 110 220 440"
+        "decay_damage"                                    "0 40 80 120 240 480"
         "LinkedSpecialBonus"                              "special_bonus_unique_undying_8"
       }
       "02"

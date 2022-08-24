@@ -24,7 +24,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 550 600 650 700 750" //OAA
+    "AbilityCastRange"                                    "500 550 600 650 700 750"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -39,39 +39,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "burrow_width"    "150"
+      "burrow_duration" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burrow_width"                                    "150"
+        "value"     "1.6 1.8 2.0 2.2 2.3 2.4"
+        "special_bonus_unique_sand_king_burrowstrike_stun"        "+0.3"
       }
-      "02"
+      "burrow_speed"    "2000"
+      "burrow_anim_time"  "0.52"
+      "cast_range_scepter" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burrow_duration"                                 "1.6 1.8 2.0 2.2 2.3 2.4"
+        "value"           "1000 1100 1200 1300 1400 1500"
+        "RequiresScepter"     "1"
       }
-      "03"
+      "burrow_speed_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burrow_speed"                                    "2000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burrow_anim_time"                                "0.52"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "1000 1100 1200 1300 1400 1500" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burrow_speed_scepter"                            "3000"
-        "RequiresScepter"                                 "1"
+        "value"   "3000"
+        "RequiresScepter"     "1"
       }
     }
   }

@@ -19,8 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 13 12" //OAA
-    "AbilityManaCost"                                     "75" //OAA
+    "AbilityManaCost"                                     "90 85 80 75 70 65"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,12 +27,22 @@
     {
       "effect_radius"                                     "230"
       "step_distance"                                     "140"
-      "base_damage"                                       "12 28 44 60 160 260"
+      "base_damage"                                       "12 28 44 60 120 180"
       "duration"                                          "5.5"
       "attack_damage"
       {
         "value"                                           "35"
         "special_bonus_unique_primal_beast_trample_attack_damage" "+25"
+      }
+      "bonus_magic_resistance"
+      {
+        "value"         "0"
+        "special_bonus_unique_primal_beast_trample_magic_resist"    "+20"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"       "20 18 16 14 13 12"
+        "special_bonus_unique_primal_beast_trample_cooldown"  "-5"
       }
     }
   }

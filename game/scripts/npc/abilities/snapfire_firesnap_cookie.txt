@@ -23,7 +23,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,21 +32,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "projectile_speed"                                  "1000"
+      "AbilityCooldown" //OAA
+      {
+        "value"   "18 17 16 15 14 13"
+        "special_bonus_unique_snapfire_3" "-4"
+      }
+      "projectile_speed"                                  "1100"
       "pre_hop_duration"                                  "0.0"
-      "jump_duration"                                     "0.431" //OAA, "0.431 0.484 0.538 0.592" // proportional to horizontal distance
-      "jump_height"                                       "257" //"228 257 285 314" // proportional to horizontal distance
-      "jump_horizontal_distance"                          "425" //"400 450 500 550"
+      "jump_duration"
+      {
+        "value" "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+        "special_bonus_shard" "+0.2"
+      }
+      "jump_height"
+      {
+        "value"           "257" //"228 257 285 314" // proportional to horizontal distance
+        "special_bonus_shard"   "+105"
+      }
+      "jump_horizontal_distance"
+      {
+        "value"           "425" //"400 450 500 550"
+        "special_bonus_shard"   "+175"
+      }
       "pre_land_anim_time"                                "0.14"
       "landing_gesture_duration"                          "0.6"
       "impact_radius"                                     "300"
       "impact_damage"                                     "70 140 210 280 560 1120"
-      "impact_stun_duration"
-      {
-        "value"                                           "1.3 1.6 1.9 2.2 2.5 2.8"
-        "special_bonus_unique_snapfire_3"                 "+0.3"
-
-      }
+      "impact_stun_duration"                              "1.4 1.8 2.2 2.6 2.8 3.0"
       "self_cast_delay"                                   "0.3"
       "target_heal"
       {

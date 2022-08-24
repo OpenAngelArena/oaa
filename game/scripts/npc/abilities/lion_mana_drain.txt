@@ -54,7 +54,7 @@
       "movespeed"     
       {
         "value"       "20 25 30 35 40 45"
-        "special_bonus_unique_lion_6" "+15"
+        "special_bonus_unique_lion_6" "+10"
       }
       "shard_bonus_break_distance"      //OBSOLETE
       {
@@ -65,6 +65,11 @@
       {
         "value"   "2"
         "RequiresShard"       "1"
+      }
+      "damage_pct"          
+      {
+        "value"         "0"   
+        "special_bonus_unique_lion_manadrain_damage"      "+150"
       }
     }
   }

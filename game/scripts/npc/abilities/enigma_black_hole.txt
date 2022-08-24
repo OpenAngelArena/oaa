@@ -35,7 +35,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                      "100 150 200 400 600"
+      "damage"
+      {
+        "value"   "100 150 200 400 600"
+        "special_bonus_unique_enigma_6" "+50"
+      }
       "radius"                      "420"
       "pull_speed"                  "30"
       "tick_rate"                   "0.1"
@@ -45,23 +49,23 @@
       "animation_rate"              "0.2"
       "scepter_pct_damage"
       {
-        "value"                     "5"
+        "value"                     "3.5"
         "RequiresScepter"           "1"
       }
-      "shard_radius"
+      "scepter_radius"  
       {
-        "value"                     "1000"
-        "RequiresShard"             "1"
+        "value"                     "1200"
+        "RequiresScepter"           "1"
       }
-      "shard_drag_speed" //OAA
+      "scepter_drag_speed" //OAA    
       {
         "value"                     "100"
-        "RequiresShard"             "1"
+        "RequiresScepter"           "1"
       }
-      "shard_pull_rotate_speed"
+      "scepter_pull_rotate_speed" 
       {
         "value"                     "0.1"
-        "RequiresShard"             "1"
+        "RequiresScepter"           "1"
       }
     }
   }

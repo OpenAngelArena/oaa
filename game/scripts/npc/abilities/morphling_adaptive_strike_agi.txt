@@ -36,35 +36,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "damage_base"         "60 80 100 120 240 480" //OAA
+      "damage_min"          
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_base"                                     "60 80 100 120 240 480" //OAA
+        "value"         "0.5"
+        "CalculateSpellDamageTooltip" "0"
       }
-      "02"
+      "damage_max"          
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_min"                                      "0.5"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"       "1.0 1.5 2.0 2.5 3.5 4.5"
+        "CalculateSpellDamageTooltip" "0"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_max"                                      "1.0 1.5 2.0 2.5 4.0 5.5"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "1150"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shared_cooldown"                                 "1" //OAA
-      }
+      "projectile_speed"          "1150"
+      "shared_cooldown"         "1" //OAA
     }
   }
 }

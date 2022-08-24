@@ -32,25 +32,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        "120.0" //OAA
+      "polarization_distance"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "120" //OAA
+        "value"     "0"
+        
       }
-      "02"
+      "vision_radius"       "325"
+      "AbilityCharges"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_charges"                             "4"
-        "RequiresShard"                                   "1"
+        "value"             "7"
+        "special_bonus_shard"     "+4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_vision_radius"                             "375"
-        "RequiresShard"                                   "1"
-      }
+      "shard_tooltip"           "4"
     }
   }
 }

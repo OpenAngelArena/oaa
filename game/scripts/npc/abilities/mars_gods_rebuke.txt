@@ -21,12 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,61 +29,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "crit_mult"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_mult"                                       "150 190 230 270 310 350"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mars_gods_rebuke_extra_crit"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"               "150 190 230 270 310 350"
+        "special_bonus_unique_mars_gods_rebuke_extra_crit"    "+65"
+        "DamageTypeTooltip"     "DAMAGE_TYPE_PHYSICAL"
       }
-      "02"
+      "angle"           "140"
+      "radius"          
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "angle"                                           "140"
+        "value"         "500"
+        "special_bonus_unique_mars_rebuke_radius"   "+100"
       }
-      "03"
+      "knockback_duration"    "0.3"
+      "knockback_distance"    "150"
+      "knockback_slow"      "40"
+      "knockback_slow_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "value" "2.5"
+        "special_bonus_unique_mars_rebuke_slow"   "+0"
       }
-      "04"
+      "activity_duration"     "2"
+      "bonus_damage_vs_heroes"  "25 30 35 40 80 160" //OAA
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_distance"                              "150"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_slow"                                  "40"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_slow_duration"                         "2"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mars_rebuke_slow"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "activity_duration"                               "2"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_vs_heroes"                          "25 30 35 40 80 160" //OAA
-      }
-      "10" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "3.5"
-        "RequiresScepter"                                 "1"
+        "value"         "16 14 12 10 10 10"
+        "special_bonus_unique_mars_rebuke_cooldown"       "-4"
       }
     }
   }

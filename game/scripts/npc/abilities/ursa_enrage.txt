@@ -34,30 +34,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "damage_reduction"      "80"
+      "status_resistance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "80"
+        "value"             "50"
+        "special_bonus_unique_ursa_8"     "+10"
       }
-      "02"
+      "duration" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "50"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_8"
+        "value"             "4.0 4.25 4.5 4.75 5.0"
+        "special_bonus_unique_ursa_3" "+1.2"
       }
-      "03"
+      "cooldown_scepter" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.25 4.5 4.75 5.0" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_3"
+        "value"           "28 26 24 22 20"
+        "RequiresScepter"     "1"
       }
-      "04"
+      "aoe_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "28 26 24 22 20" //OAA
-        "RequiresScepter"                                 "1"
+        "value"           "0"
+        "special_bonus_unique_ursa_enrage_radius"   "+700"
       }
     }
   }

@@ -30,37 +30,24 @@
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "900"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"   
     {
-      "01"
+      "aoe"         
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "aoe"                                             "500 550 600 650 700 750"
+        "value"       "500 550 600 650 700 750"
+        "special_bonus_unique_warlock_upheaval_aoe"     "+75"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_per_second"                                 "12 17 22 27 32 37"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_slow"                                        "75 80 85 90 95 100" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aspd_per_second"                                 "10"
-      }
+      "slow_per_second"   "10 15 20 25 30 35"
+      "duration"        "3.0"
+      "max_slow"        "75 80 85 90 95 100" //OAA Undocumented change
+      "aspd_per_second"   "10"
+      "damage_per_second"   "10"
+      "max_damage"      "30 50 70 90 180 270"
+      "damage_tick_interval"  "1"
     }
   }
 }

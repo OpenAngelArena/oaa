@@ -42,7 +42,11 @@
       "knockback_duration"    "0.6 0.7 0.8 0.9 1.0 1.1"
       "knockback_height"    "0"
       "wave_length"   "900"
-      "bonus_movespeed"   "10"
+      "bonus_movespeed"
+      {
+        "value"         "10"
+        "special_bonus_unique_drow_ranger_gust_selfmovespeed"   "+15"
+      }
     }
   }
 }

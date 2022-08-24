@@ -24,12 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9.0 8.5 8.0 7.5 7.0 6.5" //OAA
     "AbilityDuration"                                     "0.6875"
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "110 180 250 320 640 1280" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,27 +32,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dragon_slave_speed"                              "1200"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dragon_slave_width_initial"                      "275"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dragon_slave_width_end"                          "200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dragon_slave_distance"                           "1075"
+      "dragon_slave_damage"   "110 180 250 320 640 1280" //OAA
+      "dragon_slave_speed"    "1200"
+      "dragon_slave_width_initial"  "275"
+      "dragon_slave_width_end"    "200"
+      "dragon_slave_distance"     "1075"
+
+      "AbilityCooldown" //OAA
+      { 
+        "value"           "9.0 8.5 8.0 7.5 7.0 6.5"
+        "special_bonus_unique_lina_1"   "-3.5"
       }
     }
   }

@@ -34,36 +34,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"            
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_4"
+        "value"                   "1000"
+        "special_bonus_unique_gyrocopter_4"     "+300"
       }
-      "02"
+      "max_attacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "3 4 5 6 8 12"
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_2"
+        "value"         "3 4 5 6 8 12"
+        "special_bonus_unique_gyrocopter_2"     "+2"
       }
-      "03"
+      "projectile_speed"        "800"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "800"
+        "value"             "0"
+        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"      "+40"
       }
-      "04"
+      "fire_rate"  
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fire_rate"                                       "1.2"
-        "RequiresScepter"                                 "1"
+        "value"               "1.2"
+        "RequiresScepter"         "1"
       }
-      "05"
+      "scepter_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "700"
-        "RequiresScepter"                                 "1"
+        "value"               "700"
+        "RequiresScepter"         "1"
       }
     }
   }

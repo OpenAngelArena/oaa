@@ -18,32 +18,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "points_per_tick"   "1"
+      "morph_cooldown"    "0.0833 0.0625 0.05 0.0416 0.0208 0.0104" //OAA
+      "bonus_attributes"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "points_per_tick"                                 "1"
+        "value"         "3 5 7 9 13 25"
+        "special_bonus_shard"         "+6"
       }
-      "02"
+      "morph_rate_tooltip"  "12 16 20 24 48 96" //OAA
+      "mana_cost"       "5 10 15 20"
+      "castable_while_stunned"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "morph_cooldown"                                  "0.0833 0.0625 0.05 0.0416 0.0208 0.0104" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attributes"                                "3 5 7 9 13 25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "morph_rate_tooltip"                              "12 16 20 24 48 96" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost"                                       "10"
+        "value" "0"
+        "special_bonus_shard" "+1"
       }
     }
   }

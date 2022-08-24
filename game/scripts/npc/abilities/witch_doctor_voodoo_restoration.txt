@@ -33,17 +33,22 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "radius"                                          "500 550 600 650 700 750"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "16 24 32 40 80 160"
+        "heal"                                            "10 20 30 40 80 160"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
         "heal_interval"                                   "0.33"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_damage_pct"                                "100"
       }
     }
   }

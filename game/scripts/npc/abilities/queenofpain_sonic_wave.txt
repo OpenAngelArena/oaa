@@ -38,18 +38,17 @@
       "distance"                                          "900"
       "final_aoe"                                         "450"
       "speed"                                             "900"
-      "damage"                                            "310 550 790 1270 2230" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "310 550 790 1270 2230"
+        "special_bonus_unique_queen_of_pain_7"            "+200"
+      }
       "knockback_distance"                                "350"
       "knockback_duration"                                "1.4"
-      "cooldown_scepter"
+      "AbilityCooldown"
       {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
-      }
-      "damage_scepter" //OAA
-      {
-        "value"                                           "420 680 940 1720 2760"
-        "RequiresScepter"                                 "1"
+        "value"                                           "125"
+        "special_bonus_unique_queen_of_pain_3"            "-60"
       }
     }
   }

@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
@@ -99,7 +99,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "1000 1100 1200 1300 1400 1500"
+        "range"                                           "700 900 1100 1300 1400 1500"
       }
     }
   }

@@ -29,7 +29,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,41 +40,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "health_drain" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_drain"                                    "150 300 450 900 1650" //OAA
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"         "150 300 450 900 1650"
+        "CalculateSpellDamageTooltip" "1"
       }
-      "02"
+      "tick_rate"         "0.25"
+      "drain_buffer"        "200"
+      "shard_damage_pct_from_ward"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_health_drain"                            "250 450 650 1250 2250" //OAA
-        "RequiresScepter"                                 "1"
+        "value"       "70"
+        "RequiresShard"   "1"
       }
-      "03"
+      "bonus_heal_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "0.25"
+        "value"         "0"
+        "special_bonus_unique_pugna_1"      "+20"
       }
-      "04"
+      "spell_amp_drain_rate"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "drain_buffer"                                    "200"
+        "value"           "0"
+        "special_bonus_scepter"   "+8"
       }
-      "05"
+      "spell_amp_drain_max"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "0"
-        "RequiresScepter"                                 "1"
+        "value"           "0"
+        "special_bonus_scepter"   "+75"
       }
-      "06"
+      "spell_amp_drain_rate_ward"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_damage_pct_from_ward"                      "70"
-        "RequiresShard"                                   "1"
+        "value"           "0"
+        "special_bonus_scepter"   "+4"
+      }
+      "spell_amp_drain_duration"
+      {
+        "value"           "0"
+        "special_bonus_scepter"   "+8"
+      }     
+      "max_spell_amp_drain_pct"
+      {
+        "value"           "0"
+        "special_bonus_scepter"   "+100"
+      } 
+      "AbilityCooldown"       
+      {
+        "value"           "7"   
+        "special_bonus_scepter"   "-50%"
       }
     }
   }

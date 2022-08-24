@@ -18,75 +18,58 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "physical_damage_reduction" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "physical_damage_reduction"                       "40 45 50 55 65 75" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_damage_reduction"
+        "value"   "40 45 50 55 65 75"
+        "special_bonus_unique_mars_bulwark_damage_reduction"    "+10"
       }
-      "02"
+      "forward_angle"         "140"
+      "physical_damage_reduction_side"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "forward_angle"                                   "140"
+        "value"                       "20 25 30 35 40 45"
+        "special_bonus_unique_mars_bulwark_damage_reduction"    "+5"
       }
-      "03"
+      "side_angle"          "240"
+      "redirect_chance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "physical_damage_reduction_side"                  "20 25 30 35 40 45"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_damage_reduction"
-        "LinkedSpecialBonusField"                         "value2"
+        "value"               "70"
+        "special_bonus_unique_mars_bulwark_redirect_chance"     "+30"
       }
-      "04"
+      "redirect_range"        "900"
+      "redirect_speed_penatly"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "side_angle"                                      "240"
+        "value"       "20"
+        "special_bonus_unique_mars_bulwark_speed"     "-10"
       }
-      "05"
+      "redirect_close_range"        "100"
+
+      // Scepter here
+      "soldier_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_chance"                                 "70"
+        "value"                     "5"
+        "RequiresScepter"              "1"
       }
-      "06"
+      "soldier_offset"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_range"                                  "800"
+        "value"                     "200"
+        "RequiresScepter"              "1"
       }
-      "07"
+      "scepter_movement_slow_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_speed_penatly"                          "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_mars_bulwark_speed"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "value"                     "30"
+        "RequiresScepter"              "1"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "soldier_count"                                   "5"
+      "scepter_movement_slow_duration"
+      {   
+        "value"                     "1.0"
+        "RequiresScepter"              "1"
       }
-      "09"
+      "scepter_bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "soldier_offset"                                  "200"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_movement_slow_pct"                       "30"
-        "RequiresScepter"                                 "1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_movement_slow_duration"                  "1.0"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_damage"                            "75"
-        "RequiresScepter"                                 "1"
+        "value"                     "75"
+        "RequiresScepter"              "1"
       }
     }
   }

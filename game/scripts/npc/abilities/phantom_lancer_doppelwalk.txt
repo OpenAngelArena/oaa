@@ -14,7 +14,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575 600 625 650 675 700" //OAA
+    "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -27,61 +27,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "illusion_1_damage_out_pct" "-100"
+      "illusion_1_damage_in_pct"  "0"
+      "illusion_2_damage_out_pct" "-80"
+      "illusion_2_damage_in_pct"  "500"
+      "target_aoe"  "325"
+      "search_radius" "900"
+      "delay"     "1"
+      "illusion_duration"     "8"
+      "illusion_extended_duration"      "2"
+      "illusion_2_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_1_damage_out_pct"                       "-100"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_1_damage_in_pct"                        "0"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_2_damage_out_pct"                       "-50" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_2_damage_in_pct"                        "500"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_aoe"                                      "325"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "search_radius"                                   "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "8"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_extended_duration"                      "1" //OAA
-      }
-      "10"	//OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "575 600 625 650 675 700"
+        "value"         "1"
+        "special_bonus_unique_phantom_lancer_doppel_illusion2_amt"    "+1"
       }
     }
   }

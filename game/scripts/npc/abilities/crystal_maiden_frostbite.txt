@@ -28,7 +28,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"                                  "600"
+      "AbilityCastRange"
+      {
+        "value"               "600"
+        "special_bonus_unique_crystal_maiden_frostbite_castrange"     "+125"
+      }
       "AbilityCastPoint"                                  "0.3"
       "AbilityCooldown"                                   "9 8 7 6 6 6"
       "AbilityManaCost"                                   "125 135 145 155 165 175"

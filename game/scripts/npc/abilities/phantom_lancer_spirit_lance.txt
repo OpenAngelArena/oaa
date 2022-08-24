@@ -38,82 +38,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "lance_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "lance_damage"                                    "100 160 220 280 560 840"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer_2"
+        "value"       "100 160 220 280 560 840"
+        "special_bonus_unique_phantom_lancer_lance_damage"    "+50"
       }
-      "02"
+      "lance_speed"       "1000 1000 1000 1000"
+      "duration"          "3.25"
+      "movement_speed_pct"    "-10 -18 -26 -34 -42 -50"
+      "illusion_duration"     "2.0 4.0 6.0 8.0 8.5 9.0"
+      "illusion_damage_out_pct" "-80 -80 -80 -80 -75 -70"
+      "tooltip_illusion_damage" "20 20 20 20 25 30"
+      "illusion_damage_in_pct"  "300 300 300 300"
+      "tooltip_illusion_total_damage_in_pct"  "400 400 400 400"
+      "fake_lance_distance"   "675"
+      "shard_bounce_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "lance_speed"                                     "1000"
+        "value"           "750"
+        "RequiresShard"       "1"
       }
-      "03"
+      "shard_bonus_illusion_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.25"
+        "value"           "40"
+        "RequiresShard"       "1"
       }
-      "04"
+      "shard_total_hits"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "-10 -18 -26 -34 -42 -50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "2.0 4.0 6.0 8.0 8.5 9.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_out_pct"                         "-80 -80 -80 -80 -75 -70"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_damage"                         "20 20 20 20 25 30"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_in_pct"                          "200" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_in_pct"            "300" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "fake_lance_distance"                             "675"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bounce_radius"                             "750"
-        "RequiresShard"                                   "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_illusion_damage"                     "40"
-        "RequiresShard"                                   "1"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_total_hits"                                "2"
-        "RequiresShard"                                   "1"
+        "value"           "2"
+        "RequiresShard"       "1"
       }
     }
   }

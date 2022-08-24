@@ -45,17 +45,17 @@
       "fade_time"                                         "1.0"
       "shard_bonus_damage"
       {
-        "value"                                           "200"
+        "value"                                           "0"
         "RequiresShard"                                   "1"
       }
       "shard_break_duration"
       {
-        "value"                                           "4.0"
+        "value"                                           "0.0"
         "RequiresShard"                                   "1"
       }
       "shard_spell_immune_duration"
       {
-        "value"                                           "2.0"
+        "value"                                           "0.0"
         "RequiresShard"                                   "1"
       }
     }

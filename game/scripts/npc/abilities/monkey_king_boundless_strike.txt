@@ -31,30 +31,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1 1.2 1.4 1.6 1.8 2.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_9"
+        "value"                   "1 1.2 1.4 1.6 1.8 2.0"
+        "special_bonus_unique_monkey_king_9"    "+0.3"
       }
-      "02"
+      "strike_crit_mult"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "strike_crit_mult"                                "135 165 195 225 255 285"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"           "135 165 195 225 255 285"       
+        "DamageTypeTooltip"     "DAMAGE_TYPE_PHYSICAL"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "strike_radius"                                   "150"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "strike_cast_range"                               "1100"
-      }
+      "strike_radius"       "150"
+      "strike_cast_range"     "1100"
+      "soldier_spawn_duration"    "0"
+      "acceleration_z"          "5000"
+      "min_height_above_lowest"     "100"
+      "min_height_above_highest"      "150"
+      "max_horizontal_acceleration"   "30000"
+      "duration"              "0.2"
     }
   }
 

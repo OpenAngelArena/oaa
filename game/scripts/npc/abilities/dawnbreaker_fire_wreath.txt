@@ -107,6 +107,12 @@
         "var_type"                                        "FIELD_FLOAT"
         "turn_rate"                                       "90"
       }
+      "16"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cast_point"                                "0.1"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

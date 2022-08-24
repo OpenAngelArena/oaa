@@ -63,88 +63,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 44 74 114 164"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "70 80 90 100 110"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "static_duration"                                 "15.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_chance"                                   "20"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_strikes"                                  "4"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_damage"                                   "225 325 425 525 625"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_primary_radius"                           "600"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_seconary_radius"                          "900"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "static_radius"                                   "900"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "static_cooldown"                                 "1.0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chain_chance"                                    "30"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "180 230 330 480 680"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chain_strikes"                                   "12"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chain_radius"                                    "650 750 850 950 1050"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "chain_delay"                                     "0.25"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "chain_cooldown"                                  "0.2"
-      }
+      "bonus_damage"      "24 44 74 114 164"
+      "bonus_attack_speed"  "70 80 90 100 110"
+      "static_duration"   "15.0"
+      "static_chance"     "20"
+      "static_strikes"    "4"
+      "static_damage"     "225 325 425 525 625"
+      "static_primary_radius" "600"
+      "static_seconary_radius"  "900"
+      "static_radius"     "900"
+      "static_cooldown"   "1.0"
+      "chain_chance"      "30"
+      "chain_damage"      "180 230 330 480 680"
+      "chain_strikes"     "12"
+      "chain_radius"      "650 750 850 950 1050"
+      "chain_delay"     "0.25"
+      "chain_cooldown"    "0.2"
+      "max_charges"     "0"
+      "chain_damage_per_charge" "0"
     }
   }
 }
