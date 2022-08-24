@@ -19,54 +19,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // just for the tooltip
+      "duration"                                          "36" // just for the tooltip
+      "bonus_gold"                                        "3 4 5 6 8 14" // just for the tooltip
+      "bonus_bonus_gold"                                  "3 4 5 6 8 14" // just for the tooltip
+      "bonus_gold_cap"                                    "15 18 21 24 60 96" // just for the tooltip
+      "bounty_multiplier"                                 "1.5 2.0 2.5 3.0 3.5 4.0" // just for the tooltip
+
+      "armor_reduction_per_hit"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "36"
-      }
-      "02" // just for the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "3 4 5 6 8 14"
-      }
-      "03" // just for the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_bonus_gold"                                "3 4 5 6 8 14"
-      }
-      "04" // just for the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold_cap"                                  "15 18 21 24 60 96"
-      }
-      "05" // just for the tooltip
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bounty_multiplier"                               "1.5 2.0 2.5 3.0 3.5 4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "armor_reduction_per_hit"                         "0.1 0.2 0.3 0.4 0.6 0.8"
+        "value"                                           "0.1 0.2 0.3 0.4 0.6 0.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_alchemist_2_oaa"
       }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "multiplier"                                      "2"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_duration"                        "5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_cap"                             "-25"
-      }
+      "multiplier"                                        "2"
+      "armor_reduction_duration"                          "5"
+      "armor_reduction_cap"                               "-25"
     }
   }
 }

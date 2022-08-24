@@ -588,11 +588,9 @@ function modifier_furion_wrath_of_nature_scepter_root_oaa:OnCreated()
 end
 
 function modifier_furion_wrath_of_nature_scepter_root_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ROOTED] = true,
   }
-
-  return state
 end
 
 function modifier_furion_wrath_of_nature_scepter_root_oaa:GetEffectName()
