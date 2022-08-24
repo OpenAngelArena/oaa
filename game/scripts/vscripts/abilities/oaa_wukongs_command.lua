@@ -599,12 +599,12 @@ if IsServer() then
       unit:Hold()
     end
 
-    local function IsUnitInCircle(unit, center, radius)
-      if not center or not radius then
+    local function IsUnitInCircle(unit, circle_center, circle_radius)
+      if not circle_center or not circle_radius then
         return
       end
 
-      return (unit:GetAbsOrigin() - center):Length2D() <= radius
+      return (unit:GetAbsOrigin() - circle_center):Length2D() <= circle_radius
     end
 
     if parent and not parent:IsNull() and parent:IsAlive() then
