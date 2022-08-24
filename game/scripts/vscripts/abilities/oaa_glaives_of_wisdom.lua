@@ -377,7 +377,7 @@ if IsServer() then
       --end
 
       if parent:HasShardOAA() then
-        if not self.count then
+        if not self.number_of_attacks then
           self.number_of_attacks = 0
         else
           self.number_of_attacks = self.number_of_attacks + 1

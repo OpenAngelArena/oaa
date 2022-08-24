@@ -127,6 +127,51 @@ function modifier_batrider_sticky_napalm_oaa_passive:GetModifierDisableTurning()
 end
 ]]
 
+function ApplyStickyNapalmDamage(count, ability, caster, target)
+  if not ability or ability:IsNull() or not caster or caster:IsNull() or not IsServer() then
+    return
+  end
+
+  local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
+
+  -- Check for Sticky Napalm bonus damage talent
+  local talent = caster:FindAbilityByName("special_bonus_unique_batrider_4_oaa")
+  if talent and talent:GetLevel() > 0 then
+    bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
+  end
+
+  local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
+  local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
+  local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
+
+  if not target:IsHero() then
+    if target:IsAncient() then
+      if target:IsOAABoss() then
+        bonus_damage = bonus_damage * damage_bosses * 0.01
+      else
+        bonus_damage = bonus_damage * damage_ancients * 0.01
+      end
+    else
+      bonus_damage = bonus_damage * damage_non_ancient_creeps * 0.01
+    end
+  end
+
+  -- Damage particle
+  local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, caster)
+  ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
+
+  -- Apply damage
+  local damage_table = {}
+  damage_table.victim = target
+  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+  damage_table.attacker = caster
+  damage_table.ability = ability
+  damage_table.damage = bonus_damage * count
+
+  ApplyDamage(damage_table)
+end
+
 if IsServer() then
   function modifier_batrider_sticky_napalm_oaa_passive:OnOrder(event)
     local parent = self:GetParent()
@@ -242,51 +287,6 @@ if IsServer() then
     local stack_count = debuff:GetStackCount()
 
     ApplyStickyNapalmDamage(stack_count, ability, caster, damaged_unit)
-  end
-
-  function ApplyStickyNapalmDamage(count, ability, caster, target)
-    if not ability or ability:IsNull() or not caster or caster:IsNull() or not IsServer() then
-      return
-    end
-
-    local bonus_damage = ability:GetLevelSpecialValueFor("damage_per_stack", ability:GetLevel()-1)
-
-    -- Check for Sticky Napalm bonus damage talent
-    local talent = caster:FindAbilityByName("special_bonus_unique_batrider_4_oaa")
-    if talent and talent:GetLevel() > 0 then
-      bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
-    end
-
-    local damage_non_ancient_creeps = ability:GetSpecialValueFor("damage_creeps")
-    local damage_ancients = ability:GetSpecialValueFor("damage_ancients")
-    local damage_bosses = ability:GetSpecialValueFor("damage_bosses")
-
-    if not target:IsHero() then
-      if target:IsAncient() then
-        if target:IsOAABoss() then
-          bonus_damage = bonus_damage * damage_bosses * 0.01
-        else
-          bonus_damage = bonus_damage * damage_ancients * 0.01
-        end
-      else
-        bonus_damage = bonus_damage * damage_non_ancient_creeps * 0.01
-      end
-    end
-
-    -- Damage particle
-    local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, caster)
-    ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
-
-    -- Apply damage
-    local damage_table = {}
-    damage_table.victim = target
-    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-    damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-    damage_table.attacker = caster
-    damage_table.ability = ability
-    damage_table.damage = bonus_damage * count
-
-    ApplyDamage(damage_table)
   end
 
   function modifier_batrider_sticky_napalm_oaa_passive:OnModifierAdded(event)
