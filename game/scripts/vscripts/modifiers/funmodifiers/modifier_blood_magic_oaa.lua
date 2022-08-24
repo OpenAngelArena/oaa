@@ -78,7 +78,7 @@ function modifier_blood_magic_oaa:GetModifierManaBonus()
 end
 
 function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
-  return 1
+  return 3
 end
 
 function modifier_blood_magic_oaa:GetTexture()

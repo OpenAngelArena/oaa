@@ -18,9 +18,9 @@ function modifier_explosive_death_oaa:RemoveOnDeath()
 end
 
 function modifier_explosive_death_oaa:OnCreated()
-  self.radius = 400
-  self.delay = 0.9
-  self.base_damage = 75
+  self.radius = 500
+  self.delay = 0.4
+  self.base_damage = 175
   self.hp_percent = 7
   self.networth_percent = 1.5
 end
@@ -105,7 +105,7 @@ if IsServer() then
       radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-      DOTA_UNIT_TARGET_FLAG_NONE,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
       FIND_ANY_ORDER,
       false
     )
@@ -121,7 +121,7 @@ if IsServer() then
       should_stun = 0,
       knockback_duration = 0.5,
       duration = 0.5,
-      knockback_distance = 200 + (10 * level),
+      knockback_distance = 200 + (8 * level),
       knockback_height = 20 + (10 * level),
       center_x = death_location.x,
       center_y = death_location.y,
