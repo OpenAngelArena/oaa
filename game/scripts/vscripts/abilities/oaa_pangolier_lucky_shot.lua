@@ -202,14 +202,14 @@ if IsServer() then
       local disarm_duration = damaged_unit:GetValueChangedByStatusResistance(duration)
 
       -- Apply slow debuff
-      --damaged_unit:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
+      --damaged_unit:AddNewModifier(caster, ability, "modifier_pangolier_lucky_shot_oaa_slow_debuff", {duration = duration})
 
       -- Apply armor reduction and disarm debuff (don't apply disarm to bosses)
       if not damaged_unit:IsOAABoss() then
-        damaged_unit:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
+        damaged_unit:AddNewModifier(caster, ability, "modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff", {duration = disarm_duration})
       else
         -- If debuff applies only armor reduction, don't change duration with status resistance
-        damaged_unit:AddNewModifier(parent, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
+        damaged_unit:AddNewModifier(caster, ability, "modifier_pangolier_lucky_shot_oaa_armor_debuff", {duration = duration})
       end
 
       -- Play proc sound
@@ -220,7 +220,7 @@ if IsServer() then
       end
 
       -- Play particle effect
-      local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_luckyshot_disarm_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_luckyshot_disarm_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
       ParticleManager:SetParticleControl(particle, 1, damaged_unit:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(particle)
     else
