@@ -204,7 +204,7 @@ function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:DeclareFuncti
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("armor")
+  return 0 - math.abs(self:GetAbility():GetSpecialValueFor("armor"))
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -230,6 +230,6 @@ function modifier_pangolier_lucky_shot_oaa_armor_debuff:DeclareFunctions()
 end
 
 function modifier_pangolier_lucky_shot_oaa_armor_debuff:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("armor")
+  return 0 - math.abs(self:GetAbility():GetSpecialValueFor("armor"))
 end
 

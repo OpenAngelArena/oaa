@@ -23,7 +23,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
-    "AbilityCharges"                                      "10" //OAA
     "AbilityChargeRestoreTime"                            "20"
 
     // Cost
@@ -38,12 +37,12 @@
       "polarization_distance"
       {
         "value"     "0"
-        
+
       }
       "vision_radius"       "325"
-      "AbilityCharges"
+      "AbilityCharges" //OAA
       {
-        "value"             "7"
+        "value"             "10"
         "special_bonus_shard"     "+4"
       }
       "shard_tooltip"           "4"

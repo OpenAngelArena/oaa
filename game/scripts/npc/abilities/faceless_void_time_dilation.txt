@@ -21,24 +21,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilityValues"
     {
       "radius"        "775"
       "duration"        "8 9 10 11 12 13"
-      "slow"            
-      { 
+      "slow"
+      {
         "value"         "10"
         "special_bonus_unique_faceless_void_8"          "+10"
-      }     
+      }
       "cooldown_percentage" "60"
       "base_damage"     "0"
-      "damage_per_stack" //OAA 
+      "damage_per_stack" //OAA
       {
         "value"       "16 17 18 19 38 76"
         "special_bonus_unique_faceless_void_6" "+6"
         "DamageTypeTooltip"   "DAMAGE_TYPE_MAGICAL"
       }
-        "heal_prevent_percent"                            "-30 -35 -40 -45 -50 -55"
+      "heal_prevent_percent"                            "-30 -35 -40 -45 -50 -55" //OAA
     }
   }
 }

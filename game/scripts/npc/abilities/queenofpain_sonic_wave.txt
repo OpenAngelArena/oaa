@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.452"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250 400 550 700 850"
@@ -45,9 +41,9 @@
       }
       "knockback_distance"                                "350"
       "knockback_duration"                                "1.4"
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "125"
+        "value"                                           "100"
         "special_bonus_unique_queen_of_pain_3"            "-60"
       }
     }

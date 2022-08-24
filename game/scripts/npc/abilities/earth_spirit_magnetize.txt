@@ -33,25 +33,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_radius"     "350"
+      "cast_radius"                                       "375"
       "damage_per_second" //OAA
       {
-        "value"                 "100 200 300 450 600"
-        "special_bonus_unique_earth_spirit_8" "+20"
-      }   
-      
+        "value"                                           "100 200 300 450 600"
+        "special_bonus_unique_earth_spirit_8"             "+20"
+      }
+
       "damage_duration"
       {
-        "value"     "6.0"
-        "special_bonus_unique_earth_spirit_6" "+2"
-        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
+        "value"                                           "6.0"
+        "special_bonus_unique_earth_spirit_6"             "+2"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "rock_search_radius"      "400"
-      "rock_explosion_radius"     "600"
-      "damage_interval"     "1.0"
-      "rock_explosion_delay"      "8.0"
-      "silence_duration"      "5.0"
-      "slow_duration"     "2.0"
+      "rock_search_radius"                                "400"
+      "rock_explosion_radius"                             "600"
+      "damage_interval"                                   "1.0"
+      "rock_explosion_delay"                              "8.0"
+      "silence_duration"                                  "5.0"
+      "slow_duration"                                     "2.0"
     }
   }
 }

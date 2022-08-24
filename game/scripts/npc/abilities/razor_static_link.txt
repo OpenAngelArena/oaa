@@ -37,7 +37,7 @@
       "drain_length"
       {
         "value"     "5 6 7 8 9 10"
-        "special_bonus_unique_razor_3"  "+6"        
+        "special_bonus_unique_razor_3"  "+6"
       }
       "drain_duration"    "9 12 15 18 19 20"
       "drain_rate"
@@ -45,11 +45,11 @@
         "value"     "7 12 17 22 44 88"
         "special_bonus_unique_razor"  "+5"
       }
-      "drain_range_buffer"  "250"
-      "radius"        "200 200 200 200"
-      "speed"         "900 900 900 900"
-      "vision_radius"     "800 800 800 800"
-      "vision_duration"   "3.34 3.34 3.34 3.34"
+      "drain_range_buffer"                                "250"
+      "radius"                                            "200"
+      "speed"                                             "900"
+      "vision_radius"                                     "800"
+      "vision_duration"                                   "3.34"
       "attack_speed_factor"
       {
         "value"           "0"

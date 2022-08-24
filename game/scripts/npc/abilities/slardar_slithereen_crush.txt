@@ -40,44 +40,44 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crush_radius"        "350"
-      "crush_extra_slow"        
+      "crush_radius"                                      "350"
+      "crush_extra_slow"
       {
-        "value" "-20 -25 -30 -35 -45 -55"
-        "LinkedSpecialBonus"  "special_bonus_unique_slardar_8"
-        "LinkedSpecialBonusOperation" "SPECIAL_BONUS_SUBTRACT"
+        "value"                                           "-20 -25 -30 -35 -40 -45"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar_8"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "crush_attack_slow_tooltip"   "-20 -25 -30 -35 -45 -55"
-      "crush_extra_slow_duration"   "3 4 5 6"
-      "stun_duration"         
+      "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
+      "crush_extra_slow_duration"                         "3 4 5 6 7 8"
+      "stun_duration"
       {
-        "value"                             "1"
+        "value"                                           "1"
         "special_bonus_unique_slardar_slithereen_crush_stun"      "+0.2"
       }
-      "puddle_duration"   
+      "puddle_duration"
       {
-        "value"         "3 4 5 6 7 8"
-        "special_bonus_scepter" "+19"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_scepter"                           "+19"
       }
-      "puddle_radius"   
+      "puddle_radius"
       {
-        "value"       "250"
-        "special_bonus_scepter" "+350"
+        "value"                                           "250"
+        "special_bonus_scepter"                           "+350"
       }
-      "crush_damage"      
+      "crush_damage"
       {
-        "value"         "70 140 210 280 560 1120"
-        "LinkedSpecialBonus"  "special_bonus_unique_slardar"
+        "value"                                           "70 140 210 280 560 1120"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
       }
-      "shard_amp_duration"      
+      "shard_amp_duration"
       {
-        "value"       "5.0"
-        "RequiresShard"         "1"
+        "value"                                           "5.0"
+        "RequiresShard"                                   "1"
       }
-      "shard_bonus_radius"      
+      "shard_bonus_radius"
       {
-        "value"       "75"
-        "RequiresShard"         "1"
+        "value"                                           "75"
+        "RequiresShard"                                   "1"
       }
     }
   }

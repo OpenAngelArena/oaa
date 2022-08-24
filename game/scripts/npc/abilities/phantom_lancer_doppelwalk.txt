@@ -14,7 +14,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575"
+    "AbilityCastRange"                                    "575 600 625 650 675 700" //OAA
     "AbilityCastPoint"                                    "0.1"
 
     // Time
@@ -29,20 +29,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_1_damage_out_pct" "-100"
-      "illusion_1_damage_in_pct"  "0"
-      "illusion_2_damage_out_pct" "-80"
-      "illusion_2_damage_in_pct"  "500"
-      "target_aoe"  "325"
-      "search_radius" "900"
-      "delay"     "1"
-      "illusion_duration"     "8"
-      "illusion_extended_duration"      "2"
+      "illusion_1_damage_out_pct"                         "-100"
+      "illusion_1_damage_in_pct"                          "0"
+      "illusion_2_damage_out_pct"                         "-50" //OAA
+      "illusion_2_damage_in_pct"                          "500"
+      "target_aoe"                                        "325"
+      "search_radius"                                     "900"
+      "delay"                                             "1"
+      "illusion_duration"                                 "8"
+      "illusion_extended_duration"                        "0" //OAA
       "illusion_2_amount"
       {
-        "value"         "1"
+        "value"                                           "1"
         "special_bonus_unique_phantom_lancer_doppel_illusion2_amt"    "+1"
       }
+      "cast_range_tooltip"                                "575 600 625 650 675 700"
     }
   }
 }

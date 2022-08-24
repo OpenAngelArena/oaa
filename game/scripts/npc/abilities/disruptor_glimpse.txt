@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5459"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5459"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -45,10 +45,10 @@
       "AbilityCooldown" //OAA
       {
         "value"                 "21 20 19 18 17 16"
-        "special_bonus_unique_disruptor_4"    "-12"
+        "special_bonus_unique_disruptor_4"    "-10"
       }
       "min_damage"        "50"
-      "max_damage"        
+      "max_damage"
       {
         "value"                     "150 200 250 300 600 900"
         "special_bonus_unique_disruptor_9"        "250"
