@@ -17,14 +17,14 @@
 
     "MaxLevel"                                            "6"
 
-    // Time 
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"   
+    "AbilityValues"
     {
       "cleave_starting_width"     "150"
       "cleave_ending_width"     "500 550 600 650 700 750"
@@ -45,7 +45,7 @@
         "value"         "0"
         "special_bonus_unique_kunkka_tidebringer_slow"    "+1"  
       }
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"         "13.0 10.0 7.0 4.0 3.5 3.0"
         "special_bonus_unique_kunkka_5"     "-2"

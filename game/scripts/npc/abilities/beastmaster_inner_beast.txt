@@ -19,11 +19,11 @@
     // Casting
     "AbilityValues"
     {
-      "radius"        "1200"
-      "bonus_attack_speed" //OAA
+      "radius"                                            "1200"
+      "bonus_attack_speed"
       {
-        "value"                 "15 25 35 45 65 85"
-        "special_bonus_unique_beastmaster_4"    "+60"
+        "value"                                           "10 20 30 40 60 80"
+        "special_bonus_unique_beastmaster_4"              "+20"
       }
     }
   }
