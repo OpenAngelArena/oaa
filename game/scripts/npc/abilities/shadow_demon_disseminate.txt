@@ -7,11 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "1001"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"              "1001"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH | "
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    //"AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilitySound"          "Hero_ShadowDemon.Soul_Catcher"
 
     // Time   
