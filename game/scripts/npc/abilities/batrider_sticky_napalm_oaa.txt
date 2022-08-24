@@ -42,20 +42,20 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "7 14 21 28 56 112"
+        "damage_per_stack"                                "6 12 18 24 48 96"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4_oaa"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375 400 425 450 475 500"
+        "radius"                                          "375"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7_oaa"
       }
       "03"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "6"
       }
       "04"
       {
@@ -90,7 +90,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "shard_attack_proc_chance"                        "50"
+        "shard_number_of_attack_proc"                     "2"
         "RequiresShard"                                   "1"
       }
     }
