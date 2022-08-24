@@ -125,7 +125,7 @@ end
 function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_armor = 0
   self.bonus_damage = 0
-  self.attack_speed_reduction = 0
+  --self.attack_speed_reduction = 0
   self.model_scale = 0
 
   local ability = self:GetAbility()
@@ -135,7 +135,7 @@ function modifier_tiny_grow_oaa:OnCreated()
 
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
-  self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
+  --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
 
   local parent = self:GetParent()
@@ -159,14 +159,14 @@ function modifier_tiny_grow_oaa:OnRefresh()
 
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
-  self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
+  --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    --MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- this is bonus raw damage (green)
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
     MODIFIER_PROPERTY_MODEL_SCALE,
@@ -205,12 +205,12 @@ function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
   return self.bonus_damage or 0
 end
 
-function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
-  if not self.attack_speed_reduction then
-    return 0
-  end
-  return 0 - math.abs(self.attack_speed_reduction)
-end
+-- function modifier_tiny_grow_oaa:GetModifierAttackSpeedBonus_Constant()
+  -- if not self.attack_speed_reduction then
+    -- return 0
+  -- end
+  -- return 0 - math.abs(self.attack_speed_reduction)
+-- end
 
 function modifier_tiny_grow_oaa:GetModifierModelScale()
   if not self.model_scale then

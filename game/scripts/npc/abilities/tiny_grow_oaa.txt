@@ -26,7 +26,7 @@
       "bonus_armor"                                       "10 15 20 25 30" // for the tooltip
       "bonus_damage"
       {
-        "value"                                           "30 70 110 220 330" // for the tooltip
+        "value"                                           "50 100 150 225 325" // for the tooltip
         "CalculateSpellDamageTooltip"                     "0"
       }
       "tree_bonus_damage_pct"
@@ -34,13 +34,13 @@
         "value"                                           "40" // for the tooltip
         "special_bonus_unique_tiny_7"                     "+30"
       }
-      "attack_speed_reduction"                            "20 30 40 50 60" // for the tooltip
+      "attack_speed_reduction"                            "-30" // for the tooltip
       "toss_bonus_damage"                                 "100 250 400 850 1300" // for the tooltip
       "bonus_armor_oaa"                                   "0 0 0 5 10" // bonus_armor - bonus_armor(at lvl 3)
-      "bonus_damage_oaa"                                  "0 0 0 110 220" // bonus_damage - bonus_damage(at lvl 3)
-      "bonus_damage_with_tree"                            "0 0 0 154 308" // 40% increase of bonus_damage_oaa
-      "bonus_damage_with_tree_and_talent"                 "0 0 0 187 374" // 70% increase of bonus_damage_oaa
-      "attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
+      "bonus_damage_oaa"                                  "0 0 0 75 175" // bonus_damage - bonus_damage(at lvl 3)
+      "bonus_damage_with_tree"                            "0 0 0 105 245" // 40% increase of bonus_damage_oaa
+      "bonus_damage_with_tree_and_talent"                 "0 0 0 127.5 297.5" // 70% increase of bonus_damage_oaa
+      //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
       "bonus_toss_damage_oaa"                             "0 0 0 450 900" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
     }

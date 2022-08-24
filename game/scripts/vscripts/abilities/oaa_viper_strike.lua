@@ -4,34 +4,38 @@ LinkLuaModifier( "modifier_viper_viper_strike_silence", "abilities/oaa_viper_str
 
 --------------------------------------------------------------------------------
 
-function viper_viper_strike_oaa:GetCastRange( loc, target )
-	local caster = self:GetCaster()
+-- function viper_viper_strike_oaa:GetCastRange( loc, target )
+	-- local caster = self:GetCaster()
 
-	if caster:HasScepter() then
-		return self:GetSpecialValueFor( "cast_range_scepter" )
-	end
+	-- if caster:HasScepter() then
+		-- return self:GetSpecialValueFor( "cast_range_scepter" )
+	-- end
 
-	return self.BaseClass.GetCastRange( self, loc, target )
+	-- return self.BaseClass.GetCastRange( self, loc, target )
+-- end
+
+function viper_viper_strike_oaa:GetManaCost(level)
+  local caster = self:GetCaster()
+  local base_mana_cost = self.BaseClass.GetManaCost(self, level)
+
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_viper_8")
+  if talent1 and talent1:GetLevel() > 0 then
+    return base_mana_cost * self:GetSpecialValueFor("talent_mana_cost_reduction") / 100
+  end
+
+	return base_mana_cost
 end
 
-function viper_viper_strike_oaa:GetManaCost( level )
-	local caster = self:GetCaster()
+function viper_viper_strike_oaa:GetCooldown(level)
+  local caster = self:GetCaster()
+  local base_cd = self.BaseClass.GetCooldown(self, level)
 
-	if caster:HasScepter() then
-		return self:GetSpecialValueFor( "mana_cost_scepter" )
-	end
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_viper_8")
+  if talent1 and talent1:GetLevel() > 0 then
+    return base_cd * self:GetSpecialValueFor("talent_cooldown_reduction") / 100
+  end
 
-	return self.BaseClass.GetManaCost( self, level )
-end
-
-function viper_viper_strike_oaa:GetCooldown( level )
-	local caster = self:GetCaster()
-
-	if caster:HasScepter() then
-		return self:GetSpecialValueFor( "cooldown_scepter" )
-	end
-
-	return self.BaseClass.GetCooldown( self, level )
+	return base_cd
 end
 
 --------------------------------------------------------------------------------
