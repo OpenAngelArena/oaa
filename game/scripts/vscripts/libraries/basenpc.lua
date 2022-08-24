@@ -153,6 +153,7 @@ if IsServer() then
       "modifier_rune_invis",
       "modifier_rune_hill_tripledamage",
       "modifier_rune_hill_super_sight",
+      "modifier_fountain_invulnerability",
     }
     -- These are mostly transformation buffs, add them to the list above if they don't crash or break the ability and if fair
     local problematic_modifiers = {
