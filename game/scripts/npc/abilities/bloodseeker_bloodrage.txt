@@ -66,8 +66,8 @@
       }
       "05"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_max_health_dmg_pct"                        "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_max_health_dmg_pct"                        "1.8"
         "RequiresShard"                                   "1"
       }
     }

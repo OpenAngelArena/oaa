@@ -37,40 +37,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "16 24 32 40 80 160"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer"
+        "value"             "16 24 32 40 80 160"
+        "special_bonus_unique_silencer"   "+12"
       }
-      "02"
+      "radius"      "425"
+      "duration"      "6"
+      "penalty_duration"      "2"
+      "movespeed"     "-9 -12 -15 -18 -21 -24"
+      "penalty_multiplier"      "1.5"
+      "undispellable"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "425"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "penalty_duration"                                "3"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "-9 -12 -15 -18 -21 -24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_6"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "penalty_multiplier"                              "1.7"
+        "value"         "0"
+        "special_bonus_unique_silencer_arcane_curse_undispellable"    "+1"
       }
     }
   }

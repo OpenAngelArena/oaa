@@ -112,6 +112,8 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
   local back_reduction_percentage = ability:GetLevelSpecialValueFor("back_damage_reduction", ability:GetLevel() - 1) / 100
   local side_reduction_percentage = ability:GetLevelSpecialValueFor("side_damage_reduction", ability:GetLevel() - 1) / 100
 
+  -- If talent doesn't work automatically, fix it here
+
   -- Particles and Sound
   local back_particle = "particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf"
   local side_particle = "particles/units/heroes/hero_bristleback/bristleback_side_dmg.vpcf"

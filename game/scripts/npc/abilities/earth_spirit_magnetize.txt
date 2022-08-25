@@ -31,56 +31,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "cast_radius"                                       "375" //OAA
+      "damage_per_second" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_radius"                                     "375" //OAA
+        "value"                                           "100 200 300 450 600"
+        "special_bonus_unique_earth_spirit_8"             "+20"
       }
-      "02"
+
+      "damage_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "100 200 300 450 600" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_duration"                                 "6.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_6"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "6.0"
+        "special_bonus_unique_earth_spirit_6"             "+2"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_search_radius"                              "400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_explosion_radius"                           "600"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "1.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "rock_explosion_delay"                            "8.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "5.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.0"
-      }
+      "rock_search_radius"                                "400"
+      "rock_explosion_radius"                             "600"
+      "damage_interval"                                   "1.0"
+      "rock_explosion_delay"                              "8.0"
+      "silence_duration"                                  "5.0"
+      "slow_duration"                                     "2.0"
     }
   }
 }

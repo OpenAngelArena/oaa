@@ -33,34 +33,45 @@
       "AbilityCooldown"
       {
         "value"                                           "9.0 8.0 7.0 6.0 6.0 6.0"
-        "special_bonus_unique_luna_2"                     "-3.0"
+        "special_bonus_unique_luna_2"                     "-2.0"
       }
       "AbilityManaCost"
       {
         "value"                                           "90 100 110 120 130 140"
-        "special_bonus_shard"                             "-50"
       }
       "beam_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
         "special_bonus_unique_luna_1"                     "+100"
       }
-      "shard_search_radius"
+      "glaives_fired"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+325"
-        "RequiresShard"                                   "1"
+        "special_bonus_unique_luna_8"                     "+2"
       }
-      "shard_attack_radius"
+      "search_radius"
+      {
+        "value"                                           "0"
+      }
+      "attack_radius"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+500"
-        "RequiresShard"                                   "1"
       }
       "stun_duration"
       {
         "value"                                           "0.8"
         "special_bonus_unique_luna_4"                     "+0.4"
+      }
+      "damage_buff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+12"
+      }
+      "damage_buff_per_beam"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+15"
       }
     }
   }

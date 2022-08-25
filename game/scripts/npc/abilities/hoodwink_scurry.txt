@@ -30,29 +30,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"            "275"
+      "movement_speed_pct"      "20 25 30 35 40 45"
+      "duration"            "4.0"
+      "evasion"           "15 20 25 30 35 40"
+      "bonus_active_evasion"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
+        "value"     "0"
+        "special_bonus_unique_hoodwink_scurry_evasion"      "+40"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_pct"                              "20 25 30 35 40 45"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_scurry_duration"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "evasion"                                         "15 20 25 30 35 40"
-      }
+      "decoy_duration"          "6.0"
+      "decoy_detonate_radius"       "250"
+      "decoy_stun_duration"       "2.0"
+      "images_do_damage_percent"      "0"
+      "images_take_damage_percent"    "100"
+      "projectile_speed"          "1200"
+      "movement_speed"          "15"
     }
   }
 }

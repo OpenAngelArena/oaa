@@ -18,7 +18,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.5 1.5 1.5 1.5 1.0 0.75"
     "AbilityChannelTime"                                  "0.0"
 
     // Time
@@ -31,18 +30,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCastPoint"    "1.5 1.5 1.5 1.5 1.0 0.75"
+      "radius"        "400"
+      "poof_damage"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "poof_damage"                                     "45 60 75 90 180 360"
-        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_2"
+        "value"     "45 60 75 90 180 360"
+        "special_bonus_unique_meepo_2"  "+30"
       }
     }
   }

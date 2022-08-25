@@ -23,33 +23,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "side_damage_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "side_damage_reduction"                           "8 12 16 20 30 40"
+        "value"                                           "8 12 16 20 30 40"
+        "special_bonus_unique_bristleback_6"              "+4"
       }
-      "02"
+      "back_damage_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "back_damage_reduction"                           "16 24 32 40 45 55"
+        "value"                                           "16 24 32 40 45 55"
+        "special_bonus_unique_bristleback_6"              "+8"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "side_angle"                                      "110"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "back_angle"                                      "70"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "quill_release_threshold"                         "200"
-      }
+      "side_angle"                                        "110"
+      "back_angle"                                        "70"
+      "quill_release_threshold"                           "200"
     }
 
     "precache"

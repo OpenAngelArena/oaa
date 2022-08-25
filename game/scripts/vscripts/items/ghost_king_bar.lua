@@ -67,13 +67,11 @@ end
 modifier_item_ghost_king_bar_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_stacking_stats.OnCreated
 
 function modifier_item_ghost_king_bar_stacking_stats:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Strength()
@@ -116,13 +114,11 @@ end
 modifier_item_ghost_king_bar_non_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_non_stacking_stats.OnCreated
 
 function modifier_item_ghost_king_bar_non_stacking_stats:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
   }
-
-  return funcs
 end
 
 -- Doesn't stack with Kaya items
@@ -208,8 +204,8 @@ end
 --end
 
 function modifier_item_ghost_king_bar_active:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_AVOID_DAMAGE,
+  return {
+    --MODIFIER_PROPERTY_AVOID_DAMAGE,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
@@ -218,17 +214,15 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
     MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_HEAL_RECEIVED,
   }
-
-  return funcs
 end
 
-function modifier_item_ghost_king_bar_active:GetModifierAvoidDamage(event)
-  if event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
-    return 1
-  end
+-- function modifier_item_ghost_king_bar_active:GetModifierAvoidDamage(event)
+  -- if event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+    -- return 1
+  -- end
 
-  return 0
-end
+  -- return 0
+-- end
 
 function modifier_item_ghost_king_bar_active:GetModifierMagicalResistanceDecrepifyUnique()
   return self.extra_spell_damage_percent or self:GetAbility():GetSpecialValueFor("ethereal_damage_bonus")
@@ -314,13 +308,11 @@ if IsServer() then
 end
 
 function modifier_item_ghost_king_bar_active:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_DISARMED] = true
+    [MODIFIER_STATE_DISARMED] = true,
   }
-
-  return state
 end
 
 function modifier_item_ghost_king_bar_active:GetStatusEffectName()

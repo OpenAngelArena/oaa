@@ -22,45 +22,30 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "28 24 20 16 14 12"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"    "3 3.5 4 4.5 5.0 5.5"
+      "heal_bonus"
+      { 
+        "value"     "45 55 65 75 85 95"
+        "special_bonus_unique_necrophos_sadist_heal_bonus"    "+15"
+      }     
+      "movement_speed"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 3.5 4 4.5 5.0 5.5"
-      }
-      "02"
+        "value"     "12 16 20 24 32 40"
+        "special_bonus_unique_necrophos_3"    "+24"
+      }     
+      "slow_aoe"    "750"
+      "bonus_damage" "-40"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_bonus"                                      "45 55 65 75 85 95"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "12 16 20 24 32 40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_3"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_aoe"                                        "750"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "-40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "10"
-        "RequiresScepter"                                 "1"
+        "value"           "28 24 20 16 14 12"
+        "special_bonus_scepter"   "-6" 
       }
     }
   }

@@ -25,62 +25,28 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "525"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 80 70 60 50"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "trance_duration"   "6.5" 
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "trance_duration"                                 "6.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_7"
+        "value"     "90 80 70 60 50"
+        "special_bonus_unique_troll_warlord_7"    "-15"
       }
-      "02"
+      "lifesteal"     "40 60 80 100 120"
+      "attack_speed"      "140 170 200 230 260"
+      "movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal"                                       "40 60 80 100 120"
+        "value"   "25 30 35 40 45"
+        "special_bonus_unique_troll_warlord_battle_trance_movespeed"    "+15"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "140 170 200 230 260"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "25 30 35 40 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "900"
-      }
-      "06" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "35"
-        "RequiresScepter"                                 "1"
-      }
-      "07" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration_enemies"                        "3.25"
-        "RequiresScepter"                                 "1"
-      }
-      "08" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cast_range_tooltip"                      "525"
-        "RequiresScepter"                                 "1"
-      }
+      "range"       "900"
     }
   }
 

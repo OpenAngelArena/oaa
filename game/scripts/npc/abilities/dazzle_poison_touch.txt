@@ -38,65 +38,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "start_radius"        "200"
+      "end_radius"        "300"
+      "end_distance"        "600 700 800 900 1000 1100"
+      "targets"         "8" //OAA
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "200"
+        "value"     "20 40 60 80 160 320"
+        "special_bonus_unique_dazzle_3" "+80"
       }
-      "02"
+      "slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_radius"                                      "300"
+        "value"             "-16 -18 -20 -22 -24 -26"
+        "special_bonus_unique_dazzle_1" "-32"
       }
-      "03"
+      "projectile_speed"  "1300"
+      "duration"    "4 5 6 7 7.5 8"
+      "bonus_damage"      "0"
+      "bonus_slow"      "-2 -2.5 -3 -3.5 -4 -4.5"
+      "hex_duration" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_distance"                                    "600 700 800 900 1000 1100"
+        "value"           "0"
+        "special_bonus_shard"     "+1.0"
       }
-      "04"
+      "attack_range_bonus"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "targets"                                         "8" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 40 60 80 160 320" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-16 -18 -20 -22 -24 -26"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1300"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4 5 6 7 8 9"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_slow"                                      "-2 -2.5 -3 -3.5 -4 -4.5"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_hex_duration"                              "2"
-        "RequiresShard"                                   "1"
+        "value"             "0"
+        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"     "+350"
       }
     }
   }

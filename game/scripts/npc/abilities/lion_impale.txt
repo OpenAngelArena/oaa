@@ -22,41 +22,31 @@
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12.0"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "85 110 135 160 185 210"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 140 200 260 520 1040"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCooldown" "12"
+      "damage"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "125"
+        "value"     "80 140 200 260 520 1040"
+        "special_bonus_unique_lion_3" "+65"
       }
-      "02"
+      "width"       "125"
+      "duration"      "1.4 1.8 2.2 2.6 2.6 2.6"
+      "length_buffer"   "275"
+      "speed"       "1800"
+      "pierces_immunity"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.4 1.8 2.2 2.6 2.6 2.6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "length_buffer"                                   "275"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1800"
+        "value"     "0"
+        "special_bonus_unique_lion_2" "+1"
       }
     }
   }

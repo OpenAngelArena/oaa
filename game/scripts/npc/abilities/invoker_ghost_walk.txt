@@ -16,7 +16,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "175"
     "AbilityCastPoint"                                    "0.05"
 
     // Special
@@ -25,11 +25,10 @@
     {
       "AbilityCooldown"
       {
-        "value"         "45"
-        "special_bonus_unique_invoker_10" "-25"
+        "value"         "35"
       }
-      "duration"        "100.0"
-      "area_of_effect"    "400"
+      "duration"        "60"
+      "area_of_effect"    "450"
       "enemy_slow"
       {
         "value"         "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"

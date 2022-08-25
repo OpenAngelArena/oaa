@@ -32,49 +32,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "drain_length"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "drain_length"                                    "5 6 7 8 9 10"
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_3"
+        "value"     "5 6 7 8 9 10"
+        "special_bonus_unique_razor_3"  "+6"
       }
-      "02"
+      "drain_duration"    "9 12 15 18 19 20"
+      "drain_rate"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "drain_duration"                                  "15 16 17 18 19 20"
+        "value"     "7 12 17 22 44 88"
+        "special_bonus_unique_razor"  "+5"
       }
-      "03"
+      "drain_range_buffer"                                "250"
+      "radius"                                            "200"
+      "speed"                                             "900"
+      "vision_radius"                                     "800"
+      "vision_duration"                                   "3.34"
+      "attack_speed_factor"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "drain_rate"                                      "7 12 17 22 44 88"
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "drain_range_buffer"                              "250"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "vision_radius"                                   "800"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34"
+        "value"           "0"
+        "special_bonus_unique_razor_static_link_aspd"       "+1"
       }
     }
   }

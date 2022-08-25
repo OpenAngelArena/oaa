@@ -29,13 +29,13 @@
     "AbilityValues"
     {
       "cooldown_reduction"                                "1.5" //OAA
-      "item_cooldown_reduction"
+      "item_cooldown_reduction" //OAA
       {
-        "value"                                           "50"
+        "value"                                           "25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
       "scepter_mana_cost"                                 "250"
-      "scepter_cooldown"                                  "100" //OAA
+      "scepter_cooldown"                                  "180"
     }
   }
 }

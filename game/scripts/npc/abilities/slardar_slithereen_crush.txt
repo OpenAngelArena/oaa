@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "100"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -38,63 +38,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "crush_radius"                                      "350"
+      "crush_extra_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crush_radius"                                    "350"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crush_extra_slow"                                "-20 -25 -30 -35 -45 -55"
+        "value"                                           "-20 -25 -30 -35 -40 -45"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar_8"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "03"
+      "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
+      "crush_extra_slow_duration"                         "3 4 5 6 7 8"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crush_attack_slow_tooltip"                       "-20 -25 -30 -35 -45 -55"
+        "value"                                           "1"
+        "special_bonus_unique_slardar_slithereen_crush_stun"      "+0.2"
       }
-      "04"
+      "puddle_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "crush_extra_slow_duration"                       "3 4 5 6 7 8"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_scepter"                           "+19"
       }
-      "05"
+      "puddle_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1"
+        "value"                                           "250"
+        "special_bonus_scepter"                           "+350"
       }
-      "06"
+      "crush_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "puddle_duration"                                 "25"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "puddle_radius"                                   "600"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crush_damage"                                    "70 140 210 280 560 1120"
+        "value"                                           "70 140 210 280 560 1120"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
       }
-      "09"
+      "shard_amp_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_amp_duration"                              "5.0"
+        "value"                                           "5.0"
         "RequiresShard"                                   "1"
       }
-      "10"
+      "shard_bonus_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_radius"                              "75"
+        "value"                                           "75"
         "RequiresShard"                                   "1"
       }
     }

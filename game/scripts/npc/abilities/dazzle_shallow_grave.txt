@@ -38,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.25 4.5 4.75 5.0 5.25 5.5" //OAA
+        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5" //OAA, Valve insists that its 4 not 4.0 :)
       }
       "02"	// used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {
@@ -48,7 +48,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_amplify"                                    "2 4 6 8 9 10"
+        "heal_amplify"                                    "3 4 5 6 7 8" //OAA
       }
     }
   }

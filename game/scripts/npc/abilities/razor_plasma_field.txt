@@ -30,44 +30,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_min" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "35 40 45 50 100 200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_4"
+        "value"       "35 40 45 50 100 200"
+        "special_bonus_unique_razor_4"  "+45"
       }
-      "02"
+      "damage_max" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "80 115 150 185 370 740"
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_4"
+        "value"       "80 115 150 185 370 740"
+        "special_bonus_unique_razor_4"  "+45"
       }
-      "03"
+      "radius"          "700"
+      "speed"           "636"  // 1.2 second to reach radius
+      "slow_min"        "5"
+      "slow_max"        "25 30 35 40 45 50"
+      "slow_duration"       "1.5"
+      "second_ring_delay"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "636"  // 1.2 second to reach radius
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_min"                                        "5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_max"                                        "25 30 35 40 45 50"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1.5"
+        "value"           "0"
+        "special_bonus_unique_razor_plasmafield_second_ring"        "+0.8"
       }
     }
   }

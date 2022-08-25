@@ -17,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.35"
 
     // Time
@@ -49,7 +49,7 @@
         "value"         "2 4 6 8 10 12"
         "special_bonus_unique_witch_doctor_3"     "+2"
       }
-      "speed"         "1000"
+      "speed"         "1200"
       "bounce_delay"      "0.3"
       "bounce_bonus_damage"     "20 30 40 50 100 200" //OAA
       "creep_damage_pct"            "200"

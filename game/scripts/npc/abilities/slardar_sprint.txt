@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5114"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5114"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -30,46 +30,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "23 21 19 17 16 15" //OAA
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_speed"         "25 30 35 40 45 50"
+      "duration"            "10"
+      "river_speed"         "15"
+      "puddle_regen"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_speed"                                     "25 30 35 40 45 50"
+        "value"           "2 4 6 8 10 12"
+        "special_bonus_scepter"   "+22"
       }
-      "02"
+      "puddle_armor"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10"
+        "value"           "1 2 3 4 5 6"
+        "special_bonus_scepter"   "+11"
       }
-      "03"
+      "puddle_status_resistance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "river_speed"                                     "15"
+        "value"           "40"
+        "RequiresScepter"     "1"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "puddle_regen"                                    "30"
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "puddle_armor"                                    "10"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "puddle_status_resistance"                        "40"
-        "RequiresScepter"                                 "1"
-      }
-      "07" // bonus_speed + river_speed
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "river_speed_tooltip"                             "40 45 50 55 60 65" // OAA, Valve gave up on doing math
-      }
+      "river_speed_tooltip"     "40 45 50 55 60 65" // OAA, Valve gave up on doing math
     }
   }
 }

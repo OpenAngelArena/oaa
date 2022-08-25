@@ -21,7 +21,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575 600 625 650 675 700"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -34,29 +33,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "magic_missile_speed" "1350"
+      "magic_missile_stun"  "1.4 1.5 1.6 1.7 1.8 1.9"
+      "magic_missile_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_missile_speed"                             "1350"
+        "value" "90 180 270 360 720 1440"
+        "special_bonus_unique_vengeful_spirit_1"  "+400"
       }
-      "02"
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "magic_missile_stun"                              "1.4 1.5 1.6 1.7 1.8 1.9"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_missile_damage"                            "90 180 270 360 720 1440"
-        "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_cast_range"                          "100"
-        "RequiresShard"                                   "1"
+        "value"           "650"
+        "special_bonus_unique_vengeful_spirit_missile_castrange"        "+125"
       }
     }
   }

@@ -28,27 +28,23 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"          "400"
+      "rockets_per_second"    "10"
+      "rocket_damage"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "value"       "6 12 18 24 48 96"
+        "LinkedSpecialBonus"    "special_bonus_unique_gyrocopter_3"
       }
-      "02"
+      "bonus_movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "rockets_per_second"                              "10"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rocket_damage"                                   "7 12 17 22 44 88"
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_3"
+        "value"     "0"
+        "special_bonus_unique_gyrocopter_4" "+30"
       }
     }
   }

@@ -30,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pounce_damage"     "40"
+      "pounce_damage"     "0"
       "pounce_distance"   "700"
       "pounce_speed"      "933.33"
       "pounce_acceleration" "7000.0"
@@ -56,6 +56,7 @@
         "value"   "1200"
         "RequiresScepter" "1"
       }
+      "essence_stacks"  "0 1 2 3 3 3"
     }
   }
 }

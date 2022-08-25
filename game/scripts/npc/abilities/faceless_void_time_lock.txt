@@ -25,11 +25,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
-      {
-        "value"                                           "0.65"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_8" // Valve this is a Time Dilation talent
-      }
+      "duration"                                          "0.65"
       "duration_creep"                                    "2.0"
       "chance_pct"                                        "12 16 20 24 25 26"
       "bonus_damage" //OAA

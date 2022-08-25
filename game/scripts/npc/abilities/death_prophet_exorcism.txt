@@ -36,89 +36,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"        "700"
+      "spirits"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
+        "value"         "8 16 24 24 24"
+        "LinkedSpecialBonus"  "special_bonus_unique_death_prophet"
       }
-      "02"
+      "spirit_speed"      "525"
+      "max_distance"      "2000"
+      "give_up_distance"    "1200"
+      "min_damage"      "59 69 69 134 278" //OAA
+      "max_damage"      "64 74 74 154 298" //OAA
+      "heal_percent"      "25"
+      "average_damage"    "62 72 72 144 288" //OAA
+      "ghost_spawn_rate"  "0.35"
+      "scepter_movespeed_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spirits"                                         "8 16 24 24 24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet"
+        "value"       "100"
+        "RequiresScepter"     "1"
       }
-      "03"
+      "scepter_movespeed_debuff_duration" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spirit_speed"                                    "525"
+        "value"       "0.3"
+        "RequiresScepter"     "1"
       }
-      "04"
+      "scepter_spirit_life_duration"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "2000"
+        "value"       "20"
+        "RequiresScepter"     "1"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "give_up_distance"                                "1200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "59 69 69 134 278" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "64 74 74 154 298" //OAA
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_percent"                                    "25"
-      }
-      "09" // average_damage is important for the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "average_damage"                                  "62 72 72 144 288" //OAA
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ghost_spawn_rate"                                "0.35"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_movespeed_slow"                          "100"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_movespeed_debuff_duration"               "0.3"
-        "RequiresScepter"                                 "1"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_spirit_life_duration"                    "20"
-        "RequiresScepter"                                 "1"
-      }
-      "14" // this is a percentage bonus
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_spirit_bonus_damage"                     "50 50 50 75 100"
-        "RequiresScepter"                                 "1"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_bonus"                                  "16 18 20 22 24"
-      }
+      "scepter_spirit_bonus_damage" 
+      { 
+        "value"         "50 50 50 75 100"
+        "RequiresScepter"     "1"
+        "CalculateSpellDamageTooltip" "0"
+      } 
+      "movement_base"         "12 16 20 24 28"
+      "movement_bonus"        "12 16 20 24 28"
     }
   }
 }

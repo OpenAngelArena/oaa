@@ -137,7 +137,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   end
 
   local damage = self:GetSpecialValueFor("damage")
-  local duration = self:GetSpecialValueFor("stun_duration")
+  local duration = self:GetSpecialValueFor("root_duration")
 
   -- Duration with status resistance in mind
   duration = target:GetValueChangedByStatusResistance(duration)
@@ -168,42 +168,51 @@ end
 
 modifier_hawk_dive_stun = class(ModifierBaseClass)
 
-function modifier_hawk_dive_stun:IsHidden()
-  return true
+function modifier_hawk_dive_stun:IsHidden() -- needs tooltip
+  return false
 end
 
 function modifier_hawk_dive_stun:IsDebuff()
   return true
 end
 
-function modifier_hawk_dive_stun:IsStunDebuff()
-  return true
-end
+--function modifier_hawk_dive_stun:IsStunDebuff()
+  --return true
+--end
 
 function modifier_hawk_dive_stun:IsPurgable()
   return true
 end
 
+function modifier_hawk_dive_stun:OnCreated()
+  if not IsServer() then
+    return
+  end
+
+  self:GetParent():EmitSound("Hero_Treant.Overgrowth.Target")
+end
+
 function modifier_hawk_dive_stun:GetEffectName()
-  return "particles/generic_gameplay/generic_stunned.vpcf"
+  return "particles/units/heroes/hero_treant/treant_overgrowth_vines_mid.vpcf" --"particles/generic_gameplay/generic_stunned.vpcf"
 end
 
 function modifier_hawk_dive_stun:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
+  return PATTACH_ABSORIGIN_FOLLOW --PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_hawk_dive_stun:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-  }
-end
+-- function modifier_hawk_dive_stun:DeclareFunctions()
+  -- return {
+    -- MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  -- }
+-- end
 
-function modifier_hawk_dive_stun:GetOverrideAnimation()
-  return ACT_DOTA_DISABLED
-end
+-- function modifier_hawk_dive_stun:GetOverrideAnimation()
+  -- return ACT_DOTA_DISABLED
+-- end
 
 function modifier_hawk_dive_stun:CheckState()
   return {
-    [MODIFIER_STATE_STUNNED] = true,
+    --[MODIFIER_STATE_STUNNED] = true,
+    [MODIFIER_STATE_ROOTED] = true,
   }
 end

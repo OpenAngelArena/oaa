@@ -22,12 +22,11 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
+    "AbilityCastRange"                                    "200 250 300 350 400"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,43 +38,31 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        "5.0 5.5 6.0 6.5 7.0" //OAA
+      "duration_scepter"    
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0 5.5 6.0 6.5 7.0" //OAA
+        "value"     "6 7 8 9 10"
+        "RequiresScepter" "1"
       }
-      "02"
+      "reward_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "6 7 8 9 10"
-        "RequiresScepter"                                 "1"
+        "value"     "12 24 36 48 60"
+        "LinkedSpecialBonus"  "special_bonus_unique_legion_commander"
       }
-      "03"
+      "victory_range"     "600"
+      "scepter_damage_reduction_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "reward_damage"                                   "12 24 36 48 60" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"       "50"
+        "RequiresScepter"           "1"
       }
-      "04"
+      "scepter_cooldown_reduction"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "victory_range"                                   "600"
+        "value"     "20.0"
+        "RequiresScepter"           "1"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_damage_reduction_pct"                    "50"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown_reduction"                      "20.0"
-        "RequiresScepter"                                 "1"
-      }
+      "AbilityCooldown" "50"  
     }
   }
 }

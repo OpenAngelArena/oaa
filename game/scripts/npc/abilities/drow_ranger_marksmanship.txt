@@ -19,58 +19,29 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastRange"                                    "400"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "chance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance"                                          "20 30 40 45 50"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_3"
+        "value"                   "20 30 40 45 50"
+        "special_bonus_unique_drow_ranger_3"    "+12"
       }
-      "02"
+      "bonus_damage"                  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 60 80 110 160"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                   "40 60 80 110 160"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "agility_multiplier"                              "30 35 40 45 50" //OAA
+      "agility_multiplier"              "30 35 40 45 50" //OAA
+      "agility_range"                 "1200"
+      "split_count"
+      {   
+        "value"                   "0"
+        "special_bonus_scepter"           "+2"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "agility_range"                                   "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "split_count_scepter"                             "2"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_range"                                   "375"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction_scepter"                        "50"
-        "RequiresScepter"                                 "1"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "disable_range"                                   "400"
-      }
+      "split_range"                 "375"
+      "split_damage_reduction"            "50"
+      "disable_range"                 "400"
     }
   }
 }

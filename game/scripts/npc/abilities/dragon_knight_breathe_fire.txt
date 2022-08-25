@@ -20,56 +20,37 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 13 12 11 11 11"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "80 160 240 320 640 1280"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "90 95 100 105 110 115"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "start_radius"      "150"
+      "end_radius"      "250"
+      "range"         "750"
+      "AbilityCastRange"      "600" 
+      "speed"         "1050"
+      "damage"              "80 160 240 320 640 1280"
+      "reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "150"
+        "value"       "-30"
+        "special_bonus_unique_dragon_knight_3"    "-30"
       }
-      "02"
+      "dragon_form_bonus_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_radius"                                      "250"
+        "value"   "0"
+        "special_bonus_unique_dragon_knight_9"        "+75"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "750"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1050"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "reduction"                                       "-25"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "11"
-      }
+      "duration"        "11"
     }
   }
 }

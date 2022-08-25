@@ -47,33 +47,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cooldown"                                  "25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "225 275 325 375 425"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "725 825 975 1175 1425"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
-      }
+      "bonus_cooldown"    "25"
+      "cast_range_bonus"      "225 275 325 375 425"
+      "bonus_health"      "425 850 1275 1700 2125"
+      "bonus_mana"      "725 825 975 1175 1425"
+      "bonus_mana_regen"    "3.0 3.25 3.75 4.5 5.5"
     }
   }
 }

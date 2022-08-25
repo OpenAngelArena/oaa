@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5175"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5175"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -29,23 +29,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "area_of_effect"                  "550"
+      "projectile_speed"                  "900"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "550"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_queen_of_pain_2"
+        "value"                                           "75 150 225 300 600 1200"
+        "special_bonus_unique_queen_of_pain_2"            "+240"
       }
     }
   }

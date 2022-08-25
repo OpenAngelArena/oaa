@@ -32,30 +32,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"      "275"
+      "duration"          "10.5"
+      "interval"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "275"
+        "value"               "0.7"
+        "special_bonus_unique_clockwerk"    "-0.25"
       }
-      "02"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.5"
+        "value"                                           "20 45 70 95 195 295"
+        "special_bonus_unique_clockwerk_3"                "+48"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "interval"                                        "0.7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "20 45 70 95 195 295"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clockwerk_3"
-      }
+      "creep_damage_multiplier"         "2"
     }
   }
 }

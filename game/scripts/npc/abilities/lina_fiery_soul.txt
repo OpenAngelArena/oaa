@@ -15,36 +15,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "fiery_soul_attack_speed_bonus" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "fiery_soul_attack_speed_bonus"                   "10 18 26 34 42 50" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lina_2"
+        "value"               "10 18 26 34 42 50"
+        "special_bonus_unique_lina_2"   "+15"
       }
-      "02"
+      "fiery_soul_move_speed_bonus" 
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fiery_soul_move_speed_bonus"                     "1.5 2 2.5 3 3.5 4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lina_2"
-        "LinkedSpecialBonusField"                         "value2"
+        "value"             "1.5 2 2.5 3 3.5 4"
+        "special_bonus_unique_lina_2"     "+1"
       }
-      "03"
+      "fiery_soul_max_stacks"   "7"
+      "fiery_soul_stack_duration"     "18"    
+      "bonus_spell_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "fiery_soul_max_stacks"                           "7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "fiery_soul_stack_duration"                       "18"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_spell_damage"                        "9 11 13 15 30 60" //OAA
-        "RequiresShard"                                   "1"
+        "value"               "0"
+        "special_bonus_shard"   "+15"
       }
     }
   }

@@ -22,7 +22,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
+    "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "1.0"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_5"
 
@@ -36,23 +36,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_speed"                                "3000"
-      }
+      "damage"                                          "400"
+      "root_duration"                                   "2.5"
+      "projectile_speed"                                "3000"
     }
   }
 }

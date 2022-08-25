@@ -43,13 +43,22 @@
       "pulse_move_slow_pct"                               "30.0"
       "pulse_attack_slow_pct"                             "60.0 80.0 100.0 120.0 140.0"
       "max_time_window_per_hit"                           "1.0"
-      "bonus_movespeed"                                   "15"
+      "bonus_movespeed"
+      {
+        "value"   "15"
+        "special_bonus_unique_marci_unleash_speed"  "+15"
+      }
       "recovery_fixed_attack_rate"                        "2.0"
       "shard_push_length"                                 "300"
       "scepter_cooldown_reduction"
       {
-        "value"                                           "10.0"
+        "value"                                           "20.0"
         "RequiresScepter"                                 "1"
+      }
+      "dispel"      
+      {
+        "value"     "0"
+        "special_bonus_scepter" "+1"
       }
     }
   }

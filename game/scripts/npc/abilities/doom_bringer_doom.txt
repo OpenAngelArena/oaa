@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5342"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -24,11 +24,10 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
+    "AbilityCastRange"                                    "500"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
-    "AbilityCooldown"                                     "100" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,36 +35,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_7"
+        "value"               "16.0"
+        "special_bonus_unique_doom_7"   "+3"
       }
-      "02"
+
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 60 90 180 330" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_5"
+        "value"               "30 60 90 180 330"
+        "special_bonus_unique_doom_5"   "+30"
+      }       
+      "deniable_pct"      "25"
+      "AbilityCooldown" //OAA
+      {
+        "value"               "100"
+        "special_bonus_unique_doom_10"    "-35"
       }
-      "03"
+      "does_break"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "deniable_pct"                                    "25"
+        "value"                   "0"
+        "special_bonus_unique_doom_11"        "+1"
       }
-      "04" // unused
+      "scepter_aura_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "100.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "22.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_doom_7"
-        "RequiresScepter"                                 "1"
+        "value"                   "0"
+        "special_bonus_scepter"           "+325"
       }
     }
   }

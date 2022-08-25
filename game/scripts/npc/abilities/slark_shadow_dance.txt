@@ -37,10 +37,10 @@
       }
       "fade_time"                                         "0.0"
       "bonus_movement_speed"                              "24 36 48 60 72"
-      "bonus_regen_pct"
+      "bonus_regen"
       {
-        "value"                                           "5 6 7 8 9"
-        "special_bonus_unique_slark_8"                    "+1.5"
+        "value"                                           "60 90 120 240 480"
+        "special_bonus_unique_slark_8"                    "+40"
       }
       "activation_delay"                                  "0.5"
       "neutral_disable"                                   "0.0" //OAA
