@@ -34,10 +34,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "908"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "908"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    //"AbilityTextureName"                                  "item_wraith_pact"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"                                  "custom/wraith_pact"
 
@@ -76,7 +75,7 @@
       "bonus_mana"                                        "250 350 500 700 950"
       "armor_aura"                                        "3.0 4.0 6.0 9.0 13.0"
       "mana_regen_aura"                                   "2.0 2.25 2.75 3.50 4.50"
-      "lifesteal_aura"                                    "24 33 42 51 60"
+      "lifesteal_aura"                                    "20 30 40 50 60" //OAA, Valve is dumb, this doesn't stack with Helm of the Overlord and first applied aura gets priority
       "creep_lifesteal_reduction_pct"                     "50"
       "damage_aura"                                       "18 26 34 42 50"
       "aura_radius"                                       "1200"
