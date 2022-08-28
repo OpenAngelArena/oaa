@@ -20,11 +20,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "chance_pct"                                        "17"
+      "chance_pct"                                        "15"
       "duration"                                          "2 2.5 3 3.5 4 5" //OAA, for picking screen tooltip
-      "duration_ranged"                                   "2.5 3 3.5 4 5 6" //OAA
+      "duration_ranged"                                   "2.5 3 3.5 4 5 6" //OAA, for picking screen tooltip
       "slow"                                              "0"
-      "armor"                                             "2 4 6 8 10 12"
+      "armor"
+      {
+        "value"                                           "2 4 6 8 10 12"
+        "special_bonus_unique_pangolier_luckyshot_armor"  "+3"
+      }
     }
   }
 }

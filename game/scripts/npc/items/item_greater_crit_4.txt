@@ -49,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18153"
+    "ItemCost"                                            "17953"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus 4;crit 4"
@@ -73,7 +73,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "180 210 240 270 300"
+        "crit_multiplier"                                 "170 200 230 260 290"
       }
     }
   }

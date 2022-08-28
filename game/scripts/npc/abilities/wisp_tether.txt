@@ -47,9 +47,13 @@
       }
       "latch_distance"                                    "700"
       "latch_speed"                                       "1000"
-      "tether_heal_amp"                                   "0.7 0.8 0.9 1.0 1.2 1.4" //OAA
+      "tether_heal_amp"                                   "0.60 0.80 1.00 1.20 1.30 1.40" //OAA
       "self_bonus"                                        "0"
-      "slow"                                              "15 25 35 45 55 65"
+      "slow"        
+      {
+        "value"                                           "15 25 35 45 55 65"
+        "special_bonus_unique_wisp_11"                    "+15"
+      }
       "slow_duration"                                     "0.2"
       "shard_bonus_spell_lifesteal"
       {

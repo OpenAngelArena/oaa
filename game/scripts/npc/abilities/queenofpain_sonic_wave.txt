@@ -22,10 +22,6 @@
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.452"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "250 400 550 700 850"
@@ -38,18 +34,17 @@
       "distance"                                          "900"
       "final_aoe"                                         "450"
       "speed"                                             "900"
-      "damage"                                            "310 550 790 1270 2230" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "310 550 790 1270 2230"
+        "special_bonus_unique_queen_of_pain_7"            "+400"
+      }
       "knockback_distance"                                "350"
       "knockback_duration"                                "1.4"
-      "cooldown_scepter"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
-      }
-      "damage_scepter" //OAA
-      {
-        "value"                                           "420 680 940 1720 2760"
-        "RequiresScepter"                                 "1"
+        "value"                                           "100"
+        "special_bonus_unique_queen_of_pain_3"            "-60"
       }
     }
   }

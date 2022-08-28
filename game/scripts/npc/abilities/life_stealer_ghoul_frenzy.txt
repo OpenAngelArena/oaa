@@ -20,24 +20,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "movement_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "10 15 20 25 30 35"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_6"
+        "value"       "10 15 20 25 30 35"
+        "special_bonus_unique_lifestealer_6"  "+15"
       }
-      "02"
+      "duration"        "1.5"
+      "attack_speed_bonus" //OAA, No Lifestealer Buffs
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.5"
+        "value" "20 30 40 50 60 70"
+        "special_bonus_unique_lifestealer_7"  "+30"
       }
-      "03"
+      "miss_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus"                              "20 30 40 50 60 70"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_7"
+        "value"             "0"
+        "special_bonus_unique_lifestealer_ghoul_frenzy_miss"      "+15"
       }
     }
   }

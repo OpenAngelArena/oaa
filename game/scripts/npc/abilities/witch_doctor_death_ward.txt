@@ -60,6 +60,11 @@
         "scepter_lifesteal"                               "10"
         "RequiresScepter"                                 "1"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_accuracy"                                  "50"
+      }
     }
   }
 }

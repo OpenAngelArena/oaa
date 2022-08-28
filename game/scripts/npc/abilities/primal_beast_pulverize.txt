@@ -26,7 +26,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "200"
     "AbilityCooldown"                                     "28 26 24 22 20" //OAA
-    "AbilityDamage"                                       "150 250 350 650 950" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,10 +40,19 @@
       "ministun"                                          "0.25"
       "cast_range"                                        "200"
       "animation_rate"                                    "1.5" // FLAIL MULTIPLIER ON ENEMY UNITS
+      "damage" //OAA
+      {
+        "value"           "150 250 350 550 750"
+      }
       "channel_time"
       {
         "value"                                           "2.3"
         "special_bonus_unique_primal_beast_pulverize_duration"  "+100%"
+      }
+      "pierce_immunity"
+      {
+        "value"           "0"
+        "special_bonus_unique_primal_beast_pulverize_pierces_magic_immunity"    "+1"
       }
     }
   }

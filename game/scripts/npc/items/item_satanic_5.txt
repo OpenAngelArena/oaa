@@ -60,8 +60,9 @@
     {
       "bonus_strength"    "25 35 50 70 95"
       "bonus_damage"      "20 40 70 110 160"
-      "lifesteal_percent"   "25 30 35 40 45"
-      "unholy_lifesteal_percent"  "150 145 140 135 130"
+      "lifesteal_percent"   "30 35 40 45 50"
+      "creep_lifesteal_reduction_pct" "50"
+      "unholy_lifesteal_percent"  "145 140 135 130 125"
       "unholy_lifesteal_total_tooltip"  "175"
       "unholy_duration"   "6.0"
     }

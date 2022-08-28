@@ -17,19 +17,16 @@
 
     "AbilityValues"
     {
-      "AbilityCastPoint"                                  "0.2"
-      "mana_regen"                                        "1 2 3 4 5 6" //OAA
-      "self_factor"                                       "3.0"
-      "mana_per_cast"
+      "base_mana_regen" //OAA
       {
-        "value"                                           "6 12 18 24 48 96"
-        "special_bonus_unique_crystal_maiden_4"           "+20"
+        "value"                                           "1 1.5 2 2.5 3.5 4.5"
+        "special_bonus_unique_crystal_maiden_4"           "+0.5"
       }
-      "radius"                                            "20000" //OAA
-      "cd_reduction"                                      "0" //OAA
-      "mana_cost_reduction_pct"                           "0" //OAA
-      "bonus_magic_resistance"                            "2 3 4 5 7 10" //OAA
-      "bonus_spell_amp"                                   "5 6 7 8 10 12" //OAA
+      "self_factor"                                       "4"
+      "proximity_bonus_factor"                            "2"
+      "proximity_bonus_radius"                            "1200"
+      "bonus_magic_resistance"                            "2 3 4 5 7 10" //OAA, for picking screen tooltip
+      "bonus_spell_amp"                                   "5 6 7 8 10 12" //OAA, for picking screen tooltip
     }
   }
 }

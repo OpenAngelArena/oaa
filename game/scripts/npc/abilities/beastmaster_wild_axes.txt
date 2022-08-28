@@ -25,7 +25,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.3"
 
     // Time
     //----------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@
       "AbilityCooldown"       
       {
         "value"     "8"
-        "special_bonus_scepter"           "-100%"
+        "special_bonus_scepter"           "-5"
       }     
       "min_throw_duration"            "0.4"
       "max_throw_duration"            "1.0"

@@ -20,7 +20,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
-    "AbilityDuration"                                     "12"
+    "AbilityDuration"                                     "9 10 11 12 13 14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,10 +42,10 @@
         "value"                                           "8"
         "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
       }
-      "shard_permanent_wisp_count"
+      "movespeed"
       {
-        "value"                                           "3"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_unique_enchantress_6"              "+30"
       }
     }
   }

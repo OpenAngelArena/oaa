@@ -26,70 +26,40 @@
     "AbilityCastRange"                                    "950"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "axe_width"                                       "100"
+      "axe_width"         "100"
+      "axe_speed"         "1500.0"
+      "axe_range"         "950.0"
+      "axe_damage"  //OAA 
+      { 
+        "value"           "50 100 150 200 400 800"
+        "special_bonus_unique_troll_warlord_3"    "+90"
       }
-      "02"
+      "axe_slow_duration"     
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "axe_speed"                                       "1500.0"
+        "value"           "2.5 3 3.5 4 4.5 5"
+        "special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"        "+2"
       }
-      "03"
+      "movement_speed"      "40"
+      "axe_spread"        "25"
+      "axe_count"         "5"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "axe_range"                                       "950.0"
+        "value"             "9"
+        "special_bonus_scepter"     "-5"
       }
-      "04"
+      "AbilityManacost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "axe_damage"                                      "50 100 150 200 400 800" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_3"
+        "value"             "60"
+        "special_bonus_scepter"     "-30"
       }
-      "05"
+      "pierces_magic_immunity"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "axe_slow_duration"                               "2.5 3 3.5 4 4.5 5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "40"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "axe_spread"                                      "25"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "axe_count"                                       "5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "4"
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_mana_cost"                               "30"
-        "RequiresScepter"                                 "1"
+        "value"                     "0"
+        "special_bonus_unique_troll_warlord_6"      "+1"
       }
     }
   }

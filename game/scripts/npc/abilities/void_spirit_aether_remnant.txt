@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11" //OAA
+
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,73 +34,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "start_radius"        "90"
+      "end_radius"        "90"
+      "radius"          "300"
+      "projectile_speed"      "900"
+      "remnant_watch_distance"
       {
-        "var_type"                                  "FIELD_INTEGER"
-        "start_radius"                              "90"
+        "value"   "450"
+        "special_bonus_shard"   "+150"
       }
-      "02"
+      "remnant_watch_radius"    "130"
+      "watch_path_vision_radius"  "200"
+      "activation_delay"    "0.4"
+      "impact_damage"
       {
-        "var_type"                                  "FIELD_INTEGER"
-        "end_radius"                                "90"
+        "value"     "80 130 180 230 460 690"
+        "special_bonus_unique_void_spirit_2"  "+50"
       }
-      "03"
+      "pull_duration"     "1.4 1.6 1.8 2.0 2.1 2.2"
+      "pull_destination"    "44 50 56 62 68 74"
+      "duration"        "20.0"
+      "think_interval"    "0.1"
+      "pierces_creeps"
       {
-        "var_type"                                  "FIELD_INTEGER"
-        "radius"                                    "300"
+        "value"             "0"
+        "special_bonus_shard"     "+1"
       }
-      "04"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                  "FIELD_INTEGER"
-        "projectile_speed"                          "900"
-      }
-      "05"
-      {
-        "var_type"                                  "FIELD_INTEGER"
-        "remnant_watch_distance"                    "450"
-      }
-      "06"
-      {
-        "var_type"                                  "FIELD_INTEGER"
-        "remnant_watch_radius"                      "130"
-      }
-      "07"
-      {
-        "var_type"                                  "FIELD_INTEGER"
-        "watch_path_vision_radius"                  "200"
-      }
-      "08"
-      {
-        "var_type"                                  "FIELD_FLOAT"
-        "activation_delay"                          "0.4"
-      }
-      "09"
-      {
-        "var_type"                                  "FIELD_INTEGER"
-        "impact_damage"                             "80 130 180 230 460 690"
-        "LinkedSpecialBonus"                        "special_bonus_unique_void_spirit_2"
-      }
-      "10"
-      {
-        "var_type"                                  "FIELD_FLOAT"
-        "pull_duration"                             "1.4 1.6 1.8 2.0 2.1 2.2"
-      }
-      "11"
-      {
-        "var_type"                                  "FIELD_INTEGER"
-        "pull_destination"                          "44 50 56 62 68 74"
-      }
-      "12"
-      {
-        "var_type"                                  "FIELD_FLOAT"
-        "duration"                                  "20.0"
-      }
-      "13"
-      {
-        "var_type"                                  "FIELD_FLOAT"
-        "think_interval"                            "0.1"
+        "value"             "14 13 12 11 11 11"
+        "special_bonus_shard"     "-2"
       }
     }
   }

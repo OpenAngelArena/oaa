@@ -23,7 +23,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -36,62 +35,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "goo_speed"       "1000"
+      "goo_duration"      "5.0"
+      "base_armor"      "2"
+      "armor_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "goo_speed"                                       "1000"
+        "value"   "1.5 2.0 2.5 3.0 3.5 4.5"
+        "special_bonus_unique_bristleback_4"  "+0.75"
       }
-      "02"
+      "base_move_slow"    "15"
+      "move_slow_per_stack" "3 6 9 12 15 18"
+      "stack_limit"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "goo_duration"                                    "5.0"
+        "value"     "4"
+        "special_bonus_scepter" "+3"
       }
-      "03"
+      "goo_duration_creep"      "10.0"
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "base_armor"                                      "2"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "armor_per_stack"                                 "1.5 2.0 2.5 3.0 3.5 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_4"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_move_slow"                                  "15"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow_per_stack"                             "3 6 9 12 15 18"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stack_limit"                                     "4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "goo_duration_creep"                              "10.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "800"
-        "RequiresScepter"                                 "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stack_limit_scepter"                             "7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bristleback"
-        "RequiresScepter"                                 "1"
+        "value"       "650"
+        "special_bonus_unique_bristleback_5"        "+150"
       }
     }
   }

@@ -33,30 +33,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"            "3 4 5 6 7"
+      "radius"            
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0 4.0 5.0 5.5 6.0"
+        "value"   "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
+      } 
+      "eyes_radius"         
+      {
+        "value"           "800"
+        "LinkedSpecialBonus"      "special_bonus_unique_treant_5"
       }
-      "02"
+      "damage"            "75 125 175 325 475" //OAA
+      "purgable"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "800"
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "eyes_radius"                                     "800"
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 125 175 325 475" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_11"
+        "value"               "0"
+        "special_bonus_unique_treant_11"  "+1"
       }
     }
   }

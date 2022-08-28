@@ -24,53 +24,56 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "70 60 50 45 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 125 150 175 200"
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "radius"                                            "700"
-      "damage"                                            "150 400 650 1400 2150" //OAA
-      "damage_increase_pct"                               "50"
-      "bonus_movement_speed"                              "15 20 25 30 35"
-      "bonus_health"                                      "400 800 1200 2400 3600"
-      "self_regen"                                        "3 4 5 6 7"
-      "damage_threshold"                                  "500"
-      "infest_duration_scepter"
+      "damage" //OAA
       {
-        "value"                                           "5.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "150 400 650 1400 2150"
+        "special_bonus_unique_lifestealer_infest_damage"      "+150"
       }
-      "cooldown_scepter"
+      "bonus_movement_speed"                              
+      {
+        "value"                                          "15 20 25 30 35"
+        "special_bonus_unique_lifestealer_infest_target_bonus"      "+15"
+      }
+      "bonus_health"
+      {
+        "value"                                           "400 800 1200 2400 3600"
+        "special_bonus_unique_lifestealer_infest_target_bonus"      "+15%"  
+      }
+      "self_regen"
+      {
+        "value"                                           "3 4 5 6 7"
+        "special_bonus_scepter"                           "+100%"
+      }
+      "infest_duration_enemy"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+5"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "150"
+        "special_bonus_scepter"                           "+350"
+      }
+      "attack_rate_enemy"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1.25"
+      }
+      "scepter_cooldown"
       {
         "value"                                           "20"
-        "RequiresScepter"                                 "1"
-      }
-      "cast_range_scepter"
-      {
-        "value"                                           "500"
-        "RequiresScepter"                                 "1"
-      }
-      "attack_rate_scepter"
-      {
-        "value"                                           "1.25"
-        "RequiresScepter"                                 "1"
-      }
-      "bonus_regen_pct_scepter"
-      {
-        "value"                                           "100"
         "RequiresScepter"                                 "1"
       }
     }

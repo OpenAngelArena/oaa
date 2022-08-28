@@ -37,41 +37,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "225"
-        "LinkedSpecialBonus"                              "special_bonus_unique_kunkka"
+        "value"         "225"
+        "special_bonus_unique_kunkka"   "+80"
       }
-      "02"
+      "movespeed_bonus"     "-40"
+      "slow_duration"       "1 2 3 4 5 6"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus"                                 "-25 -30 -35 -40 -45 -50"
+        "value"               "1.6"
+        "special_bonus_unique_kunkka_7"   "+30%"
       }
-      "03"
+      "delay"           "1.6"
+      "torrent_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1 2 3 4 5 6"
+        "value"     "80 160 240 320 640 1280"
+        "special_bonus_unique_kunkka_7"   "+30%"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_7"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1.6"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "torrent_damage"                                  "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_kunkka_2"
-      }
+      "damage_tick_interval"        "0.2"
     }
   }
 }

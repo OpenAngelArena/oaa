@@ -51,43 +51,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "20"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_attack_speed"                      "80" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "berserk_bonus_movement_speed"                    "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "berserk_armor_reduction"                         "8"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "berserk_duration"                                "6.0"
-      }
+      "bonus_damage"  "10"
+      "bonus_attack_speed"  "10"
+      "lifesteal_percent"   "24"
+      "creep_lifesteal_reduction_pct" "50"
+      "berserk_bonus_attack_speed"  "80" //OAA
+      "berserk_bonus_movement_speed"  "30"
+      "berserk_armor_reduction" "8"
+      "berserk_duration"    "6.0"
     }
   }
 }

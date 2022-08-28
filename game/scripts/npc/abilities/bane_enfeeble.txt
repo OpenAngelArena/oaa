@@ -41,7 +41,11 @@
         "value"                                           "45 50 55 60 65 70"
         "special_bonus_unique_bane_6"                     "+50"
       }
-      "cast_reduction"                                    "30"
+      "cast_reduction"
+      {
+        "value"               "30"
+        "special_bonus_unique_bane_11"    "+20"
+      }
       "duration"                                          "8 9 10 11 11 11"
     }
   }

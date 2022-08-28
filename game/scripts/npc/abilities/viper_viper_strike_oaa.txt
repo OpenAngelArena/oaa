@@ -22,7 +22,7 @@
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 30 30"
+    "AbilityCooldown"                                     "50 40 30 25 20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,62 +40,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "5"
+      "damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 160 240 480 720"
+        "value"                                           "80 160 240 480 720"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_2"
       }
-      "03"
+      "bonus_movement_speed"                              "-40 -60 -80 -80 -80"
+      "bonus_attack_speed"                                "-40 -60 -80 -180 -280"
+      "talent_mana_cost_reduction"                        "50" // for talent: special_bonus_unique_viper_8
+      "talent_cooldown_reduction"                         "50"// for talent: special_bonus_unique_viper_8
+      "cast_range_scepter" // unused
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-40 -60 -80 -80 -80"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-40 -60 -80 -180 -280"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "125"
+        "value"                                           "900"
         "RequiresScepter"                                 "1"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_scepter"                                "10"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "900"
-        "RequiresScepter"                                 "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1200"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "30.0"
-      }
+      "projectile_speed"                                  "1200"
     }
   }
 }

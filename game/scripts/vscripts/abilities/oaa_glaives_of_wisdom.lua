@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_oaa_glaives_buff_counter", "abilities/oaa_glaives_of_w
 LinkLuaModifier("modifier_oaa_glaives_buff", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_glaives_debuff_counter", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_glaives_debuff", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_glaives_shard_silence", "abilities/oaa_glaives_of_wisdom.lua", LUA_MODIFIER_MOTION_NONE)
 
 silencer_glaives_of_wisdom_oaa = class(AbilityBaseClass)
 
@@ -42,8 +43,11 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Source of the damage
   local caster = self:GetCaster()
 
-  -- If the caster doesn't have Aghanim Shard, don't continue
-  if not caster:HasShardOAA() then
+  -- If the caster doesn't have talent, don't continue
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_silencer_glaives_bounces")
+  if not talent1 then
+    return
+  elseif talent1:GetLevel() <= 0 then
     return
   end
 
@@ -53,7 +57,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   end
 
   -- Get damage reduction
-  local bounce_damage_reduction = self:GetSpecialValueFor("shard_bounce_damage_reduction")
+  local bounce_damage_reduction = self:GetSpecialValueFor("bounce_damage_reduction")
 
   -- Physical damage of the bounced projectile
   local bounce_damage = data.physical_damage * bounce_damage_reduction * 0.01
@@ -66,8 +70,8 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
-  local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  if talent and talent:GetLevel() > 0 then
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  if talent2 and talent2:GetLevel() > 0 then
     pierce_bkb = true
   end
 
@@ -112,7 +116,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   if bounces_left > 0 then
     -- Data of the current projectile is read-only !!!
 
-    local bounce_radius = self:GetSpecialValueFor("shard_bounce_range")
+    local bounce_radius = self:GetSpecialValueFor("bounce_range")
     local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
     -- Talent that allows Glaives of Wisdom to pierce spell immunity
@@ -356,10 +360,10 @@ if IsServer() then
       local player = parent:GetPlayerOwner()
 
       -- Talent that increases Glaives of Wisdom damage
-      local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
-      if talent and talent:GetLevel() > 0 then
-        bonusDamagePct = bonusDamagePct + talent:GetSpecialValueFor("value") / 100
-      end
+      --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
+      --if talent and talent:GetLevel() > 0 then
+        --bonusDamagePct = bonusDamagePct + talent:GetSpecialValueFor("value") / 100
+      --end
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity
       local pierce_bkb = false
@@ -372,11 +376,29 @@ if IsServer() then
         --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
       --end
 
+      if parent:HasShardOAA() then
+        if not self.number_of_attacks then
+          self.number_of_attacks = 0
+        else
+          self.number_of_attacks = self.number_of_attacks + 1
+        end
+
+        local number = ability:GetSpecialValueFor("shard_attacks_for_silence")
+        if self.number_of_attacks > 0 and (self.number_of_attacks % number == 0) then
+          target:AddNewModifier(parent, ability, "modifier_oaa_glaives_shard_silence", {duration = ability:GetSpecialValueFor("shard_silence_duration")})
+        end
+      end
+
       -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
       if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
         if pierce_bkb or not target:IsMagicImmune() then
           local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
           local intStealAmount = ability:GetSpecialValueFor("int_steal")
+
+          -- Shard increase for temporary INT steal
+          if parent:HasShardOAA() then
+            intStealAmount = intStealAmount + ability:GetSpecialValueFor("shard_int_steal_amount_bonus")
+          end
 
           if intStealAmount ~= 0 and intStealDuration ~= 0 then
             target:AddNewModifier(parent, ability, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
@@ -409,9 +431,10 @@ if IsServer() then
       -- Sound
       target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
 
-      if parent:HasShardOAA() then
-        local bounce_radius = ability:GetSpecialValueFor("shard_bounce_range")
-        local number_of_bounces = ability:GetSpecialValueFor("shard_bounce_count")
+      local talent3 = parent:FindAbilityByName("special_bonus_unique_silencer_glaives_bounces")
+      if talent3 and talent3:GetLevel() > 0 then
+        local bounce_radius = ability:GetSpecialValueFor("bounce_range")
+        local number_of_bounces = ability:GetSpecialValueFor("bounce_count")
         local target_flags = DOTA_UNIT_TARGET_FLAG_NO_INVIS
 
         if pierce_bkb then
@@ -515,7 +538,7 @@ end
 
 function modifier_oaa_int_steal:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_DEATH
+    MODIFIER_EVENT_ON_DEATH,
   }
 end
 
@@ -537,7 +560,7 @@ if IsServer() then
 
     -- Check for Shard (+2 Int Steal)
     if parent:HasShardOAA() then
-      stealAmount = stealAmount + ability:GetSpecialValueFor("shard_permanent_int_steal_amount_bonus")
+      stealAmount = stealAmount + ability:GetSpecialValueFor("shard_int_steal_amount_bonus")
     end
 
     if filterResult == UF_SUCCESS and (keys.attacker == parent or isWithinRange) and parent:IsRealHero() and parent:IsAlive() and unit:IsRealHero() and not unit:IsClone() and not unit:IsTempestDouble() then
@@ -602,7 +625,13 @@ function modifier_oaa_glaives_buff:DeclareFunctions()
 end
 
 function modifier_oaa_glaives_buff:OnCreated()
-  self.intStealAmount = self:GetAbility():GetSpecialValueFor("int_steal")
+  local ability = self:GetAbility()
+  local intStealAmount = ability:GetSpecialValueFor("int_steal")
+  -- Shard increase for temporary INT steal
+  if self:GetCaster():HasShardOAA() then
+    intStealAmount = intStealAmount + ability:GetSpecialValueFor("shard_int_steal_amount_bonus")
+  end
+  self.intStealAmount = intStealAmount
   if IsServer() then
     local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_buff_counter")
     if counterMod and not counterMod:IsNull() then
@@ -659,7 +688,13 @@ function modifier_oaa_glaives_debuff:DeclareFunctions()
 end
 
 function modifier_oaa_glaives_debuff:OnCreated()
-  self.intStealAmount = self:GetAbility():GetSpecialValueFor("int_steal")
+  local ability = self:GetAbility()
+  local intStealAmount = ability:GetSpecialValueFor("int_steal")
+  -- Shard increase for temporary INT steal
+  if self:GetCaster():HasShardOAA() then
+    intStealAmount = intStealAmount + ability:GetSpecialValueFor("shard_int_steal_amount_bonus")
+  end
+  self.intStealAmount = intStealAmount
   if IsServer() then
     local counterMod = self:GetParent():FindModifierByName("modifier_oaa_glaives_debuff_counter")
     if counterMod and not counterMod:IsNull() then
@@ -679,4 +714,34 @@ end
 
 function modifier_oaa_glaives_debuff:GetModifierBonusStats_Intellect()
   return -self.intStealAmount
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_glaives_shard_silence = class(ModifierBaseClass)
+
+function modifier_oaa_glaives_shard_silence:IsHidden()
+	return true
+end
+
+function modifier_oaa_glaives_shard_silence:IsDebuff()
+	return true
+end
+
+function modifier_oaa_glaives_shard_silence:IsPurgable()
+	return true
+end
+
+function modifier_oaa_glaives_shard_silence:GetEffectName()
+	return "particles/generic_gameplay/generic_silenced.vpcf"
+end
+
+function modifier_oaa_glaives_shard_silence:GetEffectAttachType()
+	return PATTACH_OVERHEAD_FOLLOW
+end
+
+function modifier_oaa_glaives_shard_silence:CheckState()
+  return {
+    [MODIFIER_STATE_SILENCED] = true,
+  }
 end

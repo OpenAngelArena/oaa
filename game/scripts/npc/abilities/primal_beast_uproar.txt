@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "995"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -23,7 +23,10 @@
     {
       "bonus_damage"                                      "10 15 20 25 50 100"
       "bonus_damage_per_stack"                            "10 20 30 40 80 160"
-      "stack_limit"                                       "5"
+      "stack_limit"
+      {
+        "value"                                           "5"
+      }
       "damage_limit"                                      "50"
       "stack_duration"                                    "20"
       "move_slow_per_stack"                               "8"
@@ -35,13 +38,63 @@
       "roared_bonus_armor"
       {
         "value"                                           "1 2 3 4 5 6"
-        "special_bonus_unique_primal_beast_uproar_armor"  "+3"
+        "special_bonus_unique_primal_beast_uproar_armor"  "+4"
       }
       "roar_duration"                                     "7"
       "should_dispell"
       {
         "value"                                           "0"
         "special_bonus_unique_primal_beast_roar_dispells" "+1"
+      }
+      "projectiles_per_stack"     
+      {
+        "value"   "2"
+        "RequiresScepter"   "1"
+      }
+      "projectile_distance"        
+      {
+        "value"   "1400"
+        "RequiresScepter"   "1"
+      }
+      "projectile_width"           
+      {
+        "value"   "75"
+        "RequiresScepter"   "1"
+      }
+      "projectile_damage"          
+      {
+        "value"   "100"
+        "RequiresScepter"   "1"
+      }
+      "projectile_speed"           
+      {
+        "value"   "500"
+        "RequiresScepter"   "1"
+      }
+      "splinter_angle"                      
+      {
+        "value"   "30"
+        "RequiresScepter"   "1"
+      }
+      "max_split_amount"                  
+      {
+        "value"   "2"
+        "RequiresScepter"   "1"
+      }
+      "split_delay"                   
+      {
+        "value"   "1.25"
+        "RequiresScepter"   "1"
+      }
+      "projectile_break_duration"     
+      {
+        "value"   "2.5"
+        "RequiresScepter"   "1"
+      }
+      "projectile_waves"
+      {
+        "value"   "3"
+        "RequiresScepter"   "1"
       }
     }
   }

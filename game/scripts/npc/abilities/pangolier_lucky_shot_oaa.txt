@@ -21,32 +21,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "chance_pct"                                        "15"
+      "duration"                                          "2 2.5 3 3.5 4 5"
+      "duration_ranged"                                   "2.5 3 3.5 4 5 6"
+      "slow"                                              "0"
+      "armor"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "17"
-      }
-      "02" // aqainst melee
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2 2.5 3 3.5 4 5"
-      }
-      "03" // against ranged
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_ranged"                                 "2.5 3 3.5 4 5 6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor"                                           "-2 -4 -6 -8 -10 -12"
+        "value"                                           "2 4 6 8 10 12"
+        "special_bonus_unique_pangolier_luckyshot_armor"  "+3"
       }
     }
   }

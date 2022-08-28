@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5339"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5339"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -33,28 +33,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_gold"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "75 125 175 225 450 900" //OAA
+        "value"                                           "50 100 150 200 400 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
-      "02"
+      "armor"                                             "1 3 5 7 9 11"
+      "creep_level"                                       "6" //OAA
+      "hero_ability_steal_time"                           "99999"
+      "magic_resist"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor"                                           "2 4 6 8 10 12" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_level"                                     "6" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_ability_steal_time"                         "99999"
+        "value"                                           "0"
+        "special_bonus_unique_doom_3"                     "+15"
       }
     }
   }

@@ -63,38 +63,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "16 21 31 46 66"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "7 10 13 16 19"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.0 5.25 5.75 6.5 7.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "block_cooldown"                                  "14.0 13.0 12.0 11.0 10.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "upgrade_absorb_duration"                         "10.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_absorb"                                   "300"
-      }
+      "bonus_all_stats"   "16 21 31 46 66"
+      "bonus_health_regen"  "7 10 13 16 19"
+      "bonus_mana_regen"    "5.0 5.25 5.75 6.5 7.5"
+      "block_cooldown"    "14.0 13.0 12.0 11.0 10.0"
+      "upgrade_absorb_duration"   "10.0"
+      "damage_absorb"   "300"
     }
   }
 }

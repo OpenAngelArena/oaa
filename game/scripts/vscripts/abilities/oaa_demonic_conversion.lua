@@ -1,5 +1,22 @@
 enigma_demonic_conversion_oaa = class(AbilityBaseClass)
 
+-- Lazy hack to make shard work
+function enigma_demonic_conversion_oaa:OnUpgrade()
+  local caster = self:GetCaster()
+  local ability_level = self:GetLevel()
+  local vanilla_ability = caster:FindAbilityByName("enigma_demonic_conversion")
+
+  if not vanilla_ability then
+    return
+  end
+
+  if vanilla_ability:GetLevel() == 4 or ability_level >= 5 then
+    return
+  end
+
+  vanilla_ability:SetLevel(ability_level)
+end
+
 function enigma_demonic_conversion_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local targetOrigin = target:GetOrigin()

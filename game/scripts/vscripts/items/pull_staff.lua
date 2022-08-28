@@ -160,7 +160,12 @@ function modifier_pull_staff_active_buff:IsHidden()
 end
 
 function modifier_pull_staff_active_buff:IsDebuff()
-  return false
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
+    return self:GetParent():GetTeamNumber() ~= caster:GetTeamNumber()
+  else
+    return false
+  end
 end
 
 function modifier_pull_staff_active_buff:IsPurgable()
@@ -255,7 +260,7 @@ local function CheckIfValidTarget(target)
   end
 
   -- Don't affect buildings, wards, spell immune units and invulnerable units.
-  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+  if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsMagicImmune() or target:IsInvulnerable() then
     return false
   end
 
@@ -309,7 +314,7 @@ if IsServer() then
       end
     end
 
-    if slow and not target:IsMagicImmune() then
+    if slow and CheckIfValidTarget(target) then
       target:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_slow", {duration = echo_strike_slow_duration})
     end
   end
@@ -370,10 +375,6 @@ if IsServer() then
     end
 
     if parent:HasModifier("modifier_pull_staff_echo_strike_cd") then
-      return
-    end
-
-    if not CheckIfValidTarget(target) then
       return
     end
 
@@ -459,17 +460,13 @@ if IsServer() then
       return
     end
 
-    if not CheckIfValidTarget(target) then
-      return
-    end
-
 	local ability = self:GetAbility()
     local echo_strike_slow_duration = 0.8
     if ability and not ability:IsNull() then
       echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
     end
 
-    if not target:IsMagicImmune() then
+    if CheckIfValidTarget(target) then
       target:AddNewModifier(parent, ability, "modifier_pull_staff_echo_strike_slow", {duration = echo_strike_slow_duration})
     end
 

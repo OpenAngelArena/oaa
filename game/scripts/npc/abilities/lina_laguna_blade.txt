@@ -28,7 +28,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,29 +39,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"         "500 900 1300 2500 3700" //OAA
+      "damage_delay"        "0.25"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "500 900 1300 2500 3700" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_lina_5"
+        "value"               "50"
+        "special_bonus_unique_lina_6"   "-25"
       }
-      "02"
+      "pierce_immunity"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_delay"                                    "0.25"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_width"                                   "125"
+        "value"               "0"
+        "special_bonus_unique_lina_7"   "+1"
       }
     }
   }

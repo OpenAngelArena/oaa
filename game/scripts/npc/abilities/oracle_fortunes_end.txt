@@ -37,60 +37,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "channel_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "channel_time"                                    "2.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_oracle_7"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "value"               "2.5"
+        "special_bonus_unique_oracle_7"   "-2.5"
       }
-      "02"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 160 220 280 560 1120"
+        "value"         "100 160 220 280 560 1120"
+        "special_bonus_unique_oracle_fortunes_end_damage"   "+80"
       }
-      "03"
+      "bolt_speed"        "1000"
+      "minimum_purge_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_speed"                                      "1000"
+        "value"               "0.5"
+        "special_bonus_unique_oracle_2"   "+0.5"
       }
-      "04"
+      "maximum_purge_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "minimum_purge_duration"                          "0.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_oracle_2"
+        "value"               "2.5"
+        "special_bonus_unique_oracle_2"   "+0.5"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "maximum_purge_duration"                          "2.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_oracle_2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
-      }
-      "07" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_range"                             "800"
-        "RequiresScepter"                                 "1"
-      }
-      "08" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_radius"                            "150"
-        "RequiresScepter"                                 "1"
-      }
-      "09" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_stun_percentage"                         "50"
-        "RequiresScepter"                                 "1"
-      }
+      "radius"                "300"
     }
   }
 }

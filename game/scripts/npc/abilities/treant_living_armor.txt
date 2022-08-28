@@ -30,25 +30,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "heal_per_second" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_heal"                                      "150 300 450 600 1200 2400" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_8"
+        "value"   "8 12 16 20 40 80"
+        "special_bonus_unique_treant_8"     "+20"
       }
-      "02"
+      "bonus_armor" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 6 7 8 10 12" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_treant_13"
+        "value"   "5 6 7 8 10 12"
+        "special_bonus_unique_treant_13"      "+4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "15 20 25 30 30 30"
-      }
+      "duration"      "15 20 25 30 30 30"
     }
   }
 }

@@ -32,57 +32,44 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "intellect_damage_pct" // OAA, for picking screen tooltip
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "intellect_damage_pct"                            "20 40 60 80 100 120" // OAA, for picking screen tooltip
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_3"
+        "value"         "20 40 60 80 100 120"
+        "special_bonus_unique_silencer_3" "+10"
       }
-      "02"
+      "int_steal"   
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "int_steal"                                       "1 1 2 3 4 5"
+        "value"   "1 1 2 3 4 5"
+        "special_bonus_shard"   "+2"
       }
-      "03"
+      "int_steal_duration"    "15 20 25 30 35 40"
+      "bounce_range"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "int_steal_duration"                              "15 20 25 30 35 40"
+        "value"         "0"
+        "special_bonus_unique_silencer_glaives_bounces"         "+600"
       }
-      "04"
+      "bounce_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_range"                                     "600"
-        "RequiresShard"                                   "1"
+        "value"                             "0"
+        "special_bonus_unique_silencer_glaives_bounces"         "+2"
       }
-      "05"
+      "permanent_int_steal_range"   "925"
+      "permanent_int_steal_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bounce_count"                              "1"
-        "RequiresShard"                                   "1"
-      }
-      "06"
+        "value"           "2"
+        "special_bonus_shard"   "+2"
+      } 
+      "stacks_for_silence"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_attack_damage_pct"                         "50"
-        "RequiresShard"                                   "1"
-      }
-      "07"
+        "value"           "0"
+        "special_bonus_shard"   "+4"
+      }             
+      "silence_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_permanent_int_steal_amount_bonus"          "2"
-        "RequiresShard"                                   "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "permanent_int_steal_range"                       "925"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "permanent_int_steal_amount"                      "2"
+        "value"           "0"
+        "special_bonus_shard"   "+1.75"
       }
     }
   }

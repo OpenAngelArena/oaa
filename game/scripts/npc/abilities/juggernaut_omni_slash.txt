@@ -23,7 +23,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -40,35 +39,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "attack_rate_multiplier"  "1.5"
+      "bonus_damage"        "30 40 50 100 200"
+      "bonus_attack_speed"        "40"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_rate_multiplier"                          "1.5"
+        "value"         "3 3.25 3.5 4.25 4.5"
+        "special_bonus_unique_juggernaut_omnislash_duration"      "+1"
       }
-      "02"
+      "omni_slash_radius"     "425"
+      "AbilityCastRange"        
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 50 100 200"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"         "350"
+        "special_bonus_unique_juggernaut_omnislash_cast_range"        "+75"
       }
-      "03"
+      "dispel"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40"
-        "CalculateSpellDamageTooltip"                     "0" // not needed but whatever
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 3.25 3.5 4.25 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "omni_slash_radius"                               "425"
+        "value"   "0"
       }
     }
   }

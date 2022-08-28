@@ -20,6 +20,11 @@ function ModifyAbilitiesFilter:Init()
 end
 
 function ModifyAbilitiesFilter:ModifierFilter(keys)
+  -- Remove fountain invulnerability
+  if keys.name_const == "modifier_fountain_invulnerability" then
+    return false
+  end
+
   if not keys.entindex_parent_const or not keys.entindex_caster_const or not keys.entindex_ability_const then
     return true
   end

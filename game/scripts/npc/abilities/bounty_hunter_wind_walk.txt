@@ -18,7 +18,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 17 16 15 14 13"
     "AbilityCastPoint"                                    "0.0"
 
     // Cost
@@ -37,20 +36,30 @@
         "special_bonus_unique_bounty_hunter_5"            "+10"
       }
       "slow_duration"                                     "4"
-      "shard_damage_reduction_pct"
+      "silence_duration"
       {
-        "value"                                           "35"
-        "RequiresShard"                                   "1"
+        "value"                   "0"
+        "special_bonus_unique_bounty_hunter_9"    "+2"
       }
-      "shard_stun_duration"
+      "AbilityCharges"        
+        {
+          "value"     "0"
+          "special_bonus_shard" "+2"
+        }
+      "AbilityCooldown"       
       {
-        "value"                                           "1.0"
-        "RequiresShard"                                   "1"
+        "value"   "18 17 16 15 14 13"
+        "special_bonus_shard" "-17.5 16.5 15.5 14.5 13.5 12.5"
       }
-      "shard_cooldown_reduction"
+      "AbilityChargeRestoreTime"    
       {
-        "value"                                           "5.0"
-        "RequiresShard"                                   "1"
+        "value" "15 14 13 12 11 10"
+        "RequiresShard"   "1"
+      }
+      "ally_fade_time"
+      {
+        "value"     "1.0"
+        "RequiresShard"   "1"
       }
     }
   }

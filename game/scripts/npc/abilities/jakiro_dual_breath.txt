@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.35"
 
     // Time
@@ -41,55 +40,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "start_radius"      "225"
+      "end_radius"      "275"
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "225"
+        "value"             "750"
+        "special_bonus_unique_jakiro_2" "+100%"
       }
-      "02"
+      "speed"         "1050"
+      "fire_delay"      "0.2"
+      "burn_damage"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_radius"                                      "275"
+        "value"             "20 40 60 80 180 280"
+        "special_bonus_unique_jakiro_2" "+100%"
       }
-      "03"
+      "slow_movement_speed_pct" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "750"
-        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_5"
+        "value"                       "-28 -32 -36 -40 -60 -80"
+        "special_bonus_unique_jakiro_dualbreath_slow"   "-10"
       }
-      "04"
+
+      "slow_attack_speed_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1050"
+        "value"                       "-28 -32 -36 -40 -60 -80"
+        "special_bonus_unique_jakiro_dualbreath_slow"   "-10"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fire_delay"                                      "0.2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "20 40 60 80 180 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_movement_speed_pct"                         "-28 -32 -36 -40 -60 -80"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_attack_speed_pct"                           "-28 -32 -36 -40 -60 -80"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_fire"                                      "1050"
-      }
+      "speed_fire"      "1050"
     }
   }
 }

@@ -54,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "16703"
+    "ItemCost"                                            "16653"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 3;guardian greaves 3;ggg 3"
@@ -68,73 +68,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement"                                  "55 60 65 70"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "350 500 700 950"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 14"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "6 9 12 15"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_armor"                                      "4 5 6 7"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_health_regen_bonus"                         "19 22 25 28"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_armor_bonus"                                "11 12 13 14"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_threshold"                            "20"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "replenish_health"                                "400 600 900 1300"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "replenish_mana"                                  "300 400 550 750"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "replenish_radius"                                "1200"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "0"
-      }
+      "bonus_movement"    "55 60 65 70"
+      "bonus_mana"      "350 500 700 950"
+      "bonus_armor"   "5 7 10 14"
+      "aura_health_regen"   "6 9 12 15"
+      "aura_armor"    "4 5 6 7"
+      "aura_health_regen_bonus"   "19 22 25 28"
+      "aura_armor_bonus"      "11 12 13 14"
+      "aura_bonus_threshold"  "20"
+      "aura_radius"     "1200"
+      "replenish_health"    "450 650 950 1350"
+      "replenish_mana"    "300 400 550 750"
+      "replenish_radius"    "1200"
+      "max_health_pct_heal_amount"    "0"
     }
   }
 }

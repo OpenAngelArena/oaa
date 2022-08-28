@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1000"
+    "ItemCost"                                            "800" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -43,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5150"
+    "ItemCost"                                            "4950" //OAA
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus;crit"
@@ -67,7 +67,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "180 210 240 270 300" //OAA
+        "crit_multiplier"                                 "170 200 230 260 290" //OAA
       }
     }
   }

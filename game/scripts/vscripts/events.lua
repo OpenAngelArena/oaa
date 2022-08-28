@@ -68,6 +68,7 @@ function GameMode:OnNPCSpawned(keys)
     end
   end
   ]]
+  --[[ -- Fixing greater treants created with old shard sprout
   if npc.GetUnitName then
     if npc:GetUnitName() == "npc_dota_furion_treant_large" then
       local playerID = UnitVarToPlayerID(npc)
@@ -103,6 +104,7 @@ function GameMode:OnNPCSpawned(keys)
       end
     end
   end
+  ]]
 end
 
 -- Custom event that fires when an entity takes damage that reduces its health to 0

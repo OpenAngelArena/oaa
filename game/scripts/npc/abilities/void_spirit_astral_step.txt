@@ -50,6 +50,14 @@
       }
       "pop_damage"      "150 300 450 750 1650" //OAA
       "movement_slow_pct"   "40 60 80 85 90"
+      "ability_chance_pct"
+      {
+        "value"       "0"
+      }
+      "attack_chance_pct"
+      {
+        "value"       "0"
+      }
     }
   }
 }

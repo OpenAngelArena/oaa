@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5459"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5459"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -26,7 +25,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,23 +36,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "backtrack_time"      "4.0"
+      "cast_range"        "600 1000 1400 1800 2200 2600"
+      "silence_duration"      "0"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "backtrack_time"                                  "4.0"
+        "value"                 "21 20 19 18 17 16"
+        "special_bonus_unique_disruptor_4"    "-10"
       }
-      "02"
+      "min_damage"        "50"
+      "max_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "600 1000 1400 1800 2200 2600"
+        "value"                     "150 200 250 300 600 900"
+        "special_bonus_unique_disruptor_9"        "250"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "0"
-      }
+      "max_distance"          "1400"
     }
   }
 }

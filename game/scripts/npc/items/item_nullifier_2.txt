@@ -47,7 +47,7 @@
     "ItemAliases"         "nlf 2;nullifier 2"
 
     "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "11.0"
+    "AbilityCooldown"       "10.0"
     "AbilityCastRange"      "500 600 700 800 900"
     "AbilityManaCost"       "0"
 
@@ -68,7 +68,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "8 9 11 14 18"
+        "bonus_armor"                                     "10 11 13 16 20"
       }
       "03"
       {

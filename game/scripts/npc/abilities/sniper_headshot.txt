@@ -18,34 +18,24 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "20 50 80 110 220 330"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "proc_chance"                                     "40"
+        "value" "20 50 80 110 220 330"
+        "special_bonus_unique_sniper_headshot_damage" "+30"
       }
-      "02"
+      "proc_chance"         "40"
+      "knockback_distance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_distance"                              "10"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_3"
+        "value"         "10"
+        "special_bonus_unique_sniper_3"     "+28"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-100"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "0.5"
-      }
+      "slow"      "-100"
+      "slow_duration"         "0.5"
     }
   }
-
 }
