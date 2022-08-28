@@ -7,18 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6488"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-    "FightRecapLevel"               "1"
+    "ID"                                                  "6488"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"              "0.0"
-    "AbilityCastRange"              "800"
-    "AbilityCastAnimation"          "ACT_DOTA_OVERRIDE_ABILITY_3"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -33,18 +32,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"          "20 45 70 95 190 380"
+      "damage"                                            "20 45 70 95 190 285"
       "buffed_attacks"
       {
-        "value"   "6"
-        "special_bonus_unique_snapfire_2" "+2"
+        "value"                                           "6"
+        "special_bonus_unique_snapfire_2"                 "+2"
       }
-      "attack_speed_bonus"    "300"
-      "attack_range_bonus"    "75 150 225 300 375 450"
-      "buff_duration_tooltip"   "6"
-      "base_attack_time"      "1.0"
-      "armor_reduction_per_attack"  "0.5 0.6 0.7 0.8 0.9 1.0" //OAA
-      "armor_duration"        "5.0"
+      "attack_speed_bonus"                                "300"
+      "attack_range_bonus"                                "75 150 225 300 375 450"
+      "buff_duration_tooltip"                             "6"
+      "base_attack_time"                                  "1.0"
+      "armor_reduction_per_attack"                        "0.5 0.6 0.7 0.8 0.9 1.0" //OAA
+      "armor_duration"                                    "5.0"
     }
   }
 }

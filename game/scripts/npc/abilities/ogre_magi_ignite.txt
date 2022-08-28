@@ -62,7 +62,7 @@
       }
       "06"
       {
-        "var_type"                                        "FIELD_INT"
+        "var_type"                                        "FIELD_INTEGER" // Valve has FIELD_INT instead of FIELD_INTEGER
         "ignite_multicast_aoe"                            "1400"
       }
     }

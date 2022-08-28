@@ -83,7 +83,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_skeleton_count"                            "3"
-        "RequiresScepter"                                 "1"
+        "RequiresScepter"                                 "1" // Valve has it wrong, it should be RequiresShard instead of RequiresScepter
       }
     }
   }
