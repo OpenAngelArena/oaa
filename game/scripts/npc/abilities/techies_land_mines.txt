@@ -13,7 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -42,7 +42,7 @@
       "damage" //OAA
       {
         "value"                                           "400 600 800 1400 2400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - this is a Sticky Bomb talent
+        "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - Valve, this is a Sticky Bomb talent
       }
       "building_damage_pct"   "30"
       "activation_delay"

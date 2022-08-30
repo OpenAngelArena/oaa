@@ -39,36 +39,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"          "5.0"
-      "mana_per_second"  //OAA
+      "duration"                                          "5.0"
+      "mana_per_second" //OAA
       {
-        "value"   "20 60 100 140 280 420"
-        "special_bonus_unique_lion_5" "+50"
+        "value"                                           "20 60 100 140 280 420"
       }
-      "break_distance"      
+      "break_distance"
       {
-        "value" "1100"
-        "special_bonus_shard"   "+400"  
+        "value"                                           "1100"
+        "special_bonus_shard"                             "+400"
       }
-      "tick_interval"       "0.1"
-      "movespeed"     
+      "tick_interval"                                     "0.1"
+      "movespeed"
       {
-        "value"       "20 25 30 35 40 45"
-        "special_bonus_unique_lion_6" "+10"
+        "value"                                           "20 25 30 35 40 45"
+        "special_bonus_unique_lion_6"                     "+10"
       }
-      "shard_bonus_break_distance"      //OBSOLETE
+      "shard_bonus_break_distance"
       {
-        "value" "400"
-        "RequiresShard"       "1"
-      } 
-      "shard_bonus_targets"     
-      {
-        "value"   "2"
-        "RequiresShard"       "1"
+        "value"                                           "400"
+        "RequiresShard"                                   "1"
       }
-      "damage_pct"          
+      "shard_bonus_targets"
       {
-        "value"         "0"   
+        "value"                                           "2"
+        "RequiresShard"                                   "1"
+      }
+      "damage_pct"
+      {
+        "value"                                           "0"
         "special_bonus_unique_lion_manadrain_damage"      "+150"
       }
     }

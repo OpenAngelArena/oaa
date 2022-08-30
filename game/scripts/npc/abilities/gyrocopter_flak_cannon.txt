@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5363"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5363"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -22,13 +21,13 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 18 16" //OAA
+    "AbilityCooldown"                                     "20"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 60 70 80 90 100"
 
-    //Duration
+    // Duration
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "10"
 
@@ -36,31 +35,31 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
+      "radius" //OAA
       {
-        "value"                   "1000"
-        "special_bonus_unique_gyrocopter_4"     "+300"
+        "value"                                           "1000"
+        "special_bonus_unique_gyrocopter_1_oaa"           "+200"
       }
       "max_attacks"
       {
-        "value"         "3 4 5 6 8 12"
-        "special_bonus_unique_gyrocopter_2"     "+2"
+        "value"                                           "3 4 5 6 8 12"
+        "special_bonus_unique_gyrocopter_2"               "+2"
       }
-      "projectile_speed"        "800"
+      "projectile_speed"                                  "800"
       "bonus_damage" //OAA
       {
-        "value"             "0"
+        "value"                                           "0"
         "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"      "+100"
       }
       "fire_rate"
       {
-        "value"               "1.2"
-        "RequiresScepter"         "1"
+        "value"                                           "1.2"
+        "RequiresScepter"                                 "1"
       }
       "scepter_radius"
       {
-        "value"               "700"
-        "RequiresScepter"         "1"
+        "value"                                           "700"
+        "RequiresScepter"                                 "1"
       }
     }
   }

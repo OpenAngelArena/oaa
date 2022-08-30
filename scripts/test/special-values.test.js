@@ -59,6 +59,7 @@ test('KV Values', function (t) {
     dotaAbilities.ability_lua = true;
     dotaItems.item_datadriven = true;
     dotaAbilities.ability_datadriven = true;
+    dotaAbilities.special_bonus_base = true;
     Lib.items(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while item reading kvs');

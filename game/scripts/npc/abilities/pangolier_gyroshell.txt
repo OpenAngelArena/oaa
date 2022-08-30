@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6343"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "6343"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
     "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-    "FightRecapLevel"               "1"
 
     "MaxLevel"                      "5"
     "RequiredLevel"                 "6"
@@ -35,12 +34,6 @@
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                 "180 340 500 980 1460" //OAA
-
-    "precache"
-    {
-      "model" "models/heroes/pangolier/pangolier_gyroshell.vmdl"
-      "model" "models/heroes/pangolier/pangolier_gyroshell2.vmdl"
-    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

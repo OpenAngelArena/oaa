@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8468"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8468"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
-    "FightRecapLevel"                                     "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -36,11 +35,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8469"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8469"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/refresher.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/refresher_orb_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "300"
+    "AbilityManaCost"                                     "350"
     "ItemCost"                                            "18278"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
@@ -70,12 +70,17 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_health_regen"                              "13 16 19 22 25"
       }
-      "02" // same as Octarine Core
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "0"
+      }
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_health"                                    "425 850 1275 1700 2125"
       }
-      "03" // same as Octarine Core
+      "04"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_mana"                                      "725 825 975 1175 1425"

@@ -14,11 +14,13 @@
     "Ability17"                                           "special_bonus_unique_alchemist_2_oaa" // replaces special_bonus_unique_alchemist_4
 
     // special_bonus_unique_alchemist -       +{s:value} Unstable Concoction Radius
-    // special_bonus_unique_alchemist_2 -     +{s:value} Unstable Concoction Damage
-    // special_bonus_unique_alchemist_3 -     -{s:value} Chemical Rage Base Attack Time     - overpowered
+    // special_bonus_unique_alchemist_2 -     +{s:value} Unstable Concoction Max Damage
+    // special_bonus_unique_alchemist_3 -     Acid Spray grants armor to allies
     // special_bonus_unique_alchemist_4 -     +{s:value} Chemical Rage Regeneration
-    // special_bonus_unique_alchemist_5 -     -{s:value} Acid Spray Armor Reduction         - unused
+    // special_bonus_unique_alchemist_5 -     -{s:value} Acid Spray Armor Reduction
     // special_bonus_unique_alchemist_6 -     +{s:value} Chemical Rage Movement Speed
+    // special_bonus_unique_alchemist_7 -     +{s:bonus_damage} Damage per Greevil Greed stack
+    // special_bonus_unique_alchemist_8 -     -{s:bonus_base_attack_time}s Chemical Rage Base Attack Time
     // special_bonus_unique_alchemist_1_oaa - Chemical Rage Strong Dispels
     // special_bonus_unique_alchemist_2_oaa - +{s:value} Greevil's Greed armor reduction per hit
   }
