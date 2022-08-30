@@ -7,22 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5403"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5403"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
     "HasShardUpgrade"                                     "1"
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16 18 20 22 22"
+        "duration"                                        "16 18 20 22 24"
       }
       "02"
       {
@@ -52,7 +51,7 @@
         "scepter_bonus_duration"                          "20"
         "RequiresScepter"                                 "1"
       }
-      "04"
+      "04" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "max_charges"                                     "2"
