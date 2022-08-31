@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5003"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5003"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -18,7 +18,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
       "percent_damage_per_burn"   "50"
       "mana_per_hit"      "28 40 52 64 76 88"
@@ -28,7 +28,7 @@
         "special_bonus_unique_antimage_7" "+0.6"
       }
       "illusion_percentage"   "50"
-      "move_slow"       "10 20 30 40 45 50"
+      "move_slow"                                         "25 30 35 40 45 50"
       "slow_duration"     "0.75"
     }
   }

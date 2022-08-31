@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5228"              // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5228"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -25,7 +25,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 7 10 13 19 25" //OAA
+        "bonus_armor"                                     "4 7 10 13 19 25"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
       }
     }
