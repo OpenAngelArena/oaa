@@ -38,9 +38,9 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5" //OAA, Valve insists that its 4 not 4.0 :)
+        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5" //OAA
       }
-      "02"	// used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
+      "02" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {
         "var_type"                                        "FIELD_FLOAT"
         "fx_halo_height"                                  "190 240 300 350"

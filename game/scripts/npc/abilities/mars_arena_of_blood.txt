@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6598"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "6598"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

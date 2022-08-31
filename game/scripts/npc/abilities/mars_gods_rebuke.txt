@@ -38,7 +38,7 @@
         "DamageTypeTooltip"     "DAMAGE_TYPE_PHYSICAL"
       }
       "angle"           "140"
-      "radius"          
+      "radius"
       {
         "value"         "500"
         "special_bonus_unique_mars_rebuke_radius"   "+100"
@@ -52,7 +52,7 @@
         "special_bonus_unique_mars_rebuke_slow"   "+0"
       }
       "activity_duration"     "2"
-      "bonus_damage_vs_heroes"  "25 30 35 40 80 160" //OAA
+      "bonus_damage_vs_heroes"                            "20 25 30 35 70 140" //OAA
       "AbilityCooldown"
       {
         "value"         "16 14 12 10 10 10"
