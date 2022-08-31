@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9456"       // unique ID
+    "ID"                                                  "9456"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -36,7 +36,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9457"       // unique ID
+    "ID"                                                  "9457"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/transformation/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -75,7 +75,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "140 220"
+        "bonus_damage"                                    "120 220"
       }
       "03"
       {
@@ -95,7 +95,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "40 45"
+        "lifesteal_percent"                               "45 50"
       }
       "07"
       {

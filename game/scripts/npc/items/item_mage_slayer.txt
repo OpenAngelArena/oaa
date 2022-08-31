@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Mage Slayer
+  //=================================================================================================================
+  "item_recipe_mage_slayer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"							"597"
+    "Model"							"models/props_gameplay/recipe.vmdl"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"						"400"
+    "ItemShopTags"					""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"					"1"
+    "ItemResult"					"item_mage_slayer"
+    "ItemRequirements"
+    {
+      "01"						"item_cloak;item_oblivion_staff"
+    }
+  }
+
+  //=================================================================================================================
+  // Mage Slayer
+  //=================================================================================================================
+  "item_mage_slayer"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"							"598"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"						"2400"
+    "ItemShopTags"					"hard_to_tag"
+    "ItemQuality"					"rare"
+    "ItemAliases"					"mage slayer;ms"
+    "ShouldBeInitiallySuggested"	"1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_magical_armor"	"20" //OAA
+      "bonus_attack_speed"	"20"
+      "bonus_damage"			"20"
+      "spell_amp_debuff"		"35"
+      "bonus_mana_regen"		"2"
+      "duration"		"6"
+      "bonus_intellect"		"10"
+    }
+  }
+}

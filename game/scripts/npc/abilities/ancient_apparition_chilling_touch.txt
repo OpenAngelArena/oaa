@@ -27,25 +27,25 @@
     {
       "damage" //OAA
       {
-        "value"       "40 80 120 160 320 480"
-        "special_bonus_unique_ancient_apparition_2"   "+100"
+        "value"                                           "40 80 120 160 320 480"
+        "special_bonus_unique_ancient_apparition_2"       "+100"
       }
-      "slow"          "100"
-      "duration"        "0.7 0.8 0.9 1.0 1.0 1.0"
+      "slow"                                              "100"
+      "duration"                                          "0.7 0.8 0.9 1.0 1.0 1.0"
       "attack_range_bonus"
       {
-        "value"       "60 120 180 240 260 280"
-        "special_bonus_unique_ancient_apparition_7"   "+200"
+        "value"                                           "60 120 180 240 260 280"
+        "special_bonus_unique_ancient_apparition_7"       "+200"
       }
       "AbilityManaCost"
       {
-        "value"                   "30 40 50 60 70 80"
-        "special_bonus_scepter"           "-50%"
+        "value"                                           "30 40 50 60 70 80"
+        "special_bonus_scepter"                           "-50%"
       }
       "AbilityCooldown"
       {
-        "value"     "12 9 6 3 3 3"
-        "special_bonus_scepter"           "-100%"
+        "value"                                           "12 9 6 3 3 3"
+        "special_bonus_scepter"                           "-100%"
       }
     }
   }

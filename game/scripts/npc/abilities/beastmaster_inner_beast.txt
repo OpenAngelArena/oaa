@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5172" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5172"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
@@ -16,7 +16,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
     "AbilityValues"
     {
       "radius"                                            "1200"
