@@ -59,6 +59,7 @@ function modifier_magus_oaa:OnCreated()
     enigma_demonic_conversion = 1,                       -- instant kill
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
     faceless_void_time_walk_reverse = 1,                 -- self grief
+    furion_teleportation =1,                             -- self grief
     --furion_wrath_of_nature = 1,
     --furion_wrath_of_nature_oaa = 1,                    -- powerful (but needs vision)
     --juggernaut_omnislash = 1,                          -- invulnerability and looping
@@ -68,7 +69,6 @@ function modifier_magus_oaa:OnCreated()
     life_stealer_infest = 1,                             -- self grief and maybe instant kill
     --mars_gods_rebuke = 1,                              -- looping
     meepo_petrify = 1,                                   -- invulnerability
-    monkey_king_tree_dance = 1,                          -- self grief
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
@@ -115,7 +115,6 @@ function modifier_magus_oaa:OnCreated()
     enigma_black_hole = 1,                               -- powerful
     faceless_void_chronosphere = 1,                      -- powerful
     faceless_void_time_walk = 1,                         -- invulnerability and looping
-    furion_teleportation = 1,                            -- self grief in most cases
     hoodwink_acorn_shot = 1,                             -- looping
     juggernaut_omnislash = 1,                            -- invulnerability and looping
     juggernaut_swift_slash = 1,                          -- invulnerability and looping
@@ -124,6 +123,7 @@ function modifier_magus_oaa:OnCreated()
     lone_druid_spirit_bear = 1,                          -- self grief in most cases
     mars_gods_rebuke = 1,                                -- looping
     medusa_stone_gaze = 1,                               -- powerful
+    monkey_king_tree_dance = 1,                          -- self grief in most cases
     monkey_king_boundless_strike = 1,                    -- looping, sometimes doesn't do damage
     morphling_waveform = 1,                              -- invulnerability and looping
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
