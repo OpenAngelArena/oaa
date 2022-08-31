@@ -32,7 +32,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "12"
+    "AbilityManaCost"                                     "9 10 11 12 13 14"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "5 10 15 20 40 80"
+        "damage"                                          "6 12 18 24 48 72"
         "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_2"
       }
       "03"
@@ -67,7 +67,7 @@
         "shard_stack_duration"                            "7.0"
         "RequiresShard"                                   "1"
       }
-      "06"
+      "06" // Valve Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_burst_radius"                              "650"

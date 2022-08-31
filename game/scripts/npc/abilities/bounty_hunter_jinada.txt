@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5286"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5286"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -24,7 +24,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 9 6 3 2 2"
+    "AbilityCooldown"                                     "9 7 5 3 2 2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "gold_steal"                                      "60 90 120 150 300 600" //OAA // GPM 300 600 1200 3000 9000 18000
+        "gold_steal"                                      "45 70 100 150 300 600" //OAA // GPM 300 600 1200 3000 9000 18000
         "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
       }
     }

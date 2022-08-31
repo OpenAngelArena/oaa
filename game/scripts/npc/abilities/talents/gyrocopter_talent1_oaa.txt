@@ -1,26 +1,21 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Batrider talent: Sticky Napalm bonus radius
+  // Flak Cannon bonus range
   //=================================================================================================================
-  "special_bonus_unique_batrider_7_oaa"
+  "special_bonus_unique_gyrocopter_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "80714"
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "3621"
+    "BaseClass"                                           "special_bonus_base"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilitySpecial" // Don't delete this even if it's empty
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "50"
-      }
     }
   }
 }

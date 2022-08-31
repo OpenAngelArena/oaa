@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8460" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8460"
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "zuus_cloud"
     "Scriptfile"                                          "abilities/oaa_zuus_cloud.lua"
@@ -18,7 +18,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "1"
-    "FightRecapLevel"                                     "1"
+
     "IsGrantedByScepter"                                  "1"
     "HasScepterUpgrade"                                   "1"
 

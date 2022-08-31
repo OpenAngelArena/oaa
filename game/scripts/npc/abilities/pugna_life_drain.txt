@@ -44,7 +44,7 @@
     {
       "health_drain" //OAA
       {
-        "value"         "150 300 450 900 1650"
+        "value"         "160 320 480 960 1760"
         "CalculateSpellDamageTooltip" "1"
       }
       "tick_rate"         "0.25"
@@ -78,15 +78,15 @@
       {
         "value"           "0"
         "special_bonus_scepter"   "+8"
-      }     
+      }
       "max_spell_amp_drain_pct"
       {
         "value"           "0"
         "special_bonus_scepter"   "+100"
-      } 
-      "AbilityCooldown"       
+      }
+      "AbilityCooldown"
       {
-        "value"           "7"   
+        "value"           "7"
         "special_bonus_scepter"   "-50%"
       }
     }

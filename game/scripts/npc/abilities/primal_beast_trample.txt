@@ -27,7 +27,7 @@
     {
       "effect_radius"                                     "230"
       "step_distance"                                     "140"
-      "base_damage"                                       "12 28 44 60 120 180"
+      "base_damage"                                       "15 30 45 60 120 180"
       "duration"                                          "5.5"
       "attack_damage"
       {
@@ -41,7 +41,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"       "20 18 16 14 13 12"
+        "value"                                               "21 20 19 18 17 16"
         "special_bonus_unique_primal_beast_trample_cooldown"  "-5"
       }
     }

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3742"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3742"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -36,12 +36,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3743"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3743"
     "BaseClass"                                           "item_hurricane_pike"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/hurricane_pike_4"
 
     // Stats
@@ -78,7 +77,7 @@
       "cast_range_enemy"                                  "450"
       "max_attacks"                                       "5 6 7 8 9"
       "bonus_attack_speed"                                "100 110 120 130 140"
-      "cooldown_tooltip"                                  "20 18 16 14 12"
+      "cooldown_tooltip"                                  "19 17 15 13 11"
     }
   }
 }
