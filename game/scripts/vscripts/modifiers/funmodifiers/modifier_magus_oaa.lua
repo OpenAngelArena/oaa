@@ -59,7 +59,7 @@ function modifier_magus_oaa:OnCreated()
     enigma_demonic_conversion = 1,                       -- instant kill
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
     faceless_void_time_walk_reverse = 1,                 -- self grief
-    furion_teleportation =1,                             -- self grief
+    furion_teleportation = 1,                            -- self grief
     --furion_wrath_of_nature = 1,
     --furion_wrath_of_nature_oaa = 1,                    -- powerful (but needs vision)
     --juggernaut_omnislash = 1,                          -- invulnerability and looping
@@ -98,7 +98,6 @@ function modifier_magus_oaa:OnCreated()
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_snowball = 1,                                   -- invulnerability
-    undying_tombstone =1,                                -- lag
     visage_gravekeepers_cloak = 1,                       -- invulnerability
     visage_gravekeepers_cloak_oaa = 1,                   -- invulnerability
     visage_stone_form_self_cast = 1,                     -- self grief
@@ -134,12 +133,14 @@ function modifier_magus_oaa:OnCreated()
     razor_eye_of_the_storm = 1,                          -- powerful
     shadow_demon_disruption = 1,                         -- self grief, invulnerability, trolling
     silencer_global_silence = 1,                         -- powerful
+    skeleton_king_vampiric_aura = 1,                     -- lag
     slark_depth_shroud = 1,                              -- untargettable melee hero, powerful
     slark_shadow_dance = 1,                              -- untargettable melee hero, powerful
     sniper_take_aim = 1,                                 -- self grief in most cases
     tidehunter_anchor_smash = 1,                         -- looping
     tinkerer_laser_contraption = 1,                      -- lag
     troll_warlord_battle_trance = 1,                     -- self grief or unkillable
+    undying_tombstone = 1,                               -- lag
     visage_summon_familiars = 1,                         -- self grief in most cases
     visage_summon_familiars_oaa = 1,                     -- self grief in most cases
     weaver_time_lapse = 1,                               -- self grief or unkillable

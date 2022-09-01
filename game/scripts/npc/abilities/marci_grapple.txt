@@ -7,50 +7,48 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"							"8192"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "ID"                                                  "8192"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                    	"6"
-    "RequiredLevel"              	"1"
-    "LevelsBetweenUpgrades"         "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"				"0.2"
-    "AbilityCastRange"				"175"
-    "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
-    "AbilityCastGestureSlot"				"DEFAULT"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastRange"                                    "175"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"16 14 12 10 10 10"
+    "AbilityCooldown"                                     "16 14 12 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"				"90"
+    "AbilityManaCost"                                     "90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "landing_radius"  "275"
-      "air_duration"    "0.5"
-      "air_height"    "150"
-      "pull_offset"   "75"
-      "throw_distance_behind" "275"
-      "pull_angle"    "230"
-      "debuff_duration" "3.0"
+      "landing_radius"                                    "275"
+      "air_duration"                                      "0.5"
+      "air_height"                                        "150"
+      "pull_offset"                                       "75"
+      "throw_distance_behind"                             "275"
+      "pull_angle"                                        "230"
+      "debuff_duration"                                   "3.0"
       "impact_damage"
       {
-        "value"     "70 120 170 220 440 880"
-        "special_bonus_unique_marci_grapple_damage" "+60"
+        "value"                                           "70 120 170 220 440 880"
+        "special_bonus_unique_marci_grapple_damage"       "+60"
       }
-      "movement_slow_pct"   "20 30 40 50 55 60"
+      "movement_slow_pct"                                 "20 30 40 50 55 60"
     }
   }
 }
