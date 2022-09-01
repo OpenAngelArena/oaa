@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -35,8 +35,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"   "14 13 12 11 10 9"
-        "special_bonus_unique_marci_lunge_cooldown" "-3"
+        "value"                                           "14 13 12 11 10 9"
+        "special_bonus_unique_marci_lunge_cooldown"       "-3"
       }
       "move_speed"                                        "2000"
       "min_jump_distance"                                 "450"
