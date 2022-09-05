@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5239"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5239"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,9 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "0"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +33,7 @@
       "duration"      "6.0"
       "speed"       "2250"
       "damage"      "80 120 160 200 400 800"
-      "AbilityCooldown" //OAA  
+      "AbilityCooldown" //OAA
       {
         "value"       "17 16 15 14 13 12"
         "special_bonus_unique_clockwerk_7" "-2"

@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shadow Demon: Demonic Cleanse (shard ability)
+  //=================================================================================================================
+  "shadow_demon_demonic_cleanse"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "916"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has it wrong
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve has it wrong
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    "HasScepterUpgrade"                                   "1"
+    "IsGrantedByShard"                                    "1"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "7.0"
+    "AbilityCooldown"                                     "60"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150 175 200 225 250"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "purge_damage" //OAA
+      {
+        "value"                                           "300 500 700 1300 1900"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
+      }
+      "max_charges"
+      {
+        "value"                                           "3"
+        "RequiresScepter"                                 "1"
+      }
+      "charge_restore_time"
+      {
+        "value"                                           "60"
+        "RequiresScepter"                                 "1"
+      }
+      "charge_restore_time_tooltip_scepter"
+      {
+        "value"                                           "60"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

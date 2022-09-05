@@ -9,7 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "641"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
 
     "MaxLevel"                                            "6"
 
@@ -35,16 +37,16 @@
         "value"                                           "1"
         "special_bonus_unique_zeus"                       "+1"
       }
-      "AbilityCooldown"         
+      "AbilityCooldown"
       {
         "value"       "26 22 18 14 14 14"
-        "special_bonus_unique_zeus_jump_cooldown" "-4"  
+        "special_bonus_unique_zeus_jump_cooldown" "-4"
       }
       "postjump_movespeed_duration"
       {
         "value"           "0"
         "special_bonus_unique_zeus_jump_postjump_movespeed"   "+1.6"
-      }     
+      }
       "postjump_movespeed"
       {
         "value"           "0"
