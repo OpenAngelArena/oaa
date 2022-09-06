@@ -44,8 +44,8 @@
     {
       "health_drain" //OAA
       {
-        "value"         "160 320 480 960 1760"
-        "CalculateSpellDamageTooltip" "1"
+        "value"                                           "160 320 480 960 1760"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "tick_rate"         "0.25"
       "drain_buffer"        "200"

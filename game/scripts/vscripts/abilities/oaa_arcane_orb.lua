@@ -241,21 +241,16 @@ if IsServer() then
       local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
 
       -- Talent that increases mana pool damage percent
-      if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-        mana_pool_damage_pct = mana_pool_damage_pct + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
-      end
+      --if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
+        --mana_pool_damage_pct = mana_pool_damage_pct + 2
+      --end
 
-      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double)
+      -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) - UNUSED
       if target:IsRealHero() and (not target:IsClone()) and (not target:IsTempestDouble()) then
         local intStealDuration = ability:GetSpecialValueFor("int_steal_duration")
         local intStealAmount = ability:GetSpecialValueFor("int_steal")
 
         if intStealAmount ~= 0 and intStealDuration ~= 0 then
-          -- Talent that increases int steal duration
-          if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
-            intStealDuration = intStealDuration + attacker:FindAbilityByName("special_bonus_unique_outworld_devourer"):GetSpecialValueFor("value")
-          end
-
           target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff_counter", {duration = intStealDuration})
           target:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_debuff", {duration = intStealDuration})
           attacker:AddNewModifier(attacker, ability, "modifier_oaa_arcane_orb_buff_counter", {duration = intStealDuration})
@@ -263,7 +258,7 @@ if IsServer() then
         end
       end
 
-      -- Mana increase if the target is a hero, an illusion or tempest double
+      -- Mana increase if the target is a hero, an illusion or tempest double - UNUSED
       if target:IsRealHero() or target:IsIllusion() then
         local manaIncreaseAmount = ability:GetSpecialValueFor("max_mana_increase")
         local manaIncreaseDuration = ability:GetSpecialValueFor("bonus_mana_duration")
