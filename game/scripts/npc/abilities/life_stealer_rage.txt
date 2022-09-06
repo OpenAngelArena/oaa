@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5249"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5249"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -39,8 +39,8 @@
       }
       "duration" //OAA
       {
-        "value"       "3.0 4.0 5.0 6.0 6.5 7.0"
-        "special_bonus_unique_lifestealer"  "+1.0"
+        "value"                                           "3.0 4.0 5.0 6.0 6.5 7.0"
+        "special_bonus_unique_lifestealer"                "+1.0"
       }
       "bonus_armor"
       {

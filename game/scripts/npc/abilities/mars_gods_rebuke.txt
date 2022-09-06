@@ -33,9 +33,9 @@
     {
       "crit_mult"
       {
-        "value"               "150 190 230 270 310 350"
+        "value"                                               "150 190 230 270 310 350"
         "special_bonus_unique_mars_gods_rebuke_extra_crit"    "+65"
-        "DamageTypeTooltip"     "DAMAGE_TYPE_PHYSICAL"
+        "DamageTypeTooltip"                                   "DAMAGE_TYPE_PHYSICAL"
       }
       "angle"           "140"
       "radius"
@@ -48,14 +48,14 @@
       "knockback_slow"      "40"
       "knockback_slow_duration"
       {
-        "value" "2.5"
-        "special_bonus_unique_mars_rebuke_slow"   "+0"
+        "value"                                           "2.5"
+        "special_bonus_unique_mars_rebuke_slow"           "+0"
       }
       "activity_duration"     "2"
       "bonus_damage_vs_heroes"                            "20 25 30 35 70 140" //OAA
       "AbilityCooldown"
       {
-        "value"         "16 14 12 10 10 10"
+        "value"                                           "16 14 12 10 10 10"
         "special_bonus_unique_mars_rebuke_cooldown"       "-4"
       }
     }

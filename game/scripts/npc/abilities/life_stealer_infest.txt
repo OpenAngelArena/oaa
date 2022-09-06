@@ -12,10 +12,10 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
 
@@ -41,7 +41,7 @@
         "value"                                           "150 400 650 1400 2150"
         "special_bonus_unique_lifestealer_infest_damage"      "+150"
       }
-      "bonus_movement_speed"                              
+      "bonus_movement_speed"
       {
         "value"                                          "15 20 25 30 35"
         "special_bonus_unique_lifestealer_infest_target_bonus"      "+15"
@@ -49,7 +49,7 @@
       "bonus_health"
       {
         "value"                                           "400 800 1200 2400 3600"
-        "special_bonus_unique_lifestealer_infest_target_bonus"      "+15%"  
+        "special_bonus_unique_lifestealer_infest_target_bonus"      "+15%"
       }
       "self_regen"
       {

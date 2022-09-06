@@ -7,27 +7,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5043"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5043"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"              // Changes dynamically with scepter
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "1" //Valve, lina_flame_cloak should have this line
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.45"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,17 +37,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"         "500 900 1300 2500 3700" //OAA
-      "damage_delay"        "0.25"
+      "damage"                                            "500 900 1300 2500 3700" //OAA
+      "damage_delay"                                      "0.25"
       "AbilityCooldown" //OAA
       {
-        "value"               "50"
-        "special_bonus_unique_lina_6"   "-25"
+        "value"                                           "50"
+        "special_bonus_unique_lina_6"                     "-25"
       }
       "pierce_immunity"
       {
-        "value"               "0"
-        "special_bonus_unique_lina_7"   "+1"
+        "value"                                           "0"
+        "special_bonus_unique_lina_7"                     "+1"
       }
     }
   }
