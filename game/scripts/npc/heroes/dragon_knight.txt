@@ -9,8 +9,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "Ability5"                                            "dragon_knight_elder_dragon_form" // replaces generic_hidden
     "Ability6"                                            "dragon_knight_elder_dragon_form_oaa" // replaces dragon_knight_elder_dragon_form
-    "Ability13"                                           "special_bonus_strength_20"  // replaces "special_bonus_hp_400"
-    "Ability15"                                           "special_bonus_unique_dragon_knight"  // replaces "special_bonus_unique_dragon_knight_9"
-    "Ability16"                                           "special_bonus_attack_speed_80" // replaces "special_bonus_unique_dragon_knight"
+
+    "Ability10"                                           "special_bonus_strength_15" // replaces special_bonus_attack_damage_15
+    //"Ability11"                                           "special_bonus_unique_dragon_knight_3"
+
+    //"Ability12"                                           "special_bonus_unique_dragon_knight_2"
+    "Ability13"                                           "special_bonus_unique_dragon_knight_9" // replaces special_bonus_hp_400
+
+    //"Ability14"                                           "special_bonus_unique_dragon_knight_7"
+    "Ability15"                                           "special_bonus_unique_dragon_knight" // replaces special_bonus_unique_dragon_knight_9
+
+    "Ability16"                                           "special_bonus_attack_speed_80" // replaces special_bonus_unique_dragon_knight
+    //"Ability17"                                           "special_bonus_unique_dragon_knight_8"
+
+    // special_bonus_unique_dragon_knight - "+{s:value} Dragon Blood HP Regen/Armor"
+    // special_bonus_unique_dragon_knight_2 - "+{s:value}s Dragon Tail"
+    // special_bonus_unique_dragon_knight_3 - "{s:value}% Breathe Fire Damage Reduction"
+    // special_bonus_unique_dragon_knight_4 - "Dragon Blood Aura"                                                               - overpowered
+    // special_bonus_unique_dragon_knight_5 - "+{s:value}% Frost Breath Slow"                                                   - unused
+    // special_bonus_unique_dragon_knight_6 - "+{s:value}% Splash Attack Damage"                                                - unused
+    // special_bonus_unique_dragon_knight_7 - "+{s:value} Elder Dragon Form Attack Range"
+    // special_bonus_unique_dragon_knight_8 - "+{s:value} AoE Dragon Tail During Elder Dragon Form"
+    // special_bonus_unique_dragon_knight_9 - "+{s:bonus_dragon_form_bonus_pct}% Breathe Fire Damage/Cast Range in Dragon Form"
   }
 }

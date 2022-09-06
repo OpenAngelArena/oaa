@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9501"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
 
@@ -33,9 +34,9 @@
     "AbilityValues"
     {
       "radius"            "275"
-      "movement_speed_pct"      "20 25 30 35 40 45"
+      "movement_speed_pct"                                "20 25 30 35 40 45"
       "duration"            "4.0"
-      "evasion"           "15 20 25 30 35 40"
+      "evasion"                                           "15 20 25 30 35 40"
       "bonus_active_evasion"
       {
         "value"     "0"

@@ -42,7 +42,7 @@
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "45"
       }
-      "02"
+      "02" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_movement_speed"                            "25 30 35 35 35"

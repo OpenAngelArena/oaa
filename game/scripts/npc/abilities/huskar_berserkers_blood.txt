@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5273"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5273"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -26,7 +26,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "maximum_health_regen"                            "25 40 55 70 95 120"
+        "maximum_health_regen"                            "25 40 55 70 85 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar_6"
       }
       "04"

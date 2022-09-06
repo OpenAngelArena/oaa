@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5029"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5029"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 
     "MaxLevel"                                            "6"
@@ -34,7 +34,7 @@
     {
       "healing_ward_heal_amount"  "2 3 4 5 6 7"
       "healing_ward_aura_radius"  "400"
-      "healing_ward_movespeed_tooltip"  
+      "healing_ward_movespeed_tooltip"
       {
         "value" "325"
       }

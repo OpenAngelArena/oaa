@@ -37,8 +37,8 @@
     {
       "total_damage"
       {
-        "value"       "185 290 395 500 1000 2000"
-        "special_bonus_unique_keeper_of_the_light"    "+180"
+        "value"                                           "185 290 395 500 1000 2000"
+        "special_bonus_unique_keeper_of_the_light"        "+180"
       }
       "max_channel_time"    "3"
       "radius"        "400"
@@ -46,7 +46,7 @@
       "speed"         "900.0"
       "vision_radius"     "800"
       "vision_duration"   "3.34"
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"         "13"
         "special_bonus_unique_keeper_of_the_light_illuminate_cooldown"      "-2"

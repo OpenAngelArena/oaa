@@ -40,16 +40,16 @@
       "radius"        "700"
       "spirits"
       {
-        "value"         "8 16 24 24 24"
-        "LinkedSpecialBonus"  "special_bonus_unique_death_prophet"
+        "value"                                           "8 16 24 24 24"
+        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet"
       }
       "spirit_speed"      "525"
       "max_distance"      "2000"
       "give_up_distance"    "1200"
-      "min_damage"      "59 69 69 134 278" //OAA
-      "max_damage"      "64 74 74 154 298" //OAA
+      "min_damage"                                        "59 69 69 134 278" //OAA
+      "max_damage"                                        "64 74 74 154 298" //OAA
       "heal_percent"      "25"
-      "average_damage"    "62 72 72 144 288" //OAA
+      "average_damage"                                    "62 72 72 144 288" //OAA, important for tooltip
       "ghost_spawn_rate"  "0.35"
       "scepter_movespeed_slow"
       {
@@ -66,11 +66,11 @@
         "value"       "20"
         "RequiresScepter"     "1"
       }
-      "scepter_spirit_bonus_damage"
+      "scepter_spirit_bonus_damage" // this is a percent increase
       {
-        "value"         "50 50 50 75 100"
-        "RequiresScepter"     "1"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "50 50 50 75 100"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "movement_base"         "12 16 20 24 28"
       "movement_bonus"        "12 16 20 24 28"
