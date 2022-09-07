@@ -4,14 +4,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5138"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5138"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -23,10 +22,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
-
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "75 100 125 150 300 600" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,19 +35,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hero_duration"     "1.0"
-      "creep_duration"    "1"
-      "base_damage"      "40 50 60 70 140 210" //OAA
-      "bounce_range"      "575"
-      "bounces"       
-      { 
-        "value"         "2 4 6 8 10 12"
-        "special_bonus_unique_witch_doctor_3"     "+2"
+      "hero_duration"                                     "1.0"
+      "creep_duration"                                    "1"
+      "base_damage"                                       "40 50 60 70 140 280" //OAA
+      "bounce_range"                                      "575"
+      "bounces"
+      {
+        "value"                                           "2 4 6 8 10 12"
+        "special_bonus_unique_witch_doctor_3"             "+2"
       }
-      "speed"         "1200"
-      "bounce_delay"      "0.3"
-      "bounce_bonus_damage"     "20 30 40 50 100 200" //OAA
-      "creep_damage_pct"            "200"
+      "speed"                                             "1200"
+      "bounce_delay"                                      "0.3"
+      "bounce_bonus_damage"                               "20 25 30 35 70 140" //OAA
+      "creep_damage_pct"                                  "200"
     }
   }
 }

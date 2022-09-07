@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "7701"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                            "7701"
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -23,10 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"              "0.0"
     "AbilityCastRange"              "850"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------

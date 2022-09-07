@@ -7,16 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5436"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5436"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    //"AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "0" //OAA, Valve forgot about this
     "AbilityCastPoint"                                    "0.3"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -24,25 +23,25 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
 
-    "AbilityValues" 
+    "AbilityValues"
     {
-      "heal_per_second" //OAA
+      "heal_per_second" //OAA, total heal can be big because there are no towers here
       {
-        "value"   "8 12 16 20 40 80"
-        "special_bonus_unique_treant_8"     "+20"
+        "value"                                           "10 20 30 40 80 120"
+        "special_bonus_unique_treant_8"                   "+30"
       }
       "bonus_armor" //OAA
       {
-        "value"   "5 6 7 8 10 12"
-        "special_bonus_unique_treant_13"      "+4"
+        "value"                                           "6 8 10 12 14 16"
+        "special_bonus_unique_treant_13"                  "+4"
       }
-      "duration"      "15 20 25 30 30 30"
+      "duration"                                          "15" //OAA
     }
   }
 }

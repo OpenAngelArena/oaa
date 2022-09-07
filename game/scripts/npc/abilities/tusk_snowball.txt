@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // SPELL_DISPELLABLE_YES_STRONG
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -55,7 +55,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.6 1.8"
+        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.5 1.6"
       }
       "05"
       {

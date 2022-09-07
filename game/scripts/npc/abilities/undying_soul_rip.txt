@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5443"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5443"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

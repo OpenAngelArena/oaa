@@ -40,12 +40,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"  "20 25 30 40 50" //OAA
-      "damage_reduction_duration" "3"
+      "damage_reduction"                                  "20 25 30 40 50" //OAA
+      "damage_reduction_duration"                         "3"
       "damage"
       {
-        "value"             "50"
-        "special_bonus_unique_vengeful_spirit_swap_damage"      "+150"
+        "value"                                                     "50"
+        "special_bonus_unique_vengeful_spirit_swap_damage"          "+150"
       }
     }
   }

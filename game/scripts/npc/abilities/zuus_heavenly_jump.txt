@@ -37,10 +37,10 @@
         "value"                                           "1"
         "special_bonus_unique_zeus"                       "+1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"       "26 22 18 14 14 14"
-        "special_bonus_unique_zeus_jump_cooldown" "-4"
+        "value"                                           "20 18 16 14 14 14"
+        "special_bonus_unique_zeus_jump_cooldown"         "-4"
       }
       "postjump_movespeed_duration"
       {
