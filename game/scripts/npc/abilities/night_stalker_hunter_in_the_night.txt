@@ -26,7 +26,7 @@
         "value"                                           "20 40 60 80 100 120"
         "special_bonus_unique_night_stalker_2"            "+100"
       }
-      "bonus_status_resist_night"     
+      "bonus_status_resist_night"
       {
         "value"     "0"
         "special_bonus_unique_night_stalker_hunter_status_resist" "+15"
@@ -41,9 +41,9 @@
         "value"                                           "25"
         "RequiresShard"                                   "1"
       }
-      "shard_cooldown"
+      "shard_cooldown" //OAA
       {
-        "value"                                           "20"
+        "value"                                           "15"
         "RequiresShard"                                   "1"
       }
       "shard_cast_range"

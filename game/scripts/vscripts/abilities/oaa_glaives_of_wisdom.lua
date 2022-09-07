@@ -362,7 +362,7 @@ if IsServer() then
       -- Talent that increases Glaives of Wisdom damage
       --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
       --if talent and talent:GetLevel() > 0 then
-        --bonusDamagePct = bonusDamagePct + talent:GetSpecialValueFor("value") / 100
+        --bonusDamagePct = bonusDamagePct + 10
       --end
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity

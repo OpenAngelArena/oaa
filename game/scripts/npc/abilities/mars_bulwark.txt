@@ -44,8 +44,6 @@
         "special_bonus_unique_mars_bulwark_speed"     "-10"
       }
       "redirect_close_range"        "100"
-
-      // Scepter here
       "soldier_count"
       {
         "value"                     "5"
@@ -62,7 +60,7 @@
         "RequiresScepter"              "1"
       }
       "scepter_movement_slow_duration"
-      {   
+      {
         "value"                     "1.0"
         "RequiresScepter"              "1"
       }

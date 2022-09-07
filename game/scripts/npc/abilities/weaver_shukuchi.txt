@@ -4,11 +4,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5290"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5290"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "6"
 
     // Casting
@@ -29,8 +30,8 @@
     {
       "damage"
       {
-        "value"                   "100 125 150 175 350 700"
-        "special_bonus_unique_weaver_1"       "+50"
+        "value"                                           "100 125 150 175 350 700"
+        "special_bonus_unique_weaver_1"                   "+50"
       }
       "speed"         "200 230 260 290 300 310"
       "radius"        "175"

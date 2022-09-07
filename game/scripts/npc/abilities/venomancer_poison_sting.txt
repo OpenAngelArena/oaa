@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5179"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5179"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -17,13 +17,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "6.0 9.0 12.0 15.0 15.0 15.0"
-      "damage"          "10 20 30 40 80 120" //OAA
+      "duration"                                          "6.0 9.0 12.0 15.0 15.0 15.0"
+      "damage"                                            "10 20 30 40 80 120" //OAA
       "movement_speed"
       {
-        "value"     "-8 -10 -12 -14 -16 -18"
-        "special_bonus_unique_venomancer_2"   "-8"
-      } 
+        "value"                                           "-8 -10 -12 -14 -16 -18"
+        "special_bonus_unique_venomancer_2"               "-8"
+      }
       "hp_regen_reduction"
       {
         "value"       "0"

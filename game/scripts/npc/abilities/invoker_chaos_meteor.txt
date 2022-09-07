@@ -38,7 +38,7 @@
       "area_of_effect"      "275"
       "travel_distance"
       {
-        "value"         "465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750 "
+        "value"         "465 615 780 930 1095 1245 1410 1575 1600 1625 1650 1675 1700 1725 1750"
         "levelkey"        "wexlevel"
       }
       "travel_speed"        "300"
@@ -51,9 +51,9 @@
       "end_vision_duration"   "3.0"
       "main_damage" //OAA
       {
-        "value"         "50 80 110 140 170 200 230 260 320 380 440 500 560 620 680"
-        "levelkey"        "exortlevel"
-        "special_bonus_unique_invoker_6"  "+80%"
+        "value"                                           "60 80 100 120 140 160 180 200 240 320 360 400 440 480 560"
+        "levelkey"                                        "exortlevel"
+        "special_bonus_unique_invoker_6"                  "+80%"
       }
       "burn_duration"       "3.0"
       "burn_dps" //OAA

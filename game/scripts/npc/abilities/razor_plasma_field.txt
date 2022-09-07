@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5082"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5082"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -34,13 +33,13 @@
     {
       "damage_min" //OAA
       {
-        "value"       "35 40 45 50 100 200"
-        "special_bonus_unique_razor_4"  "+45"
+        "value"                                           "35 40 45 50 100 200"
+        "special_bonus_unique_razor_4"                    "+45"
       }
       "damage_max" //OAA
       {
-        "value"       "80 115 150 185 370 740"
-        "special_bonus_unique_razor_4"  "+45"
+        "value"                                           "80 115 150 185 370 740"
+        "special_bonus_unique_razor_4"                    "+45"
       }
       "radius"          "700"
       "speed"           "636"  // 1.2 second to reach radius

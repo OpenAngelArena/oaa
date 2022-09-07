@@ -4,11 +4,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5131"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5131"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -30,19 +29,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "powershot_damage"    "150 250 350 450 900 1800"
-        "damage_reduction" //OAA
-        {
-          "value"       "10"
-          "special_bonus_unique_windranger_3"   "-5"
-          "CalculateSpellDamageTooltip" "0"
-        }
-        "arrow_width"     "125"
-        "arrow_range"     "2600"
-        "arrow_speed"     "3000.0"
-        "tree_width"      "75"
-        "vision_radius"     "400"
-        "vision_duration"   "3.34"
+      "powershot_damage"                                  "150 250 350 450 900 1800"
+      "damage_reduction" //OAA
+      {
+        "value"                                           "10"
+        "special_bonus_unique_windranger_3"               "-5"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "arrow_width"     "125"
+      "arrow_range"     "2600"
+      "arrow_speed"     "3000.0"
+      "tree_width"      "75"
+      "vision_radius"     "400"
+      "vision_duration"   "3.34"
     }
   }
 }

@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // OAA, Valve forgot about this
 
     "MaxLevel"                                            "6"
 
@@ -54,12 +55,12 @@
         "RequiresScepter"                                 "1"
       }
       "movement_slow"
-      { 
+      {
         "value"                                           "30"
         "special_bonus_unique_medusa_7"                   "+15"
       }
       "turn_slow"
-      { 
+      {
         "value"                                           "50"
         "special_bonus_unique_medusa_7"                   "+15"
       }

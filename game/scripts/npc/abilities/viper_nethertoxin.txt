@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5219"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5219"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -53,7 +53,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.5 7 7.5 8 8.5 9"
+        "duration"                                        "6.5 7 7.5 8 8 8"
       }
       "06"
       {

@@ -41,27 +41,27 @@
     "AbilityValues"
     {
       "prison_duration"   "1.75 2.5 3.25 4 4 4"
-      "damage"    
+      "damage"
       {
-        "value"         "120 200 280 360 720 1440"
-        "special_bonus_scepter"   "+140"
+        "value"                                           "120 200 280 360 720 1440"
+        "special_bonus_scepter"                           "+140"
       }
       "mana_capacity_steal"
       {
-        "value"             "16 18 20 22 24 26"
-        "special_bonus_shard"     "+5"
-      } 
+        "value"                                           "16 18 20 22 24 26"
+        "special_bonus_shard"                             "+5"
+      }
       "mana_capacity_duration"  "30 40 50 60 70 80"
       "allied_movement_speed_pct"
       {
         "value"         "0"
         "special_bonus_shard" "+60"
-      }       
+      }
       "AbilityCharges"
       {
         "value" "0"
         "special_bonus_scepter" "+2"
-      }                   
+      }
       "damage_radius"
       {
         "value"           "0"

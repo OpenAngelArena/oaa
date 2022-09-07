@@ -43,10 +43,10 @@ function visage_summon_familiars_oaa:OnSpellStart()
   end
 
   -- Talent that increases armor of familiars
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_5")
-  if talent2 and talent2:GetLevel() > 0 then
-    familiar_armor = familiar_armor + talent2:GetSpecialValueFor("value")
-  end
+  --local talent2 = caster:FindAbilityByName("special_bonus_unique_visage_5")
+  --if talent2 and talent2:GetLevel() > 0 then
+    --familiar_armor = familiar_armor + talent2:GetSpecialValueFor("value")
+  --end
 
   -- Talent that increases attack damage of familiars
   local talent3 = caster:FindAbilityByName("special_bonus_unique_visage_7")

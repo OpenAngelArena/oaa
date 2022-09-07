@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5619"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5619"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -32,22 +31,21 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"   "19 18 17 16 14 12"
-        "special_bonus_unique_terrorblade_2" "-3"
+        "value"                                           "19 18 17 16 14 12"
+        "special_bonus_unique_terrorblade_2"              "-3"
       }
-      "illusion_duration"      
+      "illusion_duration"
       {
-         "value"   "5"
-        "special_bonus_unique_terrorblade_2" "+2"
+        "value"   "5"
       }
       "illusion_outgoing_damage"  "-45 -30 -15 0 20 40"
       "illusion_outgoing_tooltip" "55 70 85 100 120 140"
       "move_slow"
       {
-          "value"         "15 20 25 30 35 40"
-          "special_bonus_unique_terrorblade_6"        "+15"
+        "value"         "15 20 25 30 35 40"
+        "special_bonus_unique_terrorblade_6"        "+15"
       }
-      "range"           "500"   
+      "range"           "500"
     }
   }
 }

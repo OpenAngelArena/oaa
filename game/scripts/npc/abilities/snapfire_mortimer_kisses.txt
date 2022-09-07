@@ -1,75 +1,72 @@
 "DOTAAbilities"
 {
-    //=================================================================================================================
-    // Ability: Snapfire Mortimer Kisses
-    //=================================================================================================================
-    "snapfire_mortimer_kisses"
+  //=================================================================================================================
+  // Ability: Snapfire Mortimer Kisses
+  //=================================================================================================================
+  "snapfire_mortimer_kisses"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                            "6482"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "3000"
+    "AbilityCastPoint"              "0.5"
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "120 110 100 95 90"
+    "AbilityDuration"               "5.5"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "125 150 175 200 225"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "ID"                            "6482"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-
-        "MaxLevel"                                            "5"
-        "RequiredLevel"                                       "6"
-        "LevelsBetweenUpgrades"                               "6"
-
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "3000"
-        "AbilityCastPoint"              "0.5"
-        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
-
-        // Damage
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-
-        // Time
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "120 110 100 95 90"
-        "AbilityDuration"               "5.5"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "125 150 175 200 225"
-
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityValues"
-        {
-            "projectile_count"
-            {
-                "value"     "8"
-                "special_bonus_unique_snapfire_1"   "+6"
-            }
-            "projectile_speed"      "1300"
-            "projectile_width"      "130"
-            "impact_radius"         "275"
-            "damage_per_impact" //OAA
-            {
-                "value"     "160 320 480 960 1280"
-                "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"       "+60"
-            }
-            "duration_tooltip"      "5.5"
-            "projectile_vision"     "500"
-            "turn_rate"             "75"
-            "burn_interval"         "0.5"
-            "burn_damage"           "60 120 180 360 540" //OAA
-            "move_slow_pct"
-            {
-                "value"         "15 20 25 30 35"
-                "special_bonus_unique_snapfire_4"   "+20"
-            }
-            "burn_ground_duration"  "3.0"
-            "dist_change_speed"     "75"
-            "min_range"             "600"
-            "min_lob_travel_time"   "0.8"
-            "max_lob_travel_time"   "2.0"
-            "delay_after_last_projectile"   "0.5"
-            "burn_linger_duration"  "1.0"
-        }
+      "projectile_count"
+      {
+        "value"                                           "8"
+        "special_bonus_unique_snapfire_1"                 "+6"
+      }
+      "projectile_speed"                                  "1300"
+      "projectile_width"                                  "130"
+      "impact_radius"                                     "275"
+      "damage_per_impact" //OAA
+      {
+        "value"                                                               "160 320 480 960 1280"
+        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"         "+60"
+      }
+      "duration_tooltip"                                  "5.5"
+      "projectile_vision"                                 "500"
+      "turn_rate"                                         "75"
+      "burn_interval"                                     "0.5"
+      "burn_damage"                                       "60 100 140 260 460" //OAA
+      "move_slow_pct"
+      {
+        "value"                                           "15 20 25 30 35"
+        "special_bonus_unique_snapfire_4"                 "+20"
+      }
+      "burn_ground_duration"                              "3.0"
+      "dist_change_speed"                                 "75"
+      "min_range"                                         "600"
+      "min_lob_travel_time"                               "0.8"
+      "max_lob_travel_time"                               "2.0"
+      "delay_after_last_projectile"                       "0.5"
+      "burn_linger_duration"                              "1.0"
     }
+  }
 }

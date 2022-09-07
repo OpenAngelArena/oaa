@@ -35,17 +35,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "magic_missile_speed" "1350"
-      "magic_missile_stun"  "1.4 1.5 1.6 1.7 1.8 1.9"
+      "magic_missile_speed"                               "1350"
+      "magic_missile_stun"                                "1.4 1.5 1.6 1.7 1.8 1.9"
       "magic_missile_damage" //OAA
       {
-        "value" "90 180 270 360 720 1440"
-        "special_bonus_unique_vengeful_spirit_1"  "+400"
+        "value"                                           "90 180 270 360 720 1440"
+        "special_bonus_unique_vengeful_spirit_1"          "+400"
       }
       "AbilityCastRange"
       {
-        "value"           "650"
-        "special_bonus_unique_vengeful_spirit_missile_castrange"        "+125"
+        "value"                                                     "650"
+        "special_bonus_unique_vengeful_spirit_missile_castrange"    "+125"
       }
     }
   }

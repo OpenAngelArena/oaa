@@ -28,10 +28,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_damage" //OAA     
+      "attack_damage" //OAA
       {
-        "value"           "70 170 270 570 870"
-        "LinkedSpecialBonus"    "special_bonus_unique_dark_willow_4"
+        "value"                                           "70 170 270 570 870"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_4"
       }
       "attack_interval"   "0.25"
       "attack_radius"     "300"
@@ -43,7 +43,6 @@
       {
         "value"   "0"
         "special_bonus_unique_dark_willow_2" "+1"
-        
       }
     }
   }

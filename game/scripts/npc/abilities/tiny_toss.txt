@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5107"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5107"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -30,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90" //OAA
+    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -44,8 +43,8 @@
       "grab_radius"     "300"
       "radius"        "275"
       "bonus_damage_pct"    "0"
-      "toss_damage"       "90 160 230 300 600 1200" //OAA
-      "AbilityCharges"    
+      "toss_damage"                                       "90 160 230 300 600 900" //OAA, this gets increased with Grow
+      "AbilityCharges"
       {
         "value"       ""
         "LinkedSpecialBonus"  "special_bonus_unique_tiny_2"

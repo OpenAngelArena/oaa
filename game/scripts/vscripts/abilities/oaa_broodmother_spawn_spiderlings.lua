@@ -331,7 +331,7 @@ function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus
   if self:GetStackCount() == 1 then
     local multiplier = 1
     if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
-      multiplier = (self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)
+      multiplier = math.min(((self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)) + 0.5, 1)
     end
     return self.bonus_ms * multiplier
   end
@@ -355,11 +355,10 @@ end
 
 function modifier_broodmother_giant_spiderling_passive:CheckState()
   if self:GetStackCount() == 1 then
-    local state = {
+    return {
       [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
       [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     }
-    return state
   else
     return {}
   end

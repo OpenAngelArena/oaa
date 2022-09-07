@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5116"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5116"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -41,12 +41,12 @@
         "var_type"                                        "FIELD_INTEGER"
         "attack_count"                                    "1" //OAA, for picking screen tooltip
       }
-      "04" //OAA, for picking screen tooltip
+      "10" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_FLOAT"
         "tooltip_cooldown"                                "5.0"
       }
-      "05" //OAA, for picking screen tooltip
+      "11" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
         "creep_dmg_multiplier"                            "2"

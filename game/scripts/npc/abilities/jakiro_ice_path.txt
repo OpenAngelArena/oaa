@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5298"                  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5298"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -22,9 +21,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.65"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -38,23 +34,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "path_delay"        "0.5"
+      "path_delay"                                        "0.5"
       "stun_duration"
       {
-        "value"         "1.6 1.9 2.2 2.5 2.75 3.0"
-        "special_bonus_unique_jakiro"   "+0.5"
+        "value"                                           "1.6 1.9 2.2 2.5 2.75 3.0"
+        "special_bonus_unique_jakiro"                     "+0.5"
       }
       "path_duration"
       {
-        "value"         "2.6 2.9 3.2 3.5 3.5 3.5"
-        "special_bonus_unique_jakiro"   "+0.5"
-      }     
-      "path_radius"       "150"
-      "damage"          "50"
+        "value"                                           "2.6 2.9 3.2 3.5 3.5 3.5"
+        "special_bonus_unique_jakiro"                     "+0.5"
+      }
+      "path_radius"                                       "150"
+      "damage"                                            "50"
       "AbilityCooldown" //OAA
       {
-        "value"               "15 13 11 9 9 9"
-        "special_bonus_unique_jakiro_6"   "-2.5"
+        "value"                                           "15 13 11 9 9 9"
+        "special_bonus_unique_jakiro_6"                   "-2.5"
       }
     }
   }

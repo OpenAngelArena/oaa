@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5054"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5054"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
     "MaxLevel"                                            "6"
@@ -18,8 +18,8 @@
     {
       "bonus_attributes"
       {
-        "value"         "3 5 7 9 13 25"
-        "special_bonus_shard"         "+6"
+        "value"                                           "3 5 7 9 13 25"
+        "special_bonus_shard"                             "+6"
       }
     }
   }
