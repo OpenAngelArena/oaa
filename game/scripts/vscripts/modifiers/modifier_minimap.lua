@@ -2,7 +2,7 @@ modifier_minimap = class(ModifierBaseClass)
 
 if IsServer() then
   function modifier_minimap:CheckState()
-    local state = {
+    return {
       [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
       [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
       [MODIFIER_STATE_INVULNERABLE] = true,
@@ -12,8 +12,6 @@ if IsServer() then
       [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
       [MODIFIER_STATE_NOT_ON_MINIMAP] = self.hidden,
     }
-
-    return state
   end
 
   function modifier_minimap:SetHiddenState( bIsHidden )
@@ -51,7 +49,7 @@ if IsServer() then
           end
         end
       end)
-      return -1
+      return
     end
 
     Timers:CreateTimer(0.5, function()

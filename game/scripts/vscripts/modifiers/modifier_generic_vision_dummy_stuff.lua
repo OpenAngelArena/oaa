@@ -34,10 +34,9 @@ function modifier_generic_vision_dummy_stuff:GetBonusNightVision()
 end
 
 function modifier_generic_vision_dummy_stuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = self.unobstructed,
   }
-  return state
 end
 
 -- TrueSight part:

@@ -101,10 +101,9 @@ function modifier_rend_armor_reduction_oaa:OnRefresh()
 end
 
 function modifier_rend_armor_reduction_oaa:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_rend_armor_reduction_oaa:GetModifierPhysicalArmorBonus()

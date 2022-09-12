@@ -6,14 +6,16 @@ function modifier_generic_projectile:GetOverrideAnimation(projectileTable)
     if self.projectileTable and self.projectileTable.flail then
         return ACT_DOTA_FLAIL
     else
-        return nil
+        return
     end
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_generic_projectile:DeclareFunctions()
-    return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION }
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+  }
 end
 
 ------------------------------------------------------------------------------------
@@ -42,12 +44,9 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_generic_projectile:DeclareFunctions()
-    local funcs =
-    {
-        MODIFIER_EVENT_ON_DEATH,
-    }
-
-    return funcs
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+  }
 end
 
 ------------------------------------------------------------------------------------
@@ -66,19 +65,18 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_generic_projectile:CheckState()
-    if self.projectileTable then
-        local state = {
-            [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-            [MODIFIER_STATE_UNSELECTABLE] = not self.projectileTable.selectable,
-            [MODIFIER_STATE_NO_HEALTH_BAR] = not self.projectileTable.selectable,
-            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-            [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-            [MODIFIER_STATE_INVULNERABLE] = not self.projectileTable.noInvul,
-            [MODIFIER_STATE_STUNNED] = false,
-        }
-
-        return state
-    end
+  if self.projectileTable then
+    return {
+      [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+      [MODIFIER_STATE_UNSELECTABLE] = not self.projectileTable.selectable,
+      [MODIFIER_STATE_NO_HEALTH_BAR] = not self.projectileTable.selectable,
+      [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+      [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+      [MODIFIER_STATE_INVULNERABLE] = not self.projectileTable.noInvul,
+      [MODIFIER_STATE_STUNNED] = false,
+    }
+  end
+  return {}
 end
 
 ------------------------------------------------------------------------------------

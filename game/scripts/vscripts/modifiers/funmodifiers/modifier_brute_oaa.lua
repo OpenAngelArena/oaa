@@ -49,12 +49,10 @@ function modifier_brute_oaa:OnCreated()
 end
 
 function modifier_brute_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
-
-  return funcs
 end
 
 function modifier_brute_oaa:GetModifierBonusStats_Strength()

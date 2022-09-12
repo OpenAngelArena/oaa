@@ -45,8 +45,7 @@ function modifier_ardm_disable_hero:GetAuraRadius()
 end
 
 function modifier_ardm_disable_hero:GetAuraEntityReject(hEntity)
-  local parent = self:GetParent()
-  if hEntity ~= parent then
+  if hEntity ~= self:GetParent() then
     return true
   end
   return false
@@ -68,19 +67,19 @@ function modifier_ardm_disable_hero:OnIntervalThink()
   if not parent or parent:IsNull() then
     return
   end
-  local num_of_active_modifiers = 0
-  for index = 0, parent:GetAbilityCount() - 1 do
-    local ability = parent:GetAbilityByIndex(index)
-    if ability and not ability:IsNull() then
-      if ability.NumModifiersUsingAbility and ability:NumModifiersUsingAbility() then
-        num_of_active_modifiers = num_of_active_modifiers + ability:NumModifiersUsingAbility()
-      end
-    end
-  end
+  -- local num_of_active_modifiers = 0
+  -- for index = 0, parent:GetAbilityCount() - 1 do
+    -- local ability = parent:GetAbilityByIndex(index)
+    -- if ability and not ability:IsNull() then
+      -- if ability.NumModifiersUsingAbility and ability:NumModifiersUsingAbility() then
+        -- num_of_active_modifiers = num_of_active_modifiers + ability:NumModifiersUsingAbility() -- NumModifiersUsingAbility returns 0 always, thx Valve
+      -- end
+    -- end
+  -- end
 
   self.counter = self.counter + 1
 
-  if self.counter > 45 or num_of_active_modifiers == 0 then
+  if self.counter > 52 then
     self:StartIntervalThink(-1)
     self:Destroy()
   end
@@ -120,7 +119,7 @@ function modifier_ardm_disable_hero:GetPriority()
 end
 
 function modifier_ardm_disable_hero:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
     [MODIFIER_STATE_OUT_OF_GAME] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
@@ -138,5 +137,4 @@ function modifier_ardm_disable_hero:CheckState()
     --[MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
     --[MODIFIER_STATE_NO_TEAM_SELECT] = true,
   }
-  return state
 end

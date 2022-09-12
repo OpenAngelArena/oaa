@@ -6,12 +6,10 @@ Primary use of this modifier is for Nature's Prophet 2x Treant health/damage tal
 modifier_treant_bonus_oaa = class(ModifierBaseClass)
 
 function modifier_treant_bonus_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
   }
-
-  return funcs
 end
 
 function modifier_treant_bonus_oaa:OnCreated(keys)

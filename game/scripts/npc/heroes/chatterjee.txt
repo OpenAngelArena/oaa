@@ -10,10 +10,6 @@
     "BaseClass"                 "npc_dota_hero_dazzle"
     "HeroID"                    "130"
     "Model"                     "models/heroes/electrician/electrician.vmdl"
-    "SoundSet"                  "Hero_Electrician"
-    "particle_folder"           "particles/units/heroes/hero_electrician"
-    //"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
-    //"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
 
     "BotImplemented"            "0"
 
@@ -94,5 +90,14 @@
     //Inventory
     //-------------------------------------------------------------------------------------------------------------
     "HasInventory"              "1"
+
+    "precache"
+    {
+      "model"                   "models/heroes/electrician/electrician_arcana/electrician_arcana_base.vmdl"
+    }
+    "particle_folder"           "particles/hero/electrician"
+    //"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_electrician.vsndevts"
+    //"SoundSet"                  "Hero_Electrician"
+    //"VoiceFile"                 "soundevents/voscripts/game_sounds_vo_electrician.vsndevts"
   }
 }

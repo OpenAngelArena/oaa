@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_bottle_regeneration", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bottle_texture_tracker", "items/bottle.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------

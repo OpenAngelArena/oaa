@@ -13,10 +13,9 @@ function modifier_item_spell_lifesteal_oaa:GetAttributes()
 end
 
 function modifier_item_spell_lifesteal_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-  return funcs
 end
 
 function modifier_item_spell_lifesteal_oaa:OnCreated(kv)

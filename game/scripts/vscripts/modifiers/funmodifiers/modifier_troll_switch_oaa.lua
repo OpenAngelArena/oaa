@@ -82,14 +82,12 @@ function modifier_troll_switch_oaa:OnIntervalThink()
 end
 
 function modifier_troll_switch_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-
-  return funcs
 end
 
 -- offset all stack counts by -500

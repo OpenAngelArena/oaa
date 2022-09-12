@@ -13,7 +13,7 @@ function modifier_anti_stun_oaa:GetPriority()
 end
 
 function modifier_anti_stun_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_HEXED] = false,
     [MODIFIER_STATE_ROOTED] = false,
     [MODIFIER_STATE_SILENCED] = false,
@@ -22,6 +22,4 @@ function modifier_anti_stun_oaa:CheckState()
     [MODIFIER_STATE_FEARED] = false,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
   }
-
-  return state
 end
