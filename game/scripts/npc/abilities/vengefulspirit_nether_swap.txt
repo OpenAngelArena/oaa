@@ -40,9 +40,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"
+      "damage_reduction" //OAA
       {
-        "value"                                           "20 25 30 40 50" //OAA
+        "value"                                           "20 25 30 40 50"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage_reduction_duration"

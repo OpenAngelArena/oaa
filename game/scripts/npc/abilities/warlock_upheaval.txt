@@ -48,7 +48,11 @@
       "aspd_per_second"                                   "10"
       "damage_per_second"                                 "10" // min dps
       "max_damage"                                        "30 50 70 90 180 360" // max dps
-      "damage_tick_interval"                              "1"
+      "damage_tick_interval"
+      {
+        "value"                                           "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
     }
   }
 }
