@@ -54,7 +54,6 @@ function modifier_magus_oaa:OnCreated()
     elder_titan_return_spirit = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- self grief
     electrician_electric_shield = 1,                     -- self grief
-    --ember_spirit_sleight_of_fist = 1,                  -- invulnerability and looping
     enchantress_enchant = 1,                             -- dominating every creep on attack
     enigma_demonic_conversion = 1,                       -- instant kill
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
@@ -62,22 +61,16 @@ function modifier_magus_oaa:OnCreated()
     furion_teleportation = 1,                            -- self grief
     --furion_wrath_of_nature = 1,
     --furion_wrath_of_nature_oaa = 1,                    -- powerful (but needs vision)
-    --juggernaut_omnislash = 1,                          -- invulnerability and looping
     keeper_of_the_light_illuminate_end = 1,              -- self grief
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill
-    --mars_gods_rebuke = 1,                              -- looping
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
-    --naga_siren_mirror_image = 1,                       -- invulnerability and lag
     night_stalker_hunter_in_the_night = 1,               -- instant kill
-    --obsidian_destroyer_astral_imprisonment = 1,        -- self grief, invulnerability, trolling
     oracle_false_promise = 1,                            -- invulnerability
-    --oracle_fates_edict = 1,                            -- self grief, trolling
-    --pangolier_swashbuckle = 1,                         -- looping, powerful
     phantom_lancer_doppelwalk = 1,                       -- invulnerability and lag
     --phantom_lancer_spirit_lance = 1,                   -- lag maybe
     phoenix_icarus_dive_stop = 1,                        -- self grief
@@ -87,14 +80,12 @@ function modifier_magus_oaa:OnCreated()
     pudge_eject = 1,                                     -- self grief
     riki_tricks_of_the_trade = 1,                        -- invulnerability and looping
     rubick_telekinesis_land_self = 1,                    -- self grief
-    --shadow_demon_disruption = 1,                       -- self grief, invulnerability, trolling
     shadow_demon_shadow_poison_release = 1,              -- self grief
     snapfire_gobble_up = 1,                              -- instant kill and other bugs
     sohei_flurry_of_blows = 1,                           -- invulnerability and looping
     spectre_haunt = 1,                                   -- lag
     spectre_reality = 1,                                 -- self grief
     terrorblade_conjure_image = 1,                       -- lag
-    --tidehunter_anchor_smash = 1,                       -- looping
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_snowball = 1,                                   -- invulnerability
@@ -164,8 +155,8 @@ if IsServer() then
       return
     end
 
-    -- Check if attacker is alive, silenced, hexed or disarmed
-    if not attacker:IsAlive() or attacker:IsSilenced() or attacker:IsHexed() or attacker:IsDisarmed() then
+    -- Check if attacker is alive or silenced
+    if not attacker:IsAlive() or attacker:IsSilenced() then
       return
     end
 

@@ -90,6 +90,13 @@
 
     "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
 
+    "precache"
+    {
+      "model"                   "models/heroes/sohei/sohei_arcana/sohei_arcana.vmdl"
+      "model"                   "models/heroes/sohei/bepis_sohei/bepis_sohei_base.vmdl"
+      "particle"                "particles/hero/sohei/arcana/dbz/dbz_flare_core.vpcf"
+      "particle"                "particles/hero/sohei/arcana/pepsi/pepsi_flare_core.vpcf"
+    }
     "particle_folder"           "particles/hero/sohei"
     "GameSoundsFile"            "soundevents/units/game_sounds_sohei.vsndevts"
     "SoundSet"                  "Sohei"

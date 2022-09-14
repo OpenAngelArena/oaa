@@ -28,21 +28,18 @@ function HeroCosmetics:Sohei (hero)
 end
 
 function HeroCosmetics:ApplySelectedArcana (hero, arcana)
-  if hero:GetUnitName(  ) == 'npc_dota_hero_sohei' then
+  if hero:GetUnitName() == 'npc_dota_hero_sohei' then
     if arcana == 'DBZSohei' then
-      print('Applying Arcana DBZSohei')
+      --print('Applying Arcana DBZSohei')
       hero:AddNewModifier( hero, nil, 'modifier_arcana_dbz', nil )
-      -- TODO Apply arcana
     elseif arcana == 'PepsiSohei' then
-      print('Applying Arcana PepsiSohei')
+      --print('Applying Arcana PepsiSohei')
       hero:AddNewModifier( hero, nil, 'modifier_arcana_pepsi', nil )
-      -- TODO Apply arcana
     end
-  elseif hero:GetUnitName(  ) == 'npc_dota_hero_electrician' then
+  elseif hero:GetUnitName() == 'npc_dota_hero_electrician' then
     if arcana == 'RockElectrician' then
-      print('Applying Arcana RockElectrician')
+      --print('Applying Arcana RockElectrician')
       hero:AddNewModifier( hero, nil, 'modifier_arcana_rockelec', nil )
-      -- TODO Apply arcana
     end
   end
 end

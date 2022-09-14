@@ -49,12 +49,10 @@ function modifier_wisdom_oaa:OnCreated()
 end
 
 function modifier_wisdom_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_wisdom_oaa:GetModifierBonusStats_Intellect()

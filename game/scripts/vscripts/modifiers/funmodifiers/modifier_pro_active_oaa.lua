@@ -50,10 +50,9 @@ function modifier_pro_active_oaa:OnCreated()
 end
 
 function modifier_pro_active_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_PASSIVES_DISABLED] = true,
   }
-  return state
 end
 
 function modifier_pro_active_oaa:DeclareFunctions()

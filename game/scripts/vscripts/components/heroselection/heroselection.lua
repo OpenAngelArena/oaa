@@ -121,7 +121,7 @@ function HeroSelection:Init ()
     if HeroSelection.isARDM and ARDMMode then
       -- if it's ardm, show strategy screen right away,
       -- lock in all heroes to initial random heroes
-      HeroSelection:StrategyTimer(3)
+      HeroSelection:StrategyTimer(60)
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
         lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
       end)

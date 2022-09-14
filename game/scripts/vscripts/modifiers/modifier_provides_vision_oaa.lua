@@ -9,11 +9,9 @@ function modifier_provides_vision_oaa:IsPurgable()
 end
 
 function modifier_provides_vision_oaa:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 	}
-
-	return funcs
 end
 
 function modifier_provides_vision_oaa:GetModifierProvidesFOWVision()
@@ -25,5 +23,3 @@ function modifier_provides_vision_oaa:CheckState()
     [MODIFIER_STATE_PROVIDES_VISION] = true
   }
 end
-
-

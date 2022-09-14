@@ -61,5 +61,14 @@
 
     "VisionDaytimeRange"                                  "1800"
     "VisionNighttimeRange"                                "800"
+
+    "precache"
+    {
+      "model"                                             "models/items/rattletrap/warmachine_cog_dc/warmachine_cog_dc.vmdl"
+      "particle"                                          "particles/econ/items/tinker/tinker_ti10_immortal_laser/tinker_ti10_immortal_laser.vpcf"
+      "particle"                                          "particles/hero/tinkerer/ground_splatter.vpcf"
+      "particle"                                          "particles/hero/tinkerer/rocket_model.vpcf"
+      "particle"                                          "particles/hero/tinkerer/rocket_projectile_linear.vpcf"
+    }
   }
 }

@@ -1,5 +1,5 @@
---- AUTHOR: RamonNZ 
---- This is mostly built from the ground up. In fact it's kind of a clusterfuck of code. 
+--- AUTHOR: RamonNZ
+--- This is mostly built from the ground up. In fact it's kind of a clusterfuck of code.
 --- I wrote the whole thing in one file rather that switching between different files and desire. Yes I eventually will do that.
 --- Credits: PLATINUM_DOTA2 (Pooya J.) I took a bit of his code here and there, but not much.  However I learned a lot from looking at what he did.
 ---	Thanks darklord for helping stop the bots tping.
@@ -19,24 +19,24 @@
 --    BOT_ACTION_TYPE_DELAY
 
 
-local DOTA_ABILITY_BEHAVIOR_HIDDEN = 1			-- : This ability can be owned by a unit but can't be casted and wont show up on the HUD.
-local DOTA_ABILITY_BEHAVIOR_PASSIVE = 2 		--: Can't be casted like above but this one shows up on the ability HUD
-local DOTA_ABILITY_BEHAVIOR_NO_TARGET = 4 		--: Doesn't need a target to be cast, ability fires off as soon as the button is pressed
-local DOTA_ABILITY_BEHAVIOR_UNIT_TARGET = 8 	--: Ability needs a target to be casted on.
-local DOTA_ABILITY_BEHAVIOR_POINT = 16 			--: Ability can be cast anywhere the mouse cursor is (If a unit is clicked it will just be cast where the unit was standing)
-local DOTA_ABILITY_BEHAVIOR_AOE = 32 			--: This ability draws a radius where the ability will have effect. Kinda like POINT but with a an area of effect display.
-local DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE = 64 	--: This ability probably can be casted or have a casting scheme but cannot be learned (these are usually abilities that are temporary like techie's bomb detonate)
-local DOTA_ABILITY_BEHAVIOR_CHANNELLED = 128 	--: This abillity is channelled. If the user moves or is silenced the ability is interrupted.
-local DOTA_ABILITY_BEHAVIOR_ITEM = 256 			--: This ability is tied up to an item.
-local DOTA_ABILITY_BEHAVIOR_TOGGLE = 512 		--: This ability can be insta-toggled
-local DOTA_ABILITY_BEHAVIOR_DIRECTIONAL = 1024 	--: This ability has a direction from the hero		
-local DOTA_ABILITY_BEHAVIOR_IMMEDIATE = 2048 	--	: This ability does not interrupt other abilities
+local DOTA_ABILITY_BEHAVIOR_HIDDEN = ABILITY_BEHAVIOR_HIDDEN			-- : This ability can be owned by a unit but can't be casted and wont show up on the HUD.
+local DOTA_ABILITY_BEHAVIOR_PASSIVE = ABILITY_BEHAVIOR_PASSIVE 		--: Can't be casted like above but this one shows up on the ability HUD
+local DOTA_ABILITY_BEHAVIOR_NO_TARGET = ABILITY_BEHAVIOR_NO_TARGET 		--: Doesn't need a target to be cast, ability fires off as soon as the button is pressed
+local DOTA_ABILITY_BEHAVIOR_UNIT_TARGET = ABILITY_BEHAVIOR_UNIT_TARGET 	--: Ability needs a target to be casted on.
+local DOTA_ABILITY_BEHAVIOR_POINT = ABILITY_BEHAVIOR_POINT 			--: Ability can be cast anywhere the mouse cursor is (If a unit is clicked it will just be cast where the unit was standing)
+local DOTA_ABILITY_BEHAVIOR_AOE = ABILITY_BEHAVIOR_AOE 			--: This ability draws a radius where the ability will have effect. Kinda like POINT but with a an area of effect display.
+local DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE = ABILITY_BEHAVIOR_NOT_LEARNABLE 	--: This ability probably can be casted or have a casting scheme but cannot be learned (these are usually abilities that are temporary like techie's bomb detonate)
+local DOTA_ABILITY_BEHAVIOR_CHANNELLED = ABILITY_BEHAVIOR_CHANNELLED 	--: This abillity is channelled. If the user moves or is silenced the ability is interrupted.
+local DOTA_ABILITY_BEHAVIOR_ITEM = ABILITY_BEHAVIOR_ITEM 			--: This ability is tied up to an item.
+local DOTA_ABILITY_BEHAVIOR_TOGGLE = ABILITY_BEHAVIOR_TOGGLE 		--: This ability can be insta-toggled
+local DOTA_ABILITY_BEHAVIOR_DIRECTIONAL = ABILITY_BEHAVIOR_DIRECTIONAL 	--: This ability has a direction from the hero
+local DOTA_ABILITY_BEHAVIOR_IMMEDIATE = ABILITY_BEHAVIOR_IMMEDIATE 	--	: This ability does not interrupt other abilities
 
----DOTA_UNIT_TARGET_TEAM_NONE 	0 	
+---DOTA_UNIT_TARGET_TEAM_NONE 	0
 --DOTA_UNIT_TARGET_TEAM_FRIENDLY 	1 	Targets all those that are in the same team as the team that was declared the source.
 --DOTA_UNIT_TARGET_TEAM_ENEMY 	2 	Targets all those that are not in the same team as the team that was declared the source.
 --DOTA_UNIT_TARGET_TEAM_BOTH 	3 	Targets all entities from every team.
---DOTA_UNIT_TARGET_TEAM_CUSTOM 	4 	
+--DOTA_UNIT_TARGET_TEAM_CUSTOM 	4
 
 local AttackRangeAdded = 75 -- be careful messing with this
 
@@ -121,8 +121,8 @@ local EnemyHeroes = {}
 local EnemyCreeps = {}
 local NeutralCreeps = {}
 local CurrentCreeps = {}
-local ItemList = {}
-local teamtable = {};
+
+local teamtable = {}
 
 local currentduel = false
 local bAttackMove = false
@@ -147,21 +147,11 @@ local PingLocationArrived5 = Vector(0,0)
 
 --Pickup Item Stuff:
 local itemcount = 0
-local arrayItem = nil
---local arrayPlayer = nil
-local arrayLocation = Vector(0,0)
+
 local closestBottleLocation = Vector(0,0)
 local closestBottle = nil
 local badBottle = nil
 local badBottle2 = nil
-local currentBottle = nil
-
---local closestMangoLocation = Vector(0,0)
---local closestMango = nil
---local closestTangoLocation = Vector(0,0)
---local closestTango = nil
---local closestClarityLocation = Vector(0,0)
---local closestClarity = nil
 
 
 ----	Important Hero vs Hero/Creep Variables:
@@ -181,12 +171,11 @@ local creepsearchradius = 650  -- Must not be greater than 1600 or error
 
 
 
-local function GetClosestHero( searchradius,bEnemies )
+local function GetClosestHero( searchradius, bEnemies )
 	local npcBot=GetBot()
 	EnemyHeroes = {}
 	EnemyHeroes = npcBot:GetNearbyHeroes( searchradius,bEnemies,BOT_MODE_NONE )
 	local LowestDistance = 10000
-	ClosestHero = nil
 
 
 	if #EnemyHeroes~=0 then
@@ -200,8 +189,19 @@ local function GetClosestHero( searchradius,bEnemies )
 	end
 end
 
+local function AllowedGetHealth(unit)
+  if unit and (unit:CanBeSeen() or IsLocationVisible(AllowedGetLocation(unit))) then
+    return unit:GetHealth()
+  end
+  return
+end
 
-
+local function AllowedGetLocation(unit, location)
+  if unit and (unit:CanBeSeen() or (location and IsLocationVisible(location))) then
+    return unit:GetLocation()
+  end
+  return location or Vector(0, 0)
+end
 
 local function SwitchCamp()
 	local npcBot=GetBot()
@@ -311,11 +311,11 @@ end
 
 local function AttackMoveHeroes (nRadius)
 	local npcBot=GetBot()
-	
+
 
 ----AttackMove to Heroes:
 	if GetUnitToUnitDistance( ClosestHero, npcBot ) > npcBot:GetAttackRange()+AttackRangeAdded then
-		local halfWayLocation = ClosestHero:GetLocation() + npcBot:GetLocation() + npcBot:GetLocation()
+		local halfWayLocation = AllowedGetLocation(ClosestHero) + npcBot:GetLocation() + npcBot:GetLocation()
 		halfWayLocation = halfWayLocation/3
 --		npcBot:Action_ClearActions( true )
 		npcBot:Action_AttackMove( halfWayLocation )
@@ -323,7 +323,7 @@ local function AttackMoveHeroes (nRadius)
 			--print("-->  AttackMoveHeroes:",npcBot:GetUnitName())
 			stopmessage2=DotaTime()+10
 		end
-		
+
 --		print("--> AttackMoveHeroes: ",npcBot:GetUnitName(),"ClosestHero: ",ClosestHero:GetUnitName(),"Distance:",GetUnitToUnitDistance( ClosestHero, npcBot ))
 		return
 	end
@@ -341,16 +341,13 @@ local function GetCreepsInRadius(nRadius)
 	EnemyCreeps = nil
 	NeutralCreeps= npcBot:GetNearbyNeutralCreeps( nRadius )
 	EnemyCreeps = npcBot:GetNearbyCreeps( nRadius, true )
-	
+
 	if #EnemyCreeps~=0 then
 		CurrentCreeps = EnemyCreeps
-	elseif #NeutralCreeps~=0 then 
+	elseif #NeutralCreeps~=0 then
 		CurrentCreeps = NeutralCreeps
 	end
 
-	ClosestCreep = nil
-	WeakestCreep = nil
-	StrongestCreep = nil
 	local HighestHealth = 0
 	local LowestDistance = 10000
 	local LowestHealth = 10000
@@ -364,13 +361,16 @@ local function GetCreepsInRadius(nRadius)
 						LowestDistance = GetUnitToUnitDistance( creep, npcBot )
 						ClosestCreep=creep
 					end
-					if creep:GetHealth()<LowestHealth then
-						LowestHealth=creep:GetHealth()
-						WeakestCreep=creep
-					end
-					if creep:GetHealth()>HighestHealth then
-						HighestHealth = creep:GetHealth()
-						StrongestCreep=creep
+					local hp = AllowedGetHealth(creep)
+					if hp then
+					  if hp < LowestHealth then
+						  LowestHealth = hp
+						  WeakestCreep = creep
+					  end
+					  if hp > HighestHealth then
+						  HighestHealth = hp
+						  StrongestCreep = creep
+					  end
 					end
 				end
 			end
@@ -389,7 +389,7 @@ local function SwitchCamps()
 --		if runningtocreeps == false then
 --		print ("---> switchcampcheck ",npcBot:GetUnitName())
 		if npcBot.IsRetreating ~= true then
-		
+
 --			if CurrentCamp == PingLocation1 and GetUnitToLocationDistance( npcBot, CurrentCamp ) < 150 then
 
 
@@ -403,21 +403,21 @@ local function SwitchCamps()
 
 --Run Once:
 				if hUnit ~= nil then
-					if PingUnit1 == "" then 
+					if PingUnit1 == "" then
 						PingUnit1 = hUnit:GetUnitName()
-					elseif PingUnit2== "" then 
+					elseif PingUnit2== "" then
 						PingUnit2 = hUnit:GetUnitName()
-					elseif PingUnit3== "" then 
+					elseif PingUnit3== "" then
 						PingUnit3 = hUnit:GetUnitName()
-					elseif PingUnit4== "" then 
+					elseif PingUnit4== "" then
 						PingUnit4 = hUnit:GetUnitName()
-					elseif PingUnit5== "" then 
+					elseif PingUnit5== "" then
 						PingUnit5 = hUnit:GetUnitName()
 --						print("--> Creating List ",npcBot:GetUnitName(),"Last Unit's Name: ",hUnit:GetUnitName())
 					end
-				
+
 					local latestPing = hUnit.Ping
-					if latestPing ~= nil and latestPing ~= EmptyLocation then 
+					if latestPing ~= nil and latestPing ~= EmptyLocation then
 --						forceBotUnit = hUnit:GetUnitName()
 						if PingUnit1 == hUnit:GetUnitName() then
 							PingLocation1 = hUnit.Ping
@@ -440,7 +440,7 @@ local function SwitchCamps()
 			end
 
 			--Ping forcebotlocation:
-			
+
 			local forceBotLocation = EmptyLocation
 			if PingLocation1 ~= EmptyLocation and PingLocation1 ~= PingLocationArrived1 then
 				forceBotLocation = PingLocation1
@@ -456,9 +456,8 @@ local function SwitchCamps()
 
 			if forceBotLocation ~= EmptyLocation then
 				CurrentCamp = forceBotLocation
---				local halfWayLocation = npcBot:GetLocation() + forceBotLocation
---				halfWayLocation = halfWayLocation/2
---				npcBot:Action_AttackMove (halfWayLocation) --changed fixme?
+
+
 				npcBot:Action_AttackMove (CurrentCamp)
 				if DotaTime() > stopmessage14 then
 					--print("-------------->  ForceBotLocation:",npcBot:GetUnitName(),"Camp:",CurrentCamp,"Loc:",npcBot:GetLocation(),"Distance:",GetUnitToLocationDistance( npcBot, CurrentCamp ))
@@ -466,7 +465,7 @@ local function SwitchCamps()
 				end
 				return
 			end
-			
+
 			if (CurrentCamp == DireMidEasy or CurrentCamp == DireMidMedium) and GetUnitToLocationDistance( npcBot, CurrentCamp ) > 250 then
 				npcBot:Action_AttackMove (CurrentCamp)
 				if DotaTime() > stopmessage3 then
@@ -475,9 +474,7 @@ local function SwitchCamps()
 				end
 				return
 			elseif (CurrentCamp == RadiantMidEasy or CurrentCamp == RadiantMidMedium) and GetUnitToLocationDistance( npcBot, CurrentCamp ) > 250 then
---				local halfWayLocation = npcBot:GetLocation() + CurrentCamp
---				halfWayLocation = halfWayLocation/2
---				npcBot:Action_AttackMove (halfWayLocation) --changed fixme?
+
 				npcBot:Action_AttackMove (CurrentCamp)
 				if DotaTime() > stopmessage3 then
 					--print("--->  Moving To CurrentCamp:",npcBot:GetUnitName())
@@ -486,9 +483,7 @@ local function SwitchCamps()
 				return
 			elseif GetUnitToLocationDistance( npcBot, CurrentCamp ) > 500 then
 
---				local halfWayLocation = npcBot:GetLocation() + CurrentCamp
---				halfWayLocation = halfWayLocation/2
---				npcBot:Action_AttackMove (halfWayLocation) --changed fixme?
+
 				npcBot:Action_AttackMove (CurrentCamp)
 				if DotaTime() > stopmessage3 then
 					--print("--->  Moving To CurrentCamp:",npcBot:GetUnitName())
@@ -496,7 +491,7 @@ local function SwitchCamps()
 				end
 				return
 			end
-			
+
 			--fixme here:
 			if npcBot:GetHealth()/npcBot:GetMaxHealth() < 0.6 then --or npcBot:GetMana()/npcBot:GetMaxMana() < 0.15  then
 
@@ -506,17 +501,18 @@ local function SwitchCamps()
 					stopmessage4=DotaTime()+10
 				end
 			end
-			
+
 
 			if DotaTime() > runTimer then --or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_IDLE or npcBot:GetCurrentActionType() == BOT_ACTION_TYPE_NONE then --
-				
+
 --					print("-->  Switch Camp Check:",npcBot:GetUnitName())
+        local halfWayLocation
 				if NextCamp ~= Vector(0,0) then
 					CurrentCamp = NextCamp
 					NextCamp = NextNextCamp
 					NextNextCamp = Vector(0,0)
 					runTimer = DotaTime()+1
-					local halfWayLocation = npcBot:GetLocation() + CurrentCamp
+					halfWayLocation = npcBot:GetLocation() + CurrentCamp
 					halfWayLocation = halfWayLocation/2
 					npcBot:Action_AttackMove (halfWayLocation) --Changed fixme?
 --					npcBot:Action_AttackMove (CurrentCamp)
@@ -528,7 +524,7 @@ local function SwitchCamps()
 				else
 					SwitchCamp()
 					runTimer = DotaTime()+1
-					local halfWayLocation = npcBot:GetLocation() + CurrentCamp
+					halfWayLocation = npcBot:GetLocation() + CurrentCamp
 					halfWayLocation = halfWayLocation/2
 					npcBot:Action_AttackMove (halfWayLocation) --Changed fixme?
 --					npcBot:Action_AttackMove (CurrentCamp)
@@ -581,12 +577,12 @@ end
 
 function GetDesire()
 	local npcBot=GetBot()
-	
+
 	if npcBot:HasModifier("modifier_teleporting") then
 		npcBot:Action_ClearActions( true )
 --		print("---------------------> ",npcBot:GetUnitName()," Attempted teleport intercepted.")
 	end
-	
+
 	local npcBotLocation = npcBot:GetLocation()
 	if npcBot.IsAttacking == true then
 --		print(npcBot:GetUnitName(),"npcBot.IsAttacking #1")
@@ -606,7 +602,7 @@ function GetDesire()
 	else
 		currentduel = false
 	end
-	
+
 	GetClosestHero( maxsearchradius,true )
 --	if ClosestHero == nil then
 	if #EnemyHeroes~=0 then
@@ -626,19 +622,19 @@ function Think()
 		npcBot:Action_ClearActions( true )
 --		print("---------------------> ",npcBot:GetUnitName()," Attempted teleport intercepted.")
 	end
-	
+
 --	local playerNotBot
 --	print(npcBot:GetUnitName(),"Farm starting")
 --	print(npcBot:GetUnitName(),npcBot:GetAttackPoint(),GetLaneFrontLocation(GetTeam(),LANE_BOT,0.0),GetLaneFrontAmount(GetTeam(),LANE_BOT,true))
-	
+
 	if npcBot:IsUsingAbility() or npcBot:IsChanneling() then
 		return
 	end
-	
+
 	if currentduel == true then
 		AttackMoveHeroes()
 	end
-	
+
 	-- Use bottle:
 	if DotaTime() > bottleUseTime then
 		if npcBot:GetTeam() == TEAM_RADIANT then
@@ -662,7 +658,7 @@ function Think()
 			end
 		end
 	end
-			
+
 
 ----Release ForceBotLocation:
 	if GetUnitToLocationDistance( npcBot, PingLocation1 ) < 150 then
@@ -698,7 +694,7 @@ function Think()
 	end
 
 --	GetClosestHero( maxsearchradius,true )
---	if ClosestHero ~= nil then 
+--	if ClosestHero ~= nil then
 --		AttackMoveHeroes()
 --	end
 
@@ -711,26 +707,26 @@ function Think()
 	end
 	local halfWayLocation
 	local SmokePlayer
-	
+
 	bMoveToLocation = false
 	bAttackMove = false
-	for arrayKey, playerID in pairs(teamtable) do
+	for _, playerID in pairs(teamtable) do
 --		if IsPlayerBot(playerID) then
 --		print(npcBot:GetUnitName(),"Is Player",playerID)
 		local hUnit = GetTeamMember(playerID)
 
-		
+
 		if hUnit ~= nil then
 --		if hUnit:IsPlayer() then
 --			end
 --			print(npcBot:GetUnitName(),"hUnit ~= nil ",hUnit:GetUnitName())
-			local hItem = hUnit:GetItemInSlot( 6 ) 
-			local hItem2 = hUnit:GetItemInSlot( 7 ) 
-			
+			local hItem = hUnit:GetItemInSlot( 6 )
+			local hItem2 = hUnit:GetItemInSlot( 7 )
+
 			if hItem ~= nil then
 				if hItem:GetName() == "item_smoke_of_deceit" then
 					bAttackMove = true
-					halfWayLocation = hUnit:GetLocation() + npcBot:GetLocation() + npcBot:GetLocation()
+					halfWayLocation = AllowedGetLocation(hUnit) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
 					SmokePlayer = hUnit
 				end
@@ -738,18 +734,18 @@ function Think()
 			if hItem2 ~= nil then
 				if hItem2:GetName() == "item_smoke_of_deceit" then
 					bMoveToLocation = true
-					halfWayLocation = hUnit:GetLocation() + npcBot:GetLocation() + npcBot:GetLocation()
+					halfWayLocation = AllowedGetLocation(hUnit) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
 					SmokePlayer = hUnit
 				end
 			end
 		end
 	end
-	
-	
+
+
 --Smoke MoveToLocation Code:
 	if bMoveToLocation == true then --changed, fixme?
-		if npcBot:GetAttackRange() < GetUnitToUnitDistance( SmokePlayer, npcBot ) then 
+		if npcBot:GetAttackRange() < GetUnitToUnitDistance( SmokePlayer, npcBot ) then
 			npcBot:Action_MoveToLocation( halfWayLocation )
 			if DotaTime() > stopmessage7 then
 				--print("------->  Smoke - MoveToLocation:",npcBot:GetUnitName())
@@ -758,49 +754,42 @@ function Think()
 		end
 		return
 	end
-	
+
 --Pick up items: { hItem, hOwner, nPlayer, vLocation }
 --		"owner","item","location","playerid"
-	itemcount = 0
 	local ItemBottleHandle = nil
 	for index =0,8,1 do
-		hItem = npcBot:GetItemInSlot( index )
-		if hItem ~= nil then
+		local item = npcBot:GetItemInSlot( index )
+		if item then
 			itemcount = itemcount +1
-			if hItem:GetName() == "item_infinite_bottle" then
-				ItemBottleHandle = hItem
+			if item:GetName() == "item_infinite_bottle" then
+				ItemBottleHandle = item
 	--			print("--> ",npcBot:GetUnitName(),"bottle found in inventry.")
 			end
 		end
 	end
-	if ItemBottleHandle ~= nil then
+	if ItemBottleHandle then
 		itemcount = itemcount -1
 	end
-		
 
-	closestBottleLocation = EmptyLocation
-	closestBottle = nil
-
+  local currentBottle
 	if itemcount < 9 then
-		ItemList = nil
-		ItemList = GetDroppedItemList()
+		local ItemList = GetDroppedItemList()
+    local arrayLocation = EmptyLocation
 
-		for arrayKey,arrayValue in pairs(ItemList) do
-			arrayPlayer = nil
-			arrayItem = nil
-			arrayLocation = EmptyLocation
-			for arrayKey2,arrayValue2 in pairs(arrayValue) do
+		for _, arrayValue in pairs(ItemList) do
+			for arrayKey2, arrayValue2 in pairs(arrayValue) do
 
 				if arrayKey2 == "location" then
 					arrayLocation = arrayValue2
 --				elseif arrayKey2 == "playerid" then
---					arrayPlayer = arrayValue2
+
 				elseif arrayKey2 == "item" then
-					arrayItem = arrayValue2
-					if arrayItem ~= nil then 
+					local arrayItem = arrayValue2
+					if arrayItem ~= nil then
 						if arrayItem:GetName() == "item_infinite_bottle" then
---							print("--> ",npcBot:GetUnitName(),"found",arrayItem:GetName())
---							print(arrayLocation,arrayPlayer,arrayItem,arrayItem:GetName())
+
+
 							if arrayLocation ~= EmptyLocation then
 								if badBottle2 ~= arrayItem then
 									if GetUnitToLocationDistance(npcBot,arrayLocation) < GetUnitToLocationDistance(npcBot,closestBottleLocation) then
@@ -815,8 +804,7 @@ function Think()
 			end
 		end
 
-		if closestBottle == nil then
-			currentBottle = nil
+    if closestBottle == nil then
 			if DotaTime() > stopmessage then
 --				print ("-> ",npcBot:GetUnitName(),"closestBottle = nil 1 early:")
 				stopmessage=DotaTime()+5
@@ -856,12 +844,12 @@ function Think()
 					return
 				else
 --					print ("-> ",npcBot:GetUnitName(),"not going for bottle in fight:",currentBottle)
-					currentBottle = nil
+          currentBottle = nil
 				end
 			end
 		end
 	end
-	
+
 	if creepsearchradius < npcBot:GetAttackRange()+AttackRangeAdded then
 		GetCreepsInRadius(npcBot:GetAttackRange()+AttackRangeAdded)
 	else
@@ -877,7 +865,7 @@ function Think()
 --Smoke AttackMove
 
 		if bAttackMove == true then --changed, fixme?
-			if npcBot:GetAttackRange() < GetUnitToUnitDistance( SmokePlayer, npcBot ) then 
+			if npcBot:GetAttackRange() < GetUnitToUnitDistance( SmokePlayer, npcBot ) then
 				npcBot:Action_AttackMove( halfWayLocation )
 				if DotaTime() > stopmessage8 then
 					--print("-------->  Smoke - AttackMove:",npcBot:GetUnitName())
@@ -886,7 +874,7 @@ function Think()
 			end
 			return
 		end
-	
+
 
 		if itemcount < 9 then
 --			if DotaTime() > stopmessage then
@@ -947,8 +935,8 @@ function Think()
 	end
 
 	--Outside range code:
-	
-	if npcBot:GetAttackRange()+AttackRangeAdded < GetUnitToUnitDistance( ClosestCreep, npcBot ) then 
+
+	if npcBot:GetAttackRange()+AttackRangeAdded < GetUnitToUnitDistance( ClosestCreep, npcBot ) then
 
 	--Fix Getting Stuck
 		if quickRunBackTimer > DotaTime() then
@@ -961,9 +949,9 @@ function Think()
 			print("--->  Fix Getting Stuck",npcBot:GetUnitName())
 			return
 		end
-	
+
 	--Fix Getting Stuck
-		if newLocationTimer < DotaTime() then	
+		if newLocationTimer < DotaTime() then
 			newLocationTimer = DotaTime()+3
 			local NewLocation = npcBot:GetLocation()
 			if NewLocation == OldLocation then
@@ -973,10 +961,10 @@ function Think()
 				OldLocation = NewLocation
 			end
 		end
-		
+
 
 	--AttackMove - Closest Creep - From Outside Range
-		local halfWayLocation = ClosestCreep:GetLocation() + npcBot:GetLocation() + npcBot:GetLocation()
+		halfWayLocation = AllowedGetLocation(ClosestCreep) + npcBot:GetLocation() + npcBot:GetLocation()
 		halfWayLocation = halfWayLocation/3
 		npcBot:Action_AttackMove( halfWayLocation )
 		if DotaTime() > stopmessage11 then
@@ -986,13 +974,12 @@ function Think()
 		return
 	else
 		--Creep is Within Range script
-	
+
 		GetCreepsInRadius(npcBot:GetAttackRange()+AttackRangeAdded)
-		local oldClosestCreep = ClosestCreep
 
 			--Cast Spells script:
 		if abilityWaitTimer <= DotaTime() then
-			
+
 			currentAbilityAttempt = currentAbilityAttempt +1
 			if currentAbilityAttempt > 4 then
 				currentAbilityAttempt = 1
@@ -1017,7 +1004,7 @@ function Think()
 					if AN== "bristleback_viscous_nasal_goo" or AN== "lion_voodoo" or AN== "kunkka_x_marks_the_spot" or AN== "death_prophet_silence" or AN== "omniknight_repel" or AN== "oracle_fates_edict" or AN== "skywrath_mage_concussive_shot" or AN== "warlock_upheaval" or AN== "windrunner_shackleshot" or AN== "witch_doctor_maledict" or AN== "bounty_hunter_wind_walk" or AN== "bounty_hunter_wind_walk" then
 						hAbility = nil
 						currentAbility = currentAbility +1
-					elseif hAbility:IsUltimate() == true then
+					elseif hAbility:IsUltimate() then
 						hAbility = nil
 						if npcBot:GetUnitName() == "npc_dota_hero_nevermore" then
 							currentAbility = currentAbility -1
@@ -1040,7 +1027,7 @@ function Think()
 	--					local abilitytargetteam = hAbility:GetAbilityTargetTeam()
 	--					print ("---> ",GetBot():GetUnitName(), hAbility:GetName(), " GetBehavior = ", abilitybehavior)
 	--					print ("---> ",GetBot():GetUnitName(), hAbility:GetName(), " GetAbilityTargetTeam = ", abilitytargetteam)
-	--				else 
+	--				else
 	--					print ("---> ",GetBot():GetUnitName(), hAbility:GetName())
 	--				end
 	--			end
@@ -1072,11 +1059,11 @@ function Think()
 	--		print ("---> cooldown) ",GetBot():GetUnitName(),hAbility:GetName(),hAbility:GetCooldownTimeRemaining())
 			if hAbility and not hAbility:IsPassive() and hAbility:IsFullyCastable() then--  and not hAbility:IsToggle() and hAbility:GetLevel() > 0 and hAbility:GetCooldownTimeRemaining() == 0 then
 	--			print ("---> Legit Ability, attempt) ",currentAbilityAttempt,GetBot():GetUnitName(), hAbility:GetName())
-	
+
 --				if npcBot:GetUnitName() == "npc_dota_hero_viper" then
 --					print("-> ",hAbility:GetName())
 --				end
-	
+
 				local bitBandBehavior = hAbility:GetBehavior()
 				if currentAbilityAttempt == 1 then
 					if not bit.band(bitBandBehavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ) then
@@ -1134,10 +1121,10 @@ function Think()
 						if shrapnelWait == false then
 --							print ("---> Action_UseAbilityOnLocation() ",GetBot():GetUnitName(), hAbility:GetName())
 	--				if bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET ) or bit.band(hAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_POINT ) then
-							npcBot:Action_UseAbilityOnLocation(hAbility,WeakestCreep:GetLocation())
+							npcBot:Action_UseAbilityOnLocation(hAbility,AllowedGetLocation(WeakestCreep, npcBot:GetLocation()))
 							abilityWaitTimer = DotaTime()+abilityWaitAdd
 	--				if GetBot():GetUnitName() == npc_dota_hero_dazzle then
-	--					print ("---> Action_UseAbilityOnLocation(hAbility,WeakestCreep:GetLocation()) ",GetBot():GetUnitName(), hAbility:GetName())
+	--
 	--				end
 							return
 						end
@@ -1158,7 +1145,7 @@ function Think()
 	--					print ("---> Action_UseAbilityOnLocation(hAbility,StrongestCreep:GetLocation()) ",GetBot():GetUnitName(), hAbility:GetName())
 	--					return
 				end
-				
+
 	--					return
 	--				if bit.band(hAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_FRIENDLY ) then
 	--					npcBot:Action_UseAbilityOnEntity(hAbility,npcBot)
@@ -1191,13 +1178,13 @@ function Think()
 			end
 		end
 
-		
+
 		if npcBot.Target ~= nil then
 			if npcBot.Target:IsNull() then
 				npcBot.Target = nil
 			end
 		end
-		
+
 		if GetUnitToUnitDistance( WeakestCreep, npcBot ) <= npcBot:GetAttackRange()+AttackRangeAdded then
 			if npcBot.Target == nil or npcBot.Target:IsAlive() ~= true then
 				npcBot.Target = WeakestCreep
@@ -1206,20 +1193,21 @@ function Think()
 					stopmessage12=DotaTime()+10
 				end
 			else
-				if npcBot.Target:GetHealth() > WeakestCreep:GetHealth() then
-					npcBot.Target = WeakestCreep
-					if DotaTime() > stopmessage13 then
-						--print("------------->  npcBot.Target:GetHealth() > WeakestCreep:GetHealth(), npcBot.Target = WeakestCreep:",npcBot:GetUnitName())
-						stopmessage13=DotaTime()+10
-					end
+				if AllowedGetHealth(npcBot.Target) and AllowedGetHealth(WeakestCreep) then
+				  if AllowedGetHealth(npcBot.Target) > AllowedGetHealth(WeakestCreep) then
+            npcBot.Target = WeakestCreep
+            if DotaTime() > stopmessage13 then
+              stopmessage13=DotaTime()+10
+            end
+				  end
 				end
 			end
 		else
 			npcBot.Target = ClosestCreep
 		end
-		
-		
-	----	#Mini Retreat 
+
+
+	----	#Mini Retreat
 	--	if npcBot.Back == true then
 	--		if npcBot:WasRecentlyDamagedByCreep( 1.0 ) == false or GetUnitToUnitDistance(npcBot.Target,npcBot) > npcBot:GetAttackRange()/1.5 then
 	--			npcBot.Back = false
@@ -1231,13 +1219,13 @@ function Think()
 	--		npcBot.Back = true
 	--	end
 
-		
+
 	--	if runawaytimer < DotaTime() then
 	--		runawaytimer = DotaTime()+4
 	--		if npcBot.Back == true then
 	--			print ("---> ",GetBot():GetUnitName(),"runaway")
 	--			if npcBot:GetTeam() == TEAM_RADIANT then
-	--				npcBot:Action_MoveToLocation( RadiantBase ) 
+	--				npcBot:Action_MoveToLocation( RadiantBase )
 	--				return
 	--			else
 	--				npcBot:Action_MoveToLocation( DireBase )
