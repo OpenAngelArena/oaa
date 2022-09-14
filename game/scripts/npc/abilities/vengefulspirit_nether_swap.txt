@@ -13,9 +13,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot about this
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -40,8 +40,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"                                  "20 25 30 40 50" //OAA
-      "damage_reduction_duration"                         "3"
+      "damage_reduction"
+      {
+        "value"                                           "20 25 30 40 50" //OAA
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "damage_reduction_duration"
+      {
+        "value"                                           "3"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "damage"
       {
         "value"                                                     "50"

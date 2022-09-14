@@ -30,7 +30,11 @@
         "special_bonus_unique_tiny_7"                     "+30"
       }
       "attack_speed_reduction"                            "-30"
-      "toss_bonus_damage"                                 "100 250 400 850 1300" //OAA
+      "toss_bonus_damage"
+      {
+        "value"                                           "100 250 400 850 1300" //OAA
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
     }
   }
 }
