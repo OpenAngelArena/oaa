@@ -345,11 +345,22 @@
     visibility: visible;
 }
 
+#StartGameCountdownTimer.countdown_inactive #TimerBg
+{
+    opacity: 0;
+}
 
-#StartGameCountdownTimer.countdown_inactive #TimerBg,
-#StartGameCountdownTimer.countdown_inactive #TimerRing,
-#StartGameCountdownTimer.countdown_inactive #TimerLabelAutoStart,
-#StartGameCountdownTimer.countdown_inactive #TimerLabelGameStart,
+#StartGameCountdownTimer.countdown_inactive #TimerRing
+{
+    opacity: 0;
+}
+
+#StartGameCountdownTimer.countdown_inactive #TimerLabelAutoStart
+{
+    opacity: 0;
+}
+
+#StartGameCountdownTimer.countdown_inactive #TimerLabelGameStart
 {
     opacity: 0;
 }

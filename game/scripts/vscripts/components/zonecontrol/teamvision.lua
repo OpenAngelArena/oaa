@@ -46,7 +46,7 @@ function TeamVision:AddVision()
     if building and not building:IsNull() then
       local building_name = building:GetName()
       -- Check if it's a Healing Shrine
-      if string.find(building_name, "filler") then
+      if string.find(building_name, "filler") or string.find(building_name, "_shrine_") then
         building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
       end
     end

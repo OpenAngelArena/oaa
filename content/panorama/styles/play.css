@@ -608,17 +608,34 @@ DOTAPlay.1v1Disallowed.SectionVisible_1v1  #PlayButton
 	background-color: #444444;
 }
 
-DOTAPlay.CanReturnToWeekendTourney #DeniedPlayButton,
-DOTAPlay.InReadyUp #DeniedPlayButton,
-DOTAPlay.ReturningToQueue #DeniedPlayButton,
-DOTAPlay.PlayButtonHidden #DeniedPlayButton,
+DOTAPlay.CanReturnToWeekendTourney #DeniedPlayButton
+{
+	visibility: collapse;
+}
+DOTAPlay.InReadyUp #DeniedPlayButton
+{
+	visibility: collapse;
+}
+DOTAPlay.ReturningToQueue #DeniedPlayButton
+{
+	visibility: collapse;
+}
+DOTAPlay.PlayButtonHidden #DeniedPlayButton
 {
 	visibility: collapse;
 }
 
-DOTAPlay.InReadyUp #PlayButton,
-DOTAPlay.ReturningToQueue #PlayButton,
-DOTAPlay.PlayButtonHidden #PlayButton,
+DOTAPlay.InReadyUp #PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.ReturningToQueue #PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.PlayButtonHidden #PlayButton
 {
 	visibility: collapse;
 }
@@ -644,7 +661,13 @@ DOTAPlay.PlayButtonHidden #PlayButton,
 }
 
 
-DOTAPlay.FindingMatch #Searching,
+DOTAPlay.FindingMatch #Searching
+{
+	visibility: visible;
+	opacity: 1.0;
+	transform: none;
+}
+
 DOTAPlay.Connecting #Searching
 {
 	visibility: visible;
@@ -652,7 +675,11 @@ DOTAPlay.Connecting #Searching
 	transform: none;
 }
 
-DOTAPlay.InReadyUp #Searching,
+DOTAPlay.InReadyUp #Searching
+{
+	visibility: collapse;
+}
+
 DOTAPlay.ReturningToQueue #Searching
 {
 	visibility: collapse;
@@ -716,12 +743,36 @@ DOTAPlay.MatchingRestriction #FXSearching
 }
 
 /* The .PlayButton at the end is so we're more specific than the above. Gross, but it works. */
-DOTAPlay.FindingMatch #JoinPlaytestButton.PlayButton,
-DOTAPlay.Connecting #JoinPlaytestButton.PlayButton,
-DOTAPlay.InReadyUp #JoinPlaytestButton.PlayButton,
-DOTAPlay.ReturningToQueue #JoinPlaytestButton.PlayButton,
-DOTAPlay.PlayButtonHidden #JoinPlaytestButton.PlayButton,
-DOTAPlay.SlideOutVisible #JoinPlaytestButton.PlayButton,
+DOTAPlay.FindingMatch #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.Connecting #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.InReadyUp #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.ReturningToQueue #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.PlayButtonHidden #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
+DOTAPlay.SlideOutVisible #JoinPlaytestButton.PlayButton
+{
+	visibility: collapse;
+}
+
 .FindMsgInFlight #JoinPlaytestButton.PlayButton
 {
 	visibility: collapse;
@@ -732,8 +783,28 @@ DOTAPlay.SlideOutVisible #JoinPlaytestButton.PlayButton,
 	color: red;
 }
 
-#SearchWeekendTourneyDontStopWarning,
-#SearchWeekendTourneyDeadlineMissed,
+#SearchWeekendTourneyDontStopWarning
+{
+	visibility: collapse;
+	width: 540px;
+	padding-right: 57px;
+	text-align: right;
+	text-transform: uppercase;
+	line-height: 16px;
+	color: #888;
+}
+
+#SearchWeekendTourneyDeadlineMissed
+{
+	visibility: collapse;
+	width: 540px;
+	padding-right: 57px;
+	text-align: right;
+	text-transform: uppercase;
+	line-height: 16px;
+	color: #888;
+}
+
 #SearchWeekendTourneyEligibleForRefund
 {
 	visibility: collapse;
@@ -745,9 +816,21 @@ DOTAPlay.SlideOutVisible #JoinPlaytestButton.PlayButton,
 	color: #888;
 }
 
-.QueueDeadlineExpiringSoon #SearchWeekendTourneyDontStopWarning,
-.QueueDeadlineExpiredOK #SearchWeekendTourneyDontStopWarning,
-.QueueDeadlineTooLate #SearchWeekendTourneyDeadlineMissed,
+.QueueDeadlineExpiringSoon #SearchWeekendTourneyDontStopWarning
+{
+	visibility: visible;
+}
+
+.QueueDeadlineExpiredOK #SearchWeekendTourneyDontStopWarning
+{
+	visibility: visible;
+}
+
+.QueueDeadlineTooLate #SearchWeekendTourneyDeadlineMissed
+{
+	visibility: visible;
+}
+
 .QueueDeadlineEligibleForRefund #SearchWeekendTourneyEligibleForRefund
 {
 	visibility: visible;
@@ -1161,15 +1244,36 @@ DOTAPlay.ReturningToQueue #CancelSearch
 }
 
 
-.SectionVisible_CustomGames.LobbySelectorVisible #CustomGameDetails,
-.SectionVisible_CustomGames.LobbyVisible #CustomGameDetails,
+.SectionVisible_CustomGames.LobbySelectorVisible #CustomGameDetails
+{
+	transform: translateX( 40px );
+	opacity: 0.0;
+}
+
+.SectionVisible_CustomGames.LobbyVisible #CustomGameDetails
+{
+	transform: translateX( 40px );
+	opacity: 0.0;
+}
+
 .SectionVisible_CustomGames.WeekendTourneySetupVisible #CustomGameDetails
 {
 	transform: translateX( 40px );
 	opacity: 0.0;
 }
 
-#CustomGameDetailsTitleGlow,
+#CustomGameDetailsTitleGlow
+{
+	width: 100%;
+	text-overflow: shrink;
+	font-size: 44px;
+	horizontal-align: center;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 20px;
+	text-overflow: shrink;
+}
+
 #CustomGameDetailsTitle
 {
 	width: 100%;
@@ -1190,7 +1294,18 @@ DOTAPlay.ReturningToQueue #CancelSearch
 	flow-children: none;
 }
 
-.DarkMoon #CustomGameDetailsTitleGlow,
+.DarkMoon #CustomGameDetailsTitleGlow
+{
+	letter-spacing: 5px;
+	height: 42px;
+	font-size: 32px;
+
+	color: black;
+	horizontal-align: center;
+	text-align: center;
+	text-shadow: 0px 0px 22px 2.0 #D26364;		
+}
+
 .DarkMoon #CustomGameDetailsTitle
 {
 	letter-spacing: 5px;
