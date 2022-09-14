@@ -5,7 +5,7 @@
   //=================================================================================================================
   "treant_leech_seed"
   {
-    "ID"                                                  "5435" // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5435"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -15,7 +15,6 @@
 
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastRange"                                    "400 500 600 700 800 900" //OAA
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

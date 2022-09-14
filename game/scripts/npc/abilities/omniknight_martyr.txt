@@ -11,6 +11,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve forgot about this
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

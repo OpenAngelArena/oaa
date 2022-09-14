@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sonic Wave Fear
+  // Custom Windranger talent: Powershot bonus damage
   //=================================================================================================================
-  "special_bonus_unique_queen_of_pain_5"
+  "special_bonus_unique_windranger_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "715"
+    "ID"                                                  "3622"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "1.5"
-        "ad_linked_abilities"                             "queenofpain_sonic_wave"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "250"
       }
     }
   }

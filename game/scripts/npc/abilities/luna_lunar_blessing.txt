@@ -18,16 +18,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"      "1200"
+      "radius"                                            "1200"
       "bonus_damage" //OAA
       {
-        "value"     "5 15 25 35 70 140"
-        "special_bonus_unique_luna_3" "+70"
+        "value"                                           "6 14 22 30 60 120"
+        "special_bonus_unique_luna_3"                     "+60"
       }
       "bonus_night_vision"
       {
-        "value"     "250 500 750 1000 1250 1500"
-        "special_bonus_unique_luna_8" "+200"
+        "value"                                           "250 500 750 1000 1250 1500"
       }
     }
   }

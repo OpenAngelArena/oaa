@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5155"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5155"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -16,26 +16,23 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "damage"
       {
-        "value" "20 50 80 110 220 330"
-        "special_bonus_unique_sniper_headshot_damage" "+30"
+        "value"                                           "20 50 80 110 220 330"
+        "special_bonus_unique_sniper_headshot_damage"     "+30"
       }
-      "proc_chance"         "40"
+      "proc_chance"                                       "40"
       "knockback_distance"
       {
-        "value"         "10"
-        "special_bonus_unique_sniper_3"     "+28"
+        "value"                                           "10"
+        "special_bonus_unique_sniper_3"                   "+28"
       }
-      "slow"      "-100"
-      "slow_duration"         "0.5"
+      "slow"                                              "-100"
+      "slow_duration"                                     "0.5"
     }
   }
 }

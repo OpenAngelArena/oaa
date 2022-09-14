@@ -22,20 +22,23 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
 end
 
 local abilities_with_custom_talents = {
+  faceless_void_time_dilation = {
+    radius = "special_bonus_unique_faceless_void_1_oaa",
+  },
   invoker_emp = {
     damage_per_mana_pct = "special_bonus_unique_invoker_1_oaa",
   },
   invoker_sun_strike = {
     damage = "special_bonus_unique_invoker_2_oaa",
   },
-  faceless_void_time_dilation = {
-    radius = "special_bonus_unique_faceless_void_1_oaa",
+  mirana_leap = {
+    leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+  },
+  windrunner_powershot = {
+    powershot_damage = "special_bonus_unique_windranger_1_oaa",
   },
   winter_wyvern_cold_embrace = {
     heal_percentage = "special_bonus_unique_winter_wyvern_1_oaa",
-  },
-  mirana_leap = {
-    leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
 }
 

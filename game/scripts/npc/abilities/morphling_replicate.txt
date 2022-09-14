@@ -7,12 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5057"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5057"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -47,22 +48,22 @@
         "value"           "20"
         "RequiresScepter"     "1"
       }
-      "scepter_spell_amplify" 
+      "scepter_spell_amplify"
       {
         "value"           "25"
         "RequiresScepter"     "1"
       }
-      "scepter_attack_speed"  
+      "scepter_attack_speed"
       {
         "value"           "70"
         "RequiresScepter"     "1"
       }
-      "scepter_status_resist" 
+      "scepter_status_resist"
       {
         "value"           "40"
         "RequiresScepter"     "1"
       }
-      "scepter_cooldown_reduction"  
+      "scepter_cooldown_reduction"
       {
         "value"     "20"
         "RequiresScepter"     "1"

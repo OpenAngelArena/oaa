@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5593"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5593"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -19,10 +19,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"          
+      "radius"
       {
-        "value"   "350"
-        "special_bonus_unique_elder_titan_5"  "+100"
+        "value"                                           "350"
+        "special_bonus_unique_elder_titan_5"              "+100"
       }
       "armor_reduction_pct"     "40 60 80 100 120 140"
       "magic_resistance_pct"    "40 60 80 100 120 140"

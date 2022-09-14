@@ -128,10 +128,10 @@ if IsServer() then
           local star_damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
           local secondary_star_damage_reduction = starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
           -- Check for Starfall bonus damage talent
-          local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
-          if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
-            star_damage = star_damage + starfall_damage_talent:GetSpecialValueFor("value")
-          end
+          -- local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
+          -- if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
+            -- star_damage = star_damage + 250
+          -- end
           damage_table.damage = star_damage*secondary_star_damage_reduction*0.01
           damage_table.ability = starfall_ability
           damage_table.damage_type = DAMAGE_TYPE_MAGICAL
@@ -203,10 +203,10 @@ if IsServer() then
       local radius = starfall_ability:GetSpecialValueFor("starfall_radius") or data.arrow_vision
 
       -- Check for Starfall bonus damage talent
-      local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
-      if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
-        damage = damage + starfall_damage_talent:GetSpecialValueFor("value")
-      end
+      -- local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
+      -- if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
+        -- damage = damage + 250
+      -- end
 
       local candidates = FindUnitsInRadius(
         caster:GetTeamNumber(),

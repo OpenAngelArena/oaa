@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5340"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5340"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -25,7 +24,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "25" //OAA
+    "AbilityCooldown"                                     "25 24 23 22 21 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "20 35 50 65 165 265" //OAA
+        "damage_per_second"                               "18 32 46 60 160 260"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
       "02"

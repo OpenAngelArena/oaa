@@ -43,7 +43,7 @@
         "value"         "4 8 12 16 32 48"
         "special_bonus_unique_viper_7"  "+25%"
       }
-      "movement_speed"      
+      "movement_speed"
       {
         "value"         "6 8 10 12 14 16"
         "special_bonus_unique_viper_7"  "+25%"
@@ -57,18 +57,18 @@
       "bonus_range"     "25 65 105 145 185 225"
       "shard_armor_reduction"
       {
-        "value"				"1"
-        "RequiresShard"		"1"
+        "value"                                           "1"
+        "RequiresShard"                                   "1"
       }
       "shard_building_dmg_pct"
       {
-        "value"				"40"
-        "RequiresShard"		"1"
+        "value"                                           "40"
+        "RequiresShard"                                   "1"
       }
       "shard_bonus_max_stacks"
       {
-        "value"				"3"
-        "RequiresShard"		"1"
+        "value"                                           "3"
+        "RequiresShard"                                   "1"
       }
     }
   }

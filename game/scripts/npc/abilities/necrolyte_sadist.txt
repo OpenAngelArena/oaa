@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5160"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5160"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -20,9 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
@@ -31,21 +28,21 @@
     {
       "duration"    "3 3.5 4 4.5 5.0 5.5"
       "heal_bonus"
-      { 
+      {
         "value"     "45 55 65 75 85 95"
         "special_bonus_unique_necrophos_sadist_heal_bonus"    "+15"
-      }     
+      }
       "movement_speed"
       {
         "value"     "12 16 20 24 32 40"
         "special_bonus_unique_necrophos_3"    "+24"
-      }     
+      }
       "slow_aoe"    "750"
       "bonus_damage" "-40"
       "AbilityCooldown"
       {
         "value"           "28 24 20 16 14 12"
-        "special_bonus_scepter"   "-6" 
+        "special_bonus_scepter"   "-6"
       }
     }
   }

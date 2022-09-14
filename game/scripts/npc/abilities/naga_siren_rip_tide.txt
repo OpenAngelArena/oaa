@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5469"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5469"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -27,17 +26,16 @@
       "hits"
       {
         "value"                                           "6"
-        "special_bonus_unique_naga_siren_5"               "-1"
       }
       "armor_reduction"
       {
         "value"                                           "-2 -4 -6 -8 -12 -16"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_3"
       }
-      "damage"  
+      "damage"
       {
-        "value"     "40 45 50 55 155 255"
-        "LinkedSpecialBonus"    "special_bonus_unique_naga_siren_2"
+        "value"                                           "40 45 50 55 155 255"
+        "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_2"
       }
       "radius"                                            "300"
       "duration"                                          "4.0"

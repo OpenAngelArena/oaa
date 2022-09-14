@@ -18,7 +18,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "1"
+    "HasScepterUpgrade"                                   "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,10 +34,10 @@
     {
       "duration"
       {
-        "value"                                           "3.5 4 4.5 4.5 4.5"
+        "value"                                           "3.5 4 4.5 5 5.5"
         "special_bonus_unique_centaur_7"                  "+1"
       }
-      "scepter_bonus_duration"     
+      "scepter_bonus_duration"
       {
         "special_bonus_scepter"                          "+1"
       }
@@ -52,17 +52,16 @@
       "slow_movement_speed"                               "100"
       "damage_reduction"
       {
-        "value"                                           "+20 +25 +30 +35 +40"
-        "RequiresScepter"                                 "1"
+
       }
       "AbilityCooldown" //OAA
       {
-        "value"         "100 90 80 70 60"
-        "special_bonus_unique_centaur_5"  "-25"
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_unique_centaur_5"                  "-25"
       }
-      "has_flying_movement" 
+      "has_flying_movement"
       {
-        "special_bonus_scepter" "+1"
+
       }
     }
   }

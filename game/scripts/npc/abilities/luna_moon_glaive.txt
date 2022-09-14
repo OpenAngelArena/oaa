@@ -17,12 +17,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "range"               "500"
-      "bounces"             "3 4 5 6 7 8"
+      "range"                                             "500"
+      "bounces"                                           "3 4 5 6 7 8"
       "damage_reduction_percent" //OAA
       {
-        "value"             "50 45 40 35 28 18"
-        "special_bonus_unique_luna_7" "-8"
+        "value"                                           "50 45 40 35 25 15"
+        "special_bonus_unique_luna_7"                     "-8"
       }
     }
   }

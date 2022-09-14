@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5485"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5485"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -47,9 +47,9 @@
       }
       "latch_distance"                                    "700"
       "latch_speed"                                       "1000"
-      "tether_heal_amp"                                   "0.60 0.80 1.00 1.20 1.30 1.40" //OAA
+      "tether_heal_amp"                                   "0.60 0.80 1.00 1.20 1.30 1.40"
       "self_bonus"                                        "0"
-      "slow"        
+      "slow"
       {
         "value"                                           "15 25 35 45 55 65"
         "special_bonus_unique_wisp_11"                    "+15"

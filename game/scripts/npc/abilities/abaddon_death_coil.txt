@@ -35,7 +35,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "self_damage"                                       "50"
+      "self_damage"
+      {
+        "value"                                           "50"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
       "missile_speed"                                     "1300"
       "target_damage"
       {

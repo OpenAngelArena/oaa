@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5133"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5133"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -12,6 +12,7 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "5"
 
     "HasScepterUpgrade"                                   "0"
@@ -34,13 +35,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"      "300 400 500 550 600"
-      "focusfire_damage_reduction"  
+      "bonus_attack_speed"                                "300 400 500 550 600"
+      "focusfire_damage_reduction"
       {
-        "value"           "-30"
-        "LinkedSpecialBonus"    "special_bonus_unique_windranger_8"
+        "value"                                           "-30"
+        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_8"
       }
-      "focusfire_fire_on_the_move"  "1"
+      "focusfire_fire_on_the_move"                        "1"
     }
   }
 }

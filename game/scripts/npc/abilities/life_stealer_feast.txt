@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5250"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot about this
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"

@@ -7,22 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6483"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "ID"                                                  "6483"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "700"
-    "AbilityCastPoint"              "0.2"
-    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +32,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"   "18 17 16 15 14 13"
-        "special_bonus_unique_snapfire_3" "-4"
+        "value"                                           "18 17 16 15 14 13"
+        "special_bonus_unique_snapfire_3"                 "-4"
       }
       "projectile_speed"                                  "1100"
       "pre_hop_duration"                                  "0.0"

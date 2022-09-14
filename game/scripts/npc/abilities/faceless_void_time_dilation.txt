@@ -9,6 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5691"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot about this
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" //OAA, Valve forgot about this
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"

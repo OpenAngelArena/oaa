@@ -4,11 +4,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5220"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5220"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
 
@@ -20,28 +22,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"          "4.0"
-      "bonus_attack_speed"    "8 16 24 32 40 48"
-      "bonus_magic_resistance"  
+      "duration"                                          "4.0"
+      "bonus_attack_speed"                                "8 16 24 32 40 48"
+      "bonus_magic_resistance"
       {
-        "value"               "10 15 20 25 30 35"
-        "special_bonus_unique_viper_6"    "+12"
+        "value"                                           "10 15 20 25 30 35"
+        "special_bonus_unique_viper_6"                    "+12"
       }
       "damage" //OAA
       {
-        "value"         "8 18 28 38 76 114"
-        "special_bonus_unique_viper_1"  "+13"
+        "value"                                           "8 18 28 38 76 114"
+        "special_bonus_unique_viper_1"                    "+13"
       }
-      "max_range_tooltip"         "1400"
+      "max_range_tooltip"                                 "1400"
       "effect_multiplier_distance"
       {
-        "value"           "500"
-        "RequiresScepter"   "1"
+        "value"                                           "500"
+        "RequiresScepter"                                 "1"
       }
       "effect_multiplier"
       {
-        "value"           "2"
-        "RequiresScepter"   "1"
+        "value"                                           "2"
+        "RequiresScepter"                                 "1"
       }
     }
   }

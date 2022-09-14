@@ -56,10 +56,9 @@ function modifier_elder_titan_natural_order_correction_oaa:OnIntervalThink()
 end
 
 function modifier_elder_titan_natural_order_correction_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
-  return funcs
 end
 
 function modifier_elder_titan_natural_order_correction_oaa:GetModifierMagicalResistanceBonus()

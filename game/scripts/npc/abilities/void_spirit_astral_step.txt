@@ -38,17 +38,17 @@
       "radius"        "170"
       "AbilityChargeRestoreTime"  //OAA
       {
-        "value"     "22 21 20 19 18"
-        "special_bonus_unique_void_spirit_1"  "-4"
+        "value"                                           "22 21 20 19 18"
+        "special_bonus_unique_void_spirit_1"              "-4"
       }
       "min_travel_distance" "200"
       "max_travel_distance" "800 900 1000 1100 1200"
-      "pop_damage_delay"    
+      "pop_damage_delay"
       {
         "value" "1.25"
         "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
       }
-      "pop_damage"      "150 300 450 750 1650" //OAA
+      "pop_damage"                                        "150 300 450 750 1650" //OAA
       "movement_slow_pct"   "40 60 80 85 90"
       "ability_chance_pct"
       {
