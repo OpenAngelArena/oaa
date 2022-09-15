@@ -40,7 +40,11 @@
     {
       "damage_impact"   "50 75 100 125 250 500" //OAA
       "damage_per_second"   "15"
-      "damage_duration"   "4 6 8 10 11 12" //OAA
+      "damage_duration" //OAA
+      {
+        "value"   "4 6 8 10 11 12"
+        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
+      }
       "explosion_radius"    "500"
       "collision_radius"    "100"
       "stun_duration"     "0.5"
