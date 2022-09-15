@@ -35,7 +35,11 @@
         "special_bonus_unique_tiny_7"                     "+30"
       }
       "attack_speed_reduction"                            "-30" // for the tooltip
-      "toss_bonus_damage"                                 "100 250 400 850 1300" // for the tooltip
+      "toss_bonus_damage" // for the tooltip
+      {
+        "value"                                           "100 250 400 850 1300"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
       "bonus_armor_oaa"                                   "0 0 0 5 10" // bonus_armor - bonus_armor(at lvl 3)
       "bonus_damage_oaa"                                  "0 0 0 75 175" // bonus_damage - bonus_damage(at lvl 3)
       "bonus_damage_with_tree"                            "0 0 0 105 245" // 40% increase of bonus_damage_oaa
