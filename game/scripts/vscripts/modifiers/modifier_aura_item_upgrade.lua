@@ -21,19 +21,11 @@ if IsServer() then
     local auraItems =
     {
       "item_greater_guardian_greaves",
-      "item_greater_travel_boots_",
-      "item_ancient_janggo_of_endurance_",
       "item_assault_",
-      "item_crimson_pipe_",
-      "item_helm_of_the_dominator_",
       "item_lucience_",
-      "item_mekansm_",
       "item_pipe_",
       "item_radiance_",
-      "item_ring_of_aquila_",
       "item_shivas_guard_",
-      "item_urn_of_sorcery_",
-      "item_vladmir_",
     }
 
     local hero = self:GetParent()
@@ -100,4 +92,3 @@ if IsServer() then
     self:Destroy()
   end
 end
-

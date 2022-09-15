@@ -40,15 +40,13 @@ function modifier_nimble_oaa:OnCreated()
 end
 
 function modifier_nimble_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_EVASION_CONSTANT,
     MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
     MODIFIER_PROPERTY_IGNORE_ATTACKSPEED_LIMIT,
   }
-
-  return funcs
 end
 
 function modifier_nimble_oaa:GetModifierBonusStats_Agility()

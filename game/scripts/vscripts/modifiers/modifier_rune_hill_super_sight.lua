@@ -42,10 +42,9 @@ end
 
 -- Flying Vision
 function modifier_rune_hill_super_sight:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
-  return state
 end
 
 -- TrueSight part:

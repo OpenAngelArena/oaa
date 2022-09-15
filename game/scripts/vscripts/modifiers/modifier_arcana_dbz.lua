@@ -23,19 +23,14 @@ function modifier_arcana_dbz:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT
 end
 
-------------------------------------------------------------------------------------
-
-function modifier_arcana_dbz:GetModifierModelChange( params )
-	return "models/heroes/sohei/sohei_arcana/sohei_arcana.vmdl"
+function modifier_arcana_dbz:GetModifierModelChange()
+  return "models/heroes/sohei/sohei_arcana/sohei_arcana.vmdl"
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_arcana_dbz:DeclareFunctions()
-	return
-    {
-      MODIFIER_PROPERTY_MODEL_CHANGE
-    }
+  return {
+    MODIFIER_PROPERTY_MODEL_CHANGE,
+  }
 end
 
 function modifier_arcana_dbz:OnCreated()

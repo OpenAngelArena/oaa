@@ -29,10 +29,6 @@ function Runes:Init()
   -- CreateRune works for now
 end
 
-function Runes:Filter(filter_table)
-  return false
-end
-
 function Runes:RemoveAllRunes()
   local all_runes = Entities:FindAllByClassname("dota_item_rune")
   for _, rune in pairs(all_runes) do

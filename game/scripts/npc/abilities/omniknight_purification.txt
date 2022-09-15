@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
     "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
@@ -39,6 +39,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "heal"                                            "90 160 230 300 600 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "02"
       {

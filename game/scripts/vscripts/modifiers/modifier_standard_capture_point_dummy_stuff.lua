@@ -47,7 +47,7 @@ function modifier_standard_capture_point_dummy_stuff:GetBonusNightVision()
 end
 
 function modifier_standard_capture_point_dummy_stuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
@@ -61,7 +61,6 @@ function modifier_standard_capture_point_dummy_stuff:CheckState()
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_FLYING] = true,
   }
-  return state
 end
 
 -- TrueSight part:

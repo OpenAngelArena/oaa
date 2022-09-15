@@ -23,19 +23,14 @@ function modifier_arcana_pepsi:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT
 end
 
-------------------------------------------------------------------------------------
-
-function modifier_arcana_pepsi:GetModifierModelChange( params )
+function modifier_arcana_pepsi:GetModifierModelChange()
   return "models/heroes/sohei/bepis_sohei/bepis_sohei_base.vmdl"
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_arcana_pepsi:DeclareFunctions()
-	return
-    {
-      MODIFIER_PROPERTY_MODEL_CHANGE
-    }
+  return {
+    MODIFIER_PROPERTY_MODEL_CHANGE,
+  }
 end
 
 function modifier_arcana_pepsi:OnCreated()

@@ -73,6 +73,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "tooltip_health_cost_percent"                     "32 38 44 50 56"
         "CalculateSpellDamageTooltip"                     "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "06"
       {
@@ -83,7 +84,6 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "slow_durtion_tooltip"                            "3 4 5 6 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_4"
       }
       "08"
       {

@@ -12,12 +12,13 @@ end
 function GetDesire()
 	local npcBot=GetBot()
 	
-	local itemnumber = npcBot:FindItemSlot("item_ward_observer")
-	if itemnumber >= 0 and itemnumber <= 5 then
-		return 0.7
-	else
-		return 0.0;
-	end
+	-- local itemnumber = npcBot:FindItemSlot("item_ward_observer")
+	-- if itemnumber >= 0 and itemnumber <= 5 then
+		-- return 0.7
+	-- else
+		-- return 0.0;
+	-- end
+	return 0
 end
 
 function Think()
@@ -33,19 +34,19 @@ function Think()
 --		return
 --	end
 
-	local itemnumber = npcBot:FindItemSlot("item_ward_observer")
-	if itemnumber >= 0 and itemnumber <= 5 then
-		local hItem = npcBot:GetItemInSlot( itemnumber )
---		print("->  ",npcBot:GetUnitName()," using: ",hItem:GetName())
-		local WardLocation
-		if npcBot:GetTeam() == TEAM_RADIANT then
-			WardLocation = RadiantWardLocation
-		else
-			WardLocation = DireWardLocation
-		end
-		npcBot:Action_UseAbilityOnLocation( hItem,WardLocation )
-		return
-	end
+	-- local itemnumber = npcBot:FindItemSlot("item_ward_observer")
+	-- if itemnumber >= 0 and itemnumber <= 5 then
+		-- local hItem = npcBot:GetItemInSlot( itemnumber )
+-- --		print("->  ",npcBot:GetUnitName()," using: ",hItem:GetName())
+		-- local WardLocation
+		-- if npcBot:GetTeam() == TEAM_RADIANT then
+			-- WardLocation = RadiantWardLocation
+		-- else
+			-- WardLocation = DireWardLocation
+		-- end
+		-- npcBot:Action_UseAbilityOnLocation( hItem,WardLocation )
+		-- return
+	-- end
 	return
 end
 

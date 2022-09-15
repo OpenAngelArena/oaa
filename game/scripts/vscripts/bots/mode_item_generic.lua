@@ -93,7 +93,7 @@ function GetDesire()
 	end
 
 	--Basic Item Fix:
-	if npcBot:FindItemSlot("item_upgrade_core") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_2") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_3") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_4") ~= -1 or npcBot:FindItemSlot("item_farming_core") ~= -1 or npcBot:FindItemSlot("item_reflex_core") ~= -1 then
+	if npcBot:FindItemSlot("item_upgrade_core") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_2") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_3") ~= -1 or npcBot:FindItemSlot("item_upgrade_core_4") ~= -1 then
 --		npcBot.IsRetreating = true
 		return 7
 	else
@@ -104,10 +104,10 @@ function GetDesire()
 --		print("--> ",npcBot:GetUnitName(),"Within Distance")
 
 --	end
---	print ("asdf",npcBot:FindItemSlot("item_stout_shield"))
 
-		if npcBot:FindItemSlot("item_stout_shield") == -1 and npcBot:FindItemSlot("item_poor_mans_shield") == -1 and npcBot:FindItemSlot("item_vanguard") == -1 and npcBot:FindItemSlot("item_crimson_guard") == -1 and npcBot:FindItemSlot("item_abyssal_blade") == -1 and npcBot:GetGold() >= 200 and DotaTime() < 600 then --and npcBot:GetUnitName() ~= "npc_dota_hero_tidehunter"
-			npcBot:ActionImmediate_PurchaseItem("item_stout_shield");
+
+		if npcBot:FindItemSlot("item_vanguard") == -1 and npcBot:FindItemSlot("item_crimson_guard") == -1 and npcBot:GetGold() >= 200 and DotaTime() < 600 then --and npcBot:GetUnitName() ~= "npc_dota_hero_tidehunter"
+			
 		end
 
 		itemcount = 0
@@ -115,7 +115,7 @@ function GetDesire()
 		for index =0,8,1 do
 			hItem = npcBot:GetItemInSlot( index )
 			if hItem ~= nil then
-				if hItem:GetName() == "item_stout_shield" or hItem:GetName() == "item_poor_mans_shield" or hItem:GetName() == "item_vanguard" then
+				if hItem:GetName() == "item_vanguard" then
 					shieldcount = shieldcount +1
 					shieldslot = index
 --					print("--> ",npcBot:GetUnitName(),"shield found.")
@@ -136,18 +136,6 @@ function GetDesire()
 --			print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem duplicate shield:",hItem:GetName())
 		end
 
---		itemnumber = npcBot:FindItemSlot("item_tpscroll")
---		if itemnumber ~= -1 then
---			local hItem = npcBot:GetItemInSlot( itemnumber )
---			npcBot:ActionImmediate_SellItem( hItem )
---			print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
---		end
---		itemnumber = npcBot:FindItemSlot("item_ward_observer")
---		if itemnumber ~= -1 then
---			local hItem = npcBot:GetItemInSlot( itemnumber )
---			npcBot:ActionImmediate_SellItem( hItem )
---			print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
---		end
 		if itemcount > 8 then
 			itemnumber = npcBot:FindItemSlot("item_tango_single")
 			if itemnumber ~= -1 then
@@ -194,20 +182,7 @@ function GetDesire()
 --				print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
 				return 0.0
 			end
-			itemnumber = npcBot:FindItemSlot("item_stout_shield")
-			if itemnumber ~= -1 then
-				local hItem = npcBot:GetItemInSlot( itemnumber )
-				npcBot:ActionImmediate_SellItem( hItem )
---				print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
-				return 0.0
-			end
-			itemnumber = npcBot:FindItemSlot("item_bottle")
-			if itemnumber ~= -1 then
-				local hItem = npcBot:GetItemInSlot( itemnumber )
-				npcBot:ActionImmediate_SellItem( hItem )
---				print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
-				return 0.0
-			end
+			
 --			itemnumber = npcBot:FindItemSlot("item_infinite_bottle")
 --			if itemnumber ~= -1 then
 --				local hItem = npcBot:GetItemInSlot( itemnumber )
@@ -234,20 +209,6 @@ function Think()
 	local npcBot=GetBot()
 
 	if GetUnitToLocationDistance( npcBot, myBase ) < 200 then
-		itemnumber = npcBot:FindItemSlot("item_farming_core")
-		if itemnumber ~= -1 then
-			local hItem = npcBot:GetItemInSlot( itemnumber )
-			npcBot:ActionImmediate_SellItem( hItem )
---			print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
-			return
-		end
-		itemnumber = npcBot:FindItemSlot("item_reflex_core")
-		if itemnumber ~= -1 then
-			local hItem = npcBot:GetItemInSlot( itemnumber )
-			npcBot:ActionImmediate_SellItem( hItem )
---			print("--> ",npcBot:GetUnitName(),"ActionImmediate_SellItem:",hItem:GetName())
-			return
-		end
 		itemnumber = npcBot:FindItemSlot("item_upgrade_core")
 		if itemnumber ~= -1 then
 			local hItem = npcBot:GetItemInSlot( itemnumber )

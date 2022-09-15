@@ -60,18 +60,18 @@ function modifier_ward_invisibility:GetAuraEntityReject(entity)
   if entity:IsOAABoss() then
     return true
   end
-  if self.isInvis then
-    DebugPrint(self.id .. ': showing self')
-  end
+
+  -- Reveal the ward every time an enemy walks into range
   self.isInvis = false
 
   Timers:RemoveTimer(self.id)
   Timers:CreateTimer(self.id, {
     endTime = 3,
     callback = function()
-      DebugPrint(self.id .. ': hiding self')
+      -- Hide the ward
       self.isInvis = true
     end
   })
+
   return false
 end

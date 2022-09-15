@@ -114,16 +114,13 @@
 	background-color: #220404bb;
 }
 
-#es-radiant .es-team-name,
-#es-dire .es-team-name, {
-	text-shadow: 0 0 5px 2.0 #111;
-}
-
 #es-radiant .es-team-name {
+	text-shadow: 0 0 5px 2.0 #111;
 	color: #326114;
 }
 
 #es-dire .es-team-name {
+	text-shadow: 0 0 5px 2.0 #111;
 	color: #f03333;
 }
 

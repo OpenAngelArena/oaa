@@ -215,6 +215,7 @@ function ARDMMode:ScheduleHeroChange(event)
   if ardm_mod then
     ardm_mod.hero = new_hero_name
     DebugPrint("ScheduleHeroChange - Killed hero "..killed_hero_name.." will be changed into "..tostring(new_hero_name))
+    --self:RemoveHeroFromThePool(new_hero_name, killed_team) -- to prevent same heroes on 1 team, commented out because heroes can die at the same time
   end
 end
 
@@ -645,7 +646,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
 
   -- Delay 1 more frame because of scepter and shard
   Timers:CreateTimer(2/30, function()
-	-- Create new items for the new hero
+    -- Create new items for the new hero
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = items[i]
       local item_name = item[1]

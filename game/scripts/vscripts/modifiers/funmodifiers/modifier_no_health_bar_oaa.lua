@@ -22,11 +22,9 @@ function modifier_no_health_bar_oaa:RemoveOnDeath()
 end
 
 function modifier_no_health_bar_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
   }
-
-  return state
 end
 
 --function modifier_no_health_bar_oaa:GetTexture()
