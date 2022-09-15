@@ -43,7 +43,7 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
 
     //"AbilitySharedCooldown"                               "combobreaker"
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "15.0"
 
     "ItemIsNeutralDrop"                                   "0"
     "ItemPurchasable"                                     "1"
@@ -58,12 +58,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "2800"
+        "bonus_health"                                    "3500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "2800"
+        "heal"                                            "3500"
       }
       "03"
       {
