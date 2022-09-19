@@ -11,7 +11,7 @@ request.get({
   if (err) {
     throw err;
   }
-  const dotaKVs = parseKV(result.body);
+  const dotaKVs = parseKV(result.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
 
   const data = parseTranslation(true, null, dotaKVs);
 

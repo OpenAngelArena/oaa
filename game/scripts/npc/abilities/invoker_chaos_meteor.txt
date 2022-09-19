@@ -46,6 +46,7 @@
       {
         "value"         "0.5"
         "CalculateSpellDamageTooltip" "0"
+        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
       }
       "vision_distance"     "500"
       "end_vision_duration"   "3.0"
@@ -55,18 +56,19 @@
         "levelkey"                                        "exortlevel"
         "special_bonus_unique_invoker_6"                  "+80%"
       }
-      "burn_duration"       "3.0"
+      "burn_duration"                                     "3.0"
       "burn_dps" //OAA
       {
-        "value"         "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
-        "levelkey"        "exortlevel"
-        "CalculateSpellDamageTooltip" "1"
-        "special_bonus_unique_invoker_6"  "+80%"
+        "value"                                           "10 16 22 28 34 40 46 52 64 76 88 100 112 124 136"
+        "levelkey"                                        "exortlevel"
+        "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_unique_invoker_6"                  "+80%"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "meteor_count"
       {
-        "value"         "1"
-        "special_bonus_shard" "+2"
+        "value"                                           "1"
+        "special_bonus_shard"                             "+2"
       }
     }
   }

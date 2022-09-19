@@ -28,7 +28,7 @@ request.get({
   if (err) {
     throw err;
   }
-  dotaEnglish = parseKV(result.body);
+  dotaEnglish = parseKV(result.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
   console.log(dotaEnglish);
 
   let englishFileString = parseTranslation(false, null, dotaEnglish);

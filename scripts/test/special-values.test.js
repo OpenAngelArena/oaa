@@ -274,23 +274,49 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     '5645' // shredder_chakram_2
   ];
 
+  // for completely reworked abilities and irrelevant stuff
   const ignoreValuesForIDs = [
-    '40' // item_dust
+    '40', // item_dust
+    '5588', // abaddon_borrowed_time
+    // '5320', // batrider_sticky_napalm
+    '7230', // beastmaster_call_of_the_wild_boar
+    '7231', // beastmaster_call_of_the_wild_hawk
+    // '5550', // bristleback_bristleback
+    '5279', // broodmother_spawn_spiderlings
+    '5262', // clinkz_death_pact
+    '5184', // faceless_void_time_lock
+    '5248', // furion_wrath_of_nature
+    // '5241', // leshrac_split_earth
+    '5725' // monkey_king_wukongs_command
+    // '5063', // nevermore_dark_lord
+    // '5391', // obsidian_destroyer_arcane_orb
+    // '5265', // omniknight_degen_aura
+    // '7307', // pangolier_lucky_shot
+    // '5378', // silencer_glaives_of_wisdom
+    // '5116', // slardar_bash
+    // '5109', // tiny_grow
+    // '5123', // vengefulspirit_command_aura
+    // '5221', // viper_viper_strike
+    // '5482', // visage_gravekeepers_cloak
+    // '5483', // visage_summon_familiars
+    // '5141', // witch_doctor_death_ward
   ];
 
   const specials = root[item].AbilitySpecial;
 
   if (specials) {
     // check specials!
-    let rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
-    t.ok(rootItem, 'can parse basic item name out');
-    // var version = rootItem[2];
-    rootItem = rootItem[1];
-    if (!specialValuesForItem[rootItem]) {
-      testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
-      specialValuesForItem[rootItem] = specials;
-    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
-      spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent');
+    if (ignoreValuesForIDs.indexOf(values.ID) === -1) {
+      let rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
+      t.ok(rootItem, 'can parse basic item name out');
+      // var version = rootItem[2];
+      rootItem = rootItem[1];
+      if (!specialValuesForItem[rootItem]) {
+        testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
+        specialValuesForItem[rootItem] = specials;
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
+        spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent');
+      }
     }
   } else {
     if ((parentKV ? parentKV.AbilitySpecial : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
@@ -301,13 +327,15 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   const abilityValues = root[item].AbilityValues;
 
   if (abilityValues) {
-    let rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
-    rootItem2 = rootItem2[1];
-    if (!abilityValuesForItem[rootItem2]) {
-      testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
-      abilityValuesForItem[rootItem2] = abilityValues;
-    } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
-      spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
+    if (ignoreValuesForIDs.indexOf(values.ID) === -1) {
+      let rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
+      rootItem2 = rootItem2[1];
+      if (!abilityValuesForItem[rootItem2]) {
+        testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
+        abilityValuesForItem[rootItem2] = abilityValues;
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
+        spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
+      }
     }
   } else {
     if ((parentKV ? parentKV.AbilityValues : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
