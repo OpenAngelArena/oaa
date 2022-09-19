@@ -34,7 +34,7 @@ function findMissingTooltips (cb) {
       console.log(err);
       return done(err);
     }
-    dotaEnglish = parseKV(dotaEnglish.body);
+    dotaEnglish = parseKV(dotaEnglish.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
 
     let translations = getTranslations(true, false, dotaEnglish);
     translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
