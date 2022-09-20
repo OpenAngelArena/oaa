@@ -40,13 +40,13 @@ const walk = function (directoryName, action) {
 function cleanTooltipFile (file) {
   // console.log('Cleaning ' + chalk.green(file));
 
-  fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
+  fs.readFile(file, 'utf8', function (err, data) {
     if (err) {
       return console.error(chalk.red(err));
     }
     const result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
 
-    if (!deepEqual(result, data)) {
+    if (!checkEqual(data, result)) {
       fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
@@ -62,13 +62,6 @@ function cleanKVFile (file) {
   }
 
   // console.log('Cleaning ' + chalk.green(file));
-  let before = '';
-  fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
-    if (err) {
-      return console.error(chalk.red(err));
-    }
-    before = data;
-  });
 
   const lineReader = readline.createInterface({
     input: fs.createReadStream(file)
@@ -76,9 +69,11 @@ function cleanKVFile (file) {
 
   let indent = 0;
   let result = '';
+  let before = '';
   let error = false;
   let lineNumber = 0;
   lineReader.on('line', (line) => {
+    before += line + '\n';
     lineNumber++;
     // replace tabs
     line = line.replace(/\t/g, tab);
@@ -94,22 +89,24 @@ function cleanKVFile (file) {
       indent++;
     }
 
-    // fix padding
-    line = line.replace(/" +"/g, '"  "'); // remove spaces between "'s
+    if (!(line.trimStart().startsWith('//'))) {
+      // fix padding
+      line = line.replace(/" +"/g, '"  "'); // remove spaces between "'s
 
-    const indices = [];
-    for (let i = 0; i < line.length; i++) {
-      if (line[i] === '"') indices.push(i);
-    }
+      const indices = [];
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === '"') indices.push(i);
+      }
 
-    if (Object.keys(indices).length % 2 === 1) {
-      console.error(chalk.red('ERR File "' + file + '" has an uneven number of " at line ' + lineNumber + '.'));
-      error = true;
-      return;
-    }
+      if (Object.keys(indices).length % 2 === 1) {
+        console.error(chalk.red('ERR File "' + file + '" has an uneven number of " at line ' + lineNumber + '.'));
+        error = true;
+        return;
+      }
 
-    if (Object.keys(indices).length > 2 && indices[2] < padLenght) {
-      line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1] - 2) + line.slice(indices[2]);
+      if (Object.keys(indices).length > 2 && indices[2] < padLenght) {
+        line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1] - 2) + line.slice(indices[2]);
+      }
     }
 
     result += line + '\n';
@@ -124,7 +121,7 @@ function cleanKVFile (file) {
       error = true;
       console.error(chalk.red('ERR File "' + file + '" is missing an opening bracket \'{\'.'));
     }
-    if (!error && !deepEqual(result, before)) {
+    if (!error && !checkEqual(before, result)) {
       fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
@@ -134,18 +131,11 @@ function cleanKVFile (file) {
   });
 }
 
-function deepEqual (obj1, obj2) {
-  if (obj1 === obj2) {
-    return true;
-  } else if ((typeof obj1 === 'object' && obj1 != null) && (typeof obj2 === 'object' && obj2 != null)) {
-    if (Object.keys(obj1).length !== Object.keys(obj2).length) return false;
-    for (const key in obj1) {
-      if (!(key in obj2)) return false;
-      if (!deepEqual(obj1[key], obj2[key])) return false;
-    }
+function checkEqual (s1, s2) {
+  if (s1 === s2) {
     return true;
   } else {
-    return JSON.stringify(obj1) === JSON.stringify(obj2);
+    return s1.replace(/[^a-zA-Z0-9 "{}]/g, '') === s2.replace(/[^a-zA-Z0-9 "{}]/g, '');
   }
 }
 
