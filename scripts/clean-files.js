@@ -38,7 +38,7 @@ const walk = function (directoryName, action) {
 };
 
 function cleanTooltipFile (file) {
-  console.log('Cleaning ' + chalk.green(file));
+  // console.log('Cleaning ' + chalk.green(file));
 
   fs.readFile(file, 'utf8', function (err, data) {
     if (err) {
@@ -46,11 +46,13 @@ function cleanTooltipFile (file) {
     }
     const result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
 
-    fs.writeFile(file, result, 'utf8', function (err) {
-      if (err) {
-        return console.error(chalk.red(err));
-      }
-    });
+    if (!deepEqual(result, data)) {
+      fs.writeFile(file, result, 'utf8', function (err) {
+        if (err) {
+          return console.error(chalk.red(err));
+        }
+      });
+    }
   });
 }
 
@@ -59,7 +61,14 @@ function cleanKVFile (file) {
     return;
   }
 
-  console.log('Cleaning ' + chalk.green(file));
+  // console.log('Cleaning ' + chalk.green(file));
+  let before = '';
+  fs.readFile(file, 'utf8', function (err, data) {
+    if (err) {
+      return console.error(chalk.red(err));
+    }
+    before = data;
+  });
 
   const lineReader = readline.createInterface({
     input: fs.createReadStream(file)
@@ -115,7 +124,7 @@ function cleanKVFile (file) {
       error = true;
       console.error(chalk.red('ERR File "' + file + '" is missing an opening bracket \'{\'.'));
     }
-    if (!error) {
+    if (!error && !deepEqual(result, before)) {
       fs.writeFile(file, result, 'utf8', function (err) {
         if (err) {
           return console.error(chalk.red(err));
@@ -123,6 +132,21 @@ function cleanKVFile (file) {
       });
     }
   });
+}
+
+function deepEqual (obj1, obj2) {
+  if (obj1 === obj2) {
+    return true;
+  } else if ((typeof obj1 === 'object' && obj1 != null) && (typeof obj2 === 'object' && obj2 != null)) {
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) return false;
+    for (const key in obj1) {
+      if (!(key in obj2)) return false;
+      if (!deepEqual(obj1[key], obj2[key])) return false;
+    }
+    return true;
+  } else {
+    return false;
+  }
 }
 
 walk('game/resource/English', cleanTooltipFile);
