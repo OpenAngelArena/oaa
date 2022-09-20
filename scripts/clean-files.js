@@ -40,14 +40,14 @@ const walk = function (directoryName, action) {
 function cleanTooltipFile (file) {
   // console.log('Cleaning ' + chalk.green(file));
 
-  fs.readFile(file, 'utf8', function (err, data) {
+  fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
     if (err) {
       return console.error(chalk.red(err));
     }
     const result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
 
     if (!deepEqual(result, data)) {
-      fs.writeFile(file, result, 'utf8', function (err) {
+      fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
         }
@@ -63,7 +63,7 @@ function cleanKVFile (file) {
 
   // console.log('Cleaning ' + chalk.green(file));
   let before = '';
-  fs.readFile(file, 'utf8', function (err, data) {
+  fs.readFile(file, { encoding: 'utf8' }, function (err, data) {
     if (err) {
       return console.error(chalk.red(err));
     }
@@ -125,7 +125,7 @@ function cleanKVFile (file) {
       console.error(chalk.red('ERR File "' + file + '" is missing an opening bracket \'{\'.'));
     }
     if (!error && !deepEqual(result, before)) {
-      fs.writeFile(file, result, 'utf8', function (err) {
+      fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
         }
