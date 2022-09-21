@@ -40,23 +40,23 @@
     {
       "radius"
       {
-        "value"         "225"
-        "special_bonus_unique_kunkka"   "+80"
+        "value"                                           "225"
+        "special_bonus_unique_kunkka"                     "+80"
       }
-      "movespeed_bonus"     "-40"
-      "slow_duration"       "1 2 3 4 5 6"
+      "movespeed_bonus"                                   "-40"
+      "slow_duration"                                     "1 2 3 4 5 6"
       "stun_duration"
       {
-        "value"               "1.6"
-        "special_bonus_unique_kunkka_7"   "+30%"
+        "value"                                           "1.6"
+        "special_bonus_unique_kunkka_7"                   "+30%"
       }
-      "delay"           "1.6"
+      "delay"                                             "1.6"
       "torrent_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
         "special_bonus_unique_kunkka_7"                   "+30%"
       }
-      "damage_tick_interval"        "0.2"
+      "damage_tick_interval"                              "0.2"
     }
   }
 }

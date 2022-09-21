@@ -24,16 +24,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"   "900.0"
-      "range"   "1200"
+      "speed"                                             "900.0"
+      "range"                                             "1200"
       "bonus_damage"
       {
-        "value"       "20"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "20"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "splash_radius"       "275"
-      "movement_slow"       "25"
-      "slow_duration"       "2.5"
+      "splash_radius"                                     "275"
+      "movement_slow"                                     "25"
+      "slow_duration"                                     "2.5"
     }
   }
 }

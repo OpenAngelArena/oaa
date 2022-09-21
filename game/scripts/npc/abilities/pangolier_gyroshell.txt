@@ -7,33 +7,33 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6343"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
-    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "ID"                                                  "6343"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "MaxLevel"                      "5"
-    "RequiredLevel"                 "6"
-    "LevelsBetweenUpgrades"         "6"
+    "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "0"
-    "AbilityCastPoint"              "1.2"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "1.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "80 75 70 70 70"
+    "AbilityCooldown"                                     "80 75 70 70 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "100 150 200 250 300"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                 "180 340 500 980 1460" //OAA
+    "AbilityDamage"                                       "180 340 500 980 1460" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,64 +41,64 @@
     {
       "01"
       {
-        "var_type"              "FIELD_FLOAT"
-        "cast_time_tooltip"     "1.2"
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_time_tooltip"                               "1.2"
       }
       "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "tick_interval"         "0.05"
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.05"
       }
       "03"
       {
-        "var_type"              "FIELD_FLOAT"
-        "forward_move_speed"    "550"
+        "var_type"                                        "FIELD_FLOAT"
+        "forward_move_speed"                              "550"
       }
       "04"
       {
-        "var_type"              "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
-        "turn_rate_boosted"     "165"
+        "var_type"                                        "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
+        "turn_rate_boosted"                               "165"
       }
       "05"
       {
-        "var_type"              "FIELD_FLOAT"
-        "turn_rate"             "120"
+        "var_type"                                        "FIELD_FLOAT"
+        "turn_rate"                                       "120"
       }
       "06"
       {
-        "var_type"              "FIELD_INTEGER"
-        "radius"                "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
       }
       "07"
       {
-        "var_type"              "FIELD_INTEGER"
-        "hit_radius"            "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_radius"                                      "150"
       }
       "08"
       {
-        "var_type"              "FIELD_FLOAT"
-        "bounce_duration"       "0.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "bounce_duration"                                 "0.4"
       }
       "09"
       {
-        "var_type"              "FIELD_FLOAT"
-        "stun_duration"         "1.0 1.25 1.5 1.75 2.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.0 1.25 1.5 1.75 2.0"
       }
       "10"
       {
-        "var_type"              "FIELD_INTEGER"
-        "knockback_radius"      "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "knockback_radius"                                "150"
       }
       "11"
       {
-        "var_type"              "FIELD_FLOAT"
-        "duration"              "10.0"
-        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_6"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_6"
       }
       "12"
       {
-        "var_type"              "FIELD_FLOAT"
-        "jump_recover_time"     "0.25"
+        "var_type"                                        "FIELD_FLOAT"
+        "jump_recover_time"                               "0.25"
       }
     }
   }

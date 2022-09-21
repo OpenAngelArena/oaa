@@ -1,26 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-	// Fire spirits bonus damage
-	//=================================================================================================================
-	"special_bonus_unique_phoenix_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"6401"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  // Fire spirits bonus damage
+  //=================================================================================================================
+  "special_bonus_unique_phoenix_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "6401"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				"65" //OAA
-        "ad_linked_abilities"			"phoenix_fire_spirits"
-			}
-		}
-	}
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "65" //OAA
+        "ad_linked_abilities"                             "phoenix_fire_spirits"
+      }
+    }
+  }
 }

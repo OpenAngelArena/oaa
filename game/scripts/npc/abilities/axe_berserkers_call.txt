@@ -40,22 +40,22 @@
     {
       "radius"
       {
-        "value"             "300"
-        "special_bonus_unique_axe_2"  "+100"
+        "value"                                           "300"
+        "special_bonus_unique_axe_2"                      "+100"
       }
       "bonus_armor"
       {
-        "value"             "25 25 25 25 35 55"
-        "special_bonus_unique_axe_7"  "+8"
+        "value"                                           "25 25 25 25 35 55"
+        "special_bonus_unique_axe_7"                      "+8"
       }
-      "duration"        "2.0 2.4 2.8 3.2 3.4 3.6"
+      "duration"                                          "2.0 2.4 2.8 3.2 3.4 3.6"
       "scepter_cooldown_reduction"
       {
-        "special_bonus_scepter" "+3.0"
+        "special_bonus_scepter"                           "+3.0"
       }
       "applies_battle_hunger"
       {
-        "special_bonus_scepter" "+1"
+        "special_bonus_scepter"                           "+1"
       }
     }
   }

@@ -5,32 +5,32 @@
   //=================================================================================================================
   "boss_swiper_thrust"
   {
-    "ID"                            "8580"
+    "ID"                                                  "8580"
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                     "ability_lua"
-    "AbilityTextureName"            "nyx_assassin_impale"
-    "ScriptFile"                    "abilities/boss/swiper/boss_swiper_thrust.lua"
-    "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-    "AnimationIgnoresModelScale"    "1"
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "nyx_assassin_impale"
+    "ScriptFile"                                          "abilities/boss/swiper/boss_swiper_thrust.lua"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AnimationIgnoresModelScale"                          "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "700"
-    "AbilityCastPoint"              "2.0"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "2.0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "0.5"
+    "AbilityCooldown"                                     "0.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,23 +38,23 @@
     {
       "01"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "range"                     "700"
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "700"
       }
       "02"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "width"                     "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "200"
       }
       "03"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "target_min_range"          "500"
+        "var_type"                                        "FIELD_INTEGER"
+        "target_min_range"                                "500"
       }
       "04"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "damage"                    "6000"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "6000"
       }
     }
   }

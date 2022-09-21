@@ -38,26 +38,26 @@
     "ID"                                                  "8424"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
-    "AbilityBehavior"                 "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"           "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "AbilitySharedCooldown"           "urn"
-    "AbilityCooldown"                 "7.0"
-    "AbilityTextureName"              "custom/spirit_vessel_2"
+    "AbilitySharedCooldown"                               "urn"
+    "AbilityCooldown"                                     "7.0"
+    "AbilityTextureName"                                  "custom/spirit_vessel_2"
 
     "AbilityCastRange"                                    "950"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                 "5"
-    "ItemBaseLevel"                   "2"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "4481"
-    "ItemAliases"                     "sv 2;spirit vessel 2"
-    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemCost"                                            "4481"
+    "ItemAliases"                                         "sv 2;spirit vessel 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

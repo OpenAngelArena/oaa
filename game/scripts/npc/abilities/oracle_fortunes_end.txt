@@ -40,26 +40,26 @@
     {
       "channel_time"
       {
-        "value"               "2.5"
-        "special_bonus_unique_oracle_7"   "-2.5"
+        "value"                                           "2.5"
+        "special_bonus_unique_oracle_7"                   "-2.5"
       }
       "damage"
       {
-        "value"                                             "100 160 220 280 560 1120"
-        "special_bonus_unique_oracle_fortunes_end_damage"   "+80"
+        "value"                                           "100 160 220 280 560 1120"
+        "special_bonus_unique_oracle_fortunes_end_damage"  "+80"
       }
-      "bolt_speed"        "1000"
+      "bolt_speed"                                        "1000"
       "minimum_purge_duration"
       {
-        "value"               "0.5"
-        "special_bonus_unique_oracle_2"   "+0.5"
+        "value"                                           "0.5"
+        "special_bonus_unique_oracle_2"                   "+0.5"
       }
       "maximum_purge_duration"
       {
-        "value"               "2.5"
-        "special_bonus_unique_oracle_2"   "+0.5"
+        "value"                                           "2.5"
+        "special_bonus_unique_oracle_2"                   "+0.5"
       }
-      "radius"                "300"
+      "radius"                                            "300"
     }
   }
 }

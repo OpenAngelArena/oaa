@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"733"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "733"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "value"                                           "18" //OAA
-        "ad_linked_abilities"                               "doom_bringer_scorched_earth"
+        "ad_linked_abilities"                             "doom_bringer_scorched_earth"
       }
     }
   }

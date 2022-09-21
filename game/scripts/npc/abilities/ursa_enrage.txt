@@ -35,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"      "80"
+      "damage_reduction"                                  "80"
       "status_resistance"
       {
         "value"                                           "50"
@@ -53,8 +53,8 @@
       }
       "aoe_radius"
       {
-        "value"           "0"
-        "special_bonus_unique_ursa_enrage_radius"   "+700"
+        "value"                                           "0"
+        "special_bonus_unique_ursa_enrage_radius"         "+700"
       }
     }
   }

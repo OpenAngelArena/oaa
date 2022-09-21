@@ -33,13 +33,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "dominate_duration"     "30 60 90 120 150 180"
-      "enchant_health"      "200 400 600 800 1600 3200"  //OAA, this is bonus hp, not minimum hp
-      "enchant_armor"       "2 4 6 8 12 16"
-      "enchant_damage"      "10 30 50 70 140 280"
-      "slow_movement_speed"   "-55"
-      "slow_duration"       "3.75 4.5 5.25 6 6.75 7.5"
-      "level_req"         "6" //OAA
+      "dominate_duration"                                 "30 60 90 120 150 180"
+      "enchant_health"                                    "200 400 600 800 1600 3200"  //OAA, this is bonus hp, not minimum hp
+      "enchant_armor"                                     "2 4 6 8 12 16"
+      "enchant_damage"                                    "10 30 50 70 140 280"
+      "slow_movement_speed"                               "-55"
+      "slow_duration"                                     "3.75 4.5 5.25 6 6.75 7.5"
+      "level_req"                                         "6" //OAA
     }
   }
 }

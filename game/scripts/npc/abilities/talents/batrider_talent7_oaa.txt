@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "80714"
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "80714"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "value"           "50"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "50"
       }
     }
   }

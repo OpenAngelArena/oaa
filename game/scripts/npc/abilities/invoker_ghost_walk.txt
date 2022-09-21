@@ -25,21 +25,21 @@
     {
       "AbilityCooldown"
       {
-        "value"         "35"
+        "value"                                           "35"
       }
-      "duration"        "60"
-      "area_of_effect"    "450"
+      "duration"                                          "60"
+      "area_of_effect"                                    "450"
       "enemy_slow"
       {
-        "value"         "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"
-        "levelkey"        "quaslevel"
+        "value"                                           "-20 -25 -30 -35 -40 -45 -50 -55 -57 -59 -61 -63 -65 -67 -69"
+        "levelkey"                                        "quaslevel"
       }
       "self_slow"
       {
-        "value"         "-15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55"
-        "levelkey"        "wexlevel"
+        "value"                                           "-15 -10 -5 0 5 10 15 20 25 30 35 40 45 50 55"
+        "levelkey"                                        "wexlevel"
       }
-      "aura_fade_time"      "2.0"
+      "aura_fade_time"                                    "2.0"
     }
   }
 }

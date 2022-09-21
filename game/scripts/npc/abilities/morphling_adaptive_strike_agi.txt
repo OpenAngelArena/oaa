@@ -37,19 +37,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_base"         "60 80 100 120 240 480" //OAA
+      "damage_base"                                       "60 80 100 120 240 480" //OAA
       "damage_min"
       {
-        "value"         "0.5"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "0.5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "damage_max"
       {
-        "value"       "1.0 1.5 2.0 2.5 3.5 4.5"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "1.0 1.5 2.0 2.5 3.5 4.5"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "projectile_speed"          "1150"
-      "shared_cooldown"         "1" //OAA
+      "projectile_speed"                                  "1150"
+      "shared_cooldown"                                   "1" //OAA
     }
   }
 }

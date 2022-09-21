@@ -8,28 +8,28 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "649"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"            "1"
-    "IsGrantedByShard"        "1"
+    "MaxLevel"                                            "1"
+    "IsGrantedByShard"                                    "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.2"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_5"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "15" //OAA
+    "AbilityCooldown"                                     "15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "125"
+    "AbilityManaCost"                                     "125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,48 +37,48 @@
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "damage"    "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "200"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
-        "radius"    "325"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
       }
       "03"
       {
-        "var_type"      "FIELD_FLOAT"
-        "air_duration"    "0.6"
+        "var_type"                                        "FIELD_FLOAT"
+        "air_duration"                                    "0.6"
       }
       "04"
       {
-        "var_type"      "FIELD_INTEGER"
-        "air_height"    "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "air_height"                                      "300"
       }
       "05"
       {
-        "var_type"      "FIELD_FLOAT"
-        "slow_duration"   "2"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2"
       }
       "06"
       {
-        "var_type"      "FIELD_INTEGER"
-        "pull_offset"   "75"
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_offset"                                     "75"
       }
       "07"
       {
-        "var_type"      "FIELD_INTEGER"
-        "destination_offset"    "175"
+        "var_type"                                        "FIELD_INTEGER"
+        "destination_offset"                              "175"
       }
       "08"
       {
-        "var_type"      "FIELD_INTEGER"
-        "pull_angle"        "230"
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_angle"                                      "230"
       }
       "09"
       {
-        "var_type"        "FIELD_INTEGER"
-        "horn_toss_slow_pct"    "100"
+        "var_type"                                        "FIELD_INTEGER"
+        "horn_toss_slow_pct"                              "100"
       }
     }
   }

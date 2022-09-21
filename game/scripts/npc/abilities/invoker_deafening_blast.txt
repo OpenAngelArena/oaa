@@ -27,30 +27,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "travel_distance"     "1000"
-      "travel_speed"        "1100"
-      "radius_start"        "175"
-      "radius_end"        "225"
-      "end_vision_duration"   "1.75"
+      "travel_distance"                                   "1000"
+      "travel_speed"                                      "1100"
+      "radius_start"                                      "175"
+      "radius_end"                                        "225"
+      "end_vision_duration"                               "1.75"
       "damage" //OAA
       {
-        "value"         "60 120 200 260 320 380 440 500 560 620 680 740 800 860 920"
-        "levelkey"        "exortlevel"
+        "value"                                           "60 120 200 260 320 380 440 500 560 620 680 740 800 860 920"
+        "levelkey"                                        "exortlevel"
       }
       "knockback_duration"
       {
-        "value"         "0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.85 2.1 2.35 2.6 2.85 3.1 3.35"
-        "levelkey"        "quaslevel"
+        "value"                                           "0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.85 2.1 2.35 2.6 2.85 3.1 3.35"
+        "levelkey"                                        "quaslevel"
       }
       "disarm_duration" //OAA
       {
-        "value"         "1.25 1.75 2.25 2.75 3.25 3.75 4.25 4.75 5.25 5.75 6.25 6.75 7.25 7.75 8.25"
-        "levelkey"        "wexlevel"
+        "value"                                           "1.25 1.75 2.25 2.75 3.25 3.75 4.25 4.75 5.25 5.75 6.25 6.75 7.25 7.75 8.25"
+        "levelkey"                                        "wexlevel"
       }
       "radial_count"
       {
-        "value"         "1"
-        "special_bonus_unique_invoker_2"  "+11"
+        "value"                                           "1"
+        "special_bonus_unique_invoker_2"                  "+11"
       }
     }
   }

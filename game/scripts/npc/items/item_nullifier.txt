@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "224"
-    "Model"             "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "224"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "0"
-    "ItemShopTags"          ""
+    "ItemCost"                                            "0"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
-    "ItemResult"          "item_nullifier"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_nullifier"
     "ItemRequirements"
     {
-      "01"            "item_relic;item_helm_of_iron_will"
+      "01"                                                "item_relic;item_helm_of_iron_will"
     }
   }
   //=================================================================================================================
@@ -31,23 +31,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "225"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "ID"                                                  "225"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
-    "AbilityTextureName"    "custom/nullifier_1"
+    "AbilityTextureName"                                  "custom/nullifier_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "4725"
-    "ItemAliases"         "nlf;nullifier"
+    "ItemCost"                                            "4725"
+    "ItemAliases"                                         "nlf;nullifier"
 
-    "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "10.0"
-    "AbilityCastRange"      "500 600 700 800 900" //OAA
-    "AbilityManaCost"       "0"
+    "AbilitySharedCooldown"                               "nullify"
+    "AbilityCooldown"                                     "10.0"
+    "AbilityCastRange"                                    "500 600 700 800 900" //OAA
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------

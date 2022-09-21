@@ -67,19 +67,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement"    "55 60 65 70"
-      "bonus_mana"      "350 500 700 950"
-      "bonus_armor"   "5 7 10 14"
-      "aura_health_regen"   "6 9 12 15"
-      "aura_armor"    "4 5 6 7"
-      "aura_health_regen_bonus"   "19 22 25 28"
-      "aura_armor_bonus"      "11 12 13 14"
-      "aura_bonus_threshold"  "20"
-      "aura_radius"     "1200"
-      "replenish_health"    "450 650 950 1350"
-      "replenish_mana"    "300 400 550 750"
-      "replenish_radius"    "1200"
-      "max_health_pct_heal_amount"    "0"
+      "bonus_movement"                                    "55 60 65 70"
+      "bonus_mana"                                        "350 500 700 950"
+      "bonus_armor"                                       "5 7 10 14"
+      "aura_health_regen"                                 "6 9 12 15"
+      "aura_armor"                                        "4 5 6 7"
+      "aura_health_regen_bonus"                           "19 22 25 28"
+      "aura_armor_bonus"                                  "11 12 13 14"
+      "aura_bonus_threshold"                              "20"
+      "aura_radius"                                       "1200"
+      "replenish_health"                                  "450 650 950 1350"
+      "replenish_mana"                                    "300 400 550 750"
+      "replenish_radius"                                  "1200"
+      "max_health_pct_heal_amount"                        "0"
     }
   }
 }

@@ -21,10 +21,10 @@
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemResult"          "item_spirit_vessel_4"
+    "ItemResult"                                          "item_spirit_vessel_4"
     "ItemRequirements"
     {
-      "01"            "item_spirit_vessel_3;item_upgrade_core_3"
+      "01"                                                "item_spirit_vessel_3;item_upgrade_core_3"
     }
   }
 
@@ -38,26 +38,26 @@
     "ID"                                                  "8428"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "AbilitySharedCooldown"           "urn"
-    "AbilityCooldown"                 "7.0"
-    "AbilityTextureName"              "custom/spirit_vessel_4"
+    "AbilitySharedCooldown"                               "urn"
+    "AbilityCooldown"                                     "7.0"
+    "AbilityTextureName"                                  "custom/spirit_vessel_4"
 
     "AbilityCastRange"                                    "950"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                 "5"
-    "ItemBaseLevel"                   "4"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "15983"
-    "ItemAliases"                     "sv 4;spirit vessel 4"
-    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemCost"                                            "15983"
+    "ItemAliases"                                         "sv 4;spirit vessel 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

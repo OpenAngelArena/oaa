@@ -33,17 +33,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_second"   "20 40 60 80 160 320" //OAA
-      "movement_speed"    "3 6 9 12 15 18"
-      "radius"        "200"
+      "damage_per_second"                                 "20 40 60 80 160 320" //OAA
+      "movement_speed"                                    "3 6 9 12 15 18"
+      "radius"                                            "200"
       "duration"
       {
-        "value"         "15"
-        "special_bonus_unique_batrider_1" "+4.5"
+        "value"                                           "15"
+        "special_bonus_unique_batrider_1"                 "+4.5"
       }
-      "tick_interval"     "0.5"
-      "tree_radius"     "100"
-      "bonus_vision"      "50 100 150 200 250 300"
+      "tick_interval"                                     "0.5"
+      "tree_radius"                                       "100"
+      "bonus_vision"                                      "50 100 150 200 250 300"
     }
   }
 }

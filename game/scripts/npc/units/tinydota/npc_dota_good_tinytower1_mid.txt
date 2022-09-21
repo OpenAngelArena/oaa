@@ -64,17 +64,17 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "1600"      // Base health.
-    "StatusHealthRegen"         "0"         // Health regeneration rate.
-    "StatusMana"                "0"         // Base mana.
-    "StatusManaRegen"           "0"         // Mana regeneration rate.
+    "StatusHealth"                                        "1600"      // Base health.
+    "StatusHealthRegen"                                   "0"         // Health regeneration rate.
+    "StatusMana"                                          "0"         // Base mana.
+    "StatusManaRegen"                                     "0"         // Mana regeneration rate.
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_GOODGUYS"            // Team name.
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"            // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_SIEGE"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
     // Vision
     //----------------------------------------------------------------

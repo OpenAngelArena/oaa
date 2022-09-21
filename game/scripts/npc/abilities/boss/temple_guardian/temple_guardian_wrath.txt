@@ -5,30 +5,30 @@
   //=================================================================================================================
   "temple_guardian_wrath"
   {
-    "ID"                            "8613"
+    "ID"                                                  "8613"
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/boss/temple_guardian/temple_guardian_wrath.lua"
-    "AbilityTextureName"            "omniknight_guardian_angel"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_wrath.lua"
+    "AbilityTextureName"                                  "omniknight_guardian_angel"
 
-    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
-    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "MaxLevel"                      "1"
-    "RequiredLevel"                 "1"
-    "LevelsBetweenUpgrades"         "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "60"
-    "AbilityChannelTime"            "5.0"
-    "AbilityCastPoint"              "0.4"
+    "AbilityCooldown"                                     "60"
+    "AbilityChannelTime"                                  "5.0"
+    "AbilityCastPoint"                                    "0.4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,33 +36,33 @@
     {
       "01"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "effect_radius"             "1200" // Was 1500, which goes far outside the boss pit
+        "var_type"                                        "FIELD_INTEGER"
+        "effect_radius"                                   "1200" // Was 1500, which goes far outside the boss pit
       }
       "02"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "delay"                     "1.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "1.5"
       }
       "03"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "radius"                    "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
       }
       "04"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "blast_damage"              "1200"
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_damage"                                    "1200"
       }
       "05"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "channel_duration"          "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "channel_duration"                                "5.0"
       }
       "06"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "interval"                  "0.06"
+        "var_type"                                        "FIELD_FLOAT"
+        "interval"                                        "0.06"
       }
     }
   }

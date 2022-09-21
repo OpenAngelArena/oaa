@@ -35,37 +35,37 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8537"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_yasha_and_kaya"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "custom/yasha_and_kaya_5"
+    "ID"                                                  "8537"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_yasha_and_kaya"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/yasha_and_kaya_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "5"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "34104"
-    "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
-    "ItemQuality"                   "artifact"
-    "ItemAliases"                   "ynk 5;y&k 5;yk 5;yasha and kaya 5"
-    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"              "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"             "1"
+    "ItemCost"                                            "34104"
+    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "ynk 5;y&k 5;yk 5;yasha and kaya 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"     "16 24 32 48 72"
-      "bonus_intellect"     "16 24 32 48 72"
-      "bonus_attack_speed"  "12 17 22 27 32"
-      "mana_regen_multiplier"   "50 60 70 80 90"
-      "movement_speed_percent_bonus"  "10 12 14 16 18"
-      "spell_amp"     "16 20 24 28 32"
-      "spell_lifesteal_amp" "30 32 34 36 38"
+      "bonus_agility"                                     "16 24 32 48 72"
+      "bonus_intellect"                                   "16 24 32 48 72"
+      "bonus_attack_speed"                                "12 17 22 27 32"
+      "mana_regen_multiplier"                             "50 60 70 80 90"
+      "movement_speed_percent_bonus"                      "10 12 14 16 18"
+      "spell_amp"                                         "16 20 24 28 32"
+      "spell_lifesteal_amp"                               "30 32 34 36 38"
     }
   }
 }

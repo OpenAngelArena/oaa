@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8419"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "BaseClass"                     "item_datadriven"
-    "AbilityTextureName"            "custom/recipe/recipe_4"
+    "ID"                                                  "8419"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "BaseClass"                                           "item_datadriven"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
-    "ItemShopTags"                  ""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_meteor_hammer_4"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_meteor_hammer_4"
     "ItemRequirements"
     {
       "01"                                                "item_meteor_hammer_3;item_upgrade_core_3"
@@ -37,14 +37,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8420"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/meteor_hammer.lua"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityTextureName"            "item_custom/meteor_hammer_4"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"               "1"
+    "ID"                                                  "8420"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/meteor_hammer.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityTextureName"                                  "item_custom/meteor_hammer_4"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -53,21 +53,21 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"            "2.5"
+    "AbilityChannelTime"                                  "2.5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "600"
-    "AbilitySharedCooldown"         "meteor"
-    "AbilityCooldown"               "20 19 18 17 16"
-    "AbilityManaCost"               "100"
+    "AbilityCastRange"                                    "600"
+    "AbilitySharedCooldown"                               "meteor"
+    "AbilityCooldown"                                     "20 19 18 17 16"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "17503"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "mh 4;meteor hammer 4"
-    "ItemDeclarations"              "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "17503"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "mh 4;meteor hammer 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -151,10 +151,10 @@
     }
     "precache"
     {
-      "particle"                "particles/items4_fx/meteor_hammer_aoe.vpcf"
-      "particle"                "particles/items4_fx/meteor_hammer_spell.vpcf"
-      "particle"                "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-      "particle"                "particles/items4_fx/meteor_hammer_cast.vpcf"
+      "particle"                                          "particles/items4_fx/meteor_hammer_aoe.vpcf"
+      "particle"                                          "particles/items4_fx/meteor_hammer_spell.vpcf"
+      "particle"                                          "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
+      "particle"                                          "particles/items4_fx/meteor_hammer_cast.vpcf"
     }
   }
 }

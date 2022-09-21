@@ -8,25 +8,25 @@
   {
     // General
     //----------------------------------------------------------------
-    "BaseClass"					  "npc_dota_creature"
-    "Model"						    "models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
-    "SoundSet"					  "DireHound"
-    "Level"						    "1"
-    "IsAncient"					"1"
-    "ModelScale" 				  ".67"
-    "IsNeutralUnitType"	  "1"
-    "ConsideredHero"    "1"
-    "IsAncient"         "1"
-    "IsBossMonster"     "1"
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
+    "SoundSet"                                            "DireHound"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          ".67"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					""
-    "Ability2"					""
-    "Ability3"					""
-    "Ability4"					""
+    "Ability1"                                            ""
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
 
     // Armor
     //----------------------------------------------------------------
@@ -35,31 +35,31 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"			"1000"
-    "AttackDamageMax"			"1000"
-    "AttackRate"				"1.25"
-    "AttackAnimationPoint"		"0.33"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "1000"
+    "AttackDamageMax"                                     "1000"
+    "AttackRate"                                          "1.25"
+    "AttackAnimationPoint"                                "0.33"
     "AttackAcquisitionRange"                              "800"
-    "AttackRange"				"100"
-    "ProjectileModel"			""
-    "ProjectileSpeed"			"0"
+    "AttackRange"                                         "100"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"				"45"
-    "HealthBarOffset"			"90"
+    "RingRadius"                                          "45"
+    "HealthBarOffset"                                     "90"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"					"20"
-    "BountyGoldMin"				"11"
-    "BountyGoldMax"				"15"
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"310"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "310"
 
     // Status
     //----------------------------------------------------------------
@@ -70,16 +70,16 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"		"800"
-    "VisionNighttimeRange"		"800"
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-    "PathfindingSearchDepthScale"		"0.1"
+    "PathfindingSearchDepthScale"                         "0.1"
   }
 }

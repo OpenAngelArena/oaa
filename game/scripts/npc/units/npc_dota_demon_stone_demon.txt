@@ -4,7 +4,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"	// Model.
+    "Model"                                               "models/heroes/warlock/warlock_demon.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "Hero_WarlockGolem"
     "Level"                                               "6"
@@ -16,28 +16,28 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					""			// Ability 1
-    "Ability2"					""			// Ability 2
-    "Ability3"					""			// Ability 3
-    "Ability4"					""			// Ability 4
+    "Ability1"                                            ""      // Ability 1
+    "Ability2"                                            ""      // Ability 2
+    "Ability3"                                            ""      // Ability 3
+    "Ability4"                                            ""      // Ability 4
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "10"	  // Physical protection.
+    "ArmorPhysical"                                       "10"    // Physical protection.
     "MagicalResistance"                                   "33"
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "BaseAttackSpeed"                                     "100"
-    "AttackDamageMin"                                     "100"		// Damage range min.
-    "AttackDamageMax"                                     "100"		// Damage range max.
-    "AttackRate"                                          "1.0"		// Speed of attack.
-    "AttackAnimationPoint"                                "0.0"		// Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "600"		// Range within a target can be acquired.
-    "AttackRange"                                         "150"		// Range within a target can be attacked.
-    "ProjectileModel"                                     ""			// Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"			// Speed of projectile.
+    "AttackDamageMin"                                     "100"    // Damage range min.
+    "AttackDamageMax"                                     "100"    // Damage range max.
+    "AttackRate"                                          "1.0"    // Speed of attack.
+    "AttackAnimationPoint"                                "0.0"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     "0"      // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -46,31 +46,31 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "150"		// Experience earn.
-    "BountyGoldMin"                                       "150"		// Gold earned min.
-    "BountyGoldMax"                                       "150"		// Gold earned max.
+    "BountyXP"                                            "150"    // Experience earn.
+    "BountyGoldMin"                                       "150"    // Gold earned min.
+    "BountyGoldMax"                                       "150"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "370"		// Speed.
+    "MovementSpeed"                                       "370"    // Speed.
     "MovementTurnRate"                                    "0.5"   // Turning rate.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "900"	// Base health.
-    "StatusHealthRegen"                                   "10"		// Health regeneration rate.
-    "StatusMana"                                          "0"			// Base mana.
-    "StatusManaRegen"                                     "0"			// Mana regeneration rate.
+    "StatusHealth"                                        "900"  // Base health.
+    "StatusHealthRegen"                                   "10"    // Health regeneration rate.
+    "StatusMana"                                          "0"      // Base mana.
+    "StatusManaRegen"                                     "0"      // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1200"	// Range of vision during day light.
-    "VisionNighttimeRange"                                "800"		// Range of vision at night time.
+    "VisionDaytimeRange"                                  "1200"  // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"							// Team name.
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

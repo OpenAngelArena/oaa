@@ -38,45 +38,45 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "golem_duration"      "60"
-      "stun_duration"       "1.0"
-      "aoe"           "600"
-      "golem_hp"          "1400 3200 5000 10400 15800" //OAA
-      "golem_dmg"         "100 200 300 600 900" //OAA
-      "golem_armor"       "10 20 30 40 50" //OAA
-      "golem_movement_speed"    "320 340 360 380 400"
-      "golem_health_regen"    "30 60 90 120 150" //OAA
-      "golem_gold_bounty"     "100 150 200 500 1000"
+      "golem_duration"                                    "60"
+      "stun_duration"                                     "1.0"
+      "aoe"                                               "600"
+      "golem_hp"                                          "1400 3200 5000 10400 15800" //OAA
+      "golem_dmg"                                         "100 200 300 600 900" //OAA
+      "golem_armor"                                       "10 20 30 40 50" //OAA
+      "golem_movement_speed"                              "320 340 360 380 400"
+      "golem_health_regen"                                "30 60 90 120 150" //OAA
+      "golem_gold_bounty"                                 "100 150 200 500 1000"
       "stun_delay"                                        "0.5"
       "number_of_golems_scepter"
       {
-        "value" "2"
-        "RequiresScepter"   "1"
+        "value"                                           "2"
+        "RequiresScepter"                                 "1"
       }
       "golem_hp_scepter" //OAA
       {
-        "value"     "1120 2560 4000 8320 12640"
-        "RequiresScepter"   "1"
+        "value"                                           "1120 2560 4000 8320 12640"
+        "RequiresScepter"                                 "1"
       }
       "golem_dmg_scepter" //OAA
       {
-        "value"       "75 150 225 450 675"
-        "RequiresScepter"   "1"
+        "value"                                           "75 150 225 450 675"
+        "RequiresScepter"                                 "1"
       }
       "golem_gold_bounty_scepter"
       {
-        "value"         "50 75 100 250 500"
-        "RequiresScepter"   "1"
+        "value"                                           "50 75 100 250 500"
+        "RequiresScepter"                                 "1"
       }
       "bonus_magic_resistance"
       {
-        "value"     "0"
-        "special_bonus_unique_warlock_1"    "+80"
+        "value"                                           "0"
+        "special_bonus_unique_warlock_1"                  "+80"
       }
       "bonus_armor"
       {
-        "value"     "0"
-        "special_bonus_unique_warlock_2"    "+20"
+        "value"                                           "0"
+        "special_bonus_unique_warlock_2"                  "+20"
       }
     }
   }

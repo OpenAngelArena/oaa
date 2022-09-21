@@ -34,11 +34,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "start_radius"      "150"
-      "end_radius"      "250"
-      "range"         "750"
-      "AbilityCastRange"      "600"
-      "speed"         "1050"
+      "start_radius"                                      "150"
+      "end_radius"                                        "250"
+      "range"                                             "750"
+      "AbilityCastRange"                                  "600"
+      "speed"                                             "1050"
       "damage"                                            "80 160 240 320 640 1280"
       "reduction"
       {
@@ -47,10 +47,10 @@
       }
       "dragon_form_bonus_pct"
       {
-        "value"   "0"
-        "special_bonus_unique_dragon_knight_9"        "+75"
+        "value"                                           "0"
+        "special_bonus_unique_dragon_knight_9"            "+75"
       }
-      "duration"        "11"
+      "duration"                                          "11"
     }
   }
 }

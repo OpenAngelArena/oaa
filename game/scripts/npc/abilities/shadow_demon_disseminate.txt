@@ -7,36 +7,36 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "1001"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "ID"                                                  "1001"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" //OAA, Valve forgot about this
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "24 22 20 18 18 18" //OAA
+    "AbilityCooldown"                                     "24 22 20 18 18 18" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "700 800 900 1000 1100 1200"
-    "AbilityCastPoint"        "0.3"
+    "AbilityCastRange"                                    "700 800 900 1000 1100 1200"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "100"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                                  "6"
+      "duration"                                          "6"
       "damage_reflection_pct" //OAA
       {
-        "value"                                                   "15 20 25 30 35 40"
-        "special_bonus_unique_shadow_demon_disseminate_damage"    "+10"
+        "value"                                           "15 20 25 30 35 40"
+        "special_bonus_unique_shadow_demon_disseminate_damage"  "+10"
       }
-      "radius"                                                    "600"
+      "radius"                                            "600"
     }
   }
 }

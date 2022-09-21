@@ -27,29 +27,29 @@
     {
       "vampiric_aura" //OAA
       {
-        "value"                 "15 25 35 45 55 65"
-        "special_bonus_unique_wraith_king_2"  "+8"
+        "value"                                           "15 25 35 45 55 65"
+        "special_bonus_unique_wraith_king_2"              "+8"
       }
       "skeleton_duration"
       {
-        "value"         "40"
-        "special_bonus_unique_wraith_king_vampiric_skeleton_duration" "+25%"
+        "value"                                           "40"
+        "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "+25%"
       }
       "AbilityCooldown" //OAA
       {
-        "value"         "30"
-        "special_bonus_unique_wraith_king_vampiric_skeleton_duration" "-25%"
+        "value"                                           "30"
+        "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "-25%"
       }
-      "max_skeleton_charges"      "8" //OAA
+      "max_skeleton_charges"                              "8" //OAA
       "min_skeleton_spawn"
       {
-        "value"   "0"
-        "special_bonus_unique_wraith_king_5"  "+6"
+        "value"                                           "0"
+        "special_bonus_unique_wraith_king_5"              "+6"
       }
-      "spawn_interval"      "0.25"
-      "reincarnate_time"      "3"
-      "gold_bounty"           "5"
-      "xp_bounty"           "5"
+      "spawn_interval"                                    "0.25"
+      "reincarnate_time"                                  "3"
+      "gold_bounty"                                       "5"
+      "xp_bounty"                                         "5"
     }
   }
 }
