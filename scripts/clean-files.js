@@ -5,6 +5,7 @@ const readline = require('readline');
 
 const tab = '  ';
 const padLenght = 59;
+const padLenghtTooltips = 81;
 
 function stringRepeat (string, num) {
   let result = '';
@@ -40,13 +41,50 @@ const walk = function (directoryName, action) {
 function cleanTooltipFile (file) {
   // console.log('Cleaning ' + chalk.green(file));
 
-  fs.readFile(file, 'utf8', function (err, data) {
-    if (err) {
-      return console.error(chalk.red(err));
-    }
-    const result = data.replace(/^ +/gm, '').replace(/\t/g, tab).replace(/\r\n/g, '\n');
+  const lineReader = readline.createInterface({
+    input: fs.createReadStream(file)
+  });
 
-    if (!checkEqual(data, result)) {
+  let result = '';
+  let before = '';
+  let error = false;
+  let lineNumber = 0;
+
+  lineReader.on('line', (line) => {
+    before += line + '\n';
+    lineNumber++;
+    // replace tabs
+    line = line.replace(/\t/g, tab);
+
+    line = line.replace(/^ +/g, stringRepeat(tab, 0));
+
+    let padLenght = padLenghtTooltips;
+    if (line.trimStart().startsWith('//')) {
+      padLenght = padLenghtTooltips + 2;
+    }
+
+    line = line.replace(/" +"/g, '"  "');
+
+    const indices = [];
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') indices.push(i);
+    }
+
+    if (Object.keys(indices).length % 2 === 1) {
+      console.error(chalk.red('ERR File "' + file + '" has an uneven number of " at line ' + lineNumber + '.'));
+      error = true;
+      return;
+    }
+
+    if (Object.keys(indices).length > 2 && indices[2] < padLenght) {
+      line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1] - 2) + line.slice(indices[2]);
+    }
+
+    result += line + '\n';
+  });
+
+  lineReader.on('close', () => {
+    if (!error && !checkEqual(before, result)) {
       fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
