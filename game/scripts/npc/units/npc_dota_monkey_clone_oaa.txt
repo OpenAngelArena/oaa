@@ -90,10 +90,22 @@
     {
       "AttachWearables"
       {
-      "Wearable1"                                         "ItemDef"  "594" }      // head
-      "Wearable2"                                         "ItemDef"  "608" }      // armor
-      "Wearable3"                                         "ItemDef"  "609" }      // weapon
-      "Wearable4"                                         "ItemDef"  "657" }      // shoulders
+        "Wearable1" // head
+        {
+          "ItemDef"                                       "594"
+        }
+        "Wearable2" // armor
+        {
+          "ItemDef"                                       "608"
+        }
+        "Wearable3" // weapon
+        {
+          "ItemDef"                                       "609"
+        }
+        "Wearable4" // shoulders
+        {
+          "ItemDef"                                       "657"
+        }
       }
     }
   }
