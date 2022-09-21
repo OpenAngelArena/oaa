@@ -1,20 +1,20 @@
 //=============================================================================
 // OAA Custom PoopWard Scan
 //=============================================================================
-"DOTA_Tooltip_ability_fountain_glyph"                 "Glyph {s:glyph_hotkey}"
-"DOTA_Tooltip_ability_fountain_glyph_Description"     "Kicks enemies out of your base for 7 seconds."
-"DOTA_Hotkeys_Tooltip_ActivateGlyph"                  "Activates the Glyph to kick enemies out of your base."
+"DOTA_Tooltip_ability_fountain_glyph"                                           "Glyph {s:glyph_hotkey}"
+"DOTA_Tooltip_ability_fountain_glyph_Description"                               "Kicks enemies out of your base for 7 seconds."
+"DOTA_Hotkeys_Tooltip_ActivateGlyph"                                            "Activates the Glyph to kick enemies out of your base."
 
-"DOTA_HPMana_Alert_Glyph_Ready"                       "Glyph %s1Ready"
-"DOTA_HPMana_Alert_Glyph_Cooldown"                    "Glyph %s1On Cooldown ( %s2 seconds remain )"
-"DOTA_HPMana_Alert_Glyph_Wait"                        "Glyph %s1Don't Use Yet"
+"DOTA_HPMana_Alert_Glyph_Ready"                                                 "Glyph %s1Ready"
+"DOTA_HPMana_Alert_Glyph_Cooldown"                                              "Glyph %s1On Cooldown ( %s2 seconds remain )"
+"DOTA_HPMana_Alert_Glyph_Wait"                                                  "Glyph %s1Don't Use Yet"
 
-"DOTA_Tooltip_ability_radar"                          "Scan & Reveal {s:scan_hotkey}"
-"DOTA_Tooltip_ability_radar_Description"              "Scans a targeted 900 AoE for 14 seconds. Grants True Sight and indicates whether there are enemy heroes in that area."
-"DOTA_Hotkeys_Tooltip_ActivateRadar"                  "Activates Scan to reveal enemies."
+"DOTA_Tooltip_ability_radar"                                                    "Scan & Reveal {s:scan_hotkey}"
+"DOTA_Tooltip_ability_radar_Description"                                        "Scans a targeted 900 AoE for 14 seconds. Grants True Sight and indicates whether there are enemy heroes in that area."
+"DOTA_Hotkeys_Tooltip_ActivateRadar"                                            "Activates Scan to reveal enemies."
 
-//"Dota_tooltip_oaa_poop_ward_title"                    "Poop Wards"
-//"Dota_tooltip_oaa_poop_ward_description"              "Spawn a ward that lasts for 6 minutes but is visible to enemies within a 200 unit radius"
+//"Dota_tooltip_oaa_poop_ward_title"                                              "Poop Wards"
+//"Dota_tooltip_oaa_poop_ward_description"                                        "Spawn a ward that lasts for 6 minutes but is visible to enemies within a 200 unit radius"
 
-"Dota_tooltip_oaa_scan_title"                         "#{DOTA_Tooltip_ability_radar}"
-"Dota_tooltip_oaa_scan_description"                   "#{DOTA_Tooltip_ability_radar_Description}"
+"Dota_tooltip_oaa_scan_title"                                                   "#{DOTA_Tooltip_ability_radar}"
+"Dota_tooltip_oaa_scan_description"                                             "#{DOTA_Tooltip_ability_radar_Description}"

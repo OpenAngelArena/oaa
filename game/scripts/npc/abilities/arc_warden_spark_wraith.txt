@@ -33,25 +33,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                  "375"
-      "activation_delay"              "2.0"
-      "duration"                  "45"
-      "wraith_speed"                "400"
+      "radius"                                            "375"
+      "activation_delay"                                  "2.0"
+      "duration"                                          "45"
+      "wraith_speed"                                      "400"
       "spark_damage" //OAA
       {
 
-        "value"                 "100 180 260 340 680 1020"
-        "special_bonus_unique_arc_warden"   "+250"
+        "value"                                           "100 180 260 340 680 1020"
+        "special_bonus_unique_arc_warden"                 "+250"
       }
-      "think_interval"              "0.2"
-      "wraith_vision_radius"            "300"
-      "wraith_vision_duration"          "3.34"
-      "ministun_duration"             "0.4 0.5 0.6 0.7 0.8 0.9"
-      "move_speed_slow_pct"           "100"
+      "think_interval"                                    "0.2"
+      "wraith_vision_radius"                              "300"
+      "wraith_vision_duration"                            "3.34"
+      "ministun_duration"                                 "0.4 0.5 0.6 0.7 0.8 0.9"
+      "move_speed_slow_pct"                               "100"
       "scepter_activation_delay"
       {
-        "value"                 "2.0"
-        "RequiresScepter"           "1"
+        "value"                                           "2.0"
+        "RequiresScepter"                                 "1"
       }
     }
   }

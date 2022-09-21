@@ -35,8 +35,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "8535"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "8535"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "BaseClass"                                           "item_yasha_and_kaya"
     "AbilityTextureName"                                  "custom/yasha_and_kaya_2"
 
@@ -47,25 +47,25 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "5601"
-    "ItemShopTags"                  "damage;str;agi;attack_speed;unique"
-    "ItemQuality"                   "artifact"
-    "ItemAliases"                   "ynk 2;y&k 2;yk 2;yasha and kaya 2"
-    "ItemDisassembleRule"           "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"              "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"             "1"
+    "ItemCost"                                            "5601"
+    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "ynk 2;y&k 2;yk 2;yasha and kaya 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"     "16 24 32 48 72"
-      "bonus_intellect"     "16 24 32 48 72"
-      "bonus_attack_speed"  "12 17 22 27 32"
-      "mana_regen_multiplier"   "50 60 70 80 90"
-      "movement_speed_percent_bonus"  "10 12 14 16 18"
-      "spell_amp"     "16 20 24 28 32"
-      "spell_lifesteal_amp" "30 32 34 36 38"
+      "bonus_agility"                                     "16 24 32 48 72"
+      "bonus_intellect"                                   "16 24 32 48 72"
+      "bonus_attack_speed"                                "12 17 22 27 32"
+      "mana_regen_multiplier"                             "50 60 70 80 90"
+      "movement_speed_percent_bonus"                      "10 12 14 16 18"
+      "spell_amp"                                         "16 20 24 28 32"
+      "spell_lifesteal_amp"                               "30 32 34 36 38"
     }
   }
 }

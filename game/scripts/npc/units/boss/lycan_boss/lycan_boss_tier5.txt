@@ -7,35 +7,35 @@
   "npc_dota_creature_lycan_boss_tier5"
   {
     // Script
-    "vscripts"					"units/ai_lycan_boss_tier5.lua"
+    "vscripts"                                            "units/ai_lycan_boss_tier5.lua"
 
     // General
     //----------------------------------------------------------------
-    "BaseClass"					"npc_dota_creature"
-    "Model"						  "models/heroes/lycan/lycan.vmdl"
-    "SoundSet"					"Hero_Lycan"
-    "Level"						  "1"
-    "ModelScale" 				"1.6"
-    "ConsideredHero"		"1"
-    "IsAncient"					"1"
-    "IsBossMonster"			"1"
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/heroes/lycan/lycan.vmdl"
+    "SoundSet"                                            "Hero_Lycan"
+    "Level"                                               "1"
+    "ModelScale"                                          "1.6"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
 
     // Minimap
     //----------------------------------------------------------------
-    "MinimapIcon"				"minimap_roshancamp"
-    "MinimapIconSize"		"250"
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "250"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					        "lycan_boss_summon_wolves_tier5"
-    "Ability2"					        "lycan_boss_shapeshift_tier5"
-    "Ability3"					        "lycan_boss_claw_lunge_tier5"
-    "Ability4"					        "lycan_boss_claw_attack_tier5"
-    "Ability5"					        "lycan_boss_rupture_ball_tier5"
-    "Ability6"                  "boss_resistance"
-    "Ability7"                  "boss_cliffwalk"
-    "Ability8"                  "boss_regen"
-    "Ability9"                  "siltbreaker_boss_protection"
+    "Ability1"                                            "lycan_boss_summon_wolves_tier5"
+    "Ability2"                                            "lycan_boss_shapeshift_tier5"
+    "Ability3"                                            "lycan_boss_claw_lunge_tier5"
+    "Ability4"                                            "lycan_boss_claw_attack_tier5"
+    "Ability5"                                            "lycan_boss_rupture_ball_tier5"
+    "Ability6"                                            "boss_resistance"
+    "Ability7"                                            "boss_cliffwalk"
+    "Ability8"                                            "boss_regen"
+    "Ability9"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
@@ -44,32 +44,32 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"			    "3000"
-    "AttackDamageMax"			    "3200"
-    "AttackRate"				      "1.45"
-    "AttackAnimationPoint"		"0.55"
-    "AttackAcquisitionRange"	"600"
-    "AttackRange"				      "200"
-    "ProjectileModel"			    ""
-    "ProjectileSpeed"			    "0"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+    "AttackDamageMin"                                     "3000"
+    "AttackDamageMax"                                     "3200"
+    "AttackRate"                                          "1.45"
+    "AttackAnimationPoint"                                "0.55"
+    "AttackAcquisitionRange"                              "600"
+    "AttackRange"                                         "200"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"				  "75"
-    "HealthBarOffset"			"300"
+    "RingRadius"                                          "75"
+    "HealthBarOffset"                                     "300"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"					  "5000"
-    "BountyGoldMin"				"0"
-    "BountyGoldMax"				"0"
+    "BountyXP"                                            "5000"
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"500"
-    "MovementTurnRate"			"0.5"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "500"
+    "MovementTurnRate"                                    "0.5"
 
     // Status
     //----------------------------------------------------------------
@@ -85,10 +85,10 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "precache"
     {
@@ -114,33 +114,33 @@
     //----------------------------------------------------------------
     "Creature"
     {
-      "DisableResistance"			"80.0"
+      "DisableResistance"                                 "80.0"
       // Lucius LongClaw items
       "AttachWearables"
       {
         "Wearable1"
         {
-          "ItemDef"			"7851" // back: default
+          "ItemDef"                                       "7851" // back: default
         }
         "Wearable2"
         {
-          "ItemDef"			"7852" // misc: default
+          "ItemDef"                                       "7852" // misc: default
         }
         "Wearable3"
         {
-          "ItemDef"			"7853" // legs: default
+          "ItemDef"                                       "7853" // legs: default
         }
         "Wearable4"
         {
-          "ItemDef"			"7854" // arms: default
+          "ItemDef"                                       "7854" // arms: default
         }
         "Wearable5"
         {
-          "ItemDef"			"7855" // weapon: default
+          "ItemDef"                                       "7855" // weapon: default
         }
         "Wearable6"
         {
-          "ItemDef"			"207" // weapon: head
+          "ItemDef"                                       "207" // weapon: head
         }
       }
     }

@@ -34,19 +34,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"      "275"
-      "duration"          "10.5"
+      "radius"                                            "275"
+      "duration"                                          "10.5"
       "interval"
       {
-        "value"               "0.7"
-        "special_bonus_unique_clockwerk"    "-0.25"
+        "value"                                           "0.7"
+        "special_bonus_unique_clockwerk"                  "-0.25"
       }
       "damage" //OAA
       {
         "value"                                           "20 45 70 95 195 295"
         "special_bonus_unique_clockwerk_3"                "+48"
       }
-      "creep_damage_multiplier"         "2"
+      "creep_damage_multiplier"                           "2"
     }
   }
 }

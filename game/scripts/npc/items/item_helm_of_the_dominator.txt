@@ -7,16 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "163"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "163"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "975"
-    "ItemShopTags"          ""
+    "ItemCost"                                            "975"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_helm_of_the_dominator"
     "ItemRequirements"
     {
@@ -31,27 +31,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "164"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "ID"                                                  "164"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     //"AbilityTextureName"            "custom/helm_of_the_dominator_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "700"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "45.0"
-    "AbilitySharedCooldown"         "dominate"
+    "AbilityCastRange"                                    "700"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "45.0"
+    "AbilitySharedCooldown"                               "dominate"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "0"
-    "ItemCost"            "2400"
-    "ItemShopTags"          "damage;armor;unique;hard_to_tag"
-    "ItemQuality"         "artifact"
-    "ItemAliases"         "hotd;helm of the dominator;helm;dominator"
+    "AbilityManaCost"                                     "0"
+    "ItemCost"                                            "2400"
+    "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "hotd;helm of the dominator;helm;dominator"
 
     // "MaxUpgradeLevel"                                     "5"
     // "ItemBaseLevel"                                       "1"

@@ -34,23 +34,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"          "175"
-      "spread"          "450"
-      "range"           "1500"
-      "axe_damage"          "40 70 100 130 260 520"
-      "duration"            "12"
+      "radius"                                            "175"
+      "spread"                                            "450"
+      "range"                                             "1500"
+      "axe_damage"                                        "40 70 100 130 260 520"
+      "duration"                                          "12"
       "damage_amp"
       {
-        "value"       "6 8 10 12 14 16"
-        "special_bonus_unique_beastmaster_9"    "+2.5"
+        "value"                                           "6 8 10 12 14 16"
+        "special_bonus_unique_beastmaster_9"              "+2.5"
       }
       "AbilityCooldown"
       {
-        "value"     "8"
-        "special_bonus_unique_beastmaster_wild_axe_cooldown"           "-5"
+        "value"                                           "8"
+        "special_bonus_unique_beastmaster_wild_axe_cooldown"  "-5"
       }
-      "min_throw_duration"            "0.4"
-      "max_throw_duration"            "1.0"
+      "min_throw_duration"                                "0.4"
+      "max_throw_duration"                                "1.0"
     }
   }
 }

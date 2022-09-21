@@ -35,30 +35,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                          "3731"
-    "BaseClass"                   "item_glimmer_cape"
-    "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-    "AbilityUnitTargetTeam"       "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityTextureName"          "custom/glimmer_cape_2"
+    "ID"                                                  "3731"
+    "BaseClass"                                           "item_glimmer_cape"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityTextureName"                                  "custom/glimmer_cape_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"            "600 700 800 900 1000"
-    "AbilityCooldown"             "14.0"
+    "AbilityCastRange"                                    "600 700 800 900 1000"
+    "AbilityCooldown"                                     "14.0"
     "AbilitySharedCooldown"                               "glimmer"
-    "AbilityManaCost"             "90"
+    "AbilityManaCost"                                     "90"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                    "3451"
-    "ItemShopTags"                ""
-    "ItemQuality"                 "rare"
-    "ItemDisassembleRule"         "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemAliases"                 "glimmer cape 2;glimmer 2"
+    "ItemCost"                                            "3451"
+    "ItemShopTags"                                        ""
+    "ItemQuality"                                         "rare"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemAliases"                                         "glimmer cape 2;glimmer 2"
 
-    "MaxUpgradeLevel"             "5"
-    "ItemBaseLevel"               "2"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

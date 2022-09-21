@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "86397"
-    "BaseClass"           "special_bonus_undefined"
-    "AbilityType"         "DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "86397"
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,15 +18,15 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "cast_range"      "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "0"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
+        "var_type"                                        "FIELD_INTEGER"
         // Cannot be 0 because is used to calculate lifetime of the arrow
         // Destroyed on map border hit
-        "projectile_range" "50000"          // 45000 is enough even if the map size is 32k x 32k
+        "projectile_range"                                "50000"          // 45000 is enough even if the map size is 32k x 32k
       }
     }
   }

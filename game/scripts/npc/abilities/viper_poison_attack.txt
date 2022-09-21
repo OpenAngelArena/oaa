@@ -37,24 +37,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"            "4"
+      "duration"                                          "4"
       "damage"
       {
-        "value"         "4 8 12 16 32 48"
-        "special_bonus_unique_viper_7"  "+25%"
+        "value"                                           "4 8 12 16 32 48"
+        "special_bonus_unique_viper_7"                    "+25%"
       }
       "movement_speed"
       {
-        "value"         "6 8 10 12 14 16"
-        "special_bonus_unique_viper_7"  "+25%"
+        "value"                                           "6 8 10 12 14 16"
+        "special_bonus_unique_viper_7"                    "+25%"
       }
       "magic_resistance"
       {
-        "value"     "4 6 8 10 11 12"
-        "special_bonus_unique_viper_4"  "+5"
+        "value"                                           "4 6 8 10 11 12"
+        "special_bonus_unique_viper_4"                    "+5"
       }
-      "max_stacks"      "5"
-      "bonus_range"     "25 65 105 145 185 225"
+      "max_stacks"                                        "5"
+      "bonus_range"                                       "25 65 105 145 185 225"
       "shard_armor_reduction"
       {
         "value"                                           "1"

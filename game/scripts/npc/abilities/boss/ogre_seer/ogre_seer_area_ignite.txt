@@ -5,12 +5,12 @@
   //=================================================================================================================
   "ogre_seer_area_ignite"
   {
-    "ID"                            "8436"
+    "ID"                                                  "8436"
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/boss/ogre_seer/ogre_seer_area_ignite.lua"
-    "AbilityTextureName"            "ogre_magi_ignite"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/ogre_seer/ogre_seer_area_ignite.lua"
+    "AbilityTextureName"                                  "ogre_magi_ignite"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -19,20 +19,20 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                      "1"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "800"
-    "AbilityCastPoint"              "0.45"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.45"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "10"
+    "AbilityCooldown"                                     "10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

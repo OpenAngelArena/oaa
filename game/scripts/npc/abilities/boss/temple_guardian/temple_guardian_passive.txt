@@ -5,19 +5,19 @@
   //=================================================================================================================
   "temple_guardian_passive"
   {
-    "ID"                            "8597"
+    "ID"                                                  "8597"
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/boss/temple_guardian/temple_guardian_passive.lua"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_passive.lua"
 
-    "AbilityTextureName"            "silencer_last_word"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"                                  "silencer_last_word"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
-    "MaxLevel"                      "1"
-    "RequiredLevel"                 "1"
-    "LevelsBetweenUpgrades"         "1"
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -25,8 +25,8 @@
     {
       "01"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "movement_speed"            "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "300"
       }
     }
   }

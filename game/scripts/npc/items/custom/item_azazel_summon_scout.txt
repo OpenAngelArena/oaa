@@ -36,38 +36,38 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7557"
-    "BaseClass"                             "item_lua"
-    "ScriptFile"                            "items/azazel_summon.lua"
-    "AbilityTextureName"                    "custom/azazel_summon_scout"
-    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "ID"                                                  "7557"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/azazel_summon.lua"
+    "AbilityTextureName"                                  "custom/azazel_summon_scout"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                      "0"
-    "AbilityCastPoint"                      "0.0"
-    "AbilitySharedCooldown"                 "azazel_summon"
-    "AbilityCooldown"                       "1.0"
-    "AbilityManaCost"                       "0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "azazel_summon"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemShopTags"                          "consumable"
-    "ItemQuality"                           "epic"
-    "ItemAliases"                           "summon, scout, azazel"
-    "ItemStackable"                         "0"
-    "ItemPermanent"                         "0"
-    "ItemInitialCharges"                    "1"
-    "ItemRequiresCharges"                   "1"
-    "ItemKillable"                          "1"
-    "ItemPurchasable"                       "1"
-    "ItemSellable"                          "0"
-    "SecretShop"                            "1"
-    "SecretShopType"                        "Summons"
-    "IsTempestDoubleClonable"               "0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "summon, scout, azazel"
+    "ItemStackable"                                       "0"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+    "ItemSellable"                                        "0"
+    "SecretShop"                                          "1"
+    "SecretShopType"                                      "Summons"
+    "IsTempestDoubleClonable"                             "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,28 +75,28 @@
     {
       "01"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "summon_health"                     "2500"
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_health"                                   "2500"
       }
       "02"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "summon_armor"                      "15"
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_armor"                                    "15"
       }
       "03"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "summon_ms"                         "500"
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_ms"                                       "500"
       }
       "04"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "summon_damage"                     "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_damage"                                   "0"
       }
       "05" // needs to be changed on the unit as well
       {
-        "var_type"                          "FIELD_INTEGER"
-        "summon_vision"                     "900"
+        "var_type"                                        "FIELD_INTEGER"
+        "summon_vision"                                   "900"
       }
     }
   }

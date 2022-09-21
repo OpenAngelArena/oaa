@@ -31,23 +31,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pull_radius"         "410"
-      "polarity_damage"       "250 450 650 1050 1850" //OAA
+      "pull_radius"                                       "410"
+      "polarity_damage"                                   "250 450 650 1050 1850" //OAA
       "hero_stun_duration"
       {
-        "value"         "2.75 3.25 3.75 4.25 4.75"
-        "special_bonus_unique_magnus_5" "+1"
+        "value"                                           "2.75 3.25 3.75 4.25 4.75"
+        "special_bonus_unique_magnus_5"                   "+1"
       }
-      "pull_duration"     "0.0"
+      "pull_duration"                                     "0.0"
       "strength_buff_duration"
       {
-        "value"         "0"
-        "special_bonus_unique_magnus_reverse_polarity_strength"     "+15"
+        "value"                                           "0"
+        "special_bonus_unique_magnus_reverse_polarity_strength"  "+15"
       }
       "strength_per_stack"
       {
-        "value"         "0"
-        "special_bonus_unique_magnus_reverse_polarity_strength"     "+12"
+        "value"                                           "0"
+        "special_bonus_unique_magnus_reverse_polarity_strength"  "+12"
       }
     }
   }

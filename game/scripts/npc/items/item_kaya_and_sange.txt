@@ -7,8 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "273"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "273"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/kaya_and_sange"
 
     // Stats
@@ -18,25 +18,25 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "4100"
-    "ItemShopTags"          "damage;str;agi;attack_speed;unique"
-    "ItemQuality"         "artifact"
-    "ItemAliases"         "snk;s&k;sk;sange and kaya"
-    "ItemDisassembleRule"     "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "ItemDeclarations"        "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"       "1"
+    "ItemCost"                                            "4100"
+    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "snk;s&k;sk;sange and kaya"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"    "16 24 32 48 72"
-      "bonus_intellect"     "16 24 32 48 72"
-      "status_resistance"       "18 20 22 24 26" //OAA
-      "mana_regen_multiplier"   "50 60 70 80 90"
-      "spell_amp"     "16 20 24 28 32"
-      "hp_regen_amp"      "22 24 26 28 30"
-      "spell_lifesteal_amp" "26 28 30 32 34" //OAA
+      "bonus_strength"                                    "16 24 32 48 72"
+      "bonus_intellect"                                   "16 24 32 48 72"
+      "status_resistance"                                 "18 20 22 24 26" //OAA
+      "mana_regen_multiplier"                             "50 60 70 80 90"
+      "spell_amp"                                         "16 20 24 28 32"
+      "hp_regen_amp"                                      "22 24 26 28 30"
+      "spell_lifesteal_amp"                               "26 28 30 32 34" //OAA
     }
   }
 }

@@ -65,18 +65,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"      "350 700 1050 1400 1750"
-      "bonus_health_regen"  "12 15 18 21 24"
-      "bonus_armor"     "6 7 9 12 16"
-      "block_damage_melee"  "75 125 175 225 275"
-      "block_damage_ranged" "50 85 120 155 190"
-      "block_chance"      "60"
-      "duration"  "12"
-      "bonus_aoe_radius"    "1200"
-      "block_damage_melee_active" "100 150 200 250 300"
-      "block_damage_ranged_active"  "100 150 200 250 300"
-      "block_chance_active"     "100"
-      "tooltip_reapply_time"  "20"
+      "bonus_health"                                      "350 700 1050 1400 1750"
+      "bonus_health_regen"                                "12 15 18 21 24"
+      "bonus_armor"                                       "6 7 9 12 16"
+      "block_damage_melee"                                "75 125 175 225 275"
+      "block_damage_ranged"                               "50 85 120 155 190"
+      "block_chance"                                      "60"
+      "duration"                                          "12"
+      "bonus_aoe_radius"                                  "1200"
+      "block_damage_melee_active"                         "100 150 200 250 300"
+      "block_damage_ranged_active"                        "100 150 200 250 300"
+      "block_chance_active"                               "100"
+      "tooltip_reapply_time"                              "20"
     }
   }
 }

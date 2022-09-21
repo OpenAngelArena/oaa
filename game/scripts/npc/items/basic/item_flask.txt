@@ -5,30 +5,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "39"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "Model"             "models/props_gameplay/salve.vmdl"
+    "ID"                                                  "39"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "Model"                                               "models/props_gameplay/salve.vmdl"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "250"
-    "AbilityCastPoint"        "0.0"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilityCastRange"                                    "250"
+    "AbilityCastPoint"                                    "0.0"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "60" //OAA
-    "ItemShopTags"          "consumable"
-    "ItemQuality"         "consumable"
-    "ItemAliases"         "healing salve"
-    "ItemStackable"         "1"
-    "ItemPermanent"         "0"
-    "ItemInitialCharges"      "1"
-    "IsTempestDoubleClonable"   "0"
-    "ShouldBeInitiallySuggested"  "1"
-    "ItemShareability"        "ITEM_FULLY_SHAREABLE" //OAA
+    "ItemCost"                                            "60" //OAA
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "consumable"
+    "ItemAliases"                                         "healing salve"
+    "ItemStackable"                                       "1"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "IsTempestDoubleClonable"                             "0"
+    "ShouldBeInitiallySuggested"                          "1"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,18 +36,18 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "buff_duration"     "10" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_duration"                                   "10" //OAA
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "health_regen"      "40" //OAA
+        "var_type"                                        "FIELD_INTEGER"
+        "health_regen"                                    "40" //OAA
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "break_on_hero_damage"  "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "break_on_hero_damage"                            "1"
       }
     }
   }

@@ -7,18 +7,18 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/heroes/brewmaster/brewmaster_voidspirit.vmdl"	// Model.
+    "Model"                                               "models/heroes/brewmaster/brewmaster_voidspirit.vmdl"  // Model.
     "BaseClass"                                           "npc_dota_brewmaster_void"
-    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"		// custom facial animation idle
-    "SoundSet"					"Brewmaster_Earth"			// Name of sound set.
-    "IdleSoundLoop"				""
-    "Level"						"8"
+    "IdleExpression"                                      "scenes/brewmaster/brewmaster_spirits_exp_idle_01.vcd"    // custom facial animation idle
+    "SoundSet"                                            "Brewmaster_Earth"      // Name of sound set.
+    "IdleSoundLoop"                                       ""
+    "Level"                                               "8"
     "ModelScale"                                          "1"
-    "IsSummoned"				"0"
-    "IsAncient"					"1"
-    "ConsideredHero"			"1"
-    "IgnoreAddSummonedToSelection" "1"
-    "UnitLabel"					"brewmaster_void"
+    "IsSummoned"                                          "0"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+    "IgnoreAddSummonedToSelection"                        "1"
+    "UnitLabel"                                           "brewmaster_void"
 
     // Abilities
     //----------------------------------------------------------------
@@ -36,13 +36,13 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "145" // lvl 3 + 20 x 3
     "AttackDamageMax"                                     "155" // lvl 3 + 20 x 3
     "AttackRate"                                          "0.8" // same as lvl 3
-    "AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
-    "AttackRange"				"150"		// Range within a target can be attacked.
+    "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "600"    // Range within a target can be acquired.
+    "AttackRange"                                         "150"    // Range within a target can be attacked.
 
     // Bounds
     //----------------------------------------------------------------
@@ -50,10 +50,10 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"450"		// Speed.
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "450"    // Speed.
 
-    "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
 
     // Status
     //----------------------------------------------------------------
@@ -64,14 +64,14 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"		"1800"		// Range of vision during day light.
-    "VisionNighttimeRange"		"800"		// Range of vision at night time.
+    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }

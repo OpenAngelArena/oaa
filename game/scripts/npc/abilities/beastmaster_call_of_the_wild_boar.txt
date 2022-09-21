@@ -29,18 +29,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"              "60"
-      "boar_base_max_health"        "300 550 800 1050 2100 3150" //OAA, for picking screen tooltip
-      "boar_base_damage"          "20 40 60 80 180 280" //OAA, for picking screen tooltip
+      "duration"                                          "60"
+      "boar_base_max_health"                              "300 550 800 1050 2100 3150" //OAA, for picking screen tooltip
+      "boar_base_damage"                                  "20 40 60 80 180 280" //OAA, for picking screen tooltip
       "boar_bonus_damage" //OAA
       {
-        "value"                   "0"
-        "special_bonus_unique_beastmaster_2"    "+70"
+        "value"                                           "0"
+        "special_bonus_unique_beastmaster_2"              "+70"
       }
-      "boar_base_xp_bounty"       "60 70 80 90 180 360"
-      "boar_base_movespeed"       "320 330 340 350 360 370"
-      "boar_moveslow_tooltip"       "10 18 26 34 42 50"
-      "boar_poison_duration_tooltip"    "3.0"
+      "boar_base_xp_bounty"                               "60 70 80 90 180 360"
+      "boar_base_movespeed"                               "320 330 340 350 360 370"
+      "boar_moveslow_tooltip"                             "10 18 26 34 42 50"
+      "boar_poison_duration_tooltip"                      "3.0"
     }
   }
 }

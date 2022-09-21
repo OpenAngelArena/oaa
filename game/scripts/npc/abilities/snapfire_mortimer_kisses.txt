@@ -7,12 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6482"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "ID"                                                  "6482"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -20,18 +20,18 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"              "3000"
-    "AbilityCastPoint"              "0.5"
-    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastRange"                                    "3000"
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "120 110 100 95 90"
-    "AbilityDuration"               "5.5"
+    "AbilityCooldown"                                     "120 110 100 95 90"
+    "AbilityDuration"                                     "5.5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "125 150 175 200 225"
+    "AbilityManaCost"                                     "125 150 175 200 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,8 +47,8 @@
       "impact_radius"                                     "275"
       "damage_per_impact" //OAA
       {
-        "value"                                                               "160 320 480 960 1280"
-        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"         "+60"
+        "value"                                           "160 320 480 960 1280"
+        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+60"
       }
       "duration_tooltip"                                  "5.5"
       "projectile_vision"                                 "500"

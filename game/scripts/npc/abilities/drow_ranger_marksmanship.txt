@@ -25,23 +25,23 @@
     {
       "chance"
       {
-        "value"                   "20 30 40 45 50"
-        "special_bonus_unique_drow_ranger_3"    "+12"
+        "value"                                           "20 30 40 45 50"
+        "special_bonus_unique_drow_ranger_3"              "+12"
       }
       "bonus_damage"                  
       {
-        "value"                   "40 60 80 110 160"
+        "value"                                           "40 60 80 110 160"
       }
-      "agility_multiplier"              "30 35 40 45 50" //OAA
-      "agility_range"                 "1200"
+      "agility_multiplier"                                "30 35 40 45 50" //OAA
+      "agility_range"                                     "1200"
       "split_count"
       {   
-        "value"                   "0"
-        "special_bonus_scepter"           "+2"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+2"
       }
-      "split_range"                 "375"
-      "split_damage_reduction"            "50"
-      "disable_range"                 "400"
+      "split_range"                                       "375"
+      "split_damage_reduction"                            "50"
+      "disable_range"                                     "400"
     }
   }
 }

@@ -27,27 +27,27 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "5"
+      "duration"                                          "5"
       "damage" //OAA, for picking screen tooltip
       {
-        "value"       "80 160 240 480 720"
-        "special_bonus_unique_viper_2"  "+80"
+        "value"                                           "80 160 240 480 720"
+        "special_bonus_unique_viper_2"                    "+80"
       }
-      "bonus_movement_speed"  "-40 -60 -80 -80 -80"
-      "bonus_attack_speed"  "-40 -60 -80 -180 -280"
+      "bonus_movement_speed"                              "-40 -60 -80 -80 -80"
+      "bonus_attack_speed"                                "-40 -60 -80 -180 -280"
       "AbilityCooldown"
       {
-        "value"       "50 40 30 25 20"
-        "special_bonus_unique_viper_8"    "-50%"
+        "value"                                           "50 40 30 25 20"
+        "special_bonus_unique_viper_8"                    "-50%"
       }
       "AbilityManaCost"
       {
-        "value"       "100 150 200 250 300"
-        "special_bonus_unique_viper_8"    "-50%"
+        "value"                                           "100 150 200 250 300"
+        "special_bonus_unique_viper_8"                    "-50%"
       }
-      "projectile_speed"  "1200"
-      "max_charges"     "2"
-      "charge_restore_time" "30.0"
+      "projectile_speed"                                  "1200"
+      "max_charges"                                       "2"
+      "charge_restore_time"                               "30.0"
     }
   }
 }

@@ -5,7 +5,7 @@
   //=================================================================================================================
   "spirit_breaker_bulldoze"
   {
-    "ID"                                                  "7301"	// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7301"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "FightRecapLevel"                                     "1"
@@ -24,9 +24,9 @@
 
     "AbilityValues"
     {
-      "movement_speed"        "10 15 20 25 30 35"
-      "status_resistance"     "35 45 55 65 70 75"
-      "duration"  "8"
+      "movement_speed"                                    "10 15 20 25 30 35"
+      "status_resistance"                                 "35 45 55 65 70 75"
+      "duration"                                          "8"
     }
   }
 }

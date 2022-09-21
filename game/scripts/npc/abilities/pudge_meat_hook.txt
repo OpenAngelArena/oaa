@@ -33,22 +33,22 @@
     {
       "damage"
       {
-        "value"                 "150 220 290 360 720 1440"
-        "special_bonus_unique_pudge_7"      "+120"
+        "value"                                           "150 220 290 360 720 1440"
+        "special_bonus_unique_pudge_7"                    "+120"
       }
-      "hook_speed"                "1450.0"
-      "hook_width"                "100"
-      "hook_distance"               "1300"
-      "vision_radius"   "500"
-      "vision_duration" "4.0"
+      "hook_speed"                                        "1450.0"
+      "hook_width"                                        "100"
+      "hook_distance"                                     "1300"
+      "vision_radius"                                     "500"
+      "vision_duration"                                   "4.0"
       "AbilityCooldown" //OAA
       {
-        "value"               "15 14 13 12 11 10"
-        "special_bonus_unique_pudge_5"    "-4"
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_pudge_5"                    "-4"
       }
       "vector_target_distance"
       {
-        "value"               "0"
+        "value"                                           "0"
         
       }
     }

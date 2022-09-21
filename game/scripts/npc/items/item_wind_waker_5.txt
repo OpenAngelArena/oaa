@@ -7,20 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3898"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3898"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"							"models/props_gameplay/recipe.vmdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "17000"
-    "ItemShopTags"					""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"					"1"
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_wind_waker_5"
     "ItemRequirements"
     {
@@ -38,20 +38,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3899"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3899"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_wind_waker"
     "AbilityTextureName"                                  "item_wind_waker"
     "AbilityTextureName"                                  "custom/wind_waker_5"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"				"1"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
+    "FightRecapLevel"                                     "1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 575 600 625 650"
-    "AbilityCastPoint"				"0.0"
+    "AbilityCastPoint"                                    "0.0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -60,17 +60,17 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"18.0"
-    "AbilitySharedCooldown"			"cyclone"
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "cyclone"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"				"175"
-    "ItemCost"						"36154"
-    "ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
-    "ItemQuality"					"rare"
-    "ItemAliases"					"cyclone 5;wind waker 5;ww 5"
-    "ItemDeclarations"				"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "AbilityManaCost"                                     "175"
+    "ItemCost"                                            "36154"
+    "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "cyclone 5;wind waker 5;ww 5"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

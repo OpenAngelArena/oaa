@@ -23,18 +23,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_distance"    "200"
+      "min_distance"                                      "200"
       "max_distance"        
       {
-        "value"       "600 675 750 825 900 975"
-        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer"
+        "value"                                           "600 675 750 825 900 975"
+        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer"
       }
-      "bonus_speed"   "800"
-      "bonus_agility"   "10 20 30 40 60 80"
+      "bonus_speed"                                       "800"
+      "bonus_agility"                                     "10 20 30 40 60 80"
       "agility_duration"    
       {
-        "value"     "1.5"
-        "special_bonus_unique_phantom_lancer_2"   "+2.5"
+        "value"                                           "1.5"
+        "special_bonus_unique_phantom_lancer_2"           "+2.5"
       }
     }
   }

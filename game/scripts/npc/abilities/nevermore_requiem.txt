@@ -45,36 +45,36 @@
         "value"                                           "120 110 100 90 80"
         "special_bonus_scepter"                           "-30"
       }
-      "requiem_radius"  "1000"
-      "requiem_reduction_ms"  "-20 -25 -30 -35 -40"
-      "requiem_reduction_mres"  "-5 -10 -15 -20 -25"
+      "requiem_radius"                                    "1000"
+      "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
+      "requiem_reduction_mres"                            "-5 -10 -15 -20 -25"
       "requiem_slow_duration"
       {
-        "value"   "0.9"
-        "LinkedSpecialBonus"    "special_bonus_unique_nevermore_6"
+        "value"                                           "0.9"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
       }
       "requiem_slow_duration_max"
       {
-        "value"         "2.7"
-        "LinkedSpecialBonus"    "special_bonus_unique_nevermore_6"
-        "LinkedSpecialBonusField"   "value2"
+        "value"                                           "2.7"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
+        "LinkedSpecialBonusField"                         "value2"
       }
-      "requiem_reduction_radius"  "700"
-      "requiem_soul_conversion" "1"
-      "requiem_line_width_start"  "125"
-      "requiem_line_width_end"  "350"
-      "requiem_line_speed"  "700"
-      "soul_death_release"  "0.5"
+      "requiem_reduction_radius"                          "700"
+      "requiem_soul_conversion"                           "1"
+      "requiem_line_width_start"                          "125"
+      "requiem_line_width_end"                            "350"
+      "requiem_line_speed"                                "700"
+      "soul_death_release"                                "0.5"
       "requiem_heal_pct_scepter"
       {
-        "value"     "100"
-        "RequiresScepter"     "1"
+        "value"                                           "100"
+        "RequiresScepter"                                 "1"
       }
       "requiem_damage_pct_scepter"
       {
-        "value"     "40"
-        "RequiresScepter"     "1"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "40"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

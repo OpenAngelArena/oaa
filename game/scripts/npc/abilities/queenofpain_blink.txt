@@ -29,21 +29,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "min_blink_range"   "200"
+      "min_blink_range"                                   "200"
       "shard_damage" //OAA
       {
-        "RequiresShard"				"1"
-        "value"						"100 150 200 250 350 450"
+        "RequiresShard"                                   "1"
+        "value"                                           "100 150 200 250 350 450"
       }
       "shard_duration"
       {
-        "RequiresShard"				"1"
-        "value"						"1.75"
+        "RequiresShard"                                   "1"
+        "value"                                           "1.75"
       }
       "shard_aoe"
       {
-        "RequiresShard"				"1"
-        "value"						"300"
+        "RequiresShard"                                   "1"
+        "value"                                           "300"
       }
     }
   }

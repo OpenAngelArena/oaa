@@ -9,19 +9,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8527"    // unique ID
     "BaseClass"                                           "item_datadriven"
-    "Model"                                             "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                         "custom/recipe/recipe_3"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
-    "ItemShopTags"                                 ""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                      "1"
-    "ItemResult"                                      "item_ward_stack_4"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_ward_stack_4"
     "ItemRequirements"
     {
       "01"                                                "item_ward_stack_3;item_upgrade_core_3"
@@ -37,7 +37,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
 
-    "ID"                                                      "8528"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8528"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"

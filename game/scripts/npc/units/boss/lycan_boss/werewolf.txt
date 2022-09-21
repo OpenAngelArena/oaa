@@ -7,26 +7,26 @@
   "npc_dota_creature_werewolf"
   {
     // Script
-    "vscripts"					"units/ai_werewolf.lua"
+    "vscripts"                                            "units/ai_werewolf.lua"
 
     // General
     //----------------------------------------------------------------
-    "BaseClass"					"npc_dota_creep_neutral"
-    "Model"						"models/creeps/knoll_1/knoll_1.vmdl"
-    "SoundSet"					"n_creep_Melee"
-    "Level"						"3"
-    "IsAncient"					"1"
-    "ModelScale" 				"1.7"
-    "ConsideredHero"    "1"
-    "IsAncient"         "1"
-    "IsBossMonster"     "1"
+    "BaseClass"                                           "npc_dota_creep_neutral"
+    "Model"                                               "models/creeps/knoll_1/knoll_1.vmdl"
+    "SoundSet"                                            "n_creep_Melee"
+    "Level"                                               "3"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.7"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "0"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					"werewolf_howl"
-    "Ability2"					"boss_regen"
+    "Ability1"                                            "werewolf_howl"
+    "Ability2"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -35,31 +35,31 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "300"
     "AttackDamageMax"                                     "400"
     "AttackRate"                                          "1.7"
-    "AttackAnimationPoint"		"0.43"
+    "AttackAnimationPoint"                                "0.43"
     "AttackAcquisitionRange"                              "500"
-    "AttackRange"				"128"
-    "ProjectileModel"			""
-    "ProjectileSpeed"			"0"
+    "AttackRange"                                         "128"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"				"70"
-    "HealthBarOffset"			"180"
+    "RingRadius"                                          "70"
+    "HealthBarOffset"                                     "180"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"					"60"
-    "BountyGoldMin"				"45"
-    "BountyGoldMax"				"55"
+    "BountyXP"                                            "60"
+    "BountyGoldMin"                                       "45"
+    "BountyGoldMax"                                       "55"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"310"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "310"
 
     // Status
     //----------------------------------------------------------------
@@ -70,15 +70,15 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"		"800"
-    "VisionNighttimeRange"		"800"
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
     //----------------------------------------------------------------
@@ -90,8 +90,8 @@
     "precache"
     {
       // Howl
-      "particle" "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
-      "particle" "particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
     }
   }
 }

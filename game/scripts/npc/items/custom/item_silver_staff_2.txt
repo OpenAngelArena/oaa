@@ -52,14 +52,14 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                 "2"
-    "ItemBaseLevel"                   "2"
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                        "32984"
-    "ItemAliases"                     "silver staff 2; break staff 2; dragon staff 2"
-    "ItemDisassembleRule"             "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemCost"                                            "32984"
+    "ItemAliases"                                         "silver staff 2; break staff 2; dragon staff 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -67,38 +67,38 @@
     {
       "01"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_health"                "1750 2750"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_health"                                    "1750 2750"
       }
       "02"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "bonus_mana_regen"            "3.25 4.25"
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "3.25 4.25"
       }
       "03"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_all_stats"             "20 25"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_all_stats"                                 "20 25"
       }
       "04"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "bonus_armor"                 "8 12"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 12"
       }
       "05"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "base_damage"                 "95 135"
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "95 135"
       }
       "06"
       {
-        "var_type"                    "FIELD_INTEGER"
-        "max_hp_damage"               "4 5"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_hp_damage"                                   "4 5"
       }
       "07"
       {
-        "var_type"                    "FIELD_FLOAT"
-        "duration"                    "4.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
       }
     }
   }

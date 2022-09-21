@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6526"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6526"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"15" //OAA
-        "ad_linked_abilities"			"legion_commander_moment_of_courage"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "15" //OAA
+        "ad_linked_abilities"                             "legion_commander_moment_of_courage"
       }
     }
   }

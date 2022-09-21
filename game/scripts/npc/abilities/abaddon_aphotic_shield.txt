@@ -37,13 +37,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "15.0"
-      "radius"        "675"
+      "duration"                                          "15.0"
+      "radius"                                            "675"
       "damage_absorb"
       {
-        "value"     "110 140 170 200 400 600"
-        "special_bonus_unique_abaddon"    "+100"
-        "DamageTypeTooltip"   "DAMAGE_TYPE_NONE"
+        "value"                                           "110 140 170 200 400 600"
+        "special_bonus_unique_abaddon"                    "+100"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
   }

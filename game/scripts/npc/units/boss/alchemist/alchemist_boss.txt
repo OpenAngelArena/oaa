@@ -74,15 +74,42 @@
       "DisableResistance"                                 "50.0"
       "AttachWearables" // Default npc_dota_hero_alchemist
       {
-        "1" { "ItemDef" "123" } // Alchemist's Goblin Head
-        "2" { "ItemDef" "120" } // Alchemist's Gauntlets
-        "3" { "ItemDef" "119" } // Alchemist's Saddle
-        "4" { "ItemDef" "121" } // Alchemist's Goblin Hat
-        "5" { "ItemDef" "124" } // Alchemist's Ogre Head
-        "6" { "ItemDef" "117" } // Alchemist's Goblin Body
-        "7" { "ItemDef" "118" } // Alchemist's Weapon
-        "8" { "ItemDef" "125" } // Alchemist's Shoulder Bottle
-        "9" { "ItemDef" "122" } // Alchemist's Left Bottle
+        "1" // Alchemist's Goblin Head
+        {
+          "ItemDef"                                       "123"
+        }
+        "2" // Alchemist's Gauntlets
+        {
+          "ItemDef"                                       "120"
+        }
+        "3" // Alchemist's Saddle
+        {
+          "ItemDef"                                       "119"
+        }
+        "4" // Alchemist's Goblin Hat
+        {
+          "ItemDef"                                       "121"
+        }
+        "5" // Alchemist's Ogre Head
+        {
+          "ItemDef"                                       "124"
+        }
+        "6" // Alchemist's Goblin Body
+        {
+          "ItemDef"                                       "117"
+        }
+        "7" // Alchemist's Weapon
+        {
+          "ItemDef"                                       "118"
+        }
+        "8" // Alchemist's Shoulder Bottle
+        {
+          "ItemDef"                                       "125"
+        }
+        "9" // Alchemist's Left Bottle
+        {
+          "ItemDef"                                       "122"
+        }
       }
     }
 

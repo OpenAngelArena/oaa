@@ -34,22 +34,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8408"
     "BaseClass"                                           "item_nullifier"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
-    "AbilityTextureName"    "custom/nullifier_2"
+    "AbilityTextureName"                                  "custom/nullifier_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "6226"
-    "ItemAliases"         "nlf 2;nullifier 2"
+    "ItemCost"                                            "6226"
+    "ItemAliases"                                         "nlf 2;nullifier 2"
 
-    "AbilitySharedCooldown"         "nullify"
-    "AbilityCooldown"       "10.0"
-    "AbilityCastRange"      "500 600 700 800 900"
-    "AbilityManaCost"       "0"
+    "AbilitySharedCooldown"                               "nullify"
+    "AbilityCooldown"                                     "10.0"
+    "AbilityCastRange"                                    "500 600 700 800 900"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
