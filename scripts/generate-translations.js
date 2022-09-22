@@ -21,11 +21,11 @@ const transByValue = {};
 let dotaEnglish = {};
 const unchagedKeys = {};
 
-function cleanLanguageFile(contents) {
+function cleanLanguageFile (contents) {
   contents = contents
     .replace('%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%\\" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."')
     .replace('." and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '.\\" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."')
-    .replace('\t\tand turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '')
+    .replace('\t\tand turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '');
   return contents;
 }
 
