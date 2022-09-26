@@ -9,6 +9,7 @@ function ModifierBaseClass:IsFirstItemInInventory()
   end
 
   if not IsServer() then
+    print("IsFirstItemInInventory will not return the correct result on the client!")
     return true
   end
 
@@ -16,7 +17,7 @@ function ModifierBaseClass:IsFirstItemInInventory()
   for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = parent:GetItemInSlot(item_slot)
     if item then
-      if item:GetAbilityName() == ability:GetAbilityName() then
+      if string.sub(item:GetAbilityName(), 0, string.len(item:GetAbilityName())-2) == string.sub(ability:GetAbilityName(), 0, string.len(ability:GetAbilityName())-2) then
         table.insert(same_items, item)
       end
     end
