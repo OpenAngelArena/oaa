@@ -10,7 +10,7 @@ function ModifierBaseClass:IsFirstItemInInventory()
 
   if not IsServer() then
     print("IsFirstItemInInventory will not return the correct result on the client!")
-    return true
+    return
   end
 
   local same_items = {}
