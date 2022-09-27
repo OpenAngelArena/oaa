@@ -1,9 +1,22 @@
+
 modifier_item_devastator_slow_movespeed = class(ModifierBaseClass)
+
+function modifier_item_devastator_slow_movespeed:IsHidden()
+  return false
+end
+
+function modifier_item_devastator_slow_movespeed:IsDebuff()
+  return true
+end
+
+function modifier_item_devastator_slow_movespeed:IsPurgable()
+  return true
+end
 
 function modifier_item_devastator_slow_movespeed:OnCreated()
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local move_speed_slow = 0
+  local move_speed_slow = -10
 
   if ability then
     move_speed_slow = ability:GetSpecialValueFor("devastator_movespeed_reduction")
@@ -33,8 +46,4 @@ function modifier_item_devastator_slow_movespeed:GetTexture()
     local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
     return baseIconName
   end
-end
-
-function modifier_item_devastator_slow_movespeed:IsPurgable()
-  return true
 end

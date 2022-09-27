@@ -1,14 +1,22 @@
 -- modifier_item_devastator_desolator
 LinkLuaModifier("modifier_item_devastator_corruption_armor", "modifiers/modifier_item_devastator_corruption_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_item_devastator_desolator = class({})
+modifier_item_devastator_desolator = class(ModifierBaseClass)
 
 function modifier_item_devastator_desolator:IsHidden()
   return true
 end
 
+function modifier_item_devastator_desolator:IsDebuff()
+  return false
+end
+
 function modifier_item_devastator_desolator:IsPurgable()
   return false
+end
+
+function modifier_item_devastator_desolator:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_devastator_desolator:OnCreated()
@@ -31,12 +39,10 @@ function modifier_item_devastator_desolator:OnDestroy()
 end
 
 function modifier_item_devastator_desolator:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
-	}
-
-	return funcs
+  return {
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
+  }
 end
 
 function modifier_item_devastator_desolator:GetModifierPreAttack_BonusDamage()
@@ -45,6 +51,10 @@ end
 
 if IsServer() then
   function modifier_item_devastator_desolator:OnAttackLanded(event)
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local target = event.target

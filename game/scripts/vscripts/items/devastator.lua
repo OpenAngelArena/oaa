@@ -1,8 +1,7 @@
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_devastator_slow_movespeed", "modifiers/modifier_item_devastator_slow_movespeed.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_devastator_reduce_armor", "modifiers/modifier_item_devastator_reduce_armor.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_devastator_desolator", "modifiers/modifier_item_devastator_desolator.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_devastator_corruption_armor", "modifiers/modifier_item_devastator_corruption_armor.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_slow_movespeed", "modifiers/modifier_item_devastator_slow_movespeed.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_reduce_armor", "modifiers/modifier_item_devastator_reduce_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_devastator_1 = class(ItemBaseClass)
 
@@ -19,18 +18,18 @@ function item_devastator_1:OnSpellStart()
   -- Sound
   caster:EmitSound("Item_Desolator.Target")
 
-	local vPos = nil
-	if self:GetCursorTarget() then
-		vPos = self:GetCursorTarget():GetOrigin()
-	else
-		vPos = self:GetCursorPosition()
-	end
+  local vPos
+  if self:GetCursorTarget() then
+    vPos = self:GetCursorTarget():GetOrigin()
+  else
+    vPos = self:GetCursorPosition()
+  end
 
-	local vDirection = vPos - caster:GetOrigin()
-	vDirection.z = 0.0
-	vDirection = vDirection:Normalized()
+  local vDirection = vPos - caster:GetOrigin()
+  vDirection.z = 0.0
+  vDirection = vDirection:Normalized()
 
-	self.devastator_speed = self.devastator_speed * ( self.devastator_distance / ( self.devastator_distance - self.devastator_width_initial ) )
+  self.devastator_speed = self.devastator_speed * ( self.devastator_distance / ( self.devastator_distance - self.devastator_width_initial ) )
 
   local info = {
     EffectName = "particles/items/devastator/devastator_active.vpcf",
@@ -92,19 +91,19 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
       ability = self
     }
 
-		ApplyDamage( damage )
+    ApplyDamage( damage )
     self:GetCaster():PerformAttack(hTarget, true, true, true, false, false, false, true)
 
     -- Particles
-		local vDirection = vLocation - self:GetCaster():GetOrigin()
-		vDirection.z = 0.0
-		vDirection = vDirection:Normalized()
-		-- Replace with the particles for the item
-		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
-		ParticleManager:SetParticleControlForward( nFXIndex, 1, vDirection )
+    local vDirection = vLocation - self:GetCaster():GetOrigin()
+    vDirection.z = 0.0
+    vDirection = vDirection:Normalized()
+    -- Replace with the particles for the item
+    local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lina/lina_spell_dragon_slave_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget )
+    ParticleManager:SetParticleControlForward( nFXIndex, 1, vDirection )
     ParticleManager:ReleaseParticleIndex( nFXIndex )
-	end
-	return false
+  end
+  return false
 end
 
 -- base modifiers for the passive effects
