@@ -61,10 +61,11 @@
         "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
-      "projectile_damage"
+      "projectile_damage" //OAA
       {
-        "value"                                           "100"
+        "value"                                           "70 80 90 100 150 200"
         "RequiresScepter"                                 "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "projectile_speed"
       {
