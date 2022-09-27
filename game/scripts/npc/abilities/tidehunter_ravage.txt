@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5121"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5121"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -21,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
+    "AbilityCastRange"                                    "1250" //OAA, same as radius; to see the AoE when you hover over the ability
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -30,7 +29,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "200 400 600 1200 2200" //OAA
+    "AbilityDamage"                                       "250 450 650 1250 2250" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +41,7 @@
     {
       "radius"                                            "1250"
       "speed"                                             "725"
-      "duration"      
+      "duration"
       {
         "value"                                           "2.4 2.6 2.8 2.9 3.0"
         "special_bonus_unique_tidehunter_7"               "+1"
