@@ -7,7 +7,7 @@
     "ID"                                                  "5139"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO" //OAA, Valve forgot about this
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO" //OAA, Valve has it wrong
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
