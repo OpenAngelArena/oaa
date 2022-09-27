@@ -89,6 +89,7 @@ function cleanTooltipFile (file) {
         if (err) {
           return console.error(chalk.red(err));
         }
+        console.log('Cleaned ' + chalk.green(file));
       });
     }
   });
@@ -164,6 +165,7 @@ function cleanKVFile (file) {
         if (err) {
           return console.error(chalk.red(err));
         }
+        console.log('Cleaned ' + chalk.green(file));
       });
     }
   });
