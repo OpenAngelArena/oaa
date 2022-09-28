@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7310"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7310"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -46,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "75 150 225 300 600 900"
+        "total_damage"                                    "80 160 240 320 640 960"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }

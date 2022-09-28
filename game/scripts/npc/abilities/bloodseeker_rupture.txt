@@ -41,7 +41,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
       "duration"                                          "10 11 12 13 14"
       "movement_damage_pct" //OAA
@@ -53,20 +53,20 @@
       {
         "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_unique_bloodseeker_7"              "+10"
+        "special_bonus_unique_bloodseeker_7"              "+8"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "damage_cap_amount"     
+      "damage_cap_amount"
       {
         "value"                                           "200"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCastRange"      
+      "AbilityCastRange"
       {
         "value"                                           "800"
-        "special_bonus_unique_bloodseeker_3"              "+475"
+        "special_bonus_unique_bloodseeker_3"              "+425"
       }
-      "AbilityCharges"    
+      "AbilityCharges"
       {
         "value"                                           "0"
         "special_bonus_unique_bloodseeker_rupture_charges"  "+2"
