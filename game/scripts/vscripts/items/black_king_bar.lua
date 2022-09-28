@@ -76,12 +76,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_item_black_king_bar_oaa:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 		MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 	}
-
-	return funcs
 end
 
 --------------------------------------------------------------------------------
