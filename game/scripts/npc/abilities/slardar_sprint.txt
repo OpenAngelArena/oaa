@@ -34,7 +34,7 @@
     {
       "bonus_speed"                                       "25 30 35 40 45 50"
       "duration"                                          "10"
-      "river_speed"                                       "15"
+      "river_speed"                                       "18"
       "puddle_regen"
       {
         "value"                                           "2 4 6 8 10 12"
@@ -50,7 +50,7 @@
         "value"                                           "40"
         "RequiresScepter"                                 "1"
       }
-      "river_speed_tooltip"                               "40 45 50 55 60 65" // OAA, Valve gave up on doing math
+      "river_speed_tooltip"                               "43 48 53 58 63 68" // OAA, Valve gave up on doing math
     }
   }
 }
