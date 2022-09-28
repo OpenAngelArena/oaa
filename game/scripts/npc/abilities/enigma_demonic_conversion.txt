@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35" //OAA
+    "AbilityCooldown"                                     "35" //OAA, for picking screen tooltip
     "AbilityDuration"                                     "40.0"
 
     // Cost
@@ -66,7 +66,12 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_max_level"                                 "7" //OAA
+        "creep_max_level"                                 "7" //OAA, for picking screen tooltip
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "eidolon_magic_resist_tooltip"                    "60" //OAA, for picking screen tooltip
       }
     }
   }
