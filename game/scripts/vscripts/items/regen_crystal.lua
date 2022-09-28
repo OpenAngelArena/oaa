@@ -92,22 +92,6 @@ function modifier_item_regen_crystal_passive:OnRefresh()
   end
 end
 
-function modifier_item_regen_crystal_passive:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-  }
-end
-
-function modifier_item_regen_crystal_passive:GetModifierBonusStats_Strength()
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
-end
-
-function modifier_item_regen_crystal_passive:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
-
 function modifier_item_regen_crystal_passive:OnIntervalThink()
   if IsServer() then
     if self:IsFirstItemInInventory() then
@@ -139,6 +123,22 @@ function modifier_item_regen_crystal_passive:OnIntervalThink()
       parent:CalculateStatBonus(true)
     end
   end
+end
+
+function modifier_item_regen_crystal_passive:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+  }
+end
+
+function modifier_item_regen_crystal_passive:GetModifierBonusStats_Strength()
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_regen_crystal_passive:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
 function modifier_item_regen_crystal_passive:GetModifierConstantHealthRegen()

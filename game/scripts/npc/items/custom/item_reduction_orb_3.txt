@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: reduction orb 3
+  // Recipe: Reduction Orb 3
   //=================================================================================================================
   "item_recipe_reduction_orb_3"
   {
@@ -31,7 +31,7 @@
   }
 
   //=================================================================================================================
-  // reduction orb 3
+  // Reduction Orb 3
   //=================================================================================================================
   "item_reduction_orb_3"
   {
@@ -41,14 +41,14 @@
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/reduction_orb_3"
-    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
+    "ScriptFile"                                          "items/reduction_orb.lua"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "100"
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
@@ -56,47 +56,22 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "34304"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemShopTags"                                        "health_pool;armor;magic_resist;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Modifiers
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1850"
-      }
-      "02" // same as Crimson Guard lvl 5
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "24"
-      }
-      "03" // same as Crimson Guard lvl 4
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "50"
-      }
+      "bonus_health"                                      "2850" // same as Regen Crystal max level
+      "bonus_armor"                                       "15"
+      "bonus_magic_resistance"                            "25"
+      "damage_reduction"                                  "100"
+      "duration"                                          "4.0"
+      "damage_as_healing"                                 "75"
     }
   }
 }
