@@ -42,7 +42,7 @@
       "shock_width"                                       "200"
       "shock_damage"
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "90 160 230 300 600 1200"
         "special_bonus_unique_magnus"                     "+125"
       }
       "pull_duration"                                     "0.2"
@@ -52,7 +52,7 @@
       "basic_slow_duration"
       {
         "value"                                           "0.9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_6"
+        "special_bonus_unique_magnus_6"                   "+0.5"
       }
       "scepter_width"
       {

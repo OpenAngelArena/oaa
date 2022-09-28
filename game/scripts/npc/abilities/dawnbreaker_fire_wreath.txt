@@ -113,6 +113,12 @@
         "shard_cast_point"                                "0.1"
         "RequiresShard"                                   "1"
       }
+      "17"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_movement_penalty"                          "25"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

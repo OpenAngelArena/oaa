@@ -24,34 +24,39 @@
     "AbilityCastRange"                                    "700 850 1000 1075 1150"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 70 60 50 40" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6 7 8 9 10"  //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_oracle"
+        "value"                                           "6 7 8 9 10"
+        "special_bonus_unique_oracle"                     "+1.5"
       }
-      "02"
+      "radius"                                            "400"
+      "shard_fade_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "radius"                                          "400"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_fade_time"                                 "0.15"
+        "value"                                           "0.15"
         "RequiresShard"                                   "1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "80 70 60 50 40"
+        "special_bonus_unique_oracle_6"                   "-20"
+      }
+      "bonus_armor"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_oracle_9"                   "+10"
+      }
+      "heal_amp_pct"
+      {
+        "value"                                           "100"
+        "special_bonus_shard"                             "+0"
       }
     }
   }

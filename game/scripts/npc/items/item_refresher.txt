@@ -44,11 +44,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "120" //OAA
-    "AbilitySharedCooldown"                               "refresher"
+    "AbilitySharedCooldown"                               "refresher_oaa" //OAA
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_refresher"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

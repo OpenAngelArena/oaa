@@ -13,7 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
       "07" // 06
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "200" //OAA
+        "damage"                                          "100 180 260 500 740" //OAA
       }
       "08"
       {

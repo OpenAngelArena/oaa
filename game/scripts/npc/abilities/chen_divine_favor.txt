@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7306"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7306"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -46,7 +45,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "heal_rate"                                       "2 6 10 14 22 30" //OAA
+        "heal_rate"                                       "2 4 8 10 20 30" //OAA
       }
       "03"
       {
@@ -57,6 +56,11 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "teleport_delay"                                  "6 5 4 3 2 1" //OAA
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus"                                     "1"
       }
     }
   }
