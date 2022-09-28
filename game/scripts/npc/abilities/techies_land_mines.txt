@@ -37,34 +37,34 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"        "500"
-      "proximity_threshold"       "1.0"
+      "radius"                                            "500"
+      "proximity_threshold"                               "1.0"
       "damage" //OAA
       {
         "value"                                           "400 600 800 1400 2400"
         "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - Valve, this is a Sticky Bomb talent
       }
-      "building_damage_pct"   "30"
+      "building_damage_pct"                               "30"
       "activation_delay"
       {
-        "value"   "1"
-        "special_bonus_unique_techies_4"  "-0.8"
+        "value"                                           "1"
+        "special_bonus_unique_techies_4"                  "-0.8"
       }
       "cast_range_scepter_bonus"
       {
-        "value"   "300"
-        "RequiresScepter"     "1"
+        "value"                                           "300"
+        "RequiresScepter"                                 "1"
       }
       "AbilityChargeRestoreTime"
       {
-        "value"   "19 17 15 13 11"
-        "special_bonus_unique_techies_3"   "-3"
+        "value"                                           "19 17 15 13 11"
+        "special_bonus_unique_techies_3"                  "-3"
       }
-      "outer_damage"        "50"
-      "min_distance"        "150"
-      "placement_radius"      "350"
-      "mres_reduction"      "15 20 25 30 35"
-      "burn_duration"       "5"
+      "outer_damage"                                      "50"
+      "min_distance"                                      "150"
+      "placement_radius"                                  "350"
+      "mres_reduction"                                    "15 20 25 30 35"
+      "burn_duration"                                     "5"
     }
   }
 }

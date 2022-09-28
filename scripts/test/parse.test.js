@@ -16,7 +16,7 @@ test('before', function (t) {
     if (err) {
       t.fail(err);
     }
-    dotaEnglish = parseKV(result.body);
+    dotaEnglish = parseKV(result.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
     t.ok(dotaEnglish);
     t.end();
   });

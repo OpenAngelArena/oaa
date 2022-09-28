@@ -7,28 +7,28 @@
   "npc_dota_creature_ogre_tank_boss_tier5"
   {
     // Script
-    "vscripts"					"units/ai_ogre_tank_boss_tier5.lua"
+    "vscripts"                                            "units/ai_ogre_tank_boss_tier5.lua"
 
     // General
     //----------------------------------------------------------------
-    "Model"						"models/creeps/ogre_1/boss_ogre.vmdl"
-    "BaseClass"					"npc_dota_creature"
-    "SoundSet"					"Hero_Ogre"
-    "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
-    "Level"						"1"
-    "ModelScale" 				"2.8"
-    "ConsideredHero"    "1"
-    "IsAncient"         "1"
-    "IsBossMonster"     "1"
+    "Model"                                               "models/creeps/ogre_1/boss_ogre.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "Hero_Ogre"
+    "GameSoundsFile"                                      "soundevents/game_sounds_creeps.vsndevts"
+    "Level"                                               "1"
+    "ModelScale"                                          "2.8"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"					"ogre_tank_boss_melee_smash_tier5"
-    "Ability2"					"ogre_tank_boss_jump_smash_tier5"
-    "Ability3"          "boss_resistance"
-    "Ability4"          "boss_cliffwalk"
-    "Ability5"          "boss_regen"
-    "Ability6"          "siltbreaker_boss_protection"
+    "Ability1"                                            "ogre_tank_boss_melee_smash_tier5"
+    "Ability2"                                            "ogre_tank_boss_jump_smash_tier5"
+    "Ability3"                                            "boss_resistance"
+    "Ability4"                                            "boss_cliffwalk"
+    "Ability5"                                            "boss_regen"
+    "Ability6"                                            "siltbreaker_boss_protection"
 
     // Armor
     //----------------------------------------------------------------
@@ -37,33 +37,33 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                 "8687"      // Damage range min.
-    "AttackDamageMax"                 "8687"      // Damage range max.
-    "AttackRate"				"2.0"
-    "AttackAnimationPoint"		"0.3"
-    "AttackAcquisitionRange"	"1200"
-    "AttackRange"				"1"
-    "ProjectileModel"			""
-    "ProjectileSpeed"			"0"
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "8687"      // Damage range min.
+    "AttackDamageMax"                                     "8687"      // Damage range max.
+    "AttackRate"                                          "2.0"
+    "AttackAnimationPoint"                                "0.3"
+    "AttackAcquisitionRange"                              "1200"
+    "AttackRange"                                         "1"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounds
     //----------------------------------------------------------------
-    "BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
-    "RingRadius"				"100"
-    "HealthBarOffset"			"360"
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"
+    "RingRadius"                                          "100"
+    "HealthBarOffset"                                     "360"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"					"5000"
-    "BountyGoldMin"				"0"
-    "BountyGoldMax"				"0"
+    "BountyXP"                                            "5000"
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"				"200"
-    "MovementTurnRate"			"0.2"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "200"
+    "MovementTurnRate"                                    "0.2"
 
     // Status
     //----------------------------------------------------------------
@@ -79,10 +79,10 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-    "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Creature Data
     //----------------------------------------------------------------
@@ -90,19 +90,19 @@
     {
       //Basic AI State
       //------------------------------------------------------------
-      "DefaultState"				"Invade"
+      "DefaultState"                                      "Invade"
       "States"
       {
         "Invade"
         {
-          "Name"				"Invade"
-          "Aggression"		"100.0"
-          "Avoidance"			"0.0"
-          "Support"			"0.0"
+          "Name"                                          "Invade"
+          "Aggression"                                    "100.0"
+          "Avoidance"                                     "0.0"
+          "Support"                                       "0.0"
         }
       }
 
-      "DisableResistance"			"80.0"
+      "DisableResistance"                                 "80.0"
     }
 
     "precache"

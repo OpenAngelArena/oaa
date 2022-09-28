@@ -21,6 +21,14 @@ const transByValue = {};
 let dotaEnglish = {};
 const unchagedKeys = {};
 
+function cleanLanguageFile (contents) {
+  contents = contents
+    .replace('%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%\\" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."')
+    .replace('." and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '.\\" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."')
+    .replace('\t\tand turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.', '');
+  return contents;
+}
+
 request.get({
   // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
   url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt'
@@ -28,11 +36,9 @@ request.get({
   if (err) {
     throw err;
   }
-  dotaEnglish = parseKV(result.body);
-  console.log(dotaEnglish);
+  dotaEnglish = parseKV(cleanLanguageFile(result.body));
 
   let englishFileString = parseTranslation(false, null, dotaEnglish);
-  console.log(englishFileString);
   englishData = parseKV(englishFileString);
 
   getDuplicateStrings();
@@ -130,7 +136,10 @@ function getUnchangedStrings (languageName, cb) {
       console.error(languageName);
       throw err;
     }
-    const dotaKVs = parseKV(result.body);
+
+    console.log('Parsing valves', languageName, 'translations');
+    const dotaKVs = parseKV(cleanLanguageFile(result.body));
+
     const translatedKeys = {};
     Object.keys(dotaKVs.lang.Tokens.values).forEach(function (key) {
       dotaKVs.lang.Tokens.values[key.toLowerCase()] = dotaKVs.lang.Tokens.values[key];

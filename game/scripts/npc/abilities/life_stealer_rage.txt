@@ -26,16 +26,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75 100 125 150 175 200"
 
-    "AbilityDuration"                                     "3 4 5 6 6.5 7"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "movement_speed_bonus"
       {
-        "value"           "15 16 17 18 19 20"
-        "special_bonus_unique_lifestealer_2"  "+12"
+        "value"                                           "15 16 17 18 19 20"
+        "special_bonus_unique_lifestealer_2"              "+12"
       }
       "duration" //OAA
       {
@@ -44,8 +42,8 @@
       }
       "bonus_armor"
       {
-        "value"         "0"
-        "special_bonus_unique_lifestealer_rage_armor"   "+7"
+        "value"                                           "0"
+        "special_bonus_unique_lifestealer_rage_armor"     "+7"
       }
     }
   }

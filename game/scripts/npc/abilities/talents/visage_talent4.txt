@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6983"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6983"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"40" //OAA
-        "ad_linked_abilities"			"visage_soul_assumption"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "40" //OAA
+        "ad_linked_abilities"                             "visage_soul_assumption"
       }
     }
   }

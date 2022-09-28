@@ -7,12 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "7701"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "ID"                                                  "7701"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -20,8 +20,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"              "0.0"
-    "AbilityCastRange"              "850"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "850"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,36 +31,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "start_radius"        "90"
-      "end_radius"        "90"
-      "radius"          "300"
-      "projectile_speed"      "900"
+      "start_radius"                                      "90"
+      "end_radius"                                        "90"
+      "radius"                                            "300"
+      "projectile_speed"                                  "900"
       "remnant_watch_distance"
       {
-        "value"   "450"
-        "special_bonus_shard"   "+150"
+        "value"                                           "450"
+        "special_bonus_shard"                             "+150"
       }
-      "remnant_watch_radius"    "130"
-      "watch_path_vision_radius"  "200"
-      "activation_delay"    "0.4"
+      "remnant_watch_radius"                              "130"
+      "watch_path_vision_radius"                          "200"
+      "activation_delay"                                  "0.4"
       "impact_damage"
       {
-        "value"     "80 130 180 230 460 690"
-        "special_bonus_unique_void_spirit_2"  "+50"
+        "value"                                           "80 130 180 230 460 690"
+        "special_bonus_unique_void_spirit_2"              "+50"
       }
-      "pull_duration"     "1.4 1.6 1.8 2.0 2.1 2.2"
-      "pull_destination"    "44 50 56 62 68 74"
-      "duration"        "20.0"
-      "think_interval"    "0.1"
+      "pull_duration"                                     "1.4 1.6 1.8 2.0 2.1 2.2"
+      "pull_destination"                                  "44 50 56 62 68 74"
+      "duration"                                          "20.0"
+      "think_interval"                                    "0.1"
       "pierces_creeps"
       {
-        "value"             "0"
-        "special_bonus_shard"     "+1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
       }
       "AbilityCooldown" //OAA
       {
-        "value"             "14 13 12 11 11 11"
-        "special_bonus_shard"     "-2"
+        "value"                                           "14 13 12 11 11 11"
+        "special_bonus_shard"                             "-2"
       }
     }
   }

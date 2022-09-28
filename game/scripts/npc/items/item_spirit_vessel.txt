@@ -17,12 +17,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "1100"
-    "ItemShopTags"          ""
+    "ItemCost"                                            "1100"
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"          "1"
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_spirit_vessel_oaa"
     "ItemRequirements"
     {
@@ -39,12 +39,12 @@
     "ID"                                                  "80267"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilityCooldown"       	"7.0"
-    "AbilitySharedCooldown"     "urn"
-    "AbilityTextureName"            "custom/spirit_vessel_1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityCooldown"                                     "7.0"
+    "AbilitySharedCooldown"                               "urn"
+    "AbilityTextureName"                                  "custom/spirit_vessel_1"
 
     "AbilityCastRange"                                    "950"
 
@@ -55,8 +55,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"            "2980"
-    "ItemAliases"         "sv;spirit vessel"
+    "ItemCost"                                            "2980"
+    "ItemAliases"                                         "sv;spirit vessel"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -7,21 +7,21 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "82115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"            "custom/recipe/recipe_3"
+    "ID"                                                  "82115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
-    "ItemShopTags"                  ""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_black_king_bar_3"
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_black_king_bar_3"
     "ItemRequirements"
     {
       "01"                                                "item_black_king_bar_2;item_upgrade_core_2"
@@ -35,30 +35,30 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "82116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "BaseClass"                     "item_lua"
-    "ScriptFile"                    "items/black_king_bar.lua"
-    "FightRecapLevel"               "2"
+    "ID"                                                  "82116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/black_king_bar.lua"
+    "FightRecapLevel"                                     "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "60"
-    "AbilityManaCost"               "50"
+    "AbilityCooldown"                                     "60"
+    "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
-    "AbilityTextureName"            "custom/black_king_bar_3"
-    "MaxUpgradeLevel"               "5"
-    "ItemBaseLevel"                 "3"
-    "UpgradesItems"                 "item_black_king_bar_3;item_black_king_bar_4"
+    "AbilityTextureName"                                  "custom/black_king_bar_3"
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+    "UpgradesItems"                                       "item_black_king_bar_3;item_black_king_bar_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                      "9002"
-    "ItemShopTags"                  "str;damage;hard_to_tag"
-    "ItemQuality"                   "epic"
-    "ItemAliases"                   "bkb 3;black king bar 3"
-    "ItemSellable"                  "1"
-    "ItemDeclarations"              "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "9002"
+    "ItemShopTags"                                        "str;damage;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "bkb 3;black king bar 3"
+    "ItemSellable"                                        "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -66,23 +66,23 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_strength"        "10 20 35 55 80"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "10 20 35 55 80"
       }
       "02"
       {
-        "var_type"              "FIELD_INTEGER"
-        "bonus_damage"          "24 34 54 84 124"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "24 34 54 84 124"
       }
       "03"
       {
-        "var_type"              "FIELD_FLOAT"
-        "duration"              "6.0 6.5 7.0 7.5 8.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.0 6.5 7.0 7.5 8.0"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "model_scale"           "30"     // Percentage over model scale
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "30"     // Percentage over model scale
       }
     }
   }

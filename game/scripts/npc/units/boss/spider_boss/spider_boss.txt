@@ -1,50 +1,50 @@
 "DOTAUnits"
 {
   "npc_dota_creature_spider_boss"
-	{
-		// Script
-		"vscripts"					"units/ai_spider_boss.lua"
+  {
+    // Script
+    "vscripts"                                            "units/ai_spider_boss.lua"
 
-		// General
-		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
-		"Model"						"models/heroes/broodmother/broodmother.vmdl"
-		"SoundSet"					"Hero_Broodmother"
-		"Level"						"30"
-		"ModelScale" 				"2.15"
-		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/heroes/broodmother/broodmother.vmdl"
+    "SoundSet"                                            "Hero_Broodmother"
+    "Level"                                               "30"
+    "ModelScale"                                          "2.15"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
 
     "MinimapIcon"                                         "minimap_roshancamp"
     "MinimapIconSize"                                     "450"
 
-		// Abilities
-		//----------------------------------------------------------------
-		"Ability1"                                            "spider_boss_spidershot"
-		"Ability2"                                            "spider_boss_poison_spit"
-		"Ability3"                                            "spider_boss_incapacitating_bite"
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "spider_boss_spidershot"
+    "Ability2"                                            "spider_boss_poison_spit"
+    "Ability3"                                            "spider_boss_incapacitating_bite"
     "Ability4"                                            "spider_boss_rage"
-		"Ability5"                                            "boss_resistance"
-		"Ability6"                                            "boss_cliffwalk"
-		"Ability7"                                            "boss_regen"
-		"Ability8"                                            "siltbreaker_boss_protection"
+    "Ability5"                                            "boss_resistance"
+    "Ability6"                                            "boss_cliffwalk"
+    "Ability7"                                            "boss_regen"
+    "Ability8"                                            "siltbreaker_boss_protection"
 
-		// Armor
-		//----------------------------------------------------------------
-		"ArmorPhysical"                                       "37"
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "37"
     "MagicalResistance"                                   "-50"        // Magical protection.
 
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"                                     "5000"
-		"AttackDamageMax"                                     "5000"
-		"AttackRate"                                          "1.2"
-		"AttackAnimationPoint"                                "0.4"
-		"AttackAcquisitionRange"                              "150"
-		"AttackRange"                                         "128"
-		"ProjectileModel"			""
-		"ProjectileSpeed"			"0"
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "5000"
+    "AttackDamageMax"                                     "5000"
+    "AttackRate"                                          "1.2"
+    "AttackAnimationPoint"                                "0.4"
+    "AttackAcquisitionRange"                              "150"
+    "AttackRange"                                         "128"
+    "ProjectileModel"                                     ""
+    "ProjectileSpeed"                                     "0"
 
     // Bounty
     //----------------------------------------------------------------
@@ -52,68 +52,68 @@
     "BountyGoldMin"                                       "0"                 // Gold earned min.
     "BountyGoldMax"                                       "0"                 // Gold earned max.
 
-		// Bounds
-		//----------------------------------------------------------------
-		"BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
-		"RingRadius"                                          "100"
-		"HealthBarOffset"                                     "280"
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HERO"
+    "RingRadius"                                          "100"
+    "HealthBarOffset"                                     "280"
 
-		// Movement
-		//----------------------------------------------------------------
-		"MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"                                       "400"
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "400"
 
-		// Status
-		//----------------------------------------------------------------
-		"StatusHealth"                                        "20000"
-		"StatusHealthRegen"                                   "0"
-		"StatusMana"                                          "10000"
-		"StatusManaRegen"                                     "20"
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "20000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "10000"
+    "StatusManaRegen"                                     "20"
 
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"                                  "1400"
-		"VisionNighttimeRange"                                "1400"
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
 
-		// Team
-		//----------------------------------------------------------------
-		"TeamName"                                            "DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "1"
 
-		// Creature Data
-		//----------------------------------------------------------------
-		"Creature"
-		{
-			"DisableResistance"                                 "65.0"
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "DisableResistance"                                 "65.0"
 
-			"AttachWearables"
-			{
-				"Wearable1"
-				{
-					"ItemDef"			"8295"	// head: Crown of the arachnarok
-				}
-				"Wearable2"
-				{
-					"ItemDef"			"8303"	// legs: Legs of arachnarok
-				}
-				"Wearable3"
-				{
-					"ItemDef"			"9090"	// back: Lycosidae's Brood
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"9091"	// ability1: Lycosidae's Spiderling
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"8296"	// misc: pedipalps
-				}
-			}
-		}
+      "AttachWearables"
+      {
+        "Wearable1"
+        {
+          "ItemDef"                                       "8295"  // head: Crown of the arachnarok
+        }
+        "Wearable2"
+        {
+          "ItemDef"                                       "8303"  // legs: Legs of arachnarok
+        }
+        "Wearable3"
+        {
+          "ItemDef"                                       "9090"  // back: Lycosidae's Brood
+        }
+        "Wearable4"
+        {
+          "ItemDef"                                       "9091"  // ability1: Lycosidae's Spiderling
+        }
+        "Wearable4"
+        {
+          "ItemDef"                                       "8296"  // misc: pedipalps
+        }
+      }
+    }
 
     "precache"
     {
@@ -132,5 +132,5 @@
       "particle"                                          "particles/darkmoon_creep_warning.vpcf"
       "particle"                                          "particles/dungeon_overhead_timer.vpcf"
     }
-	}
+  }
 }

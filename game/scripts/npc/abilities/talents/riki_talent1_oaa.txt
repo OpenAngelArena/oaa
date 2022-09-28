@@ -7,10 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                  "86430"
-    "BaseClass"           "special_bonus_agility_40"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "86430"
+    "BaseClass"                                           "special_bonus_agility_40"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				      "70"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "70"
       }
     }
   }

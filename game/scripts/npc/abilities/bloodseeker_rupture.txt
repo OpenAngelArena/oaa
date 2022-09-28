@@ -41,33 +41,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
-      "duration"          "10 11 12 13 14"
+      "duration"                                          "10 11 12 13 14"
       "movement_damage_pct" //OAA
       {
-        "value" "30 90 150 250 300"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "30 90 150 250 300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
       {
-        "value" "10"
-        "CalculateSpellDamageTooltip" "0"
-        "special_bonus_unique_bloodseeker_7" "+10"
+        "value"                                           "10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_unique_bloodseeker_7"              "+8"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "damage_cap_amount"     
+      "damage_cap_amount"
       {
-        "value" "200"
-        "CalculateSpellDamageTooltip" "0"
+        "value"                                           "200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCastRange"      
+      "AbilityCastRange"
       {
-        "value" "800"
-        "special_bonus_unique_bloodseeker_3" "+475"
+        "value"                                           "800"
+        "special_bonus_unique_bloodseeker_3"              "+425"
       }
-      "AbilityCharges"    
+      "AbilityCharges"
       {
-        "value" "0"
+        "value"                                           "0"
         "special_bonus_unique_bloodseeker_rupture_charges"  "+2"
       }
     }

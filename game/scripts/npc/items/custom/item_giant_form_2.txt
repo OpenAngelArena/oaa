@@ -71,21 +71,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                    "180 260"
-      "bonus_strength"                                  "0"
-      "bonus_health_regen"                              "17 20"
-      "bonus_attack_range_melee"                        "50 100" // doesn't work on ranged heroes
-      "cleave_percent"                                  "100 120" // doesn't work on ranged heroes
-      "cleave_starting_width"                           "150"
-      "cleave_ending_width"                             "360"
-      "cleave_distance"                                 "650"
-      "giant_attack_damage"                             "300"
-      "giant_bonus_strength"                            "70 95"
-      "giant_attack_speed_reduction"                    "30" // percentage attack speed reduction
-      "giant_splash_radius"                             "700"
-      "giant_splash_damage"                             "150" // doesn't work on ranged heroes
-      "giant_scale"                                     "50"
-      "duration"                                        "8.0"
+      "bonus_damage"                                      "180 260"
+      "bonus_strength"                                    "0"
+      "bonus_health_regen"                                "17 20"
+      "bonus_attack_range_melee"                          "50 100" // doesn't work on ranged heroes
+      "cleave_percent"                                    "100 120" // doesn't work on ranged heroes
+      "cleave_starting_width"                             "150"
+      "cleave_ending_width"                               "360"
+      "cleave_distance"                                   "650"
+      "giant_attack_damage"                               "300"
+      "giant_bonus_strength"                              "70 95"
+      "giant_attack_speed_reduction"                      "30" // percentage attack speed reduction
+      "giant_splash_radius"                               "700"
+      "giant_splash_damage"                               "150" // doesn't work on ranged heroes
+      "giant_scale"                                       "50"
+      "duration"                                          "8.0"
     }
   }
 }

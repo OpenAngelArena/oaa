@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"					"6211"
-    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "6211"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -17,9 +17,9 @@
     {
       "01"
       {
-        "var_type"					"FIELD_INTEGER"
-        "value"				"300" //OAA
-        "ad_linked_abilities"			"slardar_slithereen_crush"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "300" //OAA
+        "ad_linked_abilities"                             "slardar_slithereen_crush"
       }
     }
   }

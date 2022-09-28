@@ -43,18 +43,20 @@
       "move_pct_heroes"
       {
         "value"                                           "5 6 7 8 9 10"
-        "special_bonus_unique_elder_titan_bonus_spirit_speed" "+2"
+        "special_bonus_unique_elder_titan_bonus_spirit_speed"  "+2"
       }
       "damage_creeps"
       {
         "value"                                           "3 7 11 15 18 21"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage_heroes" //OAA
       {
         "value"                                           "20 40 60 80 100 120"
         "special_bonus_unique_elder_titan"                "+25"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "armor_creeps"                                      "0.5"
       "armor_heroes"                                      "1.5 3 4.5 6 7.5 9"

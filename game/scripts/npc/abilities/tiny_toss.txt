@@ -39,15 +39,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "1.4"
-      "grab_radius"     "300"
-      "radius"        "275"
-      "bonus_damage_pct"    "0"
+      "duration"                                          "1.4"
+      "grab_radius"                                       "300"
+      "radius"                                            "275"
+      "bonus_damage_pct"                                  "0"
       "toss_damage"                                       "90 160 230 300 600 900" //OAA, this gets increased with Grow
       "AbilityCharges"
       {
-        "value"       ""
-        "LinkedSpecialBonus"  "special_bonus_unique_tiny_2"
+        "value"                                           ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_2"
       }
     }
   }

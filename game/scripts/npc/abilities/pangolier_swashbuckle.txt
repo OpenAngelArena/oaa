@@ -7,27 +7,27 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "6344"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+    "ID"                                                  "6344"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
 
-    "MaxLevel"                      "6"
-    "RequiredLevel"                 "1"
-    "LevelsBetweenUpgrades"         "2"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"              "0.0"
-    "AbilityCastRange"              "850"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastRange"                                    "850"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "19 16 13 10 8 8" //OAA
+    "AbilityCooldown"                                     "19 16 13 10 8 8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "75 80 85 90 95 100"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,47 +35,47 @@
     {
       "01"
       {
-        "var_type"              "FIELD_INTEGER"
-        "dash_range"            "850"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_range"                                      "850"
       }
       "02"
       {
-        "var_type"              "FIELD_INTEGER"
-        "range"                 "1000"
-        "LinkedSpecialBonus"    "special_bonus_unique_pangolier"
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier"
       }
       "05"
       {
-        "var_type"              "FIELD_INTEGER"
-        "damage"                "25 45 65 85 185 385"
-        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_3"
-        "CalculateSpellDamageTooltip" "0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "25 45 65 85 185 385"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_3"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
-        "var_type"              "FIELD_INTEGER"
-        "dash_speed"            "2000"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_speed"                                      "2000"
       }
       "04"
       {
-        "var_type"              "FIELD_FLOAT"
-        "attack_interval"       "0.1"
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "0.1"
       }
       "06"
       {
-        "var_type"              "FIELD_INTEGER"
-        "start_radius"          "125"
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "125"
       }
       "07"
       {
-        "var_type"              "FIELD_INTEGER"
-        "end_radius"            "125"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "125"
       }
       "08"
       {
-        "var_type"              "FIELD_INTEGER"
-        "strikes"               "4"
-        "LinkedSpecialBonus"    "special_bonus_unique_pangolier_7"
+        "var_type"                                        "FIELD_INTEGER"
+        "strikes"                                         "4"
+        "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_7"
       }
     }
   }

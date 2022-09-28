@@ -7,41 +7,41 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "7739"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has an extra space
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "ID"                                                  "7739"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has an extra space
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                      "1"
-    "IsGrantedByShard"              "1"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "MaxLevel"                                            "1"
+    "IsGrantedByShard"                                    "1"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "12" //OAA
-    "AbilityManaCost"               "85"
-    "AbilityCastPoint"              "0.5"
-    "AbilityCastRange"              "1800"
+    "AbilityCooldown"                                     "12" //OAA
+    "AbilityManaCost"                                     "85"
+    "AbilityCastPoint"                                    "0.5"
+    "AbilityCastRange"                                    "1800"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-    "AbilityCastGestureSlot"        "DEFAULT"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastGestureSlot"                              "DEFAULT"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                 "325"
-      "impact_radius"               "225"
-      "min_range"                   "550"
-      "min_travel_time"             "0.45"
-      "max_travel_time"             "1.7"
-      "bounce_travel_time"          "0.6"
-      "stun_duration"               "1.75"
-      "fragment_impact_distance"    "600"
-      "fragment_impact_radius"      "150"
+      "base_damage"                                       "325"
+      "impact_radius"                                     "225"
+      "min_range"                                         "550"
+      "min_travel_time"                                   "0.45"
+      "max_travel_time"                                   "1.7"
+      "bounce_travel_time"                                "0.6"
+      "stun_duration"                                     "1.75"
+      "fragment_impact_distance"                          "600"
+      "fragment_impact_radius"                            "150"
     }
   }
 }

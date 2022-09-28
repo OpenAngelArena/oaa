@@ -5,32 +5,32 @@
   //=================================================================================================================
   "boss_carapace_headbutt"
   {
-    "ID"                            "8474"
+    "ID"                                                  "8474"
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                     "ability_lua"
-    "AbilityTextureName"            "weaver_shukuchi"
-    "ScriptFile"                    "abilities/boss/carapace/boss_carapace_headbutt.lua"
-    "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
-    "AnimationIgnoresModelScale"    "1"
-    "MaxLevel"                      "1"
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "weaver_shukuchi"
+    "ScriptFile"                                          "abilities/boss/carapace/boss_carapace_headbutt.lua"
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AnimationIgnoresModelScale"                          "1"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"              "2.5"
+    "AbilityCastPoint"                                    "2.5"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"               "5"
+    "AbilityCooldown"                                     "5"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"               "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,43 +38,43 @@
     {
       "01"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "move_speed_slow_pct"       "-50"
+        "var_type"                                        "FIELD_INTEGER"
+        "move_speed_slow_pct"                             "-50"
       }
       "02"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "attack_speed_slow"         "-350"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "-350"
       }
       "03"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "slow_duration"             "3.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3.5"
       }
       "04"
       {
-        "var_type"                  "FIELD_FLOAT"
-        "self_stun"                 "0.5"
+        "var_type"                                        "FIELD_FLOAT"
+        "self_stun"                                       "0.5"
       }
       "05" // length of the rectangle
       {
-        "var_type"                  "FIELD_INTEGER"
-        "damage_range"              "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_range"                                    "300"
       }
       "06"
       {
-        "var_type"                  "FIELD_INTEGER"
-        "damage"                    "2000"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "2000"
       }
       "07" // width of the rectangle
       {
-        "var_type"                  "FIELD_INTEGER"
-        "width"                     "160"
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "160"
       }
       "08" // caster travel distance and knockback distance
       {
-        "var_type"                  "FIELD_INTEGER"
-        "range"                     "150"
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "150"
       }
     }
   }

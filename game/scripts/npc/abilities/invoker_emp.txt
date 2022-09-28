@@ -27,17 +27,17 @@
     {
       "delay"
       {
-        "value"         "2.9"
-        "levelkey"        "wexlevel"
+        "value"                                           "2.9"
+        "levelkey"                                        "wexlevel"
       }
-      "area_of_effect"    "675"
+      "area_of_effect"                                    "675"
       "mana_burned"
       {
-        "value"     "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
-        "levelkey"        "wexlevel"
-        "special_bonus_unique_invoker_10" "+20%"
+        "value"                                           "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
+        "levelkey"                                        "wexlevel"
+        "special_bonus_unique_invoker_10"                 "+20%"
       }
-      "damage_per_mana_pct" "60"
+      "damage_per_mana_pct"                               "60"
     }
   }
 }

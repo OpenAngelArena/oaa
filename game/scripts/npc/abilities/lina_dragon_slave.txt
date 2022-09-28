@@ -34,16 +34,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "dragon_slave_damage"   "110 180 250 320 640 1280" //OAA
-      "dragon_slave_speed"    "1200"
-      "dragon_slave_width_initial"  "275"
-      "dragon_slave_width_end"    "200"
-      "dragon_slave_distance"     "1075"
+      "dragon_slave_damage"                               "110 180 250 320 640 1280" //OAA
+      "dragon_slave_speed"                                "1200"
+      "dragon_slave_width_initial"                        "275"
+      "dragon_slave_width_end"                            "200"
+      "dragon_slave_distance"                             "1075"
 
       "AbilityCooldown" //OAA
       { 
-        "value"           "9.0 8.5 8.0 7.5 7.0 6.5"
-        "special_bonus_unique_lina_1"   "-3.5"
+        "value"                                           "9.0 8.5 8.0 7.5 7.0 6.5"
+        "special_bonus_unique_lina_1"                     "-3.5"
       }
     }
   }

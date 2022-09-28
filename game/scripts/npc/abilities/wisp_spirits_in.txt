@@ -5,20 +5,20 @@
   //=================================================================================================================
   "wisp_spirits_in"
   {
-	  // General
-	  //-------------------------------------------------------------------------------------------------------------
-	  "ID"                                                  "5490"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-	  "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5490"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
-	  "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6"
 
-	  // Casting
-	  //-------------------------------------------------------------------------------------------------------------
-	  "AbilityCastPoint"                                    "0"
-	  "AbilityCastAnimation"                                "ACT_INVALID"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+    "AbilityCastAnimation"                                "ACT_INVALID"
 
-	  // Time
-	  //-------------------------------------------------------------------------------------------------------------
-	  "AbilityCooldown"                                     "0"
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
   }
 }

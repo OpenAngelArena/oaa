@@ -7,20 +7,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3502"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3502"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_datadriven"
-    "Model"							"models/props_gameplay/recipe.vmdl"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
-    "ItemShopTags"					""
+    "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"					"1"
+    "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_gungir_2"
     "ItemRequirements"
     {
@@ -37,23 +37,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3503"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3503"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                                           "item_gungir"
     "AbilityTextureName"                                  "item_gungir"
     "AbilityTextureName"                                  "custom/gungir_2"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"				"18"
-    "AbilitySharedCooldown"			"atos"
-    "AbilityCastRange"				"1100"
-    "AbilityCastPoint"				"0.0"
+    "AbilityCooldown"                                     "18"
+    "AbilitySharedCooldown"                               "atos"
+    "AbilityCastRange"                                    "1100"
+    "AbilityCastPoint"                                    "0.0"
 
-    "AbilityManaCost"				"200"
+    "AbilityManaCost"                                     "200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -62,11 +62,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"						"7651"
-    "ItemShopTags"					"damage;attack_speed;unique"
-    "ItemQuality"					"artifact"
-    "ItemAliases"					"gleipnir 2;gliepnir 2;glaypnir 2"
-    "ItemDeclarations"				"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "7651"
+    "ItemShopTags"                                        "damage;attack_speed;unique"
+    "ItemQuality"                                         "artifact"
+    "ItemAliases"                                         "gleipnir 2;gliepnir 2;glaypnir 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -79,33 +79,33 @@
       }
       "02"
       {
-        "var_type"				"FIELD_INTEGER"
-        "chain_chance"			"30"
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_chance"                                    "30"
       }
       "03"
       {
-        "var_type"				"FIELD_INTEGER"
-        "chain_damage"			"160 210 310 460 660"
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_damage"                                    "160 210 310 460 660"
       }
       "04"
       {
-        "var_type"				"FIELD_INTEGER"
-        "chain_strikes"			"4"
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_strikes"                                   "4"
       }
       "05"
       {
-        "var_type"				"FIELD_INTEGER"
-        "chain_radius"			"650 750 850 950 1050"
+        "var_type"                                        "FIELD_INTEGER"
+        "chain_radius"                                    "650 750 850 950 1050"
       }
       "06"
       {
-        "var_type"				"FIELD_FLOAT"
-        "chain_delay"			"0.25"
+        "var_type"                                        "FIELD_FLOAT"
+        "chain_delay"                                     "0.25"
       }
       "07"
       {
-        "var_type"				"FIELD_FLOAT"
-        "chain_cooldown"		"0.2"
+        "var_type"                                        "FIELD_FLOAT"
+        "chain_cooldown"                                  "0.2"
       }
       "08"
       {

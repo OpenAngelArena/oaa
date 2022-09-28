@@ -75,11 +75,26 @@
       "DisableResistance"                                 "50.0"
       "AttachWearables"
       {
-        "1" { "ItemDef" "375" } // Batrider's Head
-        "2" { "ItemDef" "376" } // Batrider's Cloak
-        "3" { "ItemDef" "377" } // Batrider's Belt
-        "4" { "ItemDef" "4557" } // Default Mount
-        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        "1" // Batrider's Head
+        {
+          "ItemDef"                                       "375"
+        }
+        "2" // Batrider's Cloak
+        {
+          "ItemDef"                                       "376"
+        }
+        "3" // Batrider's Belt
+        {
+          "ItemDef"                                       "377"
+        }
+        "4" // Default Mount
+        {
+          "ItemDef"                                       "4557"
+        }
+        "5" // All Heroes' Default Pet
+        {
+          "ItemDef"                                       "8366"
+        }
       }
     }
 
@@ -175,11 +190,26 @@
       "DisableResistance"                                 "50.0"
       "AttachWearables"
       {
-        "1" { "ItemDef" "9376" } // Batrider's Head
-        "2" { "ItemDef" "9388" } // Batrider's Cloak
-        "3" { "ItemDef" "4815" } // Batrider's Belt
-        "4" { "ItemDef" "9407" } // Snow Owl
-        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        "1"
+        {
+          "ItemDef"                                       "9376"
+        }
+        "2"
+        {
+          "ItemDef"                                       "9388"
+        }
+        "3"
+        {
+          "ItemDef"                                       "4815"
+        }
+        "4" // Snow Owl
+        {
+          "ItemDef"                                       "9407"
+        }
+        "5"
+        {
+          "ItemDef"                                       "8366"
+        }
       }
     }
 
@@ -276,11 +306,26 @@
       "DisableResistance"                                 "50.0"
       "AttachWearables"
       {
-        "1" { "ItemDef" "4817" } // Batrider's Head
-        "2" { "ItemDef" "5145" } // Batrider's Cloak
-        "3" { "ItemDef" "7012" } // Batrider's Belt
-        "4" { "ItemDef" "9238" } // Manta Ray
-        "5" { "ItemDef" "8366" } // All Heroes' Default Pet
+        "1"
+        {
+          "ItemDef"                                       "4817"
+        }
+        "2"
+        {
+          "ItemDef"                                       "5145"
+        }
+        "3"
+        {
+          "ItemDef"                                       "7012"
+        }
+        "4" // Manta Ray
+        {
+          "ItemDef"                                       "9238"
+        }
+        "5"
+        {
+          "ItemDef"                                       "8366"
+        }
       }
     }
 

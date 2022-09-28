@@ -31,21 +31,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "wave_speed"    "2000.0"
+      "wave_speed"                                        "2000.0"
       "wave_width"
       {
-        "value"     "250"
-        "LinkedSpecialBonus"  "special_bonus_unique_drow_ranger_4"
+        "value"                                           "250"
+        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_4"
       }
       "silence_duration"                                  "3 4 5 6 6.5 7"
-      "knockback_distance_max"  "450"
+      "knockback_distance_max"                            "450"
       "knockback_duration"                                "0.6 0.7 0.8 0.9 1.0 1.1"
-      "knockback_height"    "0"
-      "wave_length"   "900"
+      "knockback_height"                                  "0"
+      "wave_length"                                       "900"
       "bonus_movespeed"
       {
-        "value"         "10"
-        "special_bonus_unique_drow_ranger_gust_selfmovespeed"   "+15"
+        "value"                                           "10"
+        "special_bonus_unique_drow_ranger_gust_selfmovespeed"  "+15"
       }
     }
   }

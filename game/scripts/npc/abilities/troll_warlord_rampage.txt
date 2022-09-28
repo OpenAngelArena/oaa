@@ -7,28 +7,28 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"          "728"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
-    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "MaxLevel"            "1"
+    "ID"                                                  "728"                           // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "MaxLevel"                                            "1"
     
-    "IsShardUpgrade"        "1"
-    "IsGrantedByShard"        "1"
+    "IsShardUpgrade"                                      "1"
+    "IsGrantedByShard"                                    "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.0"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityCastGestureSlot"    "DEFAULT"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastGestureSlot"                              "DEFAULT"
     
     // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "30" //OAA
-  
+    "AbilityCooldown"                                     "30" //OAA
+    
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "75"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,18 +36,18 @@
     {
       "01"
       {
-        "var_type"          "FIELD_INTEGER"
-        "attack_speed"        "70"
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed"                                    "70"
       }
       "02"
       {
-        "var_type"          "FIELD_INTEGER"
-        "status_resistance"       "25"
+        "var_type"                                        "FIELD_INTEGER"
+        "status_resistance"                               "25"
       }
       "03"
       {
-        "var_type"          "FIELD_FLOAT"
-        "duration"        "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
     }
   }

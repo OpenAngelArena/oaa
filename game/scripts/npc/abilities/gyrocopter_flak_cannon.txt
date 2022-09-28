@@ -21,11 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 90 100"
+    "AbilityManaCost"                                     "40 50 60 70 80 90"
 
     // Duration
     //-------------------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@
       "bonus_damage" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"      "+100"
+        "special_bonus_unique_gyrocopter_flak_cannon_bonus_damage"  "+100"
       }
       "fire_rate"
       {

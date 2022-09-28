@@ -42,25 +42,25 @@
     {
       "armor_reduction" //OAA
       {
-        "value"       "-10 -13 -16 -20 -25"
-        "special_bonus_unique_slardar_5"  "-4"
+        "value"                                           "-10 -13 -16 -20 -25"
+        "special_bonus_unique_slardar_5"                  "-4"
       }
       "duration"
       {
-        "value"     "18"
+        "value"                                           "18"
       }
       "undispellable"
       {
-        "value"     "0"
-        "special_bonus_unique_slardar_3"  "+1"
+        "value"                                           "0"
+        "special_bonus_unique_slardar_3"                  "+1"
       }
       "puddle_radius"
       {
-        "value"     "100"
+        "value"                                           "100"
       }
       "puddle_duration"
       {
-        "value"     "8"
+        "value"                                           "8"
       }
     }
   }

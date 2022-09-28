@@ -40,23 +40,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burrow_width"    "150"
+      "burrow_width"                                      "150"
       "burrow_duration"
       {
-        "value"     "1.6 1.8 2.0 2.2 2.3 2.4"
-        "special_bonus_unique_sand_king_burrowstrike_stun"        "+0.3"
+        "value"                                           "1.6 1.8 2.0 2.2 2.3 2.4"
+        "special_bonus_unique_sand_king_burrowstrike_stun"  "+0.3"
       }
-      "burrow_speed"    "2000"
-      "burrow_anim_time"  "0.52"
+      "burrow_speed"                                      "2000"
+      "burrow_anim_time"                                  "0.52"
       "cast_range_scepter" //OAA
       {
-        "value"           "1000 1100 1200 1300 1400 1500"
-        "RequiresScepter"     "1"
+        "value"                                           "1000 1100 1200 1300 1400 1500"
+        "RequiresScepter"                                 "1"
       }
       "burrow_speed_scepter"
       {
-        "value"   "3000"
-        "RequiresScepter"     "1"
+        "value"                                           "3000"
+        "RequiresScepter"                                 "1"
       }
     }
   }

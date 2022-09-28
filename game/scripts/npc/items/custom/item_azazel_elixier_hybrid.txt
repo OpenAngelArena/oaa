@@ -36,45 +36,45 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                    "7554"
-    "BaseClass"                             "item_lua"
-    "ScriptFile"                            "items/elixier_hybrid.lua"
-    "AbilityTextureName"                    "custom/elixier_hybrid_4"
-    "AbilityBehavior"                       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "ID"                                                  "7554"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/elixier_hybrid.lua"
+    "AbilityTextureName"                                  "custom/elixier_hybrid_4"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                      "0"
-    "AbilityCastPoint"                      "0.0"
-    "AbilitySharedCooldown"                 "elixier"
-    "AbilityCooldown"                       "1.0"
-    "AbilityManaCost"                       "0"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "elixier"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemShopTags"                          "consumable"
-    "ItemQuality"                           "epic"
-    "ItemAliases"                           "elixier, elixir, hybrid"
-    "ItemStackable"                         "0"
-    "ItemPermanent"                         "0"
-    "ItemInitialCharges"                    "1"
-    "ItemRequiresCharges"                   "1"
-    "ItemKillable"                          "1"
-    "ItemPurchasable"                       "1"
-    "ItemSellable"                          "0"
-    "SecretShop"                            "1"
-    "SecretShopType"                        "Elixirs"
-    "IsTempestDoubleClonable"               "0"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "elixier, elixir, hybrid"
+    "ItemStackable"                                       "0"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+    "ItemSellable"                                        "0"
+    "SecretShop"                                          "1"
+    "SecretShopType"                                      "Elixirs"
+    "IsTempestDoubleClonable"                             "0"
 
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "particle"                            "particles/items/elixiers/elixier_hybrid.vpcf"
-      "particle"                            "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
+      "particle"                                          "particles/items/elixiers/elixier_hybrid.vpcf"
+      "particle"                                          "particles/items/elixiers/elixier_hybrid_lesser.vpcf"
     }
 
     // Special
@@ -83,23 +83,23 @@
     {
       "01"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "bonus_mana_regen"                  "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_mana_regen"                                "10"
       }
       "02"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "bonus_magic_damage"                "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_magic_damage"                              "200"
       }
       "03"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "bonus_physical_damage"             "300"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_physical_damage"                           "300"
       }
       "04"
       {
-        "var_type"                          "FIELD_INTEGER"
-        "bonus_duration"                    "180"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_duration"                                  "180"
       }
     }
   }

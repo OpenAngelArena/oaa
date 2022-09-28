@@ -41,23 +41,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_rate_multiplier"  "1.5"
-      "bonus_damage"        "30 40 50 100 200"
-      "bonus_attack_speed"        "40"
+      "attack_rate_multiplier"                            "1.5"
+      "bonus_damage"                                      "30 40 50 100 200"
+      "bonus_attack_speed"                                "40"
       "duration"
       {
-        "value"         "3 3.25 3.5 4.25 4.5"
-        "special_bonus_unique_juggernaut_omnislash_duration"      "+1"
+        "value"                                           "3 3.25 3.5 4.25 4.5"
+        "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
       }
-      "omni_slash_radius"     "425"
+      "omni_slash_radius"                                 "425"
       "AbilityCastRange"        
       {
-        "value"         "350"
-        "special_bonus_unique_juggernaut_omnislash_cast_range"        "+75"
+        "value"                                           "350"
+        "special_bonus_unique_juggernaut_omnislash_cast_range"  "+75"
       }
       "dispel"
       {
-        "value"   "0"
+        "value"                                           "0"
       }
     }
   }

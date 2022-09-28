@@ -37,29 +37,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"        "5.0 5.5 6.0 6.5 7.0" //OAA
+      "duration"                                          "5.0 5.5 6.0 6.5 7.0" //OAA
       "duration_scepter"
       {
-        "value"     "6 7 8 9 10"
-        "RequiresScepter" "1"
+        "value"                                           "6 7 8 9 10"
+        "RequiresScepter"                                 "1"
       }
       "reward_damage" //OAA
       {
         "value"                                           "12 22 32 52 72"
         "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
       }
-      "victory_range"     "600"
+      "victory_range"                                     "600"
       "scepter_damage_reduction_pct"
       {
-        "value"       "50"
-        "RequiresScepter"           "1"
+        "value"                                           "50"
+        "RequiresScepter"                                 "1"
       }
       "scepter_cooldown_reduction"
       {
-        "value"     "20.0"
-        "RequiresScepter"           "1"
+        "value"                                           "20.0"
+        "RequiresScepter"                                 "1"
       }
-      "AbilityCooldown" "50"
+      "AbilityCooldown"                                   "50"
     }
   }
 }

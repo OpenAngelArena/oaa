@@ -1,36 +1,36 @@
 //=============================================================================
 // Pangolier Lucky Shot (OAA rework)
 //=============================================================================
-//"DOTA_Tooltip_ability_pangolier_lucky_shot"                                   "Lucky Shot"
-//"DOTA_Tooltip_ability_pangolier_lucky_shot_Description"                       "Pangolier rolls the dice and lets fate decide the outcome for his enemies. Grants a chance to apply a Disarm and reduce armor on any damage dealt by Pangolier's attacks or abilities."
-//"DOTA_Tooltip_ability_pangolier_lucky_shot_Lore"                              "The Pangolier's blade is guided more often by whim than reason."
-//"DOTA_Tooltip_ability_pangolier_lucky_shot_chance_pct"                        "%CHANCE:"
-//"DOTA_Tooltip_ability_pangolier_lucky_shot_armor"                             "ARMOR REDUCTION:"
+//"DOTA_Tooltip_ability_pangolier_lucky_shot"                                     "Lucky Shot"
+//"DOTA_Tooltip_ability_pangolier_lucky_shot_Description"                         "Pangolier rolls the dice and lets fate decide the outcome for his enemies. Grants a chance to apply a Disarm and reduce armor on any damage dealt by Pangolier's attacks or abilities."
+//"DOTA_Tooltip_ability_pangolier_lucky_shot_Lore"                                "The Pangolier's blade is guided more often by whim than reason."
+//"DOTA_Tooltip_ability_pangolier_lucky_shot_chance_pct"                          "%CHANCE:"
+//"DOTA_Tooltip_ability_pangolier_lucky_shot_armor"                               "ARMOR REDUCTION:"
 
-//"DOTA_Tooltip_modifier_pangolier_luckyshot_disarm"                            "Lucky Shot"
-//"DOTA_Tooltip_modifier_pangolier_luckyshot_disarm_Description"                "Disarmed. Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+//"DOTA_Tooltip_modifier_pangolier_luckyshot_disarm"                              "Lucky Shot"
+//"DOTA_Tooltip_modifier_pangolier_luckyshot_disarm_Description"                  "Disarmed. Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa"                               "#{DOTA_Tooltip_ability_pangolier_lucky_shot}"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Description"                   "#{DOTA_Tooltip_ability_pangolier_lucky_shot_Description}"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Lore"                          "These fools know nothing about luck..."
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Note0"                         "Disarm and armor reduction duration can be reduced with status resistance."
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Note1"                         "Disarm is not applied to bosses."
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_chance_pct"                    "#{DOTA_Tooltip_ability_pangolier_lucky_shot_chance_pct}"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration"                      "DURATION (MELEE):"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration_ranged"               "DURATION (RANGED):"
-//"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_slow"                          "#{DOTA_Tooltip_ability_pangolier_lucky_shot_slow}"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_armor"                         "#{DOTA_Tooltip_ability_pangolier_lucky_shot_armor}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa"                                 "#{DOTA_Tooltip_ability_pangolier_lucky_shot}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Description"                     "#{DOTA_Tooltip_ability_pangolier_lucky_shot_Description}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Lore"                            "These fools know nothing about luck..."
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Note0"                           "Disarm and armor reduction duration can be reduced with status resistance."
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_Note1"                           "Disarm is not applied to bosses."
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_chance_pct"                      "#{DOTA_Tooltip_ability_pangolier_lucky_shot_chance_pct}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration"                        "DURATION (MELEE):"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration_ranged"                 "DURATION (RANGED):"
+//"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_slow"                            "#{DOTA_Tooltip_ability_pangolier_lucky_shot_slow}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_armor"                           "#{DOTA_Tooltip_ability_pangolier_lucky_shot_armor}"
 
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_slow_debuff"                  "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm} Slow"
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_slow_debuff_Description"      "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_slow_debuff"                    "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm} Slow"
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_slow_debuff_Description"        "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff"                 "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm}"
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff_Description"     "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm_Description}"
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff"        "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm}"
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_and_disarm_debuff_Description"  "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm_Description}"
 
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_debuff"                 "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm}"
-"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_debuff_Description"     "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_debuff"                   "#{DOTA_Tooltip_modifier_pangolier_luckyshot_disarm}"
+"DOTA_Tooltip_modifier_pangolier_lucky_shot_oaa_armor_debuff_Description"       "Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
-"DOTA_Tooltip_ability_pangolier_lucky_shot_duration"                          "#{DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration}"
-"DOTA_Tooltip_ability_pangolier_lucky_shot_duration_ranged"                   "#{DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration_ranged}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_duration"                            "#{DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration}"
+"DOTA_Tooltip_ability_pangolier_lucky_shot_duration_ranged"                     "#{DOTA_Tooltip_ability_pangolier_lucky_shot_oaa_duration_ranged}"
 
 

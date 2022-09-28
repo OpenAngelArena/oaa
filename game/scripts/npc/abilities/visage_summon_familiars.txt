@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5483"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5483"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
@@ -41,7 +41,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "familiar_speed"                                  "430"
+        "familiar_speed"                                  "420" //OAA, Valve has it wrong
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_2"
       }
       "04"

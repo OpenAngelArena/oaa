@@ -35,17 +35,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"         "1250"
-      "width"         "200"
+      "speed"                                             "1250"
+      "width"                                             "200"
       "AbilityCharges"    
       {
-        "value" "0"
-        "special_bonus_unique_morphling_6"  "+2"
+        "value"                                           "0"
+        "special_bonus_unique_morphling_6"                "+2"
       }
       "AbilityCastRange"
       {
-        "value"       "700 800 900 1000 1000 1000"
-        "special_bonus_unique_morphling_1"  "+250"
+        "value"                                           "700 800 900 1000 1000 1000"
+        "special_bonus_unique_morphling_1"                "+250"
       }
     }
   }

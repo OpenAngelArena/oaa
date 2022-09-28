@@ -57,7 +57,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "44"    // Base health.
+    "StatusHealth"                                        "40"    // Base health.
     "StatusHealthRegen"                                   "0"    // Health regeneration rate.
     "StatusMana"                                          "0"      // Base mana.
     "StatusManaRegen"                                     "0"      // Mana regeneration rate.
@@ -71,8 +71,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1800"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "1800"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "1500"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "1500"    // Range of vision at night time.
   }
 
 }

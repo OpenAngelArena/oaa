@@ -70,14 +70,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"     "1200"
-      "blink_damage_cooldown" "3.0"
-      "blink_range_clamp"   "960"
-      "bonus_intellect"   "25 35 50 70 95"
-      "duration"    "6"
-      "cast_pct_improvement"    "35 40 45 50 55"
-      "manacost_reduction"    "25 30 35 40 45"
-      "debuff_amp"          "20"
+      "blink_range"                                       "1200"
+      "blink_damage_cooldown"                             "3.0"
+      "blink_range_clamp"                                 "960"
+      "bonus_intellect"                                   "25 35 50 70 95"
+      "duration"                                          "6"
+      "cast_pct_improvement"                              "35 40 45 50 55"
+      "manacost_reduction"                                "25 30 35 40 45"
+      "debuff_amp"                                        "20"
     }
   }
 }

@@ -39,18 +39,18 @@
       "pre_hop_duration"                                  "0.0"
       "jump_duration"
       {
-        "value" "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
-        "special_bonus_shard" "+0.2"
+        "value"                                           "0.484" //"0.431 0.484 0.538 0.592" // proportional to horizontal distance
+        "special_bonus_shard"                             "+0.2"
       }
       "jump_height"
       {
-        "value"           "257" //"228 257 285 314" // proportional to horizontal distance
-        "special_bonus_shard"   "+105"
+        "value"                                           "257" //"228 257 285 314" // proportional to horizontal distance
+        "special_bonus_shard"                             "+105"
       }
       "jump_horizontal_distance"
       {
-        "value"           "425" //"400 450 500 550"
-        "special_bonus_shard"   "+175"
+        "value"                                           "425" //"400 450 500 550"
+        "special_bonus_shard"                             "+175"
       }
       "pre_land_anim_time"                                "0.14"
       "landing_gesture_duration"                          "0.6"

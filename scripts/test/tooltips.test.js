@@ -14,7 +14,7 @@ test('can read in tooltip list', function (t) {
     if (err) {
       t.fail(err);
     }
-    const dotaEnglish = parseKV(result.body);
+    const dotaEnglish = parseKV(result.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
     t.ok(dotaEnglish);
 
     t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');

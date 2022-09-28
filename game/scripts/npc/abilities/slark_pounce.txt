@@ -30,21 +30,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pounce_damage"     "0"
-      "pounce_distance"   "700"
-      "pounce_speed"      "933.33"
-      "pounce_acceleration" "7000.0"
-      "pounce_radius"     "120"
+      "pounce_damage"                                     "0"
+      "pounce_distance"                                   "700"
+      "pounce_speed"                                      "933.33"
+      "pounce_acceleration"                               "7000.0"
+      "pounce_radius"                                     "120"
       "leash_duration"
       {
         "value"                                           "2.5 2.75 3 3.25 3.5 3.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark"
       }
-      "leash_radius"      "400"
+      "leash_radius"                                      "400"
       "max_charges"
       {
-        "value" "2"
-        "RequiresScepter" "1"
+        "value"                                           "2"
+        "RequiresScepter"                                 "1"
       }
       "charge_restore_time" //OAA
       {
@@ -53,10 +53,10 @@
       }
       "pounce_distance_scepter"
       {
-        "value"   "1200"
-        "RequiresScepter" "1"
+        "value"                                           "1200"
+        "RequiresScepter"                                 "1"
       }
-      "essence_stacks"  "0 1 2 3 3 3"
+      "essence_stacks"                                    "0 1 2 3 3 3"
     }
   }
 }
