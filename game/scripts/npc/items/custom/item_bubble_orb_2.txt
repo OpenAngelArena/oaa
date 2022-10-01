@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8446"   // unique ID
+    "ID"                                                  "8446"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_bubble_orb_1;item_upgrade_core_4"
-      //"02"                                                "item_lotus_orb_4;item_upgrade_core_4"
-      //"03"                                                "item_dispel_orb_2;item_upgrade_core_4"
     }
   }
 
@@ -37,12 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8458"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8458"
     "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/bubble_orb.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/bubble_orb_2"
-    "ScriptFile"                                          "items/reflex/preemptive_bubble.lua"
-    "FightRecapLevel"                                     "1"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -58,58 +55,23 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "33854"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemShopTags"                                        "armor;regen_health;regen_mana;mana_pool;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "bubble orb 2"
+    "ItemAliases"                                         "bubble 2; bubble orb 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Modifiers
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "19 24"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "16 19"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.5 6.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "700 950"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0 7.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_stickiness"                                 "0.1"
-      }
-    }
-
-    "precache"
-    {
-      "particle"                                          "particles/items/bubble_orb_base.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+      "bonus_armor"                                       "19 24"
+      "bonus_health_regen"                                "16 19"
+      "bonus_mana_regen"                                  "5.5 6.5"
+      "bonus_mana"                                        "700 950"
+      "duration"                                          "6.0 7.0"
+      "radius"                                            "300"
+      "aura_stickiness"                                   "0.1"
     }
   }
 }

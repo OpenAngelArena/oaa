@@ -80,7 +80,10 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
       local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
       ParticleManager:ReleaseParticleIndex(blockEffect)
       -- Sound effect
-      parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+      if not parent:HasModifier("modifier_item_bubble_orb_effect_cd") then
+        parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+        parent:AddNewModifier(parent, nil, "modifier_item_bubble_orb_effect_cd", {duration = 2.75})
+      end
       -- Prevent looping particle and sound effects
       parent.last_bubble_blocked_modifier = keys.name_const -- important for constantly reapplying spells like Chronosphere
       parent.last_bubble_blocked_ability = keys.entindex_ability_const -- important for spells that apply multiple modifiers like Blinding Light

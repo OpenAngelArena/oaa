@@ -61,14 +61,6 @@
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf"
-      "particle"                                          "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke_flash.vpcf"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -85,6 +77,14 @@
       //"sangromancy_spell_amp"                             "75 100"
       //"sangromancy_self_damage"                           "100 75"
       //"sangromancy_bonus_damage_from_others"              "50 25"
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf"
+      "particle"                                          "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke_flash.vpcf"
     }
   }
 }

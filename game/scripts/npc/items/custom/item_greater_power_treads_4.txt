@@ -25,11 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_power_treads_3;item_upgrade_core_4"
-      //"02"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
-      //"03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
-      //"04"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
-      //"05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
-      //"06"                                                "item_sonic;item_upgrade_core_4"
     }
   }
 
@@ -43,7 +38,6 @@
     "ID"                                                  "3018"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads_4"
 
@@ -60,48 +54,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "primary_attribute_bonus"                         "25 40 55 70"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 20 25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 20 40 70"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "5 6 7 8"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "6 8 10 12"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "primary_attribute_multiplier"                    "2"
-      }
+      "bonus_movement_speed"                              "50 55 60 65"
+      "primary_attribute_bonus"                           "25 40 55 70"
+      "bonus_all_stats"                                   "10 15 20 25"
+      "bonus_attack_speed"                                "30 35 40 45"
+      "bonus_damage"                                      "10 20 40 70"
+      "bonus_magic_resistance"                            "5 6 7 8"
+      "bonus_spell_amp"                                   "6 8 10 12"
+      "primary_attribute_multiplier"                      "2"
     }
   }
 }

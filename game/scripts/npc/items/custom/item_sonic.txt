@@ -45,9 +45,9 @@
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_sonic_2"
 
-    "ItemCost"                                            "14053"
-    "ItemShopTags"                                        "sonic"
-    "ItemQuality"                                         ""
+    "ItemCost"                                            "14003"
+    "ItemShopTags"                                        "agi;attack_speed;move_speed"
+    "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sonic"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -82,6 +82,7 @@
 
     "precache"
     {
+      "particle"                                          "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
     }
   }

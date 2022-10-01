@@ -84,12 +84,6 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/econ/events/ti6/force_staff_ti6.vpcf"
-      "particle"                                          "particles/status_fx/status_effect_forcestaff.vpcf"
-    }
-
     "AbilityValues"
     {
       "bonus_damage"                                      "15 35 65 105 155"
@@ -105,6 +99,14 @@
       "cooldown_tooltip"                                  "18 17 16 15 14"
       "echo_strike_cooldown"                              "5.0 3.5 2.5 1.75 1.5"
       "echo_strike_slow_duration"                         "0.8"
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/econ/events/ti6/force_staff_ti6.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_forcestaff.vpcf"
     }
   }
 }

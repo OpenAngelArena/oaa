@@ -7,10 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3033"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3033"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -25,11 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
-      //"02"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
-      //"03"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
-      //"04"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
-      //"05"                                                "item_greater_power_treads_3;item_upgrade_core_4"
-      //"06"                                                "item_sonic;item_upgrade_core_4"
     }
   }
 
@@ -40,23 +36,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3038"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3038"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_guardian_greaves.lua"
-
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/greater_guardian_greaves_4"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
     "AbilityCastRange"                                    "1200"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
     "ItemCost"                                            "33654"
-    "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
+    "ItemShopTags"                                        "move_speed;mana_pool;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 4;guardian greaves 4;ggg 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -65,7 +60,6 @@
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_guardian_greaves_4"
-    "UpgradeRecipe"                                       "item_recipe_greater_guardian_greaves"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

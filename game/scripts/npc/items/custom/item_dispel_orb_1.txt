@@ -61,15 +61,6 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/dispel_orb/dispel_base.vpcf"
-      "particle"                                          "particles/items/dispel_orb/dispel_b.vpcf"
-      "particle"                                          "particles/items/dispel_orb/dispel_steam.vpcf"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -80,6 +71,15 @@
       "bonus_mana"                                        "500 700 950"
       "tick_interval"                                     "0.2"
       "duration"                                          "6.0"
+    }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/items/dispel_orb/dispel_base.vpcf"
+      "particle"                                          "particles/items/dispel_orb/dispel_b.vpcf"
+      "particle"                                          "particles/items/dispel_orb/dispel_steam.vpcf"
     }
   }
 }
