@@ -23,8 +23,8 @@ function modifier_item_spell_lifesteal_oaa:OnCreated(kv)
   if ability and not ability:IsNull() then
     self.hero_spell_lifesteal = ability:GetSpecialValueFor("hero_spell_lifesteal")
     self.creep_spell_lifesteal = ability:GetSpecialValueFor("creep_spell_lifesteal")
-    self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
-    self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal")
+    self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal") or 0
+    self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal") or 0
   end
 end
 
@@ -92,7 +92,7 @@ if IsServer() then
     local nCreepHeal = self.creep_spell_lifesteal
 
     -- Check for Satanic Core active spell lifesteal
-    if self.unholy_hero_spell_lifesteal and self.unholy_creep_spell_lifesteal and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
+    if self.unholy_hero_spell_lifesteal > 0 and self.unholy_creep_spell_lifesteal > 0 and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
       nHeroHeal = self.unholy_hero_spell_lifesteal
       nCreepHeal = self.unholy_creep_spell_lifesteal
     end
@@ -102,7 +102,6 @@ if IsServer() then
       "modifier_item_kaya",
       "modifier_item_ethereal_blade",
       "modifier_item_sacred_skull_non_stacking_stats",
-      "modifier_item_ghost_king_bar_non_stacking_stats",
       "modifier_item_yasha_and_kaya",
       "modifier_item_kaya_and_sange",
     }
@@ -160,7 +159,7 @@ if IsServer() then
     end
 
     if heal_amount > 0 then
-      attacker:Heal(heal_amount, self:GetAbility())
+      attacker:HealWithParams(heal_amount, self:GetAbility(), false, false, attacker, true)
       -- Particle
       local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
       ParticleManager:SetParticleControl(particle, 0, attacker:GetAbsOrigin())
