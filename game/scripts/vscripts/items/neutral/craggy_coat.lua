@@ -12,6 +12,14 @@ function item_craggy_coat_oaa:OnSpellStart()
 
   -- Apply the buff
   caster:AddNewModifier(caster, self, "modifier_item_craggy_coat_active", {duration = self:GetSpecialValueFor("duration")})
+
+  -- Particle
+  local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_transform.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle)
+
+  -- Sound
+  caster:EmitSound("Tiny.Grow")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -38,13 +46,7 @@ function modifier_item_craggy_coat_passive:OnCreated()
   end
 end
 
-function modifier_item_craggy_coat_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.strength = ability:GetSpecialValueFor("bonus_strength")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-  end
-end
+modifier_item_craggy_coat_passive.OnRefresh = modifier_item_craggy_coat_passive.OnCreated
 
 function modifier_item_craggy_coat_passive:DeclareFunctions()
   return {

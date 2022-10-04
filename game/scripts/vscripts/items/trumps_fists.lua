@@ -26,10 +26,6 @@ function item_trumps_fists_1:OnSpellStart()
   target:EmitSound("Item.Paintball.Target")
 end
 
-function item_trumps_fists_1:ProcsMagicStick()
-  return false
-end
-
 item_trumps_fists_2 = item_trumps_fists_1
 
 ---------------------------------------------------------------------------------------------------

@@ -16,7 +16,6 @@ function item_satanic_core:GetIntrinsicModifierNames()
   return {
     "modifier_item_satanic_core",
     "modifier_item_spell_lifesteal_oaa",
-    "modifier_item_satanic_core_non_stacking_stats"
   }
 end
 
@@ -28,14 +27,12 @@ function item_satanic_core:OnSpellStart()
   hCaster:AddNewModifier( hCaster, self, "modifier_satanic_core_unholy", { duration = unholy_duration } )
 end
 
---------------------------------------------------------------------------------
-
-item_satanic_core_2 = item_satanic_core --luacheck: ignore item_satanic_core_2
-item_satanic_core_3 = item_satanic_core --luacheck: ignore item_satanic_core_3
+item_satanic_core_2 = item_satanic_core
+item_satanic_core_3 = item_satanic_core
 item_satanic_core_4 = item_satanic_core
 item_satanic_core_5 = item_satanic_core
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_item_satanic_core = class(ModifierBaseClass)
 
@@ -65,21 +62,25 @@ function modifier_item_satanic_core:OnCreated()
     self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
     self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
+    --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
+    --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
   end
 end
 
 modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
 
 function modifier_item_satanic_core:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-  return funcs
 end
 
 function modifier_item_satanic_core:GetModifierBonusStats_Strength()
@@ -123,43 +124,9 @@ function modifier_item_satanic_core:OnTakeDamage( kv )
   end
 end
 ]]
----------------------------------------------------------------------------------------------------
--- Parts of Satanic Core that should NOT stack with other Satanic Cores
-
-modifier_item_satanic_core_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_satanic_core_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_satanic_core_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_satanic_core_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_satanic_core_non_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
-    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
-  end
-end
-
-modifier_item_satanic_core_non_stacking_stats.OnRefresh = modifier_item_satanic_core_non_stacking_stats.OnCreated
-
-function modifier_item_satanic_core_non_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-  }
-end
 
 -- Doesn't stack with Sange items
-function modifier_item_satanic_core_non_stacking_stats:GetModifierStatusResistanceStacking()
+function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
   local parent = self:GetParent()
   if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     return 0
@@ -168,7 +135,7 @@ function modifier_item_satanic_core_non_stacking_stats:GetModifierStatusResistan
 end
 
 -- Doesn't stack with Sange items
-function modifier_item_satanic_core_non_stacking_stats:GetModifierHPRegenAmplify_Percentage()
+function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
   local parent = self:GetParent()
   if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     return 0
@@ -177,7 +144,7 @@ function modifier_item_satanic_core_non_stacking_stats:GetModifierHPRegenAmplify
 end
 
 -- Doesn't stack with Sange items
-function modifier_item_satanic_core_non_stacking_stats:GetModifierLifestealRegenAmplify_Percentage()
+function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
   local parent = self:GetParent()
   if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     return 0

@@ -5,6 +5,10 @@ LinkLuaModifier("modifier_item_devastator_reduce_armor", "modifiers/modifier_ite
 
 item_devastator_1 = class(ItemBaseClass)
 
+function item_devastator_1:GetIntrinsicModifierName()
+  return "modifier_item_devastator_desolator"
+end
+
 function item_devastator_1:OnSpellStart()
   local caster = self:GetCaster()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
@@ -104,11 +108,6 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
     ParticleManager:ReleaseParticleIndex( nFXIndex )
   end
   return false
-end
-
--- base modifiers for the passive effects
-function item_devastator_1:GetIntrinsicModifierName()
-  return "modifier_item_devastator_desolator"
 end
 
 item_devastator_2 = item_devastator_1

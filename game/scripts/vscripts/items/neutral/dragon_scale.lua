@@ -32,13 +32,7 @@ function modifier_item_dragon_scale_oaa_passive:OnCreated()
   end
 end
 
-function modifier_item_dragon_scale_oaa_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.hp_regen = ability:GetSpecialValueFor("bonus_hp_regen")
-  end
-end
+modifier_item_dragon_scale_oaa_passive.OnRefresh = modifier_item_dragon_scale_oaa_passive.OnCreated
 
 function modifier_item_dragon_scale_oaa_passive:DeclareFunctions()
   return {

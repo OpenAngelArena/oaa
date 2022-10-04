@@ -16,10 +16,6 @@ function item_reduction_orb_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_reduction_orb_active", { duration = self:GetSpecialValueFor("duration") })
 end
 
-function item_reduction_orb_1:ProcsMagicStick()
-  return false
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_reduction_orb_passive = class(ModifierBaseClass)

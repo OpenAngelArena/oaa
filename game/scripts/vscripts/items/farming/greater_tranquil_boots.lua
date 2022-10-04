@@ -444,13 +444,7 @@ function modifier_greater_tranquils_trees_buff:IsPurgable()
 end
 
 function modifier_greater_tranquils_trees_buff:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen_amp = ability:GetSpecialValueFor("tree_hp_regen_amp")
-    self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
-    self.status_resist = ability:GetSpecialValueFor("tree_status_resistance")
-  end
-
+  self:OnRefresh()
   if IsServer() then
     self:SetStackCount(2)
     self:StartIntervalThink(0)

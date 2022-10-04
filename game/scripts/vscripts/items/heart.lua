@@ -79,10 +79,6 @@ function item_heart_oaa_1:OnSpellStart()
   end
 end
 
-function item_heart_oaa_1:ProcsMagicStick()
-  return false
-end
-
 item_heart_oaa_2 = item_heart_oaa_1
 item_heart_oaa_3 = item_heart_oaa_1
 item_heart_oaa_4 = item_heart_oaa_1

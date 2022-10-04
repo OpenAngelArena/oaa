@@ -74,10 +74,6 @@ function item_bubble_orb_1:OnSpellStart()
   end
 end
 
-function item_bubble_orb_1:ProcsMagicStick()
-  return false
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)

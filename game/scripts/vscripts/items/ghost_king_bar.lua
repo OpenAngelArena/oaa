@@ -68,10 +68,6 @@ function item_ghost_king_bar_1:OnSpellStart()
   self:SetCurrentCharges(0)
 end
 
-function item_ghost_king_bar_1:ProcsMagicStick()
-  return false
-end
-
 item_ghost_king_bar_2 = item_ghost_king_bar_1
 item_ghost_king_bar_3 = item_ghost_king_bar_1
 item_ghost_king_bar_4 = item_ghost_king_bar_1

@@ -11,74 +11,72 @@ LinkLuaModifier("modifier_azazel_summon_scout_innate", "items/azazel_summon.lua"
 azazel_summon = class(ItemBaseClass)
 
 function azazel_summon:OnSpellStart()
-  if IsServer() then
-    local caster = self:GetCaster()
+  local caster = self:GetCaster()
 
-    -- Prevent use on Spirit Bear and other non-hero units with inventory
-    if not caster:IsRealHero() then
-      return
-    end
-
-    caster:EmitSound("DOTA_Item.Necronomicon.Activate")
-
-    -- Destroy any existing summons tied to this caster
-    if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
-      caster.azazel_summon:Kill(nil, caster)
-    end
-
-    -- Summon parameters
-    local summon_position = caster:GetAbsOrigin() + caster:GetForwardVector() * 100
-    local summon_name = self:GetAbilityName()
-    summon_name = "npc_dota_"..summon_name:sub(6)
-
-    -- Summon the creature
-    GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
-    local azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
-    azazel_summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
-
-    -- Level up any relevant abilities
-    if string.find(summon_name, "farmer") then
-      azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
-    elseif string.find(summon_name, "scout") then
-      azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
-      azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_scout_innate", {})
-    elseif string.find(summon_name, "fighter") then
-      azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
-    end
-
-    -- Fix stats of summons
-    local summon_hp = self:GetSpecialValueFor("summon_health")
-    local summon_dmg = self:GetSpecialValueFor("summon_damage")
-    local summon_armor = self:GetSpecialValueFor("summon_armor")
-    local summon_ms = self:GetSpecialValueFor("summon_ms")
-
-    -- HP
-    if summon_hp and summon_hp > 0 then
-      azazel_summon:SetBaseMaxHealth(summon_hp)
-      azazel_summon:SetMaxHealth(summon_hp)
-      azazel_summon:SetHealth(summon_hp)
-    end
-
-    -- DAMAGE
-    if summon_dmg and summon_dmg > 0 then
-      azazel_summon:SetBaseDamageMin(summon_dmg)
-      azazel_summon:SetBaseDamageMax(summon_dmg)
-    end
-
-    -- ARMOR
-    if summon_armor and summon_armor > 0 then
-      azazel_summon:SetPhysicalArmorBaseValue(summon_armor)
-    end
-
-    -- Movement speed
-    if summon_ms and summon_ms > 0 then
-      azazel_summon:SetBaseMoveSpeed(summon_ms)
-    end
-
-    caster.azazel_summon = azazel_summon
-
-    self:SpendCharge()
+  -- Prevent use on Spirit Bear and other non-hero units with inventory
+  if not caster:IsRealHero() then
+    return
   end
+
+  caster:EmitSound("DOTA_Item.Necronomicon.Activate")
+
+  -- Destroy any existing summons tied to this caster
+  if caster.azazel_summon ~= nil and not caster.azazel_summon:IsNull() and IsValidEntity(caster.azazel_summon) then
+    caster.azazel_summon:Kill(nil, caster)
+  end
+
+  -- Summon parameters
+  local summon_position = caster:GetAbsOrigin() + caster:GetForwardVector() * 100
+  local summon_name = self:GetAbilityName()
+  summon_name = "npc_dota_"..summon_name:sub(6)
+
+  -- Summon the creature
+  GridNav:DestroyTreesAroundPoint(summon_position, 128, false)
+  local azazel_summon = CreateUnitByName(summon_name, summon_position, true, caster, caster, caster:GetTeam())
+  azazel_summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
+
+  -- Level up any relevant abilities
+  if string.find(summon_name, "farmer") then
+    azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
+  elseif string.find(summon_name, "scout") then
+    azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
+    azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_scout_innate", {})
+  elseif string.find(summon_name, "fighter") then
+    azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
+  end
+
+  -- Fix stats of summons
+  local summon_hp = self:GetSpecialValueFor("summon_health")
+  local summon_dmg = self:GetSpecialValueFor("summon_damage")
+  local summon_armor = self:GetSpecialValueFor("summon_armor")
+  local summon_ms = self:GetSpecialValueFor("summon_ms")
+
+  -- HP
+  if summon_hp and summon_hp > 0 then
+    azazel_summon:SetBaseMaxHealth(summon_hp)
+    azazel_summon:SetMaxHealth(summon_hp)
+    azazel_summon:SetHealth(summon_hp)
+  end
+
+  -- DAMAGE
+  if summon_dmg and summon_dmg > 0 then
+    azazel_summon:SetBaseDamageMin(summon_dmg)
+    azazel_summon:SetBaseDamageMax(summon_dmg)
+  end
+
+  -- ARMOR
+  if summon_armor and summon_armor > 0 then
+    azazel_summon:SetPhysicalArmorBaseValue(summon_armor)
+  end
+
+  -- Movement speed
+  if summon_ms and summon_ms > 0 then
+    azazel_summon:SetBaseMoveSpeed(summon_ms)
+  end
+
+  caster.azazel_summon = azazel_summon
+
+  self:SpendCharge()
 end
 
 --------------------------------------------------------------------------------
@@ -103,23 +101,28 @@ modifier_azazel_summon_farmer_innate = class(ModifierBaseClass)
 function modifier_azazel_summon_farmer_innate:IsHidden()
   return true
 end
-function modifier_azazel_summon_farmer_innate:IsPurgable() return false end
-function modifier_azazel_summon_farmer_innate:IsDebuff() return false end
+
+function modifier_azazel_summon_farmer_innate:IsDebuff()
+  return false
+end
+
+function modifier_azazel_summon_farmer_innate:IsPurgable()
+  return false
+end
 
 function modifier_azazel_summon_farmer_innate:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
-  return funcs
 end
 
 function modifier_azazel_summon_farmer_innate:GetModifierPhysical_ConstantBlock()
   return self:GetAbility():GetSpecialValueFor("damage_block")
 end
 
-function modifier_azazel_summon_farmer_innate:OnAttackLanded(keys)
-  if IsServer() then
+if IsServer() then
+  function modifier_azazel_summon_farmer_innate:OnAttackLanded(keys)
     if keys.attacker == self:GetParent() and (not keys.target:IsBuilding()) then
       local ability = self:GetAbility()
       DoCleaveAttack(self:GetParent(), keys.target, ability, keys.damage * ability:GetSpecialValueFor("cleave_pct") * 0.01, ability:GetSpecialValueFor("cleave_start_radius"), ability:GetSpecialValueFor("cleave_end_radius"), ability:GetSpecialValueFor("cleave_length"), "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf")
@@ -183,8 +186,7 @@ end
 
 -- Flying Vision
 function modifier_azazel_summon_scout_innate:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
-  return state
 end

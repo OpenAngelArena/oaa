@@ -69,6 +69,3 @@ function item_hand_of_midas_1:OnSpellStart()
 
   target:Kill(self, caster)
 end
-
-item_hand_of_midas_2 = class(item_hand_of_midas_1)
-item_hand_of_midas_3 = class(item_hand_of_midas_1)

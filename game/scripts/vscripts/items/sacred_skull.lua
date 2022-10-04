@@ -118,7 +118,6 @@ function item_sacred_skull:OnSpellStart()
   -- end
 end
 
--- upgrades
 item_sacred_skull_2 = item_sacred_skull
 item_sacred_skull_3 = item_sacred_skull
 item_sacred_skull_4 = item_sacred_skull

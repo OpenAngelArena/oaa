@@ -18,10 +18,6 @@ function item_butterfly_oaa:OnSpellStart()
   caster:EmitSound("DOTA_Item.Butterfly")
 end
 
-function item_butterfly_oaa:ProcsMagicStick()
-  return false
-end
-
 item_butterfly_2 = item_butterfly_oaa
 item_butterfly_3 = item_butterfly_oaa
 item_butterfly_4 = item_butterfly_oaa

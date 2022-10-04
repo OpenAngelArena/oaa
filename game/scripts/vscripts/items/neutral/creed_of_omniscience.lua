@@ -34,19 +34,7 @@ function modifier_item_creed_of_omniscience_passive:OnCreated()
   end
 end
 
-function modifier_item_creed_of_omniscience_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen = ability:GetSpecialValueFor("bonus_hp_regen")
-    --self.attack_range_ranged = ability:GetSpecialValueFor("bonus_attack_range")
-    --self.attack_range_melee = ability:GetSpecialValueFor("bonus_attack_range_melee")
-    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
-    --self.attack_projectile_speed = ability:GetSpecialValueFor("bonus_attack_projectile_speed")
-    self.bonus_ms = ability:GetSpecialValueFor("bonus_move_speed")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_intelligence")
-    self.turn_rate = ability:GetSpecialValueFor("bonus_turn_rate")
-  end
-end
+modifier_item_creed_of_omniscience_passive.OnRefresh = modifier_item_creed_of_omniscience_passive.OnCreated
 
 function modifier_item_creed_of_omniscience_passive:DeclareFunctions()
   return {

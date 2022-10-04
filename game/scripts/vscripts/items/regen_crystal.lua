@@ -19,10 +19,6 @@ function item_regen_crystal_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.EssenceRing.Cast")
 end
 
-function item_regen_crystal_1:ProcsMagicStick()
-  return false
-end
-
 --------------------------------------------------------------------------
 
 modifier_item_regen_crystal_passive = class(ModifierBaseClass)

@@ -39,12 +39,7 @@ function modifier_item_reflex_core_passive:OnCreated()
   end
 end
 
-function modifier_item_reflex_core_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.evasion = ability:GetSpecialValueFor("bonus_evasion")
-  end
-end
+modifier_item_reflex_core_passive.OnRefresh = modifier_item_reflex_core_passive.OnCreated
 
 function modifier_item_reflex_core_passive:DeclareFunctions()
   return {
@@ -143,12 +138,11 @@ function modifier_item_reflex_core_invulnerability:GetAbsoluteNoDamagePure()
 end
 
 function modifier_item_reflex_core_invulnerability:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
   }
-  return state
 end
 
 ---------------------------------------------------------------------------------------------------

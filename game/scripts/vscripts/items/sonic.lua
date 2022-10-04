@@ -27,10 +27,6 @@ function item_sonic:OnSpellStart()
   caster:EmitSound("Hero_Dark_Seer.Surge")
 end
 
-function item_sonic:ProcsMagicStick()
-  return false
-end
-
 item_sonic_2 = item_sonic
 
 ---------------------------------------------------------------------------------------------------

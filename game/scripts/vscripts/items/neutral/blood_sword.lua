@@ -30,10 +30,6 @@ function item_blood_sword:OnSpellStart()
   caster:EmitSound("DOTA_Item.IronTalon.Activate")
 end
 
-function item_blood_sword:ProcsMagicStick()
-  return false
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_blood_sword_passive = class(ModifierBaseClass)
@@ -41,9 +37,11 @@ modifier_item_blood_sword_passive = class(ModifierBaseClass)
 function modifier_item_blood_sword_passive:IsHidden()
   return true
 end
+
 function modifier_item_blood_sword_passive:IsDebuff()
   return false
 end
+
 function modifier_item_blood_sword_passive:IsPurgable()
   return false
 end
@@ -56,13 +54,7 @@ function modifier_item_blood_sword_passive:OnCreated()
   end
 end
 
-function modifier_item_blood_sword_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.dmg = ability:GetSpecialValueFor("bonus_damage")
-    self.attack_range_melee = ability:GetSpecialValueFor("bonus_attack_range_melee")
-  end
-end
+modifier_item_blood_sword_passive.OnRefresh = modifier_item_blood_sword_passive.OnCreated
 
 function modifier_item_blood_sword_passive:DeclareFunctions()
   return {
@@ -100,10 +92,9 @@ function modifier_item_blood_sword_lifesteal:IsPurgable()
 end
 
 function modifier_item_blood_sword_lifesteal:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -160,7 +151,8 @@ if IsServer() then
     -- Maybe DOTA_UNIT_TARGET_TEAM_BOTH is bugging it out lmao
 
     if (ufResult == UF_SUCCESS or ufResult == UF_FAIL_DEAD) and lifesteal_percent > 0 and parent:IsAlive() then
-      parent:Heal(damage * lifesteal_percent * 0.01, ability)
+      local lifesteal_amount = damage * lifesteal_percent * 0.01
+      parent:HealWithParams(lifesteal_amount, ability, true, true, parent, false)
 
       local part = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:SetParticleControl(part, 0, parent:GetAbsOrigin())

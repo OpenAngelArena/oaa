@@ -7,10 +7,6 @@ function item_aeon_disk_oaa_1:GetIntrinsicModifierName()
   return "modifier_item_aeon_disk_oaa_passive"
 end
 
-function item_aeon_disk_oaa_1:ProcsMagicStick()
-  return false
-end
-
 function item_aeon_disk_oaa_1:ShouldUseResources()
   return true
 end

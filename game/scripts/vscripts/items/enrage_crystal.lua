@@ -1,8 +1,6 @@
 LinkLuaModifier("modifier_item_enrage_crystal_passive", "items/enrage_crystal.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_enrage_crystal_1 = class(ItemBaseClass)
-item_enrage_crystal_2 = item_enrage_crystal_1
-item_enrage_crystal_3 = item_enrage_crystal_1
 
 function item_enrage_crystal_1:GetIntrinsicModifierName()
   return "modifier_item_enrage_crystal_passive"
@@ -18,9 +16,8 @@ function item_enrage_crystal_1:OnSpellStart()
   ParticleManager:ReleaseParticleIndex(nIndex)
 end
 
-function item_enrage_crystal_1:ProcsMagicStick()
-  return false
-end
+item_enrage_crystal_2 = item_enrage_crystal_1
+item_enrage_crystal_3 = item_enrage_crystal_1
 
 ---------------------------------------------------------------------------------------------------
 

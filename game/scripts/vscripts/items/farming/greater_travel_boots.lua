@@ -108,7 +108,7 @@ function item_greater_travel_boots:OnChannelThink (delta)
     self:EndChannel(true)
   end
 end
--- IsAlive
+
 function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   local hCaster = self:GetCaster()
 
