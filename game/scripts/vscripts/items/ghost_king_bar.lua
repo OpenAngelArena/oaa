@@ -230,7 +230,7 @@ end
 if IsServer() then
   function modifier_item_ghost_king_bar_passives:OnAbilityExecuted(event)
     -- Only the first item will get charges
-    if self:IsFirstItemInInventory() then
+    if not self:IsFirstItemInInventory() then
       return
     end
 
