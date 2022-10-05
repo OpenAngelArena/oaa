@@ -31,19 +31,25 @@ function modifier_item_magic_lamp_oaa_passive:GetAttributes()
 end
 
 function modifier_item_magic_lamp_oaa_passive:OnCreated()
+  self:OnRefresh()
+end
+
+function modifier_item_magic_lamp_oaa_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.min_hp = ability:GetSpecialValueFor("health_threshold")
+    self.heal_pct = ability:GetSpecialValueFor("heal_pct")
   end
 end
-
-modifier_item_magic_lamp_oaa_passive.OnRefresh = modifier_item_magic_lamp_oaa_passive.OnCreated
 
 function modifier_item_magic_lamp_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_MIN_HEALTH,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
@@ -53,5 +59,70 @@ end
 
 function modifier_item_magic_lamp_oaa_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
+if IsServer() then
+  function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() then
+      return 1
+    end
+    return
+  end
+
+  function modifier_item_magic_lamp_oaa_passive:OnTakeDamage(event)
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local damage = event.damage
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if damaged unit exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Check if damaged unit has this modifier
+    if damaged_unit ~= parent then
+      return
+    end
+
+    -- Don't trigger for illusions
+    if parent:IsIllusion() then
+      return
+    end
+
+    -- Don't trigger if item is not in the inventory
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local current_health = parent:GetHealth()
+    if damage >= current_health and current_health <= 1 and ability:IsCooldownReady() and ability:IsOwnersManaEnough() then
+      -- Sound
+      parent:EmitSound("DOTA_Item.MagicLamp.Cast")
+
+      -- Absolute Purge
+      parent:AbsolutePurge()
+
+      -- Particle
+
+      -- 'Heal'
+      local health_increase = parent:GetMaxHealth() * self.heal_pct * 0.01
+      parent:SetHealth(math.max(self.min_hp, health_increase))
+
+      -- Start cooldown, spend mana
+      ability:UseResources(true, true, true)
+    end
+  end
 end
 

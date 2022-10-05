@@ -40,39 +40,41 @@ if IsServer() then
       "modifier_item_silver_edge_windwalk",
       "modifier_item_blade_mail_reflect",
       "modifier_item_lotus_orb_active",
-      "modifier_item_sphere_target",               -- Linken's Sphere transferred buff
+      "modifier_item_sphere_target",                 -- Linken's Sphere transferred buff
       "modifier_item_book_of_shadows_buff",
       --"modifier_item_bloodstone_active",
-      "modifier_item_butterfly_oaa_active",        -- Butterfly active buff
+      "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
       --"modifier_item_dagger_of_moriah_sangromancy",-- Dagger of Moriah active buff
-      "modifier_item_preemptive_purge",            -- Dispel Orb buff
-      "modifier_eternal_shroud_oaa_barrier",       -- Eternal Shroud active buff
-      "modifier_shield_staff_barrier_buff",        -- Force Shield Staff buff
+      "modifier_item_dispel_orb_active",             -- Dispel Orb buff
+      "modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
+      "modifier_shield_staff_barrier_buff",          -- Force Shield Staff buff
       --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
       --"modifier_item_ghost_king_bar_active",       -- Ghost King Bar active buff
       --"modifier_item_giant_form_grow",             -- Giant Form active buff
-      "modifier_item_heart_oaa_active",            -- Heart active buff
+      "modifier_item_heart_oaa_active",              -- Heart active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
-      "modifier_item_martyrs_mail_martyr_active",  -- Martyr's Mail buff
+      "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
       --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller
-      "modifier_item_preemptive_damage_reduction", -- Reduction Orb buff
+      "modifier_item_reduction_orb_active",          -- Reduction Orb buff
       --"modifier_item_reactive_reflect",            -- Reflection Shard buff
+      "modifier_item_regen_crystal_active",          -- Regen Crystal buff
       --"modifier_satanic_core_unholy",              -- Satanic Core active buff
       --"modifier_sonic_fly",                        -- Sonic Boots active buff
-      "modifier_item_spiked_mail_active_return",   -- Spiked Mail active buff
+      "modifier_item_spiked_mail_active_return",     -- Spiked Mail active buff
       --"modifier_item_siege_mode_active",           -- Splash Cannon active buff
-      "modifier_item_stoneskin_stone_armor",       -- Stoneskin Armor buff
-      "modifier_item_vampire_active",              -- Vampire Fang active buff
+      "modifier_item_stoneskin_stone_armor",         -- Stoneskin Armor buff
+      "modifier_item_vampire_active",                -- Vampire Fang active buff
     }
 
     local undispellable_item_debuffs = {
       "modifier_item_skadi_slow",
-      "modifier_heavens_halberd_debuff",        -- Heaven's Halberd debuff
-      "modifier_silver_edge_debuff",            -- Silver Edge debuff
-      "modifier_item_nullifier_mute",           -- Nullifier debuff
-      "modifier_item_trumps_fists_frostbite",   -- Blade of Judecca debuff
-      "modifier_item_silver_staff_debuff",      -- Silver Staff debuff
-      "modifier_item_rune_breaker_oaa_debuff",  -- Rune Breaker debuff
+      "modifier_greater_tranquils_tranquilize_debuff", -- Greater Tranquil Boots debuff
+      "modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
+      "modifier_silver_edge_debuff",                   -- Silver Edge debuff
+      "modifier_item_nullifier_mute",                  -- Nullifier debuff
+      "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
+      "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
+      "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
     }
 
     local undispellable_ability_debuffs = {
@@ -92,6 +94,7 @@ if IsServer() then
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
       "modifier_shadow_demon_shadow_poison",
       "modifier_shadow_demon_purge_slow",
+      "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
       "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
       "modifier_slark_pounce_leash",
       "modifier_tusk_walrus_punch_slow",
