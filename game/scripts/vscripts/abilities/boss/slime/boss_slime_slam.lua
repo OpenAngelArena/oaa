@@ -19,7 +19,7 @@ function boss_slime_slam:OnAbilityPhaseStart()
     local width = self:GetSpecialValueFor("width")
     local target = GetGroundPosition(self:GetCursorPosition(), caster)
     local distance = self:GetCastRange(target, caster)
-    local castTime = self:GetCastPoint()
+    --local castTime = self:GetCastPoint()
     local direction = (target - caster:GetAbsOrigin()):Normalized()
 
     -- Warning particle
@@ -48,7 +48,6 @@ function boss_slime_slam:FindTargets(position)
 	local width = self:GetSpecialValueFor("width")
 	local target = GetGroundPosition(position or self:GetCursorPosition(), caster)
 	local distance = self:GetCastRange(target, caster)
-	local castTime = self:GetCastPoint()
 	local direction = (target - caster:GetAbsOrigin()):Normalized()
 	target = GetGroundPosition(caster:GetAbsOrigin() + (direction * distance), caster)
 
@@ -67,10 +66,8 @@ end
 
 function boss_slime_slam:OnSpellStart()
   local caster = self:GetCaster()
-  local width = self:GetSpecialValueFor("width")
   local target = GetGroundPosition(self:GetCursorPosition(), caster)
   local distance = self:GetCastRange(target, caster)
-  local castTime = self:GetCastPoint()
   local direction = (target - caster:GetAbsOrigin()):Normalized()
   target = GetGroundPosition(caster:GetAbsOrigin() + (direction * distance), caster)
   local selfStun = self:GetSpecialValueFor("self_stun")

@@ -98,7 +98,7 @@ function modifier_generic_projectile:OnIntervalThink()
 
         local z = projectileTable.height * math.sin(math.pi * self.traveled)
 
-        local step = math.min(projectileTable.speed, (projectile:GetAbsOrigin() - projectileTable.target):Length2D())
+        --local step = math.min(projectileTable.speed, (projectile:GetAbsOrigin() - projectileTable.target):Length2D())
         local newPosition = LerpVectors(projectileTable.origin, projectileTable.target, self.traveled)
 
         newPosition.z = LerpVectors(Vector(0,0,projectileTable.origin.z), Vector(0,0,projectileTable.target.z), self.traveled).z + z

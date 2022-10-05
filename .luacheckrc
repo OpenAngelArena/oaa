@@ -2902,7 +2902,7 @@ ignore = {
   -- "111", -- setting non-standard global variable
   -- "112", -- mutating non-standard global variable
   "131", -- unused global variable
-  "211", -- unused variable
+  -- "211", -- unused variable
   "212", -- unused argument
   "213", -- unused loop variable
   "231", -- never accessed
@@ -2917,8 +2917,8 @@ enable = {
 exclude_files = {
   "game/scripts/vscripts/statcollection", -- we just ignore getdotastats
   "game/scripts/vscripts/settings.lua", -- this spews so may warnings
-  "game/scripts/vscripts/internal", -- like settings.lua and it's not needed
-  "game/scripts/vscripts/libraries", -- like settings.lua and it's not needed
+  -- "game/scripts/vscripts/internal", -- like settings.lua and it's not needed
+  -- "game/scripts/vscripts/libraries", -- like settings.lua and it's not needed
   "game/scripts/vscripts/examples", -- like settings.lua and it's not needed
   "game/scripts/vscripts/bots", -- like settings.lua and it's not needed
   "game/scripts/vscripts/animation_example", -- like settings.lua and it's not needed

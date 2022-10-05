@@ -134,7 +134,7 @@ end
 
 function boss_slime_shake:OnSpellStart()
 	local caster = self:GetCaster()
-	local minSize = self:GetSpecialValueFor("projectile_min_size")
+	--local minSize = self:GetSpecialValueFor("projectile_min_size")
 	local maxSize = self:GetSpecialValueFor("projectile_max_size")
 	self.points = RandomPointsInsideCircleUniform( caster:GetAbsOrigin(), self:GetSpecialValueFor("radius"), self:GetSpecialValueFor("projectile_count"), maxSize, maxSize)
 	self.n = 1

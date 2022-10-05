@@ -347,12 +347,6 @@ function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
 
   if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
     local block = self.bonus
-    -- Block value for summons (not illusions)
-    --[[
-    if not parent:IsHero() then
-      block = block / 2
-    end
-    ]]
     -- True Random chance
     --[[
     if RandomInt(1, 100) <= 50 then
@@ -392,12 +386,7 @@ function modifier_spark_power_effect:OnTooltip()
 end
 
 function modifier_spark_power_effect:OnTooltip2()
-  local parent = self:GetParent()
-  local block = self.bonus
-  --if not parent:IsHero() then
-    --block = block / 2
-  --end
-  return block
+  return self.bonus
 end
 
 function modifier_spark_power_effect:GetTexture()

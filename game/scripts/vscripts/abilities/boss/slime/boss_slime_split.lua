@@ -24,16 +24,13 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_slime_split_passive:DeclareFunctions()
-	local funcs =
-	{
-		MODIFIER_PROPERTY_MODEL_CHANGE,
-		MODIFIER_PROPERTY_MIN_HEALTH,
-		MODIFIER_EVENT_ON_DEATH,
-		MODIFIER_PROPERTY_MODEL_SCALE,
-		MODIFIER_EVENT_ON_TAKEDAMAGE
-	}
-
-	return funcs
+  return {
+    MODIFIER_PROPERTY_MODEL_CHANGE,
+    MODIFIER_PROPERTY_MIN_HEALTH,
+    MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_PROPERTY_MODEL_SCALE,
+    MODIFIER_EVENT_ON_TAKEDAMAGE
+  }
 end
 
 ------------------------------------------------------------------------------------
@@ -116,7 +113,6 @@ if IsServer() then
   function modifier_boss_slime_split_passive:OnDeath(keys)
     local caster = self:GetParent()
     if keys.unit:entindex() == caster:entindex() then
-      local unitName = caster:GetUnitName()
       if caster.SetClones then
         caster:SetClones(
           self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),

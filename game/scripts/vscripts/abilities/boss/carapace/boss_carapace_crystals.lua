@@ -62,7 +62,6 @@ if IsServer() then
   end
 
 	function modifier_boss_carapace_crystals_passive:OnCreated()
-		local caster = self:GetCaster()
 		local ability = self:GetAbility()
 
 		local additional = ability:GetSpecialValueFor("additional")
@@ -103,8 +102,6 @@ if IsServer() then
 	end
 
 	function modifier_boss_carapace_crystals_passive:OnIntervalThink()
-		local caster = self:GetCaster()
-
 		for id, crystal in pairs(self.crystals) do
 			if crystal.particle then
 				local angle = self.angle * id
@@ -167,7 +164,8 @@ if IsServer() then
 		return t - math.floor(t / length) * length
 	end
 
-	local function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
+	--[[
+  local function FindUnitsInCone(position, coneDirection, coneLength, coneWidth, teamNumber, teamFilter, typeFilter, flagFilter, order)
 		local units = FindUnitsInRadius(teamNumber, position, nil, coneLength, teamFilter, typeFilter, flagFilter, order, false)
 
 		coneDirection = coneDirection:Normalized()
@@ -184,6 +182,7 @@ if IsServer() then
 
 		return output
 	end
+  ]]
 
   function modifier_boss_carapace_crystals_passive:OnTakeDamage(event)
     local caster = self:GetParent()

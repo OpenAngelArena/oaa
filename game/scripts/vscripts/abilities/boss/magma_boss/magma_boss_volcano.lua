@@ -550,7 +550,7 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
     end
   end
 
-  local duration = ability:GetSpecialValueFor("totem_duration_max")
+  --local duration = ability:GetSpecialValueFor("totem_duration_max")
 
   -- Magma/Lava bits particle
   self.lava_bits = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)

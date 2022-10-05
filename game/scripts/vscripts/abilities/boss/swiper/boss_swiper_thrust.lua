@@ -16,7 +16,7 @@ function boss_swiper_thrust:OnAbilityPhaseStart()
     local width = self:GetSpecialValueFor("width")
     local target = GetGroundPosition(self:GetCursorPosition(), caster)
     local distance = (target - caster:GetAbsOrigin()):Length2D()
-    local castTime = self:GetCastPoint()
+    --local castTime = self:GetCastPoint()
     local direction = (target - caster:GetAbsOrigin()):Normalized()
 
     -- Warning particle
