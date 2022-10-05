@@ -294,6 +294,10 @@ if IsServer() then
   end
 end
 
+function modifier_item_trumps_fists_frostbite:GetEffectName()
+  return "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
+end
+
 function modifier_item_trumps_fists_frostbite:GetTexture()
   return "custom/trumps_fists"
 end

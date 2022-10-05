@@ -24,34 +24,36 @@ function item_ghost_king_bar_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.GhostScepter.Activate")
 
   local current_charges = self:GetCurrentCharges()
-  local amount_to_restore = current_charges * self:GetSpecialValueFor("active_restore_per_charge")
-  local allies = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
-    nil,
-    self:GetSpecialValueFor("active_radius"),
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
 
   -- Restore hp and mana to all allies including the caster
-  for _, unit in pairs(allies) do
-    if unit and not unit:IsNull() then
-      -- Restore health (it should work with heal amp)
-      unit:Heal(amount_to_restore, self)
-      -- Restore mana
-      unit:GiveMana(amount_to_restore)
-      -- Particle
-      local particle = ParticleManager:CreateParticle("particles/items2_fx/magic_stick.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-      ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
-      ParticleManager:SetParticleControl(particle, 1, Vector(10,0,0))
-      ParticleManager:ReleaseParticleIndex(particle)
-      -- Sound
-      if unit ~= caster then
-        unit:EmitSound("DOTA_Item.MagicWand.Activate")
+  if current_charges > 0 then
+    local amount_to_restore = current_charges * self:GetSpecialValueFor("active_restore_per_charge")
+    local allies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      nil,
+      self:GetSpecialValueFor("active_radius"),
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, unit in pairs(allies) do
+      if unit and not unit:IsNull() then
+        -- Restore health (it should work with heal amp)
+        unit:Heal(amount_to_restore, self)
+        -- Restore mana
+        unit:GiveMana(amount_to_restore)
+        -- Particle
+        local particle = ParticleManager:CreateParticle("particles/items2_fx/magic_stick.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
+        ParticleManager:SetParticleControl(particle, 1, Vector(10,0,0))
+        ParticleManager:ReleaseParticleIndex(particle)
+        -- Sound
+        if unit ~= caster then
+          unit:EmitSound("DOTA_Item.MagicWand.Activate")
+        end
       end
     end
   end
@@ -368,7 +370,7 @@ if IsServer() then
     local parent = self:GetParent()
     local inflictor = event.inflictor -- Heal ability
     local unit = event.unit -- Healed unit
-    --local amount = event.gain -- Amount healed
+    local amount = event.gain -- Amount healed
 
     local ghost_king_bar = self:GetAbility()
     if not ghost_king_bar or ghost_king_bar:IsNull() then
@@ -382,6 +384,10 @@ if IsServer() then
 
     -- Don't continue if healed unit doesn't exist
     if not unit or unit:IsNull() then
+      return
+    end
+
+    if amount <= 0 then
       return
     end
 

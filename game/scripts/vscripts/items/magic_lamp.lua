@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_item_magic_lamp_oaa_passive", "items/magic_lamp.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_magic_lamp_oaa_buff", "items/magic_lamp.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_magic_lamp_1 = class(ItemBaseClass)
 
@@ -64,7 +65,7 @@ end
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
     local ability = self:GetAbility()
-    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() then
+    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() and not self:GetParent():IsMuted() then
       return 1
     end
     return
@@ -97,7 +98,7 @@ if IsServer() then
     end
 
     -- Don't trigger for illusions
-    if parent:IsIllusion() then
+    if parent:IsIllusion() or parent:IsMuted() then
       return
     end
 
@@ -115,6 +116,7 @@ if IsServer() then
       parent:AbsolutePurge()
 
       -- Particle
+      parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})
 
       -- 'Heal'
       local health_increase = parent:GetMaxHealth() * self.heal_pct * 0.01
@@ -124,5 +126,25 @@ if IsServer() then
       ability:UseResources(true, true, true)
     end
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_magic_lamp_oaa_buff = class(ModifierBaseClass)
+
+function modifier_item_magic_lamp_oaa_buff:IsHidden()
+  return true
+end
+
+function modifier_item_magic_lamp_oaa_buff:IsDebuff()
+  return false
+end
+
+function modifier_item_magic_lamp_oaa_buff:IsPurgable()
+  return false
+end
+
+function modifier_item_magic_lamp_oaa_buff:GetEffectName()
+  return "particles/items5_fx/magic_lamp.vpcf"
 end
 
