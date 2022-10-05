@@ -55,20 +55,10 @@ function modifier_item_silver_staff_passive:OnCreated()
   end
 end
 
-function modifier_item_silver_staff_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_str = ability:GetSpecialValueFor("bonus_all_stats")
-    self.bonus_agi = ability:GetSpecialValueFor("bonus_all_stats")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_all_stats")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-  end
-end
+modifier_item_silver_staff_passive.OnRefresh = modifier_item_silver_staff_passive.OnCreated
 
 function modifier_item_silver_staff_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
@@ -76,7 +66,6 @@ function modifier_item_silver_staff_passive:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_item_silver_staff_passive:GetModifierBonusStats_Strength()
@@ -126,27 +115,7 @@ function modifier_item_silver_staff_debuff:OnCreated()
       self.base_damage = ability:GetSpecialValueFor("base_damage")
       self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
     end
-
-    -- Initial damage
-    local parent = self:GetParent()
-    local damage_per_second = self.base_damage + self.percent_damage * parent:GetMaxHealth() * 0.01
-
-    local damage_table = {
-      victim = parent,
-      attacker = self:GetCaster(),
-      damage = damage_per_second,
-      damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
-      ability = ability,
-    }
-
-    -- Do reduced damage to bosses
-    if parent:IsOAABoss() then
-      damage_table.damage = self.base_damage + (self.percent_damage * parent:GetMaxHealth() * 0.01) * 15/100
-    end
-
-    ApplyDamage(damage_table)
-
+    self:OnIntervalThink()
     self:StartIntervalThink(1.0)
   end
 end
@@ -162,10 +131,9 @@ function modifier_item_silver_staff_debuff:OnRefresh()
 end
 
 function modifier_item_silver_staff_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_PASSIVES_DISABLED] = true,
   }
-  return state
 end
 
 function modifier_item_silver_staff_debuff:OnIntervalThink()

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3801"   // unique ID
+    "ID"                                                  "3801"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -35,69 +35,41 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3802"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3802"
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/reduction_orb_1"
-    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
-    "FightRecapLevel"                                     "1"
+    "ScriptFile"                                          "items/reduction_orb.lua"
+
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "100"
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
 
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "8602"
-    "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool"
+    "ItemShopTags"                                        "health_pool;armor;magic_resist;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Reduction orb 1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Modifiers
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1850"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "24"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "50"
-      }
+      "bonus_health"                                      "2850"
+      "bonus_armor"                                       "15"
+      "bonus_magic_resistance"                            "25"
+      "damage_reduction"                                  "100"
+      "duration"                                          "4.0"
+      "damage_as_healing"                                 "75"
     }
   }
 }

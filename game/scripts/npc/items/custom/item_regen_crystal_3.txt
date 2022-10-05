@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_regen_crystal_2;item_upgrade_core_4"
-      //"02"                                                "item_heart_4;item_upgrade_core_4"
-      //"03"                                                "item_crimson_guard_4;item_upgrade_core_4"
-      //"04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -40,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8459"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/postactive_regen.lua"
+    "ScriptFile"                                          "items/regen_crystal.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/regen_crystal_3"
 
@@ -57,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "34304"
-    "ItemShopTags"                                        "str;regen_health;health_pool"
+    "ItemShopTags"                                        "regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "regen crystal 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,46 +62,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1500 2100 2850"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_mana_to_hp_regen"                            "4.25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen"                                 "200 225 250"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_hp_regen_amp"                             "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
-      }
-    }
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/items/regen_crystal/regen_ambient.vpcf"
-      "particle"                                          "particles/items5_fx/essence_ring.vpcf"
+      "bonus_health"                                      "1500 2100 2850"
+      "bonus_strength"                                    "0"
+      "max_mana_to_hp_regen"                              "4.25"
+      "active_hp_regen"                                   "200 225 250"
+      "active_hp_regen_amp"                               "50"
+      "duration"                                          "6"
     }
   }
 }

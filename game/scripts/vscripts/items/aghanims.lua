@@ -54,6 +54,7 @@ function modifier_item_aghanims_talents:OnCreated()
     self:StartIntervalThink(1)
   end
 end
+
 modifier_item_aghanims_talents.OnRefresh = modifier_item_aghanims_talents.OnCreated
 
 function modifier_item_aghanims_talents:IsHidden()

@@ -148,10 +148,9 @@ if IsServer() then
   function modifier_item_heart_transplant:GetModifierHealthRegenPercentage()
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local parentHasHeart = parent:HasModifier("modifier_item_heart_oaa_non_stacking_stats")
-    local isFirstHeartTransplantModifier = parent:FindModifierByName(self:GetName()) == self
+    local parentHasHeart = parent:HasModifier("modifier_item_heart_oaa_passive")
 
-    if not parent:IsIllusion() and not parentHasHeart and isFirstHeartTransplantModifier then
+    if not parent:IsIllusion() and not parentHasHeart and self:IsFirstItemInInventory() then
       local bonus_regen = self.regen or ability:GetSpecialValueFor("health_regen_pct")
       if parent:HasModifier("modifier_item_heart_transplant_debuff") and self.t_regen then
         return bonus_regen - self.t_regen

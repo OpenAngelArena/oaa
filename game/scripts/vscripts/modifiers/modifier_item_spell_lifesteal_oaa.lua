@@ -23,8 +23,8 @@ function modifier_item_spell_lifesteal_oaa:OnCreated(kv)
   if ability and not ability:IsNull() then
     self.hero_spell_lifesteal = ability:GetSpecialValueFor("hero_spell_lifesteal")
     self.creep_spell_lifesteal = ability:GetSpecialValueFor("creep_spell_lifesteal")
-    self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
-    self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal")
+    self.unholy_hero_spell_lifesteal = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal") or 0
+    self.unholy_creep_spell_lifesteal = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal") or 0
   end
 end
 
@@ -92,37 +92,36 @@ if IsServer() then
     local nCreepHeal = self.creep_spell_lifesteal
 
     -- Check for Satanic Core active spell lifesteal
-    if self.unholy_hero_spell_lifesteal and self.unholy_creep_spell_lifesteal and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
+    if self.unholy_hero_spell_lifesteal > 0 and self.unholy_creep_spell_lifesteal > 0 and attacker:HasModifier("modifier_satanic_core_unholy") and attacker:HasModifier("modifier_item_satanic_core") then
       nHeroHeal = self.unholy_hero_spell_lifesteal
       nCreepHeal = self.unholy_creep_spell_lifesteal
     end
 
     -- Check for spell lifesteal amplification (sort from worst to best)
-    local kaya_modifiers = {
-      "modifier_item_kaya",
-      "modifier_item_ethereal_blade",
-      "modifier_item_sacred_skull_non_stacking_stats",
-      "modifier_item_ghost_king_bar_non_stacking_stats",
-      "modifier_item_yasha_and_kaya",
-      "modifier_item_kaya_and_sange",
-    }
+    -- local kaya_modifiers = {
+      -- "modifier_item_kaya",
+      -- "modifier_item_ethereal_blade",
+      -- "modifier_item_kaya_and_sange",
+      -- "modifier_item_sacred_skull_passives",
+      -- "modifier_item_yasha_and_kaya",
+    -- }
 
     -- local custom_modifiers = {
       -- "modifier_item_stoneskin",
     -- }
 
-    local spell_lifesteal_amp = 0
+    -- local spell_lifesteal_amp = 0
 
-    for _, mod_name in pairs(kaya_modifiers) do
-      local modifier = attacker:FindModifierByName(mod_name)
-      if modifier then
-        local item = modifier:GetAbility()
-        if item then
-          -- Spell Lifesteal Amp from Kaya upgrades doesn't stack
-          spell_lifesteal_amp = item:GetSpecialValueFor("spell_lifesteal_amp")
-        end
-      end
-    end
+    -- for _, mod_name in pairs(kaya_modifiers) do
+      -- local modifier = attacker:FindModifierByName(mod_name)
+      -- if modifier then
+        -- local item = modifier:GetAbility()
+        -- if item then
+          -- -- Spell Lifesteal Amp from Kaya upgrades doesn't stack
+          -- spell_lifesteal_amp = item:GetSpecialValueFor("spell_lifesteal_amp")
+        -- end
+      -- end
+    -- end
 
     -- for _, mod_name in pairs(custom_modifiers) do
       -- local modifier = attacker:FindModifierByName(mod_name)
@@ -147,8 +146,8 @@ if IsServer() then
       -- end
     -- end
 
-    nHeroHeal = nHeroHeal * (1 + spell_lifesteal_amp/100)
-    nCreepHeal = nCreepHeal * (1 + spell_lifesteal_amp/100)
+    -- nHeroHeal = nHeroHeal * (1 + spell_lifesteal_amp/100)
+    -- nCreepHeal = nCreepHeal * (1 + spell_lifesteal_amp/100)
 
     -- Calculate the spell lifesteal (heal) amount
     local heal_amount = 0
@@ -160,7 +159,7 @@ if IsServer() then
     end
 
     if heal_amount > 0 then
-      attacker:Heal(heal_amount, self:GetAbility())
+      attacker:HealWithParams(heal_amount, self:GetAbility(), false, true, attacker, true)
       -- Particle
       local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
       ParticleManager:SetParticleControl(particle, 0, attacker:GetAbsOrigin())

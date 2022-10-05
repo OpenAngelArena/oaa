@@ -25,10 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_travel_boots_oaa;item_upgrade_core"
-      //"02"                                                "item_tranquil_boots;item_upgrade_core"
-      //"03"                                                "item_phase_boots;item_upgrade_core"
-      //"04"                                                "item_power_treads;item_upgrade_core"
-      //"05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -53,11 +49,11 @@
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "travel"
     "AbilityChannelTime"                                  "3.0 2.5 2.0 1.5"
+    "AbilityManaCost"                                     "75"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
-    "ItemCost"                                            "2551"
+    "ItemCost"                                            "2501"
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
@@ -68,28 +64,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "100 105 110 115"
-      }
-      "02" // percentage bonus based on base (white) dmg
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_during_duels"                       "16 24 32 40"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp_during_duels"                    "18 22 26 30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_boss_damage"                               "25 35 45 55"
-      }
+      "bonus_movement_speed"                              "100 105 110 115"
+      "bonus_damage_during_duels"                         "16 24 32 40" // percentage bonus based on base (white) dmg
+      "bonus_spell_amp_during_duels"                      "18 22 26 30"
+      "bonus_boss_damage"                                 "25 35 45 55"
     }
   }
 }

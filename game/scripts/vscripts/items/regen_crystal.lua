@@ -1,21 +1,12 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_regen_crystal_stacking_stats", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_regen_crystal_non_stacking_stats", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_regen_crystal_active", "items/reflex/postactive_regen.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_regen_crystal_passive", "items/regen_crystal.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_regen_crystal_active", "items/regen_crystal.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_regen_crystal_1 = class(ItemBaseClass)
 item_regen_crystal_2 = item_regen_crystal_1
 item_regen_crystal_3 = item_regen_crystal_1
 
 function item_regen_crystal_1:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_regen_crystal_1:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_regen_crystal_stacking_stats",
-    "modifier_item_regen_crystal_non_stacking_stats"
-  }
+  return "modifier_item_regen_crystal_passive"
 end
 
 function item_regen_crystal_1:OnSpellStart()
@@ -28,107 +19,94 @@ function item_regen_crystal_1:OnSpellStart()
   caster:EmitSound("DOTA_Item.EssenceRing.Cast")
 end
 
-function item_regen_crystal_1:ProcsMagicStick()
+--------------------------------------------------------------------------
+
+modifier_item_regen_crystal_passive = class(ModifierBaseClass)
+
+function modifier_item_regen_crystal_passive:IsHidden()
+  return true
+end
+
+function modifier_item_regen_crystal_passive:IsDebuff()
   return false
 end
 
---------------------------------------------------------------------------
--- Parts of Regen Crystal that should stack with other items
+function modifier_item_regen_crystal_passive:IsPurgable()
+  return false
+end
 
-modifier_item_regen_crystal_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_regen_crystal_stacking_stats:GetAttributes()
+function modifier_item_regen_crystal_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_regen_crystal_stacking_stats:IsHidden()
-  return true
-end
-function modifier_item_regen_crystal_stacking_stats:IsDebuff()
-  return false
-end
-function modifier_item_regen_crystal_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_regen_crystal_stacking_stats:OnCreated()
+function modifier_item_regen_crystal_passive:OnCreated()
   local ability = self:GetAbility()
+  local parent = self:GetParent()
+  local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
     self.str = ability:GetSpecialValueFor("bonus_strength")
     self.hp = ability:GetSpecialValueFor("bonus_health")
-  end
-end
-
-modifier_item_regen_crystal_stacking_stats.OnRefresh = modifier_item_regen_crystal_stacking_stats.OnCreated
-
-function modifier_item_regen_crystal_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-  }
-end
-
-function modifier_item_regen_crystal_stacking_stats:GetModifierBonusStats_Strength()
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
-end
-
-function modifier_item_regen_crystal_stacking_stats:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
-
----------------------------------------------------------------------------------------------------
--- Parts of Regen Crystal that should NOT stack with other Regen Crystals
-
-modifier_item_regen_crystal_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_regen_crystal_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_regen_crystal_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_regen_crystal_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_regen_crystal_non_stacking_stats:OnCreated()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local max_mana_to_hp_regen = 3
-  if ability and not ability:IsNull() then
     max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
   end
   local max_mana = parent:GetMaxMana()
   self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
+  if IsServer() then
+    if parent:IsHero() then
+      parent:CalculateStatBonus(true)
+    end
+    -- Check only on the server
+    if self:IsFirstItemInInventory() then
+      self:SetStackCount(2)
+    else
+      self:SetStackCount(1)
+    end
   end
-  self:StartIntervalThink(0.5)
+  self:StartIntervalThink(0.3)
 end
 
-function modifier_item_regen_crystal_non_stacking_stats:OnRefresh()
+function modifier_item_regen_crystal_passive:OnRefresh()
   local parent = self:GetParent()
   local ability = self:GetAbility()
   local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
+    self.str = ability:GetSpecialValueFor("bonus_strength")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
     max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
   end
   local max_mana = parent:GetMaxMana()
   self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
+  if IsServer() then
+    if parent:IsHero() then
+      parent:CalculateStatBonus(true)
+    end
+    -- Check only on the server
+    if self:IsFirstItemInInventory() then
+      self:SetStackCount(2)
+    else
+      self:SetStackCount(1)
+    end
   end
 end
 
-function modifier_item_regen_crystal_non_stacking_stats:OnIntervalThink()
-  local parent = self:GetParent()
+function modifier_item_regen_crystal_passive:OnIntervalThink()
+  if IsServer() then
+    if self:IsFirstItemInInventory() then
+      self:SetStackCount(2)
+    else
+      self:SetStackCount(1)
+      return -- no need to continue on the server if not the first item
+    end
+  elseif self:GetStackCount() ~= 2 then
+    return -- no need to continue on the client
+  end
+
+  -- Checking if self.bonus_hp_regen is initialized just in case
   if not self.bonus_hp_regen then
     self:OnRefresh()
     return
   end
 
+  local parent = self:GetParent()
   local ability = self:GetAbility()
   local max_mana_to_hp_regen = 3
   if ability and not ability:IsNull() then
@@ -136,20 +114,39 @@ function modifier_item_regen_crystal_non_stacking_stats:OnIntervalThink()
   end
   local max_mana = parent:GetMaxMana()
   if self.bonus_hp_regen ~= max_mana*max_mana_to_hp_regen/100 then
-    self:OnRefresh()
+    self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
+    if IsServer() and parent:IsHero() then
+      parent:CalculateStatBonus(true)
+    end
   end
 end
 
-function modifier_item_regen_crystal_non_stacking_stats:DeclareFunctions()
+function modifier_item_regen_crystal_passive:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
   }
 end
 
-function modifier_item_regen_crystal_non_stacking_stats:GetModifierConstantHealthRegen()
-  return self.bonus_hp_regen
+function modifier_item_regen_crystal_passive:GetModifierBonusStats_Strength()
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
+
+function modifier_item_regen_crystal_passive:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_regen_crystal_passive:GetModifierConstantHealthRegen()
+  if self:GetStackCount() == 2 then
+    return self.bonus_hp_regen
+  else
+    return 0
+  end
+end
+
 ---------------------------------------------------------------------------------------------------
+
 modifier_item_regen_crystal_active = class(ModifierBaseClass)
 
 function modifier_item_regen_crystal_active:IsHidden()

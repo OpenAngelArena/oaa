@@ -1,4 +1,3 @@
-
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_passive", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -24,7 +23,7 @@ function item_spirit_vessel_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local duration = self:GetSpecialValueFor("duration")
 
-  target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
+  --target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
 
   local particle_fx = ParticleManager:CreateParticle("particles/items4_fx/spirit_vessel_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:SetParticleControl(particle_fx, 0, caster:GetAbsOrigin())
@@ -33,27 +32,32 @@ function item_spirit_vessel_oaa:OnSpellStart()
 
   local current_charges = self:GetCurrentCharges()
   if target:GetTeam() == caster:GetTeam() then
+    -- Apply stronger version when you have charges and consume a charge, otherwise don't consume a charge but apply a weaker version
     if current_charges >= 1 then
       target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_buff", {duration = duration})
       self:SetCurrentCharges(current_charges - 1)
       caster.spiritVesselChargesOAA = current_charges - 1
+      target:EmitSound("DOTA_Item.SpiritVessel.Target.Ally")
     else
       target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_buff", {duration = duration / 2})
+      target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
     end
   else
     -- Apply stronger version when you have charges and consume a charge, otherwise don't consume a charge but apply a weaker version
-	if current_charges >= 1 then
+    if current_charges >= 1 then
       if target:HasModifier("modifier_spirit_vessel_oaa_debuff_no_charge") then
         target:RemoveModifierByName("modifier_spirit_vessel_oaa_debuff_no_charge")
       end
       target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_debuff_with_charge", {duration = duration})
       self:SetCurrentCharges(current_charges - 1)
       caster.spiritVesselChargesOAA = current_charges - 1
+      target:EmitSound("DOTA_Item.SpiritVessel.Target.Enemy")
     else
       if target:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
         target:RemoveModifierByName("modifier_spirit_vessel_oaa_debuff_with_charge")
       end
       target:AddNewModifier(caster, self, "modifier_spirit_vessel_oaa_debuff_no_charge", {duration = duration})
+      target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
     end
   end
 end

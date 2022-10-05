@@ -2,8 +2,8 @@ item_vampire = class(TransformationBaseClass)
 
 local vampire = {}
 
-LinkLuaModifier( "modifier_item_vampire", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_vampire_active", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_vampire", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_vampire_active", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -25,7 +25,15 @@ function modifier_item_vampire:IsHidden()
   return true
 end
 
-function modifier_item_vampire:OnCreated(keys)
+function modifier_item_vampire:IsDebuff()
+	return false
+end
+
+function modifier_item_vampire:IsPurgable()
+	return false
+end
+
+function modifier_item_vampire:OnCreated()
   if not self.procRecords then
     self.procRecords = {}
   end
@@ -42,7 +50,7 @@ end
 modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
 
 function modifier_item_vampire:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
@@ -51,7 +59,6 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
-  return funcs
 end
 
 function modifier_item_vampire:GetModifierPreAttack_BonusDamage()
@@ -201,12 +208,11 @@ function modifier_item_vampire_active:OnIntervalThink()
 end
 
 function modifier_item_vampire_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_DISABLE_HEALING,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED
   }
-  return funcs
 end
 
 if IsServer() then
@@ -325,7 +331,8 @@ if IsServer() then
     )
 
     if ufResult == UF_SUCCESS then
-      parent:Heal( damage * ( amount * 0.01 ), spell )
+      local lifesteal_amount = damage * amount * 0.01
+      parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
 
       local part = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN, parent )
       ParticleManager:ReleaseParticleIndex( part )

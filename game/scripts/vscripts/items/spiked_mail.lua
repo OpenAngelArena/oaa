@@ -26,11 +26,6 @@ function item_spiked_mail_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_spiked_mail_active_return", {duration = buff_duration})
 end
 
-function item_spiked_mail_1:ProcsMagicStick()
-  return false
-end
-
--- upgrades
 item_spiked_mail_2 = item_spiked_mail_1
 item_spiked_mail_3 = item_spiked_mail_1
 item_spiked_mail_4 = item_spiked_mail_1
@@ -65,14 +60,7 @@ function modifier_item_spiked_mail_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_spiked_mail_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.dmg = ability:GetSpecialValueFor("bonus_damage")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.int = ability:GetSpecialValueFor("bonus_intellect")
-  end
-end
+modifier_item_spiked_mail_stacking_stats.OnRefresh = modifier_item_spiked_mail_stacking_stats.OnCreated
 
 function modifier_item_spiked_mail_stacking_stats:DeclareFunctions()
   return {

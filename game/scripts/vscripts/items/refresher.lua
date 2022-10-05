@@ -74,6 +74,7 @@ function modifier_item_refresher_oaa:OnCreated()
     self.bonus_health = ability:GetSpecialValueFor("bonus_health")
     self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
   end
 end
 
@@ -87,7 +88,8 @@ function modifier_item_refresher_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
@@ -101,4 +103,8 @@ end
 
 function modifier_item_refresher_oaa:GetModifierManaBonus()
   return self.bonus_mana or self:GetAbility():GetSpecialValueFor('bonus_mana')
+end
+
+function modifier_item_refresher_oaa:GetModifierConstantManaRegen()
+  return self.bonus_mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end

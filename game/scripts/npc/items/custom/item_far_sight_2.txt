@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_far_sight;item_upgrade_core_2"
-      //"02"                                                "item_ward_stack_2;item_upgrade_core_2"
     }
   }
 
@@ -65,12 +64,6 @@
     "ItemAliases"                                         "far sight"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "precache"
-    {
-      "particle"                                          "particles/items/far_sight/far_sight_green.vpcf"
-      "particle"                                          "particles/items/far_sight/far_sight_red.vpcf"
-    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

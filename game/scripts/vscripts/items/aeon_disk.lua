@@ -1,56 +1,42 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_aeon_disk_oaa_stacking_stats", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_aeon_disk_oaa_tracker", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_aeon_disk_oaa_passive", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_aeon_disk_oaa_buff", "items/aeon_disk.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_aeon_disk_oaa = class(ItemBaseClass)
+item_aeon_disk_oaa_1 = class(ItemBaseClass)
 
-function item_aeon_disk_oaa:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
+function item_aeon_disk_oaa_1:GetIntrinsicModifierName()
+  return "modifier_item_aeon_disk_oaa_passive"
 end
 
-function item_aeon_disk_oaa:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_aeon_disk_oaa_stacking_stats",
-    "modifier_item_aeon_disk_oaa_tracker"
-  }
-end
-
-function item_aeon_disk_oaa:ProcsMagicStick()
-  return false
-end
-
-function item_aeon_disk_oaa:ShouldUseResources()
+function item_aeon_disk_oaa_1:ShouldUseResources()
   return true
 end
 
-item_aeon_disk_2 = item_aeon_disk_oaa
-item_aeon_disk_3 = item_aeon_disk_oaa
-item_aeon_disk_4 = item_aeon_disk_oaa
-item_aeon_disk_5 = item_aeon_disk_oaa
+item_aeon_disk_oaa_2 = item_aeon_disk_oaa_1
+item_aeon_disk_oaa_3 = item_aeon_disk_oaa_1
+item_aeon_disk_oaa_4 = item_aeon_disk_oaa_1
+item_aeon_disk_oaa_5 = item_aeon_disk_oaa_1
 
 ---------------------------------------------------------------------------------------------------
--- Parts of Aeon Disk that should stack with other items
 
-modifier_item_aeon_disk_oaa_stacking_stats = class(ModifierBaseClass)
+modifier_item_aeon_disk_oaa_passive = class(ModifierBaseClass)
 
-function modifier_item_aeon_disk_oaa_stacking_stats:IsHidden()
+function modifier_item_aeon_disk_oaa_passive:IsHidden()
   return true
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:IsDebuff()
+function modifier_item_aeon_disk_oaa_passive:IsDebuff()
   return false
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:IsPurgable()
+function modifier_item_aeon_disk_oaa_passive:IsPurgable()
   return false
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:GetAttributes()
+function modifier_item_aeon_disk_oaa_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:OnCreated()
+function modifier_item_aeon_disk_oaa_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp = ability:GetSpecialValueFor("bonus_health")
@@ -58,50 +44,32 @@ function modifier_item_aeon_disk_oaa_stacking_stats:OnCreated()
   end
 end
 
-modifier_item_aeon_disk_oaa_stacking_stats.OnRefresh = modifier_item_aeon_disk_oaa_stacking_stats.OnCreated
+modifier_item_aeon_disk_oaa_passive.OnRefresh = modifier_item_aeon_disk_oaa_passive.OnCreated
 
-function modifier_item_aeon_disk_oaa_stacking_stats:DeclareFunctions()
+function modifier_item_aeon_disk_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:GetModifierHealthBonus()
+function modifier_item_aeon_disk_oaa_passive:GetModifierHealthBonus()
   return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
 end
 
-function modifier_item_aeon_disk_oaa_stacking_stats:GetModifierManaBonus()
+function modifier_item_aeon_disk_oaa_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
-end
-
----------------------------------------------------------------------------------------------------
--- Parts of Aeon Disk that should NOT stack with other Aeon Disks
-
-modifier_item_aeon_disk_oaa_tracker = class(ModifierBaseClass)
-
-function modifier_item_aeon_disk_oaa_tracker:IsHidden()
-  return true
-end
-
-function modifier_item_aeon_disk_oaa_tracker:IsDebuff()
-  return false
-end
-
-function modifier_item_aeon_disk_oaa_tracker:IsPurgable()
-  return false
-end
-
-function modifier_item_aeon_disk_oaa_tracker:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-  }
 end
 
 if IsServer() then
   -- "The damage instance triggering Combo Breaker is negated." That's why we use this instead of OnTakeDamage
   -- OnTakeDamage event also ignores some damage that has hp removal flag
-  function modifier_item_aeon_disk_oaa_tracker:GetModifierIncomingDamage_Percentage(keys)
+  function modifier_item_aeon_disk_oaa_passive:GetModifierIncomingDamage_Percentage(keys)
+    if not self:IsFirstItemInInventory() then
+      return 0
+    end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = keys.attacker

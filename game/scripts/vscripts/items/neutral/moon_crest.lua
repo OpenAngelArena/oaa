@@ -29,14 +29,7 @@ function modifier_item_moon_crest_passive:OnCreated()
   end
 end
 
-function modifier_item_moon_crest_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.evasion = ability:GetSpecialValueFor("bonus_evasion")
-  end
-end
+modifier_item_moon_crest_passive.OnRefresh = modifier_item_moon_crest_passive.OnCreated
 
 function modifier_item_moon_crest_passive:DeclareFunctions()
   return {

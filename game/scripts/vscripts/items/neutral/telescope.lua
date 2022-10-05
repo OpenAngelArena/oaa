@@ -33,12 +33,7 @@ function modifier_item_telescope_oaa_aura:OnCreated()
   end
 end
 
-function modifier_item_telescope_oaa_aura:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.aura_radius = ability:GetSpecialValueFor("aura_range")
-  end
-end
+modifier_item_telescope_oaa_aura.OnRefresh = modifier_item_telescope_oaa_aura.OnCreated
 
 function modifier_item_telescope_oaa_aura:GetAuraRadius()
   return self.aura_radius or 1200
@@ -66,9 +61,11 @@ modifier_item_telescope_oaa_effect = class(ModifierBaseClass)
 function modifier_item_telescope_oaa_effect:IsHidden()
   return false
 end
+
 function modifier_item_telescope_oaa_effect:IsDebuff()
   return false
 end
+
 function modifier_item_telescope_oaa_effect:IsPurgable()
   return false
 end
@@ -82,14 +79,7 @@ function modifier_item_telescope_oaa_effect:OnCreated()
   end
 end
 
-function modifier_item_telescope_oaa_effect:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.attack_range = ability:GetSpecialValueFor("bonus_attack_range")
-    self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
-    self.vision = ability:GetSpecialValueFor("bonus_vision")
-  end
-end
+modifier_item_telescope_oaa_effect.OnRefresh = modifier_item_telescope_oaa_effect.OnCreated
 
 function modifier_item_telescope_oaa_effect:DeclareFunctions()
   return {

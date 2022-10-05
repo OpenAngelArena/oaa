@@ -34,5 +34,13 @@
       "damage_conversion_pct"                             "50"
       "duration"                                          "5"
     }
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_tiny/tiny_transform.vpcf"
+      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
+    }
   }
 }
