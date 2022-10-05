@@ -155,10 +155,6 @@ function modifier_viper_viper_strike_silence:IsDebuff()
 	return true
 end
 
-function modifier_viper_viper_strike_silence:IsStunDebuff()
-  return true
-end
-
 function modifier_viper_viper_strike_silence:IsPurgable()
 	return true
 end
