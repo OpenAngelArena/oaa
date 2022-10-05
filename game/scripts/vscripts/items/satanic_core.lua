@@ -187,6 +187,14 @@ function modifier_satanic_core_unholy:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
+function modifier_satanic_core_unholy:GetStatusEffectName()
+  return "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+end
+
+function modifier_satanic_core_unholy:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
 function modifier_satanic_core_unholy:GetTexture()
   return "custom/satanic_core"
 end

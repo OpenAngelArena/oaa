@@ -36,7 +36,7 @@ function ModifierBaseClass:IsFirstItemInInventory()
   if same_items[1] == ability then
     return true
   end
-  ]]
 
   return false
+  ]]
 end

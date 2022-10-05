@@ -312,7 +312,7 @@ function modifier_item_dagger_of_moriah_frostbite:GetModifierSpellLifestealRegen
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetEffectName()
-  return "particles/items4_fx/spirit_vessel_damage.vpcf"
+  return "particles/items/dagger_of_moriah/dagger_of_moriah_frostbite.vpcf" --"particles/items4_fx/spirit_vessel_damage.vpcf"
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetTexture()

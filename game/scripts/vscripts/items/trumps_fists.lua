@@ -22,6 +22,12 @@ function item_trumps_fists_1:OnSpellStart()
   --debuff_duration = target:GetValueChangedByStatusResistance(debuff_duration)
   target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
 
+  -- Particle
+  local particle = ParticleManager:CreateParticle("particles/items2_fx/paintball_detonation.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle)
+
   -- Sound
   target:EmitSound("Item.Paintball.Target")
 end
