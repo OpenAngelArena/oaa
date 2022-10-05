@@ -51,7 +51,11 @@
         "value"                                           "-11 -19 -27 -35 -40 -45"
         "special_bonus_unique_axe_6"                      "-12"
       }
-      "damage_per_second"                                 "10 20 30 40 140 240" //OAA
+      "damage_per_second" //OAA
+      {
+        "value"                                           "10 20 30 40 140 240"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "armor_multiplier"
       {
         "value"                                           "1"

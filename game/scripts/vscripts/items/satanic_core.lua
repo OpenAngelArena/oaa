@@ -1,7 +1,6 @@
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_satanic_core_non_stacking_stats", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
@@ -55,13 +54,11 @@ end
 function modifier_item_satanic_core:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    --self.lifesteal_percent = ability:GetSpecialValueFor("hero_lifesteal")
-    --self.unholy_lifesteal_percent = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_intelligence")
+    --self.bonus_int = ability:GetSpecialValueFor("bonus_intelligence")
     self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
     self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
+    --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
     --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
     --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
   end
@@ -72,10 +69,10 @@ modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
 function modifier_item_satanic_core:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    --MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
@@ -102,28 +99,6 @@ end
 function modifier_item_satanic_core:GetModifierMagicalResistanceBonus()
   return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
 end
-
---[[
-function modifier_item_satanic_core:OnTakeDamage( kv )
-  if IsServer() then
-    local hCaster = self:GetParent()
-    -- If there is no inflictor that means damage was dealt from an attack
-    -- So this is normal lifesteal; spell lifesteal is handled in modifier_item_spell_lifesteal_oaa
-    if not kv.inflictor and kv.attacker == hCaster then
-      local heal_percent = self.lifesteal_percent;
-      if hCaster:HasModifier("modifier_satanic_core_unholy") then
-        heal_percent = self.unholy_lifesteal_percent
-      end
-      local particle = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster )
-      ParticleManager:ReleaseParticleIndex(particle)
-      local healAmount = kv.damage * heal_percent / 100
-      if healAmount > 0 then
-        hCaster:Heal( healAmount, hCaster)
-      end
-    end
-  end
-end
-]]
 
 -- Doesn't stack with Sange items
 function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
@@ -155,6 +130,14 @@ end
 ---------------------------------------------------------------------------------------------------
 
 modifier_satanic_core_unholy = class(ModifierBaseClass)
+
+function modifier_satanic_core_unholy:IsHidden()
+  return false
+end
+
+function modifier_satanic_core_unholy:IsDebuff()
+  return false
+end
 
 function modifier_satanic_core_unholy:IsPurgable()
   return true

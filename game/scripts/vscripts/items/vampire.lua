@@ -2,8 +2,8 @@ item_vampire = class(TransformationBaseClass)
 
 local vampire = {}
 
-LinkLuaModifier( "modifier_item_vampire", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_vampire_active", "items/transformation/vampire.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_vampire", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_vampire_active", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
