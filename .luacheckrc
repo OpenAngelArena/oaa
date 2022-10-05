@@ -2888,8 +2888,6 @@ read_globals = { -- these globals can only be accessed.
 "BOSS_WANDERER_MIN_RESPAWN_TIME",
 "BOSS_WANDERER_MAX_RESPAWN_TIME",
 "BOSS_WANDERER_BUFF_DURATION",
-"AbilityKV",
-"VectorTarget",
 "KILL_LIMIT_INCREASE",
 "TEN_V_TEN_LIMIT_INCREASE",
 "ONE_V_ONE_LIMIT_INCREASE",
@@ -2901,7 +2899,7 @@ read_globals = { -- these globals can only be accessed.
 ignore = {
   -- "111", -- setting non-standard global variable
   -- "112", -- mutating non-standard global variable
-  "131", -- unused global variable
+  -- "131", -- unused global variable
   "211", -- unused variable
   "212", -- unused argument
   "213", -- unused loop variable
