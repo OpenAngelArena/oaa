@@ -23,8 +23,6 @@ function item_spirit_vessel_oaa:OnSpellStart()
   local target = self:GetCursorTarget()
   local duration = self:GetSpecialValueFor("duration")
 
-  --target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
-
   local particle_fx = ParticleManager:CreateParticle("particles/items4_fx/spirit_vessel_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:SetParticleControl(particle_fx, 0, caster:GetAbsOrigin())
   ParticleManager:SetParticleControl(particle_fx, 1, target:GetAbsOrigin())
@@ -239,13 +237,7 @@ function modifier_spirit_vessel_oaa_debuff_with_charge:OnCreated()
   if not IsServer() then
     return
   end
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
-    self.current_hp_dmg = ability:GetSpecialValueFor("current_hp_as_dmg")
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_with_charge")
-  end
-
+  self:OnRefresh()
   self:OnIntervalThink()
   self:StartIntervalThink(1)
 end
@@ -343,15 +335,7 @@ function modifier_spirit_vessel_oaa_debuff_no_charge:OnCreated()
   end
 end
 
-function modifier_spirit_vessel_oaa_debuff_no_charge:OnRefresh()
-  if not IsServer() then
-    return
-  end
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.heal_reduction = ability:GetSpecialValueFor("heal_reduction_no_charge")
-  end
-end
+modifier_spirit_vessel_oaa_debuff_no_charge.OnRefresh = modifier_spirit_vessel_oaa_debuff_no_charge.OnCreated
 
 function modifier_spirit_vessel_oaa_debuff_no_charge:DeclareFunctions()
   return {

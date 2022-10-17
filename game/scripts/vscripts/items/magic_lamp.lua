@@ -32,10 +32,6 @@ function modifier_item_magic_lamp_oaa_passive:GetAttributes()
 end
 
 function modifier_item_magic_lamp_oaa_passive:OnCreated()
-  self:OnRefresh()
-end
-
-function modifier_item_magic_lamp_oaa_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp = ability:GetSpecialValueFor("bonus_health")
@@ -44,6 +40,8 @@ function modifier_item_magic_lamp_oaa_passive:OnRefresh()
     self.heal_pct = ability:GetSpecialValueFor("heal_pct")
   end
 end
+
+modifier_item_magic_lamp_oaa_passive.OnRefresh = modifier_item_magic_lamp_oaa_passive.OnCreated
 
 function modifier_item_magic_lamp_oaa_passive:DeclareFunctions()
   return {
@@ -65,7 +63,7 @@ end
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
     local ability = self:GetAbility()
-    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() and not self:GetParent():IsMuted() then
+    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() then
       return 1
     end
     return
@@ -98,7 +96,7 @@ if IsServer() then
     end
 
     -- Don't trigger for illusions
-    if parent:IsIllusion() or parent:IsMuted() then
+    if parent:IsIllusion() then
       return
     end
 

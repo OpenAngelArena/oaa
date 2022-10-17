@@ -82,6 +82,7 @@ end
 function modifier_item_sonic_passives:GetModifierBonusStats_Agility()
   return self.agi
 end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_sonic_fly = class(ModifierBaseClass)

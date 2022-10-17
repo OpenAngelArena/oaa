@@ -334,7 +334,7 @@ if IsServer() then
     end
 
     -- Add vision at death location
-    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent:GetTeamNumber())
+    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent_team)
     dummy:AddNewModifier(parent, ability, "modifier_sacred_skull_dummy_stuff", {})
     dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
     --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
@@ -354,8 +354,8 @@ if IsServer() then
       -- Calculate damage and heal
       local current_mana = parent:GetMana()
       local missing_mana = parent:GetMaxMana() - current_mana
-      local magic_damage = magic_dmg_mult * current_mana / 2 -- 50 * magic_dmg_mult
-      local physical_damage = phys_dmg_mult * missing_mana / 2
+      local magic_damage = magic_dmg_mult * current_mana -- 50 * magic_dmg_mult
+      local physical_damage = phys_dmg_mult * missing_mana
 
       local damage_table = {}
       damage_table.attacker = parent
@@ -382,8 +382,8 @@ if IsServer() then
           damage_table.victim = enemy
           ApplyDamage(damage_table)
           -- Physical Damage
-          damage_table_2.victim = enemy
           if not enemy:IsNull() then
+            damage_table_2.victim = enemy
             ApplyDamage(damage_table_2)
           end
         end

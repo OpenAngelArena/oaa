@@ -42,30 +42,7 @@ function modifier_item_dagger_of_moriah_passive:GetAttributes()
 end
 
 function modifier_item_dagger_of_moriah_passive:OnCreated()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
-    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
-  end
-
-  if parent:IsRealHero() then
-    self.int = parent:GetIntellect()
-  end
-
-  if IsServer() then
-    if parent:IsRealHero() then
-      parent:CalculateStatBonus(true)
-    end
-    -- Check only on the server
-    if self:IsFirstItemInInventory() then
-      self:SetStackCount(2)
-    else
-      self:SetStackCount(1)
-    end
-  end
+  self:OnRefresh()
   self:StartIntervalThink(0.3)
 end
 
@@ -126,7 +103,6 @@ function modifier_item_dagger_of_moriah_passive:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
@@ -158,88 +134,6 @@ function modifier_item_dagger_of_moriah_passive:GetModifierSpellAmplify_Percenta
     end
   else
     return 0
-  end
-end
-
-if IsServer() then
-  function modifier_item_dagger_of_moriah_passive:OnTakeDamage(event)
-    local parent = self:GetParent()
-    local attacker = event.attacker
-    local damaged_unit = event.unit
-    local inflictor = event.inflictor
-
-    -- Check if attacker exists
-    if not attacker or attacker:IsNull() then
-      return
-    end
-
-    -- Check if attacker has this modifier
-    if attacker ~= parent then
-      return
-    end
-
-    -- Check if damaged entity exists
-    if not damaged_unit or damaged_unit:IsNull() then
-      return
-    end
-
-    -- Ignore self damage and allies
-    if damaged_unit == attacker or damaged_unit:GetTeamNumber() == attacker:GetTeamNumber() then
-      return
-    end
-
-    -- Check if attacker is dead
-    if not attacker:IsAlive() then
-      return
-    end
-
-    -- Check if damaged entity is an item, rune or something weird
-    if damaged_unit.GetUnitName == nil then
-      return
-    end
-
-    -- Don't affect buildings, wards and invulnerable units.
-    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
-      return
-    end
-
-    -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-    if damaged_unit:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-      return
-    end
-
-    local ability = self:GetAbility()
-    if not ability or ability:IsNull() then
-      return
-    end
-
-    -- Check if inflictor exists (if it doesn't, it's not a spell) and damage category
-    if not inflictor or event.damage_category ~= DOTA_DAMAGE_CATEGORY_SPELL then
-      return
-    end
-
-    -- If inflictor is an item (radiance e.g.), don't continue
-    if inflictor and inflictor:IsItem() then
-      return
-    end
-
-    -- Ignore damage that has the no-reflect flag
-    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      return
-    end
-
-    -- Ignore damage that has hp removal flag
-    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
-      return
-    end
-
-    -- Ignore damage that is <= 0
-    if event.damage <= 0 then
-      return
-    end
-
-    -- Apply Heal reduction debuff
-    damaged_unit:AddNewModifier(parent, ability, "modifier_item_dagger_of_moriah_frostbite", {duration = ability:GetSpecialValueFor("heal_reduction_duration")})
   end
 end
 
@@ -374,45 +268,153 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
 
   if IsServer() and self.nPreviewFX == nil then
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetParent():GetOrigin(), true )
+    local parent = self:GetParent()
+    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
   end
 end
 
+function modifier_item_dagger_of_moriah_sangromancy:OnRefresh()
+  if IsServer() and self.nPreviewFX then
+    ParticleManager:DestroyParticle(self.nPreviewFX, true)
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
+  end
+  self:OnCreated()
+end
+
 function modifier_item_dagger_of_moriah_sangromancy:OnDestroy()
-  if IsServer() and self.nPreviewFX ~= nil then
-    ParticleManager:DestroyParticle( self.nPreviewFX, false )
+  if IsServer() and self.nPreviewFX then
+    ParticleManager:DestroyParticle(self.nPreviewFX, false)
     ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
     self.nPreviewFX = nil
   end
 end
---[[
-function modifier_item_dagger_of_moriah_sangromancy:OnRefresh( event )
-  local spell = self:GetAbility()
 
-  spell.mod = self
-
-  self.spellamp = spell:GetSpecialValueFor( "sangromancy_spell_amp" )
-  self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
-  self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
+function modifier_item_dagger_of_moriah_sangromancy:DeclareFunctions()
+  return {
+    --MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+  }
 end
 
+if IsServer() then
+  function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local inflictor = event.inflictor
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Check if attacker has this modifier
+    if attacker ~= parent then
+      return
+    end
+
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Ignore self damage and allies
+    if damaged_unit == attacker or damaged_unit:GetTeamNumber() == attacker:GetTeamNumber() then
+      return
+    end
+
+    -- Check if attacker is dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check if damaged entity is an item, rune or something weird
+    if damaged_unit.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards and invulnerable units.
+    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
+      return
+    end
+
+    -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
+    if damaged_unit:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
+      return
+    end
+
+    local ability = self:GetAbility()
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    -- Check if inflictor exists (if it doesn't, it's not a spell) and damage category
+    if not inflictor or event.damage_category ~= DOTA_DAMAGE_CATEGORY_SPELL then
+      return
+    end
+
+    -- If inflictor is an item (radiance e.g.), don't continue
+    if inflictor and inflictor:IsItem() then
+      return
+    end
+
+    -- Ignore damage that has the no-reflect flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
+      return
+    end
+
+    -- Ignore damage that has hp removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+      return
+    end
+
+    -- Ignore damage that is <= 0
+    if event.damage <= 0 then
+      return
+    end
+
+    -- if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) == 0 then
+      -- local damage_table = {
+        -- victim = parent,
+        -- attacker = parent,
+        -- damage = event.original_damage * self.selfDamage / 100,
+        -- damage_type = event.damage_type,
+        -- damage_flags = bit.bor(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL),
+        -- ability = ability,
+      -- }
+
+      -- -- Self damage
+      -- ApplyDamage(damage_table)
+
+      -- -- Self damaging particle
+      -- if parent.flashFX == nil and parent:HasModifier("modifier_item_dagger_of_moriah_sangromancy") then
+        -- parent.flashFX = ParticleManager:CreateParticle("particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke_flash.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+        -- ParticleManager:SetParticleControlEnt(parent.flashFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+        -- Timers:CreateTimer(0.3, function()
+          -- if parent.flashFX then
+            -- ParticleManager:DestroyParticle(parent.flashFX, false)
+            -- ParticleManager:ReleaseParticleIndex(parent.flashFX)
+            -- parent.flashFX = nil
+          -- end
+        -- end)
+      -- end
+    -- end
+
+    -- Apply Heal reduction debuff
+    damaged_unit:AddNewModifier(parent, ability, "modifier_item_dagger_of_moriah_frostbite", {duration = ability:GetSpecialValueFor("heal_reduction_duration")})
+  end
+end
+
+--[[
 function modifier_item_dagger_of_moriah_sangromancy:OnRemoved()
   local spell = self:GetAbility()
 
   if spell and not spell:IsNull() then
     spell.mod = nil
   end
-end
-
-function modifier_item_dagger_of_moriah_sangromancy:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
-  }
-
-  return funcs
 end
 
 function modifier_item_dagger_of_moriah_sangromancy:GetModifierSpellAmplify_Percentage( event )
@@ -430,34 +432,6 @@ function modifier_item_dagger_of_moriah_sangromancy:GetModifierIncomingDamage_Pe
   end
 end
 
-function modifier_item_dagger_of_moriah_sangromancy:OnTakeDamage(event)
-  if event.damage_category == 0 and event.attacker == self:GetParent() and not (event.unit == self:GetParent()) and bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) == 0 then
-
-    local damage = {
-      victim = event.attacker,
-      attacker = event.attacker,
-      damage = event.original_damage * (self.selfDamage / 100),
-      damage_type = event.damage_type,
-      damage_flags = bit.bor(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL),
-      ability = self:GetAbility(),
-    }
-
-    ApplyDamage( damage )
-
-    if IsServer() then
-      local unit = self:GetParent()
-      if unit.flashFX == nil and unit:HasModifier( "modifier_item_dagger_of_moriah_sangromancy" ) then
-        unit.flashFX = ParticleManager:CreateParticle( "particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke_flash.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit )
-        ParticleManager:SetParticleControlEnt( unit.flashFX, 0, unit, PATTACH_ABSORIGIN_FOLLOW, nil, unit:GetOrigin(), true )
-        Timers:CreateTimer(0.3, function()
-          ParticleManager:DestroyParticle(unit.flashFX, false)
-          ParticleManager:ReleaseParticleIndex(unit.flashFX)
-          unit.flashFX = nil
-        end)
-      end
-    end
-  end
-end
 ]]
 
 function modifier_item_dagger_of_moriah_sangromancy:GetTexture()
@@ -483,25 +457,17 @@ end
 function modifier_item_dagger_of_moriah_sangromancy_effect:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    --self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
     self.magic_dmg_amp = ability:GetSpecialValueFor("magic_dmg_amp")
   end
 end
 
-function modifier_item_dagger_of_moriah_sangromancy_effect:OnRefresh()
-  self:OnCreated()
-end
+modifier_item_dagger_of_moriah_sangromancy_effect.OnRefresh = modifier_item_dagger_of_moriah_sangromancy_effect.OnCreated
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 end
-
---function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierMagicalResistanceBonus()
-  --return self.magic_resistance or -25
---end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierIncomingDamage_Percentage(keys)
   if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == DAMAGE_TYPE_MAGICAL then

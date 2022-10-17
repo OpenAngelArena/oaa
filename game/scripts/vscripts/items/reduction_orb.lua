@@ -84,15 +84,10 @@ function modifier_item_reduction_orb_active:IsPurgable()
 end
 
 function modifier_item_reduction_orb_active:OnCreated()
-  self.damageheal = 50
+  self.damageheal = 75
   self.damageReduction = 100
   self.endHeal = 0
-
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.damageheal = ability:GetSpecialValueFor("damage_as_healing")
-    self.damageReduction = ability:GetSpecialValueFor("damage_reduction")
-  end
+  self:OnRefresh()
 end
 
 function modifier_item_reduction_orb_active:OnRefresh()
