@@ -29,7 +29,66 @@ if IsServer() then
     end
   end
 
+  function CDOTA_BaseNPC:DispelUndispellableDebuffs()
+    local undispellable_item_debuffs = {
+      "modifier_item_skadi_slow",
+      "modifier_greater_tranquils_tranquilize_debuff", -- Greater Tranquil Boots debuff
+      "modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
+      "modifier_silver_edge_debuff",                   -- Silver Edge debuff
+      "modifier_item_nullifier_mute",                  -- Nullifier debuff
+      "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
+      "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
+      "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
+    }
+
+    local undispellable_ability_debuffs = {
+      "modifier_ice_blast",
+      "modifier_axe_berserkers_call",
+      "modifier_bloodseeker_rupture",
+      "modifier_bristleback_quill_spray",       -- Quill Spray stacks
+      "modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
+      "modifier_doom_bringer_doom",
+      "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
+      "modifier_grimstroke_soul_chain",
+      "modifier_huskar_burning_spear_debuff",   -- Burning Spear stacks
+      "modifier_invoker_deafening_blast_disarm",
+      "modifier_forged_spirit_melting_strike_debuff",
+      --"modifier_monkey_king_quadruple_tap_counter", -- Jingu Mastery stacks
+      "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_razor_static_link_debuff",
+      "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
+      "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
+      "modifier_shadow_demon_disruption",
+      "modifier_shadow_demon_shadow_poison",
+      "modifier_shadow_demon_purge_slow",
+      "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
+      "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
+      "modifier_slark_pounce_leash",
+      "modifier_tusk_walrus_punch_slow",
+      "modifier_tusk_walrus_kick_slow",
+      "modifier_ursa_fury_swipes_damage_increase",
+      "modifier_venomancer_poison_nova",
+      "modifier_viper_viper_strike_slow",
+      "modifier_maledict",
+      "modifier_winter_wyvern_winters_curse_aura",
+      "modifier_winter_wyvern_winters_curse",
+      "modifier_windrunner_windrun_slow",
+    }
+
+    local function RemoveTableOfModifiersFromUnit(unit, t)
+      for i = 1, #t do
+        unit:RemoveModifierByName(t[i])
+      end
+    end
+
+    RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
+    RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
+  end
+
   function CDOTA_BaseNPC:AbsolutePurge()
+    -- Remove undispellable debuffs first
+    self:DispelUndispellableDebuffs()
+
     local undispellable_item_buffs = {
       "modifier_black_king_bar_immune",
       "modifier_item_hood_of_defiance_barrier",
@@ -66,48 +125,6 @@ if IsServer() then
       "modifier_item_vampire_active",                -- Vampire Fang active buff
     }
 
-    local undispellable_item_debuffs = {
-      "modifier_item_skadi_slow",
-      "modifier_greater_tranquils_tranquilize_debuff", -- Greater Tranquil Boots debuff
-      "modifier_heavens_halberd_debuff",               -- Heaven's Halberd debuff
-      "modifier_silver_edge_debuff",                   -- Silver Edge debuff
-      "modifier_item_nullifier_mute",                  -- Nullifier debuff
-      "modifier_item_trumps_fists_frostbite",          -- Blade of Judecca debuff
-      "modifier_item_silver_staff_debuff",             -- Silver Staff debuff
-      "modifier_item_rune_breaker_oaa_debuff",         -- Rune Breaker debuff
-    }
-
-    local undispellable_ability_debuffs = {
-      "modifier_ice_blast",
-      "modifier_axe_berserkers_call",
-      "modifier_bloodseeker_rupture",
-      "modifier_bristleback_quill_spray",       -- Quill Spray stacks
-      "modifier_dazzle_bad_juju_armor",         -- Bad Juju stacks
-      "modifier_doom_bringer_doom",
-      "modifier_earthspirit_petrify",           -- Earth Spirit Enchant Remnant debuff
-      "modifier_grimstroke_soul_chain",
-      "modifier_huskar_burning_spear_debuff",   -- Burning Spear stacks
-      "modifier_invoker_deafening_blast_disarm",
-      "modifier_forged_spirit_melting_strike_debuff",
-      "modifier_razor_static_link_debuff",
-      "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
-      "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
-      "modifier_shadow_demon_shadow_poison",
-      "modifier_shadow_demon_purge_slow",
-      "modifier_silencer_curse_of_the_silent",  -- Arcane Curse becomes undispellable with the talent
-      "modifier_slardar_amplify_damage",        -- Corrosive Haze becomes undispellable with the talent
-      "modifier_slark_pounce_leash",
-      "modifier_tusk_walrus_punch_slow",
-      "modifier_tusk_walrus_kick_slow",
-      "modifier_ursa_fury_swipes_damage_increase",
-      "modifier_venomancer_poison_nova",
-      "modifier_viper_viper_strike_slow",
-      "modifier_maledict",
-      "modifier_winter_wyvern_winters_curse_aura",
-      "modifier_winter_wyvern_winters_curse",
-      "modifier_windrunner_windrun_slow",
-    }
-
     local undispellable_ability_buffs = {
       "modifier_axe_berserkers_call_armor",
       "modifier_bounty_hunter_wind_walk",
@@ -135,12 +152,13 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
-      --"modifier_omniknight_repel",              -- Heavenly Grace
       "modifier_pangolier_shield_crash_buff",
       "modifier_phantom_assassin_blur_active",
+      "modifier_phoenix_supernova_hiding",
       "modifier_razor_static_link_buff",
       "modifier_razor_eye_of_the_storm",        -- Removes only one instance
       "modifier_slark_shadow_dance",
+      "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
       "modifier_ursa_enrage",
@@ -158,6 +176,7 @@ if IsServer() then
       "modifier_rune_hill_super_sight",
       "modifier_fountain_invulnerability",
     }
+
     -- These are mostly transformation buffs, add them to the list above if they don't crash or break the ability and if fair
     local problematic_modifiers = {
       "modifier_abaddon_borrowed_time",         -- transformation modifier and an ultimate
@@ -176,22 +195,16 @@ if IsServer() then
       "modifier_lycan_shapeshift_speed",        -- transformation modifier and an ultimate
       "modifier_lone_druid_true_form",          -- transformation modifier and an ultimate
       --"modifier_medusa_mana_shield",
-      --"modifier_monkey_king_quadruple_tap_counter", -- Jingu Mastery stacks
       --"modifier_morphling_replicate_timer",   -- Coding nightmare
       --"modifier_morphling_replicate_manager", -- Coding nightmare
       "modifier_night_stalker_darkness",        -- Nightstalker Dark Ascension (transformation modifier and an ultimate)
       --"modifier_nyx_assassin_burrow",         -- Bugs out the caster
-      --"modifier_obsidian_destroyer_astral_imprisonment_prison",
       --"modifier_oracle_false_promise_timer",  -- Removing this can kill a hero right at the start of the duel
       "modifier_pangolier_gyroshell",           -- transformation modifier and an ultimate
       --"modifier_phoenix_fire_spirit_count",   -- Phoenix Fire Spirits buff on the caster
       "modifier_sand_king_epicenter",           -- transformation modifier and an ultimate
-      --"modifier_shadow_demon_disruption",
       "modifier_sven_gods_strength",            -- transformation modifier and an ultimate
       "modifier_sven_gods_strength_child",      -- transformation modifier and an ultimate
-      --"modifier_spectre_spectral_dagger_path",
-      --"modifier_spectre_spectral_dagger",
-      --"modifier_spectre_spectral_dagger_in_path",
       "modifier_terrorblade_metamorphosis",     -- transformation modifier
       "modifier_terrorblade_metamorphosis_transform_aura_applier",  -- transformation modifier
       "modifier_troll_warlord_battle_trance",   -- transformation modifier and an ultimate
@@ -208,12 +221,10 @@ if IsServer() then
     end
 
     RemoveTableOfModifiersFromUnit(self, undispellable_item_buffs)
-    RemoveTableOfModifiersFromUnit(self, undispellable_item_debuffs)
-    RemoveTableOfModifiersFromUnit(self, undispellable_ability_debuffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_buffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_rune_modifiers)
 
-    -- Dispel stuff
+    -- Dispel bools
     local BuffsCreatedThisFrameOnly = false
     local RemoveExceptions = false              -- Offensive Strong Dispel (yes or no), can cause errors, crashes etc.
     local RemoveStuns = true                    -- Defensive Strong Dispel (yes or no)
@@ -234,6 +245,7 @@ if IsServer() then
         item_radiance_4 = true,
         item_radiance_5 = true,
         item_cloak_of_flames = true,
+        item_stormcrafter = true,
         doom_bringer_scorched_earth = true,
         mirana_starfall = true,
         wisp_spirits = true,
@@ -275,7 +287,17 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
-    return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
+    local strong_illus = {
+      "modifier_chaos_knight_phantasm_illusion",
+      "modifier_vengefulspirit_hybrid_special",
+      "modifier_chaos_knight_phantasm_illusion_shard",
+    }
+    for _, v in pairs(strong_illus) do
+      if self:HasModifier(v) then
+        return true
+      end
+    end
+    return false
   end
 
   function CDOTA_BaseNPC:IsLeashedOAA()
@@ -338,7 +360,17 @@ if C_DOTA_BaseNPC then
   end
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
-    return self:HasModifier("modifier_chaos_knight_phantasm_illusion") or self:HasModifier("modifier_vengefulspirit_hybrid_special") or self:HasModifier("modifier_chaos_knight_phantasm_illusion_shard")
+    local strong_illus = {
+      "modifier_chaos_knight_phantasm_illusion",
+      "modifier_vengefulspirit_hybrid_special",
+      "modifier_chaos_knight_phantasm_illusion_shard",
+    }
+    for _, v in pairs(strong_illus) do
+      if self:HasModifier(v) then
+        return true
+      end
+    end
+    return false
   end
 
   function C_DOTA_BaseNPC:IsLeashedOAA()

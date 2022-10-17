@@ -110,8 +110,9 @@ if IsServer() then
       -- Sound
       parent:EmitSound("DOTA_Item.MagicLamp.Cast")
 
-      -- Absolute Purge
-      parent:AbsolutePurge()
+      -- Dispel all debuffs (99.99% at least)
+      parent:DispelUndispellableDebuffs()
+      parent:Purge(false, true, false, true, false)
 
       -- Particle
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})
