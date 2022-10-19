@@ -63,7 +63,7 @@ end
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
     local ability = self:GetAbility()
-    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() then
+    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() and not self:GetParent():HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
       return 1
     end
     return

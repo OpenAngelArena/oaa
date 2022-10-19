@@ -555,7 +555,7 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
     self.attack_speed = ability:GetSpecialValueFor("bearing_attack_speed")
   end
 
-  if IsServer()
+  if IsServer() then
     if self.particle == nil then
       local parent = self:GetParent()
       -- Particle

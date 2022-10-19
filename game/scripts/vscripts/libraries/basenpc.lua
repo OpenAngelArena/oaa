@@ -152,6 +152,7 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
       "modifier_phantom_assassin_blur_active",
       "modifier_phoenix_supernova_hiding",
@@ -199,7 +200,6 @@ if IsServer() then
       --"modifier_morphling_replicate_manager", -- Coding nightmare
       "modifier_night_stalker_darkness",        -- Nightstalker Dark Ascension (transformation modifier and an ultimate)
       --"modifier_nyx_assassin_burrow",         -- Bugs out the caster
-      --"modifier_oracle_false_promise_timer",  -- Removing this can kill a hero right at the start of the duel
       "modifier_pangolier_gyroshell",           -- transformation modifier and an ultimate
       --"modifier_phoenix_fire_spirit_count",   -- Phoenix Fire Spirits buff on the caster
       "modifier_sand_king_epicenter",           -- transformation modifier and an ultimate

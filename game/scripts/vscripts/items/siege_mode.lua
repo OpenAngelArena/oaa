@@ -204,6 +204,7 @@ end
 function modifier_item_splash_cannon_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
     self:StartIntervalThink(0.1)
   end
 end
@@ -230,6 +231,12 @@ function modifier_item_splash_cannon_passive:OnIntervalThink()
     self:SetStackCount(2)
   else
     self:SetStackCount(1)
+  end
+end
+
+function modifier_item_splash_cannon_passive:OnDestroy()
+  if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
   end
 end
 
