@@ -171,7 +171,8 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
-    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
+    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
 
@@ -240,6 +241,30 @@ if IsServer() then
       return value + ability:GetSpecialValueFor("bonus_toss_damage_oaa")
     end
     return value
+  end
+
+  function modifier_tiny_grow_oaa:OnAbilityExecuted(event)
+    local cast_ability = event.ability
+    local caster = event.unit
+
+    if not cast_ability or cast_ability:IsNull() or not caster or caster:IsNull() then
+      return
+    end
+
+    if caster ~= self:GetParent() then
+      return
+    end
+
+    if cast_ability:GetAbilityName() ~= "tiny_tree_channel" then
+      return
+    end
+
+    local number_of_trees = 4
+    for i = 1, number_of_trees do
+      local random_location = caster:GetAbsOrigin() + RandomVector(500)
+      CreateTempTree(random_location, 3)
+      ResolveNPCPositions(random_location, 64.0)
+    end
   end
 end
 
