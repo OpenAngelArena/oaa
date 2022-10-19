@@ -188,9 +188,11 @@ modifier_item_splash_cannon_passive = class(ModifierBaseClass)
 function modifier_item_splash_cannon_passive:IsHidden()
   return true
 end
+
 function modifier_item_splash_cannon_passive:IsDebuff()
   return false
 end
+
 function modifier_item_splash_cannon_passive:IsPurgable()
   return false
 end
@@ -202,6 +204,7 @@ end
 function modifier_item_splash_cannon_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
     self:StartIntervalThink(0.1)
   end
 end
@@ -228,6 +231,12 @@ function modifier_item_splash_cannon_passive:OnIntervalThink()
     self:SetStackCount(2)
   else
     self:SetStackCount(1)
+  end
+end
+
+function modifier_item_splash_cannon_passive:OnDestroy()
+  if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
   end
 end
 
@@ -284,14 +293,14 @@ end
 
 if IsServer() then
   function modifier_item_splash_cannon_passive:OnAttackLanded(event)
-    local parent = self:GetParent()
-    local attacker = event.attacker
-    local target = event.target
-
-    -- Prevent the code below from executing multiple times for no reason
+    -- Check if first item in inventory -> prevent the code below from executing multiple times for each Splash Cannon
     if not self:IsFirstItemInInventory() then
       return
     end
+
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local target = event.target
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then

@@ -118,6 +118,7 @@ function modifier_item_ghost_king_bar_passives:OnRefresh()
     self.hp = ability:GetSpecialValueFor("bonus_health")
     self.mana = ability:GetSpecialValueFor("bonus_mana")
     self.heal_amp = ability:GetSpecialValueFor("heal_amp")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
 
   if IsServer() then
@@ -213,7 +214,7 @@ function modifier_item_ghost_king_bar_passives:GetModifierAura()
 end
 
 function modifier_item_ghost_king_bar_passives:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("aura_radius")
+  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
 function modifier_item_ghost_king_bar_passives:GetAuraSearchTeam()
@@ -236,19 +237,24 @@ if IsServer() then
     local ability = self:GetAbility()
     local unit = event.unit
 
-    -- Only add charges for abilities cast by visible enemies
-    local filterResult = UnitFilter(unit,
+    -- Uncomment the flag stuff if you don't want to gain charges from every enemy and not just visible enemies
+    local filterResult = UnitFilter(
+      unit,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
-      bit.bor(DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, --bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
       parent:GetTeamNumber()
     )
 
-    -- Uncomment this if you don't want it to be global
-    --local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
-    --local unitIsInRange = distanceToUnit <= ability:GetSpecialValueFor("charge_radius")
+    -- Reduce charge gain radius while in duels
+    local unitIsInRange = true
+    if Duels:IsActive() then
+      local charge_radius = ability:GetSpecialValueFor("charge_radius")
+      local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
+      unitIsInRange = distanceToUnit <= charge_radius
+    end
 
-    if filterResult == UF_SUCCESS and event.ability:ProcsMagicStick() then
+    if filterResult == UF_SUCCESS and event.ability:ProcsMagicStick() and unitIsInRange then
       ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, ability:GetSpecialValueFor("max_charges")))
       parent.ghostKingBarChargesOAA = ability:GetCurrentCharges()
     end
@@ -260,7 +266,7 @@ end
 modifier_item_ghost_king_bar_aura_effect = class(ModifierBaseClass)
 
 function modifier_item_ghost_king_bar_aura_effect:IsHidden() -- needs tooltip
-  return false
+  return self:GetParent():HasModifier("modifier_item_holy_locket_aura")
 end
 
 function modifier_item_ghost_king_bar_aura_effect:IsDebuff()
@@ -287,6 +293,9 @@ function modifier_item_ghost_king_bar_aura_effect:DeclareFunctions()
 end
 
 function modifier_item_ghost_king_bar_aura_effect:GetModifierConstantHealthRegen()
+  if self:GetParent():HasModifier("modifier_item_holy_locket_aura") then
+    return 0
+  end
   return self.hp_regen or self:GetAbility():GetSpecialValueFor("aura_health_regen")
 end
 
@@ -485,14 +494,7 @@ function modifier_item_ghost_king_bar_buff:OnCreated()
   end
 end
 
-function modifier_item_ghost_king_bar_buff:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
-    self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
-    self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
-  end
-end
+modifier_item_ghost_king_bar_buff.OnRefresh = modifier_item_ghost_king_bar_buff.OnCreated
 
 function modifier_item_ghost_king_bar_buff:DeclareFunctions()
   return {

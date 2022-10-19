@@ -71,7 +71,7 @@ function item_sacred_skull:OnSpellStart()
   -- damage_table.damage = missing_hp * dmg_per_missing_hp
   local current_mana = caster:GetMana()
   local missing_mana = caster:GetMaxMana() - current_mana
-  local magic_damage = self:GetSpecialValueFor("magic_dmg_per_current_mana") * current_mana
+  local magic_damage = self:GetSpecialValueFor("base_dmg") + self:GetSpecialValueFor("magic_dmg_per_current_mana") * current_mana
   local physical_damage = self:GetSpecialValueFor("phys_dmg_per_missing_mana") * missing_mana
 
   damage_table.damage = magic_damage
@@ -295,6 +295,7 @@ if IsServer() then
 
     local heal_amount = 100 + parent:GetMaxHealth() / 2
     local heal_radius = 1200
+    local base_dmg = 75
     local magic_dmg_mult = 0.125 -- 15
     local phys_dmg_mult = 0.25
     local vision_duration = 30
@@ -303,6 +304,7 @@ if IsServer() then
     if ability and not ability:IsNull() then
       heal_amount = ability:GetSpecialValueFor("death_heal_base") + parent:GetMaxHealth() / 2
       heal_radius = ability:GetSpecialValueFor("death_heal_radius")
+      base_dmg = ability:GetSpecialValueFor("base_dmg")
       magic_dmg_mult = ability:GetSpecialValueFor("magic_dmg_per_current_mana") -- ability:GetSpecialValueFor("damage_per_missing_hp")
       phys_dmg_mult = ability:GetSpecialValueFor("phys_dmg_per_missing_mana")
       vision_duration = ability:GetSpecialValueFor("death_vision_duration")
@@ -334,7 +336,7 @@ if IsServer() then
     end
 
     -- Add vision at death location
-    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent:GetTeamNumber())
+    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent_team)
     dummy:AddNewModifier(parent, ability, "modifier_sacred_skull_dummy_stuff", {})
     dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
     --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
@@ -354,8 +356,8 @@ if IsServer() then
       -- Calculate damage and heal
       local current_mana = parent:GetMana()
       local missing_mana = parent:GetMaxMana() - current_mana
-      local magic_damage = magic_dmg_mult * current_mana / 2 -- 50 * magic_dmg_mult
-      local physical_damage = phys_dmg_mult * missing_mana / 2
+      local magic_damage = base_dmg + magic_dmg_mult * current_mana
+      local physical_damage = phys_dmg_mult * missing_mana
 
       local damage_table = {}
       damage_table.attacker = parent
@@ -382,8 +384,8 @@ if IsServer() then
           damage_table.victim = enemy
           ApplyDamage(damage_table)
           -- Physical Damage
-          damage_table_2.victim = enemy
           if not enemy:IsNull() then
+            damage_table_2.victim = enemy
             ApplyDamage(damage_table_2)
           end
         end
@@ -431,11 +433,19 @@ function modifier_sacred_skull_dummy_stuff:GetAbsoluteNoDamagePure()
 end
 
 function modifier_sacred_skull_dummy_stuff:GetBonusDayVision()
-  return self:GetAbility():GetSpecialValueFor("death_vision_radius")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor("death_vision_radius")
+  end
+  return 800
 end
 
 function modifier_sacred_skull_dummy_stuff:GetBonusNightVision()
-  return self:GetAbility():GetSpecialValueFor("death_vision_radius")
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor("death_vision_radius")
+  end
+  return 800
 end
 
 function modifier_sacred_skull_dummy_stuff:CheckState()

@@ -12,13 +12,41 @@ function item_trumps_fists_1:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
+  -- Create the projectile
+  local info = {
+    Target = target,
+    Source = caster,
+    Ability = self,
+    EffectName = "particles/items2_fx/paintball.vpcf",
+    bDodgeable = true,
+    bProvidesVision = true,
+    bVisibleToEnemies = true,
+    bReplaceExisting = false,
+    iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
+    iVisionRadius = 250,
+    iVisionTeamNumber = caster:GetTeamNumber(),
+  }
+
+  ProjectileManager:CreateTrackingProjectile(info)
+
+  -- Launch Sound
+  target:EmitSound("Item.Paintball.Cast")
+end
+
+function item_trumps_fists_1:OnProjectileHit(target, location)
+  local caster = self:GetCaster()
+
+  if not target or target:IsNull() then
+    return
+  end
+
   -- Don't do anything if target has Linken's effect or it's spell-immune
   if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
     return
   end
 
   -- Apply debuff (duration is not affected by status resistance)
-  local debuff_duration = self:GetSpecialValueFor("duration")
+  local debuff_duration = self:GetSpecialValueFor("mute_duration")
   --debuff_duration = target:GetValueChangedByStatusResistance(debuff_duration)
   target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
 
@@ -28,7 +56,7 @@ function item_trumps_fists_1:OnSpellStart()
   ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin())
   ParticleManager:ReleaseParticleIndex(particle)
 
-  -- Sound
+  -- Hit Sound
   target:EmitSound("Item.Paintball.Target")
 end
 

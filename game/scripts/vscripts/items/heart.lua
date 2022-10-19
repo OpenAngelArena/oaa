@@ -196,40 +196,12 @@ function modifier_item_heart_oaa_active:OnCreated()
     self.bonus_damage = ability:GetSpecialValueFor("buff_bonus_base_damage")
   end
 
-  -- if IsServer() then
-    -- if self.nPreviewFX == nil then
-      -- self.nPreviewFX = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, parent)
-      -- ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
-    -- end
-  -- end
-
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus(true)
   end
 end
 
-function modifier_item_heart_oaa_active:OnRefresh()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("buff_bonus_strength")
-    self.bonus_damage = ability:GetSpecialValueFor("buff_bonus_base_damage")
-  end
-
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  end
-end
-
--- function modifier_item_heart_oaa_active:OnDestroy()
-  -- if IsServer() then
-    -- if self.nPreviewFX then
-      -- ParticleManager:DestroyParticle(self.nPreviewFX, false)
-      -- ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-      -- self.nPreviewFX = nil
-    -- end
-  -- end
--- end
+modifier_item_heart_oaa_active.OnRefresh = modifier_item_heart_oaa_active.OnCreated
 
 function modifier_item_heart_oaa_active:DeclareFunctions()
   return {

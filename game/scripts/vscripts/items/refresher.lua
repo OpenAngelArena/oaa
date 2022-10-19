@@ -64,8 +64,16 @@ function modifier_item_refresher_oaa:IsHidden()
   return true
 end
 
+function modifier_item_refresher_oaa:IsDebuff()
+  return false
+end
+
 function modifier_item_refresher_oaa:IsPurgable()
   return false
+end
+
+function modifier_item_refresher_oaa:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_refresher_oaa:OnCreated()
@@ -79,10 +87,6 @@ function modifier_item_refresher_oaa:OnCreated()
 end
 
 modifier_item_refresher_oaa.OnRefresh = modifier_item_refresher_oaa.OnCreated
-
-function modifier_item_refresher_oaa:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
 
 function modifier_item_refresher_oaa:DeclareFunctions()
   return {

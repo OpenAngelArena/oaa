@@ -40,27 +40,7 @@ function modifier_item_regen_crystal_passive:GetAttributes()
 end
 
 function modifier_item_regen_crystal_passive:OnCreated()
-  local ability = self:GetAbility()
-  local parent = self:GetParent()
-  local max_mana_to_hp_regen = 3
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-    max_mana_to_hp_regen = ability:GetSpecialValueFor("max_mana_to_hp_regen")
-  end
-  local max_mana = parent:GetMaxMana()
-  self.bonus_hp_regen = max_mana*max_mana_to_hp_regen/100
-  if IsServer() then
-    if parent:IsHero() then
-      parent:CalculateStatBonus(true)
-    end
-    -- Check only on the server
-    if self:IsFirstItemInInventory() then
-      self:SetStackCount(2)
-    else
-      self:SetStackCount(1)
-    end
-  end
+  self:OnRefresh()
   self:StartIntervalThink(0.3)
 end
 
@@ -162,35 +142,32 @@ function modifier_item_regen_crystal_active:IsPurgable()
 end
 
 function modifier_item_regen_crystal_active:OnCreated()
-  local parent = self:GetParent()
-  if IsServer() then
-    if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
-    end
-  end
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
     self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
+  end
+  if IsServer() and self.nPreviewFX == nil then
+    local parent = self:GetParent()
+    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
   end
 end
 
 function modifier_item_regen_crystal_active:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
-    self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
+  if IsServer() and self.nPreviewFX then
+    ParticleManager:DestroyParticle(self.nPreviewFX, true)
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
   end
+  self:OnCreated()
 end
 
 function modifier_item_regen_crystal_active:OnDestroy()
-  if IsServer() then
-    if self.nPreviewFX then
-      ParticleManager:DestroyParticle(self.nPreviewFX, false)
-      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-      self.nPreviewFX = nil
-    end
+  if IsServer() and self.nPreviewFX then
+    ParticleManager:DestroyParticle(self.nPreviewFX, false)
+    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
+    self.nPreviewFX = nil
   end
 end
 

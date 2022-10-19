@@ -75,7 +75,7 @@ function item_bubble_orb_1:OnSpellStart()
 end
 
 ---------------------------------------------------------------------------------------------------
-
+-- Thinker modifier
 modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_aura_block:IsHidden()
@@ -188,7 +188,7 @@ function modifier_item_preemptive_bubble_aura_block:GetAuraDuration()
 end
 
 ---------------------------------------------------------------------------------------------------
-
+-- modifier that blocks damage if they came from outside the bubble
 modifier_item_preemptive_bubble_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_block:IsHidden()
