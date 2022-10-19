@@ -268,7 +268,7 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
   local caster = self:GetCaster()
   local ability = self:GetAbility()
 
-  if not parent or not caster or parent:IsNull() or caster:IsNull() or not ability or ability:IsNull() then
+  if not parent or parent:IsNull() or not caster or caster:IsNull() or not caster:IsAlive() or not ability or ability:IsNull() then
     --self:StartIntervalThink(-1)
     --self:SetDuration(0.01, true)
     self:Destroy()
