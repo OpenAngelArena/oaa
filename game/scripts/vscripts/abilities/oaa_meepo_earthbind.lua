@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_meepo_earthbind_oaa", "abilities/oaa_meepo_earthbind.l
 meepo_earthbind_oaa = class(AbilityBaseClass)
 
 function meepo_earthbind_oaa:GetCooldown(level)
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
   local cooldown = self.BaseClass.GetCooldown(self, level)
   -- Clientside code for the talent
 

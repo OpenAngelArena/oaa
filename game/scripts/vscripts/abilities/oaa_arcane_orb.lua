@@ -186,7 +186,6 @@ if IsServer() then
 
   function modifier_oaa_arcane_orb:OnAttackLanded(event)
     local parent = self:GetParent()
-    local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
 

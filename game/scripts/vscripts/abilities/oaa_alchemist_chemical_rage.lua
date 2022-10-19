@@ -13,7 +13,6 @@ end
 
 function alchemist_chemical_rage_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local duration = self:GetSpecialValueFor("duration")
   local ability = caster:FindAbilityByName("alchemist_chemical_rage")
 
   if not ability then
