@@ -155,14 +155,55 @@ function HeroSelection:Init ()
       print("HeroSelection module - player_reconnected event has no PlayerID or player_id key. Gj Valve.")
       return
     end
-    if not lockedHeroes[playerid] then
-      -- we don't care if they haven't locked in yet
-      return
-    end
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-    if (not hero or hero:GetUnitName() == FORCE_PICKED_HERO) and loadedHeroes[lockedHeroes[playerid]] then
-      DebugPrint('PlayerReconnected - Giving player '..tostring(playerid)..' a hero: '..lockedHeroes[playerid]..' after reconnecting.')
-      HeroSelection:GiveStartingHero(playerid, lockedHeroes[playerid])
+    local hero_name
+    if hero then
+      hero_name = hero:GetUnitName()
+    end
+    if not lockedHeroes[playerid] then
+      -- Player didnt lock a hero before disconnecting
+      -- Indirectly check when player reconnected (during picking or when game started)
+      if hero_name and HeroSelection:IsHeroDisabled(hero_name) then
+        -- Reconnected when game started and randomed hero is invalid
+        local new_hero_name = HeroSelection:RandomHero()
+        if loadedHeroes[new_hero_name] then
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+        else
+          PrecacheUnitByNameAsync(new_hero_name, function()
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          end)
+        end
+        lockedHeroes[playerid] = new_hero_name
+      elseif hero_name then
+        -- Reconnected when game started and randomed hero is valid
+        lockedHeroes[playerid] = hero_name
+      else
+        -- Reconnected during picking and not locked yet
+        return
+      end
+    else
+      -- Player locked a hero before disconnecting
+      -- Check if player has no hero after reconnecting
+      local locked_hero_name = lockedHeroes[playerid]
+      if (not hero or hero_name == FORCE_PICKED_HERO) and loadedHeroes[locked_hero_name] then
+        local player = PlayerResource:GetPlayer(playerid)
+        if player then
+          player:SetSelectedHero(locked_hero_name)
+        end
+        HeroSelection:GiveStartingHero(playerid, locked_hero_name)
+        return
+      end
+      -- Player has a hero after reconnecting (game probably started)
+      -- Check if player has a hero they didn't lock during the picking screen, change it to the locked hero
+      if hero and hero_name ~= locked_hero_name and (OAAOptions.settings.GAME_MODE ~= "AR" or OAAOptions.settings.GAME_MODE ~= "ARDM") then
+        if loadedHeroes[locked_hero_name] then
+          PlayerResource:ReplaceHeroWith(playerid, locked_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+        else
+          PrecacheUnitByNameAsync(locked_hero_name, function()
+            PlayerResource:ReplaceHeroWith(playerid, locked_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          end)
+        end
+      end
     end
   end)
 
@@ -518,9 +559,7 @@ function HeroSelection:ChooseBans ()
         end
       end
 
-      local chen = hero_name == "npc_dota_hero_centaur"
-
-      if not banned and not chen then
+      if not banned then
         table.insert(rankedpickorder.bans, hero_name)
         i = i + 1
       end
@@ -800,6 +839,11 @@ function HeroSelection:SelectHero (playerId, hero)
     return
   end
 
+  local player = PlayerResource:GetPlayer(playerId)
+  if player then
+    player:SetSelectedHero(hero_name)
+  end
+
   lockedHeroes[playerId] = hero_name
   loadingHeroes = loadingHeroes + 1
   -- LoadFinishEvent
@@ -808,10 +852,6 @@ function HeroSelection:SelectHero (playerId, hero)
     loadingHeroes = loadingHeroes - 1
     if loadingHeroes <= 0 then
       LoadFinishEvent.broadcast()
-    end
-    local player = PlayerResource:GetPlayer(playerId)
-    if player == nil then -- disconnected! don't give em a hero yet...
-      return
     end
     HeroSelection:GiveStartingHero(playerId, hero_name)
     DebugPrint('SelectHero - Giving player '..tostring(playerId)..' a hero: '..hero_name)
@@ -822,8 +862,6 @@ function HeroSelection:GiveStartingHero (playerId, heroName)
   if self.spawnedPlayers[playerId] then
     return
   end
-
-  PlayerResource:GetPlayer(playerId):SetSelectedHero(heroName)
 
   local hero = PlayerResource:GetSelectedHeroEntity(playerId)
   self.spawnedPlayers[playerId] = true
@@ -856,12 +894,8 @@ function HeroSelection:IsHeroDisabled (hero)
         return true
       end
     end
-  else
-    for _, data in pairs(selectedtable) do
-      if hero == data.selectedhero then
-        return true
-      end
-    end
+  elseif self:IsHeroChosen(hero) then
+    return true
   end
   return false
 end
@@ -1087,13 +1121,4 @@ function HeroSelection:GetSteamAccountID(playerID)
     end
   end
   return tostring(steamid)
-end
-
-function HeroSelection:ForceAssignHeroes()
-	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-		local hPlayer = PlayerResource:GetPlayer( nPlayerID )
-		if hPlayer and not PlayerResource:HasSelectedHero( nPlayerID ) then
-			hPlayer:MakeRandomHeroSelection()
-		end
-	end
 end
