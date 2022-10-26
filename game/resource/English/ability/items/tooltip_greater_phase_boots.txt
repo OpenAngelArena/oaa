@@ -3,11 +3,13 @@
 //===================================================================
 "DOTA_Tooltip_Ability_item_greater_phase_boots"                                 "Greater Phase Boots"
 "DOTA_Tooltip_Ability_item_recipe_greater_phase_boots"                          "Greater Phase Boots Recipe"
-"DOTA_Tooltip_Ability_item_greater_phase_boots_Description"                     "<h1>Active: Greater Phase</h1> Grants free pathing, %phase_movement_speed%%% bonus movement speed, and lets you turn more quickly for %phase_duration% seconds. Enemies you phase through are damaged with an instant attack that also procs attack modifiers. Walking through trees causes them to be destroyed. Disjoints projectiles upon activation."
+"DOTA_Tooltip_Ability_item_greater_phase_boots_Description"                     "<h1>Active: Greater Phase</h1> Grants free pathing, %phase_movement_speed%%% bonus movement speed, and lets you turn more quickly for %phase_duration% seconds. When melee, enemies you phase through are damaged with an instant attack that also procs attack modifiers. When ranged, upon activation you will attack all visible enemies within your attack range. Phasing through trees causes them to be destroyed. Disjoints projectiles upon activation."
 "DOTA_Tooltip_Ability_item_greater_phase_boots_Lore"                            "Boots of Sylvanas, the unstoppable."
 "DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_damage"                    "+$damage"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_movement_speed"            "+$move_speed"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_armor"                     "+$armor"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_health"                    "+$health"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_mana_regen"                "+$mana_regen"
 //"item_greater_phase_boots_splinter_Description"                                 "<h1>Passive: Phantom Hit</h1> Deals %splinter_attack_outgoing%%% of attack damage as physical damage to up to %splinter_count% random neutral creeps around the target.<br><br>Radius: %splinter_radius%"
 
 "DOTA_Tooltip_Ability_item_greater_phase_boots_2"                               "#{DOTA_Tooltip_Ability_item_greater_phase_boots}"
@@ -17,6 +19,8 @@
 "DOTA_Tooltip_Ability_item_greater_phase_boots_2_bonus_damage"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_2_bonus_movement_speed"          "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_2_bonus_armor"                   "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_armor}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_2_bonus_health"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_health}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_2_bonus_mana_regen"              "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_greater_phase_boots_3"                               "#{DOTA_Tooltip_Ability_item_greater_phase_boots}"
 "DOTA_Tooltip_Ability_item_recipe_greater_phase_boots_3"                        "#{DOTA_Tooltip_Ability_item_recipe_greater_phase_boots}"
@@ -25,6 +29,8 @@
 "DOTA_Tooltip_Ability_item_greater_phase_boots_3_bonus_damage"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_3_bonus_movement_speed"          "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_3_bonus_armor"                   "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_armor}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_3_bonus_health"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_health}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_3_bonus_mana_regen"              "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_mana_regen}"
 
 "DOTA_Tooltip_Ability_item_greater_phase_boots_4"                               "#{DOTA_Tooltip_Ability_item_greater_phase_boots}"
 "DOTA_Tooltip_Ability_item_recipe_greater_phase_boots_4"                        "#{DOTA_Tooltip_Ability_item_recipe_greater_phase_boots}"
@@ -33,8 +39,18 @@
 "DOTA_Tooltip_Ability_item_greater_phase_boots_4_bonus_damage"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_4_bonus_movement_speed"          "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_phase_boots_4_bonus_armor"                   "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_armor}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_4_bonus_health"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_health}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_4_bonus_mana_regen"              "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_mana_regen}"
 
-"dota_tooltip_modifier_item_greater_phase_boots_active"                         "Greater Phase"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5"                               "#{DOTA_Tooltip_Ability_item_greater_phase_boots}"
+"DOTA_Tooltip_Ability_item_recipe_greater_phase_boots_5"                        "#{DOTA_Tooltip_Ability_item_recipe_greater_phase_boots}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_Description"                   "#{DOTA_Tooltip_Ability_item_greater_phase_boots_Description}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_Lore"                          "#{DOTA_Tooltip_Ability_item_greater_phase_boots_Lore}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_bonus_damage"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_damage}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_bonus_movement_speed"          "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_movement_speed}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_bonus_armor"                   "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_armor}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_bonus_health"                  "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_health}"
+"DOTA_Tooltip_Ability_item_greater_phase_boots_5_bonus_mana_regen"              "#{DOTA_Tooltip_Ability_item_greater_phase_boots_bonus_mana_regen}"
 
 //"DOTA_Tooltip_Ability_item_phase_origin"                                        "Phase Spark"
 //"DOTA_Tooltip_Ability_item_recipe_phase_origin"                                 "Phase Spark Recipe"
