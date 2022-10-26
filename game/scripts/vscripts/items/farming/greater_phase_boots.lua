@@ -1,6 +1,5 @@
 item_greater_phase_boots = class(ItemBaseClass)
 
---LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_greater_phase_boots_passives", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -9,14 +8,6 @@ LinkLuaModifier("modifier_item_greater_phase_boots_active", "items/farming/great
 function item_greater_phase_boots:GetIntrinsicModifierName()
 	return "modifier_item_greater_phase_boots_passives"
 end
--- uncomment this if we plan to add more effects to Phase Boots
---[[
-function item_greater_phase_boots:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_phase_boots",
-  }
-end
-]]
 
 function item_greater_phase_boots:OnSpellStart()
   local caster = self:GetCaster()
@@ -39,16 +30,37 @@ function item_greater_phase_boots:OnSpellStart()
   -- Add the vanilla spider legs modifier (free pathing and cool visual spider effect)
   caster:AddNewModifier(caster, self, "modifier_item_spider_legs_active", {duration = active_duration})
 
-  -- Add OAA unique greater phase boots modifier
-  caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = active_duration})
+  -- Add OAA unique greater phase boots modifier, different for melee and ranged
+  if not caster:IsRangedAttacker() then
+    caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = active_duration})
+  else
+    local enemies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      nil,
+      caster:GetAttackRange(),
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE),
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        -- do an instant attack with a projectile that applies procs and can miss
+        caster:PerformAttack(enemy, true, true, true, false, true, false, false)
+      end
+    end
+  end
 
   -- play the sound
   caster:EmitSound("DOTA_Item.PhaseBoots.Activate")
 end
 
-item_greater_phase_boots_2 = class(item_greater_phase_boots)
-item_greater_phase_boots_3 = class(item_greater_phase_boots)
-item_greater_phase_boots_4 = class(item_greater_phase_boots)
+item_greater_phase_boots_2 = item_greater_phase_boots
+item_greater_phase_boots_3 = item_greater_phase_boots
+item_greater_phase_boots_4 = item_greater_phase_boots
+item_greater_phase_boots_5 = item_greater_phase_boots
 
 ---------------------------------------------------------------------------------------------------
 
@@ -66,6 +78,11 @@ function modifier_item_greater_phase_boots_passives:IsPurgable()
   return false
 end
 
+-- We don't have this on purpose because we don't want people to buy multiple of these
+--function modifier_item_greater_phase_boots_passives:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
+
 function modifier_item_greater_phase_boots_passives:OnCreated()
   local ability = self:GetAbility()
   if not ability or ability:IsNull() then
@@ -75,6 +92,8 @@ function modifier_item_greater_phase_boots_passives:OnCreated()
   self.movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
   self.damage = ability:GetSpecialValueFor("bonus_damage")
   self.armor = ability:GetSpecialValueFor("bonus_armor")
+  self.hp = ability:GetSpecialValueFor("bonus_health")
+  self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
 end
 
 modifier_item_greater_phase_boots_passives.OnRefresh = modifier_item_greater_phase_boots_passives.OnCreated
@@ -84,19 +103,29 @@ function modifier_item_greater_phase_boots_passives:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
 function modifier_item_greater_phase_boots_passives:GetModifierMoveSpeedBonus_Special_Boots()
-  return self.movement_speed
+  return self.movement_speed or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
 end
 
 function modifier_item_greater_phase_boots_passives:GetModifierPreAttack_BonusDamage()
-  return self.damage
+  return self.damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_greater_phase_boots_passives:GetModifierPhysicalArmorBonus()
-  return self.armor
+  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_greater_phase_boots_passives:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_greater_phase_boots_passives:GetModifierConstantManaRegen()
+  return self.mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -299,12 +328,6 @@ end
 function modifier_item_greater_phase_boots_active:GetTexture()
   return "custom/greater_phase_boots_4"
 end
-
--- function modifier_item_greater_phase_boots_active:CheckState()
-  -- return {
-    -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-  -- }
--- end
 
 -- function modifier_item_greater_phase_boots_active:DeclareFunctions()
   -- return {
