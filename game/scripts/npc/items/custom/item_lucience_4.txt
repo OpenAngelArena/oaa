@@ -58,14 +58,6 @@
     "ItemAliases"                                         "lucience 4;lucio 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
-      "particle"                                          "particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"

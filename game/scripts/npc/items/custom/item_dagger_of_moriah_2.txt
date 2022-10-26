@@ -24,8 +24,7 @@
     "ItemResult"                                          "item_dagger_of_moriah_2"
     "ItemRequirements"
     {
-      "01"                                                "item_dagger_of_moriah;item_upgrade_core_4"
-      //"02"                                                "item_veil_of_discord_4;item_upgrade_core_4"
+      "01"                                                "item_dagger_of_moriah_1;item_upgrade_core_4"
     }
   }
 
@@ -41,7 +40,6 @@
     "ScriptFile"                                          "items/dagger_of_moriah.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/dagger_of_moriah_2"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,66 +56,27 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "31529"
-    "ItemShopTags"                                        "damage;unique;hard_to_tag"
+    "ItemShopTags"                                        "agi;str;int;mana_regen;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "45 60"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.25 4.25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "spell_amp_per_intellect"                         "0.08"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_dmg_amp"                                   "30 35"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
-      // "10"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "sangromancy_spell_amp"                           "75 100"
-      // }
-      // "11"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "sangromancy_self_damage"                         "100 75"
-      // }
-      // "12"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "sangromancy_bonus_damage_from_others"            "50 25"
-      // }
+      "bonus_health_regen"                                "0"
+      "bonus_all_stats"                                   "40 50"
+      "bonus_mana_regen"                                  "3.25 4.25"
+      "spell_amp_per_intellect"                           "0.08"
+      "radius"                                            "1200"
+      "magic_dmg_amp"                                     "30 35"
+      "heal_reduction_duration"                           "3"
+      "heal_reduction_percent"                            "45"
+      "duration"                                          "6.0"
+      //"sangromancy_spell_amp"                             "75 100"
+      //"sangromancy_self_damage"                           "100 75"
+      //"sangromancy_bonus_damage_from_others"              "50 25"
     }
   }
 }

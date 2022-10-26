@@ -1,6 +1,4 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_passive", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_martyrs_mail_passive_aura", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_passive_aura_effect", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_active", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
@@ -10,14 +8,7 @@ LinkLuaModifier("modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.lu
 item_martyrs_mail = class(ItemBaseClass)
 
 function item_martyrs_mail:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_martyrs_mail:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_martyrs_mail_passive",
-    "modifier_item_martyrs_mail_passive_aura",
-  }
+  return "modifier_item_martyrs_mail_passive"
 end
 
 function item_martyrs_mail:OnSpellStart()
@@ -26,10 +17,6 @@ function item_martyrs_mail:OnSpellStart()
 
 	hCaster:EmitSound( "DOTA_Item.BladeMail.Activate" )
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
-end
-
-function item_martyrs_mail:ProcsMagicStick()
-  return false
 end
 
 item_martyrs_mail_2 = class(item_martyrs_mail)
@@ -44,6 +31,10 @@ function modifier_item_martyrs_mail_passive:IsHidden()
 	return true
 end
 
+function modifier_item_martyrs_mail_passive:IsDebuff()
+  return false
+end
+
 function modifier_item_martyrs_mail_passive:IsPurgable()
   return false
 end
@@ -55,78 +46,52 @@ end
 function modifier_item_martyrs_mail_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.bonus_damage = ability:GetSpecialValueFor( "bonus_damage" )
-    self.bonus_armor = ability:GetSpecialValueFor( "bonus_armor" )
-    self.bonus_intellect = ability:GetSpecialValueFor( "bonus_intellect" )
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
 end
 
 modifier_item_martyrs_mail_passive.OnRefresh = modifier_item_martyrs_mail_passive.OnCreated
 
 function modifier_item_martyrs_mail_passive:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-	}
-	return funcs
+  return {
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+  }
 end
 
 function modifier_item_martyrs_mail_passive:GetModifierPreAttack_BonusDamage()
-	return self.bonus_damage
+	return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 function modifier_item_martyrs_mail_passive:GetModifierPhysicalArmorBonus()
-	return self.bonus_armor
+	return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_martyrs_mail_passive:GetModifierBonusStats_Intellect()
-	return self.bonus_intellect
+	return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
----------------------------------------------------------------------------------------------------
-
-modifier_item_martyrs_mail_passive_aura = class(ModifierBaseClass)
-
-function modifier_item_martyrs_mail_passive_aura:IsHidden()
+function modifier_item_martyrs_mail_passive:IsAura()
   return true
 end
 
-function modifier_item_martyrs_mail_passive_aura:IsDebuff()
-  return false
-end
-
-function modifier_item_martyrs_mail_passive_aura:IsPurgable()
-  return false
-end
-
-function modifier_item_martyrs_mail_passive_aura:OnCreated()
-  self.aura_radius = 1200
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
-  end
-end
-
-modifier_item_martyrs_mail_passive_aura.OnRefresh = modifier_item_martyrs_mail_passive_aura.OnCreated
-
-function modifier_item_martyrs_mail_passive_aura:IsAura()
-  return true
-end
-
-function modifier_item_martyrs_mail_passive_aura:GetModifierAura()
+function modifier_item_martyrs_mail_passive:GetModifierAura()
   return "modifier_item_martyrs_mail_passive_aura_effect"
 end
 
-function modifier_item_martyrs_mail_passive_aura:GetAuraRadius()
-  return self.aura_radius
+function modifier_item_martyrs_mail_passive:GetAuraRadius()
+  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
-function modifier_item_martyrs_mail_passive_aura:GetAuraSearchTeam()
+function modifier_item_martyrs_mail_passive:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
 
-function modifier_item_martyrs_mail_passive_aura:GetAuraSearchType()
+function modifier_item_martyrs_mail_passive:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
@@ -171,10 +136,9 @@ function modifier_item_martyrs_mail_martyr_active:GetAuraSearchType()
 end
 
 function modifier_item_martyrs_mail_martyr_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-  return funcs
 end
 
 function modifier_item_martyrs_mail_martyr_active:OnCreated()
@@ -189,45 +153,61 @@ end
 
 modifier_item_martyrs_mail_martyr_active.OnRefresh = modifier_item_martyrs_mail_martyr_active.OnCreated
 
-function modifier_item_martyrs_mail_martyr_active:OnTakeDamage( kv )
-	if IsServer() then
-		local hCaster = self:GetParent()
-    -- local shouldNotReflect = kv.attacker == hCaster or -- Prevent reflecting self-damage
-    --   bit.band(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION -- Prevent reflecting damage with no-reflect flag
+if IsServer() then
+  function modifier_item_martyrs_mail_martyr_active:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
 
-    -- if shouldNotReflect then
-    --   return
-    -- end
+    -- Don't continue if attacker doesn't exist or if attacker is about to be deleted
+    if not attacker or attacker:IsNull() then
+      return
+    end
 
-		if kv.unit == hCaster then
-			-- local damageTable = {
-			-- 	victim = kv.attacker,
-			-- 	attacker = hCaster,
-			-- 	damage = kv.original_damage,
-			-- 	damage_flag = bit.bor(kv.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS),
-			-- 	damage_type = kv.damage_type
-			-- }
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
 
-			-- ApplyDamage( damageTable )
-			-- EmitSoundOnClient( "DOTA_Item.BladeMail.Damage", kv.attacker:GetPlayerOwner() )
-            local ability = self:GetAbility()
-            if not ability or ability:IsNull() then
-              return
-            end
+    -- Trigger only for this modifier
+    if damaged_unit ~= parent then
+      return
+    end
 
-            local martyr_heal_aoe = ability:GetSpecialValueFor( "martyr_heal_aoe" )
-            local martyr_heal_percent = ability:GetSpecialValueFor( "martyr_heal_percent" )
+    -- Damage before reductions
+    local damage = event.original_damage
 
-			local allies = FindUnitsInRadius( hCaster:GetTeamNumber(), hCaster:GetOrigin(), hCaster, martyr_heal_aoe, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
-			if #allies > 1 then
-				for _,ally in pairs(allies) do
-					if ally ~= hCaster then
-						ally:Heal( kv.original_damage * martyr_heal_percent / 100, ability )
-					end
-				end
-			end
-		end
-	end
+    -- If damage is negative or 0, don't continue
+    if damage <= 0 then
+      return
+    end
+
+    -- Don't continue if ability doesn't exist
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local martyr_heal_aoe = ability:GetSpecialValueFor("martyr_heal_aoe")
+    local martyr_heal_percent = ability:GetSpecialValueFor("martyr_heal_percent")
+
+    local allies = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      parent,
+      martyr_heal_aoe,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, ally in pairs(allies) do
+      if ally and not ally:IsNull() and ally ~= parent then
+        ally:Heal(damage * martyr_heal_percent / 100, ability)
+      end
+    end
+  end
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetEffectName()
@@ -301,12 +281,10 @@ end
 modifier_item_martyrs_mail_passive_aura_effect.OnRefresh = modifier_item_martyrs_mail_passive_aura_effect.OnCreated
 
 function modifier_item_martyrs_mail_passive_aura_effect:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_PASSIVES_DISABLED] = false,
     --[MODIFIER_STATE_FEARED] = false,
   }
-
-  return state
 end
 
 function modifier_item_martyrs_mail_passive_aura_effect:DeclareFunctions()

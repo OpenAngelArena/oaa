@@ -5,7 +5,7 @@
   //=================================================================================================================
   "item_recipe_ancient_janggo"
   {
-    "ID"                                                  "184"    // unique ID
+    "ID"                                                  "184"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "ItemCost"                                            "550"
     "ItemShopTags"                                        ""
@@ -25,7 +25,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "185"    // unique ID
+    "ID"                                                  "185"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     //"AbilityTextureName"                                  "custom/drums_1"
 
@@ -35,7 +35,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
     "AbilitySharedCooldown"                               "drums"
-    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -61,7 +60,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_movement_speed"                             "25" //OAA
+        "aura_movement_speed"                             "20"
       }
       "02"
       {

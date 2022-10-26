@@ -9,14 +9,21 @@ function ModifierBaseClass:IsFirstItemInInventory()
   end
 
   if not IsServer() then
-    return true
+    print("IsFirstItemInInventory will not return the correct result on the client!")
+    return
   end
 
+  -- return parent:FindModifierByName(self:GetName()) == self -- idk if FindModifierByName always returns the same result
+  return parent:FindAllModifiersByName(self:GetName())[1] == self -- same thing could be said for FindAllModifiersByName
+
+  --[[
+  local ability_name = ability:GetAbilityName()
   local same_items = {}
   for item_slot = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = parent:GetItemInSlot(item_slot)
     if item then
-      if item:GetAbilityName() == ability:GetAbilityName() then
+      local item_name = item:GetAbilityName()
+      if string.sub(item_name, 0, string.len(item_name)-2) == string.sub(ability_name, 0, string.len(ability_name)-2) then
         table.insert(same_items, item)
       end
     end
@@ -31,4 +38,5 @@ function ModifierBaseClass:IsFirstItemInInventory()
   end
 
   return false
+  ]]
 end

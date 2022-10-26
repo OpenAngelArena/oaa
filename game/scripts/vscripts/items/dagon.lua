@@ -1,6 +1,4 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_oaa_dagon_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_oaa_dagon_non_stacking_stats", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa = class(ItemBaseClass)
@@ -12,6 +10,10 @@ item_dagon_oaa_6 = item_dagon_oaa
 item_dagon_oaa_7 = item_dagon_oaa
 item_dagon_oaa_8 = item_dagon_oaa
 item_dagon_oaa_9 = item_dagon_oaa
+
+function item_dagon_oaa:GetIntrinsicModifierName()
+  return "modifier_item_oaa_dagon_passive"
+end
 
 function item_dagon_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -65,102 +67,60 @@ function item_dagon_oaa:OnSpellStart()
   })
 end
 
-function item_dagon_oaa:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_dagon_oaa:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_oaa_dagon_stacking_stats",
-    "modifier_item_oaa_dagon_non_stacking_stats"
-  }
-end
-
 ---------------------------------------------------------------------------------------------------
--- Parts of Dagon that should stack with other Dagons (stats)
 
-modifier_item_oaa_dagon_stacking_stats = class(ModifierBaseClass)
+modifier_item_oaa_dagon_passive = class(ModifierBaseClass)
 
-function modifier_item_oaa_dagon_stacking_stats:IsHidden()
+function modifier_item_oaa_dagon_passive:IsHidden()
   return true
 end
-function modifier_item_oaa_dagon_stacking_stats:IsDebuff()
+function modifier_item_oaa_dagon_passive:IsDebuff()
   return false
 end
-function modifier_item_oaa_dagon_stacking_stats:IsPurgable()
+function modifier_item_oaa_dagon_passive:IsPurgable()
   return false
 end
 
-function modifier_item_oaa_dagon_stacking_stats:GetAttributes()
+function modifier_item_oaa_dagon_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_oaa_dagon_stacking_stats:OnCreated()
+function modifier_item_oaa_dagon_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.int = ability:GetSpecialValueFor("bonus_int")
     self.str = ability:GetSpecialValueFor("bonus_str")
     self.agi = ability:GetSpecialValueFor("bonus_agi")
+    --self.spell_amp = ability:GetSpecialValueFor("spell_amp")
   end
 end
 
-modifier_item_oaa_dagon_stacking_stats.OnRefresh = modifier_item_oaa_dagon_stacking_stats.OnCreated
+modifier_item_oaa_dagon_passive.OnRefresh = modifier_item_oaa_dagon_passive.OnCreated
 
-function modifier_item_oaa_dagon_stacking_stats:DeclareFunctions()
+function modifier_item_oaa_dagon_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    --MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
   }
 end
 
-function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Strength()
+function modifier_item_oaa_dagon_passive:GetModifierBonusStats_Strength()
   return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
 end
 
-function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Agility()
+function modifier_item_oaa_dagon_passive:GetModifierBonusStats_Agility()
   return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agi")
 end
 
-function modifier_item_oaa_dagon_stacking_stats:GetModifierBonusStats_Intellect()
+function modifier_item_oaa_dagon_passive:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
----------------------------------------------------------------------------------------------------
--- Parts of Dagon that should NOT stack with other Dagons
-
-modifier_item_oaa_dagon_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-  end
-end
-
-modifier_item_oaa_dagon_non_stacking_stats.OnRefresh = modifier_item_oaa_dagon_non_stacking_stats.OnCreated
-
-function modifier_item_oaa_dagon_non_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-  }
-end
-
-function modifier_item_oaa_dagon_non_stacking_stats:GetModifierSpellAmplify_Percentage()
-  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
-end
+--function modifier_item_oaa_dagon_passive:GetModifierSpellAmplify_Percentage()
+  --return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
+--end
 
 ---------------------------------------------------------------------------------------------------
 

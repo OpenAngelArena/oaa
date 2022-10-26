@@ -1,6 +1,4 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_siege_mode_stacking_stats", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_siege_mode_non_stacking_stats", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_splash_cannon_passive", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_siege_mode_thinker", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_item_siege_mode_active", "items/siege_mode.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -13,14 +11,7 @@ function item_siege_mode:GetAOERadius()
 end
 
 function item_siege_mode:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_siege_mode:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_siege_mode_stacking_stats",
-    "modifier_item_siege_mode_non_stacking_stats"
-  }
+  return "modifier_item_splash_cannon_passive"
 end
 
 --function item_siege_mode:GetTransformationModifierName()
@@ -179,37 +170,46 @@ function item_siege_mode:OnProjectileHit(target, location)
     end
   end
 
+  -- Destroy trees
+  GridNav:DestroyTreesAroundPoint(origin, radius, false)
+
   -- Sound
   EmitSoundOnLocationWithCaster(location, "Splash_Cannon.Explosion", caster)
 
   return true
 end
 
-function item_siege_mode:ProcsMagicStick()
-  return false
-end
-
 item_siege_mode_2 = item_siege_mode
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_siege_mode_stacking_stats = class(ModifierBaseClass)
+modifier_item_splash_cannon_passive = class(ModifierBaseClass)
 
-function modifier_item_siege_mode_stacking_stats:IsHidden()
+function modifier_item_splash_cannon_passive:IsHidden()
   return true
 end
-function modifier_item_siege_mode_stacking_stats:IsDebuff()
-  return false
-end
-function modifier_item_siege_mode_stacking_stats:IsPurgable()
+
+function modifier_item_splash_cannon_passive:IsDebuff()
   return false
 end
 
-function modifier_item_siege_mode_stacking_stats:GetAttributes()
+function modifier_item_splash_cannon_passive:IsPurgable()
+  return false
+end
+
+function modifier_item_splash_cannon_passive:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_siege_mode_stacking_stats:OnCreated()
+function modifier_item_splash_cannon_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_item_splash_cannon_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_health = ability:GetSpecialValueFor("bonus_health")
@@ -218,22 +218,29 @@ function modifier_item_siege_mode_stacking_stats:OnCreated()
     self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
     self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.attack_range = ability:GetSpecialValueFor("bonus_attack_range")
+  end
+
+  if IsServer() then
+    self:OnIntervalThink()
   end
 end
 
-function modifier_item_siege_mode_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+function modifier_item_splash_cannon_passive:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
   end
 end
 
-function modifier_item_siege_mode_stacking_stats:DeclareFunctions()
+function modifier_item_splash_cannon_passive:OnDestroy()
+  if IsServer() then
+    self:GetParent():ChangeAttackProjectile()
+  end
+end
+
+function modifier_item_splash_cannon_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
@@ -241,78 +248,38 @@ function modifier_item_siege_mode_stacking_stats:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-  }
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierHealthBonus()
-  return self.bonus_health or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierConstantHealthRegen()
-  return self.bonus_health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Strength()
-  return self.bonus_strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Agility()
-  return self.bonus_agility or self:GetAbility():GetSpecialValueFor("bonus_agility")
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
-end
-
-function modifier_item_siege_mode_stacking_stats:GetModifierPreAttack_BonusDamage()
-  return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
----------------------------------------------------------------------------------------------------
--- Parts of Siege Mode that should NOT stack with other Siege Modes
-
-modifier_item_siege_mode_non_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_siege_mode_non_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_siege_mode_non_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_siege_mode_non_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_siege_mode_non_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-
-  if ability and not ability:IsNull() then
-    self.attack_range = ability:GetSpecialValueFor("bonus_attack_range")
-  end
-end
-
-function modifier_item_siege_mode_non_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-
-  if ability and not ability:IsNull() then
-    self.attack_range = ability:GetSpecialValueFor("bonus_attack_range")
-  end
-end
-
-function modifier_item_siege_mode_non_stacking_stats:DeclareFunctions()
-  local funcs = {
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
-function modifier_item_siege_mode_non_stacking_stats:GetModifierAttackRangeBonus()
+function modifier_item_splash_cannon_passive:GetModifierHealthBonus()
+  return self.bonus_health or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierConstantHealthRegen()
+  return self.bonus_health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierBonusStats_Strength()
+  return self.bonus_strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierBonusStats_Agility()
+  return self.bonus_agility or self:GetAbility():GetSpecialValueFor("bonus_agility")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierBonusStats_Intellect()
+  return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierPreAttack_BonusDamage()
+  return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
+end
+
+function modifier_item_splash_cannon_passive:GetModifierAttackRangeBonus()
   local parent = self:GetParent()
-  if not parent:IsRangedAttacker() then
+  if not parent:IsRangedAttacker() or self:GetStackCount() ~= 2 then
     return 0
   end
 
@@ -325,7 +292,12 @@ function modifier_item_siege_mode_non_stacking_stats:GetModifierAttackRangeBonus
 end
 
 if IsServer() then
-  function modifier_item_siege_mode_non_stacking_stats:OnAttackLanded(event)
+  function modifier_item_splash_cannon_passive:OnAttackLanded(event)
+    -- Check if first item in inventory -> prevent the code below from executing multiple times for each Splash Cannon
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target

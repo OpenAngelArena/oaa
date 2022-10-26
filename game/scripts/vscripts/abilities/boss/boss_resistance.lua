@@ -170,20 +170,6 @@ if IsServer() then
         end
       end
 
-      -- Greater Travels Boots affecting attack damage
-      if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") then
-        local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
-        if modifier then
-          local ability = modifier:GetAbility()
-          if ability then
-            local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
-            if damage_increase_pct and damage_increase_pct > 0 then
-              return damage_increase_pct
-            end
-          end
-        end
-      end
-
       return 0
     end
 
@@ -198,20 +184,6 @@ if IsServer() then
         return -100
       else
         return 0 - damageReduction
-      end
-    end
-
-    -- Greater Travels Boots affecting spell damage
-    if attacker:HasModifier("modifier_item_greater_travel_boots_unique_passive") then
-      local modifier = attacker:FindModifierByName("modifier_item_greater_travel_boots_unique_passive")
-      if modifier then
-        local ability = modifier:GetAbility()
-        if ability then
-          local damage_increase_pct = ability:GetSpecialValueFor("bonus_boss_damage")
-          if damage_increase_pct and damage_increase_pct > 0 then
-            return damage_increase_pct
-          end
-        end
       end
     end
 

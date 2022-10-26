@@ -25,10 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_power_treads;item_upgrade_core"
-      //"02"                                                "item_phase_boots;item_upgrade_core"
-      //"03"                                                "item_tranquil_boots;item_upgrade_core"
-      //"04"                                                "item_travel_boots_oaa;item_upgrade_core"
-      //"05"                                                "item_arcane_boots;item_upgrade_core"
     }
   }
 
@@ -42,7 +38,6 @@
     "ID"                                                  "3015"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_power_treads.lua"
-    //"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads"
 
@@ -59,48 +54,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // 45
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65"
-      }
-      "02" // 10
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "primary_attribute_bonus"                         "25 40 55 70"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 20 25"
-      }
-      "04" // 25
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "30 35 40 45"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 20 40 70"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resistance"                          "5 6 7 8"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "6 8 10 12"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "primary_attribute_multiplier"                    "2"
-      }
+      "bonus_movement_speed"                              "50 55 60 65" // +5 per level
+      "primary_attribute_bonus"                           "25 40 55 70" // +15 per level
+      "bonus_all_stats"                                   "10 15 20 25"
+      "bonus_attack_speed"                                "30 35 40 45" // +5 per level
+      "bonus_damage"                                      "10 20 40 70"
+      "bonus_magic_resistance"                            "5 6 7 8"
+      "bonus_spell_amp"                                   "6 8 10 12"
+      "primary_attribute_multiplier"                      "2"
     }
   }
 }

@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: reduction orb 3
+  // Recipe: Reduction Orb 3
   //=================================================================================================================
   "item_recipe_reduction_orb_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3821"   // unique ID
+    "ID"                                                  "3821"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -24,33 +24,31 @@
     "ItemResult"                                          "item_reduction_orb_3"
     "ItemRequirements"
     {
-      "01"                                                "item_heart_4;item_upgrade_core_4"
-      //"02"                                                "item_crimson_guard_4;item_upgrade_core_4"
+      "01"                                                "item_heart_oaa_4;item_upgrade_core_4"
       "02"                                                "item_regen_crystal_2;item_upgrade_core_4"
       "03"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // reduction orb 3
+  // Reduction Orb 3
   //=================================================================================================================
   "item_reduction_orb_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3822"  // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3822"
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/reduction_orb_3"
-    "ScriptFile"                                          "items/reflex/preemptive_damage_block.lua"
-    "FightRecapLevel"                                     "1"
+    "ScriptFile"                                          "items/reduction_orb.lua"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "100"
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "reduction"
     "AbilityCastPoint"                                    "0.0"
@@ -58,47 +56,22 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "34304"
-    "ItemShopTags"                                        "defense;support;mobility;hard_to_tag"
+    "ItemShopTags"                                        "health_pool;armor;magic_resist;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "Reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Modifiers
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1850"
-      }
-      "02" // same as Crimson Guard lvl 5
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "24"
-      }
-      "03" // same as Crimson Guard lvl 4
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_as_healing"                               "50"
-      }
+      "bonus_health"                                      "2850" // same as Regen Crystal max level
+      "bonus_armor"                                       "15"
+      "bonus_magic_resistance"                            "25"
+      "damage_reduction"                                  "100"
+      "duration"                                          "4.0"
+      "damage_as_healing"                                 "75"
     }
   }
 }

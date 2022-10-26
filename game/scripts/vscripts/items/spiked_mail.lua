@@ -1,19 +1,10 @@
-﻿LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spiked_mail_stacking_stats", "items/spiked_mail.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spiked_mail_passive_return", "items/spiked_mail.lua", LUA_MODIFIER_MOTION_NONE)
+﻿LinkLuaModifier("modifier_item_spiked_mail_passives", "items/spiked_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_spiked_mail_active_return", "items/spiked_mail.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_spiked_mail_1 = class(ItemBaseClass)
 
 function item_spiked_mail_1:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_spiked_mail_1:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_spiked_mail_stacking_stats",
-    "modifier_item_spiked_mail_passive_return",
-  }
+  return "modifier_item_spiked_mail_passives"
 end
 
 function item_spiked_mail_1:OnSpellStart()
@@ -26,11 +17,6 @@ function item_spiked_mail_1:OnSpellStart()
   caster:AddNewModifier(caster, self, "modifier_item_spiked_mail_active_return", {duration = buff_duration})
 end
 
-function item_spiked_mail_1:ProcsMagicStick()
-  return false
-end
-
--- upgrades
 item_spiked_mail_2 = item_spiked_mail_1
 item_spiked_mail_3 = item_spiked_mail_1
 item_spiked_mail_4 = item_spiked_mail_1
@@ -38,25 +24,25 @@ item_spiked_mail_5 = item_spiked_mail_1
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_spiked_mail_stacking_stats = class(ModifierBaseClass)
+modifier_item_spiked_mail_passives = class(ModifierBaseClass)
 
-function modifier_item_spiked_mail_stacking_stats:IsHidden()
+function modifier_item_spiked_mail_passives:IsHidden()
   return true
 end
 
-function modifier_item_spiked_mail_stacking_stats:IsDebuff()
+function modifier_item_spiked_mail_passives:IsDebuff()
   return false
 end
 
-function modifier_item_spiked_mail_stacking_stats:IsPurgable()
+function modifier_item_spiked_mail_passives:IsPurgable()
   return false
 end
 
-function modifier_item_spiked_mail_stacking_stats:GetAttributes()
+function modifier_item_spiked_mail_passives:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_spiked_mail_stacking_stats:OnCreated()
+function modifier_item_spiked_mail_passives:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.dmg = ability:GetSpecialValueFor("bonus_damage")
@@ -65,59 +51,35 @@ function modifier_item_spiked_mail_stacking_stats:OnCreated()
   end
 end
 
-function modifier_item_spiked_mail_stacking_stats:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.dmg = ability:GetSpecialValueFor("bonus_damage")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.int = ability:GetSpecialValueFor("bonus_intellect")
-  end
-end
+modifier_item_spiked_mail_passives.OnRefresh = modifier_item_spiked_mail_passives.OnCreated
 
-function modifier_item_spiked_mail_stacking_stats:DeclareFunctions()
+function modifier_item_spiked_mail_passives:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-  }
-end
-
-function modifier_item_spiked_mail_stacking_stats:GetModifierPreAttack_BonusDamage()
-  return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_spiked_mail_stacking_stats:GetModifierPhysicalArmorBonus()
-  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
-
-function modifier_item_spiked_mail_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_item_spiked_mail_passive_return = class(ModifierBaseClass)
-
-function modifier_item_spiked_mail_passive_return:IsHidden()
-  return true
-end
-
-function modifier_item_spiked_mail_passive_return:IsDebuff()
-  return false
-end
-
-function modifier_item_spiked_mail_passive_return:IsPurgable()
-  return false
-end
-
-function modifier_item_spiked_mail_passive_return:DeclareFunctions()
-  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
+function modifier_item_spiked_mail_passives:GetModifierPreAttack_BonusDamage()
+  return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage")
+end
+
+function modifier_item_spiked_mail_passives:GetModifierPhysicalArmorBonus()
+  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_spiked_mail_passives:GetModifierBonusStats_Intellect()
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
 if IsServer() then
-  function modifier_item_spiked_mail_passive_return:OnTakeDamage(event)
+  function modifier_item_spiked_mail_passives:OnTakeDamage(event)
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = event.attacker

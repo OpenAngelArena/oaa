@@ -62,68 +62,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 35 50 70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intelligence"                              "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "550 650 800 1000 1250"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "550 650 800 1000 1250"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hero_spell_lifesteal"                            "30 32 34 36 38"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "6 7 8 9 10"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_hero_spell_lifesteal"                     "175"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "unholy_creep_spell_lifesteal"                    "35"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resist"                             "0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_resist"                              "0"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "0"
-      }
+      "bonus_strength"                                    "25 35 50 70 95"
+      "bonus_intelligence"                                "0"
+      "bonus_health"                                      "550 650 800 1000 1250"
+      "bonus_mana"                                        "550 650 800 1000 1250"
+      "hero_spell_lifesteal"                              "30 32 34 36 38"
+      "creep_spell_lifesteal"                             "6 7 8 9 10"
+      "unholy_hero_spell_lifesteal"                       "175"
+      "unholy_creep_spell_lifesteal"                      "35"
+      "duration"                                          "6.0"
+      "bonus_status_resist"                               "0"
+      "bonus_magic_resist"                                "0"
+      "hp_regen_amp"                                      "0"
     }
   }
 }

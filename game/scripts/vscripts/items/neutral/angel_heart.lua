@@ -29,14 +29,7 @@ function modifier_item_angel_heart_passive:OnCreated()
   end
 end
 
-function modifier_item_angel_heart_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
-    self.regen = ability:GetSpecialValueFor("bonus_hp_regen")
-    self.mana_cost_reduction = ability:GetSpecialValueFor("mana_cost_reduction_pct")
-  end
-end
+modifier_item_angel_heart_passive.OnRefresh = modifier_item_angel_heart_passive.OnCreated
 
 function modifier_item_angel_heart_passive:DeclareFunctions()
   return {

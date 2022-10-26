@@ -1,15 +1,68 @@
-item_trumps_fists = class(ItemBaseClass)
+item_trumps_fists_1 = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_item_trumps_fists_passive", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_trumps_fists_frostbite", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_item_trumps_fists_passive", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_trumps_fists_frostbite", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_trumps_fists_active", "items/trumps_fists.lua", LUA_MODIFIER_MOTION_NONE)
 
-function item_trumps_fists:GetIntrinsicModifierName()
+function item_trumps_fists_1:GetIntrinsicModifierName()
   return "modifier_item_trumps_fists_passive"
 end
 
-item_trumps_fists_2 = item_trumps_fists
+function item_trumps_fists_1:OnSpellStart()
+  local caster = self:GetCaster()
+  local target = self:GetCursorTarget()
 
---------------------------------------------------------------------------------
+  -- Create the projectile
+  local info = {
+    Target = target,
+    Source = caster,
+    Ability = self,
+    EffectName = "particles/items2_fx/paintball.vpcf",
+    bDodgeable = true,
+    bProvidesVision = true,
+    bVisibleToEnemies = true,
+    bReplaceExisting = false,
+    iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
+    iVisionRadius = 250,
+    iVisionTeamNumber = caster:GetTeamNumber(),
+  }
+
+  ProjectileManager:CreateTrackingProjectile(info)
+
+  -- Launch Sound
+  target:EmitSound("Item.Paintball.Cast")
+end
+
+function item_trumps_fists_1:OnProjectileHit(target, location)
+  local caster = self:GetCaster()
+
+  if not target or target:IsNull() then
+    return
+  end
+
+  -- Don't do anything if target has Linken's effect or it's spell-immune
+  if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
+    return
+  end
+
+  -- Apply debuff (duration is not affected by status resistance)
+  local debuff_duration = self:GetSpecialValueFor("mute_duration")
+  --debuff_duration = target:GetValueChangedByStatusResistance(debuff_duration)
+  target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
+
+  -- Particle
+  local particle = ParticleManager:CreateParticle("particles/items2_fx/paintball_detonation.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle)
+
+  -- Hit Sound
+  target:EmitSound("Item.Paintball.Target")
+end
+
+item_trumps_fists_2 = item_trumps_fists_1
+
+---------------------------------------------------------------------------------------------------
 
 modifier_item_trumps_fists_passive = class(ModifierBaseClass)
 
@@ -17,11 +70,19 @@ function modifier_item_trumps_fists_passive:IsHidden()
   return true
 end
 
+function modifier_item_trumps_fists_passive:IsDebuff()
+  return false
+end
+
 function modifier_item_trumps_fists_passive:IsPurgable()
   return false
 end
 
-function modifier_item_trumps_fists_passive:OnCreated(kv)
+function modifier_item_trumps_fists_passive:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_trumps_fists_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_all_stats = ability:GetSpecialValueFor( "bonus_all_stats" )
@@ -52,8 +113,7 @@ function modifier_item_trumps_fists_passive:DeclareFunctions()
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    --MODIFIER_EVENT_ON_ATTACK_LANDED,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
@@ -82,45 +142,13 @@ function modifier_item_trumps_fists_passive:GetModifierManaBonus()
 end
 
 if IsServer() then
-  --[[
   function modifier_item_trumps_fists_passive:OnAttackLanded(event)
+    if not self:IsFirstItemInInventory() then
+      return
+    end
     local parent = self:GetParent()
     local attacker = event.attacker
     local target = event.target
-
-    -- Check if attacker exists
-    if not attacker or attacker:IsNull() then
-      return
-    end
-
-    if attacker ~= parent then
-      return
-    end
-
-    if parent:IsIllusion() then
-      return
-    end
-
-    -- Check if attacked unit exists
-    if not target or target:IsNull() then
-      return
-    end
-
-    -- Check if attacked entity is an item, rune or something weird
-    if target.GetUnitName == nil then
-      return
-    end
-
-    local debuff_duration = target:GetValueChangedByStatusResistance(self.heal_prevent_duration)
-    target:AddNewModifier(parent, self:GetAbility(), "modifier_item_trumps_fists_frostbite", { duration = self.heal_prevent_duration } )
-  end
-  ]]
-
-  function modifier_item_trumps_fists_passive:OnTakeDamage(event)
-    local parent = self:GetParent()
-    local attacker = event.attacker
-    local damaged_unit = event.unit
-    local inflictor = event.inflictor
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
@@ -132,13 +160,8 @@ if IsServer() then
       return
     end
 
-    -- Check if damaged entity exists
-    if not damaged_unit or damaged_unit:IsNull() then
-      return
-    end
-
-    -- Ignore self damage and allies
-    if damaged_unit == attacker or damaged_unit:GetTeamNumber() == attacker:GetTeamNumber() then
+    -- Check if attacked unit exists
+    if not target or target:IsNull() then
       return
     end
 
@@ -147,18 +170,18 @@ if IsServer() then
       return
     end
 
-    -- Check if damaged entity is an item, rune or something weird
-    if damaged_unit.GetUnitName == nil then
+    -- Check if attacked entity is an item, rune or something weird
+    if target.GetUnitName == nil then
       return
     end
 
     -- Don't affect buildings, wards and invulnerable units.
-    if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
       return
     end
 
     -- Disable multiplicative stacking with Skadi
-    if damaged_unit:HasModifier("modifier_item_skadi_slow") then
+    if target:HasModifier("modifier_item_skadi_slow") then
       return
     end
 
@@ -167,49 +190,17 @@ if IsServer() then
       return
     end
 
-    -- If inflictor is this item or any other item (radiance e.g.), don't continue
-    if inflictor then
-      if inflictor == ability or inflictor:GetAbilityName() == ability:GetAbilityName() or inflictor:IsItem() then
-        return
-      end
-    end
-
-    -- Ignore damage that has the no-reflect flag
-    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      return
-    end
-
-    -- Ignore damage that has hp removal flag
-    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
-      return
-    end
-
     -- Apply Blade of Judecca debuff
-    damaged_unit:AddNewModifier(parent, ability, "modifier_item_trumps_fists_frostbite", {duration = self.heal_prevent_duration})
+    target:AddNewModifier(parent, ability, "modifier_item_trumps_fists_frostbite", {duration = self.heal_prevent_duration})
   end
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_item_trumps_fists_frostbite = class(ModifierBaseClass)
 
 function modifier_item_trumps_fists_frostbite:IsHidden()
   return false
-end
-
-if IsServer() then
-  function modifier_item_trumps_fists_frostbite:OnCreated()
-    local ability = self:GetAbility()
-    if ability and not ability:IsNull() then
-      self.heal_prevent_percent = self:GetAbility():GetSpecialValueFor("heal_prevent_percent")
-      --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
-      --self.health_fraction = 0
-    end
-  end
-
-  function modifier_item_trumps_fists_frostbite:OnRefresh()
-    self:OnCreated()
-  end
 end
 
 function modifier_item_trumps_fists_frostbite:IsDebuff()
@@ -219,6 +210,19 @@ end
 function modifier_item_trumps_fists_frostbite:IsPurgable()
   return false
 end
+
+function modifier_item_trumps_fists_frostbite:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
+    --if IsServer() then
+      --self.totalDuration = self:GetDuration() or self:GetAbility():GetSpecialValueFor( "heal_prevent_duration" )
+      --self.health_fraction = 0
+    --end
+  end
+end
+
+modifier_item_trumps_fists_frostbite.OnRefresh = modifier_item_trumps_fists_frostbite.OnCreated
 
 function modifier_item_trumps_fists_frostbite:DeclareFunctions()
   return {
@@ -292,6 +296,19 @@ if IsServer() then
 
     local heal_to_damage = self.heal_prevent_percent or 45
     local damage = gained_hp * heal_to_damage / 100
+
+    -- If unit has Veil of Discord debuff, try to find the item and reduce the damage because it will be amped by Veil
+    if unit:HasModifier("modifier_item_veil_of_discord_debuff") then
+      local veil_debuff = unit:FindModifierByName("modifier_item_veil_of_discord_debuff")
+      local veil_item = veil_debuff:GetAbility()
+      if veil_item then
+        local damage_amp = veil_item:GetSpecialValueFor("spell_amp")
+        if damage_amp then
+          damage = damage / (1 + damage_amp/100)
+        end
+      end
+    end
+
     local damage_table = {
       victim = unit,
       attacker = caster,
@@ -303,4 +320,57 @@ if IsServer() then
 
     ApplyDamage(damage_table)
   end
+end
+
+function modifier_item_trumps_fists_frostbite:GetEffectName()
+  return "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
+end
+
+function modifier_item_trumps_fists_frostbite:GetTexture()
+  return "custom/trumps_fists"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_trumps_fists_active = class(ModifierBaseClass)
+
+function modifier_item_trumps_fists_active:IsHidden()
+  return false
+end
+
+function modifier_item_trumps_fists_active:IsDebuff()
+  return true
+end
+
+function modifier_item_trumps_fists_active:IsPurgable()
+  return true
+end
+
+function modifier_item_trumps_fists_active:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+  }
+end
+
+function modifier_item_trumps_fists_active:GetModifierProvidesFOWVision()
+	return 1
+end
+
+function modifier_item_trumps_fists_active:CheckState()
+  return {
+    [MODIFIER_STATE_MUTED] = true,
+    [MODIFIER_STATE_PROVIDES_VISION] = true,
+  }
+end
+
+--function modifier_item_trumps_fists_active:GetEffectName()
+  --return ""
+--end
+
+--function modifier_item_trumps_fists_active:GetEffectAttachType()
+  --return PATTACH_ABSORIGIN_FOLLOW
+--end
+
+function modifier_item_trumps_fists_active:GetTexture()
+  return "custom/trumps_fists"
 end

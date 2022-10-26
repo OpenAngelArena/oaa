@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@
       "grab_radius"                                       "300"
       "radius"                                            "275"
       "bonus_damage_pct"                                  "0"
-      "toss_damage"                                       "90 160 230 300 600 900" //OAA, this gets increased with Grow
+      "toss_damage"                                       "75 150 225 300 600 900" // this gets increased with Grow
       "AbilityCharges"
       {
         "value"                                           ""

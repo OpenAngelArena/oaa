@@ -40,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1300" //OAA
+        "speed"                                           "1000" //OAA
         "RequiresScepter"                                 "1"
       }
       "02"
@@ -58,7 +58,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tree_grab_radius"                                "1000" //OAA
+        "tree_grab_radius"                                "700"
         "RequiresScepter"                                 "1"
       }
       "05"

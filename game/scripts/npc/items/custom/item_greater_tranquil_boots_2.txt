@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3041"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3041"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -25,10 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_greater_tranquil_boots;item_upgrade_core_2"
-      //"02"                                                "item_greater_travel_boots;item_upgrade_core_2"
-      //"03"                                                "item_greater_phase_boots;item_upgrade_core_2"
-      //"04"                                                "item_greater_power_treads;item_upgrade_core_2"
-      //"05"                                                "item_greater_guardian_greaves;item_upgrade_core_2"
     }
   }
 
@@ -39,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3046"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3046"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_tranquil_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -50,7 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20 19 18 17"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "greater_tranquils"
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
@@ -67,14 +63,6 @@
     "ItemBaseLevel"                                       "2"
     "UpgradesItems"                                       "item_greater_tranquil_boots_2;item_greater_tranquil_boots_3;item_greater_tranquil_boots_4"
 
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
-      "particle"                                          "particles/units/heroes/hero_furion/furion_sprout.vpcf"
-      "particle"                                          "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -89,6 +77,7 @@
       "bearing_movement_speed_pct"                        "15 16 17 18"
       "bearing_duration"                                  "6"
       "bearing_radius"                                    "1200"
+      "bearing_unslowable_duration"                       "1.5"
       "tranquilize_attack_speed_slow"                     "-700"
       "tranquilize_slow_duration"                         "2.5 3.0 3.5 4.0"
       "sprout_duration"                                   "3.5 4.0 4.5 5.0"
@@ -96,7 +85,7 @@
       "tree_hp_regen_amp"                                 "20 22 24 26"
       "tree_damage_reduction"                             "10 12 14 16"
       "tree_status_resistance"                            "16 18 20 22"
-      "tree_radius"                                       "150"
+      "tree_radius"                                       "175"
       "tree_protection_duration"                          "3.5 4.0 4.5 5.0"
       "sprout_vision_range"                               "250"
       "cooldown_tooltip"                                  "20 19 18 17"

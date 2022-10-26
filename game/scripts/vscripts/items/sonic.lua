@@ -45,6 +45,11 @@ function modifier_item_sonic_passives:IsPurgable()
   return false
 end
 
+-- We don't have this on purpose because we don't want people to buy multiple of these
+--function modifier_item_sonic_passives:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
+
 function modifier_item_sonic_passives:OnCreated()
   local ability = self:GetAbility()
   if not ability or ability:IsNull() then
@@ -59,13 +64,11 @@ end
 modifier_item_sonic_passives.OnRefresh = modifier_item_sonic_passives.OnCreated
 
 function modifier_item_sonic_passives:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_sonic_passives:GetModifierMoveSpeedBonus_Special_Boots()
@@ -79,6 +82,7 @@ end
 function modifier_item_sonic_passives:GetModifierBonusStats_Agility()
   return self.agi
 end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_sonic_fly = class(ModifierBaseClass)
@@ -112,20 +116,20 @@ function modifier_sonic_fly:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
+    MODIFIER_PROPERTY_IGNORE_ATTACKSPEED_LIMIT,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
   }
 end
 
 function modifier_sonic_fly:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FLYING] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_UNSLOWABLE] = true,
     [MODIFIER_STATE_ROOTED] = false,
     [MODIFIER_STATE_TETHERED] = false,
   }
-  return state
 end
 
 function modifier_sonic_fly:GetModifierMoveSpeedBonus_Percentage()
@@ -136,6 +140,10 @@ function modifier_sonic_fly:GetModifierIgnoreMovespeedLimit()
   return 1
 end
 
+function modifier_sonic_fly:GetModifierAttackSpeed_Limit()
+  return 1
+end
+
 function modifier_sonic_fly:GetModifierAttackSpeedReductionPercentage()
   return 0
 end
@@ -143,6 +151,10 @@ end
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()
   --return self:GetAbility():GetSpecialValueFor("status_resist")
 --end
+
+function modifier_sonic_fly:GetEffectName()
+  return "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+end
 
 function modifier_sonic_fly:GetTexture()
   return "custom/sonic_3_active"

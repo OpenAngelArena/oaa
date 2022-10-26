@@ -1,25 +1,25 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_travel_boots", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_travel_boots_unique_passive", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_travel_boots_passives", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_travel_boots = class(ItemBaseClass)
 
 function item_greater_travel_boots:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
-end
-
-function item_greater_travel_boots:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_greater_travel_boots",
-    "modifier_item_greater_travel_boots_unique_passive",
-  }
+  return "modifier_item_greater_travel_boots_passives"
 end
 
 function item_greater_travel_boots:CastFilterResultLocation(targetPoint)
   if IsServer() then
     local hCaster = self:GetCaster()
-    -- FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)
-    local units = FindUnitsInRadius(hCaster:GetTeamNumber(), targetPoint, nil, FIND_UNITS_EVERYWHERE, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), self:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+    local units = FindUnitsInRadius(
+      hCaster:GetTeamNumber(),
+      targetPoint,
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      self:GetAbilityTargetTeam(),
+      self:GetAbilityTargetType(),
+      self:GetAbilityTargetFlags(),
+      FIND_CLOSEST,
+      false
+    )
 
     local function IsNotCaster(entity)
       return entity ~= hCaster
@@ -108,7 +108,7 @@ function item_greater_travel_boots:OnChannelThink (delta)
     self:EndChannel(true)
   end
 end
--- IsAlive
+
 function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   local hCaster = self:GetCaster()
 
@@ -135,7 +135,7 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
   self.targetEntity:EmitSound("Portal.Hero_Appear")
 
-  FindClearSpaceForUnit(self:GetCaster(), self.targetEntity:GetAbsOrigin(), true)
+  FindClearSpaceForUnit(hCaster, self.targetEntity:GetAbsOrigin(), true)
 end
 
 item_greater_travel_boots_2 = class(item_greater_travel_boots)
@@ -145,94 +145,80 @@ item_travel_boots_oaa = item_greater_travel_boots
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_greater_travel_boots = class(ModifierBaseClass)
+modifier_item_greater_travel_boots_passives = class(ModifierBaseClass)
 
-function modifier_item_greater_travel_boots:IsHidden()
+function modifier_item_greater_travel_boots_passives:IsHidden()
   return true
 end
 
-function modifier_item_greater_travel_boots:IsDebuff()
+function modifier_item_greater_travel_boots_passives:IsDebuff()
   return false
 end
 
-function modifier_item_greater_travel_boots:IsPurgable()
+function modifier_item_greater_travel_boots_passives:IsPurgable()
   return false
 end
 
-function modifier_item_greater_travel_boots:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE
-  }
-end
+-- We don't have this on purpose because we don't want people to buy multiple of these
+--function modifier_item_greater_travel_boots_passives:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
-function modifier_item_greater_travel_boots:GetModifierMoveSpeedBonus_Special_Boots()
-  if self:GetAbility() then
-    return self:GetAbility():GetSpecialValueFor('bonus_movement_speed')
-  end
-end
-
----------------------------------------------------------------------------------------------------
-
-modifier_item_greater_travel_boots_unique_passive = class(ModifierBaseClass)
-
-function modifier_item_greater_travel_boots_unique_passive:IsHidden()
-  return true
-end
-
-function modifier_item_greater_travel_boots_unique_passive:IsDebuff()
-  return false
-end
-
-function modifier_item_greater_travel_boots_unique_passive:IsPurgable()
-  return false
-end
-
-function modifier_item_greater_travel_boots_unique_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
-    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
-  end
+function modifier_item_greater_travel_boots_passives:OnCreated()
+  self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0)
+    self:StartIntervalThink(0.1)
   end
 end
 
-function modifier_item_greater_travel_boots_unique_passive:OnRefresh()
+function modifier_item_greater_travel_boots_passives:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.move_speed = ability:GetSpecialValueFor("bonus_movement_speed")
     self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
     self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp_during_duels")
+    self.boss_dmg = ability:GetSpecialValueFor("bonus_boss_damage")
   end
 end
 
-function modifier_item_greater_travel_boots_unique_passive:OnIntervalThink()
-  if Duels:IsActive() then
-    self:SetStackCount(1)
-  else
+function modifier_item_greater_travel_boots_passives:OnIntervalThink()
+  if Duels:IsActive() and self:IsFirstItemInInventory() then
     self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
   end
 end
 
-function modifier_item_greater_travel_boots_unique_passive:DeclareFunctions()
+function modifier_item_greater_travel_boots_passives:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
   }
 end
 
-function modifier_item_greater_travel_boots_unique_passive:GetModifierBaseDamageOutgoing_Percentage()
-  if self:GetStackCount() == 1 then
+function modifier_item_greater_travel_boots_passives:GetModifierMoveSpeedBonus_Special_Boots()
+  return self.move_speed or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+end
+
+function modifier_item_greater_travel_boots_passives:GetModifierBaseDamageOutgoing_Percentage()
+  if self:GetStackCount() == 2 then
     return self.dmg or self:GetAbility():GetSpecialValueFor("bonus_damage_during_duels")
   end
-
   return 0
 end
 
-function modifier_item_greater_travel_boots_unique_passive:GetModifierSpellAmplify_Percentage()
-  if self:GetStackCount() == 1 then
+function modifier_item_greater_travel_boots_passives:GetModifierSpellAmplify_Percentage()
+  if self:GetStackCount() == 2 then
     return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp_during_duels")
   end
+  return 0
+end
 
+function modifier_item_greater_travel_boots_passives:GetModifierTotalDamageOutgoing_Percentage(event)
+  if event.target:IsOAABoss() then
+    return self.boss_dmg or self:GetAbility():GetSpecialValueFor("bonus_boss_damage")
+  end
   return 0
 end

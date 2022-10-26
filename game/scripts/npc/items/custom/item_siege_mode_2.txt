@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_siege_mode;item_upgrade_core_4"
-      //"02"                                                "item_hurricane_pike_4;item_upgrade_core_4"
     }
   }
 
@@ -48,8 +47,9 @@
 
     "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "1100"
-    "AbilityManaCost"                                     "200"
-    "AbilityCooldown"                                     "18"
+    "AbilityManaCost"                                     "100"
+    "AbilityCooldown"                                     "15"
+    "AbilitySharedCooldown"                               "splash_cannon"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -62,106 +62,27 @@
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      //"particle"                                          "particles/units/heroes/hero_oracle/oracle_fortune_purge_root_pnt.vpcf"
-      "particle"                                          "particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf"
-      "particle"                                          "particles/base_attacks/ranged_tower_bad.vpcf"
-      "particle"                                          "particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf"
-      "soundfile"                                         "soundevents/items/oaa_items_sfx.vsndevts"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "65 90"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "45 65"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "45 65"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "800 1000"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "12 15"
-      }
-      "06" // ranged only
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "180 190"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "100 150"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_splash_radius"                           "250"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_splash_percent"                          "40"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_damage"                                   "700 1000"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_radius"                                   "500"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_splash_percent"                           "200"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_distance"                              "250"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "knockback_duration"                              "0.5"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1800"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "recoil_distance"                                 "250"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "recoil_duration"                                 "0.2"
-      }
+      "bonus_damage"                                      "100 150"
+      "bonus_agility"                                     "65 90"
+      "bonus_strength"                                    "45 65"
+      "bonus_intellect"                                   "45 65"
+      "bonus_health"                                      "800 1000"
+      "bonus_health_regen"                                "12 15"
+      "bonus_attack_range"                                "180 190" // ranged only
+      "passive_splash_radius"                             "250"
+      "passive_splash_percent"                            "40"
+      "active_damage"                                     "700 1000"
+      "active_radius"                                     "500"
+      "active_splash_percent"                             "200"
+      "knockback_distance"                                "300"
+      "knockback_duration"                                "0.5"
+      "projectile_speed"                                  "1800"
+      "recoil_distance"                                   "300"
+      "recoil_duration"                                   "0.2"
     }
   }
 }

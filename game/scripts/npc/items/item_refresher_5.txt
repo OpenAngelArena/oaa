@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_refresher_4;item_upgrade_core_4"
-      //"02"                                                "item_octarine_core_4;item_upgrade_core_4"
     }
   }
 
@@ -69,12 +68,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "13 16 19 22 25"
+        "bonus_health_regen"                              "0"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
+        "bonus_mana_regen"                                "2.25 2.5 3.0 3.75 4.75"
       }
       "03"
       {

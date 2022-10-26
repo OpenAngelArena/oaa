@@ -1,18 +1,14 @@
--- defines item_bubble_orb_1
--- defines modifier_item_preemptive_bubble_aura_block
--- defines modifier_item_preemptive_bubble_block
 -- Notes: Blocking of non-targeted spell effects is done by a ModifierGained filter found in components/reflexfilters/bubble.lua
 -- Uses a thinker as a pseudo-aura instead of a proper aura because those always have a stickiness of 0.5 and cause issues with
 -- multiple bubles on the same team.
 -- Does not block hook movement.
 -- Visual effects such as screenshake from stun not always blocked.
 -- Does not block effects from non-targeted spells from being refreshed. e.g. being stunned again by the same skill
-LinkLuaModifier("modifier_item_preemptive_bubble_aura_block", "items/reflex/preemptive_bubble.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_preemptive_bubble_block", "items/reflex/preemptive_bubble.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_bubble_orb_visible_buff", "items/reflex/preemptive_bubble.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
-
-------------------------------------------------------------------------
+LinkLuaModifier("modifier_item_preemptive_bubble_aura_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_preemptive_bubble_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_bubble_orb_visible_buff", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_bubble_orb_effect_cd", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_bubble_orb_1 = class(ItemBaseClass)
 item_bubble_orb_2 = item_bubble_orb_1
@@ -45,13 +41,13 @@ function item_bubble_orb_1:OnSpellStart()
     false
   )
   local modifierKnockback = {
-      center_x = targetPoint.x,
-      center_y = targetPoint.y,
-      center_z = targetPoint.z,
-      duration = 0.5,
-      knockback_duration = 0.5,
-      knockback_distance = radius,
-    }
+    center_x = targetPoint.x,
+    center_y = targetPoint.y,
+    center_z = targetPoint.z,
+    duration = 0.5,
+    knockback_duration = 0.5,
+    knockback_distance = radius,
+  }
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       --modifierKnockback.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
@@ -71,7 +67,6 @@ function item_bubble_orb_1:OnSpellStart()
     FIND_ANY_ORDER,
     false
   )
-
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
       ally:Purge(false, true, false, true, true)
@@ -79,12 +74,8 @@ function item_bubble_orb_1:OnSpellStart()
   end
 end
 
-function item_bubble_orb_1:ProcsMagicStick()
-  return false
-end
-
-------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------------------------
+-- Thinker modifier
 modifier_item_preemptive_bubble_aura_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_aura_block:IsHidden()
@@ -122,7 +113,7 @@ function modifier_item_preemptive_bubble_aura_block:OnCreated(keys)
     ParticleManager:SetParticleControl(self.bubbleEffect, 1, Vector(radius, radius, radius))
 
     self:OnIntervalThink()
-    self:StartIntervalThink(aura_stickiness)
+    self:StartIntervalThink(aura_stickiness - 0.04)
   end
 end
 
@@ -196,8 +187,8 @@ function modifier_item_preemptive_bubble_aura_block:GetAuraDuration()
   return self.aura_stickiness or self:GetAbility():GetSpecialValueFor("aura_stickiness")
 end
 
-------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------------------------
+-- modifier that blocks damage if they came from outside the bubble
 modifier_item_preemptive_bubble_block = class(ModifierBaseClass)
 
 function modifier_item_preemptive_bubble_block:IsHidden()
@@ -305,4 +296,20 @@ end
 
 function modifier_item_bubble_orb_visible_buff:GetTexture()
   return "custom/bubble_orb_1"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_bubble_orb_effect_cd = class(ModifierBaseClass)
+
+function modifier_item_bubble_orb_effect_cd:IsHidden()
+  return true
+end
+
+function modifier_item_bubble_orb_effect_cd:IsDebuff()
+  return false
+end
+
+function modifier_item_bubble_orb_effect_cd:IsPurgable()
+  return false
 end

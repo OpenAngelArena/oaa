@@ -22,9 +22,6 @@ local function PurgeDuelHighgroundBuffs(hero)
 end
 
 local function ResetState(hero)
-  if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
-    hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
-  end
   if hero:HasModifier("modifier_offside") then
     hero:RemoveModifierByName("modifier_offside")
   end
@@ -32,8 +29,15 @@ local function ResetState(hero)
     hero:RemoveModifierByName("modifier_is_in_offside")
   end
 
+  -- Disjoint disjointable projectiles
+  ProjectileManager:ProjectileDodge(hero)
+
+  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+  hero:AbsolutePurge()
+
+  -- Respawn if the hero is dead after removing some modifiers
   if not hero:IsAlive() then
-    hero:RespawnHero(false,false)
+    hero:RespawnHero(false, false)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
@@ -120,6 +124,17 @@ local function SaveState(hero)
 end
 
 local function RestoreState(hero, state)
+  -- Disjoint disjointable projectiles
+  ProjectileManager:ProjectileDodge(hero)
+
+  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+  hero:AbsolutePurge()
+
+  -- Respawn if the hero is dead after removing some modifiers
+  if not hero:IsAlive() then
+    hero:RespawnHero(false, false)
+  end
+
   SafeTeleportAll(hero, state.location, 150)
 
   local hp = state.hpPercent * hero:GetMaxHealth()
@@ -148,12 +163,6 @@ local function RestoreState(hero, state)
       item:StartCooldown(itemState.cooldown)
     end
   end
-
-  -- Disjoint disjointable projectiles
-  ProjectileManager:ProjectileDodge(hero)
-
-  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-  hero:AbsolutePurge()
 
   -- Restore offside stacks if hero had any
   if state.offsidesStacks > 0 then
