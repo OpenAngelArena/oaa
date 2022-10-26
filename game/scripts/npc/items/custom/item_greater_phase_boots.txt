@@ -10,12 +10,12 @@
     "ID"                                                  "3000"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "2500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,7 +24,7 @@
     "ItemResult"                                          "item_greater_phase_boots"
     "ItemRequirements"
     {
-      "01"                                                "item_phase_boots;item_upgrade_core"
+      "01"                                                "item_phase_boots;item_falcon_blade"
     }
   }
 
@@ -48,13 +48,13 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3001"
+    "ItemCost"                                            "5125"
     "ItemShopTags"                                        "move_speed;damage;armor;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots;phase boots;phase"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_greater_phase_boots;item_greater_phase_boots_2;item_greater_phase_boots_3;item_greater_phase_boots_4"
 
@@ -62,11 +62,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_movement_speed"                              "50 55 60 65"
-      "bonus_damage"                                      "38 78 138 218"
-      "bonus_armor"                                       "5 7 10 14"
-      "phase_movement_speed"                              "25 30 35 40"
-      "phase_movement_speed_range"                        "25 30 35 40"
+      "bonus_movement_speed"                              "45 50 55 60 65"
+      "bonus_health"                                      "200 400 600 800 1000"
+      "bonus_damage"                                      "38 58 88 128 178"
+      "bonus_armor"                                       "4 5 7 10 14"
+      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
+      "phase_movement_speed"                              "20 25 30 35 40"
+      "phase_movement_speed_range"                        "20 25 30 35 40"
       "phase_duration"                                    "3.0"
     }
 
