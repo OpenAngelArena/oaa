@@ -8,7 +8,8 @@ if (typeof module !== 'undefined' && module.exports) {
     CaptainSelectHero: CaptainSelectHero,
     BecomeCaptain: BecomeCaptain,
     RandomHero: RandomHero,
-    PreviewHeroCM: PreviewHeroCM
+    PreviewHeroCM: PreviewHeroCM,
+    RerandomHero: RerandomHero
   };
 }
 
@@ -326,7 +327,7 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
   } else if (key === 'APdata' && data != null) {
-    canReRandom = data[Game.GetLocalPlayerID()] && data[Game.GetLocalPlayerID()].selectedhero !== 'empty' && data[Game.GetLocalPlayerID()].didRandom == "true";
+    canReRandom = data[Game.GetLocalPlayerID()] && data[Game.GetLocalPlayerID()].selectedhero !== 'empty' && data[Game.GetLocalPlayerID()].didRandom === 'true';
     const length = Object.keys(data).length;
     if (panelscreated !== length) {
       // initial load stuff
@@ -372,7 +373,6 @@ function onPlayerStatChange (table, key, data) {
         }
       });
     } else {
-
       // captains mode stuff
       if (iscm) {
         const cmData = CustomNetTables.GetTableValue('hero_selection', 'CMdata');
@@ -575,6 +575,7 @@ function UpdatedRankedPickState (data) {
     });
   const teamID = Players.GetTeam(Game.GetLocalPlayerID());
   const order = data.order[data.currentOrder + ''];
+  const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
 
   switch (data.phase) {
     case 'start':
@@ -591,7 +592,6 @@ function UpdatedRankedPickState (data) {
       break;
     case 'picking':
       isBanning = false;
-      const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
       if (order.team === teamID) {
         isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
         herolocked = !isPicking;
@@ -605,9 +605,7 @@ function UpdatedRankedPickState (data) {
         $.Msg(order);
       }
 
-      canReRandom = apData[Game.GetLocalPlayerID()] && apData[Game.GetLocalPlayerID()].selectedhero !== 'empty' && apData[Game.GetLocalPlayerID()].didRandom == "true";
-      $.Msg(apData[Game.GetLocalPlayerID()])
-      $.Msg(canReRandom)
+      canReRandom = apData[Game.GetLocalPlayerID()] && apData[Game.GetLocalPlayerID()].selectedhero !== 'empty' && apData[Game.GetLocalPlayerID()].didRandom === 'true';
 
       break;
   }
@@ -1123,7 +1121,7 @@ function SelectHero (hero) {
       selectedhero = hero;
     }
   }
-  if (!herolocked || (canReRandom && selectedhero === "rerandom")) {
+  if (!herolocked || (canReRandom && selectedhero === 'rerandom')) {
     $.Msg('asd')
     let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
@@ -1209,7 +1207,7 @@ function RandomHero () {
 }
 
 function RerandomHero () {
-  $.Msg("Re-randoming");
+  $.Msg('Re-randoming');
   selectedhero = 'rerandom';
   selectedherocm = 'rerandom';
   if (iscm) {
