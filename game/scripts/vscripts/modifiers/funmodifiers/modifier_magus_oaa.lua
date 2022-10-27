@@ -85,6 +85,7 @@ function modifier_magus_oaa:OnCreated()
     sohei_flurry_of_blows = 1,                           -- invulnerability and looping
     spectre_haunt = 1,                                   -- lag
     spectre_reality = 1,                                 -- self grief
+    storm_spirit_ball_lightning = 1,                     -- self grief
     terrorblade_conjure_image = 1,                       -- lag
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
@@ -132,6 +133,7 @@ function modifier_magus_oaa:OnCreated()
     tinkerer_laser_contraption = 1,                      -- lag
     troll_warlord_battle_trance = 1,                     -- self grief or unkillable
     undying_tombstone = 1,                               -- lag
+    ursa_enrage = 1,                                     -- infinite
     visage_summon_familiars = 1,                         -- self grief in most cases
     visage_summon_familiars_oaa = 1,                     -- self grief in most cases
     weaver_time_lapse = 1,                               -- self grief or unkillable
