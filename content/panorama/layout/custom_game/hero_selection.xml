@@ -189,6 +189,9 @@
               <Button class="HeroPickerButton" id="HeroRandom" onactivate="RandomHero()">
                 <Label text="#random" />
               </Button>
+              <Button class="HeroPickerButton" id="HeroReRandom" onactivate="RerandomHero()">
+                <Label text="re-random" />
+              </Button>
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
                 <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />
                 <Label id="banLabel" text="#DOTA_Hero_Selection_BanTitle" />
