@@ -718,6 +718,9 @@ DOTAScenePanel {
 #HeroRandom {
   background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
 }
+#HeroReRandom {
+  background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
+}
 
 #HeroRandom.Activated {
   sound: "ui.pick_play";
