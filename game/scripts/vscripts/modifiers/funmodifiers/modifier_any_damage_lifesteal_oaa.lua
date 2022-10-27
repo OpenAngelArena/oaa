@@ -27,7 +27,7 @@ function modifier_any_damage_lifesteal_oaa:DeclareFunctions()
 end
 
 function modifier_any_damage_lifesteal_oaa:OnCreated(kv)
-  self.hero_lifesteal = 100
+  self.hero_lifesteal = 75
   self.creep_lifesteal = 25
   self.global = kv.isGlobal == 1
 
