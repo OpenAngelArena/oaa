@@ -624,7 +624,6 @@ function UpdateButtons () {
   FindDotaHudElement('HeroBan').style.visibility = isPicking && isBanning ? 'visible' : 'collapse';
   FindDotaHudElement('HeroRandom').style.visibility = isPicking && canRandom ? 'visible' : 'collapse';
   FindDotaHudElement('HeroReRandom').style.visibility = canReRandom ? 'visible' : 'collapse';
-  FindDotaHudElement('HeroReRandom').hittest = true
 }
 
 function SetupTopBar () {
@@ -1122,7 +1121,6 @@ function SelectHero (hero) {
     }
   }
   if (!herolocked || (canReRandom && selectedhero === 'rerandom')) {
-    $.Msg('asd')
     let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
       newhero = selectedherocm;
