@@ -408,10 +408,11 @@ function HeroSelection:RankedManager (event)
 
       local player_name = event.player_name or PlayerResource:GetPlayerName(event.PlayerID)
       selectedtable[event.PlayerID].didRandom = "rerandomed"
-      selectedtable[event.PlayerID].selectedhero = "rerandomed"
       lockedHeroes[event.PlayerID] = "rerandomed"
       HeroSelection:UpdateTable(event.PlayerID, "rerandomed")
       GameRules:SendCustomMessage(player_name.." re-randomed!", 0, 0)
+      -- why isnt this save working?
+      save()
       return
     end
 

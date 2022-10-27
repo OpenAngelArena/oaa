@@ -190,7 +190,7 @@
                 <Label text="#random" />
               </Button>
               <Button class="HeroPickerButton" id="HeroReRandom" onactivate="RerandomHero()">
-                <Label text="#random" />
+                <Label text="re-random" />
               </Button>
               <Button class="HeroPickerButton" id="CaptainLockIn" onactivate="CaptainSelectHero()">
                 <Label id="pickLabel" text="#DOTA_Hero_Selection_PickTitle" />

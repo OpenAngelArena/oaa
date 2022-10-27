@@ -326,6 +326,7 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
   } else if (key === 'APdata' && data != null) {
+    canReRandom = data[Game.GetLocalPlayerID()] && data[Game.GetLocalPlayerID()].selectedhero !== 'empty' && data[Game.GetLocalPlayerID()].didRandom == "true";
     const length = Object.keys(data).length;
     if (panelscreated !== length) {
       // initial load stuff
@@ -411,6 +412,7 @@ function onPlayerStatChange (table, key, data) {
       });
     }
     UpdatePreviews();
+    UpdateButtons();
   } else if (key === 'CMdata' && data != null) {
     iscm = true;
     const teamName = teamID === 2 ? 'radiant' : 'dire';
