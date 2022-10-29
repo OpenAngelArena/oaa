@@ -662,7 +662,7 @@ DOTAScenePanel {
 .HeroPickerButton {
   margin: 10px;
   height: 60px;
-  width: 185px;
+  width: 215px;
   background-position: 10px center;
   background-repeat: no-repeat;
   background-size: auto 32px;
@@ -717,6 +717,10 @@ DOTAScenePanel {
 
 #HeroRandom {
   background-image: url("s2r://panorama/images/control_icons/random_dice_psd.vtex");
+}
+#HeroReRandom {
+  background-image: none;
+  padding-left: 10px;
 }
 
 #HeroRandom.Activated {
