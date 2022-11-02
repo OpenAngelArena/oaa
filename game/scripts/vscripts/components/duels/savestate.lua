@@ -52,12 +52,18 @@ local function ResetState(hero)
     end
   end
 
-  -- Reset cooldown for items
+  -- Reset cooldown for items that are not in backpack
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
-    if item  then
+    if item then
       item:EndCooldown()
     end
+  end
+
+  -- Reset neutral item cooldown
+  local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item then
+    neutral_item:EndCooldown()
   end
 
   -- Special thing for Ward Stack - set counts to at least 1 ward
@@ -102,15 +108,18 @@ local function SaveState(hero)
     end
   end
 
+  -- Store ability cooldowns and charges
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability and RefreshAbilityFilter(ability) then
       state.abilities[ability:GetAbilityName()] = {
-        cooldown = ability:GetCooldownTimeRemaining()
+        cooldown = ability:GetCooldownTimeRemaining(),
+        charges = ability:GetCurrentAbilityCharges()
       }
     end
   end
 
+  -- Store item cooldowns
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item then
@@ -118,6 +127,14 @@ local function SaveState(hero)
         cooldown = item:GetCooldownTimeRemaining()
       }
     end
+  end
+
+  -- Store neutral item cooldown
+  local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item and neutral_item:IsNeutralDrop() then
+    state.items[neutral_item] = {
+      cooldown = neutral_item:GetCooldownTimeRemaining()
+    }
   end
 
   return state
@@ -153,6 +170,9 @@ local function RestoreState(hero, state)
     if ability then
       ability:EndCooldown()
       ability:StartCooldown(abilityState.cooldown)
+      if ability:GetMaxAbilityCharges(ability:GetLevel()) > 1 then
+        ability:SetCurrentAbilityCharges(abilityState.charges)
+      end
     end
   end
 

@@ -18,14 +18,14 @@ function modifier_healer_oaa:RemoveOnDeath()
 end
 
 function modifier_healer_oaa:OnCreated()
-  self.heal_amp = 50
+  self.heal_amp = 75
 end
 
 function modifier_healer_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
 
@@ -37,9 +37,9 @@ function modifier_healer_oaa:GetModifierHealAmplify_PercentageTarget()
   return self.heal_amp
 end
 
-function modifier_healer_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.heal_amp
-end
+--function modifier_healer_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
+  --return self.heal_amp
+--end
 
 function modifier_healer_oaa:GetTexture()
   return "item_holy_locket"
