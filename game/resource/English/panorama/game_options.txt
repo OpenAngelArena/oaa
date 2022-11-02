@@ -8,6 +8,7 @@
 "game_option_ap"                                                                "All Pick"
 "game_option_rd"                                                                "Random Draft"
 "game_option_ardm"                                                              "All Random Death Match"
+"game_option_lp"                                                                "Unpopular Heroes"
 "game_option_spp"                                                               "2-6 Players"
 "game_option_none"                                                              "None"
 "game_option_random"                                                            "Random Surprise"
@@ -45,6 +46,7 @@
 "game_option_hp_mana_switch"                                                    "HP/Mana Jumbo"
 "game_option_magus"                                                             "Magus"
 "game_option_brawler"                                                           "Brawler"
+"game_option_chaos"                                                             "Chaos"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -78,6 +80,7 @@
 "game_option_hp_mana_switch_description"                                        "Spells cost health. Taking damage reduces your mana. When your mana gets reduced to 0, you die."
 "game_option_magus_description"                                                 "25% chance for every attack to cast a random spell. Can proc on any attack."
 "game_option_brawler_description"                                               "When attacked you gain bonus attack speed, move speed and attack damage."
+"game_option_chaos_description"                                                 "Every hero has a different modifier. Modifier will change on respawn."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
