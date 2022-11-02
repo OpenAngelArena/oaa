@@ -45,6 +45,7 @@ function modifier_angel_oaa:CheckState()
   return {
     [MODIFIER_STATE_FLYING] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
 end
 

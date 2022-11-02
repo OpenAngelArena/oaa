@@ -52,6 +52,10 @@ function modifier_true_sight_strike_oaa:CheckState()
   }
 end
 
+function modifier_true_sight_strike_oaa:GetTexture()
+  return "item_gem"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_truesight_aura_effect_oaa = class(ModifierBaseClass)
@@ -103,7 +107,7 @@ end
 function modifier_truesight_aura_effect_oaa:GetStatusEffectName()
   local parent = self:GetParent()
   if parent.IsIllusion and parent:IsIllusion() then
-    return "particles/status_effect_illusion.vpcf"
+    return "particles/status_fx/status_effect_illusion.vpcf"
   end
   return
 end

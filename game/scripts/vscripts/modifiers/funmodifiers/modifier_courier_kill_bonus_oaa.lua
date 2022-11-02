@@ -29,7 +29,7 @@ function modifier_courier_kill_bonus_oaa:DeclareFunctions()
 end
 
 if IsServer() then
-  function modifier_explosive_death_oaa:OnDeath(event)
+  function modifier_courier_kill_bonus_oaa:OnDeath(event)
     local parent = self:GetParent()
     local killer = event.attacker
     local dead = event.unit

@@ -1,7 +1,7 @@
 modifier_hero_anti_stun_oaa = class(ModifierBaseClass)
 
 function modifier_hero_anti_stun_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_hero_anti_stun_oaa:IsDebuff()
