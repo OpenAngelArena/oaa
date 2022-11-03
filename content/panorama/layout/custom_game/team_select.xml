@@ -42,13 +42,15 @@
                   <Label text="#game_option_ap" id="AP"/>
                   <Label text="#game_option_rd" id="RD"/>
                   <Label text="#game_option_ar" id="AR"/>
-                  <Label text="#game_option_ardm" id="ARDM"/>
+                  <Label text="#game_option_lp" id="LP"/>
+                  <!-- <Label text="#game_option_ardm" id="ARDM"/> -->
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="#game_option_spp" onactivate="onPanelChange('small_player_pool')"/>
                 <Label class="SettingsGroupTitle" text="#hero_options_title"/>
                 <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_chaos" id="HM28" onmouseover="UIShowTextTooltip(#game_option_chaos_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_hp_mana_switch" id="HM25" onmouseover="UIShowTextTooltip(#game_option_hp_mana_switch_description)" onmouseout="UIHideTextTooltip()"/> -->
@@ -73,7 +75,7 @@
                   <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
-                  <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
@@ -104,7 +106,7 @@
                   <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
-                  <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_no_hp_bar" id="HM18" onmouseover="UIShowTextTooltip(#game_option_no_hp_bar_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
