@@ -16,14 +16,13 @@ function modifier_chaos_oaa:RemoveOnDeath()
   return false
 end
 
-
 function modifier_chaos_oaa:OnCreated()
   if not IsServer() then
     return
   end
 
   local parent = self:GetParent()
-  
+
   self.initial_modifiers = {
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_lifesteal_oaa",
@@ -40,11 +39,12 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_spell_block_oaa",
     "modifier_courier_kill_bonus_oaa",
     "modifier_double_multiplier_oaa",
-    "modifier_penta_multiplier_oaa",
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_angel_oaa",
+    "modifier_blood_magic_oaa",
+    "modifier_troll_switch_oaa",
   }
-  
+
   self.mid_game_modifiers = {
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_lifesteal_oaa",
@@ -71,8 +71,10 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_mr_phys_weak_oaa",
     "modifier_angel_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_troll_switch_oaa",
+    "modifier_blood_magic_oaa",
   }
-  
+
   self.late_game_modifiers = {
     "modifier_any_damage_crit_oaa",
     "modifier_aoe_radius_increase_oaa",
@@ -92,19 +94,20 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_wisdom_oaa",
     "modifier_all_healing_amplify_oaa",
     "modifier_double_multiplier_oaa",
-    "modifier_penta_multiplier_oaa",
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_true_sight_strike_oaa",
     "modifier_mr_phys_weak_oaa",
     "modifier_angel_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_troll_switch_oaa",
+    "modifier_blood_magic_oaa",
   }
-  
+
   -- "modifier_healer_oaa",
   self.healer_heroes = {
-  
+
   }
-  
+
   local random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
   if not parent:HasModifier(random_mod) then
     parent:AddNewModifier(parent, nil, random_mod, {})
@@ -125,7 +128,7 @@ end
 
 function modifier_chaos_oaa:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_RESPAWN
+    MODIFIER_EVENT_ON_RESPAWN,
   }
 end
 
@@ -157,6 +160,7 @@ if IsServer() then
       end
       if random_mod ~= self.last_mod and not parent:HasModifier(random_mod) then
         parent:AddNewModifier(parent, nil, random_mod, {})
+        self.last_mod = random_mod
         repeat_loop = false
       end
     end

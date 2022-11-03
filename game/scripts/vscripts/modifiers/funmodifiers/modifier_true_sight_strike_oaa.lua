@@ -39,7 +39,7 @@ function modifier_true_sight_strike_oaa:GetAuraSearchType()
 end
 
 function modifier_true_sight_strike_oaa:GetAuraSearchFlags()
-  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+  return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS)
 end
 
 function modifier_true_sight_strike_oaa:GetAuraRadius()
@@ -97,17 +97,18 @@ function modifier_truesight_aura_effect_oaa:CheckState()
 end
 
 function modifier_truesight_aura_effect_oaa:GetEffectName()
-  return "particles/items2_fx/true_sight_debuff.vpcf"
+  return "particles/generic_gameplay/generic_has_quest.vpcf"
 end
 
 function modifier_truesight_aura_effect_oaa:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
+--[[ -- doesn't work
 function modifier_truesight_aura_effect_oaa:GetStatusEffectName()
   local parent = self:GetParent()
   if parent.IsIllusion and parent:IsIllusion() then
-    return "particles/status_fx/status_effect_illusion.vpcf"
+    return "particles/status_fx/status_effect_dark_seer_illusion.vpcf"
   end
   return
 end
@@ -115,11 +116,12 @@ end
 function modifier_truesight_aura_effect_oaa:StatusEffectPriority()
   local parent = self:GetParent()
   if parent.IsIllusion and parent:IsIllusion() then
-    return MODIFIER_PRIORITY_SUPER_ULTRA
+    return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
   else
     return MODIFIER_PRIORITY_LOW
   end
 end
+]]
 
 function modifier_truesight_aura_effect_oaa:GetTexture()
   return "item_gem"
