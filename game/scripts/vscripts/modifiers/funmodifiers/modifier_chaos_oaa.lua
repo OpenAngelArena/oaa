@@ -107,6 +107,14 @@ function modifier_chaos_oaa:OnCreated()
   self.healer_heroes = {
 
   }
+  
+  local function remove_mod_from_table(table1, mod)
+    for k, v in pairs(table1) do
+      if v == mod then
+        table.remove(table1, k)
+      end
+    end
+  end
 
   local random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
   if not parent:HasModifier(random_mod) then
@@ -169,12 +177,4 @@ end
 
 function modifier_chaos_oaa:GetTexture()
   return "chaos_knight_chaos_strike"
-end
-
-local function remove_mod_from_table(table1, mod)
-  for k, v in pairs(table1) do
-    if v == mod then
-      table.remove(table1, k)
-    end
-  end
 end

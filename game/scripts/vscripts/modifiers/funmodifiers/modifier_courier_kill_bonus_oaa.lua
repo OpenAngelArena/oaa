@@ -97,10 +97,10 @@ function modifier_courier_kill_bonus_all_stats_oaa:OnRefresh()
 end
 
 function modifier_courier_kill_bonus_all_stats_oaa:DeclareFunctions()
-  return { 
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS, 
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, 
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+  return {
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
   }
 end
 

@@ -34,15 +34,15 @@ function modifier_all_healing_amplify_oaa:GetModifierHealAmplify_PercentageSourc
   return self.heal_amp
 end
 
-function modifier_all_healing_amplify_oaa:GetModifierLifestealRegenAmplify_Percentage() 
-  return self.heal_amp 
+function modifier_all_healing_amplify_oaa:GetModifierLifestealRegenAmplify_Percentage()
+  return self.heal_amp
 end
 
 function modifier_all_healing_amplify_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
   return self.heal_amp
 end
 
-function modifier_all_healing_amplify_oaa:GetModifierHPRegenAmplify_Percentage() 
+function modifier_all_healing_amplify_oaa:GetModifierHPRegenAmplify_Percentage()
   return self.heal_amp
 end
 
