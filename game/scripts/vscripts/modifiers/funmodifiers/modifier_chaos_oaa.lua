@@ -104,10 +104,7 @@ function modifier_chaos_oaa:OnCreated()
   }
 
   -- "modifier_healer_oaa",
-  self.healer_heroes = {
 
-  }
-  
   local function remove_mod_from_table(table1, mod)
     for k, v in pairs(table1) do
       if v == mod then
