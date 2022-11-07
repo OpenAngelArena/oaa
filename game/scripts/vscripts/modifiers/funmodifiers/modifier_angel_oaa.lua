@@ -34,7 +34,7 @@ function modifier_angel_oaa:GetBonusNightVision()
 end
 
 function modifier_angel_oaa:GetModifierMoveSpeedBonus_Percentage()
-  return 50
+  return 30
 end
 
 function modifier_angel_oaa:GetModifierStatusResistanceStacking()
