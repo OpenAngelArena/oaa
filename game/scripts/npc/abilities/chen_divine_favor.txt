@@ -12,26 +12,12 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
-
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
-    "AbilityCastRange"                                    "600"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    //"AbilityCooldown"                                     "30"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    //"AbilityManaCost"                                     "130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
