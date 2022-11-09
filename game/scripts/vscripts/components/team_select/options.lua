@@ -143,6 +143,8 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_mr_phys_weak_oaa", "modifiers/funmodifiers/modifier_mr_phys_weak_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_angel_oaa", "modifiers/funmodifiers/modifier_angel_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hero_anti_stun_oaa", "modifiers/funmodifiers/modifier_hero_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_roshan_power_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_titan_soul_oaa", "modifiers/funmodifiers/modifier_titan_soul_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end

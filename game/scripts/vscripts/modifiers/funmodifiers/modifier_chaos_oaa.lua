@@ -41,7 +41,9 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_pro_active_oaa",
     "modifier_range_increase_oaa",
     "modifier_rend_oaa",
+    "modifier_roshan_power_oaa",
     "modifier_sorcerer_oaa",
+    "modifier_titan_soul_oaa",
     "modifier_troll_switch_oaa",
   }
 
@@ -70,6 +72,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_rend_oaa",
     "modifier_sorcerer_oaa",
     "modifier_spell_block_oaa",
+    "modifier_titan_soul_oaa",
     "modifier_troll_switch_oaa",
     "modifier_true_sight_strike_oaa",
     "modifier_wisdom_oaa",

@@ -69,6 +69,39 @@ local ignore_abilities = {
 
 function modifier_aoe_radius_increase_oaa:OnCreated()
   self.aoe_multiplier = 1.5
+  self:ReEquipAllItems()
+end
+
+function modifier_aoe_radius_increase_oaa:OnDestroy()
+  self:ReEquipAllItems()
+end
+
+function modifier_aoe_radius_increase_oaa:ReEquipAllItems()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+    local item = parent:GetItemInSlot(i)
+    if item then
+      item:OnUnequip()
+      item:OnEquip()
+    end
+  end
+
+  local tp_scroll = parent:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+  if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
+    tp_scroll:OnUnequip()
+    tp_scroll:OnEquip()
+  end
+
+  local neutral_item = parent:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item and neutral_item:IsNeutralDrop() then
+    neutral_item:OnUnequip()
+    neutral_item:OnEquip()
+  end
 end
 
 function modifier_aoe_radius_increase_oaa:DeclareFunctions()
