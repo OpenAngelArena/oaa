@@ -28,7 +28,7 @@ function modifier_no_brain_oaa:GetModifierBonusStats_Intellect()
 end
 
 function modifier_no_brain_oaa:GetModifierAttackSpeedBonus_Constant()
-  return 250
+  return 350
 end
 
 function modifier_no_brain_oaa:GetEffectName()

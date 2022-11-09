@@ -39,6 +39,10 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)
     return 0
   end
 
+  if keys.ability:IsItem() then
+    return 0
+  end
+
   return 1
 end
 
@@ -48,6 +52,11 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecialValue(k
   end
 
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+
+  if keys.ability:IsItem() then
+    return value
+  end
+
   return value * self.multiplier
 end
 

@@ -33,7 +33,7 @@ function modifier_cursed_attack_oaa:GetModifierBonusStats_Agility()
 end
 
 function modifier_cursed_attack_oaa:GetModifierProcAttack_BonusDamage_Pure()
-  return 250
+  return 400
 end
 
 function modifier_cursed_attack_oaa:GetEffectName()
