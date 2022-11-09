@@ -502,6 +502,11 @@ if IsServer() then
       return
     end
 
+    -- Prevent instant attacks from working
+    if event.no_attack_cooldown then
+      return
+    end
+
     local damage = 1
     local ability = self:GetAbility()
     if ability and not ability:IsNull() then
