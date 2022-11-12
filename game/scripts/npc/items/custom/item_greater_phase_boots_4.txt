@@ -7,15 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3003"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3003"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "17000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,12 +24,7 @@
     "ItemResult"                                          "item_greater_phase_boots_4"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_phase_boots_3;item_upgrade_core_4"
-      //"02"                                                "item_greater_power_treads_3;item_upgrade_core_4"
-      //"03"                                                "item_greater_tranquil_boots_3;item_upgrade_core_4"
-      //"04"                                                "item_greater_travel_boots_3;item_upgrade_core_4"
-      //"05"                                                "item_greater_guardian_greaves_3;item_upgrade_core_4"
-      //"06"                                                "item_sonic;item_upgrade_core_4"
+      "01"                                                "item_greater_phase_boots_3;item_upgrade_core_3"
     }
   }
 
@@ -40,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3008"                          // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3008"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/farming/greater_phase_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -53,55 +48,28 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "31504"
-    "ItemShopTags"                                        "damage;move_speed;hard_to_tag"
+    "ItemCost"                                            "16478"
+    "ItemShopTags"                                        "move_speed;damage;armor;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots 4;phase boots 4;phase 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_greater_phase_boots_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "50 55 60 65"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "38 78 138 218"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5 7 10 14"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed"                            "25 30 35 40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "phase_movement_speed_range"                      "25 30 35 40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "phase_duration"                                  "3.0"
-      }
-    }
-
-    "precache"
-    {
-      "particle"                                          "particles/items/phase_divehit.vpcf"
+      "bonus_movement_speed"                              "45 50 55 60 65"
+      "bonus_health"                                      "200 400 600 800 1000"
+      "bonus_damage"                                      "38 58 88 128 178"
+      "bonus_armor"                                       "4 5 7 10 14"
+      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
+      "phase_movement_speed"                              "20 25 30 35 40"
+      "phase_movement_speed_range"                        "20 25 30 35 40"
+      "phase_duration"                                    "3.0"
     }
   }
 }

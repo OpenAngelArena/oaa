@@ -5,12 +5,15 @@
   //=================================================================================================================
   "item_recipe_silver_edge"
   {
-    "ID"                                                  "248"    // unique ID
+    "ID"                                                  "248"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemCost"                                            "500"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements" //OAA
     {
       "01"                                                "item_invis_sword;item_lesser_crit"
@@ -24,14 +27,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "249"    // unique ID
+    "ID"                                                  "249"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/silver_edge_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20.0"
     "AbilitySharedCooldown"                               "shadow_blade"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +45,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
     "ItemCost"                                            "5450"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -51,73 +54,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // Shadow Blade (20) + Crystalys (32)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "52 62 82 112 152"
-      }
-      "02" // Shadow Blade (35)
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "35 45 55 65 75"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "windwalk_duration"                               "14.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "windwalk_movement_speed"                         "25 30 35 40 45"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "windwalk_fade_time"                              "0.3"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "windwalk_bonus_damage"                           "175 275 375 475 575"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "backstab_duration"                               "4"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "30"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "150 180 210 240 270" //OAA
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "60 90 120 150 180"
-      }
+      "bonus_damage"                                      "52 62 82 112 152" // Shadow Blade (20) + Crystalys (32)
+      "bonus_attack_speed"                                "35 45 55 65 75" // Shadow Blade (35)
+      "bonus_strength"                                    "0"
+      "bonus_intellect"                                   "0"
+      "bonus_mana_regen"                                  "0"
+      "windwalk_duration"                                 "14.0"
+      "windwalk_movement_speed"                           "25 30 35 40 45"
+      "windwalk_fade_time"                                "0.3"
+      "windwalk_bonus_damage"                             "175 275 375 475 575"
+      "backstab_duration"                                 "4"
+      "crit_chance"                                       "30"
+      "crit_multiplier"                                   "150 180 210 240 270" //OAA
+      "tooltip_crit_damage"                               "60 90 120 150 180"
     }
   }
 }

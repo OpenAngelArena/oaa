@@ -37,6 +37,7 @@ function modifier_troll_switch_oaa:OnCreated()
     -- Parent is ranged -> turn to melee
     parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
     self.set_attack_capability = DOTA_UNIT_CAP_MELEE_ATTACK
+    self.original_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
   elseif parent:HasAttackCapability() then
     -- Parent is melee -> turn to ranged
     parent:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
@@ -49,6 +50,7 @@ function modifier_troll_switch_oaa:OnCreated()
       parent:SetRangedProjectileName("particles/base_attacks/ranged_tower_good.vpcf")
     end
     self.set_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
+    self.original_attack_capability = DOTA_UNIT_CAP_MELEE_ATTACK
   else
     self.set_attack_capability = DOTA_UNIT_CAP_NO_ATTACK
   end
@@ -78,6 +80,23 @@ function modifier_troll_switch_oaa:OnIntervalThink()
     -- this updates the stacks so the client side range updates correctly
     -- otherwise you need to attack or a-click something/somewhere
     self:GetModifierAttackRangeBonus()
+  end
+end
+
+function modifier_troll_switch_oaa:OnDestroy()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Berserkers Rage
+  if parent:HasAbility("troll_warlord_berserkers_rage") then
+    return
+  end
+
+  if self.original_attack_capability then
+    parent:SetAttackCapability(self.original_attack_capability)
   end
 end
 

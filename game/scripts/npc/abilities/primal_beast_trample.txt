@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75" //OAA
+    "AbilityManaCost"                                     "90" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,9 +29,9 @@
       "step_distance"                                     "140"
       "base_damage"                                       "15 30 45 60 120 180"
       "duration"                                          "5.5"
-      "attack_damage"
+      "attack_damage" //OAA
       {
-        "value"                                           "35"
+        "value"                                           "20 25 30 35 40 40"
         "special_bonus_unique_primal_beast_trample_attack_damage"  "+25"
       }
       "bonus_magic_resistance"
@@ -41,7 +41,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "21 20 19 18 17 16"
+        "value"                                           "27 25 23 21 20 19"
         "special_bonus_unique_primal_beast_trample_cooldown"  "-5"
       }
     }

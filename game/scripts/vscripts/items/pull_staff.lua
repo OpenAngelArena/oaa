@@ -1,4 +1,3 @@
-
 LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pull_staff_active_buff", "items/pull_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -144,7 +143,6 @@ function item_pull_staff:OnSpellStart()
     direction_x = direction.x,
     direction_y = direction.y,
   })
-
 end
 
 item_pull_staff_2 = item_pull_staff
@@ -269,7 +267,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_pull_staff_echo_strike_passive = class({})
+modifier_pull_staff_echo_strike_passive = class(ModifierBaseClass)
 
 function modifier_pull_staff_echo_strike_passive:IsHidden()
   return true
@@ -310,7 +308,7 @@ if IsServer() then
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = parent:GetItemInSlot(i)
       if item and item:GetName() == "item_echo_sabre" then
-        item:StartCooldown(6*self:GetParent():GetCooldownReduction())
+        item:StartCooldown(6*parent:GetCooldownReduction())
       end
     end
 
@@ -334,11 +332,11 @@ if IsServer() then
       return
     end
 
-	if parent:IsIllusion() or parent:IsRangedAttacker() then
+    if parent:IsIllusion() or parent:IsRangedAttacker() then
       return
     end
 
-    if parent:FindAllModifiersByName(self:GetName())[1] ~= self then
+    if not self:IsFirstItemInInventory() then
       return
     end
 
@@ -366,11 +364,11 @@ if IsServer() then
       return
     end
 
-	if parent:IsIllusion() or parent:IsRangedAttacker() then
+    if parent:IsIllusion() or parent:IsRangedAttacker() then
       return
     end
 
-    if parent:FindAllModifiersByName(self:GetName())[1] ~= self then
+    if not self:IsFirstItemInInventory() then
       return
     end
 
@@ -379,7 +377,7 @@ if IsServer() then
     end
 
     -- Trigger Echo Strike with the slow
-	self:TriggerEchoStrike(target, true)
+    self:TriggerEchoStrike(target, true)
   end
 end
 
@@ -456,11 +454,11 @@ if IsServer() then
       return
     end
 
-	if parent:IsIllusion() or parent:IsRangedAttacker() then
+    if parent:IsIllusion() or parent:IsRangedAttacker() then
       return
     end
 
-	local ability = self:GetAbility()
+    local ability = self:GetAbility()
     local echo_strike_slow_duration = 0.8
     if ability and not ability:IsNull() then
       echo_strike_slow_duration = ability:GetSpecialValueFor("echo_strike_slow_duration")
@@ -487,7 +485,7 @@ if IsServer() then
       return
     end
 
-	if parent:IsIllusion() or parent:IsRangedAttacker() then
+    if parent:IsIllusion() or parent:IsRangedAttacker() then
       return
     end
 

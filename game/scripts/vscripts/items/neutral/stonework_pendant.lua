@@ -37,16 +37,7 @@ function modifier_item_stonework_pendant_passive:IsPurgable()
 end
 
 function modifier_item_stonework_pendant_passive:OnCreated()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_cost_multiplier = ability:GetSpecialValueFor("hp_cost_multiplier")
-  end
-  self.bonus_hp = parent:GetMaxMana()
-  self.bonus_hp_regen = parent:GetManaRegen()
-  if IsServer() and parent:IsHero() then
-    parent:CalculateStatBonus(true)
-  end
+  self:OnRefresh()
   self:StartIntervalThink(0.5)
 end
 

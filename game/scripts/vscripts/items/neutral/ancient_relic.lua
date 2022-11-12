@@ -33,16 +33,7 @@ function modifier_item_ancient_relic_passive:OnCreated()
   end
 end
 
-function modifier_item_ancient_relic_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.damage = ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_ms = ability:GetSpecialValueFor("bonus_move_speed")
-    self.hp_regen = ability:GetSpecialValueFor("bonus_hp_regen")
-    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
-    self.mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-  end
-end
+modifier_item_ancient_relic_passive.OnRefresh = modifier_item_ancient_relic_passive.OnCreated
 
 function modifier_item_ancient_relic_passive:DeclareFunctions()
   return {

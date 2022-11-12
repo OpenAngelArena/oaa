@@ -32,7 +32,7 @@
 
     // Time and Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "55 50 45 40 35" // original: 65/55/45
+    "AbilityCooldown"                                     "60 55 50 45 40" // original: 65/55/45
     "AbilityManaCost"                                     "140 180 220 260 300"
 
     // Precache
@@ -51,7 +51,7 @@
       "delay"                                             "0.5"
       "initial_damage"
       {
-        "value"                                           "150 300 450 900 1650" // original: 200/300/400
+        "value"                                           "150 300 450 900 1350" // original: 200/300/400
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE" // original: magical
       }
       "damage_per_second"                                 "75 175 275 575 875" // original: 75 125 175

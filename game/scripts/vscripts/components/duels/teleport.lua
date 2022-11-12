@@ -40,7 +40,6 @@ local function SafeTeleport(unit, location, maxDistance)
   local exileModifiers = {
     "modifier_obsidian_destroyer_astral_imprisonment_prison",
     --"modifier_riki_tricks_of_the_trade_phase", -- Should be removed by stop order
-    -- "modifier_sohei_flurry_self", -- Bugs out hard if it occurs during casting. TODO: Update after PR #2025
     --"modifier_puck_phase_shift", -- Should be removed by stop order
     "modifier_phoenix_supernova_hiding",
     "modifier_shadow_demon_disruption",

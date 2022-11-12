@@ -62,10 +62,6 @@ function item_demon_stone:OnSpellStart()
   end
 end
 
-function item_demon_stone:ProcsMagicStick()
-  return false
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_demon_stone_passive = class(ModifierBaseClass)
@@ -81,13 +77,7 @@ function modifier_item_demon_stone_passive:IsPurgable()
 end
 
 function modifier_item_demon_stone_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.xpm = ability:GetSpecialValueFor("bonus_xpm")
-    self.mana = ability:GetSpecialValueFor("bonus_mana")
-    self.dmg = ability:GetSpecialValueFor("bonus_damage")
-    self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
-  end
+  self:OnRefresh()
   if IsServer() then
     -- start thinking every 5 seconds
     self:StartIntervalThink(5)

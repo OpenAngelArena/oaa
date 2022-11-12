@@ -49,23 +49,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
+    "UpgradesItems"                                       "item_lucience_2;item_lucience_3;item_lucience_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "6702"
-    "ItemShopTags"                                        "str;agi;int;damage;move_speed;hard_to_tag"
+    "ItemShopTags"                                        "str;int;damage;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 2;lucio 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_lucience_2;"
-
-    // Precache
-    //-------------------------------------------------------------------------------------------------------------
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
-      "particle"                                          "particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
-    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -3,63 +3,63 @@
   //=================================================================================================================
   // Recipe: Ghost King Bar
   //=================================================================================================================
-  "item_recipe_ghost_king_bar"
+  "item_recipe_ghost_king_bar_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8615"    // unique ID
+    "ID"                                                  "8615"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "250"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_ghost_king_bar"
+    "ItemResult"                                          "item_ghost_king_bar_1"
 
     "ItemRequirements"
     {
-      "01"                                                "item_ethereal_blade_2;item_upgrade_core_2"
-      "02"                                                "item_sacred_skull;item_upgrade_core_2"
+      "01"                                                "item_holy_locket;item_ghost"
     }
   }
 
   //=================================================================================================================
   // Ghost King Bar
   //=================================================================================================================
-  "item_ghost_king_bar"
+  "item_ghost_king_bar_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8616"    // unique ID
+    "ID"                                                  "8616"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/ghost_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"                                  "custom/ghoststaff_3"
+    "AbilityTextureName"                                  "custom/ghoststaff_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "100"
-    "AbilityCooldown"                                     "20.0"
+    "AbilityCooldown"                                     "15"
     "AbilitySharedCooldown"                               "ethereal"
+    "AbilityCastRange"                                    "1200"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_ghost_king_bar;item_ghost_king_bar_2;item_ghost_king_bar_3"
+    "UpgradesItems"                                       "item_ghost_king_bar_1;item_ghost_king_bar_2;item_ghost_king_bar_3;item_ghost_king_bar_4;item_ghost_king_bar_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9552"
+    "ItemCost"                                            "4150"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -70,21 +70,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "20 35 55"
-      "bonus_strength"                                    "20 35 55"
-      "bonus_intellect"                                   "40 55 75"
-      "spell_amp"                                         "24 28 32"
-      "spell_lifesteal_amp"                               "28 30 32"
-      "mana_regen_multiplier"                             "80 90 100"
-      "duration"                                          "4.0 4.5 5.0"
-      "ethereal_damage_bonus"                             "-40 -20 0"
-      "active_heal_amp"                                   "40"
-      "active_spell_lifesteal_amp"                        "40"
-      "active_mana_regen_amp"                             "100"
-      "buff_magic_resistance"                             "25"
-      "buff_status_resistance"                            "20"
-      "buff_move_speed"                                   "25"
-      "buff_duration"                                     "5.0"
+      "bonus_health"                                      "250 500 1000 1750 2750"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_all_stats"                                   "8 13 18 23 28" // old magic wand: 3 20 40 60 90
+      "heal_amp"                                          "35 40 45 50 55"
+      "aura_health_regen"                                 "3 6 9 12 15"
+      "aura_radius"                                       "1200"
+      "duration"                                          "4.0 4.25 4.5 4.75 5.0"
+      "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
+      "active_heal_amp"                                   "30"
+      "active_restore_per_charge"                         "15 25 35 45 55" // hp and mana restore; old magic wand: 15 30 60 120 240; keep in mind the heal_amp + active_heal_amp
+      "active_radius"                                     "1200"
+      "max_charges"                                       "20"
+      "charge_radius"                                     "1200" // only in duels, otherwise global
+      "buff_magic_resistance"                             "15 17 19 21 23"
+      "buff_status_resistance"                            "15 17 19 21 23"
+      "buff_move_speed"                                   "15 17 19 21 23"
+      "buff_duration"                                     "3.0"
     }
   }
 }

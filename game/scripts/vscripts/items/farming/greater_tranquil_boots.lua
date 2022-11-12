@@ -2,11 +2,11 @@ item_greater_tranquil_boots = class(ItemBaseClass)
 
 LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_tranquil_boots_non_stacking_stats", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_tranquil_boots_stacking_stats", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_tranquil_boots_passive", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -18,8 +18,7 @@ end
 
 function item_greater_tranquil_boots:GetIntrinsicModifierNames()
   return {
-    "modifier_item_greater_tranquil_boots_non_stacking_stats",
-    "modifier_item_greater_tranquil_boots_stacking_stats",
+    "modifier_item_greater_tranquil_boots_passive",
     "modifier_greater_tranquils_trees_buff"
   }
 end
@@ -42,10 +41,13 @@ function item_greater_tranquil_boots:OnSpellStart()
   if target:GetTeamNumber() == caster:GetTeamNumber() then
     local bearing_duration = self:GetSpecialValueFor("bearing_duration")
     local tree_buff_duration = self:GetSpecialValueFor("tree_protection_duration")
+    local unslowable_duration = self:GetSpecialValueFor("bearing_unslowable_duration")
 
     if target ~= caster then
       -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to the ally
       target:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_buff", {duration = bearing_duration})
+      -- Apply Boots of Bearing unslowable buff to the ally
+      target:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_unslowable", {duration = unslowable_duration})
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
       target:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_buff", {duration = tree_buff_duration})
     else
@@ -71,8 +73,9 @@ function item_greater_tranquil_boots:OnSpellStart()
           --local particle = ParticleManager:CreateParticle(".vpcf", PATTACH_CENTER_FOLLOW, ally)
           --ParticleManager:DestroyParticle(particle, false)
           --ParticleManager:ReleaseParticleIndex(particle)
-          -- Apply the buff
+          -- Apply the buffs
           ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_buff", {duration = bearing_duration})
+          ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_unslowable", {duration = unslowable_duration})
         end
       end
     end
@@ -177,107 +180,92 @@ item_greater_tranquil_boots_4 = item_greater_tranquil_boots
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_greater_tranquil_boots_non_stacking_stats = class(ModifierBaseClass)
+modifier_item_greater_tranquil_boots_passive = class(ModifierBaseClass)
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:IsHidden()
+function modifier_item_greater_tranquil_boots_passive:IsHidden()
   return true
 end
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:IsDebuff()
+function modifier_item_greater_tranquil_boots_passive:IsDebuff()
   return false
 end
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:IsPurgable()
+function modifier_item_greater_tranquil_boots_passive:IsPurgable()
   return false
 end
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:IsAura()
-  return true
-end
+-- We don't have this on purpose because we don't want people to buy multiple of these
+--function modifier_item_greater_tranquil_boots_passive:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("aura_radius")
-end
-
-function modifier_item_greater_tranquil_boots_non_stacking_stats:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_item_greater_tranquil_boots_non_stacking_stats:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
-end
-
-function modifier_item_greater_tranquil_boots_non_stacking_stats:GetModifierAura()
-  return "modifier_greater_tranquils_endurance_aura_effect"
-end
-
-function modifier_item_greater_tranquil_boots_non_stacking_stats:OnCreated()
-  local spell = self:GetAbility()
-  if spell and not spell:IsNull() then
-    self.moveSpd = spell:GetSpecialValueFor("bonus_movement_speed")
+function modifier_item_greater_tranquil_boots_passive:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.str = ability:GetSpecialValueFor("bonus_str")
+    self.int = ability:GetSpecialValueFor("bonus_int")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
 end
 
-modifier_item_greater_tranquil_boots_non_stacking_stats.OnRefresh = modifier_item_greater_tranquil_boots_non_stacking_stats.OnCreated
+modifier_item_greater_tranquil_boots_passive.OnRefresh = modifier_item_greater_tranquil_boots_passive.OnCreated
 
---[[ Old checking distance traveled and modifying charges accordingly (part of Naturalize)
-if IsServer() then
-	function modifier_item_greater_tranquil_boots_non_stacking_stats:OnIntervalThink()
-		local parent = self:GetParent()
-		local spell = self:GetAbility()
-
-		-- disable everything here for illusions or during duels / pre 0:00
-		if parent:IsIllusion() or not Gold:IsGoldGenActive() then
-			return
-		end
-
-		if self.storedDamage and self.storedDamage > 0 then
-			local parent = self:GetParent()
-			local maxHeal = math.min( spell:GetSpecialValueFor( "regen_from_creeps" ) * self.interval, self.storedDamage )
-
-			parent:Heal( maxHeal, parent )
-
-			self.storedDamage = self.storedDamage - maxHeal
-		end
-
-		local currentCharges = spell:GetCurrentCharges()
-
-		if currentCharges < self.maxCharges then
-			-- get the current point of the parent
-			local originParent = parent:GetAbsOrigin()
-
-			-- get the distance between that point and their old point
-			local dist = ( originParent - self.originOld ):Length2D()
-
-			-- cap the amount of distances so tps don't instafill it
-			dist = math.min( dist, self.distMax )
-
-			-- add the distance to the fraction charge
-			self.fracCharge = self.fracCharge + dist
-
-			-- determine the amount of charges to give
-			local addedCharges = math.floor( self.fracCharge / self.distPer )
-
-			-- give those charges, then subtract their fractional charge from the item
-			spell:SetCurrentCharges( math.min( currentCharges + addedCharges, self.maxCharges ) )
-			self.fracCharge = self.fracCharge - ( self.distPer * addedCharges )
-
-			-- set the old point of the parent
-			self.originOld = originParent
-		end
-	end
+function modifier_item_greater_tranquil_boots_passive:IsAura()
+  return true
 end
-]]
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:DeclareFunctions()
+function modifier_item_greater_tranquil_boots_passive:GetAuraRadius()
+  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierAura()
+  return "modifier_greater_tranquils_endurance_aura_effect"
+end
+
+function modifier_item_greater_tranquil_boots_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
+function modifier_item_greater_tranquil_boots_passive:GetModifierMoveSpeedBonus_Special_Boots()
+  return self.moveSpd or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierBonusStats_Strength()
+  if self:GetParent():IsClone() then
+    return 0
+  end
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierBonusStats_Intellect()
+  if self:GetParent():IsClone() then
+    return 0
+  end
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
+end
+
 -- if IsServer() then
-  -- function modifier_item_greater_tranquil_boots_non_stacking_stats:OnAttackLanded( event )
+  -- function modifier_item_greater_tranquil_boots_passive:OnAttackLanded( event )
     -- local parent = self:GetParent()
     -- local attacker = event.attacker
     -- local attacked_unit = event.target
@@ -302,72 +290,13 @@ end
 	-- end
 -- end
 
-function modifier_item_greater_tranquil_boots_non_stacking_stats:GetModifierMoveSpeedBonus_Special_Boots()
-  return self.moveSpd or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
-end
-
-function modifier_item_greater_tranquil_boots_non_stacking_stats:CheckState()
+function modifier_item_greater_tranquil_boots_passive:CheckState()
   return {
     [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
   }
 end
 
----------------------------------------------------------------------------------------------------
 
-modifier_item_greater_tranquil_boots_stacking_stats = class(ModifierBaseClass)
-
-function modifier_item_greater_tranquil_boots_stacking_stats:IsHidden()
-  return true
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:IsDebuff()
-  return false
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:IsPurgable()
-  return false
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.str = ability:GetSpecialValueFor("bonus_str")
-    self.int = ability:GetSpecialValueFor("bonus_int")
-  end
-end
-
-modifier_item_greater_tranquil_boots_stacking_stats.OnRefresh = modifier_item_greater_tranquil_boots_stacking_stats.OnCreated
-
-function modifier_item_greater_tranquil_boots_stacking_stats:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-  }
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierConstantHealthRegen()
-  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierBonusStats_Strength()
-  if self:GetParent():IsClone() then
-    return 0
-  end
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
-end
-
-function modifier_item_greater_tranquil_boots_stacking_stats:GetModifierBonusStats_Intellect()
-  if self:GetParent():IsClone() then
-    return 0
-  end
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
-end
 
 ---------------------------------------------------------------------------------------------------
 --[[ Old Tranquils effect
@@ -444,13 +373,7 @@ function modifier_greater_tranquils_trees_buff:IsPurgable()
 end
 
 function modifier_greater_tranquils_trees_buff:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen_amp = ability:GetSpecialValueFor("tree_hp_regen_amp")
-    self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
-    self.status_resist = ability:GetSpecialValueFor("tree_status_resistance")
-  end
-
+  self:OnRefresh()
   if IsServer() then
     self:SetStackCount(2)
     self:StartIntervalThink(0)
@@ -633,27 +556,56 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
   end
 
   if IsServer() then
-    local parent = self:GetParent()
-    -- Particle
-    local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
-    local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
-    ParticleManager:SetParticleControl(particle, 1, Vector(0,0,0))
-    self:AddParticle(particle, false, false, -1, false, false)
+    if self.particle == nil then
+      local parent = self:GetParent()
+      -- Particle
+      local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+      self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+      --self:AddParticle(particle, false, false, -1, false, false)
+    end
 
     self:StartIntervalThink(0.1)
   end
 end
 
-modifier_greater_tranquils_bearing_buff.OnRefresh = modifier_greater_tranquils_bearing_buff.OnCreated
+function modifier_greater_tranquils_bearing_buff:OnRefresh()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
 
-if IsServer() then
-  function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.move_speed = ability:GetSpecialValueFor("bearing_movement_speed_pct")
+    self.attack_speed = ability:GetSpecialValueFor("bearing_attack_speed")
+  end
+
+  if IsServer() and self.particle == nil then
     local parent = self:GetParent()
-    if parent and not parent:IsNull() then
-      parent:RemoveModifierByName("modifier_item_boots_of_bearing_active")
-      parent:RemoveModifierByName("modifier_item_ancient_janggo_active")
-    end
+    -- Particle
+    local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+    self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+    ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+  end
+end
+
+function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    parent:RemoveModifierByName("modifier_item_boots_of_bearing_active")
+    parent:RemoveModifierByName("modifier_item_ancient_janggo_active")
+  end
+end
+
+function modifier_greater_tranquils_bearing_buff:OnDestroy()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 
@@ -770,4 +722,34 @@ function modifier_greater_tranquils_trees_dummy_stuff:CheckState()
   return {
     [MODIFIER_STATE_FLYING] = true,
   }
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_greater_tranquils_bearing_unslowable = class(ModifierBaseClass)
+
+function modifier_greater_tranquils_bearing_unslowable:IsHidden()
+  return false
+end
+
+function modifier_greater_tranquils_bearing_unslowable:IsDebuff()
+  return false
+end
+
+function modifier_greater_tranquils_bearing_unslowable:IsPurgable()
+  return true
+end
+
+function modifier_greater_tranquils_bearing_unslowable:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+function modifier_greater_tranquils_bearing_unslowable:CheckState()
+  return {
+    [MODIFIER_STATE_UNSLOWABLE] = true,
+  }
+end
+
+function modifier_greater_tranquils_bearing_unslowable:GetTexture()
+  return "item_boots_of_bearing"
 end

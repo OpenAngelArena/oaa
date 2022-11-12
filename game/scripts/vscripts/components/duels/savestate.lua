@@ -22,9 +22,6 @@ local function PurgeDuelHighgroundBuffs(hero)
 end
 
 local function ResetState(hero)
-  if hero:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
-    hero:RemoveModifierByName("modifier_skeleton_king_reincarnation_scepter_active")
-  end
   if hero:HasModifier("modifier_offside") then
     hero:RemoveModifierByName("modifier_offside")
   end
@@ -32,8 +29,15 @@ local function ResetState(hero)
     hero:RemoveModifierByName("modifier_is_in_offside")
   end
 
+  -- Disjoint disjointable projectiles
+  ProjectileManager:ProjectileDodge(hero)
+
+  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+  hero:AbsolutePurge()
+
+  -- Respawn if the hero is dead after removing some modifiers
   if not hero:IsAlive() then
-    hero:RespawnHero(false,false)
+    hero:RespawnHero(false, false)
   end
 
   hero:SetHealth(hero:GetMaxHealth())
@@ -48,12 +52,18 @@ local function ResetState(hero)
     end
   end
 
-  -- Reset cooldown for items
+  -- Reset cooldown for items that are not in backpack
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(i)
-    if item  then
+    if item then
       item:EndCooldown()
     end
+  end
+
+  -- Reset neutral item cooldown
+  local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item then
+    neutral_item:EndCooldown()
   end
 
   -- Special thing for Ward Stack - set counts to at least 1 ward
@@ -98,15 +108,18 @@ local function SaveState(hero)
     end
   end
 
+  -- Store ability cooldowns and charges
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
     if ability and RefreshAbilityFilter(ability) then
       state.abilities[ability:GetAbilityName()] = {
-        cooldown = ability:GetCooldownTimeRemaining()
+        cooldown = ability:GetCooldownTimeRemaining(),
+        charges = ability:GetCurrentAbilityCharges()
       }
     end
   end
 
+  -- Store item cooldowns
   for itemIndex = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = hero:GetItemInSlot(itemIndex)
     if item then
@@ -116,10 +129,29 @@ local function SaveState(hero)
     end
   end
 
+  -- Store neutral item cooldown
+  local neutral_item = hero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item and neutral_item:IsNeutralDrop() then
+    state.items[neutral_item] = {
+      cooldown = neutral_item:GetCooldownTimeRemaining()
+    }
+  end
+
   return state
 end
 
 local function RestoreState(hero, state)
+  -- Disjoint disjointable projectiles
+  ProjectileManager:ProjectileDodge(hero)
+
+  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
+  hero:AbsolutePurge()
+
+  -- Respawn if the hero is dead after removing some modifiers
+  if not hero:IsAlive() then
+    hero:RespawnHero(false, false)
+  end
+
   SafeTeleportAll(hero, state.location, 150)
 
   local hp = state.hpPercent * hero:GetMaxHealth()
@@ -138,6 +170,9 @@ local function RestoreState(hero, state)
     if ability then
       ability:EndCooldown()
       ability:StartCooldown(abilityState.cooldown)
+      if ability:GetMaxAbilityCharges(ability:GetLevel()) > 1 then
+        ability:SetCurrentAbilityCharges(abilityState.charges)
+      end
     end
   end
 
@@ -148,12 +183,6 @@ local function RestoreState(hero, state)
       item:StartCooldown(itemState.cooldown)
     end
   end
-
-  -- Disjoint disjointable projectiles
-  ProjectileManager:ProjectileDodge(hero)
-
-  -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-  hero:AbsolutePurge()
 
   -- Restore offside stacks if hero had any
   if state.offsidesStacks > 0 then

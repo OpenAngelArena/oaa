@@ -264,11 +264,9 @@ function modifier_item_meteor_hammer_oaa_stun:GetEffectAttachType()
 end
 
 function modifier_item_meteor_hammer_oaa_stun:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
-
-  return funcs
 end
 
 function modifier_item_meteor_hammer_oaa_stun:GetOverrideAnimation()
@@ -276,10 +274,9 @@ function modifier_item_meteor_hammer_oaa_stun:GetOverrideAnimation()
 end
 
 function modifier_item_meteor_hammer_oaa_stun:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
   }
-  return state
 end
 
 function modifier_item_meteor_hammer_oaa_stun:GetTexture()

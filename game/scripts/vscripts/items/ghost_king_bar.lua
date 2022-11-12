@@ -1,23 +1,15 @@
-item_ghost_king_bar = class(ItemBaseClass)
+item_ghost_king_bar_1 = class(ItemBaseClass)
 
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_ghost_king_bar_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_ghost_king_bar_non_stacking_stats", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ghost_king_bar_passives", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_ghost_king_bar_aura_effect", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_active", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_ghost_king_bar_buff", "items/ghost_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 
-function item_ghost_king_bar:GetIntrinsicModifierName()
-  return "modifier_intrinsic_multiplexer"
+function item_ghost_king_bar_1:GetIntrinsicModifierName()
+  return "modifier_item_ghost_king_bar_passives"
 end
 
-function item_ghost_king_bar:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_ghost_king_bar_stacking_stats",
-    "modifier_item_ghost_king_bar_non_stacking_stats"
-  }
-end
-
-function item_ghost_king_bar:OnSpellStart()
+function item_ghost_king_bar_1:OnSpellStart()
   local caster = self:GetCaster()
 
   -- Apply Basic Dispel
@@ -30,131 +22,285 @@ function item_ghost_king_bar:OnSpellStart()
 
   -- Emit Activation sound
   caster:EmitSound("DOTA_Item.GhostScepter.Activate")
+
+  local current_charges = self:GetCurrentCharges()
+
+  -- Restore hp and mana to all allies including the caster
+  if current_charges > 0 then
+    local amount_to_restore = current_charges * self:GetSpecialValueFor("active_restore_per_charge")
+    local allies = FindUnitsInRadius(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      nil,
+      self:GetSpecialValueFor("active_radius"),
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, unit in pairs(allies) do
+      if unit and not unit:IsNull() then
+        -- Restore health (it should work with heal amp)
+        unit:Heal(amount_to_restore, self)
+        -- Restore mana
+        unit:GiveMana(amount_to_restore)
+        -- Particle
+        local particle = ParticleManager:CreateParticle("particles/items2_fx/magic_stick.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
+        ParticleManager:SetParticleControl(particle, 1, Vector(10,0,0))
+        ParticleManager:ReleaseParticleIndex(particle)
+        -- Sound
+        if unit ~= caster then
+          unit:EmitSound("DOTA_Item.MagicWand.Activate")
+        end
+      end
+    end
+  end
+
+  -- Trigger cd on all Holy Lockets and Magic Wands
+  for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+    local item = caster:GetItemInSlot(i)
+    if item and item:GetName() == "item_holy_locket" then
+      item:StartCooldown(13*caster:GetCooldownReduction())
+    end
+  end
+
+  -- Spend charges
+  self:SetCurrentCharges(0)
 end
 
-item_ghost_king_bar_2 = item_ghost_king_bar
-item_ghost_king_bar_3 = item_ghost_king_bar
+item_ghost_king_bar_2 = item_ghost_king_bar_1
+item_ghost_king_bar_3 = item_ghost_king_bar_1
+item_ghost_king_bar_4 = item_ghost_king_bar_1
+item_ghost_king_bar_5 = item_ghost_king_bar_1
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_ghost_king_bar_stacking_stats = class(ModifierBaseClass)
+modifier_item_ghost_king_bar_passives = class(ModifierBaseClass)
 
-function modifier_item_ghost_king_bar_stacking_stats:IsHidden()
+function modifier_item_ghost_king_bar_passives:IsHidden()
   return true
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:IsDebuff()
+function modifier_item_ghost_king_bar_passives:IsDebuff()
   return false
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:IsPurgable()
+function modifier_item_ghost_king_bar_passives:IsPurgable()
   return false
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:GetAttributes()
+function modifier_item_ghost_king_bar_passives:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.agi = ability:GetSpecialValueFor("bonus_agility")
-    self.int = ability:GetSpecialValueFor("bonus_intellect")
+function modifier_item_ghost_king_bar_passives:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+    local parent = self:GetParent()
+    if parent.ghostKingBarChargesOAA and parent.ghostKingBarChargesOAA ~= 0 then
+      local item = self:GetAbility()
+      if item and not item:IsNull() then
+        item:SetCurrentCharges(parent.ghostKingBarChargesOAA)
+      end
+    end
   end
 end
 
-modifier_item_ghost_king_bar_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_stacking_stats.OnCreated
+function modifier_item_ghost_king_bar_passives:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.str = ability:GetSpecialValueFor("bonus_all_stats")
+    self.agi = ability:GetSpecialValueFor("bonus_all_stats")
+    self.int = ability:GetSpecialValueFor("bonus_all_stats")
+    self.hp = ability:GetSpecialValueFor("bonus_health")
+    self.mana = ability:GetSpecialValueFor("bonus_mana")
+    self.heal_amp = ability:GetSpecialValueFor("heal_amp")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+  end
 
-function modifier_item_ghost_king_bar_stacking_stats:DeclareFunctions()
+  if IsServer() then
+    self:OnIntervalThink()
+  end
+end
+
+function modifier_item_ghost_king_bar_passives:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
+
+function modifier_item_ghost_king_bar_passives:OnDestroy()
+  if not IsServer() then
+    return
+  end
+
+  local charges = 0
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if ability and not ability:IsNull() then
+    if ability:GetCurrentCharges() >= charges then
+      charges = ability:GetCurrentCharges()
+    end
+  end
+  if caster and not caster:IsNull() then
+    if not caster.ghostKingBarChargesOAA then
+      caster.ghostKingBarChargesOAA = charges
+    else
+      caster.ghostKingBarChargesOAA = math.max(caster.ghostKingBarChargesOAA, charges)
+    end
+  end
+end
+
+function modifier_item_ghost_king_bar_passives:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
+    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Strength()
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+function modifier_item_ghost_king_bar_passives:GetModifierBonusStats_Strength()
+  return self.str or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Agility()
-  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
+function modifier_item_ghost_king_bar_passives:GetModifierBonusStats_Agility()
+  return self.agi or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
-function modifier_item_ghost_king_bar_stacking_stats:GetModifierBonusStats_Intellect()
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+function modifier_item_ghost_king_bar_passives:GetModifierBonusStats_Intellect()
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_ghost_king_bar_passives:GetModifierHealthBonus()
+  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+end
+
+function modifier_item_ghost_king_bar_passives:GetModifierManaBonus()
+  return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+end
+
+function modifier_item_ghost_king_bar_passives:GetModifierHealAmplify_PercentageSource()
+  if self:GetStackCount() == 2 then
+    return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
+  else
+    return 0
+  end
+end
+
+function modifier_item_ghost_king_bar_passives:GetModifierHealAmplify_PercentageTarget()
+  if self:GetStackCount() == 2 then
+    return self.heal_amp or self:GetAbility():GetSpecialValueFor("heal_amp")
+  else
+    return 0
+  end
+end
+
+function modifier_item_ghost_king_bar_passives:IsAura()
+  return true
+end
+
+function modifier_item_ghost_king_bar_passives:GetModifierAura()
+  return "modifier_item_ghost_king_bar_aura_effect"
+end
+
+function modifier_item_ghost_king_bar_passives:GetAuraRadius()
+  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
+end
+
+function modifier_item_ghost_king_bar_passives:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_item_ghost_king_bar_passives:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+-- Add charges when abilities are cast by visible enemies
+if IsServer() then
+  function modifier_item_ghost_king_bar_passives:OnAbilityExecuted(event)
+    -- Only the first item will get charges
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local unit = event.unit
+
+    -- Uncomment the flag stuff if you don't want to gain charges from every enemy and not just visible enemies
+    local filterResult = UnitFilter(
+      unit,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_OTHER),
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, --bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, DOTA_UNIT_TARGET_FLAG_NO_INVIS),
+      parent:GetTeamNumber()
+    )
+
+    -- Reduce charge gain radius while in duels
+    local unitIsInRange = true
+    if Duels:IsActive() then
+      local charge_radius = ability:GetSpecialValueFor("charge_radius")
+      local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
+      unitIsInRange = distanceToUnit <= charge_radius
+    end
+
+    if filterResult == UF_SUCCESS and event.ability:ProcsMagicStick() and unitIsInRange then
+      ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, ability:GetSpecialValueFor("max_charges")))
+      parent.ghostKingBarChargesOAA = ability:GetCurrentCharges()
+    end
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_ghost_king_bar_non_stacking_stats = class(ModifierBaseClass)
+modifier_item_ghost_king_bar_aura_effect = class(ModifierBaseClass)
 
-function modifier_item_ghost_king_bar_non_stacking_stats:IsHidden()
-  return true
+function modifier_item_ghost_king_bar_aura_effect:IsHidden() -- needs tooltip
+  return self:GetParent():HasModifier("modifier_item_holy_locket_aura")
 end
 
-function modifier_item_ghost_king_bar_non_stacking_stats:IsDebuff()
+function modifier_item_ghost_king_bar_aura_effect:IsDebuff()
   return false
 end
 
-function modifier_item_ghost_king_bar_non_stacking_stats:IsPurgable()
+function modifier_item_ghost_king_bar_aura_effect:IsPurgable()
   return false
 end
 
-function modifier_item_ghost_king_bar_non_stacking_stats:OnCreated()
+function modifier_item_ghost_king_bar_aura_effect:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
-    self.mana_regen_amp = ability:GetSpecialValueFor("mana_regen_multiplier")
+    self.hp_regen = ability:GetSpecialValueFor("aura_health_regen")
   end
 end
 
-modifier_item_ghost_king_bar_non_stacking_stats.OnRefresh = modifier_item_ghost_king_bar_non_stacking_stats.OnCreated
+modifier_item_ghost_king_bar_aura_effect.OnRefresh = modifier_item_ghost_king_bar_aura_effect.OnCreated
 
-function modifier_item_ghost_king_bar_non_stacking_stats:DeclareFunctions()
+function modifier_item_ghost_king_bar_aura_effect:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
-    MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,    -- GetModifierSpellAmplify_Percentage
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierSpellLifestealRegenAmplify_Percentage
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
   }
 end
 
--- Doesn't stack with Kaya items
-function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierMPRegenAmplify_Percentage()
-  local parent = self:GetParent()
-  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
+function modifier_item_ghost_king_bar_aura_effect:GetModifierConstantHealthRegen()
+  if self:GetParent():HasModifier("modifier_item_holy_locket_aura") then
     return 0
   end
-  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
-    return 0
-  end
-  return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("mana_regen_multiplier")
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("aura_health_regen")
 end
 
--- Doesn't stack with Kaya items
-function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellAmplify_Percentage()
-  local parent = self:GetParent()
-  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
-    return 0
-  end
-  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
-    return 0
-  end
-  return self.spell_amp or self:GetAbility():GetSpecialValueFor("spell_amp")
-end
-
--- Doesn't stack with Kaya items
-function modifier_item_ghost_king_bar_non_stacking_stats:GetModifierSpellLifestealRegenAmplify_Percentage()
-  local parent = self:GetParent()
-  if parent:HasModifier("modifier_item_kaya") or parent:HasModifier("modifier_item_yasha_and_kaya") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("modifier_item_ethereal_blade") then
-    return 0
-  end
-  if parent:HasModifier("modifier_item_sacred_skull_non_stacking_stats") then
-    return 0
-  end
-  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("spell_lifesteal_amp")
+function modifier_item_ghost_king_bar_aura_effect:GetTexture()
+  return "item_holy_locket"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -178,22 +324,12 @@ function modifier_item_ghost_king_bar_active:OnCreated()
   if ability and not ability:IsNull() then
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
     self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
-    self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
-    self.mana_regen_amp = ability:GetSpecialValueFor("active_mana_regen_amp")
   end
 
   --self:StartIntervalThink(FrameTime())
 end
 
-function modifier_item_ghost_king_bar_active:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
-    self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
-    self.spell_lifesteal_amp = ability:GetSpecialValueFor("active_spell_lifesteal_amp")
-    self.mana_regen_amp = ability:GetSpecialValueFor("active_mana_regen_amp")
-  end
-end
+modifier_item_ghost_king_bar_active.OnRefresh = modifier_item_ghost_king_bar_active.OnCreated
 
 --function modifier_item_ghost_king_bar_active:OnIntervalThink()
   --local parent = self:GetParent()
@@ -210,8 +346,6 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-    MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_EVENT_ON_HEAL_RECEIVED,
   }
 end
@@ -240,20 +374,12 @@ function modifier_item_ghost_king_bar_active:GetModifierHealAmplify_PercentageTa
   return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
 end
 
-function modifier_item_ghost_king_bar_active:GetModifierSpellLifestealRegenAmplify_Percentage()
-  return self.spell_lifesteal_amp or self:GetAbility():GetSpecialValueFor("active_spell_lifesteal_amp")
-end
-
-function modifier_item_ghost_king_bar_active:GetModifierMPRegenAmplify_Percentage()
-  return self.mana_regen_amp or self:GetAbility():GetSpecialValueFor("active_mana_regen_amp")
-end
-
 if IsServer() then
   function modifier_item_ghost_king_bar_active:OnHealReceived(event)
     local parent = self:GetParent()
     local inflictor = event.inflictor -- Heal ability
     local unit = event.unit -- Healed unit
-    --local amount = event.gain -- Amount healed
+    local amount = event.gain -- Amount healed
 
     local ghost_king_bar = self:GetAbility()
     if not ghost_king_bar or ghost_king_bar:IsNull() then
@@ -270,12 +396,15 @@ if IsServer() then
       return
     end
 
-    local function BuffHealedUnit()
-      if not unit:HasModifier("modifier_item_ghost_king_bar_buff") then
-        unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("buff_duration")})
-      end
+    if amount <= 0 then
+      return
     end
 
+    local function BuffHealedUnit()
+      unit:AddNewModifier(parent, ghost_king_bar, "modifier_item_ghost_king_bar_buff", {duration = ghost_king_bar:GetSpecialValueFor("buff_duration")})
+    end
+
+    -- We check what is inflictor just in case Valve randomly changes inflictor handle type or if someone put a caster instead of the ability when using the Heal method
     if inflictor.GetAbilityName == nil then
       -- Inflictor is not an ability or item
       if parent ~= inflictor then
@@ -290,8 +419,21 @@ if IsServer() then
       local name = inflictor:GetAbilityName()
       local ability = parent:FindAbilityByName(name)
       if not ability then
-        -- Parent doesn't have this ability or item -> parent is not the healer
-        return
+        -- Parent doesn't have this ability
+        -- Check items:
+        local found_item
+        for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+          local item = parent:GetItemInSlot(i)
+          if item and item:GetName() == name then
+            found_item = true
+            ability = item
+            break
+          end
+        end
+        if not found_item then
+          --  Parent doesn't have this item -> parent is not the healer
+          return
+        end
       end
       if ability:GetLevel() > 0 or ability:IsItem() then
         -- Parent has this ability or item with the same name as inflictor
@@ -352,14 +494,7 @@ function modifier_item_ghost_king_bar_buff:OnCreated()
   end
 end
 
-function modifier_item_ghost_king_bar_buff:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.magic_resist = ability:GetSpecialValueFor("buff_magic_resistance")
-    self.status_resist = ability:GetSpecialValueFor("buff_status_resistance")
-    self.move_speed = ability:GetSpecialValueFor("buff_move_speed")
-  end
-end
+modifier_item_ghost_king_bar_buff.OnRefresh = modifier_item_ghost_king_bar_buff.OnCreated
 
 function modifier_item_ghost_king_bar_buff:DeclareFunctions()
   return {

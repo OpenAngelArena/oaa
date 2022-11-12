@@ -66,17 +66,12 @@ end
 
 modifier_item_eternal_shroud_oaa.OnRefresh = modifier_item_eternal_shroud_oaa.OnCreated
 
-function modifier_item_eternal_shroud_oaa:IsPurgable()
-  return false
-end
-
 function modifier_item_eternal_shroud_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
   }
-  return funcs
 end
 
 function modifier_item_eternal_shroud_oaa:GetModifierConstantHealthRegen()
@@ -141,11 +136,11 @@ function modifier_eternal_shroud_oaa_barrier:DeclareFunctions()
 end
 
 function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConstant(keys)
-  local parent = self:GetParent()
   if IsClient() then
     return self.barrier_health
   else
     if keys.damage_type == DAMAGE_TYPE_MAGICAL then
+      local parent = self:GetParent()
       local damage = keys.original_damage
 
       -- Don't block more than remaining barrier hp

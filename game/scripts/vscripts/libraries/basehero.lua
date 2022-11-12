@@ -104,7 +104,7 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
 
   -- Priority Items > Hero Attack Modifiers > Base Attack
 
-  if unit:HasModifier("modifier_item_siege_mode_active") then
+  if unit:HasModifier("modifier_item_splash_cannon_passive") then
     unit:SetRangedProjectileName("particles/base_attacks/ranged_tower_bad.vpcf")
 
   elseif unit:HasModifier("modifier_item_trumps_fists_passive") then

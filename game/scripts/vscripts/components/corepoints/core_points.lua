@@ -97,7 +97,14 @@ function CorePointsManager:FilterOrders(keys)
               shop_item_name = shop_item:GetName()
             end
             if shop_item_name == "item_core_info" and Gold then
-              Gold:ModifyGold(unit_with_order, self:GetGoldValueOfCorePoint(), true, DOTA_ModifyGold_SellItem)
+              local gold = self:GetGoldValueOfCorePoint()
+              local player = PlayerResource:GetPlayer(playerID)
+              -- Convert Core Points to Gold
+              Gold:ModifyGold(unit_with_order, gold, true, DOTA_ModifyGold_SellItem)
+              -- Gold text/number over unit's head
+              SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit_with_order, gold, player)
+              -- Sound for the player only
+              EmitSoundOnClient("General.Sell", player)
               return false
             end
           else

@@ -5,6 +5,10 @@ function modifier_item_devastator_corruption_armor:IsHidden()
   return false
 end
 
+function modifier_item_devastator_corruption_armor:IsDebuff()
+  return true
+end
+
 function modifier_item_devastator_corruption_armor:IsPurgable()
   return true
 end

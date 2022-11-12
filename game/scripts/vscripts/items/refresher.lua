@@ -17,18 +17,22 @@ function item_refresher_2:OnSpellStart()
 
   -- Put ability exemption in here
   local exempt_ability_table = {
-    tinker_rearm = true,
+    --dazzle_good_juju = true,
     riki_permanent_invisibility = true,
+    tinker_rearm = true,
     treant_natures_guise = true
   }
 
   -- Put item exemption in here
   local exempt_item_table = {
+    item_ex_machina = true,
     item_refresher = true,
     item_refresher_2 = true,
     item_refresher_3 = true,
     item_refresher_4 = true,
-    item_refresher_5 = true
+    item_refresher_5 = true,
+    item_refresher_shard = true,
+    item_tranquil_boots = true,
   }
 
   -- Reset cooldown for abilities that is not rearm
@@ -40,12 +44,24 @@ function item_refresher_2:OnSpellStart()
     end
   end
 
-  -- Reset cooldown for items
+  -- Reset cooldown for items that are not in backpack
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = caster:GetItemInSlot(i)
     if item and not exempt_item_table[item:GetAbilityName()] then
       item:EndCooldown()
     end
+  end
+
+  -- Reset TP scroll cooldown
+  local tp_scroll = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
+  if tp_scroll and tp_scroll:GetAbilityName() == "item_tpscroll" then
+    tp_scroll:EndCooldown()
+  end
+
+  -- Reset neutral item cooldown
+  local neutral_item = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
+  if neutral_item and neutral_item:IsNeutralDrop() and not exempt_item_table[neutral_item:GetAbilityName()] then
+    neutral_item:EndCooldown()
   end
 end
 
@@ -53,6 +69,7 @@ function item_refresher_2:IsRefreshable()
   return false
 end
 
+item_refresher_3 = item_refresher_2
 item_refresher_4 = item_refresher_2
 item_refresher_5 = item_refresher_2
 
@@ -64,8 +81,16 @@ function modifier_item_refresher_oaa:IsHidden()
   return true
 end
 
+function modifier_item_refresher_oaa:IsDebuff()
+  return false
+end
+
 function modifier_item_refresher_oaa:IsPurgable()
   return false
+end
+
+function modifier_item_refresher_oaa:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 function modifier_item_refresher_oaa:OnCreated()
@@ -74,20 +99,18 @@ function modifier_item_refresher_oaa:OnCreated()
     self.bonus_health = ability:GetSpecialValueFor("bonus_health")
     self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
   end
 end
 
 modifier_item_refresher_oaa.OnRefresh = modifier_item_refresher_oaa.OnCreated
 
-function modifier_item_refresher_oaa:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
 function modifier_item_refresher_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
@@ -101,4 +124,8 @@ end
 
 function modifier_item_refresher_oaa:GetModifierManaBonus()
   return self.bonus_mana or self:GetAbility():GetSpecialValueFor('bonus_mana')
+end
+
+function modifier_item_refresher_oaa:GetModifierConstantManaRegen()
+  return self.bonus_mana_regen or self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
 end

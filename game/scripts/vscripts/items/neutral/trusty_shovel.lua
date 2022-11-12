@@ -229,9 +229,11 @@ modifier_item_trusty_shovel_oaa_passive = class(ModifierBaseClass)
 function modifier_item_trusty_shovel_oaa_passive:IsHidden()
   return true
 end
+
 function modifier_item_trusty_shovel_oaa_passive:IsDebuff()
   return false
 end
+
 function modifier_item_trusty_shovel_oaa_passive:IsPurgable()
   return false
 end
@@ -243,12 +245,7 @@ function modifier_item_trusty_shovel_oaa_passive:OnCreated()
   end
 end
 
-function modifier_item_trusty_shovel_oaa_passive:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp = ability:GetSpecialValueFor("bonus_health")
-  end
-end
+modifier_item_trusty_shovel_oaa_passive.OnRefresh = modifier_item_trusty_shovel_oaa_passive.OnCreated
 
 function modifier_item_trusty_shovel_oaa_passive:DeclareFunctions()
   return {

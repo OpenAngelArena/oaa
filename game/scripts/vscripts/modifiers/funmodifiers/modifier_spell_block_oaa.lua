@@ -23,10 +23,10 @@ function modifier_spell_block_oaa:RemoveOnDeath()
 end
 
 function modifier_spell_block_oaa:OnCreated()
-  self.spell_block_chance = 25
+  self.spell_block_chance = 30
   self.spell_block_cd = 10
-  self.magic_resist = 25
-  self.status_resist = 25
+  self.magic_resist = 30
+  self.status_resist = 30
 end
 
 function modifier_spell_block_oaa:DeclareFunctions()

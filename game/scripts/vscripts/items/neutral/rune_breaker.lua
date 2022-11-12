@@ -39,10 +39,6 @@ function item_rune_breaker_oaa:OnSpellStart()
   --caster:EmitSound("")
 end
 
-function item_rune_breaker_oaa:ProcsMagicStick()
-  return false
-end
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_rune_breaker_oaa_passive = class(ModifierBaseClass)
@@ -50,21 +46,17 @@ modifier_item_rune_breaker_oaa_passive = class(ModifierBaseClass)
 function modifier_item_rune_breaker_oaa_passive:IsHidden()
   return true
 end
+
 function modifier_item_rune_breaker_oaa_passive:IsDebuff()
   return false
 end
+
 function modifier_item_rune_breaker_oaa_passive:IsPurgable()
   return false
 end
 
 function modifier_item_rune_breaker_oaa_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    self.dmg = ability:GetSpecialValueFor("bonus_damage_during_duels")
-  end
-
+  self:OnRefresh()
   if IsServer() then
     self:StartIntervalThink(0)
   end
@@ -128,10 +120,9 @@ function modifier_item_rune_breaker_oaa_debuff:IsPurgable()
 end
 
 function modifier_item_rune_breaker_oaa_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_PASSIVES_DISABLED] = true,
   }
-  return state
 end
 
 function modifier_item_rune_breaker_oaa_debuff:GetEffectName()

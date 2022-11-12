@@ -5,21 +5,20 @@
   //=================================================================================================================
   "item_recipe_silver_edge_2"
   {
-    "ID"                                                  "3150"    // unique ID
+    "ID"                                                  "3150"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge_2"
     "ItemRequirements"
     {
       "01"                                                "item_silver_edge;item_upgrade_core"
-      //"02"                                                "item_nullifier;item_upgrade_core"
-      //"03"                                                "item_greater_crit;item_upgrade_core"
-      //"04"                                                "item_bloodthorn;item_upgrade_core"
     }
   }
 
@@ -30,15 +29,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3154"    // unique ID
+    "ID"                                                  "3154"
     "BaseClass"                                           "item_silver_edge"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/silver_edge_2"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "shadow_blade"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -48,7 +48,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
     "ItemCost"                                            "6951"
     "ItemShopTags"                                        "damage;attack_speed;movespeed;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -58,73 +57,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "52 62 82 112 152"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "35 45 55 65 75"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "windwalk_duration"                               "14.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "windwalk_movement_speed"                         "25 30 35 40 45"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "windwalk_fade_time"                              "0.3"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "windwalk_bonus_damage"                           "175 275 375 475 575"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "backstab_duration"                               "4"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "30"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "150 180 210 240 270"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_crit_damage"                             "60 90 120 150 180"
-      }
+      "bonus_damage"                                      "52 62 82 112 152"
+      "bonus_attack_speed"                                "35 45 55 65 75"
+      "bonus_strength"                                    "0"
+      "bonus_intellect"                                   "0"
+      "bonus_mana_regen"                                  "0"
+      "windwalk_duration"                                 "14.0"
+      "windwalk_movement_speed"                           "25 30 35 40 45"
+      "windwalk_fade_time"                                "0.3"
+      "windwalk_bonus_damage"                             "175 275 375 475 575"
+      "backstab_duration"                                 "4"
+      "crit_chance"                                       "30"
+      "crit_multiplier"                                   "150 180 210 240 270"
+      "tooltip_crit_damage"                               "60 90 120 150 180"
     }
   }
 }

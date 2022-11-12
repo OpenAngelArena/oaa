@@ -167,6 +167,7 @@ item_shield_staff_4 = item_shield_staff
 item_shield_staff_5 = item_shield_staff
 
 ---------------------------------------------------------------------------------------------------
+
 modifier_shield_staff_active_buff = class(ModifierBaseClass)
 
 function modifier_shield_staff_active_buff:IsHidden()
@@ -260,6 +261,10 @@ function modifier_item_shield_staff_non_stacking_stats:IsPurgable()
   return false
 end
 
+function modifier_item_shield_staff_non_stacking_stats:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_shield_staff_non_stacking_stats:OnCreated()
   if not IsServer() then
     return
@@ -282,16 +287,18 @@ function modifier_item_shield_staff_non_stacking_stats:OnRefresh()
 end
 
 function modifier_item_shield_staff_non_stacking_stats:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
-
-  return funcs
 end
 
 function modifier_item_shield_staff_non_stacking_stats:GetModifierPhysical_ConstantBlock()
   if not IsServer() then
+    return
+  end
+
+  if not self:IsFirstItemInInventory() then
     return
   end
 
@@ -334,6 +341,10 @@ end
 
 function modifier_item_shield_staff_non_stacking_stats:GetModifierTotal_ConstantBlock(event)
   if not IsServer() then
+    return
+  end
+
+  if not self:IsFirstItemInInventory() then
     return
   end
 

@@ -16,7 +16,7 @@
     "ItemResult"                                          "item_sonic"
     "ItemRequirements"
     {
-      "01"                                                "item_greater_phase_boots_2;item_upgrade_core_3"
+      "01"                                                "item_greater_phase_boots_3;item_upgrade_core_3"
       "02"                                                "item_greater_power_treads_2;item_upgrade_core_3"
       "03"                                                "item_greater_tranquil_boots_2;item_upgrade_core_3"
       "04"                                                "item_greater_travel_boots_2;item_upgrade_core_3"
@@ -45,9 +45,9 @@
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_sonic_2"
 
-    "ItemCost"                                            "14053"
-    "ItemShopTags"                                        "sonic"
-    "ItemQuality"                                         ""
+    "ItemCost"                                            "14003"
+    "ItemShopTags"                                        "agi;attack_speed;move_speed"
+    "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sonic"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -56,7 +56,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "80 85"
+        "bonus_movement_speed"                            "75 80"
       }
       "02"
       {
@@ -76,12 +76,13 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0"
+        "duration"                                        "6.0"
       }
     }
 
     "precache"
     {
+      "particle"                                          "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
     }
   }

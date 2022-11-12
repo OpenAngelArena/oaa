@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_vampire;item_upgrade_core_4"
-      //"02"                                                "item_satanic_4;item_upgrade_core_4"
     }
   }
 
@@ -38,7 +37,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9457"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/transformation/vampire.lua"
+    "ScriptFile"                                          "items/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/vampire_2"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"

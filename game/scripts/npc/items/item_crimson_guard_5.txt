@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_crimson_guard_4;item_upgrade_core_4"
-      //"02"                                                "item_heart_4;item_upgrade_core_4"
-      //"03"                                                "item_regen_crystal_2;item_upgrade_core_4"
-      //"04"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
@@ -70,7 +67,7 @@
       "bonus_armor"                                       "6 7 9 12 16"
       "block_damage_melee"                                "75 125 175 225 275"
       "block_damage_ranged"                               "50 85 120 155 190"
-      "block_chance"                                      "60"
+      "block_chance"                                      "75"
       "duration"                                          "12"
       "bonus_aoe_radius"                                  "1200"
       "block_damage_melee_active"                         "100 150 200 250 300"
