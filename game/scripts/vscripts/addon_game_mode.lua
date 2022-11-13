@@ -26,10 +26,6 @@ require("components")
 require('gamemode')
 require('precache')
 
---require('libraries/keyvalues')
--- DotaStats
---require("statcollection/init")
-
 function Precache( context )
 --[[
   This function is used to precache resources/units/items/abilities that will be needed
