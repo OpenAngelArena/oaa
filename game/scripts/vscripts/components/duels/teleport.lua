@@ -11,14 +11,7 @@ local function SafeTeleport(unit, location, maxDistance)
     if ability and ability:IsActivated() then
       unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
     else
-      print("Error: Could not find Consume ability on an Infesting unit")
-      D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND CONSUME ABILITY", {
-        ErrorMessage = "Tried to teleport an Infesting unit, but could not find Consume ability on that unit, or ability was not castable",
-        ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
-        GameVersion = GAME_VERSION,
-        DedicatedServers = (IsDedicatedServer() and 1) or 0,
-        MatchID = tostring(GameRules:GetMatchID())
-      })
+      print("Error: Tried to teleport an Infesting unit, but could not find Consume ability on that unit, or ability was not castable")
     end
   end
   if unit:FindModifierByName("modifier_life_stealer_assimilate_effect") then
@@ -27,14 +20,7 @@ local function SafeTeleport(unit, location, maxDistance)
     if ability and ability:IsActivated() then
       unit:CastAbilityNoTarget(ability, unit:GetPlayerOwnerID())
     else
-      print("Error: Could not find Eject ability on an Assimilating unit")
-      D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND EJECT ABILITY", {
-        ErrorMessage = "Tried to teleport an Assimilating unit, but could not find Eject ability on that unit, or ability was not castable",
-        ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
-        GameVersion = GAME_VERSION,
-        DedicatedServers = (IsDedicatedServer() and 1) or 0,
-        MatchID = tostring(GameRules:GetMatchID())
-      })
+      print("Error: Tried to teleport an Assimilating unit, but could not find Eject ability on that unit, or ability was not castable")
     end
   end
   local exileModifiers = {

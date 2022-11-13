@@ -90,7 +90,6 @@ end
 local ipairs_gen = ipairs({}) -- get the generating function from ipairs
 local pairs_gen = pairs({ a = 0 }) -- get the generating function from pairs
 local map_gen = function(tab, key)
-
   local key1, value = pairs_gen(tab, key)
   return key1, key1, value
 end
@@ -398,7 +397,6 @@ exports.take = export1(take)
 
 local drop_n = function(n, gen, param, state)
   assert(n >= 0, "invalid first argument to drop_n")
-
   for i=1,n,1 do
     state = gen(param, state)
     if state == nil then
@@ -734,8 +732,8 @@ methods.minimum_by = methods.min_by
 exports.minimum_by = exports.min_by
 
 local max = function(gen_x, param_x, state_x)
-  local state_x, m = gen_x(param_x, state_x)
-  if state_x == nil then
+  local state_x1, m = gen_x(param_x, state_x)
+  if state_x1 == nil then
     error("max: iterator is empty")
   end
 
@@ -747,7 +745,7 @@ local max = function(gen_x, param_x, state_x)
     cmp = max_cmp
   end
 
-  for _, r in gen_x, param_x, state_x do
+  for _, r in gen_x, param_x, state_x1 do
     m = cmp(m, r)
   end
   return m
@@ -758,12 +756,12 @@ methods.maximum = methods.max
 exports.maximum = exports.max
 
 local max_by = function(cmp, gen_x, param_x, state_x)
-  local state_x, m = gen_x(param_x, state_x)
-  if state_x == nil then
+  local state_x1, m = gen_x(param_x, state_x)
+  if state_x1 == nil then
     error("max: iterator is empty")
   end
 
-  for _, r in gen_x, param_x, state_x do
+  for _, r in gen_x, param_x, state_x1 do
     m = cmp(m, r)
   end
   return m

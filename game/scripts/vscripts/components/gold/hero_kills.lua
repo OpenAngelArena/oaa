@@ -93,16 +93,9 @@ function HeroKillGold:HeroDeathHandler (keys)
     if killedHero then
       killedHeroName = killedHero:GetName()
     else
-      killedHeroName = "Killed entity also nil ??????"
+      killedHeroName = "also nil ??????"
     end
-    D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "HERO DEATH EVENT FIRED WITH NIL KILLER", {
-      ErrorMessage = killedHeroName,
-      ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
-      GameVersion = GAME_VERSION,
-      DedicatedServers = (IsDedicatedServer() and 1) or 0,
-      MatchID = tostring(GameRules:GetMatchID())
-    })
-
+    print("HeroKillGold: Killer is nil and killed hero is: "..killedHeroName)
     return
   end
 
@@ -252,19 +245,11 @@ function HeroKillGold:HeroDeathHandler (keys)
     return string1 .. ", " .. string2
   end
 
-  -- - don't know why this is nil sometimes but it's breaking things
+  -- don't know why this is nil sometimes but it's breaking things
   if not killedNWRanking then
     local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
     local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
     killedTeamNWString = "[" .. killedTeamNWString .. "]"
-    D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "COULD NOT FIND KILLED HERO NW", {
-      ErrorMessage = "Killed team networth list: " .. killedTeamNWString .. ", killed player ID: " .. killedPlayerID .. ", killed team player IDs: " .. killedPlayerIDsString,
-      ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
-      GameVersion = GAME_VERSION,
-      DedicatedServers = (IsDedicatedServer() and 1) or 0,
-      MatchID = tostring(GameRules:GetMatchID())
-    })
-
     killedNWRanking = #entireKilledTeamNW
   end
 
