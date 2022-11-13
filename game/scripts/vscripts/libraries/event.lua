@@ -51,6 +51,7 @@ function Event ()
         local status, err = pcall(function ()
           handler.fn(unpack(data))
         end)
+        DebugPrint(status)
         if err then
           print(err)
           table.insert(errors, err)

@@ -25,12 +25,8 @@ require('libraries/timers')
 require('libraries/notifications')
 -- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
--- This library can be used for performing "Frankenstein" attachments on units
---require('libraries/attachments')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
--- This library can be used to create container inventories or container shops
---require('libraries/containers')
 -- Helpful math functions from the internet
 require('libraries/math')
 -- chat command registry made easy

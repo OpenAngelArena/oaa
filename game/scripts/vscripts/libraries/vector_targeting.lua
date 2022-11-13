@@ -76,7 +76,7 @@ CANCEL_EVENT = {
 function VectorTarget:OrderFilter(event)
   --local order = event.order_type
   local units = event.units
-  local playerID = event.issuer_player_id_const
+  --local playerID = event.issuer_player_id_const
   --local player = PlayerResource:GetPlayer(playerID)
   local unit
   if units["0"] then
