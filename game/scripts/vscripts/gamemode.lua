@@ -193,6 +193,7 @@ function InitModule(myModule)
       myModule:Init()
       myModule.initialized = true
     end)
+    DebugPrint(status)
     if err then
       local info = debug.getinfo(2, "Sl")
       print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)

@@ -190,8 +190,6 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
 
   Minimap:SpawnBossIcon(pit, bossTier)
 
-  local newBossTier = math.min(5, bossTier + 1)
-
   bossAI.onDeath(function ()
     DebugPrint('Boss has died ' .. pit.killCount .. ' times')
     pit.killCount = pit.killCount + 1

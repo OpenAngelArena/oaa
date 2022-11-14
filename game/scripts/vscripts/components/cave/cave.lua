@@ -476,7 +476,6 @@ end
 function CaveHandler:KickPlayers (teamID)
   DebugPrint('Kicking Players out of the cave.')
 
-  local cave = CaveHandler.caves[teamID]
   local spawns = {
     [DOTA_TEAM_GOODGUYS] = Entities:FindByClassname(nil, 'info_player_start_goodguys'):GetAbsOrigin(),
     [DOTA_TEAM_BADGUYS] = Entities:FindByClassname(nil, 'info_player_start_badguys' ):GetAbsOrigin(),
@@ -504,7 +503,7 @@ function CaveHandler:KickPlayers (teamID)
   DebugPrint('Teleporting units now')
 
   Timers:CreateTimer(function()
-      self:TeleportAll(units, spawns)
+    CaveHandler:TeleportAll(units, spawns)
   end)
 end
 
@@ -539,15 +538,14 @@ function CaveHandler:TeleportAll(units, spawns)
             MoveCameraToPlayer(unit)
             unit:Stop()
           else
-            local unlisten = Duels.onEnd(function ()
-
-            FindClearSpaceForUnit(
-              unit, -- unit
-              spawns[unit:GetTeamNumber()], -- location
-              false -- ???
-            )
-            MoveCameraToPlayer(unit)
-            unit:Stop()
+            Duels.onEnd(function ()
+              FindClearSpaceForUnit(
+                unit, -- unit
+                spawns[unit:GetTeamNumber()], -- location
+                false -- ???
+              )
+              MoveCameraToPlayer(unit)
+              unit:Stop()
             end)
           end
         end

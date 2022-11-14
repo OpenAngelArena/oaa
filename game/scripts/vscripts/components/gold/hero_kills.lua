@@ -235,9 +235,9 @@ function HeroKillGold:HeroDeathHandler (keys)
   local killedTeamNW = sum(entireKilledTeamNW)
 
   -- NW factor is defined as (enemy team net worth / allied team net worth) - 1 and has a minimum of zero and a maximum of 1.
-  local nwFactor = math.min(1, math.max(0, (killedTeamNW / killerTeamNW) - 1))
+  --local nwFactor = math.min(1, math.max(0, (killedTeamNW / killerTeamNW) - 1))
   -- (Team NW disadvantage / 4000) has a maximum of 1
-  local teamNWDisadvantage = math.min(math.max(0, killedTeamNW - killerTeamNW) / 4000, 1)
+  --local teamNWDisadvantage = math.min(math.max(0, killedTeamNW - killerTeamNW) / 4000, 1)
 
   local killedNWRanking = index(killedNetworth, entireKilledTeamNW)
 
@@ -247,9 +247,9 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   -- don't know why this is nil sometimes but it's breaking things
   if not killedNWRanking then
-    local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
-    local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
-    killedTeamNWString = "[" .. killedTeamNWString .. "]"
+    --local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
+    --local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
+    --killedTeamNWString = "[" .. killedTeamNWString .. "]"
     killedNWRanking = #entireKilledTeamNW
   end
 

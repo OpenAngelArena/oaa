@@ -11,9 +11,8 @@ function BountyRunePick:Init()
 end
 
 function BountyRunePick:Filter(filter_table)
-  local vanilla_gold_bounty = filter_table.gold_bounty
+  --local vanilla_gold_bounty = filter_table.gold_bounty
   local playerID = filter_table.player_id_const
-  local vanilla_xp_bounty = filter_table.xp_bounty
   --Debug:EnableDebugging()
 
   -- Game time in seconds:

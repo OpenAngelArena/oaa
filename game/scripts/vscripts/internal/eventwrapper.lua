@@ -9,6 +9,7 @@ function ListenToGameEvent (eventName, fn, obj)
     local status, err = pcall(function()
       fn(unpack(data))
     end)
+    DebugPrint(status)
     if err then
       print(err)
       error(err)

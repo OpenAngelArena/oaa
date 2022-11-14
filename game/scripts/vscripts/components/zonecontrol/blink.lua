@@ -25,16 +25,7 @@ end
 function BlinkBlock:Init ()
   self.moduleName = "BlinkBlock"
   ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(BlinkBlock, 'OnAbilityUsed'), self)
-  ListenToGameEvent("dota_player_begin_cast", Dynamic_Wrap(BlinkBlock, 'OnAbilityCastBegins'), self)
-end
-
-
--- An ability was used by a player
-function BlinkBlock:OnAbilityCastBegins(keys)
-  local player = PlayerResource:GetPlayer(keys.PlayerID)
-  local abilityname = keys.abilityname
-
-  -- AbilityMovementMap[keys.PlayerID].start = player:GetAssignedHero():GetAbsOrigin()
+  --ListenToGameEvent("dota_player_begin_cast", Dynamic_Wrap(BlinkBlock, 'OnAbilityCastBegins'), self)
 end
 
 -- An ability was used by a player
@@ -54,10 +45,10 @@ function BlinkBlock:OnAbilityUsed(keys)
     local endPos = hero:GetAbsOrigin()
     -- AbilityMovementMap[keys.PlayerID].start = nil
 
-    local shouldMoveUnit, moveLocaiton = BlinkBlock:CheckBlink(startPos, endPos)
+    local shouldMoveUnit, moveLocation = BlinkBlock:CheckBlink(startPos, endPos)
 
     if shouldMoveUnit then
-      FindClearSpaceForUnit(player:GetAssignedHero(), moveLocaiton, false)
+      FindClearSpaceForUnit(player:GetAssignedHero(), moveLocation, false)
     end
   end
 

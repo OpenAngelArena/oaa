@@ -120,7 +120,7 @@ function GameMode:OnEntityHurt(keys)
   --DebugPrintTable(keys)
 
   if keys.entindex_attacker and keys.entindex_killed then
-    local entCause = EntIndexToHScript(keys.entindex_attacker)
+    --local entCause = EntIndexToHScript(keys.entindex_attacker)
     local entVictim = EntIndexToHScript(keys.entindex_killed)
 
     if entVictim.GetHealth and entVictim:GetHealth() == 0 then
@@ -158,8 +158,8 @@ function GameMode:OnItemPickedUp(keys)
   if keys.ItemEntityIndex then
     itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
   end
-  local playerID = keys.PlayerID
-  local itemname = keys.itemname
+  --local playerID = keys.PlayerID
+  --local itemname = keys.itemname
 end
 
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
@@ -181,13 +181,13 @@ function GameMode:OnItemPurchased(keys)
   DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
-  local playerID = keys.PlayerID
+  --local playerID = keys.PlayerID
 
   -- The name of the item purchased
-  local itemName = keys.itemname
+  --local itemName = keys.itemname
 
   -- The cost of the item purchased
-  local itemcost = keys.itemcost
+  --local itemcost = keys.itemcost
 end
 
 -- An ability was used by a player
@@ -198,8 +198,8 @@ function GameMode:OnAbilityUsed(keys)
   DebugPrint('[BAREBONES] AbilityUsed')
   DebugPrintTable(keys)
 
-  local playerID = keys.PlayerID
-  local abilityname = keys.abilityname
+  --local playerID = keys.PlayerID
+  --local abilityname = keys.abilityname
 end
 
 -- A non-player entity (necro-book, chen creep, etc) used an ability
@@ -210,7 +210,7 @@ function GameMode:OnNonPlayerUsedAbility(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
   DebugPrintTable(keys)
 
-  local abilityname = keys.abilityname
+  --local abilityname = keys.abilityname
 end
 
 -- A player changed their name
@@ -221,8 +221,8 @@ function GameMode:OnPlayerChangedName(keys)
   DebugPrint('[BAREBONES] OnPlayerChangedName')
   DebugPrintTable(keys)
 
-  local newName = keys.newname
-  local oldName = keys.oldName
+  --local newName = keys.newname
+  --local oldName = keys.oldName
 end
 
 -- A player leveled up an ability
@@ -233,8 +233,8 @@ function GameMode:OnPlayerLearnedAbility(keys)
   DebugPrint('[BAREBONES] OnPlayerLearnedAbility')
   DebugPrintTable(keys)
 
-  local playerID = keys.PlayerID
-  local abilityname = keys.abilityname
+  --local playerID = keys.PlayerID
+  --local abilityname = keys.abilityname
 end
 
 -- A channelled ability finished by either completing or being interrupted
@@ -245,8 +245,8 @@ function GameMode:OnAbilityChannelFinished(keys)
   DebugPrint('[BAREBONES] OnAbilityChannelFinished')
   DebugPrintTable(keys)
 
-  local abilityname = keys.abilityname
-  local interrupted = keys.interrupted == 1
+  --local abilityname = keys.abilityname
+  --local interrupted = keys.interrupted == 1
 end
 
 -- A player leveled up
@@ -266,11 +266,11 @@ function GameMode:OnLastHit(keys)
   DebugPrint('[BAREBONES] OnLastHit')
   DebugPrintTable(keys)
 
-  local isFirstBlood = keys.FirstBlood == 1
-  local isHeroKill = keys.HeroKill == 1
-  local isTowerKill = keys.TowerKill == 1
-  local playerID = keys.PlayerID
-  local killedEnt = EntIndexToHScript(keys.EntKilled)
+  --local isFirstBlood = keys.FirstBlood == 1
+  --local isHeroKill = keys.HeroKill == 1
+  --local isTowerKill = keys.TowerKill == 1
+  --local playerID = keys.PlayerID
+  --local killedEnt = EntIndexToHScript(keys.EntKilled)
 end
 
 -- A tree was cut down by tango, quelling blade, etc
@@ -281,8 +281,8 @@ function GameMode:OnTreeCut(keys)
   DebugPrint('[BAREBONES] OnTreeCut')
   DebugPrintTable(keys)
 
-  local treeX = keys.tree_x
-  local treeY = keys.tree_y
+  --local treeX = keys.tree_x
+  --local treeY = keys.tree_y
 end
 
 -- A rune was activated by a player
@@ -293,8 +293,8 @@ function GameMode:OnRuneActivated(keys)
   DebugPrint('[BAREBONES] OnRuneActivated')
   DebugPrintTable(keys)
 
-  local playerID = keys.PlayerID
-  local rune = keys.rune
+  --local playerID = keys.PlayerID
+  --local rune = keys.rune
 end
 
 -- A player picked a hero
@@ -305,9 +305,9 @@ function GameMode:OnPlayerPickHero(keys)
   DebugPrint('[BAREBONES] OnPlayerPickHero')
   DebugPrintTable(keys)
 
-  local heroClass = keys.hero
-  local heroEntity = EntIndexToHScript(keys.heroindex)
-  local player_index = keys.player
+  --local heroClass = keys.hero
+  --local heroEntity = EntIndexToHScript(keys.heroindex)
+  --local player_index = keys.player
 end
 
 -- A player killed another player in a multi-team context
@@ -391,7 +391,7 @@ function GameMode:OnIllusionsCreated(keys)
   DebugPrint('[BAREBONES] OnIllusionsCreated')
   DebugPrintTable(keys)
 
-  local originalEntity = EntIndexToHScript(keys.original_entindex)
+  --local originalEntity = EntIndexToHScript(keys.original_entindex)
 end
 
 -- This function is called whenever an item is combined to create a new item
@@ -403,13 +403,13 @@ function GameMode:OnItemCombined(keys)
   DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
-  local playerID = keys.PlayerID
+  --local playerID = keys.PlayerID
 
   -- The name of the item purchased
-  local itemName = keys.itemname
+  --local itemName = keys.itemname
 
   -- The cost of the item purchased
-  local itemcost = keys.itemcost
+  --local itemcost = keys.itemcost
 end
 
 -- This function is called whenever an ability begins its PhaseStart phase (but before it is actually cast)
@@ -420,8 +420,8 @@ function GameMode:OnAbilityCastBegins(keys)
   DebugPrint('[BAREBONES] OnAbilityCastBegins')
   DebugPrintTable(keys)
 
-  local playerID = keys.PlayerID
-  local abilityName = keys.abilityname
+  --local playerID = keys.PlayerID
+  --local abilityName = keys.abilityname
 end
 
 -- This function is called whenever a tower is killed
@@ -432,8 +432,8 @@ function GameMode:OnTowerKill(keys)
   DebugPrint('[BAREBONES] OnTowerKill')
   DebugPrintTable(keys)
 
-  local gold = keys.gold
-  local team = keys.teamnumber
+  --local gold = keys.gold
+  --local team = keys.teamnumber
 end
 
 -- This function is called whenever a player changes there custom team selection during Game Setup
@@ -444,9 +444,9 @@ function GameMode:OnPlayerSelectedCustomTeam(keys)
   DebugPrint('[BAREBONES] OnPlayerSelectedCustomTeam')
   DebugPrintTable(keys)
 
-  local playerID = keys.player_id
-  local success = (keys.success == 1)
-  local team = keys.team_id
+  --local playerID = keys.player_id
+  --local success = (keys.success == 1)
+  --local team = keys.team_id
 end
 
 -- This function is called whenever an NPC reaches its goal position/target
