@@ -241,12 +241,11 @@ function HeroKillGold:HeroDeathHandler (keys)
 
   local killedNWRanking = index(killedNetworth, entireKilledTeamNW)
 
-  local function catWithComma(string1, string2)
-    return string1 .. ", " .. string2
-  end
-
   -- don't know why this is nil sometimes but it's breaking things
   if not killedNWRanking then
+    --local function catWithComma(string1, string2)
+      --return string1 .. ", " .. string2
+    --end
     --local killedTeamNWString = reduce(catWithComma, head(entireKilledTeamNW), tail(entireKilledTeamNW))
     --local killedPlayerIDsString = reduce(catWithComma, head(killedPlayerIDs), tail(killedPlayerIDs))
     --killedTeamNWString = "[" .. killedTeamNWString .. "]"

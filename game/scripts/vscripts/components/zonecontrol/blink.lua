@@ -32,15 +32,15 @@ end
 function BlinkBlock:OnAbilityUsed(keys)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local hero = player:GetAssignedHero()
-  local abilityname = keys.abilityname
-
-  local startPos = player:GetAssignedHero():GetAbsOrigin()
+  local startPos = hero:GetAbsOrigin()
 
   -- todo: Meepo will break this
   -- todo: allow things like natures profit
-  local function checkHeroPosition ()
-    if hero:IsInvulnerable() then
-      Timers:CreateTimer(0.01, checkHeroPosition)
+  Timers:CreateTimer(0.01, function ()
+    if not hero or hero:IsNull() then
+      return
+    elseif hero:IsInvulnerable() then
+      return 0.01
     end
     local endPos = hero:GetAbsOrigin()
     -- AbilityMovementMap[keys.PlayerID].start = nil
@@ -48,11 +48,9 @@ function BlinkBlock:OnAbilityUsed(keys)
     local shouldMoveUnit, moveLocation = BlinkBlock:CheckBlink(startPos, endPos)
 
     if shouldMoveUnit then
-      FindClearSpaceForUnit(player:GetAssignedHero(), moveLocation, false)
+      FindClearSpaceForUnit(hero, moveLocation, false)
     end
-  end
-
-  Timers:CreateTimer(0.01, checkHeroPosition)
+  end)
 end
 
 function BlinkBlock:CheckBlink(startLoc, endLoc)
