@@ -36,7 +36,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "40 55 70 85 170 340"
+      "bonus_damage"
+      {
+        "value"                                           "40 55 70 85 170 340"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "AbilityChargeRestoreTime"
       {
         "value"                                           "25 20 15 10 10 10"

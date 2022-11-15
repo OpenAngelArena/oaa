@@ -39,7 +39,11 @@
       "range"                                             "750"
       "AbilityCastRange"                                  "600"
       "speed"                                             "1050"
-      "damage"                                            "80 160 240 320 640 1280"
+      "damage"
+      {
+        "value"                                           "80 160 240 320 640 1280"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "reduction"
       {
         "value"                                           "-30"

@@ -29,7 +29,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "powershot_damage"                                  "150 250 350 450 900 1800"
+      "powershot_damage"
+      {
+        "value"                                           "150 250 350 450 900 1800"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "damage_reduction" //OAA
       {
         "value"                                           "10"

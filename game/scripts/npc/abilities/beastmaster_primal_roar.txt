@@ -21,8 +21,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
@@ -44,8 +42,16 @@
     "AbilityValues"
     {
       "duration"                                          "3.0 3.5 4.0 4.5 5.0"
-      "damage"                                            "150 300 450 900 1650" //OAA
-      "side_damage"                                       "150 300 450 900 1650" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "150 300 450 900 1650"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "side_damage" //OAA
+      {
+        "value"                                           "150 300 450 900 1650"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "damage_radius"
       {
         "value"                                           "300"

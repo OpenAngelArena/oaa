@@ -18,12 +18,9 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-
-    "AbilityCastPoint"                                    "0.5"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.5"
     "AbilityCooldown"                                     "100 95 90 85 80" //OAA
 
     // Cost
@@ -45,7 +42,11 @@
         "value"                                           "800"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
       }
-      "damage"                                            "75 125 175 325 475" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "75 125 175 325 475"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "purgable"
       {
         "value"                                           "0"

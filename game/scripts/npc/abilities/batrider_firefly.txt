@@ -33,7 +33,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_second"                                 "20 40 60 80 160 320" //OAA
+      "damage_per_second" //OAA
+      {
+        "value"                                           "20 40 60 80 160 320"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "movement_speed"                                    "3 6 9 12 15 18"
       "radius"                                            "200"
       "duration"

@@ -41,7 +41,11 @@
         "value"                                           "6 8 10 12 14"
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king"
       }
-      "epicenter_damage"                                  "110 180 250 500 750" //OAA
+      "epicenter_damage" //OAA
+      {
+        "value"                                           "110 180 250 500 750"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "epicenter_radius_base"
       {
         "value"                                           "500 500 500 550 600"

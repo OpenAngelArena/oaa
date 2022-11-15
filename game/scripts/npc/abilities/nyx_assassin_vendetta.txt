@@ -18,9 +18,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-    "HasShardUpgrade"                                     "1"
-
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "70 65 60 55 50" //OAA
@@ -36,7 +33,11 @@
       "duration"                                          "40 50 60 70 80"
       "fade_time"                                         "0.0"
       "movement_speed"                                    "16 18 20 22 24"
-      "bonus_damage"                                      "300 600 900 1800 2700" //OAA
+      "bonus_damage" //OAA
+      {
+        "value"                                           "300 600 900 1800 2700"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "health_regen_rate_scepter"                         "3"
       "mana_regen_rate_scepter"                           "3"
       "break_duration"                                    "4.0"
