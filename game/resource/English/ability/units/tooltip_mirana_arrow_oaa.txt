@@ -1,8 +1,21 @@
 //=============================================================================
 // Mirana Sacred Arrow
 //=============================================================================
+// "DOTA_Tooltip_ability_mirana_arrow"                                            "Sacred Arrow"
+// "DOTA_Tooltip_ability_mirana_arrow_Description"                                "Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target. Instantly kills the first non-ancient creep it hits."
+// "DOTA_Tooltip_ability_mirana_arrow_scepter_description"                        "Causes Sacred Arrow to release a Starstorm on enemies along the travel path of the primary arrow, releasing a second Starstorm that deals less damage to the impacted unit."
+// "DOTA_Tooltip_ability_mirana_arrow_scepter_radius"                             "SEARCH RADIUS:"
+// "DOTA_Tooltip_ability_mirana_arrow_scepter_starstorm_target_pct"               "%PRIMARY HIT STARSTORM DAMAGE:"
+// "DOTA_Tooltip_ability_mirana_arrow_Lore"                                       "Lunar energies make the Princess of the Moon's arrows more deadly than most."
+// "DOTA_Tooltip_ability_mirana_arrow_Note0"                                      "For every 150 distance the arrow travels, the stun duration upon impact increases by 0.5 seconds, and the bonus damage added increases by 14."
+// "DOTA_Tooltip_ability_mirana_arrow_Note1"                                      "Sacred Arrow can hit invisible units."
+// "DOTA_Tooltip_ability_mirana_arrow_arrow_range"                                "RANGE:"
+// "DOTA_Tooltip_ability_mirana_arrow_arrow_min_stun"                             "MINIMUM STUN:"
+// "DOTA_Tooltip_ability_mirana_arrow_arrow_max_stun"                             "MAXIMUM STUN:"
+// "DOTA_Tooltip_ability_mirana_arrow_arrow_bonus_damage"                         "MAXIMUM BONUS DAMAGE:"
+
 "DOTA_Tooltip_ability_mirana_arrow_oaa"                                         "#{DOTA_Tooltip_ability_mirana_arrow}"
-"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "#{DOTA_Tooltip_ability_mirana_arrow_Description}"
+"DOTA_Tooltip_ability_mirana_arrow_oaa_Description"                             "Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target. Instantly kills the first non-ancient creep it hits.<font color='#FFA500'>Arrow can pierce units.</font>"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Lore"                                    "#{DOTA_Tooltip_ability_mirana_arrow_Lore}"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note0"                                   "Pierce count represents how many units a single arrow can pierce, not how many units it can stun."
 "DOTA_Tooltip_ability_mirana_arrow_oaa_Note1"                                   "#{DOTA_Tooltip_ability_mirana_arrow_Note1}"
@@ -14,6 +27,8 @@
 "DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_pierce_count"                      "ARROW PIERCE COUNT:"
 "DOTA_Tooltip_ability_mirana_arrow_oaa_scepter_description"                     "Causes Sacred Arrow to release a Starstorm on enemies within 650 AoE along the travel path of the arrow, releasing a second Starstorm that deals 75% damage to the impacted and pierced units."
 
+"DOTA_Tooltip_ability_mirana_arrow_Description"                                 "#{DOTA_Tooltip_ability_mirana_arrow_oaa_Description}"
+"DOTA_Tooltip_ability_mirana_arrow_Note0"                                       "#{DOTA_Tooltip_ability_mirana_arrow_oaa_Note0}"
 "DOTA_Tooltip_ability_mirana_arrow_scepter_description"                         "#{DOTA_Tooltip_ability_mirana_arrow_oaa_scepter_description}"
 "DOTA_Tooltip_ability_mirana_arrow_arrow_pierce_count"                          "#{DOTA_Tooltip_ability_mirana_arrow_oaa_arrow_pierce_count}"
 
