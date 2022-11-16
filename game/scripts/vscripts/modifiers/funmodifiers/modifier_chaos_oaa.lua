@@ -102,7 +102,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_true_sight_strike_oaa",
     "modifier_wisdom_oaa",
   }
-  
+
   local healer_heroes = {
     "npc_dota_hero_abaddon",
     "npc_dota_hero_chen",
@@ -125,11 +125,11 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_wisp",
     "npc_dota_hero_witch_doctor",
   }
-  
+
   for _, v in pairs(healer_heroes) do
     if parent:GetUnitName() == v then
-	  table.insert(self.mid_game_modifiers, "modifier_healer_oaa")
-	  table.insert(self.late_game_modifiers, "modifier_healer_oaa")
+      table.insert(self.mid_game_modifiers, "modifier_healer_oaa")
+      table.insert(self.late_game_modifiers, "modifier_healer_oaa")
     end
   end
 
