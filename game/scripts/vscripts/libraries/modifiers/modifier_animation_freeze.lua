@@ -1,6 +1,6 @@
 modifier_animation_freeze = class({})
 
-function modifier_animation_freeze:OnCreated(keys) 
+function modifier_animation_freeze:OnCreated(keys)
 
 end
 
@@ -12,19 +12,16 @@ function modifier_animation_freeze:IsHidden()
   return true
 end
 
-function modifier_animation_freeze:IsDebuff() 
+function modifier_animation_freeze:IsDebuff()
   return false
 end
 
-function modifier_animation_freeze:IsPurgable() 
+function modifier_animation_freeze:IsPurgable()
   return false
 end
 
-function modifier_animation_freeze:CheckState() 
-  local state = {
+function modifier_animation_freeze:CheckState()
+  return {
     [MODIFIER_STATE_FROZEN] = true,
   }
-
-  return state
 end
-

@@ -17,8 +17,6 @@ function item_lucience:GetIntrinsicModifierName()
 end
 
 function item_lucience:OnSpellStart()
-  local caster = self:GetCaster()
-
   self:StartCooldown(self:GetCooldown(self:GetLevel()))
 
   -- Switch state

@@ -21,26 +21,12 @@ require('libraries/event')
 
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
--- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
---require('libraries/physics')
--- This library can be used for advanced 3D projectile systems.
---require('libraries/projectiles')
 -- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
 require('libraries/notifications')
 -- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
--- This library can be used for performing "Frankenstein" attachments on units
---require('libraries/attachments')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
--- This library can be used to create container inventories or container shops
---require('libraries/containers')
--- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
---require('libraries/modmaker')
--- This library provides an automatic graph construction of path_corner entities within the map
---require('libraries/pathgraph')
--- This library (by Noya) provides player selection inspection and management from server lua
---require('libraries/selection')
 -- Helpful math functions from the internet
 require('libraries/math')
 -- chat command registry made easy
@@ -71,8 +57,6 @@ require('events')
 
 -- load components
 require('components/index')
-
---require("examples/worldpanelsExample")
 
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
@@ -205,7 +189,7 @@ function InitModule(myModule)
       print("Module "..tostring(myModule.moduleName).." is already initialized and there was an attempt to initialize it again -> preventing")
       return
     end
-    local status, err = pcall(function ()
+    local status, err = pcall(function () --luacheck: ignore status
       myModule:Init()
       myModule.initialized = true
     end)

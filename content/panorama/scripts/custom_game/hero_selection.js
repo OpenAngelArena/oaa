@@ -206,7 +206,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM24: '#game_option_max_power',
     HM25: '#game_option_hp_mana_switch',
     HM26: '#game_option_magus',
-    HM27: '#game_option_brawler'
+    HM27: '#game_option_brawler',
+    HM28: '#game_option_chaos'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {

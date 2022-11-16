@@ -102,9 +102,9 @@ end
 -- The returned fn takes a variable number of args, applies the rightmost of fns to the args,
 -- the next fn (right-to-left) to the result, etc.
 function compose(f, ...)
-  local function compose1(f, g)
+  local function compose1(f1, g)
     return function (...)
-      return f(g(...))
+      return f1(g(...))
     end
   end
   return reduce(compose1, f, {...})

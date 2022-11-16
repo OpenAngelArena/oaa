@@ -35,7 +35,6 @@ end
 
 if IsServer() then
   function modifier_any_damage_crit_oaa:GetModifierPreAttack_CriticalStrike(event)
-    local parent = self:GetParent()
     local target = event.target
 
     -- Check if attacked entity exists

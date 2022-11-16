@@ -253,6 +253,14 @@ function HeroSelection:StartSelection ()
           table.insert(rankedpickorder.bans, key)
         end
       end
+    elseif OAAOptions.settings.GAME_MODE == "LP" then
+      local herolistFile = 'scripts/npc/herolist_lp.txt'
+      local herolistTable = LoadKeyValues(herolistFile)
+      for key, value in pairs(herolistTable) do
+        if value == 0 then
+          table.insert(rankedpickorder.bans, key)
+        end
+      end
     end
     if OAAOptions.settings.HEROES_MODS == "HM03" or OAAOptions.settings.HEROES_MODS_2 == "HM03" then
       local herolistFile = 'scripts/npc/herolist_blood_magic.txt'
@@ -419,7 +427,7 @@ function HeroSelection:RankedManager (event)
       CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', {
         player_name = player_name,
         hero = choice,
-        picker_playerid = event.playerID
+        picker_playerid = event.PlayerID
       })
     end
     if choice == 'forcerandom' then
@@ -430,9 +438,8 @@ function HeroSelection:RankedManager (event)
         player_name = PlayerResource:GetPlayerName(event.PlayerID),
         hero = choice,
         forced = 1,
-        picker_playerid = event.playerID
+        picker_playerid = event.PlayerID
       }
-      --local name = string.gsub(choice, "npc_dota_hero_", "") -- Cuts the npc_dota_hero_ prefix
       if choice == previewHero then
         data.forced_pick = 1
         CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)

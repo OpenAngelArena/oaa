@@ -17,8 +17,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
@@ -33,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trance_duration"                                   "6.5" 
+      "trance_duration"                                   "6.5"
       "AbilityCooldown"
       {
         "value"                                           "90 80 70 60 50"

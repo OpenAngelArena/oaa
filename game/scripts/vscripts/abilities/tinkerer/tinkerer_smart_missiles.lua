@@ -105,32 +105,46 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return false
   end
 
-  -- Ignore neutral creeps and couriers but not bosses
+  local caster = self:GetCaster()
+  local base_damage = self:GetSpecialValueFor("base_damage")
+
+  -- Check for bonus base damage talent
+  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_2")
+  if talent2 and talent2:GetLevel() > 0 then
+    base_damage = base_damage + talent2:GetSpecialValueFor("value")
+  end
+
+  -- Damage table
+  local damage_table = {}
+  damage_table.victim = target
+  damage_table.attacker = caster
+  damage_table.damage = base_damage
+  damage_table.ability = self
+  damage_table.damage_type = self:GetAbilityDamageType()
+
+  -- Glance (go through them, damage them but don't explode) neutral creeps but not bosses and ignore couriers completely
   if (target:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not target:IsOAABoss()) or target:IsCourier() then
+    if not target:IsMagicImmune() then
+      ApplyDamage(damage_table)
+    end
     return false
   end
 
-  local caster = self:GetCaster()
-
-  -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being hit by multishot missiles
+  -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being stunned by multishot missiles
   local stunned_modifier = target:FindModifierByNameAndCaster("modifier_tinkerer_smart_missiles_stun", caster)
   if stunned_modifier and data.multishot_bool == 1 then
+    if not target:IsMagicImmune() then
+      ApplyDamage(damage_table)
+    end
     return false
   end
 
   local bonus_max_hp_damage = self:GetSpecialValueFor("bonus_max_hp_damage")
   local bonus_damage_range = self:GetSpecialValueFor("bonus_damage_range")
-  local base_damage = self:GetSpecialValueFor("base_damage")
   local stun_duration = self:GetSpecialValueFor("stun_duration")
   local rocket_vision = self:GetSpecialValueFor("rocket_vision")
   local rocket_explode_vision = self:GetSpecialValueFor("rocket_explode_vision")
   local vision_duration = self:GetSpecialValueFor("vision_duration")
-
-  -- Check for bonus damage talent
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_2")
-  if talent2 and talent2:GetLevel() > 0 then
-    base_damage = base_damage + talent2:GetSpecialValueFor("value")
-  end
 
   -- Calculate traveled distance
   local origin_position = Vector(tonumber(data.ox), tonumber(data.oy), tonumber(data.oz))
@@ -148,6 +162,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   -- Calculate total damage
   local total_damage = base_damage + bonus_damage
+  damage_table.damage = total_damage
 
   -- Particle
   local particle_name = "particles/units/heroes/hero_tinker/tinker_missle_explosion.vpcf"
@@ -157,20 +172,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   -- Status resistance fix
   local actual_duration = target:GetValueChangedByStatusResistance(stun_duration)
 
-  -- Apply Stun before damage (Applying stun after damage is bad)
+  -- Apply stun and damage - stun before the damage (Applying stun after damage is bad)
   if not target:IsMagicImmune() then
     target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = actual_duration})
-  end
-
-  -- Damage table
-  local damage_table = {}
-  damage_table.victim = target
-  damage_table.attacker = caster
-  damage_table.damage = total_damage
-  damage_table.ability = self
-  damage_table.damage_type = self:GetAbilityDamageType()
-
-  if not target:IsMagicImmune() then
     ApplyDamage(damage_table)
   end
 

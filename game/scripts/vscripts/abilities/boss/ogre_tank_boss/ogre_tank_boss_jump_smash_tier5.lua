@@ -23,5 +23,5 @@ end
 
 function ogre_tank_boss_jump_smash_tier5:OnSpellStart()
   local caster = self:GetCaster()
-  local hThinker = CreateModifierThinker(caster, self, "modifier_ogre_tank_melee_smash_thinker", { duration = self:GetSpecialValueFor( "jump_speed") }, caster:GetOrigin(), caster:GetTeamNumber(), false)
+  CreateModifierThinker(caster, self, "modifier_ogre_tank_melee_smash_thinker", { duration = self:GetSpecialValueFor( "jump_speed") }, caster:GetOrigin(), caster:GetTeamNumber(), false)
 end

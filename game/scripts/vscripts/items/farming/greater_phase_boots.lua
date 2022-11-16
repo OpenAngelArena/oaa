@@ -286,7 +286,6 @@ function modifier_item_greater_phase_boots_active:OnIntervalThink()
   end
 
   local parent = self:GetParent()
-  local spell = self:GetAbility()
 
   -- find all enemies in range
   local units = FindUnitsInRadius(

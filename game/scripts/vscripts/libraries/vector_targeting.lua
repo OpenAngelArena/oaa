@@ -74,10 +74,10 @@ CANCEL_EVENT = {
 ]]
 
 function VectorTarget:OrderFilter(event)
-  local order = event.order_type
+  --local order = event.order_type
   local units = event.units
-  local playerID = event.issuer_player_id_const
-  local player = PlayerResource:GetPlayer(playerID)
+  --local playerID = event.issuer_player_id_const
+  --local player = PlayerResource:GetPlayer(playerID)
   local unit
   if units["0"] then
     unit = EntIndexToHScript(units["0"])
@@ -90,22 +90,26 @@ function VectorTarget:OrderFilter(event)
   return true
 end
 
-function CDOTABaseAbility:GetVectorTargetRange()
+---------------------------------------------------------------------------------------------------
+
+VectorTargetAbilityBaseClass = class(AbilityBaseClass)
+
+function VectorTargetAbilityBaseClass:GetVectorTargetRange()
   return 800
 end
 
-function CDOTABaseAbility:GetVectorTargetStartRadius()
+function VectorTargetAbilityBaseClass:GetVectorTargetStartRadius()
   return 125
 end
 
-function CDOTABaseAbility:GetVectorTargetEndRadius()
+function VectorTargetAbilityBaseClass:GetVectorTargetEndRadius()
   return self:GetVectorTargetStartRadius()
 end
 
-function CDOTABaseAbility:GetVectorPosition()
+function VectorTargetAbilityBaseClass:GetVectorPosition()
   return self.vectorTargetPosition
 end
 
-function CDOTABaseAbility:GetVectorDirection()
+function VectorTargetAbilityBaseClass:GetVectorDirection()
   return self.vectorTargetDirection
 end

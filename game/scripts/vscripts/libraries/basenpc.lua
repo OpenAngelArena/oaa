@@ -179,7 +179,7 @@ if IsServer() then
     }
 
     -- These are mostly transformation buffs, add them to the list above if they don't crash or break the ability and if fair
-    local problematic_modifiers = {
+    local problematic_modifiers = { --luacheck: ignore problematic_modifiers
       "modifier_abaddon_borrowed_time",         -- transformation modifier and an ultimate
       "modifier_oaa_borrowed_time_buff_caster", -- transformation modifier and an ultimate
       "modifier_abaddon_borrowed_time_damage_redirect",

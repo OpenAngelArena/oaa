@@ -237,7 +237,6 @@ if IsServer() then
   function modifier_item_preemptive_bubble_block:GetModifierAvoidDamage(keys)
     local attacker = keys.attacker
     local attackerIsAlly = attacker:GetTeamNumber() == self:GetParent():GetTeamNumber()
-    local parent = self:GetParent()
 
     -- Assume that the existence of the inflictor key means the
     -- damage came from a hero or item ability

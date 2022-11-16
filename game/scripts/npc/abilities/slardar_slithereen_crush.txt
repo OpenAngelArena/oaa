@@ -17,8 +17,6 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
@@ -64,9 +62,9 @@
         "value"                                           "250"
         "special_bonus_scepter"                           "+350"
       }
-      "crush_damage"
+      "crush_damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 1120"
+        "value"                                           "75 150 225 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
       }
       "shard_amp_duration"

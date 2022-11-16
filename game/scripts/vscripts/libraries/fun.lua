@@ -79,20 +79,19 @@ local nil_gen = function(_param, _state)
 end
 
 local string_gen = function(param, state)
-  local state = state + 1
-  if state > #param then
+  local state1 = state + 1
+  if state1 > #param then
     return nil
   end
-  local r = string.sub(param, state, state)
-  return state, r
+  local r = string.sub(param, state1, state1)
+  return state1, r
 end
 
 local ipairs_gen = ipairs({}) -- get the generating function from ipairs
 local pairs_gen = pairs({ a = 0 }) -- get the generating function from pairs
 local map_gen = function(tab, key)
-  local value
-  local key, value = pairs_gen(tab, key)
-  return key, key, value
+  local key1, value = pairs_gen(tab, key)
+  return key1, key1, value
 end
 
 local rawiter = function(obj, param, state)
@@ -186,20 +185,20 @@ exports.foreach = exports.each
 
 local range_gen = function(param, state)
   local stop, step = param[1], param[2]
-  local state = state + step
-  if state > stop then
+  local state1 = state + step
+  if state1 > stop then
     return nil
   end
-  return state, state
+  return state1, state1
 end
 
 local range_rev_gen = function(param, state)
   local stop, step = param[1], param[2]
-  local state = state + step
-  if state < stop then
+  local state1 = state + step
+  if state1 < stop then
     return nil
   end
-  return state, state
+  return state1, state1
 end
 
 local range = function(start, stop, step)
@@ -398,7 +397,6 @@ exports.take = export1(take)
 
 local drop_n = function(n, gen, param, state)
   assert(n >= 0, "invalid first argument to drop_n")
-  local i
   for i=1,n,1 do
     state = gen(param, state)
     if state == nil then
@@ -443,8 +441,7 @@ methods.drop = method1(drop)
 exports.drop = export1(drop)
 
 local split = function(n_or_fun, gen_x, param_x, state_x)
-  return take(n_or_fun, gen_x, param_x, state_x),
-       drop(n_or_fun, gen_x, param_x, state_x)
+  return take(n_or_fun, gen_x, param_x, state_x), drop(n_or_fun, gen_x, param_x, state_x)
 end
 methods.split = method1(split)
 exports.split = export1(split)
@@ -694,8 +691,8 @@ local max_cmp = function(m, n)
 end
 
 local min = function(gen, param, state)
-  local state, m = gen(param, state)
-  if state == nil then
+  local state1, m = gen(param, state)
+  if state1 == nil then
     error("min: iterator is empty")
   end
 
@@ -707,7 +704,7 @@ local min = function(gen, param, state)
     cmp = min_cmp
   end
 
-  for _, r in gen, param, state do
+  for _, r in gen, param, state1 do
     m = cmp(m, r)
   end
   return m
@@ -718,12 +715,12 @@ methods.minimum = methods.min
 exports.minimum = exports.min
 
 local min_by = function(cmp, gen_x, param_x, state_x)
-  local state_x, m = gen_x(param_x, state_x)
-  if state_x == nil then
+  local state_x1, m = gen_x(param_x, state_x)
+  if state_x1 == nil then
     error("min: iterator is empty")
   end
 
-  for _, r in gen_x, param_x, state_x do
+  for _, r in gen_x, param_x, state_x1 do
     m = cmp(m, r)
   end
   return m
@@ -734,8 +731,8 @@ methods.minimum_by = methods.min_by
 exports.minimum_by = exports.min_by
 
 local max = function(gen_x, param_x, state_x)
-  local state_x, m = gen_x(param_x, state_x)
-  if state_x == nil then
+  local state_x1, m = gen_x(param_x, state_x)
+  if state_x1 == nil then
     error("max: iterator is empty")
   end
 
@@ -747,7 +744,7 @@ local max = function(gen_x, param_x, state_x)
     cmp = max_cmp
   end
 
-  for _, r in gen_x, param_x, state_x do
+  for _, r in gen_x, param_x, state_x1 do
     m = cmp(m, r)
   end
   return m
@@ -758,12 +755,12 @@ methods.maximum = methods.max
 exports.maximum = exports.max
 
 local max_by = function(cmp, gen_x, param_x, state_x)
-  local state_x, m = gen_x(param_x, state_x)
-  if state_x == nil then
+  local state_x1, m = gen_x(param_x, state_x)
+  if state_x1 == nil then
     error("max: iterator is empty")
   end
 
-  for _, r in gen_x, param_x, state_x do
+  for _, r in gen_x, param_x, state_x1 do
     m = cmp(m, r)
   end
   return m
@@ -774,7 +771,7 @@ methods.maximum_by = methods.maximum_by
 exports.maximum_by = exports.maximum_by
 
 local totable = function(gen_x, param_x, state_x)
-  local tab, key, val = {}
+  local tab, val = {}
   while true do
     state_x, val = gen_x(param_x, state_x)
     if state_x == nil then
@@ -805,7 +802,7 @@ exports.tomap = export0(tomap)
 -- Transformations
 --------------------------------------------------------------------------------
 
-local map_gen = function(param, state)
+local map_gen = function(param, state) --luacheck: ignore map_gen
   local gen_x, param_x, fun = param[1], param[2], param[3]
   return call_if_not_empty(fun, gen_x(param_x, state))
 end
@@ -905,7 +902,7 @@ local zip = function(...)
   local param = { [2 * n] = 0 }
   local state = { [n] = 0 }
 
-  local i, gen_x, param_x, state_x
+  local gen_x, param_x, state_x
   for i=1,n,1 do
     local it = select(n - i + 1, ...)
     gen_x, param_x, state_x = rawiter(it)
@@ -928,7 +925,7 @@ local cycle_gen_call = function(param, state_x, ...)
 end
 
 local cycle_gen = function(param, state_x)
-  local gen_x, param_x, state_x0 = param[1], param[2], param[3]
+  local gen_x, param_x, state_x0 = param[1], param[2], param[3] --luacheck: ignore state_x0
   return cycle_gen_call(param, gen_x(param_x, state_x))
 end
 
@@ -947,8 +944,8 @@ local chain_gen_r2 = function(param, state, state_x, ...)
     if i > #param / 3 then
       return nil
     end
-    local state_x = param[3 * i]
-    return chain_gen_r1(param, {i, state_x})
+    local state_x1 = param[3 * i]
+    return chain_gen_r1(param, {i, state_x1})
   end
   return {state[1], state_x}, ...
 end
@@ -956,7 +953,7 @@ end
 chain_gen_r1 = function(param, state)
   local i, state_x = state[1], state[2]
   local gen_x, param_x = param[3 * i - 2], param[3 * i - 1]
-  return chain_gen_r2(param, state, gen_x(param_x, state[2]))
+  return chain_gen_r2(param, state, gen_x(param_x, state_x))
 end
 
 local chain = function(...)
@@ -966,7 +963,7 @@ local chain = function(...)
   end
 
   local param = { [3 * n] = 0 }
-  local i, gen_x, param_x, state_x
+  local gen_x, param_x, state_x
   for i=1,n,1 do
     local elem = select(i, ...)
     gen_x, param_x, state_x = iter(elem)

@@ -97,7 +97,7 @@ function Timers:Think()
   --end
 
   -- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
-  local now = GameRules:GetGameTime()
+  local pre_loop_now = GameRules:GetGameTime()
 
   -- Process timers
   for k,v in pairs(Timers.timers) do
@@ -110,7 +110,7 @@ function Timers:Think()
       bOldStyle = true
     end
 
-    local now = GameRules:GetGameTime()
+    local now = pre_loop_now
     if not bUseGameTime then
       now = Time()
     end
@@ -188,7 +188,7 @@ end
 
 function Timers:RemainingTime(name)
   --Calculates Remaining Time on a given timer
-  v = Timers.timers[name]
+  local v = Timers.timers[name]
   local bUseGameTime = true
   if v.useGameTime ~= nil and v.useGameTime == false then
     bUseGameTime = false

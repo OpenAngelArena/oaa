@@ -46,7 +46,7 @@ function lycan_boss_claw_lunge_tier5:OnSpellStart()
   self.lunge_distance = self:GetSpecialValueFor( "lunge_distance" )
   self.lunge_damage = self:GetSpecialValueFor( "lunge_damage" )
 
-  local vPos = nil
+  local vPos
   if self:GetCursorTarget() then
     vPos = self:GetCursorTarget():GetOrigin()
   else

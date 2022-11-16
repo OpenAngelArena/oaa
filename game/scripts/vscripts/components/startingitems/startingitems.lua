@@ -22,17 +22,15 @@ function StartingItems.GiveStartingItems (hero)
     return
   end
 
-  -- We have a timer here so that the courier stuff doesn't interfere
+  -- We have a timer here so that the other stuff (e.g. courier) doesn't interfere
   Timers:CreateTimer(1.54, function ()
-
-    DebugPrint("Giving starting items to " .. hero:GetUnitName())
-
-    -- Create couriers and then cast them straight away
-    for _, itemName in pairs(StartingItems.itemList) do
-        local item = hero:AddItemByName(itemName)
-	    -- no idea if this stuff is gonna be used for anything other than farming cores
-	    -- but if it is, let's emulate dota random bonuses ( aka can't be sold )
-	    -- item:SetSellable(false) -- this removes the right-click menu that's a terrible idea
+    if hero:IsTempestDouble() or hero:IsClone() then
+      return
     end
+    -- Add starting items
+    --for _, itemName in pairs(StartingItems.itemList) do
+      --local item = hero:AddItemByName(itemName)
+	    -- item:SetSellable(false) -- this removes the right-click menu so use with care
+    --end
   end)
 end

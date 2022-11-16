@@ -30,6 +30,23 @@ function modifier_physical_immunity_oaa:GetAbsoluteNoDamagePhysical()
   return 1
 end
 
+function modifier_physical_immunity_oaa:GetEffectName()
+  return "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf"
+  -- "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_omni.vpcf"
+end
+
+function modifier_physical_immunity_oaa:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_physical_immunity_oaa:GetStatusEffectName()
+  return "particles/status_fx/status_effect_guardian_angel.vpcf"
+end
+
+function modifier_physical_immunity_oaa:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
 function modifier_physical_immunity_oaa:GetTexture()
   return "omniknight_guardian_angel"
 end

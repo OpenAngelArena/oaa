@@ -36,7 +36,7 @@
     "AbilityValues"
     {
       "radius"                                            "170"
-      "AbilityChargeRestoreTime"  //OAA
+      "AbilityChargeRestoreTime" //OAA
       {
         "value"                                           "22 21 20 19 18"
         "special_bonus_unique_void_spirit_1"              "-4"
@@ -48,7 +48,11 @@
         "value"                                           "1.25"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "pop_damage"                                        "150 300 450 750 1650" //OAA
+      "pop_damage" //OAA
+      {
+        "value"                                           "150 300 450 750 1650"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "movement_slow_pct"                                 "40 60 80 85 90"
       "ability_chance_pct"
       {

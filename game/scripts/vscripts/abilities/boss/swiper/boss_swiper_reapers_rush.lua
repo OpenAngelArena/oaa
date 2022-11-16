@@ -19,7 +19,7 @@ function boss_swiper_reapers_rush:OnAbilityPhaseStart()
     local width = self:GetSpecialValueFor("radius")
     local target = self:GetCursorPosition()
     local distance = (target - caster:GetAbsOrigin()):Length2D()
-    local castTime = self:GetCastPoint()
+    --local castTime = self:GetCastPoint()
     local direction = (target - caster:GetAbsOrigin()):Normalized()
 
     -- Warning particle

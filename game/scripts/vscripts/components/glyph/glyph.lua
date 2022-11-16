@@ -191,9 +191,6 @@ end
 
 if IsServer() then
   function modifier_custom_glyph_knockback:OnCreated(event)
-    local parent = self:GetParent()
-    local caster = self:GetCaster()
-
     -- Data sent with AddNewModifier (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1

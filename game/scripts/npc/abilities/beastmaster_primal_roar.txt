@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5177"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5177"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -16,20 +16,14 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.5"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -48,12 +42,21 @@
     "AbilityValues"
     {
       "duration"                                          "3.0 3.5 4.0 4.5 5.0"
-      "damage"                                            "150 300 450 900 1650" //OAA
-      "side_damage"                                       "150 300 450 900 1650" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "150 300 450 900 1650"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "side_damage" //OAA
+      {
+        "value"                                           "150 300 450 900 1650"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "damage_radius"
       {
         "value"                                           "300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "slow_movement_speed_pct"                           "-60 -65 -70 -75 -80" //OAA
       "slow_attack_speed_pct"                             "-60 -80 -100 -150 -200" //OAA
@@ -63,7 +66,7 @@
       "movement_speed"                                    "40 45 50 55 60" //OAA
       "movement_speed_duration"                           "3.0 3.5 4 4.5 5.0"
       "AbilityCooldown" //OAA
-      { 
+      {
         "value"                                           "70 65 60 55 50"
         "special_bonus_unique_beastmaster_7"              "-30"
       }

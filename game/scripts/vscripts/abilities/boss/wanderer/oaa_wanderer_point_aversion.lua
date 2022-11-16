@@ -34,10 +34,9 @@ end
 modifier_wanderer_point_aversion_passive.OnRefresh = modifier_wanderer_point_aversion_passive.OnCreated
 
 function modifier_wanderer_point_aversion_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
