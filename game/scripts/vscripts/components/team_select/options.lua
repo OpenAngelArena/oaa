@@ -36,6 +36,7 @@ local hero_mods = {
   HM26 = "modifier_magus_oaa",
   HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
+  HM29 = "modifier_double_multiplier_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -58,7 +59,7 @@ local global_mods = {
   --GM06 = "modifier_ham_oaa",                            -- mostly useless for neutral creeps
   --GM07 = "modifier_no_cast_points_oaa",                 -- mostly useless for any creep
   --GM08 = "modifier_physical_immunity_oaa",
-  --GM09 = "modifier_pro_active_oaa",
+  --GM09 = "modifier_pro_active_oaa",                     -- mostly useless for neutral creeps
   --GM10 = "modifier_spell_block_oaa",                    -- lags
   --GM11 = "modifier_troll_switch_oaa",                   -- lags
   GM12 = true,

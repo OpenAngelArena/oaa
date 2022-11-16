@@ -47,6 +47,7 @@
 "game_option_magus"                                                             "Magus"
 "game_option_brawler"                                                           "Brawler"
 "game_option_chaos"                                                             "Chaos"
+"game_option_double_multiplier"                                                 "2x Multiplier"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -81,6 +82,7 @@
 "game_option_magus_description"                                                 "25% chance for every attack to cast a random spell. Can proc on any attack."
 "game_option_brawler_description"                                               "When attacked you gain bonus attack speed, move speed and attack damage."
 "game_option_chaos_description"                                                 "Every hero has a different modifier. Modifier will change on respawn."
+"game_option_double_multiplier_description"                                     "Every ability number is multiplied by 2 with a few exceptions."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -161,8 +163,8 @@
 "DOTA_Tooltip_modifier_courier_kill_bonus_oaa_Description"                      "Every time you kill a courier you gain +15 all stats."
 "DOTA_Tooltip_modifier_courier_kill_bonus_all_stats_oaa"                        "Courier Kills"
 "DOTA_Tooltip_modifier_courier_kill_bonus_all_stats_oaa_Description"            "+15 all stats per stack"
-"DOTA_Tooltip_modifier_double_multiplier_oaa"                                   "2x Multiplier"
-"DOTA_Tooltip_modifier_double_multiplier_oaa_Description"                       "Every number is multiplied by 2. Starting stats, stat gains aren't modified. Doesn't work for items."
+"DOTA_Tooltip_modifier_double_multiplier_oaa"                                   "#{game_option_double_multiplier}"
+"DOTA_Tooltip_modifier_double_multiplier_oaa_Description"                       "Every ability number is multiplied by 2. Doesn't work for items."
 "DOTA_Tooltip_modifier_true_sight_strike_oaa"                                   "Keeper of the Truth"
 "DOTA_Tooltip_modifier_true_sight_strike_oaa_Description"                       "True Sight, True Strike and illusions can't fool you."
 "DOTA_Tooltip_modifier_mr_phys_weak_oaa"                                        "Fate's Weakness"

@@ -86,8 +86,11 @@ function modifier_aoe_radius_increase_oaa:ReEquipAllItems()
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = parent:GetItemInSlot(i)
     if item then
-      item:OnUnequip()
-      item:OnEquip()
+      local name = item:GetAbilityName()
+      if not string.find(name, "ultimate_scepter") and not string.find(name, "aghanims_scepter") then
+        item:OnUnequip()
+        item:OnEquip()
+      end
     end
   end
 
