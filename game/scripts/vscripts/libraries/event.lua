@@ -48,10 +48,9 @@ function Event ()
     for index = 1,#handlers do
       local handler = handlers[index]
       if handler and not handler.removed then
-        local status, err = pcall(function ()
+        local status, err = pcall(function () --luacheck: ignore status
           handler.fn(unpack(data))
         end)
-        DebugPrint(status)
         if err then
           print(err)
           table.insert(errors, err)

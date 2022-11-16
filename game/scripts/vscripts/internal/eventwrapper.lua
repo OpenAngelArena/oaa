@@ -6,10 +6,9 @@ end
 function ListenToGameEvent (eventName, fn, obj)
   return _ListenToGameEvent(eventName, function (...)
     local data = {...}
-    local status, err = pcall(function()
+    local status, err = pcall(function() --luacheck: ignore status
       fn(unpack(data))
     end)
-    DebugPrint(status)
     if err then
       print(err)
       error(err)

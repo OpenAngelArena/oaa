@@ -441,8 +441,7 @@ methods.drop = method1(drop)
 exports.drop = export1(drop)
 
 local split = function(n_or_fun, gen_x, param_x, state_x)
-  return take(n_or_fun, gen_x, param_x, state_x),
-       drop(n_or_fun, gen_x, param_x, state_x)
+  return take(n_or_fun, gen_x, param_x, state_x), drop(n_or_fun, gen_x, param_x, state_x)
 end
 methods.split = method1(split)
 exports.split = export1(split)
@@ -803,7 +802,7 @@ exports.tomap = export0(tomap)
 -- Transformations
 --------------------------------------------------------------------------------
 
-map_gen = function(param, state)
+local map_gen = function(param, state) --luacheck: ignore map_gen
   local gen_x, param_x, fun = param[1], param[2], param[3]
   return call_if_not_empty(fun, gen_x(param_x, state))
 end
@@ -926,9 +925,8 @@ local cycle_gen_call = function(param, state_x, ...)
 end
 
 local cycle_gen = function(param, state_x)
-  local gen_x, param_x, state_x0 = param[1], param[2], param[3]
-  local state_x1 = state_x or state_x0
-  return cycle_gen_call(param, gen_x(param_x, state_x1))
+  local gen_x, param_x, state_x0 = param[1], param[2], param[3] --luacheck: ignore state_x0
+  return cycle_gen_call(param, gen_x(param_x, state_x))
 end
 
 local cycle = function(gen, param, state)

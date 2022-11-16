@@ -168,10 +168,7 @@ local creepsearchradius = 650  -- Must not be greater than 1600 or error
 ---	My Functions
 ----------------------------------------------------------------------------
 
-
-
-
-local function GetClosestHero( searchradius, bEnemies )
+function GetClosestHero( searchradius, bEnemies )
 	local npcBot=GetBot()
 	EnemyHeroes = {}
 	EnemyHeroes = npcBot:GetNearbyHeroes( searchradius,bEnemies,BOT_MODE_NONE )
@@ -189,21 +186,33 @@ local function GetClosestHero( searchradius, bEnemies )
 	end
 end
 
-local function AllowedGetHealth(unit)
-  if unit and (unit:CanBeSeen() or IsLocationVisible(AllowedGetLocation(unit))) then
-    return unit:GetHealth()
+function AllowedGetHealth(unit)
+  if unit and not unit:IsNull() then
+    if unit:CanBeSeen() or IsLocationVisible(AllowedGetLocation(unit, nil)) then
+      return unit:GetHealth()
+	end
   end
   return
 end
 
-local function AllowedGetLocation(unit, location)
-  if unit and (unit:CanBeSeen() or (location and IsLocationVisible(location))) then
-    return unit:GetLocation()
+function AllowedGetLocation(unit, location)
+  local loc = location
+  if not loc then
+    loc = Vector(0, 0)
   end
-  return location or Vector(0, 0)
+
+  if unit and not unit:IsNull() then
+    if unit:CanBeSeen() then
+      return unit:GetLocation()
+	end
+  end
+  if IsLocationVisible(loc) then
+    return loc
+  end
+  return Vector(0, 0)
 end
 
-local function SwitchCamp()
+function SwitchCamp()
 	local npcBot=GetBot()
 
 	local randomx=camp
@@ -306,16 +315,13 @@ local function SwitchCamp()
 	end
 end
 
-
-
-
-local function AttackMoveHeroes (nRadius)
+function AttackMoveHeroes (nRadius)
 	local npcBot=GetBot()
 
 
 ----AttackMove to Heroes:
 	if GetUnitToUnitDistance( ClosestHero, npcBot ) > npcBot:GetAttackRange()+AttackRangeAdded then
-		local halfWayLocation = AllowedGetLocation(ClosestHero) + npcBot:GetLocation() + npcBot:GetLocation()
+		local halfWayLocation = AllowedGetLocation(ClosestHero, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 		halfWayLocation = halfWayLocation/3
 --		npcBot:Action_ClearActions( true )
 		npcBot:Action_AttackMove( halfWayLocation )
@@ -331,10 +337,7 @@ local function AttackMoveHeroes (nRadius)
 	return
 end
 
-
-
-
-local function GetCreepsInRadius(nRadius)
+function GetCreepsInRadius(nRadius)
 	local npcBot=GetBot()
 
 	NeutralCreeps = nil
@@ -352,37 +355,29 @@ local function GetCreepsInRadius(nRadius)
 	local LowestDistance = 10000
 	local LowestHealth = 10000
 
-	if CurrentCreeps ~= nil then
-	for _,creep in pairs(CurrentCreeps) do
-		if creep ~=nil then
-			if creep:IsNull() ~= true then
-				if creep:IsAlive() then
-					if GetUnitToUnitDistance( creep, npcBot )<LowestDistance then
-						LowestDistance = GetUnitToUnitDistance( creep, npcBot )
-						ClosestCreep=creep
-					end
-					local hp = AllowedGetHealth(creep)
-					if hp then
-					  if hp < LowestHealth then
-						  LowestHealth = hp
-						  WeakestCreep = creep
-					  end
-					  if hp > HighestHealth then
-						  HighestHealth = hp
-						  StrongestCreep = creep
-					  end
+	if CurrentCreeps then
+		for _, creep in pairs(CurrentCreeps) do
+			if creep and not creep:IsNull() and creep:IsAlive() then
+				if GetUnitToUnitDistance( creep, npcBot )<LowestDistance then
+					LowestDistance = GetUnitToUnitDistance( creep, npcBot )
+					ClosestCreep=creep
+				end
+				local hp = AllowedGetHealth(creep)
+				if hp then
+					if hp < LowestHealth then
+						LowestHealth = hp
+						WeakestCreep = creep
+					elseif hp > HighestHealth then
+						HighestHealth = hp
+						StrongestCreep = creep
 					end
 				end
 			end
 		end
 	end
-	end
 end
 
-
-
-
-local function SwitchCamps()
+function SwitchCamps()
 	local npcBot=GetBot()
 --	print("---> ",npcBot:GetUnitName(),"switchcamps")
 	if DotaTime() > -10 then
@@ -539,15 +534,9 @@ local function SwitchCamps()
 	end
 end
 
-
-
-
 ----------------------------------------------------------------------------
 ---	Default Functions
 ----------------------------------------------------------------------------
-
-
-
 
 function  OnStart()
 	local npcBot=GetBot()
@@ -566,14 +555,8 @@ function  OnStart()
 	end
 end
 
-
-
-
 function OnEnd()
 end
-
-
-
 
 function GetDesire()
 	local npcBot=GetBot()
@@ -611,9 +594,6 @@ function GetDesire()
 		return 0.60 -- general farm desire
 	end
 end
-
-
-
 
 function Think()
 	local npcBot=GetBot()
@@ -726,7 +706,7 @@ function Think()
 			if hItem ~= nil then
 				if hItem:GetName() == "item_smoke_of_deceit" then
 					bAttackMove = true
-					halfWayLocation = AllowedGetLocation(hUnit) + npcBot:GetLocation() + npcBot:GetLocation()
+					halfWayLocation = AllowedGetLocation(hUnit, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
 					SmokePlayer = hUnit
 				end
@@ -734,7 +714,7 @@ function Think()
 			if hItem2 ~= nil then
 				if hItem2:GetName() == "item_smoke_of_deceit" then
 					bMoveToLocation = true
-					halfWayLocation = AllowedGetLocation(hUnit) + npcBot:GetLocation() + npcBot:GetLocation()
+					halfWayLocation = AllowedGetLocation(hUnit, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 					halfWayLocation = halfWayLocation/3
 					SmokePlayer = hUnit
 				end
@@ -964,7 +944,7 @@ function Think()
 
 
 	--AttackMove - Closest Creep - From Outside Range
-		halfWayLocation = AllowedGetLocation(ClosestCreep) + npcBot:GetLocation() + npcBot:GetLocation()
+		halfWayLocation = AllowedGetLocation(ClosestCreep, nil) + npcBot:GetLocation() + npcBot:GetLocation()
 		halfWayLocation = halfWayLocation/3
 		npcBot:Action_AttackMove( halfWayLocation )
 		if DotaTime() > stopmessage11 then

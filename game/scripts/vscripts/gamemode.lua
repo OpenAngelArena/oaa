@@ -189,11 +189,10 @@ function InitModule(myModule)
       print("Module "..tostring(myModule.moduleName).." is already initialized and there was an attempt to initialize it again -> preventing")
       return
     end
-    local status, err = pcall(function ()
+    local status, err = pcall(function () --luacheck: ignore status
       myModule:Init()
       myModule.initialized = true
     end)
-    DebugPrint(status)
     if err then
       local info = debug.getinfo(2, "Sl")
       print("Script Runtime Error: " .. info.source:sub(2) .. ":" .. info.currentline .. ": " .. err)
