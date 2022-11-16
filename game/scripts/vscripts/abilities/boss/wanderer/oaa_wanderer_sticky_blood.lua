@@ -48,10 +48,9 @@ end
 modifier_wanderer_sticky_blood_passive.OnRefresh = modifier_wanderer_sticky_blood_passive.OnCreated
 
 function modifier_wanderer_sticky_blood_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -153,11 +152,9 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
 end
 
 function modifier_wanderer_sticky_blood_passive:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
   }
-
-  return state
 end
 
 function modifier_wanderer_sticky_blood_passive:GetPriority()
@@ -215,12 +212,11 @@ function modifier_wanderer_sticky_blood_debuff:OnRefresh()
 end
 
 function modifier_wanderer_sticky_blood_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 function modifier_wanderer_sticky_blood_debuff:GetModifierMoveSpeedBonus_Percentage()

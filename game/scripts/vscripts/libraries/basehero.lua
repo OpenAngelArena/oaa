@@ -84,9 +84,6 @@ function CDOTA_BaseNPC_Hero:GetBaseRangedProjectileName()
   end
   local unit_name = self:GetUnitName()
   local unit_table = GetUnitKeyValuesByName(unit_name)
-  --if self:IsHero() and KeyValues then
-    --unit_table = KeyValues.HeroKV[unit_name] or KeyValues.UnitKV[unit_name]
-  --end
 
   if not unit_table or not unit_table["ProjectileModel"] then
     return self:GetRangedProjectileName()

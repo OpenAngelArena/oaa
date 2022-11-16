@@ -67,7 +67,7 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:IsPurgable()
 end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
   local armor_reduction = self:GetAbility():GetSpecialValueFor("armor_reduction")
 
   -- Talent that improves armor reduction
@@ -84,9 +84,7 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
   --end
 end
 
-function modifier_nevermore_dark_lord_oaa_armor_debuff:OnRefresh()
-  self:OnCreated()
-end
+modifier_nevermore_dark_lord_oaa_armor_debuff.OnRefresh = modifier_nevermore_dark_lord_oaa_armor_debuff.OnCreated
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:DeclareFunctions()
   return {

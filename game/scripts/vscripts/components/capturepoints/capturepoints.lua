@@ -224,7 +224,6 @@ function CapturePoints:GiveItemToWholeTeam (item, teamId)
 end
 
 function CapturePoints:Reward(teamId)
-  local team = GetShortTeamName(teamId)
   if not IsPlayerTeam(teamId) then
     return
   end
@@ -333,7 +332,6 @@ function CapturePoints:EndCapture()
   Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="110px"}})
   DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
-  local currentCapture = self.currentCapture
   self.currentCapture = nil
 
   -- Remove vision over capture points

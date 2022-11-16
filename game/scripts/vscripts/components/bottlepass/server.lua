@@ -238,7 +238,7 @@ function Bottlepass:Request(api, data, cb)
     end
 
     -- Try to decode the result
-    local obj, pos, err = json.decode(res.Body, 1, nil)
+    local obj, pos, err = json.decode(res.Body, 1, nil) --luacheck: ignore pos
 
     cb(err, obj)
   end)

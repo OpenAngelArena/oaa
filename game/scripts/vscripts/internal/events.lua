@@ -24,9 +24,7 @@ function GameMode:_OnGameRulesStateChange(keys)
     newState = newState
   })
 
-  if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
-
-  elseif newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+  if newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
     OnCustomGameSetupEvent(keys)
   elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     GameMode:PostLoadPrecache()

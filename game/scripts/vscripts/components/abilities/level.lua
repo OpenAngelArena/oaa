@@ -102,7 +102,6 @@ function AbilityLevels:SetTalents(hero)
 
   -- 10 - 17
   -- input is { [10] = true, [15] = true, ... }
-  local talentOverrides = {}
   local tree = {
     [10] = aghsPower > 1,
     [15] = aghsPower > 2,
@@ -167,7 +166,6 @@ function AbilityLevels:SetTalents(hero)
             end
           end
         end
-
       end
       if rightLevel == 0 then
         rightAbility:SetLevel(1)
@@ -184,7 +182,6 @@ function AbilityLevels:SetTalents(hero)
             end
           end
         end
-
       end
     else
       -- print ('disabling talents')

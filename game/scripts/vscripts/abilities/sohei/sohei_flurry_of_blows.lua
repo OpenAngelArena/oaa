@@ -372,8 +372,6 @@ end
 
 if IsServer() then
   function modifier_sohei_flurry_of_blows_damage:GetModifierProcAttack_BonusDamage_Magical(event)
-    local parent = self:GetParent()
-    local ability = self:GetAbility()
     local target = event.target
 
     -- Check if attacked entity exists

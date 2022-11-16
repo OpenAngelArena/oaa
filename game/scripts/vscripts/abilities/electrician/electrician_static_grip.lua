@@ -291,18 +291,15 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_static_grip_movement:CheckState()
-	local state = {
-		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-	}
-
-	return state
+  return {
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+  }
 end
 
 --------------------------------------------------------------------------------
 
 if IsServer() then
 	function modifier_electrician_static_grip_movement:OnCreated( event )
-		local parent = self:GetParent()
 		local spell = self:GetAbility()
 		self.target = EntIndexToHScript( event.target )
 		self.speed = spell:GetSpecialValueFor( "pull_speed" ) or 120

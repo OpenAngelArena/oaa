@@ -518,7 +518,7 @@ function AddAnimationTranslate(unit, translate)
     return
   end
 
-  unit:AddNewModifier(unit, nil, "modifier_animation_translate_permanent", {duration=duration, translate=translate})
+  unit:AddNewModifier(unit, nil, "modifier_animation_translate_permanent", {duration = -1, translate = translate})
   unit:SetModifierStackCount("modifier_animation_translate_permanent", unit, _ANIMATION_TRANSLATE_TO_CODE[translate])
 end
 

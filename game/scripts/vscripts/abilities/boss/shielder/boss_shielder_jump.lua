@@ -154,7 +154,7 @@ function modifier_boss_shielder_jump:OnCreated(event)
   -- Get horizontal direction
   local direction = parent:GetForwardVector()
   direction.z = 0
-  direction = direction:Normalized()
+  self.direction = direction:Normalized()
 
   -- Get horizontal distance
   local hor_distance = ability:GetSpecialValueFor("jump_horizontal_distance")

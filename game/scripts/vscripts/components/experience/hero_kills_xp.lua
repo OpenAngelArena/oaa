@@ -40,16 +40,9 @@ function HeroKillXP:HeroDeathHandler(keys)
     if killedHero then
       killedHeroName = killedHero:GetName()
     else
-      killedHeroName = "Killed entity also nil ??????"
+      killedHeroName = "also nil ??????"
     end
-    D2CustomLogging:sendPayloadForTracking(D2CustomLogging.LOG_LEVEL_INFO, "HERO DEATH EVENT FIRED WITH NIL KILLER", {
-      ErrorMessage = killedHeroName,
-      ErrorTime = GetSystemDate() .. " " .. GetSystemTime(),
-      GameVersion = GAME_VERSION,
-      DedicatedServers = (IsDedicatedServer() and 1) or 0,
-      MatchID = tostring(GameRules:GetMatchID())
-    })
-
+    print("HeroKillXP: Killer is nil and killed hero is: "..killedHeroName)
     return
   end
 

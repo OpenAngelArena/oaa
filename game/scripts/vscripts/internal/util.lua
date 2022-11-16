@@ -10,24 +10,24 @@ Debug = Debug or {
 }
 
 function split(s, delimiter)
-    result = {};
-    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-        table.insert(result, match);
-    end
-    return result;
+  local result = {}
+  for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+    table.insert(result, match)
+  end
+  return result
 end
 
 function regexsplit(s, delimiter)
-    result = {};
-    for match in s:gmatch("([^"..delimiter.."]+)") do
-        table.insert(result, match);
-    end
-    return result;
+  local result = {}
+  for match in s:gmatch("([^"..delimiter.."]+)") do
+    table.insert(result, match)
+  end
+  return result
 end
 
 function TracesFromFilename (filename)
   local traces = {}
-  local i = 1
+
 
   if filename == 'components' then
     return {
@@ -67,7 +67,7 @@ function IsAnyTraceEnabled (traces)
 end
 
 function Debug:EnableDebugging()
-  local trace, dir = GetCallingFile()
+  local trace, dir = GetCallingFile() --luacheck: ignore dir
   Debug.EnabledModules[trace[#trace]] = true
 end
 
@@ -131,8 +131,7 @@ function DebugPrintTable(...)
 end
 
 function DevPrintTable(...)
-  local trace, dir = GetCallingFile()
-
+  local trace, dir = GetCallingFile() --luacheck: ignore trace
   PrintTable("[" .. dir .. "]", ...)
 end
 

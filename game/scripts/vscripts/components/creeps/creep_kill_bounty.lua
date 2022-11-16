@@ -7,7 +7,6 @@ GameEvents:OnEntityFatalDamage(function (keys)
     return
   end
   local attacker = EntIndexToHScript(keys.entindex_attacker)
-  local player = attacker:GetPlayerOwner()
   local playerID = attacker:GetPlayerOwnerID()
 
   local function divBy100(num)

@@ -24,7 +24,7 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkDevCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
   ChatCommand:LinkDevCommand("-lazer", Dynamic_Wrap(DevCheats, "AddDevAttack"), self)
-  ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
+  --ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
 end
 
 -- Print all modifiers on player's hero to console
@@ -293,7 +293,7 @@ function DevCheats:LevelUp(keys)
   end
 
   local playerID = keys.playerid
-  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
 
   local desiredLevel = math.min(50, hero:GetLevel() + number)
 

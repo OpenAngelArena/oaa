@@ -142,6 +142,5 @@ end
 --------------------------------------------------------------------------------
 
 function boss_swiper_backswipe_base:OnSpellStart()
-  local caster = self:GetCaster()
-  local range = self:GetCastRange(caster:GetAbsOrigin(), caster)
+
 end

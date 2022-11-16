@@ -109,7 +109,7 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnCreated()
   local caster = self:GetCaster()
   local parent = self:GetParent()
 
-  if not caster or caster:IsNull() then
+  if not caster or caster:IsNull() or not caster:IsAlive() then
     self:Destroy()
   end
 
@@ -137,14 +137,14 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnIntervalThink()
   local ability = self:GetAbility()
 
   -- If needed parameters don't exist or caster becomes silenced then destroy this debuff
-  if not caster or caster:IsNull() or caster:IsSilenced() or not parent or parent:IsNull() or not ability or ability:IsNull() then
+  if not caster or caster:IsNull() or not caster:IsAlive() or caster:IsSilenced() or not parent or parent:IsNull() or not ability or ability:IsNull() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
   end
 
-  -- If parent becomes spell-immune, invulnerable or banished then destroy this debuff
-  if parent:IsMagicImmune() or parent:IsInvulnerable() or parent:IsOutOfGame() then
+  -- If parent is dead or becomes spell-immune, invulnerable or banished then destroy this debuff
+  if not parent:IsAlive() or parent:IsMagicImmune() or parent:IsInvulnerable() or parent:IsOutOfGame() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
@@ -183,7 +183,10 @@ end
 function modifier_boss_spooky_ghost_siphon_debuff:OnDestroy()
   if IsServer() then
     -- Stop sound
-    self:GetParent():StopSound("Hero_DeathProphet.SpiritSiphon.Target")
+    local parent = self:GetParent()
+    if parent and not parent:IsNull() then
+      parent:StopSound("Hero_DeathProphet.SpiritSiphon.Target")
+    end
     -- Remove particle
     if self.nFX then
       ParticleManager:DestroyParticle(self.nFX, true)

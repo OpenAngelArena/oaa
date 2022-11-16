@@ -100,27 +100,27 @@ function modifier_item_satanic_core:GetModifierMagicalResistanceBonus()
   return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
 end
 
--- Doesn't stack with Sange items
 function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
-  local parent = self:GetParent()
+  -- local parent = self:GetParent()
+  -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
   return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
 end
 
--- Doesn't stack with Sange items
 function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
-  local parent = self:GetParent()
+  -- local parent = self:GetParent()
+  -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
 end
 
--- Doesn't stack with Sange items
 function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
-  local parent = self:GetParent()
+  -- local parent = self:GetParent()
+  -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end

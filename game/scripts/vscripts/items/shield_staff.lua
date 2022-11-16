@@ -131,9 +131,6 @@ function item_shield_staff:OnSpellStart()
   local speed = self:GetSpecialValueFor("push_speed")
   local distance = self:GetSpecialValueFor("push_length")
 
-  -- Positions
-  local targetposition = target:GetAbsOrigin()
-
   -- Get direction
   local direction = target:GetForwardVector()
 
@@ -193,8 +190,6 @@ function modifier_shield_staff_active_buff:CheckState()
 end
 if IsServer() then
   function modifier_shield_staff_active_buff:OnCreated(event)
-    local parent = self:GetParent()
-
     -- Data sent with AddNewModifier (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1

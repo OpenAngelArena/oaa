@@ -34,10 +34,6 @@ function ChatCommand:OnPlayerChat(keys)
   self.dev_commands = self.dev_commands or {}
   self.commands = self.commands or {}
   local text = string.lower(keys.text)
-  local teamonly = keys.teamonly
-  local playerID = keys.playerid
-  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-
   local splitted = split(text, " ")
 
   if self.commands[splitted[1]] ~= nil then

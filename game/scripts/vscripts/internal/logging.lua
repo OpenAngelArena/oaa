@@ -10,7 +10,7 @@ if (D2CustomLogging == nil) then
         --[[
             @var string gameClientVersion - The string game client version detected when the game started up
         ]]--
-        gameClientVersion = CLIENT_VERSION,
+        gameClientVersion = '',
 
         --[[
             @var string gameModeVersion - The string game version detected when the game started up
@@ -96,25 +96,23 @@ if (D2CustomLogging == nil) then
         local eventPayload     = args[3]
 
         -- Validate that the event severity is within the defined values we maintain on the internal version
-        if (
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_INFO))      and
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_STATUS))    and
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_SYNC))      and
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_EXCEPTION)) and
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_ERROR))     and
-            (not (eventSeverity == D2CustomLogging.LOG_LEVEL_FATAL))
-        ) then
+        if eventSeverity ~= D2CustomLogging.LOG_LEVEL_INFO and
+            eventSeverity ~= D2CustomLogging.LOG_LEVEL_STATUS and
+            eventSeverity ~= D2CustomLogging.LOG_LEVEL_SYNC and
+            eventSeverity ~= D2CustomLogging.LOG_LEVEL_EXCEPTION and
+            eventSeverity ~= D2CustomLogging.LOG_LEVEL_ERROR and
+            eventSeverity ~= D2CustomLogging.LOG_LEVEL_FATAL
+          then
             print('Correcting invalid logging level')
 
             eventSeverity = D2CustomLogging.LOG_LEVEL_INVALID
         end
 
         -- Validate the event name is actually a string and meets out maximum length requirement
-        if (not (type(eventDescription) == 'string')) then
-            -- TODO: Determine how this should be handled.  This is NOT valid and MUST be corrected before the request can be sent successfully
+        if type(eventDescription) ~= 'string' then
             print('Event Description was not a string!  Rejecting request to server')
 
-            return
+            eventDescription = "Invalid Description"
         elseif (string.len(eventDescription) > 200) then
             -- TODO: Should this be a rejection on the event?
             print('Correcting Event Description length')
@@ -123,16 +121,15 @@ if (D2CustomLogging == nil) then
         end
 
         -- Event payload is optional and can safely be assigned to a default if no value is provided
-        if (not (type(eventPayload) == 'table')) then
+        if type(eventPayload) ~= 'table' then
             eventPayload = {}
         end
 
         -- Anything above an error needs to include a stack automatically
-        if (
-            (eventSeverity == D2CustomLogging.LOG_LEVEL_EXCEPTION) or
-            (eventSeverity == D2CustomLogging.LOG_LEVEL_ERROR) or
-            (eventSeverity == D2CustomLogging.LOG_LEVEL_FATAL)
-        ) then
+        if eventSeverity == D2CustomLogging.LOG_LEVEL_EXCEPTION or
+            eventSeverity == D2CustomLogging.LOG_LEVEL_ERROR or
+            eventSeverity == D2CustomLogging.LOG_LEVEL_FATAL
+          then
             eventPayload.__STACK = debug.traceback()
         end
 

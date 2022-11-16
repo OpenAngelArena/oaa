@@ -7,8 +7,6 @@ function core_guy_score_limit:GetIntrinsicModifierName()
 end
 
 function core_guy_score_limit:OnSpellStart()
-  local caster = self:GetCaster();
-
   self.timesUsed = self.timesUsed or 1
   self.timesUsed = self.timesUsed + 1
 

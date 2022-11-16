@@ -28,5 +28,5 @@ function temple_guardian_hammer_smash:OnSpellStart()
   local vToTarget = self:GetCursorPosition() - caster:GetOrigin()
   vToTarget = vToTarget:Normalized()
   local vTarget = caster:GetOrigin() + vToTarget * self:GetCastRange( caster:GetOrigin(), nil )
-  local hThinker = CreateModifierThinker( caster, self, "modifier_temple_guardian_hammer_smash_thinker", { duration = flSpeed }, vTarget, caster:GetTeamNumber(), false )
+  CreateModifierThinker( caster, self, "modifier_temple_guardian_hammer_smash_thinker", { duration = flSpeed }, vTarget, caster:GetTeamNumber(), false )
 end
