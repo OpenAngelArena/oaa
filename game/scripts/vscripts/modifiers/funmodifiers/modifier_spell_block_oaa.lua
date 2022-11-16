@@ -58,7 +58,7 @@ if IsServer() then
       return 0
     end
 
-    -- Don't block if passive is on cooldown
+    -- Don't block if on cooldown
     if parent:HasModifier("modifier_spell_block_cooldown_oaa") then
       return 0
     end

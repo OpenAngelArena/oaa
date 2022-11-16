@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_roshan_bash_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_roshan_power_oaa = class(ModifierBaseClass)
 
@@ -23,6 +24,7 @@ function modifier_roshan_power_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
     MODIFIER_PROPERTY_MODEL_CHANGE,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSORB_SPELL,
   }
 end
 
@@ -64,6 +66,47 @@ if IsServer() then
       return damage
     end
     return 0
+  end
+
+  function modifier_roshan_power_oaa:GetAbsorbSpell(event)
+    local parent = self:GetParent()
+    local casted_ability = event.ability
+
+    if not casted_ability or casted_ability:IsNull() then
+      return 0
+    end
+
+    local caster = casted_ability:GetCaster()
+
+    -- Don't block allied spells
+    if caster:GetTeamNumber() == parent:GetTeamNumber() then
+      return 0
+    end
+
+    -- No need to block if parent is invulnerable
+    if parent:IsInvulnerable() or parent:IsOutOfGame() then
+      return 0
+    end
+
+    -- Don't block if on cooldown
+    if parent:HasModifier("modifier_spell_block_cooldown_oaa") then
+      return 0
+    end
+
+    local cooldown = 15
+
+    -- Sound
+    parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+
+    -- Particle
+    local pfx = ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_POINT_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(pfx, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(pfx)
+
+    -- Start cooldown by adding a modifier
+    parent:AddNewModifier(parent, nil, "modifier_spell_block_cooldown_oaa", {duration = cooldown})
+
+    return 1
   end
 end
 
