@@ -13,7 +13,7 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "1"
-    "IsGrantedByShard"                                    "1"
+
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
@@ -33,7 +33,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "325"
+      "base_damage"
+      {
+        "value"                                           "325"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "impact_radius"                                     "225"
       "min_range"                                         "550"
       "min_travel_time"                                   "0.45"

@@ -32,7 +32,11 @@
     "AbilityValues"
     {
       "pull_radius"                                       "410"
-      "polarity_damage"                                   "250 450 650 1050 1850" //OAA
+      "polarity_damage" //OAA
+      {
+        "value"                                           "250 450 650 1050 1850"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "hero_stun_duration"
       {
         "value"                                           "2.75 3.25 3.75 4.25 4.75"

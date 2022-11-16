@@ -28,7 +28,11 @@
     "AbilityValues"
     {
       "radius"                                            "350"
-      "stomp_damage"                                      "120 180 240 300 600 1200"
+      "stomp_damage"
+      {
+        "value"                                           "120 180 240 300 600 1200"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "stun_duration"
       {
         "value"                                           "2.0 2.2 2.4 2.6 2.7 2.8"

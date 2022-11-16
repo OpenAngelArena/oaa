@@ -7,17 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5085"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5085"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
-
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

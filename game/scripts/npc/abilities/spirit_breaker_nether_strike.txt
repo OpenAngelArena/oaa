@@ -21,8 +21,6 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "HasScepterUpgrade"                                   "0"
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.0"
@@ -41,7 +39,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "125 275 425 875 1625" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "125 275 425 875 1625"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "fade_time"                                         "1.0"
       "shard_bonus_damage"
       {

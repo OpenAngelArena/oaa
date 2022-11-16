@@ -40,7 +40,11 @@
       }
       "debuff_duration"                                   "1.5 1.8 2.1 2.4 2.7 3.0"
       "projectile_speed"                                  "1300"
-      "total_damage"                                      "75 150 225 300 600 1200"
+      "total_damage"
+      {
+        "value"                                           "75 150 225 300 600 1200"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"
     }

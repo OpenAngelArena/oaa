@@ -7,16 +7,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5725"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5725"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
 
-    "HasScepterUpgrade"                                   "0"
+    "HasScepterUpgrade"                                   "0" // needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

@@ -18,7 +18,11 @@
     "AbilityValues"
     {
       "duration"                                          "6.0 9.0 12.0 15.0 15.0 15.0"
-      "damage"                                            "10 20 30 40 80 120" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "10 20 30 40 80 120"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "movement_speed"
       {
         "value"                                           "-8 -10 -12 -14 -16 -18"

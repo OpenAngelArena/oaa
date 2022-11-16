@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5157"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5157"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -16,13 +16,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "FightRecapLevel"                                     "2"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
-
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -51,17 +48,17 @@
     "AbilityValues"
     {
       "projectile_speed"                                  "2500"
-      "scepter_stun_duration"     
+      "scepter_stun_duration"
       {
         "value"                                           "1 1.25 1.5 1.75 2.0"
         "RequiresScepter"                                 "1"
       }
-      "scepter_crit"      
+      "scepter_crit"
       {
         "value"                                           "0"
         "RequiresScepter"                                 "1"
       }
-      "scepter_cast_point"      
+      "scepter_cast_point"
       {
         "value"                                           "0.5"
         "RequiresScepter"                                 "1"

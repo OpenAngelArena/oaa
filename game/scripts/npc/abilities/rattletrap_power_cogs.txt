@@ -29,7 +29,11 @@
     "AbilityValues"
     {
       "duration"                                          "5.0 6.0 7.0 8.0 9.0 10.0"
-      "damage"                                            "50 125 200 275 550 1100"
+      "damage"
+      {
+        "value"                                           "50 125 200 275 550 1100"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "mana_burn"
       {
         "value"                                           "50 80 110 140 280 560"
