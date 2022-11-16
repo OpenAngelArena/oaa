@@ -44,7 +44,11 @@
       "radius_max"                                        "1000"
       "path_radius"                                       "275"
       "frostbite_duration"                                "10 11 12 13 14"
-      "dot_damage"                                        "12.5 20.0 32.0 48.5 69.5"
+      "dot_damage"
+      {
+        "value"                                           "12.5 20.0 32.0 48.5 69.5"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "speed"                                             "1500"
       "kill_pct" //OAA
       {

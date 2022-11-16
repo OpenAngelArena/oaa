@@ -57,6 +57,8 @@
       {
         "value"                                           "15 30 45 60 90 120"
         "RequiresShard"                                   "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "CalculateSpellDamageTooltip"                     "1"
       }
       "shard_attack_speed_reduction" //OAA, Valve has it wrong
       {

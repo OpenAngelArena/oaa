@@ -54,7 +54,11 @@
       "projectile_vision"                                 "500"
       "turn_rate"                                         "75"
       "burn_interval"                                     "0.5"
-      "burn_damage"                                       "60 100 140 260 460" //OAA
+      "burn_damage" //OAA
+      {
+        "value"                                           "60 100 140 260 460"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "move_slow_pct"
       {
         "value"                                           "15 20 25 30 35"
