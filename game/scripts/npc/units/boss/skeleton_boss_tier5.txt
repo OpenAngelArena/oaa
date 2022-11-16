@@ -27,7 +27,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "40"      // Physical protection.
+    "ArmorPhysical"                                       "43"      // Physical protection.
     "MagicalResistance"                                   "-50"     // Magical protection (percentage).
 
     // Attack
@@ -68,8 +68,7 @@
     // Creature data
     "Creature"
     {
-      // Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
+      "DisableResistance"                                 "80.0"
     }
 
     // Team
