@@ -45,9 +45,11 @@ function CustomWardButtons:CastWard(event)
 
   local modifier_name = "modifier_ui_custom_observer_ward_charges"
   local ward_name = "npc_dota_observer_wards"
+  local ward_duration = POOP_WARD_DURATION
   if ward_type == "sentry" then
     modifier_name = "modifier_ui_custom_sentry_ward_charges"
     ward_name = "npc_dota_sentry_wards"
+    ward_duration = POOP_WARD_DURATION_SENTRY
   end
 
   local hero = PlayerResource:GetSelectedHeroEntity(playerID)
@@ -72,13 +74,13 @@ function CustomWardButtons:CastWard(event)
   local position = hero:GetAbsOrigin()
 
   local ward = CreateUnitByName(ward_name, position, true, nil, hero, hero:GetTeam())
-  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = POOP_WARD_DURATION })
+  ward:AddNewModifier(ward, nil, "modifier_kill", { duration = ward_duration })
   ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", {})
 
   if ward_type == "sentry" then
     ward:AddNewModifier(ward, nil, "modifier_item_ward_true_sight", {
       true_sight_range = 700,
-      duration = POOP_WARD_DURATION
+      duration = ward_duration
     })
   end
 end
