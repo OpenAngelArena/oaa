@@ -23,7 +23,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "50 100 150 200 400 800" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "50 100 150 200 400 800"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "hop_distance"                                      "500"
       "hop_duration"                                      "0.5"
       "hop_height"                                        "250"

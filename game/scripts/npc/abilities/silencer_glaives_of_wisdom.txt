@@ -19,8 +19,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "HasScepterUpgrade"                                   "0"
-    "HasShardUpgrade"                                     "0"
+    "HasScepterUpgrade"                                   "0" // needed because of the custom ability
+    "HasShardUpgrade"                                     "0" // needed because of the custom ability
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

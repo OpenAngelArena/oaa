@@ -1,3 +1,20 @@
+// "DOTA_Tooltip_ability_abaddon_borrowed_time"                                   "Borrowed Time"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_Description"                       "When activated, all damage dealt to you will heal instead of harm. Most negative buffs will also be removed. If the ability is not on cooldown, it will automatically activate if your health falls below %hp_threshold%.\n\nDISPEL TYPE: Strong Dispel"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_Lore"                              "The most unnatural of all the gifts of the Font of Avernus, this power defies mortal understanding.  What should hurt, instead heals; and what should kill gives strength anew."
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_hp_threshold"                      "HEALTH THRESHOLD:"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_duration"                          "DURATION:"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_duration_scepter"                  "DURATION:"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"            "RANGE:"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"            "DAMAGE THRESHOLD:"
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"               "Increases duration. While Borrowed Time is active, anytime an ally takes more than %ally_threshold_scepter% damage while within %redirect_range_scepter% range of Abaddon, an individual Mist Coil will automatically fire towards that ally."
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_Note0"                             "Borrowed Time can be manually activated while Abaddon is disabled, but not while silenced.  The passive activation can still occur while silenced."
+// "DOTA_Tooltip_ability_abaddon_borrowed_time_Note1"                             "Aphotic Shield does not block any damage to Abaddon when Borrowed Time is active, allowing him to heal."
+
+// "DOTA_Tooltip_modifier_abaddon_borrowed_time"                                  "Borrowed Time"
+// "DOTA_Tooltip_modifier_abaddon_borrowed_time_Description"                      "All damage taken by Abaddon heals him instead."
+// "DOTA_Tooltip_modifier_abaddon_borrowed_time_damage_redirect"                  "Borrowed Time Redirect"
+// "DOTA_Tooltip_modifier_abaddon_borrowed_time_damage_redirect_Description"      "Anytime a nearby ally takes more than a set amount of damage, an individual Mist Coil will automatically fire towards that ally."
+
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa"                                "#{DOTA_Tooltip_ability_abaddon_borrowed_time}"
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_Description"                    "#{DOTA_Tooltip_ability_abaddon_borrowed_time_Description}"
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_Lore"                           "#{DOTA_Tooltip_ability_abaddon_borrowed_time_Lore}"
@@ -8,7 +25,7 @@
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_duration_scepter"               "#{DOTA_Tooltip_ability_abaddon_borrowed_time_duration_scepter}"
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_damage_redirect_scepter"        "%SCEPTER DAMAGE REDIRECT:"
 "DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_redirect_range_scepter"         "#{DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter}"
-"DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_scepter_description"            "While Borrowed Time is active, %damage_redirect_scepter%%% of all damage taken by allied heroes within %redirect_range_scepter% range of Abaddon will be redirected to Abaddon."
+"DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_scepter_description"            "<font color='#FFA500'>While Borrowed Time is active, %damage_redirect_scepter%%% of all damage taken by allied heroes within %redirect_range_scepter% range of Abaddon will be redirected to Abaddon.</font>"
 
 "DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"                "#{DOTA_Tooltip_ability_abaddon_borrowed_time_oaa_scepter_description}"
 

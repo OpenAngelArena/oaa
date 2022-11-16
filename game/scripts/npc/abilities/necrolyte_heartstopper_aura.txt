@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES" //OAA, Valve has it wrong
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -24,6 +24,7 @@
         "value"                                           "0.6 1.2 1.8 2.4 3.0 3.6"
         "special_bonus_unique_necrophos_2"                "+0.5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "health_regen"                                      "4 5 6 7 14 28"
       "mana_regen"                                        "4 5 6 7 14 28"

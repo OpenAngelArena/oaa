@@ -17,8 +17,6 @@
 
     "MaxLevel"                                            "6"
 
-    "HasScepterUpgrade"                                   "1"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -38,7 +36,11 @@
         "special_bonus_unique_medusa_3"                   "+2"
       }
       "jump_delay"                                        "0.25"
-      "snake_damage"                                      "80 120 160 200 400 800"
+      "snake_damage"
+      {
+        "value"                                           "80 120 160 200 400 800"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "snake_damage_pct"                                  "0"
       "snake_mana_steal"                                  "11 14 17 20 23 26"
       "snake_scale"                                       "35"

@@ -14,12 +14,8 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "1"
-
-    "IsGrantedByScepter"                                  "1"
-    "HasScepterUpgrade"                                   "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +35,11 @@
     "AbilityValues"
     {
       "duration"                                          "3"
-      "damage"                                            "450"
+      "damage"
+      {
+        "value"                                           "450"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "aoe"                                               "450"
       "ally_cast_range"                                   "500"
     }

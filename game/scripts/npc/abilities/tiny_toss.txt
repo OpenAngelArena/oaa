@@ -43,7 +43,11 @@
       "grab_radius"                                       "300"
       "radius"                                            "275"
       "bonus_damage_pct"                                  "0"
-      "toss_damage"                                       "75 150 225 300 600 900" // this gets increased with Grow
+      "toss_damage"
+      {
+        "value"                                           "75 150 225 300 600 900" // this gets increased with Grow
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "AbilityCharges"
       {
         "value"                                           ""
