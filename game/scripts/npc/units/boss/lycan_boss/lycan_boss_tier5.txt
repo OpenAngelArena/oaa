@@ -45,8 +45,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "3000"
-    "AttackDamageMax"                                     "3200"
+    "AttackDamageMin"                                     "10000" // damage of Claw Attack tier 5
+    "AttackDamageMax"                                     "10000"
     "AttackRate"                                          "1.45"
     "AttackAnimationPoint"                                "0.55"
     "AttackAcquisitionRange"                              "600"
