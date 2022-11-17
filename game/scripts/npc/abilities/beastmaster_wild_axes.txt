@@ -35,7 +35,11 @@
       "radius"                                            "175"
       "spread"                                            "450"
       "range"                                             "1500"
-      "axe_damage"                                        "40 70 100 130 260 520"
+      "axe_damage"
+      {
+        "value"                                           "40 70 100 130 260 520"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "duration"                                          "12"
       "damage_amp"
       {

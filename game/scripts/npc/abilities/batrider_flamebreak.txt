@@ -38,12 +38,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_impact"                                     "50 75 100 125 250 500" //OAA
-      "damage_per_second"                                 "15"
+      "damage_impact"  //OAA
+      {
+        "value"                                           "50 75 100 125 250 500"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
+      "damage_per_second"
+      {
+        "value"                                           "15"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "damage_duration" //OAA
       {
         "value"                                           "4 6 8 10 11 12"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "explosion_radius"                                  "500"
       "collision_radius"                                  "100"

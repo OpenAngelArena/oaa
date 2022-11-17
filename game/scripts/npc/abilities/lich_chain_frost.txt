@@ -52,7 +52,11 @@
       "slow_duration"                                     "2.5"
       "projectile_speed"                                  "850"
       "vision_radius"                                     "800"
-      "bonus_jump_damage"                                 "15 20 25 30 35"
+      "bonus_jump_damage"
+      {
+        "value"                                           "15 20 25 30 35"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "initial_projectile_speed"                          "1050"
       "has_unlimited_jumps"
       {

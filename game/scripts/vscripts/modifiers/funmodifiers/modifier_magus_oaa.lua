@@ -79,6 +79,7 @@ function modifier_magus_oaa:OnCreated()
     puck_phase_shift = 1,                                -- invulnerability
     pudge_eject = 1,                                     -- self grief
     riki_tricks_of_the_trade = 1,                        -- invulnerability and looping
+    rubick_spell_steal = 1,                              -- stealing boss spells
     rubick_telekinesis_land_self = 1,                    -- self grief
     shadow_demon_shadow_poison_release = 1,              -- self grief
     snapfire_gobble_up = 1,                              -- instant kill and other bugs
