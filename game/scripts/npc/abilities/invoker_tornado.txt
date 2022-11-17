@@ -45,7 +45,11 @@
         "special_bonus_unique_invoker_8"                  "+1.25"
         "levelkey"                                        "quaslevel"
       }
-      "base_damage"                                       "70"
+      "base_damage"
+      {
+        "value"                                           "70"      
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "quas_damage"
       {
         "value"                                           "0"

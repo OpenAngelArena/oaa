@@ -32,7 +32,6 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_brawler_oaa",
     "modifier_courier_kill_bonus_oaa",
-    "modifier_double_multiplier_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
@@ -58,11 +57,11 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_brute_oaa",
     "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
-    "modifier_double_multiplier_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
     "modifier_no_brain_oaa",
@@ -87,11 +86,11 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_brute_oaa",
     "modifier_debuff_duration_oaa",
-    "modifier_double_multiplier_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
     "modifier_nimble_oaa",
@@ -106,7 +105,35 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_wisdom_oaa",
   }
 
-  -- "modifier_healer_oaa",
+  local healer_heroes = {
+    "npc_dota_hero_abaddon",
+    "npc_dota_hero_chen",
+    "npc_dota_hero_dawnbreaker",
+    "npc_dota_hero_dazzle",
+    "npc_dota_hero_death_prophet",
+    "npc_dota_hero_enchantress",
+    "npc_dota_hero_faceless_void",
+    "npc_dota_hero_keeper_of_the_light",
+    "npc_dota_hero_necrolyte",
+    "npc_dota_hero_omniknight",
+    "npc_dota_hero_oracle",
+    "npc_dota_hero_phoenix",
+    "npc_dota_hero_pugna",
+    "npc_dota_hero_shadow_demon",
+    "npc_dota_hero_treant",
+    "npc_dota_hero_undying",
+    "npc_dota_hero_warlock",
+    "npc_dota_hero_winter_wyvern",
+    "npc_dota_hero_wisp",
+    "npc_dota_hero_witch_doctor",
+  }
+
+  for _, v in pairs(healer_heroes) do
+    if parent:GetUnitName() == v then
+      table.insert(self.mid_game_modifiers, "modifier_healer_oaa")
+      table.insert(self.late_game_modifiers, "modifier_healer_oaa")
+    end
+  end
 
   local function remove_mod_from_table(table1, mod)
     for k, v in pairs(table1) do

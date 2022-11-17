@@ -27,7 +27,11 @@
     {
       "effect_radius"                                     "230"
       "step_distance"                                     "140"
-      "base_damage"                                       "15 30 45 60 120 180"
+      "base_damage"
+      {
+        "value"                                           "15 30 45 60 120 180"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "duration"                                          "5.5"
       "attack_damage" //OAA
       {

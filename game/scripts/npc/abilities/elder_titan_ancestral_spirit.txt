@@ -35,7 +35,11 @@
     "AbilityValues"
     {
       "radius"                                            "275"
-      "pass_damage"                                       "50"
+      "pass_damage"
+      {
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "spirit_duration"                                   "10.0"
       "buff_duration"                                     "10.0"
       "speed"                                             "900"

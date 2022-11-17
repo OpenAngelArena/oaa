@@ -41,8 +41,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "7000"
-    "AttackDamageMax"                                     "7000"
+    "AttackDamageMin"                                     "4000" // damage of Hammer Smash
+    "AttackDamageMax"                                     "4000"
     "AttackRate"                                          "2.8"
     "AttackAnimationPoint"                                "0.3"
     "AttackAcquisitionRange"                              "1200"
