@@ -65,6 +65,10 @@ function modifier_xpm_thinker:GetXPMForPlayer( playerID )
 
       local value = ( ( a * gameTime * gameTime ) + ( b * gameTime ) + c ) * (percent / 100) / divisor
 
+      if GetMapName() == "10v10" then
+        value = value * 1.5
+      end
+
       -- quick and dirty rounding
       value = math.floor( value + 0.5 )
 
