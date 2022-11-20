@@ -929,9 +929,9 @@ function HeroSelection:ForceRandomHero (playerId)
   end
   local previewHero = HeroSelection:GetPreviewHero(playerId)
   local team = tostring(PlayerResource:GetTeam(playerId))
-  DebugPrint("GetPreviewHero - Started force random for player " .. playerId .. " on team " .. team)
+  DebugPrint("ForceRandomHero - Started force random for player " .. playerId .. " on team " .. team)
   if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
-    DebugPrint("GetPreviewHero - Force picking highlighted hero")
+    DebugPrint("ForceRandomHero - Force picking highlighted hero")
     return previewHero
   end
 
@@ -1026,8 +1026,7 @@ end
 
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
-  DebugPrint("Received Hero Pick")
-  DebugPrintTable(event)
+  DebugPrint("Player "..tostring(event.PlayerID).." pressed Ban, Lock or Random button")
   if not event.hero or event.hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(event.hero)) then
     Debug:EnableDebugging()
     DebugPrint('Cheater...')
@@ -1177,7 +1176,7 @@ function HeroSelection:HeroRerandom(event)
   CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
 
   -- Rerandom new hero
-  local new_hero = self:RandomHero()
+  local new_hero = HeroSelection:RandomHero()
 
   -- Nullify hero tables
   selectedtable[playerId].selectedhero = "empty"
@@ -1185,8 +1184,15 @@ function HeroSelection:HeroRerandom(event)
   lockedHeroes[playerId] = nil
 
   -- Update hero table
-  self:UpdateTable(playerId, new_hero)
+  HeroSelection:UpdateTable(playerId, new_hero)
 
   -- 'Rerandom' message
-  GameRules:SendCustomMessage(player_name.." rerandomed "..new_hero, 0, 0)
+  --GameRules:SendCustomMessage(player_name.." rerandomed!", 0, 0)
+  local player = PlayerResource:GetPlayer(playerId) or PlayerResource:FindFirstValidPlayer()
+  CustomGameEventManager:Send_ServerToPlayer(player, 'oaa_random_hero_message', {
+    player_name = player_name,
+    hero = new_hero,
+    picker_playerid = playerId,
+    rerandom = 1,
+  })
 end

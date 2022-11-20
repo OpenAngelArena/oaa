@@ -1292,12 +1292,14 @@ function SendMessageToTeam (event) {
   const forced = event.forced === 1;
   if (forced) {
     const forcedToPick = event.forced_pick === 1;
-    message = playerName + ' was forced to pick ' + heroName;
+    message = ' was forced to pick ' + heroName;
     if (!forcedToPick) {
-      message = playerName + ' was forced to random ' + heroName;
+      message = ' was forced to random ' + heroName;
     }
+  } else if (event.rerandom === 1) {
+    message = ' re-randomed ' + heroName;
   } else {
-    message = playerName + ' randomed ' + heroName;
+    message = ' randomed ' + heroName;
   }
 
   Game.ServerCmd(`say ${message}`);
