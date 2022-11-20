@@ -56,14 +56,14 @@ rankedpickorder = {
       ["type"] = "Pick",
       ["team"] = DOTA_TEAM_GOODGUYS,
       ["hero"] = "empty",
-      canRandom = false
+      --canRandom = false
     },
 
     {
       ["type"] = "Pick",
       ["team"] = DOTA_TEAM_BADGUYS,
       ["hero"] = "empty",
-      canRandom = false
+      --canRandom = false
     }
   },
 }
