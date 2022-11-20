@@ -315,7 +315,9 @@ function HeroSelection:OnArcanaSelected (selectedArcana)
   if HeroSelection.SelectedArcana == nil then
     HeroSelection.SelectedArcana = {}
   end
-  if HeroSelection.SelectedArcana[selectedArcana.PlayerID] == nil then HeroSelection.SelectedArcana[selectedArcana.PlayerID] = {} end
+  if HeroSelection.SelectedArcana[selectedArcana.PlayerID] == nil then
+    HeroSelection.SelectedArcana[selectedArcana.PlayerID] = {}
+  end
   HeroSelection.SelectedArcana[selectedArcana.PlayerID][selectedArcana.Hero] = selectedArcana.Arcana
   CustomNetTables:SetTableValue( 'bottlepass', 'selected_arcanas', HeroSelection.SelectedArcana )
 end
@@ -401,10 +403,10 @@ function HeroSelection:RankedManager (event)
       DebugPrint('Timeout hero pick, randoming...')
       choice = 'forcerandom'
       local team = rankedpickorder.order[rankedpickorder.currentOrder].team
-      DebugPrint('Checking out this team ' .. team)
+      DebugPrint('Checking team: ' .. team)
       PlayerResource:GetPlayerIDsForTeam(team):foreach(function (playerID)
         if not selectedtable[playerID] or selectedtable[playerID].selectedhero == 'empty' then
-          DebugPrint('Trying ' .. playerID)
+          DebugPrint('Trying player ' .. playerID)
           if not event.PlayerID or RandomInt(0, 2) == 0 then
             event.PlayerID = playerID
           end
@@ -437,8 +439,7 @@ function HeroSelection:RankedManager (event)
         hero = choice,
         picker_playerid = playerId
       })
-    end
-    if choice == 'forcerandom' then
+    elseif choice == 'forcerandom' then
       choice = self:ForceRandomHero(playerId)
       local previewHero = self:GetPreviewHero(playerId)
       local data = {
@@ -686,8 +687,8 @@ function HeroSelection:CMManager (event)
       CustomNetTables:SetTableValue( 'hero_selection', 'CMdata', cmpickorder)
       cmpickorder["currentstage"] = cmpickorder["currentstage"] + 1
 
-      DebugPrint('--')
-      DebugPrintTable(event)
+      --DebugPrint('--')
+      --DebugPrintTable(event)
 
       if cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
         HeroSelection:CMTimer(CAPTAINS_MODE_PICK_BAN_TIME, "CAPTAINS MODE")
@@ -924,12 +925,12 @@ end
 
 function HeroSelection:ForceRandomHero (playerId)
   if not playerId or (OAAOptions and (OAAOptions.settings.GAME_MODE == "AR" or OAAOptions.settings.GAME_MODE == "ARDM")) then
-    DebugPrint("ForceRandomHero - Doing normal random for AR or ARDM")
+    DebugPrint("ForceRandomHero - Doing normal random for AR or ARDM and for players without player ID.")
     return HeroSelection:RandomHero()
   end
   local previewHero = HeroSelection:GetPreviewHero(playerId)
   local team = tostring(PlayerResource:GetTeam(playerId))
-  DebugPrint("ForceRandomHero - Started force random for player " .. playerId .. " on team " .. team)
+  DebugPrint("ForceRandomHero - Started forced random for player " .. playerId .. " on team " .. team)
   if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
     DebugPrint("ForceRandomHero - Force picking highlighted hero")
     return previewHero
@@ -1026,7 +1027,7 @@ end
 
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
-  DebugPrint("Player "..tostring(event.PlayerID).." pressed Ban, Lock or Random button")
+  DebugPrint("Player "..tostring(event.PlayerID).." pressed a button: Ban, Lock or Random.")
   if not event.hero or event.hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(event.hero)) then
     Debug:EnableDebugging()
     DebugPrint('Cheater...')
@@ -1123,7 +1124,6 @@ function HeroSelection:UpdateTable (playerID, hero)
   selectedtable[playerID].team = teamID
   selectedtable[playerID].steamid = HeroSelection:GetSteamAccountID(playerID)
 
-  -- DebugPrintTable(selectedtable)
   -- if everyone has picked, stop
   local isanyempty = false
   for _, value in pairs(selectedtable) do
@@ -1173,7 +1173,7 @@ function HeroSelection:HeroRerandom(event)
 
   -- Add old random hero to banned heroes
   table.insert(rankedpickorder.bans, locked_hero)
-  CustomNetTables:SetTableValue( 'hero_selection', 'rankedData', rankedpickorder)
+  CustomNetTables:SetTableValue('hero_selection', 'rankedData', rankedpickorder)
 
   -- Rerandom new hero
   local new_hero = HeroSelection:RandomHero()

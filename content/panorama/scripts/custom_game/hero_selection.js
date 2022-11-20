@@ -331,7 +331,7 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
   } else if (key === 'APdata' && data != null) {
-    canReRandom = data[playerId] && data[playerId].selectedhero !== 'empty' && data[playerId].didRandom === 'true';
+    canReRandom = data[playerId] && data[playerId].selectedhero !== 'empty' && data[playerId].didRandom === 'true' && iscm === false;
     const length = Object.keys(data).length;
     if (panelscreated !== length) {
       // initial load stuff
@@ -540,7 +540,6 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function UpdatedRankedPickState (data) {
-  $.Msg(data);
   const playerId = Game.GetLocalPlayerID();
 
   const bans = Object.keys(data.bans)
@@ -563,7 +562,7 @@ function UpdatedRankedPickState (data) {
     });
 
   bans.forEach(function (banned) {
-    $.Msg('Banned hero: ' + banned);
+    // $.Msg('Banned hero: ' + banned);
     if (!IsHeroDisabled(banned)) {
       DisableHero(banned);
     }
@@ -586,7 +585,7 @@ function UpdatedRankedPickState (data) {
       isPicking = false;
       break;
     case 'bans':
-      $.Msg(data.banChoices[playerId]);
+      // $.Msg(data.banChoices[playerId]);
       isPicking = !data.banChoices[playerId];
       herolocked = false;
       canRandom = false;
@@ -604,12 +603,12 @@ function UpdatedRankedPickState (data) {
       } else {
         isPicking = false;
         $.Msg('Not my turn ' + order.team + ' / ' + teamID);
-        $.Msg(data.currentOrder);
-        $.Msg(data.order);
-        $.Msg(order);
+        // $.Msg(data.currentOrder);
+        // $.Msg(data.order);
+        // $.Msg(order);
       }
 
-      canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true';
+      canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true' && iscm === false;
 
       break;
   }
@@ -1209,12 +1208,13 @@ function RandomHero () {
 }
 
 function RerandomHero () {
-  $.Msg('Re-randoming');
-  const playerId = Game.GetLocalPlayerID();
-  const playerName = Players.GetPlayerName(playerId);
-  GameEvents.SendCustomGameEventToServer('hero_rerandomed', {
-    player_name: playerName,
-  });
+  if (!iscm) {
+    const playerId = Game.GetLocalPlayerID();
+    const playerName = Players.GetPlayerName(playerId);
+    GameEvents.SendCustomGameEventToServer('hero_rerandomed', {
+      player_name: playerName,
+    });
+  }
 }
 
 function CreateHeroPanel (parent, hero) {
