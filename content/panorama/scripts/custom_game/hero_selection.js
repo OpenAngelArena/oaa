@@ -522,7 +522,7 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
-    if (data.mode === 'STRATEGY' || data.mode === 'PRE-GAME') {
+    if (data.mode === 'STRATEGY' || data.mode === 'PREPARING') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data.mode);
       if (data.mode === 'STRATEGY') {

@@ -124,9 +124,6 @@ function GameMode:OnHeroInGame(hero)
   hero:AddAbility("example_ability")]]
 end
 
-function GameMode:OnStrategyTime()
-end
-
 function GameMode:OnPreGame()
   -- initialize modules
   InitModule(PointsManager)
