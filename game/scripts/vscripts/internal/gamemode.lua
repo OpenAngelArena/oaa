@@ -41,8 +41,6 @@ function GameMode:_InitGameMode()
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
     GameRules:EnableCustomGameSetupAutoLaunch( true )
-    RANKED_PREGAME_TIME = 1
-    RANKED_BAN_TIME = 1
   else
     GameRules:SetCustomGameSetupAutoLaunchDelay( AUTO_LAUNCH_DELAY )
     GameRules:LockCustomGameSetupTeamAssignment( LOCK_TEAM_SETUP )
