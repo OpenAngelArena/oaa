@@ -43,6 +43,7 @@ function ARDMMode:Init ()
   self:LoadHeroPoolsForTeams()
 
   GameRules:SetShowcaseTime(0)
+  GameRules:SetStrategyTime(30)
 end
 
 function ARDMMode:StartPrecache()
@@ -52,7 +53,7 @@ function ARDMMode:StartPrecache()
     self:PrecacheHeroes(function ()
       DebugPrint("ARDMMode - Done precaching")
       GameRules:SendCustomMessage("FINISHED with hero precaching...", 0, 0)
-      --PauseGame(false)
+      PauseGame(false)
       ARDMMode.hasPrecached = true
       PrecacheHeroEvent.broadcast(true)
     end)

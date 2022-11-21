@@ -112,19 +112,14 @@ function HeroSelection:Init ()
     end
 
     if HeroSelection.isARDM and ARDMMode then
-      -- if it's ardm, show strategy screen right away,
-      -- lock in all heroes to initial random heroes
-      HeroSelection:StrategyTimer(3)
-      GameRules:SetStrategyTime(30)
-      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        lockedHeroes[playerID] = ARDMMode:GetRandomHero(PlayerResource:GetTeam(playerID))
-      end)
-      -- start ARDM precaching
-      ARDMMode:StartPrecache()
-      -- once ardm is done precaching, replace all the heroes, then fire off the finished loading event
-      ARDMMode:OnPrecache(function ()
-        DebugPrint('Precache finished! Woohoo!')
-      end)
+      if not self.isBanning then
+        PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+          HeroSelection:UpdateTable(playerID, "empty")
+        end)
+        HeroSelection:APTimer(-1, "ALL RANDOM")
+      else
+        HeroSelection:StartSelection()
+      end
     else
       print("START HERO SELECTION")
       HeroSelection:StartSelection()
@@ -193,9 +188,16 @@ function HeroSelection:Init ()
   end)
 
   GameEvents:OnPreGame(function (keys)
-    -- Pause the game at the start (not during strategy time) if Captain's mode
-    if HeroSelection.isCM then
+    -- Pause the game at the start (not during strategy time) if Captain's mode or ARDM
+    if HeroSelection.isCM or HeroSelection.isARDM then
       PauseGame(true)
+    end
+    if HeroSelection.isARDM and ARDMMode then
+      -- start ARDM precaching
+      ARDMMode:StartPrecache()
+      ARDMMode:OnPrecache(function ()
+        DebugPrint('Precache finished! Woohoo!')
+      end)
     end
   end)
 end
@@ -311,12 +313,16 @@ function HeroSelection:OnArcanaSelected (selectedArcana)
 end
 
 function HeroSelection:GetSelectedBottleForPlayer(playerId)
-  if HeroSelection.SelectedBottle == nil then HeroSelection.SelectedBottle = {} end
+  if HeroSelection.SelectedBottle == nil then
+    HeroSelection.SelectedBottle = {}
+  end
   return HeroSelection.SelectedBottle[playerId] or 0
 end
 
 function HeroSelection:GetSelectedArcanaForPlayer(playerId)
-  if HeroSelection.SelectedArcana == nil then HeroSelection.SelectedArcana = {} end
+  if HeroSelection.SelectedArcana == nil then
+    HeroSelection.SelectedArcana = {}
+  end
   return HeroSelection.SelectedArcana[playerId] or {}
 end
 
@@ -771,26 +777,30 @@ function HeroSelection:APTimer (time, message)
   self:CheckPause()
 
   if forcestop == true or time < 0 then
-    for key, value in pairs(selectedtable) do
+    for playerId, value in pairs(selectedtable) do
       if value.selectedhero == "empty" then
         -- if someone hasnt selected until time end, random for him
-        if GetMapName() == "captains_mode" then
-          self:UpdateTable(key, cmpickorder[value.team.."picks"][1])
+        if self.isCM then
+          self:UpdateTable(playerId, cmpickorder[value.team.."picks"][1])
         else
-          self:UpdateTable(key, self:ForceRandomHero(key)) -- important for AR and ARDM
+          self:UpdateTable(playerId, self:ForceRandomHero(playerId)) -- important for AR and ARDM
         end
       end
-      self:SelectHero(key, selectedtable[key].selectedhero) -- important for every game mode
+      self:SelectHero(playerId, selectedtable[playerId].selectedhero) -- important for every game mode
     end
 
-    -- iterate over each player and see if they haven't locked in a hero yet, if they have, lock them in
-    -- this is only different from the first loop in captains mode when everyone hasn't chosen from the 5 at the end
+    -- Iterate over each player and update their hero table only if they haven't locked in a hero yet
+    -- `lockedHeroes[playerId]` will not exist if `HeroSelection:SelectHero` (used in the loop above) didn't work or if
+    -- `selectedtable` doesn't have all the player slots -> that is possible only if 'StartSelection' didn't happen (ARDM for example)
+    -- `HeroSelection:SelectHero` will not work only if 'selectedtable[playerId].selectedhero' was `nil` or something invalid
     PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
       if not lockedHeroes[playerId] then
-        if GetMapName() == "captains_mode" then
+        if HeroSelection.isCM then
           HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
         else
-          HeroSelection:UpdateTable(playerId, HeroSelection:ForceRandomHero(playerId))
+          local hero = HeroSelection:ForceRandomHero(playerId)
+          HeroSelection:UpdateTable(playerId, hero)
+          --HeroSelection:SelectHero(playerId, hero)
         end
       end
     end)
@@ -820,12 +830,6 @@ function HeroSelection:SelectHero (playerId, hero)
 
   self.alreadySelectedHeroForThisPlayerID[playerId] = true
 
-  if self.isARDM and ARDMMode then
-    DebugPrint("SelectHero - Nobody should be able to select a hero in ARDM.")
-    if lockedHeroes[playerId] and lockedHeroes[playerId] ~= hero_name then
-      hero_name = lockedHeroes[playerId]
-    end
-  end
   if not hero_name then
     DebugPrint("SelectHero - Selected hero is nil for playerID: "..tostring(playerId))
     return
@@ -932,7 +936,6 @@ function HeroSelection:UnsafeRandomHero ()
   end
 end
 
--- start strategy timer
 function HeroSelection:EndStrategyTime ()
   DebugPrint("EndStrategyTime - This shouldn't happen multiple times.")
   HeroSelection.shouldBePaused = false
@@ -966,29 +969,35 @@ end
 
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
-  DebugPrint("Player "..tostring(event.PlayerID).." pressed a button: Ban, Lock or Random.")
-  if not event.hero or event.hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(event.hero)) then
+  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random.")
+  local playerId = event.PlayerID
+  local hero = event.hero -- string but in a form npc_dota_hero_blah, can also be 'empty', 'random' or 'forcerandom'
+
+  if not hero or hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(hero)) then
     Debug:EnableDebugging()
     DebugPrint('Cheater...')
     return
   end
-  local player_name = tostring(event.player_name) or tostring(PlayerResource:GetPlayerName(event.PlayerID))
-  local hero_name = tostring(event.hero_name)
+
+  local player_name = tostring(event.player_name) -- tostring(PlayerResource:GetPlayerName(playerId)) doesn't work
+  local hero_name = tostring(event.hero_name) -- string but localized hero name not internal name
+
   if rankedpickorder.phase == 'bans' then
     if IsInToolsMode() then
       GameRules:SendCustomMessage("Tools Mode: "..player_name.." nominated "..hero_name.." to be banned.", 0, 0)
     end
   elseif rankedpickorder.phase == 'picking' then
-    if event.hero ~= 'random' and event.hero ~= 'forcerandom' then
+    if hero ~= 'random' and hero ~= 'forcerandom' then
       GameRules:SendCustomMessage(player_name.." picked "..hero_name, 0, 0)
     end
   end
+
   if HeroSelection.isBanning then
     -- pass it off to ranked manager for bans etc
     return HeroSelection:RankedManager(event)
   end
 
-  HeroSelection:UpdateTable(event.PlayerID, event.hero)
+  HeroSelection:UpdateTable(playerId, hero)
 end
 
 function HeroSelection:HeroPreview (event)
@@ -1034,7 +1043,7 @@ function HeroSelection:UpdateTable (playerID, hero)
     hero = "empty"
   end
 
-  if GetMapName() == "captains_mode" then
+  if self.isCM then
     if hero ~= "empty" then
       local cmFound = false
       for k, v in pairs(cmpickorder[teamID.."picks"])do
@@ -1066,7 +1075,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   -- if everyone has picked, stop
   local isanyempty = false
   for _, value in pairs(selectedtable) do
-    if GetMapName() ~= "captains_mode" and value.steamid == "0" then
+    if HeroSelection.isCM and value.steamid == "0" then
       value.selectedhero = HeroSelection:RandomHero()
     end
     if value.selectedhero == "empty" then
