@@ -507,6 +507,10 @@ function HeroSelection:ChooseBans ()
     end
   else
     local skippedBans = 0
+    local maxBansPerTeam = 3
+    if HeroSelection.is10v10 then
+      maxBansPerTeam = 6
+    end
     while banCount < totalChoices / 2 do
       local choiceNum = RandomInt(1, totalChoices - banCount - skippedBans)
       local playerID = playerIDs[choiceNum]
@@ -514,13 +518,13 @@ function HeroSelection:ChooseBans ()
       local team = PlayerResource:GetTeam(playerID)
       local canBan = true
       if team == DOTA_TEAM_BADGUYS then
-        if badBans >= 3 then
+        if badBans >= maxBansPerTeam then
           canBan = false
           DebugPrint('Not chosing this ban because we already choose ' .. badBans .. ' bans from the Dire team')
         end
         badBans = badBans + 1
       elseif team == DOTA_TEAM_GOODGUYS then
-        if goodBans >= 3 then
+        if goodBans >= maxBansPerTeam then
           canBan = false
           DebugPrint('Not chosing this ban because we already choose ' .. goodBans .. ' bans from the Radiant team')
         end
