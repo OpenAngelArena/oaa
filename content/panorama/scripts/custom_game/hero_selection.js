@@ -1212,7 +1212,7 @@ function RerandomHero () {
     const playerId = Game.GetLocalPlayerID();
     const playerName = Players.GetPlayerName(playerId);
     GameEvents.SendCustomGameEventToServer('hero_rerandomed', {
-      player_name: playerName,
+      player_name: playerName
     });
   }
 }
