@@ -973,8 +973,8 @@ end
 
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
-  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random.")
   local playerId = event.PlayerID
+  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random.")
   local hero = event.hero -- string but in a form npc_dota_hero_blah, can also be 'empty', 'random' or 'forcerandom'
 
   if not hero or hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(hero)) then
