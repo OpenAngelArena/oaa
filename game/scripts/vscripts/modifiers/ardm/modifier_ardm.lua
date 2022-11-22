@@ -7,23 +7,21 @@ function modifier_ardm:DeclareFunctions()
   }
 end
 
-function modifier_ardm:OnRespawn(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_ardm:OnRespawn(event)
+    local parent = self:GetParent()
 
-  local parent = self:GetParent()
+    if event.unit ~= parent then
+      return
+    end
 
-  if event.unit ~= parent then
-    return
-  end
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
+      return
+    end
 
-  if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
-    return
-  end
-
-  if ARDMMode then
-    ARDMMode:ReplaceHero(parent, self.hero)
+    if ARDMMode and self.allowed then
+      ARDMMode:ReplaceHero(parent, self.hero)
+    end
   end
 end
 

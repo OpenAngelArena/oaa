@@ -112,13 +112,13 @@ function HeroSelection:Init ()
     end
 
     if HeroSelection.isARDM and ARDMMode then
-      if not self.isBanning then
+      if ARDMMode.hasBanPhase then
+        HeroSelection:StartSelection()
+      else
         PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
           HeroSelection:UpdateTable(playerID, "empty")
         end)
         HeroSelection:APTimer(-1, "ALL RANDOM")
-      else
-        HeroSelection:StartSelection()
       end
     else
       print("START HERO SELECTION")
@@ -191,13 +191,6 @@ function HeroSelection:Init ()
     -- Pause the game at the start (not during strategy time) if Captain's mode or ARDM
     if HeroSelection.isCM or HeroSelection.isARDM then
       PauseGame(true)
-    end
-    if HeroSelection.isARDM and ARDMMode then
-      -- start ARDM precaching
-      ARDMMode:StartPrecache()
-      ARDMMode:OnPrecache(function ()
-        DebugPrint('Precache finished! Woohoo!')
-      end)
     end
   end)
 end
