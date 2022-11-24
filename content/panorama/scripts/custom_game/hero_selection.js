@@ -289,7 +289,8 @@ function changeHilariousLoadingText () {
 }
 
 function onPlayerStatChange (table, key, data) {
-  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  const playerId = Game.GetLocalPlayerID();
+  const teamID = Players.GetTeam(playerId);
   let newimage = null;
   if (data &&
     (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
@@ -330,7 +331,7 @@ function onPlayerStatChange (table, key, data) {
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
   } else if (key === 'APdata' && data != null) {
-    canReRandom = data[Game.GetLocalPlayerID()] && data[Game.GetLocalPlayerID()].selectedhero !== 'empty' && data[Game.GetLocalPlayerID()].didRandom === 'true';
+    canReRandom = data[playerId] && data[playerId].selectedhero !== 'empty' && data[playerId].didRandom === 'true' && iscm === false;
     const length = Object.keys(data).length;
     if (panelscreated !== length) {
       // initial load stuff
@@ -391,7 +392,6 @@ function onPlayerStatChange (table, key, data) {
           }
         });
       }
-
       // general picking stuff
       Object.keys(data).forEach(function (nkey) {
         const currentplayer = FindDotaHudElement(data[nkey].steamid);
@@ -493,7 +493,7 @@ function onPlayerStatChange (table, key, data) {
         DisableHero(data.order[data.currentstage].hero);
       }
       $.Msg(data.currentstage + ', ' + currentPick.side);
-      if (Game.GetLocalPlayerID() === data['captain' + teamName] && teamID === currentPick.side) {
+      if (playerId === data['captain' + teamName] && teamID === currentPick.side) {
         // FindDotaHudElement('CaptainLockIn').style.visibility = 'visible';
         isPicking = true;
         isBanning = currentPick.type === 'Ban';
@@ -522,7 +522,7 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
-    if (data.mode === 'STRATEGY' || data.mode === 'PRE-GAME') {
+    if (data.mode === 'STRATEGY' || data.mode === 'PREPARING') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data.mode);
       if (data.mode === 'STRATEGY') {
@@ -540,7 +540,7 @@ function onPlayerStatChange (table, key, data) {
 }
 
 function UpdatedRankedPickState (data) {
-  $.Msg(data);
+  const playerId = Game.GetLocalPlayerID();
 
   const bans = Object.keys(data.bans)
     .map(function (key) { return data.bans[key]; })
@@ -562,7 +562,7 @@ function UpdatedRankedPickState (data) {
     });
 
   bans.forEach(function (banned) {
-    $.Msg('Banned hero: ' + banned);
+    // $.Msg('Banned hero: ' + banned);
     if (!IsHeroDisabled(banned)) {
       DisableHero(banned);
     }
@@ -576,7 +576,7 @@ function UpdatedRankedPickState (data) {
         DisableHero(banned);
       }
     });
-  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  const teamID = Players.GetTeam(playerId);
   const order = data.order[data.currentOrder + ''];
   const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
 
@@ -585,8 +585,8 @@ function UpdatedRankedPickState (data) {
       isPicking = false;
       break;
     case 'bans':
-      $.Msg(data.banChoices[Game.GetLocalPlayerID()]);
-      isPicking = !data.banChoices[Game.GetLocalPlayerID()];
+      // $.Msg(data.banChoices[playerId]);
+      isPicking = !data.banChoices[playerId];
       herolocked = false;
       canRandom = false;
       canReRandom = false;
@@ -596,19 +596,19 @@ function UpdatedRankedPickState (data) {
     case 'picking':
       isBanning = false;
       if (order.team === teamID) {
-        isPicking = !apData[Game.GetLocalPlayerID()] || apData[Game.GetLocalPlayerID()].selectedhero === 'empty';
+        isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
         herolocked = !isPicking;
         canRandom = order.canRandom !== false;
-        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[Game.GetLocalPlayerID()].selectedhero + JSON.stringify(apData[Game.GetLocalPlayerID()]));
+        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[playerId].selectedhero + JSON.stringify(apData[playerId]));
       } else {
         isPicking = false;
         $.Msg('Not my turn ' + order.team + ' / ' + teamID);
-        $.Msg(data.currentOrder);
-        $.Msg(data.order);
-        $.Msg(order);
+        // $.Msg(data.currentOrder);
+        // $.Msg(data.order);
+        // $.Msg(order);
       }
 
-      canReRandom = apData[Game.GetLocalPlayerID()] && apData[Game.GetLocalPlayerID()].selectedhero !== 'empty' && apData[Game.GetLocalPlayerID()].didRandom === 'true';
+      canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true' && iscm === false;
 
       break;
   }
@@ -1123,7 +1123,7 @@ function SelectHero (hero) {
       selectedhero = hero;
     }
   }
-  if (!herolocked || (canReRandom && selectedhero === 'rerandom')) {
+  if (!herolocked) {
     let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
       newhero = selectedherocm;
@@ -1208,13 +1208,12 @@ function RandomHero () {
 }
 
 function RerandomHero () {
-  $.Msg('Re-randoming');
-  selectedhero = 'rerandom';
-  selectedherocm = 'rerandom';
-  if (iscm) {
-    CaptainSelectHero();
-  } else {
-    SelectHero();
+  if (!iscm) {
+    const playerId = Game.GetLocalPlayerID();
+    const playerName = Players.GetPlayerName(playerId);
+    GameEvents.SendCustomGameEventToServer('hero_rerandomed', {
+      player_name: playerName
+    });
   }
 }
 
@@ -1293,12 +1292,14 @@ function SendMessageToTeam (event) {
   const forced = event.forced === 1;
   if (forced) {
     const forcedToPick = event.forced_pick === 1;
-    message = playerName + ' was forced to pick ' + heroName;
+    message = ' was forced to pick ' + heroName;
     if (!forcedToPick) {
-      message = playerName + ' was forced to random ' + heroName;
+      message = ' was forced to random ' + heroName;
     }
+  } else if (event.rerandom === 1) {
+    message = ' re-randomed ' + heroName;
   } else {
-    message = playerName + ' randomed ' + heroName;
+    message = ' randomed ' + heroName;
   }
 
   Game.ServerCmd(`say ${message}`);

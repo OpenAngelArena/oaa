@@ -43,7 +43,7 @@
                   <Label text="#game_option_rd" id="RD"/>
                   <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_lp" id="LP"/>
-                  <!-- <Label text="#game_option_ardm" id="ARDM"/> -->
+                  <Label text="#game_option_ardm" id="ARDM"/>
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="#game_option_spp" onactivate="onPanelChange('small_player_pool')"/>
                 <Label class="SettingsGroupTitle" text="#hero_options_title"/>
