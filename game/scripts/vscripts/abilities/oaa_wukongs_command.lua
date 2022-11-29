@@ -782,7 +782,9 @@ if IsServer() then
       parent.failure_count = pseudo_rng_mult
     end
 
-    Timers:CreateTimer(1.5, function()
+    local attack_interval = ability:GetSpecialValueFor("attack_interval")
+
+    Timers:CreateTimer(attack_interval + 0.3, function()
       if castHandle then
         ParticleManager:DestroyParticle(castHandle, false)
         ParticleManager:ReleaseParticleIndex(castHandle)
