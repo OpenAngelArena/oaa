@@ -40,7 +40,7 @@
     "ID"                                                  "3090"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spiked_mail.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/lionsmane_2"
 
     // Stats

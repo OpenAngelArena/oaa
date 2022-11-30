@@ -1,7 +1,5 @@
 ARDMMode = ARDMMode or class({})
 
-local PrecacheHeroEvent = Event()
-
 function ARDMMode:Init ()
   -- ARDM modifiers
   LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
@@ -29,6 +27,7 @@ function ARDMMode:Init ()
   end
 
   self.hasPrecached = false
+  self.hasBanPhase = false
   self.addedmodifier = {}
   self.heroPool = {
     [DOTA_TEAM_GOODGUYS] = {},
@@ -37,13 +36,19 @@ function ARDMMode:Init ()
 
   -- Register event listeners
   GameEvents:OnHeroInGame(partial(self.ApplyARDMmodifier, self))
-  GameEvents:OnHeroKilled(partial(self.ScheduleHeroChange, self))
+  GameEvents:OnHeroKilled(partial(self.PrepareHeroChange, self))
   --GameEvents:OnGameInProgress(partial(self.PrintTables, self))
 
   self:LoadHeroPoolsForTeams()
 
   GameRules:SetShowcaseTime(0)
+  GameRules:SetStrategyTime(30)
 end
+
+-- Start precaching with callback and broadcast when finished
+--[[
+
+local PrecacheHeroEvent = Event()
 
 function ARDMMode:StartPrecache()
   --Debug:EnableDebugging()
@@ -52,7 +57,7 @@ function ARDMMode:StartPrecache()
     self:PrecacheHeroes(function ()
       DebugPrint("ARDMMode - Done precaching")
       GameRules:SendCustomMessage("FINISHED with hero precaching...", 0, 0)
-      --PauseGame(false)
+      PauseGame(false)
       ARDMMode.hasPrecached = true
       PrecacheHeroEvent.broadcast(true)
     end)
@@ -60,11 +65,12 @@ function ARDMMode:StartPrecache()
     DebugPrint("ARDMMode - There was an attempt to start ARDM precache when it already started or it was finished")
   end
 end
+]]
 
 -- Precache only heroes that need to be precached (ignore banned, starting heroes and already precached heroes)
+--[[
 function ARDMMode:PrecacheHeroes(cb)
   --Debug:EnableDebugging()
-  --PauseGame(true)
   GameRules:SendCustomMessage("Started precaching heroes. PLEASE BE PATIENT.", 0, 0)
   DebugPrint("PrecacheHeroes - Started precaching heroes")
 
@@ -106,6 +112,7 @@ function ARDMMode:PrecacheHeroes(cb)
     end
   end
 end
+]]
 
 -- Precache all heroes
 --[[
@@ -125,6 +132,8 @@ function ARDMMode:PrecacheAllHeroes(cb)
 end
 ]]
 
+-- Prints all used tables of ARDMMode
+--[[
 function ARDMMode:PrintTables()
   --Debug:EnableDebugging()
   DebugPrint("PrintTables - Played and banned heroes: ")
@@ -138,42 +147,117 @@ function ARDMMode:PrintTables()
   DebugPrint("PrintTables - Dire hero pool: ")
   DebugPrintTable(self.heroPool[DOTA_TEAM_BADGUYS])
 end
+]]
 
 function ARDMMode:ApplyARDMmodifier(hero)
   --Debug:EnableDebugging()
   local hero_team = hero:GetTeamNumber()
   local hero_name = hero:GetUnitName()
 
-  if hero_team == DOTA_TEAM_NEUTRALS then
-    return
-  end
+  Timers:CreateTimer(1, function()
+    if hero_team == DOTA_TEAM_NEUTRALS then
+      return
+    end
 
-  if hero:IsTempestDouble() or hero:IsClone() then
-    return
-  end
+    if hero:IsTempestDouble() or hero:IsClone() then
+      return
+    end
 
-  local playerID = hero:GetPlayerOwnerID()
-  if self.addedmodifier[playerID] then
-    --DebugPrint("ApplyARDMmodifier - Already added modifier_ardm for player "..tostring(playerID))
-    return
-  end
+    local playerID = hero:GetPlayerOwnerID()
+    if ARDMMode.addedmodifier[playerID] then
+      --DebugPrint("ApplyARDMmodifier - Already added modifier_ardm for player "..tostring(playerID))
+      ARDMMode:PrepareNextHero(hero, hero_team)
+      return
+    end
 
-  if not hero:HasModifier("modifier_ardm") then
-    hero:AddNewModifier(hero, nil, "modifier_ardm", {})
-  end
+    if not hero:HasModifier("modifier_ardm") then
+      hero:AddNewModifier(hero, nil, "modifier_ardm", {})
+    end
 
-  -- Mark the first spawned hero as played - needed because of some edge cases
-  --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
-  table.insert(self.playedHeroes, hero_name)
+    -- Mark the first spawned hero as played - needed because of some edge cases
+    --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of played heroes. this_should_happen_only_once")
+    table.insert(ARDMMode.playedHeroes, hero_name)
 
-  -- Mark the first spawned hero as precached - needed because of some edge cases
-  --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
-  table.insert(self.precachedHeroes, hero_name)
+    -- Mark the first spawned hero as precached - needed because of some edge cases
+    --DebugPrint("ApplyARDMmodifier - Adding starting hero "..hero_name.." to the list of precached heroes. this_should_happen_only_once")
+    table.insert(ARDMMode.precachedHeroes, hero_name)
 
-  self.addedmodifier[playerID] = true
+    ARDMMode.addedmodifier[playerID] = true
+
+    ARDMMode:PrepareNextHero(hero, hero_team)
+  end)
 end
 
-function ARDMMode:ScheduleHeroChange(event)
+function ARDMMode:PrepareNextHero(current, team)
+  local new = ARDMMode:GetRandomHero(team)
+
+  -- Check if we are out of heroes
+  if not new then
+    -- Reload hero pools
+    ARDMMode:LoadHeroPoolsForTeams()
+    ARDMMode.playedHeroes = {}
+    -- Find recently played allied heroes and insert them into playedHeroes table
+    table.insert(ARDMMode.playedHeroes, current:GetUnitName())
+    local allied_heroes = FindUnitsInRadius(
+      team,
+      Vector(0, 0, 0),
+      nil,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      DOTA_UNIT_TARGET_HERO,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, DOTA_UNIT_TARGET_FLAG_DEAD),
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, v in pairs(allied_heroes) do
+      if v then
+        table.insert(ARDMMode.playedHeroes, v:GetUnitName())
+      end
+    end
+
+    new = ARDMMode:GetRandomHero(team)
+    if not new then
+      ARDMMode:AssignNewHero(current, nil)
+      return
+    end
+  end
+
+  -- Check if precached already
+  local precached = false
+  for _, v in pairs(ARDMMode.precachedHeroes) do
+    if v and v == new then
+      precached = true
+      break
+    end
+  end
+
+  ARDMMode:AssignNewHero(current, nil)
+  DebugPrint("PrepareNextHero - "..current:GetUnitName().." will be changed into "..tostring(new))
+  if not precached then
+    -- Precache the next one
+    PrecacheUnitByNameAsync(new, function()
+      table.insert(ARDMMode.precachedHeroes, new)
+      ARDMMode:AssignNewHero(current, new)
+    end)
+  else
+    ARDMMode:AssignNewHero(current, new)
+  end
+end
+
+function ARDMMode:AssignNewHero(old, new_name)
+  local ardm_mod = old:FindModifierByName("modifier_ardm")
+  if ardm_mod then
+    ardm_mod.hero = new_name
+  end
+end
+
+function ARDMMode:AllowReplacing(hero, state)
+  local ardm_mod = hero:FindModifierByName("modifier_ardm")
+  if ardm_mod then
+    ardm_mod.allowed = state
+  end
+end
+
+function ARDMMode:PrepareHeroChange(event)
   --Debug:EnableDebugging()
   if not event.killed then
     return
@@ -193,30 +277,25 @@ function ARDMMode:ScheduleHeroChange(event)
   end
 
   if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() then
+    ARDMMode:AllowReplacing(killed_hero, false) -- prevent hero change when reincarnating
     return
   end
 
-  if not killed_hero:HasModifier("modifier_ardm") and not self.addedmodifier[playerID] then
-    DebugPrint("ScheduleHeroChange - Killed hero "..killed_hero_name.." doesn't have ARDM modifier for some reason.")
+  if not killed_hero:HasModifier("modifier_ardm") and not ARDMMode.addedmodifier[playerID] then
+    DebugPrint("PrepareHeroChange - Killed hero "..killed_hero_name.." doesn't have ARDM modifier for some reason.")
     return
   end
 
   -- Mark the killed hero as played
-  --DebugPrint("ScheduleHeroChange - Adding killed hero "..killed_hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
-  table.insert(self.playedHeroes, killed_hero_name)
+  --DebugPrint("PrepareHeroChange - Adding killed hero "..killed_hero_name.." to the list of played heroes. this_should_happen_for_every_hero_death")
+  table.insert(ARDMMode.playedHeroes, killed_hero_name)
 
   -- Remove the killed hero from the pool
-  DebugPrint("ScheduleHeroChange - Removing killed hero "..killed_hero_name.." from the list of valid heroes for team "..tostring(killed_team)..". this_should_happen_for_every_hero_death")
-  self:RemoveHeroFromThePool(killed_hero_name, killed_team)
+  --DebugPrint("PrepareHeroChange - Removing killed hero "..killed_hero_name.." from the list of valid heroes for team "..tostring(killed_team)..". this_should_happen_for_every_hero_death")
+  ARDMMode:RemoveHeroFromThePool(killed_hero_name, killed_team)
 
-  local new_hero_name = self:GetRandomHero(killed_team)
-
-  local ardm_mod = killed_hero:FindModifierByName("modifier_ardm")
-  if ardm_mod then
-    ardm_mod.hero = new_hero_name
-    DebugPrint("ScheduleHeroChange - Killed hero "..killed_hero_name.." will be changed into "..tostring(new_hero_name))
-    --self:RemoveHeroFromThePool(new_hero_name, killed_team) -- to prevent same heroes on 1 team, commented out because heroes can die at the same time
-  end
+  ARDMMode:AllowReplacing(killed_hero, true)
+  --ARDMMode:RemoveHeroFromThePool(new_hero_name, killed_team) -- to prevent same heroes on 1 team, commented out because heroes can die at the same time
 end
 
 function ARDMMode:LoadHeroPoolsForTeams()
@@ -258,6 +337,8 @@ function ARDMMode:LoadHeroPoolsForTeams()
   end
 end
 
+-- Listener function that can be used in other modules
+--[[
 function ARDMMode:OnPrecache (cb)
   if self.hasPrecached then
     cb()
@@ -270,6 +351,7 @@ end
 
 function noop ()
 end
+]]
 
 function ARDMMode:GetRandomHero (teamId)
   --Debug:EnableDebugging()
@@ -317,6 +399,7 @@ function ARDMMode:GetRandomHero (teamId)
   end
 
   -- Check if this hero was precached only if the game started
+  --[[
   if GameRules:State_Get() > DOTA_GAMERULES_STATE_TEAM_SHOWCASE then
     local precached = false
     for _, v in pairs(self.precachedHeroes) do
@@ -335,6 +418,7 @@ function ARDMMode:GetRandomHero (teamId)
       return self:GetRandomHero(teamId)
     end
   end
+  ]]
 
   return hero_name
 end

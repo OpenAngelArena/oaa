@@ -67,6 +67,10 @@ CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used t
 RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
 RANKED_PICK_TIME = 30
+if IsInToolsMode() then
+  RANKED_BAN_TIME = 5
+  RANKED_PICK_TIME = 5
+end
 
 -- Game timings
 PREGAME_TIME = 35

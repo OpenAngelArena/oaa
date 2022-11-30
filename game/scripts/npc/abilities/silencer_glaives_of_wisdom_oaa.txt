@@ -44,11 +44,11 @@
         "value"                                           "20 40 60 80 100 120"
         "special_bonus_unique_silencer_3"                 "+10"
       }
-      "steal_range"                                       "925" // for passive INT steal
-      "steal_amount"                                      "2" // passive permanent INT steal
+      "permanent_int_steal_range"                         "925" // for passive permanent INT steal
+      "permanent_int_steal_amount"                        "2" // passive permanent INT steal
       "shard_int_steal_amount_bonus"
       {
-        "value"                                           "2"
+        "value"                                           "1"
         "RequiresShard"                                   "1"
       }
       "int_steal"                                         "1 1 2 3 4 5" // INT steal on enemy hit

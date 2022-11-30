@@ -14,8 +14,10 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilitySound"                                        "Hero_MonkeyKing.FurArmy"
 
@@ -27,7 +29,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.2"
+    "AbilityCastPoint"                                    "1.0"
     "AbilityCastRange"                                    "550"
     "AbilityCastAnimation"                                "ACT_DOTA_MK_FUR_ARMY"
 
@@ -66,7 +68,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 18 24 30 36"
+        "bonus_armor"                                     "14 19 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
       "06"

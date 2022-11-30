@@ -29,35 +29,35 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_radius"                                     "900" //OAA
+        "attack_count"                                    "3"
+        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_attack_count"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "heal_pct"                                        "35 40 45 50 55 60"
+        "heal_radius"                                     "900" //OAA
       }
       "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_pct"                                        "35 40 45 50 55 60"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_from_creeps"                                "75" //OAA
+      }
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "125 150 175 200 225 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_crit"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_count"                                    "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_attack_count"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_FLOAT"
         "proc_cooldown"                                   "0.00"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_from_creeps"                                "75" //OAA
       }
       "07"
       {

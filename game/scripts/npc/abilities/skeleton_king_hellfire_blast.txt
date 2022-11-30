@@ -42,7 +42,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "blast_speed"                                     "1000"
+        "blast_speed"                                     "1200"
       }
       "02"
       {
@@ -66,6 +66,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "blast_dot_damage"                                "20 40 60 80 160 320"
         "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_move_speed"                                "25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "25"
       }
     }
   }

@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Fiend Fear Duration
+  // Custom Faceless Void talent: Chronosphere cooldown
   //=================================================================================================================
-  "special_bonus_unique_nevermore_6"
+  "special_bonus_unique_faceless_void_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "815"
+    "ID"                                                  "83626"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,15 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "0.3"
-        "ad_linked_abilities"                             "nevermore_requiem"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "value2"                                          "0.3" //OAA
-        "ad_linked_abilities"                             "nevermore_requiem"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "-30"
       }
     }
   }

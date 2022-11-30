@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "243"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "243"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
@@ -33,9 +33,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "242"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "242"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/crimson_guard_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "20" //OAA
@@ -61,7 +62,7 @@
     {
       "bonus_health"                                      "350 700 1050 1400 1750" //OAA
       "bonus_health_regen"                                "12 15 18 21 24"
-      "bonus_armor"                                       "6 7 9 12 16"
+      "bonus_armor"                                       "8 9 11 14 18"
       "block_damage_melee"                                "75 125 175 225 275"
       "block_damage_ranged"                               "50 85 120 155 190"
       "block_chance"                                      "75" //OAA

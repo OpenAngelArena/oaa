@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "1.2"
+    "AbilityCastPoint"                                    "1.0"
     "AbilityCastRange"                                    "0"
 
     // Time
@@ -43,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "second_radius"                                   "750" //OAA, for picking screen tooltip
+        "second_radius"                                   "750"
       }
       "03"
       {
@@ -63,7 +63,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "12 18 24 30 36"
+        "bonus_armor"                                     "14 19 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4"
       }
       "07"

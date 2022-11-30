@@ -27,7 +27,7 @@
       "physical_damage_reduction_side"
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+5"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+6"
       }
       "side_angle"                                        "240"
       "redirect_chance"
@@ -36,9 +36,9 @@
         "special_bonus_unique_mars_bulwark_redirect_chance"  "+30"
       }
       "redirect_range"                                    "900"
-      "redirect_speed_penatly"
+      "redirect_speed_penatly" // penatly x)
       {
-        "value"                                           "20"
+        "value"                                           "18"
         "special_bonus_unique_mars_bulwark_speed"         "-10"
       }
       "redirect_close_range"                              "100"

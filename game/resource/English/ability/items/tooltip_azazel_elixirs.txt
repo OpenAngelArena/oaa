@@ -16,6 +16,6 @@
 
 "DOTA_Tooltip_Ability_item_elixier_sustain"                                     "Sustain Elixier"
 "DOTA_Tooltip_Ability_item_recipe_elixier_sustain"                              "Sustain Elixier Recipe"
-"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %bonus_duration% seconds, increases health regen by %bonus_hp_regen%.\n\nAlso grants you %bonus_dmg_reduction%%% damage reduction while you are stunned or hexed. <br><font color='#FF0000'>Costs 16 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %duration% seconds, grants %bonus_hp_regen% health regen, %bonus_lifesteal%%% lifesteal and %bonus_spell_lifesteal%%% spell lifesteal. Lifesteal is halved against creeps, and spell lifesteal is 1/5 against creeps. <br><font color='#FF0000'>Costs 6 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_elixier_sustain_Lore"                                "A mellow concoction that protects the body and enhances its natural regeneration."
 "DOTA_Tooltip_Ability_item_elixier_sustain_Note0"                               "#{DOTA_Tooltip_Ability_item_elixier_burst_Note0}"
