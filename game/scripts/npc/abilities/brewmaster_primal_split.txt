@@ -54,6 +54,31 @@
         "max_charges"                                     "2"
         "RequiresScepter"                                 "1"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_earth_brewling_hp"                       "1400 3200 5000 8600 15800" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_storm_brewling_hp"                       "1000 2000 3000 6000 9000" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_fire_brewling_hp"                        "1300 1600 1900 2800 3700" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_tooltip_void_brewling_hp"                  "1200 1800 2400 4200 6000" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }
