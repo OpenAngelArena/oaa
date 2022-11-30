@@ -15,7 +15,6 @@
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -43,7 +42,7 @@
       "armor_reduction" //OAA
       {
         "value"                                           "-10 -13 -16 -20 -25"
-        "special_bonus_unique_slardar_5"                  "-4"
+        "special_bonus_unique_slardar_5"                  "-5"
       }
       "duration"
       {

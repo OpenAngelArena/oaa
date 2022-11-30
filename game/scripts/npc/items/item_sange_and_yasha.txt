@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "154"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "154"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/sange_and_yasha"
 
@@ -44,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "18 20 22 24 26" //OAA
+        "status_resistance"                               "20 22 24 26 28"
       }
       "04"
       {

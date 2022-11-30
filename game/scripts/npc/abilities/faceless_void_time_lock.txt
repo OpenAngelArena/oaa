@@ -26,9 +26,9 @@
       "duration"                                          "0.65"
       "duration_creep"                                    "2.0"
       "chance_pct"                                        "12 16 20 24 25 26"
-      "bonus_damage" //OAA
+      "bonus_damage"
       {
-        "value"                                           "35 45 55 65 130 260"
+        "value"                                           "15 20 25 30 60 90"
         "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_3"
       }
       "delay"                                             "0.4"
