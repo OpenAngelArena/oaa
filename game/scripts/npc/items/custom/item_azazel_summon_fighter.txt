@@ -43,7 +43,7 @@
     "ItemRequiresCharges"                                 "1"
 
     "ItemStackable"                                       "0"
-    "ItemCorePointCost"                                   "16"
+    "ItemCorePointCost"                                   "8"
     "ItemCost"                                            "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
@@ -88,12 +88,12 @@
       "06" // seconds
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_duration"                                 "300"
+        "summon_duration"                                 "120"
       }
       "07" // minutes
       {
         "var_type"                                        "FIELD_INTEGER"
-        "summon_duration_tooltip"                         "5"
+        "summon_duration_tooltip"                         "2"
       }
     }
   }
