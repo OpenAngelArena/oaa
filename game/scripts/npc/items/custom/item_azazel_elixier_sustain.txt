@@ -52,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "16"
+    "ItemCorePointCost"                                   "6"
     "ItemCost"                                            "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
@@ -79,23 +79,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_dmg_reduction"                             "50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_duration"                                  "180"
-      }
+      "bonus_hp_regen"                                    "50"
+      "bonus_lifesteal"                                   "50" // half against creeps
+      "bonus_spell_lifesteal"                             "40" // 5th against creeps
+      "duration"                                          "180"
     }
   }
 }

@@ -30,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 160 180"
+    "AbilityManaCost"                                     "125 130 135 140 145 150"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -46,8 +46,8 @@
       "targets"                                           "8" //OAA
       "damage" //OAA
       {
-        "value"                                           "20 40 60 80 160 320"
-        "special_bonus_unique_dazzle_3"                   "+70"
+        "value"                                           "15 35 55 75 150 300"
+        "special_bonus_unique_dazzle_3"                   "+90"
       }
       "slow"
       {
@@ -55,7 +55,7 @@
         "special_bonus_unique_dazzle_1"                   "-40"
       }
       "projectile_speed"                                  "1300"
-      "duration"                                          "3 4 5 6 7 8" //OAA
+      "duration"                                          "5 5.5 6 6.5 7 7.5" //OAA
       "bonus_damage"                                      "0"
       "bonus_slow"                                        "-2 -2.5 -3 -3.5 -4 -4.5"
       "hex_duration" //OAA

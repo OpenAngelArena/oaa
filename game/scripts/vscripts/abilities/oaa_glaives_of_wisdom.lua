@@ -81,6 +81,11 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
       local intStealDuration = self:GetSpecialValueFor("int_steal_duration")
       local intStealAmount = self:GetSpecialValueFor("int_steal")
 
+      -- Shard increase for temporary INT steal
+      if caster:HasShardOAA() then
+        intStealAmount = intStealAmount + self:GetSpecialValueFor("shard_int_steal_amount_bonus")
+      end
+
       if intStealAmount ~= 0 and intStealDuration ~= 0 then
         target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff_counter", {duration = intStealDuration})
         target:AddNewModifier(caster, self, "modifier_oaa_glaives_debuff", {duration = intStealDuration})
@@ -546,8 +551,8 @@ if IsServer() then
   function modifier_oaa_int_steal:OnDeath(keys)
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local stealRange = ability:GetSpecialValueFor("steal_range")
-    local stealAmount = ability:GetSpecialValueFor("steal_amount")
+    local stealRange = ability:GetSpecialValueFor("permanent_int_steal_range")
+    local stealAmount = ability:GetSpecialValueFor("permanent_int_steal_amount")
     local unit = keys.unit
     local filterResult = UnitFilter(
       unit,
@@ -558,7 +563,7 @@ if IsServer() then
     )
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
-    -- Check for Shard (+2 Int Steal)
+    -- Shard increase for permanent INT steal
     if parent:HasShardOAA() then
       stealAmount = stealAmount + ability:GetSpecialValueFor("shard_int_steal_amount_bonus")
     end

@@ -56,6 +56,7 @@ function modifier_item_enrage_crystal_passive:OnRefresh()
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
+    self.dmg_reduction = ability:GetSpecialValueFor("dmg_reduction_while_stunned")
   end
 
   if IsServer() then
@@ -76,6 +77,7 @@ function modifier_item_enrage_crystal_passive:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
 end
 
@@ -91,6 +93,33 @@ function modifier_item_enrage_crystal_passive:GetModifierStatusResistanceStackin
   if self:GetStackCount() == 2 then
     return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
   else
+    return 0
+  end
+end
+
+if IsServer() then
+  function modifier_item_enrage_crystal_passive:GetModifierTotal_ConstantBlock(event)
+    if self:GetStackCount() ~= 2 then
+      return 0
+    end
+
+    local parent = self:GetParent()
+    local damage = event.damage
+
+    local block_amount = damage * self.dmg_reduction / 100
+
+    if block_amount > 0 and (parent:IsStunned() or parent:IsHexed() or parent:IsOutOfGame()) then
+      -- Visual effect
+      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+        alert_type = OVERHEAD_ALERT_BLOCK
+      end
+
+      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+
+      return block_amount
+    end
+
     return 0
   end
 end

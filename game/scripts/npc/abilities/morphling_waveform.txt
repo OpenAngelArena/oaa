@@ -7,21 +7,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5052"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5052"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.25"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "11" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +32,7 @@
     {
       "speed"                                             "1250"
       "width"                                             "200"
-      "AbilityCharges"    
+      "AbilityCharges"
       {
         "value"                                           "0"
         "special_bonus_unique_morphling_6"                "+2"
@@ -46,6 +41,11 @@
       {
         "value"                                           "700 800 900 1000 1000 1000"
         "special_bonus_unique_morphling_1"                "+250"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "15 14 13 12 11 10"
+        "special_bonus_unique_morphling_waveform_cooldown"  "-40%"
       }
     }
   }

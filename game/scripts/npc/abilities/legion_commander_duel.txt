@@ -52,12 +52,11 @@
         "value"                                           "50"
         "RequiresScepter"                                 "1"
       }
-      "scepter_cooldown_reduction"
+      "AbilityCooldown"
       {
-        "value"                                           "20.0"
-        "RequiresScepter"                                 "1"
+        "value"                                           "50"
+        "special_bonus_scepter"                           "-20"
       }
-      "AbilityCooldown"                                   "50"
     }
   }
 }

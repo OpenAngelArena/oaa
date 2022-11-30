@@ -49,15 +49,15 @@
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "04" // For special bonus at level 25 (ward_hp_tooltip x ???)
+      "04" // For special bonus at level 25 (ward_hp_tooltip x 2)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_hp"                                         "150 400 650 900 1800 3600" // Valve has it wrong but I give up on fixing it
+        "ward_hp"                                         "240 460 680 900 1800 3600" // at this point I don't know anymore if Valve has it wrong or not
       }
-      "05" // For special bonus at level 25 (ward_damage_tooltip x 2 ???)
+      "05" // For special bonus at level 25 (ward_damage_tooltip x 2)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage"                                     "26 44 62 80 280 480" // Valve has it wrong but I give up on fixing it
+        "ward_damage"                                     "26 44 62 80 280 480" // at this point I don't know anymore if Valve has it wrong or not
       }
     }
   }

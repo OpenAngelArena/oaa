@@ -37,7 +37,6 @@
       "wraith_speed"                                      "400"
       "spark_damage" //OAA
       {
-
         "value"                                           "100 180 260 340 680 1020"
         "special_bonus_unique_arc_warden"                 "+250"
       }
@@ -49,6 +48,11 @@
       "scepter_activation_delay"
       {
         "value"                                           "2.0"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_duration"
+      {
+        "value"                                           "15"
         "RequiresScepter"                                 "1"
       }
     }

@@ -48,12 +48,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "familiar_attack_damage"                          "30 60 90 180 330" //OAA, for Picking Screen
+        "LinkedSpecialBonus"                              "special_bonus_unique_visage_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tooltip_scepter_total_familiars"                 "2" //OAA, for Picking Screen
+        "tooltip_familiar_count"                          "2" //OAA, for Picking Screen
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_6"
         "RequiresScepter"                                 "1"
       }

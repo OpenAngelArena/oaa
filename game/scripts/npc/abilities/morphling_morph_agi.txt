@@ -28,7 +28,11 @@
         "special_bonus_shard"                             "+6"
       }
       "morph_rate_tooltip"                                "5 10 15 20 25 30"
-      "mana_cost"                                         "5 10 15 20 25 30"
+      "mana_cost"
+      {
+        "value"                                           "5 10 15 20 25 30"
+        "special_bonus_unique_morphling_morph_no_manacost"  "-100%"
+      }
       "castable_while_stunned"
       {
         "value"                                           "0"

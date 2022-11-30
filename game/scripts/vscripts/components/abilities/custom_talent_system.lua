@@ -22,6 +22,9 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
 end
 
 local abilities_with_custom_talents = {
+  faceless_void_chronosphere = {
+    AbilityCooldown = "special_bonus_unique_faceless_void_2_oaa",
+  },
   faceless_void_time_dilation = {
     radius = "special_bonus_unique_faceless_void_1_oaa",
   },
@@ -33,6 +36,9 @@ local abilities_with_custom_talents = {
   },
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+  },
+  ursa_earthshock = {
+    shock_radius = "special_bonus_unique_ursa_1_oaa",
   },
   windrunner_powershot = {
     powershot_damage = "special_bonus_unique_windranger_1_oaa",

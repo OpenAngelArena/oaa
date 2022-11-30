@@ -36,14 +36,13 @@
       "cast_radius"                                       "375" //OAA
       "damage_per_second" //OAA
       {
-        "value"                                           "100 200 300 450 600"
-        "special_bonus_unique_earth_spirit_8"             "+20"
+        "value"                                           "100 150 200 350 600"
+        "special_bonus_unique_earth_spirit_8"             "+50"
       }
-
       "damage_duration"
       {
         "value"                                           "6.0"
-        "special_bonus_unique_earth_spirit_6"             "+2"
+        "special_bonus_unique_earth_spirit_6"             "+3"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }

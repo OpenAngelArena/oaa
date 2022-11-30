@@ -61,68 +61,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_regen"                                    "8.5 10 11 12 13"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "28 29 30 31 32"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "barrier_debuff_duration"                         "50.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_resist"                                  "28 29 30 31 32"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_health_regen"                               "2.5 4.0 6.0 8.0 10.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance_aura"                           "10 12 14 16 18"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 500 700 1000 1400"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_duration"                                "12.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_radius"                                  "1200"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "0"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_block_creep"                             "400 500 700 1000 1400"
-      }
+      "health_regen"                                      "8.5 10 11 12 13"
+      "magic_resistance"                                  "28 29 30 31 32"
+      "barrier_debuff_duration"                           "50.0"
+      "tooltip_resist"                                    "28 29 30 31 32"
+      "aura_health_regen"                                 "2.5 4 6 8 10"
+      "magic_resistance_aura"                             "10 12 14 16 18"
+      "aura_radius"                                       "1200"
+      "barrier_block"                                     "450 550 750 1050 1450"
+      "barrier_duration"                                  "12.0"
+      "barrier_radius"                                    "1200"
+      "bonus_all_stats"                                   "0"
+      "barrier_block_creep"                               "450 550 750 1050 1450"
     }
   }
 }

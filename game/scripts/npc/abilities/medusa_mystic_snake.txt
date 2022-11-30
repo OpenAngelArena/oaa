@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"                                  "700"
+      "AbilityCastRange"                                  "750"
       "AbilityCastPoint"                                  "0.2"
       "AbilityCooldown"
       {
@@ -44,6 +44,7 @@
       "snake_damage_pct"                                  "0"
       "snake_mana_steal"                                  "11 14 17 20 23 26"
       "snake_scale"                                       "35"
+      "snake_speed_scale"                                 "15"
       "initial_speed"                                     "800"
       "return_speed"                                      "800"
       "stone_form_scepter_base"

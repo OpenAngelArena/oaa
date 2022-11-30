@@ -1,18 +1,26 @@
 //=============================================================================
 // Silencer Glaives of Wisdom
 //=============================================================================
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom"                              "Glaives of Wisdom"
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Lore"                         "Although lacking in traditional incantations, Nortrom's pedigree of the Aeol Drias gives him uncanny wisdom, which he applies to physical combat."
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Description"                  "Silencer enchants his glaives with his wisdom, dealing additional damage based on his Intelligence. Silencer temporarily steals his target's Intelligence with each hit. If Silencer kills an enemy hero, he permanently steals %permanent_int_steal_amount% Intelligence."
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Note0"                        "To permanently steal Intelligence, Silencer doesn't need to land the killing blow, as long as the enemy hero is killed within %permanent_int_steal_range% range of Silencer."
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Note1"                        "The enemy does not need to have the Glaives of Wisdom debuff for Silencer to permanently steal Intelligence."
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_shard_description"            "Every %stacks_for_silence% attacks, Glaives silence the enemy hit for %silence_duration% seconds. Additionally, it increases the Intelligence stolen per attack by 2 and per kill to %permanent_int_steal_amount%."
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_intellect_damage_pct"         "%INT TO DAMAGE:"
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_int_steal"                    "INT STEAL:"
+// "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_int_steal_duration"           "INT STEAL DURATION:"
+
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa"                           "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom}"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Lore"                      "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Lore}"
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description"               "Silencer enchants his glaives with his wisdom, dealing additional <font color='#00d9ec'>magic</font> damage based on his Intelligence. Silencer temporarily steals his target's Intelligence with each hit."
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description"               "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Description}\n<font color='#FFA500'>Glaives of Wisdom damage is magical.</font>"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_intellect_damage_pct"      "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_intellect_damage_pct}"
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_steal_amount"              "PERMANENT INT STEAL:"
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_steal_range"               "PERMANENT INT STEAL RANGE:"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_int_steal"                 "TEMPORARY INT STEAL:"
 "DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_int_steal_duration"        "TEMPORARY INT STEAL DURATION:"
 //"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_scepter_description"       "Glaives of Wisdom deals bonus damage to silenced units."
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_shard_description"         "Causes Glaives to bounce %shard_bounce_count% time towards the closest enemy unit, dealing %shard_bounce_damage_reduction%%% of Silencer's attack damage. Bounce range is %shard_bounce_range%. Additionally, it increases the Intelligence stolen per kill by %shard_permanent_int_steal_amount_bonus%."
-
-"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_Description"                   "#{DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_Description}"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_shard_description"         "Every %shard_attacks_for_silence% attacks, Glaives silence the enemy hit for %shard_silence_duration% seconds. Additionally, it increases the Intelligence stolen per attack and per kill by %shard_int_steal_amount_bonus%."
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_permanent_int_steal_amount"  "PERMANENT INT STEAL:"
+"DOTA_Tooltip_ability_silencer_glaives_of_wisdom_oaa_permanent_int_steal_range"  "PERMANENT INT STEAL RANGE:"
 
 "DOTA_Tooltip_modifier_oaa_glaives_buff_counter"                                "Glaives of Wisdom"
 "DOTA_Tooltip_modifier_oaa_glaives_buff_counter_Description"                    "Temporarily stealing %dMODIFIER_PROPERTY_TOOLTIP% intelligence from enemies."
@@ -21,5 +29,5 @@
 "DOTA_Tooltip_modifier_oaa_glaives_debuff_counter_Description"                  "Temporarily losing %dMODIFIER_PROPERTY_TOOLTIP% intelligence to Silencer."
 
 "DOTA_Tooltip_modifier_oaa_int_steal"                                           "Permanent Intelligence Stolen"
-"DOTA_Tooltip_modifier_oaa_int_steal_Description"                               "Silencer will permanently steal Intelligence from any enemy hero he kills, and any enemy hero that dies within the int steal range."
+"DOTA_Tooltip_modifier_oaa_int_steal_Description"                               "Silencer will permanently steal Intelligence from any enemy hero he kills, and any enemy hero that dies within the steal range."
 
