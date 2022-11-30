@@ -73,6 +73,11 @@
         "var_type"                                        "FIELD_INTEGER"
         "eidolon_magic_resist_tooltip"                    "60" //OAA, for picking screen tooltip
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "eidolon_attack_range_tooltip"                    "500" //OAA, for picking screen tooltip
+      }
     }
   }
 }
