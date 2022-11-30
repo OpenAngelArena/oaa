@@ -34,6 +34,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
+  ursa_earthshock = {
+    shock_radius = "special_bonus_unique_ursa_1_oaa",
+  },
   windrunner_powershot = {
     powershot_damage = "special_bonus_unique_windranger_1_oaa",
   },
