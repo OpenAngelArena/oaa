@@ -22,6 +22,9 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
 end
 
 local abilities_with_custom_talents = {
+  faceless_void_chronosphere = {
+    AbilityCooldown = "special_bonus_unique_faceless_void_2_oaa",
+  },
   faceless_void_time_dilation = {
     radius = "special_bonus_unique_faceless_void_1_oaa",
   },
