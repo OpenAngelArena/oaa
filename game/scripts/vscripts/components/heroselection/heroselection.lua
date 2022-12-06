@@ -112,14 +112,11 @@ function HeroSelection:Init ()
     end
 
     if HeroSelection.isARDM and ARDMMode then
-      if ARDMMode.hasBanPhase then
-        HeroSelection:StartSelection()
-      else
-        PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-          HeroSelection:UpdateTable(playerID, "empty")
-        end)
-        HeroSelection:APTimer(-1, "ALL RANDOM")
-      end
+      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
+        HeroSelection:UpdateTable(playerID, "empty")
+      end)
+      HeroSelection:APTimer(-1, "ALL RANDOM")
+      HeroSelection:BuildBottlePass()
     else
       print("START HERO SELECTION")
       HeroSelection:StartSelection()
@@ -188,10 +185,10 @@ function HeroSelection:Init ()
   end)
 
   GameEvents:OnPreGame(function (keys)
-    -- Pause the game at the start (not during strategy time) if Captain's mode or ARDM
-    if HeroSelection.isCM or HeroSelection.isARDM then
-      PauseGame(true)
-    end
+    -- Pause the game at the start (not during strategy time)
+    --if HeroSelection.isCM or HeroSelection.isARDM then
+    PauseGame(true)
+    --end
   end)
 end
 
@@ -271,7 +268,7 @@ function HeroSelection:BuildBottlePass()
   HeroSelection.SelectedArcana = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerID) then
-      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      local steamid = HeroSelection:GetSteamAccountID(playerID)
 
       if SPECIAL_BOTTLES[steamid] then
         special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
@@ -565,19 +562,6 @@ function HeroSelection:ChooseBans ()
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
         table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
       end)
-    elseif OAAOptions.settings.GAME_MODE == "ARDM" then
-      -- 100% chance bans (this will happen only if ban phase wasn't skipped)
-      PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
-      end)
-      if ARDMMode then
-        -- Remove all bans from the ARDM hero pool
-        for _, v in pairs(rankedpickorder.bans) do
-          if v ~= nil then
-            table.insert(ARDMMode.playedHeroes, v)
-          end
-        end
-      end
     end
   end
 end
@@ -797,7 +781,7 @@ function HeroSelection:APTimer (time, message)
         else
           local hero = HeroSelection:ForceRandomHero(playerId)
           HeroSelection:UpdateTable(playerId, hero)
-          --HeroSelection:SelectHero(playerId, hero)
+          HeroSelection:SelectHero(playerId, hero)
         end
       end
     end)
@@ -1090,7 +1074,7 @@ end
 local playerToSteamMap = {}
 function HeroSelection:GetSteamAccountID(playerID)
   local steamid = PlayerResource:GetSteamAccountID(playerID)
-  if steamid == 0 then
+  if steamid == 0 then -- for black box players steamid is probably 0
     if playerToSteamMap[playerID] then
       return playerToSteamMap[playerID]
     else
@@ -1108,7 +1092,7 @@ function HeroSelection:HeroRerandom(event)
     return
   end
 
-  local player_name = tostring(event.player_name) or tostring(PlayerResource:GetPlayerName(playerId))
+  local player_name = tostring(event.player_name) --or tostring(PlayerResource:GetPlayerName(playerId))
 
   -- Get old randomed hero (SelectHero/assigning lockedHeroes happens after UpdateTable and after picking phase)
   local locked_hero = lockedHeroes[playerId] -- so this is probably nil
@@ -1116,11 +1100,11 @@ function HeroSelection:HeroRerandom(event)
     locked_hero = selectedtable[playerId].selectedhero
   end
 
-  -- Add old random hero to banned heroes
+  -- Add old randomed hero to banned heroes
   table.insert(rankedpickorder.bans, locked_hero)
   CustomNetTables:SetTableValue('hero_selection', 'rankedData', rankedpickorder)
 
-  -- Rerandom new hero
+  -- Re-random new hero
   local new_hero = HeroSelection:RandomHero()
 
   -- Nullify hero tables
@@ -1131,8 +1115,7 @@ function HeroSelection:HeroRerandom(event)
   -- Update hero table
   HeroSelection:UpdateTable(playerId, new_hero)
 
-  -- 'Rerandom' message
-  --GameRules:SendCustomMessage(player_name.." rerandomed!", 0, 0)
+  -- 'Re-random' message
   local player = PlayerResource:GetPlayer(playerId) or PlayerResource:FindFirstValidPlayer()
   CustomGameEventManager:Send_ServerToPlayer(player, 'oaa_random_hero_message', {
     player_name = player_name,
