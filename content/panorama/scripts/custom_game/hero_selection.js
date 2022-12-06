@@ -1191,9 +1191,9 @@ function GoToStrategy () {
 
   if (!hasGoneToStrategy) {
     hasGoneToStrategy = true;
-    $.Schedule(6, function () {
-      $('#ARDMLoading').style.opacity = 1;
-    });
+    // $.Schedule(6, function () {
+    $('#ARDMLoading').style.opacity = 1;
+    // });
   }
 }
 
