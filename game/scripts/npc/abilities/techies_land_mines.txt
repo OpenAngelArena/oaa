@@ -12,6 +12,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -40,7 +41,6 @@
       "damage" //OAA
       {
         "value"                                           "400 600 800 1400 2400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_techies_2" // - Valve, this is a Sticky Bomb talent
       }
       "building_damage_pct"                               "30"
       "activation_delay"

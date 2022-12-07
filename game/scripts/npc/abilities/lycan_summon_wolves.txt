@@ -35,7 +35,11 @@
       "wolf_index"                                        "1 2 3 4 5 6"
       "wolf_duration"                                     "50"
       "wolf_bat"                                          "1.2 1.1 1.0 0.9 0.8 0.7"
-      "wolf_damage"                                       "21 40 60 80 180 280" //OAA
+      "wolf_damage" //OAA
+      {
+        "value"                                           "21 40 60 80 180 280"
+        "special_bonus_unique_lycan_3"                    "+20"
+      }
       "wolf_hp" //OAA
       {
         "value"                                           "325 425 525 625 1625 2625"
@@ -46,10 +50,10 @@
         "value"                                           "0"
         "special_bonus_unique_lycan_7"                    "+200"
       }
-      "bonus_damage"
+      "bonus_damage" // OAA, this seems redundant
       {
         "value"                                           "0"
-        "special_bonus_unique_lycan_3"                    "+10"
+        "special_bonus_unique_lycan_3"                    "+20"
       }
       "bash_chance"                                       "15" // slow chance
       "bash_duration"                                     "1.0"
