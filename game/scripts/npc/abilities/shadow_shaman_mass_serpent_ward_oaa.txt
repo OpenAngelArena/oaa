@@ -38,47 +38,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "ward_count"                                        "10"
+      "duration"                                          "45"
+      "spawn_radius"                                      "150"
+      "damage_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ward_count"                                      "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_tooltip"                                  "50 130 210 420 840"
+        "value"                                           "50 130 210 420 840"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03"
+      "attack_range_tooltip"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "45.0"
+        "value"                                           "650"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_8"
       }
-      "04"
+      "scepter_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_range"                                   "225"
+        "value"                                           "225"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "hits_to_destroy_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spawn_radius"                                    "150"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hits_to_destroy_tooltip"                         "2"
+        "value"                                           "2"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
         "LinkedSpecialBonusField"                         "value2"
       }
-      "07"
+      "hits_to_destroy_tooltip_creeps"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hits_to_destroy_tooltip_creeps"                  "4"
+        "value"                                           "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
       }
     }

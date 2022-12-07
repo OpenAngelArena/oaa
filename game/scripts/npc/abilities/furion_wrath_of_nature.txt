@@ -50,6 +50,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "damage_percent_add"                              "10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "04"
       {
@@ -60,7 +62,8 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "kill_damage"                                     "6 7 8 11 16" //OAA, for picking screen tooltip
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "06" // Valve Spring Breaking
       {

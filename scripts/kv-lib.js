@@ -39,7 +39,7 @@ function dotaAbilities (cb) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body.replace(/redirect_range_scepter/g, '"redirect_range_scepter"'));
+    const data = parseKV(result.body);
     cb(null, data.DOTAAbilities);
   });
 }
