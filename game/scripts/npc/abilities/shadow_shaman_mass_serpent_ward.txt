@@ -51,28 +51,34 @@
       }
       "03"
       {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_range_tooltip"                            "650"
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_8"
+      }
+      "04"
+      {
         "var_type"                                        "FIELD_FLOAT"
         "duration"                                        "45.0"
       }
-      "04"
+      "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "scepter_range"                                   "225"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "06"
       {
         "var_type"                                        "FIELD_INTEGER"
         "spawn_radius"                                    "150"
       }
-      "06"
+      "07"
       {
         "var_type"                                        "FIELD_INTEGER"
         "hits_to_destroy_tooltip"                         "2"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_1"
         "LinkedSpecialBonusField"                         "value2"
       }
-      "07"
+      "08"
       {
         "var_type"                                        "FIELD_INTEGER"
         "hits_to_destroy_tooltip_creeps"                  "4"

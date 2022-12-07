@@ -51,7 +51,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_7"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03" // bonus damage against bosses
@@ -59,6 +58,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage_buildings"                          "40 55 70 85 100 115"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "04"
       {

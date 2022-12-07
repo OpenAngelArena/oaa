@@ -63,6 +63,35 @@
         "var_type"                                        "FIELD_FLOAT"
         "zombie_interval"                                 "4.0 3.6 3.2 2.8 2.7 2.6"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "zombie_damage_tooltip"                           "34"
+        "LinkedSpecialBonus"                              "special_bonus_unique_undying"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "zombie_attack_damage_per_level"                  "2"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "21" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "zombie_bonus_damage_against_creeps"              "20"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "22" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "zombie_bonus_damage_against_bosses"              "50"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
     }
   }
 
