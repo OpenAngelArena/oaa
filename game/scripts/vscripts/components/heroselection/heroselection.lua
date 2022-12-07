@@ -268,7 +268,7 @@ function HeroSelection:BuildBottlePass()
   HeroSelection.SelectedArcana = {}
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerID) then
-      local steamid = HeroSelection:GetSteamAccountID(playerID)
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
 
       if SPECIAL_BOTTLES[steamid] then
         special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
