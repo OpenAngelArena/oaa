@@ -2,11 +2,11 @@
 // Beastmaster Call of the Wild
 //=============================================================================
 // "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar"                       "Call of the Wild Boar"
-// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_Description"           "Beastmaster calls forth a Boar to aid in the battlefield."
+// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_Description"           "Beastmaster calls forth a Boar to aid in the battlefield. The Boar has a passive poison attack that slows attack and movement speeds."
 // "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_Lore"                  "After befriending the strange beast of his childhood, Beastmaster has learned to call to animals in times of need."
 // "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_duration"              "SUMMON DURATION:"
-// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_base_max_health"  "BOAR HEALTH:"
-// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_base_damage"      "BOAR ATTACK DAMAGE:"
+// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_base_max_health"  "BOAR BASE HEALTH:"
+// "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_total_damage_tooltip"  "BOAR ATTACK DAMAGE:"
 // "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_moveslow_tooltip"  "%BOAR SLOW:"
 // "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_poison_duration_tooltip"  "BOAR POISON DURATION:"
 
@@ -25,7 +25,7 @@
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_Lore"               "#{DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_Lore}"
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_duration"           "BOAR DURATION:"
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_health"        "#{DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_base_max_health}"
-"DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_damage"        "#{DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_boar_base_damage}"
+"DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_damage"        "BOAR ATTACK DAMAGE:"
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_armor"         "BOAR ARMOR:"
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_move_speed"    "BOAR MOVE SPEED:"
 "DOTA_Tooltip_ability_beastmaster_call_of_the_wild_boar_oaa_boar_moveslow_tooltip"  "%POISON MOVE SPEED SLOW:"

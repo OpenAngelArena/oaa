@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5250"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot about this
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
@@ -30,6 +30,7 @@
       {
         "var_type"                                        "FIELD_FLOAT"
         "hp_damage_percent"                               "0.8 1.1 1.4 1.7 1.8 1.9"
+        "CalculateSpellDamageTooltip"                     "0"
       }
     }
   }

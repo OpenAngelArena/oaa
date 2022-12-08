@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5723"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5723"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -44,6 +43,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_damage"                                    "40 70 100 130 260 390"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_2"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "05"
       {

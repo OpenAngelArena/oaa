@@ -522,10 +522,10 @@ function onPlayerStatChange (table, key, data) {
     }
   } else if (key === 'time' && data != null) {
     // $.Msg(data);
-    if (data.mode === 'STRATEGY' || data.mode === 'PREPARING') {
+    if (data.mode === 'STRATEGY' || data.mode === 'PREPARING' || data.mode === 'PRE-STRATEGY') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data.mode);
-      if (data.mode === 'STRATEGY') {
+      if (data.mode === 'PRE-STRATEGY' || data.mode === 'STRATEGY') {
         GoToStrategy();
       }
     } else if (data.time > -1) {
@@ -1182,18 +1182,14 @@ function HideStrategy () {
 }
 
 function GoToStrategy () {
-  FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
-  FindDotaHudElement('MainContent').style.opacity = '0';
-  FindDotaHudElement('StrategyContent').style.transform = 'scaleX(1) scaleY(1)';
-  FindDotaHudElement('StrategyContent').style.opacity = '1';
-  // FindDotaHudElement('PregameBG').style.opacity = '0.15';
-  FindDotaHudElement('PregameBG').RemoveClass('BluredAndDark');
+  // FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
+  // FindDotaHudElement('MainContent').style.opacity = '0';
 
   if (!hasGoneToStrategy) {
     hasGoneToStrategy = true;
-    $.Schedule(6, function () {
-      $('#ARDMLoading').style.opacity = 1;
-    });
+    // $.Schedule(6, function () {
+    $('#ARDMLoading').style.opacity = 1;
+    // });
   }
 }
 

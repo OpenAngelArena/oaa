@@ -14,7 +14,7 @@ function GameMode:_InitGameMode()
   GameRules:SetHeroSelectionTime(RANKED_PICK_TIME * 24)
   GameRules:SetHeroSelectPenaltyTime(10)
   GameRules:SetStrategyTime(1)
-  --GameRules:SetShowcaseTime(0)
+  GameRules:SetShowcaseTime(0) -- temporary
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   if USE_CUSTOM_HERO_LEVELS then

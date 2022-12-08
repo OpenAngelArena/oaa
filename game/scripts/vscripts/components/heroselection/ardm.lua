@@ -26,8 +26,7 @@ function ARDMMode:Init ()
     end
   end
 
-  self.hasPrecached = false
-  self.hasBanPhase = false
+  --self.hasPrecached = false
   self.addedmodifier = {}
   self.heroPool = {
     [DOTA_TEAM_GOODGUYS] = {},
@@ -42,7 +41,7 @@ function ARDMMode:Init ()
   self:LoadHeroPoolsForTeams()
 
   GameRules:SetShowcaseTime(0)
-  GameRules:SetStrategyTime(30)
+  GameRules:SetStrategyTime(10)
 end
 
 -- Start precaching with callback and broadcast when finished
@@ -67,7 +66,7 @@ function ARDMMode:StartPrecache()
 end
 ]]
 
--- Precache only heroes that need to be precached (ignore banned, starting heroes and already precached heroes)
+-- Precache only heroes that need to be precached (ignore starting heroes and already precached heroes)
 --[[
 function ARDMMode:PrecacheHeroes(cb)
   --Debug:EnableDebugging()
@@ -84,14 +83,6 @@ function ARDMMode:PrecacheHeroes(cb)
   end
 
   for _, hero_name in pairs(self.allHeroes) do
-    local playable = true
-    for _, banned in pairs(self.playedHeroes) do
-      if banned and hero_name == banned then
-        DebugPrint("PrecacheHeroes - Hero "..tostring(banned).." was randomed first or banned")
-        playable = false
-        break
-      end
-    end
     local precached = false
     for _, v in pairs(self.precachedHeroes) do
       if v and hero_name == v then
@@ -100,7 +91,7 @@ function ARDMMode:PrecacheHeroes(cb)
         break
       end
     end
-    if playable and not precached and hero_name then
+    if not precached and hero_name then
       PrecacheUnitByNameAsync(hero_name, function()
         DebugPrint("PrecacheHeroes - Finished precaching hero: "..tostring(hero_name))
         --GameRules:SendCustomMessage("Precached "..tostring(hero_name), 0, 0)
@@ -136,7 +127,7 @@ end
 --[[
 function ARDMMode:PrintTables()
   --Debug:EnableDebugging()
-  DebugPrint("PrintTables - Played and banned heroes: ")
+  DebugPrint("PrintTables - Played heroes: ")
   DebugPrintTable(self.playedHeroes)
   DebugPrint("PrintTables - Precached heroes: ")
   DebugPrintTable(self.precachedHeroes)
@@ -196,19 +187,20 @@ function ARDMMode:PrepareNextHero(current, team)
     -- Reload hero pools
     ARDMMode:LoadHeroPoolsForTeams()
     ARDMMode.playedHeroes = {}
-    -- Find recently played allied heroes and insert them into playedHeroes table
+    -- Find recently played heroes and insert them into playedHeroes table
     table.insert(ARDMMode.playedHeroes, current:GetUnitName())
-    local allied_heroes = FindUnitsInRadius(
+    local heroes = FindUnitsInRadius(
       team,
       Vector(0, 0, 0),
       nil,
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_BOTH,
       DOTA_UNIT_TARGET_HERO,
       bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, DOTA_UNIT_TARGET_FLAG_DEAD),
       FIND_ANY_ORDER,
       false
     )
-    for _, v in pairs(allied_heroes) do
+    for _, v in pairs(heroes) do
       if v then
         table.insert(ARDMMode.playedHeroes, v:GetUnitName())
       end
@@ -538,36 +530,36 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   -- Permanent modifiers
-  local duel_damage
-  local stolen_int
-  local flesh_heap
-  local essence_shift
+  local duel_damage = 0
+  local stolen_int = 0
+  local flesh_heap = 0
+  local essence_shift = 0
   local aghanim_scepter
   local aghanim_shard
 
   if old_hero:HasModifier('modifier_legion_commander_duel_damage_boost') then
-    duel_damage = old_hero:FindModifierByName('modifier_legion_commander_duel_damage_boost'):GetStackCount()
+    duel_damage = duel_damage + old_hero:FindModifierByName('modifier_legion_commander_duel_damage_boost'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_legion_commander_duel_damage_oaa_ardm') then
-    duel_damage = old_hero:FindModifierByName('modifier_legion_commander_duel_damage_oaa_ardm'):GetStackCount()
+    duel_damage = duel_damage + old_hero:FindModifierByName('modifier_legion_commander_duel_damage_oaa_ardm'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_oaa_int_steal') then
-    stolen_int = old_hero:FindModifierByName('modifier_oaa_int_steal'):GetStackCount()
+    stolen_int = stolen_int + old_hero:FindModifierByName('modifier_oaa_int_steal'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_silencer_int_steal_oaa_ardm') then
-    stolen_int = old_hero:FindModifierByName('modifier_silencer_int_steal_oaa_ardm'):GetStackCount()
+    stolen_int = stolen_int + old_hero:FindModifierByName('modifier_silencer_int_steal_oaa_ardm'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_pudge_flesh_heap') then
-    flesh_heap = old_hero:FindModifierByName('modifier_pudge_flesh_heap'):GetStackCount()
+    flesh_heap = flesh_heap + old_hero:FindModifierByName('modifier_pudge_flesh_heap'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_pudge_flesh_heap_oaa_ardm') then
-    flesh_heap = old_hero:FindModifierByName('modifier_pudge_flesh_heap_oaa_ardm'):GetStackCount()
+    flesh_heap = flesh_heap + old_hero:FindModifierByName('modifier_pudge_flesh_heap_oaa_ardm'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_slark_essence_shift_permanent_buff') then
-    essence_shift = old_hero:FindModifierByName('modifier_slark_essence_shift_permanent_buff'):GetStackCount()
+    essence_shift = essence_shift + old_hero:FindModifierByName('modifier_slark_essence_shift_permanent_buff'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_slark_essence_shift_oaa_ardm') then
-    essence_shift = old_hero:FindModifierByName('modifier_slark_essence_shift_oaa_ardm'):GetStackCount()
+    essence_shift = essence_shift + old_hero:FindModifierByName('modifier_slark_essence_shift_oaa_ardm'):GetStackCount()
   end
   if old_hero:HasModifier('modifier_item_ultimate_scepter_consumed') or old_hero:HasModifier('modifier_item_ultimate_scepter_consumed_alchemist') then
     aghanim_scepter = true
@@ -683,28 +675,28 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     end
 
     -- Create new permanent modifiers for the new hero
-    if duel_damage then
+    if duel_damage ~= 0 then
       if not new_hero:HasModifier('modifier_legion_commander_duel_damage_oaa_ardm') then
         local duel_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_legion_commander_duel_damage_oaa_ardm', {})
         duel_modifier:SetStackCount(duel_damage)
       end
     end
 
-    if stolen_int then
+    if stolen_int ~= 0 then
       if not new_hero:HasModifier('modifier_silencer_int_steal_oaa_ardm') then
         local int_steal_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_silencer_int_steal_oaa_ardm', {})
         int_steal_modifier:SetStackCount(stolen_int)
       end
     end
 
-    if flesh_heap then
+    if flesh_heap ~= 0 then
       if not new_hero:HasModifier('modifier_pudge_flesh_heap_oaa_ardm') then
         local flesh_heap_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_pudge_flesh_heap_oaa_ardm', {})
         flesh_heap_modifier:SetStackCount(flesh_heap)
       end
     end
 
-    if essence_shift then
+    if essence_shift ~= 0 then
       if not new_hero:HasModifier('modifier_slark_essence_shift_oaa_ardm') then
         local flesh_heap_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_slark_essence_shift_oaa_ardm', {})
         flesh_heap_modifier:SetStackCount(essence_shift)

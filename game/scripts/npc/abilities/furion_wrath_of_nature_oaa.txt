@@ -33,64 +33,47 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "max_targets"                                       "18"
+      "damage"                                            "150 220 290 430 710"
+      "jump_delay"                                        "0.25"
+      "damage_percent_add"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "18"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "150 220 290 430 710"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_percent_add"                              "10"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_delay"                                      "0.25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_scepter"                                  "200 300 400 700 1200"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_buffer"                                  "4"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "kill_damage"                                     "6 7 8 11 16"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "kill_damage_duration"                            "50"
+        "value"                                           "10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "09"
+      "kill_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_min_root_duration"                       "2.0"
+        "value"                                           "6 7 8 11 16"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "kill_damage_duration"
+      {
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "damage_scepter"
+      {
+        "value"                                           "200 300 400 700 1200"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "scepter_buffer"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_max_root_duration"                       "3.8"
+        "value"                                           "4"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_min_root_duration"
+      {
+        "value"                                           "2.0"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_max_root_duration"
+      {
+        "value"                                           "3.8"
         "RequiresScepter"                                 "1"
       }
     }

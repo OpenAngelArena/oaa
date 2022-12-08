@@ -38,11 +38,13 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "acorn_shot_damage"                               "50 75 100 125 250 500"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
         "base_damage_pct"                                 "75"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "04"
       {

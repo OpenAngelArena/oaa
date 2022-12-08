@@ -50,6 +50,32 @@
       "reincarnate_time"                                  "3"
       "gold_bounty"                                       "5"
       "xp_bounty"                                         "5"
+      "skeleton_damage_tooltip" //OAA
+      {
+        "value"                                           "34"
+        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_6"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "skeleton_attack_damage_per_level" //OAA
+      {
+        "value"                                           "2"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "skeleton_bonus_damage_against_creeps" //OAA
+      {
+        "value"                                           "10"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "skeleton_bonus_damage_against_bosses" //OAA
+      {
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "skeleton_attack_speed_per_level"                   "1" //OAA
     }
   }
 }

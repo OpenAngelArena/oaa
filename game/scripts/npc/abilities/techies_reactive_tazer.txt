@@ -35,6 +35,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityModifierSupportValue"                         "0.25"  // generally used for damage only
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -43,10 +44,11 @@
       "disarm_duration"                                   "2.4 2.7 3 3.3 3.6 3.9"
       "bonus_ms"                                          "18 22 26 30 35 40"
       "stun_radius"                                       "400"
-      "scepter_damage"
+      "scepter_damage" //OAA
       {
-        "value"                                           "300"
+        "value"                                           "75 150 225 300 600 900"
         "RequiresScepter"                                 "1"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }
   }
