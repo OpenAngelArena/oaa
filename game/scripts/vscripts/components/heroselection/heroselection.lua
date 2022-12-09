@@ -50,13 +50,15 @@ function HeroSelection:Init ()
   for key, value in pairs(LoadKeyValues(herolistFile)) do
     --DebugPrint("Heroes: ".. key)
     local hero_data = GetUnitKeyValuesByName(key)
-    if not hero_data then -- Cookies: If the hero is not in vanilla file, load custom KV's
-      DebugPrint(key .. " is not in vanilla file!")
+    if not hero_data then
+      DebugPrint("Couldn't find keyvalues for hero "..key")
       local data = {}
       if key == "npc_dota_hero_electrician" then
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
       elseif key == "npc_dota_hero_sohei" then
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      else
+        data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end
 
       if data and data[key] then
@@ -67,7 +69,7 @@ function HeroSelection:Init ()
       if not heroAbilities[hero_data.AttributePrimary] then
         heroAbilities[hero_data.AttributePrimary] = {}
       end
-	  local function SendAbilityIfNotHidden(ability_name)
+      local function FilterOutHiddenAbilities(ability_name)
         if not ability_name or ability_name == "" then
           return "generic_hidden"
         end
@@ -83,17 +85,17 @@ function HeroSelection:Init ()
           return "generic_hidden"
         end
         return ability_name
-	  end
+      end
       heroAbilities[hero_data.AttributePrimary][key] = {
-        SendAbilityIfNotHidden(hero_data.Ability1),
-        SendAbilityIfNotHidden(hero_data.Ability2),
-        SendAbilityIfNotHidden(hero_data.Ability3),
-        SendAbilityIfNotHidden(hero_data.Ability4),
-        SendAbilityIfNotHidden(hero_data.Ability5),
-        SendAbilityIfNotHidden(hero_data.Ability6),
-        SendAbilityIfNotHidden(hero_data.Ability7),
-        SendAbilityIfNotHidden(hero_data.Ability8),
-        SendAbilityIfNotHidden(hero_data.Ability9)
+        FilterOutHiddenAbilities(hero_data.Ability1),
+        FilterOutHiddenAbilities(hero_data.Ability2),
+        FilterOutHiddenAbilities(hero_data.Ability3),
+        FilterOutHiddenAbilities(hero_data.Ability4),
+        FilterOutHiddenAbilities(hero_data.Ability5),
+        FilterOutHiddenAbilities(hero_data.Ability6),
+        FilterOutHiddenAbilities(hero_data.Ability7),
+        FilterOutHiddenAbilities(hero_data.Ability8),
+        FilterOutHiddenAbilities(hero_data.Ability9)
       }
       herolist[key] = hero_data.AttributePrimary
       totalheroes = totalheroes + 1
