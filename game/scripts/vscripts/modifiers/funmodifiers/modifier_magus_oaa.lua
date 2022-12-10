@@ -54,6 +54,7 @@ function modifier_magus_oaa:OnCreated()
     elder_titan_return_spirit = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- self grief
     electrician_electric_shield = 1,                     -- self grief
+    ember_spirit_activate_fire_remnant = 1,              -- self grief
     enchantress_enchant = 1,                             -- dominating every creep on attack
     enigma_demonic_conversion = 1,                       -- instant kill
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
@@ -66,6 +67,7 @@ function modifier_magus_oaa:OnCreated()
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill
     meepo_petrify = 1,                                   -- invulnerability
+    monkey_king_primal_spring = 1,                       -- breaks ability
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
@@ -101,6 +103,7 @@ function modifier_magus_oaa:OnCreated()
     zuus_thundergods_wrath = 1,                          -- powerful, trolling (doesn't need vision)
   }
   self.low_chance_to_proc = {
+    clinkz_strafe = 1,                                   -- looping
     dark_seer_wall_of_replica = 1,                       -- lag
     doom_bringer_doom = 1,                               -- powerful
     ember_spirit_sleight_of_fist = 1,                    -- invulnerability and looping
@@ -116,7 +119,6 @@ function modifier_magus_oaa:OnCreated()
     mars_gods_rebuke = 1,                                -- looping
     medusa_stone_gaze = 1,                               -- powerful
     monkey_king_tree_dance = 1,                          -- self grief in most cases
-    monkey_king_boundless_strike = 1,                    -- looping, sometimes doesn't do damage
     morphling_waveform = 1,                              -- invulnerability and looping
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
