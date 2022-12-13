@@ -239,7 +239,16 @@ function modifier_magus_oaa:CastASpell(caster, target)
     end
 
     if isPointTargetting then
-      real_caster:SetCursorPosition(real_target:GetAbsOrigin())
+      local target_loc = real_target:GetAbsOrigin()
+      local caster_loc = real_caster:GetAbsOrigin()
+      if not target_loc then
+        target_loc = caster_loc
+      end
+      -- Checking cast range again just in case if 'GetEffectiveCastRange' is not working
+      if (target_loc - caster_loc):Length2D() > ability:GetCastRange(caster_loc, nil) + real_caster:GetCastRangeBonus() then
+        target_loc = caster_loc
+      end
+      real_caster:SetCursorPosition(target_loc)
     end
 
     -- Spell Block check
@@ -296,7 +305,7 @@ function modifier_magus_oaa:FindRandomAlly(ability)
   )
 
   for _, ally in pairs(allies) do
-    if ally and ally ~= parent then
+    if ally and not ally:IsNull() and ally ~= parent then
       random_ally = ally
       break
     end
@@ -313,7 +322,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
     nil,
-    ability:GetEffectiveCastRange(target:GetAbsOrigin(), target),
+    ability:GetEffectiveCastRange(parent:GetAbsOrigin(), nil),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     ability:GetAbilityTargetType(),
     DOTA_UNIT_TARGET_FLAG_NONE,
@@ -322,7 +331,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
   )
 
   for _, enemy in pairs(enemies) do
-    if enemy and enemy ~= target then
+    if enemy and not enemy:IsNull() and enemy ~= target then
       random_enemy = enemy
       break
     end
