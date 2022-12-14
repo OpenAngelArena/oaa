@@ -68,6 +68,7 @@ function modifier_magus_oaa:OnCreated()
     life_stealer_infest = 1,                             -- self grief and maybe instant kill
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_primal_spring = 1,                       -- breaks ability
+    monkey_king_tree_dance = 1,                          -- self grief in most cases, breaks Primal Spring
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
@@ -88,7 +89,7 @@ function modifier_magus_oaa:OnCreated()
     sohei_flurry_of_blows = 1,                           -- invulnerability and looping
     spectre_haunt = 1,                                   -- lag
     spectre_reality = 1,                                 -- self grief
-    storm_spirit_ball_lightning = 1,                     -- self grief
+    --storm_spirit_ball_lightning = 1,                   -- self grief
     terrorblade_conjure_image = 1,                       -- lag
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
@@ -118,7 +119,7 @@ function modifier_magus_oaa:OnCreated()
     lone_druid_spirit_bear = 1,                          -- self grief in most cases
     mars_gods_rebuke = 1,                                -- looping
     medusa_stone_gaze = 1,                               -- powerful
-    monkey_king_tree_dance = 1,                          -- self grief in most cases
+    --monkey_king_boundless_strike = 1,                  -- looping, sometimes doesn't do damage
     morphling_waveform = 1,                              -- invulnerability and looping
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
