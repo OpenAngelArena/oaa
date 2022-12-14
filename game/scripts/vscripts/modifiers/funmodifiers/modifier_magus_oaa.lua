@@ -206,7 +206,11 @@ function modifier_magus_oaa:CastASpell(caster, target)
   end
 
   local target_team = ability:GetAbilityTargetTeam() or DOTA_UNIT_TARGET_TEAM_BOTH
-  local behavior = ability:GetBehaviorInt()
+  --local behavior = ability:GetBehaviorInt()
+  local behavior = ability:GetBehavior()
+  if type(behavior) == 'userdata' then
+    behavior = tonumber(tostring(behavior))
+  end
   local real_target = target
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
   local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
@@ -244,9 +248,9 @@ function modifier_magus_oaa:CastASpell(caster, target)
       if not target_loc then
         target_loc = caster_loc
       end
-      -- Checking cast range again just in case if 'GetEffectiveCastRange' is not working
-      if (target_loc - caster_loc):Length2D() > ability:GetCastRange(caster_loc, nil) + real_caster:GetCastRangeBonus() then
-        target_loc = caster_loc
+      -- Checking cast range like this just in case if 'GetEffectiveCastRange' is not working
+      if (target_loc - caster_loc):Length2D() > ability:GetCastRange(caster_loc, nil) + real_caster:GetCastRangeBonus() and ability:GetCastRange(caster_loc, nil) ~= 0 then
+        target_loc = caster_loc + real_caster:GetForwardVector() * 150
       end
       real_caster:SetCursorPosition(target_loc)
     end
