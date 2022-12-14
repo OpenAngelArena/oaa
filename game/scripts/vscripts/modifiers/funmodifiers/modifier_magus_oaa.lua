@@ -54,6 +54,7 @@ function modifier_magus_oaa:OnCreated()
     elder_titan_return_spirit = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- self grief
     electrician_electric_shield = 1,                     -- self grief
+    ember_spirit_activate_fire_remnant = 1,              -- self grief
     enchantress_enchant = 1,                             -- dominating every creep on attack
     enigma_demonic_conversion = 1,                       -- instant kill
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
@@ -66,6 +67,8 @@ function modifier_magus_oaa:OnCreated()
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill
     meepo_petrify = 1,                                   -- invulnerability
+    monkey_king_primal_spring = 1,                       -- breaks ability
+    monkey_king_tree_dance = 1,                          -- self grief in most cases, breaks Primal Spring
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
     morphling_morph_replicate = 1,                       -- self grief
@@ -86,7 +89,7 @@ function modifier_magus_oaa:OnCreated()
     sohei_flurry_of_blows = 1,                           -- invulnerability and looping
     spectre_haunt = 1,                                   -- lag
     spectre_reality = 1,                                 -- self grief
-    storm_spirit_ball_lightning = 1,                     -- self grief
+    --storm_spirit_ball_lightning = 1,                   -- self grief
     terrorblade_conjure_image = 1,                       -- lag
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
@@ -101,6 +104,7 @@ function modifier_magus_oaa:OnCreated()
     zuus_thundergods_wrath = 1,                          -- powerful, trolling (doesn't need vision)
   }
   self.low_chance_to_proc = {
+    clinkz_strafe = 1,                                   -- looping
     dark_seer_wall_of_replica = 1,                       -- lag
     doom_bringer_doom = 1,                               -- powerful
     ember_spirit_sleight_of_fist = 1,                    -- invulnerability and looping
@@ -115,8 +119,7 @@ function modifier_magus_oaa:OnCreated()
     lone_druid_spirit_bear = 1,                          -- self grief in most cases
     mars_gods_rebuke = 1,                                -- looping
     medusa_stone_gaze = 1,                               -- powerful
-    monkey_king_tree_dance = 1,                          -- self grief in most cases
-    monkey_king_boundless_strike = 1,                    -- looping, sometimes doesn't do damage
+    --monkey_king_boundless_strike = 1,                  -- looping, sometimes doesn't do damage
     morphling_waveform = 1,                              -- invulnerability and looping
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
@@ -206,7 +209,11 @@ function modifier_magus_oaa:CastASpell(caster, target)
   end
 
   local target_team = ability:GetAbilityTargetTeam() or DOTA_UNIT_TARGET_TEAM_BOTH
-  local behavior = ability:GetBehaviorInt()
+  --local behavior = ability:GetBehaviorInt()
+  local behavior = ability:GetBehavior()
+  if type(behavior) == 'userdata' then
+    behavior = tonumber(tostring(behavior))
+  end
   local real_target = target
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
   local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
@@ -239,7 +246,16 @@ function modifier_magus_oaa:CastASpell(caster, target)
     end
 
     if isPointTargetting then
-      real_caster:SetCursorPosition(real_target:GetAbsOrigin())
+      local target_loc = real_target:GetAbsOrigin()
+      local caster_loc = real_caster:GetAbsOrigin()
+      if not target_loc then
+        target_loc = caster_loc
+      end
+      -- Checking cast range like this just in case if 'GetEffectiveCastRange' is not working
+      if (target_loc - caster_loc):Length2D() > ability:GetCastRange(caster_loc, nil) + real_caster:GetCastRangeBonus() and ability:GetCastRange(caster_loc, nil) ~= 0 then
+        target_loc = caster_loc + real_caster:GetForwardVector() * 150
+      end
+      real_caster:SetCursorPosition(target_loc)
     end
 
     -- Spell Block check
@@ -296,7 +312,7 @@ function modifier_magus_oaa:FindRandomAlly(ability)
   )
 
   for _, ally in pairs(allies) do
-    if ally and ally ~= parent then
+    if ally and not ally:IsNull() and ally ~= parent then
       random_ally = ally
       break
     end
@@ -313,7 +329,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
     nil,
-    ability:GetEffectiveCastRange(target:GetAbsOrigin(), target),
+    ability:GetEffectiveCastRange(parent:GetAbsOrigin(), nil),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     ability:GetAbilityTargetType(),
     DOTA_UNIT_TARGET_FLAG_NONE,
@@ -322,7 +338,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
   )
 
   for _, enemy in pairs(enemies) do
-    if enemy and enemy ~= target then
+    if enemy and not enemy:IsNull() and enemy ~= target then
       random_enemy = enemy
       break
     end
