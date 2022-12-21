@@ -46,39 +46,58 @@ function HeroSelection:Init ()
     self.isBanning = true
   end
 
-  local allheroes = LoadKeyValues('scripts/npc/npc_heroes.txt')
   local heroAbilities = {}
   for key, value in pairs(LoadKeyValues(herolistFile)) do
     --DebugPrint("Heroes: ".. key)
-    if allheroes[key] == nil then -- Cookies: If the hero is not in vanilla file, load custom KV's
-      DebugPrint(key .. " is not in vanilla file!")
+    local hero_data = GetUnitKeyValuesByName(key)
+    if not hero_data then
+      DebugPrint("Couldn't find keyvalues for hero "..key)
       local data = {}
       if key == "npc_dota_hero_electrician" then
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
       elseif key == "npc_dota_hero_sohei" then
         data = LoadKeyValues('scripts/npc/heroes/sohei.txt')
+      else
+        data = LoadKeyValues('scripts/npc/npc_heroes.txt')
       end
 
       if data and data[key] then
-        allheroes[key] = data[key]
+        hero_data = data[key]
       end
     end
     if value == 1 then
-      if not heroAbilities[allheroes[key].AttributePrimary] then
-        heroAbilities[allheroes[key].AttributePrimary] = {}
+      if not heroAbilities[hero_data.AttributePrimary] then
+        heroAbilities[hero_data.AttributePrimary] = {}
       end
-      heroAbilities[allheroes[key].AttributePrimary][key] = {
-        allheroes[key].Ability1,
-        allheroes[key].Ability2,
-        allheroes[key].Ability3,
-        allheroes[key].Ability4,
-        allheroes[key].Ability5,
-        allheroes[key].Ability6,
-        allheroes[key].Ability7,
-        allheroes[key].Ability8,
-        allheroes[key].Ability9
+      local function FilterOutHiddenAbilities(ability_name)
+        if not ability_name or ability_name == "" then
+          return "generic_hidden"
+        end
+        local ability_data = GetAbilityKeyValuesByName(ability_name)
+        if not ability_data then
+          return "generic_hidden"
+        end
+        local ability_behaviour = ability_data.AbilityBehavior
+        if not ability_behaviour then
+          return "generic_hidden"
+        end
+        if string.find(ability_behaviour, "DOTA_ABILITY_BEHAVIOR_HIDDEN") then
+          return "generic_hidden"
+        end
+        return ability_name
+      end
+      heroAbilities[hero_data.AttributePrimary][key] = {
+        FilterOutHiddenAbilities(hero_data.Ability1),
+        FilterOutHiddenAbilities(hero_data.Ability2),
+        FilterOutHiddenAbilities(hero_data.Ability3),
+        FilterOutHiddenAbilities(hero_data.Ability4),
+        FilterOutHiddenAbilities(hero_data.Ability5),
+        FilterOutHiddenAbilities(hero_data.Ability6),
+        FilterOutHiddenAbilities(hero_data.Ability7),
+        FilterOutHiddenAbilities(hero_data.Ability8),
+        FilterOutHiddenAbilities(hero_data.Ability9)
       }
-      herolist[key] = allheroes[key].AttributePrimary
+      herolist[key] = hero_data.AttributePrimary
       totalheroes = totalheroes + 1
       assert(key ~= FORCE_PICKED_HERO, "FORCE_PICKED_HERO cannot be a pickable hero")
     end
