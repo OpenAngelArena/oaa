@@ -51,7 +51,7 @@ function HeroSelection:Init ()
     --DebugPrint("Heroes: ".. key)
     local hero_data = GetUnitKeyValuesByName(key)
     if not hero_data then
-      DebugPrint("Couldn't find keyvalues for hero "..key")
+      DebugPrint("Couldn't find keyvalues for hero "..key)
       local data = {}
       if key == "npc_dota_hero_electrician" then
         data = LoadKeyValues('scripts/npc/heroes/chatterjee.txt')
