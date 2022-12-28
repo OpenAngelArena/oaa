@@ -100,15 +100,15 @@ function modifier_broodmother_incapacitating_bite_debuff_oaa:IsPurgable()
   return true
 end
 
-function modifier_broodmother_incapacitating_bite_debuff_oaa:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_DISABLE_TURNING,
-  }
-end
+-- function modifier_broodmother_incapacitating_bite_debuff_oaa:DeclareFunctions()
+  -- return {
+    -- MODIFIER_PROPERTY_DISABLE_TURNING,
+  -- }
+-- end
 
-function modifier_broodmother_incapacitating_bite_debuff_oaa:GetModifierDisableTurning()
-  return 1
-end
+-- function modifier_broodmother_incapacitating_bite_debuff_oaa:GetModifierDisableTurning()
+  -- return 1
+-- end
 
 function modifier_broodmother_incapacitating_bite_debuff_oaa:CheckState()
   return {

@@ -12,8 +12,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has it wrong
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve has it wrong
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA, Valve has it wrong, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES is not needed
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" //OAA, Valve has it wrong (SPELL_IMMUNITY_ENEMIES_YES)
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"

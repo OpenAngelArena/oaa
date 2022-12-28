@@ -234,9 +234,9 @@ function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
-function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
-  return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
-end
+--function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
+  --return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+--end
 
 function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   if not IsServer() then
