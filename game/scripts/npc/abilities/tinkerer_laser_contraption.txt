@@ -46,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "300" // original: 800 x 100
+      "radius"                                            "350" // original: 800 x 100
       "duration"                                          "8.55"
       "delay"                                             "0.5"
       "initial_damage"
@@ -64,7 +64,7 @@
       }
       "scepter_heal_prevent_percent"
       {
-        "value"                                           "-25"
+        "value"                                           "-20 -25 -30 -35 -40"
         "RequiresScepter"                                 "1"
       }
     }

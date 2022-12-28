@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12"
+    "AbilityCooldown"                                     "15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
         "special_bonus_unique_tinker_7"                   "+150"
       }
       "status_resistance"                                 "10 20 30 40 50 60"
-      "barrier_duration"                                  "15"
+      "barrier_duration"                                  "15" // original: 20
       "cooldown_reduction" //OAA
       {
         "value"                                           "0"
