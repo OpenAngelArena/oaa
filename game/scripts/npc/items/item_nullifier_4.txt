@@ -11,17 +11,16 @@
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_nullifier_4"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
+    "ItemShopTags"                                        ""
+
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_nullifier_4"
     "ItemRequirements"
     {
       "01"                                                "item_nullifier_3;item_upgrade_core_3"
-      //"02"                                                "item_greater_crit_3;item_upgrade_core_3"
-      //"03"                                                "item_bloodthorn_3;item_upgrade_core_3"
-      //"04"                                                "item_silver_edge_3;item_upgrade_core_3"
     }
   }
 
@@ -38,18 +37,21 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
     "AbilityTextureName"                                  "custom/nullifier_4"
+
+    "AbilityCooldown"                                     "10.0"
+    "AbilitySharedCooldown"                               "nullify"
+    "AbilityCastRange"                                    "500 600 700 800 900"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "17728"
+    "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
+    "ItemQuality"                                         "epic"
     "ItemAliases"                                         "nlf 4;nullifier 4"
-
-    "AbilitySharedCooldown"                               "nullify"
-    "AbilityCooldown"                                     "10.0"
-    "AbilityCastRange"                                    "500 600 700 800 900"
-    "AbilityManaCost"                                     "0"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -63,12 +65,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 100 130 170 220"
+        "bonus_damage"                                    "60 80 120 180 260"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 11 13 16 20"
+        "bonus_armor"                                     "8 9 11 14 18"
       }
       "03"
       {

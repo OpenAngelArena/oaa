@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8415"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "8415"
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_meteor_hammer_1;item_upgrade_core"
-      //"02"                                                "item_gungir;item_upgrade_core"
-      //"03"                                                "item_wind_waker;item_upgrade_core"
     }
   }
 
@@ -37,14 +35,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8416"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8416"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/meteor_hammer.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"                                  "item_custom/meteor_hammer_2"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -96,7 +93,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
+        "bonus_mana_regen"                                "2.5 2.75 3.25 4.0 5.0"
       }
       "06"
       {
@@ -136,7 +133,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "150 350 650 1050 1550"
+        "impact_damage_boss"                              "200 400 700 1100 1600"
       }
       "14"
       {
@@ -149,6 +146,7 @@
         "cooldown_tooltip"                                "20 19 18 17 16"
       }
     }
+
     "precache"
     {
       "particle"                                          "particles/items4_fx/meteor_hammer_aoe.vpcf"
