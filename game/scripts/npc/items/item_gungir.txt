@@ -7,13 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "1565"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "1565"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
+    "ItemCost"                                            "600" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -33,12 +33,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "1466"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "1466"
     "AbilityTextureName"                                  "custom/gungir"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
@@ -47,7 +46,6 @@
     "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
-
     "AbilityManaCost"                                     "200"
 
     // Spicy Parameters
@@ -57,12 +55,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6150"
-    "ItemShopTags"                                        "damage;attack_speed;unique"
+    "ItemCost"                                            "6050" //OAA
+    "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir;gliepnir;glaypnir"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -71,7 +68,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "30 40 60 90 130"
+        "bonus_damage"                                    "30 40 60 90 130" // Maelstrom (24)
       }
       "02"
       {
@@ -81,7 +78,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "chain_damage"                                    "160 210 310 460 660"
+        "chain_damage"                                    "160 210 310 460 660" // Maelstrom (140)
       }
       "04"
       {
@@ -106,17 +103,17 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 30 40 55 75" //OAA
+        "bonus_intellect"                                 "24 29 39 54 74" // Rod of Atos (24)
       }
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62" //OAA
+        "bonus_strength"                                  "12 17 27 42 62" //OAA, Rod of Atos (12)
       }
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 17 27 42 62" //OAA
+        "bonus_agility"                                   "12 17 27 42 62" //OAA, Rod of Atos (12)
       }
       "11"
       {
