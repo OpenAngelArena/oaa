@@ -5,19 +5,20 @@
   //=================================================================================================================
   "item_recipe_abyssal_blade_4"
   {
-    "ID"                                                  "3110"    // unique ID
+    "ID"                                                  "3110"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_abyssal_blade_3;item_upgrade_core_3"
-      //"02"                                                "item_skadi_3;item_upgrade_core_3"
     }
   }
 
@@ -28,14 +29,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3114"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3114"
     "BaseClass"                                           "item_abyssal_blade"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityTextureName"                                  "custom/abyssal_blade_4"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -43,6 +43,7 @@
     "AbilitySharedCooldown"                               "abyssal"
     "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -52,12 +53,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
     "ItemCost"                                            "18303"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "abyssal blade 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -72,7 +72,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "200 300 450 650 900"
+        "bonus_health"                                    "220 320 470 670 920"
       }
       "03"
       {
@@ -97,7 +97,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 30 40 55 75"
+        "bonus_strength"                                  "22 27 32 37 42"
       }
       "08"
       {
@@ -112,7 +112,7 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "1.1 1.2 1.3 1.4 1.5" //OAA
+        "bash_duration"                                   "1.1 1.2 1.3 1.4 1.5"
       }
       "11"
       {
@@ -122,12 +122,12 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "160 210 310 460 660"
+        "bonus_chance_damage"                             "180 230 330 480 680"
       }
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0" //OAA
+        "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0"
       }
     }
   }

@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "1400"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -38,25 +38,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "ID"                                                  "80116"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/black_king_bar.lua"
-    "FightRecapLevel"                                     "2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/black_king_bar"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
-    "AbilityTextureName"                                  "custom/black_king_bar"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_black_king_bar_1;item_black_king_bar_2;item_black_king_bar_3;item_black_king_bar_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4000"
+    "ItemCost"                                            "4100"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb;black king bar"

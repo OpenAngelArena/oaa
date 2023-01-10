@@ -5,15 +5,17 @@
   //=================================================================================================================
   "item_recipe_bfury_3"
   {
-    "ID"                                                  "3075"    // unique ID
+    "ID"                                                  "3075"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury_3"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
     "ItemRequirements"
     {
       "01"                                                "item_bfury_2;item_upgrade_core_2"
@@ -27,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3078"    // unique ID
+    "ID"                                                  "3078"
     "BaseClass"                                           "item_bfury"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
@@ -49,7 +51,7 @@
     "ItemCost"                                            "9112"
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "cleaver 3"
+    "ItemAliases"                                         "bf 3;battle fury 3;cleaver 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -59,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 120 180 260"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
       "02"
       {

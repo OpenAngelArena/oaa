@@ -57,6 +57,7 @@
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "giant form;giant"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
@@ -64,7 +65,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "180 260"
+      "bonus_damage"                                      "150 200"
       "bonus_strength"                                    "0"
       "bonus_health_regen"                                "17 20"
       "bonus_attack_range_melee"                          "50 100" // doesn't work on ranged heroes
