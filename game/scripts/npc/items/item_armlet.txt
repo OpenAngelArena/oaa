@@ -5,11 +5,13 @@
   //=================================================================================================================
   "item_recipe_armlet"
   {
-    "ID"                                                  "150"       // unique ID
+    "ID"                                                  "150"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemCost"                                            "625"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_armlet"
     "ItemRequirements"
@@ -25,7 +27,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "151"       // unique ID
+    "ID"                                                  "151"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/armlet_dormant"
 
@@ -35,7 +37,6 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_armlet;item_armlet_2;item_armlet_3;item_armlet_4"

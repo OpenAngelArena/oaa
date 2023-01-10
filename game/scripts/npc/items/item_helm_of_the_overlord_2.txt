@@ -57,6 +57,7 @@
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 2;helm of the overlord 2;helm 2;overlord 2"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
@@ -70,16 +71,16 @@
       "bonus_regen"                                       "6 9 12 15 18" //OAA
       "health_min"                                        "1800 2800 4800 7800 11800"
       "speed_base"                                        "400"
-      "bounty_gold"                                       "250 500 1000 2000 4000"
+      "bounty_gold"                                       "250 500 750 1000 1250"
       "creep_bonus_damage"                                "50 100 150 200 250" //OAA
-      "creep_bonus_hp_regen"                              "12"
+      "creep_bonus_hp_regen"                              "12 15 18 21 24"
       "creep_bonus_mp_regen"                              "4"
-      "creep_bonus_armor"                                 "5 6 7 8 9" //OAA
+      "creep_bonus_armor"                                 "6 7 8 9 10" //OAA
       "model_scale"                                       "20 30 40 50 60"
       "count_limit"                                       "1"
       "armor_aura"                                        "3.0 4.0 6.0 9.0 13.0"
-      "mana_regen_aura"                                   "2.0 2.25 2.75 3.50 4.50"
-      "lifesteal_aura"                                    "20 30 40 50 60"
+      "mana_regen_aura"                                   "2.0 2.25 2.75 3.5 4.5"
+      "lifesteal_aura"                                    "20 25 30 35 40"
       "creep_lifesteal_reduction_pct"                     "50"
       "damage_aura"                                       "18 26 34 42 50"
       "aura_radius"                                       "1200"
