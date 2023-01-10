@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "243"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_crimson_guard"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_vanguard;item_helm_of_iron_will"
@@ -45,6 +45,7 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_crimson_guard;item_crimson_guard_2;item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,8 +54,7 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson guard"
     "ItemAlertable"                                       "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_crimson_guard;item_crimson_guard_2;item_crimson_guard_3;item_crimson_guard_4;item_crimson_guard_5"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
