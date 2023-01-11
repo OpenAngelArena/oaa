@@ -48,10 +48,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "5601"
-    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemShopTags"                                        "str;agi;attack_speed;move_speed;unique"
     "ItemQuality"                                         "artifact"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "sny 2;s&y 2;sy 2;sange and yasha 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

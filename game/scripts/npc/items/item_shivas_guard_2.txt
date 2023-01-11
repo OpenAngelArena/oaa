@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4040"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4040"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard;item_upgrade_core"
-      //"02"                                                "item_spiked_mail_1;item_upgrade_core"
     }
   }
 
@@ -36,10 +35,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4042"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "4042"
     "BaseClass"                                           "item_shivas_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/shivas_guard_2"
 
     // Stats
@@ -47,21 +45,19 @@
     "AbilityCooldown"                                     "27"
     "AbilitySharedCooldown"                               "shivas"
     "AbilityCastRange"                                    "900"
+    "AbilityManaCost"                                     "125"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
     "ItemCost"                                            "6351"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "shiva's guard 2;shivas guard 2;shiva 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "UpgradesItems"                                       "item_shivas_guard_2;item_shivas_guard_3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

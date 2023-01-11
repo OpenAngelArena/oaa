@@ -5,19 +5,20 @@
   //=================================================================================================================
   "item_recipe_satanic_5"
   {
-    "ID"                                                  "3161"    // unique ID
+    "ID"                                                  "3161"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_satanic_5"
     "ItemRequirements"
     {
       "01"                                                "item_satanic_4;item_upgrade_core_4"
-      "02"                                                "item_vampire;item_upgrade_core_4"
     }
   }
 
@@ -28,10 +29,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3165"    // unique ID
+    "ID"                                                  "3165"
     "BaseClass"                                           "item_satanic"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/satanic_5"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -39,17 +39,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30.0"
     "AbilitySharedCooldown"                               "satanic"
+    "AbilityManaCost"                                     "50"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "35054"
-    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
+    "ItemShopTags"                                        "damage;str;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
