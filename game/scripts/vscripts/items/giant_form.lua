@@ -302,7 +302,7 @@ if IsServer() then
     -- Damage table
     local damage_table = {}
     damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
+    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
     damage_table.ability = ability
     damage_table.damage = actual_damage
     damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
