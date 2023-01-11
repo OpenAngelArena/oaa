@@ -18,15 +18,18 @@ function PointsManager:Init ()
 
   self.hasGameEnded = false
   self.extend_counter = 0
+  self.limitConstant = 16
 
   local scoreLimit = NORMAL_KILL_LIMIT
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
+    self.limitConstant = 10
   elseif HeroSelection.is1v1 then
     scoreLimit = ONE_V_ONE_KILL_LIMIT
+    self.limitConstant = 10
   end
 
-  scoreLimit = 10 + scoreLimit * PlayerResource:SafeGetTeamPlayerCount()
+  scoreLimit = self.limitConstant + scoreLimit * PlayerResource:SafeGetTeamPlayerCount()
 
   CustomNetTables:SetTableValue( 'team_scores', 'limit', { value = scoreLimit, name = 'normal' } )
 
@@ -278,7 +281,7 @@ function PointsManager:RefreshLimit()
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.
-  local newLimit = 10 + base_limit * current_player_count + self.extend_counter * extend_amount
+  local newLimit = self.limitConstant + base_limit * current_player_count + self.extend_counter * extend_amount
   if newLimit < limit then
     local limitChange = limit - newLimit -- this used to be constant 10 and not dependent on number of players
     newLimit = math.min(limit, math.max(maxPoints + limitChange, limit - limitChange))
