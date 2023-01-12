@@ -48,7 +48,7 @@ end
 
 function modifier_true_sight_strike_oaa:CheckState()
   return {
-	[MODIFIER_STATE_CANNOT_MISS] =  true,
+    [MODIFIER_STATE_CANNOT_MISS] =  true,
   }
 end
 

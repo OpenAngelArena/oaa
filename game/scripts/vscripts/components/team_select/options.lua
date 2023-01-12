@@ -36,7 +36,7 @@ local hero_mods = {
   HM26 = "modifier_magus_oaa",
   HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
-  HM29 = "modifier_double_multiplier_oaa",
+  --HM29 = "modifier_double_multiplier_oaa",
   HM30 = "modifier_hybrid_oaa",
 }
 local boss_mods = {
@@ -299,7 +299,7 @@ function OAAOptions:OnUnitSpawn(event)
     end
 
     if self.settings.GLOBAL_MODS == "GM12" then
-      PlayerResource:SetCustomBuybackCooldown(npc:GetPlayerID(), FINAL_DUEL_TIMEOUT)
+      PlayerResource:SetCustomBuybackCooldown(npc:GetPlayerID(), math.max(DUEL_INTERVAL, CAPTURE_INTERVAL))
     end
 
     -- if self.heroes_extra_mod then

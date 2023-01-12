@@ -184,12 +184,13 @@ if IsServer() then
     end
 
     local repeat_loop = true
+    local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
     while repeat_loop do
       local random_mod = self.late_game_modifiers[RandomInt(1, #self.late_game_modifiers)]
       if HudTimer then
-        if HudTimer:GetGameTime() <= 10*60 then
+        if HudTimer:GetGameTime() <= mid_game_time_start then
           random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
-        elseif HudTimer:GetGameTime() > 10*60 and HudTimer:GetGameTime() <= 24*60 then
+        elseif HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= 20*60 then
           random_mod = self.mid_game_modifiers[RandomInt(1, #self.mid_game_modifiers)]
         end
       end
