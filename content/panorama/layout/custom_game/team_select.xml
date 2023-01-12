@@ -51,7 +51,7 @@
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
                   <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_double_multiplier" id="HM29" onmouseover="UIShowTextTooltip(#game_option_double_multiplier_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_double_multiplier" id="HM29" onmouseover="UIShowTextTooltip(#game_option_double_multiplier_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_chaos" id="HM28" onmouseover="UIShowTextTooltip(#game_option_chaos_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
@@ -85,7 +85,7 @@
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
                   <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_double_multiplier" id="HM29" onmouseover="UIShowTextTooltip(#game_option_double_multiplier_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_double_multiplier" id="HM29" onmouseover="UIShowTextTooltip(#game_option_double_multiplier_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_chaos" id="HM28" onmouseover="UIShowTextTooltip(#game_option_chaos_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>

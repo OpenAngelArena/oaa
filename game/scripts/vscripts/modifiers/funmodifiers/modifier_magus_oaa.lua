@@ -187,9 +187,11 @@ if IsServer() then
       return
     end
 
-    if RandomInt(1, 100) <= self.chance then
+    local number = RandomInt(1, 100)
+    if number <= self.chance then
+      local lucky = number <= self.penalty_chance
 
-      self:CastASpell(attacker, target)
+      self:CastASpell(attacker, target, lucky)
 
       -- Start cooldown by adding a modifier
       attacker:AddNewModifier(attacker, nil, "modifier_magus_cooldown_oaa", {duration = self.cooldown})
@@ -197,14 +199,14 @@ if IsServer() then
   end
 end
 
-function modifier_magus_oaa:CastASpell(caster, target)
+function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local ability = self:GetRandomSpell(caster)
 
   if not ability then
     return
   end
 
-  if self.low_chance_to_proc[ability:GetName()] and RandomInt(1, 100) > ((self.penalty_chance / self.chance) * 100) then
+  if self.low_chance_to_proc[ability:GetName()] and not lucky then
     return
   end
 

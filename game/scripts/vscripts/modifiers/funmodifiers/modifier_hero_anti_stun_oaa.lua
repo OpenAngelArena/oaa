@@ -24,7 +24,7 @@ function modifier_hero_anti_stun_oaa:DeclareFunctions()
 end
 
 function modifier_hero_anti_stun_oaa:GetModifierTotalDamageOutgoing_Percentage(event)
-  return -50
+  return -30
 end
 
 -- This also works for slows, we don't want that

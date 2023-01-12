@@ -26,11 +26,11 @@ function modifier_angel_oaa:DeclareFunctions()
 end
 
 function modifier_angel_oaa:GetBonusDayVision()
-  return 1000
+  return 600
 end
 
 function modifier_angel_oaa:GetBonusNightVision()
-  return 1000
+  return 600
 end
 
 function modifier_angel_oaa:GetModifierMoveSpeedBonus_Percentage()
