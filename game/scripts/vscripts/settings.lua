@@ -34,7 +34,7 @@ ABANDON_DIFF_NEEDED = 2                   -- how many more abandons you need on 
 ABANDON_NEEDED = 3                        -- how many total abandons you need before auto win conditions can trigger
 
 -- kill limits
-NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 10 + NORMAL_KILL_LIMIT x number of players: 5v5 - 40; 4v4 - 34; 3v3 - 28; 2v2 - 22; 1v1 - 16;
+NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 16 + NORMAL_KILL_LIMIT x number of players: 5v5 - 46; 4v4 - 40; 3v3 - 34; 2v2 - 28; 1v1 - 22;
 ONE_V_ONE_KILL_LIMIT = 6                  -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 22
 TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
 KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
