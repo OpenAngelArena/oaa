@@ -232,9 +232,9 @@ function GameMode:InitGameMode()
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)
 
-  -- Remove spectating delay
+  -- Change spectating delay
   if GetMapName() ~= "captains_mode" then
-    Convars:SetInt('tv_delay', 0)
+    Convars:SetInt('tv_delay', 60)
   end
 
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
