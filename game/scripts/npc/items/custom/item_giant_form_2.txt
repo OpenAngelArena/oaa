@@ -38,12 +38,11 @@
     "ID"                                                  "3349"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/giant_form.lua"
+    "AbilityTextureName"                                  "custom/giant_form_2"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityTextureName"                                  "custom/giant_form_2"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastPoint"                                    "0.0"
@@ -57,6 +56,7 @@
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "giant form;giant"
+
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
@@ -64,7 +64,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "180 260"
+      "bonus_damage"                                      "150 200"
       "bonus_strength"                                    "0"
       "bonus_health_regen"                                "17 20"
       "bonus_attack_range_melee"                          "50 100" // doesn't work on ranged heroes
@@ -76,7 +76,7 @@
       "giant_bonus_strength"                              "70 95"
       "giant_attack_speed_reduction"                      "30" // percentage attack speed reduction
       "giant_splash_radius"                               "700"
-      "giant_splash_damage"                               "150" // doesn't work on ranged heroes
+      "giant_splash_damage"                               "100" // doesn't work on ranged heroes
       "giant_scale"                                       "50"
       "duration"                                          "8.0"
     }

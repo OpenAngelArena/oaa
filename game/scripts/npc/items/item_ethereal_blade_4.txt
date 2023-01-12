@@ -7,9 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3144"    // unique ID
+    "ID"                                                  "3144"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_ethereal_blade_4"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
     "ItemRequirements"
     {
       "01"                                                "item_ethereal_blade_3;item_upgrade_core_3"
@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3148"    // unique ID
+    "ID"                                                  "3148"
     "BaseClass"                                           "item_ethereal_blade"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -49,6 +49,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "22.0"
     "AbilitySharedCooldown"                               "ethereal"
+    "AbilityManaCost"                                     "100"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -58,8 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "17553"
+    "ItemCost"                                            "17653"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

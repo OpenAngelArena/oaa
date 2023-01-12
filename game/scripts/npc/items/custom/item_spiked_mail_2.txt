@@ -26,7 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_spiked_mail_1;item_upgrade_core"
-      //"02"                                                "item_shivas_guard;item_upgrade_core"
     }
   }
 
@@ -47,7 +46,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
-    "AbilityManaCost"                                     "25"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -83,7 +82,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 12 15 19 24"
+        "bonus_armor"                                     "8 9 11 14 18"
       }
       "04"
       {
@@ -98,7 +97,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "active_reflection_pct"                           "80 85 90 95 100"
+        "active_reflection_pct"                           "85 90 95 100 105"
       }
     }
   }

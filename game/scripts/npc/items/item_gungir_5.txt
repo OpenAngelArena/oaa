@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3508"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3508"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -25,9 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_gungir_4;item_upgrade_core_4"
-      //"02"                                                "item_wind_waker_4;item_upgrade_core_4"
-      //"03"                                                "item_meteor_hammer_4;item_upgrade_core_4"
-      //"04"                                                "item_sheepstick_4;item_upgrade_core_4"
     }
   }
 
@@ -38,9 +35,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3509"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3509"
     "BaseClass"                                           "item_gungir"
-    "AbilityTextureName"                                  "item_gungir"
     "AbilityTextureName"                                  "custom/gungir_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -53,7 +49,6 @@
     "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
-
     "AbilityManaCost"                                     "200"
 
     // Spicy Parameters
@@ -63,8 +58,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36154"
-    "ItemShopTags"                                        "damage;attack_speed;unique"
+    "ItemCost"                                            "36054"
+    "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir 5;gliepnir 5;glaypnir 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -111,7 +106,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 30 40 55 75"
+        "bonus_intellect"                                 "24 29 39 54 74"
       }
       "09"
       {

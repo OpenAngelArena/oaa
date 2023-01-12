@@ -5,13 +5,14 @@
   //=================================================================================================================
   "item_recipe_mask_of_madness"
   {
-    "ID"                                                  "171"    // unique ID
+    "ID"                                                  "171"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_mask_of_madness"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_lifesteal;item_quarterstaff"
@@ -25,23 +26,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "172"    // unique ID
+    "ID"                                                  "172"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    //"AbilityTextureName"                                  "custom/mask_of_madness"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "16.0"
-    "AbilitySharedCooldown"                               "madness"
+    //"AbilitySharedCooldown"                               "madness"
+    "AbilityManaCost"                                     "25"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
+    //"MaxUpgradeLevel"                                     "5"
+    //"ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
     "ItemCost"                                            "1775"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
@@ -57,7 +57,7 @@
       "bonus_attack_speed"                                "10"
       "lifesteal_percent"                                 "24"
       "creep_lifesteal_reduction_pct"                     "50"
-      "berserk_bonus_attack_speed"                        "80" //OAA
+      "berserk_bonus_attack_speed"                        "90" //OAA
       "berserk_bonus_movement_speed"                      "30"
       "berserk_armor_reduction"                           "8"
       "berserk_duration"                                  "6.0"

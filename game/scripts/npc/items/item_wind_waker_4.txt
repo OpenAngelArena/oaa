@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3896"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3896"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_wind_waker_3;item_upgrade_core_3"
-      //"02"                                                "item_gungir_3;item_upgrade_core_3"
-      //"03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
     }
   }
 
@@ -37,34 +35,29 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3897"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3897"
     "BaseClass"                                           "item_wind_waker"
-    "AbilityTextureName"                                  "item_wind_waker"
     "AbilityTextureName"                                  "custom/wind_waker_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "FightRecapLevel"                                     "1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "550 575 600 625 650"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "cyclone"
+    "AbilityManaCost"                                     "175"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18.0"
-    "AbilitySharedCooldown"                               "cyclone"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175"
     "ItemCost"                                            "19153"
     "ItemShopTags"                                        "int;regen_mana;move_speed;hard_to_tag"
     "ItemQuality"                                         "rare"

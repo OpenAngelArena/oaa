@@ -19,13 +19,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "4100"
-    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemShopTags"                                        "str;agi;attack_speed;move_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny;s&y;sy;sange and yasha"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "UpgradesItems"                                       "item_sange_and_yasha;item_sange_and_yasha_2;item_sange_and_yasha_3;item_sange_and_yasha_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

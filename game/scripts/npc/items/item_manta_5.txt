@@ -5,16 +5,17 @@
   //=================================================================================================================
   "item_recipe_manta_5"
   {
-    "ID"                                                  "3666"    // unique ID
+    "ID"                                                  "3666"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "FightRecapLevel"                                     "1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_manta_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
     "ItemRequirements"
     {
       "01"                                                "item_manta_4;item_upgrade_core_4"
@@ -28,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3667"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3667"
     "BaseClass"                                           "item_manta"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityTextureName"                                  "custom/manta_style_5"
@@ -38,6 +39,7 @@
     "AbilityCooldown"                                     "20"
     "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "manta"
+    "AbilityManaCost"                                     "125"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
@@ -45,12 +47,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
     "ItemCost"                                            "34604"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "manta style 5;manta 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -132,11 +133,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "vision_radius"                                   "1000"
       }
-    }
-
-    "precache"
-    {
-      "particle"                                          "particles/items2_fx/manta_phase.vpcf"
     }
   }
 }

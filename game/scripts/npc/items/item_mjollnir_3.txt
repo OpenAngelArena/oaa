@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3093"    // unique ID
+    "ID"                                                  "3093"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_mjollnir_2;item_upgrade_core_2"
-      //"02"                                                "item_monkey_king_bar_2;item_upgrade_core_2"
     }
   }
 
@@ -36,18 +35,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3097"    // unique ID
+    "ID"                                                  "3097"
     "BaseClass"                                           "item_mjollnir"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/mjollnir_3"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "35.0"
     "AbilitySharedCooldown"                               "mjollnir"
+    "AbilityManaCost"                                     "50"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -57,12 +58,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
     "ItemCost"                                            "10602"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "mjollnir 3;lightning 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -5,15 +5,15 @@
   //=================================================================================================================
   "item_recipe_abyssal_blade"
   {
-    "ID"                                                  "207"    // unique ID
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "ID"                                                  "207"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     "ItemCost"                                            "1550"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_abyssal_blade"
-
     "ItemRequirements"
     {
       "01"                                                "item_basher;item_vanguard"
@@ -27,13 +27,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "208"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "ID"                                                  "208"
     "AbilityTextureName"                                  "custom/abyssal_blade"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -41,6 +40,7 @@
     "AbilitySharedCooldown"                               "abyssal"
     "AbilityCastRange"                                    "200" //OAA
     "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
     "ItemCost"                                            "6250"
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -70,7 +69,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "200 300 450 650 900" //OAA
+        "bonus_health"                                    "220 320 470 670 920" //OAA, inherited from Skadi
       }
       "03"
       {
@@ -95,7 +94,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25 30 40 55 75" //OAA
+        "bonus_strength"                                  "22 27 32 37 42" //OAA, inherited from Skadi
       }
       "08"
       {
@@ -120,7 +119,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "160 210 310 460 660" //OAA
+        "bonus_chance_damage"                             "180 230 330 480 680" //OAA, like Mjollnir passive proc dmg
       }
       "13"
       {

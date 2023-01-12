@@ -1,58 +1,64 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Guinsoos Scythe of Vyse 4
+  // Recipe: Scythe of Vyse 4
   //=================================================================================================================
   "item_recipe_sheepstick_4"
   {
-    "ID"                                                  "3068"      // unique ID
+    "ID"                                                  "3068"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick_4"
     "ItemRequirements"
     {
       "01"                                                "item_gungir_3;item_upgrade_core_3"
       "02"                                                "item_wind_waker_3;item_upgrade_core_3"
-      //"03"                                                "item_meteor_hammer_3;item_upgrade_core_3"
     }
   }
 
   //=================================================================================================================
-  // Guinsoos Scythe of Vyse 4
+  // Scythe of Vyse 4
   //=================================================================================================================
   "item_sheepstick_4"
   {
-    // General-----------------------------------------------------------------------------------------------------
-    "ID"                                                  "3072"    //Unique ID
+    // General
+    //---------------------------------------------------------------------------------------------------
+    "ID"                                                  "3072"
     "BaseClass"                                           "item_sheepstick"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/scythe_of_vyse_4"
-    // Stats-------------------------------------------------------------------------------------------------------
+
+    // Stats
+    //---------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "hex"
+    "AbilityManaCost"                                     "250"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_sheepstick_4"
 
-    // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "19153"
-    "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
+    // Item Info
+    //---------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "19053"
+    "ItemShopTags"                                        "int;regen_mana;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 4;sheepstick 4;scythe of vyse 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Special-----------------------------------------------------------------------------------------------------
+    // Special
+    //---------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01" // like Gleipnir
@@ -65,15 +71,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_agility"                                   "12 17 27 42 62"
       }
-      "03" // like Gleipnir
+      "03" // first 3 values must be the min(Wind Waker, Gleipnir), 4-5 values slightly worse
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 35 50 70"
+        "bonus_intellect"                                 "24 29 39 50 70"
       }
       "04" // first 3 values must be the same as Wind Waker, 4th value same as vanilla Sheepstick
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 6.25 6.75 9.0 10.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0"
       }
       "05"
       {

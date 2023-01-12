@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "157"    // unique ID
+    "ID"                                                  "157"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -33,17 +33,19 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "158"    // unique ID
+    "ID"                                                  "158"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"                                  "custom/mjollnir_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "35.0"
     "AbilitySharedCooldown"                               "mjollnir"
+    "AbilityManaCost"                                     "50"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -53,12 +55,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
     "ItemCost"                                            "5600"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mjollnir;lightning"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

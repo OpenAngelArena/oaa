@@ -1,41 +1,14 @@
 //============================================================================
 // Martyr's Mail
 //============================================================================
-"DOTA_Tooltip_Ability_item_martyrs_mail"                                        "Martyr's Mail"
-"DOTA_Tooltip_Ability_item_recipe_martyrs_mail"                                 "Martyr's Mail Recipe"
-"DOTA_Tooltip_Ability_item_martyrs_mail_Description"                            "<h1>Active: Martyrdom</h1> For %martyr_duration% seconds, heals nearby allies for %martyr_heal_percent%%% of any damage taken. <br><br>Radius: %martyr_heal_aoe%\n<h1>Passive: Martyr's Morale</h1> Allies near the Martyr cannot be broken and gain %aura_attack_speed% attack speed.<br><br>Radius: %aura_radius%"
-"DOTA_Tooltip_Ability_item_martyrs_mail_Lore"                                   "The tattered remains of a paladin's hauberk."
-"DOTA_Tooltip_Ability_item_martyrs_mail_Note0"                                  "Martyrdom damage to heal is calculated before any kind of reduction."
-"DOTA_Tooltip_Ability_item_martyrs_mail_bonus_damage"                           "+$damage"
-"DOTA_Tooltip_Ability_item_martyrs_mail_bonus_armor"                            "+$armor"
-"DOTA_Tooltip_Ability_item_martyrs_mail_bonus_intellect"                        "+$int"
-
-"DOTA_Tooltip_Ability_item_martyrs_mail_2"                                      "#{DOTA_Tooltip_Ability_item_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_recipe_martyrs_mail_2"                               "#{DOTA_Tooltip_Ability_item_recipe_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_Description"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_Description}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_Lore"                                 "#{DOTA_Tooltip_Ability_item_martyrs_mail_Lore}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_Note0"                                "#{DOTA_Tooltip_Ability_item_martyrs_mail_Note0}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_bonus_damage"                         "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_damage}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_bonus_armor"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_armor}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_2_bonus_intellect"                      "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_intellect}"
-
-"DOTA_Tooltip_Ability_item_martyrs_mail_3"                                      "#{DOTA_Tooltip_Ability_item_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_recipe_martyrs_mail_3"                               "#{DOTA_Tooltip_Ability_item_recipe_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_Description"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_Description}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_Lore"                                 "#{DOTA_Tooltip_Ability_item_martyrs_mail_Lore}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_Note0"                                "#{DOTA_Tooltip_Ability_item_martyrs_mail_Note0}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_bonus_damage"                         "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_damage}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_bonus_armor"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_armor}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_3_bonus_intellect"                      "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_intellect}"
-
-"DOTA_Tooltip_Ability_item_martyrs_mail_4"                                      "#{DOTA_Tooltip_Ability_item_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_recipe_martyrs_mail_4"                               "#{DOTA_Tooltip_Ability_item_recipe_martyrs_mail}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_Description"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_Description}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_Lore"                                 "#{DOTA_Tooltip_Ability_item_martyrs_mail_Lore}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_Note0"                                "#{DOTA_Tooltip_Ability_item_martyrs_mail_Note0}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_bonus_damage"                         "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_damage}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_bonus_armor"                          "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_armor}"
-"DOTA_Tooltip_Ability_item_martyrs_mail_4_bonus_intellect"                      "#{DOTA_Tooltip_Ability_item_martyrs_mail_bonus_intellect}"
+"DOTA_Tooltip_Ability_item_martyrs_mail_1"                                      "Martyr's Mail"
+"DOTA_Tooltip_Ability_item_recipe_martyrs_mail_1"                               "Martyr's Mail Recipe"
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_Description"                          "<h1>Active: Martyrdom</h1> For %martyr_duration% seconds, heals nearby allies for %martyr_heal_percent%%% of any damage taken. <br><br>Radius: %martyr_heal_aoe%\n<h1>Passive: Martyr's Morale</h1> Allies near the Martyr cannot be broken and gain %aura_attack_speed% attack speed.<br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_Lore"                                 "The tattered remains of a paladin's hauberk."
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_Note0"                                "Martyrdom damage to heal is calculated before any kind of reduction."
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_bonus_damage"                         "+$damage"
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_bonus_armor"                          "+$armor"
+"DOTA_Tooltip_Ability_item_martyrs_mail_1_bonus_intellect"                      "+$int"
 
 //=============================================================================
 // Martyrs Mail Modifiers

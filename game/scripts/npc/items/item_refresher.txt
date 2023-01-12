@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "109"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "110"
-    //"ID"                                                  "8557"
+    //"ID"                                                  "80110"
     //"BaseClass"                                           "item_lua"
     //"ScriptFile"                                          "items/refresher.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -45,15 +45,15 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "120" //OAA
     "AbilitySharedCooldown"                               "refresher_oaa" //OAA
+    "AbilityManaCost"                                     "350"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "350"
     "ItemCost"                                            "5000"
-    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb;refresher"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

@@ -6,11 +6,14 @@
   "item_recipe_bfury"
   {
     "ID"                                                  "144"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements" //OAA
     {
       "01"                                                "item_small_cleaver_oaa;item_pers"
@@ -45,7 +48,7 @@
     "ItemCost"                                            "4110" //OAA
     "ItemShopTags"                                        "damage;health_regen;mana_regen;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "cleaver"
+    "ItemAliases"                                         "bf;battle fury;cleaver"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -55,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 120 180 260"
+        "bonus_damage"                                    "60 80 110 150 200"
       }
       "02"
       {

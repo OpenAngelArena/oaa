@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "136"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "136"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -33,14 +33,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "137"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "137"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_1"
+
+    "AbilityCastRange"                                    "700 750 800 850 900"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_radiance;item_radiance_2;item_radiance_3;item_radiance_4;item_radiance_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +53,6 @@
     "ItemAliases"                                         "radiance"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
-    "UpgradesItems"                                       "item_radiance;item_radiance_2;item_radiance_3;item_radiance_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

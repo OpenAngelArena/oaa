@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "227"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "227"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -33,12 +33,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "229"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "229"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/solar_crest_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
@@ -48,11 +48,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "2625"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "solar crest"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_solar_crest;item_solar_crest_2;item_solar_crest_3;item_solar_crest_4;item_solar_crest_5"
@@ -84,12 +84,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_movement_speed"                           "15 25 35 45 55" //OAA
+        "target_movement_speed"                           "15 20 25 30 35" //OAA
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "target_attack_speed"                             "60 75 90 120 150" //OAA
+        "target_attack_speed"                             "60 75 95 120 150" //OAA
       }
       "07"
       {

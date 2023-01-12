@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_hurricane_pike_3;item_upgrade_core_3"
-      //"02"                                                "item_shield_staff_3;item_upgrade_core_3"
     }
   }
 
@@ -49,12 +48,12 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "19.0 17.0 15.0 13.0 11.0"
     "AbilitySharedCooldown"                               "force"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
     "ItemCost"                                            "17203"
-    "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
+    "ItemShopTags"                                        "agi;str;int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 4;pike 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"

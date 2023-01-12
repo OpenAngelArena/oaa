@@ -39,14 +39,14 @@
     "ID"                                                  "80267"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
+    "AbilityTextureName"                                  "custom/spirit_vessel_1"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityCooldown"                                     "7.0"
-    "AbilitySharedCooldown"                               "urn"
-    "AbilityTextureName"                                  "custom/spirit_vessel_1"
 
     "AbilityCastRange"                                    "950"
+    "AbilityCooldown"                                     "7.0"
+    "AbilitySharedCooldown"                               "urn"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -56,8 +56,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "2980"
+    "ItemQuality"                                         "rare"
     "ItemAliases"                                         "sv;spirit vessel"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -69,12 +71,12 @@
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"
-      "soul_heal_amount"                                  "50 60 80 110 150"
+      "soul_heal_amount"                                  "50 65 90 125 170"
       "soul_damage_amount"                                "35 45 65 95 135"
       "duration"                                          "8.0"
       "heal_reduction_with_charge"                        "45 50 55 60 65"
       "heal_reduction_no_charge"                          "25"
-      "current_hp_as_dmg"                                 "4"
+      "current_hp_as_dmg"                                 "4 4.5 5 5.5 6"
     }
   }
 }

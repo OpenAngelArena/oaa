@@ -191,14 +191,13 @@ end
 modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
 
 function modifier_item_giant_form_grow:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
   }
-  return state
 end
 
 function modifier_item_giant_form_grow:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     --MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
@@ -206,8 +205,6 @@ function modifier_item_giant_form_grow:DeclareFunctions()
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
 function modifier_item_giant_form_grow:GetModifierBonusStats_Strength()
@@ -305,7 +302,7 @@ if IsServer() then
     -- Damage table
     local damage_table = {}
     damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
+    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
     damage_table.ability = ability
     damage_table.damage = actual_damage
     damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)

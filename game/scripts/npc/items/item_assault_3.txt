@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3085"    // unique ID
+    "ID"                                                  "3085"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -22,7 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_assault_3"
-
     "ItemRequirements"
     {
       "01"                                                "item_assault_2;item_upgrade_core_2"
@@ -36,11 +35,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3087"    // unique ID
+    "ID"                                                  "3087"
     "BaseClass"                                           "item_assault"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityCastRange"                                    "1200"
     "AbilityTextureName"                                  "custom/assault_cuirass_3"
+
+    "AbilityCastRange"                                    "1200"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "10127"
@@ -49,7 +50,7 @@
     "ItemAliases"                                         "ac 3;assault cuirass 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    //Spicy Parameters
+    // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
