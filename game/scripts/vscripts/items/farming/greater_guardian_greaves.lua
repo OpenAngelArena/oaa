@@ -1,8 +1,6 @@
 LinkLuaModifier( "modifier_item_greater_guardian_greaves", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_guardian_greaves_aura", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 
---LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-
 item_greater_guardian_greaves = class(ItemBaseClass)
 
 function item_greater_guardian_greaves:OnSpellStart()
@@ -83,16 +81,8 @@ function item_greater_guardian_greaves:OnSpellStart()
 end
 
 function item_greater_guardian_greaves:GetIntrinsicModifierName()
-  return "modifier_item_greater_guardian_greaves" -- "modifier_intrinsic_multiplexer"
+  return "modifier_item_greater_guardian_greaves"
 end
--- uncomment this if we plan to add more effects to Guardian Greaves
---[[
-function item_greater_guardian_greaves:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_greater_guardian_greaves",
-  }
-end
-]]
 
 item_greater_guardian_greaves_2 = item_greater_guardian_greaves
 item_greater_guardian_greaves_3 = item_greater_guardian_greaves
@@ -110,9 +100,10 @@ function modifier_item_greater_guardian_greaves:IsPurgable()
   return false
 end
 
-function modifier_item_greater_guardian_greaves:GetAttributes()
-  return MODIFIER_ATTRIBUTE_MULTIPLE
-end
+-- We don't have this on purpose because we don't want people to buy multiple of these
+--function modifier_item_greater_guardian_greaves:GetAttributes()
+  --return MODIFIER_ATTRIBUTE_MULTIPLE
+--end
 
 function modifier_item_greater_guardian_greaves:OnCreated()
   local ability = self:GetAbility()
@@ -165,24 +156,29 @@ function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Agility()
   end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
+
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Intellect()
   if self:GetParent():IsClone() then
     return 0
   end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
+
 function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
   if self:GetParent():IsClone() then
     return 0
   end
   return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
+
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
   return self.bonus_ms or self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
+
 function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
   return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
+
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
   return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end

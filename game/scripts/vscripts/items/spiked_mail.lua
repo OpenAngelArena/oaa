@@ -154,6 +154,14 @@ if IsServer() then
       return
     end
 
+    local damaging_ability = event.inflictor
+    if damaging_ability and not damaging_ability:IsNull() then
+      local kvs = damaging_ability:GetAbilityKeyValues()
+      if kvs and kvs.SpellImmunityType and kvs.SpellImmunityType ~= "SPELL_IMMUNITY_ENEMIES_YES" then
+        return
+      end
+    end
+
     -- Fetch the damage return amount/percentage
     local damage_return = ability:GetSpecialValueFor("passive_reflection_pct")
 
@@ -303,6 +311,14 @@ if IsServer() then
 
     if not ability or ability:IsNull() then
       return
+    end
+
+    local damaging_ability = event.inflictor
+    if damaging_ability and not damaging_ability:IsNull() then
+      local kvs = damaging_ability:GetAbilityKeyValues()
+      if kvs and kvs.SpellImmunityType and kvs.SpellImmunityType ~= "SPELL_IMMUNITY_ENEMIES_YES" then
+        return
+      end
     end
 
     -- Fetch the damage return amount/percentage
