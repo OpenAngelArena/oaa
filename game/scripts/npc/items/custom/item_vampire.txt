@@ -58,64 +58,23 @@
     "ItemCost"                                            "18053"
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "vampire;vamp;vampire tooth;vampires tooth;satanic"
+    "ItemAliases"                                         "vampire;vampire tooth;vampire fang"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "120 220"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resistance"                         "20 25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "400 600"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "lifesteal_percent"                               "45 50"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_lifesteal_percent"                        "215 225"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second_pct"                           "8"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ticks_per_second"                                "4"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
+      "bonus_strength"                                    "70 95"
+      "bonus_damage"                                      "120 170"
+      "bonus_status_resistance"                           "20 25"
+      "bonus_attack_speed"                                "40 50"
+      "bonus_night_vision"                                "400 600"
+      "lifesteal_percent"                                 "45 50"
+      "active_lifesteal_percent"                          "215 225"
+      "damage_per_second_pct"                             "8"
+      "ticks_per_second"                                  "4"
+      "duration"                                          "6.0"
     }
 
     "precache"

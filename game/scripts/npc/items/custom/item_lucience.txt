@@ -35,7 +35,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3331" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3331"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/lucience.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -114,7 +114,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_attack_speed"                         "20 30 40 50"
+        "aura_bonus_attack_speed"                         "25 35 45 55"
       }
       "10"
       {

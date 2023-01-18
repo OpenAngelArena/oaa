@@ -31,9 +31,11 @@ modifier_item_giant_form_stacking_stats = class(ModifierBaseClass)
 function modifier_item_giant_form_stacking_stats:IsHidden()
   return true
 end
+
 function modifier_item_giant_form_stacking_stats:IsDebuff()
   return false
 end
+
 function modifier_item_giant_form_stacking_stats:IsPurgable()
   return false
 end
@@ -131,9 +133,11 @@ modifier_item_giant_form_non_stacking_stats = class(ModifierBaseClass)
 function modifier_item_giant_form_non_stacking_stats:IsHidden()
   return true
 end
+
 function modifier_item_giant_form_non_stacking_stats:IsDebuff()
   return false
 end
+
 function modifier_item_giant_form_non_stacking_stats:IsPurgable()
   return false
 end
@@ -201,40 +205,45 @@ function modifier_item_giant_form_grow:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     --MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    --MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
 function modifier_item_giant_form_grow:GetModifierBonusStats_Strength()
-  return self.bonus_strength or 70
+  return self.bonus_strength
 end
 
 function modifier_item_giant_form_grow:GetModifierPreAttack_BonusDamage()
-  return self.atkDmg or 300
+  return self.atkDmg
 end
 
 function modifier_item_giant_form_grow:GetModifierModelScale()
-  return self.scale or 50
+  return self.scale
 end
 
 --function modifier_item_giant_form_grow:GetModifierAttackSpeedReductionPercentage()
-  --return 0 - math.abs(self.atkSpeed) or -30
+  --return 0 - math.abs(self.atkSpeed)
 --end
 
+function modifier_item_giant_form_grow:GetModifierAttackSpeedPercentage()
+  return 0 - math.abs(self.atkSpeed)
+end
+
 if IsServer() then
-  function modifier_item_giant_form_grow:GetModifierAttackSpeedBonus_Constant()
-    local parent = self:GetParent()
-    if self.checkAttackSpeed then
-      return 0
-    else
-      self.checkAttackSpeed = true
-      local attack_speed = parent:GetAttackSpeed() * 100
-      self.checkAttackSpeed = false
-      return -attack_speed*0.01*self.atkSpeed
-    end
-  end
+  -- function modifier_item_giant_form_grow:GetModifierAttackSpeedBonus_Constant()
+    -- local parent = self:GetParent()
+    -- if self.checkAttackSpeed then
+      -- return 0
+    -- else
+      -- self.checkAttackSpeed = true
+      -- local attack_speed = parent:GetAttackSpeed() * 100
+      -- self.checkAttackSpeed = false
+      -- return -attack_speed*0.01*self.atkSpeed
+    -- end
+  -- end
 
   function modifier_item_giant_form_grow:OnAttackLanded(event)
     local parent = self:GetParent()
