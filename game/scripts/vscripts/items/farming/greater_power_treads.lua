@@ -79,25 +79,10 @@ function modifier_item_greater_power_treads:IsPurgable()
   return false
 end
 
+-- We don't have this on purpose because we don't want people to buy multiple of these
 --function modifier_item_greater_power_treads:GetAttributes()
   --return MODIFIER_ATTRIBUTE_MULTIPLE
 --end
-
---[[ old
-function modifier_item_greater_power_treads:OnRemoved()
-  local spell = self:GetAbility()
-
-  if not spell then
-    return
-  end
-
-  if spell and not spell:IsNull() then
-    spell.treadMod = nil
-  end
-end
-]]
-
---------------------------------------------------------------------------------
 
 function modifier_item_greater_power_treads:OnCreated()
   local parent = self:GetParent()
@@ -156,7 +141,7 @@ function modifier_item_greater_power_treads:OnRefresh()
 end
 
 function modifier_item_greater_power_treads:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
@@ -167,8 +152,6 @@ function modifier_item_greater_power_treads:DeclareFunctions()
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
 function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Boots()
@@ -237,66 +220,6 @@ function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
 end
 
 --------------------------------------------------------------------------------
---[[ old
-function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
-function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_AGILITY then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
-function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  local bonus = self.all_stats
-
-  if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    bonus = bonus + self.stat
-  end
-
-  return bonus
-end
-
-function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    return self.magic_resistance
-  end
-  return 0
-end
-
-function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-  if attribute == DOTA_ATTRIBUTE_AGILITY then
-    return self.bonus_damage
-  end
-  return 0
-end
-
-function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
-  local attribute = self:GetStackCount() or DOTA_ATTRIBUTE_STRENGTH
-
-  if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    return self.spell_amp
-  end
-  return 0
-end
-]]
-
 -- farewell power treads splash
 -- i loved you
 --[[

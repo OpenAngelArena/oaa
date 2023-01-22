@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3681"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3681"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_sphere_2;item_upgrade_core_2"
-      //"02"                                                "item_aeon_disk_2;item_upgrade_core_2"
     }
   }
 
@@ -36,12 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3682"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3682"
     "BaseClass"                                           "item_sphere"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/linkens_sphere_3"
 
     "AbilityCastRange"                                    "700"
@@ -56,10 +54,10 @@
     "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ActiveDescriptionLine"                               "2"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-
-    "UpgradesItems"                                       "item_sphere;item_sphere_2;item_sphere_3;item_sphere_4;item_sphere_5"
+    "UpgradesItems"                                       "item_sphere_3;item_sphere_4;item_sphere_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

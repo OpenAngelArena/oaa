@@ -7,9 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3061"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3061"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -21,13 +22,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_greater_crit_5"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemRequirements"
     {
       "01"                                                "item_greater_crit_4;item_upgrade_core_4"
-      //"02"                                                "item_bloodthorn_4;item_upgrade_core_4"
-      //"03"                                                "item_nullifier_4;item_upgrade_core_4"
-      //"04"                                                "item_silver_edge_4;item_upgrade_core_4"
     }
   }
 
@@ -38,10 +36,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3065"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3065"
     "BaseClass"                                           "item_greater_crit"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/daedalus_5"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -49,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34954"
+    "ItemCost"                                            "35154"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus 5;crit 5"
@@ -62,7 +61,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 100 140 200 280"
+        "bonus_damage"                                    "80 100 130 170 220"
       }
       "02"
       {

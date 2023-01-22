@@ -5,23 +5,19 @@ LinkLuaModifier("modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.lu
 
 --------------------------------------------------------------------------------
 
-item_martyrs_mail = class(ItemBaseClass)
+item_martyrs_mail_1 = class(ItemBaseClass)
 
-function item_martyrs_mail:GetIntrinsicModifierName()
+function item_martyrs_mail_1:GetIntrinsicModifierName()
   return "modifier_item_martyrs_mail_passive"
 end
 
-function item_martyrs_mail:OnSpellStart()
+function item_martyrs_mail_1:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
 
 	hCaster:EmitSound( "DOTA_Item.BladeMail.Activate" )
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
 end
-
-item_martyrs_mail_2 = class(item_martyrs_mail)
-item_martyrs_mail_3 = class(item_martyrs_mail)
-item_martyrs_mail_4 = class(item_martyrs_mail)
 
 --------------------------------------------------------------------------------
 

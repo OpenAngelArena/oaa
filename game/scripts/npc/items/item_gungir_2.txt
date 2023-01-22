@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3502"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3502"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_gungir;item_upgrade_core"
-      //"02"                                                "item_wind_waker;item_upgrade_core"
-      //"03"                                                "item_meteor_hammer_1;item_upgrade_core"
     }
   }
 
@@ -37,9 +35,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3503"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3503"
     "BaseClass"                                           "item_gungir"
-    "AbilityTextureName"                                  "item_gungir"
     "AbilityTextureName"                                  "custom/gungir_2"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -52,7 +49,6 @@
     "AbilitySharedCooldown"                               "atos"
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.0"
-
     "AbilityManaCost"                                     "200"
 
     // Spicy Parameters
@@ -62,8 +58,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7651"
-    "ItemShopTags"                                        "damage;attack_speed;unique"
+    "ItemCost"                                            "7551"
+    "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir 2;gliepnir 2;glaypnir 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -110,7 +106,7 @@
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 30 40 55 75"
+        "bonus_intellect"                                 "24 29 39 54 74"
       }
       "09"
       {

@@ -40,10 +40,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_5"
 
+    "AbilityCastRange"                                    "700 750 800 850 900"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
+    "UpgradesItems"                                       "item_radiance_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

@@ -52,7 +52,6 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"
     "ItemPurchasable"                                     "1"
-    //"ItemIsNeutralDrop"                                   "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +59,7 @@
     {
       "bonus_health"                                      "2800"
       "bonus_mana"                                        "1000"
-      "heal_pct"                                          "30"
+      "heal_pct"                                          "50"
       "health_threshold"                                  "1"
     }
   }

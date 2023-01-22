@@ -18,13 +18,15 @@ end
 
 function modifier_mr_phys_weak_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
 end
 
-function modifier_mr_phys_weak_oaa:GetModifierIncomingPhysicalDamage_Percentage()
-  return 100
+function modifier_mr_phys_weak_oaa:GetModifierIncomingDamage_Percentage(keys)
+  if keys.damage_type == DAMAGE_TYPE_PHYSICAL then
+    return 50
+  end
 end
 
 function modifier_mr_phys_weak_oaa:GetModifierMagicalResistanceBonus()

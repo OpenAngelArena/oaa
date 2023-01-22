@@ -1,14 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Smart Missiles bonus AoE
+  // Sidekick Bonus Lifesteal Talent
   //=================================================================================================================
-  "special_bonus_unique_tinkerer_3"
+  "special_bonus_unique_marci_guardian_lifesteal"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3605"
-    "BaseClass"                                           "special_bonus_undefined"
+    "ID"                                                  "8242"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -19,7 +18,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "explode_radius"                                  "350"
+        "value"                                           "10" //OAA
+        "ad_linked_abilities"                             "marci_guardian"
       }
     }
   }

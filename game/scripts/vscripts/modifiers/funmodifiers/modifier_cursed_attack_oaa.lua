@@ -25,7 +25,7 @@ function modifier_cursed_attack_oaa:DeclareFunctions()
 end
 
 function modifier_cursed_attack_oaa:GetModifierMiss_Percentage()
-  return 75
+  return 50
 end
 
 function modifier_cursed_attack_oaa:GetModifierBonusStats_Agility()
@@ -33,7 +33,7 @@ function modifier_cursed_attack_oaa:GetModifierBonusStats_Agility()
 end
 
 function modifier_cursed_attack_oaa:GetModifierProcAttack_BonusDamage_Pure()
-  return 400
+  return 350
 end
 
 function modifier_cursed_attack_oaa:GetEffectName()

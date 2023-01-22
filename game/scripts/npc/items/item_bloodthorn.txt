@@ -7,8 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "245"    // unique ID
+    "ID"                                                  "245"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bloodthorn"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements" //OAA
     {
       "01"                                                "item_orchid;item_mage_slayer"
@@ -33,11 +33,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "250"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "250"
+    "AbilityTextureName"                                  "custom/bloodthorn"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,8 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "orchid"
-    "AbilityTextureName"                                  "custom/bloodthorn"
+    "AbilityManaCost"                                     "100"
+
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
@@ -54,7 +55,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
     "ItemCost"                                            "6800"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -65,7 +65,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "20 25 30 35 40"
+      "bonus_intellect"                                   "10 15 20 25 30" //OAA
       "bonus_attack_speed"                                "60 70 80 90 100"
       "bonus_damage"                                      "50 60 80 110 150"
       "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5"

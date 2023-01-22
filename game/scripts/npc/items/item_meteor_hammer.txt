@@ -10,9 +10,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "10049"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "ID"                                                  "80222"
     "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
@@ -38,14 +38,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "10050"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "80223"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/meteor_hammer.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"                                  "item_custom/meteor_hammer_1"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "FightRecapLevel"                                     "1"
 
     // Spicy Paramaters
     //-------------------------------------------------------------------------------------------------------------
@@ -97,7 +96,7 @@
       "05" // vanilla: 2.5
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "3.0 3.25 3.75 4.5 5.5"
+        "bonus_mana_regen"                                "2.5 2.75 3.25 4.0 5.0"
       }
       "06"
       {
@@ -137,7 +136,7 @@
       "13"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "150 350 650 1050 1550"
+        "impact_damage_boss"                              "200 400 700 1100 1600"
       }
       "14"
       {

@@ -19,13 +19,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "1750"
     "ItemShopTags"                                        ""
-    "ItemAliases"                                         "hom"
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_hand_of_midas_1"
-
     "ItemRequirements"
     {
       "01"                                                "item_gloves"
@@ -54,10 +52,10 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "60"
     "AbilitySharedCooldown"                               "hand_of_midas"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
     "ItemCost"                                            "2200"
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
@@ -66,28 +64,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "xp_multiplier"                                   "3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_gold"                                      "150"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transmute_cast_range_tooltip"                    "600"
-      }
+      "bonus_attack_speed"                                "50"
+      "xp_multiplier"                                     "3"
+      "bonus_gold"                                        "160"
     }
   }
 }

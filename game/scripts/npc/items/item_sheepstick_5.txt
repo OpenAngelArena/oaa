@@ -1,58 +1,62 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Guinsoos Scythe of Vyse 5
+  // Recipe: Scythe of Vyse 5
   //=================================================================================================================
   "item_recipe_sheepstick_5"
   {
-    "ID"                                                  "3069"      // unique ID
+    "ID"                                                  "3069"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick_5"
     "ItemRequirements"
     {
       "01"                                                "item_sheepstick_4;item_upgrade_core_4"
-      //"02"                                                "item_gungir_4;item_upgrade_core_4"
-      //"03"                                                "item_wind_waker_4;item_upgrade_core_4"
-      //"04"                                                "item_meteor_hammer_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Guinsoos Scythe of Vyse 5
+  // Scythe of Vyse 5
   //=================================================================================================================
   "item_sheepstick_5"
   {
-    // General-----------------------------------------------------------------------------------------------------
-    "ID"                                                  "3073"    //Unique ID
+    // General
+    //---------------------------------------------------------------------------------------------------
+    "ID"                                                  "3073"
     "BaseClass"                                           "item_sheepstick"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/scythe_of_vyse_5"
-    // Stats-------------------------------------------------------------------------------------------------------
+
+    // Stats
+    //---------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "hex"
+    "AbilityManaCost"                                     "250"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
-    // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250"
-    "ItemCost"                                            "36154"
-    "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
+    // Item Info
+    //---------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "36054"
+    "ItemShopTags"                                        "int;regen_mana;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex 5;sheepstick 5;scythe of vyse 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Special-----------------------------------------------------------------------------------------------------
+    // Special
+    //---------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
       "01"
@@ -68,12 +72,12 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 35 50 70"
+        "bonus_intellect"                                 "24 29 39 50 70"
       }
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 6.25 6.75 9.0 10.0"
+        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0"
       }
       "05"
       {

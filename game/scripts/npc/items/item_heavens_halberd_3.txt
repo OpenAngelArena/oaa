@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3639"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3639"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_heavens_halberd_2;item_upgrade_core_2"
-      //"02"                                                "item_echo_sabre_2;item_upgrade_core_2"
-      //"03"                                                "item_pull_staff_2;item_upgrade_core_2"
     }
   }
 
@@ -37,12 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3641"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "3641"
     "BaseClass"                                           "item_heavens_halberd"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "1"
     "AbilityTextureName"                                  "custom/heavens_halberd_3"
 
     // Stats
@@ -51,19 +48,19 @@
     "AbilitySharedCooldown"                               "halberd"
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
     "ItemCost"                                            "8352"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "heaven's halberd 3;halberd 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "3"
-
     "UpgradesItems"                                       "item_heavens_halberd_3;item_heavens_halberd_4"
 
     // Special

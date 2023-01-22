@@ -7,19 +7,19 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "140"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "140"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800" //OAA
+    "ItemCost"                                            "1000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_greater_crit"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements"
     {
       "01"                                                "item_lesser_crit;item_demon_edge"
@@ -33,22 +33,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "141"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "141"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/daedalus_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_greater_crit;item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4950" //OAA
+    "ItemCost"                                            "5150"
     "ItemShopTags"                                        "damage;crit"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "daedalus;crit"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_greater_crit;item_greater_crit_2;item_greater_crit_3;item_greater_crit_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,7 +58,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 100 140 200 280" //OAA
+        "bonus_damage"                                    "80 100 130 170 220" //OAA
       }
       "02"
       {

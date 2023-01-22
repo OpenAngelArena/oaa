@@ -7,10 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8540"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "8540"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
@@ -24,10 +25,9 @@
     "ItemRequirements"
     {
       "01"                                                "item_kaya_and_sange_4;item_upgrade_core_4"
-      //"02"                                                "item_sange_and_yasha_4;item_upgrade_core_4"
-      //"03"                                                "item_yasha_and_kaya_4;item_upgrade_core_4"
     }
   }
+
   //=================================================================================================================
   // Kaya and Sange 5
   //=================================================================================================================
@@ -48,12 +48,11 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "34104"
-    "ItemShopTags"                                        "damage;str;agi;attack_speed;unique"
+    "ItemShopTags"                                        "str;int;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "snk 5;s&k 5;sk 5;sange and kaya 5"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

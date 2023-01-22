@@ -12,7 +12,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Cannot toss enemies or damage spell immune enemies; Can toss allies to enemies;
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"

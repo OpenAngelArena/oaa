@@ -1,15 +1,17 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Guinsoos Scythe of Vyse
+  // Recipe: Scythe of Vyse
   //=================================================================================================================
   "item_recipe_sheepstick"
   {
-    "ID"                                                  "95"    // unique ID
+    "ID"                                                  "95"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+
     "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
+
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick"
     "ItemRequirements"
@@ -19,56 +21,61 @@
   }
 
   //=================================================================================================================
-  // Guinsoos Scythe of Vyse
+  // Scythe of Vyse
   //=================================================================================================================
   "item_sheepstick"
   {
-    // General-----------------------------------------------------------------------------------------------------
-    "ID"                                                  "96"    //Unique ID
+    // General
+    //-----------------------------------------------------------------------------------------------------
+    "ID"                                                  "96"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"                                     "2"
     "AbilityTextureName"                                  "custom/scythe_of_vyse_1"
-    // Stats-------------------------------------------------------------------------------------------------------
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "25" //OAA
     "AbilitySharedCooldown"                               "hex"
+    "AbilityManaCost"                                     "250"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_sheepstick;item_sheepstick_2;item_sheepstick_3;item_sheepstick_4"
 
-    // Item Info---------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250"
+    // Item Info
+    //---------------------------------------------------------------------------------------------------
     "ItemCost"                                            "5675"
-    "ItemShopTags"                                        "int;regen_mana;agi;hard_to_tag"
+    "ItemShopTags"                                        "int;regen_mana;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
-    // Special-----------------------------------------------------------------------------------------------------
+    // Special
+    //-----------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
-      "01" // like Gleipnir
+      "01"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_strength"                                  "12 17 27 42 62" //OAA
       }
-      "02" // like Gleipnir
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
         "bonus_agility"                                   "12 17 27 42 62" //OAA
       }
-      "03" // slightly worse than Gleipnir
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 35 50 70" //OAA
+        "bonus_intellect"                                 "24 29 39 50 70" //OAA
       }
-      "04" // first 3 values must be the same as Wind Waker, 4th value same as vanilla Sheepstick
+      "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "6.0 6.25 6.75 9.0 10.0" //OAA
+        "bonus_mana_regen"                                "5.0 5.25 5.75 9.0 10.0" //OAA
       }
       "05"
       {

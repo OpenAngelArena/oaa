@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "500"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -59,8 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "4300"
+    "ItemCost"                                            "4400"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
@@ -118,7 +117,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "nuke_base_dmg"                                   "200 300 400 500 600"
+        "nuke_base_dmg"                                   "175 275 375 475 575"
       }
       "11"
       {

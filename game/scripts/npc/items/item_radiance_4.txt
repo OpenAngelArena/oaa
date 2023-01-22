@@ -40,10 +40,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "custom/radiance_4"
 
+    "AbilityCastRange"                                    "700 750 800 850 900"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
+    "UpgradesItems"                                       "item_radiance_4;item_radiance_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -53,7 +56,6 @@
     "ItemAliases"                                         "radiance 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "UpgradesItems"                                       "item_radiance_4"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

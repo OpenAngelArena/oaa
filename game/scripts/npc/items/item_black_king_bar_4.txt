@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "83115"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "83115"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_black_king_bar_3;item_upgrade_core_3"
-      "02"                                                "item_enrage_crystal_1;item_upgrade_core_3"
     }
   }
 
@@ -36,25 +35,25 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "83116"                                                       // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "83116"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/black_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
+    "AbilityTextureName"                                  "custom/black_king_bar_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "60"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
-    "AbilityTextureName"                                  "custom/black_king_bar_4"
+
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
     "UpgradesItems"                                       "item_black_king_bar_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17003"
+    "ItemCost"                                            "17103"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb 4;black king bar 4"

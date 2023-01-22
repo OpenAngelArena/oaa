@@ -7,7 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "107"                           // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "107"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -23,6 +25,7 @@
       "01"                                                "item_point_booster;item_staff_of_wizardry;item_ogre_axe;item_blade_of_alacrity"
     }
   }
+
   //=================================================================================================================
   // Scepter
   //=================================================================================================================
@@ -30,6 +33,8 @@
   {
     "ID"                                                  "108"
     "AbilityTextureName"                                  "custom/ultimate_scepter"
+
+    "AbilityCastRange"                                    "600" // for Alchemist when he gives to others
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -42,7 +47,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 20 30 40 50"
+        "bonus_all_stats"                                 "10 15 25 40 60"
       }
       "02"
       {

@@ -46,15 +46,15 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "120"
     "AbilitySharedCooldown"                               "refresher_oaa"
+    "AbilityManaCost"                                     "350"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "350"
     "ItemCost"                                            "6501"
-    "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
+    "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 2;refresher 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"

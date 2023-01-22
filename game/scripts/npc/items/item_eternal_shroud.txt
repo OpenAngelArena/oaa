@@ -40,7 +40,6 @@
     "ID"                                                  "3537"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/eternal_shroud.lua"
-    "AbilityTextureName"                                  "item_eternal_shroud"
     "AbilityTextureName"                                  "custom/eternal_shroud"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
@@ -53,13 +52,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "eternal_shroud"
-
     "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "3550"
-    "ItemShopTags"                                        "regen_health;magic_resist"
+    "ItemShopTags"                                        "regen_health;magic_resist;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud;es"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
@@ -86,7 +84,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "600 950 1300 1650 2000"
+        "barrier_block"                                   "450 850 1250 1650 2050"
       }
       "05"
       {

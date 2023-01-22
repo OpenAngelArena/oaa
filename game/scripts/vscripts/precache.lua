@@ -21,7 +21,7 @@ g_ItemPrecache = {
   "item_heart_oaa_1",
   "item_heart_transplant",
   "item_lucience",
-  "item_martyrs_mail_4",
+  "item_martyrs_mail_1",
   --"item_meteor_hammer_1",
   "item_pull_staff",
   --"item_reflex_core",

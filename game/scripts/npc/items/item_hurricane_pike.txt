@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "262"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,12 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "19.0 17.0 15.0 13.0 11.0"
     "AbilitySharedCooldown"                               "force"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
     "ItemCost"                                            "4200" //OAA
-    "ItemShopTags"                                        "int;damage;attack_speed;hard_to_tag"
+    "ItemShopTags"                                        "agi;str;int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "fs;force staff;hurricane pike;pike"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
