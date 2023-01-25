@@ -164,8 +164,9 @@ function tinkerer_laser_contraption:OnSpellStart()
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
     if unit and not unit:IsNull() and unit:GetUnitName() ~= "npc_dota_tinkerer_keen_node" then
-      local origin = unit:GetAbsOrigin()
-      FindClearSpaceForUnit(unit, origin, true)
+      --local origin = unit:GetAbsOrigin()
+      --FindClearSpaceForUnit(unit, origin, true) -- this interrupts some mobility spells like Huskar Life Break
+      unit:AddNewModifier(unit, self, "modifier_phased", {duration = FrameTime()})
       if unit:GetTeamNumber() ~= team and not unit:IsMagicImmune() and not square_shape then
         damage_table.victim = unit
         ApplyDamage(damage_table)
@@ -234,9 +235,9 @@ function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
---function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
-  --return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
---end
+function modifier_tinkerer_laser_contraption_thinker:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_NONE
+end
 
 function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   if not IsServer() then
@@ -400,6 +401,9 @@ function modifier_tinkerer_laser_contraption_debuff:OnCreated()
   if ability and not ability:IsNull() then
     --self.blind_pct = ability:GetSpecialValueFor("scepter_blind")
     self.heal_prevent_percent = ability:GetSpecialValueFor("scepter_heal_prevent_percent")
+  end
+  if self:GetParent():IsMagicImmune() then
+    self:Destroy()
   end
 end
 
