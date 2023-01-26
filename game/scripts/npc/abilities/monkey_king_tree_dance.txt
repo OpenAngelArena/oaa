@@ -7,11 +7,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5721"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5721"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
 
@@ -45,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "give_up_distance"                                "1850"
+        "give_up_distance"                                "2800" // OAA, 1000 + Talent + Arcane Supremacy + Octarine Core + Seer Stone + Telescope Aura + 125
       }
       "04"
       {

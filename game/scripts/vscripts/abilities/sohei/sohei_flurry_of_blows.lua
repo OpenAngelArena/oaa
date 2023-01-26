@@ -37,54 +37,80 @@ function sohei_flurry_of_blows:OnChannelFinish(bInterrupted)
 end
 ]]
 
+function sohei_flurry_of_blows:GetBehavior()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_sohei_flurry_self") then
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+  end
+  return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+end
+
+function sohei_flurry_of_blows:GetManaCost(level)
+  local caster = self:GetCaster()
+  local base_mana_cost = self.BaseClass.GetManaCost(self, level)
+  if caster:HasModifier("modifier_sohei_flurry_self") then
+    return 0
+  end
+
+  return base_mana_cost
+end
+
 function sohei_flurry_of_blows:OnSpellStart()
   local caster = self:GetCaster()
-  local target_loc = self:GetCursorPosition()
-  local radius = self:GetSpecialValueFor("flurry_radius")
-  local max_attacks = self:GetSpecialValueFor("max_attacks")
-  local max_duration = self:GetSpecialValueFor("max_duration")
-  local attack_interval = self:GetSpecialValueFor("attack_interval")
+  if not caster:HasModifier("modifier_sohei_flurry_self") then
+    local target_loc = self:GetCursorPosition()
+    local radius = self:GetSpecialValueFor("flurry_radius")
+    local max_attacks = self:GetSpecialValueFor("max_attacks")
+    local max_duration = self:GetSpecialValueFor("max_duration")
+    local attack_interval = self:GetSpecialValueFor("attack_interval")
 
-  -- Bonus AoE talent
-  local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
-  if talent and talent:GetLevel() > 0 then
-    radius = radius + talent:GetSpecialValueFor("value")
+    -- Bonus AoE talent
+    local talent = caster:FindAbilityByName("special_bonus_sohei_fob_radius")
+    if talent and talent:GetLevel() > 0 then
+      radius = radius + talent:GetSpecialValueFor("value")
+    end
+
+    -- Talent that increases max number of attacks and max duration
+    local talent2 = caster:FindAbilityByName("special_bonus_unique_sohei_8")
+    if talent2 and talent2:GetLevel() > 0 then
+      max_attacks = max_attacks + talent2:GetSpecialValueFor("value")
+      max_duration = max_duration + talent2:GetSpecialValueFor("value2")
+    end
+
+    -- Emit sound
+    caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
+
+    -- Remove the particle of the previous instance if it still exists
+    if caster.flurry_ground_pfx then
+      ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
+      ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
+    end
+
+    -- Default particle
+    caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
+    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius+10, 0, 0))
+
+    -- Disjoint projectiles
+    ProjectileManager:ProjectileDodge(caster)
+
+    -- Put caster in the middle of the circle little above ground
+    caster:SetAbsOrigin(target_loc + Vector(0, 0, 200))
+
+    -- Add a modifier that does actual spell effect
+    caster:AddNewModifier(caster, self, "modifier_sohei_flurry_self", {
+      duration = max_duration,
+      radius = radius,
+      attack_interval = attack_interval,
+      max_attacks = max_attacks,
+    })
+
+    self:EndCooldown()
+    self:StartCooldown(1)
+  else
+    -- Remove the buff
+    caster:RemoveModifierByName("modifier_sohei_flurry_self")
   end
-
-  -- Talent that increases max number of attacks and max duration
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_sohei_8")
-  if talent2 and talent2:GetLevel() > 0 then
-    max_attacks = max_attacks + talent2:GetSpecialValueFor("value")
-    max_duration = max_duration + talent2:GetSpecialValueFor("value2")
-  end
-
-  -- Emit sound
-  caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
-
-  -- Remove the particle of the previous instance if it still exists
-  if caster.flurry_ground_pfx then
-    ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
-    ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
-  end
-
-  -- Default particle
-  caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
-  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
-  ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius+10, 0, 0))
-
-  -- Disjoint projectiles
-  ProjectileManager:ProjectileDodge(caster)
-
-  -- Put caster in the middle of the circle little above ground
-  caster:SetAbsOrigin(target_loc + Vector(0, 0, 200))
-
-  -- Add a modifier that does actual spell effect
-  caster:AddNewModifier(caster, self, "modifier_sohei_flurry_self", {
-    duration = max_duration,
-    radius = radius,
-    attack_interval = attack_interval,
-    max_attacks = max_attacks,
-  })
 end
 
 function sohei_flurry_of_blows:GetAOERadius()
@@ -98,6 +124,14 @@ function sohei_flurry_of_blows:GetAOERadius()
   end
 
   return radius
+end
+
+function sohei_flurry_of_blows:ProcsMagicStick()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_sohei_flurry_self") then
+    return false
+  end
+  return true
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -244,6 +278,13 @@ function modifier_sohei_flurry_self:OnDestroy()
       ParticleManager:DestroyParticle(caster.flurry_ground_pfx, false)
       ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
       caster.flurry_ground_pfx = nil
+    end
+
+    -- Ability on cooldown
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      local cooldown = ability:GetCooldown(ability:GetLevel()) * caster:GetCooldownReduction()
+      ability:StartCooldown(cooldown)
     end
   end
 end

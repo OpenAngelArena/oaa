@@ -1,7 +1,8 @@
-sohei_polarizing_palm = class(AbilityBaseClass)
+sohei_ki_attraction = class( AbilityBaseClass )
 
-LinkLuaModifier("modifier_sohei_polarizing_palm_movement", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-LinkLuaModifier("modifier_sohei_polarizing_palm_stun", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_ki_attraction_movement", "abilities/sohei/sohei_ki_attraction.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_sohei_ki_attraction_buff", "abilities/sohei/sohei_ki_attraction.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_ki_attraction_debuff", "abilities/sohei/sohei_ki_attraction.lua", LUA_MODIFIER_MOTION_NONE)
 
 local forbidden_modifiers = {
   "modifier_enigma_black_hole_pull",
@@ -11,19 +12,7 @@ local forbidden_modifiers = {
   "modifier_disruptor_kinetic_field",
 }
 
-function sohei_polarizing_palm:GetCastRange(location, target)
-  local caster = self:GetCaster()
-  local default_range = self.BaseClass.GetCastRange(self, location, target)
-
-  local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
-  if talent and talent:GetLevel() > 0 then
-    return default_range + talent:GetSpecialValueFor("value")
-  end
-
-  return default_range
-end
-
-function sohei_polarizing_palm:CastFilterResultTarget(target)
+function sohei_ki_attraction:CastFilterResultTarget(target)
   local caster = self:GetCaster()
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
 
@@ -40,7 +29,7 @@ function sohei_polarizing_palm:CastFilterResultTarget(target)
   return defaultFilterResult
 end
 
-function sohei_polarizing_palm:GetCustomCastErrorTarget(target)
+function sohei_ki_attraction:GetCustomCastErrorTarget(target)
   local caster = self:GetCaster()
   if target == caster then
     return "#dota_hud_error_cant_cast_on_self"
@@ -57,7 +46,20 @@ function sohei_polarizing_palm:GetCustomCastErrorTarget(target)
   end
 end
 
-function sohei_polarizing_palm:OnSpellStart()
+function sohei_ki_attraction:OnHeroCalculateStatBonus()
+  local caster = self:GetCaster()
+
+  if caster:HasShardOAA() or self:IsStolen() then
+    self:SetHidden(false)
+    if self:GetLevel() <= 0 then
+      self:SetLevel(1)
+    end
+  else
+    self:SetHidden(true)
+  end
+end
+
+function sohei_ki_attraction:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorTarget()
 
@@ -79,23 +81,20 @@ function sohei_polarizing_palm:OnSpellStart()
   local caster_loc = caster:GetAbsOrigin()
   local isTargetAnEnemy = target:GetTeamNumber() ~= caster:GetTeamNumber()
 
-  local speed = self:GetSpecialValueFor("push_pull_speed")
-  local reposition_range = self:GetSpecialValueFor("push_pull_length")
+  local speed = self:GetSpecialValueFor("pull_speed")
+  local reposition_range = self:GetSpecialValueFor("pull_length")
+  local modifier_duration = self:GetSpecialValueFor("duration")
 
-  local direction = target_loc - caster_loc -- default is pushing
+  -- Pulling towards the caster
+  local direction = caster_loc - target_loc
   local distance = reposition_range
-
-  local pulling = false
   local flurry = caster:HasModifier("modifier_sohei_flurry_self")
-  if pulling then
-    -- Pulling towards the caster
-    direction = caster_loc - target_loc
-    -- Pulling towards Flurry of Blows center during Flurry of Blows
-    if flurry then
-      local flurry_mod = caster:FindModifierByName("modifier_sohei_flurry_self")
-      if flurry_mod.center then
-        direction = flurry_mod.center - target_loc
-      end
+
+  -- Pulling towards Flurry of Blows center during Flurry of Blows
+  if flurry then
+    local flurry_mod = caster:FindModifierByName("modifier_sohei_flurry_self")
+    if flurry_mod.center then
+      direction = flurry_mod.center - target_loc
     end
   end
 
@@ -106,7 +105,7 @@ function sohei_polarizing_palm:OnSpellStart()
     end
 
     -- For pulling when not in Flurry of Blows
-    if pulling and not flurry then
+    if not flurry then
       distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
       if distance > reposition_range then
         distance = reposition_range
@@ -121,20 +120,22 @@ function sohei_polarizing_palm:OnSpellStart()
   direction.z = 0
   direction = direction:Normalized()
 
-  -- Interrupt existing motion controllers (it should also interrupt existing instances of Polarizing Palm)
+  -- Interrupt existing motion controllers
   if target:IsCurrentlyHorizontalMotionControlled() then
     target:InterruptMotionControllers(false)
   end
 
-  -- Sounds
+  -- Sounds and modifiers
   if not isTargetAnEnemy then
     target:EmitSound("Sohei.Dash")
+    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_buff", {duration = modifier_duration})
   else
     target:EmitSound("Sohei.Momentum")
+    target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_debuff", {duration = modifier_duration})
   end
 
   -- Apply motion controller
-  target:AddNewModifier(caster, self, "modifier_sohei_polarizing_palm_movement", {
+  target:AddNewModifier(caster, self, "modifier_sohei_ki_attraction_movement", {
     distance = distance,
     speed = speed,
     direction_x = direction.x,
@@ -172,10 +173,10 @@ function sohei_polarizing_palm:OnSpellStart()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Polarizing Palm motion controller
-modifier_sohei_polarizing_palm_movement = class(ModifierBaseClass)
 
-function modifier_sohei_polarizing_palm_movement:IsDebuff()
+modifier_sohei_ki_attraction_movement = class(ModifierBaseClass)
+
+function modifier_sohei_ki_attraction_movement:IsDebuff()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
@@ -186,44 +187,44 @@ function modifier_sohei_polarizing_palm_movement:IsDebuff()
   return true
 end
 
-function modifier_sohei_polarizing_palm_movement:IsHidden()
+function modifier_sohei_ki_attraction_movement:IsHidden()
   return true
 end
 
-function modifier_sohei_polarizing_palm_movement:IsPurgable()
+function modifier_sohei_ki_attraction_movement:IsPurgable()
   return true
 end
 
-function modifier_sohei_polarizing_palm_movement:IsStunDebuff()
+function modifier_sohei_ki_attraction_movement:IsStunDebuff()
   return false
 end
 
-function modifier_sohei_polarizing_palm_movement:DeclareFunctions()
+function modifier_sohei_ki_attraction_movement:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
 end
 
-function modifier_sohei_polarizing_palm_movement:GetOverrideAnimation()
+function modifier_sohei_ki_attraction_movement:GetOverrideAnimation()
   return ACT_DOTA_FLAIL
 end
 
-function modifier_sohei_polarizing_palm_movement:GetPriority()
+function modifier_sohei_ki_attraction_movement:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
 end
 
-function modifier_sohei_polarizing_palm_movement:GetEffectName()
+function modifier_sohei_ki_attraction_movement:GetEffectName()
   if self:GetCaster():HasModifier("modifier_arcana_dbz") then
     return "particles/hero/sohei/arcana/dbz/sohei_knockback_dbz.vpcf"
   end
   return "particles/hero/sohei/knockback.vpcf"
 end
 
-function modifier_sohei_polarizing_palm_movement:GetEffectAttachType()
+function modifier_sohei_ki_attraction_movement:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_sohei_polarizing_palm_movement:CheckState()
+function modifier_sohei_ki_attraction_movement:CheckState()
   return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     --[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
@@ -231,7 +232,7 @@ function modifier_sohei_polarizing_palm_movement:CheckState()
 end
 
 if IsServer() then
-  function modifier_sohei_polarizing_palm_movement:OnCreated(event)
+  function modifier_sohei_ki_attraction_movement:OnCreated(event)
     -- Data sent with AddNewModifier (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
     self.distance = event.distance + 1
@@ -243,7 +244,7 @@ if IsServer() then
     end
   end
 
-  function modifier_sohei_polarizing_palm_movement:OnDestroy()
+  function modifier_sohei_ki_attraction_movement:OnDestroy()
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
@@ -255,10 +256,10 @@ if IsServer() then
     --FindClearSpaceForUnit(parent, parent_origin, false)
     ResolveNPCPositions(parent_origin, 128)
 
-    self:PolarizingPalmDamage(parent, caster, ability)
+    self:Damage(parent, caster, ability)
   end
 
-  function modifier_sohei_polarizing_palm_movement:UpdateHorizontalMotion(parent, deltaTime)
+  function modifier_sohei_ki_attraction_movement:UpdateHorizontalMotion(parent, deltaTime)
     if not parent or parent:IsNull() or not parent:IsAlive() then
       return
     end
@@ -295,7 +296,8 @@ if IsServer() then
       local thinkers = Entities:FindAllByClassnameWithin("npc_dota_thinker", tickOrigin, 70)
       for _, thinker in pairs(thinkers) do
         if thinker and thinker:IsPhantomBlocker() then
-          self:ApplyStun(parent, caster, ability)
+          -- Collision Impact Sound
+          parent:EmitSound("Sohei.Momentum.Collision")
           self:Destroy()
           return
         end
@@ -305,22 +307,25 @@ if IsServer() then
       local previous_loc = GetGroundPosition(parentOrigin, parent)
       local new_loc = GetGroundPosition(tickOrigin, parent)
       if new_loc.z-previous_loc.z > 10 and not GridNav:IsTraversable(tickOrigin) then
-        self:ApplyStun(parent, caster, ability)
+        -- Collision Impact Sound
+        parent:EmitSound("Sohei.Momentum.Collision")
         self:Destroy()
         return
       end
 
       -- Check for trees; GridNav:IsBlocked( tickOrigin ) doesn't give good results; Trees are destroyed on impact;
       if GridNav:IsNearbyTree(tickOrigin, 120, false) then
-        self:ApplyStun(parent, caster, ability)
         GridNav:DestroyTreesAroundPoint(tickOrigin, 120, false)
+        -- Collision Impact Sound
+        parent:EmitSound("Sohei.Momentum.Collision")
         self:Destroy()
         return
       end
 
       -- Check for buildings (requires buildings lua library, otherwise it will return an error)
       if #FindAllBuildingsInRadius(tickOrigin, 30) > 0 or #FindCustomBuildingsInRadius(tickOrigin, 30) > 0 then
-        self:ApplyStun(parent, caster, ability)
+        -- Collision Impact Sound
+        parent:EmitSound("Sohei.Momentum.Collision")
         self:Destroy()
         return
       end
@@ -343,9 +348,9 @@ if IsServer() then
           hero_to_impact = heroes[2]
         end
         if hero_to_impact then
-          self:ApplyStun(parent, caster, ability)
-          self:ApplyStun(hero_to_impact, caster, ability)
-          self:PolarizingPalmDamage(hero_to_impact, caster, ability)
+          self:Damage(hero_to_impact, caster, ability)
+          -- Collision Impact Sound
+          parent:EmitSound("Sohei.Momentum.Collision")
           self:Destroy()
           return
         end
@@ -357,34 +362,11 @@ if IsServer() then
     parent:SetAbsOrigin(tickOrigin)
   end
 
-  function modifier_sohei_polarizing_palm_movement:OnHorizontalMotionInterrupted()
+  function modifier_sohei_ki_attraction_movement:OnHorizontalMotionInterrupted()
     self:Destroy()
   end
 
-  function modifier_sohei_polarizing_palm_movement:ApplyStun(unit, caster, ability)
-    if not unit or unit:IsMagicImmune() then
-      return
-    end
-
-    local stun_duration = ability:GetSpecialValueFor("stun_duration")
-
-    -- Talent that increases stun duration
-    local talent = caster:FindAbilityByName("special_bonus_sohei_stun")
-    if talent and talent:GetLevel() > 0 then
-      stun_duration = stun_duration + talent:GetSpecialValueFor("value")
-    end
-
-    -- Duration is reduced with Status Resistance
-    stun_duration = unit:GetValueChangedByStatusResistance(stun_duration)
-
-    -- Apply stun debuff
-    unit:AddNewModifier(caster, ability, "modifier_sohei_polarizing_palm_stun", {duration = stun_duration})
-
-    -- Collision Impact Sound
-    unit:EmitSound("Sohei.Momentum.Collision")
-  end
-
-  function modifier_sohei_polarizing_palm_movement:PolarizingPalmDamage(unit, caster, ability)
+  function modifier_sohei_ki_attraction_movement:Damage(unit, caster, ability)
     -- Damage only enemies without spell immunity
     if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
       return
@@ -407,45 +389,52 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Stun debuff
-modifier_sohei_polarizing_palm_stun = class(ModifierBaseClass)
+modifier_sohei_ki_attraction_buff = class(ModifierBaseClass)
 
-function modifier_sohei_polarizing_palm_stun:IsHidden()
+function modifier_sohei_ki_attraction_buff:IsHidden()
   return false
 end
 
-function modifier_sohei_polarizing_palm_stun:IsDebuff()
+function modifier_sohei_ki_attraction_buff:IsDebuff()
+  return false
+end
+
+function modifier_sohei_ki_attraction_buff:IsPurgable()
   return true
 end
 
-function modifier_sohei_polarizing_palm_stun:IsStunDebuff()
-  return true
-end
-
-function modifier_sohei_polarizing_palm_stun:IsPurgable()
-  return true
-end
-
-function modifier_sohei_polarizing_palm_stun:GetEffectName()
-  return "particles/generic_gameplay/generic_stunned.vpcf"
-end
-
-function modifier_sohei_polarizing_palm_stun:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
-end
-
-function modifier_sohei_polarizing_palm_stun:DeclareFunctions()
+function modifier_sohei_ki_attraction_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
   }
 end
 
-function modifier_sohei_polarizing_palm_stun:GetOverrideAnimation()
-  return ACT_DOTA_DISABLED
+function modifier_sohei_ki_attraction_buff:GetModifierTotalDamageOutgoing_Percentage()
+  return self:GetAbility():GetSpecialValueFor("ally_damage_amp")
 end
 
-function modifier_sohei_polarizing_palm_stun:CheckState()
+---------------------------------------------------------------------------------------------------
+
+modifier_sohei_ki_attraction_debuff = class(ModifierBaseClass)
+
+function modifier_sohei_ki_attraction_debuff:IsHidden()
+  return false
+end
+
+function modifier_sohei_ki_attraction_debuff:IsDebuff()
+  return true
+end
+
+function modifier_sohei_ki_attraction_debuff:IsPurgable()
+  return true
+end
+
+function modifier_sohei_ki_attraction_debuff:DeclareFunctions()
   return {
-    [MODIFIER_STATE_STUNNED] = true,
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
   }
+end
+
+function modifier_sohei_ki_attraction_debuff:GetModifierTotalDamageOutgoing_Percentage()
+  return self:GetAbility():GetSpecialValueFor("enemy_damage_reduction")
 end
