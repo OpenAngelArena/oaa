@@ -1,43 +1,61 @@
 "itembuilds"
 {
-    "author"        "OAA"
-    "hero"          "npc_dota_hero_puck"
-    "Title"         "Recommended items for Puck"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_puck"
+  "Title"         "Recommended items for Puck"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_ward_stack"
-            "item"      "item_flask"
-            "item"      "item_null_talisman"
-            "item"      "item_magic_stick"
-        }
-
-        "#DOTA_Item_Build_Core_Items"
-        {
-            "item"      "item_ethereal_blade"
-            "item"      "item_blink"
-            "item"      "item_ultimate_scepter"
-            "item"      "item_octarine_core"
-        }
-
-        "#DOTA_Item_Build_Shard"
-        {
-            "item"      "item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_radiance"
-            "item"      "item_wind_waker"
-            "item"      "item_veil_of_discord"
-            "item"      "item_bloodthorn"
-            "item"      "item_revenants_brooch"
-            "item"      "item_greater_crit"
-            "item"      "item_black_king_bar_1"
-            "item"      "item_satanic"
-            "item"      "item_siege_mode"
-        }
+      "item"      "item_flask"
+      "item"      "item_null_talisman"
+      "item"      "item_magic_stick"
     }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_ethereal_blade"
+      "item"      "item_overwhelming_blink"
+      "item"      "item_octarine_core"
+      "item"      "item_wind_waker"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_witch_blade"
+      "item"      "item_mjollnir"
+      "item"      "item_bloodthorn"
+      "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_dagon_oaa"
+      "item"      "item_devastator_2"
+      "item"      "item_greater_crit"
+      "item"      "item_heart_oaa"
+      "item"      "item_lotus_orb"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
+      "item"      "item_shield_staff"
+      "item"      "item_shivas_guard"
+      "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_dagger_of_moriah"
+      "item"      "item_sheepstick_4"
+      "item"      "item_siege_mode"
+      "item"      "item_trumps_fists"
+      "item"      "item_vampire"
+      "item"      "item_magic_lamp_1"
+      "item"      "item_rapier"
+    }
+  }
 }

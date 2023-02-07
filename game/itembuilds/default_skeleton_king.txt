@@ -1,51 +1,65 @@
 "itembuilds"
 {
-    "author"        "OAA"
-    "hero"          "npc_dota_hero_skeleton_king"
-    "Title"         "Recommended items for Wraith King"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_skeleton_king"
+  "Title"         "Recommended items for Wraith King"
 
-    "items"
+  "items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_boots"
-            "item"      "item_orb_of_venom"
-        }
-
-        "#DOTA_Item_Build_Physical_Core"
-        {
-            "item"      "item_devastator_2"
-            "item"      "item_assault"
-            "item"      "item_skadi"
-            "item"      "item_black_king_bar_1"
-        }
-
-        "#DOTA_Item_Build_Support_Core"
-        {
-            "item"      "item_ultimate_scepter"
-            "item"      "item_radiance"
-            "item"      "item_wraith_pact"
-            "item"      "item_shivas_guard"
-        }
-
-        "#DOTA_Item_Build_Shard"
-        {
-   	        "item"      "item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_heart_oaa"
-            "item"      "item_echo_sabre"
-            "item"      "item_satanic"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_nullifier"
-            "item"      "item_sange_and_yasha"
-            "item"      "item_silver_edge"
-            "item"      "item_pipe"
-            "item"      "item_sheepstick_4"
-            "item"      "item_far_sight"
-            "item"      "item_rapier"
-        }
+      "item"      "item_boots"
+      "item"      "item_orb_of_venom"
     }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_bloodthorn"
+      "item"      "item_devastator_2"
+      "item"      "item_assault"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_radiance"
+      "item"      "item_vladmir"
+      "item"      "item_shivas_guard"
+      "item"      "item_overwhelming_blink"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_armlet"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_guardian_greaves"
+      "item"      "item_heart_oaa"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
+      "item"      "item_octarine_core"
+      "item"      "item_pipe"
+      "item"      "item_pull_staff"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_satanic"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_far_sight"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_lucience"
+      "item"      "item_giant_form"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
+      "item"      "item_stoneskin"
+      "item"      "item_martyrs_mail_1"
+      "item"      "item_rapier"
+    }
+  }
 }
