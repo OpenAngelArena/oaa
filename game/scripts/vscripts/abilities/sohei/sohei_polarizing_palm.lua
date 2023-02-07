@@ -85,7 +85,7 @@ function sohei_polarizing_palm:OnSpellStart()
   local direction = target_loc - caster_loc -- default is pushing
   local distance = reposition_range
 
-  local pulling = caster:HasModifier("modifier_sohei_way_of_the_ki_buff")
+  local pulling = false
   local flurry = caster:HasModifier("modifier_sohei_flurry_self")
   if pulling then
     -- Pulling towards the caster

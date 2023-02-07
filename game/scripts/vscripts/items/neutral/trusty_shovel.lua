@@ -33,18 +33,19 @@ function item_trusty_shovel_oaa:OnSpellStart()
     self.rewards = {
       "kobold_soldier",
       "burst_elixir",
-      "bottle",
+      "sustain_elixir",
     }
   elseif game_time > 24*60 and game_time <= 36*60 then
     self.rewards = {
       "kobold_commander",
       "burst_elixir",
-      "hybrid_elixir",
+      "sustain_elixir",
     }
   elseif game_time > 36*60 and game_time <= 46*60 then
     self.rewards = {
       "ghost",
       "burst_elixir",
+      "sustain_elixir",
       "hybrid_elixir",
     }
   elseif game_time > 46*60 then
