@@ -40,9 +40,9 @@
       }
       "move_speed"                                        "1700"
       "min_jump_distance"                                 "450"
-      "max_jump_distance"
+      "max_jump_distance" //OAA
       {
-        "value"                                           "450 550 650 750 800 850"
+        "value"                                           "800"
         "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_range"
       }
       "landing_radius"                                    "275"
