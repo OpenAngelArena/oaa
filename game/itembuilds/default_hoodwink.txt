@@ -1,15 +1,18 @@
 "itembuilds"
 {
   "author"        "OAA"
-  "hero"          "npc_dota_hero_sniper"
-  "Title"         "Recommended items for Sniper"
+  "hero"          "npc_dota_hero_hoodwink"
+  "Title"         "Recommended items for Hoodwink"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_wraith_band"
+      "item"      "item_clarity"
       "item"      "item_flask"
+      "item"      "item_mango"
+      "item"      "item_mango"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -20,18 +23,18 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_mjollnir"
-      "item"      "item_desolator"
-      "item"      "item_silver_edge"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
       "item"      "item_satanic"
       "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_gungir"
+      "item"      "item_ethereal_blade"
       "item"      "item_ultimate_scepter"
       "item"      "item_octarine_core"
-      "item"      "item_ethereal_blade"
-      "item"      "item_greater_power_treads"
       "item"      "item_dagger_of_moriah"
     }
 
@@ -43,16 +46,19 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_blink"
       "item"      "item_butterfly_oaa"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_sange_and_yasha"
+      "item"      "item_desolator"
+      "item"      "item_diffusal_blade"
+      "item"      "item_hurricane_pike"
       "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_swift_blink"
+      "item"      "item_greater_power_treads"
+      "item"      "item_greater_tranquil_boots"
       "item"      "item_greater_travel_boots"
-      "item"      "item_sheepstick_4"
       "item"      "item_trumps_fists"
       "item"      "item_vampire"
+      "item"      "item_rapier"
     }
   }
 }

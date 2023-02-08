@@ -1,45 +1,57 @@
 "itembuilds"
 {
-  "author"		"OAA"
-  "hero"			"npc_dota_hero_abaddon"
-  "Title"			"Recommended items for Abaddon"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_abaddon"
+  "Title"         "Recommended items for Abaddon"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_ward_stack"
-      "item"		"item_flask"
-      "item"		"item_clarity"
+      "item"      "item_ward_stack"
+      "item"      "item_flask"
+      "item"      "item_clarity"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"		"item_ultimate_scepter"
-      "item"    "item_radiance"
-      "item"		"item_octarine_core"
-      "item"    "item_refresher_4"
+      "item"      "item_octarine_core"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_radiance"
+      "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_pull_staff"
+      "item"      "item_manta"
+      "item"      "item_assault"
+      "item"      "item_abyssal_blade_2"
     }
 
     "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_shivas_guard"
-      "item"    "item_guardian_greaves"
-      "item"    "item_wraith_pact"
-      "item"    "item_assault"
-      "item"    "item_manta"
-      "item"    "item_martyrs_mail_1"
-      "item"    "item_heart_oaa"
-      "item"    "item_pipe"
-      "item"    "item_far_sight"
-      "item"    "item_holy_locket"
-      "item"    "item_sphere"
-      "item"    "item_bubble_orb_1"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_guardian_greaves"
+      "item"      "item_heart_oaa"
+      "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
+      "item"      "item_overwhelming_blink"
+      "item"      "item_pipe"
+      "item"      "item_shivas_guard"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_wraith_pact"
+      "item"      "item_far_sight"
+      "item"      "item_bubble_orb_1"
+      "item"      "item_heart_transplant"
+      "item"      "item_stoneskin"
+      "item"      "item_martyrs_mail_1"
+      "item"      "item_rapier"
     }
   }
 }

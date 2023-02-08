@@ -1,49 +1,63 @@
 "itembuilds"
 {
-  "author"		"OAA"
-  "hero"			"npc_dota_hero_ember_spirit"
-  "Title"			"Recommended items for Ember Spirit"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_ember_spirit"
+  "Title"         "Recommended items for Ember Spirit"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_quelling_blade"
-      "item"    "item_flask"
-      "item"    "item_boots"
+      "item"      "item_quelling_blade"
+      "item"      "item_flask"
+      "item"      "item_boots"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"    "item_devastator_2"
-      "item"    "item_greater_crit"
-      "item"    "item_skadi"
-      "item"    "item_black_king_bar_1"
+      "item"      "item_desolator"
+      "item"      "item_bloodthorn"
+      "item"      "item_greater_crit"
+      "item"      "item_skadi"
+      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"    "item_radiance"
-      "item"    "item_ethereal_blade"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_refresher_4"
+      "item"      "item_maelstrom"
+      "item"      "item_radiance"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_ultimate_scepter"
+
+    }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_mjollnir"
-      "item"    "item_bfury"
-      "item"    "item_silver_edge"
-      "item"    "item_monkey_king_bar"
-      "item"    "item_yasha_and_kaya"
-      "item"    "item_sacred_skull"
-      "item"    "item_dagger_of_moriah"
-      "item"    "item_satanic_core"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_heart_oaa"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_satanic"
+      "item"      "item_sphere"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_greater_power_treads"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah"
+      "item"      "item_sheepstick_4"
+      "item"      "item_trumps_fists"
+      "item"      "item_rapier"
     }
   }
 }

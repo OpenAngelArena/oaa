@@ -1,50 +1,35 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_mars"
-  "Title"			"Recommended items for Mars"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_mars"
+  "Title"         "Recommended items for Mars"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_flask"
-      "item"		""
-      "item"		"item_quelling_blade"
-    }
-
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"		"item_boots"
-      "item"    "item_magic_wand"
-      "item"		"item_bracer"
-    }
-
-    "#DOTA_Item_Build_Mid_Items"
-    {
-      "item"		""
-      "item"		""
-      "item"		""
-      "item"		""
+      "item"      "item_flask"
+      "item"      "item_bracer"
+      "item"      "item_quelling_blade"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"		"item_black_king_bar_1"
-      "item"		"item_desolator"
-      "item"		"item_assault"
-      "item"		"item_satanic"
-      "item"		"item_aghanims_shard"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_desolator"
+      "item"      "item_assault"
+      "item"      "item_satanic"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_pipe"
-      "item"		"item_vladmir"
-      "item"		"item_heart_oaa"
-      "item"		"item_blink"
-      "item"		"item_lotus_orb"
-      "item"    "item_martyrs_mail_1"
+      "item"      "item_pipe"
+      "item"      "item_vladmir"
+      "item"      "item_heart_oaa"
+      "item"      "item_blink"
+      "item"      "item_lotus_orb"
+      "item"      "item_martyrs_mail_1"
     }
   }
 }

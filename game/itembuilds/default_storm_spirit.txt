@@ -1,47 +1,42 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_storm_spirit"
-    "Title"         "Recommended items for Storm Spirit"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_storm_spirit"
+  "Title"         "Recommended items for Storm Spirit"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_magic_wand"
-            "item"      "item_flask"
-            "item"      "item_clarity"
-            "item"      "item_null_talisman"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_kaya"
-            "item"      "item_cyclone"
-            "item"      "item_orchid"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_shivas_guard"
-            "item"      "item_sphere"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_bloodthorn"
-            "item"      "item_black_king_bar_1"
-            "item"      "item_wind_waker"
-            "item"      "item_sheepstick_4"
-	    "item"	"item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_ultimate_scepter"
-            "item"      "item_meteor_hammer_1"
-            "item"      "item_enrage_crystal_1"
-            "item"      "item_lotus_orb"
-        }
+      "item"      "item_infused_raindrop"
+      "item"      "item_flask"
+      "item"      "item_clarity"
+      "item"      "item_null_talisman"
     }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_kaya"
+      "item"      "item_wind_waker"
+      "item"      "item_bloodthorn"
+      "item"      "item_shivas_guard"
+      "item"      "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_lotus_orb"
+      "item"      "item_meteor_hammer_1"
+      "item"      "item_revenants_brooch"
+      "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_enrage_crystal_1"
+    }
+  }
 }

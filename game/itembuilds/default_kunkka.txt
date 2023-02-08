@@ -1,50 +1,47 @@
 "itembuilds"
 {
-  "author"		"OAA"
-  "hero"			"npc_dota_hero_kunkka"
-  "Title"			"Recommended Items for Kunkka"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_kunkka"
+  "Title"         "Recommended Items for Kunkka"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_flask"
-      "item"    "item_branches"
-      "item"    "item_bracer"
+      "item"      "item_flask"
+      "item"      "item_branches"
+      "item"      "item_bracer"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"    "item_devastator"
-      "item"    "item_silver_edge"
-      "item"    "item_assault"
-      "item"    "item_satanic"
-      "item"    "item_black_king_bar_1"
+      "item"      "item_greater_crit"
+      "item"      "item_silver_edge"
+      "item"      "item_assault"
+      "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"    "item_radiance"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_heart_oaa"
-      "item"    "item_sacred_skull"
-      "item"    "item_refresher_4"
+      "item"      "item_radiance"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_heart_oaa"
+      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_rapier"
-      "item"    "item_heavens_halberd"
-      "item"    "item_greater_crit"
-      "item"    "item_armlet"
-      "item"    "item_skadi"
-      "item"    "item_ethereal_blade"
-      "item"    "item_satanic_core"
+      "item"      "item_armlet"
+      "item"      "item_ethereal_blade"
+      "item"      "item_heavens_halberd"
+      "item"      "item_skadi"
+      "item"      "item_rapier"
     }
   }
 }

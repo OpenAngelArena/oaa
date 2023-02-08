@@ -1,51 +1,57 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_bloodseeker"
-    "Title"         "Recommended items for Bloodseeker"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_bloodseeker"
+  "Title"         "Recommended items for Bloodseeker"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_wraith_band"
-            "item"      "item_clarity"
-            "item"      "item_flask"
-            "item"      "item_mango"
-            "item"      "item_mango"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_desolator"
-            "item"      "item_greater_crit"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_satanic"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_gungir"
-            "item"      "item_sange_and_yasha"
-            "item"      "item_skadi"
-            "item"    "item_abyssal_blade_2"
-            "item"    "item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_black_king_bar_1"
-            "item"      "item_ultimate_scepter"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_butterfly_oaa"
-            "item"      "item_mjollnir"
-            "item"      "item_silver_edge"
-            "item"      "item_dagon_oaa"
-            "item"      "item_ethereal_blade"
-            "item"      "item_yasha_and_kaya"
-        }
+      "item"      "item_wraith_band"
+      "item"      "item_clarity"
+      "item"      "item_flask"
+      "item"      "item_mango"
+      "item"      "item_mango"
     }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_maelstrom"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_skadi"
+      "item"      "item_satanic"
+      "item"      "item_abyssal_blade_2"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_radiance"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_satanic_core"
+      "item"      "item_eternal_shroud_oaa"
+      "item"      "item_yasha_and_kaya"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_dagon_oaa"
+      "item"      "item_ethereal_blade"
+      "item"      "item_gungir"
+      "item"      "item_mjollnir"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_silver_edge"
+      "item"      "item_swift_blink"
+      "item"      "item_veil_of_discord"
+      "item"      "item_dagger_of_moriah"
+      "item"      "item_sonic"
+    }
+  }
 }

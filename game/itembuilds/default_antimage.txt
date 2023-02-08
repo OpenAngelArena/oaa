@@ -1,52 +1,49 @@
 "itembuilds"
 {
-  "author"      "Valve"
-  "hero"        "npc_dota_hero_antimage"
-  "Title"       "Recommended items for Anti-Mage"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_antimage"
+  "Title"         "Recommended items for Anti-Mage"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_flask"
-      "item"    "item_quelling_blade"
-      "item"    "item_branches"
+      "item"      "item_flask"
+      "item"      "item_quelling_blade"
+      "item"      "item_wraith_band"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_For_Farming"
     {
-      "item"    "item_magic_wand"
-      "item"    "item_wraith_band"
-      "item"    "item_yasha"
+      "item"      "item_small_cleaver_oaa"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"    "item_skadi"
+      "item"      "item_manta"
+      "item"      "item_bloodthorn"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_satanic"
+      "item"      "item_abyssal_blade_2"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_manta"
-      "item"    "item_abyssal_blade_2"
-      "item"    "item_butterfly_oaa"
-      "item"    "item_satanic"
-      "item"    "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_monkey_king_bar"              // Situational
-      "item"    "item_trumps_fists"                 // Situational
-      "item"    "item_black_king_bar_1"
-      "item"    "item_sphere"                       // Defensive
-      "item"    "item_dispel_orb_1"                 // Defensive
-      "item"    "item_heart_oaa"                    // Defensive
-      "item"    "item_bfury"                        // Traditional
-      "item"    "item_ethereal_blade"               // Magic
-      "item"    "item_yasha_and_kaya"               // Magic
-      "item"    "item_ultimate_scepter"             // Meme
-      "item"    "item_lotus_orb"                    // Defensive/Meme
+      "item"      "item_assault"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_diffusal_blade"
+      "item"      "item_heart_oaa"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_devastator_2"
+      "item"      "item_dispel_orb_1"
+      "item"      "item_trumps_fists"
     }
   }
 }

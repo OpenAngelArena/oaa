@@ -1,47 +1,38 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_shredder"
-	"Title"			"Recommended items for Timbersaw"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_shredder"
+  "Title"         "Recommended items for Timbersaw"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		""
-			"item"		"item_boots"
-			"item"		"item_flask"
-			"item"		"item_mango"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_boots"
+      "item"      "item_flask"
+      "item"      "item_mango"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"    "item_magic_wand"
-      "item"		"item_kaya"
-			"item"		"item_blink"
-      "item"    "item_veil_of_discord"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_shivas_guard"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_black_king_bar_1"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_shivas_guard"
-			"item"		"item_ultimate_scepter"
-			"item"		"item_black_king_bar_1"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_kaya_and_sange"
+      "item"      "item_sheepstick_4"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_kaya_and_sange"
-			"item"		"item_sheepstick_4"
-			"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_lotus_orb"
-			"item"		"item_pipe"
-			"item"		"item_cyclone"
-			"item"		"item_sphere"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_lotus_orb"
+      "item"      "item_pipe"
+      "item"      "item_cyclone"
+      "item"      "item_sphere"
+    }
+  }
 }

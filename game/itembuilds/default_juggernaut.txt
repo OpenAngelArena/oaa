@@ -1,58 +1,52 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_juggernaut"
-	"Title"			"Recommended items for Juggernaut"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_juggernaut"
+  "Title"         "Recommended items for Juggernaut"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_flask"
-			"item"		"item_enchanted_mango"
-			"item"		"item_quelling_blade"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_flask"
+      "item"      "item_wraith_band"
+      "item"      "item_quelling_blade"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_boots"
-			"item"    "item_magic_wand"
-		}
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_maelstrom"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		""
-			"item"		""
-			"item"		""
-		}
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_manta"
-			"item"		""
-			"item"		"item_abyssal_blade_2"
-			"item"		"item_aghanims_shard"
-		}
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_swift_blink"
+      "item"      "item_satanic"
+      "item"      "item_abyssal_blade_2"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		""
-			"item"		""
-			"item"		"item_manta"
-			"item"		""
-			"item"		""
-			"item"		"item_monkey_king_bar"
-			"item"		"item_skadi"
-			"item"		"item_sphere"
-			"item"		""
-			"item"		"item_blink"
-			"item"		"item_silver_edge"
-			"item"		"item_satanic"
-			"item"		""
-			"item"		""
-			"item"		"item_mjollnir"
-			"item"		"item_assault"
-			"item"		"item_desolator"
-			"item"		""
-		}
-	}
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_bloodthorn"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_diffusal_blade"
+      "item"      "item_manta"
+      "item"      "item_nullifier"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_skadi"
+      "item"      "item_sphere"
+      "item"      "item_greater_power_treads"
+      "item"      "item_giant_form"
+      "item"      "item_refresher_4"
+      "item"      "item_trumps_fists"
+    }
+  }
 }

@@ -1,50 +1,56 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_dark_willow"
-  "Title"			"Recommended items for Dark Willow"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_dark_willow"
+  "Title"         "Recommended items for Dark Willow"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_flask"
-      "item"		"item_boots"
-      "item"		"item_wind_lace"
+      "item"      "item_flask"
+      "item"      "item_boots"
+      "item"      "item_wind_lace"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_For_Farming"
     {
-      "item"    	"item_witch_blade"
-      "item"		"item_ultimate_scepter"
+      "item"      "item_maelstrom"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
-      "item"		"item_blink"
-      "item"    	"item_maelstrom"
-      "item"		"item_cyclone"
+      "item"      "item_bloodthorn"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_revenants_brooch"
+      "item"      "item_satanic"
+      "item"      "item_mjollnir"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Support_Core"
     {
-      "item"		"item_satanic"
-      "item"		"item_mjollnir"
-      "item"		"item_arcane_blink"
-      "item"		"item_sheepstick_4"
-      "item"		"item_aghanims_shard"
+      "item"      "item_ethereal_blade"
+      "item"      "item_octarine_core"
+      "item"      "item_wind_waker"
+      "item"      "item_arcane_blink"
+      "item"      "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_gungir"
-      "item"		"item_skadi"
-      "item"		"item_bloodthorn"
-      "item"		"item_black_king_bar_1"
-      "item"		"item_ethereal_blade"
-      "item"		"item_octarine_core"
-      "item"		"item_trumps_fists"
-      "item"		"item_monkey_king_bar"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_shield_staff"
+      "item"      "item_skadi"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_siege_mode"
+      "item"      "item_trumps_fists"
     }
   }
 }

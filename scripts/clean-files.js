@@ -179,6 +179,80 @@ function checkEqual (s1, s2) {
   }
 }
 
+function cleanItemBuildFile (file) {
+  // console.log('Cleaning ' + chalk.green(file));
+
+  const lineReader = readline.createInterface({
+    input: fs.createReadStream(file)
+  });
+
+  let indent = 0;
+  let result = '';
+  let before = '';
+  let error = false;
+  let lineNumber = 0;
+  const spaceLength = 19;
+  lineReader.on('line', (line) => {
+    before += line + '\n';
+    lineNumber++;
+    // replace tabs
+    line = line.replace(/\t/g, tab);
+
+    // fix indent
+    if (line.indexOf('}') > -1) {
+      // decrease indent on }
+      indent--;
+    }
+    line = line.replace(/^ +/g, stringRepeat(tab, indent)); // set indent
+    if (line.indexOf('{') > -1) {
+      // increase indent on {
+      indent++;
+    }
+
+    if (!(line.trimStart().startsWith('//'))) {
+      // fix padding
+      line = line.replace(/" +"/g, '"  "'); // remove spaces between "'s
+
+      const indices = [];
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === '"') indices.push(i);
+      }
+
+      if (Object.keys(indices).length % 2 === 1) {
+        console.error(chalk.red('ERR File "' + file + '" has an uneven number of " at line ' + lineNumber + '.'));
+        error = true;
+        return;
+      }
+
+      if (Object.keys(indices).length > 2 && indices[2] < spaceLength) {
+        line = line.slice(0, indices[1] + 1) + stringRepeat(' ', spaceLength - indices[1] - 2) + line.slice(indices[2]);
+      }
+    }
+
+    result += line + '\n';
+  });
+
+  lineReader.on('close', () => {
+    if (indent > 0) {
+      error = true;
+      console.error(chalk.red('ERR File "' + file + '" is missing a closing bracket \'}\'.'));
+    }
+    if (indent < 0) {
+      error = true;
+      console.error(chalk.red('ERR File "' + file + '" is missing an opening bracket \'{\'.'));
+    }
+    if (!error && !checkEqual(before, result)) {
+      fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
+        if (err) {
+          return console.error(chalk.red(err));
+        }
+        console.log('Cleaned ' + chalk.green(file));
+      });
+    }
+  });
+}
+
 walk('game/resource/English', cleanTooltipFile);
 walk('game/scripts/npc', cleanKVFile);
 walk('game/scripts/shops', cleanKVFile);
+walk('game/itembuilds', cleanItemBuildFile);

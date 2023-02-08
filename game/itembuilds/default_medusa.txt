@@ -1,40 +1,58 @@
 "itembuilds"
 {
-	"author"		"OAA"
-	"hero"			"npc_dota_hero_medusa"
-	"Title"			"Recommended items for Medusa"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_medusa"
+  "Title"         "Recommended items for Medusa"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_wraith_band"
-			"item"		"item_flask"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_wraith_band"
+      "item"      "item_flask"
+    }
 
-		"#DOTA_Item_Build_Core_Items"
-		{
-			"item"		"item_mjollnir"
-			"item"		"item_greater_crit"
-			"item"		"item_skadi"
-			"item"		"item_satanic"
-			"item"		"item_black_king_bar_1"
-		}
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_mask_of_madness"
+      "item"      "item_maelstrom"
+    }
 
-		"#DOTA_Item_Build_Shard"
-		{
-			"item"		"item_aghanims_shard"
-		}
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_greater_crit"
+      "item"      "item_skadi"
+      "item"      "item_satanic"
+      "item"      "item_siege_mode"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_ultimate_scepter"
-			"item"		"item_manta"
-			"item"		"item_black_king_bar_1"
-			"item"		"item_silver_edge"
-			"item"		"item_butterfly_oaa"
-			"item"		"item_bloodthorn"
-			"item"		"item_monkey_king_bar"
-		}
-	}
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_bloodthorn"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_eternal_shroud_oaa"
+      "item"      "item_octarine_core"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_bloodstone"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_manta"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_silver_edge"
+      "item"      "item_shield_staff"
+      "item"      "item_sphere"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_trumps_fists"
+      "item"      "item_rapier"
+    }
+  }
 }

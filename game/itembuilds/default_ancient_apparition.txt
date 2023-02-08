@@ -1,51 +1,44 @@
 "itembuilds"
 {
-  "author"    "Valve"
-  "hero"      "npc_dota_hero_ancient_apparition"
-  "Title"     "Recommended items for Ancient Apparition"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_ancient_apparition"
+  "Title"         "Recommended items for Ancient Apparition"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"        "item_flask"
-      "item"        "item_clarity"
-      "item"        "item_clarity"
-      "item"        "item_ward_stack"
-    }
-
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"        "item_arcane_boots"
-      "item"        "item_magic_wand"
-      "item"        "item_wind_lace"
+      "item"      "item_flask"
+      "item"      "item_clarity"
+      "item"      "item_clarity"
+      "item"      "item_ward_stack"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"        "item_cyclone"
-      "item"        "item_rod_of_atos"
+      "item"      "item_cyclone"
+      "item"      "item_rod_of_atos"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"        "item_glimmer_cape"
-      "item"        "item_octarine_core"
-      "item"        "item_sheepstick_4"
-      "item"	    "item_aghanims_shard"
+      "item"      "item_glimmer_cape"
+      "item"      "item_octarine_core"
+      "item"      "item_sheepstick_4"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"        "item_ultimate_scepter"
-      "item"        "item_solar_crest"
-      "item"        "item_force_staff"
-      "item"        "item_spirit_vessel_oaa"
-      "item"        "item_veil_of_discord"
-      "item"        "item_ethereal_blade"
-      "item"        "item_shivas_guard"                 // Aura/Situational
-      "item"        "item_lotus_orb"                    // Defensive
-      "item"        "item_refresher_4"                  // Situational
+      "item"      "item_ultimate_scepter"
+      "item"      "item_solar_crest"
+      "item"      "item_force_staff"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_veil_of_discord"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"                 // Aura/Situational
+      "item"      "item_lotus_orb"                    // Defensive
+      "item"      "item_refresher_4"                  // Situational
     }
   }
 }

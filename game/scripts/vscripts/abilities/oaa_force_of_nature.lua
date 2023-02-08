@@ -30,23 +30,6 @@ function furion_force_of_nature_oaa:GetCustomCastErrorLocation( target_point )
   return "#dota_hud_error_must_target_tree"
 end
 
--- Lazy hack to make shard work
-function furion_force_of_nature_oaa:OnUpgrade()
-  local caster = self:GetCaster()
-  local ability_level = self:GetLevel()
-  local vanilla_ability = caster:FindAbilityByName("furion_force_of_nature")
-
-  if not vanilla_ability then
-    return
-  end
-
-  if vanilla_ability:GetLevel() == 4 or ability_level >= 5 then
-    return
-  end
-
-  vanilla_ability:SetLevel(ability_level)
-end
-
 --[[
   Gets all tree entities that would be destroyed by the ability and counts them then spawns treants up to that tree count.
   Prioritizes spawning Giant Treants first before spawning normal Treants if tree count allows it.

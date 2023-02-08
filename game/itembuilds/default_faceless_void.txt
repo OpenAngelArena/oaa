@@ -1,54 +1,57 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_faceless_void"
-	"Title"			"Recommended items for Faceless Void"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_faceless_void"
+  "Title"         "Recommended items for Faceless Void"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_flask"
-			"item"		"item_quelling_blade"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_flask"
+      "item"      "item_quelling_blade"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"    "item_magic_wand"
-			"item"		"item_boots"
-			"item"		"item_lifesteal"
-		}
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_mask_of_madness"
+      "item"      "item_maelstrom"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_mjollnir"
-		}
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_bloodthorn"
+      "item"      "item_silver_edge"
+      "item"      "item_satanic"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"    "item_butterfly_oaa"
-      "item"		"item_monkey_king_bar"
-			"item"		"item_bloodthorn"
-      "item"    "item_satanic"
-			"item"		"item_aghanims_shard"
-		}
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ward_stack"
+      "item"      "item_blink"
+      "item"      "item_octarine_core"
+      "item"      "item_refresher_4"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_black_king_bar_1"
-			"item"		"item_greater_crit"
-			"item"		"item_ultimate_scepter"
-			"item"		"item_manta"
-			"item"		"item_diffusal_blade"
-			"item"		"item_skadi"
-			"item"		"item_trumps_fists"
-			"item"		"item_sphere"
-			"item"		"item_refresher_4"
-			"item"		"item_assault"
-			"item"		"item_desolator"
-			"item"		"item_bfury"
-			"item"		"item_mask_of_madness_2"
-			"item"		"item_meteor_hammer_1"
-		}
-	}
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_diffusal_blade"
+      "item"      "item_greater_crit"
+      "item"      "item_manta"
+      "item"      "item_revenants_brooch"
+      "item"      "item_skadi"
+      "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_trumps_fists"
+    }
+  }
 }

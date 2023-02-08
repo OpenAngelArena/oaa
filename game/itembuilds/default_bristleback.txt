@@ -1,45 +1,57 @@
 "itembuilds"
 {
-  "author"          "OAA"
-  "hero"            "npc_dota_hero_bristleback"
-  "Title"           "Recommended items for Bristleback"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_bristleback"
+  "Title"         "Recommended items for Bristleback"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"        "item_bracer"
-      "item"        "item_quelling_blade"
-      "item"        "item_clarity"
+      "item"      "item_bracer"
+      "item"      "item_quelling_blade"
+      "item"      "item_clarity"
+    }
+
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_vanguard"
+      "item"      "item_blade_mail"
+      "item"      "item_radiance"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"        "item_devastator_2"
-      "item"        "item_assault"
-      "item"        "item_ultimate_scepter"
-      "item"        "item_greater_crit"
-      "item"        "item_satanic"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_bloodthorn"
+      "item"      "item_assault"
+      "item"      "item_satanic"
+      "item"      "item_devastator_2"
     }
 
     "#DOTA_Item_Build_Shard"
     {
-      "item"        "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
+    {
+      "item"      "item_satanic_core"
+      "item"      "item_eternal_shroud_oaa"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_stoneskin"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"        "item_black_king_bar_1"
-      "item"        "item_skadi"
-      "item"        "item_abyssal_blade_2"
-      "item"        "item_silver_edge"
-      "item"        "item_bloodthorn"
-      "item"        "item_sange_and_yasha"
-      "item"        "item_heart_oaa"
-      "item"        "item_radiance"
-      "item"        "item_satanic_core"
-      "item"        "item_shivas_guard"
-      "item"        "item_martyrs_mail_1"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_heart_oaa"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_shivas_guard"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_martyrs_mail_1"
     }
   }
 }

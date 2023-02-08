@@ -1,45 +1,36 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_spirit_breaker"
-    "Title"         "Recommended items for Spirit Breaker"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_spirit_breaker"
+  "Title"         "Recommended items for Spirit Breaker"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_boots"
-            "item"      "item_orb_of_vemon"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_tranquil_boots"
-            "item"      "item_wind_lace"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_ancient_janggo"
-            "item"      "item_yasha"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_ultimate_scepter"
-            "item"      "item_yasha_and_kaya"
-            "item"      "item_lucience"
-            "item"      "item_sonic"
-	    "item"	"item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_heart_oaa"
-            "item"      "item_assault"
-            "item"      "item_solar_crest"
-            "item"      "item_heavens_halberd"
-            "item"      "item_greater_phase_boots"
-        }
+      "item"      "item_boots"
+      "item"      "item_orb_of_venom"
     }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_lucience"
+      "item"      "item_sonic"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_heart_oaa"
+      "item"      "item_assault"
+      "item"      "item_solar_crest"
+      "item"      "item_heavens_halberd"
+    }
+  }
 }

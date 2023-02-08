@@ -1,62 +1,33 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_morphling"
-	"Title"			"Recommended items for Morphling"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_morphling"
+  "Title"         "Recommended items for Morphling"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_slippers"
-			"item"		"item_circlet"
-			"item"		"item_flask"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_slippers"
+      "item"      "item_circlet"
+      "item"      "item_flask"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_boots"
-			"item"		"item_magic_wand"
-			"item"		""
-			"item"		""
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_skadi"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_satanic"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		""
-			"item"		""
-			"item"		"item_sphere"
-		}
-
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_ethereal_blade"
-			"item"		"item_skadi"
-      "item"    "item_butterfly_oaa"
-      "item"		"item_satanic"
-			"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		""
-			"item"		"item_manta"
-			"item"		""
-			"item"		"item_hurricane_pike"
-			"item"		""
-			"item"		""
-			"item"		"item_monkey_king_bar"
-			"item"		""
-			"item"		"item_desolator"
-			"item"		""
-			"item"		""
-			"item"		"item_ultimate_scepter"
-			"item"		""
-			"item"		""
-			"item"		"item_rod_of_atos"
-			"item"		"item_cyclone"
-			"item"		""
-			"item"		"item_octarine_core"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_manta"
+      "item"      "item_hurricane_pike"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
+    }
+  }
 }

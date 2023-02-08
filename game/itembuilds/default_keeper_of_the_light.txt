@@ -1,47 +1,41 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_keeper_of_the_light"
-	"Title"			"Recommended items for Keeper of the Light"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_keeper_of_the_light"
+  "Title"         "Recommended items for Keeper of the Light"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_flask"
-			"item"		"item_boots"
-			"item"		"item_magic_stick"
-			"item"		"item_branches"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_flask"
+      "item"      "item_boots"
+      "item"      "item_magic_stick"
+      "item"      "item_branches"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_ward_stack"
-			"item"		"item_force_staff"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_ancient_janggo"
+      "item"      "item_rod_of_atos"
+      "item"      "item_octarine_core"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_ancient_janggo"
-			"item"		"item_rod_of_atos"
-			"item"		"item_octarine_core"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_lucience"
+      "item"      "item_sheepstick_4"
+      "item"      "item_refresher_4"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_lucience"
-			"item"		"item_sheepstick_4"
-			"item"		"item_refresher_4"
-			"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_ultimate_scepter"
-			"item"		"item_spirit_vessel_oaa"
-			"item"		"item_pipe"
-			"item"		"item_regen_crystal_1"
-			"item"		"item_ethereal_blade"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_pipe"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_ethereal_blade"
+    }
+  }
 }

@@ -1,42 +1,36 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_enchantress"
-	"Title"			"Recommended items for Enchantress"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_enchantress"
+  "Title"         "Recommended items for Enchantress"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_clarity"
-			"item"		"item_clarity"
-			"item"		"item_branches"
-			"item"		"item_branches"
-      "item"    "item_flask"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_clarity"
+      "item"      "item_clarity"
+      "item"      "item_branches"
+      "item"      "item_branches"
+      "item"      "item_flask"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"    "item_magic_wand"
-			"item"		"item_boots"
-		}
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_hurricane_pike"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Core_Items"
-		{
-			"item"		"item_ultimate_scepter"
-			"item"		"item_hurricane_pike"
-			"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_rod_of_atos"
-			"item"		"item_assault"
-			"item"		"item_shivas_guard"
-			"item"		"item_bloodthorn"
-			"item"		"item_sphere"
-			"item"		"item_monkey_king_bar"
-			"item"		"item_silver_edge"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_rod_of_atos"
+      "item"      "item_assault"
+      "item"      "item_shivas_guard"
+      "item"      "item_bloodthorn"
+      "item"      "item_sphere"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_silver_edge"
+    }
+  }
 }

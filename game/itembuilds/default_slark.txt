@@ -1,54 +1,47 @@
 "itembuilds"
 {
-  "author"     "Valve"
-  "hero"       "npc_dota_hero_slark"
-  "Title"      "Recommended items for Slark"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_slark"
+  "Title"         "Recommended items for Slark"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_quelling_blade"
-      "item"    "item_wraith_band"
-      "item"    "item_flask"
-    }
-
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"    "item_orb_of_corrosion"
-      "item"    "item_yasha"
-      "item"    "item_diffusal_blade"
+      "item"      "item_quelling_blade"
+      "item"      "item_wraith_band"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"    "item_sange_and_yasha"
-      "item"    "item_ultimate_scepter"
-      "item"    "item_skadi"
-      "item"    "item_swift_blink"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_skadi"
+      "item"      "item_swift_blink"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"    "item_satanic"
-      "item"    "item_bloodthorn"
-      "item"    "item_abyssal_blade_2"
-      "item"    "item_aghanims_shard"
+      "item"      "item_satanic"
+      "item"      "item_bloodthorn"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_mage_slayer"
-      "item"    "item_gungir"
-      "item"    "item_silver_edge"
-      "item"    "item_black_king_bar_1"
-      "item"    "item_enrage_crystal_1"
-      "item"    "item_sphere"
-      "item"    "item_nullifier"
-      "item"    "item_trumps_fists"
-      "item"    "item_monkey_king_bar"
-      "item"    "item_greater_crit"
-      "item"    "item_sheepstick_4"
+      "item"      "item_mage_slayer"
+      "item"      "item_gungir"
+      "item"      "item_silver_edge"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_enrage_crystal_1"
+      "item"      "item_sphere"
+      "item"      "item_nullifier"
+      "item"      "item_trumps_fists"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
+      "item"      "item_sheepstick_4"
     }
   }
 }
