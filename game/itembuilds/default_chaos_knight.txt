@@ -1,41 +1,41 @@
 "itembuilds"
 {
-    "author"        "OAA"
-    "hero"          "npc_dota_hero_chaos_knight"
-    "Title"         "Recommended items for Chaos Knight"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_chaos_knight"
+  "Title"         "Recommended items for Chaos Knight"
 
-    "items"
+  "items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_boots"
-            "item"      "item_clarity"
-            "item"      "item_flask"
-        }
-
-        "#DOTA_Item_Build_Core_Items"
-        {
-            "item"      "item_ultimate_scepter"
-            "item"      "item_black_king_bar_1"
-            "item"      "item_sange_and_yasha"
-            "item"      "item_skadi"
-        }
-
-        "#DOTA_Item_Build_Shard"
-        {
-            "item"      "item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_silver_edge"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_abyssal_blade_2"
-            "item"      "item_bloodthorn"
-            "item"      "item_devastator_2"
-            "item"      "item_heavens_halberd"
-            "item"      "item_heart_oaa"
-            "item"      "item_overwhelming_blink"
-        }
+      "item"      "item_boots"
+      "item"      "item_clarity"
+      "item"      "item_flask"
     }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_skadi"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_silver_edge"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_bloodthorn"
+      "item"      "item_devastator_2"
+      "item"      "item_heavens_halberd"
+      "item"      "item_heart_oaa"
+      "item"      "item_overwhelming_blink"
+    }
+  }
 }

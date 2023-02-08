@@ -1,50 +1,52 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_necrolyte"
-	"Title"			"Recommended items for Necrophos"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_necrolyte"
+  "Title"         "Recommended items for Necrophos"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-      "item"		"item_boots"
-      "item"		"item_infused_raindrop"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_boots"
+      "item"      "item_infused_raindrop"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-      "item"		"item_arcane_boots"
-      "item"		"item_vanguard"
-		}
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_guardian_greaves"
+      "item"      "item_shield_staff"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_stoneskin"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-      "item"    	"item_ultimate_scepter"
-      "item"    	"item_heart_oaa"
-      "item"    	"item_guardian_greaves"
-		}
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_radiance"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_shivas_guard"
+      "item"      "item_ultimate_scepter"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-      "item"    	"item_shivas_guard"
-      "item"    	"item_shield_staff"
-      "item"    	"item_black_king_bar_1"
-      "item"		"item_stoneskin"
-      "item"		"item_aghanims_shard"
-		}
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-      "item"    "item_pipe"
-      "item"    "item_eternal_shroud_oaa"
-      "item"    "item_satanic_core"
-      "item"    "item_wind_waker"
-      "item"    "item_regen_crystal_1"
-      "item"    "item_ghost_king_bar"
-      "item"    "item_ethereal_blade"
-      "item"    "item_dispel_orb_1"
-      "item"    "item_sphere"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_blink"
+      "item"      "item_dagon_oaa"
+      "item"      "item_eternal_shroud_oaa"
+      "item"      "item_heart_oaa"
+      "item"      "item_pipe"
+      "item"      "item_satanic_core"
+      "item"      "item_sphere"
+      "item"      "item_wind_waker"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_ethereal_blade"
+      "item"      "item_dispel_orb_1"
+    }
+  }
 }

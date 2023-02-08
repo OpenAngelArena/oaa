@@ -1,42 +1,42 @@
 "itembuilds"
 {
-  "author"		"OAA"
-  "hero"			"npc_dota_hero_lion"
-  "Title"			"Recommended items for Lion"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_lion"
+  "Title"         "Recommended items for Lion"
 
 "Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_boots"
-			"item"		"item_wind_lace"
-			"item"		"item_mango"
-		}
-
-		"#DOTA_Item_Build_Core_Items"
-		{
-			"item"			"item_guardian_greaves"
-			"item"    	"item_octarine_core"
-			"item"			"item_arcane_blink"
-			"item"			"item_wind_waker"
-		}
-
-		"#DOTA_Item_Build_Shard"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-      "item"			"item_aghanims_shard"
+      "item"      "item_boots"
+      "item"      "item_wind_lace"
+      "item"      "item_mango"
     }
 
-		"#DOTA_Item_Build_Luxury_Items"
-		{
-			"item"		"item_far_sight"
-			"item"		"item_shield_staff"
-			"item"		"item_bubble_orb_1"
-			"item"		"item_ethereal_blade"
-			"item"		"item_shivas_guard"
-			"item"		"item_lotus_orb"
-			"item"		"item_sphere"
-			"item"		"item_dagger_of_moriah"
-			"item"		"item_aeon_disk_2"
-		}
-	}
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_guardian_greaves"
+      "item"      "item_octarine_core"
+      "item"      "item_arcane_blink"
+      "item"      "item_wind_waker"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury_Items"
+    {
+      "item"      "item_far_sight"
+      "item"      "item_shield_staff"
+      "item"      "item_bubble_orb_1"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_lotus_orb"
+      "item"      "item_sphere"
+      "item"      "item_dagger_of_moriah"
+      "item"      "item_aeon_disk_2"
+    }
+  }
 }

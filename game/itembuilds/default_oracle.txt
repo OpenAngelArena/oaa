@@ -1,51 +1,42 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_oracle"
-  "Title"			"Recommended items for Oracle"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_oracle"
+  "Title"         "Recommended items for Oracle"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_boots"
-      "item"		"item_flask"
-      "item"		"item_clarity"
+      "item"      "item_ward_stack"
+      "item"      "item_flask"
+      "item"      "item_clarity"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"    "item_magic_wand"
-      "item"		"item_urn_of_shadows"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_guardian_greaves"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"		"item_spirit_vessel_oaa"
-      "item"		"item_aether_lens"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"    "item_guardian_greaves"
-      "item"		"item_ultimate_scepter"
-      "item"		"item_octarine_core"
-      "item"		"item_lucience"
-      "item"		"item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_black_king_bar_1"
-      "item"		"item_solar_crest"
-      "item"		"item_lotus_orb"
-      "item"		"item_veil_of_discord"
-      "item"		"item_holy_locket"
-      "item"    "item_heart_transplant"
-      "item"    "item_aeon_disk_2"
-      "item"    "item_heavens_halberd"
-      "item"    "item_stoneskin"
-      "item"    "item_arcane_blink"
+      "item"      "item_arcane_blink"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_glimmer_cape"
+      "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_heart_transplant"
+      "item"      "item_stoneskin"
     }
   }
 }

@@ -1,49 +1,53 @@
 "itembuilds"
 {
-	"author"		"OAA"
-	"hero"			"npc_dota_hero_mirana"
-	"Title"			"Recommended items for Mirana"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_mirana"
+  "Title"         "Recommended items for Mirana"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_wraith_band"
-      "item"      "item_boots"
       "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"		"item_maelstrom"
-      "item"		"item_greater_crit"
-      "item"		"item_satanic"
-      "item"		"item_black_king_bar_1"
+      "item"      "item_maelstrom"
+      "item"      "item_greater_crit"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"		"item_wind_waker"
-      "item"		"item_ethereal_blade"
-      "item"		"item_ultimate_scepter"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_ethereal_blade"
+      "item"      "item_wind_waker"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah"
     }
 
     "#DOTA_Item_Build_Shard"
     {
-      "item"		"item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"		"item_monkey_king_bar"
-      "item"		"item_manta"
-      "item"		"item_skadi"
-      "item"		"item_bloodthorn"
-      "item"		"item_octarine_core"
-      "item"		"item_veil_of_discord"
-      "item"		"item_yasha_and_kaya"
-      "item"		"item_dagger_of_moriah"
-      "item"		"item_refresher_4"
+      "item"      "item_bloodthorn"
+      "item"      "item_guardian_greaves"
+      "item"      "item_gungir"
+      "item"      "item_heavens_halberd"
+      "item"      "item_manta"
+      "item"      "item_octarine_core"
+      "item"      "item_shield_staff"
+      "item"      "item_skadi"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_greater_power_treads"
+      "item"      "item_refresher_4"
     }
   }
 }

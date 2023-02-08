@@ -40,20 +40,6 @@ function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
   return "furion_force_of_nature_oaa"
 end
 
--- This would be needed if furion_force_of_nature was a vanilla ability
--- OAA has a custom furion_force_of_nature with the same ability name so we can deal with spell steal mechanics there
---[[
-function furion_wrath_of_nature_oaa:OnStolen(hSourceAbility)
-  local caster = self:GetCaster()
-  local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature")
-
-  if force_of_nature_ability and not caster:FindAbilityByName("morphling_replicate") then
-    force_of_nature_ability:SetHidden(true)
-    force_of_nature_ability:SetStolen(true)
-  end
-end
-]]
-
 ---------------------------------------------------------------------------------------------------
 
 modifier_furion_wrath_of_nature_thinker_oaa = class(ModifierBaseClass)

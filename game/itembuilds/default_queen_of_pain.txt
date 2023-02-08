@@ -1,54 +1,41 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_queen_of_pain"
-    "Title"         "Recommended items for Queen of Pain"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_queen_of_pain"
+  "Title"         "Recommended items for Queen of Pain"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_boots"
-            "item"      "item_clarity"
-            "item"      "item_flask"
-            "item"      "item_mango"
-            "item"      "item_mango"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_boots"
-            "item"      "item_orchid"
-            "item"      "item_veil_of_discord"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_cyclone"
-            "item"      "item_ultimate_scepter"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_bloodthorn"
-            "item"      "item_shivas_guard"
-            "item"      "item_sheepstick_4"
-	    "item"	"item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_black_king_bar_1"
-            "item"      "item_octarine_core"
-            "item"      "item_ethereal_blade"
-            "item"      "item_lotus_orb"
-            "item"      "item_dispel_orb_1"
-            "item"      "item_sphere"
-            "item"      "item_mjollnir"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_assault"
-            "item"      "item_skadi"
-            "item"      "item_satanic"
-        }
+      "item"      "item_boots"
+      "item"      "item_clarity"
+      "item"      "item_flask"
+      "item"      "item_mango"
+      "item"      "item_mango"
     }
+
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_bloodthorn"
+      "item"      "item_shivas_guard"
+      "item"      "item_sheepstick_4"
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_octarine_core"
+      "item"      "item_ethereal_blade"
+      "item"      "item_lotus_orb"
+      "item"      "item_dispel_orb_1"
+      "item"      "item_sphere"
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_assault"
+      "item"      "item_skadi"
+      "item"      "item_satanic"
+    }
+  }
 }

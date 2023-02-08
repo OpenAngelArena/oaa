@@ -1,39 +1,39 @@
 "itembuilds"
 {
-	"author"		"OAA"
-	"hero"			"npc_dota_hero_lina"
-	"Title"			"Recommended items for Lina"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_lina"
+  "Title"         "Recommended items for Lina"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_null_talisman"
-			"item"		"item_boots"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_null_talisman"
+      "item"      "item_boots"
+    }
 
-		"#DOTA_Item_Build_Core_Items"
-		{
-			"item"		"item_mjollnir"
-			"item"		"item_greater_crit"
-			"item"		"item_skadi"
-			"item"		"item_satanic"
-			"item"		"item_black_king_bar_1"
-		}
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_greater_crit"
+      "item"      "item_skadi"
+      "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
+    }
 
-		"#DOTA_Item_Build_Shard"
-		{
-			"item"		"item_aghanims_shard"
-		}
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_revenants_brooch"
-			"item"		"item_monkey_king_bar"
-			"item"		"item_silver_edge"
-			"item"		"item_sheepstick_4"
-			"item"		"item_shivas_guard"
-			"item"		"item_bloodthorn"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_revenants_brooch"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_silver_edge"
+      "item"      "item_sheepstick_4"
+      "item"      "item_shivas_guard"
+      "item"      "item_bloodthorn"
+    }
+  }
 }

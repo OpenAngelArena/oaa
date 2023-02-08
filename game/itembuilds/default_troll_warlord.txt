@@ -1,51 +1,44 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_troll_warlord"
-  "Title"			"Recommended Items for Troll Warlord"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_troll_warlord"
+  "Title"         "Recommended Items for Troll Warlord"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_wraith_band"
-      "item"    "item_flask"
-      "item"    "item_quelling_blade"
-      "item"    "item_blight_stone"
+      "item"      "item_wraith_band"
+      "item"      "item_flask"
+      "item"      "item_quelling_blade"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"    "item_magic_wand"
-      "item"    "item_desolator"
-      "item"    "item_lesser_crit"
+      "item"      "item_bloodthorn"
+      "item"      "item_greater_crit"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_abyssal_blade_2"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_greater_crit"
-      "item"    "item_skadi"
-      "item"    "item_satanic"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"    "item_sange_and_yasha"
-      "item"    "item_bloodthorn"
-      "item"    "item_abyssal_blade_2"
-      "item"	"item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_black_king_bar_1"
-      "item"    "item_monkey_king_bar"
-      "item"    "item_trumps_fists"
-      "item"    "item_manta"
-      "item"    "item_mjollnir"
-      "item"    "item_devastator_3"
-      "item"    "item_sphere"
-      "item"    "item_ultimate_scepter"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_diffusal_blade"
+      "item"      "item_mjollnir"
+      "item"      "item_nullifier"
+      "item"      "item_revenants_brooch"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
+      "item"      "item_sphere"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_trumps_fists"
     }
   }
 }

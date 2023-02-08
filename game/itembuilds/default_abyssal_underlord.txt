@@ -1,51 +1,44 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_abyssal_underlord"
-	"Title"			"Recommended items for Abyssal Underlord"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_abyssal_underlord"
+  "Title"         "Recommended items for Abyssal Underlord"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		"item_ward_stack"
-			"item"		"item_flask"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_ward_stack"
+      "item"      "item_flask"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_boots"
-			"item"		"item_vanguard"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_heart_oaa"
+      "item"      "item_shield_staff"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_heart_oaa"
-      		"item"		"item_shield_staff"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_shivas_guard"
+      "item"      "item_guardian_greaves"
+      "item"      "item_far_sight"
+      "item"      "item_stoneskin"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_shivas_guard"
-      		"item"		"item_guardian_greaves"
-      		"item"    	"item_far_sight"
-      		"item"    	"item_sacred_skull"
-      		"item"    	"item_stoneskin"
-      		"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-      		"item"		"item_black_king_bar_1"
-      		"item"		"item_ultimate_scepter"
-      		"item"		"item_lotus_orb"
-			"item"		"item_arcane_blink"
-      		"item"		"item_radiance"
-      		"item"		"item_sheepstick_4"
-      		"item"		"item_helm_of_the_overlord"
-      		"item"		"item_pipe"
-      		"item"		"item_crimson_guard"
-      		"item"		"item_silver_staff"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_lotus_orb"
+      "item"      "item_arcane_blink"
+      "item"      "item_radiance"
+      "item"      "item_sheepstick_4"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_pipe"
+      "item"      "item_crimson_guard"
+      "item"      "item_silver_staff"
+    }
+  }
 }

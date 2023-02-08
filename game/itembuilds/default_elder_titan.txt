@@ -1,52 +1,45 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_elder_titan"
-  "Title"			"Recommended items for Elder Titan."
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_elder_titan"
+  "Title"         "Recommended items for Elder Titan."
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"		"item_quelling_blade"
-      "item"		"item_boots"
-      "item"		"item_flask"
-      "item"		"item_enchanted_mango"
-    }
-
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"		"item_ward_stack"
-      "item"    "item_magic_wand"
-      "item"		"item_solar_crest"
+      "item"      "item_quelling_blade"
+      "item"      "item_boots"
+      "item"      "item_flask"
+      "item"      "item_enchanted_mango"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"		"item_ultimate_scepter"
-      "item"		"item_sphere"
-      "item"		"item_lotus_orb"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_sphere"
+      "item"      "item_lotus_orb"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"		"item_echo_sabre"
-      "item"    "item_greater_crit"
-      "item"    "item_satanic"
-      "item"		"item_aeon_disk_2"
-      "item"		"item_aghanims_shard"
+      "item"      "item_echo_sabre"
+      "item"      "item_greater_crit"
+      "item"      "item_satanic"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_heart_oaa"
-      "item"    "item_abyssal_blade_2"
-      "item"		"item_pipe"
-      "item"		"item_vladmir"
-      "item"		"item_veil_of_discord"
-      "item"		"item_assault"
-      "item"		"item_crimson_guard"
-      "item"		"item_blademail"
+      "item"      "item_heart_oaa"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_pipe"
+      "item"      "item_vladmir"
+      "item"      "item_veil_of_discord"
+      "item"      "item_assault"
+      "item"      "item_crimson_guard"
+      "item"      "item_blademail"
     }
   }
 }

@@ -1,49 +1,47 @@
 "itembuilds"
 {
-    "author"        "Valve"
-    "hero"          "npc_dota_hero_riki"
-    "Title"         "Recommended items for Riki"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_riki"
+  "Title"         "Recommended items for Riki"
 
-    "Items"
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
     {
-        "#DOTA_Item_Build_Starting_Items"
-        {
-            "item"      "item_quelling_blade"
-            "item"      "item_wraith_band"
-            "item"      "item_flask"
-        }
-
-        "#DOTA_Item_Build_Early_Game"
-        {
-            "item"      "item_yasha"
-            "item"      "item_lesser_crit"
-        }
-
-        "#DOTA_Item_Build_Mid_Items"
-        {
-            "item"      "item_diffusal_blade"
-            "item"      "item_skadi"
-            "item"      "item_ultimate_scepter"
-        }
-
-        "#DOTA_Item_Build_Late_Items"
-        {
-            "item"      "item_sange_and_yasha"
-            "item"      "item_butterfly_oaa"
-	    "item"	"item_aghanims_shard"
-        }
-
-        "#DOTA_Item_Build_Luxury"
-        {
-            "item"      "item_black_king_bar_1"
-            "item"      "item_abyssal_blade_2"
-            "item"      "item_manta"
-            "item"      "item_monkey_king_bar"
-            "item"      "item_mjollnir"
-            "item"      "item_silver_edge"
-            "item"      "item_nullifier"
-            "item"      "item_giant_form"
-            "item"      "item_meteor_hammer_1"
-        }
+      "item"      "item_quelling_blade"
+      "item"      "item_wraith_band"
+      "item"      "item_flask"
     }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_diffusal_blade"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_bloodthorn"
+      "item"      "item_swift_blink"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_greater_crit"
+      "item"      "item_manta"
+      "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_devastator_2"
+      "item"      "item_giant_form"
+      "item"      "item_trumps_fists"
+      "item"      "item_rapier"
+    }
+  }
 }

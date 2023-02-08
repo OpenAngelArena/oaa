@@ -1,53 +1,46 @@
 "itembuilds"
 {
-  "author"		"Valve"
-  "hero"			"npc_dota_hero_dazzle"
-  "Title"			"Recommended items for Dazzle"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_dazzle"
+  "Title"         "Recommended items for Dazzle"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"    "item_branches"
-      "item"    "item_clarity"
-      "item"    "item_flask"
-    }
-
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"    "item_magic_wand"
-      "item"    "item_hand_of_midas_1"
+      "item"      "item_branches"
+      "item"      "item_clarity"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Mid_Items"
     {
-      "item"    "item_ward_stack"
-      "item"    "item_cyclone"
-      "item"    "item_shield_staff"
+      "item"      "item_ward_stack"
+      "item"      "item_cyclone"
+      "item"      "item_shield_staff"
     }
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"    "item_ultimate_scepter"
-      "item"    "item_far_sight"
-      "item"    "item_glimmer_cape"
-      "item"    "item_regen_crystal_1"
-      "item"    "item_sheepstick_4"
-      "item"    "item_aghanims_shard"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_far_sight"
+      "item"      "item_glimmer_cape"
+      "item"      "item_sheepstick_4"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_shivas_guard"
-      "item"    "item_pipe"
-      "item"    "item_cyclone"
-      "item"    "item_desolator"
-      "item"    "item_sphere"
-      "item"    "item_lotus_orb"
-      "item"    "item_regen_crystal_1"
-      "item"    "item_ghost_king_bar"
-      "item"    "item_stoneskin"
-      "item"    "item_bubble_orb_1"
+      "item"      "item_shivas_guard"
+      "item"      "item_pipe"
+      "item"      "item_cyclone"
+      "item"      "item_desolator"
+      "item"      "item_sphere"
+      "item"      "item_lotus_orb"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_stoneskin"
+      "item"      "item_bubble_orb_1"
     }
   }
 }

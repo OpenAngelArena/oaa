@@ -1,54 +1,46 @@
 "itembuilds"
 {
-  "author"   "Valve"
-  "hero"     "npc_dota_hero_chen"
-  "Title"    "Recommended items for Chen"
+  "author"        "OAA"
+  "hero"          "npc_dota_hero_chen"
+  "Title"         "Recommended items for Chen"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"   "item_boots"
-      "item"   "item_flask"
-      "item"   "item_magic_wand"
+      "item"      "item_boots"
+      "item"      "item_flask"
+      "item"      "item_magic_wand"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"   "item_ring_of_basilius"
-      "item"   "item_ward_stack"
-      "item"   "item_headdress"
-      "item"   "item_bracer"
+      "item"      "item_guardian_greaves"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_assault"
+      "item"      "item_lucience"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"   "item_guardian_greaves"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"   "item_vladmir"
-      "item"   "item_helm_of_the_dominator"
-      "item"   "item_ultimate_scepter"
-      "item"   "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"   "item_ancient_janggo"
-      "item"   "item_holy_locket"
-      "item"   "item_pipe"
-      "item"   "item_lotus_orb"
-      "item"   "item_sheepstick_4"
-      "item"   "item_regen_crystal_1"
-      "item"   "item_heart_transplant"
-      "item"   "item_lucience"
-      "item"   "item_spirit_vessel_oaa"
-      "item"   "item_solar_crest"
-      "item"   "item_octarine_core"
-      "item"   "item_azazel_summon_fighter"
-      "item"   "item_martyrs_mail_1"
+      "item"      "item_bloodthorn"
+      "item"      "item_lotus_orb"
+      "item"      "item_octarine_core"
+      "item"      "item_pipe"
+      "item"      "item_solar_crest"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_heart_transplant"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
+      "item"      "item_azazel_summon_fighter"
+      "item"      "item_martyrs_mail_1"
     }
   }
 }

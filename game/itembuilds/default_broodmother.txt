@@ -14,17 +14,6 @@
       "item"      "item_faerie_fire"
     }
 
-    "#DOTA_Item_Build_Early_Game"
-    {
-      "item"      "item_orb_of_corrosion"
-    }
-
-    "#DOTA_Item_Build_Mid_Items"
-    {
-      "item"      "item_yasha"
-      "item"      "item_desolator"
-    }
-
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_sange_and_yasha"
@@ -32,20 +21,11 @@
       "item"      "item_butterfly_oaa"
       "item"      "item_skadi"
       "item"      "item_silver_edge"
-      "item"      "item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Luxury"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"      "item_black_king_bar_1"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_swift_blink"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_greater_power_treads"
-      "item"      "item_nullifier"
-      "item"      "item_sphere"
-      "item"      "item_sheepstick_4"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Broodmother_spiders"
@@ -53,6 +33,19 @@
       "item"      "item_solar_crest"
       "item"      "item_assault"
       "item"      "item_bloodthorn"
+      "item"      "item_lucience"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
+      "item"      "item_sphere"
+      "item"      "item_swift_blink"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_sheepstick_4"
     }
   }
 }

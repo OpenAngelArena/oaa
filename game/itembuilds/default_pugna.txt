@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA"
   "hero"          "npc_dota_hero_pugna"
   "Title"         "Recommended items for Pugna"
 
@@ -14,37 +14,38 @@
       "item"      "item_magic_stick"
     }
 
-    "#DOTA_Item_Build_Early_Game"
+    "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_aether_lens"
       "item"      "item_wraith_pact"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_far_sight"
+      "item"      "item_regen_crystal_1"
+      "item"      "item_stoneskin"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_ghost"
+      "item"      "item_dagon_oaa"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_dagger_of_moriah"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Shard"
     {
-      "item"    "item_ghost_king_bar"
-      "item"    "item_regen_crystal_1"
-      "item"    "item_far_sight"
-      "item"    "item_sheepstick_4"
-      "item"    "item_aghanims_shard"
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_dagon_oaa"
+      "item"      "item_black_king_bar_1"
       "item"      "item_lotus_orb"
+      "item"      "item_sphere"
+      "item"      "item_greater_travel_boots"
       "item"      "item_dispel_orb_1"
       "item"      "item_bubble_orb_1"
-      "item"      "item_shivas_guard"
-      "item"      "item_veil_of_discord"
-      "item"      "item_sphere"
-      "item"      "item_dagger_of_moriah"
+      "item"      "item_sheepstick_4"
     }
   }
 }

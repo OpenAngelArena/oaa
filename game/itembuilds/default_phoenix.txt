@@ -1,51 +1,44 @@
 "itembuilds"
 {
-	"author"		"Valve"
-	"hero"			"npc_dota_hero_phoenix"
-	"Title"			"Recommended items for Phoenix"
+  "author"        "Valve"
+  "hero"          "npc_dota_hero_phoenix"
+  "Title"         "Recommended items for Phoenix"
 
-	"Items"
-	{
-		"#DOTA_Item_Build_Starting_Items"
-		{
-			"item"		""
-			"item"		"item_boots"
-			"item"		"item_flask"
-			"item"		"item_branches"
-			"item"		"item_branches"
-		}
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_boots"
+      "item"      "item_flask"
+      "item"      "item_branches"
+      "item"      "item_branches"
+    }
 
-		"#DOTA_Item_Build_Early_Game"
-		{
-			"item"		"item_ward_stack"
-			"item"    "item_magic_wand"
-		}
+    "#DOTA_Item_Build_Mid_Items"
+    {
+      "item"      "item_heart_oaa"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_veil_of_discord"
+      "item"      "item_octarine_core"
+    }
 
-		"#DOTA_Item_Build_Mid_Items"
-		{
-			"item"		"item_heart_oaa"
-			"item"		"item_spirit_vessel_oaa"
-			"item"		"item_veil_of_discord"
-			"item"		"item_octarine_core"
-		}
+    "#DOTA_Item_Build_Late_Items"
+    {
+      "item"      "item_radiance"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_shivas_guard"
+      "item"      "item_aghanims_shard"
+    }
 
-		"#DOTA_Item_Build_Late_Items"
-		{
-			"item"		"item_radiance"
-			"item"		"item_ultimate_scepter"
-      "item"		"item_shivas_guard"
-			"item"		"item_aghanims_shard"
-		}
-
-		"#DOTA_Item_Build_Luxury"
-		{
-			"item"		"item_rod_of_atos"
-			"item"		"item_heavens_halberd"
-			"item"		"item_ethereal_blade"
-			"item"		"item_kaya_and_sange"
-			"item"		"item_stoneskin"
-			"item"		"item_lotus_orb"
-      "item"    "item_aeon_disk_2"
-		}
-	}
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_rod_of_atos"
+      "item"      "item_heavens_halberd"
+      "item"      "item_ethereal_blade"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_stoneskin"
+      "item"      "item_lotus_orb"
+      "item"      "item_aeon_disk_2"
+    }
+  }
 }
