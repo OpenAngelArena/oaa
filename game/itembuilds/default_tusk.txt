@@ -1,8 +1,8 @@
 "itembuilds"
 {
-  "author"		"OAA"
-  "hero"			"npc_dota_hero_tusk"
-  "Title"			"Recommended items for Tusk"
+  "author"      "OAA"
+  "hero"        "npc_dota_hero_tusk"
+  "Title"       "Recommended items for Tusk"
 
   "Items"
   {
@@ -11,7 +11,6 @@
       "item"    "item_boots"
       "item"    "item_flask"
       "item"    "item_blight_stone"
-      "item"    "item_orb_of_venom"
     }
 
     "#DOTA_Item_Build_Physical_Core"
@@ -25,8 +24,8 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"    "item_blink"
-      "item"		"item_ultimate_scepter"
-      "item"    "item_wraith_pact"
+      "item"    "item_ultimate_scepter"
+      "item"    "item_octarine_core"
       "item"    "item_shivas_guard"
       "item"    "item_heart_oaa"
     }
@@ -38,14 +37,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"    "item_silver_edge"
-      "item"    "item_skadi"
-      "item"    "item_nullifier"
       "item"    "item_bloodthorn"
-      "item"    "item_echo_sabre"
-      "item"    "item_bubble_orb_1"
       "item"    "item_crimson_guard"
       "item"    "item_lotus_orb"
+      "item"    "item_nullifier"
+      "item"    "item_pull_staff"
+      "item"    "item_silver_edge"
+      "item"    "item_skadi"
+      "item"    "item_wraith_pact"
+      "item"    "item_bubble_orb_1"
     }
   }
 }
