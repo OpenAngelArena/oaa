@@ -20,7 +20,7 @@ function modifier_hybrid_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_oaa:OnCreated()
-  self.duration = 5
+  self.duration = 6
 end
 
 function modifier_hybrid_oaa:DeclareFunctions()
@@ -95,6 +95,27 @@ if IsServer() then
       return
     end
 
+    local level = ability:GetLevel()
+
+    -- Check mana cost
+    if ability:GetManaCost(level) <= 0 then
+      return
+    end
+
+    -- Check cooldown
+    --if ability:GetCooldown(level) <= 0 then
+      --return
+    --end
+
+    -- Check behavior
+    local behavior = ability:GetBehavior()
+    if type(behavior) == 'userdata' then
+      behavior = tonumber(tostring(behavior))
+    end
+    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) > 0 then
+      return
+    end
+
     parent:AddNewModifier(parent, nil, "modifier_hybrid_dmg_stack_oaa", {duration = self.duration})
   end
 end
@@ -108,7 +129,7 @@ end
 modifier_hybrid_dmg_stack_oaa = class(ModifierBaseClass)
 
 function modifier_hybrid_dmg_stack_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_hybrid_dmg_stack_oaa:IsDebuff()
@@ -154,7 +175,7 @@ end
 modifier_hybrid_spell_amp_stack_oaa = class(ModifierBaseClass)
 
 function modifier_hybrid_spell_amp_stack_oaa:IsHidden()
-  return true
+  return false
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:IsDebuff()
@@ -170,7 +191,7 @@ function modifier_hybrid_spell_amp_stack_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:OnCreated()
-  self.spell_amp_per_stack = 2
+  self.spell_amp_per_stack = 3
 
   if IsServer() then
     self:SetStackCount(1)
@@ -178,7 +199,7 @@ function modifier_hybrid_spell_amp_stack_oaa:OnCreated()
 end
 
 function modifier_hybrid_spell_amp_stack_oaa:OnRefresh()
-  self.spell_amp_per_stack = 2
+  self.spell_amp_per_stack = 3
 
   if IsServer() then
     self:IncrementStackCount()
