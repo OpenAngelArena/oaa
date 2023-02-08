@@ -24,7 +24,6 @@ function modifier_chaos_oaa:OnCreated()
   local parent = self:GetParent()
 
   self.initial_modifiers = {
-    "modifier_angel_oaa",
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_lifesteal_oaa",
     "modifier_aoe_radius_increase_oaa",
@@ -128,6 +127,16 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_witch_doctor",
   }
 
+  local bad_blood_magic_heroes = {
+    "npc_dota_hero_enchantress",
+    "npc_dota_hero_leshrac",
+    "npc_dota_hero_storm_spirit",
+    "npc_dota_hero_obsidian_destroyer",
+    "npc_dota_hero_medusa",
+    "npc_dota_hero_electrician",
+    "npc_dota_hero_witch_doctor",
+  }
+
   for _, v in pairs(healer_heroes) do
     if parent:GetUnitName() == v then
       table.insert(self.mid_game_modifiers, "modifier_healer_oaa")
@@ -140,6 +149,15 @@ function modifier_chaos_oaa:OnCreated()
       if v == mod then
         table.remove(table1, k)
       end
+    end
+  end
+
+  -- Remove Blood Magic modifier for some heroes
+  for _, v in pairs(bad_blood_magic_heroes) do
+    if parent:GetUnitName() == v then
+      remove_mod_from_table(self.initial_modifiers, "modifier_blood_magic_oaa")
+      remove_mod_from_table(self.mid_game_modifiers, "modifier_blood_magic_oaa")
+      remove_mod_from_table(self.late_game_modifiers, "modifier_blood_magic_oaa")
     end
   end
 
