@@ -39,10 +39,10 @@
     {
       "duration"                                          "15.0"
       "radius"                                            "675"
-      "damage_absorb"
+      "damage_absorb" //OAA
       {
         "value"                                           "110 140 170 200 400 600"
-        "special_bonus_unique_abaddon"                    "+100"
+        "special_bonus_unique_abaddon"                    "+200"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
     }
