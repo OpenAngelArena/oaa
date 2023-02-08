@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastRange"                                    "450 550 650 750 800 850"
+    "AbilityCastRange"                                    "800" //OAA
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Cost
@@ -38,7 +38,7 @@
         "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_marci_lunge_cooldown"       "-3"
       }
-      "move_speed"                                        "1700"
+      "move_speed"                                        "2000" //OAA
       "min_jump_distance"                                 "450"
       "max_jump_distance" //OAA
       {
