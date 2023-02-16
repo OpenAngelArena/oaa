@@ -30,8 +30,8 @@ function cleanLanguageFile (contents) {
 }
 
 request.get({
-  // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_english.txt'
-  url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt'
+  // url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/abilities_english.txt'
 }, function (err, result) {
   if (err) {
     throw err;
@@ -129,8 +129,8 @@ function getUnchangedStrings (languageName, cb) {
     languageName = 'schinese';
   }
   request.get({
-    // url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/resource/dota_' + languageName + '.txt'
-    url: 'https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_' + languageName + '.txt'
+    // url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/abilities_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);
