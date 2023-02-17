@@ -13,12 +13,7 @@ let dotaAbilities = null;
 let dotaItemList = null;
 let dotaAbilityList = null;
 const stupidItemNames = [
-  'item_recipe',
-  'item_halloween_candy_corn',
-  'item_halloween_rapier',
-  'item_firework_mine',
-  'sylph_sprite_shield',
-  'nothing'
+  'item_recipe'
 ];
 
 let itemsFound = {};
@@ -276,30 +271,8 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 
   // for completely reworked abilities and irrelevant stuff
   const ignoreValuesForIDs = [
-    '40', // item_dust
-    '5588', // abaddon_borrowed_time
-    // '5320', // batrider_sticky_napalm
-    '7230', // beastmaster_call_of_the_wild_boar
-    '7231', // beastmaster_call_of_the_wild_hawk
-    // '5550', // bristleback_bristleback
-    '5279', // broodmother_spawn_spiderlings
-    '5262', // clinkz_death_pact
-    '5184', // faceless_void_time_lock
-    '5248', // furion_wrath_of_nature
-    // '5241', // leshrac_split_earth
-    '5725' // monkey_king_wukongs_command
-    // '5063', // nevermore_dark_lord
-    // '5391', // obsidian_destroyer_arcane_orb
-    // '5265', // omniknight_degen_aura
-    // '7307', // pangolier_lucky_shot
-    // '5378', // silencer_glaives_of_wisdom
-    // '5116', // slardar_bash
+    '40' // item_dust
     // '5109', // tiny_grow
-    // '5123', // vengefulspirit_command_aura
-    // '5221', // viper_viper_strike
-    // '5482', // visage_gravekeepers_cloak
-    // '5483', // visage_summon_familiars
-    // '5141', // witch_doctor_death_ward
   ];
 
   const specials = root[item].AbilitySpecial;
@@ -353,23 +326,26 @@ function checkInheritedValues (t, isItem, values, comments, parentValues) {
   }
   const keys = [
     'AbilityBehavior',
-    'ItemCost',
-    'AbilityCastRange',
     'AbilityCastPoint',
+    'AbilityCastRange',
     'AbilityChannelTime',
-    'AbilityCharges',
     'AbilityChargeRestoreTime',
+    'AbilityCharges',
     'AbilityCooldown',
     'AbilityDamage',
     'AbilityDuration',
     'AbilityManaCost',
-    'AbilityUnitTargetType',
+    'AbilityType',
     'AbilityUnitDamageType',
-    'SpellImmunityType',
-    'SpellDispellableType',
+    'AbilityUnitTargetFlags',
+    'AbilityUnitTargetTeam',
+    'AbilityUnitTargetType',
+    'ItemCost',
+    'ItemDisplayCharges',
     'ItemInitialCharges',
     'ItemRequiresCharges',
-    'ItemDisplayCharges'
+    'SpellDispellableType',
+    'SpellImmunityType'
   ];
 
   if (values.AbilityBehavior && (!comments.AbilityBehavior || !comments.AbilityBehavior.includes('OAA'))) {
@@ -411,12 +387,12 @@ function testSpecialValues (t, isItem, specials, parentSpecials) {
   const parentData = {};
 
   const stupidSpecialValueNames = [
-    'abilitycastrange',
-    'abilitycastpoint',
-    'abilitychanneltime',
-    'abilityduration',
+    // 'AbilityChargeRestoreTime',
     'AbilityCharges',
-    'AbilityChargeRestoreTime'
+    // 'abilitycastpoint',
+    'abilitycastrange'
+    // 'abilitychanneltime',
+    // 'abilityduration',
   ];
 
   if (parentSpecials) {
