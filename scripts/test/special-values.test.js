@@ -94,9 +94,14 @@ test('KV Values', function (t) {
     let iter = 0;
     let idToCheck = 0;
     let j = 0;
+    for (iter = 1; iter < 65536; iter++) {
+      if (idsFound[iter] !== undefined && usedIDs[iter] !== idsFound[iter] && usedIDs[iter] !== undefined) {
+        console.log('same ID: ' + iter, idsFound[iter], usedIDs[iter]);
+      }
+    }
     // short unsigned (0, 65535) 65536 is equivalent to 0; 65537 is equivalent to 1 etc.
     console.log('items/abilities with potentially bad ID if unique ID is short unsigned type:');
-    for (iter = 8000; iter < 9999999; iter++) {
+    for (iter = 65535; iter < 9999999; iter++) {
       if (idsFound[iter] !== undefined) {
         for (j = 1; j < 153; j++) {
           idToCheck = iter - 65536 * j;
@@ -658,16 +663,16 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
 
 const keyWhiteList = [
   'var_type',
+  'levelkey',
   'LinkedSpecialBonus',
   'LinkedSpecialBonusField',
   'LinkedSpecialBonusOperation',
   'CalculateSpellDamageTooltip',
-  'levelkey',
   'RequiresScepter',
   'RequiresShard',
+  'ad_linked_abilities',
   'ad_linked_ability',
   'linked_ad_abilities',
-  'ad_linked_abilities',
   'DamageTypeTooltip'
 ];
 function filterExtraKeysFromSpecialValue (keyNames) {
