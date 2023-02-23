@@ -486,6 +486,7 @@ function Duels:PreparePlayersToStartDuel(options, playerSplit)
 
   Timers:CreateTimer(2, function()
     GridNav:RegrowAllTrees()
+    CreepItemDrop:ClearBottles()
   end)
 
   DebugPrint("Duel Info")
