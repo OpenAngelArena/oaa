@@ -70,6 +70,22 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   end)
 end
 
+-- Function that removes bottles from the floor
+function CreepItemDrop:ClearBottles()
+  local items_on_the_ground = Entities:FindAllByClassname("dota_item_drop")
+  for _, item in pairs(items_on_the_ground) do
+    if item and not item:IsNull() then
+      local containedItem = item:GetContainedItem()
+      if containedItem and not containedItem:IsNull() then
+        if containedItem.GetAbilityName and containedItem:GetAbilityName() == "item_infinite_bottle" then
+          UTIL_RemoveImmediate(containedItem) -- Remove item ability (CDOTA_Item)
+          UTIL_RemoveImmediate(item) -- Remove item container (CDOTA_Item_Physical)
+        end
+      end
+    end
+  end
+end
+
 -- function CreepItemDrop:OnEntityKilled (event)
 --   local killedEntity = EntIndexToHScript(event.entindex_killed)
 
