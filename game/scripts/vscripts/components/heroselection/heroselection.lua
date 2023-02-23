@@ -1072,6 +1072,13 @@ function HeroSelection:UpdateTable (playerID, hero)
   selectedtable[playerID].team = teamID
   selectedtable[playerID].steamid = HeroSelection:GetSteamAccountID(playerID)
 
+  if selectedtable[playerID].didRandom ~= "true" then
+    local player = PlayerResource:GetPlayer(playerID)
+    if player then
+      player:SetSelectedHero(hero)
+    end
+  end
+
   -- if everyone has picked, stop
   local isanyempty = false
   for _, value in pairs(selectedtable) do
