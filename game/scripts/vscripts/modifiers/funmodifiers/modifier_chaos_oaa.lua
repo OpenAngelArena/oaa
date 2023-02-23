@@ -31,6 +31,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_brawler_oaa",
     "modifier_courier_kill_bonus_oaa",
+    "modifier_drunk_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
@@ -56,6 +57,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_brute_oaa",
     "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
+    "modifier_drunk_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
@@ -82,11 +84,13 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_any_damage_crit_oaa",
     "modifier_aoe_radius_increase_oaa",
     "modifier_blood_magic_oaa",
-    "modifier_bonus_armor_negative_magic_resist_oaa",
+    --"modifier_bonus_armor_negative_magic_resist_oaa",
     "modifier_brute_oaa",
+    "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
+    "modifier_drunk_oaa",
     "modifier_echo_strike_oaa",
-    "modifier_explosive_death_oaa",
+    --"modifier_explosive_death_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
     "modifier_hybrid_oaa",
@@ -199,6 +203,10 @@ if IsServer() then
 
     if self.last_mod then
       parent:RemoveModifierByName(self.last_mod)
+    end
+
+    if self.last_mod == "modifier_blood_magic_oaa" then
+      parent:GiveMana(parent:GetMaxMana()+1)
     end
 
     local repeat_loop = true

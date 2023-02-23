@@ -18,22 +18,30 @@ end
 
 function modifier_cursed_attack_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MISS_PERCENTAGE,
+    --MODIFIER_PROPERTY_MISS_PERCENTAGE,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
-function modifier_cursed_attack_oaa:GetModifierMiss_Percentage()
-  return 50
-end
+--function modifier_cursed_attack_oaa:GetModifierMiss_Percentage(keys)
+  --return 50
+--end
 
 function modifier_cursed_attack_oaa:GetModifierBonusStats_Agility()
   return -999
 end
 
 function modifier_cursed_attack_oaa:GetModifierProcAttack_BonusDamage_Pure()
-  return 350
+  if RandomInt(1, 100) <= 50 then
+    return 350
+  end
+  return 0
+end
+
+function modifier_cursed_attack_oaa:GetModifierPreAttack_BonusDamage()
+  return -125
 end
 
 function modifier_cursed_attack_oaa:GetEffectName()
