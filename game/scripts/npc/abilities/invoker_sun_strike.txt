@@ -23,7 +23,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"  
+    "AbilityValues"
     {
       "delay"                                             "1.7"
       "area_of_effect"                                    "175"
@@ -40,7 +40,7 @@
         "special_bonus_scepter"                           "+2"
         "RequiresScepter"                                 "1"
       }
-      "cataclysm_cooldown"  //OAA
+      "cataclysm_cooldown" //OAA
       {
         "value"                                           "60"
         "RequiresScepter"                                 "1"

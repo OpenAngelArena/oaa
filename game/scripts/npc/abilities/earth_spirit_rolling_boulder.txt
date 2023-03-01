@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG" //OAA, Valve forgot about this
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "6"
 
@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "50 60 70 80 90 100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "30 60 120 240 480 960" //OAA
+        "damage"                                          "30 60 90 120 240 480" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit"
       }
       "08"

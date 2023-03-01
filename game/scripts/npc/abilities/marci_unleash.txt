@@ -39,9 +39,9 @@
       "time_between_flurries"                             "1.5"
       "pulse_radius"                                      "800"
       "pulse_debuff_duration"                             "2.0"
-      "pulse_damage" //OAA
+      "pulse_damage"
       {
-        "value"                                           "50 100 150 300 600"
+        "value"                                           "50 100 150 300 450"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "pulse_move_slow_pct"                               "30.0"
