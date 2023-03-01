@@ -97,7 +97,13 @@ function modifier_truesight_aura_effect_oaa:CheckState()
 end
 
 function modifier_truesight_aura_effect_oaa:GetEffectName()
-  return "particles/generic_gameplay/generic_has_quest.vpcf"
+  local parent = self:GetParent()
+
+  if parent.IsRealHero and parent:IsRealHero() then
+    return "particles/generic_gameplay/generic_has_quest.vpcf"
+  end
+
+  return
 end
 
 function modifier_truesight_aura_effect_oaa:GetEffectAttachType()

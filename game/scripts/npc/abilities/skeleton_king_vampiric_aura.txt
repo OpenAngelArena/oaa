@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Wraith King Vampiric Aura (Vampiric Spirit)
+  // Ability: Wraith King Vampiric Spirit
   //=================================================================================================================
   "skeleton_king_vampiric_aura"
   {
@@ -27,8 +27,8 @@
     {
       "vampiric_aura" //OAA
       {
-        "value"                                           "15 25 35 45 55 65"
-        "special_bonus_unique_wraith_king_2"              "+8"
+        "value"                                           "15 20 25 30 40 55"
+        "special_bonus_unique_wraith_king_2"              "+15"
       }
       "skeleton_duration"
       {
@@ -71,7 +71,7 @@
       }
       "skeleton_bonus_damage_against_bosses" //OAA
       {
-        "value"                                           "50"
+        "value"                                           "25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
