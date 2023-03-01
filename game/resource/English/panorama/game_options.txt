@@ -49,6 +49,8 @@
 "game_option_chaos"                                                             "Chaos"
 "game_option_double_multiplier"                                                 "2x Multiplier"
 "game_option_hybrid"                                                            "Hybrid"
+"game_option_drunk"                                                             "Drunkard"
+"game_option_splasher"                                                          "Splasher"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -85,6 +87,8 @@
 "game_option_chaos_description"                                                 "Every hero has a different modifier. Modifier will change on respawn."
 "game_option_double_multiplier_description"                                     "Every ability number is multiplied by 2 with a few exceptions."
 "game_option_hybrid_description"                                                "Every time you attack you gain bonus spell amp, every time you cast a spell you gain bonus attack damage. Bonus attack damage is equal to spell cooldown."
+"game_option_drunk_description"                                                 "12% chance to do 3x critical damage on each attack and spell damage instance. 12% chance to avoid any damage. 25%% chance to miss a spell and moves randomly when idle."
+"game_option_splasher_description"                                              "Any damage dealt splashes in 275 radius around the damaged unit."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -184,5 +188,7 @@
 "DOTA_Tooltip_modifier_hybrid_oaa_Description"                                  "+3%% spell amp for each attack made, +1 attack damage x spell cooldown for each spell cast. Buffs last 6 seconds if not refreshed."
 "DOTA_Tooltip_modifier_hybrid_dmg_stack_oaa"                                    "Hybrid Damage Stacks"
 "DOTA_Tooltip_modifier_hybrid_spell_amp_stack_oaa"                              "Hybrid Spell Amp Stacks"
-"DOTA_Tooltip_modifier_drunk_oaa"                                               "Drunkard"
-"DOTA_Tooltip_modifier_drunk_oaa_Description"                                   "10%% chance to do 3x critical damage on each attack and spell damage instance. 10%% chance to avoid any damage. Has a random chance to miss a spell and moves randomly when idle."
+"DOTA_Tooltip_modifier_drunk_oaa"                                               "#{game_option_drunk}"
+"DOTA_Tooltip_modifier_drunk_oaa_Description"                                   "12%% chance to do 3x critical damage on each attack and spell damage instance. 12%% chance to avoid any damage. 25%% chance to miss a spell and moves randomly when idle."
+"DOTA_Tooltip_modifier_modifier_any_damage_splash_oaa"                          "#{game_option_splasher}"
+"DOTA_Tooltip_modifier_modifier_any_damage_splash_oaa_Description"              "#{game_option_splasher_description}"
