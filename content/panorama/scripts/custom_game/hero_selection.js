@@ -210,7 +210,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM28: '#game_option_chaos',
     HM29: '#game_option_double_multiplier',
     HM30: '#game_option_hybrid',
-    HM31: '#game_option_drunk'
+    HM31: '#game_option_drunk',
+    HM32: '#game_option_splasher'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
