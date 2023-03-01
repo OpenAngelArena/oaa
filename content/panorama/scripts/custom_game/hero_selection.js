@@ -209,7 +209,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM27: '#game_option_brawler',
     HM28: '#game_option_chaos',
     HM29: '#game_option_double_multiplier',
-    HM30: '#game_option_hybrid'
+    HM30: '#game_option_hybrid',
+    HM31: '#game_option_drunk'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {

@@ -16,6 +16,24 @@ function modifier_chaos_oaa:RemoveOnDeath()
   return false
 end
 
+local function remove_mod_from_table(t, mod)
+  for k, v in pairs(t) do
+    if v == mod then
+      table.remove(t, k)
+    end
+  end
+end
+
+local function TableContains(t, element)
+  if t == nil then return false end
+  for _, v in pairs(t) do
+    if v == element then
+      return true
+    end
+  end
+  return false
+end
+
 function modifier_chaos_oaa:OnCreated()
   if not IsServer() then
     return
@@ -108,6 +126,8 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_wisdom_oaa",
   }
 
+  self.already_had = {}
+
   local healer_heroes = {
     "npc_dota_hero_abaddon",
     "npc_dota_hero_chen",
@@ -145,14 +165,6 @@ function modifier_chaos_oaa:OnCreated()
     if parent:GetUnitName() == v then
       table.insert(self.mid_game_modifiers, "modifier_healer_oaa")
       table.insert(self.late_game_modifiers, "modifier_healer_oaa")
-    end
-  end
-
-  local function remove_mod_from_table(table1, mod)
-    for k, v in pairs(table1) do
-      if v == mod then
-        table.remove(table1, k)
-      end
     end
   end
 
@@ -201,8 +213,36 @@ if IsServer() then
       return
     end
 
+    local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
+    local late_game_time_start = 20*60
+
     if self.last_mod then
-      parent:RemoveModifierByName(self.last_mod)
+      local mod = self.last_mod
+      parent:RemoveModifierByName(mod)
+      -- Remove modifiers from the tables if parent already had them at least twice - imitates pseudo random
+      if HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
+        if not TableContains(self.already_had, mod) then
+          table.insert(self.already_had, mod)
+        else
+          remove_mod_from_table(self.mid_game_modifiers, mod)
+        end
+        -- Reset the table if low amount of elements
+        if #self.mid_game_modifiers <= 3 then
+          self.mid_game_modifiers = self.already_had
+          self.already_had = {}
+        end
+      elseif HudTimer:GetGameTime() > late_game_time_start then
+        if not TableContains(self.already_had, mod) then
+          table.insert(self.already_had, mod)
+        else
+          remove_mod_from_table(self.late_game_modifiers, mod)
+        end
+        -- Reset the table if low amount of elements
+        if #self.late_game_modifiers <= 3 then
+          self.late_game_modifiers = self.already_had
+          self.already_had = {}
+        end
+      end
     end
 
     if self.last_mod == "modifier_blood_magic_oaa" then
@@ -210,13 +250,12 @@ if IsServer() then
     end
 
     local repeat_loop = true
-    local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
     while repeat_loop do
       local random_mod = self.late_game_modifiers[RandomInt(1, #self.late_game_modifiers)]
       if HudTimer then
         if HudTimer:GetGameTime() <= mid_game_time_start then
           random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
-        elseif HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= 20*60 then
+        elseif HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
           random_mod = self.mid_game_modifiers[RandomInt(1, #self.mid_game_modifiers)]
         end
       end

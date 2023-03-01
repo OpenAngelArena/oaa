@@ -31,10 +31,11 @@ function modifier_drunk_oaa:DeclareFunctions()
 end
 
 function modifier_drunk_oaa:OnCreated()
-  self.attack_crit_chance = 10
-  self.spell_crit_chance = 10
-  self.avoid_chance = 10
+  self.attack_crit_chance = 12
+  self.spell_crit_chance = 12
+  self.avoid_chance = 12
   self.crit_multiplier = 3
+  self.miss_spell_chance = 25
 
   self:StartIntervalThink(1)
 end
@@ -194,17 +195,30 @@ if IsServer() then
 			--return
 		--end
 
+    -- Check if sober
+    if RandomInt(1, 100) > self.miss_spell_chance then
+      return
+    end
+
     -- Stop it you are drunk
     local new_target
-    local rand = RandomInt(1, 4)
+    local ally = self:FindRandomAlly(ability)
+    local enemy = self:FindRandomEnemy(ability, target)
+    local rand = RandomInt(1, 3)
     if rand == 1 then
-      new_target = casting_unit
+      new_target = parent
     elseif rand == 2 then
-      new_target = target
-    elseif rand == 3 then
-      new_target = self:FindRandomAlly(ability)
+      if ally then
+        new_target = ally
+      else
+        new_target = enemy or parent
+      end
     else
-      new_target = self:FindRandomEnemy(ability, target)
+      if enemy then
+        new_target = enemy
+      else
+        new_target = ally or target
+      end
     end
 
 		-- Redirect to the new_target (this method doesn't work for every unit target ability and item)
@@ -234,7 +248,7 @@ if IsServer() then
       end
     end
 
-    return random_ally or parent
+    return random_ally
   end
 
   function modifier_drunk_oaa:FindRandomEnemy(ability, target)
@@ -260,7 +274,7 @@ if IsServer() then
       end
     end
 
-    return random_enemy or target
+    return random_enemy
   end
 
 end
