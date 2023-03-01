@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5272"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5272"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -43,7 +43,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "5 10 15 20 40 80"
+        "burn_damage"                                     "5 10 15 20 40 60"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar_2"
       }
       "03"

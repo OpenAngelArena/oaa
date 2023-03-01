@@ -10,12 +10,12 @@
     "ID"                                                  "85262"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_death_pact.lua"
+    "AbilityTextureName"                                  "clinkz_death_pact"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityTextureName"                                  "clinkz_death_pact"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -48,7 +48,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "health_gain_pct"                                 "60 80 100 120 140"
+        "health_gain_pct"                                 "40 60 80 100 120"
         "LinkedSpecialBonus"                              "special_bonus_clinkz_death_pact_oaa"
       }
       "03"

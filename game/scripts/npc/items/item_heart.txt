@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "600"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -59,7 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4400"
+    "ItemCost"                                            "5000"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
@@ -87,7 +87,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "buff_bonus_strength"                             "20 25 35 50 70"
+        "buff_bonus_strength"                             "20 25 30 35 40"
       }
       "05"
       {
