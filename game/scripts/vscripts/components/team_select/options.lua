@@ -207,6 +207,12 @@ function OAAOptions:AdjustGameMode()
     end
   end
 
+  -- Temporary solution until I fix this
+  if self:FindHostID() == 7131038 then
+    -- Chris is the host
+    GameRules:SetStrategyTime(10)
+  end
+
   if self.settings.HEROES_MODS ~= "HMN" then
     if self.settings.HEROES_MODS == "HMR" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
