@@ -19,7 +19,7 @@ end
 
 function modifier_brute_oaa:OnCreated()
   self.bonus_str_per_lvl = 1
-  self.bonus_dmg_per_hp = 0.08
+  self.bonus_dmg_per_hp = 0.05
 
   if not IsServer() then
     return

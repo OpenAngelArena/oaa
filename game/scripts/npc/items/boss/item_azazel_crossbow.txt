@@ -10,7 +10,7 @@
     "ID"                                                  "3305"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "item_recipe"
+    "AbilityTextureName"                                  "custom/recipe/recipe_farming_6"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@
     "ID"                                                  "3306"
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-    "AbilityTextureName"                                  "item_halloween_rapier"
+    "AbilityTextureName"                                  "item_greater_crit"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

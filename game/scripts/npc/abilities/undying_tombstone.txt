@@ -81,14 +81,14 @@
       "21" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "zombie_bonus_damage_against_creeps"              "20"
+        "zombie_bonus_damage_against_creeps"              "12"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "22" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "zombie_bonus_damage_against_bosses"              "50"
+        "zombie_bonus_damage_against_bosses"              "24"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "0"
       }

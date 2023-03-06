@@ -73,7 +73,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
       -- Ability is a talent
 
       -- Check for hero level
-      if level >= 27 then
+      if level >= 26 then
         -- Refund a skill point if a player wasted it on a talent that is not supposed to be levelled.
         if talent:GetLevel() == 0 or talent.granted_with_oaa_scepter then
           -- Talent wasn't learned or was granted by Aghanim Scepter

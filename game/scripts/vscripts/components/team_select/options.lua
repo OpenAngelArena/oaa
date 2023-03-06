@@ -38,6 +38,8 @@ local hero_mods = {
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
   HM30 = "modifier_hybrid_oaa",
+  HM31 = "modifier_drunk_oaa",
+  HM32 = "modifier_any_damage_splash_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -136,6 +138,8 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_chaos_oaa", "modifiers/funmodifiers/modifier_chaos_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hybrid_oaa", "modifiers/funmodifiers/modifier_hybrid_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_drunk_oaa", "modifiers/funmodifiers/modifier_drunk_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_any_damage_splash_oaa", "modifiers/funmodifiers/modifier_any_damage_splash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   LinkLuaModifier("modifier_all_healing_amplify_oaa", "modifiers/funmodifiers/modifier_all_healing_amplify_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_bonus_armor_negative_magic_resist_oaa", "modifiers/funmodifiers/modifier_bonus_armor_negative_magic_resist_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -203,6 +207,12 @@ function OAAOptions:AdjustGameMode()
     end
   end
 
+  -- Temporary solution until I fix this
+  if self:FindHostID() == 7131038 then
+    -- Chris is the host
+    GameRules:SetStrategyTime(10)
+  end
+
   if self.settings.HEROES_MODS ~= "HMN" then
     if self.settings.HEROES_MODS == "HMR" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
@@ -255,7 +265,7 @@ end
 function OAAOptions:GetRandomModifier(mod_list)
   local options = {}
   for k, v in pairs(mod_list) do
-    if v ~= false then
+    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" then
       table.insert(options, k)
     end
   end
