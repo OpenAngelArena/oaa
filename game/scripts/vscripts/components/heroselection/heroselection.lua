@@ -209,9 +209,9 @@ function HeroSelection:Init ()
 
   GameEvents:OnPreGame(function (keys)
     -- Pause the game at the start (not during strategy time)
-    --if HeroSelection.isCM or HeroSelection.isARDM then
-    PauseGame(true)
-    --end
+    if HeroSelection.isCM or HeroSelection.isARDM then
+      PauseGame(true)
+    end
   end)
 end
 
