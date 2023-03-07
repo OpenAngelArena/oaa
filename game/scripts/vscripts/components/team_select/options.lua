@@ -103,7 +103,6 @@ function OAAOptions:Init ()
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
-  --FilterManager:AddFilter(FilterManager.Damage, self, Dynamic_Wrap(OAAOptions, "DamageFilter"))
 
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
@@ -343,28 +342,4 @@ function OAAOptions:ChangeDefaultSettings()
 
   self:RestoreDefaults()
   self:SaveSettings()
-end
-
-function OAAOptions:DamageFilter(filter_table)
-  local attacker
-  local victim
-  --local damage_type = filter_table.damagetype_const
-  local inflictor = filter_table.entindex_inflictor_const	-- entindex_inflictor_const is nil if damage is not caused by an ability
-  --local damage_after_reductions = filter_table.damage 	-- damage is damage after reductions without spell amplifications
-
-  if filter_table.entindex_attacker_const and filter_table.entindex_victim_const then
-    attacker = EntIndexToHScript(filter_table.entindex_attacker_const)
-    victim = EntIndexToHScript(filter_table.entindex_victim_const)
-  end
-
-  local damaging_ability
-  if inflictor then
-    damaging_ability = EntIndexToHScript(inflictor)
-  end
-
-  -- if attacker and victim and not attacker:IsNull() and not victim:IsNull() then
-
-  -- end
-
-  return true
 end
