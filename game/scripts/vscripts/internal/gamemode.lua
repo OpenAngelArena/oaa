@@ -11,10 +11,10 @@ function GameMode:_InitGameMode()
   GameRules:SetSameHeroSelectionEnabled( ALLOW_SAME_HERO_SELECTION )
   GameRules:SetCustomGameSetupTimeout( CUSTOM_GAME_SETUP_TIME )
   -- SetHeroSelectionTime is ignored because "EnablePickRules"   "1" on addoninfo
-  GameRules:SetHeroSelectionTime(RANKED_PICK_TIME * 24)
+  GameRules:SetHeroSelectionTime(CAPTAINS_MODE_TOTAL + 1)
   GameRules:SetHeroSelectPenaltyTime(10)
-  GameRules:SetStrategyTime(5)
-  GameRules:SetShowcaseTime(0) -- temporary
+  GameRules:SetStrategyTime(30)
+  GameRules:SetShowcaseTime(0)
   GameRules:SetPostGameTime( POST_GAME_TIME )
   GameRules:SetTreeRegrowTime( TREE_REGROW_TIME )
   if USE_CUSTOM_HERO_LEVELS then
@@ -149,7 +149,7 @@ function GameMode:_CaptureGameMode()
     -- Set GameMode parameters
     mode = GameRules:GetGameModeEntity()
     mode:SetDraftingBanningTimeOverride(0)
-    mode:SetDraftingHeroPickSelectTimeOverride(99999)
+    mode:SetDraftingHeroPickSelectTimeOverride(CAPTAINS_MODE_TOTAL + 1)
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
     mode:SetCameraDistanceOverride( CAMERA_DISTANCE_OVERRIDE )
     mode:SetCustomBuybackCostEnabled( CUSTOM_BUYBACK_COST_ENABLED )
