@@ -52,6 +52,11 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_bonus_damage"                           "200"
+      }
     }
   }
 }
