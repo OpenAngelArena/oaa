@@ -93,7 +93,7 @@
 }
 #SparkSelection .SparkPanel.active
 {
-  box-shadow: #ffccccaa 0px 0px 3px 0px;
+  box-shadow: inset #ffccccaa 0px 0px 3px 0px;
 }
 
 #SparkSelection .SparkPanel Label
