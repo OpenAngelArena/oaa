@@ -66,16 +66,6 @@
         "shard_internal_cd"                               "1.0"
         "RequiresShard"                                   "1"
       }
-      "10" //OAA, for picking screen tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 20 30 40 50 60"
-      }
-      "11" //OAA, for picking screen tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "300 400 500 600 800 1000"
-      }
     }
   }
 }
