@@ -120,6 +120,9 @@ function Sparks:OnSelectSpark (eventId, keys)
   -- If player chooses the first option (old gpm) it actually chooses a default spark for the hero
   if spark == "gpm" then
     local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+    if not hero then
+      return
+    end
     spark = Sparks:FindDefaultSparkForHero(hero)
   end
 
