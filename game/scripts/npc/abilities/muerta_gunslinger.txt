@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // MUERTA: Gunslinger
+  //=================================================================================================================
+  "muerta_gunslinger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5753"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+
+    "MaxLevel"                                            "6"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "double_shot_chance"
+      {
+        "value"                                           "20 30 40 50 55 60"
+        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+20"
+      }
+      "target_search_bonus_range"                         "150"
+    }
+  }
+}
