@@ -71,7 +71,7 @@
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_tick"                                 "5 7 9 11 22 44"
+        "damage_per_tick"                                 "5 8 11 14 28 56"
       }
       "07"
       {
@@ -81,7 +81,7 @@
       "08" // damage_per_tick divided by tick_rate
       {
         "var_type"                                        "FIELD_INTEGER"
-        "tick_dps_tooltip"                                "25 35 45 55 110 220"
+        "tick_dps_tooltip"                                "25 40 55 70 140 280"
       }
       "09"
       {

@@ -64,14 +64,15 @@
       "bonus_attack_speed"                                "35 45 55 65 75" //OAA
       "bonus_armor"                                       "6 7 9 12 16" //OAA
       "projectile_speed"                                  "300 350 400 450 500"
-      "int_damage_multiplier"                             "0.75" //OAA
+      "int_damage_multiplier"                             "1"
       "slow"                                              "25 30 35 40 45"
       "slow_duration"                                     "4"
       "mana_cost"                                         "100" // what is this Valve?
       "damage_penalty"                                    "0"
       "passive_cooldown"                                  "8.0" //OAA
-      "number_of_attacks"                                 "69" //OAA
-      "active_duration"                                   "4" //OAA
+      "number_of_attacks"                                 "6" //OAA
+      "active_duration"                                   "15"
+      "active_attack_speed"                               "60"
     }
   }
 }

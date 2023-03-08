@@ -17,14 +17,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fiery_soul_attack_speed_bonus" //OAA
+      "fiery_soul_attack_speed_bonus"
       {
-        "value"                                           "10 18 26 34 42 50"
-        "special_bonus_unique_lina_2"                     "+15"
+        "value"                                           "8 16 24 32 40 48"
+        "special_bonus_unique_lina_2"                     "+10"
       }
       "fiery_soul_move_speed_bonus" 
       {
-        "value"                                           "1.5 2 2.5 3 3.5 4"
+        "value"                                           "1 1.5 2 2.5 3 3.5"
         "special_bonus_unique_lina_2"                     "+1"
       }
       "fiery_soul_max_stacks"                             "7"

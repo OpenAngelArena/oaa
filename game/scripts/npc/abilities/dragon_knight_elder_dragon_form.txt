@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"  //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "70"  //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "45"  //OAA, for picking screen tooltip
+        "duration"                                        "45"  //OAA
       }
       "02"
       {
@@ -57,7 +57,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20 40 60 120 120" //OAA, for picking screen tooltip
+        "corrosive_breath_damage"                         "20 40 60 120 120" //OAA
       }
       "06"
       {
@@ -84,7 +84,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80" //OAA, for picking screen tooltip
+        "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "11"
@@ -106,11 +106,6 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "model_scale"                                     "0 0 0 30 30"
-      }
-      "17" //OAA, for picking screen tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_suppression_pct"                            "50"
       }
     }
   }

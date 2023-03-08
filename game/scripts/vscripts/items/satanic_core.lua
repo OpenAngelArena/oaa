@@ -140,7 +140,7 @@ function modifier_satanic_core_unholy:IsDebuff()
 end
 
 function modifier_satanic_core_unholy:IsPurgable()
-  return true
+  return false
 end
 
 function modifier_satanic_core_unholy:OnCreated()

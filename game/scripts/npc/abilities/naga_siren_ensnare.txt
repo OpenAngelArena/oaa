@@ -28,22 +28,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "2.75 3.5 4.25 5.0 5.5 6.0"
+      "duration"                                          "2.75 3.5 4.25 5.0 5.25 5.5"
       "net_speed"
       {
         "value"                                           "1500"
-        "special_bonus_scepter"                           "+50%"
+        "special_bonus_scepter"                           "+60%"
       }
       "fake_ensnare_distance"                             "900"
       "AbilityCooldown" //OAA
       {
-        "value"                                           "17 16 15 14 13 12"
+        "value"                                           "12"
         "special_bonus_unique_naga_siren_net_cooldown"    "-2"
       }
       "AbilityCastRange"
       {
-        "value"                                           "575 600 625 650 675 700"
-        "special_bonus_scepter"                           "+50%"
+        "value"                                           "500 525 550 575 600 625"
+        "special_bonus_scepter"                           "+60%"
       }
       "can_target_magic_immune"
       {

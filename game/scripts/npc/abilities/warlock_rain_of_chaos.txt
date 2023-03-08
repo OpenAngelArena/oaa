@@ -40,7 +40,7 @@
       "stun_duration"                                     "1.0"
       "aoe"                                               "600"
       "golem_hp"                                          "1400 3200 5000 10400 15800" //OAA
-      "golem_dmg"                                         "100 200 300 600 900" //OAA
+      "golem_dmg"                                         "110 220 330 660 990" //OAA
       "golem_armor"                                       "10 20 30 40 50" //OAA
       "golem_movement_speed"                              "320 340 360 380 400"
       "golem_health_regen"                                "30 60 90 120 150" //OAA
@@ -56,9 +56,9 @@
         "value"                                           "1120 2560 4000 8320 12640"
         "RequiresScepter"                                 "1"
       }
-      "golem_dmg_scepter" //OAA
+      "golem_dmg_scepter" //OAA, golem_dmg x 0.75
       {
-        "value"                                           "75 150 225 450 675"
+        "value"                                           "82 165 250 495 750"
         "RequiresScepter"                                 "1"
       }
       "golem_gold_bounty_scepter"
