@@ -33,43 +33,44 @@ function Sparks:Init()
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
   CustomGameEventManager:RegisterListener('select_spark', partial(Sparks.OnSelectSpark, Sparks))
 
-  GameEvents:OnHeroInGame(Sparks.SelectDefaultSpark)
-  GameEvents:OnGameInProgress(Sparks.EnsureHeroSparks)
-  Duels.onEnd(Sparks.EnsureHeroSparks)
+  GameEvents:OnHeroInGame(partial(Sparks.AddSparkOnHeroSpawn, Sparks))
+  GameEvents:OnGameInProgress(partial(Sparks.CheckSparkOnAllPlayers, Sparks))
+  Duels.onEnd(partial(Sparks.CheckSparkOnAllPlayers, Sparks))
 
   Timers:CreateTimer(1, function()
     return Sparks:DecreaseCooldowns()
   end)
 end
 
-function Sparks.EnsureHeroSparks ()
-  Sparks:CheckSparkOnHeroes()
-end
-
-function Sparks.SelectDefaultSpark (hero)
+function Sparks:AddSparkOnHeroSpawn(hero)
   if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
     return
   end
-  local playerId = hero:GetPlayerOwnerID()
-  if Sparks.data.hasSpark[playerId] then
-    return
-  end
+
   if hero:IsTempestDouble() or hero:IsClone() then
     return
   end
 
+  -- Always add gpm spark to the spawned hero, gpm spark will remove itself if the hero is invalid
   if not hero:HasModifier("modifier_spark_gpm") then
     hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
   end
 
-  local spark_name = Sparks:FindDefaultSparkForHero(hero)
+  local playerid = hero:GetPlayerOwnerID()
 
+  -- Check if spark is already assigned to this playerid;
+  if Sparks.data.hasSpark[playerid] then
+    -- During ARDM or after reconnecting spark can be assigned to the playerid but the hero itself doesn't have it
+    Sparks:CheckSparkOnHeroEntity(hero, playerid)
+    return
+  end
+
+  -- OnSelectSpark will do nothing for disconnected players
   Sparks:OnSelectSpark('asdf', {
-    PlayerID = playerId,
-    spark = spark_name,
+    PlayerID = playerid,
+    spark = "gpm",
     skipCooldown = true
   })
-  --Sparks:CheckSparkOnHeroEntity(hero)
 end
 
 function Sparks:DecreaseCooldowns ()
@@ -96,15 +97,17 @@ function Sparks:DecreaseCooldowns ()
 end
 
 function Sparks:OnSelectSpark (eventId, keys)
-  local playerId = keys.PlayerID
-  local player = PlayerResource:GetPlayer(playerId)
+  local playerid = keys.PlayerID
+  local player = PlayerResource:GetPlayer(playerid)
+
+  -- OnSelectSpark will do nothing for disconnected players
   if not player then
     return
   end
 
   local spark = keys.spark
 
-  if Sparks.data.cooldowns[playerId] and Sparks.data.cooldowns[playerId] > 0 then
+  if Sparks.data.cooldowns[playerid] and Sparks.data.cooldowns[playerid] > 0 then
     --DebugPrint('Spark changing on cooldown!')
     return
   end
@@ -114,82 +117,86 @@ function Sparks:OnSelectSpark (eventId, keys)
     return
   end
 
-  -- If player chooses the first option (old gpm) it actually chooses a default spark for his hero
+  -- If player chooses the first option (old gpm) it actually chooses a default spark for the hero
   if spark == "gpm" then
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+    if not hero then
+      return
+    end
     spark = Sparks:FindDefaultSparkForHero(hero)
   end
 
-  local oldSpark = Sparks.data.hasSpark[playerId]
+  local oldSpark = Sparks.data.hasSpark[playerid]
   if oldSpark then
     --DebugPrint('They are changing their spark ' .. oldSpark .. ' to ' .. spark)
     Sparks.data[player:GetTeam()][oldSpark] = Sparks.data[player:GetTeam()][oldSpark] - 1
   end
 
-  Sparks.data.hasSpark[playerId] = spark
-  if not keys.skipCooldown then
-    Sparks.data.cooldowns[playerId] = 60
+  -- Assign the spark to the playerid
+  Sparks.data.hasSpark[playerid] = spark
+
+  -- Go on cooldown only if not skipped and new spark is different from the old one
+  if not keys.skipCooldown and spark ~= oldSpark then
+    Sparks.data.cooldowns[playerid] = 60
   end
+
   Sparks.data[player:GetTeam()][spark] = Sparks.data[player:GetTeam()][spark] + 1
 
   CustomNetTables:SetTableValue('hero_selection', 'team_sparks', Sparks.data)
 
-  Sparks:CheckSparkOnHero(playerId)
+  Sparks:CheckSparkOnPlayer(playerid)
 end
 
-function Sparks:CheckSparkOnHeroes ()
-  PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
-    if not Sparks.data.hasSpark[playerId] then
-      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-      local spark_name = "cleave"
-      if hero then
-        spark_name = Sparks:FindDefaultSparkForHero(hero)
-      end
+-- Ensure that everyone has a spark
+function Sparks:CheckSparkOnAllPlayers(keys)
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerid)
+    -- Check if spark is already assigned to this playerid; Player maybe already selected a spark
+    if not Sparks.data.hasSpark[playerid] then
+      -- OnSelectSpark will do nothing for disconnected players
       Sparks:OnSelectSpark("asdf", {
-        PlayerID = playerId,
-        spark = spark_name,
+        PlayerID = playerid,
+        spark = "gpm",
         skipCooldown = true
       })
     end
 
-    Sparks:CheckSparkOnHero(playerId)
+    -- CheckSparkOnPlayer works for disconnected players
+    Sparks:CheckSparkOnPlayer(playerid)
   end)
 end
 
-function Sparks:CheckSparkOnHero (playerId)
-  local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-  return Sparks:CheckSparkOnHeroEntity(hero)
+function Sparks:CheckSparkOnPlayer(playerid)
+  local hero = PlayerResource:GetSelectedHeroEntity(playerid)
+  Sparks:CheckSparkOnHeroEntity(hero, playerid)
 end
 
-function Sparks:CheckSparkOnHeroEntity (hero)
+function Sparks:CheckSparkOnHeroEntity(hero, playerid)
   if not hero then
     Debug:EnableDebugging()
-    DebugPrint('This player has no hero!')
-    return
-  end
-  local playerId = hero:GetPlayerOwnerID()
-  local spark = Sparks.data.hasSpark[playerId]
-  if not spark then
-    --Debug:EnableDebugging()
-    --DebugPrint('This player has not selected a spark!')
-    return
-  end
-  local player = PlayerResource:GetPlayer(playerId)
-  if not player then
-    Debug:EnableDebugging()
-    DebugPrint('This player has no player!')
+    DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has no hero!")
     return
   end
 
+  -- Failsafe check if the hero has gpm spark
   if not hero:HasModifier("modifier_spark_gpm") then
     hero:AddNewModifier(hero, nil, "modifier_spark_gpm", {})
   end
 
-  if hero:HasModifier(self:ModifierName(spark)) then
+  local spark = Sparks.data.hasSpark[playerid]
+  if not spark then
+    Debug:EnableDebugging()
+    DebugPrint("Sparks:CheckSparkOnHeroEntity - Player "..playerid.." has not selected a spark!") -- this will happen for disconnected players
+    spark = Sparks:FindDefaultSparkForHero(hero)
+  end
+
+  local modifierName = self:ModifierName(spark)
+
+  -- Check if this hero already has the assigned spark
+  if hero:HasModifier(modifierName) then
     return
   end
-  -- purge the other modifiers
 
+  -- Purge the other spark modifiers
   --if spark ~= "gpm" then
     --hero:RemoveModifierByName(self:ModifierName("gpm"))
   --end
@@ -202,8 +209,8 @@ function Sparks:CheckSparkOnHeroEntity (hero)
   if spark ~= "cleave" then
     hero:RemoveModifierByName(self:ModifierName("cleave"))
   end
-  local modifierName = self:ModifierName(spark)
 
+  -- Check if the hero is alive, if not wait until it is and then add the spark modifier
   if hero:IsAlive() then
     hero:AddNewModifier(hero, nil, modifierName, {})
   else

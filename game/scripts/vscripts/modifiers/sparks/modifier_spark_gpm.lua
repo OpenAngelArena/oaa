@@ -46,15 +46,22 @@ function modifier_spark_gpm:OnIntervalThink()
     return
   end
 
-  local caster = self:GetParent()
+  local parent = self:GetParent()
 
-  -- Don't give gold on illusions, Tempest Doubles, or Meepo clones, or during duels
-  if caster:IsIllusion() or caster:IsTempestDouble() or caster:IsClone() or not Gold:IsGoldGenActive() then
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, or Meepo clones
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  -- Don't give gold during duels
+  if not Gold:IsGoldGenActive() then
     return
   end
 
   local gpm = self:CalculateGPM()
-  Gold:ModifyGold(caster:GetPlayerOwnerID(), math.ceil(gpm / 60), true, DOTA_ModifyGold_GameTick)
+  Gold:ModifyGold(parent:GetPlayerOwnerID(), math.ceil(gpm / 60), true, DOTA_ModifyGold_GameTick)
 
   --self:SetStackCount(gpm)
 end

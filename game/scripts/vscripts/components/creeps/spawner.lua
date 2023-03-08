@@ -1,8 +1,8 @@
 -- Taken from bb template
 if CreepCamps == nil then
-    Debug.EnabledModules['creeps:*'] = false
-    DebugPrint ( 'creating new CreepCamps object.' )
-    CreepCamps = class({})
+  Debug.EnabledModules['creeps:*'] = false
+  DebugPrint ( 'creating new CreepCamps object.' )
+  CreepCamps = class({})
 end
 
 LinkLuaModifier("modifier_creep_loot", "modifiers/modifier_creep_loot.lua", LUA_MODIFIER_MOTION_NONE)

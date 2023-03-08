@@ -160,10 +160,12 @@ function HeroSelection:Init ()
         -- Reconnected when game started and randomed hero is invalid
         local new_hero_name = HeroSelection:RandomHero()
         if loadedHeroes[new_hero_name] then
-          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
         else
           PrecacheUnitByNameAsync(new_hero_name, function()
-            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
           end)
         end
         lockedHeroes[playerid] = new_hero_name
@@ -193,10 +195,12 @@ function HeroSelection:Init ()
           new_hero_name = HeroSelection:RandomHero()
         end
         if loadedHeroes[new_hero_name] then
-          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
         else
           PrecacheUnitByNameAsync(new_hero_name, function()
-            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
           end)
         end
       end
@@ -205,9 +209,9 @@ function HeroSelection:Init ()
 
   GameEvents:OnPreGame(function (keys)
     -- Pause the game at the start (not during strategy time)
-    --if HeroSelection.isCM or HeroSelection.isARDM then
-    PauseGame(true)
-    --end
+    if HeroSelection.isCM or HeroSelection.isARDM then
+      PauseGame(true)
+    end
   end)
 end
 
