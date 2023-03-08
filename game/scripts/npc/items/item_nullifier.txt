@@ -47,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4725"
+    "ItemCost"                                            "4375"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "nlf;nullifier"
@@ -66,7 +66,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 80 120 180 260" //OAA
+        "bonus_damage"                                    "55 75 115 175 255" //OAA
       }
       "02"
       {

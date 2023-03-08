@@ -36,9 +36,9 @@
         "special_bonus_unique_elder_titan_2"              "+150"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL" // Valve has it wrong
       }
-      "wake_damage_limit"
+      "wake_damage_limit" //OAA, Valve has it wrong
       {
-        "value"                                           "50 100 150 200 400 600"
+        "value"                                           "55 120 185 250 500 750"
         "special_bonus_unique_elder_titan_4"              "+450"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

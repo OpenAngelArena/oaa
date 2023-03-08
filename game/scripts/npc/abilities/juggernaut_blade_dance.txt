@@ -7,15 +7,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5027"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5027"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
     "MaxLevel"                                            "6"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "blade_dance_crit_chance"                           "20 25 30 35 40 45"
-      "blade_dance_crit_mult"                             "180"
+      "blade_dance_crit_mult"                             "190"
       "blade_dance_lifesteal"
       {
         "value"                                           "0"
