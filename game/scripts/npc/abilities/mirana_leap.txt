@@ -72,6 +72,16 @@
         "value"                                           "1"
         "RequiresShard"                                   "1"
       }
+      "shard_projectile_distance"     
+      {
+        "value"                                           "800"
+        "RequiresShard"                                   "1"
+      }
+      "shard_projectile_speed"
+      {
+        "value"                                           "1200"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

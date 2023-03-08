@@ -10,7 +10,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3750"
+    "ItemCost"                                            "3400"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "secret_shop"
     "ItemAliases"                                         "sacred relic"
@@ -23,7 +23,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60"
+        "bonus_damage"                                    "55"
       }
     }
   }

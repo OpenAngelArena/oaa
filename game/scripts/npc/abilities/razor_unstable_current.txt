@@ -60,6 +60,12 @@
         "shard_search_radius"                             "900"
         "RequiresShard"                                   "1"
       }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_internal_cd"                               "1.0"
+        "RequiresShard"                                   "1"
+      }
       "10" //OAA, for picking screen tooltip
       {
         "var_type"                                        "FIELD_INTEGER"
