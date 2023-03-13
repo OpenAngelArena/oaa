@@ -1,0 +1,290 @@
+#OAAStrategy {
+  opacity: 0;
+  visibility: collapse;
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
+  transition-property: opacity, transform;
+  /*transition-delay: 3s;*/
+  transition-timing-function: ease-in;
+  transition-duration: 0.5s;
+  transform: scaleX(1) scaleY(1) translateY(0);
+}
+/*
+ARDM Loading screen
+*/
+#ARDMLoading {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  padding: 30px 50px;
+
+  background-color: #aaaaaa55;
+  width: 600px;
+  horizontal-align: center;
+  vertical-align: center;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 26px;
+}
+
+Label {
+  font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  font-weight: normal;
+  font-size: 30px;
+  color: white;
+}
+
+#PregameBG {
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+  /*pre-transform-scale2d: 2;*/
+  vertical-align: center;
+  transition-property: blur, brightness;
+  transition-duration: 1s;
+  transition-delay: 0.5s;
+  transition-timing-function: ease-in-out;
+  opacity: 1;
+  background-image: url("file://{images}/custom_game/strategy/strategy_map.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.BluredAndDark {
+  blur: gaussian(10);
+  brightness: 0.05;
+}
+
+.TeamStatus {
+  horizontal-align: center;
+  width: 90%;
+  height: 10%;
+  flow-children: right;
+}
+
+#TeamRadiant {
+  flow-children: right;
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
+}
+
+#Clock {
+  width: 10%;
+  height: 80%;
+  background-color: #171A2590;
+}
+
+#Clock #TimeLeft {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+  font-size: 50px;
+}
+
+#Clock #GameMode {
+  width: 100%;
+  height: 35%;
+  text-align: center;
+  font-size: 24px;
+  vertical-align: bottom;
+}
+
+#TeamDire {
+  flow-children: left;
+  width: 45%;
+  height: 65%;
+  background-color: #171A2590;
+}
+
+#StrategyContent {
+  width: 100%;
+  height: 90%;
+  margin-top: 10%;
+  transition-property: transform, opacity;
+  transition-duration: 2s;
+  transition-delay: 1.25s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: scaleX(1) scaleY(1);
+}
+
+.BossIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 50px;
+  //wash-color: #ff0000;
+}
+
+.BossIcon Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+.CaveIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 50px;
+  //wash-color: #ff0000;
+}
+
+.CaveIcon Label {
+  font-size: 12px;
+  padding-left: 2px;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+.DuelIconHolder {
+  transition-property: transform, opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  opacity: 0;
+  transform: translateY(-5%);
+  width: 50px;
+  height: 65px;
+}
+
+.DuelIcon {
+  background-image: url("s2r://panorama/images/hud/reborn/icon_damage_psd.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: translateY(5px) translateX(-5px) rotateZ(135deg);
+  width: 37.5px;
+  height: 37.5px;
+  vertical-align: bottom;
+  horizontal-align: middle;
+  wash-color: #FF0000;
+}
+
+.DuelIconHolder Label {
+  font-size: 14px;
+  padding-left: 2px;
+  vertical-align: top;
+  horizontal-align: middle;
+}
+
+#Boss1r {
+  margin-left: 34%;
+  margin-top: 35%;
+  transition-delay: 3s;
+}
+
+#Boss1d {
+  margin-left: 58%;
+  margin-top: 14%;
+  transition-delay: 3s;
+}
+
+#Boss2r {
+  margin-left: 30%;
+  margin-top: 46%;
+  transition-delay: 3.5s;
+}
+
+#Boss2d {
+  margin-left: 56%;
+  margin-top: 11.5%;
+  transition-delay: 3.5s;
+}
+
+#Boss3r {
+  margin-left: 52%;
+  margin-top: 48%;
+  transition-delay: 4s;
+}
+
+#Boss3d {
+  margin-left: 47.5%;
+  margin-top: 12%;
+  transition-delay: 4s;
+}
+
+#Boss4r {
+  margin-left: 67%;
+  margin-top: 46%;
+  transition-delay: 4.5s;
+}
+
+#Boss4d {
+  margin-left: 41%;
+  margin-top: 12.5%;
+  transition-delay: 4.5s;
+}
+
+#Boss5r {
+  margin-left: 32.5%;
+  margin-top: 16%;
+  transition-delay: 5s;
+}
+
+#Boss5d {
+  margin-left: 72%;
+  margin-top: 30%;
+  transition-delay: 5s;
+}
+
+#Duel1 {
+  margin-left: 77%;
+  margin-top: 37.5%;
+  transition-delay: 5.5s;
+}
+
+#Duel2 {
+  margin-left: 35%;
+  margin-top: 9.5%;
+  transition-delay: 5.5s;
+}
+
+#Cave1r {
+  margin-left: 26%;
+  margin-top: 27%;
+  transition-delay: 6s;
+}
+
+#Cave1d {
+  margin-left: 66%;
+  margin-top: 18%;
+  transition-delay: 6s;
+}
+
+#Cave2r {
+  margin-left: 22%;
+  margin-top: 33%;
+  transition-delay: 6.5s;
+}
+
+#Cave2d {
+  margin-left: 64%;
+  margin-top: 14%;
+  transition-delay: 6.5s;
+}
+
+#Cave3r {
+  margin-left: 17%;
+  margin-top: 41%;
+  transition-delay: 7s;
+}
+
+#Cave3d {
+  margin-left: 62.5%;
+  margin-top: 10%;
+  transition-delay: 7s;
+}

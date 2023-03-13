@@ -13,12 +13,8 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
-// for testing
-const neverHideStrategy = false;
-
 const heroAbilities = {};
 const currentMap = Game.GetMapInfo().map_display_name;
-let hasGoneToStrategy = false;
 let selectedhero = 'empty';
 let disabledheroes = [];
 let herolocked = false;
@@ -527,16 +523,16 @@ function onPlayerStatChange (table, key, data) {
     if (data.mode === 'STRATEGY' || data.mode === 'PREPARING' || data.mode === 'PRE-STRATEGY') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data.mode);
-      if (data.mode === 'PRE-STRATEGY' || data.mode === 'STRATEGY') {
-        GoToStrategy();
-      }
+      // if (data.mode === 'PRE-STRATEGY' || data.mode === 'STRATEGY') {
+        // GoToStrategy();
+      // }
     } else if (data.time > -1) {
       $('#TimeLeft').text = data.time;
       $('#GameMode').text = $.Localize(data.mode);
       // spammy
       // $.Msg('Timer mode ' + data.mode);
     } else {
-      HideStrategy();
+      // HideStrategy();
     }
   }
 }
@@ -1175,24 +1171,18 @@ function HideStrategy () {
   //   FindDotaHudElement(element).style.transform = 'translateY(0)';
   //   FindDotaHudElement(element).style.opacity = '1';
   // });
-  if (neverHideStrategy) {
-    return;
-  }
 
   FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
   FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
 }
 
 function GoToStrategy () {
-  // FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
-  // FindDotaHudElement('MainContent').style.opacity = '0';
+  FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
+  FindDotaHudElement('MainContent').style.opacity = '0';
 
-  if (!hasGoneToStrategy) {
-    hasGoneToStrategy = true;
-    // $.Schedule(6, function () {
-    $('#ARDMLoading').style.opacity = 1;
-    // });
-  }
+  // $.Schedule(6, function () {
+  $('#ARDMLoading').style.opacity = 1;
+  // });
 }
 
 function RandomHero () {
