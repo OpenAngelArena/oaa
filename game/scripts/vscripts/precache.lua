@@ -27,7 +27,7 @@ g_ItemPrecache = {
   --"item_reflex_core",
   "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
-  "item_sacred_skull",
+  --"item_sacred_skull",
   "item_satanic_core",
   "item_shield_staff",
   "item_siege_mode",
