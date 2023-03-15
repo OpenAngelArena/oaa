@@ -27,13 +27,13 @@
   "homepage": "https://github.com/OpenAngelArena/oaa#readme",
   "devDependencies": {
     "after": "^0.8.2",
-    "async-each": "^1.0.3",
+    "async-each": "^1.0.6",
     "parse-kv": "0.3.1",
     "semistandard": "^16.0.1",
     "spok": "^0.8.1",
     "tap-spec": "^5.0.0",
     "tap-summary": "^3.0.2",
-    "tape": "^4.16.1"
+    "tape": "^4.16.2"
   },
   "dependencies": {
     "@types/node": "^9.6.61",
