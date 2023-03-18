@@ -31,17 +31,17 @@ Vertical range: 384 (384-0)
 Elevations: 4
 Note:
 - More elevations = more good. 
-- Camera distance of 384 feels very close
+- Camera distance to elevation 384 feels very close
 ----------------------------------------------------------
 OAA-Bigmode.vmap    32,768u²	128 tiles²	16,384sq tiles
 Pathing height ceiling: 768 (384-(-384))
 Elevations: 7
 Note:
 - More elevations = more good.
-- Camera distance of -384 feels very far
+- Camera distance to elevation -384 feels very far
 ----------------------------------------------------------
 Proposed change:
 Pathing height ceiling: 768 (384-(-256))
 Elevations: 6
-Rationale: Reduce camera target distance.
+Rationale: Increase minimum elevation to reduce camera target distance.
 ----------------------------------------------------------
