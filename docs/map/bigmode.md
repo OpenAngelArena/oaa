@@ -9,12 +9,12 @@ Features:
 OAA map measurements:
 Object	# of x	 	   Units	256-Tiles	   Tile (Area)
 ----------------------------------------------------------
-Team-bases	 2		 3,600u²	14 tiles²	  196sq tiles
-Arenas		 6		 3,000u²	12 tiles²	  144sq tiles
-Bosspits	10 		 1,280u²	 5 tiles²	   25sq tiles
-Spawns		 2 		 1,024u²	 4 tiles²	   16sq tiles
-Camps		37 +/-	   512u² 	 2 tiles²	    4sq tiles
-Stairs		 ?		   512u²	 2 tiles²	    4sq tiles
+Team bases	 2		 3,600u²	14 tiles²	  196sq tiles
+Dual Arenas  6		 3,000u²	12 tiles²	  144sq tiles
+Boss pits	10 		 1,280u²	 5 tiles²	   25sq tiles
+Team Spawns	 2 		 1,024u²	 4 tiles²	   16sq tiles
+Creep Camps	37 +/-	   512u² 	 2 tiles²	    4sq tiles
+Stairs 		 ?		   512u²	 2 tiles²	    4sq tiles
 Misc		 ?		   256u²	 1 tiles²	    1sq tiles
 Trees		 ?		    64u²   1/4 tiles²	 1/16sq tiles
 
@@ -24,24 +24,19 @@ Dota.vmap     		16,384u²	 64 tiles²	 4,096sq tiles
 Vertical range: 256 (256-0)
 Elevations: 3
 Note: 
+- Not a giant map
 - River, main area, and highground elevations.
 ----------------------------------------------------------
 OAA-Seasonal.vmap   20,480u²	 80 tiles²	 6,400sq tiles
 Vertical range: 384 (384-0)
 Elevations: 4
 Note:
-- More elevations = more good. 
-- Camera distance to elevation 384 feels very close
+- Bigger map because the point of OAA is to amplify.
+- More elevations = more good. See "Bigger map". 
 ----------------------------------------------------------
 OAA-Bigmode.vmap    32,768u²	128 tiles²	16,384sq tiles
-Pathing height ceiling: 768 (384-(-384))
-Elevations: 7
+Vertical range: 640 (384-(-256))
+Elevations: 6
 Note:
 - More elevations = more good.
-- Camera distance to elevation -384 feels very far
-----------------------------------------------------------
-Proposed change:
-Pathing height ceiling: 768 (384-(-256))
-Elevations: 6
-Rationale: Increase minimum elevation to reduce camera target distance.
-----------------------------------------------------------
+- Need to test camera more.
