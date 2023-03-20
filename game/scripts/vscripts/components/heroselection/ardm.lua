@@ -484,7 +484,6 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   end
 
   -- Stash slots
-  --[[ -- needed only if ReplaceHeroWith was used
   for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
     local item = old_hero:GetItemInSlot(i)
     local item_name
@@ -506,7 +505,6 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     end
     items[i] = {item_name, purchaser, cooldown, charges}
   end
-  ]]
 
   -- Neutral items and TP scroll (check every slot)
   for i = DOTA_ITEM_SLOT_1, 20 do
@@ -582,7 +580,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
 
   -- Disable, hide and remove the old hero
   local old_loc = old_hero:GetAbsOrigin()
-  local hidden_loc = Vector(-10000, -10000, -10000)
+  local hidden_loc = Vector(-10000, -10000, 0)
   DebugPrint("ReplaceHero - Disabling the old hero")
   old_hero:AddNewModifier(old_hero, nil, "modifier_ardm_disable_hero", {}) -- Disabling
   DebugPrint("ReplaceHero - Hiding the old hero")
@@ -599,8 +597,10 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   --old_hero:SetHasInventory(false)
   old_hero:SetCanSellItems(false)
 
+  local player = PlayerResource:GetPlayer(playerID)
+
   --PlayerResource:ReplaceHeroWith(playerID, new_hero_name, old_hero_gold, 0)
-  local new_hero = CreateUnitByName(new_hero_name, old_loc, true, old_hero, PlayerResource:GetPlayer(playerID), old_hero:GetTeamNumber()) -- this can crash the game.
+  local new_hero = CreateUnitByName(new_hero_name, old_loc, true, old_hero, player, old_hero:GetTeamNumber()) -- this can crash the game.
   -- without player there are no cosmetics
   new_hero:SetPlayerID(playerID)
   new_hero:SetControllableByPlayer(playerID, true)
@@ -609,9 +609,10 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   else
     new_hero:SetOwner(old_hero:GetOwner())
   end
+
+  -- Place the new hero at old hero location
   FindClearSpaceForUnit(new_hero, old_loc, false)
 
-  local player = PlayerResource:GetPlayer(playerID)
   if player then
     if player:GetAssignedHero() ~= new_hero then
       DebugPrint("ReplaceHero - Reassigning the new hero")
@@ -619,7 +620,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     end
   end
 
-  Timers:CreateTimer(1/30, function()
+  Timers:CreateTimer(2*FrameTime(), function()
     if not player then
       player = PlayerResource:GetPlayer(playerID)
     end
@@ -646,12 +647,14 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     --new_hero:SetAbilityPoints(spent_ability_points)
 
     -- Remove any item that is given to the new hero for no reason
+    --[[
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = new_hero:GetItemInSlot(i)
       if item then
         new_hero:RemoveItem(item)
       end
     end
+    ]]
 
     -- Prevent TP scroll starting on cooldown
     local tp_scroll = new_hero:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
@@ -666,12 +669,14 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
 
     -- Scepter and shard modifiers
     if aghanim_scepter then
-      local scepter = CreateItem("item_ultimate_scepter_2", new_hero, new_hero)
-      new_hero:AddItem(scepter)
+      --local scepter = CreateItem("item_ultimate_scepter_2", new_hero, new_hero)
+      --new_hero:AddItem(scepter)
+      new_hero:AddNewModifier(new_hero, nil, "modifier_item_ultimate_scepter_consumed", {})
     end
     if aghanim_shard then
-      local shard = CreateItem("item_aghanims_shard", new_hero, new_hero)
-      new_hero:AddItem(shard)
+      --local shard = CreateItem("item_aghanims_shard", new_hero, new_hero)
+      --new_hero:AddItem(shard)
+      new_hero:AddNewModifier(new_hero, nil, "modifier_item_aghanims_shard", {})
     end
 
     -- Create new permanent modifiers for the new hero
@@ -718,10 +723,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     if not new_hero:HasModifier("modifier_ardm") then
       new_hero:AddNewModifier(new_hero, nil, 'modifier_ardm', {})
     end
-  end)
 
-  -- Delay 1 more frame because of scepter and shard
-  Timers:CreateTimer(2/30, function()
     -- Create new items for the new hero
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = items[i]
@@ -752,7 +754,6 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
       end
     end
 
-    --[[ -- needed only if ReplaceHeroWith was used
     for i = DOTA_STASH_SLOT_1, DOTA_STASH_SLOT_6 do
       local item = items[i]
       local item_name = item[1]
@@ -780,7 +781,6 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
         end
       end
     end
-    ]]
 
     PlayerResource:SetOverrideSelectionEntity(playerID, nil)
   end)
