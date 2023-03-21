@@ -8,6 +8,7 @@ end
 function modifier_pudge_flesh_heap_oaa_ardm:IsDebuff()
   return false
 end
+
 function modifier_pudge_flesh_heap_oaa_ardm:IsPurgable()
   return false
 end
@@ -24,7 +25,7 @@ function modifier_pudge_flesh_heap_oaa_ardm:DeclareFunctions()
 end
 
 function modifier_pudge_flesh_heap_oaa_ardm:GetModifierBonusStats_Strength()
-  return self:GetStackCount()
+  return 2*self:GetStackCount()
 end
 
 --function modifier_pudge_flesh_heap_oaa_ardm:GetModifierMagicalResistanceBonus()

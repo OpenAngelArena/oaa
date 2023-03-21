@@ -8,6 +8,9 @@ function ARDMMode:Init ()
   LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
 
   self.playedHeroes = {}
   self.precachedHeroes = {
@@ -274,7 +277,7 @@ function ARDMMode:PrepareHeroChange(event)
   end
 
   if not killed_hero:HasModifier("modifier_ardm") and not ARDMMode.addedmodifier[playerID] then
-    DebugPrint("PrepareHeroChange - Killed hero "..killed_hero_name.." doesn't have ARDM modifier for some reason.")
+    DebugPrint("PrepareHeroChange - Killed hero "..killed_hero_name.." doesnt have ARDM modifier for some reason.")
     return
   end
 
@@ -511,7 +514,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
     local item = old_hero:GetItemInSlot(i)
     if item then
       if item:IsNeutralDrop() then
-        -- Return the item to neutral stash (order)
+        -- Return found neutral item to neutral stash (order), this is better than recreating another neutral item
         local order_table = {
           UnitIndex = old_hero:GetEntityIndex(),
           OrderType = DOTA_UNIT_ORDER_DROP_ITEM_AT_FOUNTAIN,
@@ -519,8 +522,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
           Queue = false,
         }
         ExecuteOrderFromTable(order_table)
-        -- Return the item to stash - crashes
-        --PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item)
+        --PlayerResource:AddNeutralItemToStash(playerID, old_hero:GetTeamNumber(), item) -- crashes
       elseif item:GetName() == "item_tpscroll" and i == DOTA_ITEM_TP_SCROLL then
         items[DOTA_ITEM_TP_SCROLL] = {"item_tpscroll", nil, item:GetCooldownTimeRemaining(), nil}
       end
@@ -532,49 +534,67 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
   local stolen_int = 0
   local flesh_heap = 0
   local essence_shift = 0
+  local axe_armor_stacks = 0
+  local necro_regen_stacks = 0
   local aghanim_scepter
   local aghanim_shard
+  local moon_shard
 
-  if old_hero:HasModifier('modifier_legion_commander_duel_damage_boost') then
-    duel_damage = duel_damage + old_hero:FindModifierByName('modifier_legion_commander_duel_damage_boost'):GetStackCount()
+  if old_hero:HasModifier("modifier_legion_commander_duel_damage_boost") then
+    duel_damage = duel_damage + old_hero:FindModifierByName("modifier_legion_commander_duel_damage_boost"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_legion_commander_duel_damage_oaa_ardm') then
-    duel_damage = duel_damage + old_hero:FindModifierByName('modifier_legion_commander_duel_damage_oaa_ardm'):GetStackCount()
+  if old_hero:HasModifier("modifier_legion_commander_duel_damage_oaa_ardm") then
+    duel_damage = duel_damage + old_hero:FindModifierByName("modifier_legion_commander_duel_damage_oaa_ardm"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_oaa_int_steal') then
-    stolen_int = stolen_int + old_hero:FindModifierByName('modifier_oaa_int_steal'):GetStackCount()
+  if old_hero:HasModifier("modifier_oaa_int_steal") then
+    stolen_int = stolen_int + old_hero:FindModifierByName("modifier_oaa_int_steal"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_silencer_int_steal_oaa_ardm') then
-    stolen_int = stolen_int + old_hero:FindModifierByName('modifier_silencer_int_steal_oaa_ardm'):GetStackCount()
+  if old_hero:HasModifier("modifier_silencer_int_steal_oaa_ardm") then
+    stolen_int = stolen_int + old_hero:FindModifierByName("modifier_silencer_int_steal_oaa_ardm"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_pudge_flesh_heap') then
-    flesh_heap = flesh_heap + old_hero:FindModifierByName('modifier_pudge_flesh_heap'):GetStackCount()
+  if old_hero:HasModifier("modifier_pudge_flesh_heap") then
+    flesh_heap = flesh_heap + old_hero:FindModifierByName("modifier_pudge_flesh_heap"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_pudge_flesh_heap_oaa_ardm') then
-    flesh_heap = flesh_heap + old_hero:FindModifierByName('modifier_pudge_flesh_heap_oaa_ardm'):GetStackCount()
+  if old_hero:HasModifier("modifier_pudge_flesh_heap_oaa_ardm") then
+    flesh_heap = flesh_heap + old_hero:FindModifierByName("modifier_pudge_flesh_heap_oaa_ardm"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_slark_essence_shift_permanent_buff') then
-    essence_shift = essence_shift + old_hero:FindModifierByName('modifier_slark_essence_shift_permanent_buff'):GetStackCount()
+  if old_hero:HasModifier("modifier_slark_essence_shift_permanent_buff") then
+    essence_shift = essence_shift + old_hero:FindModifierByName("modifier_slark_essence_shift_permanent_buff"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_slark_essence_shift_oaa_ardm') then
-    essence_shift = essence_shift + old_hero:FindModifierByName('modifier_slark_essence_shift_oaa_ardm'):GetStackCount()
+  if old_hero:HasModifier("modifier_slark_essence_shift_oaa_ardm") then
+    essence_shift = essence_shift + old_hero:FindModifierByName("modifier_slark_essence_shift_oaa_ardm"):GetStackCount()
   end
-  if old_hero:HasModifier('modifier_item_ultimate_scepter_consumed') or old_hero:HasModifier('modifier_item_ultimate_scepter_consumed_alchemist') then
+  if old_hero:HasModifier("modifier_axe_culling_blade_permanent") then
+    axe_armor_stacks = axe_armor_stacks + old_hero:FindModifierByName("modifier_axe_culling_blade_permanent"):GetStackCount()
+  end
+  if old_hero:HasModifier("modifier_axe_armor_oaa_ardm") then
+    axe_armor_stacks = axe_armor_stacks + old_hero:FindModifierByName("modifier_axe_armor_oaa_ardm"):GetStackCount()
+  end
+  if old_hero:HasModifier("modifier_necrolyte_reapers_scythe_respawn_time") then
+    necro_regen_stacks = necro_regen_stacks + old_hero:FindModifierByName("modifier_necrolyte_reapers_scythe_respawn_time"):GetStackCount()
+  end
+  if old_hero:HasModifier("modifier_necrophos_regen_oaa_ardm") then
+    necro_regen_stacks = necro_regen_stacks + old_hero:FindModifierByName("modifier_necrophos_regen_oaa_ardm"):GetStackCount()
+  end
+  if old_hero:HasModifier("modifier_item_ultimate_scepter_consumed") or old_hero:HasModifier("modifier_item_ultimate_scepter_consumed_alchemist") then
     aghanim_scepter = true
   end
   if old_hero:HasShardOAA() then
     aghanim_shard = true
   end
+  if old_hero:HasModifier("modifier_item_moon_shard_consumed") or old_hero:HasModifier("modifier_moonshard_consumed_oaa_ardm") then
+    moon_shard = true
+  end
 
   -- Find which spark hero has
   local spark
-  if old_hero:HasModifier('modifier_spark_cleave') then
+  if old_hero:HasModifier("modifier_spark_cleave") then
     spark = "modifier_spark_cleave"
   end
-  if old_hero:HasModifier('modifier_spark_midas') then
+  if old_hero:HasModifier("modifier_spark_midas") then
     spark = "modifier_spark_midas"
   end
-  if old_hero:HasModifier('modifier_spark_power') then
+  if old_hero:HasModifier("modifier_spark_power") then
     spark = "modifier_spark_power"
   end
 
@@ -678,33 +698,50 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
       --new_hero:AddItem(shard)
       new_hero:AddNewModifier(new_hero, nil, "modifier_item_aghanims_shard", {})
     end
+    if moon_shard then
+      new_hero:AddNewModifier(new_hero, nil, "modifier_moonshard_consumed_oaa_ardm", {})
+    end
 
     -- Create new permanent modifiers for the new hero
     if duel_damage ~= 0 then
-      if not new_hero:HasModifier('modifier_legion_commander_duel_damage_oaa_ardm') then
-        local duel_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_legion_commander_duel_damage_oaa_ardm', {})
-        duel_modifier:SetStackCount(duel_damage)
+      if not new_hero:HasModifier("modifier_legion_commander_duel_damage_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_legion_commander_duel_damage_oaa_ardm", {})
+        mod:SetStackCount(duel_damage)
       end
     end
 
     if stolen_int ~= 0 then
-      if not new_hero:HasModifier('modifier_silencer_int_steal_oaa_ardm') then
-        local int_steal_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_silencer_int_steal_oaa_ardm', {})
-        int_steal_modifier:SetStackCount(stolen_int)
+      if not new_hero:HasModifier("modifier_silencer_int_steal_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_silencer_int_steal_oaa_ardm", {})
+        mod:SetStackCount(stolen_int)
       end
     end
 
     if flesh_heap ~= 0 then
-      if not new_hero:HasModifier('modifier_pudge_flesh_heap_oaa_ardm') then
-        local flesh_heap_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_pudge_flesh_heap_oaa_ardm', {})
-        flesh_heap_modifier:SetStackCount(flesh_heap)
+      if not new_hero:HasModifier("modifier_pudge_flesh_heap_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_pudge_flesh_heap_oaa_ardm", {})
+        mod:SetStackCount(flesh_heap)
       end
     end
 
     if essence_shift ~= 0 then
-      if not new_hero:HasModifier('modifier_slark_essence_shift_oaa_ardm') then
-        local flesh_heap_modifier = new_hero:AddNewModifier(new_hero, nil, 'modifier_slark_essence_shift_oaa_ardm', {})
-        flesh_heap_modifier:SetStackCount(essence_shift)
+      if not new_hero:HasModifier("modifier_slark_essence_shift_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_slark_essence_shift_oaa_ardm", {})
+        mod:SetStackCount(essence_shift)
+      end
+    end
+
+    if axe_armor_stacks ~= 0 then
+      if not new_hero:HasModifier("modifier_axe_armor_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_axe_armor_oaa_ardm", {})
+        mod:SetStackCount(axe_armor_stacks)
+      end
+    end
+
+    if necro_regen_stacks ~= 0 then
+      if not new_hero:HasModifier("modifier_necrophos_regen_oaa_ardm") then
+        local mod = new_hero:AddNewModifier(new_hero, nil, "modifier_necrophos_regen_oaa_ardm", {})
+        mod:SetStackCount(necro_regen_stacks)
       end
     end
 
@@ -721,7 +758,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
 
     -- Add ARDM modifier to the new hero
     if not new_hero:HasModifier("modifier_ardm") then
-      new_hero:AddNewModifier(new_hero, nil, 'modifier_ardm', {})
+      new_hero:AddNewModifier(new_hero, nil, "modifier_ardm", {})
     end
 
     -- Create new items for the new hero
@@ -734,7 +771,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
       if item_name then
         local new_item = CreateItem(item_name, new_hero, new_hero)
         new_hero:AddItem(new_item)
-        if new_item then
+        if new_item and not new_item:IsNull() then
           --new_item:SetStacksWithOtherOwners(true)
           -- Set purchaser
           if purchaser then
@@ -763,7 +800,7 @@ function ARDMMode:ReplaceHero(old_hero, new_hero_name)
       if item_name then
         local new_item = CreateItem(item_name, new_hero, new_hero)
         new_hero:AddItem(new_item)
-        if new_item then
+        if new_item and not new_item:IsNull() then
           -- Set purchaser
           if purchaser then
             new_item:SetPurchaser(purchaser)

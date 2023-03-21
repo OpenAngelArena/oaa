@@ -8,6 +8,7 @@ end
 function modifier_slark_essence_shift_oaa_ardm:IsDebuff()
   return false
 end
+
 function modifier_slark_essence_shift_oaa_ardm:IsPurgable()
   return false
 end
