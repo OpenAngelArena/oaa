@@ -128,20 +128,59 @@ function HideStrategy () {
   //   FindDotaHudElement(element).style.transform = 'translateY(0)';
   //   FindDotaHudElement(element).style.opacity = '1';
   // });
-  $('#OAAStrategy').style.opacity = 0;
-  $('#OAAStrategy').style.visibility = 'collapse';
-  $('#ARDMLoading').style.opacity = 0;
+
 }
 
 function CheckStrategy () {
-  if (Game.GameStateIsBefore(DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)) {
-    HideStrategy()
-  } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)) {
-    $('#OAAStrategy').style.opacity = 1;
-    $('#OAAStrategy').style.visibility = 'visible';
-    $('#ARDMLoading').style.opacity = 1;
-    changeHilariousLoadingText();
-  } else if (Game.GameStateIsAfter(DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)) {
-    HideStrategy()
+  if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)) {
+    // changeHilariousLoadingText();
+    const pregamePanel = FindDotaHudElement('PreGame');
+    $.Msg(pregamePanel);
+    // pregamePanel.style.zIndex = 10;
+    // pregamePanel.style.backgroundColor = 'transparent';
+    // const contentPanel = pregamePanel.FindChildTraverse('MainContents');
+    // if (contentPanel) {
+      // contentPanel.style.visibility = 'collapse';
+    // }
+    // const backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
+    // if (backgroundPanel) {
+      // backgroundPanel.style.visibility = 'collapse';
+    // }
+    // const backgroundDashboardPanel = pregamePanel.FindChildTraverse('PregameBG');
+    // if (backgroundDashboardPanel) {
+      // backgroundDashboardPanel.style.visibility = 'collapse';
+    // }
+    // const radiantTeamPanel = pregamePanel.FindChildTraverse('RadiantTeamPlayers');
+    // if (radiantTeamPanel) {
+      // radiantTeamPanel.style.visibility = 'collapse';
+    // }
+    // const direTeamPanel = pregamePanel.FindChildTraverse('DireTeamPlayers');
+    // if (direTeamPanel) {
+      // direTeamPanel.style.visibility = 'collapse';
+    // }
+    // const headerPanel = pregamePanel.FindChildTraverse('Header');
+    // if (headerPanel) {
+      // headerPanel.style.visibility = 'collapse';
+    // }
+    // const minimapPanel = pregamePanel.FindChildTraverse('PreMinimapContainer');
+    // if (minimapPanel) {
+      // minimapPanel.style.visibility = 'collapse';
+    // }
+    // const friendsAndFoesPanel = pregamePanel.FindChildTraverse('FriendsAndFoes');
+    // if (friendsAndFoesPanel) {
+      // friendsAndFoesPanel.style.visibility = 'collapse';
+    // }
+    // const panel2 = pregamePanel.FindChildTraverse('HeroPickingTeamComposition');
+    // if (panel2) {
+      // panel2.style.visibility = 'collapse';
+    // }
+    // const panel3 = pregamePanel.FindChildTraverse('PlusChallengeSelector');
+    // if (panel3) {
+      // panel3.style.visibility = 'collapse';
+    // }
+    // const panel4 = pregamePanel.FindChildTraverse('AvailableItemsContainer');
+    // if (panel4) {
+      // panel4.style.visibility = 'collapse';
+    // }
   }
 }
