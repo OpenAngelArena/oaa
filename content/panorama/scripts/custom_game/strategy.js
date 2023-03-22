@@ -35,7 +35,7 @@ function CheckStrategy () {
 
 function ShowStrategy () {
   const pregamePanel = FindDotaHudElement('PreGame');
-  pregamePanel.style.zIndex = 0;
+  pregamePanel.style.zIndex = 0; // changing zIndex back so the 'hovering tooltips' work normally
   const headerPanel = pregamePanel.FindChildTraverse('Header');
   if (headerPanel) {
     headerPanel.style.visibility = 'visible';
