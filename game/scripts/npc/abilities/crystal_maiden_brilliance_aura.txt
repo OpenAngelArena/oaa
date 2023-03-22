@@ -22,12 +22,12 @@
         "value"                                           "0.5 1.0 1.5 2.0 3.0 4.0"
         "special_bonus_unique_crystal_maiden_4"           "+0.5"
       }
-      "proximity_mana_regen_tooltip" //OAA, for picking screen tooltip
+      "proximity_mana_regen_tooltip" //OAA
       {
         "value"                                           "1.5 3.0 4.5 6.0 9.0 12.0"
         "special_bonus_unique_crystal_maiden_4"           "+1.5"
       }
-      "self_mana_regen_tooltip" //OAA, for picking screen tooltip
+      "self_mana_regen_tooltip" //OAA
       {
         "value"                                           "3.0 6.0 9.0 12.0 18.0 24.0"
         "special_bonus_unique_crystal_maiden_4"           "+3.0"
@@ -35,8 +35,8 @@
       "self_factor"                                       "6"
       "proximity_bonus_factor"                            "3"
       "proximity_bonus_radius"                            "1200"
-      "bonus_magic_resistance"                            "2 3 4 5 7 10" //OAA, for picking screen tooltip
-      "bonus_spell_amp"                                   "5 6 7 8 10 12" //OAA, for picking screen tooltip
+      "bonus_magic_resistance"                            "2 3 4 5 7 10" //OAA
+      "bonus_spell_amp"                                   "5 6 7 8 10 12" //OAA
     }
   }
 }

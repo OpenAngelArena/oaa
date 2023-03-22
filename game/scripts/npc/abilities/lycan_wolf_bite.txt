@@ -20,12 +20,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "300"
-    "AbilityCooldown"                                     "120 110 100 90 80" //OAA, not sure if this will work because it could be hardcoded to be the same as Shapeshift
+    "AbilityCooldown"                                     "120 110 100 90 80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
