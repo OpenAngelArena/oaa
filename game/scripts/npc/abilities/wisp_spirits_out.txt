@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5493"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5493"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
     "MaxLevel"                                            "6"
@@ -15,6 +15,5 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
-    "AbilityCastAnimation"                                "ACT_INVALID"
   }
 }

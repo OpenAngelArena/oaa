@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7853"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7853"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong
 
     "MaxLevel"                                            "5"
@@ -15,7 +15,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityChannelTime"                                  "1.5"
 
     // Time
