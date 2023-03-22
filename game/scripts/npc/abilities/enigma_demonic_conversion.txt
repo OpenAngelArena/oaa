@@ -19,11 +19,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35" //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "35" //OAA
     "AbilityDuration"                                     "40.0"
 
     // Cost
@@ -59,24 +58,24 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_dmg_tooltip"                             "24 32 40 48 96 192" //OAA, for picking screen tooltip
+        "eidolon_dmg_tooltip"                             "24 32 40 48 96 192" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "creep_max_level"                                 "7" //OAA, for picking screen tooltip
+        "creep_max_level"                                 "7" //OAA
       }
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_magic_resist_tooltip"                    "60" //OAA, for picking screen tooltip
+        "eidolon_magic_resist_tooltip"                    "60" //OAA
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_attack_range_tooltip"                    "500" //OAA, for picking screen tooltip
+        "eidolon_attack_range_tooltip"                    "500" //OAA
       }
     }
   }
