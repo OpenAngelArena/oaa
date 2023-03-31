@@ -40,4 +40,8 @@ function ShowStrategy () {
   if (headerPanel) {
     headerPanel.style.visibility = 'visible';
   }
+  const contentPanel = pregamePanel.FindChildTraverse('MainContents');
+  if (contentPanel) {
+    contentPanel.style.visibility = 'visible';
+  }
 }
