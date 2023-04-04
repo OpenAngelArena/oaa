@@ -9,14 +9,10 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/props_structures/tower_good.vmdl" // Model.
-    "SoundSet"                                            "Tower.Fire"                    // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "0"
-
-    "MinimapIcon"                                         ""
-    "MinimapIconSize"                                     ""
 
     // Abilities
     //----------------------------------------------------------------
@@ -28,14 +24,13 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "100"            // Physical protection.
-    "MagicalResistance"                                   "100"                                 // Magical protection (percentage).
+    "MagicalResistance"                                   "100"            // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
-    "AttackDamageMin"                                     "1000"      // Damage range min.
-    "AttackDamageMax"                                     "1000"      // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"                                     "1"      // Damage range min.
+    "AttackDamageMax"                                     "1"      // Damage range max.
     "AttackRate"                                          "2.0"           // Speed of attack.
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"       // Range within a target can be acquired.
@@ -58,21 +53,14 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
     "MovementSpeed"                                       "0"     // Speed
-    "MovementTurnRate"                                    "1.0"     // Turning rate.
+    "MovementTurnRate"                                    "1.0"   // Turning rate.
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "1"     // Base health
-    "StatusHealthRegen"                                   "35"        // Health regeneration rate.
+    "StatusHealthRegen"                                   "1"     // Health regeneration rate.
     "StatusMana"                                          "0"     // Base mana.
     "StatusManaRegen"                                     "0"     // Mana regeneration rate.
-
-    // Creature data
-    "Creature"
-    {
-      // Makes it only have 25% remaining of applied crowd control
-      "DisableResistance"                                 "75.0"
-    }
 
     // Team
     //----------------------------------------------------------------

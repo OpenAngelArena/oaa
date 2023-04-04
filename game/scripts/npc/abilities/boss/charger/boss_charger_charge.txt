@@ -6,7 +6,10 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/charger/boss_charger_charge.lua"
     "AbilityTextureName"                                  "magnataur_skewer"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "3"
     "RequiredLevel"                                       "1"
@@ -15,73 +18,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown"                                        "6 4 1" // Put cooldown in AbilitySpecial to avoid triggering cooldown on channel start
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "distance"                                        "1000"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_duration"                                 "2.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "20 25 35"
-      }
-
-      //----------------------------
-      // boss hits pillar without striking a hero
-      //----------------------------
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "debuff_duration"                                 "5.0 4.0 3.0"
-      }
-      //----------------------------
-      // hero is dragged into a pillar
-      //----------------------------
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_stun_duration"                              "2.0 2.75 3.5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hero_pillar_damage"                              "8000 9000 10000"
-      }
-      //----------------------------------
-      // Glancing blow, when the charger strikes a hero indirectly and pushes them away
-      //----------------------------------
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "glancing_damage"                                 "1000 1500 2000"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "glancing_slow"                                   "-30 -40 -50"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "glancing_duration"                               "1 2 3"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "glancing_width"                                  "200 250 300"
-      }
+      "cooldown"                                          "6 4 1" // Cooldown is triggered when channel ends instead of when channel starts
+      "distance"                                          "1000"
+      "charge_duration"                                   "2.0"
+      "speed"                                             "20 25 35"
+      "debuff_duration"                                   "5.0 4.0 3.0" // debuff duration on charger when charger hits a pillar without striking a hero
+      "hero_stun_duration"                                "2.0 2.75 3.5" // hero stun duration when charger drags a hero into a pillar
+      "hero_pillar_damage"                                "8000 9000 10000"
+      "glancing_damage"                                   "1000 1500 2000"
+      "glancing_slow"                                     "-30 -40 -50"
+      "glancing_duration"                                 "1 2 3"
+      "glancing_width"                                    "200 250 300"
     }
   }
 }
