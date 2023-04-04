@@ -278,6 +278,10 @@ function OAAOptions:OnUnitSpawn(event)
     return
   end
 
+  if npc.IsBaseNPC == nil or npc.HasModifier == nil or npc.GetUnitName == nil then
+    return
+  end
+
   if not npc:IsBaseNPC() then
     -- npc is not an npc
     return
