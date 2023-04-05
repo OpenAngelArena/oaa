@@ -3,33 +3,17 @@
     <include src="s2r://panorama/styles/dotastyles.vcss_c"/>
     <include src="file://{resources}/styles/play.css"/>
     <include src="file://{resources}/styles/custom_game/team_select.css" />
-    <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
   </styles>
 
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/team_select.js" />
+    <include src="file://{resources}/scripts/custom_game/team_select.js" /> <!-- this file doesn't exist, maybe it references something internally? -->
     <include src="file://{resources}/scripts/team_select.js" />
-    <include src="file://{resources}/scripts/game_length_options.js" />
   </scripts>
 
   <Panel hittest="false" class="TeamSelect">
     <Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">
       <!--Empty space to let the loading screen and chat be visible-->
       <Panel id="TeamsSelectEmptySpace">
-        <!-- <Panel id="GameLengthPicker">
-          <RadioButton class="GameLengthOption" group="GameLength" id="ShortGame" onactivate="SetPlayerVote('short')">
-            <Label class="title" text="#oaa_game_length_short_title" />
-            <Label class="description" text="#oaa_game_length_short" />
-          </RadioButton>
-          <RadioButton class="GameLengthOption" group="GameLength" id="NormalGame" onactivate="SetPlayerVote('normal')" checked="checked" >
-            <Label class="title" text="#oaa_game_length_normal_title" />
-            <Label class="description" text="#oaa_game_length_normal" />
-          </RadioButton>
-          <RadioButton class="GameLengthOption" group="GameLength" id="LongGame" onactivate="SetPlayerVote('long')">
-            <Label class="title" text="#oaa_game_length_long_title" />
-            <Label class="description" text="#oaa_game_length_long" />
-          </RadioButton>
-        </Panel> -->
           <Panel id="CustomSettingsID" class="CustomSettings">
             <Label id="Host" class="SettingsSubtitle" text="#game_options_host"/>
             <Panel id="SettingsBody" class="SettingsBody" enabled="false" hittest="false">

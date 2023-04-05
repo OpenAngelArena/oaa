@@ -4,7 +4,7 @@
     <include src="file://{resources}/styles/custom_game/need_greed_pass.css" />
   </styles>
   <scripts>
-      <include src="file://{resources}/scripts/need_greed_pass.js" />
+      <include src="file://{resources}/scripts/custom_game/need_greed_pass.js" />
   </scripts>
   <script>
   </script>
@@ -21,15 +21,15 @@
     </Panel>
     <Panel class="Buttons">
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('need')" class="NGPRadio Need">
-         <Label text="#ngp_need" /> 
+         <Label text="#ngp_need" />
         <Button />
       </RadioButton>
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('greed')" class="NGPRadio Greed">
-         <Label text="#ngp_greed" /> 
+         <Label text="#ngp_greed" />
         <Button />
       </RadioButton>
       <RadioButton group="NeedGreedPass1" onactivate="SelectNGP('pass')" class="NGPRadio Pass">
-         <Label text="#ngp_pass" /> 
+         <Label text="#ngp_pass" />
         <Button />
       </RadioButton>
     </Panel>
