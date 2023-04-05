@@ -52,9 +52,11 @@ end
 
 local function CheckIfUnitIsValidForTeleport(unit)
   if not unit or unit:IsNull() then
+    print("Duel Teleport: CheckIfUnitIsValidForTeleport is called for the entity that doesn't exist.")
     return false
   end
   if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+    print("Duel Teleport: CheckIfUnitIsValidForTeleport is called for the invalid entity.")
     return false
   end
   local name = unit:GetUnitName()
