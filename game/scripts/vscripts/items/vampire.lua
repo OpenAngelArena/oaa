@@ -2,8 +2,9 @@ item_vampire = class(TransformationBaseClass)
 
 local vampire = {}
 
-LinkLuaModifier( "modifier_item_vampire", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_vampire_active", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_item_vampire", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_vampire_active", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_vampire_active_detect_life_effect", "items/vampire.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -148,8 +149,38 @@ function modifier_item_vampire_active:IsDebuff()
   return false
 end
 
+-- this doesn't do anything since it's an aura, and auras are undispellable no matter what you set here
 function modifier_item_vampire_active:IsPurgable()
   return false
+end
+
+function modifier_item_vampire_active:IsAura()
+  return self:GetStackCount() == 0
+end
+
+function modifier_item_vampire_active:GetModifierAura()
+  return "modifier_item_vampire_active_detect_life_effect"
+end
+
+function modifier_item_vampire_active:GetAuraRadius()
+  if self:GetStackCount() == 1 then
+    return 1
+  else
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      return ability:GetSpecialValueFor("night_thirst_radius")
+    else
+      return 1200
+    end
+  end
+end
+
+function modifier_item_vampire_active:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_ENEMY
+end
+
+function modifier_item_vampire_active:GetAuraSearchType()
+  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
 function modifier_item_vampire_active:OnCreated()
@@ -168,6 +199,11 @@ function modifier_item_vampire_active:OnCreated()
     if self.nPreviewFX == nil then
       self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     end
+    if not GameRules:IsDaytime() then
+      self:SetStackCount(0)
+    else
+      self:SetStackCount(1)
+    end
   end
 end
 
@@ -183,14 +219,23 @@ end
 
 function modifier_item_vampire_active:OnIntervalThink()
   if IsServer() then
+    -- Don't do damage during the night
+    if not GameRules:IsDaytime() then
+      self:SetStackCount(0)
+      return
+    else
+      self:SetStackCount(1)
+    end
     local parent = self:GetParent()
     local spell = self:GetAbility()
-    if not spell then
+    if not spell or spell:IsNull() then
       if not self:IsNull() then
+        self:StartIntervalThink(-1)
         self:Destroy()
       end
       return
     end
+
     local damage = parent:GetHealth() * spell:GetSpecialValueFor('damage_per_second_pct') / 100
     damage = damage / spell:GetSpecialValueFor('ticks_per_second')
 
@@ -209,25 +254,26 @@ end
 
 function modifier_item_vampire_active:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_DISABLE_HEALING,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
-if IsServer() then
-  function modifier_item_vampire_active:GetDisableHealing( kv )
-    -- Don't disable healing during the night
-    if not GameRules:IsDaytime() then
-      return 0
+function modifier_item_vampire_active:GetModifierPreAttack_BonusDamage()
+  if self:GetStackCount() == 1 then
+    return 0
+  else
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      return ability:GetSpecialValueFor("night_bonus_damage")
+    else
+      return 110
     end
-    -- Check that event is being called for the unit that self is attached to
-    if self.isVampHeal then
-      return 0
-    end
-    return 1
   end
+end
 
+if IsServer() then
   -- Have to check for process_procs flag in OnAttackLanded as the flag won't be set in OnTakeDamage
   function modifier_item_vampire_active:OnAttackLanded(event)
     local parent = self:GetParent()
@@ -356,5 +402,35 @@ if IsServer() then
 end
 
 function modifier_item_vampire_active:GetTexture()
+  return "custom/vampire_2_active"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_vampire_active_detect_life_effect = class(ModifierBaseClass)
+
+function modifier_item_vampire_active_detect_life_effect:IsHidden()
+  return false
+end
+
+function modifier_item_vampire_active_detect_life_effect:IsDebuff()
+  return true
+end
+
+function modifier_item_vampire_active_detect_life_effect:IsPurgable()
+  return false
+end
+
+function modifier_item_vampire_active_detect_life_effect:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+	}
+end
+
+function modifier_item_vampire_active_detect_life_effect:GetModifierProvidesFOWVision()
+	return 1
+end
+
+function modifier_item_vampire_active_detect_life_effect:GetTexture()
   return "custom/vampire_2_active"
 end
