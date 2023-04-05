@@ -139,7 +139,7 @@ if IsServer() then
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})
 
       -- If current_health_pct < health_threshold_pct then hp = current_health; If current_health_pct > health_threshold_pct then hp = max_hp * health_threshold_pct
-      parent:SetHealth(math.min(current_health, parent:GetMaxHealth() * health_threshold_pct))
+      parent:SetHealth(math.max(1, math.min(current_health, parent:GetMaxHealth() * health_threshold_pct)))
 
       -- Start cooldown, spend mana
       ability:UseResources(true, true, true)
