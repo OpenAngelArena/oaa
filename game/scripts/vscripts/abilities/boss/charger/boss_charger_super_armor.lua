@@ -34,35 +34,33 @@ function modifier_boss_charger_super_armor:DeclareFunctions()
   }
 end
 
-function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(event)
-  if not IsServer() then
-    return
+if IsServer() then
+  function modifier_boss_charger_super_armor:GetModifierTotal_ConstantBlock(event)
+    local parent = self:GetParent()
+
+    if parent:HasModifier("modifier_boss_charger_pillar_debuff") then
+      return 0
+    end
+
+    local tier = parent.BossTier or 2
+    local aggro_factor = BOSS_AGRO_FACTOR or 15
+    local current_hp_pct = parent:GetHealth() / parent:GetMaxHealth()
+    local aggro_hp_pct = math.min(1 - ((tier * aggro_factor) / parent:GetMaxHealth()), 99/100)
+
+    if current_hp_pct >= aggro_hp_pct then
+      return 0
+    end
+
+    local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+    local blockAmount = event.damage * damageReduction / 100
+
+    if blockAmount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
+    end
+
+    return blockAmount
   end
-
-  local parent = self:GetParent()
-
-  if parent:HasModifier("modifier_boss_charger_pillar_debuff") then
-    return 0
-  end
-
-  local tier = parent.BossTier or 2
-  local aggro_factor = BOSS_AGRO_FACTOR or 15
-  local current_hp_pct = parent:GetHealth() / parent:GetMaxHealth()
-  local aggro_hp_pct = math.min(1 - ((tier * aggro_factor) / parent:GetMaxHealth()), 99/100)
-
-  if current_hp_pct >= aggro_hp_pct then
-    return 0
-  end
-
-  local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
-  local blockAmount = event.damage * damageReduction / 100
-
-  if blockAmount > 0 then
-    -- Visual effect (TODO: add unique visual effect)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
-  end
-
-  return blockAmount
 end
 
 function modifier_boss_charger_super_armor:GetPriority()
@@ -75,6 +73,9 @@ function modifier_boss_charger_super_armor:CheckState()
     [MODIFIER_STATE_FROZEN] = false,
     [MODIFIER_STATE_FEARED] = false,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_TETHERED] = false,
+    [MODIFIER_STATE_UNSLOWABLE] = true,
   }
 
   if not parent:HasModifier("modifier_boss_charger_pillar_debuff") then

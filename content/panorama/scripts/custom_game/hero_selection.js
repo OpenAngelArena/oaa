@@ -676,10 +676,13 @@ function EnableChatWindow () {
   const pregamePanel = FindDotaHudElement('PreGame');
   pregamePanel.style.zIndex = 10;
   pregamePanel.style.backgroundColor = 'transparent';
-  // const contentPanel = pregamePanel.FindChildTraverse('MainContents');
-  const contentPanel = pregamePanel.FindChildTraverse('HeroPickScreenContents');
+  const contentPanel = pregamePanel.FindChildTraverse('MainContents');
   if (contentPanel) {
     contentPanel.style.visibility = 'collapse';
+  }
+  const vanillaPickingScreen = pregamePanel.FindChildTraverse('HeroPickScreenContents');
+  if (vanillaPickingScreen) {
+    vanillaPickingScreen.style.visibility = 'collapse';
   }
   const backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
   if (backgroundPanel) {
@@ -734,10 +737,10 @@ function EnableChatWindow () {
   if (strategyTeamCompPanel) {
     strategyTeamCompPanel.style.visibility = 'collapse';
   }
-  const startingItemsPanel = pregamePanel.FindChildTraverse('StartingItems');
-  if (startingItemsPanel) {
-    startingItemsPanel.style.visibility = 'collapse';
-  }
+  // const startingItemsPanel = pregamePanel.FindChildTraverse('StartingItems');
+  // if (startingItemsPanel) {
+  // startingItemsPanel.style.visibility = 'collapse';
+  // }
   const strategyHeroRelics = pregamePanel.FindChildTraverse('StrategyHeroRelicsThumbnail');
   const strategyHeroRelics2 = pregamePanel.FindChildTraverse('StrategyHeroRelicsThumbnailTooltips');
   const strategyHeroRelics3 = pregamePanel.FindChildTraverse('HeroRelicsContainer');
@@ -753,6 +756,10 @@ function EnableChatWindow () {
   const strategyHeroBadgePanel = pregamePanel.FindChildTraverse('StrategyHeroBadge');
   if (strategyHeroBadgePanel) {
     strategyHeroBadgePanel.style.visibility = 'collapse';
+  }
+  const strategyBacktoHeroGridButton = pregamePanel.FindChildTraverse('BacktoHeroGrid');
+  if (strategyBacktoHeroGridButton) {
+    strategyBacktoHeroGridButton.style.visibility = 'collapse';
   }
 }
 

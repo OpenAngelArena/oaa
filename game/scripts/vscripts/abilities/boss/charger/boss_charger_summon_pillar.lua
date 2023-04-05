@@ -9,7 +9,6 @@ function boss_charger_summon_pillar:OnSpellStart()
   local tower = CreateUnitByName("npc_dota_boss_charger_pillar", cursorPosition, true, caster, caster:GetOwner(), caster:GetTeam())
 
   tower:AddNewModifier(caster, self, "modifier_charger_pillar_passive", {})
-  tower:AddNewModifier(caster, self, "modifier_invulnerable", {})
 
   if caster.GetPlayerID then
     tower:SetControllableByPlayer(caster:GetPlayerID(), false)
@@ -60,7 +59,8 @@ function modifier_charger_pillar_passive:GetAbsoluteNoDamagePure()
 end
 
 function modifier_charger_pillar_passive:CheckState()
-  local state = {
+  return {
+    [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
@@ -73,5 +73,4 @@ function modifier_charger_pillar_passive:CheckState()
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
   }
-  return state
 end

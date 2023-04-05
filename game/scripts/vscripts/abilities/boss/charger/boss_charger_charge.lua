@@ -10,27 +10,29 @@ function boss_charger_charge:OnSpellStart()
   self:GetCaster():EmitSound("Boss_Charger.Charge.Begin")
 end
 
-function boss_charger_charge:OnChannelFinish(interrupted) --You misspelled "Interrupted"
+function boss_charger_charge:OnChannelFinish(interrupted)
   local caster = self:GetCaster()
+  local cooldown = self:GetSpecialValueFor("cooldown")
+
   if interrupted then
-    self:StartCooldown(self:GetSpecialValueFor("cooldown") / 2)
+    self:StartCooldown(cooldown / 2)
     caster:StopSound("Boss_Charger.Charge.Begin")
     return
   end
-  self:StartCooldown(self:GetSpecialValueFor("cooldown"))
+  self:StartCooldown(cooldown)
 
-  caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {
-    duration = self:GetSpecialValueFor( "charge_duration" )
-  })
+  caster:AddNewModifier(caster, self, "modifier_boss_charger_charge", {duration = self:GetSpecialValueFor("charge_duration")})
 
   caster:EmitSound("Boss_Charger.Charge.Movement")
-
-  return true
 end
 
 function boss_charger_charge:OnOwnerDied()
   self:GetCaster():StopSound("Boss_Charger.Charge.Movement")
 end
+
+---------------------------------------------------------------------------------------------------
+
+boss_charger_charge_tier5 = boss_charger_charge
 
 ---------------------------------------------------------------------------------------------------
 
@@ -140,9 +142,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
 
     if #self.draggedHeroes > 0 then
       iter(self.draggedHeroes):each(function (hero)
-        hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {
-          duration = self.hero_stun_duration
-        })
+        hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = self.hero_stun_duration})
 
         ApplyDamage({
           victim = hero,
@@ -154,9 +154,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
         })
       end)
     else
-      caster:AddNewModifier(caster, caster:FindAbilityByName("boss_charger_super_armor"), "modifier_boss_charger_pillar_debuff", {
-        duration = self.debuff_duration
-      })
+      caster:AddNewModifier(caster, caster:FindAbilityByName("boss_charger_super_armor"), "modifier_boss_charger_pillar_debuff", {duration = self.debuff_duration})
     end
 
     caster:EmitSound("Boss_Charger.Charge.TowerImpact")
@@ -195,7 +193,6 @@ function modifier_boss_charger_charge:OnCreated(keys)
   self.distance_traveled = 0
   self.max_distance = ability:GetSpecialValueFor( "distance" )
   self.debuff_duration = ability:GetSpecialValueFor( "debuff_duration" )
-  self.debuff_duration = ability:GetSpecialValueFor( "debuff_duration" )
   self.hero_stun_duration = ability:GetSpecialValueFor( "hero_stun_duration" )
   self.hero_pillar_damage = ability:GetSpecialValueFor( "hero_pillar_damage" )
   self.glancing_damage = ability:GetSpecialValueFor( "glancing_damage" )
@@ -218,12 +215,9 @@ function modifier_boss_charger_glanced:IsPurgable()
 end
 
 function modifier_boss_charger_glanced:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_boss_charger_glanced:GetModifierMoveSpeedBonus_Percentage()
