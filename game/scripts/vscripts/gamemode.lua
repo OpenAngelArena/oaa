@@ -237,6 +237,9 @@ function GameMode:InitGameMode()
     Convars:SetInt('tv_delay', 60)
   end
 
+  -- Reduce taunt secondary cooldown
+  Convars:SetFloat('dota_taunt_second_cooldown', 13)
+
   DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
 
   OnInitGameModeEvent()
