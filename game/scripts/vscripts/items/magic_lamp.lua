@@ -62,10 +62,27 @@ end
 
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local ability = self:GetAbility()
-    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() and not self:GetParent():HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
+    local parent = self:GetParent()
+
+    -- Don't trigger for illusions
+    if parent:IsIllusion() then
+      return
+    end
+
+    -- Don't trigger if item is not in the inventory
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    if ability:IsCooldownReady() and ability:IsOwnersManaEnough() and not parent:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
       return 1
     end
+
     return
   end
 

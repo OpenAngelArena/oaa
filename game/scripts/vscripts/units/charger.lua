@@ -155,6 +155,5 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
   phaseController:SetPhases({ 66, 33 })
   phaseController:SetAbilities({
     chargeAbilityName,
-    "boss_charger_super_armor"
   })
 end

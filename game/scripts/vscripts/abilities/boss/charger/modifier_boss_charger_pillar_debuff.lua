@@ -24,10 +24,12 @@ function modifier_boss_charger_pillar_debuff:IsStunDebuff()
 end
 
 if IsServer() then
-  function modifier_boss_charger_pillar_debuff:OnCreated(keys)
+  function modifier_boss_charger_pillar_debuff:OnCreated()
     local ability = self:GetAbility()
-    ParticleManager:DestroyParticle(ability.shieldParticle, false)
-    ParticleManager:ReleaseParticleIndex(ability.shieldParticle)
+    if ability.shieldParticle then
+      ParticleManager:DestroyParticle(ability.shieldParticle, false)
+      ParticleManager:ReleaseParticleIndex(ability.shieldParticle)
+    end
   end
 
   function modifier_boss_charger_pillar_debuff:OnDestroy()
@@ -45,17 +47,15 @@ function modifier_boss_charger_pillar_debuff:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_boss_charger_pillar_debuff:GetOverrideAnimation( params )
+function modifier_boss_charger_pillar_debuff:GetOverrideAnimation()
   return ACT_DOTA_DISABLED
 end
 
 function modifier_boss_charger_pillar_debuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_STUNNED] = true,
     [MODIFIER_STATE_PASSIVES_DISABLED] = true,
     [MODIFIER_STATE_BLOCK_DISABLED] = true,
-    [MODIFIER_STATE_EVADE_DISABLED] = true
+    [MODIFIER_STATE_EVADE_DISABLED] = true,
   }
-
-  return state
 end
