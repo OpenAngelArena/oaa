@@ -66,6 +66,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@transifex/api@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@transifex/api/-/api-5.2.0.tgz#e116d34e73c5da0c325f4a7ddadadff2c28d85d7"
+  integrity sha512-DAdMNRUtQ4sqUiicDDt2V6bd27PFtiFC9eVYwjuollkaj5ZDRWZFtNbS5Kg2YnWQcPB/CUfTamcOrM4D/sZtxw==
+  dependencies:
+    core-js "^3.22.4"
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -237,10 +244,10 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz#483143c567aeed4785759c0865786dc77d7d2e31"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-async-each@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.3.tgz#b727dbf87d7651602f06f4d4ac387f47d91b0cbf"
-  integrity sha512-z/WhQ5FPySLdvREByI2vZiTWwCnF0moMJ1hK9YQwDTHKh6I7/uSckMetoRGb5UBZPC1z0jlw+n/XCgjeH7y1AQ==
+async-each@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.6.tgz#52f1d9403818c179b7561e11a5d1b77eb2160e77"
+  integrity sha512-c646jH1avxr+aVpndVMeAfYw7wAa6idufrlN3LPA4PmKS0QEGp6PIC9nwz0WQkkvBGAMEki3pFdtxaF39J9vvg==
 
 async@^3.1.0:
   version "3.2.4"
@@ -432,6 +439,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
+core-js@^3.22.4:
+  version "3.30.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.30.0.tgz#64ac6f83bc7a49fd42807327051701d4b1478dea"
+  integrity sha512-hQotSSARoNh1mYPi9O2YaWeiq/cEB95kOrFb4NCrO4RIFt1qqNpKsaE+vy/L3oiqvND5cThqXzUU3r9F7Efztg==
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -520,9 +532,10 @@ define-properties@^1.1.4:
     has-property-descriptors "^1.0.0"
     object-keys "^1.1.1"
 
-defined@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
+defined@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.1.tgz#c0b9db27bfaffd95d6f61399419b893df0f91ebf"
+  integrity sha512-hsBd2qSVCRE+5PmNdHt1uzyrFu5d3RwmFDKzyNZMFq/EwDNJF7Ee5+D5oEKF0hU6LhtoUF1macFvOe4AskQC1Q==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -1700,10 +1713,15 @@ minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
-minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6, minimist@~1.2.6:
+minimist@^1.2.0, minimist@^1.2.5, minimist@^1.2.6:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
+
+minimist@~1.2.7:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 mkdirp@0.5.1:
   version "0.5.1"
@@ -1782,7 +1800,7 @@ object-inspect@^1.12.0, object-inspect@^1.9.0:
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.12.0.tgz#6e2c120e868fd1fd18cb4f18c31741d0d6e776f0"
   integrity sha512-Ho2z80bVIvJloH+YzRmpZVQe87+qASmBUKZDWgx9cu+KDrX2ZDH/3tMy+gXbZETVGs2M8YdxObOh7XAtim9Y0g==
 
-object-inspect@^1.12.2, object-inspect@~1.12.2:
+object-inspect@^1.12.2:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.12.2.tgz#c0641f26394532f28ab8d796ab954e43c009a8ea"
   integrity sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==
@@ -1791,6 +1809,11 @@ object-inspect@^1.8.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.9.0.tgz#c90521d74e1127b67266ded3394ad6116986533a"
   integrity sha512-i3Bp9iTqwhaLZBxGkRfo5ZbE07BQRT7MGu8+nNgwW9ItGp1TzCTw2DLEoWwjClxBjOFI/hWljTAmYGCEwmtnOw==
+
+object-inspect@~1.12.3:
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.12.3.tgz#ba62dffd67ee256c8c086dfae69e016cd1f198b9"
+  integrity sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==
 
 object-is@^1.0.1:
   version "1.1.4"
@@ -2431,7 +2454,7 @@ string.prototype.matchall@^4.0.2:
     regexp.prototype.flags "^1.4.1"
     side-channel "^1.0.4"
 
-string.prototype.trim@~1.2.6:
+string.prototype.trim@~1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/string.prototype.trim/-/string.prototype.trim-1.2.7.tgz#a68352740859f6893f14ce3ef1bb3037f7a90533"
   integrity sha512-p6TmeT1T3411M8Cgg9wBTMRtY2q9+PNy9EV1i2lIXUN/btt763oIfxwN3RR8VU6wHX8j/1CFy0L+YuThm6bgOg==
@@ -2606,25 +2629,25 @@ tap-summary@^3.0.2:
     pretty-ms "^2.1.0"
     tap-out "^1.4.1"
 
-tape@^4.16.1:
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/tape/-/tape-4.16.1.tgz#8d511b3a0be1a30441885972047c1dac822fd9be"
-  integrity sha512-U4DWOikL5gBYUrlzx+J0oaRedm2vKLFbtA/+BRAXboGWpXO7bMP8ddxlq3Cse2bvXFQ0jZMOj6kk3546mvCdFg==
+tape@^4.16.2:
+  version "4.16.2"
+  resolved "https://registry.yarnpkg.com/tape/-/tape-4.16.2.tgz#7565e6af20426565557266e9dda7215869b297b6"
+  integrity sha512-TUChV+q0GxBBCEbfCYkGLkv8hDJYjMdSWdE0/Lr331sB389dsvFUHNV9ph5iQqKzt8Ss9drzcda/YeexclBFqg==
   dependencies:
     call-bind "~1.0.2"
     deep-equal "~1.1.1"
-    defined "~1.0.0"
+    defined "~1.0.1"
     dotignore "~0.1.2"
     for-each "~0.3.3"
     glob "~7.2.3"
     has "~1.0.3"
     inherits "~2.0.4"
     is-regex "~1.1.4"
-    minimist "~1.2.6"
-    object-inspect "~1.12.2"
+    minimist "~1.2.7"
+    object-inspect "~1.12.3"
     resolve "~1.22.1"
     resumer "~0.0.0"
-    string.prototype.trim "~1.2.6"
+    string.prototype.trim "~1.2.7"
     through "~2.3.8"
 
 text-table@^0.2.0:
