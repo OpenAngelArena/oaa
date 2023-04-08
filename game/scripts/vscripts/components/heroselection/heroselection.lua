@@ -913,7 +913,7 @@ end
 function HeroSelection:GetPreviewHero (playerId)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
   local team = tostring(PlayerResource:GetTeam(playerId))
-  local steamid = PlayerResource:GetSteamAccountID(playerId)
+  local steamid = tostring(PlayerResource:GetSteamAccountID(playerId))
   if previewTable[team] and previewTable[team][steamid] then
     return previewTable[team][steamid]
   end
@@ -1010,7 +1010,7 @@ function HeroSelection:HeroPreview (event)
   if not previewTable[teamID] then
     previewTable[teamID] = {}
   end
-  previewTable[teamID][PlayerResource:GetSteamAccountID(event.PlayerID)] = event.hero
+  previewTable[teamID][tostring(PlayerResource:GetSteamAccountID(event.PlayerID))] = event.hero
   CustomNetTables:SetTableValue('hero_selection', 'preview_table', previewTable)
 end
 
@@ -1074,7 +1074,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   end
   selectedtable[playerID].selectedhero = hero
   selectedtable[playerID].team = teamID
-  selectedtable[playerID].steamid = PlayerResource:GetSteamAccountID(playerID)
+  selectedtable[playerID].steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
   -- if everyone has picked, stop
   local isanyempty = false
