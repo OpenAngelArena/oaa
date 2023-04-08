@@ -97,20 +97,20 @@ function MMRShuffle:Shuffle (aNumber, event)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
   end
 
-  local function ConnectionStateName (state)
-    if state == DOTA_CONNECTION_STATE_UNKNOWN then
+  local function ConnectionStateName (cn_state)
+    if cn_state == DOTA_CONNECTION_STATE_UNKNOWN then
       return "Unknown"
-    elseif state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
+    elseif cn_state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
       return "Not yet connected"
-    elseif state == DOTA_CONNECTION_STATE_CONNECTED then
+    elseif cn_state == DOTA_CONNECTION_STATE_CONNECTED then
       return "Connected"
-    elseif state == DOTA_CONNECTION_STATE_DISCONNECTED then
+    elseif cn_state == DOTA_CONNECTION_STATE_DISCONNECTED then
       return "Disconnected"
-    elseif state == DOTA_CONNECTION_STATE_ABANDONED then
+    elseif cn_state == DOTA_CONNECTION_STATE_ABANDONED then
       return "Abandoned"
-    elseif state == DOTA_CONNECTION_STATE_LOADING then
+    elseif cn_state == DOTA_CONNECTION_STATE_LOADING then
       return "Loading"
-    elseif state == DOTA_CONNECTION_STATE_FAILED then
+    elseif cn_state == DOTA_CONNECTION_STATE_FAILED then
       return "Failed"
     end
     return "???"
