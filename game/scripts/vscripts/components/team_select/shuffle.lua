@@ -96,13 +96,41 @@ function MMRShuffle:Shuffle (aNumber, event)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
   end
 
+  local function ConnectionStateName (state)
+    if state == DOTA_CONNECTION_STATE_UNKNOWN then
+      return "Unknown"
+    elseif state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
+      return "Not yet connected"
+    elseif state == DOTA_CONNECTION_STATE_CONNECTED then
+      return "Connected"
+    elseif state == DOTA_CONNECTION_STATE_DISCONNECTED then
+      return "Disconnected"
+    elseif state == DOTA_CONNECTION_STATE_ABANDONED then
+      return "Abandoned"
+    elseif state == DOTA_CONNECTION_STATE_LOADING then
+      return "Loading"
+    elseif state == DOTA_CONNECTION_STATE_FAILED then
+      return "Failed"
+    end
+    return "???"
+  end
+
   DebugPrint("All playerIDs:")
   if next(playerIds) == nil then
     DebugPrint("empty")
   end
   for k, v in pairs(playerIds) do
     DebugPrint(k, v)
-    DebugPrint(tostring(PlayerResource:GetSteamAccountID(v)))
+    DebugPrint("Player "..tostring(v).." SteamID 32: "..tostring(PlayerResource:GetSteamAccountID(v)))
+    DebugPrint("Player "..tostring(v).." SteamID 64: "..tostring(PlayerResource:GetSteamID(v)))
+    DebugPrint("Player "..tostring(v).." Connection State: "..ConnectionStateName(PlayerResource:GetConnectionState(v)))
+    DebugPrint("Player "..tostring(v).." Player Entity is: "..tostring(PlayerResource:GetPlayer(v)))
+    DebugPrint("Player "..tostring(v).." IsValidPlayer: "..tostring(PlayerResource:IsValidPlayer(v)))
+    DebugPrint("Player "..tostring(v).." IsValidPlayerID: "..tostring(PlayerResource:IsValidPlayerID(v)))
+    --DebugPrint("Player "..tostring(v).." IsValidTeamPlayer: "..tostring(PlayerResource:IsValidTeamPlayer(v)))
+    --DebugPrint("Player "..tostring(v).." IsValidTeamPlayerID: "..tostring(PlayerResource:IsValidTeamPlayerID(v)))
+    DebugPrint("Player "..tostring(v).." IsFakeClient: "..tostring(PlayerResource:IsFakeClient(v)))
+    DebugPrint("Player "..tostring(v).." IsBroadcaster: "..tostring(PlayerResource:IsBroadcaster(v)))
   end
 
   while #playerIds > 0 do
