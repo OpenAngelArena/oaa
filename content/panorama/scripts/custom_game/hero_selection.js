@@ -348,11 +348,11 @@ function onPlayerStatChange (table, key, data) {
             currentteam = teamdire;
             break;
         }
-		if (currentteam === null) {
+        if (currentteam === null) {
           $.Msg('currentteam is null, possible black box player detected. data[nkey].team is:');
           $.Msg(data[nkey].team);
-		  $.Msg(data[nkey]);
-		} else {
+          $.Msg(data[nkey]);
+        } else {
           const newelement = $.CreatePanel('Panel', currentteam, '');
           newelement.AddClass('Player');
           newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
@@ -594,7 +594,7 @@ function UpdatedRankedPickState (data) {
       break;
     case 'picking':
       isBanning = false;
-	  if (order !== undefined) {
+      if (order !== undefined) {
         if (order.team === teamID) {
           isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
           herolocked = !isPicking;
@@ -610,7 +610,7 @@ function UpdatedRankedPickState (data) {
       } else {
         $.Msg('Order is undefined, possible black box player detected. data.order is:');
         $.Msg(data.order);
-	  }
+      }
 
       canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true' && iscm === false;
 
@@ -801,9 +801,9 @@ function UpdatePreviews (data) {
   });
   Object.keys(heroesBySteamid).forEach(function (steamid) {
     const player = FindDotaHudElement(steamid);
-	if (player) {
+    if (player) {
       ChangeHeroImage(player, heroesBySteamid[steamid]);
-	}
+    }
   });
 }
 
