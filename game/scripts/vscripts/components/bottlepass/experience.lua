@@ -6,9 +6,9 @@ function Bottlepass:SendEndGameStats()
   local playerStats = {}
 
   local players = {}
-  for i = 0, PlayerResource:GetPlayerCount() - 1 do
-    players[i] = PlayerResource:GetPlayer(i)
-  end
+  PlayerResource:GetAllTeamPlayerIDs():each(function(id)
+    players[id] = PlayerResource:GetPlayer(id)
+  end)
 
   for k, v in pairs(players) do
     -- local level = Bottlepass:GetXPLevelByXp(v.xp)
@@ -32,7 +32,7 @@ function Bottlepass:SendEndGameStats()
         progress = progress
       }
     end
-    if PlayerResource:IsValidPlayerID(k) then
+    if PlayerResource:IsValidPlayerID(k) and PlayerResource:IsValidPlayer(k) then
       playerStats[k] = {
         damage_dealt = PlayerResource:GetRawPlayerDamage(k),
         damage_taken = PlayerResource:GetCreepDamageTaken(k, true) + PlayerResource:GetHeroDamageTaken(k, true),

@@ -44,7 +44,7 @@ function MMRShuffle:AverageMMR (teamIds, extraPlayer)
   if playerCount == 0 then
     return total
   end
-  for _,playerId in ipairs(teamIds) do
+  for _, playerId in ipairs(teamIds) do
     total = total + self:GetMMR(playerId)
   end
 
@@ -55,7 +55,7 @@ local fakeMMR = {}
 function MMRShuffle:GetMMR (playerId)
   local steamid = tostring(PlayerResource:GetSteamAccountID(playerId))
   local mmr
-  if Bottlepass.userData then
+  if Bottlepass.userData and steamid ~= "0" then
     mmr = Bottlepass.userData[steamid].unrankedMMR
   end
   if not mmr then
@@ -85,13 +85,14 @@ function MMRShuffle:Shuffle (aNumber, event)
   local radPlayerIds = {}
   local direPlayerIds = {}
 
+  local allPlayerIds = totable(PlayerResource:GetAllPlayerIDs())
   local playerIds = totable(PlayerResource:GetAllTeamPlayerIDs())
   local totalPlayers = #playerIds
 
   DebugPrint('total players! ' .. totalPlayers)
 
-  -- no team first
-  for _, playerId in ipairs(playerIds) do
+  -- no team first for all IDs
+  for _, playerId in ipairs(allPlayerIds) do
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
   end
@@ -116,21 +117,16 @@ function MMRShuffle:Shuffle (aNumber, event)
   end
 
   DebugPrint("All playerIDs:")
-  if next(playerIds) == nil then
+  if next(allPlayerIds) == nil then
     DebugPrint("empty")
   end
-  for k, v in pairs(playerIds) do
+  for k, v in pairs(allPlayerIds) do
     DebugPrint(k, v)
     DebugPrint("Player "..tostring(v).." SteamID 32: "..tostring(PlayerResource:GetSteamAccountID(v)))
     DebugPrint("Player "..tostring(v).." SteamID 64: "..tostring(PlayerResource:GetSteamID(v)))
     DebugPrint("Player "..tostring(v).." Connection State: "..ConnectionStateName(PlayerResource:GetConnectionState(v)))
     DebugPrint("Player "..tostring(v).." Player Entity is: "..tostring(PlayerResource:GetPlayer(v)))
-    DebugPrint("Player "..tostring(v).." IsValidPlayer: "..tostring(PlayerResource:IsValidPlayer(v)))
-    DebugPrint("Player "..tostring(v).." IsValidPlayerID: "..tostring(PlayerResource:IsValidPlayerID(v)))
-    --DebugPrint("Player "..tostring(v).." IsValidTeamPlayer: "..tostring(PlayerResource:IsValidTeamPlayer(v)))
-    --DebugPrint("Player "..tostring(v).." IsValidTeamPlayerID: "..tostring(PlayerResource:IsValidTeamPlayerID(v)))
     DebugPrint("Player "..tostring(v).." IsFakeClient: "..tostring(PlayerResource:IsFakeClient(v)))
-    DebugPrint("Player "..tostring(v).." IsBroadcaster: "..tostring(PlayerResource:IsBroadcaster(v)))
   end
 
   while #playerIds > 0 do
@@ -155,24 +151,6 @@ function MMRShuffle:Shuffle (aNumber, event)
     end
   end
 
-  DebugPrint("Radiant playerIDs before swapPlayers:")
-  if next(radPlayerIds) == nil then
-    DebugPrint("empty")
-  end
-  for k, v in pairs(radPlayerIds) do
-    DebugPrint(k, v)
-  end
-
-  DebugPrint("Dire playerIDs before swapPlayers:")
-  if next(direPlayerIds) == nil then
-    DebugPrint("empty")
-  end
-  for k, v in pairs(direPlayerIds) do
-    DebugPrint(k, v)
-  end
-
-  DebugPrint("If both tables ^ are empty, while loop is never happening")
-
   local direPreswap = direMMR / direTeam
   local radPreswap = radMMR / radTeam
   local diffPreswap = math.abs(direPreswap - radPreswap)
@@ -180,7 +158,7 @@ function MMRShuffle:Shuffle (aNumber, event)
 
   local function without (teamIds, excluded)
     local newList = {}
-    for _,playerId in ipairs(teamIds) do
+    for _, playerId in ipairs(teamIds) do
       if playerId ~= excluded then
         table.insert(newList, playerId)
       end
@@ -198,10 +176,10 @@ function MMRShuffle:Shuffle (aNumber, event)
     table.insert(direPlayerIds, radPlayer)
   end
 
-  for i = 1,#radPlayerIds do
+  for i = 1, #radPlayerIds do
     local playerId = radPlayerIds[i]
     local newRad = without(radPlayerIds, playerId)
-    for j = 1,#direPlayerIds do
+    for j = 1, #direPlayerIds do
       local otherPlayerId = direPlayerIds[j]
       local newDire = without(direPlayerIds, otherPlayerId)
       local newDireMMR = self:AverageMMR(newDire, playerId)
@@ -214,22 +192,6 @@ function MMRShuffle:Shuffle (aNumber, event)
         newRad = without(radPlayerIds, playerId)
       end
     end
-  end
-
-  DebugPrint("Radiant playerIDs after swapPlayers:")
-  if next(radPlayerIds) == nil then
-    DebugPrint("empty")
-  end
-  for k, v in pairs(radPlayerIds) do
-    DebugPrint(k, v)
-  end
-
-  DebugPrint("Dire playerIDs after swapPlayers:")
-  if next(direPlayerIds) == nil then
-    DebugPrint("empty")
-  end
-  for k, v in pairs(direPlayerIds) do
-    DebugPrint(k, v)
   end
 
   direPreswap = self:AverageMMR(direPlayerIds)
