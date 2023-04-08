@@ -97,11 +97,13 @@ function MMRShuffle:Shuffle (aNumber, event)
   end
 
   DebugPrint("All playerIDs:")
-  DebugPrint(playerIds)
+  if next(playerIds) == nil then
+    DebugPrint("empty")
+  end
   for k, v in pairs(playerIds) do
     DebugPrint(k, v)
   end
-  DebugPrint("If some ID is weird, that's the black box player!")
+  DebugPrint("If some ID ^ is weird, that's the black box player!")
 
   while #playerIds > 0 do
     local choice = RandomInt(1, #playerIds)
@@ -126,18 +128,22 @@ function MMRShuffle:Shuffle (aNumber, event)
   end
 
   DebugPrint("Radiant playerIDs before swapPlayers:")
-  DebugPrint(radPlayerIds)
+  if next(radPlayerIds) == nil then
+    DebugPrint("empty")
+  end
   for k, v in pairs(radPlayerIds) do
     DebugPrint(k, v)
   end
-  DebugPrint("If this is empty, while loop is never happening")
 
   DebugPrint("Dire playerIDs before swapPlayers:")
-  DebugPrint(direPlayerIds)
+  if next(direPlayerIds) == nil then
+    DebugPrint("empty")
+  end
   for k, v in pairs(direPlayerIds) do
     DebugPrint(k, v)
   end
-  DebugPrint("If this is empty, while loop is never happening")
+
+  DebugPrint("If both tables ^ are empty, while loop is never happening")
 
   local direPreswap = direMMR / direTeam
   local radPreswap = radMMR / radTeam
@@ -183,13 +189,17 @@ function MMRShuffle:Shuffle (aNumber, event)
   end
 
   DebugPrint("Radiant playerIDs after swapPlayers:")
-  DebugPrint(radPlayerIds)
+  if next(radPlayerIds) == nil then
+    DebugPrint("empty")
+  end
   for k, v in pairs(radPlayerIds) do
     DebugPrint(k, v)
   end
 
   DebugPrint("Dire playerIDs after swapPlayers:")
-  DebugPrint(direPlayerIds)
+  if next(direPlayerIds) == nil then
+    DebugPrint("empty")
+  end
   for k, v in pairs(direPlayerIds) do
     DebugPrint(k, v)
   end
