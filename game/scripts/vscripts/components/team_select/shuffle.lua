@@ -91,10 +91,17 @@ function MMRShuffle:Shuffle (aNumber, event)
   DebugPrint('total players! ' .. totalPlayers)
 
   -- no team first
-  for _,playerId in ipairs(playerIds) do
+  for _, playerId in ipairs(playerIds) do
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
   end
+
+  DebugPrint("All playerIDs:")
+  DebugPrint(playerIds)
+  for k, v in pairs(playerIds) do
+    DebugPrint(k, v)
+  end
+  DebugPrint("If some ID is weird, that's the black box player!")
 
   while #playerIds > 0 do
     local choice = RandomInt(1, #playerIds)
@@ -118,10 +125,24 @@ function MMRShuffle:Shuffle (aNumber, event)
     end
   end
 
+  DebugPrint("Radiant playerIDs before swapPlayers:")
+  DebugPrint(radPlayerIds)
+  for k, v in pairs(radPlayerIds) do
+    DebugPrint(k, v)
+  end
+  DebugPrint("If this is empty, while loop is never happening")
+
+  DebugPrint("Dire playerIDs before swapPlayers:")
+  DebugPrint(direPlayerIds)
+  for k, v in pairs(direPlayerIds) do
+    DebugPrint(k, v)
+  end
+  DebugPrint("If this is empty, while loop is never happening")
+
   local direPreswap = direMMR / direTeam
   local radPreswap = radMMR / radTeam
   local diffPreswap = math.abs(direPreswap - radPreswap)
-  DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
+  --DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
   local function without (teamIds, excluded)
     local newList = {}
@@ -161,19 +182,31 @@ function MMRShuffle:Shuffle (aNumber, event)
     end
   end
 
+  DebugPrint("Radiant playerIDs after swapPlayers:")
+  DebugPrint(radPlayerIds)
+  for k, v in pairs(radPlayerIds) do
+    DebugPrint(k, v)
+  end
+
+  DebugPrint("Dire playerIDs after swapPlayers:")
+  DebugPrint(direPlayerIds)
+  for k, v in pairs(direPlayerIds) do
+    DebugPrint(k, v)
+  end
+
   direPreswap = self:AverageMMR(direPlayerIds)
   radPreswap = self:AverageMMR(radPlayerIds)
   diffPreswap = math.abs(direPreswap - radPreswap)
-  DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
+  --DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
   radTeam = 0
   direTeam = 0
-  for _,playerId in ipairs(radPlayerIds) do
+  for _, playerId in ipairs(radPlayerIds) do
     radTeam = radTeam + 1
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_GOODGUYS, radTeam)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
   end
-  for _,playerId in ipairs(direPlayerIds) do
+  for _, playerId in ipairs(direPlayerIds) do
     direTeam = direTeam + 1
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_BADGUYS, direTeam)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)
