@@ -53,7 +53,7 @@ end
 
 local fakeMMR = {}
 function MMRShuffle:GetMMR (playerId)
-  local steamid = HeroSelection:GetSteamAccountID(playerId)
+  local steamid = PlayerResource:GetSteamAccountID(playerId)
   local mmr = nil
   if Bottlepass.userData then
     mmr = Bottlepass.userData[steamid].unrankedMMR
@@ -102,8 +102,8 @@ function MMRShuffle:Shuffle (aNumber, event)
   end
   for k, v in pairs(playerIds) do
     DebugPrint(k, v)
+    DebugPrint(tostring(PlayerResource:GetSteamAccountID(v))
   end
-  DebugPrint("If some ID ^ is weird, that's the black box player!")
 
   while #playerIds > 0 do
     local choice = RandomInt(1, #playerIds)
