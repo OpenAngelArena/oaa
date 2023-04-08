@@ -54,7 +54,7 @@ end
 local fakeMMR = {}
 function MMRShuffle:GetMMR (playerId)
   local steamid = PlayerResource:GetSteamAccountID(playerId)
-  local mmr = nil
+  local mmr
   if Bottlepass.userData then
     mmr = Bottlepass.userData[steamid].unrankedMMR
   end
