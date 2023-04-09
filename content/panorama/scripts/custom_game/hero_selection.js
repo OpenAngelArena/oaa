@@ -349,7 +349,7 @@ function onPlayerStatChange (table, key, data) {
             break;
         }
         if (currentteam === null) {
-          $.Msg('currentteam is null, possible black box player detected. data[nkey].team is:');
+          $.Msg('currentteam is null, data[nkey].team is:');
           $.Msg(data[nkey].team);
           $.Msg(data[nkey]);
         } else {
@@ -603,12 +603,9 @@ function UpdatedRankedPickState (data) {
         } else {
           isPicking = false;
           $.Msg('The team that should pick is team: ' + order.team + ' / The team that tried to pick is team: ' + teamID);
-          // $.Msg(data.currentOrder);
-          // $.Msg(data.order);
-          // $.Msg(order);
         }
       } else {
-        $.Msg('Order is undefined, possible black box player detected. data.order is:');
+        $.Msg('Order is undefined, data.order is:');
         $.Msg(data.order);
       }
 
