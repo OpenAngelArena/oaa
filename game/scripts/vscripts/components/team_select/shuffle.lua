@@ -93,40 +93,13 @@ function MMRShuffle:Shuffle (aNumber, event)
 
   -- no team first for all IDs
   for _, playerId in ipairs(allPlayerIds) do
-    PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
-    PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
-  end
-
-  local function ConnectionStateName (cn_state)
-    if cn_state == DOTA_CONNECTION_STATE_UNKNOWN then
-      return "Unknown"
-    elseif cn_state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
-      return "Not yet connected"
-    elseif cn_state == DOTA_CONNECTION_STATE_CONNECTED then
-      return "Connected"
-    elseif cn_state == DOTA_CONNECTION_STATE_DISCONNECTED then
-      return "Disconnected"
-    elseif cn_state == DOTA_CONNECTION_STATE_ABANDONED then
-      return "Abandoned"
-    elseif cn_state == DOTA_CONNECTION_STATE_LOADING then
-      return "Loading"
-    elseif cn_state == DOTA_CONNECTION_STATE_FAILED then
-      return "Failed"
+    if not PlayerResource:IsBlackBoxPlayer(playerId) then
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
+    else
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_SPECTATOR, playerId)
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_SPECTATOR)
     end
-    return "???"
-  end
-
-  DebugPrint("All playerIDs:")
-  if next(allPlayerIds) == nil then
-    DebugPrint("empty")
-  end
-  for k, v in pairs(allPlayerIds) do
-    DebugPrint(k, v)
-    DebugPrint("Player "..tostring(v).." SteamID 32: "..tostring(PlayerResource:GetSteamAccountID(v)))
-    DebugPrint("Player "..tostring(v).." SteamID 64: "..tostring(PlayerResource:GetSteamID(v)))
-    DebugPrint("Player "..tostring(v).." Connection State: "..ConnectionStateName(PlayerResource:GetConnectionState(v)))
-    DebugPrint("Player "..tostring(v).." Player Entity is: "..tostring(PlayerResource:GetPlayer(v)))
-    DebugPrint("Player "..tostring(v).." IsFakeClient: "..tostring(PlayerResource:IsFakeClient(v)))
   end
 
   while #playerIds > 0 do
