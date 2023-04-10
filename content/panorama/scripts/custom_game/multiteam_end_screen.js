@@ -199,9 +199,24 @@ function EndScoreboard (table, key, args) {
     values.deaths.text = player.info.player_deaths;
     values.assists.text = player.info.player_assists;
     values.gold.text = player.info.player_gold;
-    values.dmgDone.text = stats[player.id].damage_dealt;
-    values.dmgReceived.text = stats[player.id].damage_taken;
-    values.healing.text = stats[player.id].healing;
+    if (stats !== undefined && player.id !== undefined) {
+      if (stats[player.id] !== undefined) {
+        values.dmgDone.text = stats[player.id].damage_dealt;
+        values.dmgReceived.text = stats[player.id].damage_taken;
+        values.healing.text = stats[player.id].healing;
+      } else {
+        $.Msg('stats[player.id] is ' + stats[player.id]);
+        values.dmgDone.text = 'N/A';
+        values.dmgReceived.text = 'N/A';
+        values.healing.text = 'N/A';
+      }
+    } else {
+      $.Msg('stats is ' + stats);
+      $.Msg('player ID is ' + player.id);
+      values.dmgDone.text = 'N/A';
+      values.dmgReceived.text = 'N/A';
+      values.healing.text = 'N/A';
+    }
     values.level.text = player.info.player_level;
 
     // PLACEHOLDERS: testing purpose only, remove it
