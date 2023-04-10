@@ -44,7 +44,7 @@ function MMRShuffle:AverageMMR (teamIds, extraPlayer)
   if playerCount == 0 then
     return total
   end
-  for _,playerId in ipairs(teamIds) do
+  for _, playerId in ipairs(teamIds) do
     total = total + self:GetMMR(playerId)
   end
 
@@ -53,9 +53,9 @@ end
 
 local fakeMMR = {}
 function MMRShuffle:GetMMR (playerId)
-  local steamid = HeroSelection:GetSteamAccountID(playerId)
-  local mmr = nil
-  if Bottlepass.userData then
+  local steamid = tostring(PlayerResource:GetSteamAccountID(playerId))
+  local mmr
+  if Bottlepass.userData and steamid ~= "0" then
     mmr = Bottlepass.userData[steamid].unrankedMMR
   end
   if not mmr then
@@ -85,15 +85,21 @@ function MMRShuffle:Shuffle (aNumber, event)
   local radPlayerIds = {}
   local direPlayerIds = {}
 
+  local allPlayerIds = totable(PlayerResource:GetAllPlayerIDs())
   local playerIds = totable(PlayerResource:GetAllTeamPlayerIDs())
   local totalPlayers = #playerIds
 
   DebugPrint('total players! ' .. totalPlayers)
 
-  -- no team first
-  for _,playerId in ipairs(playerIds) do
-    PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
-    PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
+  -- no team first for all IDs
+  for _, playerId in ipairs(allPlayerIds) do
+    if not PlayerResource:IsBlackBoxPlayer(playerId) then
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_NOTEAM, playerId)
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_NOTEAM)
+    else
+      PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_SPECTATOR, playerId)
+      PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_SPECTATOR)
+    end
   end
 
   while #playerIds > 0 do
@@ -121,11 +127,11 @@ function MMRShuffle:Shuffle (aNumber, event)
   local direPreswap = direMMR / direTeam
   local radPreswap = radMMR / radTeam
   local diffPreswap = math.abs(direPreswap - radPreswap)
-  DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
+  --DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
   local function without (teamIds, excluded)
     local newList = {}
-    for _,playerId in ipairs(teamIds) do
+    for _, playerId in ipairs(teamIds) do
       if playerId ~= excluded then
         table.insert(newList, playerId)
       end
@@ -143,10 +149,10 @@ function MMRShuffle:Shuffle (aNumber, event)
     table.insert(direPlayerIds, radPlayer)
   end
 
-  for i = 1,#radPlayerIds do
+  for i = 1, #radPlayerIds do
     local playerId = radPlayerIds[i]
     local newRad = without(radPlayerIds, playerId)
-    for j = 1,#direPlayerIds do
+    for j = 1, #direPlayerIds do
       local otherPlayerId = direPlayerIds[j]
       local newDire = without(direPlayerIds, otherPlayerId)
       local newDireMMR = self:AverageMMR(newDire, playerId)
@@ -164,16 +170,16 @@ function MMRShuffle:Shuffle (aNumber, event)
   direPreswap = self:AverageMMR(direPlayerIds)
   radPreswap = self:AverageMMR(radPlayerIds)
   diffPreswap = math.abs(direPreswap - radPreswap)
-  DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
+  --DebugPrint('Teams are ' .. math.floor(radPreswap) .. ' vs ' .. math.floor(direPreswap))
 
   radTeam = 0
   direTeam = 0
-  for _,playerId in ipairs(radPlayerIds) do
+  for _, playerId in ipairs(radPlayerIds) do
     radTeam = radTeam + 1
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_GOODGUYS, radTeam)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_GOODGUYS)
   end
-  for _,playerId in ipairs(direPlayerIds) do
+  for _, playerId in ipairs(direPlayerIds) do
     direTeam = direTeam + 1
     PlayerResource:UpdateTeamSlot(playerId, DOTA_TEAM_BADGUYS, direTeam)
     PlayerResource:SetCustomTeamAssignment(playerId, DOTA_TEAM_BADGUYS)

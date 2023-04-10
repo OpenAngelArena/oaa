@@ -5,7 +5,6 @@ const path = require('path');
 const parseKV = require('parse-kv');
 const { transifexApi } = require('@transifex/api');
 
-
 const languageShortNames = {
   german: 'de',
   russian: 'ru',
@@ -108,13 +107,13 @@ async function getTranslationsForLanguage (lang, cb) {
 
   const organization = await transifexApi.Organization.get({ slug: 'open-angel-arena' });
   const projects = await organization.fetch('projects');
-  const project = await projects.get({slug: 'open-angel-arena'});
+  const project = await projects.get({ slug: 'open-angel-arena' });
   const language = await transifexApi.Language.get({ code: lang });
   const resources = await project.fetch('resources');
   const resource = await resources.get({ slug: 'addon_english' });
   const url = await transifexApi.ResourceTranslationsAsyncDownload.download({
     resource,
-    language,
+    language
   });
 
   request.get({

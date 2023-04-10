@@ -60,15 +60,17 @@ function Bottlepass:SendWinner (winner)
   local abandonedPlayers = {}
 
   local playerBySteamid = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
-    local player = PlayerResource:GetPlayer(playerID)
-    playerBySteamid[tostring(steamid)] = playerID
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and not PlayerResource:IsBlackBoxPlayer(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      local player = PlayerResource:GetPlayer(playerID)
+      playerBySteamid[tostring(steamid)] = playerID
 
-    if player then
-      table.insert(connectedPlayers, tostring(steamid))
-    elseif PlayerConnection:IsAbandoned(playerID) then
-      table.insert(abandonedPlayers, tostring(steamid))
+      if player then
+        table.insert(connectedPlayers, tostring(steamid))
+      elseif PlayerConnection:IsAbandoned(playerID) then
+        table.insert(abandonedPlayers, tostring(steamid))
+      end
     end
   end
 
@@ -128,14 +130,16 @@ function Bottlepass:SendTeams ()
   DebugPrint('Sending team data')
   local dire = {}
   local radiant = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
-    if steamid ~= 0 then
-      steamid = tostring(steamid)
-      if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
-        table.insert(radiant, steamid)
-      else
-        table.insert(dire, steamid)
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        steamid = tostring(steamid)
+        if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+          table.insert(radiant, steamid)
+        else
+          table.insert(dire, steamid)
+        end
       end
     end
   end
@@ -150,14 +154,16 @@ end
 function Bottlepass:Ready ()
   local userList = {}
   local hostId = 0
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local steamid = PlayerResource:GetSteamAccountID(playerID)
-    if steamid ~= 0 then
-      table.insert(userList, steamid)
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) then
+      local steamid = PlayerResource:GetSteamAccountID(playerID)
+      if steamid ~= 0 then -- bots and black box players have 0 steamid
+        table.insert(userList, steamid)
 
-      local player = PlayerResource:GetPlayer(playerID)
-      if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
-        hostId = steamid
+        local player = PlayerResource:GetPlayer(playerID)
+        if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+          hostId = steamid
+        end
       end
     end
   end

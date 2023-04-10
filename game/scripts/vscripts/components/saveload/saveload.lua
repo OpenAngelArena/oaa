@@ -73,21 +73,23 @@ function SaveLoadState:GetPlayerList ()
     dire = {}
   }
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local hero = PlayerResource:GetSelectedHeroName(playerID)
-    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      local hero = PlayerResource:GetSelectedHeroName(playerID)
+      local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
-    if steamid ~= '0' then
-      if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
-        table.insert(players.radiant, {
-          hero = hero,
-          steamid = tostring(steamid)
-        })
-      elseif PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
-        table.insert(players.dire, {
-          hero = hero,
-          steamid = tostring(steamid)
-        })
+      if steamid ~= '0' then
+        if PlayerResource:GetTeam(playerID) == DOTA_TEAM_GOODGUYS then
+          table.insert(players.radiant, {
+            hero = hero,
+            steamid = tostring(steamid)
+          })
+        elseif PlayerResource:GetTeam(playerID) == DOTA_TEAM_BADGUYS then
+          table.insert(players.dire, {
+            hero = hero,
+            steamid = tostring(steamid)
+          })
+        end
       end
     end
   end

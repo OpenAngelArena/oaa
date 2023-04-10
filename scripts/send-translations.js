@@ -51,12 +51,12 @@ request.get({
 
   const organization = await transifexApi.Organization.get({ slug: 'open-angel-arena' });
   const projects = await organization.fetch('projects');
-  const project = await projects.get({slug: 'open-angel-arena'});
+  const project = await projects.get({ slug: 'open-angel-arena' });
   const resources = await project.fetch('resources');
   const resource = await resources.get({ slug: 'addon_english' });
-  
+
   await transifexApi.ResourceStringsAsyncUpload.upload({
-    resource: resource, 
-    content: JSON.stringify(englishStrings),
+    resource: resource,
+    content: JSON.stringify(englishStrings)
   });
 });

@@ -3,31 +3,33 @@ SaveLoadStateHero = SaveLoadStateHero or class({})
 function SaveLoadStateHero:GetState ()
   local state = {}
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
-    state[steamid] = {}
+      state[steamid] = {}
 
-    if hero then
-      state[steamid].items = self:GetItemState(playerID, hero)
-      state[steamid].abilities = self:GetAbilityState(playerID, hero)
-      state[steamid].special = self:GetSpecialState(playerID, hero)
-      state[steamid].xp = hero:GetCurrentXP()
+      if hero and steamid ~= "0" then
+        state[steamid].items = self:GetItemState(playerID, hero)
+        state[steamid].abilities = self:GetAbilityState(playerID, hero)
+        state[steamid].special = self:GetSpecialState(playerID, hero)
+        state[steamid].xp = hero:GetCurrentXP()
 
-      if hero:IsAlive() then
-        state[steamid].location = hero:GetAbsOrigin()
-        state[steamid].hp = hero:GetHealth()
-        state[steamid].mana = hero:GetMana()
-      else
-        local fountainTriggerZone = Entities:FindByName(nil, "fountain_" .. GetShortTeamName(hero:GetTeam()) .. "_trigger")
-        if fountainTriggerZone then
-          state[steamid].location = fountainTriggerZone:GetCenter()
-        else -- Can't find the fountain for some reason, so just dump them in the center of the map
-          state[steamid].location = GetGroundPosition(Vector(0, 0, 0), hero)
+        if hero:IsAlive() then
+          state[steamid].location = hero:GetAbsOrigin()
+          state[steamid].hp = hero:GetHealth()
+          state[steamid].mana = hero:GetMana()
+        else
+          local fountainTriggerZone = Entities:FindByName(nil, "fountain_" .. GetShortTeamName(hero:GetTeam()) .. "_trigger")
+          if fountainTriggerZone then
+            state[steamid].location = fountainTriggerZone:GetCenter()
+          else -- Can't find the fountain for some reason, so just dump them in the center of the map
+            state[steamid].location = GetGroundPosition(Vector(0, 0, 0), hero)
+          end
         end
+        state[steamid].location = { state[steamid].location.x, state[steamid].location.y, state[steamid].location.z }
       end
-      state[steamid].location = { state[steamid].location.x, state[steamid].location.y, state[steamid].location.z }
     end
   end
 
@@ -35,17 +37,19 @@ function SaveLoadStateHero:GetState ()
 end
 
 function SaveLoadStateHero:LoadState (state)
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+      local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
-    if hero then
-      hero:AddExperience(state[steamid].xp - hero:GetCurrentXP(), DOTA_ModifyXP_Unspecified, false, false)
+      if hero and steamid ~= "0" then
+        hero:AddExperience(state[steamid].xp - hero:GetCurrentXP(), DOTA_ModifyXP_Unspecified, false, false)
 
-      self:LoadItemState(playerID, hero, state[steamid].items)
-      self:LoadAbilityState(playerID, hero, state[steamid].abilities)
-      self:LoadSpecialState(playerID, hero, state[steamid].special)
-      hero:SetAbsOrigin(Vector(state[steamid].location[1], state[steamid].location[2], state[steamid].location[3]))
+        self:LoadItemState(playerID, hero, state[steamid].items)
+        self:LoadAbilityState(playerID, hero, state[steamid].abilities)
+        self:LoadSpecialState(playerID, hero, state[steamid].special)
+        hero:SetAbsOrigin(Vector(state[steamid].location[1], state[steamid].location[2], state[steamid].location[3]))
+      end
     end
   end
 end
