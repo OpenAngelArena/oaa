@@ -133,7 +133,7 @@ if IsServer() then
       parent:EmitSound("DOTA_Item.ComboBreaker")
 
       -- Strong Dispel
-      parent:Purge(false, true, false, true, true)
+      parent:Purge(false, true, false, true, false)
 
       -- Apply Combo Breaker buff
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})

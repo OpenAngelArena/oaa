@@ -1,8 +1,8 @@
 
 -- Taken from bb template
 if CreepItemDrop == nil then
-    DebugPrint ( '[creeps/item_drop] creating new CreepItemDrop object' )
-    CreepItemDrop = class({})
+  DebugPrint ( '[creeps/item_drop] creating new CreepItemDrop object' )
+  CreepItemDrop = class({})
 end
 
 --item power level defines what items drop at given time
@@ -52,25 +52,27 @@ function CreepItemDrop:ItemDropUpgradeTimer ()
 end
 
 function CreepItemDrop:CreateDrop (itemName, pos)
-  local newItem = CreateItem(itemName, nil, nil)
+  local newItem = CreateItem(itemName, nil, nil) -- CDOTA_Item
 
   newItem:SetPurchaseTime(0)
   newItem.firstPickedUp = false
 
-  CreateItemOnPositionSync(pos, newItem)
+  CreateItemOnPositionSync(pos, newItem) -- CDOTA_Item_Physical
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
 
+  -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
   Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()
     -- check if safe to destroy
-    if IsValidEntity(newItem) then
-      if newItem:GetContainer() ~= nil then
-        newItem:GetContainer():RemoveSelf()
+    if newItem and not newItem:IsNull() then
+      local container = newItem:GetContainer() -- CDOTA_Item_Physical
+      if container and not container:IsNull() then
+        UTIL_Remove(container) -- Remove item container (CDOTA_Item_Physical)
       end
     end
   end)
 end
 
--- Function that removes bottles from the floor
+-- Function that removes bottles from the floor (code based on Dota 2 Offical Winter 2022 custom game and ModDota Dota 2 Tutorial)
 function CreepItemDrop:ClearBottles()
   local items_on_the_ground = Entities:FindAllByClassname("dota_item_drop")
   for _, item in pairs(items_on_the_ground) do
@@ -78,8 +80,10 @@ function CreepItemDrop:ClearBottles()
       local containedItem = item:GetContainedItem()
       if containedItem and not containedItem:IsNull() then
         if containedItem.GetAbilityName and containedItem:GetAbilityName() == "item_infinite_bottle" then
-          UTIL_RemoveImmediate(containedItem) -- Remove item ability (CDOTA_Item)
-          UTIL_RemoveImmediate(item) -- Remove item container (CDOTA_Item_Physical)
+          UTIL_Remove(containedItem) -- Remove item ability (CDOTA_Item)
+          if item and not item:IsNull() then
+            UTIL_Remove(item) -- Remove item container (CDOTA_Item_Physical)
+          end
         end
       end
     end

@@ -69,7 +69,7 @@ function item_bubble_orb_1:OnSpellStart()
   )
   for _, ally in pairs(allies) do
     if ally and not ally:IsNull() then
-      ally:Purge(false, true, false, true, true)
+      ally:Purge(false, true, false, true, false)
     end
   end
 end

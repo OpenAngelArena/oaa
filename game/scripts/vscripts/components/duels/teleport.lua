@@ -51,6 +51,14 @@ local function SafeTeleport(unit, location, maxDistance)
 end
 
 local function CheckIfUnitIsValidForTeleport(unit)
+  if not unit or unit:IsNull() then
+    print("Duel Teleport: CheckIfUnitIsValidForTeleport is called for the entity that doesn't exist.")
+    return false
+  end
+  if unit.IsBaseNPC == nil or unit.HasModifier == nil or unit.GetUnitName == nil then
+    print("Duel Teleport: CheckIfUnitIsValidForTeleport is called for the invalid entity.")
+    return false
+  end
   local name = unit:GetUnitName()
   local valid_name = name ~= "npc_dota_custom_dummy_unit" and name ~= "npc_dota_elder_titan_ancestral_spirit" and name ~= "aghsfort_mars_bulwark_soldier"
   local not_thinker = not unit:HasModifier("modifier_oaa_thinker") and not unit:IsPhantomBlocker()
@@ -80,7 +88,7 @@ local function SafeTeleportAll(mainUnit, location, maxDistance)
 
   iter(playerAdditionalUnits)
     :filter(function (unit)
-      return unit ~= mainUnit and unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID() and CheckIfUnitIsValidForTeleport(unit)
+      return unit ~= mainUnit and CheckIfUnitIsValidForTeleport(unit) and unit:GetPlayerOwnerID() == mainUnit:GetPlayerOwnerID()
     end)
     :foreach(function (unit)
       SafeTeleport(unit, location, maxDistance)

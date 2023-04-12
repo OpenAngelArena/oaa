@@ -21,9 +21,10 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-give", Dynamic_Wrap(DevCheats, "GiveLevelledItem"), self)
   ChatCommand:LinkDevCommand("-loadout", Dynamic_Wrap(DevCheats, "GiveLoadout"), self)
   ChatCommand:LinkDevCommand("-scepter", Dynamic_Wrap(DevCheats, "GiveUltimateScepter"), self)
+  ChatCommand:LinkDevCommand("-shard", Dynamic_Wrap(DevCheats, "GiveAghanimShard"), self)
   ChatCommand:LinkDevCommand("-dagon", Dynamic_Wrap(DevCheats, "GiveDevDagon"), self)
   ChatCommand:LinkDevCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
-  ChatCommand:LinkDevCommand("-lazer", Dynamic_Wrap(DevCheats, "AddDevAttack"), self)
+  ChatCommand:LinkDevCommand("-kill_all", Dynamic_Wrap(DevCheats, "KillEverything"), self)
   --ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
 end
 
@@ -44,8 +45,8 @@ end
 -- Print list of available commands to chat
 function DevCheats:Help(keys)
   GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
-  GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter [1-5]", 0, 0)
-  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon, -lazer, -spawncamps, -getpos", 0, 0)
+  GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter, -shard", 0, 0)
+  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon, -spawncamps, -getpos, -kill_all", 0, 0)
 end
 
 -- Populate game with bots
@@ -97,10 +98,27 @@ end
 
 -- Teleport all heroes to their fountain
 function DevCheats:TeleportHeroesToFountain(keys)
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local radiant_fountain
+  local dire_fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      dire_fountain = entity
+    end
+  end
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    if hero ~= nil and IsValidEntity(hero) then
-      hero:AddNewModifier(nil, nil, "modifier_chen_test_of_faith_teleport", {duration = 1})
+    if hero and not hero:IsNull() then
+      local team = hero:GetTeamNumber()
+      if team == DOTA_TEAM_GOODGUYS then
+        FindClearSpaceForUnit(hero, radiant_fountain:GetAbsOrigin(), true)
+        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = FrameTime()})
+      elseif team == DOTA_TEAM_BADGUYS then
+        FindClearSpaceForUnit(hero, dire_fountain:GetAbsOrigin(), true)
+        hero:AddNewModifier(hero, nil, "modifier_phased", {duration = FrameTime()})
+      end
     end
   end)
 end
@@ -191,10 +209,6 @@ function DevCheats:AddAbility(keys)
   end
 end
 
-function DevCheats:AddDevAttack(keys)
-  PlayerResource:GetSelectedHeroEntity(keys.playerid):AddAbility("dev_attack")
-end
-
 -- Give items. If you put a number after the name of the item, it will look for that level, e.g. "-give heart 3" gives lvl 3 heart
 -- NOTE: Partial item name matching is a little funny, e.g. "-give heart" gives item_heart_transplant. Not sure this is fixable
 function DevCheats:GiveLevelledItem(keys)
@@ -224,8 +238,8 @@ end
 -- Set player inventory to pre-defined loadouts
 function DevCheats:GiveLoadout(keys)
   local loadouts = {
-    ['tank'] = {"item_heart_5", "item_stoneskin_2", "item_satanic_core_3"},
-    ['damage'] = {"item_greater_crit_5", "item_desolator_5", "item_mjollnir_5", "item_monkey_king_bar_5"},
+    ['tank'] = {"item_heart_oaa_5", "item_stoneskin_2", "item_reduction_orb_3", "item_pipe_5", "item_eternal_shroud_oaa_5"},
+    ['damage'] = {"item_greater_crit_5", "item_devastator_5", "item_mjollnir_5", "item_monkey_king_bar_5", "item_silver_edge_5"},
   }
   local text = string.lower(keys.text)
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
@@ -242,15 +256,17 @@ function DevCheats:GiveLoadout(keys)
   end
 end
 
--- Give player Aghanim's Scepter of given level or level 1 if no level given
+-- Give player Aghanim's Scepter
 function DevCheats:GiveUltimateScepter(keys)
-  local text = string.lower(keys.text)
-  local splitted = split(text, " ")
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
   local name = "item_ultimate_scepter"
-  if splitted[2] then
-    name = name .. "_" .. splitted[2]
-  end
+  hero:AddItemByName(name)
+end
+
+-- Give player Aghanim's Shard
+function DevCheats:GiveAghanimShard(keys)
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local name = "item_aghanims_shard"
   hero:AddItemByName(name)
 end
 
@@ -306,4 +322,26 @@ function DevCheats:LevelUp(keys)
       hero:AddExperience(XP_PER_LEVEL_TABLE[hero:GetLevel() + 1] - hero:GetCurrentXP(), DOTA_ModifyXP_Unspecified, false, false)
     end
   end)
+end
+
+function DevCheats:KillEverything(keys)
+  local playerID = keys.playerid
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  local all_units = FindUnitsInRadius(
+    hero:GetTeamNumber(),
+    Vector(0, 0, 0),
+    nil,
+    FIND_UNITS_EVERYWHERE,
+    DOTA_UNIT_TARGET_TEAM_BOTH,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    bit.bor(DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD),
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, unit in pairs(all_units) do
+    if unit and not unit:IsNull() and unit ~= hero then
+      unit:Kill(nil, hero)
+    end
+  end
 end

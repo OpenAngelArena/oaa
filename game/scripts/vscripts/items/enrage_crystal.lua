@@ -10,7 +10,7 @@ function item_enrage_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
   -- Strong Dispel
-  caster:Purge(false, true, false, true, true)
+  caster:Purge(false, true, false, true, false)
 
   -- Sound
   caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
