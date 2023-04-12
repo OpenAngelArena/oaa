@@ -7,9 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "606"    // unique ID
+    "ID"                                                  "606"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "FightRecapLevel"                                     "1"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_arcane_blink"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
     "ItemRequirements" // OAA
     {
       "01"                                                "item_blink;item_mystic_staff"

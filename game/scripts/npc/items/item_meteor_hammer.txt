@@ -59,7 +59,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
     "AbilitySharedCooldown"                               "meteor"
-    "AbilityCooldown"                                     "20 19 18 17 16"
+    "AbilityCooldown"                                     "24 22 20 18 16"
     "AbilityManaCost"                                     "100"
 
     // Item Info
@@ -146,7 +146,7 @@
       "15"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "20 19 18 17 16"
+        "cooldown_tooltip"                                "24 22 20 18 16"
       }
     }
 
