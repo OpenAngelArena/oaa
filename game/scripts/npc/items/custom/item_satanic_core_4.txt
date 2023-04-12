@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: satanic_core (Based on Satanic)
+  // Recipe: Blood Core 4
   //=================================================================================================================
   "item_recipe_satanic_core_4"
   {
@@ -29,7 +29,7 @@
   }
 
   //=================================================================================================================
-  // satanic_core (Based on Satanic)
+  // Blood Core 4
   //=================================================================================================================
   "item_satanic_core_4"
   {
@@ -57,7 +57,7 @@
     "ItemCost"                                            "20553"
     "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
-    "ItemAliases"                                         "satanic core 4"
+    "ItemAliases"                                         "blood core 4;satanic core 4"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

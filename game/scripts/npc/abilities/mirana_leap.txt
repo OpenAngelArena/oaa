@@ -17,11 +17,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "20" //OAA
+    "AbilityChargeRestoreTime"                            "30 28 26 24 22 20" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40"
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@
         "value"                                           "1"
         "RequiresShard"                                   "1"
       }
-      "shard_projectile_distance"     
+      "shard_projectile_distance"
       {
         "value"                                           "800"
         "RequiresShard"                                   "1"

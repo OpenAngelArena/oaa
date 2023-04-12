@@ -38,46 +38,40 @@ function item_greater_tranquil_boots:OnSpellStart()
     return
   end
 
-  if target:GetTeamNumber() == caster:GetTeamNumber() then
-    local bearing_duration = self:GetSpecialValueFor("bearing_duration")
-    local tree_buff_duration = self:GetSpecialValueFor("tree_protection_duration")
-    local unslowable_duration = self:GetSpecialValueFor("bearing_unslowable_duration")
+  local bearing_duration = self:GetSpecialValueFor("bearing_duration")
+  local tree_buff_duration = self:GetSpecialValueFor("tree_protection_duration")
+  local unslowable_duration = self:GetSpecialValueFor("bearing_unslowable_duration")
 
-    if target ~= caster then
+  -- Sound
+  caster:EmitSound("DOTA_Item.DoE.Activate")
+
+  -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area
+  local allies = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
+    nil,
+    self:GetSpecialValueFor("bearing_radius"),
+    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, ally in pairs(allies) do
+    if ally and not ally:IsNull() then
       -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to the ally
-      target:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_buff", {duration = bearing_duration})
+      ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_buff", {duration = bearing_duration})
+
       -- Apply Boots of Bearing unslowable buff to the ally
-      target:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_unslowable", {duration = unslowable_duration})
+      ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_unslowable", {duration = unslowable_duration})
+    end
+  end
+
+  if target:GetTeamNumber() == caster:GetTeamNumber() then
+    if target ~= caster then
       -- Apply Tree Protection buff to the ally (don't apply when self-cast because the caster already has it)
       target:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_buff", {duration = tree_buff_duration})
-    else
-      -- Sound
-      caster:EmitSound("DOTA_Item.DoE.Activate")
-
-      -- Apply Boots of Bearing / Drums of Endurance buff (with Tree-walking) to all allies in the area
-      local allies = FindUnitsInRadius(
-        caster:GetTeamNumber(),
-        caster:GetAbsOrigin(),
-        nil,
-        self:GetSpecialValueFor("bearing_radius"),
-        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-        DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_ANY_ORDER,
-        false
-      )
-
-      for _, ally in pairs(allies) do
-        if ally and not ally:IsNull() then
-          -- Particle
-          --local particle = ParticleManager:CreateParticle(".vpcf", PATTACH_CENTER_FOLLOW, ally)
-          --ParticleManager:DestroyParticle(particle, false)
-          --ParticleManager:ReleaseParticleIndex(particle)
-          -- Apply the buffs
-          ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_buff", {duration = bearing_duration})
-          ally:AddNewModifier(caster, self, "modifier_greater_tranquils_bearing_unslowable", {duration = unslowable_duration})
-        end
-      end
     end
 
     -- Create trees around the target
