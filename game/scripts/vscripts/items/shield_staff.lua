@@ -422,20 +422,9 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
     -- Sound
     parent:EmitSound("Hero_Abaddon.AphoticShield.Cast")
   end
-
-  -- Particle
-  --self.particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, parent)
-  --ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetAbsOrigin(), true)
 end
 
-function modifier_shield_staff_barrier_buff:OnRefresh(event)
-  if self.particle then
-    ParticleManager:DestroyParticle(self.particle, false)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-  end
-
-  self:OnCreated(event)
-end
+modifier_shield_staff_barrier_buff.OnRefresh = modifier_shield_staff_barrier_buff.OnCreated
 
 function modifier_shield_staff_barrier_buff:DeclareFunctions()
   return {
@@ -484,13 +473,6 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   end
 
   return block_amount
-end
-
-function modifier_shield_staff_barrier_buff:OnDestroy()
-  if self.particle then
-    ParticleManager:DestroyParticle(self.particle, false)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-  end
 end
 
 function modifier_shield_staff_barrier_buff:GetEffectName()

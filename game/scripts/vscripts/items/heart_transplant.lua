@@ -225,10 +225,10 @@ function modifier_item_heart_transplant_buff:OnCreated()
       parent:CalculateStatBonus(true)
     end
     local caster = self:GetCaster()
-    if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+    if self.particle == nil then
+      self.particle = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     end
 
     self:StartIntervalThink(0.1)
@@ -249,16 +249,16 @@ function modifier_item_heart_transplant_buff:OnRefresh()
     if parent:IsHero() then
       parent:CalculateStatBonus(true)
     end
-    if self.nPreviewFX then
-      ParticleManager:DestroyParticle(self.nPreviewFX, true)
-      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-      self.nPreviewFX = nil
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+      self.particle = nil
     end
     local caster = self:GetCaster()
-    if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-      ParticleManager:SetParticleControlEnt(self.nPreviewFX, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+    if self.particle == nil then
+      self.particle = ParticleManager:CreateParticle("particles/items/heart_transplant/heart_transplant.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControlEnt(self.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     end
   end
 end
@@ -293,10 +293,10 @@ function modifier_item_heart_transplant_buff:OnIntervalThink()
 end
 
 function modifier_item_heart_transplant_buff:OnDestroy()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, true)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
   local ability = self:GetAbility()
   local caster = self:GetCaster()

@@ -177,15 +177,29 @@ function modifier_item_aeon_disk_oaa_buff:OnCreated()
     self.status_resist = ability:GetSpecialValueFor("status_resistance")
   end
 
-  if IsServer() then
+  if IsServer() and self.particle == nil then
     local parent = self:GetParent()
-    local particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    self:AddParticle(particle, false, false, -1, true, false)
+    self.particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
   end
 end
 
-modifier_item_aeon_disk_oaa_buff.OnRefresh = modifier_item_aeon_disk_oaa_buff.OnCreated
+function modifier_item_aeon_disk_oaa_buff:OnRefresh()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+  self:OnCreated()
+end
+
+function modifier_item_aeon_disk_oaa_buff:OnDestroy()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+end
 
 function modifier_item_aeon_disk_oaa_buff:DeclareFunctions()
   return {

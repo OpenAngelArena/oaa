@@ -121,11 +121,10 @@ end
 modifier_eternal_shroud_oaa_barrier.OnRefresh = modifier_eternal_shroud_oaa_barrier.OnCreated
 
 function modifier_eternal_shroud_oaa_barrier:OnDestroy()
-  if IsServer() then
-    if self.particle then
-      ParticleManager:DestroyParticle(self.particle, true)
-      ParticleManager:ReleaseParticleIndex(self.particle)
-    end
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 

@@ -107,13 +107,6 @@ function modifier_item_butterfly_oaa_active:OnCreated()
   if parent:IsRealHero() then
     self.agi = parent:GetAgility()
   end
-
-  --if IsServer() then
-    --local particle = ParticleManager:CreateParticle("particles/items2_fx/butterfly_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    --ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
-    --ParticleManager:SetParticleControl(particle, 1, parent:GetAbsOrigin())
-    --ParticleManager:ReleaseParticleIndex(particle)
-  --end
 end
 
 modifier_item_butterfly_oaa_active.OnRefresh = modifier_item_butterfly_oaa_active.OnCreated

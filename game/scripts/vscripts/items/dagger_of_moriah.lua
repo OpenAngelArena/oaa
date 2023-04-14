@@ -267,27 +267,27 @@ function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --self.selfDamage = spell:GetSpecialValueFor( "sangromancy_self_damage" )
   --self.bonusDamagefromOthers = spell:GetSpecialValueFor( "sangromancy_bonus_damage_from_others" )
 
-  if IsServer() and self.nPreviewFX == nil then
+  if IsServer() and self.particle == nil then
     local parent = self:GetParent()
-    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+    self.particle = ParticleManager:CreateParticle("particles/items/dagger_of_moriah/dagger_of_moriah_ambient_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
   end
 end
 
 function modifier_item_dagger_of_moriah_sangromancy:OnRefresh()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, true)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
   self:OnCreated()
 end
 
 function modifier_item_dagger_of_moriah_sangromancy:OnDestroy()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, false)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 

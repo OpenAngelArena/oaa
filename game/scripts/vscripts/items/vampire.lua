@@ -188,6 +188,7 @@ function modifier_item_vampire_active:OnCreated()
     if not self.procRecords then
       self.procRecords = {}
     end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local interval = 1/4
@@ -195,10 +196,13 @@ function modifier_item_vampire_active:OnCreated()
       interval = 1 / ability:GetSpecialValueFor("ticks_per_second")
     end
     self:StartIntervalThink(interval)
+
     parent:EmitSound("Vampire.Activate.Begin")
-    if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+
+    if self.particle == nil then
+      self.particle = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
     end
+
     if not GameRules:IsDaytime() then
       self:SetStackCount(0)
     else
@@ -207,13 +211,33 @@ function modifier_item_vampire_active:OnCreated()
   end
 end
 
-function modifier_item_vampire_active:OnDestroy()
+function modifier_item_vampire_active:OnRefresh()
   if IsServer() then
-    if self.nPreviewFX then
-      ParticleManager:DestroyParticle(self.nPreviewFX, false)
-      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-      self.nPreviewFX = nil
+    if not self.procRecords then
+      self.procRecords = {}
     end
+
+	if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+      self.particle = nil
+    end
+
+    local parent = self:GetParent()
+
+    parent:EmitSound("Vampire.Activate.Begin")
+
+    if self.particle == nil then
+      self.particle = ParticleManager:CreateParticle( "particles/items/vampire/vampire.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+    end
+  end
+end
+
+function modifier_item_vampire_active:OnDestroy()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 

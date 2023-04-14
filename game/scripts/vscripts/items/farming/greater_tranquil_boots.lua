@@ -557,7 +557,6 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
       self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
       ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
-      --self:AddParticle(particle, false, false, -1, false, false)
     end
 
     self:StartIntervalThink(0.1)
