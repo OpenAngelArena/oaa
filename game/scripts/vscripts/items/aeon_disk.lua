@@ -50,7 +50,7 @@ function modifier_item_aeon_disk_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
   }
 end
 
@@ -62,72 +62,71 @@ function modifier_item_aeon_disk_oaa_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
+-- Things we need to mimic:
+-- 1) The damage instance triggering Aeon Disk is negated.
+-- 2) Instant kill abilities ignore Aeon Disk trigger, Aeon Disk doesnt go on cd
 if IsServer() then
-  function modifier_item_aeon_disk_oaa_passive:OnTakeDamage(event)
+  function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamage(event)
     if not self:IsFirstItemInInventory() then
-      return
+      return 0
     end
 
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = event.attacker
-    local damaged_unit = event.unit
+    local damaged_unit = event.target
     local damage_after = event.damage -- after reductions
     local damage_before = event.original_damage -- before reductions
     local damage_flags = event.damage_flags
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
-      return
+      return 0
     end
 
     -- Check if attacker is a valid entity
     if attacker.GetTeamNumber == nil then
-      return
+      return 0
     end
 
     -- Don't trigger on non-player damage
     if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then -- and not attacker:IsOAABoss()
-      return
+      return 0
     end
 
     -- Don't trigger on self damage
     if attacker == parent then -- or attacker:GetTeamNumber() == parent:GetTeamNumber() then
-      return
+      return 0
     end
 
     -- Check if damaged unit exists
     if not damaged_unit or damaged_unit:IsNull() then
-      return
+      return 0
     end
 
     -- Check if damaged unit has this modifier
     if damaged_unit ~= parent then
-      return
+      return 0
     end
 
     -- Don't trigger for illusions
     if parent:IsIllusion() then
-      return
+      return 0
     end
 
     -- Don't trigger on damage with HP removal flag (OnTakeDamage event ignores some damage that has hp removal flag but wcyd)
     if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-      return
+      return 0
     end
 
     -- Don't trigger for 0 or negative damage
-    --if damage_before <= 0 then
-      --return
-    --end
-
-    if damage_after <= 0 then
-      return
+    if damage_before <= 0 or damage_after <= 0 then
+      return 0
     end
 
     -- Don't trigger if item is not in the inventory
     if not ability or ability:IsNull() then
-      return
+      return 0
     end
 
     local buff_duration = ability:GetSpecialValueFor("buff_duration")
@@ -135,10 +134,9 @@ if IsServer() then
 
     local current_health = parent:GetHealth()
     local max_health = parent:GetMaxHealth()
-    local health_pct = current_health / max_health
-    local health_pct_after_dmg = (current_health - math.max(damage_after, damage_before)) / max_health
+    local health_pct = current_health / max_health -- health pct before damage occured
 
-    if (health_pct <= health_threshold_pct or health_pct_after_dmg <= health_threshold_pct) and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and parent:IsAlive() then
+    if (health_pct <= health_threshold_pct or current_health - damage_after <= 1) and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and parent:IsAlive() then
       -- Sound
       parent:EmitSound("DOTA_Item.ComboBreaker")
 
@@ -148,15 +146,10 @@ if IsServer() then
       -- Apply Combo Breaker buff
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})
 
-      -- We mimic here: "The damage instance triggering Aeon Disk is negated. Instant kill abilities bypass Aeon Disk trigger"
-      if health_pct <= health_threshold_pct then
-        parent:SetHealth(math.max(1, current_health))
-      elseif health_pct_after_dmg <= health_threshold_pct then
-        parent:SetHealth(math.max(1, max_health * health_threshold_pct))
-      end
-
       -- Start cooldown, spend mana
       ability:UseResources(true, true, true)
+
+      return 1
     end
   end
 end
