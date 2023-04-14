@@ -65,6 +65,7 @@ end
 -- Things we need to mimic:
 -- 1) The damage instance triggering Aeon Disk is negated.
 -- 2) Instant kill abilities ignore Aeon Disk trigger, Aeon Disk doesnt go on cd
+-- 3) Ignoring self and damage with hp removal flag
 if IsServer() then
   function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamage(event)
     if not self:IsFirstItemInInventory() then
@@ -114,7 +115,7 @@ if IsServer() then
       return 0
     end
 
-    -- Don't trigger on damage with HP removal flag (OnTakeDamage event ignores some damage that has hp removal flag but wcyd)
+    -- Don't trigger on damage with HP removal flag
     if bit.band(damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
       return 0
     end
