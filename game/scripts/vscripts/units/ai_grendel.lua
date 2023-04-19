@@ -158,7 +158,7 @@ function GrendelThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = nearestEnemy:GetAbsOrigin(),
-          Queue = true,
+          Queue = false,
         })
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
@@ -173,7 +173,7 @@ function GrendelThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = thisEntity.aggroOrigin,
-          Queue = true,
+          Queue = false,
         })
       end
     end
@@ -210,7 +210,8 @@ function WalkTowardsSpot (spot)
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = spot
+    Position = spot,
+    Queue = false,
   })
 end
 
