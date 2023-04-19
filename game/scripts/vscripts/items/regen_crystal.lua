@@ -147,27 +147,27 @@ function modifier_item_regen_crystal_active:OnCreated()
     self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
     self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
   end
-  if IsServer() and self.nPreviewFX == nil then
+  if IsServer() and self.particle == nil then
     local parent = self:GetParent()
-    self.nPreviewFX = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(self.nPreviewFX, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+    self.particle = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
   end
 end
 
 function modifier_item_regen_crystal_active:OnRefresh()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, true)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
   self:OnCreated()
 end
 
 function modifier_item_regen_crystal_active:OnDestroy()
-  if IsServer() and self.nPreviewFX then
-    ParticleManager:DestroyParticle(self.nPreviewFX, false)
-    ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-    self.nPreviewFX = nil
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 

@@ -35,9 +35,9 @@ end
 function modifier_item_dispel_orb_active:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
-    if self.nFXIndex == nil then
-      self.nFXIndex = ParticleManager:CreateParticle("particles/items/dispel_orb/dispel_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControlEnt(self.nFXIndex, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+    if self.particle == nil then
+      self.particle = ParticleManager:CreateParticle("particles/items/dispel_orb/dispel_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+      ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
     end
 
     local interval = self:GetAbility():GetSpecialValueFor("tick_interval")
@@ -47,23 +47,22 @@ end
 
 function modifier_item_dispel_orb_active:OnRefresh()
   if IsServer() then
-    if self.nFXIndex then
-      ParticleManager:DestroyParticle(self.nFXIndex, true)
-      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, true)
+      ParticleManager:ReleaseParticleIndex(self.particle)
     end
 
     local parent = self:GetParent()
-    self.nFXIndex = ParticleManager:CreateParticle("particles/items/dispel_orb/dispel_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(self.nFXIndex, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+    self.particle = ParticleManager:CreateParticle("particles/items/dispel_orb/dispel_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
   end
 end
 
 function modifier_item_dispel_orb_active:OnDestroy()
-  if IsServer() then
-    if self.nFXIndex then
-      ParticleManager:DestroyParticle(self.nFXIndex, true)
-      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
-    end
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
   end
 end
 

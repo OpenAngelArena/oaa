@@ -175,43 +175,39 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:OnIntervalThink()
   end
 
   local vanilla_boots = {
+    "item_arcane_boots",
+    "item_boots_of_bearing",
+    "item_guardian_greaves",
     "item_phase_boots",
     "item_power_treads",
     "item_tranquil_boots",
-    "item_arcane_boots",
-    "item_guardian_greaves",
-    "item_boots_of_bearing",
   }
 
   local custom_boots = {
-    "item_travel_boots_oaa",
-
     "item_greater_guardian_greaves",
-    "item_greater_tranquil_boots",
-    "item_greater_travel_boots",
-    "item_greater_phase_boots",
-    "item_greater_power_treads",
-
     "item_greater_guardian_greaves_2",
-    "item_greater_tranquil_boots_2",
-    "item_greater_travel_boots_2",
-    "item_greater_phase_boots_2",
-    "item_greater_power_treads_2",
-
     "item_greater_guardian_greaves_3",
-    "item_greater_tranquil_boots_3",
-    "item_greater_travel_boots_3",
-    "item_greater_phase_boots_3",
-    "item_greater_power_treads_3",
-    "item_sonic",
-
     "item_greater_guardian_greaves_4",
-    "item_greater_tranquil_boots_4",
-    "item_greater_travel_boots_4",
+    "item_greater_phase_boots",
+    "item_greater_phase_boots_2",
+    "item_greater_phase_boots_3",
     "item_greater_phase_boots_4",
+    "item_greater_phase_boots_5",
+    "item_greater_power_treads",
+    "item_greater_power_treads_2",
+    "item_greater_power_treads_3",
     "item_greater_power_treads_4",
+    "item_greater_tranquil_boots",
+    "item_greater_tranquil_boots_2",
+    "item_greater_tranquil_boots_3",
+    "item_greater_tranquil_boots_4",
+    "item_greater_travel_boots",
+    "item_greater_travel_boots_2",
+    "item_greater_travel_boots_3",
+    "item_greater_travel_boots_4",
+    "item_sonic",
     "item_sonic_2",
-    "item_force_boots_1",
+    "item_travel_boots_oaa",
   }
 
   local meepo_prime = parent:GetCloneSource()
