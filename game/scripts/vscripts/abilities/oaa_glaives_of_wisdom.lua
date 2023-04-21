@@ -310,7 +310,7 @@ if IsServer() then
 
         -- Use mana and trigger cd while respecting reductions
         -- Using attack modifier abilities doesn't actually fire any cast events so we need to use resources here
-        ability:UseResources(true, false, true)
+        ability:UseResources(true, false, false, true)
 
         -- Changing projectile back is too early during OnAttack,
         -- Changing projectile back is done by removing modifier_oaa_glaives_of_wisdom_fx from the parent

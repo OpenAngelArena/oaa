@@ -75,7 +75,7 @@ function modifier_dev_attack_aura:OnIntervalThink()
 
     target:MakeVisibleDueToAttack(teamID)
     target:Purge(true, false, false, false, true)
-    target:ReduceMana(manaReductionAmount)
+    target:ReduceMana(manaReductionAmount, ability)
     caster:GiveMana(manaReductionAmount)
     if targetHealth - healthReductionAmount < 1 then
       target:Kill(self, caster)

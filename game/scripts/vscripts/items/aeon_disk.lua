@@ -148,7 +148,7 @@ if IsServer() then
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})
 
       -- Start cooldown, spend mana
-      ability:UseResources(true, true, true)
+      ability:UseResources(true, false, false, true)
 
       return 1
     end

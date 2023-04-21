@@ -148,7 +148,7 @@ function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability,
   unit:AddNewModifier(caster, ability, "modifier_wanderer_sticky_blood_debuff", {duration = self.duration})
 
   -- Start cooldown
-  ability:UseResources(true, true, true)
+  ability:UseResources(false, false, false, true)
 end
 
 function modifier_wanderer_sticky_blood_passive:CheckState()

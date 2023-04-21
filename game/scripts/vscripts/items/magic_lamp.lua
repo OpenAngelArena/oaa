@@ -139,7 +139,7 @@ if IsServer() then
       parent:SetHealth(math.max(self.min_hp, health_increase))
 
       -- Start cooldown, spend mana
-      ability:UseResources(true, true, true)
+      ability:UseResources(true, false, false, true)
     end
   end
 end

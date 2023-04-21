@@ -184,7 +184,7 @@ if IsServer() then
       local mana_to_remove = math.max(0, current_mana - mana_after)
 
       -- Remove mana
-      parent:ReduceMana(mana_to_remove)
+      parent:ReduceMana(mana_to_remove, ability)
     else
       -- grab the remaining shield hp
       local hp = self:GetStackCount()

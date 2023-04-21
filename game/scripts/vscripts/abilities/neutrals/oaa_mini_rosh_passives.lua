@@ -120,7 +120,7 @@ if IsServer() then
     end
 
     -- Start cooldown respecting cooldown reductions
-    ability:UseResources(true, true, true)
+    ability:UseResources(false, false, false, true)
 
     -- Particle
     local particle_name = "particles/items_fx/immunity_sphere.vpcf"
