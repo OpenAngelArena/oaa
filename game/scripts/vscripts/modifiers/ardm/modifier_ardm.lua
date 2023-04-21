@@ -34,12 +34,6 @@ end
 function modifier_ardm:IsPurgable()
   return false
 end
-function modifier_ardm:IsPurgeException()
-  return false
-end
-function modifier_ardm:IsPermanent()
-  return true
-end
 function modifier_ardm:RemoveOnDeath()
   return false
 end

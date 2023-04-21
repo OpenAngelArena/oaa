@@ -178,20 +178,16 @@ function modifier_magma_boss_volcano:IsHidden()
   return true
 end
 
-function modifier_magma_boss_volcano:IsStunDebuff()
+function modifier_magma_boss_volcano:IsDebuff()
   return true
 end
 
-function modifier_magma_boss_volcano:IsDebuff()
+function modifier_magma_boss_volcano:IsStunDebuff()
   return true
 end
 
 function modifier_magma_boss_volcano:IsPurgable()
   return false
-end
-
-function modifier_magma_boss_volcano:IsPurgeException()
-  return true
 end
 
 function modifier_magma_boss_volcano:RemoveOnDeath()

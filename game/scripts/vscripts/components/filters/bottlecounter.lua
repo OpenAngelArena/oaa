@@ -17,6 +17,11 @@ function BottleCounter:Filter(filterTable)
   local item = EntIndexToHScript(itemEntIndex)
   local parentEntIndex = filterTable.inventory_parent_entindex_const
   local parent = EntIndexToHScript(parentEntIndex)
+
+  if not parent or parent:IsNull() then
+    return true
+  end
+
   local player = parent:GetPlayerOwner()
 
   if player and not parent:IsIllusion() and not parent:IsTempestDouble() and not parent:IsPhantom() then

@@ -33,7 +33,7 @@
     {
       "brew_time"                                         "5.0"
       "min_stun"                                          "0.25"
-      "max_stun"                                          "1.75 2.5 3.25 4.0 4.75 5.5"
+      "max_stun"                                          "2.2 2.8 3.4 4.0 4.75 5.5" // OAA, Valve has it wrong
       "min_damage"                                        "0"
       "max_damage" //OAA
       {
@@ -47,7 +47,6 @@
         "special_bonus_unique_alchemist"                  "+125"
       }
       "brew_explosion"                                    "7.0"
-      //"vision_range"                                      "300"
     }
   }
 }

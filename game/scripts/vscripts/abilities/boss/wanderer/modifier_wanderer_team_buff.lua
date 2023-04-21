@@ -15,10 +15,6 @@ function modifier_wanderer_team_buff:IsPurgable ()
   return false
 end
 
-function modifier_wanderer_team_buff:IsPurgeException ()
-  return false
-end
-
 function modifier_wanderer_team_buff:RemoveOnDeath ()
   return false
 end

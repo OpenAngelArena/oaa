@@ -160,10 +160,12 @@ function HeroSelection:Init ()
         -- Reconnected when game started and randomed hero is invalid
         local new_hero_name = HeroSelection:RandomHero()
         if loadedHeroes[new_hero_name] then
-          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
         else
           PrecacheUnitByNameAsync(new_hero_name, function()
-            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
           end)
         end
         lockedHeroes[playerid] = new_hero_name
@@ -193,10 +195,12 @@ function HeroSelection:Init ()
           new_hero_name = HeroSelection:RandomHero()
         end
         if loadedHeroes[new_hero_name] then
-          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
         else
           PrecacheUnitByNameAsync(new_hero_name, function()
-            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, Gold:GetGold(playerid), PlayerResource:GetTotalEarnedXP(playerid))
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
           end)
         end
       end
@@ -205,9 +209,9 @@ function HeroSelection:Init ()
 
   GameEvents:OnPreGame(function (keys)
     -- Pause the game at the start (not during strategy time)
-    --if HeroSelection.isCM or HeroSelection.isARDM then
-    PauseGame(true)
-    --end
+    if HeroSelection.isCM or HeroSelection.isARDM then
+      PauseGame(true)
+    end
   end)
 end
 
@@ -285,15 +289,17 @@ function HeroSelection:BuildBottlePass()
   local special_arcanas = {}
   HeroSelection.SelectedBottle = {}
   HeroSelection.SelectedArcana = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    if PlayerResource:IsValidPlayerID(playerID) then
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
       local steamid = PlayerResource:GetSteamAccountID(playerID)
 
-      if SPECIAL_BOTTLES[steamid] then
-        special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
-        HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
+      if steamid ~= 0 then
+        if SPECIAL_BOTTLES[steamid] then
+          special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
+          HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
+        end
+        special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}}
       end
-      special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei'}}
     end
   end
 
@@ -635,7 +641,7 @@ function HeroSelection:CMManager (event)
         local skipnext = false
         PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
           if skipnext == false and PlayerResource:GetTeam(PlayerID) == DOTA_TEAM_BADGUYS then
-            if PlayerResource:GetConnectionState(PlayerID) == 2 then
+            if PlayerResource:GetConnectionState(PlayerID) == DOTA_CONNECTION_STATE_CONNECTED then
               cmpickorder["captaindire"] = PlayerID
               skipnext = true
             end
@@ -909,9 +915,11 @@ end
 function HeroSelection:GetPreviewHero (playerId)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
   local team = tostring(PlayerResource:GetTeam(playerId))
-  local steamid = HeroSelection:GetSteamAccountID(playerId)
-  if previewTable[team] and previewTable[team][steamid] then
-    return previewTable[team][steamid]
+  local steamid = tostring(PlayerResource:GetSteamAccountID(playerId))
+  if not PlayerResource:IsBlackBoxPlayer(playerId) then
+    if previewTable[team] and previewTable[team][steamid] then
+      return previewTable[team][steamid]
+    end
   end
   return
 end
@@ -1002,12 +1010,16 @@ end
 
 function HeroSelection:HeroPreview (event)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
-  local teamID = tostring(PlayerResource:GetTeam(event.PlayerID))
-  if not previewTable[teamID] then
-    previewTable[teamID] = {}
+  local id = event.PlayerID
+  if not PlayerResource:IsBlackBoxPlayer(id) then
+    local teamID = tostring(PlayerResource:GetTeam(id))
+    if not previewTable[teamID] then
+      previewTable[teamID] = {}
+    end
+
+    previewTable[teamID][tostring(PlayerResource:GetSteamAccountID(id))] = event.hero
+    CustomNetTables:SetTableValue('hero_selection', 'preview_table', previewTable)
   end
-  previewTable[teamID][HeroSelection:GetSteamAccountID(event.PlayerID)] = event.hero
-  CustomNetTables:SetTableValue('hero_selection', 'preview_table', previewTable)
 end
 
 -- write new values to table
@@ -1070,7 +1082,7 @@ function HeroSelection:UpdateTable (playerID, hero)
   end
   selectedtable[playerID].selectedhero = hero
   selectedtable[playerID].team = teamID
-  selectedtable[playerID].steamid = HeroSelection:GetSteamAccountID(playerID)
+  selectedtable[playerID].steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
 
   -- if everyone has picked, stop
   local isanyempty = false
@@ -1088,20 +1100,6 @@ function HeroSelection:UpdateTable (playerID, hero)
   if isanyempty == false then
     forcestop = true
   end
-end
-
-local playerToSteamMap = {}
-function HeroSelection:GetSteamAccountID(playerID)
-  local steamid = PlayerResource:GetSteamAccountID(playerID)
-  if steamid == 0 then -- for black box players steamid is probably 0
-    if playerToSteamMap[playerID] then
-      return playerToSteamMap[playerID]
-    else
-      steamid = #playerToSteamMap + 1
-      playerToSteamMap[playerID] = tostring(steamid)
-    end
-  end
-  return tostring(steamid)
 end
 
 function HeroSelection:HeroRerandom(event)

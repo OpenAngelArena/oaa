@@ -50,7 +50,7 @@ function modifier_item_aeon_disk_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
   }
 end
 
@@ -62,27 +62,31 @@ function modifier_item_aeon_disk_oaa_passive:GetModifierManaBonus()
   return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
 end
 
+-- Things we need to mimic:
+-- 1) The damage instance triggering Aeon Disk is negated.
+-- 2) Instant kill abilities ignore Aeon Disk trigger, Aeon Disk doesnt go on cd
+-- 3) Ignoring self and damage with hp removal flag
 if IsServer() then
-  -- "The damage instance triggering Combo Breaker is negated." That's why we use this instead of OnTakeDamage
-  -- OnTakeDamage event also ignores some damage that has hp removal flag
-  function modifier_item_aeon_disk_oaa_passive:GetModifierIncomingDamage_Percentage(keys)
+  function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamage(event)
     if not self:IsFirstItemInInventory() then
       return 0
     end
 
     local parent = self:GetParent()
     local ability = self:GetAbility()
-    local attacker = keys.attacker
-    local damage = keys.damage
-    local damage_flags = keys.damage_flags
+    local attacker = event.attacker
+    local damaged_unit = event.target
+    local damage_after = event.damage -- after reductions
+    local damage_before = event.original_damage -- before reductions
+    local damage_flags = event.damage_flags
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return 0
     end
 
-    -- Don't trigger on self damage
-    if attacker == parent then
+    -- Check if attacker is a valid entity
+    if attacker.GetTeamNumber == nil then
       return 0
     end
 
@@ -91,28 +95,23 @@ if IsServer() then
       return 0
     end
 
+    -- Don't trigger on self damage
+    if attacker == parent then -- or attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return 0
+    end
+
+    -- Check if damaged unit exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return 0
+    end
+
+    -- Check if damaged unit has this modifier
+    if damaged_unit ~= parent then
+      return 0
+    end
+
     -- Don't trigger for illusions
     if parent:IsIllusion() then
-      return 0
-    end
-
-    -- Don't trigger if parent already has Combo Breaker buff
-    if parent:HasModifier("modifier_item_aeon_disk_oaa_buff") then
-      return 0
-    end
-
-    -- Don't trigger if item is not in the inventory
-    if not ability or ability:IsNull() then
-      return 0
-    end
-
-    -- Don't trigger if item is on cooldown or not enough mana
-    if not ability:IsCooldownReady() or not ability:IsOwnersManaEnough() then
-      return 0
-    end
-
-    -- Don't trigger for 0 or negative damage
-    if damage <= 0 then
       return 0
     end
 
@@ -121,33 +120,38 @@ if IsServer() then
       return 0
     end
 
+    -- Don't trigger for 0 or negative damage
+    if damage_before <= 0 or damage_after <= 0 then
+      return 0
+    end
+
+    -- Don't trigger if item is not in the inventory
+    if not ability or ability:IsNull() then
+      return 0
+    end
+
     local buff_duration = ability:GetSpecialValueFor("buff_duration")
     local health_threshold_pct = ability:GetSpecialValueFor("health_threshold_pct") / 100
 
     local current_health = parent:GetHealth()
-    local current_health_pct = current_health / parent:GetMaxHealth()
-    local health_pct_after_dmg = (current_health - damage) / parent:GetMaxHealth()
+    local max_health = parent:GetMaxHealth()
+    local health_pct = current_health / max_health -- health pct before damage occured
 
-    if current_health_pct < health_threshold_pct or health_pct_after_dmg <= health_threshold_pct then
+    if (health_pct <= health_threshold_pct or current_health - damage_after <= 1) and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and parent:IsAlive() then
       -- Sound
       parent:EmitSound("DOTA_Item.ComboBreaker")
 
       -- Strong Dispel
-      parent:Purge(false, true, false, true, true)
+      parent:Purge(false, true, false, true, false)
 
       -- Apply Combo Breaker buff
       parent:AddNewModifier(parent, ability, "modifier_item_aeon_disk_oaa_buff", {duration = buff_duration})
 
-      -- If current_health_pct < health_threshold_pct then hp = current_health; If current_health_pct > health_threshold_pct then hp = max_hp * health_threshold_pct
-      parent:SetHealth(math.min(current_health, parent:GetMaxHealth() * health_threshold_pct))
-
       -- Start cooldown, spend mana
       ability:UseResources(true, true, true)
 
-      return -100
+      return 1
     end
-
-    return 0
   end
 end
 
@@ -173,15 +177,29 @@ function modifier_item_aeon_disk_oaa_buff:OnCreated()
     self.status_resist = ability:GetSpecialValueFor("status_resistance")
   end
 
-  if IsServer() then
+  if IsServer() and self.particle == nil then
     local parent = self:GetParent()
-    local particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    self:AddParticle(particle, false, false, -1, true, false)
+    self.particle = ParticleManager:CreateParticle("particles/items4_fx/combo_breaker_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
   end
 end
 
-modifier_item_aeon_disk_oaa_buff.OnRefresh = modifier_item_aeon_disk_oaa_buff.OnCreated
+function modifier_item_aeon_disk_oaa_buff:OnRefresh()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+  self:OnCreated()
+end
+
+function modifier_item_aeon_disk_oaa_buff:OnDestroy()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, false)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+end
 
 function modifier_item_aeon_disk_oaa_buff:DeclareFunctions()
   return {

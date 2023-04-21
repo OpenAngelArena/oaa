@@ -3,6 +3,7 @@ const parseTranslation = require('./parse-translation');
 const fs = require('fs');
 const path = require('path');
 const parseKV = require('parse-kv');
+const { transifexApi } = require('@transifex/api');
 
 const languageShortNames = {
   german: 'de',
@@ -67,8 +68,8 @@ request.get({
     encoding: 'ucs2'
   });
 
-  if (process.argv[2] || !process.env.TRANSIFEX_USER || !process.env.TRANSIFEX_PASSWORD) {
-    console.log('No TRANSIFEX_USER or TRANSIFEX_PASSWORD, not generating translations (english only)');
+  if (process.argv[2] || !process.env.TRANSIFEX_TOKEN) {
+    console.log('No TRANSIFEX_TOKEN, not generating translations (english only)');
     process.exit(0);
   } else {
     Object.keys(languageShortNames).map(generateTranslations);
@@ -101,25 +102,28 @@ function getDuplicateStrings () {
   return duplicateStrings;
 }
 
-function getTranslationsForLanguage (lang, cb) {
+async function getTranslationsForLanguage (lang, cb) {
+  transifexApi.setup({ auth: process.env.TRANSIFEX_TOKEN });
+
+  const organization = await transifexApi.Organization.get({ slug: 'open-angel-arena' });
+  const projects = await organization.fetch('projects');
+  const project = await projects.get({ slug: 'open-angel-arena' });
+  const language = await transifexApi.Language.get({ code: lang });
+  const resources = await project.fetch('resources');
+  const resource = await resources.get({ slug: 'addon_english' });
+  const url = await transifexApi.ResourceTranslationsAsyncDownload.download({
+    resource,
+    language
+  });
+
   request.get({
-    url: 'http://www.transifex.com/api/2/project/open-angel-arena/resource/addon_english/translation/' + lang + '?mode=onlytranslated',
-    auth: {
-      user: process.env.TRANSIFEX_USER,
-      pass: process.env.TRANSIFEX_PASSWORD
-    },
+    url,
     json: true
   }, function (err, data) {
-    if (typeof data.body !== 'object') {
-      console.error('Unexpected output: ', data.body);
-      return cb(new Error('Unexpected output from transifex server. Check user / password'));
+    if (err) {
+      return cb(err);
     }
-    try {
-      data = JSON.parse(data.body.content.replace('"fading if it sustains too much damage"', '\\"fading if it sustains too much damage\\"'));
-    } catch (err) {
-      console.error('Error parsing return value:');
-      console.error('http://www.transifex.com/api/2/project/open-angel-arena/resource/addon_english/translation/' + lang + '?mode=onlytranslated');
-    }
+    data = data.body;
     cb(err, data);
   });
 }

@@ -62,10 +62,27 @@ end
 
 if IsServer() then
   function modifier_item_magic_lamp_oaa_passive:GetMinHealth()
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
     local ability = self:GetAbility()
-    if ability and not ability:IsNull() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and self:IsFirstItemInInventory() and not self:GetParent():HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
+    local parent = self:GetParent()
+
+    -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
+      return
+    end
+
+    -- Don't trigger if item is not in the inventory
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    if ability:IsCooldownReady() and ability:IsOwnersManaEnough() and not parent:HasModifier("modifier_skeleton_king_reincarnation_scepter_active") then
       return 1
     end
+
     return
   end
 
@@ -95,8 +112,8 @@ if IsServer() then
       return
     end
 
-    -- Don't trigger for illusions
-    if parent:IsIllusion() then
+    -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
       return
     end
 
@@ -112,7 +129,7 @@ if IsServer() then
 
       -- Dispel all debuffs (99.99% at least)
       parent:DispelUndispellableDebuffs()
-      parent:Purge(false, true, false, true, true)
+      parent:Purge(false, true, false, true, false)
 
       -- Particle
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})

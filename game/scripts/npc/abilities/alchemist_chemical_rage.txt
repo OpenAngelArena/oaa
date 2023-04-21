@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA, for picking screen tooltip
+    "AbilityCooldown"                                     "60 55 50 45 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,9 +36,9 @@
     {
       "duration"                                          "30"
       "transformation_time"                               "0.35"
-      "base_attack_time"                                  "1.2 1.15 1.1 1.05 1.0" //OAA, for picking screen tooltip
+      "base_attack_time"                                  "1.2 1.15 1.1 1.05 1.0" //OAA
       "bonus_health"                                      "0"
-      "bonus_health_regen" //OAA, for picking screen tooltip
+      "bonus_health_regen" //OAA
       {
         "value"                                           "50 100 150 250 350"
         "special_bonus_unique_alchemist_4"                "+50"
@@ -56,7 +56,7 @@
       }
       "scepter_bonus_damage"
       {
-        "value"                                           "20"
+        "value"                                           "25"
         "RequiresScepter"                                 "1"
       }
       "scepter_spell_amp"

@@ -36,7 +36,7 @@
     "AttackDamageMax"                                     "100"    // Damage range max.
     "AttackRate"                                          "2.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
+    "AttackAcquisitionRange"                              "200"    // Range within a target can be acquired.
     "AttackRange"                                         "150"    // Range within a target can be attacked.
     "ProjectileModel"                                     ""      // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"      // Speed of projectile.
@@ -48,14 +48,14 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "1000"    // Experience earn.
+    "BountyXP"                                            "5000"    // Experience earn.
     "BountyGoldMin"                                       "1500"    // Gold earned min.
     "BountyGoldMax"                                       "2000"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "250"    // Speed.
+    "MovementSpeed"                                       "240"    // Speed.
     "MovementTurnRate"                                    "1.0"    // Turning rate.
 
     // Status
@@ -67,8 +67,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "800"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "800"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "100"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "100"    // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

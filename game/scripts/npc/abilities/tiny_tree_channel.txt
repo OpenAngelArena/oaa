@@ -16,11 +16,9 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"                                  "2.4"
+    "AbilityChannelTime"                                  "2.5"
     "AbilityCastRange"                                    "1000" //OAA
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-    "AbilityChannelAnimation"                             "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1000" //OAA
+        "speed"                                           "1000" //OAA, Valve has 1000.0
         "RequiresScepter"                                 "1"
       }
       "02"
@@ -61,7 +59,7 @@
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "interval"                                        "0.4"
+        "interval"                                        "0.5"
         "RequiresScepter"                                 "1"
       }
       "06"

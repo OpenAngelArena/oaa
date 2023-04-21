@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3576"    // unique ID
+    "ID"                                                  "3576"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -26,8 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_swift_blink_2;item_upgrade_core_2"
-      "02"                                                "item_arcane_blink_2;item_upgrade_core_2"
-      "03"                                                "item_overwhelming_blink_2;item_upgrade_core_2"
     }
   }
 

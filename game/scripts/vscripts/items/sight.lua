@@ -301,11 +301,6 @@ function modifier_item_far_sight_true_sight:OnCreated()
       enemy_team = DOTA_TEAM_GOODGUYS
     end
 
-	  -- Old particle
-    --self.nFXIndex = ParticleManager:CreateParticle( "particles/items/far_sight.vpcf", PATTACH_CUSTOMORIGIN, nil )
-    --ParticleManager:SetParticleControl( self.nFXIndex, 0, self:GetParent():GetOrigin() )
-    --ParticleManager:SetParticleControl( self.nFXIndex, 1, Vector(radius, 0, 0) )
-
     -- New particles
     local index1 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_green.vpcf", PATTACH_WORLDORIGIN, parent, parent_team)
     ParticleManager:SetParticleControl(index1, 0, parent_location)

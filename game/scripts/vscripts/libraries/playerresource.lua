@@ -1,7 +1,10 @@
 --[[ Extension functions for PlayerResource
 
+-PlayerResource:GetAllPlayerIDs()
+  Returns an iterator for all the player IDs (inludes players and spectators, doesn't ignore black boxes and bots)
+
 -PlayerResource:GetAllTeamPlayerIDs()
-  Returns an iterator for all the player IDs assigned to a valid team (radiant, dire, or custom)
+  Returns an iterator for all the valid non-spectator player IDs (ignores black boxes but not bots)
 
 -PlayerResource:GetConnectedTeamPlayerIDs()
   Returns an iterator for all connected, non-spectator player IDs
@@ -18,8 +21,12 @@
 -PlayerResource:IsBotOrPlayerConnected(int id)
   Returns true if the given player ID is a connected bot or player
 ]]
+function CDOTA_PlayerResource:GetAllPlayerIDs()
+  return filter(partial(self.IsValidPlayerID, self), range(0, DOTA_MAX_PLAYERS))
+end
+
 function CDOTA_PlayerResource:GetAllTeamPlayerIDs()
-  return filter(partial(self.IsValidPlayerID, self), range(0, self:GetPlayerCount()))
+  return filter(function(id) return self:IsValidPlayerID(id) and self:IsValidPlayer(id) end, range(0, DOTA_MAX_TEAM_PLAYERS))
 end
 
 function CDOTA_PlayerResource:GetConnectedTeamPlayerIDs()
@@ -27,7 +34,7 @@ function CDOTA_PlayerResource:GetConnectedTeamPlayerIDs()
 end
 
 function CDOTA_PlayerResource:GetPlayerIDsForTeam(team)
-  return filter(function(id) return self:GetTeam(id) == team end, range(0, self:GetPlayerCount()))
+  return filter(function(id) return self:GetTeam(id) == team end, self:GetAllTeamPlayerIDs())
 end
 
 function CDOTA_PlayerResource:GetConnectedTeamPlayerIDsForTeam(team)
@@ -57,7 +64,7 @@ end
 function CDOTA_PlayerResource:FindFirstValidPlayer()
   local player
   for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    if self:IsValidPlayerID(playerID) then
+    if self:IsValidPlayerID(playerID) and self:IsValidPlayer(playerID) then
       player = self:GetPlayer(playerID)
       if player then
         break
@@ -65,4 +72,10 @@ function CDOTA_PlayerResource:FindFirstValidPlayer()
     end
   end
   return player
+end
+
+function CDOTA_PlayerResource:IsBlackBoxPlayer(id)
+  local connectionState = self:GetConnectionState(id)
+  local steamID = self:GetSteamAccountID(id)
+  return connectionState == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED and steamID == 0 and self:IsValidPlayer(id) == false
 end

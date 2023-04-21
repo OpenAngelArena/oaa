@@ -63,6 +63,7 @@ CAPTAINS_MODE_CAPTAIN_TIME = 20           -- how long players have to claim the 
 CAPTAINS_MODE_PICK_BAN_TIME = 30          -- how long you have to do each pick/ban
 CAPTAINS_MODE_HERO_PICK_TIME = 45         -- time to choose which hero you're going to play
 CAPTAINS_MODE_RESERVE_TIME = 130          -- total bonus time that can be used throughout any selection
+CAPTAINS_MODE_TOTAL = CAPTAINS_MODE_CAPTAIN_TIME + 22*CAPTAINS_MODE_PICK_BAN_TIME + CAPTAINS_MODE_HERO_PICK_TIME + 2*CAPTAINS_MODE_RESERVE_TIME
 
 RANKED_PREGAME_TIME = 0
 RANKED_BAN_TIME = 30
@@ -70,6 +71,10 @@ RANKED_PICK_TIME = 30
 if IsInToolsMode() then
   RANKED_BAN_TIME = 5
   RANKED_PICK_TIME = 5
+  CAPTAINS_MODE_CAPTAIN_TIME = 5
+  CAPTAINS_MODE_PICK_BAN_TIME = 5
+  CAPTAINS_MODE_HERO_PICK_TIME = 5
+  CAPTAINS_MODE_RESERVE_TIME = 5
 end
 
 -- Game timings

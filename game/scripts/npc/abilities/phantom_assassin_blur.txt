@@ -18,7 +18,7 @@
     "AbilityCooldown"                                     "12" //OAA
 
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "400" //OAA, Valve has it wrong
 
     "AbilityManaCost"                                     "50"
 
@@ -40,7 +40,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
+        "radius"                                          "400"
       }
       "04"
       {

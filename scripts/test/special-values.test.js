@@ -276,7 +276,10 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 
   // for completely reworked abilities and irrelevant stuff
   const ignoreValuesForIDs = [
-    '40' // item_dust
+    '40', // item_dust
+    '42', // item_ward_observer
+    '43', // item_ward_sentry
+    '609' // item_aghanims_shard
     // '5109', // tiny_grow
   ];
 

@@ -103,7 +103,6 @@ function OAAOptions:Init ()
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
-  --FilterManager:AddFilter(FilterManager.Damage, self, Dynamic_Wrap(OAAOptions, "DamageFilter"))
 
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
@@ -207,12 +206,6 @@ function OAAOptions:AdjustGameMode()
     end
   end
 
-  -- Temporary solution until I fix this
-  if self:FindHostID() == 7131038 then
-    -- Chris is the host
-    GameRules:SetStrategyTime(10)
-  end
-
   if self.settings.HEROES_MODS ~= "HMN" then
     if self.settings.HEROES_MODS == "HMR" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
@@ -285,6 +278,10 @@ function OAAOptions:OnUnitSpawn(event)
     return
   end
 
+  if npc.IsBaseNPC == nil or npc.HasModifier == nil or npc.GetUnitName == nil then
+    return
+  end
+
   if not npc:IsBaseNPC() then
     -- npc is not an npc
     return
@@ -329,7 +326,7 @@ end
 
 function OAAOptions:FindHostID()
   local hostId = 0
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID) -- PlayerResource:GetSteamID(playerID)
     local player = PlayerResource:GetPlayer(playerID)
     if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then
@@ -349,28 +346,4 @@ function OAAOptions:ChangeDefaultSettings()
 
   self:RestoreDefaults()
   self:SaveSettings()
-end
-
-function OAAOptions:DamageFilter(filter_table)
-  local attacker
-  local victim
-  --local damage_type = filter_table.damagetype_const
-  local inflictor = filter_table.entindex_inflictor_const	-- entindex_inflictor_const is nil if damage is not caused by an ability
-  --local damage_after_reductions = filter_table.damage 	-- damage is damage after reductions without spell amplifications
-
-  if filter_table.entindex_attacker_const and filter_table.entindex_victim_const then
-    attacker = EntIndexToHScript(filter_table.entindex_attacker_const)
-    victim = EntIndexToHScript(filter_table.entindex_victim_const)
-  end
-
-  local damaging_ability
-  if inflictor then
-    damaging_ability = EntIndexToHScript(inflictor)
-  end
-
-  -- if attacker and victim and not attacker:IsNull() and not victim:IsNull() then
-
-  -- end
-
-  return true
 end

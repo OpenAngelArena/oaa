@@ -28,16 +28,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "35" //OAA
+      "duration"                                          "20" //OAA
       "fade_time"                                         "1.0 0.75 0.5 0.25 0.1 0.0"
       "slow"
       {
-        "value"                                           "16 24 32 40 48 56"
+        "value"                                           "15 25 35 45 55 65"
         "special_bonus_unique_bounty_hunter_5"            "+10"
       }
       "attack_slow"
       {
-        "value"                                           "16 24 32 40 50 60"
+        "value"                                           "15 25 35 45 55 65"
         "special_bonus_unique_bounty_hunter_5"            "+10"
       }
       "slow_duration"                                     "4"

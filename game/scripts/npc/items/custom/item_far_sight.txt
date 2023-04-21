@@ -47,7 +47,7 @@
     "AbilitySharedCooldown"                               "farsight"
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.0"
-    "AoERadius"                                           "700"
+    "AoERadius"                                           "750"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -118,7 +118,7 @@
       "09"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "700"
+        "reveal_radius"                                   "750"
       }
       "10"
       {
@@ -128,12 +128,12 @@
       "11"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dust_duration"                                   "10"
+        "dust_duration"                                   "12"
       }
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "dust_radius"                                     "700"
+        "dust_radius"                                     "750"
       }
     }
   }

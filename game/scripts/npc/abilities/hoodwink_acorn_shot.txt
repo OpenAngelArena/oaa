@@ -22,7 +22,6 @@
     "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
     "AbilityCastRange"                                    "575"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityManaCost"                                     "75 85 95 105 115 125"
 
     // Special
@@ -37,7 +36,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "acorn_shot_damage"                               "50 75 100 125 250 500"
+        "acorn_shot_damage"                               "50 80 110 140 280 560"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "03"

@@ -13,12 +13,8 @@ if (typeof module !== 'undefined' && module.exports) {
   };
 }
 
-// for testing
-const neverHideStrategy = false;
-
 const heroAbilities = {};
 const currentMap = Game.GetMapInfo().map_display_name;
-let hasGoneToStrategy = false;
 let selectedhero = 'empty';
 let disabledheroes = [];
 let herolocked = false;
@@ -352,29 +348,35 @@ function onPlayerStatChange (table, key, data) {
             currentteam = teamdire;
             break;
         }
-        const newelement = $.CreatePanel('Panel', currentteam, '');
-        newelement.AddClass('Player');
-        newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
-        newimage.hittest = false;
-        newimage.AddClass('PlayerImage');
-        ChangeHeroImage(newimage, data[nkey].selectedhero);
-        const newlabel = $.CreatePanel('DOTAUserName', newelement, '');
-        newlabel.AddClass('PlayerLabel');
-        newlabel.steamid = data[nkey].steamid;
+        if (currentteam === null) {
+          $.Msg('currentteam is null, data[nkey].team is:');
+          $.Msg(data[nkey].team);
+          $.Msg(data[nkey]);
+        } else {
+          const newelement = $.CreatePanel('Panel', currentteam, '');
+          newelement.AddClass('Player');
+          newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
+          newimage.hittest = false;
+          newimage.AddClass('PlayerImage');
+          ChangeHeroImage(newimage, data[nkey].selectedhero);
+          const newlabel = $.CreatePanel('DOTAUserName', newelement, '');
+          newlabel.AddClass('PlayerLabel');
+          newlabel.steamid = data[nkey].steamid;
 
-        DisableHero(data[nkey].selectedhero);
-        if (iscm) {
-          if (data[nkey].selectedhero !== 'empty') {
-            ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
-            const label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
+          DisableHero(data[nkey].selectedhero);
+          if (iscm) {
+            if (data[nkey].selectedhero !== 'empty') {
+              ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
+              const label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
 
-            label.style.visibility = 'collapse';
-            label.steamid = null;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'visible';
-          } else {
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'collapse';
+              label.style.visibility = 'collapse';
+              label.steamid = null;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'visible';
+            } else {
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'collapse';
+            }
           }
         }
       });
@@ -527,16 +529,11 @@ function onPlayerStatChange (table, key, data) {
     if (data.mode === 'STRATEGY' || data.mode === 'PREPARING' || data.mode === 'PRE-STRATEGY') {
       FindDotaHudElement('TimeLeft').text = 'VS';
       FindDotaHudElement('GameMode').text = $.Localize(data.mode);
-      if (data.mode === 'PRE-STRATEGY' || data.mode === 'STRATEGY') {
-        GoToStrategy();
-      }
     } else if (data.time > -1) {
       $('#TimeLeft').text = data.time;
       $('#GameMode').text = $.Localize(data.mode);
       // spammy
       // $.Msg('Timer mode ' + data.mode);
-    } else {
-      HideStrategy();
     }
   }
 }
@@ -597,17 +594,19 @@ function UpdatedRankedPickState (data) {
       break;
     case 'picking':
       isBanning = false;
-      if (order.team === teamID) {
-        isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
-        herolocked = !isPicking;
-        canRandom = order.canRandom !== false;
-        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[playerId].selectedhero + JSON.stringify(apData[playerId]));
+      if (order !== undefined) {
+        if (order.team === teamID) {
+          isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
+          herolocked = !isPicking;
+          canRandom = order.canRandom !== false;
+          $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[playerId].selectedhero + JSON.stringify(apData[playerId]));
+        } else {
+          isPicking = false;
+          $.Msg('The team that should pick is team: ' + order.team + ' / The team that tried to pick is team: ' + teamID);
+        }
       } else {
-        isPicking = false;
-        $.Msg('Not my turn ' + order.team + ' / ' + teamID);
-        // $.Msg(data.currentOrder);
-        // $.Msg(data.order);
-        // $.Msg(order);
+        $.Msg('Order is undefined, data.order is:');
+        $.Msg(data.order);
       }
 
       canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true' && iscm === false;
@@ -689,6 +688,10 @@ function EnableChatWindow () {
   if (contentPanel) {
     contentPanel.style.visibility = 'collapse';
   }
+  const vanillaPickingScreen = pregamePanel.FindChildTraverse('HeroPickScreenContents');
+  if (vanillaPickingScreen) {
+    vanillaPickingScreen.style.visibility = 'collapse';
+  }
   const backgroundPanel = pregamePanel.FindChildTraverse('PregameBGStatic');
   if (backgroundPanel) {
     backgroundPanel.style.visibility = 'collapse';
@@ -729,6 +732,43 @@ function EnableChatWindow () {
   if (panel4) {
     panel4.style.visibility = 'collapse';
   }
+  // Hide vanilla Strategy Time stuff that is not relevant
+  const strategyMapPanel = pregamePanel.FindChildTraverse('StrategyMap');
+  if (strategyMapPanel) {
+    strategyMapPanel.style.visibility = 'collapse';
+  }
+  const strategyFriendsAndFoesPanel = pregamePanel.FindChildTraverse('StrategyFriendsAndFoes');
+  if (strategyFriendsAndFoesPanel) {
+    strategyFriendsAndFoesPanel.style.visibility = 'collapse';
+  }
+  const strategyTeamCompPanel = pregamePanel.FindChildTraverse('StrategyTeamCompPanel');
+  if (strategyTeamCompPanel) {
+    strategyTeamCompPanel.style.visibility = 'collapse';
+  }
+  // const startingItemsPanel = pregamePanel.FindChildTraverse('StartingItems');
+  // if (startingItemsPanel) {
+  // startingItemsPanel.style.visibility = 'collapse';
+  // }
+  const strategyHeroRelics = pregamePanel.FindChildTraverse('StrategyHeroRelicsThumbnail');
+  const strategyHeroRelics2 = pregamePanel.FindChildTraverse('StrategyHeroRelicsThumbnailTooltips');
+  const strategyHeroRelics3 = pregamePanel.FindChildTraverse('HeroRelicsContainer');
+  if (strategyHeroRelics) {
+    strategyHeroRelics.style.visibility = 'collapse';
+  }
+  if (strategyHeroRelics2) {
+    strategyHeroRelics2.style.visibility = 'collapse';
+  }
+  if (strategyHeroRelics3) {
+    strategyHeroRelics3.style.visibility = 'collapse';
+  }
+  const strategyHeroBadgePanel = pregamePanel.FindChildTraverse('StrategyHeroBadge');
+  if (strategyHeroBadgePanel) {
+    strategyHeroBadgePanel.style.visibility = 'collapse';
+  }
+  const strategyBacktoHeroGridButton = pregamePanel.FindChildTraverse('BacktoHeroGrid');
+  if (strategyBacktoHeroGridButton) {
+    strategyBacktoHeroGridButton.style.visibility = 'collapse';
+  }
 }
 
 function UpdatePreviews (data) {
@@ -758,12 +798,17 @@ function UpdatePreviews (data) {
   });
   Object.keys(heroesBySteamid).forEach(function (steamid) {
     const player = FindDotaHudElement(steamid);
-    ChangeHeroImage(player, heroesBySteamid[steamid]);
+    if (player) {
+      ChangeHeroImage(player, heroesBySteamid[steamid]);
+    }
   });
 }
 
 function ChangeHeroImage (container, hero) {
   // if you give this long "npc_dota_hero_blah" or short "blah" names they both work
+  if (!container) {
+    return;
+  }
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix
   const shortHeroName = container.heroname;
@@ -1165,33 +1210,6 @@ function CaptainSelectHero () {
     GameEvents.SendCustomGameEventToServer('cm_hero_selected', {
       hero: selectedherocm
     });
-  }
-}
-
-function HideStrategy () {
-  // var bossMarkers = ['Boss1r', 'Boss1d', 'Boss2r', 'Boss2d', 'Boss3r', 'Boss3d', 'Boss4r', 'Boss4d', 'Boss5r', 'Boss5d', 'Duel1', 'Duel2', 'Cave1r', 'Cave1d', 'Cave2r', 'Cave2d', 'Cave3r', 'Cave3d'];
-
-  // bossMarkers.forEach(function (element) {
-  //   FindDotaHudElement(element).style.transform = 'translateY(0)';
-  //   FindDotaHudElement(element).style.opacity = '1';
-  // });
-  if (neverHideStrategy) {
-    return;
-  }
-
-  FindDotaHudElement('MainContent').GetParent().style.opacity = '0';
-  FindDotaHudElement('MainContent').GetParent().style.transform = 'scaleX(3) scaleY(3) translateY(25%)';
-}
-
-function GoToStrategy () {
-  // FindDotaHudElement('MainContent').style.transform = 'translateX(0) translateY(100%)';
-  // FindDotaHudElement('MainContent').style.opacity = '0';
-
-  if (!hasGoneToStrategy) {
-    hasGoneToStrategy = true;
-    // $.Schedule(6, function () {
-    $('#ARDMLoading').style.opacity = 1;
-    // });
   }
 }
 

@@ -17,9 +17,11 @@ end
 
 function CorePointsManager:GetState()
   local state = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    state[steamid] = self.playerID_table[playerID]
+    if steamid ~= "0" then
+      state[steamid] = self.playerID_table[playerID]
+    end
   end
 
   return state
@@ -31,9 +33,9 @@ function CorePointsManager:LoadState(state)
     return
   end
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    if state[steamid] then
+    if steamid ~= "0" and state[steamid] then
       self.playerID_table[playerID] = state[steamid]
     end
   end

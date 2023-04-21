@@ -11,7 +11,7 @@ if Gold == nil then
   Gold = class({})
 end
 
-local GOLD_CAP = 50000
+local GOLD_CAP = 99999
 local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
 local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
 
@@ -26,7 +26,7 @@ function Gold:Init()
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
   --Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
 
-  -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (it was tied to couriers in 7.23 but not anymore)
+  -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (since patch 7.23 vanilla gpm is tied to couriers, while they shouldn't be)
   LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
   self.hasPassiveGPM = {}
   GameEvents:OnHeroInGame(Gold.HeroSpawn)
@@ -34,18 +34,20 @@ end
 
 function Gold:GetState ()
   local state = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    state[steamid] = self:GetGold(playerID)
+    if steamid ~= "0" then
+      state[steamid] = self:GetGold(playerID)
+    end
   end
 
   return state
 end
 
 function Gold:LoadState (state)
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
-    if state[steamid] then
+    if steamid ~= "0" and state[steamid] then
       self:SetGold(playerID, state[steamid])
     end
   end

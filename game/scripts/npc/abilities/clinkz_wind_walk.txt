@@ -26,28 +26,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "25" //OAA
+      "fade_time"                                         "0.6"
+      "move_speed_bonus_pct"                              "15 30 45 60 65 70"
+      "skeleton_count"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "25 30 35 40 45 50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_time"                                       "0.6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_bonus_pct"                            "15 30 45 60 65 70"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_skeleton_count"                            "2"
-        "RequiresShard"                                   "1"
+        "value"                                           "1"
+        "special_bonus_shard"                             "+1"
       }
     }
   }

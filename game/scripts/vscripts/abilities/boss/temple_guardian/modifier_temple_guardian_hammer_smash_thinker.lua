@@ -22,7 +22,9 @@ function modifier_temple_guardian_hammer_smash_thinker:OnIntervalThink()
       self:StartIntervalThink(-1)
       local parent = self:GetParent()
       if parent and not parent:IsNull() then
-        UTIL_Remove(parent)
+        -- Instead of UTIL_Remove:
+        parent:AddNoDraw()
+        parent:ForceKill(false)
       end
     end
   end
@@ -32,7 +34,7 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
   if IsServer() then
     local caster = self:GetCaster()
     local parent = self:GetParent()
-    if caster and not caster:IsNull() and caster:IsAlive() then
+    if caster and not caster:IsNull() and caster:IsAlive() and parent and not parent:IsNull() then
       EmitSoundOnLocationWithCaster(parent:GetOrigin(), "OgreTank.GroundSmash", caster)
       local smashParticle = ParticleManager:CreateParticle("particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN, caster)
       ParticleManager:SetParticleControl(smashParticle, 0, parent:GetOrigin())
@@ -74,7 +76,9 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
     ScreenShake(parent:GetOrigin(), 10.0, 100.0, 0.5, 1300.0, 0, true)
 
     if parent and not parent:IsNull() then
-      UTIL_Remove(parent)
+      -- Instead of UTIL_Remove:
+      parent:AddNoDraw()
+      parent:ForceKill(false)
     end
   end
 end
