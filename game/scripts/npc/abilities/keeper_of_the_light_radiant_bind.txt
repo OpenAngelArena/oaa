@@ -8,16 +8,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "532"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilitySound"                                        "Hero_KeeperOfTheLight.ManaLeak.Cast"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,15 +23,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 18 16 14 13 12" //OAA
+    "AbilityCooldown"                                     "14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 80 100 120 140 160"
+    "AbilityManaCost"                                     "120"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 750 800 850 900 950"
+    "AbilityCastRange"                                    "850"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,17 +40,17 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 4 5 6 7 8" //OAA
+        "duration"                                        "6"
       }
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "slow"                                            "4 5.5 7 8.5 10 11.5"
+        "slow"                                            "10"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20 25 30 35 40 45"
+        "magic_resistance"                                "35"
       }
     }
   }

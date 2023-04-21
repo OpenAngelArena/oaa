@@ -76,7 +76,9 @@
       "cast_range_enemy"                                  "450"
       "max_attacks"                                       "5 6 7 8 9"
       "bonus_attack_speed"                                "100 110 120 130 140"
-      "cooldown_tooltip"                                  "19 17 15 13 11"
+      "push_time"                                         "0.5"
+      "dizzy_duration"                                    "0"
+      "dizzy_distance_pct"                                "0"
     }
   }
 }

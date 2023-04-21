@@ -67,6 +67,16 @@
         "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
       }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "lifesteal_duration"                              "5"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "lifesteal_amt"                                   "20 30 40 50 60 70"
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "825"
+    "ItemCost"                                            "700"
     "ItemShopTags"                                        "regen_mana"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "void stone"
@@ -24,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25"
+        "bonus_mana_regen"                                "1.75"
       }
     }
   }

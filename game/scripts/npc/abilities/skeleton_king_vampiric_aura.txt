@@ -30,6 +30,11 @@
         "value"                                           "15 20 25 30 40 55"
         "special_bonus_unique_wraith_king_2"              "+15"
       }
+      "creep_vampiric_aura"
+      {
+        "value"                                           "10 15 20 25"
+        "special_bonus_unique_wraith_king_2"              "+4"
+      }
       "skeleton_duration"
       {
         "value"                                           "40"
@@ -76,6 +81,7 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "skeleton_attack_speed_per_level"                   "1" //OAA
+      "skeleton_building_damage_reduction"                "35"
     }
   }
 }

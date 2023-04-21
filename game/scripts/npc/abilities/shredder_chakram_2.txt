@@ -29,74 +29,68 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "speed"         
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "speed"                                           "900.0"
+        "value"                                           "900.0"
         "RequiresScepter"                                 "1"
       }
-      "02"
+      "radius"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "radius"                                          "200.0"
+        "value"                                           "200"
         "RequiresScepter"                                 "1"
       }
-      "03"
+      "pass_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pass_damage"                                     "110 200 290 470 830" //OAA
+        "value"                                           "110 200 290 470 830"
         "RequiresScepter"                                 "1"
       }
-      "04"
+      "damage_per_second" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "50 100 150 250 400" //OAA
+        "value"                                           "50 100 150 250 400"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "slow"          
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "5"
+        "value"                                           "5"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_4"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "damage_interval"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "0.5"
+        "value"                                           "0.5"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "break_distance"    
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "break_distance"                                  "2000.0"
+        "value"                                           "2000.0"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "mana_per_second"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_per_second"                                 "14 22 30 38 46"
+        "value"                                           "14 22 30 38 46"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "pass_slow_duration"  
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pass_slow_duration"                              "0.5"
+        "value"                                           "0.5"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "slow_health_percentage"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_health_percentage"                          "5"
+        "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
-      "11"
+      "scepter_bonus_damage"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_damage"                            "20"
+        "value"                                           "20"
         "RequiresScepter"                                 "1"
+      }   
+      "second_chakram"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_timbersaw"                 "+1"
       }
     }
   }

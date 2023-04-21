@@ -63,6 +63,16 @@
         "damage"                                          "80 120 160 200 400 800" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
       }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_heal_pct"                                "150"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cd_increase"                             "2"
+      }
     }
   }
 }

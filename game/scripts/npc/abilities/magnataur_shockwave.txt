@@ -20,7 +20,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -36,7 +35,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "shock_speed"                                       "900"
+      "shock_speed"
+      {
+        "value"                                           "900"
+        "special_bonus_shard"                             "+300"
+
+      }
       "shock_width"                                       "200"
       "shock_damage"
       {
@@ -52,40 +56,15 @@
         "value"                                           "0.9"
         "special_bonus_unique_magnus_6"                   "+0.5"
       }
-      "scepter_width"
+      "return_damage_pct"     
       {
-        "value"                                           "250"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
-      "scepter_range"
+      "AbilityCastRange"
       {
-        "value"                                           "1400"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_duration"
-      {
-        "value"                                           "5"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_erupt_time"
-      {
-        "value"                                           "1.5"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_erupt_damage_pct"
-      {
-        "value"                                           "75"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_slow_pct"
-      {
-        "value"                                           "75"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_armor_pct"
-      {
-        "value"                                           "75"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1200"
+        "special_bonus_shard"                             "+400"
       }
     }
   }

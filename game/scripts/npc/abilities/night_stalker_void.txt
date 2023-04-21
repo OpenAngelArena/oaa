@@ -48,12 +48,17 @@
       "attackspeed_slow"                                  "-50"
       "radius_scepter"
       {
-        "value"                                           "900"
+        "value"                                           "450"
         "RequiresScepter"                                 "1"
       }
       "scepter_ministun"
       {
         "value"                                           "1.0"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_zone_duration"
+      {
+        "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
     }
