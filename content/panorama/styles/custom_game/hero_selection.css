@@ -245,7 +245,7 @@ DOTAMinimap {
 
 .HeroWrapper {
   flow-children: down;
-  width: 33.3%;
+  width: 25%;
 }
 
 .AttrHolder {
@@ -466,6 +466,15 @@ DOTAMinimap {
 
 #IntHolder {
   background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90%;
+  width: height-percentage( 100% );
+  margin-right: 10px;
+}
+
+#VoidHolder {
+  background-image: url("s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_all_psd.vtex");
   background-repeat: no-repeat;
   background-size: contain;
   height: 90%;
