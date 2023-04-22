@@ -23,9 +23,9 @@ function item_greater_tranquil_boots:GetIntrinsicModifierNames()
   }
 end
 
-function item_greater_tranquil_boots:ShouldUseResources()
-  return true
-end
+--function item_greater_tranquil_boots:ShouldUseResources()
+  --return true
+--end
 
 function item_greater_tranquil_boots:OnSpellStart()
   local caster = self:GetCaster()
@@ -274,7 +274,7 @@ end
       -- --new 1: if the parent was attacked by a real hero (not an illusion and not a hero creep or boss)
 
       -- if spell:IsBreakable() and attacker:IsRealHero() then
-        -- spell:UseResources(false, false, true)
+        -- spell:UseResources(true, false, false, true)
         -- local cdRemaining = spell:GetCooldownTimeRemaining()
         -- if cdRemaining > 0 then
           -- parent:AddNewModifier(parent, spell, "modifier_greater_tranquils_broken_debuff", {duration = cdRemaining})
@@ -289,8 +289,6 @@ function modifier_item_greater_tranquil_boots_passive:CheckState()
     [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
   }
 end
-
-
 
 ---------------------------------------------------------------------------------------------------
 --[[ Old Tranquils effect

@@ -108,7 +108,7 @@ if IsServer() then
       parent:AddNewModifier(parent, ability, "modifier_boss_shielder_jump", {duration = ability:GetSpecialValueFor("jump_duration")})
 
       -- Start cooldown
-      ability:UseResources(true, true, true)
+      ability:UseResources(false, false, false, true)
     else
       -- Increment number of failures
       self:SetStackCount(prngMult)

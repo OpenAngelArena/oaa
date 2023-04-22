@@ -125,6 +125,6 @@ if IsServer() then
     SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, attacker, damage_dealt, parent:GetPlayerOwner())
 
     -- Start cooldown because of low interval dmg instances
-    ability:UseResources(true, true, true)
+    ability:UseResources(false, false, false, true)
   end
 end

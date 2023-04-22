@@ -250,7 +250,7 @@ function modifier_magma_boss_magma_blood_passive:ProcMagmaBlood(caster, ability,
 	self:StartIntervalThink(delay)
 
   -- Start cooldown
-  ability:UseResources(true, true, true)
+  ability:UseResources(false, false, false, true)
 end
 
 function modifier_magma_boss_magma_blood_passive:OnIntervalThink()

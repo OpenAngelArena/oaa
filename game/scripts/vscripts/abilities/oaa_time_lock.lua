@@ -97,8 +97,8 @@ if IsServer() then
       target:AddNewModifier( parent, spell, "modifier_faceless_void_timelock_freeze", { duration = duration } )
       target:EmitSound( "Hero_FacelessVoid.TimeLockImpact" )
 
-      -- use cooldown ( and mana, if necessary )
-      spell:UseResources( true, true, true )
+      -- go on cooldown
+      spell:UseResources( false, false, false, true )
 
       -- do another atttack that cannot miss after cd is started to prevent self-proccing
       parent:PerformAttack(target, true, true, true, false, false, false, true)
@@ -211,7 +211,7 @@ if IsServer() then
     target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 
     -- Start cooldown respecting cooldown reductions
-    ability:UseResources(true, true, true)
+    ability:UseResources(false, false, false, true)
 
     -- Calculate bonus damage
     local min_damage = ability:GetSpecialValueFor("min_damage")
