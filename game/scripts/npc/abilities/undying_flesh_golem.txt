@@ -30,15 +30,15 @@
     "AbilityValues"    
     {
       "slow"                                              "40 45 50 55 60"
-      "damage_amp"        
+      "damage_amp" //OAA
       {
-        "value"                                           "25 30 35 35 35"
+        "value"                                           "35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "slow_duration"                                     "6"
       "str_percentage" //OAA
       {
-        "value"                                           "40 45 50 55 60"
+        "value"                                           "40"
         "special_bonus_unique_undying_4"                  "+60"
       }
       "duration"                                          "40"
