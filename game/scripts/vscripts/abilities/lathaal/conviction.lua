@@ -9,7 +9,7 @@ function lathaal_conviction:OnSpellStart()
 	--add cast range increase for
 	local modifier = target:AddNewModifier(caster, self, "modifier_conviction", {duration = self:GetSpecialValueFor("channel_time"), break_distance = self:GetSpecialValueFor("break_distance")})
 
-	local particle = ParticleManager:CreateParticle("particles/hero/lathaal/super_position_base.vpcf", PATTACH_POINT_FOLLOW, caster)
+	local particle = ParticleManager:CreateParticle("particles/hero/lathaal/conviction.vpcf", PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0,0,0), true)
 	ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_weapon", Vector(0,0,0), true)
 	ParticleManager:SetParticleControlEnt(particle, 4, target, PATTACH_ABSORIGIN_FOLLOW, nil, Vector(0,0,0), true)

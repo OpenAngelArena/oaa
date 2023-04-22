@@ -190,6 +190,37 @@
     }
   }
 
+  "models/heroes/lathaal/lathaal.vmdl"
+  {
+    "PortraitLightPosition"   "42.58 -198.34 255.39"
+    "PortraitLightAngles"   "43.13 102.08 0.00"
+    "PortraitLightFOV"    "55"
+    "PortraitLightDistance"   "630"
+    "PortraitLightColor"    "254 246 246"
+    "PortraitShadowColor"   "56 63 69"
+    "PortraitShadowScale"   "5.000000"
+    "PortraitAmbientColor"    "141 169 178"
+    "PortraitAmbientScale"    "4.350000"
+    "PortraitSpecularColor"   "251 74 84"
+    "PortraitBackgroundTexture"   "materials/vgui/hud/heroportraits/portraitbackground_desert.vmat"
+    "PortraitBackgroundColor1"    ".2 .6 1"
+    "PortraitBackgroundColor2"    ".3 .5 1"
+    "PortraitBackgroundColor3"    "0 0 0"
+    "PortraitBackgroundColor4"    "0 0 0"
+    "PortraitLightScale"    "1.350000"
+    "PortraitGroundShadowScale"   "1.500000"
+    "PortraitAmbientDirection"    "-5.980 22.280 -47.290"
+    "PortraitAnimationActivity"   "ACT_DOTA_IDLE"
+    "cameras"
+    {
+      "default"
+      {
+        "PortraitPosition"    "136.37 -79.25 116.24"
+        "PortraitAngles"    "14.85 148.82 0.00"
+        "PortraitFOV"   "22"
+      }
+    }
+    
   "models/props/bottle_statue.vmdl"
   {
     "PortraitLightPosition"                               "328.508209 174.050247 168.072632"

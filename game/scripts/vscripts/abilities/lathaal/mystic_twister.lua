@@ -58,7 +58,7 @@ function modifier_mystic_twister_thinker:OnIntervalThink()
 
 	for k, unit in pairs(units) do
 
-		local hitParticle = ParticleManager:CreateParticle("particles/hero/lathaal/super_position_base.vpcf", PATTACH_ABSORIGIN, unit)
+		local hitParticle = ParticleManager:CreateParticle("particles/hero/lathaal/mystic_twister_damage.vpcf", PATTACH_ABSORIGIN, unit)
 		EmitSoundOnLocationWithCaster(unit:GetAbsOrigin() + RandomVector(10), "Hero_Lathaal.MysticTwister.Hit", self:GetParent())
 
 		if unit:IsAncient() then 
