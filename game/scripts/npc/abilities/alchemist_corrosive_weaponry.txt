@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Alchemist Corrosive Weaponry
+  //=================================================================================================================
+  "alchemist_corrosive_weaponry"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "1116" 
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilitySound"                                        "Hero_Meepo.Geostrike"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {   
+      "max_stacks"                                        "5 7 9 11 12 13"
+      "debuff_duration"                                   "3.5"
+      "slow_per_stack"                                    "3 4 5 6 7 8"
+      "status_resist_per_stack"                           "3 4 5 6 7 8"
+    }
+  } 
+}
