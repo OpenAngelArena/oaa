@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+ "lathaal_conviction"
+  {
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"          "abilities/lathaal/conviction.lua"
+    "AbilityTextureName"      "custom/lathaal_conviction"
+    "MaxLevel"            "4"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED" 
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+
+    "AbilityCastRange"        "450 550 650 750"
+    "AbilityCastPoint"        "0"
+    "AbilityCastAnimation"      "ACT_DOTA_CHANNEL_ABILITY_1"
+
+    "AbilityCooldown"       "30 25 20 15"
+    "AbilityManaCost"       "70 80 90 100"
+    "AbilityChannelTime"      "10"
+
+    "precache"
+    {
+      "particle"  "particles/hero/lathaal/conviction.vpcf"
+      "soundfile" "soundevents/units/game_sounds_lathaal.vsndevts"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "status_resistance"     "70"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "health_regen"      "15 30 45 60"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_time"    "10"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "break_distance"    "650 750 850 950"
+      }
+    }
+  }
+}

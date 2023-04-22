@@ -1,0 +1,97 @@
+//Dota Heroes file
+"DOTAHeroes"
+{
+	"Version"       "1"	
+
+	//=================================================================================================================
+	// HERO: La'thall, the Wandering Dervish
+	//=================================================================================================================
+	"npc_dota_hero_lathaal"
+	{
+		"BaseClass" "npc_dota_hero"
+		"HeroID"        "131"
+		"IsCustom"      "1"
+		"Model"     "models/heroes/lathaal/lathaal.vmdl"
+		"Portrait"      "vgui/hud/heroportraits/portrait_chaos_knight"
+		"IdleExpression"        "scenes/meepo/meepo_exp_idle_01.vcd"
+		"SoundSet"      "Hero_Meepo"
+		"Enabled"       "1"
+		"HeroUnlockOrder"       "3"
+		"Role"          "Carry,Escape,Nuker,Disabler,Initiator,Pusher"
+		"Rolelevels"    "2,2,2,1,1,1"
+		"Complexity"    "3"
+		"Team"      "Bad"
+		"ModelScale"        "1.30000"
+		"NameAliases"       "geomancer;meepwn"
+		"workshop_guide_name"       "Meepo"
+		"PickSound"     "meepo_meepo_spawn_01"
+		"BanSound"      "meepo_meepo_anger_12"
+		"HeroSelectSoundEffect"     "Hero_Meepo.Pick"
+
+		"Ability1"		"lathaal_divine_intervention"
+		"Ability2"		"lathaal_mystic_twister"
+		"Ability3"		"lathaal_conviction"
+        "Ability4"      "generic_hidden"
+        "Ability5"      "generic_hidden"
+		"Ability6"		"lathaal_superposition"
+
+		"Ability10"		"special_bonus_hp_200"
+		"Ability11"		"special_bonus_exp_boost_25"
+		"Ability12"		"lathaal_talent1"
+		"Ability13"		"special_bonus_spell_amplify_20"
+		"Ability14"		"lathaal_talent2"
+		"Ability15"		"lathaal_talent4"
+		"Ability16"		"lathaal_talent5"
+		"Ability17"		"special_bonus_cast_range_250"
+
+		"ArmorPhysical"		"3.500000"
+		"MagicalResistance"		"25"
+
+		"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"       "29"
+		"AttackDamageMax"       "35"
+		"AttackRate"        "1.700000"
+		"AttackAnimationPoint"      "0.380000"
+		"AttackAcquisitionRange"        "600"
+		"AttackRange"       "150"
+		
+		"AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"24"
+		"AttributeStrengthGain"		"2.500000"
+		"AttributeBaseAgility"		"24"
+		"AttributeAgilityGain"		"2.750000"
+		"AttributeBaseIntelligence"		"22"
+		"AttributeIntelligenceGain"		"3.000000"
+		"VisionDaytimeRange"        "1800"
+		"MovementSpeed"     "310"
+		"MovementTurnRate"      "1.000000"
+		"VoiceFile"     "soundevents/voscripts/game_sounds_vo_meepo.vsndevts"
+		"RenderablePortrait"
+		{
+			"Particles"
+			{
+				"particles/units/heroes/hero_meepo/meepo_loadout.vpcf"
+				{
+					"0"
+					{
+						"type"      "follow_origin"
+						"location"      "attach_hitloc"
+					}
+				}
+			}
+		}
+		"ItemSlots"
+		{
+			"0"
+			{
+				"SlotIndex"     "0"
+				"SlotName"      "weapon"
+				"SlotText"      "#LoadoutSlot_Weapon"
+				"TextureWidth"      "512"
+				"TextureHeight"     "128"
+				"MaxPolygonsLOD0"       "1000"
+				"MaxPolygonsLOD1"       "500"
+			}
+		}
+	}
+}

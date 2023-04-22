@@ -1,0 +1,25 @@
+"DOTAAbilities"
+{
+	 // Talent: -100% Illusion Damage Taken
+    //=================================================================================================================
+    "special_bonus_unique_lathaal_4"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "special_bonus_undefined"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "MaxLevel"  "1"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "value"             "-100"
+            }
+        }
+    }
+}

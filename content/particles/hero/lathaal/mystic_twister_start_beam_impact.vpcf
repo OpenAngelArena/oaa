@@ -1,0 +1,271 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						0.000000,
+						0.000000,
+						0.000000,
+					]
+					m_angOffset = 
+					[
+						null,
+						null,
+						null,
+					]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_nMaxParticles = 128
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.800000
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = 
+			[
+				0.000000,
+				0.000000,
+				200.000000,
+			]
+			m_fDrag = 0.100000
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 40.000000
+			m_flEndScale = 70.000000
+			m_flBias = 0.200000
+		},
+		{
+			_class = "C_OP_LerpEndCapScalar"
+			m_flOutput = 0.000000
+			m_nFieldOutput = "7"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -0.300000
+			m_nField = "7"
+		},
+		{
+			_class = "C_OP_RampScalarLinear"
+			m_RateMin = -1.000000
+			m_RateMax = 1.000000
+			m_nField = "4"
+		},
+		{
+			_class = "C_OP_ColorInterpolateRandom"
+			m_ColorFadeMin = 
+			[
+				65,
+				81,
+				84,
+				255,
+			]
+			m_ColorFadeMax = 
+			[
+				53,
+				113,
+				210,
+				255,
+			]
+			m_flFadeEndTime = 0.860000
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.800000
+		},
+		{
+			_class = "C_OP_MovementRotateParticleAroundAxis"
+			m_flRotRate = -90.000000
+			m_flOpStartFadeInTime = 0.100000
+			m_flOpStartFadeOutTime = 0.250000
+			m_flOpEndFadeOutTime = 1.100000
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_flAnimationRate = 15.000000
+			m_bAnimateInFPS = true
+			m_flAddSelfAmount = 2.000000
+			m_bParticleFeathering = true
+			m_flOverbrightFactor = 3.000000
+			m_hTexture = resource:"materials/particle/smoke/curls/smoke_curls.vtex"
+		},
+		{
+			_class = "C_OP_RenderSprites"
+			m_hTexture = resource:"materials/particle/smoke3/smoke3.vtex"
+			m_flAnimationRate = 15.000000
+			m_bAnimateInFPS = true
+			m_flAddSelfAmount = 1.000000
+			m_bAdditive = true
+			m_bParticleFeathering = true
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 25.000000
+			m_flInitialRadius = 265.000000
+			m_flRoll = 180.000000
+			m_bEvenDistribution = true
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.450000
+			m_fLifetimeMax = 1.250000
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_fRadiusMax = 75.000000
+			m_fSpeedMin = -100.000000
+			m_fSpeedMax = -1000.000000
+			m_LocalCoordinateSystemSpeedMin = 
+			[
+				0.000000,
+				0.000000,
+				70.000000,
+			]
+			m_LocalCoordinateSystemSpeedMax = 
+			[
+				0.000000,
+				0.000000,
+				120.000000,
+			]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMax = 
+			[
+				0.000000,
+				0.000000,
+				235.000000,
+			]
+			m_OffsetMin = 
+			[
+				0.000000,
+				0.000000,
+				75.000000,
+			]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMax = 8
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 152
+			m_nAlphaMax = 191
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = 
+			[
+				65,
+				81,
+				84,
+				255,
+			]
+			m_ColorMax = 
+			[
+				161,
+				113,
+				65,
+				255,
+			]
+		},
+		{
+			_class = "C_INIT_InheritFromParentParticles"
+			m_nFieldOutput = "7"
+			m_bRandomDistribution = true
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_InheritFromParentParticles"
+			m_nFieldOutput = "6"
+		},
+		{
+			_class = "C_INIT_RemapInitialDirectionToCPToVector"
+			m_nFieldOutput = "21"
+			m_flOffsetRot = -95.000000
+		},
+		{
+			_class = "C_INIT_NormalOffset"
+			m_OffsetMin = 
+			[
+				0.000000,
+				0.000000,
+				50.000000,
+			]
+			m_OffsetMax = 
+			[
+				0.000000,
+				0.000000,
+				50.000000,
+			]
+		},
+		{
+			_class = "C_INIT_PositionPlaceOnGround"
+			m_flOffset = 64.000000
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 128
+		},
+	]
+	m_ConstantColor = 
+	[
+		40,
+		191,
+		211,
+		255,
+	]
+	m_ForceGenerators = 
+	[
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_vecComponentScale = 
+			[
+				1.000000,
+				1.000000,
+				0.000000,
+			]
+			m_fForceAmount = 400.000000
+			m_fFalloffPower = 0.200000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_TwistAroundAxis"
+			m_fForceAmount = -1100.000000
+			m_flOpEndFadeOutTime = 1.250000
+			m_bDisableOperator = true
+		},
+	]
+}

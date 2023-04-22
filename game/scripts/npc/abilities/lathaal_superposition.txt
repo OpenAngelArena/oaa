@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+	"lathaal_superposition"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/lathaal/superposition.lua"
+		"AbilityTextureName"			"custom/lathaal_superposition"
+		"MaxLevel" 						"3"
+		"RequiredLevel"				"3"
+		"LevelsBetweenUpgrades"		"7"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"AbilityCastRange"				"600"
+		"AbilityCooldown"				"35 25 15"
+		"AbilityManaCost"				"75"
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"particle"	"particles/hero/lathaal/super_position_base.vpcf"
+			"soundfile" "soundevents/units/game_sounds_lathaal.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"charges"			"3"
+				"LinkedSpecialBonus"    "special_bonus_unique_lathaal_5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"outgoing_damage"			"30 40 50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"incoming_damage"			"400 300 200"
+				"LinkedSpecialBonus"    "special_bonus_unique_lathaal_4"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"10"
+			}
+		}
+	}
+}

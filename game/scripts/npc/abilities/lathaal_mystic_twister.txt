@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+ "lathaal_mystic_twister"
+  {
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"          "abilities/lathaal/mystic_twister.lua"
+    "AbilityTextureName"      "custom/lathaal_mystic_twister"
+    "MaxLevel"            "4"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+
+    "AbilityCastRange"        "700"
+    "AbilityCastPoint"        "0"
+    "AbilityCastAnimation"      "ACT_DOTA_CHANNEL_ABILITY_1"
+    "AOERadius"           "%radius"
+
+    "AbilityCooldown"       "7 5 3 1"
+    "AbilityManaCost"       "90 110 130 150"
+    "AbilityChannelTime"      "4 6 8 10"
+    "AbilityDamage"         "60 90 120 150"
+
+    "precache"
+    {
+      "particle"  "particles/hero/lathaal/mystic_twister.vpcf"
+      "particle"  "particles/hero/lathaal/mystic_twister_damage.vpcf"
+      "soundfile" "soundevents/units/game_sounds_lathaal.vsndevts"
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "channel_time"      "4 6 8 10"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "300"
+        "LinkedSpecialBonus"    "special_bonus_unique_lathaal_1"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_interval" "0.2"
+      }
+    }
+  }
+}
