@@ -1,64 +1,69 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Eternal Shroud
+  // Phylactery
   //=================================================================================================================
-  "item_recipe_eternal_shroud"
+  "item_recipe_phylactery_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "691"
+    "ID"                                                  "3724"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
     
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800" 
+    "ItemCost"                                            "8000" 
     "ItemShopTags"                                        ""
     
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_eternal_shroud"
+    "ItemResult"                                          "item_phylactery_4"
     "ItemRequirements"
     {
-      "01"                                                "item_cloak;item_ogre_axe;item_ring_of_health"
+      "01"                                                "item_phylactery_3;item_upgrade_core_3"
     }
   }
   
   //=================================================================================================================
-  // Eternal Shroud
+  // Phylactery
   //=================================================================================================================
-  "item_eternal_shroud"
+  "item_phylactery_4"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "692"
+    "ID"                                                  "3725"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"                                  "custom/eternal_shroud"
-
-    // Stats    
+    "BaseClass"                                           "item_phylactery"
+    
+    
+    // Stats
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "6.0 3.5 2.25 1.5 1.0"
 
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3300"
-    "ItemShopTags"                                        "regen_health;magic_resist"
-    "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "eternal shroud;es"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemCost"                                            "15403"
+    "ItemShopTags"                                        "hard_to_tag"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "phylactery"
     "ShouldBeSuggested"                                   "1"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    
+    "ItemBaseLevel"                                       "4"
+
     // Special  
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_spell_resist"                                "30 32 34 36 38"
-      "bonus_strength"                                    "12 17 27 42 62"
-      "bonus_health_regen"                                "7.0 7.5 8.5 10.0 12.0"
-      "mana_restore_pct"                                  "25"
+      "bonus_health"                                      "200 201 202 203 204"
+      "bonus_mana"                                        "200 201 202 203 204"     
+      "bonus_all_stats"                                   "7 70 700 7000 70000"     
+      "slow"                                              "50"
+      "bonus_spell_damage"                                "125 250 500 1000 2000"
+      "slow_duration"                                     "1.2"
     }
   }
 }
