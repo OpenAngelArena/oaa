@@ -27,12 +27,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times"                               "0 30 30 30 30"
+        "multicast_3_times"                               "0 10 15 20 25" //OAA, scaling so theres a point to levelling this up :)
       }
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times"                               "0 0 15 25 35"
+        "multicast_4_times"                               "0 0 5 5 5" //OAA, Ogre can get ~40% from STR
       }
     }
   }
