@@ -9,12 +9,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3528"
     "BaseClass"                                           "item_datadriven"
-    
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8000" 
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
-    
+
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
@@ -24,7 +26,7 @@
       "01"                                                "item_eternal_shroud_3;item_upgrade_core_3"
     }
   }
-  
+
   //=================================================================================================================
   // Eternal Shroud
   //=================================================================================================================
@@ -33,34 +35,29 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3529"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "BaseClass"                                           "item_eternal_shroud"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/eternal_shroud_4"
-
-    // Stats    
-    //-------------------------------------------------------------------------------------------------------------
-
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "16303"
-    "ItemShopTags"                                        "regen_health;magic_resist"
+    "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "eternal shroud;es"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"                                   "1"
+    "ItemAliases"                                         "eternal shroud 4;es 4"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_spell_resist"                                "30 32 34 36 38"
       "bonus_strength"                                    "12 17 27 42 62"
-      "bonus_health_regen"                                "7.0 7.5 8.5 10.0 12.0"
-      "mana_restore_pct"                                  "25"
+      "bonus_health_regen"                                "7 10 13 16 19"
+      "mana_restore_pct"                                  "25 27 29 31 33"
     }
   }
 }
