@@ -4,7 +4,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "40"                            // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "40"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "Model"                                               "models/props_gameplay/dust.vmdl"
     "Effect"                                              "particles/generic_gameplay/dropped_dust.vpcf"
@@ -31,8 +31,8 @@
     "IsTempestDoubleClonable"                             "0"
 
     "SideShop"                                            "1" //OAA
-    
-    // Special  
+
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {

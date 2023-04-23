@@ -285,7 +285,7 @@ function modifier_item_far_sight_true_sight:OnCreated()
   if ability and not ability:IsNull() then
     self.revealRadius = ability:GetSpecialValueFor("reveal_radius")
   else
-    self.revealRadius = 800
+    self.revealRadius = 750
   end
 
   if IsServer() then
@@ -306,8 +306,15 @@ function modifier_item_far_sight_true_sight:OnCreated()
     ParticleManager:SetParticleControl(index2, 0, parent_location)
     ParticleManager:SetParticleControl(index2, 1, Vector(self.revealRadius-100, 0, 0))
 
+    -- Dust Particle
+    local dust_radius = self.revealRadius --ability:GetSpecialValueFor("dust_radius")
+    local index3 = ParticleManager:CreateParticle("particles/items_fx/dust_of_appearance.vpcf", PATTACH_WORLDORIGIN, parent)
+    ParticleManager:SetParticleControl(index3, 0, parent_location)
+    ParticleManager:SetParticleControl(index3, 1, Vector(dust_radius, dust_radius, dust_radius))
+
     self.particle1 = index1
     self.particle2 = index2
+    self.particle3 = index3
 
     -- Start thinking
     self:StartIntervalThink(1)
@@ -331,12 +338,6 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
   local caster = ability:GetCaster()
   local dust_duration = ability:GetSpecialValueFor("dust_duration")
   local dust_radius = ability:GetSpecialValueFor("dust_radius")
-
-  -- Dust Particle
-  local particle = ParticleManager:CreateParticle("particles/items_fx/dust_of_appearance.vpcf", PATTACH_WORLDORIGIN, parent)
-  ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
-  ParticleManager:SetParticleControl(particle, 1, Vector(dust_radius, dust_radius, dust_radius))
-  ParticleManager:ReleaseParticleIndex(particle)
 
   local enemies = FindUnitsInRadius(
     caster:GetTeamNumber(),
@@ -377,6 +378,12 @@ if IsServer() then
         ParticleManager:ReleaseParticleIndex(self.particle2)
         self.particle2 = nil
       end
+
+      if self.particle3 then
+        ParticleManager:DestroyParticle(self.particle3, true)
+        ParticleManager:ReleaseParticleIndex(self.particle3)
+        self.particle3 = nil
+      end
     end
   end
 end
@@ -410,6 +417,10 @@ function modifier_item_far_sight_true_sight:OnDestroy()
     ParticleManager:DestroyParticle(self.particle2, true)
     ParticleManager:ReleaseParticleIndex(self.particle2)
   end
+  if self.particle3 then
+    ParticleManager:DestroyParticle(self.particle3, true)
+    ParticleManager:ReleaseParticleIndex(self.particle3)
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -426,6 +437,15 @@ end
 
 function modifier_far_sight_dummy_stuff:IsPurgable()
   return false
+end
+
+function modifier_far_sight_dummy_stuff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.revealRadius = ability:GetSpecialValueFor("reveal_radius")
+  else
+    self.revealRadius = 750
+  end
 end
 
 function modifier_far_sight_dummy_stuff:DeclareFunctions()
@@ -451,11 +471,11 @@ function modifier_far_sight_dummy_stuff:GetAbsoluteNoDamagePure()
 end
 
 function modifier_far_sight_dummy_stuff:GetBonusDayVision()
-  return self:GetAbility():GetSpecialValueFor("reveal_radius")
+  return self.revealRadius
 end
 
 function modifier_far_sight_dummy_stuff:GetBonusNightVision()
-  return self:GetAbility():GetSpecialValueFor("reveal_radius")
+  return self.revealRadius
 end
 
 function modifier_far_sight_dummy_stuff:CheckState()
