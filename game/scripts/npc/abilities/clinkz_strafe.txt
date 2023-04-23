@@ -21,8 +21,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "800"
-    "AbilityCastPoint"        "0"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -35,15 +35,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_speed_bonus"      
+      "attack_speed_bonus"
       {
         "value"                                           "100 140 180 220 300 380"
         "special_bonus_unique_clinkz_7"                   "+40"
       }
-  
       "duration"                                          "3.5"
       "attack_range_bonus"                                "200"
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"                                           "30 25 20 15 14 13"
         "special_bonus_unique_clinkz_4"                   "-7"
