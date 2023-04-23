@@ -42,6 +42,7 @@ end
 item_far_sight_2 = item_far_sight
 item_far_sight_3 = item_far_sight
 item_far_sight_4 = item_far_sight
+item_far_sight_5 = item_far_sight
 
 ---------------------------------------------------------------------------------------------------
 
@@ -129,11 +130,6 @@ function modifier_item_far_sight_stacking_stats:OnRefresh()
     end
 
     local stats = {}
-    -- DOTA_ATTRIBUTE_INVALID = -1
-    -- DOTA_ATTRIBUTE_STRENGTH = 0
-    -- DOTA_ATTRIBUTE_AGILITY = 1
-    -- DOTA_ATTRIBUTE_INTELLECT = 2
-    -- DOTA_ATTRIBUTE_MAX = 3
     stats[DOTA_ATTRIBUTE_STRENGTH+1] = parent:GetBaseStrength() + parent:GetStrengthGain() * 49
     stats[DOTA_ATTRIBUTE_AGILITY+1] = parent:GetBaseAgility() + parent:GetAgilityGain() * 49
     stats[DOTA_ATTRIBUTE_INTELLECT+1] = parent:GetBaseIntellect() + parent:GetIntellectGain() * 49
@@ -260,8 +256,8 @@ end
 function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Octarine Core and Aether Lens
-  if parent:HasModifier("modifier_item_octarine_core") or parent:HasModifier("modifier_item_aether_lens") then
+  -- Prevent stacking with Aether Lens
+  if parent:HasModifier("modifier_item_aether_lens") then
     return 0
   end
 
@@ -463,7 +459,7 @@ function modifier_far_sight_dummy_stuff:GetBonusNightVision()
 end
 
 function modifier_far_sight_dummy_stuff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
@@ -476,5 +472,4 @@ function modifier_far_sight_dummy_stuff:CheckState()
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_FLYING] = true,
   }
-  return state
 end
