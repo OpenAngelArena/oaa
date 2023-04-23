@@ -44,6 +44,7 @@ function CustomRuneSystem:Init()
     DOTA_RUNE_INVISIBILITY,
     DOTA_RUNE_REGENERATION,
     DOTA_RUNE_ARCANE,
+    DOTA_RUNE_SHIELD,
     --DOTA_RUNE_WATER,
   }
 
