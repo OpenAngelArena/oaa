@@ -14,19 +14,9 @@
 
     "MaxLevel"                                            "5"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.2"  // Slow isn't the main function of this ability.
-
     "AbilityValues"
     {
-      "reincarnate_time"                                  "3.0 3.0 3.0 2.5 2"
+      "reincarnate_time"                                  "3.0"
       "slow_radius"                                       "900"
       "movespeed"                                         "-75"
       "attackslow"                                        "-75 -75 -75 -150 -225"
@@ -46,7 +36,7 @@
       "scepter_attack_speed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+55 65 75 85 95"
+        "special_bonus_scepter"                           "+65 70 75 80 85"
         "RequiresScepter"                                 "1"
       }
       "scepter_move_speed_pct"
@@ -62,10 +52,10 @@
       }
       "shard_skeleton_count"    
       {
-        "value"                                           "1 2 3 4 999"
+        "value"                                           "1 2 3 4 5"
         "special_bonus_shard"                             "+3"
       }
-      "scepter_respawn_pct"
+      "scepter_respawn_pct" // this doesn't work in OAA
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "10"
