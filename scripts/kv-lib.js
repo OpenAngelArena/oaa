@@ -39,7 +39,7 @@ function dotaAbilities (cb) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body);
+    const data = parseKV(result.body.replace('value\t"20 40 60 80"', '"value"\t"20 40 60 80"'));
     cb(null, data.DOTAAbilities);
   });
 }
