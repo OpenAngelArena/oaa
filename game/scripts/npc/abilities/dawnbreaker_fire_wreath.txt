@@ -23,9 +23,6 @@
     //"AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
@@ -37,21 +34,21 @@
       "AbilityCooldown" //OAA, 3s cooldown on this is pretty dumb, nerf if dawn OP
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"     "-6"
+        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-6"
       }
       "duration"                                          "1.1"
-      "swipe_radius"                                      "300"         
+      "swipe_radius"                                      "300"
       "swipe_damage"
       {
         "value"                                           "25 40 55 70 140 280"
-        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"    "+18"
+        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+18"
 
       }
       "smash_radius"                                      "300"
       "smash_damage" //OAA
       {
         "value"                                           "50 60 70 80 180 280"
-        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"      "+18"
+        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+18"
       }
       "movement_speed"                                    "215"
       "total_attacks"                                     "3"
@@ -64,8 +61,8 @@
       "turn_rate"                                         "90"
       "shard_cast_point"
       {
-        "value"                                          "0.2"
-        "special_bonus_shard"                            "-0.1"
+        "value"                                           "0.2"
+        "special_bonus_shard"                             "-0.1"
       }
       "shard_movement_penalty"
       {
