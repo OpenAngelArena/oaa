@@ -94,13 +94,16 @@ function modifier_spark_power:OnCreated()
 
     -- Find primary attribute value at level 1 (starting_primary_stat_value)
     local primary_attribute = parent:GetPrimaryAttribute()
+    local level = parent:GetLevel()
     local starting_primary_stat_value
-    if primary_attribute == 0 then
-      starting_primary_stat_value = parent:GetBaseStrength() - (parent:GetLevel() - 1) * parent:GetStrengthGain()
-    elseif primary_attribute == 1 then
-      starting_primary_stat_value = parent:GetBaseAgility() - (parent:GetLevel() - 1) * parent:GetAgilityGain()
-    elseif primary_attribute == 2 then
-      starting_primary_stat_value = parent:GetBaseIntellect() - (parent:GetLevel() - 1) * parent:GetIntellectGain()
+    if primary_attribute == DOTA_ATTRIBUTE_STRENGTH then
+      starting_primary_stat_value = parent:GetBaseStrength() - (level - 1) * parent:GetStrengthGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_AGILITY then
+      starting_primary_stat_value = parent:GetBaseAgility() - (level - 1) * parent:GetAgilityGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
+      starting_primary_stat_value = parent:GetBaseIntellect() - (level - 1) * parent:GetIntellectGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_ALL then
+      starting_primary_stat_value = (parent:GetBaseStrength() - (level - 1) * parent:GetStrengthGain() + parent:GetBaseAgility() - (level - 1) * parent:GetAgilityGain() + parent:GetBaseIntellect() - (level - 1) * parent:GetIntellectGain())/3
     end
 
     -- Damage values at level 1 (starting base damage values)
@@ -161,13 +164,16 @@ function modifier_spark_power:OnIntervalThink()
 
     -- Find primary attribute value at level 1 (starting_primary_stat_value)
     local primary_attribute = parent:GetPrimaryAttribute()
+    local level = parent:GetLevel()
     local starting_primary_stat_value
-    if primary_attribute == 0 then
-      starting_primary_stat_value = parent:GetBaseStrength() - (parent:GetLevel() - 1) * parent:GetStrengthGain()
-    elseif primary_attribute == 1 then
-      starting_primary_stat_value = parent:GetBaseAgility() - (parent:GetLevel() - 1) * parent:GetAgilityGain()
-    elseif primary_attribute == 2 then
-      starting_primary_stat_value = parent:GetBaseIntellect() - (parent:GetLevel() - 1) * parent:GetIntellectGain()
+    if primary_attribute == DOTA_ATTRIBUTE_STRENGTH then
+      starting_primary_stat_value = parent:GetBaseStrength() - (level - 1) * parent:GetStrengthGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_AGILITY then
+      starting_primary_stat_value = parent:GetBaseAgility() - (level - 1) * parent:GetAgilityGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
+      starting_primary_stat_value = parent:GetBaseIntellect() - (level - 1) * parent:GetIntellectGain()
+    elseif primary_attribute == DOTA_ATTRIBUTE_ALL then
+      starting_primary_stat_value = (parent:GetBaseStrength() - (level - 1) * parent:GetStrengthGain() + parent:GetBaseAgility() - (level - 1) * parent:GetAgilityGain() + parent:GetBaseIntellect() - (level - 1) * parent:GetIntellectGain())/3
     end
 
     -- Damage values at level 1 (starting base damage values)
