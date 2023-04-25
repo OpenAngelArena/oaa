@@ -45,12 +45,12 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
-    "AbilityCooldown"                                     "12.0"
+    "AbilityCooldown"                                     "16.0"
     "AbilitySharedCooldown"                               "medallion"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "7627"
+    "ItemCost"                                            "7427"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "solar crest 3"
@@ -63,43 +63,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"      
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "6 9 13 18 24"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "6 10 15 20 25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed"                             "25 30 35 40 45"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen_pct"                            "1.75 2.0 2.5 3.25 4.25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_movement_speed"                           "15 20 25 30 35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "target_attack_speed"                             "60 75 95 120 150"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "12"
-      }
+      "bonus_armor"                                       "6 9 13 18 24"
+      "bonus_all_stats"                                   "6 10 15 20 25"
+      "self_movement_speed"                               "25 30 35 40 45"
+      "bonus_mana_regen_pct"                              "1.75 2.0 2.5 3.25 4.25"
+      "target_movement_speed"                             "15 20 25 30 35"
+      "target_attack_speed"                               "60 75 95 120 150"
+      "target_armor"                                      "7"
+      "duration"                                          "8"
     }
   }
 }

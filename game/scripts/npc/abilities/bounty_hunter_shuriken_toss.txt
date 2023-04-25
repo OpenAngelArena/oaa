@@ -34,46 +34,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"   
     {
-      "01"
+      "bonus_damage"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "80 120 160 200 400 800"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_2"
+        "value"                                           "80 120 160 200 400 800"
+        "special_bonus_unique_bounty_hunter_2"            "+50"
       }
-      "02"
+      "speed"                                             "1000"
+      "bounce_aoe"                                        "1200"
+      "slow_duration"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1000"
+        "value"                                           "0.35"
+        "special_bonus_unique_bounty_hunter_5"            "+0.65"
       }
-      "03"
+      "scepter_cast_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bounce_aoe"                                      "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ministun"                                        "0.2"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_cast_range"                              "700"
+
+        "value"                                           "700"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "scepter_cooldown" //OAA, Valve has it wrong
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_cooldown"                                "5" //OAA, Valve has it wrong
+        "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_range"                                      "375 425 475 525 575 625"
-      }
+      "cast_range"                                        "375 425 475 525 575 625"
+      "slow"                                              "100"   
+      "attack_slow"                                       "100"
     }
   }
 }

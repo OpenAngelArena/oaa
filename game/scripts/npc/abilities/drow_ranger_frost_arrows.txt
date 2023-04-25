@@ -36,68 +36,63 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "frost_arrows_movement_speed"                       "-10 -25 -40 -55 -70 -75"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "frost_arrows_movement_speed"                     "-10 -25 -40 -55 -70 -75"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "6 12 18 24 48 72"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_2"
+        "value"                                           "6 12 18 24 48 72"
+        "special_bonus_unique_drow_ranger_2"              "+15"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03"
+      "shard_regen_reduction_pct_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_regen_reduction_pct_per_stack"             "8"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+10"
+        "RequiresScepter"                                 "1"
       }
-      "04"
+      "shard_bonus_damage_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_damage_per_stack"                    "5"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+18"
+        "RequiresScepter"                                 "1"
       }
-      "05"
+      "shard_stack_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_stack_duration"                            "7.0"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+7.0"
+        "RequiresScepter"                                 "1"
       }
-      "06" // Valve Spring Breaking
+      "shard_burst_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_burst_radius"                              "650"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+650"
+        "RequiresScepter"                                 "1"
       }
-      "06"
+      "shard_burst_damage_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_burst_damage_per_stack"                    "60"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+60"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "RequiresScepter"                                 "1"
       }
-      "07"
+      "shard_burst_move_slow_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_burst_move_slow_pct"                       "40"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+40"
+        "RequiresScepter"                                 "1"
       }
-      "08"
+      "shard_burst_slow_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_burst_slow_duration"                       "2.0"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+2.0"
+        "RequiresScepter"                                 "1"
       }
-      "09"
+      "shard_max_stacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_max_stacks"                                "7"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+9"
+        "RequiresScepter"                                 "1"
       }
     }
   }

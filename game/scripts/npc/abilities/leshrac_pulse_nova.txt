@@ -29,24 +29,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "mana_cost_per_second"                              "25 45 65 85 105"
+      "radius"                                            "525"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_per_second"                            "25 45 65 85 105"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "525"
-        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_4"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 150 200 350 600" //OAA
+        "value"                                           "100 150 200 350 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_3"
+      }
+      "damage_resistance"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_leshrac_4"                  "+20"
+      }
+      "bonus_movespeed"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_leshrac_7"                  "+10"
       }
     }
   }

@@ -48,11 +48,11 @@ end
 
 function HeroProgression:Init()
   self.moduleName = "HeroProgression"
-  self.statNames = {
-    "Strength",
-    "Agility",
-    "Intellect"
-  }
+  -- self.statNames = {
+    -- "Strength",
+    -- "Agility",
+    -- "Intellect"
+  -- }
   self.customLevellingPatterns = {}
   self.statStorage = {} -- Cache for calculated reduced stats
   self.XPStorage = tomap(zip(PlayerResource:GetAllTeamPlayerIDs(), duplicate(0)))

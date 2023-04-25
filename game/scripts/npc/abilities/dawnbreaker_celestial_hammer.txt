@@ -31,74 +31,32 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "hammer_damage"                                     "60 90 120 150 300 600" //OAA
+      "projectile_radius"                                 "200"
+      "projectile_speed"        
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hammer_damage"                                   "60 90 120 150 300 600" //OAA
+        "value"                                           "1500"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"  "+80%"
       }
-      "02"
+      "flare_debuff_duration"                             "2.5"
+      "flare_radius"                                      "200"
+      "move_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_radius"                               "200"
-      }
-      "03"
+        "value"                                           "24 28 32 36 40 44"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_slow"  "+14"
+      } 
+      "burn_damage"                                       "20 30 40 50 100 200"
+      "burn_interval"                                     "0.5"
+      "pause_duration"                                    "2"
+      "hammer_aoe_radius"                                 "200"
+      "travel_speed_pct"                                  "100"
+      "return_anim_distance_threshold"                    "300"
+      "range" 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "1500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "flare_debuff_duration"                           "2.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "flare_radius"                                    "200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "24 28 32 36 40 44"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_celestial_hammer_slow"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "20 30 40 50 100 200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "0.5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pause_duration"                                  "2"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hammer_aoe_radius"                               "200"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "travel_speed_pct"                                "100"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "return_anim_distance_threshold"                  "300"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "700 900 1100 1300 1400 1500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"
+        "value"                                           "700 900 1100 1300 1400 1500"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"  "+80%"
       }
     }
   }

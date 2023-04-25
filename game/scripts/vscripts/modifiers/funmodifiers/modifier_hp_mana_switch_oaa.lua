@@ -95,7 +95,7 @@ if IsServer() then
     if damage >= mana then
       parent:Kill(nil, attacker)
     else
-      parent:ReduceMana(damage)
+      parent:ReduceMana(damage, nil)
       parent:Heal(damage, nil)
     end
   end

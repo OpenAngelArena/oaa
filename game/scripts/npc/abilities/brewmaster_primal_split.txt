@@ -30,54 +30,44 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"     
     {
-      "01"
+      "duration"          
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16 18 20 22 24"
+        "value"                                           "16 18 20 22 24"
+        "special_bonus_shard"                             "+12"
       }
-      "02"
+      
+      "split_duration"                                    "0.6"
+      "tooltip_earth_brewling_hp" //OAA        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "split_duration"                                  "0.6"
+        "value"                                           "1400 3200 5000 8600 15800"
+        "special_bonus_unique_brewmaster"                 "+1200"
       }
-      "03" // unused
+      "tooltip_storm_brewling_hp" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_bonus_duration"                          "20"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1000 2000 3000 6000 9000"
+        "special_bonus_unique_brewmaster"                 "+1200"
       }
-      "04" // unused
+      "tooltip_fire_brewling_hp" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1300 1600 1900 2800 3700"
+        "special_bonus_unique_brewmaster"                 "+1200"
       }
-      "05"
+      "tooltip_void_brewling_hp" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_earth_brewling_hp"                       "1400 3200 5000 8600 15800" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+        "value"                                           "1200 1800 2400 4200 6000"
+        "special_bonus_unique_brewmaster"                 "+1200"
       }
-      "06"
+      "bonus_brewling_hp"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_storm_brewling_hp"                       "1000 2000 3000 6000 9000" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
+        "value"                                           "0"
+        "special_bonus_unique_brewmaster"                 "+1200"
       }
-      "07"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_fire_brewling_hp"                        "1300 1600 1900 2800 3700" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_tooltip_void_brewling_hp"                  "1200 1800 2400 4200 6000" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_unique_brewmaster_2"               "+10"
       }
     }
   }

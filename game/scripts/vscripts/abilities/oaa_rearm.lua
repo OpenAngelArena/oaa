@@ -154,7 +154,7 @@ if IsServer() then
 
     local manaPool = caster:GetMaxMana()
     local manaCost = manaPool * (self:GetSpecialValueFor('mana_cost_pct') / 100) * time
-    caster:ReduceMana(manaCost)
+    caster:ReduceMana(manaCost, self)
 
     local modifiedTotal = (total - 1) * self:GetSpecialValueFor('split_pct') / 100 + 1
     local rate = self:GetSpecialValueFor('cooldown_rate') / modifiedTotal

@@ -69,12 +69,12 @@
       "block_damage_melee"                                "75 125 175 225 275"
       "block_damage_ranged"                               "50 85 120 155 190"
       "block_chance"                                      "75"
-      "duration"                                          "12"
+      "duration"                                          "8"
       "bonus_aoe_radius"                                  "1200"
-      "block_damage_melee_active"                         "100 150 200 250 300"
-      "block_damage_ranged_active"                        "100 150 200 250 300"
+      "block_damage_active"                               "70 120 170 220 270"
       "block_chance_active"                               "100"
       "tooltip_reapply_time"                              "20"
+      "strength_pct"                                      "60"
     }
   }
 }

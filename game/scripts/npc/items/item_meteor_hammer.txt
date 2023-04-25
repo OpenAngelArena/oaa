@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "10"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -27,7 +27,7 @@
     "ItemResult"                                          "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                                                "item_pers;item_rod_of_atos"
+      "01"                                                "item_rod_of_atos;item_pers"
     }
   }
 
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4500"
+    "ItemCost"                                            "4160"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh;meteor hammer"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -113,10 +113,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "burn_duration"                                   "6"
       }
-      "09" // vanilla: 1.25
+      "09" // vanilla: 0.5
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "2"
+        "stun_duration"                                   "1.5"
       }
       "10"
       {

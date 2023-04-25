@@ -27,12 +27,17 @@
     {
       "vampiric_aura" //OAA
       {
-        "value"                                           "15 20 25 30 40 55"
-        "special_bonus_unique_wraith_king_2"              "+15"
+        "value"                                           "20 30 40 50 55 60"
+        "special_bonus_unique_wraith_king_2"              "+10"
       }
-      "skeleton_duration"
+      "creep_vampiric_aura" //OAA
       {
-        "value"                                           "40"
+        "value"                                           "10 15 20 25 27.5 30"
+        "special_bonus_unique_wraith_king_2"              "+5"
+      }
+      "skeleton_duration" //OAA
+      {
+        "value"                                           "30"
         "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "+25%"
       }
       "AbilityCooldown" //OAA
@@ -53,9 +58,13 @@
       "skeleton_damage_tooltip" //OAA
       {
         "value"                                           "34"
-        "LinkedSpecialBonus"                              "special_bonus_unique_wraith_king_6"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "talent_skeleton_damage" // Valve is dumb
+      {
+        "value"                                           "0"
+        "special_bonus_unique_wraith_king_6"              "+26"
       }
       "skeleton_attack_damage_per_level" //OAA
       {
@@ -76,6 +85,7 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "skeleton_attack_speed_per_level"                   "1" //OAA
+      "skeleton_building_damage_reduction"                "35"
     }
   }
 }

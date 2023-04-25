@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5595"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -17,11 +17,10 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -37,20 +36,20 @@
       "damage_per_hero"
       {
         "value"                                           "35 65 95 125 250 500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_4"
+        "special_bonus_unique_legion_commander_4"         "+75"
       }
       "illusion_dmg_pct"
       {
         "value"                                           "25"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "bonus_speed_creeps"                                "3"
-      "bonus_speed_heroes"                                "9"
-      "duration"                                          "7.0"
+      "bonus_attack_speed_creeps"                         "0"
+      "bonus_attack_speed"                                "65 90 115 140 165 190"
+      "duration"                                          "5.0"
       "radius"
       {
-        "value"                                           "330 340 350 360 370 380"
-        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_2"
+        "value"                                           "600"
+        "special_bonus_unique_legion_commander_2"         "+150"
       }
       "armor_per_creep"
       {
@@ -64,8 +63,13 @@
       }
       "shard_duration"
       {
-        "value"                                           "15"
+        "value"                                           "8"
         "RequiresShard"                                   "1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "15"
+        "special_bonus_unique_legion_commander_9"         "-2"
       }
     }
   }

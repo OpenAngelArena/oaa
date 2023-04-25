@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mud_golem_hurl_boulder"
+    "Ability1"                                            "mud_golem_hurl_boulder" // TODO: rework: add % max hp dmg
     "Ability2"                                            "mud_golem_shard_split_oaa"   // mud_golem_rock_destroy doesn't work!!!
     "Ability3"                                            ""
     "Ability4"                                            ""
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

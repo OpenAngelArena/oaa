@@ -8,14 +8,14 @@
     "ID"                                                  "5689"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_black_dragon_fireball.lua"
-    "AbilityTextureName"                                  "black_dragon_fireball"
+    //"AbilityTextureName"                                  "black_dragon_fireball"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY" //OAA, for the tooltip
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC" //OAA, for the tooltip
+    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
 
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
@@ -42,7 +42,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0"
+        "duration"                                        "8.0 9 10 12"
       }
       "04"
       {

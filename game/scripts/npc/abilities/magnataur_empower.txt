@@ -20,7 +20,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -37,51 +36,48 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCastRange"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "empower_duration"                                "35"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_4"
+        "value"                                           "800"
+        //"special_bonus_shard"                           "+99999"
       }
-      "02"
+      "should_self_cast"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_pct"                                "12 20 28 36 44 52"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
+        "value"                                           "0"
+        //"special_bonus_shard"                           "+1"
       }
-      "03"
+      "empower_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cleave_damage_pct"                               "10 20 30 40 50 60"
-        "LinkedSpecialBonus"                              "special_bonus_unique_magnus_2"
+        "value"                                           "35"
+        "special_bonus_unique_magnus_4"                   "+10"
       }
-      "04"
+      "bonus_damage_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_starting_width"                           "150"
+        "value"                                           "12 20 28 36 44 52"
+        "special_bonus_unique_magnus_2"                   "+10"
       }
-      "05"
+      "cleave_damage_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "360"
-      }
-      "06"
+        "value"                                           "10 20 30 40 50 60"
+        "special_bonus_unique_magnus_2"                   "+10"
+      }     
+      "cleave_starting_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "650"
-      }
-      "07" // unused
+        "value"                                           "150"
+      }     
+      "cleave_ending_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "900"
-      }
-      "08"
+        "value"                                           "360"
+      }     
+      "cleave_distance"                                   "650"
+      "secondary_cleave_distance" 
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_multiplier"                                 "100" //OAA
+        "value"                                           "0"
+        //"special_bonus_shard"                           "+400"
       }
+      "self_multiplier"                                   "100" //OAA
     }
   }
 }

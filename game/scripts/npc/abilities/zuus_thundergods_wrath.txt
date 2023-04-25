@@ -26,29 +26,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues" 
     {
-      "01"
+      "sight_radius_day"                                  "500"
+      "sight_radius_night"                                "500"
+      "sight_duration"                                    "3.0"
+      "damage" // OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_day"                                "500"
+        "value"                                           "300 500 700 1100 1900"
+        "special_bonus_unique_zeus_4"                     "+150"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "sight_radius_night"                              "500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "sight_duration"                                  "3.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "300 500 700 1100 1900" // OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_zeus_4"
-      }
+      "second_strike_delay"                               "0.75"
+      "second_strike_damage_percent"                      "50"
     }
   }
 }

@@ -137,6 +137,7 @@ function init () {
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_ALL', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_ALL'));
   onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
 
   onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
@@ -293,7 +294,8 @@ function onPlayerStatChange (table, key, data) {
   if (data &&
     (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
     key === 'abilities_DOTA_ATTRIBUTE_AGILITY' ||
-    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT')
+    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT' ||
+    key === 'abilities_DOTA_ATTRIBUTE_ALL')
   ) {
     Object.keys(data).forEach(function (heroName) {
       heroAbilities[heroName] = data[heroName];
@@ -304,6 +306,7 @@ function onPlayerStatChange (table, key, data) {
     const strengthholder = FindDotaHudElement('StrengthHeroes');
     const agilityholder = FindDotaHudElement('AgilityHeroes');
     const intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
+    const voidholder = FindDotaHudElement('VoidHeroes');
     Object.keys(data.herolist).sort().forEach(function (heroName) {
       let currentstat = null;
 
@@ -316,6 +319,9 @@ function onPlayerStatChange (table, key, data) {
           break;
         case 'DOTA_ATTRIBUTE_INTELLECT':
           currentstat = intelligenceholder;
+          break;
+        case 'DOTA_ATTRIBUTE_ALL':
+          currentstat = voidholder;
           break;
       }
       const newhero = $.CreatePanel('RadioButton', currentstat, heroName);

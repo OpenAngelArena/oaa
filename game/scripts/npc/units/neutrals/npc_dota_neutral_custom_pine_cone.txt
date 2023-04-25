@@ -16,8 +16,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "warpine_raider_seed_shot"
-    "Ability2"                                            "alpha_wolf_command_aura"
+    "Ability1"                                            "warpine_raider_seed_shot" // TODO: rework: add % max hp dmg and attack speed slow
+    "Ability2"                                            "alpha_wolf_command_aura" // TODO: rework: only 1 level and change icon and tooltip
     "Ability3"                                            ""
     "Ability4"                                            ""
 
@@ -65,8 +65,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

@@ -233,7 +233,7 @@ if IsServer() then
     ]]
 
     -- start momentum cooldown
-    spell:UseResources(true, true, true)
+    spell:UseResources(false, false, false, true)
   end
 end
 

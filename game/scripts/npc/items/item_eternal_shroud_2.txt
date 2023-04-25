@@ -1,105 +1,63 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Eternal Shroud 2
+  // Recipe: Eternal Shroud
   //=================================================================================================================
-  "item_recipe_eternal_shroud_oaa_2"
+  "item_recipe_eternal_shroud_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3524"
+    "ID"                                                  "3536"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "0"
     "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_eternal_shroud_oaa_2"
+    "ItemResult"                                          "item_eternal_shroud_2"
     "ItemRequirements"
     {
-      "01"                                                "item_eternal_shroud_oaa;item_upgrade_core"
+      "01"                                                "item_eternal_shroud;item_upgrade_core"
     }
   }
 
   //=================================================================================================================
-  // Eternal Shroud 2
+  // Eternal Shroud
   //=================================================================================================================
-  "item_eternal_shroud_oaa_2"
+  "item_eternal_shroud_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3525"
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/eternal_shroud.lua"
+    "ID"                                                  "3537"
+    "BaseClass"                                           "item_eternal_shroud"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/eternal_shroud_2"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "2"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
-    "AbilitySharedCooldown"                               "eternal_shroud"
-    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5051"
-    "ItemShopTags"                                        "regen_health;magic_resist;health_pool"
+    "ItemCost"                                            "4801"
+    "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud 2;es 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_resist"                              "24 25 26 27 28"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "9 12 15 18 21"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "250 500 1000 1750 2750"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "450 850 1250 1650 2050"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "barrier_duration"                                "12.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_spell_lifesteal"                            "20 22 24 26 28"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "4 5 6 7 8"
-      }
+      "bonus_spell_resist"                                "30 32 34 36 38"
+      "bonus_strength"                                    "12 17 27 42 62"
+      "bonus_health_regen"                                "7 10 13 16 19"
+      "mana_restore_pct"                                  "25 27 29 31 33"
     }
   }
 }

@@ -8,13 +8,14 @@
     "ID"                                                  "5688"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_hellbear_cloak_aura.lua"
-    "AbilityTextureName"                                  "mudgolem_cloak_aura"
+    //"AbilityTextureName"                                  "mudgolem_cloak_aura"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,12 +24,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor"                             "15"
+        "bonus_magical_armor"                             "15 17 19 23"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor_creeps"                      "30"
+        "bonus_magical_armor_creeps"                      "30 34 38 46"
       }
       "03"
       {

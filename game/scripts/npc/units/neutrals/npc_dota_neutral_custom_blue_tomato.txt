@@ -18,9 +18,9 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap"
-    "Ability2"                                            "mudgolem_cloak_aura"
-    "Ability3"                                            "" // furbolg_enrage_damage
+    "Ability1"                                            "polar_furbolg_ursa_warrior_thunder_clap" // TODO: rework: add % max hp dmg
+    "Ability2"                                            "mudgolem_cloak_aura" // TODO: rework: only 1 level
+    "Ability3"                                            ""
     "Ability4"                                            ""
 
     // Armor
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

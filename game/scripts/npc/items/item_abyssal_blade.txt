@@ -9,7 +9,7 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "1675"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
@@ -109,12 +109,12 @@
       "10"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "1.1 1.2 1.3 1.4 1.5" //OAA
+        "bash_duration"                                   "1.2"
       }
       "11"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bash_cooldown"                                   "2.5" //OAA
+        "bash_cooldown"                                   "2.3"
       }
       "12"
       {
@@ -124,7 +124,7 @@
       "13"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0" //OAA
+        "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0"
       }
     }
   }

@@ -70,9 +70,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 1000 1750 2750"
-      "bonus_mana"                                        "300 400 550 750 1000"
-      "bonus_all_stats"                                   "8 13 18 23 28" // old magic wand: 3 20 40 60 90
+      "bonus_health"                                      "0"
+      "bonus_mana"                                        "0"
+      "bonus_all_stats"                                   "15 20 25 30 35" // old magic wand: 3 20 40 60 90
       "heal_amp"                                          "35 40 45 50 55"
       "aura_health_regen"                                 "3 6 9 12 15"
       "aura_radius"                                       "1200"

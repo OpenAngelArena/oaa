@@ -57,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34354"
+    "ItemCost"                                            "34229"
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff 5;shield 5;force 5"
@@ -90,7 +90,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 10 13 16 19"
+        "bonus_health_regen"                              "6 9 12 15 18"
       }
       "04"
       {

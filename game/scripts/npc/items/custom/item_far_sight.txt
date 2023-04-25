@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Far Sight
+  // Recipe: Far Sight 1
   //=================================================================================================================
   "item_recipe_far_sight"
   {
@@ -15,7 +15,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,7 +24,7 @@
     "ItemResult"                                          "item_far_sight"
     "ItemRequirements"
     {
-      "01"                                                "item_ward_stack;item_upgrade_core"
+      "01"                                                "item_aether_lens;item_diadem;item_dust"
     }
   }
 
@@ -51,14 +51,13 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_far_sight_2;item_far_sight_3;item_far_sight_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
-    "ItemCost"                                            "2111"
+    "ItemCost"                                            "3455"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -73,68 +72,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "4 7 10 13"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.75 2.25 3.0 4.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "2 4 7 11"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_to_worst_attribute"                        "15 25 40 60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_vision_percentage"                         "20 30 40 50"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_cast_range"                                "275 325 375 425"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "reveal_radius"                                   "750"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "reveal_duration"                                 "8"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dust_duration"                                   "12"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "dust_radius"                                     "750"
-      }
+      "bonus_health"                                      "0"
+      "bonus_health_regen"                                "0"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
+      "bonus_armor"                                       "0"
+      "bonus_to_worst_attribute"                          "10 15 25 40 60"
+      "bonus_vision_percentage"                           "10 20 30 40 50"
+      "bonus_cast_range"                                  "225 275 325 375 425"
+      "reveal_radius"                                     "750"
+      "reveal_duration"                                   "8"
+      "dust_duration"                                     "12"
+      "dust_radius"                                       "750"
     }
   }
 }

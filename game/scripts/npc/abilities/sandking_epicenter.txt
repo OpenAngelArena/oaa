@@ -39,11 +39,12 @@
       "epicenter_pulses"
       {
         "value"                                           "6 8 10 12 14"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sand_king"
+        "special_bonus_unique_sand_king"                  "+5"
       }
       "epicenter_damage" //OAA
       {
         "value"                                           "110 180 250 500 750"
+        "special_bonus_shard"                             "+10"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"
@@ -72,11 +73,6 @@
       "shard_move_distance"
       {
         "value"                                           "700.0"
-        "RequiresShard"                                   "1"
-      }
-      "shard_epicenter_pulse_damage_bonus"
-      {
-        "value"                                           "10"
         "RequiresShard"                                   "1"
       }
     }

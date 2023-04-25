@@ -18,8 +18,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "black_dragon_fireball"
-    "Ability2"                                            "black_dragon_dragonhide_aura_oaa"
+    "Ability1"                                            "black_dragon_fireball" // TODO: rework, add % max hp dmg
+    "Ability2"                                            "black_dragon_dragonhide_aura_oaa" // TODO: add % armor bonus
     "Ability3"                                            ""
     "Ability4"                                            ""
 
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

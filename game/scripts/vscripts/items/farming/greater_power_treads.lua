@@ -169,6 +169,8 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_STRENGTH then
     return self.str + self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.multiplier * self.str
   end
   return self.str
 end
@@ -180,6 +182,8 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_AGILITY then
     return self.agi + self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.multiplier * self.agi
   end
   return self.agi
 end
@@ -191,6 +195,8 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_INTELLECT then
     return self.int + self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.multiplier * self.int
   end
   return self.int
 end

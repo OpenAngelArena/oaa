@@ -30,67 +30,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "tombstone_health" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tombstone_health"                                "10 12 14 16 18 20"
+        "value"                                           "20 24 28 32 36 40" 
+        "special_bonus_unique_undying_5"                  "+24" 
       }
-      "02"
+
+      "hits_to_destroy_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hits_to_destroy_tooltip"                         "5 6 7 8 9 10"
-        "LinkedSpecialBonus"                              "special_bonus_unique_undying_5"
+        "value"                                           "5 6 7 8 9 10" 
+        "special_bonus_unique_undying_5"                  "+6"
       }
-      "03"
+
+      "duration"                                          "30.0"
+      "radius"                                            "1200"
+      "health_threshold_pct_tooltip"                      "40"
+      "zombie_interval"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30.0"
+        "value"                                           "4.0 3.6 3.2 2.8 2.7 2.6"
       }
-      "04"
+
+      "zombie_damage_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_threshold_pct_tooltip"                    "40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "zombie_interval"                                 "4.0 3.6 3.2 2.8 2.7 2.6"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "zombie_damage_tooltip"                           "34"
-        "LinkedSpecialBonus"                              "special_bonus_unique_undying"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-      }
-      "20" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "zombie_attack_damage_per_level"                  "2"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "value"                                           "34"
+        "special_bonus_unique_undying"                    "+20"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "21" //OAA
+
+      "bunker_units"                                      "1"
+      "bunker_heal_pct"                                   "0"
+      "tombstone_grab_radius"                             "350"
+      "tombstone_bunker_cd"                               "3"
+
+      "zombie_damage_interval"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "zombie_bonus_damage_against_creeps"              "12"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "22" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "zombie_bonus_damage_against_bosses"              "24"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "0"
       }
     }
   }
