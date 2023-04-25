@@ -1,7 +1,7 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa = class(ItemBaseClass)
 item_dagon_oaa_2 = item_dagon_oaa
@@ -59,14 +59,8 @@ function item_dagon_oaa:OnSpellStart()
     return
   end
 
-  -- If the target is an illusion, just kill it and don't do damage
-  if target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA() then
-    target:Kill(self, caster)
-    return
-  end
-
-  -- 7.33 now we want to instakill creeps (not ancients (unless?!?))
-  if target:IsCreep() and not target:IsAncient() and not target:IsNull() then
+  -- If the target is an illusion, just kill it and don't do damage; same for non-ancient creeps
+  if (target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA()) or (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss()) then
     target:Kill(self, caster)
     return
   end
@@ -84,18 +78,16 @@ function item_dagon_oaa:OnSpellStart()
     ability = self
   })
 
-  --healing time!
+  -- healing time!
   local heal_amount = 0
   if target:IsRealHero() then
     heal_amount = damageDone * (burst_heal_percent - hero_spell_lifesteal) / 100
   else
-    -- Illusions are treated as creeps too
+    -- For ancients, bosses and strong illusions
     heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
   end
 
   caster:HealWithParams(heal_amount, self, false, true, caster, true)
-
-
 end
 
 ---------------------------------------------------------------------------------------------------
