@@ -12,7 +12,6 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_TREE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -42,14 +41,14 @@
       "damage"
       {
         "value"                                           "75 150 225 300 600 900"
-        "special_bonus_unique_muerta_dead_shot_damage"    "+100"
+        "special_bonus_unique_muerta_dead_shot_damage"    "+80"
       }
       "speed"                                             "2000"
       "radius"                                            "100"
       "ricochet_radius_start"                             "115"
       "ricochet_radius_end"                               "115"
       "ricochet_distance_multiplier"                      "1.5"
-      "ricochet_fear_duration"                            "1.0 1.2 1.4 1.6 1.8 2.0"
+      "ricochet_fear_duration"                            "0.8 0.95 1.1 1.25 1.4 1.55"
       "impact_slow_percent"                               "-100"
       "impact_slow_duration"                              "0.5"
     }

@@ -10,14 +10,14 @@ function item_enrage_crystal_1:OnSpellStart()
   local caster = self:GetCaster()
 
   -- Strong Dispel
-  caster:Purge(false, true, false, true, true)
+  caster:Purge(false, true, false, true, false)
 
   -- Sound
   caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
 
   -- Particle
-  local nIndex = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-  ParticleManager:ReleaseParticleIndex(nIndex)
+  local particle = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:ReleaseParticleIndex(particle)
 end
 
 item_enrage_crystal_2 = item_enrage_crystal_1

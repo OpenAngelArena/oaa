@@ -36,17 +36,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "landing_radius"                                    "275"
+      "landing_radius"                                    "300"
       "air_duration"                                      "0.5"
       "air_height"                                        "150"
       "pull_offset"                                       "75"
-      "throw_distance_behind"                             "250"
+      "throw_distance_behind" 
+      {
+        "value"                                           "250"
+        "special_bonus_unique_marci_dispose_range"        "+350"
+      }
       "pull_angle"                                        "230"
       "debuff_duration"                                   "3"
       "impact_damage"
       {
-        "value"                                           "70 120 170 220 440 880"
-        "special_bonus_unique_marci_grapple_damage"       "+60"
+        "value"                                           "70 140 210 280 560 1120"
+        "special_bonus_unique_marci_grapple_damage"       "+70"
       }
       "movement_slow_pct"                                 "20 30 40 50 55 60"
     }

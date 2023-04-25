@@ -278,6 +278,10 @@ function OAAOptions:OnUnitSpawn(event)
     return
   end
 
+  if npc.IsBaseNPC == nil or npc.HasModifier == nil or npc.GetUnitName == nil then
+    return
+  end
+
   if not npc:IsBaseNPC() then
     -- npc is not an npc
     return
@@ -322,7 +326,7 @@ end
 
 function OAAOptions:FindHostID()
   local hostId = 0
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
     local steamid = PlayerResource:GetSteamAccountID(playerID) -- PlayerResource:GetSteamID(playerID)
     local player = PlayerResource:GetPlayer(playerID)
     if player and GameRules:PlayerHasCustomGameHostPrivileges(player) then

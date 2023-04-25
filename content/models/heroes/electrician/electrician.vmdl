@@ -1,1466 +1,1020 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
-	m_meshList = 
+	rootNode = 
 	{
-		m_meshList = 
+		_class = "RootNode"
+		children = 
 		[
 			{
-				m_meshName = "electrician"
-				m_meshFile = "models/heroes/electrician/electrician.fbx"
-				m_materialSearchPath = ""
-				m_bSkinParentedObjects = true
-				m_bLegacySkinParentedTransforms = false
-				m_bExpensiveTangents = false
-				m_bHighPrecisionTexCoords = false
-				m_bPerVertexCurvature = false
-				m_bBentNormals = false
-				m_bIgnoreCloth = false
-				m_bGetSkinningFromLod0 = false
-				m_pMorphInfo = null
-			},
-		]
-	}
-	m_clothProxyMeshList = 
-	{
-		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.05
-		m_bCreateStaticBone = false
-		m_nMaxBonesPerVertex = 4
-		m_bRemoveUnusedBonesEnabled = false
-		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.0
-		m_flFallbackEnvelope = 1.0
-		m_nReservedInt = 0
-		m_bSoftSkinAnimation = false
-		m_bReservedBool2 = false
-		m_bReservedBool3 = false
-		m_bReservedBool4 = false
-		m_clothProxyMeshList = [  ]
-	}
-	m_physicsMeshList = 
-	{
-		m_meshList = [  ]
-	}
-	m_pModelInfo = null
-	m_pBoneFlagList = 
-	{
-		m_pObject = null
-	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
+				_class = "MaterialGroupList"
+				children = 
 				[
 					{
-						m_name = "default"
-						m_HitBoxes = 
+						_class = "DefaultMaterialGroup"
+						remaps = 
 						[
 							{
-								m_name = "root"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "root"
-								m_vMinBounds = [ -19.26664, -29.101387, -58.776405 ]
-								m_vMaxBounds = [ 24.828087, 34.957703, 22.343515 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "electrician_base.vmat"
+								to = "materials/models/heroes/electrician/electrician_base.vmat"
 							},
 							{
-								m_name = "spine1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "spine1"
-								m_vMinBounds = [ -29.129234, -20.579144, -21.165798 ]
-								m_vMaxBounds = [ 34.179764, 27.846897, 18.991737 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "hair.vmat"
+								to = "materials/models/heroes/electrician/hair.vmat"
 							},
 							{
-								m_name = "spine2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "spine2"
-								m_vMinBounds = [ -63.125763, -49.017952, -19.512825 ]
-								m_vMaxBounds = [ 63.42511, 56.139137, 57.059547 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "tank.vmat"
+								to = "materials/models/heroes/electrician/tank_base.vmat"
 							},
 							{
-								m_name = "spine3"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "spine3"
-								m_vMinBounds = [ -12.742603, -24.954296, -17.949379 ]
-								m_vMaxBounds = [ 22.91576, 21.713383, 13.654724 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "wrench.vmat"
+								to = "materials/models/heroes/electrician/wrench_base.vmat"
 							},
 							{
-								m_name = "clavicle_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "clavicle_L"
-								m_vMinBounds = [ -5.718948, -14.212555, -15.842426 ]
-								m_vMaxBounds = [ 24.715691, 16.835907, 10.11861 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "goggles.vmat"
+								to = "materials/models/heroes/electrician/goggles.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "spine2"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_head"
+						parent_bone = "head"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword"
+						parent_bone = "wrist_R"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "root"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.26664, -29.101387, -58.776405 ]
+								hitbox_maxs = [ 24.828087, 34.957703, 22.343515 ]
 							},
 							{
-								m_name = "clavicle_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "clavicle_R"
-								m_vMinBounds = [ -24.715691, -16.835922, -10.232978 ]
-								m_vMaxBounds = [ 10.892467, 14.212822, 23.402298 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "spine1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -29.129234, -20.579144, -21.165798 ]
+								hitbox_maxs = [ 34.179764, 27.846897, 18.991737 ]
 							},
 							{
-								m_name = "bicep_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bicep_L"
-								m_vMinBounds = [ -8.248169, -7.230614, -8.072966 ]
-								m_vMaxBounds = [ 42.282455, 8.448448, 14.647982 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "spine2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -63.125763, -49.017952, -19.512825 ]
+								hitbox_maxs = [ 63.42511, 56.139137, 57.059547 ]
 							},
 							{
-								m_name = "bicep_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bicep_R"
-								m_vMinBounds = [ -37.336018, -19.900711, -14.648031 ]
-								m_vMaxBounds = [ 25.343254, 7.230499, 9.644596 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "spine3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.742603, -24.954296, -17.949379 ]
+								hitbox_maxs = [ 22.91576, 21.713383, 13.654724 ]
 							},
 							{
-								m_name = "thigh_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "thigh_R"
-								m_vMinBounds = [ -56.916466, -19.002739, -13.96103 ]
-								m_vMaxBounds = [ 26.229193, 25.189709, 28.16777 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "clavicle_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.718948, -14.212555, -15.842426 ]
+								hitbox_maxs = [ 24.715691, 16.835907, 10.11861 ]
 							},
 							{
-								m_name = "elbow_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "elbow_L"
-								m_vMinBounds = [ -4.718353, -4.561798, -5.210396 ]
-								m_vMaxBounds = [ 31.860855, 8.448746, 6.668556 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "clavicle_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.715691, -16.835922, -10.232978 ]
+								hitbox_maxs = [ 10.892467, 14.212822, 23.402298 ]
 							},
 							{
-								m_name = "elbow_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "elbow_R"
-								m_vMinBounds = [ -32.953594, -8.448875, -6.668653 ]
-								m_vMaxBounds = [ 23.957649, 4.561661, 16.749781 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bicep_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.248169, -7.230614, -8.072966 ]
+								hitbox_maxs = [ 42.282455, 8.448448, 14.647982 ]
 							},
 							{
-								m_name = "thigh_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "thigh_L"
-								m_vMinBounds = [ -23.189026, -13.327164, -28.169064 ]
-								m_vMaxBounds = [ 56.915123, 19.002831, 13.96111 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bicep_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -37.336018, -19.900711, -14.648031 ]
+								hitbox_maxs = [ 25.343254, 7.230499, 9.644596 ]
 							},
 							{
-								m_name = "knee_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "knee_R"
-								m_vMinBounds = [ -54.078262, -17.122641, -9.173874 ]
-								m_vMaxBounds = [ 8.763157, 10.260759, 19.186214 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "thigh_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -56.916466, -19.002739, -13.96103 ]
+								hitbox_maxs = [ 26.229193, 25.189709, 28.16777 ]
 							},
 							{
-								m_name = "wrist_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "wrist_L"
-								m_vMinBounds = [ -6.632523, -5.53688, -4.213966 ]
-								m_vMaxBounds = [ 17.256508, 6.241005, 8.360992 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "elbow_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.718353, -4.561798, -5.210396 ]
+								hitbox_maxs = [ 31.860855, 8.448746, 6.668556 ]
 							},
 							{
-								m_name = "wrist_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "wrist_R"
-								m_vMinBounds = [ -17.25684, -8.681118, -8.361908 ]
-								m_vMaxBounds = [ 7.165901, 5.536667, 4.213539 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "elbow_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -32.953594, -8.448875, -6.668653 ]
+								hitbox_maxs = [ 23.957649, 4.561661, 16.749781 ]
 							},
 							{
-								m_name = "knee_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "knee_L"
-								m_vMinBounds = [ -24.735407, -10.26165, -24.204967 ]
-								m_vMaxBounds = [ 54.078239, 17.121895, 9.172081 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "thigh_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.189026, -13.327164, -28.169064 ]
+								hitbox_maxs = [ 56.915123, 19.002831, 13.96111 ]
 							},
 							{
-								m_name = "ankle_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "ankle_R"
-								m_vMinBounds = [ -27.854759, -10.02685, -20.988224 ]
-								m_vMaxBounds = [ 8.457511, 12.556154, 10.204006 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "knee_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -54.078262, -17.122641, -9.173874 ]
+								hitbox_maxs = [ 8.763157, 10.260759, 19.186214 ]
 							},
 							{
-								m_name = "Mid_0_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Mid_0_L"
-								m_vMinBounds = [ -4.543945, -11.39051, -6.422302 ]
-								m_vMaxBounds = [ 8.491219, 3.358378, 2.239273 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "wrist_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.632523, -5.53688, -4.213966 ]
+								hitbox_maxs = [ 17.256508, 6.241005, 8.360992 ]
 							},
 							{
-								m_name = "neck1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "neck1"
-								m_vMinBounds = [ -17.191677, -22.047745, -14.660721 ]
-								m_vMaxBounds = [ 13.072403, 17.047905, 36.77005 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "wrist_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.25684, -8.681118, -8.361908 ]
+								hitbox_maxs = [ 7.165901, 5.536667, 4.213539 ]
 							},
 							{
-								m_name = "Mid_0_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Mid_0_R"
-								m_vMinBounds = [ -8.491539, -3.358617, -2.239056 ]
-								m_vMaxBounds = [ 4.543625, 11.390281, 9.627975 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "knee_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.735407, -10.26165, -24.204967 ]
+								hitbox_maxs = [ 54.078239, 17.121895, 9.172081 ]
 							},
 							{
-								m_name = "ankle_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "ankle_L"
-								m_vMinBounds = [ -8.457163, -12.55727, -10.204037 ]
-								m_vMaxBounds = [ 27.854757, 10.026089, 20.988178 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "ankle_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.854759, -10.02685, -20.988224 ]
+								hitbox_maxs = [ 8.457511, 12.556154, 10.204006 ]
 							},
 							{
-								m_name = "toeBase_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "toeBase_R"
-								m_vMinBounds = [ -8.657885, -7.757393, -8.420115 ]
-								m_vMaxBounds = [ 11.129745, 9.83604, 3.843913 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Mid_0_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.543945, -11.39051, -6.422302 ]
+								hitbox_maxs = [ 8.491219, 3.358378, 2.239273 ]
 							},
 							{
-								m_name = "Thumb_0_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Thumb_0_L"
-								m_vMinBounds = [ -4.062988, -4.141598, -3.693039 ]
-								m_vMaxBounds = [ 13.525238, 7.008884, 4.31406 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "neck1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.191677, -22.047745, -14.660721 ]
+								hitbox_maxs = [ 13.072403, 17.047905, 36.77005 ]
 							},
 							{
-								m_name = "Mid_1_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Mid_1_L"
-								m_vMinBounds = [ -5.353149, -11.390469, -6.966557 ]
-								m_vMaxBounds = [ 13.30825, 2.778162, 2.173019 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Mid_0_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.491539, -3.358617, -2.239056 ]
+								hitbox_maxs = [ 4.543625, 11.390281, 9.627975 ]
 							},
 							{
-								m_name = "head"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "head"
-								m_vMinBounds = [ -24.143375, -11.821083, -8.85527 ]
-								m_vMaxBounds = [ 24.157516, 11.566988, 37.946411 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "ankle_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.457163, -12.55727, -10.204037 ]
+								hitbox_maxs = [ 27.854757, 10.026089, 20.988178 ]
 							},
 							{
-								m_name = "rtStaff_1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "rtStaff_1"
-								m_vMinBounds = [ -67.420959, -22.412125, -42.634163 ]
-								m_vMaxBounds = [ 83.665161, 29.885109, 51.829018 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "toeBase_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.657885, -7.757393, -8.420115 ]
+								hitbox_maxs = [ 11.129745, 9.83604, 3.843913 ]
 							},
 							{
-								m_name = "Mid_1_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Mid_1_R"
-								m_vMinBounds = [ -13.308739, -2.778389, -2.173061 ]
-								m_vMaxBounds = [ 5.352684, 11.390243, 7.863121 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Thumb_0_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.062988, -4.141598, -3.693039 ]
+								hitbox_maxs = [ 13.525238, 7.008884, 4.31406 ]
 							},
 							{
-								m_name = "Thumb_0_R"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Thumb_0_R"
-								m_vMinBounds = [ -13.525482, -5.318581, -4.3139 ]
-								m_vMaxBounds = [ 4.02623, 4.009537, 3.693192 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Mid_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.353149, -11.390469, -6.966557 ]
+								hitbox_maxs = [ 13.30825, 2.778162, 2.173019 ]
 							},
 							{
-								m_name = "toeBase_L"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "toeBase_L"
-								m_vMinBounds = [ -11.129723, -9.836023, -3.84392 ]
-								m_vMaxBounds = [ 8.657951, 7.757414, 8.420115 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.143375, -11.821083, -8.85527 ]
+								hitbox_maxs = [ 24.157516, 11.566988, 37.946411 ]
 							},
 							{
-								m_name = "skirtL10_0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "skirtL10_0"
-								m_vMinBounds = [ -3.874832, -10.503592, -15.990028 ]
-								m_vMaxBounds = [ 25.772877, 12.557354, 10.459625 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "rtStaff_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -67.420959, -22.412125, -42.634163 ]
+								hitbox_maxs = [ 83.665161, 29.885109, 51.829018 ]
 							},
 							{
-								m_name = "skirtR11_0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "skirtR11_0"
-								m_vMinBounds = [ -4.281921, -11.588348, -18.728571 ]
-								m_vMaxBounds = [ 25.375717, 11.748228, 10.086651 ]
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Mid_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.308739, -2.778389, -2.173061 ]
+								hitbox_maxs = [ 5.352684, 11.390243, 7.863121 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Thumb_0_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.525482, -5.318581, -4.3139 ]
+								hitbox_maxs = [ 4.02623, 4.009537, 3.693192 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "toeBase_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.129723, -9.836023, -3.84392 ]
+								hitbox_maxs = [ 8.657951, 7.757414, 8.420115 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "skirtL10_0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.874832, -10.503592, -15.990028 ]
+								hitbox_maxs = [ 25.772877, 12.557354, 10.459625 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "skirtR11_0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.281921, -11.588348, -18.728571 ]
+								hitbox_maxs = [ 25.375717, 11.748228, 10.086651 ]
 							},
 						]
 					},
 				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
-	m_pAttachmentLists = 
-	[
-		{
-			m_pObject = 
+			},
 			{
-				m_name = ""
-				m_attachments = 
+				_class = "RenderMeshList"
+				children = 
 				[
 					{
-						m_name = "attach_hitloc"
-						m_influences = 
-						[
-							{
-								m_influenceName = "spine2"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_head"
-						m_influences = 
-						[
-							{
-								m_influenceName = "head"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_sword"
-						m_influences = 
-						[
-							{
-								m_influenceName = "wrist_R"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "attach_origin"
-						m_influences = 
-						[
-							{
-								m_influenceName = "root"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
+						_class = "RenderMeshFile"
+						name = "electrician"
+						filename = "models/heroes/electrician/electrician.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
-			}
-		},
-	]
-	m_pAnimGroup = 
-	{
-		m_pObject = 
-		{
-			m_Name = ""
-			m_pReferenceSkeleton = 
-			{
-				m_pObject = null
-			}
-			m_pBoneFlagList = 
-			{
-				m_pObject = null
-			}
-			m_pSeqGroup = 
-			{
-				m_pObject = null
-			}
-			m_pAnimGroups = [  ]
-			m_Vanim = 
-			[
-				{
-					m_Animationname = "bindPose"
-					m_Filepath = "models/heroes/electrician/anims/bindPose.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 1440
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "ability1_poison_touch"
-					m_Filepath = "models/heroes/electrician/anims/ability1_poison_touch.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "attack1"
-					m_Filepath = "models/heroes/electrician/anims/attack1.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 18
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "attack02"
-					m_Filepath = "models/heroes/electrician/anims/attack02.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 21
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "cast02_shallow_grave"
-					m_Filepath = "models/heroes/electrician/anims/cast02_shallow_grave.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "cast03_shallow_grave"
-					m_Filepath = "models/heroes/electrician/anims/cast03_shallow_grave.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_3"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "cast04_weave"
-					m_Filepath = "models/heroes/electrician/anims/cast04_weave.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 24
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_4"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "death"
-					m_Filepath = "models/heroes/electrician/anims/death.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 45
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DIE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "flail"
-					m_Filepath = "models/heroes/electrician/anims/flail.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 14
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_FLAIL"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "forcestaff"
-					m_Filepath = "models/heroes/electrician/anims/forcestaff.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 12
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_FORCESTAFF_STATUE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "generic_channel"
-					m_Filepath = "models/heroes/electrician/anims/generic_channel.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 48
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CHANNEL_ABILITY_5"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "idle"
-					m_Filepath = "models/heroes/electrician/anims/idle.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 41
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "loadout"
-					m_Filepath = "models/heroes/electrician/anims/loadout.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 41
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_LOADOUT"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "portrait"
-					m_Filepath = "models/heroes/electrician/anims/portrait.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 41
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "run"
-					m_Filepath = "models/heroes/electrician/anims/run.dmx"
-					m_nStartframe = 2
-					m_nEndframe = 20
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_RUN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = 
-					[
-						{
-							m_nFrame = 0
-							m_bExtractTX = true
-							m_bExtractTY = true
-							m_bExtractTZ = false
-							m_bExtractRX = false
-							m_bExtractRY = false
-							m_bExtractRZ = false
-							m_bDiscardTX = false
-							m_bDiscardTY = false
-							m_bDiscardTZ = false
-							m_bDiscardRX = false
-							m_bDiscardRY = false
-							m_bDiscardRZ = false
-						},
-					]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "spawn"
-					m_Filepath = "models/heroes/electrician/anims/spawn.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 27
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_SPAWN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "stun"
-					m_Filepath = "models/heroes/electrician/anims/stun.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 40
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DISABLED"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "teleport"
-					m_Filepath = "models/heroes/electrician/anims/teleport.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 48
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_TELEPORT"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "victory"
-					m_Filepath = "models/heroes/electrician/anims/victory.dmx"
-					m_nStartframe = 0
-					m_nEndframe = 158
-					m_flFps = 24.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_VICTORY"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ -1837.0, 0.0, -1304.0 ]
-						m_rotation = [ 0.0, 0.0, 135.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-			]
-			m_sScripts = [  ]
-			m_folderNames = [  ]
-			m_sCompileScripts = [  ]
-		}
-	}
-	m_pMaterialGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pMeshGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pLodGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pPropBreakableList = 
-	{
-		m_pObject = null
-	}
-	m_pPropDataList = 
-	{
-		m_pObject = null
-	}
-	m_pConstraintLists = [  ]
-	m_collision = ""
-	m_softbody = ""
-	m_sMDLFilename = ""
-	m_sOffsetHitboxSets = [  ]
-	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
-	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
-	{
-		m_vMaterialRemapList = 
-		[
-			{
-				m_sSearchMaterial = "electrician_base.vmat"
-				m_sReplaceMaterial = "materials/models/heroes/electrician/electrician_base.vmat"
 			},
 			{
-				m_sSearchMaterial = "hair.vmat"
-				m_sReplaceMaterial = "materials/models/heroes/electrician/hair.vmat"
-			},
-			{
-				m_sSearchMaterial = "tank.vmat"
-				m_sReplaceMaterial = "materials/models/heroes/electrician/tank_base.vmat"
-			},
-			{
-				m_sSearchMaterial = "wrench.vmat"
-				m_sReplaceMaterial = "materials/models/heroes/electrician/wrench_base.vmat"
-			},
-			{
-				m_sSearchMaterial = "goggles.vmat"
-				m_sReplaceMaterial = "materials/models/heroes/electrician/goggles.vmat"
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "bindPose"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/bindPose.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 1440
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "ability1_poison_touch"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/ability1_poison_touch.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/attack1.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 18
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack02"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/attack02.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 21
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "cast02_shallow_grave"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/cast02_shallow_grave.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "cast03_shallow_grave"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/cast03_shallow_grave.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "cast04_weave"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/cast04_weave.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 24
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/death.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 45
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "flail"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_FLAIL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/flail.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 14
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "forcestaff"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_FORCESTAFF_STATUE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/forcestaff.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 12
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "generic_channel"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/generic_channel.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 48
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "idle"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/idle.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 41
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "loadout"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_LOADOUT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/loadout.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 41
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "portrait"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/portrait.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 41
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "run"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/run.dmx"
+						import_bone_scales = false
+						start_frame = 2
+						end_frame = 20
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spawn"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/spawn.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 27
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stun"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/stun.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 40
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "teleport"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_TELEPORT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/teleport.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 48
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "victory"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -1837.0, 0.0, -1304.0 ]
+								rotation_xyz = [ 0.0, 0.0, 135.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_VICTORY"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/electrician/anims/victory.dmx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 158
+						framerate = 24.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
 	}
-	m_flFbxScale = 1.0
-	m_flQCScale = 1.0
-	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_pPsfList = null
-	m_keyValueText = ""
-	m_bStaticProp = false
-	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.05
-	m_nMaxClothVertsPerMesh = 2048
-	m_bBuildClothBoneHierarchy = false
-	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
-	m_bMakeImplicitBindPoseSequence = false
-	m_bAdjustSkeletonFromBoneFlags = false
-	m_bHiddenAssetFlag = false
-	m_pAnimGroups = [  ]
 }

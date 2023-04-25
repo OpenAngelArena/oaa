@@ -41,6 +41,16 @@
         "value"                                           "0.15"
         "RequiresShard"                                   "1"
       }
+      "shard_spell_amp_bonus"
+      {
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
+      }
+      "shard_bat_bonus"
+      {
+        "value"                                           "0.25"
+        "RequiresShard"                                   "1"
+      }
       "AbilityCooldown" //OAA
       {
         "value"                                           "80 70 60 50 40"

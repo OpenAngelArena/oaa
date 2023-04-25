@@ -57,10 +57,10 @@ function Courier:OnNpcSpawned(keys)
   if keys.entindex then
     npc = EntIndexToHScript(keys.entindex)
   end
-  if not npc then
+  if not npc or npc:IsNull() then
     return
   end
-  if npc:IsCourier() then
+  if npc.IsCourier ~= nil and npc:IsCourier() then
     npc:AddNewModifier(npc, nil, "modifier_custom_courier_stuff", {})
   end
 end

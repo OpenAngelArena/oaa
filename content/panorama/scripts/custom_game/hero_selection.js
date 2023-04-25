@@ -137,6 +137,7 @@ function init () {
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_STRENGTH', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_STRENGTH'));
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_AGILITY', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_AGILITY'));
   onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_INTELLECT', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_INTELLECT'));
+  onPlayerStatChange(null, 'abilities_DOTA_ATTRIBUTE_ALL', CustomNetTables.GetTableValue('hero_selection', 'abilities_DOTA_ATTRIBUTE_ALL'));
   onPlayerStatChange(null, 'herolist', CustomNetTables.GetTableValue('hero_selection', 'herolist'));
 
   onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
@@ -293,7 +294,8 @@ function onPlayerStatChange (table, key, data) {
   if (data &&
     (key === 'abilities_DOTA_ATTRIBUTE_STRENGTH' ||
     key === 'abilities_DOTA_ATTRIBUTE_AGILITY' ||
-    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT')
+    key === 'abilities_DOTA_ATTRIBUTE_INTELLECT' ||
+    key === 'abilities_DOTA_ATTRIBUTE_ALL')
   ) {
     Object.keys(data).forEach(function (heroName) {
       heroAbilities[heroName] = data[heroName];
@@ -304,6 +306,7 @@ function onPlayerStatChange (table, key, data) {
     const strengthholder = FindDotaHudElement('StrengthHeroes');
     const agilityholder = FindDotaHudElement('AgilityHeroes');
     const intelligenceholder = FindDotaHudElement('IntelligenceHeroes');
+    const voidholder = FindDotaHudElement('VoidHeroes');
     Object.keys(data.herolist).sort().forEach(function (heroName) {
       let currentstat = null;
 
@@ -316,6 +319,9 @@ function onPlayerStatChange (table, key, data) {
           break;
         case 'DOTA_ATTRIBUTE_INTELLECT':
           currentstat = intelligenceholder;
+          break;
+        case 'DOTA_ATTRIBUTE_ALL':
+          currentstat = voidholder;
           break;
       }
       const newhero = $.CreatePanel('RadioButton', currentstat, heroName);
@@ -348,29 +354,35 @@ function onPlayerStatChange (table, key, data) {
             currentteam = teamdire;
             break;
         }
-        const newelement = $.CreatePanel('Panel', currentteam, '');
-        newelement.AddClass('Player');
-        newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
-        newimage.hittest = false;
-        newimage.AddClass('PlayerImage');
-        ChangeHeroImage(newimage, data[nkey].selectedhero);
-        const newlabel = $.CreatePanel('DOTAUserName', newelement, '');
-        newlabel.AddClass('PlayerLabel');
-        newlabel.steamid = data[nkey].steamid;
+        if (currentteam === null) {
+          $.Msg('currentteam is null, data[nkey].team is:');
+          $.Msg(data[nkey].team);
+          $.Msg(data[nkey]);
+        } else {
+          const newelement = $.CreatePanel('Panel', currentteam, '');
+          newelement.AddClass('Player');
+          newimage = $.CreatePanel('DOTAHeroImage', newelement, data[nkey].steamid);
+          newimage.hittest = false;
+          newimage.AddClass('PlayerImage');
+          ChangeHeroImage(newimage, data[nkey].selectedhero);
+          const newlabel = $.CreatePanel('DOTAUserName', newelement, '');
+          newlabel.AddClass('PlayerLabel');
+          newlabel.steamid = data[nkey].steamid;
 
-        DisableHero(data[nkey].selectedhero);
-        if (iscm) {
-          if (data[nkey].selectedhero !== 'empty') {
-            ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
-            const label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
+          DisableHero(data[nkey].selectedhero);
+          if (iscm) {
+            if (data[nkey].selectedhero !== 'empty') {
+              ChangeHeroImage(FindDotaHudElement('CMStep' + nkey), data[nkey].selectedhero);
+              const label = FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero);
 
-            label.style.visibility = 'collapse';
-            label.steamid = null;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'visible';
-          } else {
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
-            FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'collapse';
+              label.style.visibility = 'collapse';
+              label.steamid = null;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'visible';
+            } else {
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).steamid = data[nkey].steamid;
+              FindDotaHudElement('CMHeroPickLabel_' + data[nkey].selectedhero).style.visibility = 'collapse';
+            }
           }
         }
       });
@@ -588,17 +600,19 @@ function UpdatedRankedPickState (data) {
       break;
     case 'picking':
       isBanning = false;
-      if (order.team === teamID) {
-        isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
-        herolocked = !isPicking;
-        canRandom = order.canRandom !== false;
-        $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[playerId].selectedhero + JSON.stringify(apData[playerId]));
+      if (order !== undefined) {
+        if (order.team === teamID) {
+          isPicking = !apData[playerId] || apData[playerId].selectedhero === 'empty';
+          herolocked = !isPicking;
+          canRandom = order.canRandom !== false;
+          $.Msg('Set hero picking state and stuff ' + isPicking + '/' + apData[playerId].selectedhero + JSON.stringify(apData[playerId]));
+        } else {
+          isPicking = false;
+          $.Msg('The team that should pick is team: ' + order.team + ' / The team that tried to pick is team: ' + teamID);
+        }
       } else {
-        isPicking = false;
-        $.Msg('Not my turn ' + order.team + ' / ' + teamID);
-        // $.Msg(data.currentOrder);
-        // $.Msg(data.order);
-        // $.Msg(order);
+        $.Msg('Order is undefined, data.order is:');
+        $.Msg(data.order);
       }
 
       canReRandom = apData[playerId] && apData[playerId].selectedhero !== 'empty' && apData[playerId].didRandom === 'true' && iscm === false;
@@ -790,12 +804,17 @@ function UpdatePreviews (data) {
   });
   Object.keys(heroesBySteamid).forEach(function (steamid) {
     const player = FindDotaHudElement(steamid);
-    ChangeHeroImage(player, heroesBySteamid[steamid]);
+    if (player) {
+      ChangeHeroImage(player, heroesBySteamid[steamid]);
+    }
   });
 }
 
 function ChangeHeroImage (container, hero) {
   // if you give this long "npc_dota_hero_blah" or short "blah" names they both work
+  if (!container) {
+    return;
+  }
   container.heroname = hero;
   // when we read the value, it's always the short-hand version without the prefix
   const shortHeroName = container.heroname;

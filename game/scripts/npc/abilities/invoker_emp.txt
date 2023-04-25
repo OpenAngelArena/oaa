@@ -35,9 +35,17 @@
       {
         "value"                                           "100 175 250 325 400 475 550 625 1100 1210 1320 1430 1540 1650 1760"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_10"                 "+20%"
       }
-      "damage_per_mana_pct"                               "60"
+      "damage_per_mana_pct"
+      {
+        "value"                                           "60"
+        "special_bonus_shard"                             "+50%"
+      }
+      "shard_drag_speed"
+      {
+        "value"                                           "100"
+        "RequiresShard"                                   "1"
+      }
     }
   }
 }

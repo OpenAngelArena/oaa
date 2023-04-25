@@ -23,100 +23,51 @@
     //"AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCooldown" //OAA, 3s cooldown on this is pretty dumb, nerf if dawn OP
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.1"
+        "value"                                           "14 13 12 11 10 9"
+        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-6"
       }
-      "02"
+      "duration"                                          "1.1"
+      "swipe_radius"                                      "300"
+      "swipe_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "swipe_radius"                                    "300"
+        "value"                                           "25 40 55 70 140 280"
+        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+18"
+
       }
-      "03"
+      "smash_radius"                                      "300"
+      "smash_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "swipe_damage"                                    "25 40 55 70 140 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_fire_wreath_swipe"
+        "value"                                           "50 60 70 80 180 280"
+        "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+18"
       }
-      "04"
+      "movement_speed"                                    "215"
+      "total_attacks"                                     "3"
+      "smash_stun_duration"                               "0.6 0.8 1.0 1.2 1.4 1.6"
+      "sweep_stun_duration"                               "0.12"
+      "self_stun_duration"                                "0.2"
+      "swipe_slow"                                        "-100"
+      "smash_distance_from_hero"                          "120"
+      "animation_rate"                                    "0"
+      "turn_rate"                                         "90"
+      "shard_cast_point"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "smash_radius"                                    "300"
+        "value"                                           "0.2"
+        "special_bonus_shard"                             "-0.1"
       }
-      "05"
+      "shard_movement_penalty"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "smash_damage"                                    "50 60 70 80 180 280" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "215"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_attacks"                                   "3"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "smash_stun_duration"                             "0.8 1.0 1.2 1.4 1.6 1.8"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "sweep_stun_duration"                             "0.12"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "self_stun_duration"                              "0.2"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "swipe_slow"                                      "-100"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "smash_distance_from_hero"                        "120"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "animation_rate"                                  "0"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "turn_rate"                                       "90"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_cast_point"                                "0.1"
-        "RequiresShard"                                   "1"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_movement_penalty"                          "25"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+25"
       }
     }
   }

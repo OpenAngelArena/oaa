@@ -162,7 +162,7 @@ if IsServer() then
 
     -- Remove regen every time a boss takes dmg (doesnt matter how much dmg)
     ability:EndCooldown()
-    ability:UseResources( false, false, true )
+    ability:UseResources( false, false, false, true )
   end
 end
 

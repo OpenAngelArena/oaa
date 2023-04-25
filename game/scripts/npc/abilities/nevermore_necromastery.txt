@@ -13,8 +13,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -39,7 +38,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "necromastery_soul_release"                       "0.6"
+        "necromastery_soul_release"                       "0.7"
       }
       "04"
       {
@@ -67,7 +66,7 @@
       "08"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "shard_fear_duration"                             "0.5"
+        "shard_fear_duration"                             "0.4"
         "RequiresShard"                                   "1"
       }
     }

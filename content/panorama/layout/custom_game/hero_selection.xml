@@ -144,23 +144,30 @@
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="StrHolder"/>
-              <Label id="ChooseStrLabel" text="#DOTA_Hero_Selection_STR"/>
+              <Label id="ChooseStrLabel" text="#DOTA_HeroSelectorCategory_PrimaryAttribute_Strength"/>
             </Panel>
             <Panel class="HeroHolder" id="StrengthHeroes" />
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="AgiHolder"/>
-              <Label id="ChooseAgiLabel" text="#DOTA_Hero_Selection_AGI"/>
+              <Label id="ChooseAgiLabel" text="#DOTA_HeroSelectorCategory_PrimaryAttribute_Agility"/>
             </Panel>
             <Panel class="HeroHolder" id="AgilityHeroes"/>
           </Panel>
           <Panel class="HeroWrapper">
             <Panel class="AttrHolder">
               <Panel id="IntHolder"/>
-              <Label id="ChooseIntLabel" text="#DOTA_Hero_Selection_INT"/>
+              <Label id="ChooseIntLabel" text="#DOTA_HeroSelectorCategory_PrimaryAttribute_Intelligence"/>
             </Panel>
             <Panel class="HeroHolder" id="IntelligenceHeroes"/>
+          </Panel>
+          <Panel class="HeroWrapper">
+            <Panel class="AttrHolder">
+              <Panel id="VoidHolder"/>
+              <Label id="ChooseVoidLabel" text="#DOTA_HeroSelectorCategory_PrimaryAttribute_All"/>
+            </Panel>
+            <Panel class="HeroHolder" id="VoidHeroes" />
           </Panel>
         </Panel>
         <Panel id="PreviewPanel">

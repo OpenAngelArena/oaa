@@ -7,13 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5259"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+    "ID"                                                  "1120"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -21,35 +21,35 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.2"
-    "AbilityChannelTime"                                  "2.0"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
-    "AbilityCastGestureSlot"                              "DEFAULT"
-    "AbilityChannelAnimation"                             "ACT_DOTA_CHANNEL_ABILITY_1"
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 22 19 16 14 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 60 75 90 105 120"
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "wave_count"
+      "attack_speed_bonus"
       {
-        "value"                                           "6 6 6 6 7 8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_clinkz_12"
+        "value"                                           "100 140 180 220 300 380"
+        "special_bonus_unique_clinkz_7"                   "+40"
       }
-      "range"                                             "750 800 850 900 950 1000"
-      "damage_pct"
+      "duration"                                          "3.5"
+      "attack_range_bonus"                                "200"
+      "AbilityCooldown"
       {
-        "value"                                           "50 55 60 65 75 95"
-        "special_bonus_unique_clinkz_4"                   "+25"
+        "value"                                           "30 25 20 15 14 13"
+        "special_bonus_unique_clinkz_4"                   "-7"
+
       }
+      "strafe_skeleton_radius"                            "1200"
+      "archer_attack_speed_pct"                           "50"
     }
   }
 }

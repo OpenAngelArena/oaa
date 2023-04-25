@@ -18,12 +18,15 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "50" //OAA
+    "ItemCost"                                            "45" //OAA
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "consumable"
     "ItemAliases"                                         "enchanted mango"
     "ItemStackable"                                       "1"
     "ItemStackableMax"                                    "3"
+    "ItemStockMax"                                        "16" //OAA
+    "ItemStockInitial"                                    "16" //OAA
+    "ItemStockTime"                                       "1" //OAA
     "ItemInitialCharges"                                  "1"
     "ItemPermanent"                                       "0"
     "IsTempestDoubleClonable"                             "0"
@@ -37,7 +40,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hp_regen"                                        "0.4"
+        "hp_regen"                                        "0.3" //OAA
       }
       "02"
       {

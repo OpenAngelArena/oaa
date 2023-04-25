@@ -25,7 +25,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,43 +32,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "180" // NOTE: This radius must match the radius for boulder smash
+      "rock_damage"                                       "50 100 150 200 400 800"
+      "duration"                                          "2 2.5 3 3.5 4 4.5"
+      "pull_units_per_second_heroes"                      "600"
+      "pull_units_per_second"                             "900"
+      "speed"                                             "800"
+      "total_pull_distance"                               "1400"
+      "AbilityCooldown"   
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "180"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_damage"                                     "50 100 150 200 400 800"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2 2.5 3 3.5 4 4.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pull_units_per_second_heroes"                    "600"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pull_units_per_second"                           "900"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "800"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "total_pull_distance"                             "1400"
+        "value"                                           "13"
+        "special_bonus_unique_earth_spirit_5"             "-2"
       }
     }
   }

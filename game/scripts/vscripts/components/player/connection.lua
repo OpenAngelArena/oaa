@@ -246,18 +246,20 @@ function PlayerConnection:CheckAbandons ()
   local direAbandons = 0
   local radiantAbandons = 0
 
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
-    local team = PlayerResource:GetTeam(playerID)
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      local team = PlayerResource:GetTeam(playerID)
 
-    if team == DOTA_TEAM_BADGUYS then
-      self:CheckPlayerState(playerID)
-      if self:IsAbandoned(playerID) then
-        direAbandons = direAbandons + 1
-      end
-    elseif team == DOTA_TEAM_GOODGUYS then
-      self:CheckPlayerState(playerID)
-      if self:IsAbandoned(playerID) then
-        radiantAbandons = radiantAbandons + 1
+      if team == DOTA_TEAM_BADGUYS then
+        self:CheckPlayerState(playerID)
+        if self:IsAbandoned(playerID) then
+          direAbandons = direAbandons + 1
+        end
+      elseif team == DOTA_TEAM_GOODGUYS then
+        self:CheckPlayerState(playerID)
+        if self:IsAbandoned(playerID) then
+          radiantAbandons = radiantAbandons + 1
+        end
       end
     end
   end

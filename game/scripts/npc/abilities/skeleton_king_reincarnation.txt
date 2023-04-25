@@ -5,7 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5089"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -14,75 +14,59 @@
 
     "MaxLevel"                                            "5"
 
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "180"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 95 60 55 50" //OAA
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.2"  // Slow isn't the main function of this ability.
-
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "reincarnate_time"                                  "3.0"
+      "slow_radius"                                       "900"
+      "movespeed"                                         "-75"
+      "attackslow"                                        "-75 -75 -75 -150 -225"
+      "slow_duration"                                     "5.0"
+      "scepter_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "reincarnate_time"                                "3.0 3.0 3.0 2.5 2"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_radius"                                     "900"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "-75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attackslow"                                      "-75 -75 -75 -150 -225"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "5.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_duration"                                "7"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+7"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "scepter_aura_radius" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_aura_radius"                             "700" //OAA
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+700"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "scepter_attack_speed" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_attack_speed"                            "55 65 75 85 95" //OAA
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+65 70 75 80 85"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "scepter_move_speed_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_move_speed_pct"                          "25"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+25"
         "RequiresScepter"                                 "1"
       }
-      "11"
+      "AbilityManaCost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_skeleton_count"                            "3"
-        "RequiresShard"                                   "1"
+        "value"                                           "180"
+        "special_bonus_shard"                             "=0"
       }
+      "shard_skeleton_count"    
+      {
+        "value"                                           "1 2 3 4 5"
+        "special_bonus_shard"                             "+3"
+      }
+      "scepter_respawn_pct" // this doesn't work in OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "10"
+        "RequiresScepter"                                 "1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "140 120 100 95 90"
+        "special_bonus_scepter"                           "-40"
+      }
+      "scepter_cooldown_tooltip"                          "40"
     }
   }
 }

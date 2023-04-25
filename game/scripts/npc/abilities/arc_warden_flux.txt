@@ -45,9 +45,15 @@
         "value"                                           "15 30 45 60 120 180"
         "special_bonus_unique_arc_warden_2"               "+40"
       }
+      "tempest_damage_per_second"       
+      {
+        "value"                                           "20 45 70 95 190 285"
+        "special_bonus_unique_arc_warden_2"               "+40"
+      }
       "search_radius"                                     "150" //OAA
       "think_interval"                                    "0.5"
       "move_speed_slow_pct"                               "14 21 28 35 42 49"
+      "tempest_move_speed_slow_pct"                       "6 10 14 18 21 24"
       "AbilityCastRange"
       {
         "value"                                           "500 600 700 800 900 1000"

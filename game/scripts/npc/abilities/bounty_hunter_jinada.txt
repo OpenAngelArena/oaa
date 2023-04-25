@@ -28,19 +28,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"  
     {
-      "01"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "60 100 140 180 360 540"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_4"
+        "value"                                           "60 100 140 180 360 540"
+        "special_bonus_unique_bounty_hunter_4"            "+40"
       }
-      "02"
+      "gold_steal" //OAA // GPM 300 600 1200 3000 9000 18000
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "gold_steal"                                      "45 70 100 150 300 600" //OAA // GPM 300 600 1200 3000 9000 18000
-        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter"
+        "value"                                           "45 70 100 150 300 600"
+        "special_bonus_unique_bounty_hunter"              "+50"
       }
     }
   }

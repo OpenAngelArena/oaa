@@ -186,14 +186,14 @@ function WandererThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = nearestEnemy:GetAbsOrigin(),
-          Queue = 0,
+          Queue = false,
         })
         ExecuteOrderFromTable({
           UnitIndex = thisEntity:entindex(),
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = thisEntity.aggroOrigin,
-          Queue = 1,
+          Queue = true,
         })
       else
         ExecuteOrderFromTable({
@@ -201,7 +201,7 @@ function WandererThink ()
           -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
           OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
           Position = thisEntity.aggroOrigin,
-          Queue = 0,
+          Queue = false,
         })
       end
     end
@@ -275,7 +275,8 @@ function WalkTowardsSpot (spot)
   ExecuteOrderFromTable({
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = spot
+    Position = spot,
+    Queue = false,
   })
 end
 

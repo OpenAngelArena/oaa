@@ -269,6 +269,10 @@ if CDOTA_BaseNPC then
     return self:Script_GetAttackRange()
   end
 
+  function CDOTA_BaseNPC:ReduceMana(amount, mana_burning_ability)
+    return self:Script_ReduceMana(amount, mana_burning_ability)
+  end
+
   function CDOTA_BaseNPC:IsNeutralCreep( notAncient )
     local targetFlags = bit.bor( DOTA_UNIT_TARGET_FLAG_DEAD, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO )
 

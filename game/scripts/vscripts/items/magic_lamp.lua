@@ -69,8 +69,8 @@ if IsServer() then
     local ability = self:GetAbility()
     local parent = self:GetParent()
 
-    -- Don't trigger for illusions
-    if parent:IsIllusion() then
+    -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
       return
     end
 
@@ -112,8 +112,8 @@ if IsServer() then
       return
     end
 
-    -- Don't trigger for illusions
-    if parent:IsIllusion() then
+    -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
       return
     end
 
@@ -129,7 +129,7 @@ if IsServer() then
 
       -- Dispel all debuffs (99.99% at least)
       parent:DispelUndispellableDebuffs()
-      parent:Purge(false, true, false, true, true)
+      parent:Purge(false, true, false, true, false)
 
       -- Particle
       parent:AddNewModifier(parent, ability, "modifier_item_magic_lamp_oaa_buff", {duration = 2})
@@ -139,7 +139,7 @@ if IsServer() then
       parent:SetHealth(math.max(self.min_hp, health_increase))
 
       -- Start cooldown, spend mana
-      ability:UseResources(true, true, true)
+      ability:UseResources(true, false, false, true)
     end
   end
 end

@@ -216,7 +216,7 @@ if IsServer() then
 
 				if spellMomentum then
 					spellMomentum:EndCooldown()
-					spellMomentum:UseResources( true, true, true )
+					spellMomentum:UseResources(true, false, false, true)
 				end
 			end
 

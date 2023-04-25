@@ -18,16 +18,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "10 15 20 25 30"
+      "bonus_armor"                                       "10 15 20 25 30" //OAA
       "bonus_damage"
       {
-        "value"                                           "50 100 150 225 325"
+        "value"                                           "50 110 170 230 290"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "tree_bonus_damage_pct" //OAA
+      "tree_bonus_damage_pct"
       {
-        "value"                                           "40"
-        "special_bonus_unique_tiny_7"                     "+30"
+        "value"                                           "0"
+        "special_bonus_unique_tiny_7"                     "+40"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }

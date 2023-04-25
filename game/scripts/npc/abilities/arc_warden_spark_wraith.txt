@@ -32,18 +32,26 @@
     "AbilityValues"
     {
       "radius"                                            "375"
-      "activation_delay"                                  "2.0"
-      "duration"                                          "45"
-      "wraith_speed"                                      "400"
-      "spark_damage" //OAA
+      "spark_damage_base"
       {
         "value"                                           "100 180 260 340 680 1020"
-        "special_bonus_unique_arc_warden"                 "+250"
+        "special_bonus_unique_arc_warden"                 "+35%"
       }
+      "base_activation_delay"                             "2.0"
+      "wraith_speed_base"                                 "400"
+      "duration"                                          "45"
+      "spark_damage_tempest"
+      {
+        "value"                                           "75 135 195 255 510 765"
+        "special_bonus_unique_arc_warden"                 "+35%"
+      }
+      "tempest_activation_delay"                          "1.0"
+      "wraith_speed_tempest"                              "725"
       "think_interval"                                    "0.2"
       "wraith_vision_radius"                              "300"
       "wraith_vision_duration"                            "3.34"
       "ministun_duration"                                 "0.4 0.5 0.6 0.7 0.8 0.9"
+      "ministun_duration_tempest"                         "0.6 0.8 1.0 1.2 1.3 1.4"
       "move_speed_slow_pct"                               "100"
       "scepter_activation_delay"
       {

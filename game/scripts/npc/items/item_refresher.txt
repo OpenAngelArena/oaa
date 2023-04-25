@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1700"
+    "ItemCost"                                            "2600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_refresher"
     "ItemRequirements"
     {
-      "01"                                                "item_pers;item_pers"
+      "01"                                                "item_cornucopia;item_cornucopia"
     }
   }
 
@@ -62,28 +62,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "0" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 2.5 3.0 3.75 4.75" //OAA
-      }
-      "03" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
-      }
-      "04" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "725 825 975 1175 1425"
-      }
+      "bonus_health"                                      "500 1000 1500 2000 2500" //OAA
+      "bonus_mana"                                        "500 600 750 950 1200" //OAA
+      "bonus_health_regen"                                "7.5 11 14 17 20" //OAA
+      "bonus_mana_regen"                                  "3.25 3.5 4.0 4.75 5.75" //OAA
+      "bonus_damage"                                      "0" //OAA
     }
   }
 }

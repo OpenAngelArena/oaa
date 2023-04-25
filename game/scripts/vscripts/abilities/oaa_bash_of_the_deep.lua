@@ -97,8 +97,8 @@ if IsServer() then
       target:AddNewModifier( parent, spell, "modifier_bashed", { duration = duration } )
       target:EmitSound( "Hero_Slardar.Bash" )
 
-      -- use cooldown ( and mana, if necessary )
-      spell:UseResources( true, true, true )
+      -- go on cooldown
+      spell:UseResources( false, false, false, true )
 
       -- because talents are dumb we need to manually get its value
       local damageTalent = 0

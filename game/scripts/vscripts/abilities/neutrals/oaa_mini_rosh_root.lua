@@ -125,7 +125,7 @@ if IsServer() then
       ApplyDamage(damage_table)
 
       -- Start cooldown respecting cooldown reductions
-      ability:UseResources(true, true, true)
+      ability:UseResources(false, false, false, true)
     else
       -- Increment number of failures
       self:SetStackCount(prngMult)

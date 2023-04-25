@@ -34,7 +34,7 @@
     "MagicalResistance"                                   "25"
 
     "StatusHealthRegen"                                   "3.25"
-    "StatusHealth"                                        "200"
+    "StatusHealth"                                        "120"
     "StatusManaRegen"                                     "0.0"
     "StatusMana"                                          "75"
 
@@ -80,8 +80,6 @@
 
     "AbilityTalentStart"                                  "10"
 
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
     "HasInventory"                                        "1"
 

@@ -8,6 +8,7 @@ function abaddon_borrowed_time_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_borrowed_time_passive"
 end
 
+--[[
 function abaddon_borrowed_time_oaa:GetCooldown(level)
   local caster = self:GetCaster()
   local base_cd = self.BaseClass.GetCooldown(self, level)
@@ -20,6 +21,7 @@ function abaddon_borrowed_time_oaa:GetCooldown(level)
 
   return base_cd
 end
+]]
 
 function abaddon_borrowed_time_oaa:OnSpellStart()
   local caster = self:GetCaster()
@@ -30,7 +32,7 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
   end
 
   -- Strong Dispel
-  caster:Purge(false, true, false, true, true)
+  caster:Purge(false, true, false, true, false)
 
   -- Add the Borrowed Time modifier to the caster
   caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
@@ -105,7 +107,7 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
     if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
       if parent:IsChanneling() then
         ability:OnSpellStart()
-        ability:UseResources(true, true, true)
+        ability:UseResources(true, false, false, true)
       else
         parent:CastAbilityImmediately(ability, parent:GetPlayerID())
       end

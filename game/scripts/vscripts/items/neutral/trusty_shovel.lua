@@ -106,7 +106,7 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
     -- iterate over whole table to get all keys
     local keyset = {}
     for k in pairs(t) do
-        table.insert(keyset, k)
+      table.insert(keyset, k)
     end
     -- now you can reliably return a random key
     return t[keyset[RandomInt(1, #keyset)]]
@@ -121,15 +121,15 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
   elseif random_reward == "bottle" then
     self:DigOutItem("item_infinite_bottle", position)
   elseif random_reward == "kobold" then
-    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_kobold", position)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold", position, caster)
   elseif random_reward == "kobold_soldier" then
-    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_soldier", position)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_soldier", position, caster)
   elseif random_reward == "kobold_commander" then
-    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_foreman", position)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_foreman", position, caster)
   elseif random_reward == "ghost" then
-    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_ghost", position)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_ghost", position, caster)
   elseif random_reward == "prowler" then
-    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_prowler_shaman", position)
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_prowler_shaman", position, caster)
   elseif random_reward == "burst_elixir" then
     self:DigOutItem("item_elixier_burst", position)
   elseif random_reward == "hybrid_elixir" then
@@ -152,8 +152,8 @@ function item_trusty_shovel_oaa:DigOutItem(item_name, location)
   CreateItemOnPositionSync(location, item)
 end
 
-function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location)
-  local unit = CreateUnitByName(unit_name, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location, caster)
+  local unit = CreateUnitByName(unit_name, location, true, caster, caster:GetOwner(), caster:GetTeam())
   local game_time = 0 -- game time in seconds
   if HudTimer then
     game_time = HudTimer:GetGameTime()
@@ -167,6 +167,8 @@ function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location)
     new_properties = CreepCamps:UpgradeCreepProperties(new_properties, unit_properties, 1/10)
     CreepCamps:SetCreepPropertiesOnHandle(unit, new_properties)
   end
+  unit:SetControllableByPlayer(caster:GetPlayerID(), false)
+  unit:SetOwner(caster)
 end
 
 -- function item_trusty_shovel_oaa:GetCreepProperties(creepHandle)

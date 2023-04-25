@@ -47,7 +47,10 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
 		end
 
 		if parent and not parent:IsNull() then
-      UTIL_Remove(parent)
+      -- Instead of UTIL_Remove:
+      self:StartIntervalThink(-1)
+      parent:AddNoDraw()
+      parent:ForceKill(false)
     end
 	end
 end

@@ -36,8 +36,13 @@
     {
       "AbilityChannelTime" //OAA
       {
-        "value"                                           "1.5 2.0 2.5 3.0 3.25 3.5"
-        "special_bonus_unique_lich_2"                     "+0.5"
+        "value"                                           "1.10 1.4 1.7 2.0 2.15 2.3"
+        "special_bonus_unique_lich_2"                     "+0.4"
+      }
+      "channel_duration"
+      {
+        "value"                                           "1.10 1.4 1.7 2.0 2.15 2.3"
+        "special_bonus_unique_lich_2"                     "+0.4"
       }
       "destination"                                       "32 38 44 50 56 62"
       "mana_drain"                                        "10"
@@ -45,6 +50,8 @@
       {
         "special_bonus_scepter"                           "+400"
       }
+      "creep_duration_multiplier"                         "2"
+      "creep_damage"                                      "250"
     }
   }
 }

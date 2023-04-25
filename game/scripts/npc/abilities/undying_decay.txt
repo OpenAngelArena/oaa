@@ -32,46 +32,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "decay_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "decay_damage"                                    "0 40 80 120 240 480"
-        "LinkedSpecialBonus"                              "special_bonus_unique_undying_8"
+        "value"                                           "0 40 80 120 240 480"
+        "special_bonus_unique_undying_8"                  "+50"
       }
-      "02"
+
+      "str_steal" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "str_steal"                                       "3 4 5 6 7 8" //OAA
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_scepter"                           "+5 6 7 8 9 10"
       }
-      "03"
+
+      "decay_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "decay_duration"                                  "40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_undying_4"
+        "value"                                           "40"
       }
-      "04"
+
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "value"                                           "325"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "str_scale_up"                                    "2"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "str_steal_scepter"                               "5 6 7 8 9 10" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_damage_multiplier"                         "2.0"
-      }
+
+      "str_scale_up"                                      "2"
+      "creep_damage_multiplier"                           "2.0"
+      "shard_buff_duration"                               "40"
     }
   }
 }

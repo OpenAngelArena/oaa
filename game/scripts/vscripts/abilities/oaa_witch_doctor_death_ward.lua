@@ -168,23 +168,15 @@ end
 
 modifier_death_ward_oaa = class(ModifierBaseClass)
 
-function modifier_death_ward_oaa:IsDebuff()
-  return false
-end
-
 function modifier_death_ward_oaa:IsHidden()
   return true
 end
 
+function modifier_death_ward_oaa:IsDebuff()
+  return false
+end
+
 function modifier_death_ward_oaa:IsPurgable()
-  return false
-end
-
-function modifier_death_ward_oaa:IsPurgeException()
-  return false
-end
-
-function modifier_death_ward_oaa:IsStunDebuff()
   return false
 end
 

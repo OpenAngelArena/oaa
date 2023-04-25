@@ -39,7 +39,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22"
+    "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "veil"
     "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
@@ -59,38 +59,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "5 15 30 45 60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_mana_regen"                                 "1.75 2.0 2.5 3.25 4.25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "04" // Old: -25 -30 -36 -42 -50
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "20 25 30 35 40" // OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "debuff_radius"                                   "600"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "resist_debuff_duration"                          "16.0"
-      }
+      "bonus_all_stats"                                   "5 10 15 20 25"
+      "aura_mana_regen"                                   "1.75 2.0 2.5 3.25 4.25"
+      "aura_radius"                                       "1200"
+      "spell_amp"                                         "20 25 30 35 40" //OAA
+      "debuff_radius"                                     "600"
+      "resist_debuff_duration"                            "16.0"
     }
   }
 }

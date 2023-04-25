@@ -46,6 +46,8 @@ function modifier_titan_soul_oaa:OnIntervalThink()
     primary_stat = parent:GetAgility()
   elseif primary_attribute == DOTA_ATTRIBUTE_INTELLECT then
     primary_stat = parent:GetIntellect()
+  elseif primary_attribute == DOTA_ATTRIBUTE_ALL then
+    primary_stat = (parent:GetStrength() + parent:GetAgility() + parent:GetIntellect())/3
   end
 
   local damage_per_interval = primary_stat * multiplier
