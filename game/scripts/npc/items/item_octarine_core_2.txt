@@ -33,7 +33,6 @@
     "BaseClass"                                           "item_octarine_core"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/octarine_core_2"
-    "AbilityCooldown"                                     "6.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -52,9 +51,9 @@
     "AbilityValues"
     {
       "bonus_cooldown"                                    "25"
-      "bonus_health"                                      "625 1050 1475 1900 2325"
-      "bonus_mana"                                        "625 825 975 1175 1425"
-      "bonus_health_regen"                                "7.5 8.0 9.0 10.5 12.5"
+      "bonus_health"                                      "500 1000 1500 2000 2500"
+      "bonus_mana"                                        "500 600 750 950 1200"
+      "bonus_health_regen"                                "7.5 11 14 17 20"
       "bonus_mana_regen"                                  "3.25 3.5 4.0 4.75 5.75"
     }
   }
