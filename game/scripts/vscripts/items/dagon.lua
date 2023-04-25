@@ -1,5 +1,7 @@
-LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_dagon_oaa = class(ItemBaseClass)
 item_dagon_oaa_2 = item_dagon_oaa
@@ -12,7 +14,14 @@ item_dagon_oaa_8 = item_dagon_oaa
 item_dagon_oaa_9 = item_dagon_oaa
 
 function item_dagon_oaa:GetIntrinsicModifierName()
-  return "modifier_item_oaa_dagon_passive"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_dagon_oaa:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_oaa_dagon_passive",
+    "modifier_item_spell_lifesteal_oaa",
+  }
 end
 
 function item_dagon_oaa:OnSpellStart()
@@ -53,6 +62,12 @@ function item_dagon_oaa:OnSpellStart()
     return
   end
 
+  -- 7.33 now we want to instakill creeps (not ancients (unless?!?))
+  if target:IsCreep() and not target:IsAncient() and not target:IsNull() then
+    target:Kill(self, caster)
+    return
+  end
+
   -- Add debuff
   if level > 5 then
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
@@ -65,6 +80,22 @@ function item_dagon_oaa:OnSpellStart()
     damage_type = damage_type,
     ability = self
   })
+
+  local heal_amount = 0
+  if damaged_unit:IsRealHero() then
+    heal_amount = damage * (75 - self.hsl) / 100
+  else
+    -- Illusions are treated as creeps too
+    heal_amount = damage * (75 - self.csl) / 100
+  end
+
+  if heal_amount > 0 then
+    attacker:HealWithParams(heal_amount, self:GetAbility(), false, true, attacker, true)
+    -- Particle
+    local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
+    ParticleManager:SetParticleControl(particle, 0, attacker:GetAbsOrigin())
+    ParticleManager:ReleaseParticleIndex(particle)
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -91,6 +122,7 @@ function modifier_item_oaa_dagon_passive:OnCreated()
     self.int = ability:GetSpecialValueFor("bonus_int")
     self.str = ability:GetSpecialValueFor("bonus_str")
     self.agi = ability:GetSpecialValueFor("bonus_agi")
+    self.csl = ability:GetSpecialValueFor("creep_spell_lifesteal")
     --self.spell_amp = ability:GetSpecialValueFor("spell_amp")
   end
 end
