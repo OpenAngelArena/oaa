@@ -76,30 +76,26 @@ function item_dagon_oaa:OnSpellStart()
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
   end
 
-  --healing time!
-  local heal_amount = 0
-  if target:IsRealHero() then
-    heal_amount = (damage + target:GetHealth() * hp_percent * 0.01) * (burst_heal_percent - hero_spell_lifesteal) / 100
-  else
-    -- Illusions are treated as creeps too
-    heal_amount = (damage + target:GetHealth() * hp_percent * 0.01) * (burst_heal_percent - creep_spell_lifesteal) / 100
-  end
-
-  if heal_amount > 0 then
-    caster:HealWithParams(heal_amount, self, false, true, caster, true)
-    -- Particle
-    local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(particle)
-  end
-
-  ApplyDamage({
+  local damageDone = ApplyDamage({
     victim = target,
     attacker = caster,
     damage = damage + target:GetHealth() * hp_percent * 0.01,
     damage_type = damage_type,
     ability = self
   })
+
+  --healing time!
+  local heal_amount = 0
+  if target:IsRealHero() then
+    heal_amount = damageDone * (burst_heal_percent - hero_spell_lifesteal) / 100
+  else
+    -- Illusions are treated as creeps too
+    heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
+  end
+
+  caster:HealWithParams(heal_amount, self, false, true, caster, true)
+
+
 end
 
 ---------------------------------------------------------------------------------------------------
