@@ -86,10 +86,10 @@ function item_dagon_oaa:OnSpellStart()
   end
 
   if heal_amount > 0 then
-    attacker:HealWithParams(heal_amount, self:GetAbility(), false, true, attacker, true)
+    caster:HealWithParams(heal_amount, self, false, true, caster, true)
     -- Particle
-    local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
-    ParticleManager:SetParticleControl(particle, 0, attacker:GetAbsOrigin())
+    local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle)
   end
 
