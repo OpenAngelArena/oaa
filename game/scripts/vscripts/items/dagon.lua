@@ -38,6 +38,9 @@ function item_dagon_oaa:OnSpellStart()
   local damage = self:GetSpecialValueFor("damage") -- Damage should never be a big value because of the spells like Fatal Bonds that share dmg
   local hp_percent = self:GetSpecialValueFor("current_hp_dmg")
   local damage_type = DAMAGE_TYPE_MAGICAL
+  local burst_heal_percent = self:GetSpecialValueFor("burst_heal_percent")
+  local hero_spell_lifesteal = self:GetSpecialValueFor("hero_spell_lifesteal")
+  local creep_spell_lifesteal = self:GetSpecialValueFor("creep_spell_lifesteal")
 
   local particle = ParticleManager:CreateParticle(particleName,  PATTACH_POINT_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
@@ -73,20 +76,13 @@ function item_dagon_oaa:OnSpellStart()
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
   end
 
-  ApplyDamage({
-    victim = target,
-    attacker = caster,
-    damage = damage + target:GetHealth() * hp_percent * 0.01,
-    damage_type = damage_type,
-    ability = self
-  })
-
+  --healing time!
   local heal_amount = 0
-  if damaged_unit:IsRealHero() then
-    heal_amount = damage * (75 - self.hsl) / 100
+  if target:IsRealHero() then
+    heal_amount = (damage + target:GetHealth() * hp_percent * 0.01) * (burst_heal_percent - hero_spell_lifesteal) / 100
   else
     -- Illusions are treated as creeps too
-    heal_amount = damage * (75 - self.csl) / 100
+    heal_amount = (damage + target:GetHealth() * hp_percent * 0.01) * (burst_heal_percent - creep_spell_lifesteal) / 100
   end
 
   if heal_amount > 0 then
@@ -96,6 +92,14 @@ function item_dagon_oaa:OnSpellStart()
     ParticleManager:SetParticleControl(particle, 0, attacker:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(particle)
   end
+
+  ApplyDamage({
+    victim = target,
+    attacker = caster,
+    damage = damage + target:GetHealth() * hp_percent * 0.01,
+    damage_type = damage_type,
+    ability = self
+  })
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -122,7 +126,6 @@ function modifier_item_oaa_dagon_passive:OnCreated()
     self.int = ability:GetSpecialValueFor("bonus_int")
     self.str = ability:GetSpecialValueFor("bonus_str")
     self.agi = ability:GetSpecialValueFor("bonus_agi")
-    self.csl = ability:GetSpecialValueFor("creep_spell_lifesteal")
     --self.spell_amp = ability:GetSpecialValueFor("spell_amp")
   end
 end
