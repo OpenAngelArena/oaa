@@ -29,8 +29,12 @@
 								from = "tetsubo.vmat"
 								to = "materials/models/heroes/sohei/sohei_tetsubo.vmat"
 							},
+							{
+								from = "body.vmat"
+								to = "materials/models/heroes/sohei/sohei_arcana/sohei_body_arcana.vmat"
+							},
 						]
-						use_global_default = true
+						use_global_default = false
 						global_default_material = "materials/models/heroes/sohei/sohei_arcana/sohei_body_arcana.vmat"
 					},
 				]
@@ -824,22 +828,6 @@
 									stop_on_seq_change = false
 									use_layer_sequence = false
 									tags = null
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT_CFG"
-								event_frame = 15
-								event_keys = 
-								{
-									name = resource:"{\n"
-									detach_from_owner = false
-									always_run = false
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									config = "name=resource:\"particles/generic_gameplay/dust_impact.vpcf\"\n"
 								}
 							},
 							{

@@ -14,7 +14,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "2500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -46,7 +46,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3901"
+    "ItemCost"                                            "4876"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "phylactery 2"
@@ -61,9 +61,10 @@
       "bonus_health"                                      "200 300 450 650 900"
       "bonus_mana"                                        "200 300 450 650 900"
       "bonus_all_stats"                                   "7 12 17 22 27"
+      "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5"
       "slow"                                              "50"
-      "bonus_spell_damage"                                "125 250 500 1000 2000"
-      "slow_duration"                                     "1.2"
+      "bonus_spell_damage"                                "150 500 950 1400 1850"
+      "slow_duration"                                     "1.5"
     }
   }
 }

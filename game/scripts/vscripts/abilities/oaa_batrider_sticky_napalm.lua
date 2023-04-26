@@ -261,6 +261,7 @@ if IsServer() then
       ["item_silver_staff"] = true,
       ["item_silver_staff_2"] = true,
       ["item_paintball"] = true,              -- Fae Grenade
+      ["item_blood_grenade"] = true,
     }
 
     -- For debugging
