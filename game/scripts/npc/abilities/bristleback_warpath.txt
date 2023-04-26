@@ -27,13 +27,13 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "20 30 40 70 100" //OAA
+        "damage_per_stack"                                "15 25 35 55 75" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_3"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "move_speed_per_stack"                            "3 4 5 6 7"
+        "move_speed_per_stack"                            "2 3 4 5 6"
       }
       "03"
       {
@@ -43,7 +43,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "6 8 10 10 10"
+        "max_stacks"                                      "8 10 12 12 12"
       }
     }
   }
