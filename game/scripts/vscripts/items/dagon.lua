@@ -1,5 +1,7 @@
+LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa = class(ItemBaseClass)
 item_dagon_oaa_2 = item_dagon_oaa
@@ -12,7 +14,14 @@ item_dagon_oaa_8 = item_dagon_oaa
 item_dagon_oaa_9 = item_dagon_oaa
 
 function item_dagon_oaa:GetIntrinsicModifierName()
-  return "modifier_item_oaa_dagon_passive"
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_dagon_oaa:GetIntrinsicModifierNames()
+  return {
+    "modifier_item_oaa_dagon_passive",
+    "modifier_item_spell_lifesteal_oaa",
+  }
 end
 
 function item_dagon_oaa:OnSpellStart()
@@ -29,6 +38,9 @@ function item_dagon_oaa:OnSpellStart()
   local damage = self:GetSpecialValueFor("damage") -- Damage should never be a big value because of the spells like Fatal Bonds that share dmg
   local hp_percent = self:GetSpecialValueFor("current_hp_dmg")
   local damage_type = DAMAGE_TYPE_MAGICAL
+  local burst_heal_percent = self:GetSpecialValueFor("burst_heal_percent")
+  local hero_spell_lifesteal = self:GetSpecialValueFor("hero_spell_lifesteal")
+  local creep_spell_lifesteal = self:GetSpecialValueFor("creep_spell_lifesteal")
 
   local particle = ParticleManager:CreateParticle(particleName,  PATTACH_POINT_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
@@ -47,8 +59,8 @@ function item_dagon_oaa:OnSpellStart()
     return
   end
 
-  -- If the target is an illusion, just kill it and don't do damage
-  if target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA() then
+  -- If the target is an illusion, just kill it and don't do damage; same for non-ancient creeps
+  if (target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA()) or (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss()) then
     target:Kill(self, caster)
     return
   end
@@ -58,13 +70,24 @@ function item_dagon_oaa:OnSpellStart()
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
   end
 
-  ApplyDamage({
+  local damageDone = ApplyDamage({
     victim = target,
     attacker = caster,
     damage = damage + target:GetHealth() * hp_percent * 0.01,
     damage_type = damage_type,
     ability = self
   })
+
+  -- healing time!
+  local heal_amount = 0
+  if target:IsRealHero() then
+    heal_amount = damageDone * (burst_heal_percent - hero_spell_lifesteal) / 100
+  else
+    -- For ancients, bosses and strong illusions
+    heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
+  end
+
+  caster:HealWithParams(heal_amount, self, false, true, caster, true)
 end
 
 ---------------------------------------------------------------------------------------------------
