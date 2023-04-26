@@ -269,11 +269,6 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     done();
   }
 
-  const chakramIDs = [
-    '5527', // shredder_chakram
-    '5645' // shredder_chakram_2
-  ];
-
   // for completely reworked abilities and irrelevant stuff
   const ignoreValuesForIDs = [
     '40', // item_dust
@@ -295,7 +290,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       if (!specialValuesForItem[rootItem]) {
         testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
         specialValuesForItem[rootItem] = specials;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
         spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent');
       }
     }
@@ -314,7 +309,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
       if (!abilityValuesForItem[rootItem2]) {
         testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
         abilityValuesForItem[rootItem2] = abilityValues;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && chakramIDs.indexOf(values.ID) === -1) {
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
         spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
       }
     }

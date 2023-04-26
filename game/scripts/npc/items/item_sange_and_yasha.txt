@@ -27,38 +27,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "16 24 32 48 72"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "16 24 32 48 72"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "20 22 24 26 28"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "12 17 22 27 32"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_percent_bonus"                    "8 10 12 14 16" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "20 22 24 26 28" //OAA
-      }
+      "bonus_strength"                                    "16 24 32 48 72"
+      "bonus_agility"                                     "16 24 32 48 72"
+      "status_resistance"                                 "20 22 24 26 28"
+      "bonus_attack_speed"                                "12 17 22 27 32"
+      "movement_speed_percent_bonus"                      "10 12 14 16 18" //OAA
+      "hp_regen_amp"                                      "20 22 24 26 28" //OAA
     }
   }
 }

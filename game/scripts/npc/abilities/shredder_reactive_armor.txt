@@ -17,29 +17,69 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_armor"                                       "1 2 3 4 5 6" //OAA
+      "bonus_hp_regen"                                    "1 2 3 4 5 6" //OAA
+      "stack_limit" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_armor"                                     "1 2 3 4 5 6" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_hp_regen"                                  "1 2 3 4 5 6" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stack_limit"                                     "6" //OAA
+        "value"                                           "6"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
       }
-      "04"
+      "stack_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stack_duration"                                  "10 12 14 16 18 20"
+        "value"                                           "10 12 14 16 18 20"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
+      }
+      "AbilityManaCost"       
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+200"
+      }
+      "AbilityCooldown"       
+      {
+        "value"                                           "45"
+        "RequiresScepter"                                 "1"
+      }
+      "initial_shield"
+      {
+        "value"                                           "200"
+        "RequiresScepter"                                 "1"
+      }
+      "shield_per_sec"
+      {
+        "value"                                           "100"
+        "RequiresScepter"                                 "1"
+      }
+      "shield_per_sec_per_enemy"
+      {
+        "value"                                           "75"
+        "RequiresScepter"                                 "1"
+      }
+      "max_shield"
+      {
+        "value"                                           "800"
+        "RequiresScepter"                                 "1"
+      }
+      "duration"
+      {
+        "value"                                           "8"
+        "RequiresScepter"                                 "1"
+      }
+      "radius"
+      {
+        "value"                                           "600"
+        "RequiresScepter"                                 "1"
+      }
+      "explosion_radius"
+      {
+        "value"                                           "600"
+        "RequiresScepter"                                 "1"
+      }
+      "base_explosion"
+      {
+        "value"                                           "200"
+        "RequiresScepter"                                 "1"
       }
     }
   }

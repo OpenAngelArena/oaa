@@ -24,9 +24,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1200"
-    "AbilityCooldown"                                     "15"
-    "AbilityManaCost"                                     "50 75 100 125 150"
+    "AbilityCooldown"                                     "3"
+    "AbilityHealthCost"                                   "75 100 125 175 225"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +37,11 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
       }
       "duration"                                          "8 10 12 14 16"
-      "radius"                                            "1200"
-      "heal_damage"
-      {
-        "value"                                           "40 50 60 120 220"
-        "CalculateSpellDamageTooltip"                     "1"
-      }
+      "cooldown_reduction"                                "4 5 6 6 6"
+      "cooldown_reduction_items"                          "3 4 5 5 5"
+      "mana_cost_increase_pct"                            "50"
+      "mana_cost_increase_duration"                       "30 25 20 20 20"
+      "max_stacks"                                        "15"
     }
   }
 }

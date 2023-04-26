@@ -47,13 +47,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "45"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "dominate"
     "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8101"
+    "ItemCost"                                            "8151"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 2;helm of the overlord 2;helm 2;overlord 2"
@@ -70,12 +70,12 @@
       "bonus_armor"                                       "6 7 8 9 10"
       "bonus_regen"                                       "6 9 12 15 18"
       "health_min"                                        "2000 4500 7000 9500 12000"
-      "speed_base"                                        "400"
+      "speed_base"                                        "380"
       "bounty_gold"                                       "250 500 750 1000 1250"
       "creep_bonus_damage"                                "50 100 150 200 250"
       "creep_bonus_hp_regen"                              "12 15 18 21 24"
       "creep_bonus_mp_regen"                              "4"
-      "creep_bonus_armor"                                 "8 10 12 14 16"
+      "creep_bonus_armor"                                 "7 9 11 13 15"
       "model_scale"                                       "20 30 40 50 60"
       "count_limit"                                       "1"
       "armor_aura"                                        "3.0 4.0 6.0 9.0 13.0"

@@ -37,12 +37,12 @@
     {
       "splash_radius"                                     "600"
       "interval"                                          "0.75"
-      "ministun"                                          "0.25"
+      "ministun"                                          "0.2"
       "cast_range"                                        "200"
       "animation_rate"                                    "1.5" // FLAIL MULTIPLIER ON ENEMY UNITS
       "damage" //OAA
       {
-        "value"                                           "150 250 350 550 850"
+        "value"                                           "100 200 300 500 800"
       }
       "channel_time"
       {

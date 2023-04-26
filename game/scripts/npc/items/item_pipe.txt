@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1550"
+    "ItemCost"                                            "1450"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_pipe"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_hood_of_defiance;item_headdress"
+      "01"                                                "item_cloak;item_headdress;item_ring_of_health"
     }
   }
 
@@ -50,7 +50,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3475"
+    "ItemCost"                                            "3375"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight;pipe"
@@ -62,11 +62,11 @@
     "AbilityValues"
     {
       "health_regen"                                      "8.5 10 11 12 13"
-      "magic_resistance"                                  "28 29 30 31 32" //OAA
+      "magic_resistance"                                  "25 26 27 28 29"
       "barrier_debuff_duration"                           "50.0"
-      "tooltip_resist"                                    "28 29 30 31 32" //OAA
+      "tooltip_resist"                                    "25 26 27 28 29" //OAA WHAT THE FUCK WHY DOES IT SAY 20
       "aura_health_regen"                                 "2.5 4 6 8 10"
-      "magic_resistance_aura"                             "10 12 14 16 18" //OAA
+      "magic_resistance_aura"                             "10 12 14 16 18"
       "aura_radius"                                       "1200"
       "barrier_block"                                     "450 550 750 1050 1450"
       "barrier_duration"                                  "12.0"

@@ -18,8 +18,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            ""      // kobold_tunneler_prospecting
-    "Ability2"                                            ""      // Ability 2
+    "Ability1"                                            "" // TODO: add some ability
+    "Ability2"                                            "" // kobold_tunneler_prospecting
     "Ability3"                                            ""      // Ability 3
     "Ability4"                                            ""      // Ability 4
 
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

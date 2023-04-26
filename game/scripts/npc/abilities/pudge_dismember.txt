@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "160"
+    "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -52,13 +52,13 @@
       "animation_rate"                                    "1.5"
       "AbilityChannelTime"
       {
-        "value"                                           "3.0"
-        "special_bonus_unique_pudge_6"                    "+0.8"
+        "value"                                           "2.75"
+        "special_bonus_unique_pudge_6"                    "+0.75"
       }
       "creep_dismember_duration_tooltip"
       {
-        "value"                                           "6.0"
-        "special_bonus_unique_pudge_6"                    "+0.8"
+        "value"                                           "5.5"
+        "special_bonus_unique_pudge_6"                    "+0.75"
       }
       "AbilityCooldown"
       {
@@ -72,7 +72,7 @@
       }
       "order_lock_duration"
       {
-        "value"                                           "3"
+        "value"                                           "2.75"
         "RequiresShard"                                   "1"
       }
       "shard_cast_range"

@@ -39,11 +39,7 @@
     "AbilityValues"
     {
       "prison_duration"                                   "1.75 2.5 3.25 4 4 4"
-      "damage"
-      {
-        "value"                                           "120 200 280 360 720 1440"
-        "special_bonus_scepter"                           "+140"
-      }
+      "damage"                                            "120 200 280 360 720 1440"
       "mana_capacity_steal"
       {
         "value"                                           "16 18 20 22 24 26"
@@ -55,16 +51,7 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+60"
       }
-      "AbilityCharges"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+2"
-      }
-      "damage_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "+400"
-      }
+      "damage_radius"                                     "0"
       "AbilityCastRange"
       {
         "value"                                           "650"

@@ -54,6 +54,11 @@
       }
       "projectile_speed"                                  "1150"
       "shared_cooldown"                                   "1" //OAA
+      "bonus_attributes"    
+      {
+        "value"                                           "3 5 7 9 13 25"
+        "special_bonus_shard"                             "+6"
+      }
     }
   }
 }

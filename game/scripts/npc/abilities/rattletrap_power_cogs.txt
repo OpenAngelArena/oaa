@@ -39,13 +39,17 @@
         "value"                                           "50 80 110 140 280 560"
         "special_bonus_unique_clockwerk_8"                "+60"
       }
+      "magic_barrier"
+      {
+        "value"                                           "50 100 150 200 400 600"
+      }
       "attacks_to_destroy"
       {
         "value"                                           "2"
         "special_bonus_unique_clockwerk_5"                "+2"
       }
       "push_length"                                       "300"
-      "push_duration"                                     "1"
+      "push_duration"                                     "0.8"
       "cogs_radius"                                       "215"
       "trigger_distance"                                  "185"
       "extra_pull_buffer"                                 "-10"

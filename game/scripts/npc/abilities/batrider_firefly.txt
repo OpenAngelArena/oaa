@@ -33,12 +33,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_per_second" //OAA
+      "damage_per_second"
       {
-        "value"                                           "20 40 60 80 160 320"
+        "value"                                           "25 50 75 100 200 300"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "movement_speed"                                    "3 6 9 12 15 18"
       "radius"                                            "200"
       "duration"
       {
@@ -47,7 +46,6 @@
       }
       "tick_interval"                                     "0.5"
       "tree_radius"                                       "100"
-      "bonus_vision"                                      "50 100 150 200 250 300"
     }
   }
 }

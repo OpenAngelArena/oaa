@@ -1,0 +1,85 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Far Sight 5
+  //=================================================================================================================
+  "item_recipe_far_sight_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3524"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_far_sight_5"
+    "ItemRequirements"
+    {
+      "01"                                                "item_far_sight_4;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Far Sight 4
+  //=================================================================================================================
+  "item_far_sight_5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3525"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/sight.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityTextureName"                                  "custom/far_sight_5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25"
+    "AbilitySharedCooldown"                               "farsight"
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+    "AoERadius"                                           "750"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    "ItemCost"                                            "33459"
+    "ItemShopTags"                                        "hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "far sight"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"                                      "0"
+      "bonus_health_regen"                                "0"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
+      "bonus_armor"                                       "0"
+      "bonus_to_worst_attribute"                          "10 15 25 40 60"
+      "bonus_vision_percentage"                           "10 20 30 40 50"
+      "bonus_cast_range"                                  "225 275 325 375 425"
+      "reveal_radius"                                     "750"
+      "reveal_duration"                                   "8"
+      "dust_duration"                                     "12"
+      "dust_radius"                                       "750"
+    }
+  }
+}

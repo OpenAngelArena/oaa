@@ -33,7 +33,7 @@
     "AbilityValues"
     {
       "damage"                                            "45 90 135 180 360 540"
-      "duration"                                          "10"
+      "duration"                                          "7 8 9 10 10 10"
       "hit_radius"                                        "120"
       "dead_zone_distance"                                "340"
       "num_revenants"
@@ -48,7 +48,7 @@
       "debug_draw"                                        "0"
       "aura_movespeed_slow"                               "-30"
       "aura_attackspeed_slow"                             "-30 -40 -50 -60 -70 -80"
-      "silence_duration"                                  "2 2.5 3 3.5 4.0 4.5"
+      "silence_duration"                                  "1.5 2 2.5 3 3.5 4.0"
       "rotation_direction"                                "-1"
       "show_warning"                                      "1"
     }

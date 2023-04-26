@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Nyx Assassin Mind Flare
+  //=================================================================================================================
+  "nyx_assassin_jolt"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "1104"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"                                     "1"
+    "AbilitySound"                                        "Hero_NyxAssassin.ManaBurn.Target"
+
+    "MaxLevel"                                            "6"
+
+    // Unit Targeting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO" 
+    
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
+    "AbilityCastPoint"                                    "0.4"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "13 10 7 4 4 4"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "100"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "float_multiplier"    
+      {
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_nyx_5"                      "+0.75"
+      }
+      "aoe"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_nyx"                        "+300"
+      }
+      "damage_echo_duration"                              "15"
+      "damage_echo_pct"                                   "30"
+    }
+  }
+}

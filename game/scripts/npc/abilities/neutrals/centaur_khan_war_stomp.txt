@@ -8,7 +8,7 @@
     "ID"                                                  "5295"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_centaur_khan_war_stomp.lua"
-    "AbilityTextureName"                                  "centaur_khan_war_stomp"
+    //"AbilityTextureName"                                  "centaur_khan_war_stomp"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -16,7 +16,7 @@
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "1" // Valve, wtf is this if creeps can level up their abilities?
 
     "AbilityCastPoint"                                    "0.4"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
@@ -26,7 +26,7 @@
     "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "100" //OAA
+    "AbilityDamage"                                       "50 100 150 200" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "hero_stun_duration"                              "2.0"
+        "hero_stun_duration"                              "1.6"
       }
     }
   }

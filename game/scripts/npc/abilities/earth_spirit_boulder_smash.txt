@@ -33,55 +33,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"                                            "180" // NOTE: This radius must match the radius for geomagnetic grip
+      "rock_search_aoe"                                   "200"
+      "rock_damage"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "180"
-      }
-      "02"
+        "value"                                           "120 180 240 300 600 1200"
+        "special_bonus_unique_earth_spirit_6"             "+125"
+      } 
+      "move_slow"                                         "50"
+      "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
+      "speed"                                             "900"
+      "unit_distance"     
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_search_aoe"                                 "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rock_damage"                                     "120 180 240 300 600 1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "50"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.25 2.5 3.25 4 4.75 5.5"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "unit_distance"                                   "500.0 600.0 700.0 800.0 900.0 1000.0"
+        "value"                                           "500.0 600.0 700.0 800.0 900.0 1000.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
-      "08"
+      "rock_distance"     
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "rock_distance"                                   "2000.0"
+        "value"                                           "2000.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "remnant_smash_radius_tooltip"                    "200"
-      }
+      }     
+      "remnant_smash_radius_tooltip"                      "200"
+      "creep_multiplier"                                  "1.25"
     }
   }
 }

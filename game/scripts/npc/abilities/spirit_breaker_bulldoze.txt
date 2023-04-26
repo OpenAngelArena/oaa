@@ -27,6 +27,11 @@
       "movement_speed"                                    "10 15 20 25 30 35"
       "status_resistance"                                 "35 45 55 65 70 75"
       "duration"                                          "8"
+      "damage_barrier"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_spirit_breaker_shield"      "+500"
+      }
     }
   }
 }

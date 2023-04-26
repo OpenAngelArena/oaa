@@ -27,46 +27,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"    
     {
-      "01"
+      "slow"                                              "40 45 50 55 60"
+      "damage_amp" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "40 45 50 55 60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_amp"                                      "25 30 35 35 35"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "03"
+      "slow_duration"                                     "6"
+      "str_percentage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "6"
+        "value"                                           "40"
+        "special_bonus_unique_undying_4"                  "+60"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "str_percentage"                                  "40 45 50 55 60" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_bonus"                                  "30 35 40 45 50" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_cooldown_reduction"                        "35.0"
-        "RequiresShard"                                   "1"
-      }
+      "duration"                                          "40"
+      "movement_bonus"                                    "30 35 40 45 50" //OAA
     }
   }
 }

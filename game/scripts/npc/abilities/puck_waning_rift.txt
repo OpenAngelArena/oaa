@@ -31,7 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "400"
+      "radius"
+      {
+        "value"                                           "400"
+        "special_bonus_unique_puck_rift_radius"           "+250"
+      }
       "silence_duration"
       {
         "value"                                           "2.0 2.5 3.0 3.5 4.0 4.5"
@@ -42,31 +46,10 @@
         "value"                                           "70 140 210 280 560 1120"
         "special_bonus_unique_puck_6"                     "+75"
       }
-      "max_distance"                                      "400"
-      "scepter_max_distance"
+      "max_distance"
       {
-        "RequiresScepter"                                 "1"
-        "value"                                           "550"
-      }
-      "scepter_radius"
-      {
-        "RequiresScepter"                                 "1"
-        "value"                                           "550"
-      }
-      "scepter_pushback"
-      {
-        "RequiresScepter"                                 "1"
         "value"                                           "400"
-      }
-      "scepter_pushback_duration"
-      {
-        "RequiresScepter"                                 "1"
-        "value"                                           "0.5"
-      }
-      "scepter_vision_duration"
-      {
-        "RequiresScepter"                                 "1"
-        "value"                                           "5"
+        "special_bonus_unique_puck_rift_radius"           "+250"
       }
     }
   }

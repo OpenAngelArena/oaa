@@ -9,14 +9,14 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "450"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_bfury"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_small_cleaver_oaa;item_pers"
+      "01"                                                "item_small_cleaver_oaa;item_cornucopia"
     }
   }
 

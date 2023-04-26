@@ -304,12 +304,6 @@ if IsServer() then
         end
       end
 
-      -- Use mana and trigger cd while respecting reductions
-      --ability:UseResources(true, false, true)
-
-      -- Using CastAbility to trigger Essence Flux
-      --ability:CastAbility()
-
       self.procRecords[event.record] = nil
     end
   end

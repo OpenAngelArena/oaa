@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5050"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES "
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -32,6 +32,7 @@
         "value"                                           "575"
         "special_bonus_unique_mirana_6"                   "+125"
       }
+      "min_jump_distance"                                 "200"
       "leap_speed"                                        "1300.0"
       "leap_acceleration"                                 "6000.0"
       "leap_speedbonus"                                   "8 16 24 32 40 48"

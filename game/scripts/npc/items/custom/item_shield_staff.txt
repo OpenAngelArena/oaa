@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4350"
+    "ItemCost"                                            "4225"
     "ItemShopTags"                                        "int;regen_health;block;health_pool;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "shield staff;shield;force"
@@ -85,10 +85,10 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_health"                                    "425 525 675 875 1125"
       }
-      "03" // Vanguard (7)
+      "03" // Vanguard (5.5)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "7 10 13 16 19"
+        "bonus_health_regen"                              "6 9 12 15 18"
       }
       "04" // Raindrop (0.8)
       {

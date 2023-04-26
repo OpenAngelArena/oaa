@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35279"
+    "ItemCost"                                            "34604"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher orb 5;refresher 5"
@@ -63,28 +63,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.25 2.5 3.0 3.75 4.75"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "725 825 975 1175 1425"
-      }
+      "bonus_health"                                      "500 1000 1500 2000 2500"
+      "bonus_mana"                                        "500 600 750 950 1200"
+      "bonus_health_regen"                                "7.5 11 14 17 20"
+      "bonus_mana_regen"                                  "3.25 3.5 4.0 4.75 5.75"
+      "bonus_damage"                                      "0"
     }
   }
 }

@@ -8,14 +8,14 @@
     "ID"                                                  "5319"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_harpy_storm_chain_lightning.lua"
-    "AbilityTextureName"                                  "harpy_storm_chain_lightning"
+    //"AbilityTextureName"                                  "harpy_storm_chain_lightning"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "1" // Valve, wtf this if creeps can level up their abilities?
 
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.3"
@@ -33,7 +33,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "initial_damage"                                  "125" //OAA
+        "initial_damage"                                  "100 130 210 260" //OAA
       }
       "02"
       {
@@ -48,7 +48,7 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "damage_percent_loss"                             "25.0"
+        "damage_percent_loss"                             "25.0 20.0 15.0 10.0"
       }
       "05"
       {

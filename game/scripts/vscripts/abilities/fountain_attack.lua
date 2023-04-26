@@ -115,7 +115,8 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     local caster = self:GetCaster()
     local teamID = caster:GetTeamNumber()
     local target = self:GetParent()
-    local timetokill = self:GetAbility():GetSpecialValueFor("timetokill")
+    local ability = self:GetAbility()
+    local timetokill = ability:GetSpecialValueFor("timetokill")
     local killTicks = timetokill / 0.1
     local targetHealth = target:GetHealth()
     local targetMaxHealth = target:GetMaxHealth()
@@ -124,10 +125,10 @@ function modifier_fountain_attack_aura:OnIntervalThink()
     local manaReductionAmount = targetMaxMana / killTicks
 
     target:MakeVisibleDueToAttack(teamID, 0)
-    target:Purge(true, false, false, false, true)
-    target:ReduceMana(manaReductionAmount)
+    target:Purge(true, false, false, false, false)
+    target:ReduceMana(manaReductionAmount, ability)
     if targetHealth - healthReductionAmount < 1 then
-      target:Kill(self, caster)
+      target:Kill(ability, caster)
     else
       target:SetHealth(targetHealth - healthReductionAmount)
     end

@@ -15,7 +15,7 @@
     //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     //"SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "1" // Valve, wtf this if creeps can level up their abilities?
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15"
+        "bonus_attack_speed"                              "15 18 21 27"
       }
       "02"
       {

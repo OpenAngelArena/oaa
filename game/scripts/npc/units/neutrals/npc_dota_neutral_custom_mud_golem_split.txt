@@ -18,7 +18,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "mud_golem_hurl_boulder"      // Ability 1
+    "Ability1"                                            "mud_golem_hurl_boulder" // TODO: rework: add % max hp dmg
     "Ability2"                                            ""                            // Ability 2
     "Ability3"                                            ""                            // Ability 3
     "Ability4"                                            ""                            // Ability 4
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

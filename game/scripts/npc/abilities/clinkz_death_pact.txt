@@ -1,0 +1,67 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Clinkz: Death Pact
+  //=================================================================================================================
+  "clinkz_death_pact"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5262"
+
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilitySound"                                        "Hero_Clinkz.DeathPact"
+    "AbilityDraftUltScepterAbility"                       "clinkz_burning_army"
+    "HasScepterUpgrade"                                   "1"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_6"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
+    "AbilityChargeRestoreTime"                            "40"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "60"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"                                          "45"
+      "AbilityCharges"
+      {
+        "value"                                           "1 1 2 2 2 2"
+        "special_bonus_unique_clinkz_9"                   "+1"
+      }
+      "health_gain"
+      {
+        "value"                                           "125 200 275 350 700 1400"
+        "special_bonus_unique_clinkz_8"                   "+200"
+      }
+      "skeleton_duration"                                 "45"
+      "skeleton_health"
+      {
+        "value"                                           "12"
+
+      }
+      "skeleton_health_tooltip"
+      {
+        "value"                                           "3"
+
+      }
+      "skeleton_building_damage_reduction"                "25"
+      "attack_rate"                                       "1.6"
+      "damage_percent"                                    "20"
+      "creep_level"                                       "6" //OAA
+    }
+  }
+}

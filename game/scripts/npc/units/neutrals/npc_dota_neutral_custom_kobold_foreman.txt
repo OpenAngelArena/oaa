@@ -18,8 +18,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "kobold_foreman_warcry_oaa"
-    "Ability2"                                            "kobold_taskmaster_speed_aura"
+    "Ability1"                                            "kobold_foreman_warcry_oaa" // TODO: add % scaling buff
+    "Ability2"                                            "kobold_taskmaster_speed_aura" // TODO: rework: only 1 level
     "Ability3"                                            ""
     "Ability4"                                            ""
 
@@ -72,8 +72,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "HasInventory"                                        "0"

@@ -70,7 +70,7 @@
 
     // Status
     //-------------------------------------------------------------------------------------------------------------
-    "StatusHealth"                                        "200"
+    "StatusHealth"                                        "120"
     "StatusHealthRegen"                                   "1.0"
     "StatusMana"                                          "75"
     "StatusManaRegen"                                     "0.0"
@@ -78,8 +78,6 @@
     // Team
     //-------------------------------------------------------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
 
     // Vision
