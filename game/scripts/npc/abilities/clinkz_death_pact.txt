@@ -8,12 +8,8 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5262"
-
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-    "AbilitySound"                                        "Hero_Clinkz.DeathPact"
-    "AbilityDraftUltScepterAbility"                       "clinkz_burning_army"
-    "HasScepterUpgrade"                                   "1"
 
     "MaxLevel"                                            "6"
 
@@ -51,12 +47,10 @@
       "skeleton_health"
       {
         "value"                                           "12"
-
       }
       "skeleton_health_tooltip"
       {
         "value"                                           "3"
-
       }
       "skeleton_building_damage_reduction"                "25"
       "attack_rate"                                       "1.6"
