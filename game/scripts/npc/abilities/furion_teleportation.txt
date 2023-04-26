@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5246"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
@@ -18,22 +18,12 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "3 3 3 3 2 1"
     "AbilityCooldown"                                     "50 40 30 20 15 10" //OAA
-    "AbilityManaCost"                                     "50 60 70 80 90 100"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial" // Don't delete this even if it's empty
     {
-      "max_stacks"        
-      {
-        "value"       "3 6 9 12 15 18"
-        "special_bonus_unique_furion_teleportation_max_stacks"    "+4"
-
-      }
-      
-      "buff_duration"       "15"
-      "damage_per_stack"    "6"
-      "armor_per_stack"   "1"
     }
   }
 }

@@ -31,17 +31,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"
+      "01"
       {
-        "value"                                           "20 45 70 95 145 195"
-        "special_bonus_unique_tusk_3"                     "+25"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 45 70 95 145 195"
+        "LinkedSpecialBonus"                              "special_bonus_unique_tusk_3"
       }
-      "movement_slow"                                     "75"
-      "slow_duration"                                     "0.5"
-      "debuff_duration"                                   "5"
-      "radius"                                            "350"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "0.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "350"
+      }
     }
   }
 

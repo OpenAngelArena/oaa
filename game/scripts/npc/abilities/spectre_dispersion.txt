@@ -17,34 +17,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_reflection_pct"
+      "01"
       {
-        "value"                                           "8 12 16 20 22 26"
-        "special_bonus_unique_spectre_5"                  "+5"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_reflection_pct"                           "8 12 16 20 22 26"
+        "LinkedSpecialBonus"                              "special_bonus_unique_spectre_5"
       }
-      "min_radius"                                        "400"
-      "max_radius"                                        "800"
-      "activation_cooldown"
+      "02"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+25"
+        "var_type"                                        "FIELD_INTEGER"
+        "min_radius"                                      "400"
       }
-      "activation_manacost"
+      "03"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+50"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_radius"                                      "800"
       }
-      "activation_bonus_pct"
+      "04"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+100"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_dagger_damage"                             "300"
+        "RequiresShard"                                   "1"
       }
-      "activation_duration"
+      "05"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+5"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_dagger_cooldown"                           "6.0" //OAA
+        "RequiresShard"                                   "1"
       }
     }
   }

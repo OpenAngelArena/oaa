@@ -35,21 +35,6 @@
       "base_damage_pct"                                   "100"
       "modelscale"                                        "30"
       "bonus_damage"                                      "50 100 150 250 350"
-      "spell_lifesteal"
-      {
-        "value"                                           "30"
-        "RequiresShard"                                   "1"
-      }
-      "spell_amp_steal"
-      {
-        "value"                                           "2"
-        "RequiresShard"                                   "1"
-      }
-      "spell_amp_steal_range"
-      {
-        "value"                                           "925"
-        "RequiresShard"                                   "1"
-      }
     }
   }
 }

@@ -18,6 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15 12 9 6 6 6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,15 +37,15 @@
       "radius"                                            "175"
       "fade_time"                                         "0.25"
       "duration"                                          "4.0"
-      "AbilityCooldown"
+      "AbilityCharges"
       {
-        "value"                                           "15 12 9 6 6 6"
-        "special_bonus_unique_weaver_6"                   "-2.5"
+        "value"                                           "0"
+        "special_bonus_unique_weaver_6"                   "+2"
       }
       "geminate_attack_mark_duration"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+12.0"
+        "special_bonus_shard"                             "+6.0"
       }
       "shukuchi_attack_mark_radius"
       {

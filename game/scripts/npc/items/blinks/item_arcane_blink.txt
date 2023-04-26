@@ -39,9 +39,9 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1400"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "15.0"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "blink"
 
@@ -64,14 +64,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"                                       "1400"
+      "blink_range"                                       "1200"
       "blink_damage_cooldown"                             "3.0"
       "blink_range_clamp"                                 "960"
       "bonus_intellect"                                   "25 35 50 70 95"
-      "duration"                                          "0"
-      "cast_pct_improvement"                              "0"
-      "manacost_reduction"                                "0"
-      "debuff_amp"                                        "0"
+      "duration"                                          "6"
+      "cast_pct_improvement"                              "35 40 45 50 55" //OAA
+      "manacost_reduction"                                "25 30 35 40 45"
+      "debuff_amp"                                        "20"
     }
   }
 }

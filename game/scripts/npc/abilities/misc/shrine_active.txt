@@ -1,19 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Bloodseeker's Thirst
+  // Filler buildings ability (Shrines)
   //=================================================================================================================
-  "bloodseeker_thirst"
+  "filler_ability"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5017"
+    "ID"                                                  "6226"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"                                            "1"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "180" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -22,48 +24,47 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "min_bonus_pct"                                   "80"
+        "hp_heal"                                         "90"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "16 24 32 40 48 56"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
+        "mp_heal"                                         "50"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "hero_kill_heal"                                  "10 15 20 25 30 35"
+        "hp_heal_growth"                                  "0"
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_kill_heal"                                 "11 14 17 20 23 26"
+        "var_type"                                        "FIELD_FLOAT"
+        "mp_heal_growth"                                  "0"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "half_bonus_aoe"                                  "300"
+        "hp_heal_pct"                                     "2"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "max_bonus_pct"                                   "25"
+        "mp_heal_pct"                                     "2"
       }
       "07"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "visibility_threshold_pct"                        "25"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
       }
       "08"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "invis_threshold_pct"                             "25"
+        "radius"                                          "500"
       }
       "09"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "linger_duration"                                 "4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "initial_cooldown"                                "180" //OAA
       }
     }
   }

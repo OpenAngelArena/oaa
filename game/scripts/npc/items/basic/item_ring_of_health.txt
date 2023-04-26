@@ -9,7 +9,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
+    "ItemCost"                                            "825"
     "ItemShopTags"                                        "regen_health"
     "ItemQuality"                                         "component"
     "ItemAliases"                                         "roh;ring of health"
@@ -30,7 +30,7 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "5.25"
+        "bonus_health_regen"                              "6.5"
       }
     }
   }

@@ -36,7 +36,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17603"
+    "ItemCost"                                            "18278"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "octarine core 4;octarine 4"
@@ -51,10 +51,10 @@
     "AbilityValues"
     {
       "bonus_cooldown"                                    "25"
-      "bonus_health"                                      "625 1050 1475 1900 2325"
-      "bonus_mana"                                        "625 825 975 1175 1425"
-      "bonus_health_regen"                                "7.5 7.6 7.7 7.8 7.9"
-      "bonus_mana_regen"                                  "3.25 3.5 4.0 4.75 5.75"
+      "cast_range_bonus"                                  "225 275 325 375 425"
+      "bonus_health"                                      "425 850 1275 1700 2125"
+      "bonus_mana"                                        "725 825 975 1175 1425"
+      "bonus_mana_regen"                                  "3.0 3.25 3.75 4.5 5.5"
     }
   }
 }

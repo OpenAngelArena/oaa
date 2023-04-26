@@ -34,34 +34,46 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"   
+    "AbilitySpecial"
     {
-      "bonus_damage"      
+      "01"
       {
-        "value"                                           "80 120 160 200 400 800"
-        "special_bonus_unique_bounty_hunter_2"            "+50"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "80 120 160 200 400 800"
+        "LinkedSpecialBonus"                              "special_bonus_unique_bounty_hunter_2"
       }
-      "speed"                                             "1000"
-      "bounce_aoe"                                        "1200"
-      "slow_duration"     
+      "02"
       {
-        "value"                                           "0.35"
-        "special_bonus_unique_bounty_hunter_5"           "+0.65"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000"
       }
-      "scepter_cast_range"
+      "03"
       {
-
-        "value"                                           "700"
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_aoe"                                      "1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "ministun"                                        "0.2"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_cast_range"                              "700"
         "RequiresScepter"                                 "1"
       }
-      "scepter_cooldown" //OAA, Valve has it wrong
+      "06"
       {
-        "value"                                           "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cooldown"                                "5" //OAA, Valve has it wrong
         "RequiresScepter"                                 "1"
       }
-      "cast_range"                                        "375 425 475 525 575 625"
-      "slow"                                              "100"   
-      "attack_slow"                                       "100"
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "cast_range"                                      "375 425 475 525 575 625"
+      }
     }
   }
 }

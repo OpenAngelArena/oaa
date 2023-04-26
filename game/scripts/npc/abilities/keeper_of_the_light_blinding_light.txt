@@ -8,25 +8,25 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5476"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500 550 600 650 700 750"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 20 18 16 15 14"
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 160 170"
+    "AbilityManaCost"                                     "150"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -34,18 +34,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilitySpecial"
     {
-      "miss_rate"       
+      "01"
       {
-        "value"                                           "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "miss_rate"                                       "50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_8"
       }
-      "duration"                                          "4"
-      "radius"                                            "500"
-      "knockback_duration"                                "0.6"
-      "knockback_distance"                                "400"
-      "damage"                                            "100 140 180 220 440 880"
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600"
+      }
+      "05" // 04
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_duration"                              "0.6"
+      }
+      "06" // 05
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "knockback_distance"                              "400"
+      }
+      "07" // 06
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 180 260 500 740" //OAA
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_12"
+      }
     }
   }
 }

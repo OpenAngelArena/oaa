@@ -15,7 +15,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "40"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -78,20 +78,14 @@
       }
       "10"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_illusions"                           "0"
-        "RequiresShard"                                   "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_bonus_duration"                          "10"
+        "RequiresScepter"                                 "1"
       }
       "11"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "invis_duration"                                  "8"
-        "RequiresScepter"                                 "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "invis_movespeed"                                 "15"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_bonus_illusions"                         "2"
         "RequiresScepter"                                 "1"
       }
     }

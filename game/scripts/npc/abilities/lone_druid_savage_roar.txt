@@ -28,30 +28,50 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"                                            "375"
-      "bonus_speed"                                       "20"
-      "duration"                                          "0.8 1.2 1.6 2.0 2.1 2.2"
-      "only_affects_player_units"                         "1"
-      "shard_radius"
+      "01"
       {
-        "value"                                           "700"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.1 1.6 2.1 2.6 2.7 2.8"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "only_affects_player_units"                       "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_radius"                                    "700"
         "RequiresShard"                                   "1"
       }
-      "shard_movement_speed_pct"        
+      "06"
       {
-        "value"                                           "15"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_movement_speed_pct"                        "20"
         "RequiresShard"                                   "1"
       }
-      "shard_attack_speed"        
+      "07"
       {
-        "value"                                           "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_attack_speed"                              "60"
         "RequiresShard"                                   "1"
       }
-      "shard_duration"        
+      "08"
       {
-        "value"                                           "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_duration"                                  "5.0"
         "RequiresShard"                                   "1"
       }
     }
