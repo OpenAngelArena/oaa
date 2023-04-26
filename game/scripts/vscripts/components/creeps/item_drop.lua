@@ -58,7 +58,7 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   newItem.firstPickedUp = false
 
   CreateItemOnPositionSync(pos, newItem) -- CDOTA_Item_Physical
-  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)))
+  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, 350)), nil)
 
   -- Bottle expire (despawn); can collide with ClearBottles, hence why multiple null checks
   Timers:CreateTimer(BOTTLE_DESPAWN_TIME, function ()

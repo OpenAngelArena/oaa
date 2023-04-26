@@ -136,6 +136,14 @@ if IsServer() then
           end
         end
       end
+    -- caster died
+    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() then
+      local current_charges = item:GetCurrentCharges() or 0
+      -- caster has no charges? add 1 on death
+      if current_charges == 0 then
+        item:SetCurrentCharges(1)
+      end
+      caster.spiritVesselChargesOAA = item:GetCurrentCharges()
     end
   end
 end
