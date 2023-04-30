@@ -74,7 +74,7 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     radius,
     self:GetAbilityTargetTeam(),
     self:GetAbilityTargetType(),
-    self:GetAbilityTargetFlags(),
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )
