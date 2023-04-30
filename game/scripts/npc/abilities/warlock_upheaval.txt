@@ -16,7 +16,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
     "AbilityChannelTime"                                  "10 12 14 16 18 20"
-    
+
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "0"
@@ -50,7 +50,7 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "AbilityCooldown"                                   "30 29 28 27 26 25" //OAA
-      "imps_interval"                                     "2 2 2 2 1.5 1"
+      "imps_interval"                                     "3 3 2 2 1.5 1" //OAA
       "minor_imp_duration"                                "15"
       "major_imp_duration"                                "40"
     }

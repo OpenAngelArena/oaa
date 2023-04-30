@@ -37,7 +37,7 @@
       "damage" //OAA
       {
         "value"                                           "15 25 35 45 145 245"
-        "special_bonus_unique_warlock_7"                  "+75"
+        "special_bonus_unique_warlock_7"                  "+55"
       }
       "duration"
       {
@@ -55,9 +55,9 @@
         "value"                                           "0"
         "RequiresShard"                                   "1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "14"
+        "value"                                           "14 13 12 11 10 9"
       }
     }
   }

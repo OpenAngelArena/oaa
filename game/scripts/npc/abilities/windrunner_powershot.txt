@@ -13,7 +13,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "3000" //OAA
+    "AbilityCastRange"                                    "3000" //OAA, same as arrow_range
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -39,6 +39,7 @@
         "value"                                           "10"
         "special_bonus_unique_windranger_3"               "-5"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "arrow_width"                                       "125"
       "arrow_range"                                       "3000"
