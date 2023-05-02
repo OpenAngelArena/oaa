@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Mirana talent: Global Range Sacred Arrow - unused
+  // Custom Skywrath Mage talent: bonus Arcane Bolt damage
   //=================================================================================================================
-  "special_bonus_mirana_arrow_global"
+  "special_bonus_unique_skywrath_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "86397"
+    "ID"                                                  "80411"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,14 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        // Cannot be 0 because is used to calculate lifetime of the arrow
-        // Destroyed on map border hit
-        "projectile_range"                                "50000"          // 45000 is enough even if the map size is 32k x 32k
+        "value"                                           "200"
       }
     }
   }
