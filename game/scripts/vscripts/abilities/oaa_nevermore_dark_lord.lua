@@ -61,7 +61,6 @@ if IsServer() then
   function modifier_nevermore_dark_lord_oaa:OnDeath(event)
     local parent = self:GetParent()
     local dead = event.unit
-    local killer = event.attacker
     local ability = self:GetAbility()
 
     -- Don't continue for illusions
@@ -105,6 +104,7 @@ end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
   local ability = self:GetAbility()
+  local caster = self:GetCaster()
   if not ability or ability:IsNull() then
     return
   end
@@ -121,7 +121,6 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
   self.armor_reduction_per_stack = ability:GetSpecialValueFor("bonus_armor_per_stack")
 
   --self.magic_resistance = 0
-  --local caster = self:GetCaster()
   --if caster:HasShardOAA() then
     --self.magic_resistance = -14
   --end
