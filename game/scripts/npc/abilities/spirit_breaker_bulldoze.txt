@@ -5,10 +5,9 @@
   //=================================================================================================================
   "spirit_breaker_bulldoze"
   {
-    "ID"                                                  "7301"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "7301"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    "FightRecapLevel"                                     "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -16,7 +15,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 18 17 16 14 12" //OAA
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,7 +29,7 @@
       "damage_barrier"
       {
         "value"                                           "0"
-        "special_bonus_unique_spirit_breaker_shield"      "+500"
+        "special_bonus_unique_spirit_breaker_shield"      "+800"
       }
     }
   }
