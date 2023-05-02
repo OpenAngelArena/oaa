@@ -138,7 +138,7 @@ end
 
 function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierPhysicalArmorBonus()
   local base_armor_reduction = 0 - math.abs(self.armor_reduction)
-  local caster = self:GetCaster
+  local caster = self:GetCaster()
   if not caster or caster:IsNull() then
     return base_armor_reduction
   end
