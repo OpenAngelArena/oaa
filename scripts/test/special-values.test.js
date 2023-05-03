@@ -274,7 +274,9 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     '40', // item_dust
     '42', // item_ward_observer
     '43', // item_ward_sentry
-    '609' // item_aghanims_shard
+    '609', // item_aghanims_shard
+    '5527', // shredder_chakram
+    '5645' // shredder_chakram_2
     // '5109', // tiny_grow
   ];
 

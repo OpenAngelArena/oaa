@@ -29,10 +29,10 @@
     "AbilityValues"
     {
       "duration"                                          "2.75 3.5 4.25 5.0 5.25 5.5"
-      "net_speed" //OAA still says 60% go fuck yourselves Valve make up your fucking mind pick a lane you fuckers
+      "net_speed"
       {
         "value"                                           "1500"
-        "special_bonus_scepter"                           "+50%"
+        "special_bonus_scepter"                           "+60%"
       }
       "fake_ensnare_distance"                             "900"
       "AbilityCooldown" //OAA
@@ -40,10 +40,10 @@
         "value"                                           "12"
         "special_bonus_unique_naga_siren_net_cooldown"    "-2"
       }
-      "AbilityCastRange"
+      "AbilityCastRange" //OAA, Valve has it wrong
       {
         "value"                                           "500 525 550 575 600 625"
-        "special_bonus_scepter"                           "+50%"
+        "special_bonus_scepter"                           "+60%"
       }
       "can_target_magic_immune"
       {

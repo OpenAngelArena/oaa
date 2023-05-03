@@ -49,15 +49,14 @@
       "AbilityCastRange"
       {
         "value"                                           "500 550 600 650 700 750"
-        //"RequiresScepter"                               "=1300"
       }
-      "burrow_speed_scepter"
+      "burrow_speed_scepter" //OAA, probably unused kv, fixing just in case
       {
-        "value"                                           "3000"
+        "value"                                           "2000"
         "RequiresScepter"                                 "1"
       }
-      "scepter_channel_time"                              "2"
-      "scepter_max_power"                                 "2"
+      "scepter_channel_time"                              "2" // unused?
+      "scepter_max_power"                                 "2" // unused?
     }
   }
 }
