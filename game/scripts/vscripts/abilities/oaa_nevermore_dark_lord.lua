@@ -141,11 +141,11 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:GetModifierPhysicalArmorB
   if not caster or caster:IsNull() then
     return base_armor_reduction
   end
-  local stack_buff = caster:FindModifierByNameAndCaster("modifier_nevermore_dark_lord_oaa_kill_stack", caster)
+  local stack_buff = caster:HasModifier("modifier_nevermore_dark_lord_oaa_kill_stack")
   if not stack_buff then
     return base_armor_reduction
   end
-  local additional_armor_reduction = stack_buff:GetStackCount() * self.armor_reduction_per_stack
+  local additional_armor_reduction = caster:GetModifierStackCount("modifier_nevermore_dark_lord_oaa_kill_stack", caster) * self.armor_reduction_per_stack
   return base_armor_reduction - math.abs(additional_armor_reduction)
 end
 
