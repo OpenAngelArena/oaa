@@ -89,7 +89,7 @@ function item_dagon_oaa:OnSpellStart()
     -- For ancients, bosses and strong illusions
     heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
   end
-    caster:HealWithParams(heal_amount, self, false, true, caster, true)
+  caster:HealWithParams(heal_amount, self, false, true, caster, true)
 end
 
 ---------------------------------------------------------------------------------------------------
