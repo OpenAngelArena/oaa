@@ -59,8 +59,11 @@ function item_dagon_oaa:OnSpellStart()
     return
   end
 
-  -- If the target is an illusion, just kill it and don't do damage; same for non-ancient creeps
+  -- If the targ0et is an illusion, just kill it and don't do damage; same + heal for non-ancient creeps
   if (target:IsIllusion() and not target:IsNull() and not target:IsStrongIllusionOAA()) or (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss()) then
+    if (target:IsCreep() and not target:IsAncient() and not target:IsOAABoss()) then
+      caster:HealWithParams(target:GetHealth() * (burst_heal_percent - creep_spell_lifesteal) / 100, self, false, true, caster, true)
+    end
     target:Kill(self, caster)
     return
   end
@@ -86,8 +89,7 @@ function item_dagon_oaa:OnSpellStart()
     -- For ancients, bosses and strong illusions
     heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
   end
-
-  caster:HealWithParams(heal_amount, self, false, true, caster, true)
+    caster:HealWithParams(heal_amount, self, false, true, caster, true)
 end
 
 ---------------------------------------------------------------------------------------------------
