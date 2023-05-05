@@ -37,6 +37,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
+  silencer_last_word = {
+    damage = "special_bonus_unique_silencer_2_oaa",
+  },
   skywrath_mage_arcane_bolt = {
     bolt_damage = "special_bonus_unique_skywrath_1_oaa",
   },
