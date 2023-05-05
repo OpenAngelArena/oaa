@@ -561,6 +561,9 @@ if IsServer() then
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_DEAD),
       parent:GetTeamNumber()
     )
+    if GetMapName() == "10v10" then
+      stealRange = 450
+    end
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
     -- Shard increase for permanent INT steal
