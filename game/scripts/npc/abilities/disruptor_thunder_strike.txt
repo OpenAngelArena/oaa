@@ -40,28 +40,23 @@
         "value"                                           "800"
         "special_bonus_shard"                             "+800"
       }
-
-      "radius"            
+      "radius"
       {
         "value"                                           "240"
         "special_bonus_unique_disruptor_3"                "+100"
       }
-
       "strikes"
       {
         "value"                                           "4"
         "special_bonus_shard"                             "+2"
       }
-
       "strike_interval"                                   "2.0"
       "strike_damage"                                     "35 60 85 110 220 440"
-
-      "slow_duration"
+      "slow_duration" //OAA, Valve is dumb
       {
         "value"                                           "0.1 0.2 0.3 0.4 0.5 0.6"
-        "special_bonus_unique_disruptor"                  ".4"
+        "special_bonus_unique_disruptor"                  "+0.4"
       }
-
       "slow_amount"                                       "100"
       "shard_ground_delay"                                "5"
     }

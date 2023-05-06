@@ -31,7 +31,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA, 3s cooldown on this is pretty dumb, nerf if dawn OP
+      "AbilityCooldown" //OAA, nerf if OP
       {
         "value"                                           "14 13 12 11 10 9"
         "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-6"
@@ -42,7 +42,6 @@
       {
         "value"                                           "25 40 55 70 140 280"
         "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+18"
-
       }
       "smash_radius"                                      "300"
       "smash_damage" //OAA
