@@ -36,34 +36,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "hp_threshold"                                      "400"
+      "duration"                                          "4.0 4.25 4.5 5 5.5"
+      "duration_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_threshold"                                    "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0 4.25 4.5 5 5.5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_scepter"                                "5 5.5 6.0 7.0 8.0"
+        "value"                                           "5 5.5 6.0 7.0 8.0"
         "RequiresScepter"                                 "1"
       }
-      "04"
+      "damage_redirect_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_redirect_scepter"                         "20 25 30 35 40"
+        "value"                                           "20 25 30 35 40"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "redirect_range_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "redirect_range_scepter"                          "900"
+        "value"                                           "900"
         "RequiresScepter"                                 "1"
       }
     }

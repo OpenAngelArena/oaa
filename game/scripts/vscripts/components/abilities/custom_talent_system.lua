@@ -22,6 +22,9 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
 end
 
 local abilities_with_custom_talents = {
+  abaddon_frostmourne = {
+    curse_attack_speed = "special_bonus_unique_abaddon_1_oaa",
+  }
   faceless_void_chronosphere = {
     AbilityCooldown = "special_bonus_unique_faceless_void_2_oaa",
   },

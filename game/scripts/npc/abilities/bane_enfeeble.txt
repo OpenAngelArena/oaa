@@ -47,10 +47,10 @@
         "special_bonus_unique_bane_11"                    "+20"
       }
       "duration"                                          "9"
-      "enfeeble_tick_damage"
+      "enfeeble_tick_damage" //OAA
       {
         "value"                                           "12 18 24 30 60 90"
-        "special_bonus_unique_bane_10"                    "+13"
+        "special_bonus_unique_bane_10"                    "+15"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "enfeeble_heal_pct"
