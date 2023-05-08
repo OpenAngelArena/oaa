@@ -1,5 +1,3 @@
-require('libraries/functional')
-
 -- Only one instance of the effect modifier is allowed
 AURA_TYPE_NON_STACKING = 0
 -- This is like vanilla Dota behaviour where multiple instances
