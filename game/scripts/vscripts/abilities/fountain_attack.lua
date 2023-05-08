@@ -1,3 +1,7 @@
+if IsInTrigger == nil then
+  require('internal/util')
+end
+
 LinkLuaModifier("modifier_fountain_attack", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_fountain_attack_aura", "abilities/fountain_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
