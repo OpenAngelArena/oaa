@@ -49,14 +49,14 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_health"                                   "550 650 750 850 1700 2550"
-        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion_1_oaa"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
         "treant_damage"                                   "24 32 40 48 148 248"
-        "LinkedSpecialBonus"                              "special_bonus_unique_furion"
+        "LinkedSpecialBonus"                              "special_bonus_unique_furion_1_oaa"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }

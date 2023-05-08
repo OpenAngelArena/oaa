@@ -72,7 +72,7 @@ function furion_force_of_nature_oaa:OnSpellStart()
   GridNav:DestroyTreesAroundPoint( target_point, area_of_effect, true )
 
   -- Talent that increases health and damage of treants with a multiplier
-  local talent1 = caster:FindAbilityByName("special_bonus_unique_furion")
+  local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
   if talent1 and talent1:GetLevel() > 0 then
     treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
     treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
