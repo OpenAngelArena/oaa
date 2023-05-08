@@ -54,10 +54,9 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnRefresh()
 end
 
 function modifier_broodmother_spawn_spiderlings_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_DEATH,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -116,6 +115,10 @@ if IsServer() then
     local summon_count = ability:GetSpecialValueFor("spiderling_spawn_count")
     local max_count = ability:GetSpecialValueFor("spiderling_max_count")
     local spawn_radius = ability:GetSpecialValueFor("spiderling_spawn_radius")
+
+    if GetMapName() == "10v10" then
+      max_count = 7
+    end
 
     -- Spiderlings can spawn spiderlings only if near Broodmother, otherwise don't continue
     if killer ~= parent and (killer:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() > spawn_radius then

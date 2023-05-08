@@ -562,10 +562,14 @@ function HeroSelection:ChooseBans ()
         table.insert(list_of_hero_names, k)
       end
 
-      -- Randomly ban 75 heroes
-      print("RANDOM DRAFT: Banning 75 random heroes")
+      -- Randomly ban certain number of heroes
+      local random_draft_bans = 75
+      if HeroSelection.is10v10 then
+        random_draft_bans = 50
+      end
+      print("RANDOM DRAFT: Banning "..tostring(random_draft_bans).." random heroes")
       local i = 0
-      while i <= 75 do
+      while i <= random_draft_bans do
         local random_number = RandomInt(1, #list_of_hero_names)
         local hero_name = list_of_hero_names[random_number]
         -- Check if already banned
