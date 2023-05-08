@@ -158,10 +158,6 @@ function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Bo
   return self.moveSpd
 end
 
-function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
-  return self.atkSpd
-end
-
 function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
   if self:GetParent():IsClone() then
     return 0
@@ -170,7 +166,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
   if attribute == DOTA_ATTRIBUTE_STRENGTH then
     return self.str + self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.multiplier * self.str
+    return self.str + math.ceil(self.bonus_to_primary_stat/3)
   end
   return self.str
 end
@@ -183,7 +179,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
   if attribute == DOTA_ATTRIBUTE_AGILITY then
     return self.agi + self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.multiplier * self.agi
+    return self.agi + math.ceil(self.bonus_to_primary_stat/3)
   end
   return self.agi
 end
@@ -196,7 +192,7 @@ function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
   if attribute == DOTA_ATTRIBUTE_INTELLECT then
     return self.int + self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.multiplier * self.int
+    return self.int + math.ceil(self.bonus_to_primary_stat/3)
   end
   return self.int
 end
@@ -209,12 +205,12 @@ function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()
   return self.magic_resistance
 end
 
-function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+function modifier_item_greater_power_treads:GetModifierAttackSpeedBonus_Constant()
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_AGILITY then
-    return self.multiplier * self.bonus_damage
+    return self.multiplier * self.atkSpd
   end
-  return self.bonus_damage
+  return self.atkSpd
 end
 
 function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
@@ -223,6 +219,14 @@ function modifier_item_greater_power_treads:GetModifierSpellAmplify_Percentage()
     return self.multiplier * self.spell_amp
   end
   return self.spell_amp
+end
+
+function modifier_item_greater_power_treads:GetModifierPreAttack_BonusDamage()
+  local attribute = self:GetStackCount()
+  if attribute == DOTA_ATTRIBUTE_ALL then
+    return self.multiplier * self.bonus_damage
+  end
+  return self.bonus_damage
 end
 
 --------------------------------------------------------------------------------

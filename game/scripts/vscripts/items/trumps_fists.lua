@@ -45,10 +45,11 @@ function item_trumps_fists_1:OnProjectileHit(target, location)
     return
   end
 
-  -- Apply debuff (duration is not affected by status resistance)
   local debuff_duration = self:GetSpecialValueFor("mute_duration")
-  --debuff_duration = target:GetValueChangedByStatusResistance(debuff_duration)
+  -- Apply Brand of Judecca debuff (duration is not affected by status resistance)
   target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
+  -- Apply Frostburn debuff (duration is not affected by status resistance)
+  target:AddNewModifier(caster, self, "modifier_item_trumps_fists_frostbite", {duration = debuff_duration})
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items2_fx/paintball_detonation.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -190,7 +191,7 @@ if IsServer() then
       return
     end
 
-    -- Apply Blade of Judecca debuff
+    -- Apply Frostburn debuff
     target:AddNewModifier(parent, ability, "modifier_item_trumps_fists_frostbite", {duration = self.heal_prevent_duration})
   end
 end

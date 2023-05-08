@@ -202,3 +202,9 @@ if IsServer() then
     self.post_heal_from_dmg_taken = self.post_heal_from_dmg_taken + damage * self.dmg_taken_as_heal
   end
 end
+
+function modifier_sohei_wholeness_of_body_buff:CheckState()
+  return {
+    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
+  }
+end

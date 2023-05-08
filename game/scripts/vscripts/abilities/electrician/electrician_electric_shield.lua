@@ -119,12 +119,11 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_electrician_electric_shield:DeclareFunctions()
-  local func = {
+  return {
     --MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR,
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
   }
-
-  return func
 end
 
 --------------------------------------------------------------------------------
@@ -312,4 +311,12 @@ if IsServer() then
 			target:EmitSound( "Hero_razor.lightning" )
 		end
 	end
+end
+
+function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant()
+  if IsClient() then
+    return self:GetStackCount()
+  else
+    return 0
+  end
 end
