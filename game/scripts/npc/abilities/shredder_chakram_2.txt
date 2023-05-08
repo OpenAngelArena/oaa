@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shredder: Chakram 2
+  //=================================================================================================================
+  "shredder_chakram_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5645"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot about this
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1200"
+    "AbilityCastPoint"                                    "0.15"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "75 125 175 225 275"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "speed"                                             "900.0"
+      "radius"                                            "200"
+      "pass_damage"                                       "110 200 290 470 830"
+      "damage_per_second"                                 "50 100 150 250 400"
+      "slow"
+      {
+        "value"                                           "5"
+        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_4"
+      }
+      "damage_interval"                                   "0.5"
+      "break_distance"                                    "2000.0"
+      "mana_per_second"                                   "14 22 30 38 46"
+      "pass_slow_duration"                                "0.5"
+      "slow_health_percentage"                            "5"
+      "second_chakram"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_timbersaw"                  "+1"
+      }
+    }
+  }
+}

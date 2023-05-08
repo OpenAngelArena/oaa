@@ -207,7 +207,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     end
 
     Timers:CreateTimer(BOSS_RESPAWN_TIMER, function()
-      BossSpawner:SpawnBossAtPit(pit, bossTier)
+      BossSpawner:SpawnBossAtPit(pit)
     end)
   end)
 end

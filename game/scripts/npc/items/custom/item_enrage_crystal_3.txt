@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "34104"
+    "ItemCost"                                            "34054"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal 3"
@@ -68,6 +68,7 @@
       "bonus_status_resist"                               "22 24 26"
       "dmg_reduction_while_stunned"                       "20 25 30"
       "cooldown_tooltip"                                  "20 15 10"
+      "active_duration"                                   "1"
     }
   }
 }

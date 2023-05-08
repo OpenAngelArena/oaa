@@ -340,9 +340,9 @@ if IsServer() then
       -- do nothing
       return
     else
-      -- Other cases:
-      -- 1) When the unit has sticky but not the tracker -> Sticky was applied through other means
-      -- 2) When the unit doesn't have sticky or a tracker -> Flamebreak was cast on a unit for the first time
+      -- Other cases where Flamebreak was cast on a unit for the first time (unit doesn't have the tracker)
+      -- 1) When the unit has sticky already -> Sticky was applied through other means
+      -- 2) When the unit doesn't have sticky
       -- Apply tracker
       unit:AddNewModifier(parent, nil, "modifier_batrider_flamebreak_instance_tracker", {duration = remaining_duration})
       -- Apply sticky

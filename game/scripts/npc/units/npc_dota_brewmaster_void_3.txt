@@ -22,7 +22,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "brewmaster_void_astral_pulse"
+    "Ability1"                                            "brewmaster_void_astral_pull"
     "Ability2"                                            "generic_hidden"
     "Ability3"                                            "generic_hidden"
     "Ability4"                                            "generic_hidden"
@@ -70,8 +70,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    
-    
+
+
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }

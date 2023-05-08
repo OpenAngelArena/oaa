@@ -364,7 +364,7 @@ if IsServer() then
       local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
       local player = parent:GetPlayerOwner()
 
-      -- Talent that increases Glaives of Wisdom damage
+      -- Talent that increases Glaives of Wisdom damage (done through kv)
       --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
       --if talent and talent:GetLevel() > 0 then
         --bonusDamagePct = bonusDamagePct + 10

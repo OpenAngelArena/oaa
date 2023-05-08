@@ -21,5 +21,6 @@ function modifier_anti_stun_oaa:CheckState()
     [MODIFIER_STATE_FROZEN] = false,
     [MODIFIER_STATE_FEARED] = false,
     [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
   }
 end

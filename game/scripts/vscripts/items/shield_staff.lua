@@ -429,6 +429,7 @@ modifier_shield_staff_barrier_buff.OnRefresh = modifier_shield_staff_barrier_buf
 function modifier_shield_staff_barrier_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
   }
 end
 
@@ -473,6 +474,14 @@ function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event
   end
 
   return block_amount
+end
+
+function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant()
+  if IsClient() then
+    return self:GetStackCount()
+  else
+    return 0
+  end
 end
 
 function modifier_shield_staff_barrier_buff:GetEffectName()

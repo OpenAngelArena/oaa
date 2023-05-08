@@ -31,12 +31,12 @@
         "value"                                           "10 12 14 16 18 20"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
       }
-      "AbilityManaCost"       
+      "AbilityManaCost"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+200"
       }
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"                                           "45"
         "RequiresScepter"                                 "1"
@@ -56,9 +56,9 @@
         "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
-      "max_shield"
+      "max_shield" //OAA
       {
-        "value"                                           "800"
+        "value"                                           "500 600 700 800 950 1100"
         "RequiresScepter"                                 "1"
       }
       "duration"
@@ -76,9 +76,9 @@
         "value"                                           "600"
         "RequiresScepter"                                 "1"
       }
-      "base_explosion"
+      "base_explosion" //OAA
       {
-        "value"                                           "200"
+        "value"                                           "50 100 150 200 400 800"
         "RequiresScepter"                                 "1"
       }
     }

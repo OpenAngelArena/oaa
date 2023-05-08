@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9102"
+    "ItemCost"                                            "9052"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb 3;black king bar 3"
@@ -62,28 +62,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "10 20 35 55 80"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "24 34 54 84 124"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0 6.5 7.0 7.5 8.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "30"     // Percentage over model scale
-      }
+      "bonus_strength"                                    "10 20 35 55 80"
+      "bonus_damage"                                      "24 34 54 84 124"
+      "duration"                                          "6.0 6.5 7.0 7.5 8.0"
+      "model_scale"                                       "30"
+      "magic_resist"                                      "50"
     }
   }
 }

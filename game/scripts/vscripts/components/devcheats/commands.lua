@@ -299,7 +299,7 @@ end
 function DevCheats:LevelUp(keys)
   local text = string.lower(keys.text)
   local splitted = split(text, " ")
-  local number = false
+  local number
   if #splitted > 0 then
     number = tonumber(splitted[1])
   end

@@ -19,21 +19,21 @@ end
 function modifier_hero_anti_stun_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
-    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
 end
 
-function modifier_hero_anti_stun_oaa:GetModifierTotalDamageOutgoing_Percentage(event)
+function modifier_hero_anti_stun_oaa:GetModifierTotalDamageOutgoing_Percentage()
   return -30
 end
 
 -- This also works for slows, we don't want that
---function modifier_hero_anti_stun_oaa:GetModifierStatusResistanceStacking()
-  --return 100
---end
+function modifier_hero_anti_stun_oaa:GetModifierStatusResistanceStacking()
+  return 50
+end
 
 function modifier_hero_anti_stun_oaa:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 20000
 end
 
 function modifier_hero_anti_stun_oaa:CheckState()
@@ -44,6 +44,7 @@ function modifier_hero_anti_stun_oaa:CheckState()
     [MODIFIER_STATE_STUNNED] = false,
     [MODIFIER_STATE_FROZEN] = false,
     [MODIFIER_STATE_FEARED] = false,
+    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
   }
 end
 

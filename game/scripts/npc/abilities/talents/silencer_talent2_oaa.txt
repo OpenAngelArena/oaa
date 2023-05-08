@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Treant HP/Damage multiplier
+  // Custom Silencer talent: bonus Last Word damage
   //=================================================================================================================
-  "special_bonus_unique_furion"
+  "special_bonus_unique_silencer_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6084"
+    "ID"                                                  "86878"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "2" //OAA
-        "ad_linked_abilities"                             "furion_force_of_nature"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "240"
       }
     }
   }

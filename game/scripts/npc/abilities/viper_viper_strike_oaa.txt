@@ -30,7 +30,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 25 20"
+    "AbilityCooldown"                                     "50 40 30 30 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -50,11 +50,6 @@
       "bonus_attack_speed"                                "-40 -60 -80 -180 -280"
       "talent_mana_cost_reduction"                        "50" // for talent: special_bonus_unique_viper_8
       "talent_cooldown_reduction"                         "50"// for talent: special_bonus_unique_viper_8
-      "cast_range_scepter" // unused
-      {
-        "value"                                           "900"
-        "RequiresScepter"                                 "1"
-      }
       "projectile_speed"                                  "1200"
     }
   }

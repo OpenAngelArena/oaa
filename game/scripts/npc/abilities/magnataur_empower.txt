@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5519"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "5519"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -28,25 +28,19 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 55 65 75 85 95" //OAA
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportValue"                         "0.3"  // Easy to spam
+    "AbilityManaCost"                                     "45 55 65 75 85 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastRange"        
+      "AbilityCastRange"
       {
         "value"                                           "800"
-        //"special_bonus_shard"                           "+99999"
       }
       "should_self_cast"
       {
         "value"                                           "0"
-        //"special_bonus_shard"                           "+1"
       }
       "empower_duration"
       {
@@ -62,20 +56,19 @@
       {
         "value"                                           "10 20 30 40 50 60"
         "special_bonus_unique_magnus_2"                   "+10"
-      }     
+      }
       "cleave_starting_width"
       {
         "value"                                           "150"
-      }     
+      }
       "cleave_ending_width"
       {
         "value"                                           "360"
-      }     
+      }
       "cleave_distance"                                   "650"
-      "secondary_cleave_distance" 
+      "secondary_cleave_distance"
       {
         "value"                                           "0"
-        //"special_bonus_shard"                           "+400"
       }
       "self_multiplier"                                   "100" //OAA
     }

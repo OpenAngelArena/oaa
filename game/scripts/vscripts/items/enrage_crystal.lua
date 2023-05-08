@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_item_enrage_crystal_passive", "items/enrage_crystal.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_enrage_crystal_active", "items/enrage_crystal.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_enrage_crystal_1 = class(ItemBaseClass)
 
@@ -18,6 +19,9 @@ function item_enrage_crystal_1:OnSpellStart()
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
   ParticleManager:ReleaseParticleIndex(particle)
+
+  -- Apply brief debuff immunity
+  caster:AddNewModifier(caster, self, "modifier_item_enrage_crystal_active", {duration = self:GetSpecialValueFor("active_duration")})
 end
 
 item_enrage_crystal_2 = item_enrage_crystal_1
@@ -122,4 +126,34 @@ if IsServer() then
 
     return 0
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_enrage_crystal_active = class(ModifierBaseClass)
+
+function modifier_item_enrage_crystal_active:IsHidden()
+  return false
+end
+
+function modifier_item_enrage_crystal_active:IsDebuff()
+  return false
+end
+
+function modifier_item_enrage_crystal_active:IsPurgable()
+  return false
+end
+
+function modifier_item_enrage_crystal_active:CheckState()
+  return {
+    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
+  }
+end
+
+function modifier_item_enrage_crystal_active:GetEffectName()
+  return "particles/items_fx/black_king_bar_avatar.vpcf"
+end
+
+function modifier_item_enrage_crystal_active:GetTexture()
+  return "custom/enrage_crystal_1"
 end

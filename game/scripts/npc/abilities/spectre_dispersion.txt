@@ -19,7 +19,7 @@
     {
       "damage_reflection_pct"
       {
-        "value"                                           "8 12 16 20 22 26"
+        "value"                                           "8 12 16 20 22 25"
         "special_bonus_unique_spectre_5"                  "+5"
       }
       "min_radius"                                        "400"
@@ -34,10 +34,10 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+50"
       }
-      "activation_bonus_pct" //OAA
+      "activation_bonus_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+50"
+        "special_bonus_shard"                             "+100"
       }
       "activation_duration"
       {

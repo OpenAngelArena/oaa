@@ -38,23 +38,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "frost_arrows_movement_speed"                       "-10 -25 -40 -55 -70 -75"
+      "frost_arrows_movement_speed"                       "-10 -25 -40 -55 -60 -65"
       "damage"
       {
         "value"                                           "6 12 18 24 48 72"
         "special_bonus_unique_drow_ranger_2"              "+15"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "shard_regen_reduction_pct_per_stack"
+      "shard_regen_reduction_pct_per_stack" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+10"
+        "special_bonus_scepter"                           "+8"
         "RequiresScepter"                                 "1"
       }
-      "shard_bonus_damage_per_stack"
+      "shard_bonus_damage_per_stack" //OAA, Valve has it wrong
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+18"
+        "special_bonus_scepter"                           "+15"
         "RequiresScepter"                                 "1"
       }
       "shard_stack_duration"
@@ -88,10 +88,10 @@
         "special_bonus_scepter"                           "+2.0"
         "RequiresScepter"                                 "1"
       }
-      "shard_max_stacks"
+      "shard_max_stacks" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+9"
+        "special_bonus_scepter"                           "+8"
         "RequiresScepter"                                 "1"
       }
     }
