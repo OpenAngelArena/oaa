@@ -30,16 +30,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"     
+    "AbilityValues"
     {
-      "duration"          
+      "duration"
       {
         "value"                                           "16 18 20 22 24"
         "special_bonus_shard"                             "+12"
       }
-      
       "split_duration"                                    "0.6"
-      "tooltip_earth_brewling_hp" //OAA        
+      "tooltip_earth_brewling_hp" //OAA
       {
         "value"                                           "1400 3200 5000 8600 15800"
         "special_bonus_unique_brewmaster"                 "+1200"

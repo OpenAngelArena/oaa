@@ -1,46 +1,35 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Brewmaster Storm: Cyclone
+  // Brewmaster Void: Astral Pull
   //=================================================================================================================
-  "brewmaster_storm_cyclone"
+  "brewmaster_void_astral_pull"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5409"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "ID"                                                  "1117"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
 
-    "AbilityCastRange"                                    "600"
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8.0"
-    "AbilityCastPoint"                                    "0.4"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150"
+    "AbilityCastPoint"                                    "0.10"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_hero"                                   "5.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_unit"                                   "16"
-      }
+      "AbilityCastRange"                                  "150"
+      "damage"                                            "50 150 250 550 1050" //OAA
+      "pull_distance"                                     "300 500 700 900 1100"
+      "pull_duration"                                     "0.5"
     }
   }
 }
