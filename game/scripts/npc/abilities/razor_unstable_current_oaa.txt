@@ -22,13 +22,13 @@
       "01" // bonus movement speed (tooltip only)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed_pct"                         "12 16 20 24 28 32"
+        "self_movement_speed_pct"                         "10 15 20 25 30 35"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor_5"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 20 30 40 50 60"
+        "bonus_attack_speed"                              "10 15 20 25 30 35"
       }
       "03"
       {
