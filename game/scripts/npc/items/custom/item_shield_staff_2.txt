@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shield_staff;item_upgrade_core"
-      //"02"                                                "item_hurricane_pike;item_upgrade_core"
     }
   }
 
@@ -89,7 +88,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "6 9 12 15 18"
+        "bonus_health_regen"                              "5 8 11 14 17"
       }
       "04"
       {
