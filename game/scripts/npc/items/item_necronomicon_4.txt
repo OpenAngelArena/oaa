@@ -5,7 +5,7 @@
   //=================================================================================================================
   "item_recipe_necronomicon_4"
   {
-    "ID"                                                  "3166"    // unique ID
+    "ID"                                                  "3166"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe"
@@ -29,7 +29,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3169"    // unique ID
+    "ID"                                                  "3169"
     "BaseClass"                                           "item_necronomicon_3"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/necronomicon_4"
@@ -38,7 +38,6 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "80.0"
     "AbilitySharedCooldown"                               "necronomicon"
-    "FightRecapLevel"                                     "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
