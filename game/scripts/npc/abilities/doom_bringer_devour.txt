@@ -35,9 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_gold"
+      "bonus_gold" //OAA
       {
-        "value"                                           "50 100 150 200 400 800" //OAA
+        "value"                                           "50 100 150 200 400 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
       "armor"                                             "1 3 5 7 9 11"
