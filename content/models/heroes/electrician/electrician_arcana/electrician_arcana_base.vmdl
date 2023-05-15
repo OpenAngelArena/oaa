@@ -885,6 +885,18 @@
 										translation = [ -1837.0, 0.0, -1304.0 ]
 										rotation_xyz = [ 0.0, 0.0, 135.0 ]
 									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_PLAYSOUND_LOOPING"
+										event_frame = 4
+										event_keys = 
+										{
+											name = soundevent:"Electrician.Footsteps"
+											attachment = null
+											emitFromWorld = false
+											tags = null
+										}
+									},
 								]
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
@@ -902,7 +914,7 @@
 								import_bone_scales = false
 								start_frame = 2
 								end_frame = 20
-								framerate = 24.0
+								framerate = 3.0
 								reverse = false
 							},
 							{
