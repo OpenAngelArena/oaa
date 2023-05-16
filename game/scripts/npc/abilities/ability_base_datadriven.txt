@@ -9,7 +9,6 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NONE"
     "OnCastbar"                                           "1"
     "OnLearnbar"                                          "1"
-    "FightRecapLevel"                                     "0"
     "AbilityTextureName"                                  "ability_base"
 
     // Stats
@@ -23,8 +22,6 @@
     "AbilitySharedCooldown"                               ""
     "AbilityDamage"                                       "0 0 0 0"
     "AbilityManaCost"                                     "0 0 0 0"
-    "AbilityModifierSupportValue"                         "1.0"  // for stats tracking.
-    "AbilityModifierSupportBonus"                         "0"    // for stats tracking.
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

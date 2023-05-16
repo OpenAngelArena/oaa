@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1400"
+    "AbilityCastRange"                                    "1600" //OAA, Valve has it wrong
     "AbilityCastPoint"                                    "0.69"
 
     // Time
@@ -37,7 +37,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "fissure_range"                                   "1400"
+        "fissure_range"                                   "1600"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_3"
       }
       "02"

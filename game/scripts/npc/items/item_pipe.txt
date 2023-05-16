@@ -41,7 +41,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30" //OAA
     "AbilitySharedCooldown"                               "pipe"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "150"
     "AbilityCastRange"                                    "1200"
 
     "MaxUpgradeLevel"                                     "5"
@@ -61,10 +61,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_regen"                                      "8.5 10 11 12 13"
-      "magic_resistance"                                  "25 26 27 28 29"
+      "health_regen"                                      "6.0 7 8 9 10"
+      "magic_resistance"                                  "20 22 24 26 28"
       "barrier_debuff_duration"                           "50.0"
-      "tooltip_resist"                                    "25 26 27 28 29" //OAA WHAT THE FUCK WHY DOES IT SAY 20
+      "tooltip_resist"                                    "20 22 24 26 28"
       "aura_health_regen"                                 "2.5 4 6 8 10"
       "magic_resistance_aura"                             "10 12 14 16 18"
       "aura_radius"                                       "1200"

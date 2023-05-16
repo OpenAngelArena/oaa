@@ -830,7 +830,6 @@ function buildItemTree (t, data, cb) {
              AbilityBehavior: 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL',
              AbilityTextureName: 'custom/preemptive_3a',
              ScriptFile: 'items/reflex/preemptive_purge.lua',
-             FightRecapLevel: '1',
              MaxUpgradeLevel: '3',
              ItemBaseLevel: '3',
              AbilityManaCost: '0',

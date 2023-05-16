@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "127010"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "ID"                                                  "127010"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_heartpiercer.lua"
     "AbilityTextureName"                                  "pangolier_heartpiercer"

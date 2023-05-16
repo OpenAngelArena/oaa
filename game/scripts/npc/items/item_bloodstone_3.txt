@@ -5,7 +5,7 @@
   //=================================================================================================================
   "item_recipe_bloodstone_3"
   {
-    "ID"                                                  "3125"      // unique ID
+    "ID"                                                  "3125"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "ItemCorePointCost"                                   "0"
@@ -27,11 +27,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3129"      // unique ID
+    "ID"                                                  "3129"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/bloodstone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
