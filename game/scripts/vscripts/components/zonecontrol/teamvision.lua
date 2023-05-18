@@ -30,37 +30,24 @@ function TeamVision:AddVision()
     false
   )
 
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local radiant_fountain
-  local dire_fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      radiant_fountain = entity
-    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-      dire_fountain = entity
-    end
-  end
+  -- local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  -- local radiant_fountain
+  -- local dire_fountain
+  -- for _, entity in pairs(fountains) do
+    -- if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      -- radiant_fountain = entity
+    -- elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      -- dire_fountain = entity
+    -- end
+  -- end
 
   -- Iterate through each found entity and check its name
   for _, building in pairs(buildings) do
     if building and not building:IsNull() then
       local building_name = building:GetName()
       -- Check if it's a Healing Shrine
-      if string.find(building_name, "filler") or string.find(building_name, "_shrine_") then
-        local location = building:GetAbsOrigin()
-        local shrine
-        if building:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-          shrine = CreateUnitByName("npc_dota_radiant_shrine_oaa", location, true, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
-        elseif building:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-          shrine = CreateUnitByName("npc_dota_dire_shrine_oaa", location, true, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
-        end
-        if shrine then
-          building:RemoveSelf()
-          shrine:SetAbsOrigin(location)
-          shrine:AddNewModifier(shrine, nil, "modifier_generic_vision_dummy_stuff", {})
-        else
-          building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
-        end
+      if string.find(building_name, "filler") or string.find(building_name, "_shrine") then
+        building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
       end
     end
   end
