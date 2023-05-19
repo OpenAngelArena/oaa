@@ -56,7 +56,7 @@ local abilities_with_custom_talents = {
     heal_percentage = "special_bonus_unique_winter_wyvern_1_oaa",
   },
   antimage_blink = {
-    AbilityCastRange = "special_bonus_unique_anti_mage_1_oaa",
+    AbilityCastRange = "special_bonus_unique_antimage_1_oaa",
   },
 }
 
