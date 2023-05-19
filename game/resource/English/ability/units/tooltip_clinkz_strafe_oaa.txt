@@ -7,8 +7,6 @@
 //"DOTA_Tooltip_ability_clinkz_strafe_attack_speed_bonus_pct"                     "BONUS ATTACK SPEED:"
 //"DOTA_Tooltip_ability_clinkz_strafe_duration"                                   "DURATION:"
 
-//"DOTA_Tooltip_ability_clinkz_wind_walk_shard_description"                       "Causes Skeleton Walk to create two Burning Army Skeletons."
-
 "DOTA_Tooltip_ability_clinkz_strafe_oaa"                                        "Strafe"
 "DOTA_Tooltip_ability_clinkz_strafe_oaa_Description"                            "Gains bonus evasion and attack speed for a short time."
 "DOTA_Tooltip_ability_clinkz_strafe_oaa_Lore"                                   "Valve doesn't like simple abilities like this one."
@@ -16,10 +14,7 @@
 "DOTA_Tooltip_ability_clinkz_strafe_oaa_bonus_attack_speed"                     "BONUS ATTACK SPEED:"
 "DOTA_Tooltip_ability_clinkz_strafe_oaa_bonus_evasion"                          "BONUS EVASION:"
 
-"DOTA_Tooltip_ability_clinkz_wind_walk_shard_description"                       "Causes Skeleton Walk to create two Burning Army Skeletons <font color='#FFA500'>and grants #{DOTA_Tooltip_ability_clinkz_strafe_oaa}:\n #{DOTA_Tooltip_ability_clinkz_strafe_oaa_Description}.</font>"
-
-//"DOTA_Tooltip_modifier_clinkz_strafe"                                           "Strafe"
-//"DOTA_Tooltip_modifier_clinkz_strafe_Description"                               "Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+//"DOTA_Tooltip_ability_clinkz_wind_walk_shard_description"                       "Causes Skeleton Walk to create two Burning Army Skeletons <font color='#FFA500'>and grants #{DOTA_Tooltip_ability_clinkz_strafe_oaa}:\n #{DOTA_Tooltip_ability_clinkz_strafe_oaa_Description}.</font>"
 
 "DOTA_Tooltip_modifier_clinkz_strafe_oaa"                                       "#{DOTA_Tooltip_ability_clinkz_strafe_oaa}"
 "DOTA_Tooltip_modifier_clinkz_strafe_oaa_Description"                           "%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% bonus evasion and attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."

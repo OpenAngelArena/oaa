@@ -71,83 +71,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // vanilla: 8; Rod of Atos: 24
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "35 45 60 80 105"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "12 17 27 42 62"
-      }
-      "03" // vanilla: 8
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "12 17 27 42 62"
-      }
-      "04" // vanilla: 6.5
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "6.5 9 12 15 18"
-      }
-      "05" // vanilla: 2.5
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "2.5 2.75 3.25 4.0 5.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_dps_boss"                                   "200 400 600 800 1000"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_dps"                                        "100 200 300 400 500"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_duration"                                   "6"
-      }
-      "09" // vanilla: 0.5
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.5"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "1.0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "land_time"                                       "0.5"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_radius"                                   "400"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_damage_boss"                              "200 400 700 1100 1600"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "150 350 650 1050 1550"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "24 22 20 18 16"
-      }
+      "bonus_intellect"                                   "24 29 39 54 74" // vanilla: 8; Rod of Atos: 24
+      "bonus_strength"                                    "12 17 27 42 62" // vanila: 8; Rod of Atos: 12
+      "bonus_agility"                                     "12 17 27 42 62" // vanila: 8; Rod of Atos: 12
+      "bonus_health_regen"                                "6.5 9 12 15 18" // vanilla: 6.5
+      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0" // vanilla: 2.5
+      "burn_dps_boss"                                     "200 400 600 800 1000"
+      "burn_dps"                                          "100 200 300 400 500" // vanilla: 60
+      "burn_duration"                                     "6"
+      "stun_duration"                                     "1.5" // vanilla: 0.5
+      "burn_interval"                                     "1.0"
+      "land_time"                                         "0.5"
+      "impact_radius"                                     "400"
+      "impact_damage_boss"                                "200 400 700 1100 1600"
+      "impact_damage"                                     "150 350 650 1050 1550" // vanilla: 150
+      "move_speed_slow_pct"                               "20 25 30 35 40"
+      "cooldown_tooltip"                                  "24 22 20 18 16"
     }
 
     "precache"

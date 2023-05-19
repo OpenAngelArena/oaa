@@ -25,19 +25,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "armor_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-4 -5 -6 -7 -9 -11"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_5"
+        "value"                                           "4 5 6 7 9 11"
+        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1_oaa"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
+      "aura_radius"                                       "1200"
+      "bonus_armor_per_stack"                             "2" // bonus armor reduction per stack
+      "kill_buff_duration"                                "20" // stack duration
     }
   }
 }

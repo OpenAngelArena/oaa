@@ -27,10 +27,6 @@
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportBonus"                         "35"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -54,7 +50,7 @@
       }
       "04"
       {
-        "var_type"                                        "FIELD_INTEGER" // HAHA Valve forgot this wtf test didn't like that
+        "var_type"                                        "FIELD_INTEGER" // HAHA Valve forgot this
         "building_dmg_pct"                                "75"
       }
     }

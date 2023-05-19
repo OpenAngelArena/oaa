@@ -16,6 +16,7 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-god", Dynamic_Wrap(DevCheats, "GodMode"), self)
   ChatCommand:LinkDevCommand("-disarm", Dynamic_Wrap(DevCheats, "ToggleDisarm"), self)
   ChatCommand:LinkDevCommand("-dagger", Dynamic_Wrap(DevCheats, "GiveDevDagger"), self)
+  ChatCommand:LinkDevCommand("-blink", Dynamic_Wrap(DevCheats, "GiveDevDagger"), self)
   ChatCommand:LinkDevCommand("-core", Dynamic_Wrap(DevCheats, "GiveUpgradeCore"), self)
   ChatCommand:LinkDevCommand("-addability", Dynamic_Wrap(DevCheats, "AddAbility"), self)
   ChatCommand:LinkDevCommand("-give", Dynamic_Wrap(DevCheats, "GiveLevelledItem"), self)
@@ -26,6 +27,8 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-switchhero", Dynamic_Wrap(DevCheats, "SwitchHero"), self)
   ChatCommand:LinkDevCommand("-kill_all", Dynamic_Wrap(DevCheats, "KillEverything"), self)
   --ChatCommand:LinkDevCommand("-lvlup", Dynamic_Wrap(DevCheats, "LevelUp"), self)
+  ChatCommand:LinkCommand("-entity_count", Dynamic_Wrap(DevCheats, "CountAllEntities"), self)
+  ChatCommand:LinkCommand("-memory", Dynamic_Wrap(DevCheats, "MemoryUsage"), self)
 end
 
 -- Print all modifiers on player's hero to console
@@ -44,9 +47,12 @@ end
 
 -- Print list of available commands to chat
 function DevCheats:Help(keys)
-  GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -core 1-4, -duel, -end_duel, -addbots", 0, 0)
-  GameRules:SendCustomMessage("-addability x, -give x y, -fixspawn, -kill_limit x, -switchhero x, -loadout x, -scepter, -shard", 0, 0)
-  GameRules:SendCustomMessage("-addpoints, -print_modifiers, -dagon, -spawncamps, -getpos, -kill_all", 0, 0)
+  GameRules:SendCustomMessage("-nofog, -fog, -god, -disarm, -dagger, -dagon, -duel, -end_duel, -kill_all", 0, 0)
+  GameRules:SendCustomMessage("-addability x, -give x y, -switchhero x, -loadout x, -scepter, -shard", 0, 0)
+  GameRules:SendCustomMessage("-corepoints x, -core 1-4, -addpoints, -add_enemy_points, -kill_limit x, -print_modifiers, -getpos", 0, 0)
+  GameRules:SendCustomMessage("-spawncamps, -spawnbosses, -spawngrendel, -spawnwanderer, -capture, -end_capture", 0, 0)
+  GameRules:SendCustomMessage("-test_state, -test_tp, -fixspawn, -addbots, -state, -enable_lock_in, -enable_lock_out", 0, 0)
+  GameRules:SendCustomMessage("-entity_count, -memory", 0, 0)
 end
 
 -- Populate game with bots
@@ -299,7 +305,7 @@ end
 function DevCheats:LevelUp(keys)
   local text = string.lower(keys.text)
   local splitted = split(text, " ")
-  local number = false
+  local number
   if #splitted > 0 then
     number = tonumber(splitted[1])
   end
@@ -344,4 +350,48 @@ function DevCheats:KillEverything(keys)
       unit:Kill(nil, hero)
     end
   end
+end
+
+function DevCheats:CountAllEntities(keys)
+  local hero_count = 0
+  local creep_count = 0
+  local thinker_count = 0
+  local wearable_count = 0
+  local modifier_count = 0
+  local all_entities = Entities:FindAllInSphere(Vector(0, 0, 0), 50000)
+
+  for _, ent in pairs(all_entities) do
+    if string.find(ent:GetDebugName(), "hero") then
+      hero_count = hero_count + 1
+    end
+
+    if string.find(ent:GetDebugName(), "creep") then
+      creep_count = creep_count + 1
+    end
+
+    if string.find(ent:GetDebugName(), "thinker") then
+      thinker_count = thinker_count + 1
+    end
+
+    if string.find(ent:GetDebugName(), "wearable") then
+      wearable_count = wearable_count + 1
+    end
+
+    if ent.FindAllModifiers then
+      local ent_modifiers = ent:FindAllModifiers()
+      modifier_count = modifier_count + #ent_modifiers
+    end
+  end
+
+  GameRules:SendCustomMessage("There are currently "..tostring(#all_entities).." entities residing on the map. From these entities, it is estimated that...", 0, 0)
+  GameRules:SendCustomMessage(tostring(hero_count).." of them are heroes, "..tostring(creep_count).." of them are creeps, "..tostring(thinker_count).." of them are thinkers, and "..tostring(wearable_count).." of them are wearables.", 0, 0)
+  GameRules:SendCustomMessage("There are a total of "..tostring(modifier_count).." modifiers present.", 0, 0)
+end
+
+function DevCheats:MemoryUsage(keys)
+  local function comma_value(n)
+    local left, num, right = string.match(n, '^([^%d]*%d)(%d*)(.-)$')
+    return left .. (num:reverse():gsub('(%d%d%d)', '%1,'):reverse()) .. right
+  end
+  GameRules:SendCustomMessage("Current LUA Memory Usage: "..comma_value(collectgarbage('count')*1024).." KB", 0, 0)
 end

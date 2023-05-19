@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Jinada Damage talent
+  // Custom Nature's Prophet talent: Treant HP/Damage multiplier
   //=================================================================================================================
-  "special_bonus_unique_bounty_hunter_4"
+  "special_bonus_unique_furion_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "484"
+    "ID"                                                  "86084"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,9 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "120" //OAA
-        "ad_linked_abilities"                             "bounty_hunter_jinada"
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "2.5"
       }
     }
   }

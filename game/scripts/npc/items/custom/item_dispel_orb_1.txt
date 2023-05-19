@@ -24,7 +24,7 @@
     "ItemResult"                                          "item_dispel_orb_1"
     "ItemRequirements"
     {
-      "01"                                                "item_lotus_orb_2;item_upgrade_core_2"
+      "01"                                                "item_black_king_bar_2;item_upgrade_core_2"
       "02"                                                "item_manta_2;item_upgrade_core_2"
     }
   }
@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8852"
+    "ItemCost"                                            "9052"
     "ItemShopTags"                                        "agi;int;str;armor;regen_health;regen_mana;mana_pool;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "dispel orb; purge crystal"
@@ -65,13 +65,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "25 40 60"
-      "bonus_armor"                                       "13 16 20"
-      "bonus_health_regen"                                "13 16 19"
-      "bonus_mana_regen"                                  "4.75 5.5 6.5"
-      "bonus_mana"                                        "500 700 950"
+      "bonus_all_stats"                                   "35 55 80"
+      "bonus_armor"                                       "0"
+      "bonus_health_regen"                                "0"
+      "bonus_mana_regen"                                  "0"
+      "bonus_mana"                                        "0"
       "tick_interval"                                     "0.2"
-      "duration"                                          "6.0"
+      "duration"                                          "7.0 7.5 8.0"
     }
 
     // Precache

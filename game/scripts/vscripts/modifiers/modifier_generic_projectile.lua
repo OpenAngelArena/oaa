@@ -2,6 +2,14 @@ modifier_generic_projectile = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
+function modifier_generic_projectile:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
+
 function modifier_generic_projectile:GetOverrideAnimation(projectileTable)
     if self.projectileTable and self.projectileTable.flail then
         return ACT_DOTA_FLAIL
@@ -9,16 +17,6 @@ function modifier_generic_projectile:GetOverrideAnimation(projectileTable)
         return
     end
 end
-
-------------------------------------------------------------------------------------
-
-function modifier_generic_projectile:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-  }
-end
-
-------------------------------------------------------------------------------------
 
 function modifier_generic_projectile:InitProjectile(projectileTable)
     if projectileTable then
@@ -40,16 +38,6 @@ end
 function modifier_generic_projectile:GetPriority()
     return MODIFIER_PRIORITY_SUPER_ULTRA
 end
-
-------------------------------------------------------------------------------------
-
-function modifier_generic_projectile:DeclareFunctions()
-  return {
-    MODIFIER_EVENT_ON_DEATH,
-  }
-end
-
-------------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_generic_projectile:OnDeath(keys)

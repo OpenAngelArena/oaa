@@ -49,7 +49,7 @@ function tinkerer_smart_missiles:OnSpellStart()
     bReplaceExisting = false,
     iUnitTargetTeam = self:GetAbilityTargetTeam(),
     iUnitTargetType = self:GetAbilityTargetType(),
-    iUnitTargetFlags = self:GetAbilityTargetFlags(),
+    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, --DOTA_UNIT_TARGET_FLAG_NONE
     bDeleteOnHit = true,
     vVelocity = direction * rocket_speed,
     bProvidesVision = true,
@@ -200,7 +200,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     explode_radius,
     self:GetAbilityTargetTeam(),
     self:GetAbilityTargetType(),
-    self:GetAbilityTargetFlags(),
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )

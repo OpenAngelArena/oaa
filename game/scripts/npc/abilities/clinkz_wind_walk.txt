@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Clinkz: Wind Walk
+  // Clinkz: Skeleton Walk
   //=================================================================================================================
   "clinkz_wind_walk"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5261"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 

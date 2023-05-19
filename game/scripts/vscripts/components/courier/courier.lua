@@ -2,6 +2,9 @@
 
 -- Taken from bb template
 if Courier == nil then
+  if Debug == nil or DebugPrint == nil then
+    require('internal/util')
+  end
   Debug.EnabledModules['courier:*'] = false
   DebugPrint ( 'creating new Courier object' )
   Courier = class({})

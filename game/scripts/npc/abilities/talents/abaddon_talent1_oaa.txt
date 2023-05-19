@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Health to Primal Split Units
+  // Custom Abaddon talent: bonus Curse of Avernus attack speed
   //=================================================================================================================
-  "special_bonus_unique_brewmaster"
+  "special_bonus_unique_abaddon_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6082"
+    "ID"                                                  "88251"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1800" //OAA
-        "ad_linked_abilities"                             "brewmaster_primal_split"
+        "value"                                           "20"
       }
     }
   }

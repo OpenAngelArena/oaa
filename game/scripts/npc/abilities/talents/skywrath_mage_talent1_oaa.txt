@@ -1,13 +1,13 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Clinkz talent: Death Pact something
+  // Custom Skywrath Mage talent: bonus Arcane Bolt damage
   //=================================================================================================================
-  "special_bonus_unique_clinkz_3_oaa"
+  "special_bonus_unique_skywrath_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "86104"
+    "ID"                                                  "80411"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "1"
+        "value"                                           "200"
       }
     }
   }

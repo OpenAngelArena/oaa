@@ -23,17 +23,13 @@
     "AbilityCastRange"                                    "775"
     "AbilityCastPoint"                                    "0.2"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityModifierSupportBonus"                         "120"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "brew_time"                                         "5.0"
       "min_stun"                                          "0.25"
-      "max_stun"                                          "2.2 2.8 3.4 4.0 4.75 5.5" // OAA, Valve has it wrong
+      "max_stun"                                          "1.7 2.2 2.7 3.2 3.7 4.2" // OAA, Valve has it wrong
       "min_damage"                                        "0"
       "max_damage" //OAA
       {

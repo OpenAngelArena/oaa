@@ -22,6 +22,9 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
 end
 
 local abilities_with_custom_talents = {
+  abaddon_frostmourne = {
+    curse_attack_speed = "special_bonus_unique_abaddon_1_oaa",
+  },
   faceless_void_chronosphere = {
     AbilityCooldown = "special_bonus_unique_faceless_void_2_oaa",
   },
@@ -36,6 +39,12 @@ local abilities_with_custom_talents = {
   },
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+  },
+  silencer_last_word = {
+    damage = "special_bonus_unique_silencer_2_oaa",
+  },
+  skywrath_mage_arcane_bolt = {
+    bolt_damage = "special_bonus_unique_skywrath_1_oaa",
   },
   ursa_earthshock = {
     shock_radius = "special_bonus_unique_ursa_1_oaa",

@@ -274,7 +274,9 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     '40', // item_dust
     '42', // item_ward_observer
     '43', // item_ward_sentry
-    '609' // item_aghanims_shard
+    '609', // item_aghanims_shard
+    '5527', // shredder_chakram
+    '5645' // shredder_chakram_2
     // '5109', // tiny_grow
   ];
 
@@ -828,7 +830,6 @@ function buildItemTree (t, data, cb) {
              AbilityBehavior: 'DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL',
              AbilityTextureName: 'custom/preemptive_3a',
              ScriptFile: 'items/reflex/preemptive_purge.lua',
-             FightRecapLevel: '1',
              MaxUpgradeLevel: '3',
              ItemBaseLevel: '3',
              AbilityManaCost: '0',

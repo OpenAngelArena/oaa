@@ -364,7 +364,7 @@ if IsServer() then
       local bonusDamagePct = ability:GetSpecialValueFor("intellect_damage_pct") / 100
       local player = parent:GetPlayerOwner()
 
-      -- Talent that increases Glaives of Wisdom damage
+      -- Talent that increases Glaives of Wisdom damage (done through kv)
       --local talent = parent:FindAbilityByName("special_bonus_unique_silencer_3")
       --if talent and talent:GetLevel() > 0 then
         --bonusDamagePct = bonusDamagePct + 10
@@ -561,6 +561,9 @@ if IsServer() then
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, DOTA_UNIT_TARGET_FLAG_DEAD),
       parent:GetTeamNumber()
     )
+    if GetMapName() == "10v10" then
+      stealRange = 450
+    end
     local isWithinRange = #(unit:GetAbsOrigin() - parent:GetAbsOrigin()) <= stealRange
 
     -- Shard increase for permanent INT steal

@@ -39,21 +39,21 @@
       "shard_fade_time"
       {
         "value"                                           "0.15"
-        "RequiresShard"                                   "1"
+        "RequiresShard"                                   "1" // RequiresScepter
       }
       "shard_spell_amp_bonus"
       {
         "value"                                           "25"
-        "RequiresShard"                                   "1"
+        "RequiresShard"                                   "1" // RequiresScepter
       }
       "shard_bat_bonus"
       {
         "value"                                           "0.25"
-        "RequiresShard"                                   "1"
+        "RequiresShard"                                   "1" // RequiresScepter
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "80 70 60 50 40"
+        "value"                                           "80 70 60 55 50"
         "special_bonus_unique_oracle_6"                   "-20"
       }
       "bonus_armor"

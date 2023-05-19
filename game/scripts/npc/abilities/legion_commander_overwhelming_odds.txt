@@ -15,12 +15,9 @@
 
     "MaxLevel"                                            "6"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "600" //OAA, Valve has it wrong, should be same as radius
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -33,10 +30,10 @@
     {
       "damage"                                            "35 65 95 125 250 500"
       "damage_per_unit"                                   "14 16 18 20 40 80"
-      "damage_per_hero"
+      "damage_per_hero" //OAA
       {
         "value"                                           "35 65 95 125 250 500"
-        "special_bonus_unique_legion_commander_4"         "+60"
+        "special_bonus_unique_legion_commander_4"         "+100"
       }
       "illusion_dmg_pct"
       {
@@ -44,7 +41,7 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "bonus_attack_speed_creeps"                         "0"
-      "bonus_attack_speed"                                "65 90 115 140 165 190"
+      "bonus_attack_speed"                                "50 80 110 140 170 200"
       "duration"                                          "5.0"
       "radius"
       {

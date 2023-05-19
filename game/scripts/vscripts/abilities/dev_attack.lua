@@ -1,5 +1,3 @@
-require("internal/util")
-
 LinkLuaModifier("modifier_dev_attack", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dev_attack_aura", "abilities/dev_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -43,18 +41,18 @@ end
 modifier_dev_attack_aura = class(ModifierBaseClass)
 
 function modifier_dev_attack_aura:OnCreated(keys)
-  local caster = self:GetCaster()
-  local target = self:GetParent()
-  local attackEffect = "particles/fountain_lazor.vpcf"
-
-  self.particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
-  ParticleManager:SetParticleControlEnt(self.particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-  ParticleManager:SetParticleControlEnt(self.particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-
-  EmitSoundOn("Hero_Phoenix.SunRay.Cast", caster)
-  EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
-
   if IsServer() then
+    local caster = self:GetCaster()
+    local target = self:GetParent()
+    local attackEffect = "particles/fountain_lazor.vpcf"
+
+    self.particle = ParticleManager:CreateParticle(attackEffect, PATTACH_CUSTOMORIGIN_FOLLOW, target)
+    ParticleManager:SetParticleControlEnt(self.particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(self.particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+
+    --EmitSoundOn("Hero_Phoenix.SunRay.Cast", caster)
+    --EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
+
     self:StartIntervalThink(0.1)
   end
 end
@@ -65,20 +63,25 @@ function modifier_dev_attack_aura:OnIntervalThink()
     local teamID = caster:GetTeamNumber()
     local ability = self:GetAbility()
     local target = self:GetParent()
-    local timetokill = self:GetAbility():GetSpecialValueFor("timetokill")
+    local timetokill = ability:GetSpecialValueFor("timetokill")
     local killTicks = timetokill / 0.1
+    if not target or target:IsNull() or (target.IsAlive and not target:IsAlive()) then
+      self:StartIntervalThink(-1)
+      self:Destroy()
+    end
+
     local targetHealth = target:GetHealth()
     local targetMaxHealth = target:GetMaxHealth()
     local healthReductionAmount = targetMaxHealth / killTicks
     local targetMaxMana = target:GetMaxMana()
     local manaReductionAmount = targetMaxMana / killTicks
 
-    target:MakeVisibleDueToAttack(teamID)
-    target:Purge(true, false, false, false, true)
+    target:MakeVisibleDueToAttack(teamID, 200)
+    target:Purge(true, false, false, false, false)
     target:ReduceMana(manaReductionAmount, ability)
     caster:GiveMana(manaReductionAmount)
     if targetHealth - healthReductionAmount < 1 then
-      target:Kill(self, caster)
+      target:Kill(ability, caster)
     else
       target:SetHealth(targetHealth - healthReductionAmount)
       caster:Heal(healthReductionAmount, ability)
@@ -91,10 +94,13 @@ function modifier_dev_attack_aura:IsHidden()
 end
 
 function modifier_dev_attack_aura:OnDestroy()
-  local caster = self:GetCaster()
-
-  ParticleManager:DestroyParticle(self.particle, false)
-  ParticleManager:ReleaseParticleIndex(self.particle)
-  StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
-  EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
+  if IsServer() then
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, false)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+    end
+    --local caster = self:GetCaster()
+    --StopSoundOn("Hero_Phoenix.SunRay.Loop", caster)
+    --EmitSoundOn("Hero_Phoenix.SunRay.Stop", caster)
+  end
 end

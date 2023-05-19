@@ -1,5 +1,8 @@
 
 if CorePointsManager == nil then
+  if Debug == nil or DebugPrint == nil then
+    require('internal/util')
+  end
   --Debug.EnableDebugging()
   DebugPrint("Creating CorePointsManager.")
   CorePointsManager = class({})

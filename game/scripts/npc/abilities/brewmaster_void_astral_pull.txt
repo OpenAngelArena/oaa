@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Brewmaster Void: Astral Pull
+  //=================================================================================================================
+  "brewmaster_void_astral_pull"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "1117"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "8.0"
+    "AbilityCastPoint"                                    "0.10"
+
+    "AbilityManaCost"                                     "50"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCastRange"                                  "150"
+      "damage"                                            "50 150 250 550 1050" //OAA
+      "pull_distance"                                     "300 500 700 900 1100"
+      "pull_duration"                                     "0.5"
+    }
+  }
+}

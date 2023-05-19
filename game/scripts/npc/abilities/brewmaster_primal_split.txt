@@ -30,39 +30,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"     
+    "AbilityValues"
     {
-      "duration"          
+      "duration"
       {
         "value"                                           "16 18 20 22 24"
         "special_bonus_shard"                             "+12"
       }
-      
       "split_duration"                                    "0.6"
-      "tooltip_earth_brewling_hp" //OAA        
+      "tooltip_earth_brewling_hp" //OAA
       {
         "value"                                           "1400 3200 5000 8600 15800"
-        "special_bonus_unique_brewmaster"                 "+1200"
+        "special_bonus_unique_brewmaster"                 "+1800"
       }
       "tooltip_storm_brewling_hp" //OAA
       {
         "value"                                           "1000 2000 3000 6000 9000"
-        "special_bonus_unique_brewmaster"                 "+1200"
+        "special_bonus_unique_brewmaster"                 "+1800"
       }
       "tooltip_fire_brewling_hp" //OAA
       {
         "value"                                           "1300 1600 1900 2800 3700"
-        "special_bonus_unique_brewmaster"                 "+1200"
+        "special_bonus_unique_brewmaster"                 "+1800"
       }
       "tooltip_void_brewling_hp" //OAA
       {
         "value"                                           "1200 1800 2400 4200 6000"
-        "special_bonus_unique_brewmaster"                 "+1200"
+        "special_bonus_unique_brewmaster"                 "+1800"
       }
-      "bonus_brewling_hp"
+      "bonus_brewling_hp" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_brewmaster"                 "+1200"
+        "special_bonus_unique_brewmaster"                 "+1800"
       }
       "bonus_damage"
       {

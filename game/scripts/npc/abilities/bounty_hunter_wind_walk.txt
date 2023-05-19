@@ -30,7 +30,7 @@
     {
       "duration"                                          "20" //OAA
       "fade_time"                                         "1.0 0.75 0.5 0.25 0.1 0.0"
-      "stun_duration"       
+      "stun_duration"
       {
         "value"                                           "1.0 1.2 1.4 1.6 1.7 1.8"
       }
@@ -39,7 +39,7 @@
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_shard"                             "-5"
       }
-      "AbilityChargeRestoreTime"
+      "AbilityChargeRestoreTime" // unused
       {
         "value"                                           "15 14 13 12 11 10"
         "RequiresShard"                                   "1"

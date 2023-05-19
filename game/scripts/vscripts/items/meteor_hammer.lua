@@ -169,15 +169,31 @@ end
 
 modifier_item_meteor_hammer_oaa_dot = class(ModifierBaseClass)
 
-function modifier_item_meteor_hammer_oaa_dot:OnCreated(params)
+function modifier_item_meteor_hammer_oaa_dot:IsHidden()
+  return false
+end
+
+function modifier_item_meteor_hammer_oaa_dot:IsDebuff()
+  return true
+end
+
+function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
+  return not self:GetParent():IsOAABoss()
+end
+
+function modifier_item_meteor_hammer_oaa_dot:OnCreated()
+  local ability = self:GetAbility()
+  local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   if IsServer() then
     local enemy = self:GetParent()
     local caster = self:GetCaster()
-    local ability = self:GetAbility()
 
     self.burn_dps = ability:GetSpecialValueFor("burn_dps")
     self.burn_dps_boss = ability:GetSpecialValueFor("burn_dps_boss")
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
+
+    -- Slow is reduced with Status Resistance
+    self.slow = enemy:GetValueChangedByStatusResistance(movement_slow)
 
     local damage_table = {
       victim = enemy,
@@ -194,6 +210,8 @@ function modifier_item_meteor_hammer_oaa_dot:OnCreated(params)
     ApplyDamage(damage_table)
 
     self:StartIntervalThink(self.burn_interval)
+  else
+    self.slow = movement_slow
   end
 end
 
@@ -219,16 +237,18 @@ function modifier_item_meteor_hammer_oaa_dot:OnIntervalThink()
   end
 end
 
+function modifier_item_meteor_hammer_oaa_dot:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+end
+
+function modifier_item_meteor_hammer_oaa_dot:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.slow)
+end
+
 function modifier_item_meteor_hammer_oaa_dot:GetEffectName()
   return "particles/items4_fx/meteor_hammer_spell_debuff.vpcf"
-end
-
-function modifier_item_meteor_hammer_oaa_dot:IsDebuff()
-  return true
-end
-
-function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
-  return not self:GetParent():IsOAABoss()
 end
 
 function modifier_item_meteor_hammer_oaa_dot:GetTexture()

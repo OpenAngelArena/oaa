@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "14" // OAA, Valve has it wrong
+    "AbilityDuration"                                     "6 9 12 15 15 15"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@
     {
       "AbilityCooldown" // OAA
       {
-        "value"                                           "6"
+        "value"                                           "9 8 7 6 5 4"
         "special_bonus_unique_ancient_apparition_3"       "-2"
       }
       "radius"                                            "300"
@@ -52,18 +52,13 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "vision_aoe"                                        "300" // OAA, same as radius
-      "vortex_duration"                                   "14" // OAA, Darkonius says that Valve has it wrong
-      "shard_dps" //OAA
+      "vortex_duration"                                   "6 9 12 15 15 15"
+      "shard_dps" //OAA, not shard
       {
         "value"                                           "15 30 45 60 90 120"
         "RequiresShard"                                   "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"
-      }
-      "shard_attack_speed_reduction" //OAA, Valve has it wrong
-      {
-        "value"                                           "16 19 22 25 35 45"
-        "RequiresShard"                                   "1"
       }
     }
   }

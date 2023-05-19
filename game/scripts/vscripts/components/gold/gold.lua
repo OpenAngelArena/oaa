@@ -7,6 +7,9 @@
 ]]
 
 if Gold == nil then
+  if Debug == nil or DebugPrint == nil then
+    require('internal/util')
+  end
   DebugPrint ( '[gold/gold] creating new Gold object' )
   Gold = class({})
 end

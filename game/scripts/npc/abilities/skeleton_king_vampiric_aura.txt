@@ -30,14 +30,10 @@
         "value"                                           "20 30 40 50 55 60"
         "special_bonus_unique_wraith_king_2"              "+10"
       }
-      "creep_vampiric_aura" //OAA
-      {
-        "value"                                           "10 15 20 25 27.5 30"
-        "special_bonus_unique_wraith_king_2"              "+5"
-      }
+      "creep_lifesteal_reduction_pct"                     "40"
       "skeleton_duration" //OAA
       {
-        "value"                                           "30"
+        "value"                                           "20"
         "special_bonus_unique_wraith_king_vampiric_skeleton_duration"  "+25%"
       }
       "AbilityCooldown" //OAA

@@ -17,7 +17,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "900"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_6"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +53,7 @@
       }
       "skeleton_building_damage_reduction"                "25"
       "attack_rate"                                       "1.6"
-      "damage_percent"                                    "20"
+      "damage_percent"                                    "20 20 20 20 30 40"
       "creep_level"                                       "6" //OAA
     }
   }

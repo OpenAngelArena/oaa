@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Overwhelming Odds Hero Damage
+  // Custom Shadow Fiend talent: increases armor reduction
   //=================================================================================================================
-  "special_bonus_unique_legion_commander_4"
+  "special_bonus_unique_nevermore_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6671"
+    "ID"                                                  "86912"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "150" //OAA
-        "ad_linked_abilities"                             "legion_commander_overwhelming_odds"
+        "value"                                           "3"
       }
     }
   }

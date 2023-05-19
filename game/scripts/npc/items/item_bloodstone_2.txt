@@ -6,7 +6,7 @@
   "item_recipe_bloodstone_2"
   {
 
-    "ID"                                                  "3124"      // unique ID
+    "ID"                                                  "3124"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
     "BaseClass"                                           "item_datadriven"
@@ -28,11 +28,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3128"      // unique ID
+    "ID"                                                  "3128"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/bloodstone.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "FightRecapLevel"                                     "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
