@@ -6,8 +6,7 @@
   "npc_dota_hero_hoodwink"
   {
     "AttackRate"                                          "1.7" // 2.0
-    "Ability10"					                                  "special_bonus_unique_hoodwink_acorn_shot_bounces"
-    "Ability13"					                                  "special_bonus_corruption_4" // replaces "special_bonus_unique_hoodwink_acorn_shot_bounces"
-    "Ability15"                                           "special_bonus_unique_hoodwink_1_oaa" // replaces "special_bonus_corruption_4"
+    "Ability13"					                                  "special_bonus_corruption_4" // replaces special_bonus_unique_hoodwink_acorn_shot_bounces
+    "Ability15"                                           "special_bonus_unique_hoodwink_1_oaa" // replaces special_bonus_corruption_4
   }
 }

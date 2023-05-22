@@ -39,7 +39,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.0"
+    "AbilityCooldown"                                     "6.0 5.5 5.0 4.5 4.0"
     "AbilitySharedCooldown"                               "phylactery"
 
     // Item Info
@@ -63,6 +63,7 @@
       "slow"                                              "50 60 70 80 90" //OAA
       "bonus_spell_damage"                                "150 450 800 1200 1650"
       "slow_duration"                                     "1.5 1.75 2.0 2.25 2.5" //OAA
+      "cooldown_tooltip"                                  "6.0 5.5 5.0 4.5 4.0" //OAA
     }
   }
 }

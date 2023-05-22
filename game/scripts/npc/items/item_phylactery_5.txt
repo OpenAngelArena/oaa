@@ -41,7 +41,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "6.0"
+    "AbilityCooldown"                                     "6.0 5.5 5.0 4.5 4.0"
     "AbilitySharedCooldown"                               "phylactery"
 
     // Item Info
@@ -49,10 +49,10 @@
     "ItemCost"                                            "32379"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "common"
-    "ItemAliases"                                         "phylactery 5"
+    "ItemAliases"                                         "phylactery"
 
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "5"
+    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -61,11 +61,11 @@
       "bonus_health"                                      "200 300 450 650 900"
       "bonus_mana"                                        "200 300 450 650 900"
       "bonus_all_stats"                                   "7 12 17 22 27"
-      "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5"
-      "slow"                                              "50 60 70 80 90"
+      "bonus_mana_regen"                                  "1.0 1.25 1.75 2.5 3.5" 
+      "slow"                                              "50 60 70 80 90" 
       "bonus_spell_damage"                                "150 450 800 1200 1650"
-      "slow_duration"                                     "1.5 1.75 2.0 2.25 2.5"
-      "cooldown_tooltip"                                  "6.0"
+      "slow_duration"                                     "1.5 1.75 2.0 2.25 2.5" 
+      "cooldown_tooltip"                                  "6.0 5.5 5.0 4.5 4.0" 
     }
   }
 }
