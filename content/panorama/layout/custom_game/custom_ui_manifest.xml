@@ -14,6 +14,7 @@
     <!--<include src="file://{resources}/scripts/custom_game/vector_targeting.js" />-->
     <include src="file://{resources}/scripts/custom_game/top_bar_fix.js" />
     <include src="file://{resources}/scripts/custom_game/selection.js" />
+    <include src="file://{resources}/scripts/custom_game/indicators.js" />
   </scripts>
   <script>
     // Uncomment any of the following lines in order to disable that portion of the default UI
@@ -103,12 +104,10 @@
     <CustomUIElement type="HeroSelection"       layoutfile="file://{resources}/layout/custom_game/hero_selection.xml" />
     <CustomUIElement type="PregameStrategy"     layoutfile="file://{resources}/layout/custom_game/strategy.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/discord.xml" />
-    <!-- <CustomUIElement type="HeroSelection"       layoutfile="file://{resources}/layout/custom_game/talent_branch_tooltip.xml" /> -->
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/precache.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/bottle_announcement.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/surrender.xml" />
     <CustomUIElement type="EndScreen"           layoutfile="file://{resources}/layout/custom_game/multiteam_end_screen.xml" />
-    <!-- <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/custom_glyph_radar.xml" /> -->
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/spark_selection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/core_points.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/custom_ward_buttons.xml" />

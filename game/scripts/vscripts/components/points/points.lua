@@ -199,16 +199,12 @@ function PointsManager:GetPoints(teamID)
   end
 end
 
-function PointsManager:GetGameLength()
-  return CustomNetTables:GetTableValue('team_scores', 'limit').name
-end
-
 function PointsManager:GetLimit()
   return CustomNetTables:GetTableValue('team_scores', 'limit').value
 end
 
 function PointsManager:SetLimit(killLimit)
-  CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit, name = self:GetGameLength() })
+  CustomNetTables:SetTableValue('team_scores', 'limit', {value = killLimit})
   LimitChangedEvent.broadcast(true)
 end
 
