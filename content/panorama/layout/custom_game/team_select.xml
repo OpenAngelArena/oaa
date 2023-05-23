@@ -6,7 +6,7 @@
   </styles>
 
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/team_select.js" /> <!-- this file doesn't exist, maybe it references something internally? -->
+    <include src="file://{resources}/scripts/custom_game/team_select.js" />
     <include src="file://{resources}/scripts/team_select.js" />
   </scripts>
 

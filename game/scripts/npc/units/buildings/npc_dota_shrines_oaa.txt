@@ -7,7 +7,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler"  // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_healer"  // Class of entity of link to.
     "Model"                                               "models/props_structures/radiant_statue001.vmdl"  // Model.
     "SoundSet"                                            "Creep_Good_Melee"          // Name of sound set.
     "MinimapIcon"                                         "minimap_miscbuilding"
@@ -84,7 +84,7 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_filler"  // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_healer"  // Class of entity of link to.
     "Model"                                               "models/props_structures/dire_statue002.vmdl"  // Model.
     "SoundSet"                                            "Creep_Good_Melee"          // Name of sound set.
     "MinimapIcon"                                         "minimap_miscbuilding"
