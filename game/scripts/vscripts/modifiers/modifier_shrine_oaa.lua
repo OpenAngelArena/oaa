@@ -37,18 +37,18 @@ function modifier_shrine_oaa:OnIntervalThink()
       self:StartIntervalThink(0.1)
     end
 
-    for _, hOrderedUnit in pairs(self.ordered_heroes) do
-      if hOrderedUnit then
+    for _, hero in pairs(self.ordered_heroes) do
+      if hero then
         -- Check hero's last target
-        if hOrderedUnit.hero_last_target == parent then
-          local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
+        if hero.hero_last_target == parent then
+          local distance = (hero:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
           -- Check if hero reached the shrine
           if distance < 200 then
             self:Sanctuary()
             break
           end
         else
-          self.ordered_heroes[hOrderedUnit:entindex()] = nil
+          self.ordered_heroes[hero:entindex()] = nil
         end
       end
     end

@@ -77,18 +77,18 @@ function modifier_core_shrine:OnIntervalThink()
   end
 
   -- Periodically check if some hero reached the shrine
-  for _, hOrderedUnit in pairs(self.ordered_heroes) do
-    if hOrderedUnit then
+  for _, hero in pairs(self.ordered_heroes) do
+    if hero then
       -- Check hero's last target
-      if hOrderedUnit.hero_last_target == parent then
-        local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
+      if hero.hero_last_target == parent then
+        local distance = (hero:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
         -- Check if hero reached the shrine
         if distance < 200 then
           self:CoreShrineActivate()
           break
         end
       else
-        self.ordered_heroes[hOrderedUnit:entindex()] = nil
+        self.ordered_heroes[hero:entindex()] = nil
       end
     end
   end
@@ -125,7 +125,7 @@ if IsServer() then
     end
 
     hOrderedUnit.hero_last_target = hTargetUnit
-    
+
     if not hTargetUnit or hTargetUnit ~= parent then
       return
     end
