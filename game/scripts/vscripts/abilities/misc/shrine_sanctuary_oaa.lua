@@ -1,13 +1,14 @@
 LinkLuaModifier("modifier_shrine_oaa_aura_applier", "abilities/misc/shrine_sanctuary_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shrine_oaa_aura_effect", "abilities/misc/shrine_sanctuary_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
-shrine_sanctuary_oaa = class(AbilityBaseClass)
+shrine_sanctuary_oaa = class({})
 
 function shrine_sanctuary_oaa:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
+
   -- Add an aura modifier
-  caster:AddNewModifier(caster, self, "modifier_shrine_oaa_aura_applier",{duration = duration})
+  caster:AddNewModifier(caster, self, "modifier_shrine_oaa_aura_applier", {duration = duration})
 
   -- Particle
   local particle_name
@@ -18,7 +19,6 @@ function shrine_sanctuary_oaa:OnSpellStart()
   end
   local particle = ParticleManager:CreateParticle(particle_name, PATTACH_WORLDORIGIN, caster)
   ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-  --ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
   ParticleManager:ReleaseParticleIndex(particle)
 
   -- Sound
@@ -63,7 +63,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_shrine_oaa_aura_effect = class(ModifierBaseClass)
+modifier_shrine_oaa_aura_effect = class({})
 
 function modifier_shrine_oaa_aura_effect:IsHidden()
   return false
@@ -76,17 +76,23 @@ end
 function modifier_shrine_oaa_aura_effect:OnCreated()
   self.hp_regen = 90
   self.mana_regen = 50
+  self.max_hp_regen = 2
+  self.max_mana_regen = 2
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.hp_regen = ability:GetSpecialValueFor("hp_heal")
     self.mana_regen = ability:GetSpecialValueFor("mp_heal")
+    self.max_hp_regen = ability:GetSpecialValueFor("hp_heal_pct")
+    self.max_mana_regen = ability:GetSpecialValueFor("mp_heal_pct")
   end
 end
 
 function modifier_shrine_oaa_aura_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
   }
 end
 
@@ -94,10 +100,18 @@ function modifier_shrine_oaa_aura_effect:GetModifierConstantHealthRegen()
   return self.hp_regen
 end
 
+function modifier_shrine_oaa_aura_effect:GetModifierHealthRegenPercentage()
+  return self.max_hp_regen
+end
+
 function modifier_shrine_oaa_aura_effect:GetModifierConstantManaRegen()
   return self.mana_regen
 end
 
+function modifier_shrine_oaa_aura_effect:GetModifierTotalPercentageManaRegen()
+  return self.max_mana_regen
+end
+
 --function modifier_shrine_oaa_aura_effect:GetEffectName()
-  --return "particles/units/heroes/hero_necrolyte/necrolyte_ambient_glow.vpcf"
+  --return ""
 --end
