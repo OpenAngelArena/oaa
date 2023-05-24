@@ -17,7 +17,7 @@ function modifier_shrine_oaa:OnCreated()
     self.particle_name = "particles/misc/shrines/dire_shrine_ambient.vpcf"
   end
   if IsServer() then
-    self:StartIntervalThink(0)
+    self:StartIntervalThink(0.1)
   end
 end
 
@@ -34,7 +34,7 @@ function modifier_shrine_oaa:OnIntervalThink()
       self.particle = ParticleManager:CreateParticle(self.particle_name, PATTACH_WORLDORIGIN, parent)
       ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
       self:SetStackCount(1)
-      self:StartIntervalThink(0)
+      self:StartIntervalThink(0.1)
     end
 
     for _, hOrderedUnit in pairs(self.ordered_heroes) do
@@ -47,6 +47,8 @@ function modifier_shrine_oaa:OnIntervalThink()
             self:Sanctuary()
             break
           end
+        else
+          self.ordered_heroes[hOrderedUnit:entindex()] = nil
         end
       end
     end
