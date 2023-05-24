@@ -2,7 +2,6 @@
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/team_select.css" />
-		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
 	</styles>
 	<Panel class="TeamSelectEmptySlot">
 		<Panel id="EmptySlotIcon" />

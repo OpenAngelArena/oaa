@@ -49,16 +49,49 @@ function modifier_core_shrine:IsPurgable()
 end
 
 function modifier_core_shrine:OnCreated()
+  self.ordered_heroes = {}
   if IsServer() then
     self:GetAbility():StartCooldown(self:GetAbility():GetCooldown())
-    self:StartIntervalThink(1)
+    self:StartIntervalThink(0.1)
   end
 end
 
 modifier_core_shrine.OnRefresh = modifier_core_shrine.OnCreated
 
 function modifier_core_shrine:OnIntervalThink()
-  self:CheckEffectModifier()
+  local parent = self:GetParent() -- shrine
+  local ability = self:GetAbility()
+  if not ability then
+    self:StartIntervalThink(-1)
+    return
+  end
+
+  -- Particle
+  if ability:IsCooldownReady() then
+    if not self.effectMod then
+      self.effectMod = parent:AddNewModifier(parent, ability, "modifier_core_shrine_effect", {})
+    end
+  else
+    self.effectMod = nil
+    parent:RemoveModifierByName("modifier_core_shrine_effect")
+  end
+
+  -- Periodically check if some hero reached the shrine
+  for _, hero in pairs(self.ordered_heroes) do
+    if hero then
+      -- Check hero's last target
+      if hero.hero_last_target == parent then
+        local distance = (hero:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
+        -- Check if hero reached the shrine
+        if distance < 200 then
+          self:CoreShrineActivate()
+          break
+        end
+      else
+        self.ordered_heroes[hero:entindex()] = nil
+      end
+    end
+  end
 end
 
 function modifier_core_shrine:DeclareFunctions()
@@ -77,25 +110,6 @@ function modifier_core_shrine:CheckState()
 end
 
 if IsServer() then
-  function modifier_core_shrine:CheckEffectModifier()
-    if self.effectMod and self.effectMod:IsNull() then
-      self.effectMod = nil
-    end
-
-    if self:GetAbility():IsCooldownReady() and not self.effectMod then
-      local parent = self:GetParent()
-      self:GetParent():RemoveModifierByName("modifier_core_shrine_effect")
-      --print('applying modifier!')
-      self.effectMod = parent:AddNewModifier(parent, self:GetAbility(), "modifier_core_shrine_effect", {})
-      self:StartIntervalThink(-1)
-    elseif not self:GetAbility():IsCooldownReady() and self.effectMod then
-      self.effectMod = nil
-      --print('removing modifier!')
-      self:GetParent():RemoveModifierByName("modifier_core_shrine_effect")
-      self:StartIntervalThink(1)
-    end
-  end
-
   function modifier_core_shrine:OnOrder(params)
     local parent = self:GetParent() -- shrine entity
     local hOrderedUnit = params.unit
@@ -106,27 +120,39 @@ if IsServer() then
       return
     end
 
-    if not hTargetUnit or hTargetUnit ~= parent then
+    if not hOrderedUnit or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
       return
     end
 
-    if not hOrderedUnit or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
+    hOrderedUnit.hero_last_target = hTargetUnit
+
+    if not hTargetUnit or hTargetUnit ~= parent then
       return
     end
 
     local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
 
-    if not self:GetAbility():IsCooldownReady() then
-      -- Call Grendel if ordered unit is near the shrine
-      if distance < 300 then
-        Grendel:GoNearTeam(parent:GetTeamNumber())
-      end
+    -- Check if hero is near the shrine, then activate immediately
+    -- if not periodically check distance of all the heroes that clicked on the shrine
+    if distance < 200 then
+      self:CoreShrineActivate()
+    else
+      --table.insert(self.ordered_heroes, hOrderedUnit)
+      self.ordered_heroes[hOrderedUnit:entindex()] = hOrderedUnit
+    end
+  end
+
+  function modifier_core_shrine:CoreShrineActivate()
+    self.ordered_heroes = {}
+    local ability = self:GetAbility()
+    if not ability then
       return
     end
-
-    if distance < 300 then
-      self:GetAbility():CastAbility()
-      self:CheckEffectModifier()
+    if ability:IsCooldownReady() then
+      ability:CastAbility()
+    else
+      -- Call Grendel if ordered unit is near the shrine
+      Grendel:GoNearTeam(self:GetParent():GetTeamNumber())
     end
   end
 end
