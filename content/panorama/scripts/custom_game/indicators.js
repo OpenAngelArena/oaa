@@ -11,13 +11,16 @@ function CheckForAltPress () {
         const hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 
         for (let i = 0; i < buildings.length; i++) {
-          const shrine = buildings[i];
-          const particle = Particles.CreateParticle('.vpcf', ParticleAttachment_t.PATTACH_CUSTOMORIGIN, hero);
-          Particles.SetParticleControl(particle, 0, Entities.GetAbsOrigin(shrine));
-          Particles.SetParticleControl(particle, 1, [0, 0, 0]);
-          Particles.SetParticleControl(particle, 2, [0, 0, 0]);
-          // Store particle instance
-          tempParticles[i] = particle;
+          const name = Entities.GetUnitName(buildings[i]);
+          if (name.indexOf('shrine') !== -1) {
+            const shrine = buildings[i];
+            const particle = Particles.CreateParticle('particles/ui_mouseactions/range_display.vpcf', ParticleAttachment_t.PATTACH_WORLDORIGIN, hero);
+            // const particle = Particles.CreateParticle('particles/econ/items/rubick/rubick_arcana/rbck_arc_revenant_aoe_indicator.vpcf', ParticleAttachment_t.PATTACH_WORLDORIGIN, hero);
+            Particles.SetParticleControl(particle, 0, Entities.GetAbsOrigin(shrine));
+            Particles.SetParticleControl(particle, 1, [800, 800, 800]);
+            // Store particle instance
+            tempParticles[i] = particle;
+          }
         }
         created = true;
       }
@@ -31,6 +34,7 @@ function CheckForAltPress () {
         }
         tempParticles[i] = undefined;
       }
+      created = false;
     }
   }
 }
