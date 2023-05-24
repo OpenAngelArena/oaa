@@ -1,4 +1,4 @@
-/* global $, FindDotaHudElement, CustomNetTables */
+/* global FindDotaHudElement, CustomNetTables */
 
 'use strict';
 
