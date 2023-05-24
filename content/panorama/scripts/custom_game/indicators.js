@@ -1,6 +1,6 @@
 /* global $, Game, DOTA_GameState, GameUI, Players, Entities, Particles, ParticleAttachment_t, */
 
-const tempParticles = {};
+let tempParticles = [];
 let created = false;
 
 function CheckForAltPress () {
@@ -15,15 +15,15 @@ function CheckForAltPress () {
           if (name.indexOf('shrine') !== -1) {
             const shrine = buildings[i];
             const particle = Particles.CreateParticle('particles/ui_mouseactions/range_display.vpcf', ParticleAttachment_t.PATTACH_WORLDORIGIN, hero);
-            // const particle = Particles.CreateParticle('particles/econ/items/rubick/rubick_arcana/rbck_arc_revenant_aoe_indicator.vpcf', ParticleAttachment_t.PATTACH_WORLDORIGIN, hero);
             Particles.SetParticleControl(particle, 0, Entities.GetAbsOrigin(shrine));
             Particles.SetParticleControl(particle, 1, [800, 800, 800]);
             // Store particle instance
-            tempParticles[i] = particle;
+            tempParticles.push(particle);
           }
         }
         created = true;
       }
+      // $.Schedule(1/30, CheckForAltPress);
     } else {
       for (let i = 0; i < tempParticles.length; i++) {
         const p = tempParticles[i];
@@ -34,6 +34,7 @@ function CheckForAltPress () {
         }
         tempParticles[i] = undefined;
       }
+      tempParticles = [];
       created = false;
     }
   }
