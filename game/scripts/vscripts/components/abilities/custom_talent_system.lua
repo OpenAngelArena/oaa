@@ -31,6 +31,9 @@ local abilities_with_custom_talents = {
   faceless_void_time_dilation = {
     radius = "special_bonus_unique_faceless_void_1_oaa",
   },
+  hoodwink_acorn_shot = {
+    base_damage_pct = "special_bonus_unique_hoodwink_1_oaa",
+  },
   invoker_emp = {
     damage_per_mana_pct = "special_bonus_unique_invoker_1_oaa",
   },
