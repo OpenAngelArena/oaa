@@ -9,20 +9,55 @@ function modifier_shrine_oaa:IsPurgable()
 end
 
 function modifier_shrine_oaa:OnCreated()
-  
+  self.ordered_heroes = {}
+  local parent = self:GetParent()
+  if parent:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    self.particle_name = "particles/misc/shrines/radiant_shrine_ambient.vpcf"
+  elseif parent:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+    self.particle_name = "particles/misc/shrines/dire_shrine_ambient.vpcf"
+  end
+  if IsServer() then
+    self:StartIntervalThink(0)
+  end
 end
 
 function modifier_shrine_oaa:OnIntervalThink()
-  local hOrderedUnit = self.ordered_hero
-  if not hOrderedUnit then
+  local parent = self:GetParent() -- shrine
+  local ability = parent:FindAbilityByName("shrine_sanctuary_oaa")
+  if not ability then
     self:StartIntervalThink(-1)
     return
   end
-  local parent = self:GetParent() -- shrine
-  local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
-  if distance < 300 then
-    self:StartIntervalThink(-1)
-    self:Sanctuary()
+  if ability:IsCooldownReady() then
+    if self:GetStackCount() ~= 1 then
+      parent:EmitSound("Shrine.Recharged")
+      self.particle = ParticleManager:CreateParticle(self.particle_name, PATTACH_WORLDORIGIN, parent)
+      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      self:SetStackCount(1)
+      self:StartIntervalThink(0)
+    end
+
+    for k, hOrderedUnit in pairs(self.ordered_heroes) do
+      if hOrderedUnit then
+        if hOrderedUnit.hero_last_target == parent then
+          local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
+          -- Check if hero reached the shrine
+          if distance < 200 then
+            --self:StartIntervalThink(-1)
+            self:Sanctuary()
+            break
+          end
+        end
+      end
+    end
+  else
+    parent:StopSound("Shrine.Recharged")
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, false)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+    end
+    self:SetStackCount(2)
+    self:StartIntervalThink(ability:GetCooldownTimeRemaining())
   end
 end
 
@@ -68,31 +103,45 @@ if IsServer() then
       return
     end
 
-    if not hTargetUnit or hTargetUnit ~= parent then
-      return
-    end
-
     if not hOrderedUnit or not hOrderedUnit:IsRealHero() or hOrderedUnit:GetTeamNumber() ~= parent:GetTeamNumber() then
       return
     end
 
-    local ability = self:FindAbilityByName("shrine_sanctuary_oaa")
+    local ability = parent:FindAbilityByName("shrine_sanctuary_oaa")
     if not ability then
       return
     end
+    if not ability:IsCooldownReady() then
+      return
+    end
+
+    if not hTargetUnit or hTargetUnit ~= parent then
+      hOrderedUnit.hero_last_target = nil
+      return
+    end
+
+    hOrderedUnit.hero_last_target = parent
 
     local distance = (hOrderedUnit:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D()
 
-    if distance < 300 then
-      self:StartIntervalThink(-1)
+    -- Check if hero is near the shrine,
+    -- if not periodically check distance of all the heroes that clicked on the shrine
+    if distance < 200 then
+      --self:StartIntervalThink(-1)
       self:Sanctuary()
     else
-      self.ordered_hero = hOrderedUnit
+      table.insert(self.ordered_heroes, hOrderedUnit)
       self:StartIntervalThink(0)
     end
   end
 
   function modifier_shrine_oaa:Sanctuary()
-
+    local parent = self:GetParent()
+    self.ordered_heroes = {}
+    local ability = parent:FindAbilityByName("shrine_sanctuary_oaa")
+    if not ability then
+      return
+    end
+    ability:CastAbility()
   end
 end
