@@ -45,7 +45,7 @@ function TeamVision:AddVision()
   for _, building in pairs(buildings) do
     if building and not building:IsNull() then
       local building_name = building:GetName()
-      --print(building_name)
+
       -- Check if it's a Healing Shrine
       if string.find(building_name, "filler") or string.find(building_name, "_shrine") then
         --print(building:GetTeamNumber())

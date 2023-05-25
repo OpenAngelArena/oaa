@@ -1,6 +1,7 @@
 
 LinkLuaModifier( "modifier_aura_item_upgrade", "modifiers/modifier_aura_item_upgrade.lua", LUA_MODIFIER_MOTION_NONE )
 
+-- Used for refreshing auras on items when they are upgraded
 GameEvents:OnItemCombined(function (keys)
   -- The playerID of the hero who is buying something
   local plyID = keys.PlayerID
