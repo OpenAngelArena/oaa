@@ -37,7 +37,7 @@
       "wolf_bat"                                          "1.2 1.1 1.0 0.9 0.8 0.7"
       "wolf_damage" //OAA
       {
-        "value"                                           "21 40 60 80 180 280"
+        "value"                                           "20 40 60 80 180 280"
         "special_bonus_unique_lycan_3"                    "+20"
       }
       "wolf_hp" //OAA
@@ -45,12 +45,12 @@
         "value"                                           "325 425 525 625 1625 2625"
         "special_bonus_unique_lycan_7"                    "+200"
       }
-      "bonus_health"
+      "bonus_health" // Valve is dumb
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_7"                    "+200"
       }
-      "bonus_damage" // OAA, this seems redundant
+      "bonus_damage" // OAA, Valve is dumb
       {
         "value"                                           "0"
         "special_bonus_unique_lycan_3"                    "+20"

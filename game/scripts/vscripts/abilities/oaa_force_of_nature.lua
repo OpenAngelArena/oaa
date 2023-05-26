@@ -133,7 +133,7 @@ function furion_force_of_nature_oaa:OnStolen(hSourceAbility)
     return
   end
   local speal_steal_cast_range = spell_steal_ability:GetCastRange() --or spell_steal_ability:GetSpecialValueFor("cast_range_scepter") + caster:GetCastRangeBonus()
-  local spell_steal_speed = math.max(spell_steal_ability:GetSpecialValueFor("projectile_speed") or 1200, 1200)
+  local spell_steal_speed = math.max(spell_steal_ability:GetSpecialValueFor("projectile_speed"), 1200)
   local spell_steal_time = speal_steal_cast_range/spell_steal_speed+0.01
   Timers:CreateTimer(spell_steal_time, function()
     local wrath_of_nature_ability = caster:FindAbilityByName("furion_wrath_of_nature_oaa")

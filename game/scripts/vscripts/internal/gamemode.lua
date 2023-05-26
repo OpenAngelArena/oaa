@@ -145,10 +145,9 @@ function GameMode:_CaptureGameMode()
     if USE_DEFAULT_RUNE_SYSTEM then
       mode:SetUseDefaultDOTARuneSpawnLogic(USE_DEFAULT_RUNE_SYSTEM)
     --else
-      -- Arcane runes are broken by Valve, if they don't fix them: use RuneSpawnFilter
-      -- RuneSpawnFilter is currently broken too
+      -- RuneSpawnFilter is broken
       --for rune, spawn in pairs(ENABLED_RUNES) do
-        --mode:SetRuneEnabled(rune, spawn)
+        --mode:SetRuneEnabled(rune, spawn) -- this doesn't work for Arcane runes
       --end
       --mode:SetBountyRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
       --mode:SetPowerRuneSpawnInterval(x) -- causes all runes to spawn at 0 and 2 and every x minutes no matter what x number is
