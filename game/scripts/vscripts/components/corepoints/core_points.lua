@@ -464,7 +464,7 @@ end
 modifier_core_points_counter_oaa = class({})
 
 function modifier_core_points_counter_oaa:IsHidden()
-  return not IsInToolsMode()
+  return true
 end
 
 function modifier_core_points_counter_oaa:IsPurgable()

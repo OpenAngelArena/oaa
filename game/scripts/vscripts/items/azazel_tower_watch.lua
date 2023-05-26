@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_watch_tower", "items/azazel_tower_watch.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_azazel_watch_tower_oaa", "items/azazel_tower_watch.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_watch_1 = class(ItemBaseClass)
 
@@ -28,7 +28,7 @@ function item_azazel_tower_watch_1:OnSpellStart()
   building:SetHullRadius(60)
   building:SetOwner(caster)
   GridNav:DestroyTreesAroundPoint(location, building:GetHullRadius(), true)
-  building:AddNewModifier(building, self, "modifier_watch_tower", {})
+  building:AddNewModifier(building, self, "modifier_azazel_watch_tower_oaa", {})
   building:AddNewModifier(building, self, "modifier_building_construction", {})
   building:AddNewModifier(building, self, "modifier_building_hide_on_minimap", {})
 
@@ -43,18 +43,18 @@ item_azazel_tower_watch_4 = item_azazel_tower_watch_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_watch_tower = class(ModifierBaseClass)
+modifier_azazel_watch_tower_oaa = class({})
 
 local THINK_INTERVAL = 0.1
 
-function modifier_watch_tower:OnCreated()
-  local ab = self:GetAbility()
+function modifier_azazel_watch_tower_oaa:OnCreated()
+  local ab = self:GetAbility() -- this becomes nil really fast because it's a consumable item
   self.level = ab:GetLevel()
   self.bonus_vision_range = ab:GetSpecialValueFor("bonus_vision_range")
   self:StartIntervalThink(THINK_INTERVAL)
 end
 
-function modifier_watch_tower:OnIntervalThink()
+function modifier_azazel_watch_tower_oaa:OnIntervalThink()
   if IsServer() then
     local target = self:GetParent()
     -- No other way to have unobstructed vision, sorry.
@@ -62,19 +62,19 @@ function modifier_watch_tower:OnIntervalThink()
   end
 end
 
-function modifier_watch_tower:IsHidden()
+function modifier_azazel_watch_tower_oaa:IsHidden()
   return true
 end
 
-function modifier_watch_tower:IsDebuff()
+function modifier_azazel_watch_tower_oaa:IsDebuff()
   return false
 end
 
-function modifier_watch_tower:IsPurgable()
+function modifier_azazel_watch_tower_oaa:IsPurgable()
   return false
 end
 
-function modifier_watch_tower:DeclareFunctions()
+function modifier_azazel_watch_tower_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_BONUS_DAY_VISION,
@@ -84,7 +84,7 @@ function modifier_watch_tower:DeclareFunctions()
   }
 end
 
-function modifier_watch_tower:OnDeath(data)
+function modifier_azazel_watch_tower_oaa:OnDeath(data)
   if data.unit == self:GetParent() then
     data.unit:SetOriginalModel("models/props_structures/tower_upgrade/tower_upgrade_dest.vmdl")
     data.unit:ManageModelChanges()
@@ -93,17 +93,17 @@ function modifier_watch_tower:OnDeath(data)
   end
 end
 
-function modifier_watch_tower:GetBonusDayVision()
+function modifier_azazel_watch_tower_oaa:GetBonusDayVision()
   if IsServer() then
     return self.bonus_vision_range
   end
 end
-modifier_watch_tower.GetBonusNightVision = modifier_watch_tower.GetBonusDayVision
+modifier_azazel_watch_tower_oaa.GetBonusNightVision = modifier_azazel_watch_tower_oaa.GetBonusDayVision
 
-function modifier_watch_tower:GetOverrideAnimation()
+function modifier_azazel_watch_tower_oaa:GetOverrideAnimation()
   return ACT_DOTA_CAPTURE
 end
 
-function modifier_watch_tower:GetActivityTranslationModifiers()
+function modifier_azazel_watch_tower_oaa:GetActivityTranslationModifiers()
   return "level"..self.level
 end

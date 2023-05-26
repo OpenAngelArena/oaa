@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_wall_segment", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_azazel_wall_oaa", "items/azazel_wall.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_wall_1 = class(ItemBaseClass)
 
@@ -47,7 +47,7 @@ function item_azazel_wall_1:OnSpellStart()
       building:SetOrigin(location)
       building:SetOwner(caster)
       building:AddNewModifier(building, self, "modifier_building_construction", {})
-      building:AddNewModifier(building, self, "modifier_wall_segment", {})
+      building:AddNewModifier(building, self, "modifier_azazel_wall_oaa", {})
     end
   end
   if not spawned then
@@ -65,27 +65,27 @@ item_azazel_wall_4 = item_azazel_wall_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_wall_segment = class(ModifierBaseClass)
+modifier_azazel_wall_oaa = class({})
 
-function modifier_wall_segment:IsHidden()
+function modifier_azazel_wall_oaa:IsHidden()
   return true
 end
 
-function modifier_wall_segment:IsDebuff()
+function modifier_azazel_wall_oaa:IsDebuff()
   return false
 end
 
-function modifier_wall_segment:IsPurgable()
+function modifier_azazel_wall_oaa:IsPurgable()
   return false
 end
 
-function modifier_wall_segment:DeclareFunctions()
+function modifier_azazel_wall_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
   }
 end
 
-function modifier_wall_segment:OnDeath(data)
+function modifier_azazel_wall_oaa:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_statue001_destruction.vmdl") -- doesn't seem to work.
     data.unit:SetOriginalModel("models/props_structures/radiant_statue001_destruction.vmdl")

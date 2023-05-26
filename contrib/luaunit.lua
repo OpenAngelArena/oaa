@@ -35,7 +35,7 @@ M.VERBOSITY_QUIET   = 0
 M.VERBOSITY_VERBOSE = 20
 
 -- set EXPORT_ASSERT_TO_GLOBALS to have all asserts visible as global values
--- EXPORT_ASSERT_TO_GLOBALS = true
+EXPORT_ASSERT_TO_GLOBALS = false
 
 -- we need to keep a copy of the script args before it is overriden
 local cmdline_argv = rawget(_G, "arg")
@@ -1545,7 +1545,7 @@ end
             error('Unknown option: '..option,3)
         end
 
-        local function setArg( cmdArg, state )
+        local function setArg( cmdArg, state, result )
             if state == SET_OUTPUT then
                 result['output'] = cmdArg
                 return

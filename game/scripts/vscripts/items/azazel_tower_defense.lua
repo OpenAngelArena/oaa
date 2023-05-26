@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_defense_tower", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_azazel_defense_tower_oaa", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_defense_tower_true_sight", "items/azazel_tower_defense.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_tower_defense_1 = class(ItemBaseClass)
@@ -29,7 +29,7 @@ function item_azazel_tower_defense_1:OnSpellStart()
   building:SetOwner(caster)
   GridNav:DestroyTreesAroundPoint(location, building:GetHullRadius(), true)
   building:AddNewModifier(building, self, "modifier_building_construction", {})
-  building:AddNewModifier(building, self, "modifier_defense_tower", {})
+  building:AddNewModifier(building, self, "modifier_azazel_defense_tower_oaa", {})
   building:AddNewModifier(building, self, "modifier_defense_tower_true_sight", {})
 
   self:SpendCharge()
@@ -43,33 +43,33 @@ item_azazel_tower_defense_4 = item_azazel_tower_defense_1
 --------------------------------------------------------------------------
 -- base modifier
 
-modifier_defense_tower = class(ModifierBaseClass)
+modifier_azazel_defense_tower_oaa = class({})
 
-function modifier_defense_tower:IsHidden()
+function modifier_azazel_defense_tower_oaa:IsHidden()
   return true
 end
 
-function modifier_defense_tower:IsDebuff()
+function modifier_azazel_defense_tower_oaa:IsDebuff()
   return false
 end
 
-function modifier_defense_tower:IsPurgable()
+function modifier_azazel_defense_tower_oaa:IsPurgable()
   return false
 end
 
-function modifier_defense_tower:OnCreated()
-  local ability = self:GetAbility()
+function modifier_azazel_defense_tower_oaa:OnCreated()
+  local ability = self:GetAbility() -- this becomes nil really fast because it's a consumable item
   self.bonusDamage = ability:GetSpecialValueFor("bonus_damage")
 end
 
-function modifier_defense_tower:DeclareFunctions()
+function modifier_azazel_defense_tower_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,
   }
 end
 
-function modifier_defense_tower:OnDeath(data)
+function modifier_azazel_defense_tower_oaa:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_tower002_destruction.vmdl") -- doesn't seem to work.
     data.unit:SetOriginalModel("models/props_structures/radiant_tower002_destruction.vmdl")
@@ -77,9 +77,11 @@ function modifier_defense_tower:OnDeath(data)
   end
 end
 
-function modifier_defense_tower:GetModifierBaseAttack_BonusDamage()
+function modifier_azazel_defense_tower_oaa:GetModifierBaseAttack_BonusDamage()
   return self.bonusDamage
 end
+
+---------------------------------------------------------------------------------------------------
 
 modifier_defense_tower_true_sight = class(ModifierBaseClass)
 

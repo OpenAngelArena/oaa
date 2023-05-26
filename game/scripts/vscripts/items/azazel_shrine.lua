@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_shrine", "items/azazel_shrine.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_azazel_shrine_oaa", "items/azazel_shrine.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_azazel_summon_shrine = class(ItemBaseClass)
 
@@ -28,7 +28,7 @@ function item_azazel_summon_shrine:OnSpellStart()
     building:SetOrigin(location)
     building:SetOwner(caster)
     building:AddNewModifier(building, self, "modifier_building_construction", {})
-    building:AddNewModifier(building, self, "modifier_shrine", {})
+    building:AddNewModifier(building, self, "modifier_azazel_shrine_oaa", {})
   else
     return
   end
@@ -38,27 +38,27 @@ end
 
 --------------------------------------------------------------------------
 
-modifier_shrine = class(ModifierBaseClass)
+modifier_azazel_shrine_oaa = class({})
 
-function modifier_shrine:IsHidden()
+function modifier_azazel_shrine_oaa:IsHidden()
   return true
 end
 
-function modifier_shrine:IsDebuff()
+function modifier_azazel_shrine_oaa:IsDebuff()
   return false
 end
 
-function modifier_shrine:IsPurgable()
+function modifier_azazel_shrine_oaa:IsPurgable()
   return false
 end
 
-function modifier_shrine:DeclareFunctions()
+function modifier_azazel_shrine_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
   }
 end
 
-function modifier_shrine:OnDeath(data)
+function modifier_azazel_shrine_oaa:OnDeath(data)
   if data.unit == self:GetParent() then
     --self:GetParent():SetModel("models/props_structures/radiant_statue001_destruction.vmdl") -- doesn't seem to work.
     data.unit:SetOriginalModel("models/props_structures/radiant_statue001_destruction.vmdl")

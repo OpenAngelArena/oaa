@@ -4,8 +4,6 @@ function item_devDagon:OnSpellStart()
   local target = self:GetCursorTarget()
   local caster = self:GetCaster()
 
-  target:Kill(self, caster)
-
   local particleName = "particles/items_fx/dagon.vpcf"
   local particle = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
   ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), true)
@@ -15,4 +13,6 @@ function item_devDagon:OnSpellStart()
 
   caster:EmitSound("DOTA_Item.Dagon.Activate")
   target:EmitSound("DOTA_Item.Dagon5.Target")
+
+  target:Kill(self, caster)
 end
