@@ -19,9 +19,9 @@ if IsServer() then
       local caster = self:GetCaster()
       -- Initialize tables
       self.clones = {}
-      self.clones[1] = {}
-      self.clones[2] = {}
-      self.clones[3] = {}
+      for i = 1, max_number_of_rings do
+        self.clones[i] = {}
+      end
       -- Populate tables
       for i = 1, max_number_of_rings do
         self.clones[i]["top"] = CreateUnitByName(unit_name, hidden_point, false, caster, caster:GetOwner(), caster:GetTeam())
