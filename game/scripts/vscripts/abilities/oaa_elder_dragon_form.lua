@@ -210,11 +210,9 @@ end
 
 --[[
 function modifier_dragon_knight_elder_dragon_form_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-
-  return funcs
 end
 
 -- Rage chance - chance to transform into Dragon Form when attack lands, doesn't matter what is the attacked target
@@ -321,12 +319,10 @@ function modifier_dragon_knight_max_level_oaa:OnRefresh()
 end
 
 function modifier_dragon_knight_max_level_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_dragon_knight_max_level_oaa:GetModifierMagicalResistanceBonus()
@@ -347,11 +343,6 @@ if IsServer() then
 
     -- Check if attacker has this modifier
     if attacker ~= parent then
-      return
-    end
-
-    -- No effect while broken or illusion
-    if parent:PassivesDisabled() or parent:IsIllusion() then
       return
     end
 
@@ -399,20 +390,29 @@ end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:OnCreated()
   self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
+  -- No effect if caster is an illusion
+  local caster = self:GetCaster()
+  if caster:IsNull() or caster:IsIllusion() then
+    self.heal_suppression_pct = 0
+  end
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:OnRefresh()
   self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
+  -- No effect if caster is an illusion
+  local caster = self:GetCaster()
+  if caster:IsNull() or caster:IsIllusion() then
+    self.heal_suppression_pct = 0
+  end
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierHealAmplify_PercentageTarget()
