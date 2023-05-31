@@ -336,6 +336,10 @@ if IsServer() then
     local attacker = event.attacker
     local target = event.target
 
+    if parent:IsIllusion() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -392,8 +396,8 @@ function modifier_dragon_knight_frostbite_debuff_oaa:OnCreated()
   self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
   -- No effect if caster is an illusion
   local caster = self:GetCaster()
-  if caster:IsNull() or caster:IsIllusion() then
-    self.heal_suppression_pct = 0
+  if caster:IsIllusion() then
+    self:Destroy()
   end
 end
 
@@ -401,8 +405,8 @@ function modifier_dragon_knight_frostbite_debuff_oaa:OnRefresh()
   self.heal_suppression_pct = self:GetAbility():GetSpecialValueFor("heal_suppression_pct")
   -- No effect if caster is an illusion
   local caster = self:GetCaster()
-  if caster:IsNull() or caster:IsIllusion() then
-    self.heal_suppression_pct = 0
+  if caster:IsIllusion() then
+    self:Destroy()
   end
 end
 
@@ -454,16 +458,16 @@ end
 function modifier_dragon_knight_custom_effects_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_MODIFIER_ADDED,
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
 
 if IsServer() then
-  function modifier_dragon_knight_custom_effects_oaa:OnModifierAdded(event) -- doesn't trigger on reapply????
+  function modifier_dragon_knight_custom_effects_oaa:OnModifierAdded(event)
     local parent = self:GetParent()
 
-    local dragon_form = parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
-    -- If parent has at least some of these then continue
-    if not dragon_form and not parent:HasShardOAA() then
+    -- Check if illusion and for shard
+    if parent:IsIllusion() or not parent:HasShardOAA() then
       return
     end
 
@@ -484,33 +488,71 @@ if IsServer() then
     local mod = event.added_buff
     -- modifier_dragon_knight_fireball is the modifier on thinker
     -- modifier_dragon_knight_fireball_burn is the burn modifier
-    -- modifier_dragonknight_breathefire_reduction
 
-    local function FrostbiteApplyWithFrostBreath()
-      if dragon_form then
-        -- If Dragon Knight is in max level Dragon Form apply Frostbite debuff
-        if parent:HasModifier("modifier_dragon_knight_max_level_oaa") then
-          -- Apply max level dragon form debuff
-          unit:AddNewModifier(parent, dragon_form, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = dragon_form:GetSpecialValueFor("frost_duration")})
-        end
-      end
-    end
-  
-    -- Frost Breath is being applied with splash and Breath Fire so apply Frostbite debuff in both cases
-    if unit:HasModifier("modifier_dragon_knight_frost_breath_slow") and not unit:HasModifier("modifier_dragon_knight_frostbite_debuff_oaa") then
-      FrostbiteApplyWithFrostBreath()
-    end
-    -- Shard additional effect (adding with burn doesn't work)
-    --local fireball_mod = unit:FindModifierByNameAndCaster("modifier_dragon_knight_fireball_burn", parent)
-    --if fireball_mod and not unit:HasModifier("modifier_dragon_knight_custom_shard_effect_oaa") then
-      --unit:AddNewModifier(parent, fireball_mod:GetAbility(), "modifier_dragon_knight_custom_shard_effect_oaa", {duration = fireball_mod:GetRemainingTime()})
-    --end
-    -- Shard additional effect (add to thinker)
+    -- Frost Breath is being applied with splash and Breath Fire in vanilla dota
+    -- caster of the modifier is always the original hero, even if the illusion splashed, Thanks Valve
+    -- so we can't use OnModifierAdded in a way we want because of this and because it doesn't trigger on reapply
+    -- we also don't want illusions to apply Frostbite debuff
+
+    -- Shard additional effect (add to thinker, adding with burn modifier doesnt work)
     if mod and not mod:IsNull() then
       if mod:GetName() == "modifier_dragon_knight_fireball" then
         unit:AddNewModifier(parent, mod:GetAbility(), "modifier_dragon_knight_custom_shard_thinker_oaa", {duration = mod:GetRemainingTime()})
       end
     end
+  end
+
+  function modifier_dragon_knight_custom_effects_oaa:OnAbilityExecuted(event)
+    local parent = self:GetParent()
+    local cast_ability = event.ability
+    local casting_unit = event.unit
+
+    -- Check if caster of the executed ability exists
+    if not casting_unit or casting_unit:IsNull() then
+      return
+    end
+
+    -- Check if caster has this modifier
+    if casting_unit ~= parent then
+      return
+    end
+
+    -- Check if cast ability exists
+    if not cast_ability or cast_ability:IsNull() then
+      return
+    end
+
+    if cast_ability:GetAbilityName() == "dragon_knight_breathe_fire" and parent:HasModifier("modifier_dragon_knight_max_level_oaa") then
+      self.radius = cast_ability:GetSpecialValueFor("start_radius") + cast_ability:GetSpecialValueFor("range") + cast_ability:GetSpecialValueFor("end_radius") + parent:GetCastRangeBonus()
+      self.travel_time = self.radius / math.max(cast_ability:GetSpecialValueFor("speed"), 1)
+      self.cast_ability = cast_ability
+
+      self:StartIntervalThink(self.travel_time)
+    end
+  end
+
+  function modifier_dragon_knight_custom_effects_oaa:OnIntervalThink()
+    local parent = self:GetParent()
+    local enemies = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self.radius,
+      self.cast_ability:GetAbilityTargetTeam(),
+      self.cast_ability:GetAbilityTargetType(),
+      self.cast_ability:GetAbilityTargetFlags(),
+      FIND_ANY_ORDER,
+      false
+    )
+    local dragon_form = parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() and enemy:HasModifier("modifier_dragonknight_breathefire_reduction") and enemy:HasModifier("modifier_dragon_knight_frost_breath_slow") then
+        -- Apply max level dragon form debuff
+        enemy:AddNewModifier(parent, dragon_form, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = dragon_form:GetSpecialValueFor("frost_duration")})
+      end
+    end
+
+    self:StartIntervalThink(-1)
   end
 end
 
