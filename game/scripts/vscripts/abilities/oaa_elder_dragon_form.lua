@@ -3,6 +3,18 @@ dragon_knight_elder_dragon_form_oaa = class(AbilityBaseClass)
 LinkLuaModifier( "modifier_dragon_knight_elder_dragon_form_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_dragon_knight_max_level_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_dragon_knight_frostbite_debuff_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_dragon_knight_custom_effects_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_dragon_knight_custom_shard_thinker_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_dragon_knight_custom_shard_effect_oaa", "abilities/oaa_elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+
+function dragon_knight_elder_dragon_form_oaa:Spawn()
+  if IsServer() then
+    local caster = self:GetCaster()
+    if not caster:HasModifier("modifier_dragon_knight_custom_effects_oaa") then
+      caster:AddNewModifier(caster, self, "modifier_dragon_knight_custom_effects_oaa", {})
+    end
+  end
+end
 
 -- this makes the ability passive when it hits level 5 and caster has scepter
 function dragon_knight_elder_dragon_form_oaa:GetBehavior()
@@ -418,3 +430,242 @@ end
 function modifier_dragon_knight_frostbite_debuff_oaa:GetModifierSpellLifestealRegenAmplify_Percentage()
   return -self.heal_suppression_pct
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_dragon_knight_custom_effects_oaa = class(ModifierBaseClass)
+
+function modifier_dragon_knight_custom_effects_oaa:IsHidden()
+  return true
+end
+
+function modifier_dragon_knight_custom_effects_oaa:IsDebuff()
+  return false
+end
+
+function modifier_dragon_knight_custom_effects_oaa:IsPurgable()
+  return false
+end
+
+function modifier_dragon_knight_custom_effects_oaa:RemoveOnDeath()
+  return false
+end
+
+function modifier_dragon_knight_custom_effects_oaa:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_MODIFIER_ADDED,
+  }
+end
+
+if IsServer() then
+  function modifier_dragon_knight_custom_effects_oaa:OnModifierAdded(event) -- doesn't trigger on reapply????
+    local parent = self:GetParent()
+
+    local dragon_form = parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
+    -- If parent has at least some of these then continue
+    if not dragon_form and not parent:HasShardOAA() then
+      return
+    end
+
+    -- Unit that gained a modifier
+    local unit = event.unit
+
+    -- Check if unit exists
+    if not unit or unit:IsNull() then
+      return
+    end
+
+    -- If the unit is not actually a unit but its an entity that can gain modifiers
+    if unit.HasModifier == nil then
+      return
+    end
+
+    -- Actual modifier added
+    local mod = event.added_buff
+    -- modifier_dragon_knight_fireball is the modifier on thinker
+    -- modifier_dragon_knight_fireball_burn is the burn modifier
+    -- modifier_dragonknight_breathefire_reduction
+
+    local function FrostbiteApplyWithFrostBreath()
+      if dragon_form then
+        -- If Dragon Knight is in max level Dragon Form apply Frostbite debuff
+        if parent:HasModifier("modifier_dragon_knight_max_level_oaa") then
+          -- Apply max level dragon form debuff
+          unit:AddNewModifier(parent, dragon_form, "modifier_dragon_knight_frostbite_debuff_oaa", {duration = dragon_form:GetSpecialValueFor("frost_duration")})
+        end
+      end
+    end
+  
+    -- Frost Breath is being applied with splash and Breath Fire so apply Frostbite debuff in both cases
+    if unit:HasModifier("modifier_dragon_knight_frost_breath_slow") and not unit:HasModifier("modifier_dragon_knight_frostbite_debuff_oaa") then
+      FrostbiteApplyWithFrostBreath()
+    end
+    -- Shard additional effect (adding with burn doesn't work)
+    --local fireball_mod = unit:FindModifierByNameAndCaster("modifier_dragon_knight_fireball_burn", parent)
+    --if fireball_mod and not unit:HasModifier("modifier_dragon_knight_custom_shard_effect_oaa") then
+      --unit:AddNewModifier(parent, fireball_mod:GetAbility(), "modifier_dragon_knight_custom_shard_effect_oaa", {duration = fireball_mod:GetRemainingTime()})
+    --end
+    -- Shard additional effect (add to thinker)
+    if mod and not mod:IsNull() then
+      if mod:GetName() == "modifier_dragon_knight_fireball" then
+        unit:AddNewModifier(parent, mod:GetAbility(), "modifier_dragon_knight_custom_shard_thinker_oaa", {duration = mod:GetRemainingTime()})
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_dragon_knight_custom_shard_thinker_oaa = class(ModifierBaseClass)
+
+function modifier_dragon_knight_custom_shard_thinker_oaa:IsHidden()
+  return true
+end
+
+function modifier_dragon_knight_custom_shard_thinker_oaa:IsDebuff()
+  return false
+end
+
+function modifier_dragon_knight_custom_shard_thinker_oaa:IsPurgable()
+  return false
+end
+
+function modifier_dragon_knight_custom_shard_thinker_oaa:OnCreated()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_dragon_knight_custom_shard_thinker_oaa:OnIntervalThink()
+  if IsServer() then
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+    if not parent or parent:IsNull() or not caster or caster:IsNull() then
+      self:StartIntervalThink(-1)
+      self:Destroy()
+      return
+    end
+    local radius = 350
+    local linger = 2
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      radius = ability:GetSpecialValueFor("radius")
+      linger = ability:GetSpecialValueFor("linger_duration")
+    end
+    local enemies = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        enemy:AddNewModifier(caster, ability, "modifier_dragon_knight_custom_shard_effect_oaa", {duration = linger})
+      end
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_dragon_knight_custom_shard_effect_oaa = class(ModifierBaseClass)
+
+function modifier_dragon_knight_custom_shard_effect_oaa:IsHidden()
+  return false
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:IsDebuff()
+  return true
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:IsPurgable()
+  return true
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:OnCreated()
+  if IsServer() then
+    self.percent_damage = 4
+    self.interval = 0.5
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+      self.interval = ability:GetSpecialValueFor("burn_interval")
+    end
+    self:StartIntervalThink(self.interval)
+  end
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:OnRefresh()
+  if IsServer() then
+    self.percent_damage = 4
+    self.interval = 0.5
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      self.percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+      self.interval = ability:GetSpecialValueFor("burn_interval")
+    end
+  end
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  if not parent or parent:IsNull() or not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  local percent_damage = self.percent_damage
+  if ability and not ability:IsNull() then
+    percent_damage = ability:GetSpecialValueFor("max_hp_damage")
+  end
+
+  -- Calculate dps
+  local damage_per_second = percent_damage * parent:GetMaxHealth() * 0.01
+
+  -- Do reduced damage to bosses
+  if parent:IsOAABoss() then
+    damage_per_second = damage_per_second * 15/100
+  end
+
+  local damage_table = {
+    victim = parent,
+    attacker = caster,
+    damage = damage_per_second * self.interval,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    ability = ability,
+  }
+
+  ApplyDamage(damage_table)
+end
+
+if IsServer() then
+  function modifier_dragon_knight_custom_shard_effect_oaa:CheckState()
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+
+    if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
+      return {}
+    end
+
+    return {
+      [MODIFIER_STATE_INVISIBLE] = false
+    }
+  end
+end
+
+function modifier_dragon_knight_custom_shard_effect_oaa:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA
+end
+
