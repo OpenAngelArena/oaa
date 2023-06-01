@@ -40,7 +40,7 @@ if IsServer() then
       bReplaceExisting = false,
       iUnitTargetTeam = self:GetAbilityTargetTeam(),
       iUnitTargetType = self:GetAbilityTargetType(),
-      iUnitTargetFlags = self:GetAbilityTargetFlags(),
+      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, --DOTA_UNIT_TARGET_FLAG_NONE
       bDeleteOnHit = true,
       vVelocity = direction * arrow_data.arrow_speed,
       bProvidesVision = true,

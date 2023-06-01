@@ -162,7 +162,7 @@ function modifier_boss_capture_point:OnIntervalThink()
     end
   end
   captureTick = captureTick * heroMultiplierTable[math.min(#heroMultiplierTable, numHeroes)]
-  self.captureProgress = min(self.captureTime, max(0, self.captureProgress + captureTick))
+  self.captureProgress = math.min(self.captureTime, math.max(0, self.captureProgress + captureTick))
 
   if self.captureProgress == 0 then
     self.capturingTeam = nil

@@ -41,7 +41,7 @@
       "slow_per_second"                                   "10 15 20 25 30 35"
       "duration"                                          "3.0"
       "max_slow"                                          "75 80 85 90 95 100" //OAA
-      "aspd_per_second"                                   "12" //OAA, Valve has it wrong
+      "aspd_per_second"                                   "10" // unused
       "damage_per_second"                                 "10" // min dps
       "max_damage"                                        "35 60 85 110 220 440" // max dps
       "damage_tick_interval"
