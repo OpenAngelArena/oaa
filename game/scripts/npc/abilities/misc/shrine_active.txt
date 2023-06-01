@@ -1,21 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Filler buildings ability (Shrines)
+  // Shrine ability (OAA rework)
   //=================================================================================================================
-  "filler_ability"
+  "shrine_sanctuary_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6226"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "86226"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/misc/shrine_sanctuary_oaa.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "filler_ability"
     "MaxLevel"                                            "1"
 
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "180" //OAA
+    "AbilityCooldown"                                     "180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -23,15 +26,10 @@
     {
       "hp_heal"                                           "90"
       "mp_heal"                                           "50"
-      "hp_heal_growth"                                    "0"
-      "mp_heal_growth"                                    "0"
       "hp_heal_pct"                                       "2"
       "mp_heal_pct"                                       "2"
       "duration"                                          "5"
       "radius"                                            "500"
-      "initial_cooldown"                                  "180" //OAA
-      "base_xp"                                           "0" //OAA
-      "bonus_xp"                                          "0" //OAA
     }
   }
 }

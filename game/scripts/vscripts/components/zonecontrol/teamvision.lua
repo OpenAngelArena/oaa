@@ -8,8 +8,8 @@ end
 function TeamVision:Init()
   self.moduleName = "Team Vision"
 
-  LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_generic_vision_dummy_stuff", "modifiers/modifier_generic_vision_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_shrine_oaa", "modifiers/modifier_shrine_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   GameEvents:OnHeroSelection(partial(TeamVision.AddVision, TeamVision))
 end
@@ -45,9 +45,13 @@ function TeamVision:AddVision()
   for _, building in pairs(buildings) do
     if building and not building:IsNull() then
       local building_name = building:GetName()
+      --print(building_name)
       -- Check if it's a Healing Shrine
-      if string.find(building_name, "filler") or string.find(building_name, "_shrine_") then
+      if string.find(building_name, "filler") or string.find(building_name, "_shrine") then
+        --print(building:GetTeamNumber())
         building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
+        building:AddNewModifier(building, nil, "modifier_shrine_oaa", {})
+        building:RemoveModifierByName("modifier_invulnerable")
       end
     end
   end

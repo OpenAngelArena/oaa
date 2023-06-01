@@ -7,10 +7,6 @@ function witch_doctor_death_ward_oaa:IsStealable()
   return true
 end
 
-function witch_doctor_death_ward_oaa:IsHiddenWhenStolen()
-  return false
-end
-
 function witch_doctor_death_ward_oaa:OnSpellStart()
   local unit_name = "npc_dota_witch_doctor_death_ward_oaa" -- vanilla death ward unit doesn't work for some reason
   local point = self:GetCursorPosition()
@@ -643,10 +639,6 @@ end
 
 function witch_doctor_voodoo_switcheroo_oaa:IsStealable()
   return true
-end
-
-function witch_doctor_voodoo_switcheroo_oaa:IsHiddenWhenStolen()
-  return false
 end
 
 function witch_doctor_voodoo_switcheroo_oaa:ProcsMagicStick()

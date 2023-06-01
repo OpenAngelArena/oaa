@@ -53,8 +53,6 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "1000"       // Base health.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
     // Vision
@@ -62,6 +60,7 @@
     "VisionDaytimeRange"                                  "800"      // Range of vision during day light.
     "VisionNighttimeRange"                                "800"      // Range of vision at night time.
   }
+
   "npc_azazel_tower_watch"
   {
     // General
@@ -110,8 +109,6 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "500"       // Base health.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
     // Vision
@@ -119,6 +116,7 @@
     "VisionDaytimeRange"                                  "1500"      // Range of vision during day light.
     "VisionNighttimeRange"                                "1500"      // Range of vision at night time.
   }
+
   "npc_azazel_wall_segment"
   {
     // General
@@ -169,8 +167,6 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "1500"       // Base health.
-    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
-    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 
     // Vision
