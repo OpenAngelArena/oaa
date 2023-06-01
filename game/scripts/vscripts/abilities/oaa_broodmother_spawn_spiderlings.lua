@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_broodmother_spawn_spiderlings_oaa", "abilities/oaa_broodmother_spawn_spiderlings.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_broodmother_giant_spiderling_passive", "abilities/oaa_broodmother_spawn_spiderlings.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_spider_dead_tracker_oaa", "abilities/oaa_broodmother_spawn_spiderlings.lua", LUA_MODIFIER_MOTION_NONE)
 
 broodmother_spawn_spiderlings_oaa = class(AbilityBaseClass)
 
@@ -44,8 +45,8 @@ function modifier_broodmother_spawn_spiderlings_oaa:OnCreated()
     return
   end
 
-  if not self.spider_counter_oaa then
-    self.spider_counter_oaa = 0
+  if not parent.spider_counter_oaa then
+    parent.spider_counter_oaa = 0
   end
 end
 
@@ -76,8 +77,8 @@ if IsServer() then
 
     -- Decrement spider counter when a spider (belonging to parent) dies
     if UnitVarToPlayerID(dead) == UnitVarToPlayerID(parent) and (dead:GetUnitName() == "npc_dota_broodmother_spiderling" or dead:GetUnitName() == "npc_dota_broodmother_giant_spiderling") then
-      if self.spider_counter_oaa > 0 then
-        self.spider_counter_oaa = self.spider_counter_oaa - 1
+      if parent.spider_counter_oaa > 0 then
+        parent.spider_counter_oaa = parent.spider_counter_oaa - 1
       end
     end
 
@@ -126,7 +127,7 @@ if IsServer() then
     end
 
     -- Don't continue if we already reached the max amount of spiders
-    if self.spider_counter_oaa >= max_count then
+    if parent.spider_counter_oaa >= max_count then
       return
     end
 
@@ -192,6 +193,9 @@ if IsServer() then
 
       -- Add duration to spiders
       summon:AddNewModifier(parent, ability, "modifier_kill", {duration = summon_duration})
+      -- modifier_kill when killing the unit no longer triggers OnDeath event, thanks Valve
+      summon:AddNewModifier(parent, ability, "modifier_spider_dead_tracker_oaa", {duration = summon_duration + 6})
+      -- 6 is poison sting duration on creeps
 
       -- Fix stats of summons
       -- HP
@@ -210,10 +214,10 @@ if IsServer() then
       summon:SetBaseMoveSpeed(base_speed)
 
       -- Increment the counter
-      self.spider_counter_oaa = self.spider_counter_oaa + 1
+      parent.spider_counter_oaa = parent.spider_counter_oaa + 1
 
       -- Break the for loop if we reached the maximum
-      if self.spider_counter_oaa >= max_count then
+      if parent.spider_counter_oaa >= max_count then
         break
       end
     end
@@ -364,5 +368,72 @@ function modifier_broodmother_giant_spiderling_passive:CheckState()
     }
   else
     return {}
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_spider_dead_tracker_oaa = class({})
+
+function modifier_spider_dead_tracker_oaa:IsHidden()
+  return true
+end
+
+function modifier_spider_dead_tracker_oaa:IsPurgable()
+  return false
+end
+
+function modifier_spider_dead_tracker_oaa:RemoveOnDeath()
+  return false
+end
+
+function modifier_spider_dead_tracker_oaa:OnCreated()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    self:Destroy()
+    return
+  end
+  if not caster.spider_counter_oaa then
+    self:Destroy()
+    return
+  end
+  self:StartIntervalThink(self:GetRemainingTime()-6)
+end
+
+function modifier_spider_dead_tracker_oaa:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+  if not caster.spider_counter_oaa then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+end
+
+function modifier_spider_dead_tracker_oaa:OnDestroy()
+  if not IsServer() then
+    return
+  end
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    return
+  end
+  if not caster.spider_counter_oaa then
+    return
+  end
+  local parent = self:GetParent()
+  if parent and not parent:IsNull() then
+    parent:RemoveSelf()
+    caster.spider_counter_oaa = caster.spider_counter_oaa - 1
   end
 end
