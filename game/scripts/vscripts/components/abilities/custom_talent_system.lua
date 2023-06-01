@@ -43,6 +43,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
+  queenofpain_shadow_strike = {
+    duration_heal = "special_bonus_unique_queen_of_pain_4_oaa",
+  },
   silencer_last_word = {
     damage = "special_bonus_unique_silencer_2_oaa",
   },
