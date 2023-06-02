@@ -55,12 +55,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "52 62 82 112 152" // Shadow Blade (20) + Crystalys (32)
+      "bonus_damage"                                      "52 60 76 100 132" // Shadow Blade (20) + Crystalys (32)
       "bonus_attack_speed"                                "35 45 55 65 75" // Shadow Blade (35)
       "bonus_strength"                                    "0"
       "bonus_intellect"                                   "0"
       "bonus_mana_regen"                                  "0"
-      "windwalk_duration"                                 "14.0"
+      "windwalk_duration"                                 "10.0" // OAA
       "windwalk_movement_speed"                           "25 30 35 40 45"
       "windwalk_fade_time"                                "0.3"
       "windwalk_bonus_damage"                             "175 275 375 475 575"
