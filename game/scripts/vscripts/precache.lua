@@ -23,7 +23,7 @@ g_ItemPrecache = {
   "item_lucience",
   "item_martyrs_mail_1",
   --"item_meteor_hammer_1",
-  "item_pull_staff",
+  --"item_pull_staff",
   --"item_reflex_core",
   "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
@@ -111,6 +111,11 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
   "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
   "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
+  -- Shrines
+  "particles/misc/shrines/radiant_shrine_ambient.vpcf",
+  "particles/misc/shrines/dire_shrine_ambient.vpcf",
+  "particles/misc/shrines/radiant_shrine_active.vpcf",
+  "particles/misc/shrines/dire_shrine_active.vpcf",
 }
 
 g_ParticleFolderPrecache = {
@@ -125,7 +130,7 @@ g_ParticleFolderPrecache = {
   "particles/items/heart_transplant",
   --"particles/items/reflection_shard",
   "particles/items/regen_crystal",
-  "particles/items/sacred_skull",
+  --"particles/items/sacred_skull",
   "particles/items/trumps_fists",
   "particles/items/vampire",
 }

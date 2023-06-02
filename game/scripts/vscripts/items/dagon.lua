@@ -73,6 +73,8 @@ function item_dagon_oaa:OnSpellStart()
     target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
   end
 
+  local isRealHero = target:IsRealHero() -- do this check before doing dmg to prevent doing check on a killed/deleted target
+
   local damageDone = ApplyDamage({
     victim = target,
     attacker = caster,
@@ -83,7 +85,7 @@ function item_dagon_oaa:OnSpellStart()
 
   -- healing time!
   local heal_amount = 0
-  if target:IsRealHero() then
+  if isRealHero then
     heal_amount = damageDone * (burst_heal_percent - hero_spell_lifesteal) / 100
   else
     -- For ancients, bosses and strong illusions

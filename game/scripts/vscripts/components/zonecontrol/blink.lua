@@ -25,7 +25,6 @@ end
 function BlinkBlock:Init ()
   self.moduleName = "BlinkBlock"
   ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(BlinkBlock, 'OnAbilityUsed'), self)
-  --ListenToGameEvent("dota_player_begin_cast", Dynamic_Wrap(BlinkBlock, 'OnAbilityCastBegins'), self)
 end
 
 -- An ability was used by a player

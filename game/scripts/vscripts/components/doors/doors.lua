@@ -87,7 +87,7 @@ function Doors.OpenDoors(gate, settings)
 
   local distance = settings.distance or 300
   local traveled = 0
-  local delay = settings.openingStepDelay or 1/100
+  local delay = settings.openingStepDelay or 0.01
   local stepSize = settings.openingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, -distance)
 
@@ -118,7 +118,7 @@ function Doors.CloseDoors(gate, settings)
 
   local distance = settings.distance or 300
   local traveled = 0
-  local delay = settings.closingStepDelay or 1/100
+  local delay = settings.closingStepDelay or 0.01
   local stepSize = settings.closingStepSize or 1
   local targetOrigin = gate.props.gate:GetAbsOrigin() + Vector(0, 0, distance)
 

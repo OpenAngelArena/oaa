@@ -40,9 +40,9 @@
       "duration"                                          "2.25 2.75 3.25 3.75 4.25"
       "drag_distance"                                     "300"
       "break_distance"                                    "425"
-      "damage" //OAA, is this total damage or dps, make up your mind Valve
+      "damage" //OAA, total damage
       {
-        "value"                                           "100 250 400 700 1300" // if it's actually dps put 45 87 130 256 465
+        "value"                                           "100 250 400 700 1300" // if they change it to dps put 45 87 130 256 465
         "CalculateSpellDamageTooltip"                     "1"
       }
       "grab_radius_scepter"

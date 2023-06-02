@@ -113,7 +113,7 @@ end
 
 function SurrenderManager:CalculateVotes()
   local yesVotesCast = 0
-  for key, value in pairs(votes) do
+  for _, value in pairs(votes) do
     yesVotesCast = yesVotesCast + value
   end
 
@@ -141,7 +141,7 @@ function SurrenderManager:CalculateVotes()
       DebugPrint("Do not end game")
     end
   else
-    DebugPrint("Error: table.getn{SURRENDER_REQUIRED_YES_VOTES} > numberOfVotesCast  table.getn{SURRENDER_REQUIRED_YES_VOTES} = " .. table.getn{SURRENDER_REQUIRED_YES_VOTES} .. " numberOfVotesCast = " .. numberOfVotesCast)
+    DebugPrint("Error: numberOfVotesCast = " .. numberOfVotesCast .. " Needed: " .. table.getn{SURRENDER_REQUIRED_YES_VOTES})
   end
   SurrenderManager:UpdateVisibility()
 end

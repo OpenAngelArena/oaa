@@ -3,15 +3,11 @@ GameEvents:OnEntityFatalDamage(function (keys)
     return
   end
   local killedUnit = EntIndexToHScript(keys.entindex_killed)
-  if killedUnit.IsCreep == nil or not killedUnit:IsCreep() then
+  if not killedUnit or killedUnit.IsCreep == nil or not killedUnit:IsCreep() then
     return
   end
   local attacker = EntIndexToHScript(keys.entindex_attacker)
   local playerID = attacker:GetPlayerOwnerID()
-
-  local function divBy100(num)
-    return num / 100
-  end
 
   --[[
   local sharedBountyItems = {
@@ -77,7 +73,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
     for pID, bonus in pairs(shareTable) do
       local percent = CREEP_BOUNTY_SHARE_PERCENT + bonus
       -- minimum shared bounty of 1 because really now
-      local bounty = math.max(1, killedUnit:GetGoldBounty() * divBy100(percent))
+      local bounty = math.max(1, killedUnit:GetGoldBounty() * percent / 100)
       local allyPlayer = PlayerResource:GetPlayer(pID)
 
       Gold:ModifyGold(pID, bounty, false, DOTA_ModifyGold_SharedGold)
@@ -87,6 +83,9 @@ GameEvents:OnEntityFatalDamage(function (keys)
 
   -- old fool's gold reduction after shared bounty
   --[[
+  local function divBy100(num)
+    return num / 100
+  end
   local function HasCreepBountyMult(modifier)
     return modifier.DeclareFunctions and
       contains(MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER, modifier:DeclareFunctions())
