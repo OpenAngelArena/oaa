@@ -44,11 +44,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9.0"
+    "AbilityCooldown"                                     "8.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4926"
+    "ItemCost"                                            "4726"
     "ItemShopTags"                                        "move_speed;damage;armor;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater phase boots 2;phase boots 2;phase 2"
@@ -64,7 +64,7 @@
     {
       "bonus_movement_speed"                              "50 55 60 65 70"
       "bonus_health"                                      "200 400 600 800 1000"
-      "bonus_damage"                                      "32 47 72 107 152"
+      "bonus_damage"                                      "32 52 82 122 172"
       "bonus_armor"                                       "4 5 7 10 14"
       "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
       "phase_movement_speed"                              "20 25 30 35 40"
