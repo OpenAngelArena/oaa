@@ -40,6 +40,9 @@ local abilities_with_custom_talents = {
   invoker_sun_strike = {
     damage = "special_bonus_unique_invoker_2_oaa",
   },
+  life_stealer_feast = {
+    hp_damage_percent = "special_bonus_unique_lifestealer_3_oaa",
+  },
   mirana_leap = {
     leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
   },
