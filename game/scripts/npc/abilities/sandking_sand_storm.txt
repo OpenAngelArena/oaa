@@ -35,7 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_tick_rate"                                  "0.2"
+      "damage_tick_rate"                                  "0.4 0.35 0.3 0.25 0.2 0.2" // OAA, this tick rate is used for scepter burrowstrikes too
       "sand_storm_radius"
       {
         "value"                                           "425 500 575 650 675 700"
