@@ -2,28 +2,8 @@
 {
   "item_mystic_staff"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "58"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2800"
-    "ItemShopTags"                                        "int"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "mystic staff"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25"
-      }
-    }
   }
 }

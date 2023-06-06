@@ -2,28 +2,8 @@
 {
   "item_reaver"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "53"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2800"
-    "ItemShopTags"                                        "str"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "reaver"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "25"
-      }
-    }
   }
 }

@@ -3,50 +3,10 @@
   // Mango
   "item_enchanted_mango"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "216"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "Model"                                               "models/props_gameplay/mango.vmdl"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400"
-    "AbilityCastPoint"                                    "0.0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "45" //OAA
-    "ItemShopTags"                                        "consumable"
-    "ItemQuality"                                         "consumable"
-    "ItemAliases"                                         "enchanted mango"
-    "ItemStackable"                                       "1"
-    "ItemStackableMax"                                    "3"
-    "ItemStockMax"                                        "16" //OAA
-    "ItemStockInitial"                                    "16" //OAA
     "ItemStockTime"                                       "1" //OAA
-    "ItemInitialCharges"                                  "1"
-    "ItemPermanent"                                       "0"
-    "IsTempestDoubleClonable"                             "0"
-    "ShouldBeInitiallySuggested"                          "1"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hp_regen"                                        "0.3" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "replenish_amount"                                "100"
-      }
-    }
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE_STACKING" //OAA
   }
 }
