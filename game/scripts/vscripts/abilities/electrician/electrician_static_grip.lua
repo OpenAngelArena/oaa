@@ -3,14 +3,15 @@ electrician_static_grip = class( AbilityBaseClass )
 LinkLuaModifier( "modifier_electrician_static_grip", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_electrician_static_grip_movement", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_HORIZONTAL )
 LinkLuaModifier( "modifier_electrician_static_grip_debuff_tracker", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_special_bonus_electrician_static_grip_non_channel", "abilities/electrician/electrician_static_grip.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
   local caster = self:GetCaster()
+
   -- Talent that makes Static Grip non-channel (pseudo-channel)
-  if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
+  local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_non_channel")
+  if talent and talent:GetLevel() > 0 then
     return 0
   end
 
@@ -23,28 +24,14 @@ end
 
 function electrician_static_grip:GetBehavior()
   local caster = self:GetCaster()
-  -- Talent that makes Static Grip non-channel (pseudo-channel)
-  if caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
-    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
-  end
-  return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED
-end
 
-function electrician_static_grip:OnHeroCalculateStatBonus()
-  if not IsServer() then
-    return
-  end
-  local caster = self:GetCaster()
-  --print("[CHATTERJEE STATIC GRIP] OnHeroCalculateStatBonus on Server")
-  -- Check for talent that makes Static Grip non-channel (pseudo-channel)
+  -- Talent that makes Static Grip non-channel (pseudo-channel)
   local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_non_channel")
   if talent and talent:GetLevel() > 0 then
-    if not caster:HasModifier("modifier_special_bonus_electrician_static_grip_non_channel") then
-      caster:AddNewModifier(caster, talent, "modifier_special_bonus_electrician_static_grip_non_channel", {})
-    end
-  else
-    caster:RemoveModifierByName("modifier_special_bonus_electrician_static_grip_non_channel")
+    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
   end
+
+  return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED
 end
 
 --------------------------------------------------------------------------------
@@ -108,30 +95,22 @@ function modifier_electrician_static_grip:GetPriority()
 	return MODIFIER_PRIORITY_ULTRA
 end
 
-function modifier_electrician_static_grip:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
-end
-
 --------------------------------------------------------------------------------
 
 function modifier_electrician_static_grip:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_STUNNED] = true,
 		[MODIFIER_STATE_INVISIBLE] = false,
 		[MODIFIER_STATE_FROZEN] = true,
 	}
-
-	return state
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_electrician_static_grip:DeclareFunctions()
-	local func = {
+	return {
 		MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
 	}
-
-	return func
 end
 
 --------------------------------------------------------------------------------
@@ -307,7 +286,6 @@ if IsServer() then
 
 		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
-			return
 		end
 	end
 
@@ -416,27 +394,7 @@ function modifier_electrician_static_grip_debuff_tracker:OnIntervalThink()
 end
 
 function modifier_electrician_static_grip_debuff_tracker:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
   }
-
-	return state
-end
-
----------------------------------------------------------------------------------------------------
-
--- Modifier on caster used for talent that makes Static Grip non-channel (pseudo-channel)
-modifier_special_bonus_electrician_static_grip_non_channel = class(ModifierBaseClass)
-
-function modifier_special_bonus_electrician_static_grip_non_channel:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_electrician_static_grip_non_channel:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_electrician_static_grip_non_channel:RemoveOnDeath()
-  return false
 end

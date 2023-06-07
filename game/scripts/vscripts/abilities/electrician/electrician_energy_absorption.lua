@@ -3,27 +3,16 @@ electrician_energy_absorption = class(AbilityBaseClass)
 LinkLuaModifier("modifier_electrician_energy_absorption", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_electrician_energy_absorption_debuff", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_electrician_bonus_mana_count", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_electrician_energy_absorption_cooldown", "abilities/electrician/electrician_energy_absorption.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
 function electrician_energy_absorption:GetCooldown(level)
   local caster = self:GetCaster()
   local base_cd = self.BaseClass.GetCooldown(self, level)
-  if IsServer() then
-    local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
-    if talent and talent:GetLevel() > 0 then
-      if not caster:HasModifier("modifier_special_bonus_electrician_energy_absorption_cooldown") then
-        caster:AddNewModifier(caster, talent, "modifier_special_bonus_electrician_energy_absorption_cooldown", {})
-      end
-      return base_cd - math.abs(talent:GetSpecialValueFor("value"))
-    else
-      caster:RemoveModifierByName("modifier_special_bonus_electrician_energy_absorption_cooldown")
-    end
-  else
-    if caster:HasModifier("modifier_special_bonus_electrician_energy_absorption_cooldown") and caster.special_bonus_electrician_energy_absorption_cooldown then
-      return base_cd - math.abs(caster.special_bonus_electrician_energy_absorption_cooldown)
-    end
+
+  local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
+  if talent and talent:GetLevel() > 0 then
+    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
   end
 
   return base_cd
@@ -72,6 +61,12 @@ function electrician_energy_absorption:OnSpellStart()
     local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_mana")
     if talent and talent:GetLevel() > 0 then
       mana_absorb_percent = mana_absorb_percent + talent:GetSpecialValueFor("value")
+    end
+
+    -- Talent that increases damage
+    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_8")
+    if talent2 and talent2:GetLevel() > 0 then
+      damage = damage + talent2:GetSpecialValueFor("value")
     end
 
     -- set up the amount of mana restored by this cast
@@ -236,12 +231,10 @@ function modifier_electrician_energy_absorption:OnDestroy()
 end
 
 function modifier_electrician_energy_absorption:DeclareFunctions()
-  local func = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-
-  return func
 end
 
 function modifier_electrician_energy_absorption:GetModifierMoveSpeedBonus_Constant()
@@ -308,12 +301,10 @@ function modifier_electrician_energy_absorption_debuff:OnDestroy()
 end
 
 function modifier_electrician_energy_absorption_debuff:DeclareFunctions()
-  local func = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-
-  return func
 end
 
 function modifier_electrician_energy_absorption_debuff:GetModifierMoveSpeedBonus_Constant()
@@ -341,11 +332,10 @@ function modifier_electrician_bonus_mana_count:IsPurgable()
 end
 
 function modifier_electrician_bonus_mana_count:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_EXTRA_MANA_BONUS,
     MODIFIER_EVENT_ON_SPENT_MANA
   }
-  return funcs
 end
 
 function modifier_electrician_bonus_mana_count:GetModifierExtraManaBonus()
@@ -362,37 +352,5 @@ function modifier_electrician_bonus_mana_count:OnSpentMana(event)
         self:SetStackCount(self:GetStackCount() - restore_amount)
       end
     end
-  end
-end
-
----------------------------------------------------------------------------------------------------
-
--- Modifier on caster used for talent that improves Energy Absorption cooldown
-modifier_special_bonus_electrician_energy_absorption_cooldown = class(ModifierBaseClass)
-
-function modifier_special_bonus_electrician_energy_absorption_cooldown:IsHidden()
-  return true
-end
-
-function modifier_special_bonus_electrician_energy_absorption_cooldown:IsPurgable()
-  return false
-end
-
-function modifier_special_bonus_electrician_energy_absorption_cooldown:RemoveOnDeath()
-  return false
-end
-
-function modifier_special_bonus_electrician_energy_absorption_cooldown:OnCreated()
-  if not IsServer() then
-    local parent = self:GetParent()
-    local talent = self:GetAbility()
-    parent.special_bonus_electrician_energy_absorption_cooldown = talent:GetSpecialValueFor("value")
-  end
-end
-
-function modifier_special_bonus_electrician_energy_absorption_cooldown:OnDestroy()
-  local parent = self:GetParent()
-  if parent and parent.special_bonus_electrician_energy_absorption_cooldown then
-    parent.special_bonus_electrician_energy_absorption_cooldown = nil
   end
 end

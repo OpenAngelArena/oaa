@@ -3,48 +3,8 @@
   // Gem
   "item_gem"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "30"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityCastRange"                                    "300"
-    "Model"                                               "models/props_gameplay/gem01.vmdl"
-    "Effect"                                              "particles/generic_gameplay/dropped_gem.vpcf"
 
-    "AbilityCooldown"                                     "12"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "900"
-    "ItemShopTags"                                        "see_invis"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "gem of true sight"
-    "ItemSellable"                                        "0"
-    "ItemInitiallySellable"                               "1"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ItemStockMax"                                        "1"
-    "ItemStockTime"                                       "600.0"
-    "ItemSupport"                                         "1"
-    "ItemKillable"                                        "0"
-    "ItemContributesToNetWorthWhenDropped"                "0"
-    "AllowedInBackpack"                                   "0"
-    "IsTempestDoubleClonable"                             "0"
     "SideShop"                                            "1" //OAA
-
-    // Sound
-    //-------------------------------------------------------------------------------------------------------------
-    "UIPickupSound"                                       "Item.PickUpGemShop"
-    "UIDropSound"                                         "Item.DropGemShop"
-    "WorldDropSound"                                      "Item.DropGemWorld"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
-    {
-      "radius"                                            "900"
-      "active_radius"                                     "300"
-      "duration"                                          "4"
-    }
   }
 }

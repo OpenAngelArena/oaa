@@ -273,6 +273,26 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   self:StartIntervalThink(delay)
 end
 
+function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
+  if tar_spill and tar_spill:GetLevel() > 0 then
+    -- Laser Contraption applies Tar Spill
+    local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
+    if talent and talent:GetLevel() > 0 then
+      tar_spill:OnProjectileHit(nil, self.center)
+    end
+  end
+end
+
 function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   if not IsServer() then
     return
@@ -349,6 +369,9 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
       ApplyLaser(node, "attach_attack1", parent, "attach_hitloc")
     end
   end
+
+  -- Talent that applies Tar Spill
+  self:ApplyTarSpill()
 
   -- Damage enemies
   for _, enemy in pairs(enemies) do
@@ -521,7 +544,8 @@ if IsServer() then
       damage = 1
     end
 
-    if attacker == self:GetCaster() then
+    -- Allies and the caster destroy the node with 1 hit
+    if attacker:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
       damage = parent:GetMaxHealth()
     end
 

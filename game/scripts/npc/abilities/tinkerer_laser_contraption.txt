@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinkerer: Laser Contraption - scepter applies leash and blind
+  // Tinkerer: Laser Contraption - scepter increases cast range, applies leash and healing reduction
   //=================================================================================================================
   "tinkerer_laser_contraption"
   {
@@ -54,8 +54,16 @@
         "value"                                           "150 300 450 900 1350" // original: 200/300/400
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE" // original: magical
       }
-      "damage_per_second"                                 "75 175 275 575 875" // original: 75 125 175
-      "damage_interval"                                   "2" // 5 damage instances
+      "damage_per_second"
+      {
+        "value"                                           "75 175 275 575 875" // original: 75 125 175
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "damage_interval"
+      {
+        "value"                                           "2" // 5 damage instances
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
       "attacks_to_destroy"                                "2"
       "scepter_cast_range"
       {

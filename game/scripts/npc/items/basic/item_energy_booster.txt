@@ -2,29 +2,8 @@
 {
   "item_energy_booster"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "59"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
-    "ItemShopTags"                                        "mana_pool"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "energy booster"
     "SecretShop"                                          "0" //OAA
-    "SideShop"                                            "0"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "250"
-      }
-    }
   }
 }

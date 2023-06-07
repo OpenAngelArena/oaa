@@ -1,14 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tar Spill amplifies damage
+  // Sonic Wave Fear talent
   //=================================================================================================================
-  "special_bonus_unique_tinkerer_7"
+  "special_bonus_unique_queen_of_pain_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3669"
-    "BaseClass"                                           "special_bonus_undefined"
+    "ID"                                                  "715"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +17,9 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "15"
+        "var_type"                                        "FIELD_FLOAT"
+        "value"                                           "1.75" //OAA
+        "ad_linked_abilities"                             "queenofpain_sonic_wave"
       }
     }
   }

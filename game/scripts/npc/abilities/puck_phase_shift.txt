@@ -35,10 +35,10 @@
         "RequiresShard"                                   "1"
         "value"                                           "200"
       }
-      "shard_bonus_damage"
+      "shard_bonus_damage" //OAA, this applies to every attack, not just Phase Shift attack
       {
         "RequiresShard"                                   "1"
-        "value"                                           "20"
+        "value"                                           "10 15 20 25 50 75"
       }
     }
   }

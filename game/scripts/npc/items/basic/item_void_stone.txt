@@ -2,30 +2,10 @@
 {
   "item_void_stone"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "57"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
-    "ItemShopTags"                                        "regen_mana"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "void stone"
     "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE" //OAA
     "SecretShop"                                          "0" //OAA
     "SideShop"                                            "1" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "1.75"
-      }
-    }
   }
 }

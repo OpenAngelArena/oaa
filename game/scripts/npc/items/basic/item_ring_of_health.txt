@@ -2,36 +2,10 @@
 {
   "item_ring_of_health"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "56"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
-    "ItemShopTags"                                        "regen_health"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "roh;ring of health"
     "ItemShareability"                                    "ITEM_PARTIALLY_SHAREABLE" //OAA
     "SideShop"                                            "1" //OAA
     "SecretShop"                                          "0" //OAA
-
-    // Sound
-    //-------------------------------------------------------------------------------------------------------------
-    "UIPickupSound"                                       "Item.PickUpRingShop"
-    "UIDropSound"                                         "Item.DropRingShop"
-    "WorldDropSound"                                      "Item.DropRingWorld"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "4.75"
-      }
-    }
   }
 }

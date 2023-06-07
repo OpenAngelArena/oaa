@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tar Spill amplifies damage
+  // Shadow Strike bonus heal per tick
   //=================================================================================================================
-  "special_bonus_unique_tinkerer_7"
+  "special_bonus_unique_queen_of_pain_4_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3669"
+    "ID"                                                  "80629"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "15"
+        "value"                                           "60"
       }
     }
   }

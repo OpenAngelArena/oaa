@@ -2,28 +2,8 @@
 {
   "item_talisman_of_evasion"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "32"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1300"
-    "ItemShopTags"                                        "evasion"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "talisman of evasion"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "15"
-      }
-    }
   }
 }

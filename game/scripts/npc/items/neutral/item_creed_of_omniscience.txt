@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Creed of Omniscience - neutral tier 3 item
+  // Creed of Omniscience - custom neutral tier 3 item
   //=================================================================================================================
   "item_creed_of_omniscience"
   {
@@ -52,17 +52,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_cast_range"                                "100"
       }
-      // "02"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "bonus_attack_range"                              "100"
-      // }
-      // "03"
-      // {
-        // "var_type"                                        "FIELD_INTEGER"
-        // "bonus_attack_range_melee"                        "75"
-      // }
-      // "05"
+      // "06"
       // {
         // "var_type"                                        "FIELD_INTEGER"
         // "bonus_attack_projectile_speed"                   "600"
