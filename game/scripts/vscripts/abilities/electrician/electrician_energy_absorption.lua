@@ -231,12 +231,10 @@ function modifier_electrician_energy_absorption:OnDestroy()
 end
 
 function modifier_electrician_energy_absorption:DeclareFunctions()
-  local func = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-
-  return func
 end
 
 function modifier_electrician_energy_absorption:GetModifierMoveSpeedBonus_Constant()
@@ -303,12 +301,10 @@ function modifier_electrician_energy_absorption_debuff:OnDestroy()
 end
 
 function modifier_electrician_energy_absorption_debuff:DeclareFunctions()
-  local func = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-
-  return func
 end
 
 function modifier_electrician_energy_absorption_debuff:GetModifierMoveSpeedBonus_Constant()
@@ -336,11 +332,10 @@ function modifier_electrician_bonus_mana_count:IsPurgable()
 end
 
 function modifier_electrician_bonus_mana_count:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_EXTRA_MANA_BONUS,
     MODIFIER_EVENT_ON_SPENT_MANA
   }
-  return funcs
 end
 
 function modifier_electrician_bonus_mana_count:GetModifierExtraManaBonus()
