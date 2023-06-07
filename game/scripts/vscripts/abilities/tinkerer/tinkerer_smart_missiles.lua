@@ -139,8 +139,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return false
   end
 
-  local bonus_max_hp_damage = self:GetSpecialValueFor("bonus_max_hp_damage")
-  local bonus_damage_range = self:GetSpecialValueFor("bonus_damage_range")
+  local bonus_damage_max_range = self:GetSpecialValueFor("bonus_damage_max_range")
+  local bonus_hp_damage_max = self:GetSpecialValueFor("bonus_hp_damage_max")
+  local bonus_hp_damage_min = self:GetSpecialValueFor("bonus_hp_damage_min")
   local stun_duration = self:GetSpecialValueFor("stun_duration")
   local rocket_vision = self:GetSpecialValueFor("rocket_vision")
   local rocket_explode_vision = self:GetSpecialValueFor("rocket_explode_vision")
@@ -148,13 +149,14 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   -- Calculate traveled distance
   local origin_position = Vector(tonumber(data.ox), tonumber(data.oy), tonumber(data.oz))
-  local travel_distance = (location - origin_position):Length2D()
+  local travel_distance = math.min((location - origin_position):Length2D(), bonus_damage_max_range)
 
-  -- Calculate bonus damage if traveled distance is higher than the threshold for non-boss units
-  local bonus_damage = 0
-  if travel_distance >= bonus_damage_range then
-    bonus_damage = target:GetMaxHealth() * bonus_max_hp_damage * 0.01
-  end
+  -- Multiplier from 0.0 to 1.0 for bonus damage based on travel distance
+  local dist_mult = travel_distance / bonus_damage_max_range
+  
+  -- Bonus damage based on target's max health, max health multiplier is based traveled distance
+  local max_hp_mult = (bonus_hp_damage_max - bonus_hp_damage_min) * dist_mult + bonus_hp_damage_min
+  local bonus_damage = target:GetMaxHealth() * max_hp_mult * 0.01
 
   if target:IsOAABoss() then
     bonus_damage = bonus_damage * 15/100
