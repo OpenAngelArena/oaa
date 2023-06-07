@@ -153,7 +153,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   -- Multiplier from 0.0 to 1.0 for bonus damage based on travel distance
   local dist_mult = travel_distance / bonus_damage_max_range
-  
+
   -- Bonus damage based on target's max health, max health multiplier is based traveled distance
   local max_hp_mult = (bonus_hp_damage_max - bonus_hp_damage_min) * dist_mult + bonus_hp_damage_min
   local bonus_damage = target:GetMaxHealth() * max_hp_mult * 0.01
