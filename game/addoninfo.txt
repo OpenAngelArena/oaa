@@ -8,6 +8,7 @@
 		"oaa_legacy",
 		"captains_mode",
 		"10v10",
+		"oaa_bigmode",
 	]
 	IsPlayable = 1
 	PenaltiesEnabled = false
@@ -33,6 +34,10 @@
 		{
 			MaxPlayers = 10
 			map = "oaa_legacy"
+		},
+		{
+			MaxPlayers = 10
+			map = "oaa_bigmode"
 		},
 	]
 	HideInTools = false
