@@ -294,6 +294,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     '61', // item_vitality_booster
     '216', // item_enchanted_mango
     '265', // item_infused_raindrop
+    '357', // item_nether_shawl
     '609', // item_aghanims_shard
     '1125', // item_cornucopia
     '5527', // shredder_chakram
