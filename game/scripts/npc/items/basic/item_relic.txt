@@ -3,28 +3,8 @@
   // Sacred Relic
   "item_relic"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "54"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3400"
-    "ItemShopTags"                                        "damage"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "sacred relic"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "55"
-      }
-    }
   }
 }

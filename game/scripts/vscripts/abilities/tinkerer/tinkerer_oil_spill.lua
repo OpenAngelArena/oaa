@@ -92,9 +92,11 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     end
   end
 
-  target:EmitSound("Hero_Grimstroke.InkOver.Target")
+  if target then
+    target:EmitSound("Hero_Grimstroke.InkOver.Target")
 
-  target:ForceKill(false)
+    target:ForceKill(false)
+  end
 
   return true
 end

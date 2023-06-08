@@ -3,34 +3,10 @@
   // Tango
   "item_tango"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "44"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
-    "Model"                                               "models/props_gameplay/tango.vmdl"
-    "Effect"                                              "particles/generic_gameplay/dropped_tango.vpcf"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "165"
-    "AbilityCastPoint"                                    "0.0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "60" //OAA
-    "ItemShopTags"                                        "consumable"
-    "ItemQuality"                                         "consumable"
-    "ItemAliases"                                         "tango"
-    "ItemStackable"                                       "1"
-    "ItemPermanent"                                       "0"
-    "ItemStockMax"                                        "8"
-    "ItemStockInitial"                                    "8"
     "ItemStockTime"                                       "1" //OAA
-    "ItemInitialCharges"                                  "3"
-    "IsTempestDoubleClonable"                             "0"
-    "ShouldBeInitiallySuggested"                          "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

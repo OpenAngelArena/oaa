@@ -22,11 +22,7 @@ function electrician_electric_shield:GetManaCost(level)
   if baseCost < currentMana then
     local fullCost = caster:GetMaxMana() * ( self:GetSpecialValueFor( "mana_cost" ) * 0.01 )
 
-    if currentMana < fullCost then
-      cost = currentMana
-    else
-      cost = fullCost
-    end
+    cost = math.min(currentMana, fullCost)
   end
 
   -- GetManaCost gets called after paying the cost but before OnSpellStart occurs
@@ -76,9 +72,9 @@ function electrician_electric_shield:OnToggle()
   end
   if self:GetToggleState() then
     caster:AddNewModifier(caster, self, "modifier_electrician_electric_shield", {
-    duration = -1,
-    shieldHP = -1,
-  } )
+      duration = -1,
+      shieldHP = -1,
+    } )
   else
     caster:RemoveModifierByNameAndCaster("modifier_electrician_electric_shield", caster)
   end
@@ -104,12 +100,15 @@ function modifier_electrician_electric_shield:IsDebuff()
 end
 
 function modifier_electrician_electric_shield:IsHidden()
-	return false
+  if self:GetParent():HasShardOAA() then
+    return false
+  end
+
+  return true
 end
 
 function modifier_electrician_electric_shield:IsPurgable()
-  local parent = self:GetParent()
-  if parent:HasShardOAA() then
+  if self:GetParent():HasShardOAA() then
     return false
   end
 

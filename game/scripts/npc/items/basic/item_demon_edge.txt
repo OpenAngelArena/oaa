@@ -2,28 +2,8 @@
 {
   "item_demon_edge"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "51"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2200"
-    "ItemShopTags"                                        "damage"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "demon edge"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40"
-      }
-    }
   }
 }

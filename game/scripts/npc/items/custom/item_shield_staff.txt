@@ -78,7 +78,7 @@
       "01" // Force Staff (10)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "10 25 45 70 100"
+        "bonus_intellect"                                 "10 15 25 40 60"
       }
       "02" // Vanguard (250) + Force Staff (175)
       {
@@ -105,15 +105,15 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_magic_resistance"                          "0"
       }
-      "07"
+      "07" // Vanguard (56)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_attack_damage_block_melee"               "70 120 170 220 270"
+        "passive_attack_damage_block_melee"               "60 120 180 240 300"
       }
-      "08"
+      "08" // Vanguard (28)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "passive_attack_damage_block_ranged"              "35 70 105 140 175"
+        "passive_attack_damage_block_ranged"              "30 60 90 120 150"
       }
       "09" // Vanguard (60)
       {

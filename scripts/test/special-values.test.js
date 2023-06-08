@@ -271,10 +271,32 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 
   // for completely reworked abilities and irrelevant stuff
   const ignoreValuesForIDs = [
+    '9', // item_platemail
+    '24', // item_ultimate_orb
+    '29', // item_boots
+    '30', // item_gem
+    '32', // item_talisman_of_evasion
+    '38', // item_clarity
     '40', // item_dust
     '42', // item_ward_observer
     '43', // item_ward_sentry
+    '46', // item_tpscroll
+    '51', // item_demon_edge
+    '52', // item_eagle
+    '53', // item_reaver
+    '54', // item_relic
+    '55', // item_hyperstone
+    '56', // item_ring_of_health
+    '57', // item_void_stone
+    '58', // item_mystic_staff
+    '59', // item_energy_booster
+    '60', // item_point_booster
+    '61', // item_vitality_booster
+    '216', // item_enchanted_mango
+    '265', // item_infused_raindrop
+    '357', // item_nether_shawl
     '609', // item_aghanims_shard
+    '1125', // item_cornucopia
     '5527', // shredder_chakram
     '5645' // shredder_chakram_2
     // '5109', // tiny_grow

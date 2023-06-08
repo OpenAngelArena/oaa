@@ -2,28 +2,8 @@
 {
   "item_hyperstone"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "55"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2000"
-    "ItemShopTags"                                        "attack_speed"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "hyperstone"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "60"
-      }
-    }
   }
 }

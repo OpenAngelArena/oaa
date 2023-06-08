@@ -400,11 +400,11 @@ end
 modifier_shield_staff_barrier_buff = class(ModifierBaseClass)
 
 function modifier_shield_staff_barrier_buff:IsDebuff()
-	return false
+  return false
 end
 
 function modifier_shield_staff_barrier_buff:IsHidden()
-	return false
+  return true
 end
 
 function modifier_shield_staff_barrier_buff:IsPurgable()

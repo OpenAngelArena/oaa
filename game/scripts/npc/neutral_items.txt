@@ -6,36 +6,37 @@
     {
       "0:00"
       {
-        "0"                                               "7"
-        "1"                                               "7"
-        "2"                                               "7"
-        "3"                                               "7"
-        "4"                                               "7"
+        "0"                                               "10"
+        "1"                                               "10"
+        "2"                                               "10"
+        "3"                                               "10"
+        "4"                                               "10"
       }
     }
 
     "items"
     {
-      //"item_keen_optic"                "1"
       "item_trusty_shovel_oaa"                            "1" // replaces item_trusty_shovel
       "item_arcane_ring"                                  "1"
-      //"item_possessed_mask"            "1"
       "item_angel_heart"                                  "1" // replaces item_mysterious_hat
       "item_unstable_wand"                                "1"
-      //"item_pogo_stick"                "1"
-      //"item_seeds_of_serenity"         "1"
       "item_lance_of_pursuit"                             "1"
       "item_occult_bracelet"                              "1"
-      //"item_ocean_heart"               "1"
       "item_broom_handle"                                 "1"
       "item_chipped_vest"                                 "1"
-      //"item_royal_jelly"               "1"
-      //"item_faded_broach"              "1"
-      //"item_ironwood_tree_oaa"         "1" // replaces item_ironwood_tree
       "item_poor_mans_shield"                             "1"
       "item_moon_crest"                                   "1"
       "item_spark_of_courage"                             "1"
       "item_duelist_gloves"                               "1"
+
+      //"item_possessed_mask"            "1"
+      //"item_keen_optic"                "1"
+      //"item_royal_jelly"               "1"
+      //"item_faded_broach"              "1"
+      //"item_ironwood_tree_oaa"         "1" // replaces item_ironwood_tree
+      //"item_pogo_stick"                "1"
+      //"item_seeds_of_serenity"         "1"
+      //"item_ocean_heart"               "1"
     }
   }
   "2"
@@ -55,26 +56,27 @@
     "items"
     {
       "item_ring_of_aquila"                               "1"
-      //"item_imp_claw"                  "1"
       "item_nether_shawl"                                 "1"
       "item_dragon_scale_oaa"                             "1" // replaces item_dragon_scale
-      //"item_pupils_gift"               "1"
       "item_vambrace"                                     "1"
-      //"item_misericorde"                                  "1"
       "item_grove_bow"                                    "1"
       "item_demon_stone"                                  "1" // replaces item_philosophers_stone
+      "item_specialists_array"                            "1"
+      "item_eye_of_the_vizier"                            "1"
+      "item_cloak_of_flames"                              "1" // moved from tier 3
+      "item_orb_of_destruction"                           "1"
+      "item_gossamer_cape"                                "1"
+      "item_dandelion_amulet"                             "1" // moved from tier 3
+
+      //"item_clumsy_net"                "1"
       //"item_essence_ring"              "1"
       //"item_paintball"                 "1"
       //"item_bullwhip"                  "1"
       //"item_quicksilver_amulet"        "1"
       //"item_dagger_of_ristul"          "1"
-      "item_specialists_array"                            "1"
-      "item_eye_of_the_vizier"                            "1"
-      //"item_clumsy_net"                "1"
-      "item_cloak_of_flames"                              "1" // moved from tier 3
-      "item_orb_of_destruction"                           "1"
-      "item_gossamer_cape"                                "1"
-      "item_dandelion_amulet"                             "1" // moved from tier 3
+      //"item_misericorde"               "1"
+      //"item_pupils_gift"               "1"
+      //"item_imp_claw"                  "1"
     }
   }
   "3"
@@ -94,23 +96,23 @@
     "items"
     {
       "item_quickening_charm"                             "1"
-      //"item_black_powder_bag"          "1"
-      //"item_spider_legs"               "1"
       "item_paladin_sword"                                "1"
       "item_titan_sliver"                                 "1"
       "item_mind_breaker"                                 "1"
       "item_enchanted_quiver"                             "1"
       "item_elven_tunic"                                  "1"
-      //"item_cloak_of_flames"           "1"
-      "item_blood_sword"                                  "1"
       "item_ceremonial_robe"                              "1"
-      //"item_psychic_headband"          "1"
       "item_creed_of_omniscience"                         "1"
       "item_ogre_seal_totem"                              "1"
-      //"item_flicker"                   "1" // moved from tier 4
-      //"item_stormcrafter"              "1" // moved from tier 4
+      "item_stormcrafter"                                 "1" // moved from tier 4
       "item_vindicators_axe"                              "1"
       "item_defiant_shell"                                "1"
+
+      //"item_flicker"                   "1" // moved from tier 4
+      //"item_psychic_headband"          "1"
+      //"item_cloak_of_flames"           "1"
+      //"item_black_powder_bag"          "1"
+      //"item_spider_legs"               "1"
     }
   }
   "4"
@@ -131,22 +133,24 @@
     {
       "item_timeless_relic"                               "1"
       "item_spell_prism"                                  "1"
-      //"item_ascetic_cap"               "1"
       "item_heavy_blade"                                  "1"
-      //"item_flicker"                   "1"
       "item_psychic_headband"                             "1"
       "item_ninja_gear"                                   "1"
+      "item_blood_sword"                                  "1"
+      "item_telescope_oaa"                                "1" // replaces item_spy_gadget
+      "item_trickster_cloak"                              "1"
+      "item_princes_knife"                                "1"
+      "item_rune_breaker_oaa"                             "1" // replaces item_penta_edged_sword
+      "item_craggy_coat_oaa"                              "1" // replaces item_havoc_hammer
+      "item_ancient_relic"                                "1"
+
       //"item_illusionsts_cape"          "1"
       //"item_fortitude_ring"            "1"
       //"item_the_leveller"              "1"
       //"item_minotaur_horn"             "1"
-      "item_telescope_oaa"                                "1" // replaces item_spy_gadget
-      "item_trickster_cloak"                              "1"
-      "item_princes_knife"                                "1"
       //"item_stormcrafter"              "1"
-      "item_rune_breaker_oaa"                             "1" // replaces item_penta_edged_sword
-      "item_craggy_coat_oaa"                              "1" // replaces item_havoc_hammer
-      "item_ancient_relic"                                "1"
+      //"item_flicker"                   "1"
+      //"item_ascetic_cap"               "1"
     }
   }
   "5"
@@ -170,14 +174,15 @@
       "item_seer_stone"                                   "1"
       "item_mirror_shield"                                "1"
       "item_apex"                                         "1"
-      //"item_ballista"                  "1"
       "item_reflex_core"                                  "1" // replaces item_demonicon
       "item_fallen_sky"                                   "1"
       "item_force_field"                                  "1"
-      //"item_pirate_hat"                "1"
       "item_ex_machina"                                   "1"
       "item_giants_ring"                                  "1"
       "item_book_of_shadows"                              "1"
+
+      //"item_ballista"                  "1"
+      //"item_pirate_hat"                "1"
     }
   }
 }

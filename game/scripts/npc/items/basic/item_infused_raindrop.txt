@@ -5,67 +5,8 @@
   //=================================================================================================================
   "item_infused_raindrop"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "265"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "7.0"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "225"
-    "ItemShopTags"                                        "armor"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "raindrop"
-    "SideShop"                                            "0"
-    "ItemStackable"                                       "0"
-    "ItemPermanent"                                       "0"
-    "ItemInitialCharges"                                  "6"
-    "ItemHideCharges"                                     "0"
-
-    "ItemStockTime"                                       "1"
-    "ItemStockInitial"                                    "0"
-    "ItemStockMax"                                        "1"
-    "ItemInitialStockTime"                                "1.0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "mana_regen"                                      "0.8"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_armor"                                     "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magical_armor"                             "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_damage_block"                              "120"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "75"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "initial_charges"                                 "6"
-      }
-    }
+    "ItemInitialStockTime"                                "0.1" //OAA
   }
 }
