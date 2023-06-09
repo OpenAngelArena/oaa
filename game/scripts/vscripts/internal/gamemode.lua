@@ -103,13 +103,14 @@ function GameMode:_InitGameMode()
   GameMode._reentrantCheck = false
 end
 
-mode = nil
+CAPTURED_GAME_MODE_ALREADY = false
 
 -- This function is called as the first player loads and sets up the GameMode parameters
 function GameMode:_CaptureGameMode()
-  if mode == nil then
+  if not CAPTURED_GAME_MODE_ALREADY then
+    CAPTURED_GAME_MODE_ALREADY = true
     -- Set GameMode parameters
-    mode = GameRules:GetGameModeEntity()
+    local mode = GameRules:GetGameModeEntity()
     mode:SetDraftingBanningTimeOverride(0)
     mode:SetDraftingHeroPickSelectTimeOverride(CAPTAINS_MODE_TOTAL + 1)
     mode:SetRecommendedItemsDisabled( RECOMMENDED_BUILDS_DISABLED )
@@ -162,6 +163,8 @@ function GameMode:_CaptureGameMode()
     mode:SetCustomBackpackSwapCooldown(3.0)
     mode:SetDefaultStickyItem("item_aghanims_shard")
     mode:DisableHudFlip(true)
+    mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20) -- Health per strength
+    mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.6) -- Damage per attribute for universal heroes
 
     self:OnFirstPlayerLoaded()
   end
