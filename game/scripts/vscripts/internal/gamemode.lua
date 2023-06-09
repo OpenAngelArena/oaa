@@ -164,7 +164,7 @@ function GameMode:_CaptureGameMode()
     mode:SetDefaultStickyItem("item_aghanims_shard")
     mode:DisableHudFlip(true)
     mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20) -- Health per strength
-    mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.6) -- Damage per attribute for universal heroes
+    --mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.6) -- Damage per attribute for universal heroes
 
     self:OnFirstPlayerLoaded()
   end
