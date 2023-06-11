@@ -2,28 +2,8 @@
 {
   "item_ultimate_orb"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "24"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2050"
-    "ItemShopTags"                                        "agi;int;str"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "ultimate orb"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10"
-      }
-    }
   }
 }

@@ -3,29 +3,7 @@
   // Boots of Speed / Brown Boots
   "item_boots"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "29"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Model"                                               "models/props_gameplay/boots_of_speed.vmdl"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "500"
-    "ItemShopTags"                                        "move_speed"
-    "ItemQuality"                                         "component"
-    "ItemAliases"                                         "boots of speed"
     "SideShop"                                            "1" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "45"
-      }
-    }
   }
 }

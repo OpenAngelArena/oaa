@@ -2,45 +2,8 @@
 {
   "item_dust"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "40"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "Model"                                               "models/props_gameplay/dust.vmdl"
-    "Effect"                                              "particles/generic_gameplay/dropped_dust.vpcf"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0"
-    "AbilityCastRange"                                    "1050"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "80"
-    "ItemShopTags"                                        "consumable"
-    "ItemQuality"                                         "consumable"
-    "ItemAliases"                                         "dust of appearance"
-    "ItemStackable"                                       "1"
-    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"                                       "0"
-    "ItemInitialCharges"                                  "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES"
-    "ItemSupport"                                         "1"
-    "IsTempestDoubleClonable"                             "0"
 
     "SideShop"                                            "1" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
-    {
-      "duration"                                          "12"
-      "radius"                                            "1050"
-      "movespeed"                                         "-20"
-      "damage"                                            "25"
-      "linger_duration"                                   "8"
-    }
   }
 }

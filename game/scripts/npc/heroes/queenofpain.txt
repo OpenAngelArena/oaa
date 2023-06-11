@@ -7,10 +7,25 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
+    //"Ability10"                                           "special_bonus_attack_damage_20"
     "Ability11"                                           "special_bonus_strength_16" // replaces special_bonus_strength_11
 
+    "Ability12"                                           "special_bonus_unique_queen_of_pain_4_oaa" // replaces special_bonus_unique_queen_of_pain_4
     "Ability13"                                           "special_bonus_attack_speed_60" // replaces special_bonus_attack_speed_30
 
+    //"Ability14"                                           "special_bonus_unique_queen_of_pain_2"
+    //"Ability15"                                           "special_bonus_unique_queen_of_pain_3"
+
     "Ability16"                                           "special_bonus_unique_queen_of_pain_5" // replaces special_bonus_unique_queen_of_pain_6
+    //"Ability17"                                           "special_bonus_unique_queen_of_pain_7"
+
+  // special_bonus_unique_queen_of_pain - "{s:value} AoE Shadow Strike"
+  // special_bonus_unique_queen_of_pain_2 - "+{s:bonus_damage} Scream of Pain Damage"                    - buffed to 240
+  // special_bonus_unique_queen_of_pain_3 - "-{s:bonus_AbilityCooldown}s Sonic Wave Cooldown"
+  // special_bonus_unique_queen_of_pain_4 - "-{s:bonus_damage_interval}s Shadow Strike Damage Interval"  - terrible
+  // special_bonus_unique_queen_of_pain_5 - "Sonic Wave {s:value}s Fear"                                 - buffed to 1.75s
+  // special_bonus_unique_queen_of_pain_6 - "-{s:value}s Blink Cooldown"                                 - annoying
+  // special_bonus_unique_queen_of_pain_7 - "+{s:bonus_damage} Sonic Wave Damage"                        - buffed to 400
+  // special_bonus_unique_queen_of_pain_4_oaa - "+{s:value} Shadow Strike Heal per Tick"                 - custom talent
   }
 }

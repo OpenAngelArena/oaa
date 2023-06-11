@@ -53,12 +53,14 @@
 // "DOTA_Tooltip_ability_tinker_keen_teleport_Description"                        "After channeling for %abilitychanneltime%s teleport to a target friendly structure. Level 2 allows teleporting to friendly units and Level 3 to friendly heroes."
 
 "DOTA_Tooltip_ability_tinkerer_smart_missiles"                                  "Smart Missiles"
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a missile in that direction, hitting the first enemy unit it touches. The missile deals damage and applies a mini-stun. The missile will deal bonus damage equal to the percentage of target's max health if it travelled %bonus_damage_range% units or more. Smart Missiles grant vision around themselves."
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a missile in that direction. The missile will damage neutral creeps during travel and explode on the first player-controlled unit, mini-stunning it and dealing bonus damage. The bonus damage is based on the unit's max health and the traveled distance of the missile. Smart Missiles provide vision."
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_Lore"                             "#{DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore}"
-"DOTA_Tooltip_Ability_tinkerer_smart_missiles_Note0"                            "Smart Missiles will not hit Neutral Creeps, but they will hit Bosses."
+"DOTA_Tooltip_Ability_tinkerer_smart_missiles_Note0"                            "Smart Missiles will explode on summoned units and Bosses."
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_base_damage"                      "BASE DAMAGE:"
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_max_hp_damage"              "%MAX HP DAMAGE:"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_hp_damage_max"              "%MAX BONUS DAMAGE:"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_hp_damage_min"              "%MIN BONUS DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_stun_duration"                    "STUN DURATION:"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_damage_max_range"           "MAX BONUS DAMAGE RANGE:"
 
 "DOTA_Tooltip_ability_tinkerer_oil_spill"                                       "Tar Spill"
 "DOTA_Tooltip_ability_tinkerer_oil_spill_Description"                           "Target a location to smother enemy units in tar. Applies percentage movement and attack speed slow to all enemies in the target area when the tar projectile hits the ground. Enemy units covered in tar will ignite once they take any spell or item damage. Igniting will cause the unit to take %burn_dps% damage per second and increase the duration by %ignite_extra_duration% seconds."
@@ -70,7 +72,7 @@
 "DOTA_Tooltip_ability_tinkerer_oil_spill_burn_dps"                              "BURN DAMAGE PER SECOND:"
 
 "DOTA_Tooltip_ability_tinkerer_laser_contraption"                               "Laser Contraption"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_Description"                   "Fires an intense energy beam, dealing damage to all enemy units in the target area and creates a keen node trap that will start damaging all caught enemies after %delay% seconds every %damage_interval% seconds. Enemies can destroy Keen Nodes with attacks and the trap will deal less damage. Tinkerer can destroy Keen Nodes with just one attack."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_Description"                   "Fires an intense energy beam, dealing damage to all enemy units in the target area and creates a keen node trap that will start damaging all caught enemies after %delay% seconds every %damage_interval% seconds. Keen Nodes can be destroyed with attacks and the trap will deal less damage. Tinkerer and his allies can destroy Keen Nodes with just one attack."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_Lore"                          "One of Tinkerer's inventions of which he is most proud is the keen node - though it is sometimes despised by his allies."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_radius"                        "RADIUS:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_duration"                      "DURATION:"
@@ -117,4 +119,4 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Amplifies Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by 25%."
 
-"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          ""
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          "Laser Contraption Applies Tar Spill"

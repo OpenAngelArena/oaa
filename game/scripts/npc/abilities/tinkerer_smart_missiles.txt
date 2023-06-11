@@ -57,8 +57,9 @@
       "rocket_width"                                      "110" // original: 75
       "rocket_range"                                      "3000"
       "rocket_vision"                                     "400"
-      "bonus_max_hp_damage"                               "7"
-      "bonus_damage_range"                                "1800"
+      "bonus_hp_damage_max"                               "8"
+      "bonus_hp_damage_min"                               "0.1"
+      "bonus_damage_max_range"                            "2000"
       "stun_duration"                                     "0.1"
       "rocket_explode_vision"                             "400"
       "vision_duration"                                   "1.5"

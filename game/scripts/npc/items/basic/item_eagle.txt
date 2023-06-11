@@ -3,28 +3,8 @@
   // Eagle Horn / Eaglesong
   "item_eagle"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "52"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2800"
-    "ItemShopTags"                                        "agi"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "eaglesong"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25"
-      }
-    }
   }
 }

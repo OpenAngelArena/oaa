@@ -1,7 +1,7 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Tinker
+  // HERO: Tinker(er)
   //=================================================================================================================
   "npc_dota_hero_tinker"
   {
@@ -19,31 +19,32 @@
     "Ability13"                                           "special_bonus_unique_tinkerer_3" // replaces special_bonus_unique_tinker_6
 
     "Ability14"                                           "special_bonus_unique_tinker_defense_matrix_cdr"
-    "Ability15"                                           "special_bonus_unique_tinkerer_6" // replaces special_bonus_unique_tinker_5
+    "Ability15"                                           "special_bonus_unique_tinkerer_7" // replaces special_bonus_unique_tinker_5
 
     "Ability16"                                           "special_bonus_unique_tinkerer_1" // replaces special_bonus_unique_tinker
-    "Ability17"                                           "special_bonus_unique_tinkerer_7" // replaces special_bonus_unique_tinker_3
+    "Ability17"                                           "special_bonus_unique_tinkerer_8" // replaces special_bonus_unique_tinker_3
 
     // special_bonus_unique_tinkerer_1 - Smart Missiles Multishot
     // special_bonus_unique_tinkerer_2 - Smart Missiles bonus damage
     // special_bonus_unique_tinkerer_3 - Smart Missiles bonus AoE
     // special_bonus_unique_tinkerer_4 - Tar Spill bonus duration - unused
     // special_bonus_unique_tinkerer_5 - Tar Spill bonus slow
-    // special_bonus_unique_tinkerer_6 - Tar Spill bonus burn damage
+    // special_bonus_unique_tinkerer_6 - Tar Spill bonus burn damage - unused
     // special_bonus_unique_tinkerer_7 - Tar Spill amplifies damage
+    // special_bonus_unique_tinkerer_8 - Laser Contraption applies Tar Spill
     // special_bonus_unique_tinker_7 - Defense Matrix bonus damage absorbed
 
     //"Ability25"                                           "special_bonus_attributes"
 
     //"AbilityTalentStart"                                  "10"
 
-    "ArmorPhysical"                                       "0"
+    "ArmorPhysical"                                       "2"
     "MagicalResistance"                                   "25"
 
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "BaseAttackSpeed"                                     "100"
-    "AttackDamageMin"                                     "22"
-    "AttackDamageMax"                                     "28"
+    "AttackDamageMin"                                     "27"
+    "AttackDamageMax"                                     "33"
     "AttackRate"                                          "1.7"
     "AttackAnimationPoint"                                "0.35"
     "AttackAcquisitionRange"                              "800"
@@ -52,9 +53,9 @@
     "ProjectileSpeed"                                     "900" // original: 1500
 
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_INTELLECT"
-    "AttributeBaseStrength"                               "18"  // original: 19
+    "AttributeBaseStrength"                               "19"  // original: 19
     "AttributeStrengthGain"                               "2.5" // original: 1.6
-    "AttributeBaseIntelligence"                           "30"  // original: 25
+    "AttributeBaseIntelligence"                           "25"  // original: 25
     "AttributeIntelligenceGain"                           "3.0" // original: 3.0
     "AttributeBaseAgility"                                "20"
     "AttributeAgilityGain"                                "1.5"

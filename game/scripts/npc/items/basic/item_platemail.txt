@@ -2,28 +2,8 @@
 {
   "item_platemail"
   {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "9"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1400"
-    "ItemShopTags"                                        "armor"
-    "ItemQuality"                                         "secret_shop"
-    "ItemAliases"                                         "platemail"
     "SecretShop"                                          "0" //OAA
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10"
-      }
-    }
   }
 }

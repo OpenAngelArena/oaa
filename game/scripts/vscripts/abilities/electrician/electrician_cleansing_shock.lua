@@ -119,15 +119,31 @@ function electrician_cleansing_shock:ApplyEffect( target )
       target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
     end
 
-    -- Deal damage to summons, illusions and dominated units if caster has aghanim scepter
+    -- Check for current hp damage talent
+    local talent2 = caster:FindAbilityByName("special_bonus_unique_electrician_9")
+    if talent2 and talent2:GetLevel() > 0 then
+      local damage_table = {
+        attacker = caster,
+        victim = target,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        ability = self,
+        damage = target:GetHealth() * talent2:GetSpecialValueFor("value") * 0.01
+      }
+
+      ApplyDamage(damage_table)
+    end
+
+    -- Deal extra damage to summons, illusions and dominated units if caster has aghanim scepter
     if caster:HasScepter() and (target:IsSummoned() or target:IsDominated() or target:IsIllusion()) and not target:IsStrongIllusionOAA() then
-      local summon_damage = self:GetSpecialValueFor( "summon_illusion_damage_scepter" )
-      local damage_table = {}
-      damage_table.attacker = caster
-      damage_table.victim = target
-      damage_table.damage_type = DAMAGE_TYPE_PURE
-      damage_table.ability = self
-      damage_table.damage = summon_damage
+      local summon_damage = self:GetSpecialValueFor("summon_illusion_damage_scepter")
+      local damage_table = {
+        attacker = caster,
+        victim = target,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        ability = self,
+        damage = summon_damage
+      }
+
       ApplyDamage(damage_table)
     end
   else
@@ -138,15 +154,17 @@ function electrician_cleansing_shock:ApplyEffect( target )
     target:AddNewModifier( caster, self, "modifier_electrician_cleansing_shock_ally", { duration = duration } )
   end
 
-  -- particle
-  local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
-  ParticleManager:ReleaseParticleIndex( part )
+  if not target:IsNull() then
+    -- particle
+    local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_static_field.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+    ParticleManager:ReleaseParticleIndex( part )
 
-  -- sound
-  target:EmitSound( "Hero_Tinker.LaserImpact" )
+    -- sound
+    target:EmitSound( "Hero_Tinker.LaserImpact" )
 
-  -- add unit to hitlist
-  table.insert( self.hitTargets, target )
+    -- add unit to hitlist
+    table.insert( self.hitTargets, target )
+  end
 end
 
 --------------------------------------------------------------------------------

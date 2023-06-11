@@ -1,0 +1,20 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Color ----
+	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[0.100 0.100]"
+	TextureColor "materials/ground/lava_green_color.png"
+
+
+	VariableState
+	{
+		"Color"
+		{
+		}
+	}
+}
