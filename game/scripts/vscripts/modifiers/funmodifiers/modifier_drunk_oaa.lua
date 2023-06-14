@@ -39,6 +39,23 @@ function modifier_drunk_oaa:OnCreated()
   self.crit_multiplier = 3
   self.miss_spell_chance = 15
 
+  self.ignore_abilities = {
+    chen_holy_persuasion = 1,                            -- dominating heroes lmao
+    clinkz_death_pact = 1,                               -- instant kill
+    doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    enigma_demonic_conversion = 1,                       -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    enigma_demonic_conversion_oaa = 1,                   -- instant kill
+    morphling_replicate = 1,                             -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    muerta_parting_shot = 1,                             -- bugged
+    night_stalker_hunter_in_the_night = 1,               -- instant kill
+    --rubick_spell_steal = 1,                              -- stealing boss spells
+    snapfire_gobble_up = 1,                              -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    treant_eyes_in_the_forest = 1,                       -- bugged
+    --undying_tombstone_grab = 1,                          -- protecting enemy heroes lmao
+    --winter_wyvern_cold_embrace = 1,                      -- stunning enemies
+  }
+
   self:StartIntervalThink(1)
 end
 
@@ -193,6 +210,11 @@ if IsServer() then
 		if casting_unit ~= parent then
 			return
 		end
+
+    -- Check if cast ability is on ignore list
+    if self.ignore_abilities[ability:GetName()] then
+      return
+    end
 
 		-- Check if target of the executed ability is an ally of the target
 		--if target:GetTeamNumber() == parent:GetTeamNumber() then
