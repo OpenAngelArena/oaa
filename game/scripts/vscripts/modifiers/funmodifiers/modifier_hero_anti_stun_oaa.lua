@@ -1,3 +1,5 @@
+-- White Queen Immunity
+
 modifier_hero_anti_stun_oaa = class(ModifierBaseClass)
 
 function modifier_hero_anti_stun_oaa:IsHidden()

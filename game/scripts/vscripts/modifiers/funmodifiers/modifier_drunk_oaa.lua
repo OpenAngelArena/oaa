@@ -237,8 +237,8 @@ if IsServer() then
       end
     end
 
-		-- Redirect to the new_target (this method doesn't work for every unit target ability and item)
-		casting_unit:SetCursorCastTarget(new_target)
+    -- Redirect to the new_target (this method doesn't work for every unit target ability and item)
+    casting_unit:SetCursorCastTarget(new_target)
   end
 
   function modifier_drunk_oaa:FindRandomAlly(ability, target)

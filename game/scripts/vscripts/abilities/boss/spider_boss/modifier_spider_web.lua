@@ -9,7 +9,7 @@ end
 --------------------------------------------------------------------------
 
 function modifier_spider_web:IsAura()
-	if ( not self:GetParent():GetUnitName() == "npc_dota_creature_kidnap_spider" ) then
+	if self:GetParent():GetUnitName() ~= "npc_dota_creature_kidnap_spider" then
 		return true
 	else
 		return false
@@ -82,8 +82,7 @@ end
 --------------------------------------------------------------------------
 
 function modifier_spider_web:CheckState()
-	local state =
-	{
+	return {
 		[MODIFIER_STATE_INVULNERABLE] = true,
 		[MODIFIER_STATE_ATTACK_IMMUNE] = true,
 		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
@@ -91,6 +90,4 @@ function modifier_spider_web:CheckState()
 		[MODIFIER_STATE_MAGIC_IMMUNE] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
-
-	return state
 end

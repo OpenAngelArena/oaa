@@ -253,7 +253,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
     if not behavior then
       return
     end
-    isNoTarget = = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
+    isNoTarget = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
     isUnitTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
     isPointTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_POINT")
     if not isNoTarget and not isUnitTargetting and not isPointTargetting then
