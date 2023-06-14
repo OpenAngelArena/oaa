@@ -241,7 +241,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
   local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
-  local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
+  --local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
 
   -- If bit.band of behavior is malfunctioning or we somehow got an invalid ability, recheck the kv of the ability
   if not isNoTarget and not isUnitTargetting and not isPointTargetting then
