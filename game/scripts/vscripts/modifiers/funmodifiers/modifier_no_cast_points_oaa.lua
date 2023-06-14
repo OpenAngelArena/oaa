@@ -1,3 +1,5 @@
+-- Quick Spellcasting
+
 modifier_no_cast_points_oaa = class(ModifierBaseClass)
 
 function modifier_no_cast_points_oaa:IsHidden()

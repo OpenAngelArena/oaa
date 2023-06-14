@@ -18,7 +18,7 @@ local hero_mods = {
   --HM08 = "modifier_physical_immunity_oaa",
   HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
-  --HM11 = "modifier_troll_switch_oaa",
+  HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
   HM13 = "modifier_diarrhetic_oaa",
   HM14 = "modifier_rend_oaa",
@@ -32,13 +32,13 @@ local hero_mods = {
   HM22 = "modifier_nimble_oaa",
   HM23 = "modifier_sorcerer_oaa",
   HM24 = "modifier_any_damage_crit_oaa",
-  --HM25 = "modifier_hp_mana_switch_oaa",
+  HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
   HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
   HM30 = "modifier_hybrid_oaa",
-  HM31 = "modifier_drunk_oaa",
+  --HM31 = "modifier_drunk_oaa",
   HM32 = "modifier_any_damage_splash_oaa",
 }
 local boss_mods = {
@@ -123,7 +123,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_range_increase_oaa", "modifiers/funmodifiers/modifier_range_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_healer_oaa", "modifiers/funmodifiers/modifier_healer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_explosive_death_oaa", "modifiers/funmodifiers/modifier_explosive_death_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  --LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_boss_aggresive_oaa", "modifiers/funmodifiers/modifier_boss_aggresive_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_brute_oaa", "modifiers/funmodifiers/modifier_brute_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_wisdom_oaa", "modifiers/funmodifiers/modifier_wisdom_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -135,7 +135,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_magus_oaa", "modifiers/funmodifiers/modifier_magus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_brawler_oaa", "modifiers/funmodifiers/modifier_brawler_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_chaos_oaa", "modifiers/funmodifiers/modifier_chaos_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  --LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_hybrid_oaa", "modifiers/funmodifiers/modifier_hybrid_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_drunk_oaa", "modifiers/funmodifiers/modifier_drunk_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_any_damage_splash_oaa", "modifiers/funmodifiers/modifier_any_damage_splash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -151,6 +151,7 @@ function OAAOptions:Init ()
   LinkLuaModifier("modifier_hero_anti_stun_oaa", "modifiers/funmodifiers/modifier_hero_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_roshan_power_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
   LinkLuaModifier("modifier_titan_soul_oaa", "modifiers/funmodifiers/modifier_titan_soul_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+  LinkLuaModifier("modifier_glass_cannon_oaa", "modifiers/funmodifiers/modifier_glass_cannon_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
   DebugPrint('OAAOptions module Initialization finished!')
 end
@@ -258,7 +259,7 @@ end
 function OAAOptions:GetRandomModifier(mod_list)
   local options = {}
   for k, v in pairs(mod_list) do
-    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" then
+    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" and v ~= "modifier_diarrhetic_oaa" then
       table.insert(options, k)
     end
   end

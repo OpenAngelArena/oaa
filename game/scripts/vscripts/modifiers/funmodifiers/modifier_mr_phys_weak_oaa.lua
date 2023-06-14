@@ -1,3 +1,5 @@
+-- Fate's Weakness
+
 modifier_mr_phys_weak_oaa = class(ModifierBaseClass)
 
 function modifier_mr_phys_weak_oaa:IsHidden()

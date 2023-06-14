@@ -39,6 +39,7 @@ function modifier_blood_magic_oaa:OnDestroy()
   local parent = self:GetParent()
   if IsServer() and parent and parent:IsHero() then
     parent:CalculateStatBonus(true)
+    parent:GiveMana(self.bonus_hp + 1)
   end
 end
 
@@ -69,7 +70,7 @@ if IsServer() then
 end
 
 function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
-  return 3
+  return 2.5
 end
 
 function modifier_blood_magic_oaa:GetTexture()

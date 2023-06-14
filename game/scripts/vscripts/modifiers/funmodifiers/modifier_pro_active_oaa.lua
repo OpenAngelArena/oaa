@@ -25,7 +25,7 @@ function modifier_pro_active_oaa:OnCreated()
     abaddon_borrowed_time_oaa = true,
     brewmaster_primal_split = true,
     dark_willow_shadow_realm = true,
-    dazzle_good_juju = true,
+    --dazzle_good_juju = true,
     dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
     meepo_petrify = true,

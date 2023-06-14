@@ -81,7 +81,7 @@ end
 
 function modifier_brawler_stack_oaa:OnCreated()
   self.as_per_stack = 5
-  self.ms_per_stack = 5
+  self.ms_per_stack = 2
   self.dmg_per_stack = 2
 
   if IsServer() then
@@ -91,7 +91,7 @@ end
 
 function modifier_brawler_stack_oaa:OnRefresh()
   self.as_per_stack = 5
-  self.ms_per_stack = 5
+  self.ms_per_stack = 2
   self.dmg_per_stack = 2
 
   if IsServer() then
@@ -102,7 +102,7 @@ end
 function modifier_brawler_stack_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
   }
 end
@@ -115,7 +115,7 @@ function modifier_brawler_stack_oaa:GetModifierBaseDamageOutgoing_Percentage()
   return self:GetStackCount() * self.dmg_per_stack
 end
 
-function modifier_brawler_stack_oaa:GetModifierMoveSpeedBonus_Percentage()
+function modifier_brawler_stack_oaa:GetModifierMoveSpeedBonus_Constant()
   return self:GetStackCount() * self.ms_per_stack
 end
 

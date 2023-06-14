@@ -53,9 +53,17 @@ if IsServer() then
     end
 
     if no_wards_nearby then
-      local ward = CreateUnitByName("npc_dota_observer_wards", position, true, nil, parent, team)
-      ward:AddNewModifier(ward, nil, "modifier_kill", {duration = self.duration})
-      ward:AddNewModifier(ward, nil, "modifier_ward_invisibility", {})
+      local observer = CreateUnitByName("npc_dota_observer_wards", position, true, nil, parent, team)
+      observer:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
+      observer:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
+    else
+      local sentry = CreateUnitByName("npc_dota_sentry_wards", position, true, nil, parent, team)
+      sentry:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
+      sentry:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
+      sentry:AddNewModifier(parent, nil, "modifier_item_ward_true_sight", {
+        true_sight_range = 700,
+        duration = self.duration
+      })
     end
   end
 end

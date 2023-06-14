@@ -1,3 +1,5 @@
+-- Splasher
+
 modifier_any_damage_splash_oaa = class(ModifierBaseClass)
 
 function modifier_any_damage_splash_oaa:IsHidden()
@@ -28,7 +30,7 @@ end
 
 function modifier_any_damage_splash_oaa:OnCreated()
   self.splash_percent = 100
-  self.splash_radius = 275
+  self.splash_radius = 300
 end
 
 if IsServer() then
@@ -70,7 +72,7 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-spell-amplification flag
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Splasher)
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
       return
     end
@@ -80,11 +82,12 @@ if IsServer() then
       return
     end
 
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage = damage * self.splash_percent / 100
-    damage_table.damage_type = event.damage_type
-    damage_table.damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
+    local damage_table = {
+      attacker = parent,
+      damage = damage * self.splash_percent / 100,
+      damage_type = event.damage_type,
+      damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+    }
 
     local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
     local targetType = bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
@@ -96,6 +99,7 @@ if IsServer() then
       targetTeam = inflictor:GetAbilityTargetTeam()
       targetType = inflictor:GetAbilityTargetType()
       targetFlags = inflictor:GetAbilityTargetFlags()
+      damage_table.ability = inflictor
     end
 
     local targets = FindUnitsInRadius(

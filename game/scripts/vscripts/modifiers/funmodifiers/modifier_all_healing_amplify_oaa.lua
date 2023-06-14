@@ -1,3 +1,4 @@
+-- Anti-Judecca
 
 modifier_all_healing_amplify_oaa = class(ModifierBaseClass)
 

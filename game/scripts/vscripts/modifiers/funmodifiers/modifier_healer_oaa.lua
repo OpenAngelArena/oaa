@@ -1,4 +1,3 @@
-
 modifier_healer_oaa = class(ModifierBaseClass)
 
 function modifier_healer_oaa:IsHidden()
