@@ -1,3 +1,4 @@
+-- Telescope
 
 modifier_range_increase_oaa = class(ModifierBaseClass)
 

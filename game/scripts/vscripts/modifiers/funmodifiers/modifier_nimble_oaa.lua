@@ -1,4 +1,3 @@
-
 modifier_nimble_oaa = class(ModifierBaseClass)
 
 function modifier_nimble_oaa:IsHidden()

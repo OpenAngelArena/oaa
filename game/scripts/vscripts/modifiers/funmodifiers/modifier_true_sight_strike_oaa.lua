@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_truesight_aura_effect_oaa", "modifiers/funmodifiers/modifier_true_sight_strike_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Keeper of the Truth
+
 modifier_true_sight_strike_oaa = class(ModifierBaseClass)
 
 function modifier_true_sight_strike_oaa:IsHidden()

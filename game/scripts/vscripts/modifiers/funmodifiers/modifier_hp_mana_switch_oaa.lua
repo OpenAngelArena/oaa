@@ -1,4 +1,4 @@
--- Energy Switch
+-- Moriah's Shield
 
 modifier_hp_mana_switch_oaa = class(ModifierBaseClass)
 

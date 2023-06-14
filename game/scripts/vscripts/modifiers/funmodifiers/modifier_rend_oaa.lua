@@ -19,7 +19,7 @@ function modifier_rend_oaa:RemoveOnDeath()
 end
 
 function modifier_rend_oaa:OnCreated()
-  self.duration = 5
+  self.duration = 6
 end
 
 function modifier_rend_oaa:DeclareFunctions()

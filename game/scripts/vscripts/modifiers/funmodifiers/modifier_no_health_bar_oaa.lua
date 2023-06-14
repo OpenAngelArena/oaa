@@ -1,3 +1,4 @@
+-- Hidden Health Bar
 
 modifier_no_health_bar_oaa = class(ModifierBaseClass)
 

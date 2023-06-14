@@ -1,4 +1,3 @@
-
 modifier_sorcerer_oaa = class(ModifierBaseClass)
 
 function modifier_sorcerer_oaa:IsHidden()
@@ -26,7 +25,7 @@ function modifier_sorcerer_oaa:OnCreated()
 
   -- Put ability exemption in here
   self.exempt_ability_table = {
-    dazzle_good_juju = true,
+    --dazzle_good_juju = true,
     riki_permanent_invisibility = true,
     tinker_rearm = true,
     treant_natures_guise = true

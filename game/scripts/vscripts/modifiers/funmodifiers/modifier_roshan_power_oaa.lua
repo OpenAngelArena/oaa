@@ -1,6 +1,8 @@
 LinkLuaModifier("modifier_roshan_bash_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Roshan's Body
+
 modifier_roshan_power_oaa = class(ModifierBaseClass)
 
 function modifier_roshan_power_oaa:IsHidden()
@@ -19,21 +21,47 @@ function modifier_roshan_power_oaa:RemoveOnDeath()
   return false
 end
 
+function modifier_roshan_power_oaa:OnCreated()
+  self.move_speed_override = 270
+  self.spell_block_cd = 15
+  self.bash_chance = 15
+  self.bash_duration = 1.65
+  self.bash_damage = 50
+  self.status_resist = 25
+  --self.magic_resist = 55
+  self.dmg_per_minute = 6
+end
+
 function modifier_roshan_power_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
     MODIFIER_PROPERTY_MODEL_CHANGE,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
     MODIFIER_PROPERTY_ABSORB_SPELL,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
 function modifier_roshan_power_oaa:GetModifierMoveSpeedOverride()
-  return 270
+  return self.move_speed_override
 end
 
 function modifier_roshan_power_oaa:GetModifierModelChange()
   return "models/creeps/roshan/roshan.vmdl"
+end
+
+function modifier_roshan_power_oaa:GetModifierStatusResistanceStacking()
+  return self.status_resist
+end
+
+--function modifier_roshan_power_oaa:GetModifierMagicalResistanceBonus()
+  --return self.magic_resist
+--end
+
+function modifier_roshan_power_oaa:GetModifierPreAttack_BonusDamage()
+  return math.max(self.dmg_per_minute, self.dmg_per_minute * math.floor(GameRules:GetGameTime() / 60))
 end
 
 if IsServer() then
@@ -51,11 +79,11 @@ if IsServer() then
       return 0
     end
 
-    local chance = 15
+    local chance = self.bash_chance
 
     if RandomInt(1, 100) <= chance then
-      local duration = 1.65
-      local damage = 50
+      local duration = self.bash_duration
+      local damage = self.bash_damage
 
       duration = target:GetValueChangedByStatusResistance(duration)
 
@@ -93,7 +121,7 @@ if IsServer() then
       return 0
     end
 
-    local cooldown = 15
+    local cooldown = self.spell_block_cd
 
     -- Sound
     parent:EmitSound("DOTA_Item.LinkensSphere.Activate")

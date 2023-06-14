@@ -43,7 +43,7 @@
 "game_option_nimble"                                                            "Nimble"
 "game_option_sorcerer"                                                          "Sorcerer"
 "game_option_max_power"                                                         "Max Power"
-"game_option_hp_mana_switch"                                                    "Energy Switch"
+"game_option_hp_mana_switch"                                                    "Moriah's Shield"
 "game_option_magus"                                                             "Magus"
 "game_option_brawler"                                                           "Brawler"
 "game_option_chaos"                                                             "Chaos"
@@ -68,7 +68,7 @@
 "game_option_spell_block_description"                                           "Bonus 30% magic resistance, bonus 30% status resistance and 30% chance to block a single-targeted spell. Spell Block has a 10s cooldown."
 "game_option_troll_switch_description"                                          "Melee heroes become ranged and ranged heroes become melee. After the switch: Melee heroes gain 50 bonus hp per level and ranged heroes gain 5 bonus attack speed per level."
 "game_option_hyper_experience_description"                                      "Heroes gain 3x experience from all sources."
-"game_option_diarrhetic_description"                                            "Poops an observer ward every 30 seconds. Ward buttons cooldown reduced to 30 seconds."
+"game_option_diarrhetic_description"                                            "Poops an observer or sentry ward every 30 seconds. Ward buttons cooldown reduced to 30 seconds."
 "game_option_rend_description"                                                  "Every attack applies stacking armor reduction debuff. Each debuff reduces armor by 1."
 "game_option_telescope_description"                                             "Bonus 350 cast range, attack range and vision range."
 "game_option_healer_description"                                                "Bonus 75% healing amplification."
@@ -138,11 +138,11 @@
 "DOTA_Tooltip_modifier_brute_oaa"                                               "#{game_option_brute}"
 "DOTA_Tooltip_modifier_brute_oaa_Description"                                   "Grants 1 STR per hero level and 0.05 damage per point of HP. (%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength and %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% damage.)" // Changes primary attribute to STR if non-STR hero. Changes primary attribute randomly otherwise.
 "DOTA_Tooltip_modifier_wisdom_oaa"                                              "#{game_option_wisdom}"
-"DOTA_Tooltip_modifier_wisdom_oaa_Description"                                  "Grants 1 INT per hero level and 0.008%% spell amp per point of mana." // Changes primary attribute to INT if non-INT hero. Changes primary attribute randomly otherwise.
+"DOTA_Tooltip_modifier_wisdom_oaa_Description"                                  "Grants 1 INT per hero level and 0.008%% spell amp per point of mana. (%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence and %fMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp.)" // Changes primary attribute to INT if non-INT hero. Changes primary attribute randomly otherwise.
 "DOTA_Tooltip_modifier_aghanim_oaa"                                             "#{game_option_aghanim}"
 "DOTA_Tooltip_modifier_aghanim_oaa_Description"                                 "#{game_option_aghanim_description}"
 "DOTA_Tooltip_modifier_nimble_oaa"                                              "#{game_option_nimble}"
-"DOTA_Tooltip_modifier_nimble_oaa_Description"                                  "Grants 1 AGI per hero level, and for each point in AGI grants 0.08%% move speed and 0.05%% evasion. Removes speed limits." // Changes primary attribute to AGI if non-AGI hero.
+"DOTA_Tooltip_modifier_nimble_oaa_Description"                                  "Grants 1 AGI per hero level, and for each point in AGI grants 0.08%% move speed and 0.05%% evasion. Removes speed limits. (%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility, %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed and %fMODIFIER_PROPERTY_EVASION_CONSTANT%%% evasion.)" // Changes primary attribute to AGI if non-AGI hero.
 "DOTA_Tooltip_modifier_sorcerer_oaa"                                            "#{game_option_sorcerer}"
 "DOTA_Tooltip_modifier_sorcerer_oaa_Description"                                "25%% chance to refresh the last used spell and 25%% chance to refresh all spells on hero kill. Chance for charge-based abilities is reduced to 5%%. Chance for items is reduced to 2%%."
 "DOTA_Tooltip_modifier_any_damage_crit_oaa"                                     "#{game_option_max_power}"
@@ -180,10 +180,10 @@
 "DOTA_Tooltip_modifier_hero_anti_stun_oaa"                                      "White Queen Immunity"
 "DOTA_Tooltip_modifier_hero_anti_stun_oaa_Description"                          "Debuff immunity and 50%% status resistance, but you deal 35%% less damage."
 "DOTA_Tooltip_modifier_roshan_power_oaa"                                        "Roshan's Body"
-"DOTA_Tooltip_modifier_roshan_power_oaa_Description"                            "You gain Roshan's Spell Block (15s cooldown) and Roshan's Bash (15%% chance to stun for 1.65s on attack and deal 50 magic damage)."
-"DOTA_Tooltip_modifier_modifier_roshan_bash_oaa"                                "Bashed"
+"DOTA_Tooltip_modifier_roshan_power_oaa_Description"                            "You gain Roshan's Spell Block (15s cooldown, 25%% status resistance), Roshan's Bash (15%% chance to stun for 1.65s on attack and deal 50 magic damage) and you gain 6 attack damage per minute."
+"DOTA_Tooltip_modifier_roshan_bash_oaa"                                         "Bashed"
 "DOTA_Tooltip_modifier_titan_soul_oaa"                                          "Titan's Soul"
-"DOTA_Tooltip_modifier_titan_soul_oaa_Description"                              "You are bigger, you have free-Pathing and every second you deal damage to enemies within 180 radius. Damage is 1.75x your primary attribute."
+"DOTA_Tooltip_modifier_titan_soul_oaa_Description"                              "+1 all stats per hero level. You are bigger, you have free-Pathing and every second you deal damage to enemies within 200 radius. Damage is 1.75x your primary attribute."
 "DOTA_Tooltip_modifier_hybrid_oaa"                                              "#{game_option_hybrid}"
 "DOTA_Tooltip_modifier_hybrid_oaa_Description"                                  "+3%% spell amp for each attack made, +2 attack damage x spell cooldown for each spell cast. Buffs last 6 seconds if not refreshed."
 "DOTA_Tooltip_modifier_hybrid_dmg_stack_oaa"                                    "Hybrid Damage Stacks"
@@ -192,3 +192,5 @@
 "DOTA_Tooltip_modifier_drunk_oaa_Description"                                   "15%% chance to do 3x critical damage on each attack and spell damage instance. 15%% chance to avoid any damage. 15%% chance to miss a spell and moves randomly when idle."
 "DOTA_Tooltip_modifier_any_damage_splash_oaa"                                   "#{game_option_splasher}"
 "DOTA_Tooltip_modifier_any_damage_splash_oaa_Description"                       "#{game_option_splasher_description}"
+"DOTA_Tooltip_modifier_glass_cannon_oaa"                                        "Glass Cannon"
+"DOTA_Tooltip_modifier_glass_cannon_oaa_Description"                            "You have no strength, +322 attack damage."
