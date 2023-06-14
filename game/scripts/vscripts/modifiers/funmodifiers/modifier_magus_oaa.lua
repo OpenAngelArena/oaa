@@ -70,6 +70,7 @@ function modifier_magus_oaa:OnCreated()
     monkey_king_tree_dance = 1,                          -- self grief in most cases, breaks Primal Spring
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
+    morphling_replicate = 1,                             -- bugs out completely when attacking creeps, DOTA_UNIT_TARGET_TEAM_CUSTOM
     morphling_morph_replicate = 1,                       -- self grief
     muerta_parting_shot = 1,                             -- buggy
     night_stalker_hunter_in_the_night = 1,               -- instant kill
@@ -222,14 +223,6 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local target_team = ability:GetAbilityTargetTeam()
   if target_team ~= DOTA_UNIT_TARGET_TEAM_FRIENDLY and target_team ~= DOTA_UNIT_TARGET_TEAM_ENEMY and target_team ~= DOTA_UNIT_TARGET_TEAM_BOTH then
     -- DOTA_UNIT_TARGET_TEAM_NONE or DOTA_UNIT_TARGET_TEAM_CUSTOM - if there are issues it's because of this
-    -- TO CHECK:
-    -- morphling_replicate
-    -- pugna_decrepify
-    -- phantom_assassin_phantom_strike
-    -- tiny_toss
-    -- undying_soul_rip
-    -- riki_blink_strike
-    -- vengefulspirit_nether_swap
     target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
   end
   --local behavior = ability:GetBehaviorInt()
@@ -241,7 +234,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
   local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
-  --local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
+  local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
 
   -- If bit.band of behavior is malfunctioning or we somehow got an invalid ability, recheck the kv of the ability
   if not isNoTarget and not isUnitTargetting and not isPointTargetting then
@@ -309,11 +302,10 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
       real_caster:SetCursorPosition(target_loc)
     end
 
-    -- TO CHECK:
-    --if isChannel then
-      -- Create a dummy and cast the spell
-      --return
-    --end
+    if isChannel then
+      -- Channeling spells never end so we need to create a dummy and cast the spell
+      return
+    end
 
     ability:OnAbilityPhaseStart()
     ability:OnSpellStart()
