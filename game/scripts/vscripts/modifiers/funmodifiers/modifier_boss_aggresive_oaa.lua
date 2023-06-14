@@ -1,3 +1,5 @@
+-- Hostile bosses
+
 modifier_boss_aggresive_oaa = class(ModifierBaseClass)
 
 function modifier_boss_aggresive_oaa:IsHidden()

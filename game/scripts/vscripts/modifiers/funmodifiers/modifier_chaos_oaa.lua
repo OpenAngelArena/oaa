@@ -54,6 +54,8 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
+    "modifier_hp_mana_switch_oaa",
+    "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_pro_active_oaa",
@@ -82,6 +84,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
@@ -112,6 +115,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_echo_strike_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
+    "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
@@ -247,7 +251,7 @@ if IsServer() then
     end
 
     if self.last_mod == "modifier_blood_magic_oaa" then
-      parent:GiveMana(parent:GetMaxMana()+1)
+      parent:GiveMana(parent:GetMaxMana() + 1)
     end
 
     local repeat_loop = true

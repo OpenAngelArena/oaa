@@ -24,10 +24,10 @@ function modifier_hero_anti_stun_oaa:DeclareFunctions()
 end
 
 function modifier_hero_anti_stun_oaa:GetModifierTotalDamageOutgoing_Percentage()
-  return -30
+  return -35
 end
 
--- This also works for slows, we don't want that
+-- This also works for slows
 function modifier_hero_anti_stun_oaa:GetModifierStatusResistanceStacking()
   return 50
 end

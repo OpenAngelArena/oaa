@@ -159,7 +159,7 @@ function modifier_hybrid_dmg_stack_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_dmg_stack_oaa:OnCreated()
-  self.dmg_per_cooldow_second = 1
+  self.dmg_per_cooldow_second = 2
 end
 
 function modifier_hybrid_dmg_stack_oaa:DeclareFunctions()
@@ -170,6 +170,10 @@ end
 
 function modifier_hybrid_dmg_stack_oaa:GetModifierPreAttack_BonusDamage()
   return self:GetStackCount() * self.dmg_per_cooldow_second
+end
+
+function modifier_hybrid_dmg_stack_oaa:GetTexture()
+  return "custom/elixier_hybrid_2"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -216,4 +220,8 @@ end
 
 function modifier_hybrid_spell_amp_stack_oaa:GetModifierSpellAmplify_Percentage()
   return self:GetStackCount() * self.spell_amp_per_stack
+end
+
+function modifier_hybrid_dmg_stack_oaa:GetTexture()
+  return "custom/elixier_hybrid_2"
 end

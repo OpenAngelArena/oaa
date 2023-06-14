@@ -1,3 +1,5 @@
+-- Guardian's Weakness
+
 modifier_bonus_armor_negative_magic_resist_oaa = class(ModifierBaseClass)
 
 function modifier_bonus_armor_negative_magic_resist_oaa:IsHidden()

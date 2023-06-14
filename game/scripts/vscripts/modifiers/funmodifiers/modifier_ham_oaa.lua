@@ -1,3 +1,5 @@
+-- Hyper Active
+
 modifier_ham_oaa = class(ModifierBaseClass)
 
 function modifier_ham_oaa:IsHidden()
@@ -21,7 +23,7 @@ function modifier_ham_oaa:OnCreated()
     abaddon_borrowed_time_oaa = true,
     brewmaster_primal_split = true,
     dark_willow_shadow_realm = true,
-    dazzle_good_juju = true,
+    --dazzle_good_juju = true,
     dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
     meepo_petrify = true,

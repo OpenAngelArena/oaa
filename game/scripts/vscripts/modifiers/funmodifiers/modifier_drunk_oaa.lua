@@ -1,3 +1,5 @@
+-- Drunkard
+
 modifier_drunk_oaa = class(ModifierBaseClass)
 
 function modifier_drunk_oaa:IsHidden()
@@ -31,11 +33,11 @@ function modifier_drunk_oaa:DeclareFunctions()
 end
 
 function modifier_drunk_oaa:OnCreated()
-  self.attack_crit_chance = 12
-  self.spell_crit_chance = 12
-  self.avoid_chance = 12
+  self.attack_crit_chance = 15
+  self.spell_crit_chance = 15
+  self.avoid_chance = 15
   self.crit_multiplier = 3
-  self.miss_spell_chance = 25
+  self.miss_spell_chance = 15
 
   self:StartIntervalThink(1)
 end
@@ -140,7 +142,7 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-spell-amplification flag
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Drunkard)
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
       return
     end
@@ -156,12 +158,14 @@ if IsServer() then
     end
 
     if RandomInt(1, 100) <= self.spell_crit_chance then
-      local damage_table = {}
-      damage_table.victim = damaged_unit
-      damage_table.attacker = parent
-      damage_table.damage = (self.crit_multiplier - 1) * damage
-      damage_table.damage_type = event.damage_type
-      damage_table.damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
+      local damage_table = {
+        victim = damaged_unit,
+        attacker = parent,
+        damage = (self.crit_multiplier - 1) * damage,
+        damage_type = event.damage_type,
+        damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+        ability = event.inflictor,
+      }
 
       ApplyDamage(damage_table)
 
@@ -200,24 +204,36 @@ if IsServer() then
       return
     end
 
-    -- Stop it you are drunk
+    -- Stop it! you are drunk!
     local new_target
-    local ally = self:FindRandomAlly(ability)
-    local enemy = self:FindRandomEnemy(ability, target)
-    local rand = RandomInt(1, 3)
-    if rand == 1 then
-      new_target = parent
-    elseif rand == 2 then
-      if ally then
-        new_target = ally
+    local ally = self:FindRandomAlly(ability, target) -- returns nil if it cannot find a different ally
+    local enemy = self:FindRandomEnemy(ability, target) -- returns nil if it cannot find a different enemy
+    local unit = self:FindRandomTarget(ability, target) -- returns target if it cannot find any other entity
+    local rand = RandomInt(1, 2)
+
+    -- Check target's team
+    if target:GetTeamNumber() == parent:GetTeamNumber() then
+      -- Check drunk 'level'
+      if rand == 1 then
+        -- Check if self target
+        if target ~= parent then
+          new_target = ally or parent
+        else
+          new_target = ally or unit
+        end
       else
-        new_target = enemy or parent
+        new_target = enemy or unit
       end
     else
-      if enemy then
-        new_target = enemy
+      -- Check drunk 'level'
+      if rand == 1 then
+        new_target = enemy or unit
       else
-        new_target = ally or target
+        if target == unit then
+          new_target = ally or parent
+        else
+          new_target = ally or unit
+        end
       end
     end
 
@@ -225,7 +241,7 @@ if IsServer() then
 		casting_unit:SetCursorCastTarget(new_target)
   end
 
-  function modifier_drunk_oaa:FindRandomAlly(ability)
+  function modifier_drunk_oaa:FindRandomAlly(ability, target)
     local random_ally
     local parent = self:GetParent()
 
@@ -242,7 +258,7 @@ if IsServer() then
     )
 
     for _, ally in pairs(allies) do
-      if ally and not ally:IsNull() and ally ~= parent then
+      if ally and not ally:IsNull() and ally ~= parent and ally ~= target then
         random_ally = ally
         break
       end
@@ -277,6 +293,37 @@ if IsServer() then
     return random_enemy
   end
 
+  function modifier_drunk_oaa:FindRandomTarget(ability, target)
+    local random_unit = target
+    local parent = self:GetParent()
+
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      ability:GetEffectiveCastRange(parent:GetAbsOrigin(), nil),
+      DOTA_UNIT_TARGET_TEAM_BOTH,
+      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    for _, unit in pairs(units) do
+      if unit and not unit:IsNull() and unit ~= target and unit ~= parent then
+        random_unit = unit
+        break
+      end
+    end
+
+    if random_unit.GetUnitName then
+      print("[DRUNKARD]: Casting "..ability:GetAbilityName().." on "..random_unit:GetUnitName())
+    else
+      print("[DRUNKARD]: Casting "..ability:GetAbilityName().." on "..random_unit:GetName())
+    end
+
+    return random_unit
+  end
 end
 
 function modifier_drunk_oaa:GetStatusEffectName()
