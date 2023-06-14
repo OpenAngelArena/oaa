@@ -18,7 +18,7 @@ local hero_mods = {
   --HM08 = "modifier_physical_immunity_oaa",
   HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
-  --HM11 = "modifier_troll_switch_oaa",
+  HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
   HM13 = "modifier_diarrhetic_oaa",
   HM14 = "modifier_rend_oaa",
@@ -38,7 +38,7 @@ local hero_mods = {
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
   HM30 = "modifier_hybrid_oaa",
-  HM31 = "modifier_drunk_oaa",
+  --HM31 = "modifier_drunk_oaa",
   HM32 = "modifier_any_damage_splash_oaa",
 }
 local boss_mods = {
@@ -259,7 +259,7 @@ end
 function OAAOptions:GetRandomModifier(mod_list)
   local options = {}
   for k, v in pairs(mod_list) do
-    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" then
+    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" and v ~= "modifier_diarrhetic_oaa" then
       table.insert(options, k)
     end
   end
