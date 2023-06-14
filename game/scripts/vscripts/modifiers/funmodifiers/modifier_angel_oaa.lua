@@ -1,3 +1,5 @@
+-- Angel's Wings
+
 modifier_angel_oaa = class(ModifierBaseClass)
 
 function modifier_angel_oaa:IsHidden()

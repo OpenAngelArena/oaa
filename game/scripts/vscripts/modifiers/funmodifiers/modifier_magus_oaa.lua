@@ -36,7 +36,6 @@ function modifier_magus_oaa:OnCreated()
     abaddon_borrowed_time = 1,                           -- invulnerability
     abaddon_borrowed_time_oaa = 1,                       -- invulnerability
     alchemist_unstable_concoction = 1,                   -- self grief
-    --antimage_mana_overload = 1,                        -- lag maybe
     arc_warden_tempest_double = 1,                       -- multiple Tempest Doubles and lag
     bane_nightmare_end = 1,                              -- self grief
     brewmaster_primal_split = 1,                         -- invulnerability
@@ -47,16 +46,15 @@ function modifier_magus_oaa:OnCreated()
     clinkz_death_pact_oaa = 1,                           -- instant kill
     crystal_maiden_freezing_field_stop = 1,              -- self grief
     dark_willow_shadow_realm = 1,                        -- untargettable ranged hero, powerful
-    --dazzle_good_juju = 1,                              -- powerful
     dazzle_shallow_grave = 1,                            -- invulnerability
-    doom_bringer_devour = 1,                             -- instant kill
-    earth_spirit_petrify = 1,                            -- invulnerability and trolling
+    doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    earth_spirit_petrify = 1,                            -- invulnerability and trolling, DOTA_UNIT_TARGET_TEAM_CUSTOM
     elder_titan_return_spirit = 1,                       -- self grief
     elder_titan_move_spirit = 1,                         -- self grief
     electrician_electric_shield = 1,                     -- self grief
     ember_spirit_activate_fire_remnant = 1,              -- self grief
     enchantress_enchant = 1,                             -- dominating every creep on attack
-    enigma_demonic_conversion = 1,                       -- instant kill
+    enigma_demonic_conversion = 1,                       -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
     enigma_demonic_conversion_oaa = 1,                   -- instant kill
     faceless_void_time_walk_reverse = 1,                 -- self grief
     furion_teleportation = 1,                            -- self grief
@@ -65,17 +63,19 @@ function modifier_magus_oaa:OnCreated()
     keeper_of_the_light_illuminate_end = 1,              -- self grief
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kunkka_return = 1,                                   -- self grief
-    life_stealer_infest = 1,                             -- self grief and maybe instant kill
+    life_stealer_infest = 1,                             -- self grief and maybe instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    meepo_megameepo_fling = 1,                           -- self grief
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_primal_spring = 1,                       -- breaks ability
     monkey_king_tree_dance = 1,                          -- self grief in most cases, breaks Primal Spring
     monkey_king_wukongs_command = 1,                     -- lag
     monkey_king_wukongs_command_oaa = 1,                 -- self grief, looping, lag maybe
+    morphling_replicate = 1,                             -- bugs out completely when attacking creeps, DOTA_UNIT_TARGET_TEAM_CUSTOM
     morphling_morph_replicate = 1,                       -- self grief
+    muerta_parting_shot = 1,                             -- buggy
     night_stalker_hunter_in_the_night = 1,               -- instant kill
     oracle_false_promise = 1,                            -- invulnerability
     phantom_lancer_doppelwalk = 1,                       -- invulnerability and lag
-    --phantom_lancer_spirit_lance = 1,                   -- lag maybe
     phoenix_icarus_dive_stop = 1,                        -- self grief
     phoenix_sun_ray_stop = 1,                            -- self grief
     puck_ethereal_jaunt = 1,                             -- self grief
@@ -85,32 +85,39 @@ function modifier_magus_oaa:OnCreated()
     rubick_spell_steal = 1,                              -- stealing boss spells
     rubick_telekinesis_land_self = 1,                    -- self grief
     shadow_demon_shadow_poison_release = 1,              -- self grief
-    snapfire_gobble_up = 1,                              -- instant kill and other bugs
+    skeleton_king_reincarnation = 1,                     -- self grief
+    snapfire_gobble_up = 1,                              -- instant kill and other bugs, DOTA_UNIT_TARGET_TEAM_CUSTOM
     sohei_flurry_of_blows = 1,                           -- invulnerability and looping
     spectre_haunt = 1,                                   -- lag
     spectre_reality = 1,                                 -- self grief
     --storm_spirit_ball_lightning = 1,                   -- self grief
     terrorblade_conjure_image = 1,                       -- lag
+    tiny_tree_grab = 1,                                  -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
     tiny_toss_tree = 1,                                  -- self grief
     treant_eyes_in_the_forest = 1,                       -- bugged
     tusk_snowball = 1,                                   -- invulnerability
+    undying_tombstone_grab = 1,                          -- grief, invulnerability
     visage_gravekeepers_cloak = 1,                       -- invulnerability
     visage_gravekeepers_cloak_oaa = 1,                   -- invulnerability
     visage_stone_form_self_cast = 1,                     -- self grief
     void_spirit_astral_step = 1,                         -- looping, bugged
     void_spirit_dissimilate = 1,                         -- invulnerability
+    winter_wyvern_cold_embrace = 1,                      -- grief
     wisp_tether_break = 1,                               -- self grief
     witch_doctor_voodoo_switcheroo_oaa = 1,              -- invulnerability
     zuus_thundergods_wrath = 1,                          -- powerful, trolling (doesn't need vision)
   }
   self.low_chance_to_proc = {
-    clinkz_strafe = 1,                                   -- looping
+    antimage_mana_overload = 1,                          -- lag
+    clinkz_burning_army = 1,                             -- lag
+    clinkz_burning_barrage = 1,                          -- looping
     dark_seer_wall_of_replica = 1,                       -- lag
+    dawnbreaker_fire_wreath = 1,                         -- looping
     doom_bringer_doom = 1,                               -- powerful
     ember_spirit_sleight_of_fist = 1,                    -- invulnerability and looping
     enigma_black_hole = 1,                               -- powerful
     faceless_void_chronosphere = 1,                      -- powerful
-    faceless_void_time_walk = 1,                         -- invulnerability and looping
+    faceless_void_time_walk = 1,                         -- invulnerability and looping with scepter
     hoodwink_acorn_shot = 1,                             -- looping
     juggernaut_omnislash = 1,                            -- invulnerability and looping
     juggernaut_swift_slash = 1,                          -- invulnerability and looping
@@ -120,12 +127,14 @@ function modifier_magus_oaa:OnCreated()
     mars_gods_rebuke = 1,                                -- looping
     medusa_stone_gaze = 1,                               -- powerful
     --monkey_king_boundless_strike = 1,                  -- looping, sometimes doesn't do damage
-    morphling_waveform = 1,                              -- invulnerability and looping
+    morphling_waveform = 1,                              -- invulnerability and looping with talent
+    muerta_pierce_the_veil = 1,                          -- powerful
     naga_siren_mirror_image = 1,                         -- invulnerability and lag
     naga_siren_song_of_the_siren = 1,                    -- self grief, trolling, sometimes unplayable
     obsidian_destroyer_astral_imprisonment = 1,          -- self grief, invulnerability, trolling
-    oracle_fates_edict = 1,                              -- self grief, trolling
+    oracle_fates_edict = 1,                              -- powerful, trolling
     pangolier_swashbuckle = 1,                           -- looping, powerful
+    phantom_lancer_spirit_lance = 1,                     -- lag because of scepter
     razor_eye_of_the_storm = 1,                          -- powerful
     shadow_demon_disruption = 1,                         -- self grief, invulnerability, trolling
     silencer_global_silence = 1,                         -- powerful
@@ -206,37 +215,57 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
     return
   end
 
-  if self.low_chance_to_proc[ability:GetName()] and not lucky then
+  local name = ability:GetAbilityName()
+  if self.low_chance_to_proc[name] and not lucky then
     return
   end
 
-  local target_team = ability:GetAbilityTargetTeam() or DOTA_UNIT_TARGET_TEAM_BOTH
+  local target_team = ability:GetAbilityTargetTeam()
+  if target_team ~= DOTA_UNIT_TARGET_TEAM_FRIENDLY and target_team ~= DOTA_UNIT_TARGET_TEAM_ENEMY and target_team ~= DOTA_UNIT_TARGET_TEAM_BOTH then
+    -- DOTA_UNIT_TARGET_TEAM_NONE or DOTA_UNIT_TARGET_TEAM_CUSTOM - if there are issues it's because of this
+    target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+  end
   --local behavior = ability:GetBehaviorInt()
   local behavior = ability:GetBehavior()
   if type(behavior) == 'userdata' then
     behavior = tonumber(tostring(behavior))
   end
   local real_target = target
+  local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
   local isPointTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) > 0
   local isChannel = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) > 0
 
-  if target_team == DOTA_UNIT_TARGET_TEAM_FRIENDLY then
-    if RandomInt(1, 2) == 1 then
-      real_target = caster
-    else
-      real_target = self:FindRandomAlly(ability)
+  -- If bit.band of behavior is malfunctioning or we somehow got an invalid ability, recheck the kv of the ability
+  if not isNoTarget and not isUnitTargetting and not isPointTargetting then
+    local ability_data = GetAbilityKeyValuesByName(name)
+    if not ability_data then
+      return
     end
+    behavior = ability_data.AbilityBehavior
+    if not behavior then
+      return
+    end
+    isNoTarget = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
+    isUnitTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
+    isPointTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_POINT")
+    if not isNoTarget and not isUnitTargetting and not isPointTargetting then
+      return
+    end
+  end
+
+  if target_team == DOTA_UNIT_TARGET_TEAM_FRIENDLY then
+    real_target = self:FindRandomAlly(ability, target) or caster
   elseif target_team == DOTA_UNIT_TARGET_TEAM_BOTH then
     local rand = RandomInt(1, 4)
     if rand == 1 then
       real_target = caster
     elseif rand == 2 then
-      real_target = target
+      real_target = self:FindRandomAlly(ability, target) or caster
     elseif rand == 3 then
-      real_target = self:FindRandomAlly(ability)
+      real_target = target
     else
-      real_target = self:FindRandomEnemy(ability, target)
+      real_target = self:FindRandomEnemy(ability, target) or target
     end
   end
 
@@ -244,34 +273,42 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
     local real_caster = caster or ability:GetCaster()
 
     if isUnitTargetting then
+      -- Spell Block check
+      if real_target:TriggerSpellAbsorb(ability) and real_target:GetTeamNumber() ~= real_caster:GetTeamNumber() then
+        return
+      end
       real_caster:SetCursorCastTarget(real_target)
     end
 
     if isPointTargetting then
       local target_loc = real_target:GetAbsOrigin()
       local caster_loc = real_caster:GetAbsOrigin()
+
+      -- This shouldn't happen but it happens sometimes
       if not target_loc then
         target_loc = caster_loc
       end
+
+      local distance = (target_loc - caster_loc):Length2D()
+      local buffer = 250
+      local base_cast_range = ability:GetCastRange(caster_loc, nil) -- it could return a weird result for global range abilities
+      local eff_cast_range = ability:GetEffectiveCastRange(caster_loc, nil) -- it could return a weird result for global range abilities
+
       -- Checking cast range like this just in case if 'GetEffectiveCastRange' is not working
-      if (target_loc - caster_loc):Length2D() > ability:GetCastRange(caster_loc, nil) + real_caster:GetCastRangeBonus() and ability:GetCastRange(caster_loc, nil) ~= 0 then
-        target_loc = caster_loc + real_caster:GetForwardVector() * 150
+      -- and setting new target location to prevent global stuff
+      if (distance > (base_cast_range + real_caster:GetCastRangeBonus()) and base_cast_range > 0) or (distance >= (real_caster:GetAttackRange() + buffer)) or (distance > eff_cast_range and eff_cast_range > 0) then
+        target_loc = caster_loc + real_caster:GetForwardVector() * buffer
       end
       real_caster:SetCursorPosition(target_loc)
     end
 
-    -- Spell Block check
-    if real_target:TriggerSpellAbsorb(ability) and isUnitTargetting and target_team ~= DOTA_UNIT_TARGET_TEAM_FRIENDLY then
+    if isChannel then
+      -- Channeling spells never end so we need to create a dummy and cast the spell
       return
     end
 
-    if isChannel then
-      -- Create a dummy and cast the spell
-      return
-    else
-      ability:OnAbilityPhaseStart()
-      ability:OnSpellStart()
-    end
+    ability:OnAbilityPhaseStart()
+    ability:OnSpellStart()
   end
 end
 
@@ -284,7 +321,7 @@ function modifier_magus_oaa:GetRandomSpell(caster)
   for i = 0, caster:GetAbilityCount()-1 do
     local ability = caster:GetAbilityByIndex(i)
     if ability then
-      if not ability:IsItem() and not ability:IsHidden() and not ability:IsToggle() and ability:IsTrained() and ability:IsStealable() and not ability:IsPassive() and not self.ignore_abilities[ability:GetName()] then
+      if not ability:IsItem() and not ability:IsHidden() and not ability:IsToggle() and ability:IsTrained() and not ability:IsPassive() and not self.ignore_abilities[ability:GetName()] then
         table.insert(candidates, ability)
       end
     end
@@ -297,7 +334,7 @@ function modifier_magus_oaa:GetRandomSpell(caster)
   return nil
 end
 
-function modifier_magus_oaa:FindRandomAlly(ability)
+function modifier_magus_oaa:FindRandomAlly(ability, target)
   local random_ally
   local parent = self:GetParent()
 
@@ -314,13 +351,13 @@ function modifier_magus_oaa:FindRandomAlly(ability)
   )
 
   for _, ally in pairs(allies) do
-    if ally and not ally:IsNull() and ally ~= parent then
+    if ally and not ally:IsNull() and ally ~= parent and ally ~= target then
       random_ally = ally
       break
     end
   end
 
-  return random_ally or parent
+  return random_ally
 end
 
 function modifier_magus_oaa:FindRandomEnemy(ability, target)
@@ -346,7 +383,7 @@ function modifier_magus_oaa:FindRandomEnemy(ability, target)
     end
   end
 
-  return random_enemy or target
+  return random_enemy
 end
 
 function modifier_magus_oaa:GetTexture()

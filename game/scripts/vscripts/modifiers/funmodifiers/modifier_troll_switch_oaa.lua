@@ -1,3 +1,5 @@
+-- Attack Range Switch
+
 modifier_troll_switch_oaa = class(ModifierBaseClass)
 
 function modifier_troll_switch_oaa:IsHidden()

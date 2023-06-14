@@ -21,7 +21,7 @@ function modifier_cursed_attack_oaa:DeclareFunctions()
     --MODIFIER_PROPERTY_MISS_PERCENTAGE,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
@@ -40,9 +40,9 @@ function modifier_cursed_attack_oaa:GetModifierProcAttack_BonusDamage_Pure()
   return 0
 end
 
-function modifier_cursed_attack_oaa:GetModifierPreAttack_BonusDamage()
-  return -125
-end
+--function modifier_cursed_attack_oaa:GetModifierPreAttack_BonusDamage()
+  --return -125
+--end
 
 function modifier_cursed_attack_oaa:GetEffectName()
   return "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"

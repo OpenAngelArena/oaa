@@ -1,3 +1,5 @@
+-- Moriah's Shield
+
 modifier_hp_mana_switch_oaa = class(ModifierBaseClass)
 
 function modifier_hp_mana_switch_oaa:IsHidden()
@@ -20,8 +22,9 @@ function modifier_hp_mana_switch_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_SPELLS_REQUIRE_HP,
     --MODIFIER_PROPERTY_MIN_HEALTH,
-    MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    --MODIFIER_PROPERTY_MANA_BONUS,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
   }
 end
 
@@ -44,63 +47,34 @@ function modifier_hp_mana_switch_oaa:GetMinHealth()
 end
 
 if IsServer() then
-  function modifier_hp_mana_switch_oaa:OnTakeDamage(event)
+  function modifier_hp_mana_switch_oaa:GetModifierTotal_ConstantBlock(event)
+    -- Do nothing if damage has HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
     local parent = self:GetParent()
-    local attacker = event.attacker
-    local damaged_unit = event.unit
-    local dmg_flags = event.damage_flags
-    local damage = event.damage
-
-    -- Check if attacker exists
-    if not attacker or attacker:IsNull() then
-      return
-    end
-
-    -- Check if damaged entity exists
-    if not damaged_unit or damaged_unit:IsNull() then
-      return
-    end
-
-    -- Check if damaged entity has this modifier
-    if damaged_unit ~= parent then
-      return
-    end
-
-    -- Ignore self damage
-    --if attacker == parent then
-      --return
-    --end
-
-    -- Ignore damage with no-reflect flag
-    --if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_REFLECTION) > 0 then
-      --return
-    --end
-
-    -- Ignore damage with HP removal flag
-    if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
-      return
-    end
-
-    -- Ignore damage with no-spell-amplification flag
-    --if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
-      --return
-    --end
-
-    -- Ignore 0 or negative damage
-    if damage <= 0 then
-      return
-    end
-
     local mana = parent:GetMana()
-    if damage >= mana then
-      parent:Kill(nil, attacker)
-    else
-      parent:ReduceMana(damage, nil)
-      parent:Heal(damage, nil)
+    local block_amount = math.min(event.damage * 0.5, mana)
+
+    parent:ReduceMana(block_amount, nil)
+
+    if block_amount > 0 then
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
     end
+
+    return block_amount
+  end
+end
+
+function modifier_hp_mana_switch_oaa:GetModifierIncomingDamageConstant()
+  if IsClient() then
+    return self:GetParent():GetMana()
+  else
+    return 0
   end
 end
 
 function modifier_hp_mana_switch_oaa:GetTexture()
-  return "custom/blood_magic"
+  return "medusa_mana_shield"
 end

@@ -1,3 +1,5 @@
+-- Hyper Lifesteal
+
 modifier_any_damage_lifesteal_oaa = class(ModifierBaseClass)
 
 function modifier_any_damage_lifesteal_oaa:IsHidden()

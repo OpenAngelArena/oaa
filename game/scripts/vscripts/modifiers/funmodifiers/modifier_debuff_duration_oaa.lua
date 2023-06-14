@@ -1,3 +1,5 @@
+-- Timeless Relic
+
 modifier_debuff_duration_oaa = class(ModifierBaseClass)
 
 function modifier_debuff_duration_oaa:IsHidden()

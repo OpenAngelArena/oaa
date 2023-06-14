@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
+-- Spell Resistance
+
 modifier_spell_block_oaa = class(ModifierBaseClass)
 
 function modifier_spell_block_oaa:IsHidden()

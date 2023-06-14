@@ -1,3 +1,5 @@
+-- Max Power
+
 modifier_any_damage_crit_oaa = class(ModifierBaseClass)
 
 function modifier_any_damage_crit_oaa:IsHidden()
@@ -104,7 +106,7 @@ if IsServer() then
       return
     end
 
-    -- Ignore damage with no-spell-amplification flag
+    -- Ignore damage with no-spell-amplification flag (it also ignores damage dealt with Max Power)
     if bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) > 0 then
       return
     end
@@ -120,12 +122,14 @@ if IsServer() then
     end
 
     if RandomInt(1, 100) <= self.spell_crit_chance then
-      local damage_table = {}
-      damage_table.victim = damaged_unit
-      damage_table.attacker = parent
-      damage_table.damage = (self.crit_multiplier - 1) * damage
-      damage_table.damage_type = event.damage_type
-      damage_table.damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
+      local damage_table = {
+        victim = damaged_unit,
+        attacker = parent,
+        damage = (self.crit_multiplier - 1) * damage,
+        damage_type = event.damage_type,
+        damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+        ability = event.inflictor,
+      }
 
       ApplyDamage(damage_table)
 

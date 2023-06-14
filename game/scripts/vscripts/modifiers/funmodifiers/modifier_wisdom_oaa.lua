@@ -1,4 +1,3 @@
-
 modifier_wisdom_oaa = class(ModifierBaseClass)
 
 function modifier_wisdom_oaa:IsHidden()
