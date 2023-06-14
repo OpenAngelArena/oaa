@@ -54,6 +54,7 @@ function modifier_drunk_oaa:OnCreated()
     treant_eyes_in_the_forest = 1,                       -- bugged
     --undying_tombstone_grab = 1,                          -- protecting enemy heroes lmao
     --winter_wyvern_cold_embrace = 1,                      -- stunning enemies
+    item_hand_of_midas_1 = 1,
   }
 
   self:StartIntervalThink(1)
