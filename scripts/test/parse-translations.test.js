@@ -8,7 +8,7 @@ let dotaEnglish = null;
 
 test('before', function (t) {
   request.get({
-    url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/dota_english.txt'
+    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_english.txt'
   }, function (err, result) {
     if (err) {
       t.fail(err);

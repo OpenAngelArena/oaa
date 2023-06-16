@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sidekick Bonus Lifesteal Talent
+  // Bonus Arena of Blood Damage
   //=================================================================================================================
-  "special_bonus_unique_marci_guardian_lifesteal"
+  "special_bonus_unique_mars_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8242"
+    "ID"                                                  "86766"
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -18,8 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "10" //OAA
-        "ad_linked_abilities"                             "marci_guardian"
+        "value"                                           "180"
       }
     }
   }

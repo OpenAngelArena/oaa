@@ -50,67 +50,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "arrow_speed"                                       "900"
+      "arrow_width"                                       "115"
+      "arrow_range"                                       "2500" // vanilla: 3000
+      "arrow_max_stunrange"                               "2500" // vanilla: 1500
+      "arrow_min_stun"                                    "0.01"
+      "arrow_max_stun"                                    "3.5 4 4.5 5 5 5" // vanilla: 2.6 3.4 4.2 5.0
+      "arrow_bonus_damage"                                "180 190 200 210 310 410"
+      "arrow_vision"                                      "400" // Radius around the arrow while flying and after hitting
+      "arrow_vision_duration"                             "3" // Duration of vision after hitting
+      "arrow_multishot_angle"                             "30" // for Multishot talent
+      "arrow_start_distance"                              "51"
+      "arrow_pierce_count"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_speed"                                     "900"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_width"                                     "115"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_range"                                     "2500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_max_stunrange"                             "2500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_min_stun"                                  "0.01"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_max_stun"                                  "5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_bonus_damage"                              "180 190 200 210 310 410"
-      }
-      "08" // Radius around the arrow while flying and after hitting
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_vision"                                    "400"
-      }
-      "09" // Duration of vision after
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_vision_duration"                           "3"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_multishot_angle"                           "30"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_start_distance"                            "51"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_pierce_count"                              "0 1 1 2 2 3"
+        "value"                                           "0 1 1 2 2 3"
         "LinkedSpecialBonus"                              "special_bonus_mirana_arrow_pierce"
       }
     }

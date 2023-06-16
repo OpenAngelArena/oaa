@@ -1,12 +1,10 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: base hero
+  // HERO: Mars
   //=================================================================================================================
-  "npc_dota_hero_base"
+  "npc_dota_hero_mars"
   {
-    "Ability25"                                           "" // replaces special_bonus_attributes
-
-    "StatusHealth"                                        "200"
+    "Ability17"                                           "special_bonus_unique_mars_2_oaa" // replaces special_bonus_unique_mars_arena_of_blood_hp_regen
   }
 }
