@@ -23,8 +23,8 @@ if (require.main === module) {
 
 function findMissingTooltips (cb) {
   request.get({
-    // url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/dota_english.txt'
-    url: 'https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/resource/localization/abilities_english.txt'
+    // url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_english.txt'
+    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/abilities_english.txt'
   }, function (err, dotaEnglish) {
     const done = after(3, function (err) {
       cb(err, result);
