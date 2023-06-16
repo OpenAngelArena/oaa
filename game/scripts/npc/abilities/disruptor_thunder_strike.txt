@@ -51,7 +51,7 @@
         "special_bonus_shard"                             "+2"
       }
       "strike_interval"                                   "2.0"
-      "strike_damage"                                     "35 60 85 110 220 440"
+      "strike_damage"                                     "40 65 90 115 230 460" //OAA
       "slow_duration" //OAA, Valve forgot '+0' on special_bonus_unique_disruptor
       {
         "value"                                           "0.1 0.2 0.3 0.4 0.5 0.6"
