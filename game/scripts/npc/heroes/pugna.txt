@@ -1,0 +1,11 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Pugna
+  //=================================================================================================================
+  "npc_dota_hero_pugna"
+  {
+    "Ability3"                                            "pugna_nether_ward_oaa" // replaces pugna_nether_ward
+    "Ability4"                                            "pugna_nether_ward" // replaces generic_hidden
+  }
+}

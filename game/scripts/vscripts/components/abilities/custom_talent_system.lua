@@ -21,51 +21,62 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
   --end)
 end
 
+-- Format:
+-- ability_name = {
+  -- kv_name_1 = {"custom_talent_name", "type"},
+  -- kv_name_2 = {"custom_talent_name", "type"},
+  -- ...
+-- },
+-- type can be: +, *, x, /, %
+-- * and x are the same -  muliplies the base value with the talent value
+-- / - can be used for dividing cooldowns, intervals etc.
+-- % - increases the base value by the talent value (e.g. 20% increase of base value)
+
 local abilities_with_custom_talents = {
   abaddon_frostmourne = {
-    curse_attack_speed = "special_bonus_unique_abaddon_1_oaa",
+    curse_attack_speed = {"special_bonus_unique_abaddon_1_oaa", "+"},
   },
   faceless_void_chronosphere = {
-    AbilityCooldown = "special_bonus_unique_faceless_void_2_oaa",
+    AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
   faceless_void_time_dilation = {
-    radius = "special_bonus_unique_faceless_void_1_oaa",
+    radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
   },
   hoodwink_acorn_shot = {
-    base_damage_pct = "special_bonus_unique_hoodwink_1_oaa",
+    base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
   },
   invoker_emp = {
-    damage_per_mana_pct = "special_bonus_unique_invoker_1_oaa",
+    damage_per_mana_pct = {"special_bonus_unique_invoker_1_oaa", "+"},
   },
   invoker_sun_strike = {
-    damage = "special_bonus_unique_invoker_2_oaa",
+    damage = {"special_bonus_unique_invoker_2_oaa", "+"},
   },
   life_stealer_feast = {
-    hp_damage_percent = "special_bonus_unique_lifestealer_3_oaa",
+    hp_damage_percent = {"special_bonus_unique_lifestealer_3_oaa", "+"},
   },
   mars_arena_of_blood = {
-    spear_damage = "special_bonus_unique_mars_2_oaa",
+    spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
   },
   mirana_leap = {
-    leap_bonus_duration = "special_bonus_unique_mirana_3_oaa",
+    leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
   queenofpain_shadow_strike = {
-    duration_heal = "special_bonus_unique_queen_of_pain_4_oaa",
+    duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
   silencer_last_word = {
-    damage = "special_bonus_unique_silencer_2_oaa",
+    damage = {"special_bonus_unique_silencer_2_oaa", "+"},
   },
   skywrath_mage_arcane_bolt = {
-    bolt_damage = "special_bonus_unique_skywrath_1_oaa",
+    bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
   ursa_earthshock = {
-    shock_radius = "special_bonus_unique_ursa_1_oaa",
+    shock_radius = {"special_bonus_unique_ursa_1_oaa", "+"},
   },
   windrunner_powershot = {
-    powershot_damage = "special_bonus_unique_windranger_1_oaa",
+    powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},
   },
   winter_wyvern_cold_embrace = {
-    heal_percentage = "special_bonus_unique_winter_wyvern_1_oaa",
+    heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
   },
 }
 
@@ -104,7 +115,7 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecial(keys)
 
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
-    local custom_talent = parent:FindAbilityByName(v)
+    local custom_talent = parent:FindAbilityByName(v[1])
     if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
       return 1
     end
@@ -115,15 +126,26 @@ end
 
 function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   local parent = self:GetParent()
-  if not abilities_with_custom_talents[keys.ability:GetAbilityName()] then
-    return 0
-  end
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+
+  if not abilities_with_custom_talents[keys.ability:GetAbilityName()] then
+    return value
+  end
+
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
-    local custom_talent = parent:FindAbilityByName(v)
+    local custom_talent = parent:FindAbilityByName(v[1])
     if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
-      return value + custom_talent:GetSpecialValueFor("value")
+      local talent_type = v[2]
+      if talent_type == "+" then
+        return value + custom_talent:GetSpecialValueFor("value")
+      elseif talent_type == "x" or talent_type == "*" then
+        return value * custom_talent:GetSpecialValueFor("value")
+      elseif talent_type == "/" then
+        return value / custom_talent:GetSpecialValueFor("value")
+      elseif talent_type == "%" then
+        return value * (1 + custom_talent:GetSpecialValueFor("value") / 100)
+      end
     end
   end
 
