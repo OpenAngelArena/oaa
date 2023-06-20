@@ -137,14 +137,15 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecialValue(keys
     local custom_talent = parent:FindAbilityByName(v[1])
     if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
       local talent_type = v[2]
+      local talent_value = custom_talent:GetSpecialValueFor("value")
       if talent_type == "+" then
-        return value + custom_talent:GetSpecialValueFor("value")
+        return value + talent_value
       elseif talent_type == "x" or talent_type == "*" then
-        return value * custom_talent:GetSpecialValueFor("value")
-      elseif talent_type == "/" then
-        return value / custom_talent:GetSpecialValueFor("value")
+        return value * talent_value
+      elseif talent_type == "/" and talent_value ~= 0 then
+        return value / talent_value
       elseif talent_type == "%" then
-        return value * (1 + custom_talent:GetSpecialValueFor("value") / 100)
+        return value * (1 + talent_value / 100)
       end
     end
   end
