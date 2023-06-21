@@ -8,7 +8,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.LYCAN_BOSS_SUMMONED_UNITS = { }
+	thisEntity.LYCAN_BOSS_SUMMONED_UNITS = {}
 	thisEntity.LYCAN_BOSS_MAX_SUMMONS = 50
 	thisEntity.nCAST_SUMMON_WOLVES_COUNT = 0
 
@@ -106,7 +106,7 @@ function LycanBossThink()
 
   -- Check that the children we have in our list are still valid
   for i, hSummonedUnit in ipairs( thisEntity.LYCAN_BOSS_SUMMONED_UNITS ) do
-    if hSummonedUnit == nil or hSummonedUnit:IsNull() or hSummonedUnit:IsAlive() == false then
+    if hSummonedUnit:IsNull() or (not hSummonedUnit:IsAlive()) then
       table.remove( thisEntity.LYCAN_BOSS_SUMMONED_UNITS, i )
     end
   end

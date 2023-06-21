@@ -5,6 +5,7 @@
 
 LinkLuaModifier("modifier_azazel_summon_farmer_innate", "items/azazel_summon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azazel_summon_scout_innate", "items/azazel_summon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -42,7 +43,9 @@ function azazel_summon:OnSpellStart()
     azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
     azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_scout_innate", {})
   elseif string.find(summon_name, "fighter") then
-    azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("summon_duration")})
+    local summon_duration = self:GetSpecialValueFor("summon_duration")
+    azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
+    azazel_summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
   end
 
   -- Fix stats of summons

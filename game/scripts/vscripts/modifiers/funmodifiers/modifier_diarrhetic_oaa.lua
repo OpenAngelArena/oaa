@@ -1,3 +1,6 @@
+LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_diarrhetic_oaa = class(ModifierBaseClass)
 
 function modifier_diarrhetic_oaa:IsHidden()
@@ -55,10 +58,12 @@ if IsServer() then
     if no_wards_nearby then
       local observer = CreateUnitByName("npc_dota_observer_wards", position, true, nil, parent, team)
       observer:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
+      observer:AddNewModifier(parent, nil, "modifier_generic_dead_tracker_oaa", {duration = self.duration + MANUAL_GARBAGE_CLEANING_TIME})
       observer:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
     else
       local sentry = CreateUnitByName("npc_dota_sentry_wards", position, true, nil, parent, team)
       sentry:AddNewModifier(parent, nil, "modifier_kill", {duration = self.duration})
+      sentry:AddNewModifier(parent, nil, "modifier_generic_dead_tracker_oaa", {duration = self.duration + MANUAL_GARBAGE_CLEANING_TIME})
       sentry:AddNewModifier(parent, nil, "modifier_ward_invisibility", {})
       sentry:AddNewModifier(parent, nil, "modifier_item_ward_true_sight", {
         true_sight_range = 700,

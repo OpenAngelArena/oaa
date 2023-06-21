@@ -9,6 +9,7 @@ LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/farming/great
 LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -117,6 +118,7 @@ function item_greater_tranquil_boots:Sprout(target)
   dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
   dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
   dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+  dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   --self:CreateVisibilityNode(target_loc, vision_radius, duration)
 

@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_item_far_sight_stacking_stats", "items/sight.lua", LUA
 LinkLuaModifier("modifier_item_far_sight_non_stacking_stats", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_far_sight_dummy_stuff", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_true_sight", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_far_sight = class(ItemBaseClass)
 
@@ -34,9 +35,10 @@ function item_far_sight:OnSpellStart()
   dummy:AddNewModifier(caster, self, "modifier_far_sight_dummy_stuff", {})
   dummy:AddNewModifier(caster, self, "modifier_item_far_sight_true_sight", {})
   dummy:AddNewModifier(caster, self, "modifier_kill", {duration = revealDuration})
+  dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = revealDuration + MANUAL_GARBAGE_CLEANING_TIME})
 
-  dummy:MakeVisibleToTeam(DOTA_TEAM_GOODGUYS, revealDuration)
-  dummy:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, revealDuration)
+  dummy:MakeVisibleToTeam(casterTeam, revealDuration)
+  --dummy:MakeVisibleToTeam(DOTA_TEAM_BADGUYS, revealDuration)
 end
 
 item_far_sight_2 = item_far_sight
@@ -297,6 +299,24 @@ function modifier_item_far_sight_true_sight:OnCreated()
       enemy_team = DOTA_TEAM_GOODGUYS
     end
 
+    local enemies = FindUnitsInRadius(
+      parent_team,
+      parent:GetAbsOrigin(),
+      nil,
+      self.revealRadius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    -- Reveal the dummy if the enemy is there
+    if #enemies > 0 and not self.made_visible then
+      parent:MakeVisibleToTeam(enemy_team, 8)
+      self.made_visible = true
+    end
+
     -- New particles
     local index1 = ParticleManager:CreateParticleForTeam("particles/items/far_sight/far_sight_green.vpcf", PATTACH_WORLDORIGIN, parent, parent_team)
     ParticleManager:SetParticleControl(index1, 0, parent_location)
@@ -350,6 +370,17 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
     FIND_ANY_ORDER,
     false
   )
+
+  -- Reveal the dummy when the enemy walks into the area
+  if #enemies > 0 and not self.made_visible then
+    local parent_team = parent:GetTeamNumber()
+    local enemy_team = DOTA_TEAM_BADGUYS
+    if parent_team == enemy_team then
+      enemy_team = DOTA_TEAM_GOODGUYS
+    end
+    parent:MakeVisibleToTeam(enemy_team, 8)
+    self.made_visible = true
+  end
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then

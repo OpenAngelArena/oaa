@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 beastmaster_call_of_the_wild_boar_oaa = class(AbilityBaseClass)
 
@@ -95,6 +96,7 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, 
   npcCreep:SetOwner(caster)
   npcCreep:SetForwardVector(caster:GetForwardVector())
   npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+  npcCreep:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   return npcCreep
 end
@@ -202,6 +204,7 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, 
   npcCreep:SetOwner(caster)
   npcCreep:SetForwardVector(caster:GetForwardVector())
   npcCreep:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+  npcCreep:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   return npcCreep
 end
