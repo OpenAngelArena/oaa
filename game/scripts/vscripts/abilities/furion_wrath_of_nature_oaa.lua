@@ -411,7 +411,7 @@ if IsServer() then
       if treant then
         treant:SetControllableByPlayer(caster:GetPlayerID(), false)
         treant:SetOwner(caster)
-        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = treant_duration} )
+        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = treant_duration})
         treant:AddNewModifier(caster, force_of_nature_ability, "modifier_generic_dead_tracker_oaa", {duration = treant_duration + MANUAL_GARBAGE_CLEANING_TIME})
 
         -- Fix stats of treants

@@ -312,7 +312,7 @@ function modifier_item_far_sight_true_sight:OnCreated()
     )
 
     -- Reveal the dummy if the enemy is there
-	for _, enemy in pairs(enemies) do
+    for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() and not self.made_visible then
         if enemy:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
           parent:MakeVisibleToTeam(enemy_team, 8)
@@ -384,6 +384,7 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       enemy:AddNewModifier(caster, ability, "modifier_item_dustofappearance", {duration = dust_duration})
+      -- Reveal the dummy when the valid enemy walks into the area
       if enemy:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and not self.made_visible then
         parent:MakeVisibleToTeam(enemy_team, 8)
         self.made_visible = true
