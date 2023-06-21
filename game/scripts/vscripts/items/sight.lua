@@ -312,9 +312,14 @@ function modifier_item_far_sight_true_sight:OnCreated()
     )
 
     -- Reveal the dummy if the enemy is there
-    if #enemies > 0 and not self.made_visible then
-      parent:MakeVisibleToTeam(enemy_team, 8)
-      self.made_visible = true
+	for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() and not self.made_visible then
+        if enemy:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
+          parent:MakeVisibleToTeam(enemy_team, 8)
+          self.made_visible = true
+          break
+        end
+      end
     end
 
     -- New particles
@@ -370,21 +375,19 @@ function modifier_item_far_sight_true_sight:OnIntervalThink()
     FIND_ANY_ORDER,
     false
   )
-
-  -- Reveal the dummy when the enemy walks into the area
-  if #enemies > 0 and not self.made_visible then
-    local parent_team = parent:GetTeamNumber()
-    local enemy_team = DOTA_TEAM_BADGUYS
-    if parent_team == enemy_team then
-      enemy_team = DOTA_TEAM_GOODGUYS
-    end
-    parent:MakeVisibleToTeam(enemy_team, 8)
-    self.made_visible = true
+  local parent_team = parent:GetTeamNumber()
+  local enemy_team = DOTA_TEAM_BADGUYS
+  if parent_team == enemy_team then
+    enemy_team = DOTA_TEAM_GOODGUYS
   end
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       enemy:AddNewModifier(caster, ability, "modifier_item_dustofappearance", {duration = dust_duration})
+      if enemy:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS and not self.made_visible then
+        parent:MakeVisibleToTeam(enemy_team, 8)
+        self.made_visible = true
+      end
     end
   end
 end
