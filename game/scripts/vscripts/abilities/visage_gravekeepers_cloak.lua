@@ -12,6 +12,9 @@ function visage_gravekeepers_cloak_oaa:OnHeroCalculateStatBonus()
 
   if caster:HasShardOAA() and caster:IsRealHero() and not self.added_stone_form then
     local summon_familiars_ability = caster:FindAbilityByName("visage_summon_familiars_oaa")
+    if not summon_familiars_ability then
+      return
+    end
     local ability_level = summon_familiars_ability:GetLevel()
 
     local stone_form_ability = caster:FindAbilityByName("visage_summon_familiars_stone_form")
@@ -213,8 +216,11 @@ if IsServer() then
 
     if keys.attacker:GetTeam() ~= parent:GetTeam() and keys.attacker:GetTeam() ~= DOTA_TEAM_NEUTRALS then
       self:DecreaseStacks()
+      local mod = self
       Timers:CreateTimer(recovery_time, function()
-        self:IncreaseStacks()
+        if mod then
+          mod:IncreaseStacks()
+        end
       end)
     end
 
