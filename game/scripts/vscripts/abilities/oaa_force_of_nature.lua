@@ -121,7 +121,7 @@ function furion_force_of_nature_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   self:SetHidden(true) -- Decide later if it will unhide
 
-  if caster:FindAbilityByName("morphling_replicate") then
+  if caster:HasModifier("modifier_morphling_replicate_manager") then
     self:SetHidden(false) -- Unhide if its morphling
     return
   end

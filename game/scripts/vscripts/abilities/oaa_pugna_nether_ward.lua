@@ -46,13 +46,27 @@ function pugna_nether_ward_oaa:GetAssociatedSecondaryAbilities()
 end
 
 function pugna_nether_ward_oaa:OnStolen(hSourceAbility)
-  -- local caster = self:GetCaster()
-  -- local vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
-  -- if not vanilla_ability then
-    -- return
-  -- end
-  -- vanilla_ability:SetHidden(true) -- doesn't work
-  self:SetHidden(true) -- doesn't work for Morphling
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_morphling_replicate_manager") then
+    local vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
+    if not vanilla_ability then
+      print("MORPHLING MORPH: vanilla Nether Ward not found")
+      Timers:CreateTimer(FrameTime(), function()
+        vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
+        if not vanilla_ability then
+          print("MORPHLING MORPH: vanilla Nether Ward not found")
+          return FrameTime() -- repeat until found
+        else
+          vanilla_ability:SetHidden(true)
+        end
+      end)
+    else
+       vanilla_ability:SetHidden(true)
+    end
+  else
+    -- This works for Spell Steal
+    self:SetHidden(true)
+  end
 end
 
 function pugna_nether_ward_oaa:OnUnStolen()
