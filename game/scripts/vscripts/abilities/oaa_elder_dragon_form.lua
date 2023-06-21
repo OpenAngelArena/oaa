@@ -114,6 +114,26 @@ function dragon_knight_elder_dragon_form_oaa:OnUpgrade()
   vanilla_ability:SetLevel(ability_level)
 end
 
+-- function dragon_knight_elder_dragon_form_oaa:GetAssociatedSecondaryAbilities()
+  -- return "dragon_knight_elder_dragon_form"
+-- end
+
+-- function dragon_knight_elder_dragon_form_oaa:OnStolen(hSourceAbility)
+  -- local caster = self:GetCaster()
+  -- local vanilla_ability = caster:FindAbilityByName("dragon_knight_elder_dragon_form")
+  -- if not vanilla_ability then
+    -- return
+  -- end
+  -- vanilla_ability:SetHidden(true)
+-- end
+
+function dragon_knight_elder_dragon_form_oaa:OnUnStolen()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_dragon_knight_elder_dragon_form_oaa") then
+    caster:RemoveModifierByName("modifier_dragon_knight_elder_dragon_form_oaa")
+  end
+end
+
 function dragon_knight_elder_dragon_form_oaa:ProcsMagicStick()
   if self:GetLevel() >= 5 and self:GetCaster():HasScepter() then
     return false
