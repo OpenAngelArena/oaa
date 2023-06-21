@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_standard_capture_point_dummy_stuff", "modifiers/modifier_standard_capture_point_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or class({})
@@ -337,12 +336,10 @@ function CapturePoints:EndCapture()
 
   -- Remove vision over capture points
   if self.radiant_dummy and not self.radiant_dummy:IsNull() then
-    self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_kill", {duration = 0.1})
-    self.radiant_dummy:AddNewModifier(self.radiant_dummy, nil, "modifier_generic_dead_tracker_oaa", {duration = MANUAL_GARBAGE_CLEANING_TIME})
+    self.radiant_dummy:ForceKillOAA(false)
   end
   if self.dire_dummy and not self.dire_dummy:IsNull() then
-    self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_kill", {duration = 0.1})
-    self.dire_dummy:AddNewModifier(self.dire_dummy, nil, "modifier_generic_dead_tracker_oaa", {duration = MANUAL_GARBAGE_CLEANING_TIME})
+    self.dire_dummy:ForceKillOAA(false)
   end
 end
 

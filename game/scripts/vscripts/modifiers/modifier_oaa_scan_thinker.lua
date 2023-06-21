@@ -11,7 +11,7 @@ if IsServer() then
   function modifier_oaa_scan_thinker:OnDestroy()
     local parent = self:GetParent()
     if parent and not parent:IsNull() then
-      parent:ForceKill(false)
+      parent:ForceKillOAA(false)
     end
   end
 

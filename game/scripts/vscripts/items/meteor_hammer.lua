@@ -161,7 +161,7 @@ function modifier_item_meteor_hammer_oaa_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 

@@ -44,7 +44,7 @@ if IsServer() then
           return 0.5
         else
           if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
-            minimap_entity:ForceKill(false)
+            minimap_entity:ForceKillOAA(false)
             return -1
           end
         end
@@ -87,7 +87,7 @@ if IsServer() then
           return 10
         else
           if IsValidEntity(minimap_entity) and minimap_entity:IsAlive() then
-            minimap_entity:ForceKill(false)
+            minimap_entity:ForceKillOAA(false)
           end
           return -1
         end

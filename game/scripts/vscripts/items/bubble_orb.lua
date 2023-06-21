@@ -158,7 +158,7 @@ function modifier_item_preemptive_bubble_aura_block:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 

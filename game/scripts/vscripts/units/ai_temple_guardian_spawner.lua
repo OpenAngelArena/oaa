@@ -92,8 +92,8 @@ function RemovePedestals()
     callback = function()
       -- print("OFFSET " .. tostring(offset))
       if offset > 480 then
-        thisEntity.Pedestal1:ForceKill(false)
-        thisEntity.Pedestal2:ForceKill(false)
+        thisEntity.Pedestal1:ForceKillOAA(false)
+        thisEntity.Pedestal2:ForceKillOAA(false)
 
         ParticleManager:DestroyParticle( nFXIndex1 , false)
         ParticleManager:ReleaseParticleIndex( nFXIndex1 )

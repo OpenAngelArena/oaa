@@ -65,8 +65,8 @@ function magma_boss_volcano:KillAllVolcanos(team) --kill all volcanos created by
   if IsServer() then
     local volcanos = Entities:FindAllByName(self.volcano_name)
     for _, volcano in pairs(volcanos) do
-      if volcano:HasModifier(self.modifier_name) and volcano:GetTeamNumber() == team then
-        volcano:ForceKill(false)
+      if not volcano:IsNull() and volcano:HasModifier(self.modifier_name) and volcano:GetTeamNumber() == team then
+        volcano:ForceKillOAA(false)
       end
     end
   end
@@ -394,7 +394,7 @@ function modifier_magma_boss_volcano_thinker:OnDestroy()
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
     parent:AddNoDraw()
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 

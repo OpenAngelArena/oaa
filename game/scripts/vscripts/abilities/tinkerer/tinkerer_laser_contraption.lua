@@ -400,7 +400,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 
