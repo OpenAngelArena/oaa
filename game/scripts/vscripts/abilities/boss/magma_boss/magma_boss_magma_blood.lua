@@ -2,6 +2,7 @@ LinkLuaModifier("modifier_magma_boss_magma_blood_passive", "abilities/boss/magma
 LinkLuaModifier("modifier_magma_boss_magma_blood_debuff", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_magma_boss_magma_blood_warning", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 magma_boss_magma_blood = class(AbilityBaseClass)
 
@@ -81,6 +82,7 @@ function magma_boss_magma_blood:OnProjectileHit(target, location)
 
   if target:HasModifier("modifier_oaa_thinker") then
     target:AddNewModifier(target, self, "modifier_kill", {duration = dummy_duration})
+    target:AddNewModifier(target, self, "modifier_generic_dead_tracker_oaa", {duration = dummy_duration + MANUAL_GARBAGE_CLEANING_TIME})
   end
 end
 

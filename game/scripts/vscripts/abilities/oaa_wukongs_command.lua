@@ -500,7 +500,7 @@ if IsServer() then
 
     -- Kill the thinker entity if it exists
     if parent and not parent:IsNull() then
-      parent:ForceKill(false)
+      parent:ForceKillOAA(false)
     end
   end
 end

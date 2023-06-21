@@ -4,6 +4,7 @@
 -- General globals
 
 DOTA_TEAM_SPECTATOR = 1
+MANUAL_GARBAGE_CLEANING_TIME = 6
 
 -----------------------------------------------------------------------------------
 -- OAA specific settings
