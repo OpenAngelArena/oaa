@@ -53,6 +53,19 @@ function alchemist_chemical_rage_oaa:OnUpgrade()
   end
 end
 
+-- function alchemist_chemical_rage_oaa:GetAssociatedSecondaryAbilities()
+  -- return "alchemist_chemical_rage"
+-- end
+
+-- function alchemist_chemical_rage_oaa:OnStolen(hSourceAbility)
+  -- local caster = self:GetCaster()
+  -- local vanilla_ability = caster:FindAbilityByName("alchemist_chemical_rage")
+  -- if not vanilla_ability then
+    -- return
+  -- end
+  -- vanilla_ability:SetHidden(true)
+-- end
+
 function alchemist_chemical_rage_oaa:ProcsMagicStick()
   return true
 end

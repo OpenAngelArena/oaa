@@ -41,6 +41,46 @@ function pugna_nether_ward_oaa:OnSpellStart()
   --caster:CastAbilityOnPosition(self:GetCursorPosition(), ability, caster:GetPlayerID())
 end
 
+function pugna_nether_ward_oaa:GetAssociatedSecondaryAbilities()
+  return "pugna_nether_ward"
+end
+
+function pugna_nether_ward_oaa:OnStolen(hSourceAbility)
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_morphling_replicate_manager") then
+    local vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
+    if not vanilla_ability then
+      print("MORPHLING MORPH: vanilla Nether Ward not found")
+      Timers:CreateTimer(FrameTime(), function()
+        vanilla_ability = caster:FindAbilityByName("pugna_nether_ward")
+        if not vanilla_ability then
+          print("MORPHLING MORPH: vanilla Nether Ward not found")
+          return FrameTime() -- repeat until found
+        else
+          vanilla_ability:SetHidden(true)
+        end
+      end)
+    else
+       vanilla_ability:SetHidden(true)
+    end
+  else
+    -- This works for Spell Steal
+    self:SetHidden(true)
+  end
+end
+
+function pugna_nether_ward_oaa:OnUnStolen()
+  local caster = self:GetCaster()
+  if caster:HasModifier("modifier_pugna_nether_ward_oaa") then
+    caster:RemoveModifierByName("modifier_pugna_nether_ward_oaa")
+  end
+end
+
+-- Doesn't work for Rubick Spell Steal
+--function pugna_nether_ward_oaa:IsHiddenWhenStolen()
+  --return true
+--end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_pugna_nether_ward_oaa = class(ModifierBaseClass)
