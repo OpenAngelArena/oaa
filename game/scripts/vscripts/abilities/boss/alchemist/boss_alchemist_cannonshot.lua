@@ -96,5 +96,7 @@ function boss_alchemist_cannonshot:Explode(explosive)
 	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(explosion)
 
-	explosive:ForceKill(false)
+  if explosive and not explosive:IsNull() then
+    explosive:ForceKillOAA(false)
+	end
 end

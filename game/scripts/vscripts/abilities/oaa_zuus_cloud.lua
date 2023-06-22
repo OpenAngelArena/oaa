@@ -1,6 +1,8 @@
 zuus_cloud_oaa = class( AbilityBaseClass )
+
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_zuus_bolt_true_sight", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function zuus_cloud_oaa:GetAOERadius()
   return self:GetSpecialValueFor("cloud_radius")
@@ -8,13 +10,15 @@ end
 
 function zuus_cloud_oaa:OnSpellStart()
   local caster = self:GetCaster()
-  local hCloud = CreateUnitByName( "npc_dota_zeus_cloud", self:GetCursorPosition(), false, caster, caster, caster:GetTeamNumber() )
-  hCloud:SetOwner( self:GetCaster() )
-  hCloud:SetControllableByPlayer( self:GetCaster():GetPlayerOwnerID(), false )
-  hCloud:AddNewModifier( caster, self, "modifier_zuus_cloud_oaa", {} )
-  hCloud:AddNewModifier( caster, self, "modifier_kill", { duration = self:GetSpecialValueFor( "cloud_duration" ) } )
-  hCloud:AddNewModifier( caster, self, "modifier_phased", {} )
-  --FindClearSpaceForUnit( hCloud, self:GetCursorPosition(), true )
+  local nimbus_duration = self:GetSpecialValueFor("cloud_duration")
+  local nimbus = CreateUnitByName("npc_dota_zeus_cloud", self:GetCursorPosition(), false, caster, caster, caster:GetTeamNumber())
+  nimbus:SetOwner(caster)
+  nimbus:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
+  nimbus:AddNewModifier(caster, self, "modifier_zuus_cloud_oaa", {})
+  nimbus:AddNewModifier(caster, self, "modifier_kill", {duration = nimbus_duration})
+  nimbus:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = nimbus_duration + MANUAL_GARBAGE_CLEANING_TIME})
+  nimbus:AddNewModifier(caster, self, "modifier_phased", {})
+  --FindClearSpaceForUnit(nimbus, self:GetCursorPosition(), true)
 end
 
 function zuus_cloud_oaa:OnHeroCalculateStatBonus()

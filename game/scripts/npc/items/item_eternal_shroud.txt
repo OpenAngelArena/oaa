@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3300"
+    "ItemCost"                                            "3100"
     "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud;es"
@@ -55,7 +55,7 @@
       "bonus_spell_resist"                                "30 32 34 36 38"
       "bonus_strength"                                    "14 19 29 44 64"
       "bonus_health_regen"                                "7 10 13 16 19" //OAA
-      "mana_restore_pct"                                  "25"
+      "mana_restore_pct"                                  "30"
     }
   }
 }

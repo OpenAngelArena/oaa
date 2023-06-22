@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_item_sacred_skull_passives", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
@@ -339,6 +340,7 @@ if IsServer() then
     local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent_team)
     dummy:AddNewModifier(parent, ability, "modifier_sacred_skull_dummy_stuff", {})
     dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
+    dummy:AddNewModifier(parent, ability, "modifier_generic_dead_tracker_oaa", {duration = vision_duration + MANUAL_GARBAGE_CLEANING_TIME})
     --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
 
     if ability and ability:IsCooldownReady() then

@@ -741,7 +741,10 @@ if IsServer() then
 
   function modifier_death_ward_hidden_oaa:OnDestroy()
     local parent = self:GetParent()
-    parent:ForceKill(false)
+    -- Kill the ward if it still exists
+    if parent and not parent:IsNull() then
+      parent:ForceKillOAA(false)
+    end
   end
 end
 

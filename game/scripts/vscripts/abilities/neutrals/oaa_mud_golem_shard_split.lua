@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 mud_golem_shard_split_oaa = class(AbilityBaseClass)
 
 function mud_golem_shard_split_oaa:OnOwnerDied()
@@ -68,6 +70,7 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
 
     -- LIFETIME DURATION
     shard:AddNewModifier(shard, self, "modifier_kill", {duration = duration})
+    shard:AddNewModifier(shard, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
     -- DAMAGE
     shard:SetBaseDamageMax(caster_dmg_max*shard_dmg_percentage/100)

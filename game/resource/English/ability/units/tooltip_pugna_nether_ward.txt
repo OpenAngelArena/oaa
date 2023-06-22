@@ -1,0 +1,33 @@
+//=============================================================================
+// Pugna Nether Ward
+//=============================================================================
+// "DOTA_Tooltip_ability_pugna_nether_ward"                                       "Nether Ward"
+// "DOTA_Tooltip_ability_pugna_nether_ward_Description"                           "Pugna places a Nether Ward at the target location. The ward will fire at any enemy hero who casts a spell dealing base damage plus the damage multiplier of the mana spent by the enemy hero."
+// "DOTA_Tooltip_ability_pugna_nether_ward_Lore"                                  "While at the lamasery for the Arts of Oblivion, Pugna learned to dominate his classmates with a simple ward charged with Nether magic."
+// "DOTA_Tooltip_ability_pugna_nether_ward_shard_description"                     "Increases cast range."
+// "DOTA_Tooltip_ability_pugna_nether_ward_Note0"                                 "Nether Ward deals damage before the actual spell is cast, so if the caster dies the spell will have no effect."
+// "DOTA_Tooltip_ability_pugna_nether_ward_Note1"                                 "Nether Ward can be decrepified."
+// "DOTA_Tooltip_ability_pugna_nether_ward_Note2"                                 "Illusions and creeps deal 25% damage to Nether Ward."
+// "DOTA_Tooltip_ability_pugna_nether_ward_radius"                                "WARD ATTACK RANGE:"
+// "DOTA_Tooltip_ability_pugna_nether_ward_base_damage"                           "BASE DAMAGE:"
+// "DOTA_Tooltip_ability_pugna_nether_ward_mana_multiplier"                       "DAMAGE PER MANA:"
+// "DOTA_Tooltip_ability_pugna_nether_ward_attacks_to_destroy"                    "ATTACKS TO DESTROY:"
+// "DOTA_Tooltip_ability_pugna_nether_ward_abilityduration"                       "WARD DURATION:"
+// "DOTA_Tooltip_ability_pugna_nether_ward_abilitycastrange"                      "CAST RANGE:"
+
+// "DOTA_Tooltip_modifier_pugna_nether_ward_aura"                                 "Nether Ward"
+// "DOTA_Tooltip_modifier_pugna_nether_ward_aura_Description"                     "Affected by Nether Ward"
+
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa"                                    "#{DOTA_Tooltip_ability_pugna_nether_ward}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_Description"                        "#{DOTA_Tooltip_ability_pugna_nether_ward_Description}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_Lore"                               "#{DOTA_Tooltip_ability_pugna_nether_ward_Lore}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_shard_description"                  "#{DOTA_Tooltip_ability_pugna_nether_ward_shard_description}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_Note0"                              "#{DOTA_Tooltip_ability_pugna_nether_ward_Note0}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_Note1"                              "#{DOTA_Tooltip_ability_pugna_nether_ward_Note1}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_Note2"                              "#{DOTA_Tooltip_ability_pugna_nether_ward_Note2}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_radius"                             "#{DOTA_Tooltip_ability_pugna_nether_ward_radius}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_base_damage"                        "#{DOTA_Tooltip_ability_pugna_nether_ward_base_damage}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_mana_multiplier"                    "#{DOTA_Tooltip_ability_pugna_nether_ward_mana_multiplier}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_attacks_to_destroy"                 "#{DOTA_Tooltip_ability_pugna_nether_ward_attacks_to_destroy}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_abilityduration"                    "#{DOTA_Tooltip_ability_pugna_nether_ward_abilityduration}"
+"DOTA_Tooltip_ability_pugna_nether_ward_oaa_abilitycastrange"                   "#{DOTA_Tooltip_ability_pugna_nether_ward_abilitycastrange}"

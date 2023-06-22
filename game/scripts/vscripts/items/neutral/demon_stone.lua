@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_item_demon_stone_passive", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_stone_summon_passives", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_demon_stone = class(ItemBaseClass)
 
@@ -31,6 +32,7 @@ function item_demon_stone:OnSpellStart()
   -- Add summon passives
   summon:AddNewModifier(caster, self, "modifier_demon_stone_summon_passives", {})
   summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
+  summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   -- Fix stats of summons
   local summon_hp = self:GetSpecialValueFor("summon_health")

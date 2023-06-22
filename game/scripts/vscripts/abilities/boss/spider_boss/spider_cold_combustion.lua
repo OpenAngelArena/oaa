@@ -61,7 +61,7 @@ function spider_cold_combustion:Boom(parent)
     ParticleManager:ReleaseParticleIndex( part )
 
     if parent:IsAlive() then
-      parent:ForceKill(false)
+      parent:ForceKillOAA(false)
     end
   end
 end

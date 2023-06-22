@@ -270,7 +270,7 @@ function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:OnDestro
     return
   end
 
-  parent:ForceKill(false)
+  parent:ForceKillOAA(false)
 end
 
 function modifier_vengefulspirit_command_aura_oaa_scepter_illusion_hide:DeclareFunctions()
