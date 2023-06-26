@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_broodmother"
   "Title"         "Recommended items for Broodmother"
 
@@ -9,18 +9,17 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_quelling_blade"
-      "item"      "item_blight_stone"
       "item"      "item_flask"
       "item"      "item_faerie_fire"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_sange_and_yasha"
-      "item"      "item_devastator_2"
-      "item"      "item_butterfly_oaa"
+      "item"      "item_harpoon"
+      "item"      "item_manta"
       "item"      "item_skadi"
       "item"      "item_silver_edge"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -32,19 +31,20 @@
     {
       "item"      "item_solar_crest"
       "item"      "item_assault"
-      "item"      "item_bloodthorn"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_devastator_2"
       "item"      "item_lucience"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_disperser"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
+      "item"      "item_sange_and_yasha"
       "item"      "item_sphere"
-      "item"      "item_swift_blink"
       "item"      "item_ultimate_scepter"
-      "item"      "item_abyssal_blade_2"
       "item"      "item_sheepstick_4"
     }
   }
