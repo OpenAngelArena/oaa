@@ -84,12 +84,12 @@ function modifier_oaa_borrowed_time_passive:IsPurgable()
   return false
 end
 
-function modifier_oaa_borrowed_time_passive:AllowIllusionDuplicate()
-  return false
-end
-
 function modifier_oaa_borrowed_time_passive:OnCreated()
   if IsServer() then
+    if self:GetParent():IsIllusion() then
+      self:Destroy()
+      return
+    end
     self.hp_threshold = self:GetAbility():GetSpecialValueFor("hp_threshold")
     -- Check if we need to auto cast immediately
     self:CheckHealthToTrigger()
