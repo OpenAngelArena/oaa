@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 lycan_boss_summon_wolves_tier5 = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
@@ -27,6 +29,7 @@ function lycan_boss_summon_wolves_tier5:OnSpellStart()
   local nHoundSpawns = self:GetSpecialValueFor("num_hound_spawn")
   local nHoundBossSpawns = self:GetSpecialValueFor("num_hound_boss_spawn")
   local nWerewolves = self:GetSpecialValueFor("num_werewolf_spawn")
+  local summon_duration = self:GetSpecialValueFor("wolf_duration")
 
   if caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil then
     nHoundSpawns = self:GetSpecialValueFor("num_ss_hound_spawn")
@@ -53,7 +56,8 @@ function lycan_boss_summon_wolves_tier5:OnSpellStart()
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hHound = CreateUnitByName( "npc_dota_creature_dire_hound_tier5", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hHound then
-        hHound:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
+        hHound:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
+        hHound:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hHound:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHound )
         if caster.zone then
@@ -73,7 +77,8 @@ function lycan_boss_summon_wolves_tier5:OnSpellStart()
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hHoundBoss = CreateUnitByName( "npc_dota_creature_dire_hound_boss_tier5", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hHoundBoss then
-        hHoundBoss:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
+        hHoundBoss:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
+        hHoundBoss:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hHoundBoss:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hHoundBoss )
         if caster.zone then
@@ -93,7 +98,8 @@ function lycan_boss_summon_wolves_tier5:OnSpellStart()
     if #caster.LYCAN_BOSS_SUMMONED_UNITS + 1 < caster.LYCAN_BOSS_MAX_SUMMONS then
       local hWerewolf = CreateUnitByName( "npc_dota_creature_werewolf_tier5", caster_loc, true, caster, caster, caster:GetTeamNumber() )
       if hWerewolf then
-        hWerewolf:AddNewModifier(caster, self, "modifier_kill", {duration = self:GetSpecialValueFor("wolf_duration") })
+        hWerewolf:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
+        hWerewolf:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hWerewolf:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.LYCAN_BOSS_SUMMONED_UNITS, hWerewolf )
         if caster.zone then

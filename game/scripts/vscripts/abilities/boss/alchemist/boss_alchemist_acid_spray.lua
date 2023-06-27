@@ -128,7 +128,7 @@ function modifier_boss_acid_spray_thinker:OnDestroy()
     ParticleManager:ReleaseParticleIndex(self.particle)
   end
   if parent and not parent:IsNull() then
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 

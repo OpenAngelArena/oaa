@@ -129,7 +129,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   -- Check if target has spell block or spell immunity
   if target:TriggerSpellAbsorb(self) or target:IsMagicImmune() then
     if caster and not caster:IsNull() and caster:IsAlive() then
-      caster:ForceKill(false)
+      caster:ForceKillOAA(false)
     end
     -- Release explosion particle
     ParticleManager:ReleaseParticleIndex(particle)
@@ -157,7 +157,7 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
   AddFOWViewer(caster:GetTeamNumber(), location, caster:GetCurrentVisionRange(), duration, false)
 
   if caster and not caster:IsNull() and caster:IsAlive() then
-    caster:ForceKill(false)
+    caster:ForceKillOAA(false)
   end
 
   -- Release explosion particle

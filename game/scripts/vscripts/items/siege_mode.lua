@@ -421,7 +421,7 @@ function modifier_item_siege_mode_thinker:OnDestroy()
   end
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
-    parent:ForceKill(false)
+    parent:ForceKillOAA(false)
   end
 end
 

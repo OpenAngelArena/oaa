@@ -6,6 +6,7 @@ LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_buff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_root_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -150,7 +151,7 @@ if IsServer() then
 
     -- Kill the thinker entity if it exists
     if parent and not parent:IsNull() then
-      parent:ForceKill(false)
+      parent:ForceKillOAA(false)
     end
   end
 end
@@ -390,6 +391,7 @@ if IsServer() then
       local treant_armor = force_of_nature_ability:GetLevelSpecialValueFor("treant_armor", level-1)
       local treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_damage", level-1)
       local treant_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", level-1)
+      local treant_duration = force_of_nature_ability:GetSpecialValueFor("duration")
 
       local treantName = "npc_dota_furion_treant_" .. level
       if parent:IsRealHero() then
@@ -409,7 +411,8 @@ if IsServer() then
       if treant then
         treant:SetControllableByPlayer(caster:GetPlayerID(), false)
         treant:SetOwner(caster)
-        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = force_of_nature_ability:GetSpecialValueFor("duration")})
+        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = treant_duration})
+        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_generic_dead_tracker_oaa", {duration = treant_duration + MANUAL_GARBAGE_CLEANING_TIME})
 
         -- Fix stats of treants
         -- HP

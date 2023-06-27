@@ -827,7 +827,7 @@ function ARDMMode:RemoveOldHero(hero)
   if hero and not hero:IsNull() then
     DebugPrint("Old hero still exists. Removing "..hero:GetUnitName())
     hero:MakeIllusion() -- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
-    hero:ForceKill(false)
+    hero:ForceKillOAA(false)
     --UTIL_Remove(hero) -- causes Client crashes
   end
 end

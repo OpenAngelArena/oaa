@@ -14,7 +14,7 @@ function visage_summon_familiars_oaa:OnSpellStart()
   for _, v in pairs(caster.familiars) do
     if v and not v:IsNull() then
       if v:IsAlive() then
-        v:ForceKill(false)
+        v:ForceKillOAA(false)
       end
     end
   end

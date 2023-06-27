@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Pugna: Nether Ward (OAA modification)
+  //=================================================================================================================
+  "pugna_nether_ward_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "85188"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_pugna_nether_ward.lua"
+    "AbilityTextureName"                                  "pugna_nether_ward"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+
+    "HasShardUpgrade"                                     "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "30"
+    "AbilityDuration"                                     "18 22 26 30 34 38"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "80"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"                                            "1400"
+      "base_damage"                                       "50 75 100 125 250 500"
+      "mana_multiplier"
+      {
+        "value"                                           "1 1.2 1.4 1.6 1.8 2.0"
+        "special_bonus_unique_pugna_3"                    "+1.75"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+      }
+      "mana_regen"                                        "0"
+      "attacks_to_destroy"
+      {
+        "value"                                           "4"
+        "special_bonus_unique_pugna_6"                    "+3"
+      }
+      "spell_damage_reduction"
+      {
+        "value"                                           "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "150"
+        "special_bonus_shard"                             "=350"
+      }
+    }
+  }
+}

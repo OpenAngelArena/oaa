@@ -9,6 +9,8 @@
 ]]
 furion_force_of_nature_oaa = class(AbilityBaseClass)
 
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 function furion_force_of_nature_oaa:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
 end
@@ -92,7 +94,8 @@ function furion_force_of_nature_oaa:OnSpellStart()
     local treant = CreateUnitByName( treant_names[ability_level], target_point, true, caster, caster:GetOwner(), caster:GetTeamNumber() )
     treant:SetControllableByPlayer( pID, false )
     treant:SetOwner( caster )
-    treant:AddNewModifier( caster, self, "modifier_kill", {duration = duration} )
+    treant:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+    treant:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
     -- Fix stats of treants
     -- HP
@@ -118,7 +121,7 @@ function furion_force_of_nature_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   self:SetHidden(true) -- Decide later if it will unhide
 
-  if caster:FindAbilityByName("morphling_replicate") then
+  if caster:HasModifier("modifier_morphling_replicate_manager") then
     self:SetHidden(false) -- Unhide if its morphling
     return
   end

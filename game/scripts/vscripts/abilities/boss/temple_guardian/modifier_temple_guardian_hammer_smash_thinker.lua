@@ -24,7 +24,7 @@ function modifier_temple_guardian_hammer_smash_thinker:OnIntervalThink()
       if parent and not parent:IsNull() then
         -- Instead of UTIL_Remove:
         parent:AddNoDraw()
-        parent:ForceKill(false)
+        parent:ForceKillOAA(false)
       end
     end
   end
@@ -78,7 +78,7 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
     if parent and not parent:IsNull() then
       -- Instead of UTIL_Remove:
       parent:AddNoDraw()
-      parent:ForceKill(false)
+      parent:ForceKillOAA(false)
     end
   end
 end

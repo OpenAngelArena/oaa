@@ -8,11 +8,13 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5188"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT" //OAA, Valve has extra empty space
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "4"
+
+    "HasShardUpgrade"                                     "0" // needed because of the custom ability
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -21,7 +23,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "30" //OAA
-    "AbilityDuration"                                     "18 22 26 30 34 38"
+    "AbilityDuration"                                     "18 22 26 30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,10 +34,10 @@
     "AbilityValues"
     {
       "radius"                                            "1400"
-      "base_damage"                                       "50 75 100 125 250 500" //OAA
+      "base_damage"                                       "50 75 100 125" //OAA
       "mana_multiplier"
       {
-        "value"                                           "1 1.2 1.4 1.6 1.8 2.0"
+        "value"                                           "1 1.2 1.4 1.6"
         "special_bonus_unique_pugna_3"                    "+1.75"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }

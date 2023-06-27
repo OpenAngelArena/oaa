@@ -23,7 +23,7 @@
       "bonus_hp_regen"                                    "1 2 3 4 5 6" //OAA
       "stack_limit" //OAA
       {
-        "value"                                           "6"
+        "value"                                           "5 6 7 8 8 8"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
       }
       "stack_duration"
@@ -58,7 +58,7 @@
       }
       "max_shield" //OAA
       {
-        "value"                                           "500 600 700 800 950 1100"
+        "value"                                           "500 600 700 800 1000 1200"
         "RequiresScepter"                                 "1"
       }
       "duration"

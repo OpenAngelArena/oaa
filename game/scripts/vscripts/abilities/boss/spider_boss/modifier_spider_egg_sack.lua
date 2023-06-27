@@ -112,7 +112,7 @@ function modifier_spider_egg_sack:Burst( hHero )
 		parent:EmitSound("Broodmother.LarvalParasite.Burst")
 		parent:EmitSound("EggSack.Burst")
 		parent:AddEffects( EF_NODRAW )
-		parent:ForceKill( false )
+		parent:ForceKillOAA( false )
 	end
 end
 
