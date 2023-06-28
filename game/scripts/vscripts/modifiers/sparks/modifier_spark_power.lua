@@ -1,7 +1,7 @@
 modifier_spark_power = class(ModifierBaseClass)
 
 function modifier_spark_power:IsHidden()
-  return false
+  return true
 end
 
 function modifier_spark_power:IsDebuff()
@@ -20,10 +20,6 @@ function modifier_spark_power:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_spark_power:AllowIllusionDuplicate()
-  return false
-end
-
 function modifier_spark_power:IsAura()
   return true
 end
@@ -37,7 +33,7 @@ function modifier_spark_power:GetModifierAura()
 end
 
 function modifier_spark_power:GetAuraRadius()
-  return 1800
+  return 50000
 end
 
 function modifier_spark_power:GetAuraSearchTeam()
@@ -214,11 +210,11 @@ end
 modifier_spark_power_effect = class(ModifierBaseClass)
 
 function modifier_spark_power_effect:IsHidden()
-  local caster = self:GetCaster() or self:GetAuraOwner()
-  local parent = self:GetParent()
-  if parent == caster then
-    return true
-  end
+  -- local caster = self:GetCaster() or self:GetAuraOwner()
+  -- local parent = self:GetParent()
+  -- if parent == caster then
+    -- return true
+  -- end
   return false
 end
 
@@ -347,10 +343,6 @@ function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
     return 0
   end
 
-  if parent:IsRealHero() then
-    return 0
-  end
-
   if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
     local block = self.bonus
     -- True Random chance
@@ -368,7 +360,7 @@ function modifier_spark_power_effect:GetModifierPhysical_ConstantBlock(keys)
     local prngMult = self.damage_block_failures + 1
 
     -- 50% chance for damage block; Pseudo-Random chance
-    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(0.5) * prngMult) then
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(0.75) * prngMult) then
       -- Reset failure count
       self.damage_block_failures = 0
 
