@@ -6,8 +6,6 @@
   "boss_alchemist_cannonshot"
   {
     "ID"                                                  "8484"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/alchemist/boss_alchemist_cannonshot.lua"
     "AbilityTextureName"                                  "sniper_shrapnel"
@@ -19,8 +17,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

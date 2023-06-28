@@ -6,8 +6,6 @@
   "temple_guardian_rage_hammer_smash"
   {
     "ID"                                                  "8599"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_rage_hammer_smash.lua"
     "AbilityTextureName"                                  "centaur_double_edge"
@@ -19,8 +17,6 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

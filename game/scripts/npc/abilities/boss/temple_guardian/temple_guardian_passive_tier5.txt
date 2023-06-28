@@ -6,8 +6,6 @@
   "temple_guardian_passive_tier5"
   {
     "ID"                                                  "88597"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_passive_tier5.lua"
 
@@ -16,8 +14,6 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

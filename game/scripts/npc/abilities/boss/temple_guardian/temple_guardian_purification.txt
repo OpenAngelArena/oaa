@@ -6,8 +6,6 @@
   "temple_guardian_purification"
   {
     "ID"                                                  "8598"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_purification.lua"
     "AbilityTextureName"                                  "omniknight_purification"
@@ -20,8 +18,6 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

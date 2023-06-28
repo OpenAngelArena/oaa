@@ -6,8 +6,6 @@
   "temple_guardian_hammer_throw"
   {
     "ID"                                                  "8596"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/temple_guardian/temple_guardian_hammer_throw.lua"
     "AbilityTextureName"                                  "sven_storm_bolt"
@@ -22,8 +20,6 @@
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_REFRACTION"
 
     "MaxLevel"                                            "1"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
