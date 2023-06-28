@@ -3,13 +3,13 @@
 //========================================================================+
 // "DOTA_Tooltip_Ability_item_radiance"                                           "Radiance"
 // "DOTA_Tooltip_Ability_item_recipe_radiance"                                    "Radiance Recipe"
-// "DOTA_Tooltip_ability_item_radiance_Description"                               "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"  
+// "DOTA_Tooltip_ability_item_radiance_Description"                               "<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second and causes them to miss %blind_pct%%% of their attacks. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 // "DOTA_Tooltip_ability_item_radiance_Lore"                                      "A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 // "DOTA_Tooltip_ability_item_radiance_bonus_damage"                              "+$damage"
 // "DOTA_Tooltip_ability_item_radiance_evasion"                                   "%+$evasion"
 
 // "DOTA_Tooltip_modifier_item_radiance_debuff"                                   "Burn Damage"
-// "DOTA_Tooltip_modifier_item_radiance_debuff_Description"                       "Taking 60 damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
+"DOTA_Tooltip_modifier_item_radiance_debuff_Description"                        "Taking damage per second, and missing %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% of attacks."
 
 "DOTA_Tooltip_Ability_item_radiance_2"                                          "#{DOTA_Tooltip_Ability_item_radiance}"
 "DOTA_Tooltip_Ability_item_recipe_radiance_2"                                   "#{DOTA_Tooltip_Ability_item_recipe_radiance}"
