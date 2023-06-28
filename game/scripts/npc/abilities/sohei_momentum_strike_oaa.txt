@@ -15,7 +15,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // damage pierces spell immunity but slow and stun don't
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // damage pierces debuff immunity but slow and stun don't
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
