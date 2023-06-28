@@ -40,7 +40,7 @@
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/satanic_core_5"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "37554"
-    "ItemShopTags"                                        "damage;str;armor;unique;hard_to_tag"
+    "ItemShopTags"                                        "str;health_pool;mana_pool;regen_health;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "blooc core 5;satanic core 5"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -72,6 +72,7 @@
       "creep_spell_lifesteal"                             "6 7 8 9 10"
       "unholy_hero_spell_lifesteal"                       "200"
       "unholy_creep_spell_lifesteal"                      "40"
+      "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
       "bonus_status_resist"                               "0"
       "bonus_magic_resist"                                "0"

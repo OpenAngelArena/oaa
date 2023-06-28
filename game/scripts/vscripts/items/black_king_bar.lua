@@ -7,23 +7,21 @@ function item_black_king_bar_1:GetIntrinsicModifierName()
 end
 
 function item_black_king_bar_1:OnSpellStart()
-	local caster = self:GetCaster()
+  local caster = self:GetCaster()
 
   -- Basic Dispel
   caster:Purge( false, true, false, false, false )
 
-  -- Remove debuffs that are removed only with spell immunity
+  -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
   caster:RemoveModifierByName("modifier_slark_pounce_leash")
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
   caster:RemoveModifierByName("modifier_oracle_fates_edict")
 
 	-- Apply spell immunity buff
-  caster:AddNewModifier( caster, self, "modifier_black_king_bar_immune", {
-		duration = self:GetSpecialValueFor( "duration" ),
-	} )
+  caster:AddNewModifier(caster, self, "modifier_black_king_bar_immune", {duration = self:GetSpecialValueFor("duration")})
 
   -- Sound
-	caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
+  caster:EmitSound( "DOTA_Item.BlackKingBar.Activate" )
 end
 
 item_black_king_bar_2 = item_black_king_bar_1
