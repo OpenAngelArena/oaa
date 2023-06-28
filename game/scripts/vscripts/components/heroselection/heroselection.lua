@@ -28,8 +28,8 @@ function HeroSelection:Init ()
   self.moduleName = "HeroSelection"
 
   self.isCM = GetMapName() == "captains_mode"
-  self.is10v10 = GetMapName() == "10v10"
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "oaa_bigmode"
+  self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy"
   self.is1v1 = GetMapName() == "1v1"
 
   local herolistFile = 'scripts/npc/herolist.txt'

@@ -27,7 +27,7 @@ const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
     }
   }
 
-  $.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
+  $.GetContextPanel().SetHasClass('TenVTen', is10v10());
 
   $('#SettingsBody').enabled = IsHost;
 
@@ -37,6 +37,11 @@ const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
   GameEvents.SendCustomGameEventToServer('updateAverageMMR', {});
 }());
+
+function is10v10() {
+  const mapname = Game.GetMapInfo().map_display_name
+  return mapname === '10v10' || mapname === 'oaa_bigmode';
+}
 
 // function RandomizeModifiers () {
 // $.Msg('Clicked randomize!');

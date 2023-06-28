@@ -6,7 +6,12 @@ CustomNetTables.SubscribeNetTableListener('music', SetMusic);
 SetMusic(null, 'info', CustomNetTables.GetTableValue('music', 'info'));
 SetMute(CustomNetTables.GetTableValue('music', 'mute'));
 
-$.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === 'oaa_10v10');
+function is10v10() {
+  const mapname = Game.GetMapInfo().map_display_name
+  return mapname === '10v10' || mapname === 'oaa_bigmode';
+}
+
+$.GetContextPanel().SetHasClass('TenVTen', is10v10());
 
 function ToggleMusic () {
   if (musicPlaying) {
