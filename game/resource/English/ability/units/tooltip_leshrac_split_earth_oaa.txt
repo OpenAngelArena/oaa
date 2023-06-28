@@ -1,6 +1,6 @@
 // "DOTA_Tooltip_ability_leshrac_split_earth"                                     "Split Earth"
 // "DOTA_Tooltip_ability_leshrac_split_earth_Description"                         "Splits the earth under enemies. Deals damage and stuns for a short duration."
-// "DOTA_Tooltip_ability_leshrac_split_earth_shard_description"                   "Causes Split Earth to repeat in the same location three additional times, with a 5 second delay between each one. Each time the radius increases by 75. Split Earth echo location is visible to both teams."
+// "DOTA_Tooltip_ability_leshrac_split_earth_shard_description"                   "Causes Split Earth to repeat in the same location %shard_max_count% additional times, with a %shard_secondary_delay% second delay between each one. Each time the radius increases by %shard_radius_increase%. Split Earth echo location is visible to both teams."
 // "DOTA_Tooltip_ability_leshrac_split_earth_Lore"                                "Twisting nature to his vile will, the shifting earth consumes those unlucky enough to cross Leshrac's path."
 // "DOTA_Tooltip_ability_leshrac_split_earth_Note0"                               "Split Earth will destroy trees in its area of effect."
 // "DOTA_Tooltip_ability_leshrac_split_earth_Note1"                               "There is a %delay% second delay before the effect is applied."
@@ -10,7 +10,7 @@
 
 "DOTA_Tooltip_ability_leshrac_split_earth_oaa"                                  "#{DOTA_Tooltip_ability_leshrac_split_earth}"
 "DOTA_Tooltip_ability_leshrac_split_earth_oaa_Description"                      "#{DOTA_Tooltip_ability_leshrac_split_earth_Description}"
-"DOTA_Tooltip_ability_leshrac_split_earth_oaa_shard_description"                "Causes Split Earth to repeat in the same location, with a 5 second delay. Repeated Split Earth has increased radius by 75. Split Earth echo location is visible to both teams."
+"DOTA_Tooltip_ability_leshrac_split_earth_oaa_shard_description"                "Causes Split Earth to repeat in the same location, with a %shard_interval% second delay. Repeated Split Earth has increased radius by %shard_extra_radius_per_instance%. Split Earth echo location is visible to both teams."
 "DOTA_Tooltip_ability_leshrac_split_earth_oaa_Lore"                             "#{DOTA_Tooltip_ability_leshrac_split_earth_Lore}"
 "DOTA_Tooltip_ability_leshrac_split_earth_oaa_Note0"                            "#{DOTA_Tooltip_ability_leshrac_split_earth_Note0}"
 "DOTA_Tooltip_ability_leshrac_split_earth_oaa_Note1"                            "#{DOTA_Tooltip_ability_leshrac_split_earth_Note1}"
@@ -21,5 +21,3 @@
 
 "DOTA_Tooltip_modifier_leshrac_split_earth_oaa_debuff"                          "#{DOTA_Tooltip_ability_leshrac_split_earth}"
 "DOTA_Tooltip_modifier_leshrac_split_earth_oaa_debuff_Description"              "Stunned."
-
-"DOTA_Tooltip_ability_leshrac_split_earth_shard_description"                    "#{DOTA_Tooltip_ability_leshrac_split_earth_oaa_shard_description}"
