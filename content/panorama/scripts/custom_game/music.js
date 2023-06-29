@@ -1,15 +1,10 @@
-/* global Players $ GameEvents CustomNetTables Game */
+/* global $, Players, GameEvents, CustomNetTables, is10v10 */
 
 let musicPlaying = true;
 $.GetContextPanel().FindChildTraverse('ToggleMusic').AddClass('MusicOn');
 CustomNetTables.SubscribeNetTableListener('music', SetMusic);
 SetMusic(null, 'info', CustomNetTables.GetTableValue('music', 'info'));
 SetMute(CustomNetTables.GetTableValue('music', 'mute'));
-
-function is10v10() {
-  const mapname = Game.GetMapInfo().map_display_name
-  return mapname === '10v10' || mapname === 'oaa_bigmode';
-}
 
 $.GetContextPanel().SetHasClass('TenVTen', is10v10());
 
