@@ -1,4 +1,4 @@
-/* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
+/* global $, Players, GameEvents, CustomNetTables, FindDotaHudElement, Game, is10v10 */
 
 'use strict';
 
@@ -634,11 +634,6 @@ function UpdateButtons () {
   FindDotaHudElement('HeroBan').style.visibility = isPicking && isBanning ? 'visible' : 'collapse';
   FindDotaHudElement('HeroRandom').style.visibility = isPicking && canRandom ? 'visible' : 'collapse';
   FindDotaHudElement('HeroReRandom').style.visibility = canReRandom ? 'visible' : 'collapse';
-}
-
-function is10v10() {
-  const mapname = Game.GetMapInfo().map_display_name
-  return mapname === '10v10' || mapname === 'oaa_bigmode';
 }
 
 function SetupTopBar () {

@@ -1,4 +1,4 @@
-/* global $ */
+/* global $, Game */
 'use strict';
 /*
   Author:
@@ -11,6 +11,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.ColorToHexCode = ColorToHexCode;
   module.exports.ColoredText = ColoredText;
   module.exports.LuaTableToArray = LuaTableToArray;
+  module.exports.is10v10 = is10v10;
 }
 const HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
@@ -62,6 +63,12 @@ function ColorToHexCode (color) {
   }
   return '#' + red + green + blue;
 }
+
 function ColoredText (colorCode, text) {
   return '<font color="' + colorCode + '">' + text + '</font>';
+}
+
+function is10v10 () {
+  const mapname = Game.GetMapInfo().map_display_name;
+  return mapname === '10v10' || mapname === 'oaa_bigmode';
 }

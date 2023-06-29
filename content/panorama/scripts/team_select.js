@@ -1,4 +1,4 @@
-/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players */
+/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players, is10v10 */
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -37,11 +37,6 @@ const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
   GameEvents.SendCustomGameEventToServer('updateAverageMMR', {});
 }());
-
-function is10v10() {
-  const mapname = Game.GetMapInfo().map_display_name
-  return mapname === '10v10' || mapname === 'oaa_bigmode';
-}
 
 // function RandomizeModifiers () {
 // $.Msg('Clicked randomize!');
