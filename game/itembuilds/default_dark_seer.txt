@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_dark_seer"
   "Title"         "Recommended items for Dark Seer"
 
@@ -9,20 +9,24 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_boots"
-      "item"      "item_ward_stack"
       "item"      "item_enchanted_mango"
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Core_Items" // get every game
     {
-      "item"      "item_guardian_greaves"
       "item"      "item_ultimate_scepter"
       "item"      "item_heart_oaa"
+      "item"      "item_blink"
+    }
+
+    "#DOTA_Item_Build_Support_Core" // standard offlane tank-support
+    {
+      "item"      "item_guardian_greaves"
+      "item"      "item_crimson_guard"
+      "item"      "item_pipe"
       "item"      "item_octarine_core"
       "item"      "item_lotus_orb"
-      "item"      "item_refresher_4"
-      "item"      "item_sheepstick_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -30,25 +34,23 @@
       "item"      "item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"      "item_elixier_hybrid"
-    }
-
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_assault"
       "item"      "item_black_king_bar_1"
-      "item"      "item_crimson_guard"
-      "item"      "item_ethereal_blade"
+      "item"      "item_bloodthorn"
+      "item"      "item_heavens_halberd"
       "item"      "item_helm_of_the_overlord"
-      "item"      "item_pipe"
-      "item"      "item_pull_staff"
+      "item"      "item_kaya_and_sange"
       "item"      "item_radiance"
       "item"      "item_shivas_guard"
       "item"      "item_sphere"
       "item"      "item_wind_waker"
       "item"      "item_aeon_disk_2"
+      "item"      "item_lucience"
+      "item"      "item_elixier_hybrid"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
     }
   }
 }
