@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_queen_of_pain"
   "Title"         "Recommended items for Queen of Pain"
 
@@ -15,27 +15,41 @@
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_bloodthorn"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
       "item"      "item_shivas_guard"
-      "item"      "item_sheepstick_4"
+      "item"      "item_dagger_of_moriah"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_witch_blade"
+      "item"      "item_mjollnir"
+      "item"      "item_greater_crit"
+      "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
-      "item"      "item_octarine_core"
+      "item"      "item_assault"
+      "item"      "item_bloodthorn"
+      "item"      "item_dispel_orb_1"
       "item"      "item_ethereal_blade"
       "item"      "item_lotus_orb"
-      "item"      "item_dispel_orb_1"
-      "item"      "item_sphere"
-      "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
-      "item"      "item_assault"
+      "item"      "item_silver_edge"
       "item"      "item_skadi"
-      "item"      "item_satanic"
+      "item"      "item_sphere"
+      "item"      "item_sheepstick_4"
     }
   }
 }

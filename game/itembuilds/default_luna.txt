@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_luna"
   "Title"         "Recommended items for Luna"
 
@@ -21,10 +21,11 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_manta"
-      "item"      "item_bloodthorn"
+      "item"      "item_hurricane_pike"
       "item"      "item_greater_crit"
       "item"      "item_satanic"
-      "item"      "item_devastator_2"
+      "item"      "item_skadi"
+      "item"      "item_butterfly_oaa"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -33,6 +34,7 @@
       "item"      "item_ethereal_blade"
       "item"      "item_octarine_core"
       "item"      "item_refresher_4"
+      "item"      "item_dagger_of_moriah"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -43,13 +45,13 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_butterfly_oaa"
-      "item"      "item_hurricane_pike"
       "item"      "item_monkey_king_bar"
-      "item"      "item_sange_and_yasha"
-      "item"      "item_skadi"
-      "item"      "item_dagger_of_moriah"
+      "item"      "item_silver_edge"
+      "item"      "item_sphere"
+      "item"      "item_devastator_2"
       "item"      "item_sheepstick_4"
+      "item"      "item_siege_mode"
+      "item"      "item_vampire"
     }
   }
 }
