@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_bristleback"
   "Title"         "Recommended items for Bristleback"
 
@@ -20,13 +20,21 @@
       "item"      "item_radiance"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_bloodthorn"
+      "item"      "item_silver_edge"
       "item"      "item_assault"
-      "item"      "item_satanic"
       "item"      "item_devastator_2"
+    }
+
+    "#DOTA_Item_Build_Tank_Core" // Standard Tank
+    {
+      "item"      "item_crimson_guard"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_heart_oaa"
+      "item"      "item_shivas_guard"
+      "item"      "item_pipe"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -44,11 +52,13 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_heart_oaa"
-      "item"      "item_sange_and_yasha"
-      "item"      "item_shivas_guard"
-      "item"      "item_silver_edge"
+      "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
+      "item"      "item_nullifier"
+      "item"      "item_satanic"
+      "item"      "item_shield_staff"
       "item"      "item_skadi"
+      "item"      "item_solar_crest"
       "item"      "item_abyssal_blade_2"
       "item"      "item_martyrs_mail_1"
     }
