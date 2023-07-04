@@ -20,28 +20,20 @@
       "item"      "item_maelstrom"
     }
 
-    "#DOTA_Item_Build_Core_Items"
-    {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_sange_and_yasha"
-      "item"      "item_satanic"
-      "item"      "item_black_king_bar_1"
-      "item"      "item_skadi"
-    }
-
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_bloodthorn"
+      "item"      "item_ultimate_scepter"
       "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
       "item"      "item_silver_edge"
-      "item"      "item_devastator_2"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ethereal_blade"
-      "item"      "item_shield_staff"
       "item"      "item_octarine_core"
       "item"      "item_wind_waker"
       "item"      "item_greater_travel_boots"
@@ -55,10 +47,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_black_king_bar_1"
+      "item"      "item_bloodthorn"
       "item"      "item_butterfly_oaa"
+      "item"      "item_devastator_2"
       "item"      "item_hurricane_pike"
-      "item"      "item_trumps_fists"
       "item"      "item_siege_mode"
+      "item"      "item_trumps_fists"
       "item"      "item_vampire"
       "item"      "item_rapier"
     }
