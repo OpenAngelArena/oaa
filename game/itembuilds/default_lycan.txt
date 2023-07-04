@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_lycan"
   "Title"         "Recommended items for Lycan"
 
@@ -14,12 +14,22 @@
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_harpoon"
+      "item"      "item_gungir"
+      "item"      "item_disperser"
+      "item"      "item_greater_power_treads"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_helm_of_the_overlord"
       "item"      "item_assault"
       "item"      "item_lucience"
       "item"      "item_ultimate_scepter"
+      "item"      "item_martyrs_mail_1"
+      "item"      "item_azazel_summon_fighter"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -27,28 +37,20 @@
       "item"      "item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"      "item_martyrs_mail_1"
-      "item"      "item_azazel_summon_fighter"
-    }
-
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
-      "item"      "item_desolator"
-      "item"      "item_echo_sabre"
-      "item"      "item_heart_oaa"
       "item"      "item_heavens_halberd"
+      "item"      "item_manta"
+      "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
-      "item"      "item_overwhelming_blink"
-      "item"      "item_pipe"
       "item"      "item_satanic"
       "item"      "item_skadi"
-      "item"      "item_solar_crest"
+      "item"      "item_sphere"
       "item"      "item_azazel_summon_tank"
       "item"      "item_abyssal_blade_2"
+      "item"      "item_dispel_orb_1"
       "item"      "item_sheepstick_4"
     }
   }

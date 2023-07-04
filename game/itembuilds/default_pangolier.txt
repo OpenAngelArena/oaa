@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_pangolier"
   "Title"         "Recommended items for Pangolier"
 
@@ -10,16 +10,31 @@
     {
       "item"      "item_quelling_blade"
       "item"      "item_flask"
+      "item"      "item_orb_of_corrosion"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_maelstrom"
+    }
+
+    "#DOTA_Item_Build_Core_Items" // Swashbuckle Pangolier
+    {
+      "item"      "item_gungir"
       "item"      "item_diffusal_blade"
       "item"      "item_monkey_king_bar"
-      "item"      "item_skadi"
-      "item"      "item_satanic"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_abyssal_blade_2"
     }
+
+    //"#DOTA_Item_Build_Support_Core"
+    //{
+      //"item"      "item_blink"
+      //"item"      "item_guardian_greaves"
+      //"item"      "item_octarine_core"
+      //"item"      "item_lotus_orb"
+      //"item"      "item_heavens_halberd"
+    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -31,10 +46,18 @@
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
       "item"      "item_desolator"
-      "item"      "item_greater_crit"
+      "item"      "item_guardian_greaves"
+      "item"      "item_harpoon"
+      "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
+      "item"      "item_manta"
+      "item"      "item_octarine_core"
+      "item"      "item_pipe"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_abyssal_blade_2"
+      "item"      "item_greater_power_treads"
+      "item"      "item_dispel_orb_1"
       "item"      "item_enrage_crystal_1"
       "item"      "item_sonic"
     }

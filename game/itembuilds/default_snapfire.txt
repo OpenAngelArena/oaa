@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_snapfire"
   "Title"         "Recommended items for Snapfire"
 
@@ -14,16 +14,18 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_mjollnir"
+      "item"      "item_gungir"
       "item"      "item_hurricane_pike"
       "item"      "item_greater_crit"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_disperser"
+      "item"      "item_satanic"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
+      "item"      "item_far_sight"
       "item"      "item_octarine_core"
-      "item"      "item_heart_oaa"
       "item"      "item_heavens_halberd"
       "item"      "item_ultimate_scepter"
       "item"      "item_wind_waker"
@@ -37,12 +39,23 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_blink"
       "item"      "item_bloodthorn"
       "item"      "item_glimmer_cape"
       "item"      "item_guardian_greaves"
       "item"      "item_lotus_orb"
+      "item"      "item_manta"
+      "item"      "item_monkey_king_bar"
       "item"      "item_pipe"
+      "item"      "item_shield_staff"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
+      "item"      "item_solar_crest"
+      "item"      "item_sphere"
+      "item"      "item_greater_power_treads"
+      "item"      "item_dispel_orb_1"
       "item"      "item_sheepstick_4"
+      "item"      "item_trumps_fists"
       "item"      "item_rapier"
     }
   }
