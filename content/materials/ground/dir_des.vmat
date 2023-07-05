@@ -71,6 +71,11 @@ Layer0
 	//---- Normal Map ----
 	g_flBumpStrength "1.000"
 
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+
 	SystemAttributes
 	{
 		WorldMappingWidth "1024"
