@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_lone_druid"
   "Title"         "Recommended items for Lone Druid"
 
@@ -9,12 +9,12 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_flask"
-      "item"      "item_ring_of_protection"
+      "item"      "item_wraith_band"
     }
 
     "#DOTA_Item_Build_Starting_Items_Secondary"
     {
-      "item"      "item_orb_of_venom"
+      "item"      "item_orb_of_corrosion"
       "item"      "item_quelling_blade"
       "item"      "item_boots"
     }
@@ -22,18 +22,20 @@
     "#DOTA_Item_Build_Core_Items_Secondary"
     {
       "item"      "item_mjollnir"
-      "item"      "item_silver_edge"
-      "item"      "item_assault"
+      "item"      "item_greater_crit"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
       "item"      "item_abyssal_blade_2"
     }
 
     "#DOTA_Item_Build_Druid"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_guardian_greaves"
       "item"      "item_helm_of_the_overlord"
-      "item"      "item_shivas_guard"
+      "item"      "item_assault"
       "item"      "item_aeon_disk_2"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_lucience"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -44,16 +46,14 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodthorn"
-      "item"      "item_greater_crit"
-      "item"      "item_heart_oaa"
-      "item"      "item_nullifier"
+      "item"      "item_guardian_greaves"
       "item"      "item_pipe"
+      "item"      "item_radiance"
       "item"      "item_satanic"
+      "item"      "item_shivas_guard"
+      "item"      "item_silver_edge"
       "item"      "item_solar_crest"
       "item"      "item_devastator_2"
-      "item"      "item_greater_tranquil_boots"
-      "item"      "item_lucience"
       "item"      "item_sheepstick_4"
       "item"      "item_stoneskin"
       "item"      "item_trumps_fists"

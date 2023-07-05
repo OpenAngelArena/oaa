@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_batrider"
   "Title"         "Recommended items for Batrider"
 
@@ -15,18 +15,43 @@
       "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_For_Farming"
+    "#DOTA_Item_Build_Core_Items" // good every game
     {
-      "item"      "item_radiance"
+      "item"      "item_octarine_core"
+      "item"      "item_blink"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_greater_travel_boots"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    //"#DOTA_Item_Build_Physical_Core" // Right-Click Batrider
+    //{
+      //"item"      "item_witch_blade"
+      //"item"      "item_gungir"
+      //"item"      "item_hurricane_pike"
+      //"item"      "item_silver_edge"
+      //"item"      "item_disperser"
+      //"item"      "item_greater_power_treads"
+      //"item"      "item_siege_mode"
+    //}
+
+    "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_witch_blade"
-      "item"      "item_octarine_core"
-      "item"      "item_satanic_core"
-      "item"      "item_sheepstick_4"
+      //"item"      "item_radiance"
+      "item"      "item_meteor_hammer_1"
+      "item"      "item_kaya"
+      "item"      "item_dagon_oaa"
+      "item"      "item_shivas_guard"
+      "item"      "item_dagger_of_moriah"
     }
+
+    //"#DOTA_Item_Build_Support_Core"
+    //{
+      //"item"      "item_ancient_janggo"
+      //"item"      "item_shield_staff"
+      //"item"      "item_cyclone"
+      //"item"      "item_lotus_orb"
+      //"item"      "item_far_sight"
+    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -35,23 +60,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_ancient_janggo"
       "item"      "item_black_king_bar_1"
-      "item"      "item_blink"
-      "item"      "item_bloodthorn"
-      "item"      "item_ethereal_blade"
-      "item"      "item_heart_oaa"
+      "item"      "item_far_sight"
       "item"      "item_lotus_orb"
-      "item"      "item_maelstrom"
-      "item"      "item_meteor_hammer_1"
+      "item"      "item_satanic_core"
       "item"      "item_shield_staff"
-      "item"      "item_shivas_guard"
       "item"      "item_sphere"
-      "item"      "item_ultimate_scepter"
       "item"      "item_wind_waker"
-      "item"      "item_greater_travel_boots"
       "item"      "item_dispel_orb_1"
-      "item"      "item_dagger_of_moriah"
       "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
       "item"      "item_sonic"
     }
   }
