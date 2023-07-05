@@ -38,15 +38,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_speed"                                    "2000"
-      "attack_width_initial"                            "110"
-      "attack_width_end"                                "110"
-      "attack_distance"                                 "1500"
+      "attack_speed"                                      "2000"
+      "attack_width_initial"                              "110"
+      "attack_width_end"                                  "110"
+      "attack_distance"                                   "1500"
       // Rupture KVs:
-      "duration"                                        "8.0"
-      "movement_damage_pct"                             "600"
-      "hp_pct"                                          "10"
-      "damage_cap_amount"                               "200"
+      "duration"                                          "8.0"
+      "movement_damage_pct"                               "600"
+      "hp_pct"                                            "10"
+      "damage_cap_amount"                                 "200"
     }
   }
 }
