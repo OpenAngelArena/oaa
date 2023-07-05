@@ -1,0 +1,36 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Arcane Crystal - custom neutral tier 5 item
+  //=================================================================================================================
+  "item_arcane_crystal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "80372"
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/neutral/arcane_crystal.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/arcane_crystal"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "0"
+
+    "ItemIsNeutralDrop"                                   "1"
+    "ItemPurchasable"                                     "0"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
+    "Model"                                               "models/props_gameplay/neutral_box.vmdl"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "cooldown_reduction"                                "12"
+      "bonus_spell_amp"                                   "15"
+      "bonus_heal_amp"                                    "15"
+      "cast_pct_improvement"                              "25"
+    }
+  }
+}
