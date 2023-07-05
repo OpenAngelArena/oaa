@@ -6,8 +6,6 @@
   "ranged_quill_attack"
   {
     "ID"                                                  "8444"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/dire_hound/ranged_quill_attack.lua"
     "AbilityTextureName"                                  "bristleback_quill_spray"
@@ -44,18 +42,16 @@
         "var_type"                                        "FIELD_INTEGER"
         "attack_speed"                                    "750"
       }
-
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_width_initial"                            "75"
+        "attack_width_initial"                            "150"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_width_end"                                "75"
+        "attack_width_end"                                "150"
       }
-
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
@@ -64,7 +60,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "attack_damage"                                   "1500"
+        "attack_damage"                                   "2000"
       }
     }
   }

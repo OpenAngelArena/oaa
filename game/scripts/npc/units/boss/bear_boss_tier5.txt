@@ -40,7 +40,7 @@
     "AttackRate"                                          "0.1"    // Speed of attack.
     "AttackAnimationPoint"                                "0.1"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "228"    // Range within a target can be attacked.
+    "AttackRange"                                         "200"    // Range within a target can be attacked.
 
     // Bounty
     //----------------------------------------------------------------
@@ -77,8 +77,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

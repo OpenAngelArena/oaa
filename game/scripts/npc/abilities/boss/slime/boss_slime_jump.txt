@@ -6,8 +6,6 @@
   "boss_slime_jump"
   {
     "ID"                                                  "8483"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "techies_suicide"
     "ScriptFile"                                          "abilities/boss/slime/boss_slime_jump.lua"

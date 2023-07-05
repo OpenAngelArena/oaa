@@ -6,8 +6,6 @@
   "lycan_boss_rupture_ball_tier5"
   {
     "ID"                                                  "8588"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "bloodseeker_rupture"
     "ScriptFile"                                          "abilities/boss/lycan_boss/lycan_boss_rupture_ball_tier5.lua"
@@ -38,65 +36,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "2000"
-      }
-
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_width_initial"                            "110"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_width_end"                                "110"
-      }
-
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_distance"                                 "1500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_damage_pct"                             "600"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_cap_amount"                               "200"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_cap_interval"                             "0.25"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "1000"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges_scepter"                             "2"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_scepter"                     "40"
-      }
+      "attack_speed"                                    "2000"
+      "attack_width_initial"                            "110"
+      "attack_width_end"                                "110"
+      "attack_distance"                                 "1500"
+      // Rupture KVs:
+      "duration"                                        "8.0"
+      "movement_damage_pct"                             "600"
+      "hp_pct"                                          "10"
+      "damage_cap_amount"                               "200"
     }
   }
 }

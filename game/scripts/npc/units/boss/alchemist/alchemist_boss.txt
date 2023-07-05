@@ -34,8 +34,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "3000"       // Damage range min.
-    "AttackDamageMax"                                     "3000"       // Damage range max.
+    "AttackDamageMin"                                     "2500"       // Damage range min.
+    "AttackDamageMax"                                     "2500"       // Damage range max.
     "AttackRate"                                          "2.5"       // BAT
     "BaseAttackSpeed"                                     "300"       // Attack Speed
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
@@ -116,8 +116,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

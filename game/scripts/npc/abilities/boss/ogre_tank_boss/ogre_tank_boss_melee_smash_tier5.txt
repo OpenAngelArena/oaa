@@ -6,11 +6,9 @@
   "ogre_tank_boss_melee_smash_tier5"
   {
     "ID"                                                  "8583"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/ogre_tank_boss/ogre_tank_boss_melee_smash_tier5.lua"
-    "AbilityTextureName"                                  "centaur_double_edge"
+    "AbilityTextureName"                                  "ogre_bruiser_ogre_smash"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"

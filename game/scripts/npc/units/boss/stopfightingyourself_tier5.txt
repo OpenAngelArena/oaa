@@ -21,6 +21,7 @@
     "Ability3"                                            "boss_resistance"
     "Ability4"                                            "boss_cliffwalk"
     "Ability5"                                            "boss_regen"
+    "Ability6"                                            "boss_true_strike"
 
     // Armor
     //----------------------------------------------------------------
@@ -30,9 +31,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1100"              // Damage range min.
-    "AttackDamageMax"                                     "1100"              // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"                                     "1800"              // Damage range min.
+    "AttackDamageMax"                                     "1800"              // Damage range max.
     "AttackRate"                                          "0.9"               // Speed of attack.
     "AttackAnimationPoint"                                "0.0"               // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "650"               // Range within a target can be acquired.
@@ -75,8 +75,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"  // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
