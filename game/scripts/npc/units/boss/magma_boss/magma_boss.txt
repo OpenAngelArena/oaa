@@ -35,8 +35,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "2000"
-    "AttackDamageMax"                                     "2000"
+    "AttackDamageMin"                                     "1800"
+    "AttackDamageMax"                                     "1800"
     "AttackRate"                                          "1.0"
     "BaseAttackSpeed"                                     "180"
     "AttackAnimationPoint"                                "0.2"
@@ -78,8 +78,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Inventory

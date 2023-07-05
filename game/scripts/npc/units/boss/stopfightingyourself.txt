@@ -30,9 +30,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "1000"              // Damage range min.
-    "AttackDamageMax"                                     "1000"              // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"                                     "1500"              // Damage range min.
+    "AttackDamageMax"                                     "1500"              // Damage range max.
     "AttackRate"                                          "0.9"               // Speed of attack.
     "AttackAnimationPoint"                                "0.0"               // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "650"               // Range within a target can be acquired.
@@ -75,8 +74,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"  // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
