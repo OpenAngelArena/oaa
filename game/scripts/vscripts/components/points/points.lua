@@ -88,7 +88,7 @@ function PointsManager:Init ()
   if radiant_fountain_t then
     local radiant_fountain_bounds = radiant_fountain_t:GetBounds()
     local radiant_fountain_origin = radiant_fountain_t:GetAbsOrigin()
-    radiant_shrine = Vector(radiant_fountain_bounds.Maxs.x + radiant_fountain_origin.x + 400, 0, 512)
+    radiant_shrine = Vector(radiant_fountain_bounds.Maxs.x + radiant_fountain_origin.x + 400, radiant_fountain_origin.y, 512)
   else
     radiant_shrine = Vector(-5200, 0, 512)
   end
@@ -98,7 +98,7 @@ function PointsManager:Init ()
   if dire_fountain_t then
     local dire_fountain_bounds = dire_fountain_t:GetBounds()
     local dire_fountain_origin = dire_fountain_t:GetAbsOrigin()
-    dire_shrine = Vector(dire_fountain_bounds.Mins.x + dire_fountain_origin.x - 400, 0, 512)
+    dire_shrine = Vector(dire_fountain_bounds.Mins.x + dire_fountain_origin.x - 400, dire_fountain_origin.y, 512)
   else
     dire_shrine = Vector(5200, 0, 512)
   end

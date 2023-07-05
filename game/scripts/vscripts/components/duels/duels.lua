@@ -14,6 +14,8 @@ local zoneNames = {
   "duel_4",
   "duel_5",
   "duel_6",
+  "duel_7",
+  "duel_8",
 }
 
 local DuelPreparingEvent = Event()
@@ -372,6 +374,10 @@ function Duels:SplitDuelPlayers(options)
   Music:SetMusic(13)
 
   local playerSplitOffset = RandomInt(0, maxPlayers)
+  -- Uncomment this to disable solo duels
+  --if playerSplitOffset == 1 then
+    --playerSplitOffset = 2
+  --end
   if options.players then
     playerSplitOffset = math.min(options.players, maxPlayers)
   end
