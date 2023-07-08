@@ -1,6 +1,6 @@
 "itembuilds/default_sohei.txt"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_sohei"
   "Title"         "Recommended items for Sohei"
 
@@ -15,10 +15,11 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      //"item"      "item_pull_staff"
+      "item"      "item_harpoon"
       "item"      "item_devastator_2"
       "item"      "item_greater_crit"
       "item"      "item_satanic"
+      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -54,7 +55,6 @@
       "item"      "item_skadi"
       "item"      "item_sphere"
       "item"      "item_abyssal_blade_2"
-      "item"      "item_giant_form"
       "item"      "item_sheepstick_4"
       "item"      "item_rapier"
     }
