@@ -22,9 +22,11 @@ const HudNotFoundException = /** @class */ (function () {
   }
   return HudNotFoundException;
 }());
+
 function FindDotaHudElement (id) {
   return GetDotaHud().FindChildTraverse(id);
 }
+
 function GetDotaHud () {
   let p = $.GetContextPanel();
   while (p !== null && p.id !== 'Hud') {

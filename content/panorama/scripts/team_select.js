@@ -1,4 +1,4 @@
-/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players, is10v10 */
+/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players, FindDotaHudElement, is10v10 */
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -102,23 +102,6 @@ function hidePregameUI () {
 function showPregameUI () {
   FindDotaHudElement('PreGame').style.opacity = 1;
   FindDotaHudElement('PreGame').style.visibility = 'visible';
-}
-
-function FindDotaHudElement (id) {
-  return GetDotaHud().FindChildTraverse(id);
-}
-
-function GetDotaHud () {
-  let p = $.GetContextPanel();
-  try {
-    while (true) {
-      if (p.id === 'Hud') {
-        return p;
-      } else {
-        p = p.GetParent();
-      }
-    }
-  } catch (e) {}
 }
 
 function listenToGameEvent (event, handler) {
