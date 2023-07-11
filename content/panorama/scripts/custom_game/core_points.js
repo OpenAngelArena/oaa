@@ -1,23 +1,6 @@
-/* global $, GameEvents, Players, Entities, Buffs */
+/* global $, GameEvents, Players, HasModifier, GetStackCount */
 
 'use strict';
-
-function FindModifier (unit, modifier) {
-  for (let i = 0; i < Entities.GetNumBuffs(unit); i++) {
-    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifier) {
-      return Entities.GetBuff(unit, i);
-    }
-  }
-}
-
-function HasModifier (unit, modifier) {
-  return !!FindModifier(unit, modifier);
-}
-
-function GetStackCount (unit, modifier) {
-  const m = FindModifier(unit, modifier);
-  return m ? Buffs.GetStackCount(unit, m) : 0;
-}
 
 function OnCorePointsChanged (args) {
   const unit = Players.GetLocalPlayerPortraitUnit();
