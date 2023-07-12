@@ -51,7 +51,7 @@ function TeamVision:AddVision()
         --print(building:GetTeamNumber())
         building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
         building:AddNewModifier(building, nil, "modifier_shrine_oaa", {})
-        building:RemoveModifierByName("modifier_invulnerable")
+        --building:RemoveModifierByName("modifier_invulnerable")
       end
     end
   end

@@ -589,7 +589,9 @@ function HeroSelection:ChooseBans ()
     elseif OAAOptions.settings.GAME_MODE == "AR" then
       -- 100% chance bans
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+        if rankedpickorder.banChoices[playerID] then
+          table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+        end
       end)
     end
   end
@@ -879,6 +881,9 @@ function HeroSelection:IsHeroDisabled (hero)
       end
     end
   elseif self:IsHeroChosen(hero) then
+    return true
+  end
+  if not hero or hero == "npc_dota_hero_dummy_dummy" or hero == "empty" then
     return true
   end
   return false
