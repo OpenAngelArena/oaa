@@ -199,7 +199,7 @@ function modifier_spark_power_effect:OnCreated()
     return
   end
 
-  self.bonus = caster.power_spark_bonus or caster:GetModifierStackCount("modifier_spark_power", caster)
+  self.bonus = caster.power_spark_bonus
   self.chance = 60
 end
 
@@ -284,6 +284,12 @@ end
 function modifier_spark_power_effect:OnTooltip()
   local parent = self:GetParent()
   local damage = self.bonus
+  if damage == 0 then
+    local caster = self:GetCaster()
+    if caster then
+      damage = caster:GetModifierStackCount("modifier_spark_power", caster)
+    end
+  end
   if parent:IsIllusion() or not parent:IsHero() then
     damage = damage / 7
   end
@@ -293,6 +299,12 @@ end
 function modifier_spark_power_effect:OnTooltip2()
   local parent = self:GetParent()
   local block = self.bonus
+  if block == 0 then
+    local caster = self:GetCaster()
+    if caster then
+      block = caster:GetModifierStackCount("modifier_spark_power", caster)
+    end
+  end
   if parent:IsRangedAttacker() and parent:IsHero() then
     return block / 2
   else
