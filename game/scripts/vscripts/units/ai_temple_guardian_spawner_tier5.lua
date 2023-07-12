@@ -19,8 +19,8 @@ function TempleGuardianSpawnerThink()
 
   if thisEntity.bForceKill then
     -- Triggers boss reward
-    local hAttackerHero = EntIndexToHScript( thisEntity.KillValues.entindex_attacker )
-    thisEntity:Kill(nil, hAttackerHero)
+    local killer = EntIndexToHScript( thisEntity.KillValues.entindex_attacker )
+    thisEntity:Kill(nil, killer)
     return -1
   end
 
@@ -68,55 +68,69 @@ function SpawnPedestals()
   thisEntity.Pedestal2:SetAbsOrigin(pos)
   thisEntity.Pedestal2:SetAngles( 0, 240, 0 )
   thisEntity.Pedestal2:SetHullRadius( 240 )
-
-  return
 end
 
 -- Pedestal death animation
-function RemovePedestals()
+function RemovePedestals(p1, p2, killer_index)
   -- Ideally we would set the velocity but it does not work on Z axis.
   local offset = 0
-  local step = 10
+  local step = 20
 
-  EmitSoundOnLocationWithCaster(thisEntity.Pedestal1:GetOrigin(), "TempleGuardian.Pedestal.Explosion", thisEntity.Pedestal1)
-  local nFXIndex1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf", PATTACH_CUSTOMORIGIN, nil )
-  ParticleManager:SetParticleControl( nFXIndex1, 0, thisEntity.Pedestal1:GetOrigin() )
+  local nFXIndex1
+  if p1 and not p1:IsNull() then
+    EmitSoundOnLocationWithCaster(p1:GetOrigin(), "TempleGuardian.Pedestal.Explosion", p1)
+    nFXIndex1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    ParticleManager:SetParticleControl( nFXIndex1, 0, p1:GetOrigin() )
+  end
 
-  local nFXIndex2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf", PATTACH_CUSTOMORIGIN, nil )
-  ParticleManager:SetParticleControl( nFXIndex2, 0, thisEntity.Pedestal2:GetOrigin() )
-  EmitSoundOnLocationWithCaster(thisEntity.Pedestal2:GetOrigin(), "TempleGuardian.Pedestal.Explosion", thisEntity.Pedestal2)
+  local nFXIndex2
+  if p2 and not p2:IsNull() then
+    nFXIndex2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    ParticleManager:SetParticleControl( nFXIndex2, 0, p2:GetOrigin() )
+    --EmitSoundOnLocationWithCaster(p2:GetOrigin(), "TempleGuardian.Pedestal.Explosion", p2)
+  end
 
-  Timers:CreateTimer("RemovePedestals", {
-    useGameTime = false,
-    endTime = 0.1,
-    callback = function()
-      -- print("OFFSET " .. tostring(offset))
-      if offset > 480 then
-        thisEntity.Pedestal1:ForceKillOAA(false)
-        thisEntity.Pedestal2:ForceKillOAA(false)
+  Timers:CreateTimer(0.1, function()
+    if offset > 480 then
+      local killer = EntIndexToHScript(killer_index)
 
+      if p1 and not p1:IsNull() then
+        p1:AddNoDraw()
+        p1:Kill(nil, killer)
+      end
+      if p2 and not p2:IsNull() then
+        p2:AddNoDraw()
+        p2:Kill(nil, killer)
+      end
+
+      if nFXIndex1 then
         ParticleManager:DestroyParticle( nFXIndex1 , false)
         ParticleManager:ReleaseParticleIndex( nFXIndex1 )
+      end
+      if nFXIndex2 then
         ParticleManager:DestroyParticle( nFXIndex2 , false)
         ParticleManager:ReleaseParticleIndex( nFXIndex2 )
-        return
       end
-      offset = offset + step
-      thisEntity.Pedestal1:SetAbsOrigin(thisEntity.Pedestal1:GetAbsOrigin() - Vector(0,0,step))
-      thisEntity.Pedestal2:SetAbsOrigin(thisEntity.Pedestal2:GetAbsOrigin() - Vector(0,0,step))
-
-      return 0.1
+      return -- stops the timer
     end
-  })
 
-  return
+    offset = offset + step
+    if p1 and not p1:IsNull() then
+      p1:SetAbsOrigin(p1:GetAbsOrigin() - Vector(0,0,step))
+    end
+    if p2 and not p2:IsNull() then
+      p2:SetAbsOrigin(p2:GetAbsOrigin() - Vector(0,0,step))
+    end
+
+    return 0.1 -- repeat the timer
+  end)
 end
 
 function OnBossKill(kv)
   if (not IsValidEntity(thisEntity.bossHandle1) or not thisEntity.bossHandle1:IsAlive()) and
      (not IsValidEntity(thisEntity.bossHandle2) or not thisEntity.bossHandle2:IsAlive()) then
 
-      RemovePedestals()
+      RemovePedestals(thisEntity.Pedestal1, thisEntity.Pedestal2, kv.entindex_attacker)
 
       -- Calling Kill or ForceKill from this handler does not work
       thisEntity.KillValues = kv
