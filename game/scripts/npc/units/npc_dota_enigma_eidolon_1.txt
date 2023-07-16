@@ -37,8 +37,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "24"    // Damage range min.
-    "AttackDamageMax"                                     "24"    // Damage range max.
+    "AttackDamageMin"                                     "20"    // Damage range min.
+    "AttackDamageMax"                                     "20"    // Damage range max.
     "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.5"      // Speed of attack.
     "AttackAnimationPoint"                                "0.2"    // Normalized time in animation cycle to attack.
@@ -61,7 +61,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "280"    // Speed
+    "MovementSpeed"                                       "370"    // OAA
     "MovementTurnRate"                                    "0.9"    // Turning rate.
 
     // Status
@@ -74,8 +74,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
