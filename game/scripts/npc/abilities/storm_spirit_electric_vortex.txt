@@ -38,10 +38,10 @@
       "electric_vortex_pull_distance"                     "180 220 260 300 340 380"
       "electric_vortex_pull_tether_range"                 "1200.0"
       "electric_vortex_self_slow"                         "-50"
-      "electric_vortex_self_slow_duration"                "1.2 1.5 1.8 2.1 2.4 2.7" //OAA
+      "electric_vortex_self_slow_duration"                "0.9 1.3 1.7 2.1 2.4 2.7" //OAA
       "AbilityDuration"
       {
-        "value"                                           "1.2 1.5 1.8 2.1 2.4 2.7"
+        "value"                                           "0.9 1.3 1.7 2.1 2.4 2.7"
         "special_bonus_unique_storm_spirit"               "+0.3"
       }
       "radius_scepter"
