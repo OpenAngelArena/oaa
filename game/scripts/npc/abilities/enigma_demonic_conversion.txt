@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Demonic Conversion
+  // Enigma: Demonic Conversion - needed for shard
   //=================================================================================================================
   "enigma_demonic_conversion"
   {
@@ -12,8 +12,6 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-
-    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -27,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 150 160 170 180 190"
+    "AbilityManaCost"                                     "140 150 160 170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +45,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_hp_tooltip"                              "180 200 220 240 1240 2240"
+        "eidolon_hp_tooltip"                              "180 220 260 300" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma_7"
       }
       "04"
@@ -58,7 +56,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "eidolon_dmg_tooltip"                             "24 32 40 48 96 192" //OAA
+        "eidolon_dmg_tooltip"                             "20 30 40 50" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
         "CalculateSpellDamageTooltip"                     "0"
       }

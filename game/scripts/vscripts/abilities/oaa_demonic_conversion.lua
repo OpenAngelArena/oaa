@@ -46,7 +46,7 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
 
   -- Kill the target and spawn Eidolons
   target:Kill(self, caster)
-  for i = 1,spawnCount do
+  for i = 1, spawnCount do
     local eidolon = CreateUnitByName(unitNames[abilityLevel], targetOrigin, true, caster, caster:GetOwner(), caster:GetTeam())
     eidolon:SetControllableByPlayer(playerID, false)
     eidolon:SetOwner(caster)
@@ -90,7 +90,7 @@ function enigma_demonic_conversion_oaa:OnStolen(hSourceAbility)
         end
       end)
     else
-       vanilla_ability:SetHidden(true)
+      vanilla_ability:SetHidden(true)
     end
   end
 end
