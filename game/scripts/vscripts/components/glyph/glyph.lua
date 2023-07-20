@@ -186,6 +186,7 @@ function modifier_custom_glyph_knockback:CheckState()
   return {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_STUNNED] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
   }
 end
 
