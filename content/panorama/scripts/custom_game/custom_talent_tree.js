@@ -29,6 +29,8 @@ function RemoveDotaTalentTree () {
   talentTree.SetPanelEvent('onactivate', function () {});
   // Disable hovering over the talent tree
   talentTree.SetPanelEvent('onmouseover', function () {});
+  // Disable context menu talent tree
+  talentTree.SetPanelEvent('oncontextmenu', function () {});
   // Find level up frame for the talent tree
   const levelUpButton = centerBlock.FindChildTraverse('level_stats_frame');
   // Collapse level up button/frame above the talent tree
@@ -56,12 +58,36 @@ function CreateHudTalentButton () {
   // Find the button inside the container
   hudButton = hudButtonContainer.FindChildTraverse('talent_hud_btn');
   hudButton.SetPanelEvent('onactivate', function () { ToggleTalentWindow(); });
+  hudButton.SetPanelEvent('oncontextmenu', function () { ToggleTalentWindow(); });
   hudOverlay = hudButtonContainer.FindChildTraverse('talent_hud_btn_overlay');
   hudScene = hudButtonContainer.FindChildTraverse('talent_hud_scene');
 }
 
-/*
 function InitializeHeroTalents() {
+  const talentWindowChildren = talentWindow.Children();
+  const talentCount = talentWindow.GetChildCount();
+  
+  for (let index = 1; index < talentCount; index++) {
+    const talentRow = talentWindowChildren[index];
+    const talentRowChildren = talentRow.Children();
+	const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
+	// this ^ is the same as:
+	// talentRow.Children()[0].Children()[0].Children()[0].text;
+	// talentRow.GetChild(0).GetChild(0).GetChild(0).text;
+	const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent');
+	const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent');
+	if (requiredLevel === '55') {
+      leftTalent[0].GetChild(0).text ='Super Talent Left';
+	  leftTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent[0], 'description left'); });
+	  leftTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+	  rightTalent[0].GetChild(0).text ='Super Talent Right';
+	  rightTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent[0], 'description right'); });
+	  rightTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+	}
+	
+  }
+}
+  /*
   // Clear the rows set
   currentlyPickedRowsSet.clear();
 
@@ -96,8 +122,8 @@ function InitializeHeroTalents() {
   let ability;
   for (let index = 1; index <= talentsCount; index++) {
     // Get talent button
-    const talentIDString: string = "#" + abilityTalentButtonID + index;
-    const talentButton: DOTAAbilityImage = $(talentIDString) as DOTAAbilityImage;
+    const talentIDString = "#" + abilityTalentButtonID + index;
+    const talentButton = $(talentIDString);
 
     // Get amount of abilities that this hero has - talents would always be his last abilities
     ability = abilitySet[index - 1];
@@ -155,7 +181,7 @@ function GetHeroTalents () {
     currentlySelectedUnitID = currentlySelectedUnit;
 
     // Update talents
-    // InitializeHeroTalents();
+    InitializeHeroTalents();
   }
 }
 
@@ -361,8 +387,9 @@ function RecurseEnableFocus (panel) {
 
 function ConfigureTalentHotkey () {
   const talentHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_LEARN_STATS);
-  Game.CreateCustomKeyBind(talentHotkey, 'AttributeHotkey');
-  Game.AddCommand('AttributeHotkey', function () { ToggleTalentWindow(); }, '', 0);
+  const commandName = 'AttributeHotkey'+ Date.now().toString();
+  Game.CreateCustomKeyBind(talentHotkey, commandName);
+  Game.AddCommand(commandName, function () { ToggleTalentWindow(); }, '', 0);
 
   // Enable focus for talent window children (this is to allow catching of Escape button)
   RecurseEnableFocus(contextPanel);
@@ -404,7 +431,7 @@ function ConfigureTalentHotkey () {
   GameEvents.Subscribe('dota_player_update_selected_unit', CheckSelectedAndAnimate);
   // GameEvents.Subscribe("confirm_talent_learned", (event) => OnTalentLearnedConfirmed(event));
   // GameEvents.Subscribe("request_currently_selected_unit", () => OnRequestSelectedUnit());
-  // InitializeHeroTalents();
+  InitializeHeroTalents();
   ConfigureTalentAbilityButtons();
   ConfigureTalentHotkey();
 })();
