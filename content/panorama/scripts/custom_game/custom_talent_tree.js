@@ -1,4 +1,4 @@
-/* global FindDotaHudElement, $, Players, Entities, Game, Abilities, GameEvents, DOTAKeybindCommand_t, GameUI, CLICK_BEHAVIORS */
+/* global FindDotaHudElement, $, Players, Entities, Game, GameEvents, DOTAKeybindCommand_t, GameUI, CLICK_BEHAVIORS */
 'use strict';
 
 const contextPanel = $.GetContextPanel();
@@ -7,10 +7,10 @@ const centerBlock = HUDElements.FindChildTraverse('center_block');
 // CSS classes
 const cssTalendWindowOpen = 'Talent_Window_open';
 const cssOverlaySelected = 'visible_overlay';
-const cssTalentLearned = 'talentImageLearned';
+// const cssTalentLearned = 'talentImageLearned';
 const cssTalentButtonUpgradeReady = 'upgradeAvailable';
-const cssTalentUnlearnable = 'talentImageUnlearnable';
-const cssTalentLearnable = 'talentLearnableGlow';
+// const cssTalentUnlearnable = 'talentImageUnlearnable';
+// const cssTalentLearnable = 'talentLearnableGlow';
 let currentlySelectedUnitID;
 let hudButtonContainer;
 let hudButton;
@@ -39,7 +39,7 @@ function CreateHudTalentButton () {
   // Find the ability bar
   const abilityBar = centerBlock.FindChildTraverse('StatBranch').GetParent();
 
-	// Delete previous instances of 'talent_btn_container' for testing purposes in tools,
+  // Delete previous instances of 'talent_btn_container' for testing purposes in tools,
   // because of constant recompiling after every change
   const old = abilityBar.FindChildTraverse('talent_btn_container');
   if (old) {
@@ -48,10 +48,10 @@ function CreateHudTalentButton () {
 
   // New talent button container
   hudButtonContainer = $.CreatePanel('Panel', abilityBar, 'talent_btn_container');
-  //const abilityList = abilityBar.FindChildTraverse('StatBranch');
-  hudButtonContainer.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_hud.xml", true, false);
-  //hudButtonContainer.SetParent(abilityBar);
-  //abilityBar.MoveChildAfter(hudButtonContainer, abilityList);
+  // const abilityList = abilityBar.FindChildTraverse('StatBranch');
+  hudButtonContainer.BLoadLayout('file://{resources}/layout/custom_game/custom_talent_hud.xml', true, false);
+  // hudButtonContainer.SetParent(abilityBar);
+  // abilityBar.MoveChildAfter(hudButtonContainer, abilityList);
 
   // Find the button inside the container
   hudButton = hudButtonContainer.FindChildTraverse('talent_hud_btn');
@@ -144,13 +144,13 @@ function InitializeHeroTalents() {
   ConfigureTalentAbilityButtons();
 }
 */
-function GetHeroTalents() {
+function GetHeroTalents () {
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
 
   // Do nothing if the current player is not a hero
   if (!Entities.IsHero(currentlySelectedUnit)) return;
 
-  if (currentlySelectedUnit != currentlySelectedUnitID) {
+  if (currentlySelectedUnit !== currentlySelectedUnitID) {
     // Update currently selected hero unit
     currentlySelectedUnitID = currentlySelectedUnit;
 
@@ -166,8 +166,7 @@ function ToggleTalentWindow () {
     isTalentWindowCurrentlyOpen = true;
     talentWindow.AddClass(cssTalendWindowOpen);
     hudOverlay.AddClass(cssOverlaySelected);
-  } // Currently open: close!
-  else {
+  } else { // Currently open: close!
     isTalentWindowCurrentlyOpen = false;
     talentWindow.RemoveClass(cssTalendWindowOpen);
     Game.EmitSound('ui_chat_slide_out');
@@ -180,7 +179,7 @@ function CanHeroUpgradeAnyTalent () {
     // If this is not the hero under the local player's control, return false
     // Allows to see for other heroes in tools
     if (!Game.IsInToolsMode()) {
-      if (currentlySelectedUnitID != Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
+      if (currentlySelectedUnitID !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
         return false;
       }
     }
@@ -224,7 +223,8 @@ function AnimateHudTalentButton () {
   }
 }
 
-function CanTalentBeLearned(ability) {
+/*
+function CanTalentBeLearned (ability) {
   // If ability is already leveled, return false
   if (Abilities.GetLevel(ability) > 0) {
     return false;
@@ -233,7 +233,7 @@ function CanTalentBeLearned(ability) {
   // If the ability doesn't belong to to the unit being clicked on, return false
   // Only in tools mode: allows to choose talents for other players
   if (!Game.IsInToolsMode()) {
-    if (Abilities.GetCaster(ability) != Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
+    if (Abilities.GetCaster(ability) !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
       return false;
     }
   }
@@ -249,7 +249,6 @@ function CanTalentBeLearned(ability) {
   }
 
   // Find which button has the talent and fetch its ID to determine its level requirements
-  /*
   let requiredLevel;
   for (const button of talentMap.keys()) {
     if (talentMap.get(button) === ability) {
@@ -268,10 +267,10 @@ function CanTalentBeLearned(ability) {
   if (currentlyPickedRowsSet.has(GetTalentRow(ability)!)) {
     return false;
   }
-  */
 
   return true;
 }
+*/
 
 function AnimateLearnableAbilities () {
   /*
@@ -302,21 +301,20 @@ function AnimateTalentTree () {
   AnimateLearnableAbilities();
 }
 
-function CloseTalentWindow_UnitDeselected() {
+function CloseTalentWindowUnitDeselected () {
   const unitIDPortrait = Players.GetLocalPlayerPortraitUnit();
 
   if (isTalentWindowCurrentlyOpen) {
     // If this is another hero, then refill the talent window without closing it
     if (Entities.IsHero(unitIDPortrait)) {
       GetHeroTalents();
-    } // Close the window
-    else {
+    } else { // Close the window
       ToggleTalentWindow();
     }
   }
 }
 
-function ToggleHud() {
+function ToggleHud () {
   const currentEntity = Players.GetLocalPlayerPortraitUnit();
   if (isHudCurrentlyVisible) {
     if (!Entities.IsValidEntity(currentEntity) || !Entities.IsHero(currentEntity)) {
@@ -332,7 +330,7 @@ function ToggleHud() {
 }
 
 function CheckSelectedAndAnimate () {
-  CloseTalentWindow_UnitDeselected();
+  CloseTalentWindowUnitDeselected();
   ToggleHud();
   AnimateHudTalentButton();
   GetHeroTalents();
@@ -341,28 +339,30 @@ function CheckSelectedAndAnimate () {
 
 function ConfigureTalentAbilityButtons () {
   // Find all available talents
-  // for (let index = 1; index <= talentsCount; index++) {
-    // const button = $("#" + abilityTalentButtonID + index);
+  /*
+  for (let index = 1; index <= talentsCount; index++) {
+    const button = $("#" + abilityTalentButtonID + index);
 
-    // button.SetPanelEvent("onactivate", () => LearnTalent(button));
-    // button.SetPanelEvent("onmouseover", () => ShowTooltip(button));
-    // button.SetPanelEvent("onmouseout", () => HideTooltip());
-  //}
+    button.SetPanelEvent("onactivate", function () { LearnTalent(button) });
+    button.SetPanelEvent("onmouseover", function () { ShowTooltip(button) });
+    button.SetPanelEvent("onmouseout", function () { HideTooltip() });
+  }
+  */
 }
 
-function RecurseEnableFocus(panel) {
+function RecurseEnableFocus (panel) {
   panel.SetAcceptsFocus(true);
   const children = panel.Children();
 
-  children.forEach(function(child) {
+  children.forEach(function (child) {
     RecurseEnableFocus(child);
   });
 }
 
-function ConfigureTalentHotkey() {
+function ConfigureTalentHotkey () {
   const talentHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_LEARN_STATS);
   Game.CreateCustomKeyBind(talentHotkey, 'AttributeHotkey');
-  Game.AddCommand('AttributeHotkey', function () { ToggleTalentWindow() }, '', 0);
+  Game.AddCommand('AttributeHotkey', function () { ToggleTalentWindow(); }, '', 0);
 
   // Enable focus for talent window children (this is to allow catching of Escape button)
   RecurseEnableFocus(contextPanel);
@@ -374,15 +374,15 @@ function ConfigureTalentHotkey() {
   });
 
   // Allow mouse clicks outside the talent window to close it.
-  GameUI.SetMouseCallback(function(event, value) {
-    if (isTalentWindowCurrentlyOpen && value == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
-      if (event == 'pressed') {
+  GameUI.SetMouseCallback(function (event, value) {
+    if (isTalentWindowCurrentlyOpen && value === CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
+      if (event === 'pressed') {
         const cursorPos = GameUI.GetCursorPosition();
         if (cursorPos[0] < talentWindow.actualxoffset || talentWindow.actualxoffset + talentWindow.contentwidth < cursorPos[0] || cursorPos[1] < talentWindow.actualyoffset || talentWindow.actualyoffset + talentWindow.contentheight < cursorPos[1]) {
           const currentUnit = currentlySelectedUnitID;
           $.Schedule(0, function () {
             // Only close the window if we didn't change the selection of units
-            if (Players.GetLocalPlayerPortraitUnit() == currentUnit) {
+            if (Players.GetLocalPlayerPortraitUnit() === currentUnit) {
               ToggleTalentWindow();
             }
           });
@@ -396,7 +396,7 @@ function ConfigureTalentHotkey() {
 
 (function () {
   talentWindow = contextPanel.FindChildTraverse('CustomUIRoot').FindChildTraverse('CustomUIContainer_Hud').FindChildTraverse('TalentsHeader').GetParent();
-  RemoveDotaTalentTree()
+  RemoveDotaTalentTree();
   CreateHudTalentButton();
   GameEvents.Subscribe('dota_player_gained_level', AnimateTalentTree);
   GameEvents.Subscribe('dota_player_learned_ability', AnimateTalentTree);
