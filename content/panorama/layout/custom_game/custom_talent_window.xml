@@ -16,10 +16,10 @@
             </Panel>
         </Panel>
         <Panel class="leftTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="L55-S1"/>
         </Panel>
         <Panel class="rightTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="R55-S2"/>
         </Panel>
     </Panel>
     <Panel class="talentRow">
@@ -29,10 +29,10 @@
             </Panel>
         </Panel>
         <Panel class="leftTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="L25"/>
         </Panel>
         <Panel class="rightTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="R25"/>
         </Panel>
     </Panel>
     <Panel class="talentRow">
@@ -42,10 +42,10 @@
             </Panel>
         </Panel>
         <Panel class="leftTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="L20" />
         </Panel>
         <Panel class="rightTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="R20"/>
         </Panel>
     </Panel>
     <Panel class="talentRow">
@@ -55,10 +55,10 @@
             </Panel>
         </Panel>
         <Panel class="leftTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="L15"/>
         </Panel>
         <Panel class="rightTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="R15"/>
         </Panel>
     </Panel>
     <Panel class="talentRow">
@@ -68,10 +68,10 @@
             </Panel>
         </Panel>
         <Panel class="leftTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="L10"/>
         </Panel>
         <Panel class="rightTalent">
-            <DOTAAbilityImage class="talentImage"/>
+            <Label class="talentImage" text="R10"/>
         </Panel>
     </Panel>
   </Panel>

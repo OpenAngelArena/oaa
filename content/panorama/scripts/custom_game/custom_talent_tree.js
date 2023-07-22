@@ -48,10 +48,10 @@ function CreateHudTalentButton () {
 
   // New talent button container
   hudButtonContainer = $.CreatePanel('Panel', abilityBar, 'talent_btn_container');
-  // const abilityList = abilityBar.FindChildTraverse('StatBranch');
+  const abilityList = abilityBar.FindChildTraverse('StatBranch');
   hudButtonContainer.BLoadLayout('file://{resources}/layout/custom_game/custom_talent_hud.xml', true, false);
-  // hudButtonContainer.SetParent(abilityBar);
-  // abilityBar.MoveChildAfter(hudButtonContainer, abilityList);
+  hudButtonContainer.SetParent(abilityBar);
+  abilityBar.MoveChildAfter(hudButtonContainer, abilityList);
 
   // Find the button inside the container
   hudButton = hudButtonContainer.FindChildTraverse('talent_hud_btn');
@@ -395,7 +395,7 @@ function ConfigureTalentHotkey () {
 }
 
 (function () {
-  talentWindow = contextPanel.FindChildTraverse('CustomUIRoot').FindChildTraverse('CustomUIContainer_Hud').FindChildTraverse('TalentsHeader').GetParent();
+  talentWindow = $('#TalentsHeader').GetParent();
   RemoveDotaTalentTree();
   CreateHudTalentButton();
   GameEvents.Subscribe('dota_player_gained_level', AnimateTalentTree);
