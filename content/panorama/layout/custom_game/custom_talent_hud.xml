@@ -1,0 +1,14 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_talent_hud.css"/>
+  </styles>
+  <!-- <scripts> -->
+    <!-- <include src="file://{resources}/scripts/custom_game/util.js" /> -->
+  <!-- </scripts> -->
+
+  <Panel>
+    <DOTAScenePanel hittest="false" id="talent_hud_scene" map="scenes/hud/levelupburst" camera="camera_1"/>
+    <Button id="talent_hud_btn"></Button>
+    <Panel hittest="false" id="talent_hud_btn_overlay"></Panel>
+  </Panel>
+</root>

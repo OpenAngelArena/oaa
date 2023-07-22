@@ -1,0 +1,78 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/custom_talent_window.css"/>
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/util.js" />
+    <include src="file://{resources}/scripts/custom_game/custom_talent_tree.js"/>
+  </scripts>
+
+ <Panel class="OAA_Talent_Window">
+    <Label id="TalentsHeader" text="Talents" />
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="55"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="25"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="20"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="15"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+    </Panel>
+    <Panel class="talentRow">
+        <Panel class="talentLevels">
+            <Panel class="talentLevelContainer">
+                <Label class="talentLevel" text="10"></Label>
+            </Panel>
+        </Panel>
+        <Panel class="leftTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+        <Panel class="rightTalent">
+            <DOTAAbilityImage class="talentImage"/>
+        </Panel>
+    </Panel>
+  </Panel>
+</root>

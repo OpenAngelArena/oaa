@@ -1,0 +1,127 @@
+.OAA_Talent_Window {
+	horizontal-align: left;
+	vertical-align: middle;
+	margin-bottom: 75px;
+	width: 350px;
+	height: 450px;
+	background-color: #000000da;
+
+	transform: translateX(-750px);
+	transition-property: transform;
+	transition-duration: 0.1s;
+	flow-children: down;
+}
+
+.OAA_Talent_Window.Talent_Window_open {
+	transform: translatey(0px);
+}
+
+#TalentsHeader {
+	text-align: center;
+	color: #d9b284;
+	font-family: titlefont;
+	font-size: 24px;
+	horizontal-align: middle;
+	text-shadow: 0px 0px 8px #906127;
+	margin-top: 10px;
+	margin-left: 70px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.talentRow {
+	width: 100%;
+	height: 75px;
+	margin-top: 22px;
+	flow-children: right;
+}
+
+.talentLevels {
+	horizontal-align: left;
+	width: 80px;
+	height: 100%;
+	margin-left: 10px;
+}
+
+.talentLevelContainer {
+	width: 55px;
+	height: 55px;
+	horizontal-align: center;
+	vertical-align: center;
+	border: 5px solid #906127;
+	border-radius: 50px;
+}
+
+.talentLevel {
+	horizontal-align: center;
+	vertical-align: center;
+	width: 100%;
+	height: 100%;
+	font-family: "RadianceM";
+	color: #d9b284;
+	text-shadow: 0px 0px 8px #906127;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 6px;
+	margin-right: 2px;
+}
+
+.leftTalent {
+	width: 80px;
+	height: 100%;
+	margin-left: 20px;
+}
+
+.rightTalent {
+	width: 80px;
+	height: 100%;
+	margin-left: 30px;
+}
+
+.talentImage {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	border-top: 1px solid #bbbbbb44;
+	border-right: 1px solid #00000088;
+	border-left: 1px solid #bbbbbb44;
+	border-bottom: 1px solid #00000088;
+}
+
+.talentImage:hover:not(.talentImageUnlearnable) {
+	box-shadow: fill gold 0px 0px 6px 0px;
+}
+
+.talentImageLearned {
+	box-shadow: fill gold 0px 0px 10px 0px;
+}
+
+.talentImageUnlearnable {
+	saturation: 0;
+}
+
+.talentLearnableGlow {
+	animation-name: glow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes 'glow' {
+	0% {
+		box-shadow: 0 0 5px gold;
+	}
+	25% {
+		box-shadow: 0 0 10px gold;
+	}
+	50% {
+		box-shadow: 0 0 25px gold;
+	}
+	75% {
+		box-shadow: 0 0 10px gold;
+	}
+	100% {
+		box-shadow: 0 0 5px gold;
+	}
+}
