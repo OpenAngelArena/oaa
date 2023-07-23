@@ -13,7 +13,7 @@ function Glyph:Init()
   self.moduleName = "Glyph and Scan"
 
   local glyph_cooldown = GLYPH_COOLDOWN or 120
-  self.glyph_duration = GLYPH_DURATION or 7
+  self.glyph_duration = GLYPH_DURATION or 10
   self.glyph_interval = GLYPH_INTERVAL or 1
   local scan_cooldown = SCAN_REVEAL_COOLDOWN
 
