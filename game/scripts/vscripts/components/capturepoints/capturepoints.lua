@@ -345,11 +345,14 @@ end
 
 function CapturePoints:StartSearchingForCaptureLocation()
   local defaultPosition = Vector(0, 0, 0)
-  local maxDistanceFromFountain = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS) -- 6656
-  --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
-  local minDistanceFromFountain = 800 -- X: 6206
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_BADGUYS)
+
+  local minDistanceFromFountain
+  local maxDistanceFromFountain
   local maxY = 4100
-  local maxX = maxDistanceFromFountain - 500 -- 6156
+  local maxX = math.max(RadiantFountainFromCenter, DireFountainFromCenter) - 400
   local minY = 0
   local minX = 0
 
@@ -357,22 +360,26 @@ function CapturePoints:StartSearchingForCaptureLocation()
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
   if scoreDiff >= 20 then
-    maxDistanceFromFountain = maxDistanceFromFountain / 3.8 -- 1751.58 -> X: 4904.22
-    minX = math.floor(maxX * 4 / 5) -- 4924
+    minDistanceFromFountain = 400
+    maxDistanceFromFountain = DireFountainFromCenter / 3.8
+    minX = math.floor(maxX * 4 / 5)
   elseif scoreDiff >= 15 then
-    minDistanceFromFountain = maxDistanceFromFountain / 5 -- 1331.2 -> X: 5324.8
-    maxDistanceFromFountain = maxDistanceFromFountain / 1.5 -- 4437.34 -> X: 2218.67
-    minX = math.floor(maxX * 2 / 5) -- 2462
-    maxX = math.ceil(maxX * 4 / 5)  -- 4925
+    minDistanceFromFountain = DireFountainFromCenter / 5
+    maxDistanceFromFountain = DireFountainFromCenter / 1.5
+    minX = math.floor(maxX * 2 / 5)
+    maxX = math.ceil(maxX * 4 / 5)
   elseif scoreDiff >= 10 then
-    minDistanceFromFountain = maxDistanceFromFountain / 1.7 -- 3915.3 -> X: 2740.7
-    maxDistanceFromFountain = maxDistanceFromFountain / 1.2 -- 5546.67 -> X: 1109.34
-    minX = math.floor(maxX / 5) -- 1231
-    maxX = math.ceil(maxX * 2 / 5)  -- 2462
+    minDistanceFromFountain = DireFountainFromCenter / 1.7
+    maxDistanceFromFountain = DireFountainFromCenter / 1.2
+    minX = math.floor(maxX / 5)
+    maxX = math.ceil(maxX * 2 / 5)
   elseif scoreDiff >= 5 then
-    minDistanceFromFountain = maxDistanceFromFountain / 1.25 -- 5324.8 -> X: 1331.2
-    maxX = math.ceil(maxX / 5) -- 1232
+    minDistanceFromFountain = DireFountainFromCenter / 1.25
+    maxDistanceFromFountain = DireFountainFromCenter
+    maxX = math.ceil(maxX / 5)
   else
+    minDistanceFromFountain = 400
+    maxDistanceFromFountain = math.max(RadiantFountainFromCenter, DireFountainFromCenter) + 400
     minX = 0
     maxX = 0
   end
@@ -380,6 +387,24 @@ function CapturePoints:StartSearchingForCaptureLocation()
   defaultPosition = Vector(math.floor((minX + maxX) / 2), minY, 0)
   if not isGoodLead then
     defaultPosition.x = 0 - defaultPosition.x
+    if scoreDiff >= 20 then
+      maxDistanceFromFountain = RadiantFountainFromCenter / 3.8
+      --minX = math.floor(maxX * 4 / 5)
+    elseif scoreDiff >= 15 then
+      minDistanceFromFountain = RadiantFountainFromCenter / 5
+      maxDistanceFromFountain = RadiantFountainFromCenter / 1.5
+      --minX = math.floor(maxX * 2 / 5)
+      --maxX = math.ceil(maxX * 4 / 5)
+    elseif scoreDiff >= 10 then
+      minDistanceFromFountain = RadiantFountainFromCenter / 1.7
+      maxDistanceFromFountain = RadiantFountainFromCenter / 1.2
+      --minX = math.floor(maxX / 5)
+      --maxX = math.ceil(maxX * 2 / 5)
+    elseif scoreDiff >= 5 then
+      minDistanceFromFountain = RadiantFountainFromCenter / 1.25
+      maxDistanceFromFountain = RadiantFountainFromCenter
+      --maxX = math.ceil(maxX / 5)
+    end
   end
 
   local loopCount = 0
@@ -488,6 +513,7 @@ function CapturePoints:DistanceFromFountain(location, team)
     end
   end
   if not fountain then
+    print("Fountain not found for "..tostring(team))
     return nil
   end
 
@@ -525,7 +551,7 @@ function CapturePoints:IsZonePathable(location)
         end
       end
       if (pos4.x - zone_center.x)^2 + (pos4.y - zone_center.y)^2 <= zone_radius^2 then
-        -- test_pos is inside the circle
+        -- pos4 is inside the circle
         if not GridNav:IsBlocked(pos4) and GridNav:IsTraversable(pos4) then
           counter = counter + 1
         end
