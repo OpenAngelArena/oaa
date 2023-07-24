@@ -22,6 +22,7 @@ function Spawn( entityKeyValues )
   thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
   thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
   thisEntity.BossTier = thisEntity.BossTier or 3
+  thisEntity.SiltBreakerProtection = true
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
 end

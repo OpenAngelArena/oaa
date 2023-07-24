@@ -121,12 +121,10 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
   end
 
   -- True Debuff Immunity
-  local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa")
+  local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa") or parent:HasModifier("modifier_anti_stun_oaa")
   if not parentHasProtection then
     return true
   end
-
-  --DevPrintTable(keys)
 
   -- protected boss should never be bashed or silenced
   if modifierName == 'modifier_bashed'

@@ -9,13 +9,7 @@ function boss_basic_properties_oaa:GetIntrinsicModifierName()
 end
 
 function boss_basic_properties_oaa:GetCooldown(level)
-  local caster = self:GetCaster()
-
-  if caster.SiltBreakerProtection then
-    return self:GetSpecialValueFor("cooldown")
-  end
-
-  return 0
+  return self:GetSpecialValueFor("cooldown")
 end
 
 -----------------------------------------------------------------------------------------
