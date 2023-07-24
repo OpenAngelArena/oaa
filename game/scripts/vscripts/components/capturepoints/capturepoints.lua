@@ -56,7 +56,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
   self.NumCaptures = 0
-  self.CapturePointLocation = Vector(0, 0, 0)
+  self.CapturePointLocation = self:GetMapCenter()
 
   self.nextCaptureTime = self:GetInitialDelay()
   self.CaptureLocationSearchDuration = 20
@@ -102,6 +102,10 @@ function CapturePoints:MinimapPing()
   --Timers:CreateTimer(3.2, function ()
     --Minimap:SpawnCaptureIcon(CurrentZones.right)
   --end)
+  if not location then
+    print("Not set default position for Capture Point")
+    return
+  end
   Minimap:SpawnCaptureIcon(location)
   for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerId) then
@@ -285,6 +289,8 @@ function CapturePoints:ActuallyStartCapture()
   capture_point:SetDayTimeVisionRange(1)
   capture_point:SetNightTimeVisionRange(1)
 
+  self.capture_point = capture_point
+
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
   if not isGoodLead then
@@ -341,75 +347,84 @@ function CapturePoints:EndCapture()
   if self.dire_dummy and not self.dire_dummy:IsNull() then
     self.dire_dummy:ForceKillOAA(false)
   end
+  -- Remove capture point itself
+  if self.capture_point and not self.capture_point:IsNull() then
+    self.capture_point:ForceKillOAA(false)
+  end
 end
 
 function CapturePoints:StartSearchingForCaptureLocation()
-  local defaultPosition = Vector(0, 0, 0)
-  -- Get distances from the fountains because they can be different
-  local RadiantFountainFromCenter = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS)
-  local DireFountainFromCenter = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_BADGUYS)
+  local center = self:GetMapCenter()
+  local XBounds = self:GetMinMaxX()
 
-  local minDistanceFromFountain
-  local maxDistanceFromFountain
-  local maxY = 4100
-  local maxX = math.max(RadiantFountainFromCenter, DireFountainFromCenter) - 400
-  local minY = 0
-  local minX = 0
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = self:DistanceFromFountain(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = self:DistanceFromFountain(center, DOTA_TEAM_BADGUYS)
+
+  local diffDistanceFromFountain = 500
+  local minDistanceFromFountain = 500
+  local maxDistanceFromFountain = math.max(RadiantFountainFromCenter, DireFountainFromCenter) + minDistanceFromFountain
+
+  local maxY = 4596
+  local maxX = math.ceil(XBounds.maxX)
+  local minY = -3252
+  local minX = math.floor(XBounds.minX)
 
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
-  if scoreDiff >= 20 then
-    minDistanceFromFountain = 400
-    maxDistanceFromFountain = DireFountainFromCenter / 3.8
-    minX = math.floor(maxX * 4 / 5)
-  elseif scoreDiff >= 15 then
-    minDistanceFromFountain = DireFountainFromCenter / 5
-    maxDistanceFromFountain = DireFountainFromCenter / 1.5
-    minX = math.floor(maxX * 2 / 5)
-    maxX = math.ceil(maxX * 4 / 5)
-  elseif scoreDiff >= 10 then
-    minDistanceFromFountain = DireFountainFromCenter / 1.7
-    maxDistanceFromFountain = DireFountainFromCenter / 1.2
-    minX = math.floor(maxX / 5)
-    maxX = math.ceil(maxX * 2 / 5)
-  elseif scoreDiff >= 5 then
-    minDistanceFromFountain = DireFountainFromCenter / 1.25
-    maxDistanceFromFountain = DireFountainFromCenter
-    maxX = math.ceil(maxX / 5)
-  else
-    minDistanceFromFountain = 400
-    maxDistanceFromFountain = math.max(RadiantFountainFromCenter, DireFountainFromCenter) + 400
-    minX = 0
-    maxX = 0
-  end
-
-  defaultPosition = Vector(math.floor((minX + maxX) / 2), minY, 0)
-  if not isGoodLead then
-    defaultPosition.x = 0 - defaultPosition.x
+  -- The following code assumes that:
+  -- 1) real center (0.0) is between the fountains somewhere
+  -- 2) radiant fountain x coordinate is < 0
+  -- 3) dire fountain x coordinate is > 0
+  -- 4) fountains don't share the same y coordinate
+  if isGoodLead then
     if scoreDiff >= 20 then
-      maxDistanceFromFountain = RadiantFountainFromCenter / 3.8
-      --minX = math.floor(maxX * 4 / 5)
+      minX = math.floor(center.x + DireFountainFromCenter * 4 / 5)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (1 / 5 + 0.01)
     elseif scoreDiff >= 15 then
-      minDistanceFromFountain = RadiantFountainFromCenter / 5
-      maxDistanceFromFountain = RadiantFountainFromCenter / 1.5
-      --minX = math.floor(maxX * 2 / 5)
-      --maxX = math.ceil(maxX * 4 / 5)
+      minX = math.floor(center.x + DireFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 4 / 5)
+      minDistanceFromFountain = DireFountainFromCenter * (1 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (3 / 5 + 0.01)
     elseif scoreDiff >= 10 then
-      minDistanceFromFountain = RadiantFountainFromCenter / 1.7
-      maxDistanceFromFountain = RadiantFountainFromCenter / 1.2
-      --minX = math.floor(maxX / 5)
-      --maxX = math.ceil(maxX * 2 / 5)
+      minX = math.floor(center.x + DireFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 2 / 5)
+      minDistanceFromFountain = DireFountainFromCenter * (3 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (4 / 5 + 0.01)
     elseif scoreDiff >= 5 then
-      minDistanceFromFountain = RadiantFountainFromCenter / 1.25
-      maxDistanceFromFountain = RadiantFountainFromCenter
-      --maxX = math.ceil(maxX / 5)
+      minX = math.floor(center.x)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+      --minDistanceFromFountain = DireFountainFromCenter * (4 / 5 - 0.01)
+      --maxDistanceFromFountain = DireFountainFromCenter
+    end
+  else
+    if scoreDiff >= 20 then
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 4 / 5)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (1 / 5 + 0.01)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 4 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 2 / 5)
+      minDistanceFromFountain = RadiantFountainFromCenter * (1 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (3 / 5 + 0.01)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 1 / 5)
+      minDistanceFromFountain = RadiantFountainFromCenter * (3 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (4 / 5 + 0.01)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x)
+      --minDistanceFromFountain = RadiantFountainFromCenter * (4 / 5 - 0.01)
+      --maxDistanceFromFountain = RadiantFountainFromCenter
     end
   end
 
+  local defaultPosition = Vector(math.floor((minX + maxX) / 2), center.y, 0)
+
   local loopCount = 0
   local maxSearchDuration = self.CaptureLocationSearchDuration
-  local searchInterval = 2 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
+  local searchInterval = 3 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
   local maxLoops = math.floor(maxSearchDuration / searchInterval) - 1
 
   Timers:CreateTimer(function ()
@@ -439,12 +454,6 @@ function CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minD
   end
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-  if RandomInt(0, 1) == 0 then
-    position.y = 0 - position.y
-  end
-  if not isGoodLead then
-    position.x = 0 - position.x
-  end
 
   if self:DistanceFromFountain(position, fountainTeam) >= maxDistance or self:DistanceFromFountain(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
     return nil
@@ -609,4 +618,68 @@ function CapturePoints:GetCapturePointIntervalTime()
   end
 
   return CAPTURE_INTERVAL
+end
+
+function CapturePoints:GetMapCenter()
+  local defaultCenter = Vector(0, 0, 0)
+
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local radiant_fountain
+  local dire_fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      dire_fountain = entity
+    end
+  end
+  if not radiant_fountain then
+    print("Radiant Fountain not found!")
+    return defaultCenter
+  end
+  if not dire_fountain then
+    print("Dire Fountain not found!")
+    return defaultCenter
+  end
+
+  local distance_between_fountains = (radiant_fountain:GetAbsOrigin() - dire_fountain:GetAbsOrigin()):Length2D()
+  -- Center should be between the fountains but fountains don't need to share the y axis
+  -- The following code is true only if the real center of the map is in the playable non-duel area
+  local center_according_to_radiant = radiant_fountain:GetAbsOrigin() + distance_between_fountains/2 * Vector(1, 0, 0)
+  local center_according_to_dire = dire_fountain:GetAbsOrigin() - distance_between_fountains/2 * Vector(1, 0, 0)
+
+  -- Calculate approximate center of the map
+  local direction = center_according_to_radiant - center_according_to_dire
+  local distance = direction:Length2D()
+  direction.z = 0
+  direction = direction:Normalized()
+  local approx_center = center_according_to_dire + direction * distance/2
+
+  return approx_center
+end
+
+function CapturePoints:GetMinMaxX()
+  local bounds = {minX = 0, maxX = 0}
+  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
+  local radiant_fountain
+  local dire_fountain
+  for _, entity in pairs(fountains) do
+    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+      radiant_fountain = entity
+    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+      dire_fountain = entity
+    end
+  end
+  if radiant_fountain then
+    bounds.minX = radiant_fountain:GetAbsOrigin().x + 200
+  else
+    print("Radiant Fountain not found!")
+  end
+  if dire_fountain then
+    bounds.maxX = dire_fountain:GetAbsOrigin().x - 200
+  else
+    print("Dire Fountain not found!")
+  end
+
+  return bounds
 end
