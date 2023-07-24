@@ -1,37 +1,62 @@
-LinkLuaModifier("modifier_boss_resistance", "abilities/boss/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_resistance.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_basic_properties_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_debuff_protection_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 
-boss_resistance = class(AbilityBaseClass)
+boss_basic_properties_oaa = class(AbilityBaseClass)
 
-function boss_resistance:GetIntrinsicModifierName()
-  return "modifier_boss_resistance"
+function boss_basic_properties_oaa:GetIntrinsicModifierName()
+  return "modifier_boss_basic_properties_oaa"
+end
+
+function boss_basic_properties_oaa:GetCooldown(level)
+  local caster = self:GetCaster()
+
+  if caster.SiltBreakerProtection then
+    return self:GetSpecialValueFor("cooldown")
+  end
+
+  return 0
 end
 
 -----------------------------------------------------------------------------------------
 
-modifier_boss_resistance = class(ModifierBaseClass)
+modifier_boss_basic_properties_oaa = class(ModifierBaseClass)
 
-function modifier_boss_resistance:IsHidden()
+function modifier_boss_basic_properties_oaa:IsHidden()
   return true
 end
 
-function modifier_boss_resistance:IsPurgable()
+function modifier_boss_basic_properties_oaa:IsPurgable()
   return false
 end
 
-function modifier_boss_resistance:DeclareFunctions()
+function modifier_boss_basic_properties_oaa:IsDebuff()
+  return true
+end
+
+function modifier_boss_basic_properties_oaa:OnCreated()
+  local ability = self:GetAbility()
+  self.dmg_reduction = ability:GetSpecialValueFor("percent_damage_reduce")
+  self.max_armor_reduction = ability:GetSpecialValueFor("max_armor_reduction")
+  self.reveal_duration = ability:GetSpecialValueFor("reveal_duration")
+  self.debuff_protection_duration = ability:GetSpecialValueFor("debuff_protection_duration")
+end
+
+modifier_boss_basic_properties_oaa.OnRefresh = modifier_boss_basic_properties_oaa.OnCreated
+
+function modifier_boss_basic_properties_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
-    MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_EVENT_ON_STATE_CHANGED,
   }
 end
 
 if IsServer() then
-  function modifier_boss_resistance:GetModifierTotal_ConstantBlock(keys)
+  function modifier_boss_basic_properties_oaa:GetModifierTotal_ConstantBlock(keys)
     local parent = self:GetParent()
-    local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
 
     if keys.attacker == parent then -- boss degen nonsense
       return 0
@@ -43,12 +68,12 @@ if IsServer() then
       return keys.damage
     end
 
-    return keys.damage * damageReduction / 100
+    return keys.damage * self.dmg_reduction / 100
   end
 
-  function modifier_boss_resistance:OnTakeDamage(event)
+  function modifier_boss_basic_properties_oaa:OnTakeDamage(event)
     local parent = self:GetParent()   -- boss
-    local ability = self:GetAbility() -- boss_resistance
+    local ability = self:GetAbility() -- boss_basic_properties_oaa
 
     local attacker = event.attacker
     local victim = event.unit
@@ -85,17 +110,11 @@ if IsServer() then
       return
     end
 
-    if not ability or ability:IsNull() then
-      return
-    end
-
-    local revealDuration = ability:GetSpecialValueFor("reveal_duration")
-
     -- Reveal the attacker for revealDuration seconds
-    attacker:AddNewModifier(parent, ability, "modifier_boss_truesight_oaa", {duration = revealDuration})
+    attacker:AddNewModifier(parent, ability, "modifier_boss_truesight_oaa", {duration = self.reveal_duration})
   end
 
-  function modifier_boss_resistance:GetModifierPhysicalArmorBonus()
+  function modifier_boss_basic_properties_oaa:GetModifierPhysicalArmorBonus()
     local parent = self:GetParent()
     if self.checkArmor then
       return 0
@@ -104,7 +123,7 @@ if IsServer() then
       local base_armor = parent:GetPhysicalArmorBaseValue()
       local current_armor = parent:GetPhysicalArmorValue(false)
       self.checkArmor = false
-      local min_armor = base_armor - 25
+      local min_armor = base_armor - self.max_armor_reduction
       if current_armor < min_armor then
         return min_armor - current_armor
       end
@@ -112,21 +131,7 @@ if IsServer() then
     return 0
   end
 
-  function modifier_boss_resistance:GetModifierIncomingDamage_Percentage(keys)
-    local percentDamageSpells = {
-      anti_mage_mana_void = true,
-      bloodseeker_bloodrage = false,          -- doesn't work on vanilla Roshan
-      death_prophet_spirit_siphon = true,     -- doesn't work on vanilla Roshan
-      doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
-      huskar_life_break = true,               -- doesn't work on vanilla Roshan
-      jakiro_liquid_ice = false,
-      necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
-      phantom_assassin_fan_of_knives = false,
-      tinker_shrink_ray = true,               -- doesn't work on vanilla Roshan
-      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
-    }
-
-    local damageReduction = self:GetAbility():GetSpecialValueFor("percent_damage_reduce")
+  function modifier_boss_basic_properties_oaa:GetModifierIncomingDamage_Percentage(keys)
     local attacker = keys.attacker
     local inflictor = keys.inflictor
 
@@ -173,18 +178,20 @@ if IsServer() then
       return 0
     end
 
-    -- We will not overcomplicate the interaction with damage amp from Veil:
-    -- if parent has Veil debuff, set damage reduction to 100%
-    local parent = self:GetParent()
-    local hasVeilDebuff = parent:HasModifier("modifier_item_veil_of_discord_debuff")
-
+    -- Reduce the damage of some percentage damage spells
+    local percentDamageSpells = {
+      anti_mage_mana_void = true,
+      bloodseeker_bloodrage = false,          -- doesn't work on vanilla Roshan
+      doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
+      huskar_life_break = true,               -- doesn't work on vanilla Roshan
+      jakiro_liquid_ice = false,
+      necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
+      phantom_assassin_fan_of_knives = false,
+      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+    }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
-      if hasVeilDebuff then
-        return -100
-      else
-        return 0 - damageReduction
-      end
+      return 0 - self.dmg_reduction
     end
 
   --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance
@@ -221,9 +228,58 @@ if IsServer() then
   --   return 0 - damageReduction + damageAmpReduction
     return 0
   end
+
+  function modifier_boss_basic_properties_oaa:OnStateChanged(event)
+    local parent = self:GetParent()   -- boss
+    local ability = self:GetAbility() -- boss_basic_properties_oaa
+
+    -- Debuff protection only if the boss has the boolean value
+    if not parent.SiltBreakerProtection then
+      return
+    end
+
+    local victim = event.unit
+
+    if not victim or victim:IsNull() then
+      return
+    end
+
+    -- Check if unit is this boss
+    if victim ~= parent then
+      return
+    end
+
+    if ability:IsCooldownReady() and (parent:IsStunned() or parent:IsSilenced()) then
+      -- Strong Dispel
+      parent:Purge(false, true, false, true, false)
+
+      -- Add debuff protection
+      parent:AddNewModifier(parent, ability, "modifier_boss_debuff_protection_oaa", {duration = self.debuff_protection_duration})
+
+      -- Particle effect
+      local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
+      local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
+      ParticleManager:ReleaseParticleIndex(blockEffect)
+
+      -- Sound effect
+      parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+
+      -- Go on cooldown
+      ability:UseResources(false, false, false, true)
+    end
+  end
 end
 
------------------------------------------------------------------------------------------
+function modifier_boss_basic_properties_oaa:CheckState()
+  local parent = self:GetParent()
+  local name = parent:GetUnitName()
+  return {
+    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = not string.find(name, "_wanderer_"),
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+  }
+end
+
+---------------------------------------------------------------------------------------------------
 
 modifier_boss_truesight_oaa = class(ModifierBaseClass)
 
@@ -290,5 +346,46 @@ function modifier_boss_truesight_oaa:GetEffectAttachType()
 end
 
 function modifier_boss_truesight_oaa:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_debuff_protection_oaa = class(ModifierBaseClass)
+
+function modifier_boss_debuff_protection_oaa:IsHidden()
+  return false
+end
+
+function modifier_boss_debuff_protection_oaa:IsDebuff()
+  return false
+end
+
+function modifier_boss_debuff_protection_oaa:IsPurgable()
+  return false
+end
+
+function modifier_boss_debuff_protection_oaa:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+function modifier_boss_debuff_protection_oaa:CheckState()
+  return {
+    [MODIFIER_STATE_HEXED] = false,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_SILENCED] = false,
+    [MODIFIER_STATE_STUNNED] = false,
+    [MODIFIER_STATE_FROZEN] = false,
+    [MODIFIER_STATE_FEARED] = false,
+    --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
+  }
+end
+
+function modifier_boss_debuff_protection_oaa:GetEffectName()
+  return "particles/items_fx/black_king_bar_overhead.vpcf"
+end
+
+function modifier_boss_debuff_protection_oaa:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
 end

@@ -162,10 +162,6 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     return
   end
 
-  --local heart = CreateItem("item_heart", bossHandle, bossHandle)
-
-  --bossHandle:AddItem(heart)
-
   --Adding cores to the bosses inventory
   local core = CreateItem(BossSpawner.CoreItems[bossTier], bossHandle, bossHandle)
 
@@ -175,9 +171,8 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     bossHandle:AddItem(core)
   end
 
-  local resistance = bossHandle:FindAbilityByName("boss_resistance")
-  if resistance then
-    DebugPrint('Leveling up the boss resistance manager')
+  local resistance = bossHandle:FindAbilityByName("boss_basic_properties_oaa")
+  if resistance and resistance:GetLevel() ~= 1 then
     resistance:SetLevel(1)
   end
 

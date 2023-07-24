@@ -120,7 +120,8 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
     return false
   end
 
-  local parentHasProtection = parent:HasModifier("modifier_siltbreaker_boss_protection_bash_and_silence")
+  -- True Debuff Immunity
+  local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa")
   if not parentHasProtection then
     return true
   end
@@ -135,14 +136,11 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
     return false
   end
 
-  -- if boss has active protection block all stuns
-  if parent:HasModifier("modifier_siltbreaker_boss_protection") then
-    if modifierName == 'modifier_stunned'
-        or BossProtectionFilter.UniqueStunSpells[abilityName]
-        or BossProtectionFilter.HexSpells[abilityName]
-        or BossProtectionFilter.HexItems[abilityName] then
-      return false
-    end
+  if modifierName == 'modifier_stunned'
+      or BossProtectionFilter.UniqueStunSpells[abilityName]
+      or BossProtectionFilter.HexSpells[abilityName]
+      or BossProtectionFilter.HexItems[abilityName] then
+    return false
   end
 
   return true
