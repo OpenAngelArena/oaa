@@ -147,6 +147,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     team = DOTA_TEAM_BADGUYS
   end
 
+  -- Wrong on different maps
   if pit:GetAbsOrigin().y > 5000 then
     team = DOTA_TEAM_GOODGUYS
   elseif pit:GetAbsOrigin().y < -5000 then
@@ -171,6 +172,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
     bossHandle:AddItem(core)
   end
 
+  -- This is not even needed for npc_dota_creature baseclass
   local resistance = bossHandle:FindAbilityByName("boss_basic_properties_oaa")
   if resistance and resistance:GetLevel() ~= 1 then
     resistance:SetLevel(1)

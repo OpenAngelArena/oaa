@@ -12,6 +12,10 @@ function boss_basic_properties_oaa:GetCooldown(level)
   return self:GetSpecialValueFor("cooldown")
 end
 
+function boss_basic_properties_oaa:ShouldUseResources()
+  return true
+end
+
 -----------------------------------------------------------------------------------------
 
 modifier_boss_basic_properties_oaa = class(ModifierBaseClass)
