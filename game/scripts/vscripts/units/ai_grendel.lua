@@ -216,11 +216,6 @@ function WalkTowardsSpot (spot)
 end
 
 function GetNextWanderLocation ()
-  local maxY = 4100
-  local maxX = 5500
-  local minY = 0
-  local minX = 0
-
   -- Change Grendel's destination if he was called by some team
   if Grendel.was_called then
     if Grendel.to_location ~= nil then
@@ -228,15 +223,7 @@ function GetNextWanderLocation ()
     end
   end
 
-  local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-
-  if RandomInt(1, 2) == 1 then
-    position.y = 0 - position.y
-  end
-
-  if RandomInt(1, 2) == 1 then
-    position.x = 0 - position.x
-  end
+  local position = Grendel:FindWhereToSpawn()
 
   return GetGroundPosition(position, nil)
 end

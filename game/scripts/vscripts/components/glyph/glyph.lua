@@ -89,7 +89,7 @@ function Glyph:CustomGlyphEffect(playerID)
         direction.z = 0
         direction = direction:Normalized()
         -- Calculate distance
-        local distance = math.max(400, 4200 - (3800/4200) * Glyph:DistanceFromFountain(unit_loc, team))
+        local distance = math.max(400, 4200 - (3800/4200) * DistanceFromFountainOAA(unit_loc, team))
         -- Push away from the fountain (off highground)
         unit:AddNewModifier(hero, nil, "modifier_custom_glyph_knockback", {
           distance = distance,
@@ -129,23 +129,6 @@ function Glyph:CustomScanEffect(keys)
   local scan_thinker2 = CreateUnitByName("npc_dota_custom_dummy_unit", position, false, hero, hero, team)
   scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_thinker", {duration = SCAN_DURATION})
   scan_thinker2:AddNewModifier(hero, nil, "modifier_oaa_scan_thinker", {duration = SCAN_DURATION})
-end
-
-function Glyph:DistanceFromFountain(location, team)
-  if not location or not team then
-    return nil
-  end
-  local fountain
-  if team == DOTA_TEAM_GOODGUYS then
-    fountain = self.radiant_fountain
-  elseif team == DOTA_TEAM_BADGUYS then
-    fountain = self.dire_fountain
-  end
-  if not fountain then
-    return nil
-  end
-
-  return (fountain:GetAbsOrigin() - location):Length2D()
 end
 
 ---------------------------------------------------------------------------------------------------

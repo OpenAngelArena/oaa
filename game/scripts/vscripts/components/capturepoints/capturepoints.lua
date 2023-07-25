@@ -7,37 +7,6 @@ CapturePoints = CapturePoints or class({})
 
 -- local Zones = {
   -- { left = Vector( -1280, -1000, 0), right = Vector( 1280, 1000, 0) }, --Zones
-  -- { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
-  -- { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
-  -- { left = Vector( -960, -1280, 0), right = Vector( 1152, 1180, 0) },
-  -- { left = Vector( -640, -1664, 0), right = Vector( 640, 1800, 0) },
-  -- { left = Vector( -2048, -1408, 0), right = Vector( 1792, 1280, 0) },
-  -- { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },  -- in the stairs
-  -- { left = Vector( -1700, -2300, 0), right = Vector( 1920, 1920, 0) },
-  -- { left = Vector( -1408, -3200, 128), right = Vector( 1408, 3200, 128) },
-  -- { left = Vector( -2492, -3216, 128), right = Vector( 1892, 3016, 128) },
-  -- { left = Vector( -2304, -2944, 128), right = Vector( 2304, 2944, 128) },
-  -- { left = Vector( -1566, -3584, 128), right = Vector( 1566, 3584, 128) },
-  -- { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
-  -- { left = Vector( -2650, -3072, 128), right = Vector( 2650, 3072, 128) },
-  -- { left = Vector( -3584, -3072, 128), right = Vector( 3496, 3072, 128) },
-  -- { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) },
-  -- { left = Vector( -2047, 670, 0), right = Vector( 2052, -625, 0) },
-  -- { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },  -- same as the second one
-  -- { left = Vector( -2176, 384, 0), right = Vector( 2176, -384, 0) },
-  -- { left = Vector( -1024, 1280, 0), right = Vector( 1152, -1280, 0) },
-  -- { left = Vector( -1024, 1664, 0), right = Vector( 1024, -1664, 0) },
-  -- { left = Vector( -1664, 1280, 0), right = Vector( 2192, -1380, 0) },
-  -- { left = Vector( -1726, 1924, 0), right = Vector( 1798, -2007, 0) },
-  -- { left = Vector( -1664, 1920, 0), right = Vector( 1664, -1920, 0) },
-  -- { left = Vector( -1408, 3200, 128), right = Vector( 1408, -3200, 128) },
-  -- { left = Vector( -1792, 2816, 128), right = Vector( 2000, -2816, 128) },
-  -- { left = Vector( -2304, 2944, 128), right = Vector( 2304, -2944, 128) },
-  -- { left = Vector( -1566, 3584, 128), right = Vector( 1566, -3584, 128) },
-  -- { left = Vector( -1152, 4096, 128), right = Vector( 1152, -4096, 128) },
-  -- { left = Vector( -3121, 3885, 128), right = Vector( 2709, -3830, 128) },
-  -- { left = Vector( -3584, 3072, 128), right = Vector( 3363, -3228, 128) },
-  -- { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
 --local NumZones = 32
 local LiveZones = 0
@@ -56,7 +25,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
   self.NumCaptures = 0
-  self.CapturePointLocation = self:GetMapCenter()
+  self.CapturePointLocation = GetMapCenterOAA()
 
   self.nextCaptureTime = self:GetInitialDelay()
   self.CaptureLocationSearchDuration = 20
@@ -276,7 +245,7 @@ function CapturePoints:ActuallyStartCapture()
   end
 
   local closer_fountain = radiant_fountain
-  if self:DistanceFromFountain(spawnVector, DOTA_TEAM_BADGUYS) < self:DistanceFromFountain(spawnVector, DOTA_TEAM_GOODGUYS) then
+  if DistanceFromFountainOAA(spawnVector, DOTA_TEAM_BADGUYS) < DistanceFromFountainOAA(spawnVector, DOTA_TEAM_GOODGUYS) then
     closer_fountain = dire_fountain
   end
 
@@ -354,20 +323,21 @@ function CapturePoints:EndCapture()
 end
 
 function CapturePoints:StartSearchingForCaptureLocation()
-  local center = self:GetMapCenter()
-  local XBounds = self:GetMinMaxX()
+  local center = GetMapCenterOAA()
+  local XBounds = GetMainAreaBoundsX()
+  local YBounds = GetMainAreaBoundsY()
 
   -- Get distances from the fountains because they can be different
-  local RadiantFountainFromCenter = self:DistanceFromFountain(center, DOTA_TEAM_GOODGUYS)
-  local DireFountainFromCenter = self:DistanceFromFountain(center, DOTA_TEAM_BADGUYS)
+  local RadiantFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_BADGUYS)
 
   local diffDistanceFromFountain = 500
   local minDistanceFromFountain = 500
   local maxDistanceFromFountain = math.max(RadiantFountainFromCenter, DireFountainFromCenter) + minDistanceFromFountain
 
-  local maxY = 4596
+  local maxY = math.ceil(YBounds.maxY)
   local maxX = math.ceil(XBounds.maxX)
-  local minY = -3252
+  local minY = math.floor(YBounds.minY)
   local minX = math.floor(XBounds.minX)
 
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
@@ -430,7 +400,7 @@ function CapturePoints:StartSearchingForCaptureLocation()
 
   local loopCount = 0
   local maxSearchDuration = self.CaptureLocationSearchDuration
-  local searchInterval = 3 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
+  local searchInterval = 3 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountainOAA and IsZonePathable checks
   local maxLoops = math.floor(maxSearchDuration / searchInterval) - 1
 
   Timers:CreateTimer(function ()
@@ -461,78 +431,11 @@ function CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minD
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
 
-  if self:DistanceFromFountain(position, fountainTeam) >= maxDistance or self:DistanceFromFountain(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
+  if DistanceFromFountainOAA(position, fountainTeam) >= maxDistance or DistanceFromFountainOAA(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
     return nil
   end
 
   return position
-end
-
-function CapturePoints:IsLocationInFountain(location)
-  if not location then
-    return nil
-  end
-
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local radiant_fountain
-  local dire_fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      radiant_fountain = entity
-    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-      dire_fountain = entity
-    end
-  end
-
-  local radiant_fountain_trigger = Entities:FindByName(nil, "fountain_good_trigger")
-  local dire_fountain_trigger = Entities:FindByName(nil, "fountain_bad_trigger")
-
-  if radiant_fountain_trigger then
-    if IsInTrigger(location, radiant_fountain_trigger) then
-      return true
-    end
-  else
-    print("Radiant fountain trigger not found or referenced name is wrong.")
-    if radiant_fountain then
-      if (radiant_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
-        return true
-      end
-    end
-  end
-
-  if dire_fountain_trigger then
-    if IsInTrigger(location, dire_fountain_trigger) then
-      return true
-    end
-  else
-    print("Dire fountain trigger not found or referenced name is wrong.")
-    if dire_fountain then
-      if (dire_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
-        return true
-      end
-    end
-  end
-
-  return false
-end
-
-function CapturePoints:DistanceFromFountain(location, team)
-  if not location or not team then
-    return nil
-  end
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == team then
-      fountain = entity
-    end
-  end
-  if not fountain then
-    print("Fountain not found for "..tostring(team))
-    return nil
-  end
-
-  return (fountain:GetAbsOrigin() - location):Length2D()
 end
 
 function CapturePoints:IsZonePathable(location)
@@ -624,68 +527,4 @@ function CapturePoints:GetCapturePointIntervalTime()
   end
 
   return CAPTURE_INTERVAL
-end
-
-function CapturePoints:GetMapCenter()
-  local defaultCenter = Vector(0, 0, 0)
-
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local radiant_fountain
-  local dire_fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      radiant_fountain = entity
-    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-      dire_fountain = entity
-    end
-  end
-  if not radiant_fountain then
-    print("Radiant Fountain not found!")
-    return defaultCenter
-  end
-  if not dire_fountain then
-    print("Dire Fountain not found!")
-    return defaultCenter
-  end
-
-  local distance_between_fountains = (radiant_fountain:GetAbsOrigin() - dire_fountain:GetAbsOrigin()):Length2D()
-  -- Center should be between the fountains but fountains don't need to share the y axis
-  -- The following code is true only if the real center of the map is in the playable non-duel area
-  local center_according_to_radiant = radiant_fountain:GetAbsOrigin() + distance_between_fountains/2 * Vector(1, 0, 0)
-  local center_according_to_dire = dire_fountain:GetAbsOrigin() - distance_between_fountains/2 * Vector(1, 0, 0)
-
-  -- Calculate approximate center of the map
-  local direction = center_according_to_radiant - center_according_to_dire
-  local distance = direction:Length2D()
-  direction.z = 0
-  direction = direction:Normalized()
-  local approx_center = center_according_to_dire + direction * distance/2
-
-  return approx_center
-end
-
-function CapturePoints:GetMinMaxX()
-  local bounds = {minX = 0, maxX = 0}
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local radiant_fountain
-  local dire_fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      radiant_fountain = entity
-    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-      dire_fountain = entity
-    end
-  end
-  if radiant_fountain then
-    bounds.minX = radiant_fountain:GetAbsOrigin().x + 200
-  else
-    print("Radiant Fountain not found!")
-  end
-  if dire_fountain then
-    bounds.maxX = dire_fountain:GetAbsOrigin().x - 200
-  else
-    print("Dire Fountain not found!")
-  end
-
-  return bounds
 end

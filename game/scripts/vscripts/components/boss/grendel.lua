@@ -139,20 +139,15 @@ function Grendel:SpawnGrendel()
 end
 
 function Grendel:FindWhereToSpawn()
-  local maxY = 4100
-  local maxX = 5500
-  local minY = 0
-  local minX = 0
+  local XBounds = GetMainAreaBoundsX()
+  local YBounds = GetMainAreaBoundsY()
+
+  local maxY = math.ceil(YBounds.maxY)
+  local maxX = math.ceil(XBounds.maxX)
+  local minY = math.floor(YBounds.minY)
+  local minX = math.floor(XBounds.minX)
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-
-  if RandomInt(1, 2) == 1 then
-    position.y = 0 - position.y
-  end
-
-  if RandomInt(1, 2) == 1 then
-    position.x = 0 - position.x
-  end
 
   return GetGroundPosition(position, nil)
 end
@@ -160,10 +155,10 @@ end
 function Grendel:GoNearTeam(team)
   if team == DOTA_TEAM_GOODGUYS then
     self.was_called = true
-    self.to_location = Vector(-5200, 200, 512)
+    self.to_location = PointsManager.radiant_shrine + 200 * Vector(0, 1, 0)
   elseif team == DOTA_TEAM_BADGUYS then
     self.was_called = true
-    self.to_location = Vector(5200, 200, 512)
+    self.to_location = PointsManager.dire_shrine + 200 * Vector(0, 1, 0)
   else
     self.was_called = false
     self.to_location = nil
