@@ -271,10 +271,13 @@ end
 function modifier_boss_basic_properties_oaa:CheckState()
   local parent = self:GetParent()
   local name = parent:GetUnitName()
-  return {
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = not string.find(name, "_wanderer_"),
+  local state = {
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
   }
+  if not string.find(name, "_wanderer_") then
+    state[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true
+  end
+  return state
 end
 
 ---------------------------------------------------------------------------------------------------

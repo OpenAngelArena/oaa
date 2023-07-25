@@ -420,7 +420,7 @@ function CheckPathBlocking ()
   thisEntity.pathBlocking = thisEntity.pathBlocking - 1
   if thisEntity.pathBlocking < 0 then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {
-      duration = 3
+      duration = 8
     })
     ResetPathBlocking()
   end
