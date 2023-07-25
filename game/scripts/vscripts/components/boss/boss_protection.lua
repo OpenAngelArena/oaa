@@ -83,7 +83,10 @@ if not BossProtectionFilter then
 
   BossProtectionFilter.ModifierList = {
     modifier_bashed = true, -- pierces bkb
+    modifier_huskar_life_break_taunt = true, -- pierces bkb
     modifier_stunned = true, -- sometimes pierces bkb
+    modifier_queenofpain_scream_of_pain_fear = true, -- pierces bkb
+    modifier_viper_viper_strike_silence = true,
   }
 end
 

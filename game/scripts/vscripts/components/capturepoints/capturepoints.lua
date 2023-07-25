@@ -397,6 +397,9 @@ function CapturePoints:StartSearchingForCaptureLocation()
       maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
       --minDistanceFromFountain = DireFountainFromCenter * (4 / 5 - 0.01)
       --maxDistanceFromFountain = DireFountainFromCenter
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
     end
   else
     if scoreDiff >= 20 then
@@ -417,6 +420,9 @@ function CapturePoints:StartSearchingForCaptureLocation()
       maxX = math.ceil(center.x)
       --minDistanceFromFountain = RadiantFountainFromCenter * (4 / 5 - 0.01)
       --maxDistanceFromFountain = RadiantFountainFromCenter
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
     end
   end
 
