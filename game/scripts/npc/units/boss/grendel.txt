@@ -19,8 +19,9 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "boss_basic_properties_oaa"
-    "Ability2"                                            "boss_regen"
+    "Ability1"                                            "grendel_passives"
+    "Ability2"                                            "boss_basic_properties_oaa"
+    "Ability3"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -74,8 +75,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
