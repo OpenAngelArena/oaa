@@ -170,6 +170,7 @@ function Bottlepass:Ready ()
 
   if hostId ~= 7131038 and IsInToolsMode() then
     -- Stop trying to contact the server in tools when I am working, Idk how other devs tolerated this
+    -- bwahahahahahaha keepSpamming, best keyname xD
     self.keepSpamming = false
     return
   end
@@ -194,6 +195,7 @@ function Bottlepass:Ready ()
       self.token = data.token
       self.userData = data.userData
       CustomNetTables:SetTableValue( 'bottlepass', 'user_data', data.userData )
+      MMRShuffle:UpdateAverageMMRs()
     end
   end)
 end

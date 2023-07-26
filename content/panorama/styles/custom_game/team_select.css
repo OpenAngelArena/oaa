@@ -735,8 +735,8 @@ DOTAAvatarImage
     background-repeat: no-repeat;
     background-size: contain;
     overflow: noclip;
-    width: 24px;
-    height: 24px;
+    width: 0px;
+    height: 0px;
     visibility: collapse;
     margin-top: 2px;
     margin-right: 4px;
@@ -762,8 +762,8 @@ DOTAAvatarImage
 
 #PlayerLeaveTeamButton
 {
-	width: 24px;
-	height: 24px;
+	width: 0px;
+	height: 0px;
 	wash-color: #aa0000ee;
 	background-image: url("file://{images}/control_icons/x_close.png");
 	background-size: 24px 24px;

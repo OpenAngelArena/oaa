@@ -117,6 +117,9 @@ if IsServer() then
     local nOrderType = params.order_type
 
     if nOrderType ~= DOTA_UNIT_ORDER_MOVE_TO_TARGET then
+      --if hOrderedUnit then
+        --hOrderedUnit.hero_last_target = nil
+      --end
       return
     end
 

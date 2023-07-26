@@ -13,14 +13,14 @@
     "ArmorPhysical"                                       "3"     // Physical protection.
     "MagicalResistance"                                   "60"    // Magical protection.
 
-    "AttackDamageMin"                                     "32"    // Damage range min.
-    "AttackDamageMax"                                     "32"    // Damage range max.
+    "AttackDamageMin"                                     "30"    // Damage range min.
+    "AttackDamageMax"                                     "30"    // Damage range max.
     "AttackRange"                                         "500"
 
     "HealthBarOffset"                                     "135"
 
-    "MovementSpeed"                                       "310"    // Speed
+    "MovementSpeed"                                       "370"    // Speed
 
-    "StatusHealth"                                        "200"    // Base health.
+    "StatusHealth"                                        "220"    // Base health.
   }
 }
