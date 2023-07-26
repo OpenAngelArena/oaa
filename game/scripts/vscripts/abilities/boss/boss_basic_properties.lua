@@ -24,12 +24,12 @@ function modifier_boss_basic_properties_oaa:IsHidden()
   return true
 end
 
-function modifier_boss_basic_properties_oaa:IsPurgable()
-  return false
-end
-
 function modifier_boss_basic_properties_oaa:IsDebuff()
   return true
+end
+
+function modifier_boss_basic_properties_oaa:IsPurgable()
+  return false
 end
 
 function modifier_boss_basic_properties_oaa:OnCreated()
@@ -284,6 +284,14 @@ end
 
 modifier_boss_truesight_oaa = class(ModifierBaseClass)
 
+function modifier_boss_truesight_oaa:IsDebuff()
+  return true
+end
+
+function modifier_boss_truesight_oaa:IsPurgable()
+  return false
+end
+
 function modifier_boss_truesight_oaa:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -294,6 +302,21 @@ function modifier_boss_truesight_oaa:OnCreated()
 end
 
 modifier_boss_truesight_oaa.OnRefresh = modifier_boss_truesight_oaa.OnCreated
+
+function modifier_boss_truesight_oaa:IsHidden()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
+
+  if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
+    return true
+  end
+
+  return (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self.maxRevealDist
+end
+
+function modifier_boss_truesight_oaa:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
 
 if IsServer() then
   function modifier_boss_truesight_oaa:CheckState()
@@ -315,29 +338,6 @@ if IsServer() then
   end
 end
 
-function modifier_boss_truesight_oaa:IsPurgable()
-  return false
-end
-
-function modifier_boss_truesight_oaa:IsDebuff()
-  return true
-end
-
-function modifier_boss_truesight_oaa:GetTexture()
-  return "item_gem"
-end
-
-function modifier_boss_truesight_oaa:IsHidden()
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
-
-  if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
-    return true
-  end
-
-  return (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self.maxRevealDist
-end
-
 function modifier_boss_truesight_oaa:GetEffectName()
   return "particles/items2_fx/true_sight_debuff.vpcf"
 end
@@ -346,8 +346,8 @@ function modifier_boss_truesight_oaa:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
 end
 
-function modifier_boss_truesight_oaa:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+function modifier_boss_truesight_oaa:GetTexture()
+  return "item_gem"
 end
 
 ---------------------------------------------------------------------------------------------------
