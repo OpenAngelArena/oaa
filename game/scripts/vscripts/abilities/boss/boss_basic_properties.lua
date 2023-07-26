@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_boss_basic_properties_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_debuff_protection_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_tier_indicator_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_basic_properties_oaa = class(AbilityBaseClass)
 
@@ -25,7 +26,7 @@ function modifier_boss_basic_properties_oaa:IsHidden()
 end
 
 function modifier_boss_basic_properties_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_boss_basic_properties_oaa:IsPurgable()
@@ -38,6 +39,10 @@ function modifier_boss_basic_properties_oaa:OnCreated()
   self.max_armor_reduction = ability:GetSpecialValueFor("max_armor_reduction")
   self.reveal_duration = ability:GetSpecialValueFor("reveal_duration")
   self.debuff_protection_duration = ability:GetSpecialValueFor("debuff_protection_duration")
+  if IsServer() then
+    local parent = self:GetParent()
+    parent:AddNewModifier(parent, ability, "modifier_boss_tier_indicator_oaa", {})
+  end
 end
 
 modifier_boss_basic_properties_oaa.OnRefresh = modifier_boss_basic_properties_oaa.OnCreated
@@ -389,4 +394,69 @@ end
 
 function modifier_boss_debuff_protection_oaa:GetEffectAttachType()
   return PATTACH_OVERHEAD_FOLLOW
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_tier_indicator_oaa = class(ModifierBaseClass)
+
+function modifier_boss_tier_indicator_oaa:IsHidden()
+  return true
+end
+
+function modifier_boss_tier_indicator_oaa:IsDebuff()
+  return false
+end
+
+function modifier_boss_tier_indicator_oaa:IsPurgable()
+  return false
+end
+
+function modifier_boss_tier_indicator_oaa:OnCreated()
+  local parent = self:GetParent()
+  local name = parent:GetUnitName()
+
+  if string.find(name, "_tier5") then
+    self.tier = 5
+    local names = {
+      npc_dota_boss_tier_5 = 1,
+      npc_dota_boss_tier_1_tier5 = 1,
+      npc_dota_creature_ogre_tank_boss_tier5 = 1,
+      --npc_dota_creature_lycan_boss_tier5 = 1,
+      --npc_dota_creature_temple_guardian_tier5 = 1,
+      --npc_dota_boss_stopfightingyourself_tier5 = 1,
+    }
+    if names[name] then
+      return
+    end
+    self.status_effect = true
+  end
+end
+
+function modifier_boss_tier_indicator_oaa:GetEffectName()
+  if self.tier == 5 then
+    return "particles/items4_fx/scepter_aura.vpcf"
+  end
+  return ""
+end
+
+function modifier_boss_tier_indicator_oaa:GetEffectAttachType()
+  if self.tier == 5 then
+    return PATTACH_ABSORIGIN_FOLLOW
+  end
+  return PATTACH_INVALID
+end
+
+function modifier_boss_tier_indicator_oaa:GetStatusEffectName()
+	if self.status_effect then
+    return "particles/status_fx/status_effect_vengeful_venge_image.vpcf"
+  end
+  return ""
+end
+
+function modifier_boss_tier_indicator_oaa:StatusEffectPriority()
+	if self.status_effect then
+    return 15
+  end
+  return 0
 end
