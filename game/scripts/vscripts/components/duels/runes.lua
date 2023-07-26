@@ -34,10 +34,10 @@ function DuelRunes:Init ()
     Timers:CreateTimer('DuelRunes', {
       endTime = DUEL_RUNE_TIMER,
       callback = function()
-        if not Duels.currentDuel then
+        if not Duels:IsActive() then
           return
         end
-        Notifications:TopToAll({text="#duel_highground_active", duration=10.0, style={color="red", ["font-size"]="86px"}})
+        Notifications:TopToAll({text="#duel_highground_active", duration=10.0, style={color="red", ["font-size"]="80px"}})
         DuelRunes.active = true
       end
     })

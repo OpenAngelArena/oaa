@@ -35,6 +35,7 @@ function LycanBossThink()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.BossTier = thisEntity.BossTier or 5
+    thisEntity.SiltBreakerProtection = true
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)

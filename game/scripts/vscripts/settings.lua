@@ -56,7 +56,7 @@ SCAN_DURATION = 14                        -- vanilla duration is 8 seconds
 
 -- glyph
 GLYPH_COOLDOWN = 120
-GLYPH_DURATION = 7
+GLYPH_DURATION = 10
 GLYPH_INTERVAL = 1
 
 -- PICK SCREEN

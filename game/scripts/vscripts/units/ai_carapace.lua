@@ -31,6 +31,7 @@ function CarapaceBossThink()
     thisEntity.state = AI_STATE_IDLE
     thisEntity.aggro_target = nil
     thisEntity.BossTier = thisEntity.BossTier or 2
+    thisEntity.SiltBreakerProtection = false
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.initialized = true
