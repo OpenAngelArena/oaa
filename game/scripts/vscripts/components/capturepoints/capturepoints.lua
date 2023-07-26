@@ -163,10 +163,10 @@ function CapturePoints:StartCapture(color)
   self.currentCapture = {
     y = 1
   }
-  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
+  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="50px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
   self:MinimapPing()
   Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
-    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
+    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="50px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
     CapturePoints:MinimapPing()
   end)
 
@@ -304,7 +304,7 @@ function CapturePoints:EndCapture()
     DebugPrint ('There is no Capture running')
     return
   end
-  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="110px"}})
+  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="100px"}})
   DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
   self.currentCapture = nil

@@ -260,21 +260,26 @@ function Duels:StartDuel(options)
   self.currentDuel = DUEL_IS_STARTING
   DuelPreparingEvent.broadcast(true)
 
-  Notifications:TopToAll({text="#duel_imminent_warning", duration=math.min(DUEL_START_WARN_TIME, 5.0), replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
-  for index = 0,(DUEL_START_COUNTDOWN - 1) do
-    Timers:CreateTimer(DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN + index, function ()
-      if Duels.wasCanceled then
-        return
-      end
-      Notifications:TopToAll({text=(DUEL_START_COUNTDOWN - index), duration=1.0})
-    end)
-  end
+  local warning = DUEL_START_WARN_TIME - DUEL_START_COUNTDOWN
+  Notifications:TopToAll({text="#duel_imminent_warning", duration=warning, style={color="red", ["font-size"]="50px"}, replacement_map={seconds_to_duel = DUEL_START_WARN_TIME}})
+  -- Use only 1 timer
+  local index = 0
+  Timers:CreateTimer(warning, function ()
+    if Duels.wasCanceled then
+      return
+    end
+    if index < DUEL_START_COUNTDOWN then
+      Notifications:TopToAll({text=tostring(DUEL_START_COUNTDOWN - index), duration=1.0})
+      index = index + 1
+      return 1
+    end
+  end)
 
   Timers:CreateTimer(DUEL_START_WARN_TIME, function ()
     if Duels.wasCanceled then
       return
     end
-    Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    Notifications:TopToAll({text="#duel_start", duration=3.0, style={color="red", ["font-size"]="100px"}})
     for _, zone in ipairs(Duels.zones) do
       ZoneCleaner:CleanZone(zone)
     end
@@ -285,7 +290,7 @@ end
 function Duels:CancelDuel()
   if self.currentDuel == DUEL_IS_STARTING and self.wasCanceled == false then
     self.wasCanceled = true
-    Notifications:TopToAll({text="DUEL CANCELED", duration=3.0, style={color="red", ["font-size"]="110px"}})
+    Notifications:TopToAll({text="DUEL CANCELED", duration=3.0, style={color="red", ["font-size"]="100px"}})
 
     self:CleanUpDuel()
   end
@@ -553,14 +558,21 @@ function Duels:TimeoutDuel ()
   DebugPrint('timing out the duel because this isnt going well...')
   Timers:RemoveTimer('EndDuel')
 
-  for i = 0,(DUEL_END_COUNTDOWN - 1) do
-    Timers:CreateTimer(i, function ()
-      if Duels.currentDuel == nil then
-        return
-      end
-      Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - i), duration=1.0})
-    end)
-  end
+  local warning = 3
+  Notifications:TopToAll({text="#duel_timeout_warning", duration=warning, style={color="blue", ["font-size"]="50px"}, replacement_map={seconds_to_duel_end = DUEL_END_COUNTDOWN}})
+  -- Use only 1 timer
+  local index = warning
+  Timers:CreateTimer(warning, function ()
+    -- Check if duel ended
+    if Duels.currentDuel == nil then
+      return
+    end
+    if index < DUEL_END_COUNTDOWN then
+      Notifications:TopToAll({text=tostring(DUEL_END_COUNTDOWN - index), duration=1.0})
+      index = index + 1
+      return 1
+    end
+  end)
 
   Timers:CreateTimer('EndDuel', {
     endTime = DUEL_END_COUNTDOWN,
@@ -599,7 +611,7 @@ function Duels:CleanUpDuel ()
   end
 
   self.startDuelTimer = Timers:CreateTimer(nextDuelIn - 60 + DUEL_START_WARN_TIME, function ()
-    Notifications:TopToAll({text="#duel_minute_warning", duration=10.0})
+    Notifications:TopToAll({text="#duel_minute_warning", duration=10.0, style={color="blue", ["font-size"]="50px"}})
     Duels.startDuelTimer = Timers:CreateTimer(60 - DUEL_START_WARN_TIME, partial(Duels.StartDuel, Duels))
   end)
 
@@ -607,7 +619,7 @@ function Duels:CleanUpDuel ()
 end
 
 function Duels:EndDuel ()
-  if self.currentDuel == nil or type(self.currentDuel) == "number" then
+  if not self:IsActive() then
     DebugPrint ('There is no duel running')
     return
   end
@@ -624,7 +636,7 @@ function Duels:EndDuel ()
   gamemode:SetCustomBackpackSwapCooldown(3.0)
 
   local currentDuel = self.currentDuel
-  self:CleanUpDuel()
+  self:CleanUpDuel() -- this sets self.currentDuel to nil
 
   Timers:CreateTimer(0.1, function ()
     DebugPrint('Sending all players back!')
