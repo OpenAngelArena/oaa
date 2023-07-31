@@ -1,8 +1,17 @@
 //==================================================================
 // Trusty Shovel
 //==================================================================
-"DOTA_Tooltip_Ability_item_trusty_shovel_oaa"                                   "Trusty Shovel"
-"DOTA_Tooltip_Ability_item_trusty_shovel_oaa_Description"                       "<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Can find a Bounty Rune, a Flask, a Clarity, a Bottle or neutral creeps. As time goes on you can dig out Azazel's elixirs."
-"DOTA_Tooltip_Ability_item_trusty_shovel_oaa_Lore"                              "Former plaything of a young deity, received as a gift from his uncle."
+//"DOTA_Tooltip_Ability_item_trusty_shovel"                                       "Trusty Shovel"
+//"DOTA_Tooltip_Ability_item_trusty_shovel_Description"                           "<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Can find a Bounty Rune, a Flask, an Enchanted Mango, or a Kobold."
+//"DOTA_Tooltip_Ability_item_trusty_shovel_Lore"                                  "Former plaything of a young deity, received as a gift from his uncle."
+//"DOTA_Tooltip_Ability_item_trusty_shovel_bonus_health"                          "+$health"
+//"DOTA_Tooltip_Ability_item_trusty_shovel_Note0"                                 "%chance_bounty_rune%%% chance for a Bounty Rune."
+//"DOTA_Tooltip_Ability_item_trusty_shovel_Note1"                                 "%chance_other_item%%% chance each for a Flask, an Enchanted Mango, or a kobold."
+//"DOTA_Tooltip_Ability_item_trusty_shovel_Note2"                                 "The same Trusty Shovel cannot find the same reward twice in a row."
+
+"DOTA_Tooltip_Ability_item_trusty_shovel_oaa"                                   "#{DOTA_Tooltip_Ability_item_trusty_shovel}"
+"DOTA_Tooltip_Ability_item_trusty_shovel_oaa_Description"                       "<h1>Active: Dig</h1> Channel for %abilitychanneltime% second. <br>Can find a Bounty Rune, random consumable item or a creep to aid you in battle.<font color='#FFA500'>Consumable items that you can find are: #{DOTA_Tooltip_Ability_item_flask}, #{DOTA_Tooltip_Ability_item_enchanted_mango}, #{DOTA_Tooltip_Ability_item_infinite_bottle}, #{DOTA_Tooltip_Ability_item_famango} and #{DOTA_Tooltip_rune_water} rune.\nAfter 10 minutes you can find a #{DOTA_Tooltip_Ability_item_elixier_burst}.\nAfter 20 minutes you can find a #{DOTA_Tooltip_Ability_item_elixier_sustain} or a #{DOTA_Tooltip_Ability_item_great_famango}.\nAfter 30 minutes you can find #{DOTA_Tooltip_Ability_item_elixier_hybrid}.\nAfter 40 minutes you can find a #{DOTA_Tooltip_Ability_item_greater_famango} or #{DOTA_Tooltip_Ability_item_cheese}.</font>"
+"DOTA_Tooltip_Ability_item_trusty_shovel_oaa_Lore"                              "#{DOTA_Tooltip_Ability_item_trusty_shovel_Lore}"
 "DOTA_Tooltip_Ability_item_trusty_shovel_oaa_bonus_health"                      "+$health"
 "DOTA_Tooltip_Ability_item_trusty_shovel_oaa_bounty_rune_drop_chance"           "BOUNTY RUNE DIG CHANCE:"
+"DOTA_Tooltip_Ability_item_trusty_shovel_oaa_Note0"                             "#{DOTA_Tooltip_Ability_item_trusty_shovel_Note2}"
