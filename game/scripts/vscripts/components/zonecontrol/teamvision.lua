@@ -52,6 +52,8 @@ function TeamVision:AddVision()
         building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
         building:AddNewModifier(building, nil, "modifier_shrine_oaa", {})
         --building:RemoveModifierByName("modifier_invulnerable")
+      elseif string.find(building_name, "watch_tower") then
+        building:RemoveModifierByName("modifier_invulnerable")
       end
     end
   end
