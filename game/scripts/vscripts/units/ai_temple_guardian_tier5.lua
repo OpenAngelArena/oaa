@@ -40,6 +40,7 @@ function TempleGuardianThink()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.BossTier = thisEntity.BossTier or 5
+    thisEntity.SiltBreakerProtection = true
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
     thisEntity.bInitialized = true
   end

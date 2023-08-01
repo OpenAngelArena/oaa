@@ -1,9 +1,9 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Boss Cliff Walk
+  // Free Pathing
   //=================================================================================================================
-  "boss_cliffwalk"
+  "free_pathing_oaa"
   {
     "ID"                                                  "8823"
     "BaseClass"                                           "ability_datadriven"
@@ -18,17 +18,17 @@
     {
       "ApplyModifier"
       {
-        "ModifierName"                                    "modifier_cliffwalk"
+        "ModifierName"                                    "modifier_cliffwalk_oaa"
         "Target"                                          "CASTER"
       }
     }
 
     "Modifiers"
     {
-      "modifier_cliffwalk"
+      "modifier_cliffwalk_oaa"
       {
         "Passive"                                         "1"
-        "IsHidden"                                        "0"
+        "IsHidden"                                        "1"
         "IsDebuff"                                        "0"
         "IsPurgable"                                      "0"
         "IsBuff"                                          "1"

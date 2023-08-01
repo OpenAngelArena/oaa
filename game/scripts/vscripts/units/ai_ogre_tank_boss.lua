@@ -39,6 +39,7 @@ function OgreTankBossThink()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.SiltBreakerProtection = true
     SpawnAllies()
     thisEntity.bInitialized = true
   end

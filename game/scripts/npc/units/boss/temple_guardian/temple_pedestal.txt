@@ -1,0 +1,39 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Temple Guardian's Pedestal
+  //=================================================================================
+  "npc_dota_creature_pedestal"
+  {
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/prefab_base/pedestal/pedestal.vmdl"
+    "ModelScale"                                          "1"
+
+    "Ability1"                                            "boss_out_of_game"
+
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "0"     // Experience earn.
+    "BountyGoldMin"                                       "0"     // Gold earned min.
+    "BountyGoldMax"                                       "0"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_HUGE"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "240"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"     // Speed
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"      // Range of vision during day light.
+    "VisionNighttimeRange"                                "1400"      // Range of vision at night time.
+  }
+}

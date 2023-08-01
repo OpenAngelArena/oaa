@@ -5,93 +5,89 @@ if not BossProtectionFilter then
 
   BossProtectionFilter = class({})
 
-  BossProtectionFilter.SilenceSpells = {
-    bloodseeker_blood_bath = true,
-    death_prophet_silence = true,
-    disruptor_static_storm = true,
-    doom_bringer_doom = true,
-    drow_ranger_silence = true,
-    earth_spirit_geomagnetic_grip = true,
-    enigma_black_hole = true,
-    legion_commander_duel = true,
-    lone_druid_savage_roar = true,
-    night_stalker_crippling_fear = true,
-    puck_waning_rift = true,
-    riki_smoke_screen = true,
-    silencer_global_silence = true,
-    silencer_last_word = true,
-    skywrath_mage_ancient_seal = true,
-    techies_suicide = true
-  }
-
-  BossProtectionFilter.SilenceItems = {
-    item_bloodthorn = true,
-    item_orchid = true
-  }
-
-  -- uses unique modifiers to apply stun (not modifier_bashed)
-  BossProtectionFilter.UniqueBashSpell = {
-    faceless_void_time_lock = true,
-    faceless_void_time_lock_oaa = true,
-    spirit_breaker_greater_bash = true
-  }
-
-  -- uses unique modifiers to apply stun (not modifier_stunned)
-  BossProtectionFilter.UniqueStunSpells = {
-    ancient_apparition_cold_feet = true,
-    bane_nightmare = true,
-    bane_fiends_grip = true,
-    batrider_flaming_lasso = true,
-    beastmaster_primal_roar = true,
-    rattletrap_power_cogs = true,
-    dark_seer_vacuum = true,
-    earth_spirit_petrify = true,
-    earthshaker_fissure = true,
-    elder_titan_echo_stomp = true,
-    enigma_black_hole = true,
-    faceless_void_chronosphere = true,
-    invoker_cold_snap = true,
-    invoker_tornado = true,
-    jakiro_ice_path = true,
-    kunkka_torrent = true,
-    lion_impale = true,
-    magnataur_skewer = true,
-    medusa_mystic_snake = true,
-    medusa_stone_gaze = true,
-    monkey_king_boundless_strike = true,
-    morphling_adaptive_strike_str = true,
-    naga_siren_song_of_the_siren = true,
-    --necrolyte_reapers_scythe = true,
-    nyx_assassin_spiked_carapace = true,
-    nyx_assassin_impale = true,
-    obsidian_destroyer_astral_imprisonment = true,
-    --pangolier_gyroshell = true,
-    pudge_meat_hook = true,
-    pudge_dismember = true,
-    sandking_burrowstrike = true,
-    shadow_demon_disruption = true,
-    shadow_shaman_shackles = true,
+  BossProtectionFilter.SpellsList = {
+    axe_berserkers_call = true, -- pierces bkb
+    bane_fiends_grip = true, -- pierces bkb
+    bane_nightmare = true, -- to prevent weird interactions
+    batrider_flaming_lasso = true, -- pierces bkb
+    beastmaster_primal_roar = true, -- pierces bkb
     brewmaster_storm_cyclone = true,
-    storm_spirit_electric_vortex = true,
-    tidehunter_ravage = true,
-    tiny_avalanche = true,
-    tiny_toss = true,
-    tusk_walrus_punch = true,
-    tusk_walrus_kick = true,
-    windrunner_shackleshot = true,
-    winter_wyvern_cold_embrace = true,
-    winter_wyvern_winters_curse = true
-  }
-
-  BossProtectionFilter.HexItems = {
-    item_sheepstick = true
-  }
-
-  BossProtectionFilter.HexSpells = {
+    death_prophet_silence = true,
+    disruptor_static_storm = true, -- applied constantly in aoe
+    doom_bringer_doom = true, -- pierces bkb or applied constantly in aoe
+    drow_ranger_wave_of_silence = true,
+    earth_spirit_petrify = true,
+    elder_titan_earth_splitter = true, -- pierces bkb
+    enigma_black_hole = true, -- pierces bkb
+    faceless_void_chronosphere = true, -- pierces bkb
+    faceless_void_time_lock = true, -- pierces bkb
+    faceless_void_time_lock_oaa = true, -- pierces bkb
+    keeper_of_the_light_will_o_wisp = true,
     lion_voodoo = true,
-    shadow_shaman_voodoo = true
+    lone_druid_savage_roar = true,
+    magnataur_reverse_polarity = true, -- pierces bkb
+    magnataur_skewer = true, -- to prevent weird interactions
+    medusa_stone_gaze = true, -- pierces bkb
+    morphling_adaptive_strike_str = true,
+    naga_siren_ensnare = true, -- pierces bkb with scepter
+    naga_siren_song_of_the_siren = true, -- applied constantly in aoe
+    night_stalker_crippling_fear = true, -- applied constantly in aoe
+    phoenix_supernova = true, -- pierces bkb
+    primal_beast_pulverize = true, -- pierces bkb
+    puck_dream_coil = true, -- pierces bkb with talent
+    pudge_dismember = true, -- pierces bkb
+    pudge_meat_hook = true, -- pierces bkb
+    rattletrap_hookshot = true, -- pierces bkb
+    riki_smoke_screen = true, -- applied constantly in aoe
+    shadow_shaman_voodoo = true,
+    silencer_global_silence = true, -- pierces bkb
+    skywrath_mage_ancient_seal = true,
+    slardar_bash = true, -- pierces bkb
+    slardar_bash_oaa = true, -- pierces bkb
+    spirit_breaker_charge_of_darkness = true, -- pierces bkb
+    spirit_breaker_greater_bash = true, -- pierces bkb
+    storm_spirit_electric_vortex = true,
+    tiny_toss = true, -- to prevent weird interactions
+    treant_overgrowth = true, -- pierces bkb
+    troll_warlord_berserkers_rage = true, -- pierces bkb
+    tusk_walrus_kick = true, -- pierces bkb
+    tusk_walrus_punch = true, -- pierces bkb
+    vengefulspirit_nether_swap = true, -- pierces bkb
+    venomancer_latent_poison = true, -- pierces bkb
+    warlock_rain_of_chaos = true, -- pierces bkb
+    windrunner_shackleshot = true,
+    winter_wyvern_winters_curse = true, -- pierces bkb
   }
 
+  BossProtectionFilter.ItemsList = {
+    item_abyssal_blade = true, -- pierces bkb
+    item_abyssal_blade_2 = true, -- pierces bkb
+    item_abyssal_blade_3 = true, -- pierces bkb
+    item_abyssal_blade_4 = true, -- pierces bkb
+    item_abyssal_blade_5 = true, -- pierces bkb
+    item_basher = true, -- pierces bkb
+    item_bloodthorn = true,
+    item_bloodthorn_2 = true,
+    item_bloodthorn_3 = true,
+    item_bloodthorn_4 = true,
+    item_bloodthorn_5 = true,
+    item_bubble_orb_1 = true, -- pierces bkb
+    item_bubble_orb_2 = true, -- pierces bkb
+    item_orchid = true,
+    item_sheepstick = true,
+    item_sheepstick_2 = true,
+    item_sheepstick_3 = true,
+    item_sheepstick_4 = true,
+    item_sheepstick_5 = true,
+  }
+
+  BossProtectionFilter.ModifierList = {
+    modifier_bashed = true, -- pierces bkb
+    modifier_huskar_life_break_taunt = true, -- pierces bkb
+    modifier_stunned = true, -- sometimes pierces bkb
+    modifier_queenofpain_scream_of_pain_fear = true, -- pierces bkb
+    modifier_viper_viper_strike_silence = true,
+  }
 end
 
 function BossProtectionFilter:Init()
@@ -120,29 +116,15 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
     return false
   end
 
-  local parentHasProtection = parent:HasModifier("modifier_siltbreaker_boss_protection_bash_and_silence")
+  -- True Debuff Immunity
+  local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa") or parent:HasModifier("modifier_anti_stun_oaa")
   if not parentHasProtection then
     return true
   end
 
-  --DevPrintTable(keys)
-
   -- protected boss should never be bashed or silenced
-  if modifierName == 'modifier_bashed'
-      or BossProtectionFilter.UniqueBashSpell[abilityName]
-      or BossProtectionFilter.SilenceSpells[abilityName]
-      or BossProtectionFilter.SilenceItems[abilityName] then
+  if BossProtectionFilter.ModifierList[modifierName] or BossProtectionFilter.SpellsList[abilityName] or BossProtectionFilter.ItemsList[abilityName] then
     return false
-  end
-
-  -- if boss has active protection block all stuns
-  if parent:HasModifier("modifier_siltbreaker_boss_protection") then
-    if modifierName == 'modifier_stunned'
-        or BossProtectionFilter.UniqueStunSpells[abilityName]
-        or BossProtectionFilter.HexSpells[abilityName]
-        or BossProtectionFilter.HexItems[abilityName] then
-      return false
-    end
   end
 
   return true

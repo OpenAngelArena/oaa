@@ -47,7 +47,8 @@ function AlchemistThink()
       table.insert(thisEntity.vPath, thisEntity:GetOrigin() + PointOnCircle(250, 360 / 12 * i))
     end
     thisEntity.lastRoamPoint = thisEntity.spawn_position
-    thisEntity.BossTier = thisEntity.BossTier or 3 -- not used
+    thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.SiltBreakerProtection = true
     thisEntity.state = SIMPLE_AI_STATE_IDLE
     thisEntity.aggro_target = nil
     thisEntity:SetIdleAcquire(false)
