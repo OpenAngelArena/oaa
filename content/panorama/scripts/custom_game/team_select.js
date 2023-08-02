@@ -19,6 +19,8 @@ const teamPanels = [];
 const playerPanels = [];
 // Spectator team constant
 const DOTA_TEAM_SPECTATOR = 1;
+// object to store the mmr values for each player
+const playerMmrValues = {};
 
 // --------------------------------------------------------------------------------------------------
 // Handler for when the unssigned players panel is clicked that causes the player to be reassigned
@@ -87,6 +89,24 @@ function FindOrCreatePanelForPlayer (playerId, parent) {
 
     if (playerPanel.GetAttributeInt('player_id', -1) === playerId) {
       playerPanel.SetParent(parent);
+      let badgeLevel = 0;
+      const mmr = playerMmrValues[playerId];
+      if (mmr > 1000) {
+        badgeLevel++;
+      }
+      if (mmr > 1200) {
+        badgeLevel++;
+      }
+      if (mmr > 1400) {
+        badgeLevel++;
+      }
+      if (mmr > 1600) {
+        badgeLevel++;
+      }
+      if (mmr > 1800) {
+        badgeLevel++;
+      }
+      playerPanel.SetHasClass(`mmr_badge_${badgeLevel}`, true);
       return playerPanel;
     }
   }
@@ -95,6 +115,16 @@ function FindOrCreatePanelForPlayer (playerId, parent) {
   const newPlayerPanel = $.CreatePanel('Panel', parent, 'player_root');
   newPlayerPanel.SetAttributeInt('player_id', playerId);
   newPlayerPanel.BLoadLayout('file://{resources}/layout/custom_game/team_select_player.xml', false, false);
+
+  newPlayerPanel.SetPanelEvent('onmouseover', function () {
+    if (playerMmrValues[playerId]) {
+      $.DispatchEvent('DOTAShowTextTooltip', newPlayerPanel, `OAA Rating: ${Math.round(playerMmrValues[playerId])}`);
+    }
+  });
+  
+  newPlayerPanel.SetPanelEvent('onmouseout', function () {
+    $.DispatchEvent('DOTAHideTextTooltip', newPlayerPanel);
+  });
 
   // Add the panel to the global list of player planels so that we will find it next time
   playerPanels.push(newPlayerPanel);
@@ -256,6 +286,16 @@ function UpdateTimer () {
   $.Schedule(0.1, UpdateTimer);
 }
 
+function handleOAASettingsChange (t, key, kv) {
+  if (key === 'player_mmr') {
+    Object.keys(kv).forEach((k) => {
+      playerMmrValues[k] = kv[k]
+    });
+  }
+
+  OnTeamPlayerListChanged();
+}
+
 // --------------------------------------------------------------------------------------------------
 // Entry point called when the team select panel is created
 // --------------------------------------------------------------------------------------------------
@@ -310,4 +350,7 @@ function UpdateTimer () {
 
   // Register a listener for the event which is broadcast whenever a player attempts to pick a team
   $.RegisterForUnhandledEvent('DOTAGame_PlayerSelectedCustomTeam', OnPlayerSelectedTeam);
+
+  CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
+  handleOAASettingsChange(null, 'player_mmr', CustomNetTables.GetTableValue('oaa_settings', 'player_mmr'));
 })();

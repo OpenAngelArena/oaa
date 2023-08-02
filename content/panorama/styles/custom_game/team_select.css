@@ -731,22 +731,35 @@ DOTAAvatarImage
 
 #PlayerIsHostPanel
 {
-    background-image: url( "file://{images}/icon_star.png");
     background-repeat: no-repeat;
     background-size: contain;
     overflow: noclip;
-    width: 0px;
-    height: 0px;
+    width: 24px;
+    height: 24px;
     visibility: collapse;
-    margin-top: 2px;
-    margin-right: 4px;
-    margin-left: 4px;
-    visibility: collapse;
+    margin-right: 0px;
+    margin-left: 0px;
+    visibility: visible;
 }
 
-.TeamSelectPlayer.player_has_host_privileges #PlayerIsHostPanel
-{
-    visibility: visible;
+.mmr_badge_1 #PlayerIsHostPanel {
+    background-image: url("file://{images}/custom_game/team_select/TeamSelect_Rank_1.png");
+}
+
+.mmr_badge_2 #PlayerIsHostPanel {
+    background-image: url("file://{images}/custom_game/team_select/TeamSelect_Rank_2.png");
+}
+
+.mmr_badge_3 #PlayerIsHostPanel {
+    background-image: url("file://{images}/custom_game/team_select/TeamSelect_Rank_3.png");
+}
+
+.mmr_badge_4 #PlayerIsHostPanel {
+    background-image: url("file://{images}/custom_game/team_select/TeamSelect_Rank_4.png");
+}
+
+.mmr_badge_5 #PlayerIsHostPanel {
+    background-image: url("file://{images}/custom_game/team_select/TeamSelect_Rank_5.png");
 }
 
 #PlayerName
