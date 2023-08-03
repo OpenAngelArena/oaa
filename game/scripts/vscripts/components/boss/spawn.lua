@@ -153,6 +153,7 @@ function BossSpawner:SpawnBoss (pit, boss, bossTier, isProtected)
   elseif pit:GetAbsOrigin().y < -5000 then
     team = DOTA_TEAM_BADGUYS
   end
+  -- darkonius wants to change^^
 
   DebugPrint('Boss natively belongs to ' .. team)
 
