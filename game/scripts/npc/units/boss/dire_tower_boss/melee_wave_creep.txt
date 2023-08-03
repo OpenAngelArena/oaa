@@ -12,7 +12,7 @@
     "SoundSet"                                            "Creep_Bad_Melee"
     "Level"                                               "1"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1.1"
+    "ModelScale"                                          "0.9"
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -64,9 +64,9 @@
     "MovementTurnRate"                                    "0.5"   // Turning rate.
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "2000"
-    "StatusHealthRegen"                                   "1"
-    "StatusMana"                                          "1000"
+    "StatusHealth"                                        "2500"
+    "StatusHealthRegen"                                   "10"
+    "StatusMana"                                          "1500"
     "StatusManaRegen"                                     "10"
 
     // Vision
@@ -77,8 +77,174 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
+
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Melee Wave Two Creep
+  //=================================================================================
+  "npc_dota_creature_melee_wave2_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega.vmdl"
+    "SoundSet"                                            "Creep_Bad_Melee_Mega"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.1"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "stolen_valor"
+    "Ability2"                                            "boss_regen"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "450"
+    "AttackDamageMax"                                     "550"
+    "AttackRate"                                          "1"     // Speed of attack.
+    "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
+    "AttackRange"                                         "100"   // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     ""      // Speed of projectile.
+
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "45"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"   // Speed
+    "MovementTurnRate"                                    "0.5"   // Turning rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "5000"
+    "StatusHealthRegen"                                   "50"
+    "StatusMana"                                          "3000"
+    "StatusManaRegen"                                     "50"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Melee Wave Three Creep
+  //=================================================================================
+  "npc_dota_creature_melee_wave3_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_melee/creep_bad_flagbearer_mega.vmdl"
+    "SoundSet"                                            "Creep_Bad_Melee_Mega"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.3"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "stolen_valor"
+    "Ability2"                                            "boss_regen"
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"                                     "800"
+    "AttackDamageMax"                                     "900"
+    "AttackRate"                                          "1"     // Speed of attack.
+    "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
+    "AttackRange"                                         "100"   // Range within a target can be attacked.
+    "ProjectileModel"                                     ""      // Particle system model for projectile.
+    "ProjectileSpeed"                                     ""      // Speed of projectile.
+
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "45"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"   // Speed
+    "MovementTurnRate"                                    "0.5"   // Turning rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "7500"
+    "StatusHealthRegen"                                   "100"
+    "StatusMana"                                          "4500"
+    "StatusManaRegen"                                     "100"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+
+
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "PathfindingSearchDepthScale"                         "0.1"

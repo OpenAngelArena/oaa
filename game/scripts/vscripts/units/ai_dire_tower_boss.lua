@@ -10,7 +10,7 @@ function Spawn( entityKeyValues )
 
   thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS = {}
   thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS = 50
-  thisEntity.nCAST_SUMMON_WAVE_COUNT = 0
+  thisEntity.nCAST_SUMMON_WAVE_ROUND = 1
 
   thisEntity.hSummonWaveAbility = thisEntity:FindAbilityByName( "dire_tower_boss_summon_wave" )
 
@@ -41,6 +41,16 @@ function DireTowerBossThink()
   local aggro_hp_pct = 1 - ((thisEntity.BossTier * BOSS_AGRO_FACTOR) / thisEntity:GetMaxHealth())
   local hasDamageThreshold = thisEntity:GetHealth() / thisEntity:GetMaxHealth() < aggro_hp_pct
   local fDistanceToOrigin = ( thisEntity:GetOrigin() - thisEntity.vInitialSpawnPos ):Length2D()
+  local boss_hp_pct = thisEntity:GetHealth() / thisEntity:GetMaxHealth()
+
+  if boss_hp_pct <= 1/3 then
+      thisEntity.nCAST_SUMMON_WAVE_ROUND = 3
+  elseif boss_hp_pct > 1/3 and boss_hp_pct <= 2/3 then
+      thisEntity.nCAST_SUMMON_WAVE_ROUND = 2
+  else
+      thisEntity.nCAST_SUMMON_WAVE_ROUND = 1
+  end
+
 
   if hasDamageThreshold then
     if not thisEntity.bHasAgro then
@@ -109,7 +119,7 @@ function DireTowerBossThink()
   end
 
   -- Have all minions died?
-  if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() and thisEntity.hSummonWaveAbility:IsOwnersManaEnough() then
+  if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then
     return CastSummonWave()
   end
 

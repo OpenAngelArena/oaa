@@ -33,14 +33,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
   local nRangedSpawns = self:GetSpecialValueFor("num_ranged_spawn")
   local nSiegeSpawns = self:GetSpecialValueFor("num_siege_spawn")
   local summon_duration = self:GetSpecialValueFor("wave_duration")
-
-  --if caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil then
-    --nHoundSpawns = self:GetSpecialValueFor("num_ss_hound_spawn")
-    --nHoundBossSpawns = self:GetSpecialValueFor("num_ss_hound_boss_spawn")
-    --nWerewolves = self:GetSpecialValueFor("num_ss_werewolf_spawn")
-  --end
-
-  --OBBNOTE: USE ABOVE CODE FOR PHASE CHECKLATER!
+  local waveNumber = caster.nCAST_SUMMON_WAVE_ROUND
 
   --local function lycan_boss_summon_wolves_particles(unit)
     --local spawn_particle = "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
@@ -60,7 +53,10 @@ function dire_tower_boss_summon_wave:OnSpellStart()
 
   for i = 0, nMeleeSpawns - 1 do
     if #caster.DIRE_TOWER_BOSS_SUMMONED_UNITS + 1 < caster.DIRE_TOWER_BOSS_MAX_SUMMONS then
-      local hMelee = CreateUnitByName( "npc_dota_creature_melee_wave1_creep", caster_loc, true, caster, caster, caster:GetTeamNumber() )
+      local vSpawnPoint = caster_loc + Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
+      local waveNumber = caster.nCAST_SUMMON_WAVE_ROUND
+      local meleeCreepName = "npc_dota_creature_melee_wave" .. waveNumber .. "_creep"
+      local hMelee = CreateUnitByName( meleeCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hMelee then
         hMelee:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hMelee:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
@@ -69,11 +65,6 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         if caster.zone then
           caster.zone:AddEnemyToZone( hMelee )
         end
-
-        local vRandomOffset = Vector( RandomInt( -600, 600 ), RandomInt( -600, 600 ), 0 )
-        local vSpawnPoint = caster_loc + vRandomOffset
-        FindClearSpaceForUnit( hMelee, vSpawnPoint, true )
-
         --lycan_boss_summon_wolves_particles(hMelee)
       end
     end
@@ -81,7 +72,9 @@ function dire_tower_boss_summon_wave:OnSpellStart()
 
   for i = 0, nRangedSpawns - 1 do
     if #caster.DIRE_TOWER_BOSS_SUMMONED_UNITS + 1 < caster.DIRE_TOWER_BOSS_MAX_SUMMONS then
-      local hRanged = CreateUnitByName( "npc_dota_creature_ranged_wave1_creep", caster_loc, true, caster, caster, caster:GetTeamNumber() )
+      local vSpawnPoint = caster_loc + Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
+      local rangedCreepName = "npc_dota_creature_ranged_wave" .. waveNumber .. "_creep"
+      local hRanged = CreateUnitByName( rangedCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hRanged then
         hRanged:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hRanged:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
@@ -90,11 +83,6 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         if caster.zone then
           caster.zone:AddEnemyToZone( hRanged )
         end
-
-        local vRandomOffset = Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
-        local vSpawnPoint = caster_loc + vRandomOffset
-        FindClearSpaceForUnit( hRanged, vSpawnPoint, true )
-
         --lycan_boss_summon_wolves_particles(hRanged)
       end
     end
@@ -102,7 +90,9 @@ function dire_tower_boss_summon_wave:OnSpellStart()
 
   for i = 0, nSiegeSpawns - 1 do
     if #caster.DIRE_TOWER_BOSS_SUMMONED_UNITS + 1 < caster.DIRE_TOWER_BOSS_MAX_SUMMONS then
-      local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", caster_loc, true, caster, caster, caster:GetTeamNumber() )
+      local vSpawnPoint = caster_loc + Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
+      local siegeCreepName = "npc_dota_creature_siege_wave" .. waveNumber .. "_creep"
+      local hSiege = CreateUnitByName( siegeCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hSiege then
         hSiege:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hSiege:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
@@ -111,17 +101,10 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         if caster.zone then
           caster.zone:AddEnemyToZone( hSiege )
         end
-
-        local vRandomOffset = Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
-        local vSpawnPoint = caster_loc + vRandomOffset
-        FindClearSpaceForUnit( hSiege, vSpawnPoint, true )
-
         --lycan_boss_summon_wolves_particles(hSiege)
       end
     end
   end
-
-  caster.nCAST_SUMMON_WAVE_COUNT = caster.nCAST_SUMMON_WAVE_COUNT + 1
 end
 
 --------------------------------------------------------------------------------
@@ -131,7 +114,7 @@ function dire_tower_boss_summon_wave:GetCooldown( iLevel )
   local baseCD = self.BaseClass.GetCooldown(self, self:GetLevel())
   local fReducedCD = baseCD - 3
   if caster.nCAST_SUMMON_WAVE_COUNT then
-    fReducedCD = baseCD - caster.nCAST_SUMMON_WAVE_COUNT * 3
+    fReducedCD = baseCD - caster.nCAST_SUMMON_WAVE_ROUND * 2
   end
   local fMinCD = baseCD/2 + 5
   local fNewCD = math.max(fMinCD, fReducedCD)

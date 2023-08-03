@@ -35,7 +35,7 @@ function modifier_stolen_valor:IsPurgable()
 end
 
 function modifier_stolen_valor:RemoveOnDeath()
-  return true
+  return false
 end
 
 function modifier_stolen_valor:OnCreated()
@@ -52,14 +52,15 @@ if IsServer() then
     function modifier_stolen_valor:OnDeath(keys)
         local unit = self:GetParent() -- Get the unit that has this modifier attached
         local attacker = keys.attacker -- Get the unit that killed the unit
-        if attacker:IsPlayer() then
-          local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", attacker:GetAbsOrigin(), true, attacker, attacker, attacker:GetTeamNumber() )
-        else
-            local owner = attacker:GetOwner()
-            if owner and owner:IsPlayer() then
-              local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", owner:GetAbsOrigin(), true, owner, owner, owner:GetTeamNumber() )
-            end
-        end
+        attacker:EmitSound("Roshan.Bash")
+        --if attacker:IsPlayer() then
+          --local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", attacker:GetAbsOrigin(), true, attacker, attacker, attacker:GetTeamNumber() )
+        --else
+            --local owner = attacker:GetOwner()
+            --if owner and owner:IsPlayer() then
+              --local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", owner:GetAbsOrigin(), true, owner, owner, owner:GetTeamNumber() )
+            --end
+        --end
     end
 end
 

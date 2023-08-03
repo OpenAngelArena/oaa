@@ -12,7 +12,7 @@
     "SoundSet"                                            "Creep_Bad_Ranged"
     "Level"                                               "1"
     "IsAncient"                                           "1"
-    "ModelScale"                                          "1.1"
+    "ModelScale"                                          "0.9"
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
@@ -35,8 +35,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "200"
-    "AttackDamageMax"                                     "300"
+    "AttackDamageMin"                                     "250"
+    "AttackDamageMax"                                     "350"
     "AttackRate"                                          "3.0"   // Speed of attack.
     "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
@@ -78,6 +78,170 @@
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     
     
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Ranged Wave Two Creep
+  //=================================================================================
+  "npc_dota_creature_ranged_wave2_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl"
+    "SoundSet"                                            "Creep_Bad_Ranged"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.1"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_piercing"
+    "Ability2"                                            "stolen_valor"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "500"
+    "AttackDamageMax"                                     "700"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                                     "1100"    // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SIEGE"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"   // Speed
+    "MovementTurnRate"                                    "0.5"   // Turning rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "3000"
+    "StatusHealthRegen"                                   "40"
+    "StatusMana"                                          "1500"
+    "StatusManaRegen"                                     "40"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Ranged Wave Three Creep
+  //=================================================================================
+  "npc_dota_creature_ranged_wave3_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl"
+    "SoundSet"                                            "Creep_Bad_Ranged"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "1.3"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_piercing"
+    "Ability2"                                            "stolen_valor"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "1000"
+    "AttackDamageMax"                                     "1400"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"                                     "1100"    // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_SIEGE"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "80"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"   // Speed
+    "MovementTurnRate"                                    "0.5"   // Turning rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "4000"
+    "StatusHealthRegen"                                   "50"
+    "StatusMana"                                          "2000"
+    "StatusManaRegen"                                     "50"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+
+
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "PathfindingSearchDepthScale"                         "0.1"
