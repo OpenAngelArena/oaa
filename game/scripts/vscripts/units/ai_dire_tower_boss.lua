@@ -108,11 +108,9 @@ function DireTowerBossThink()
     end
   end
 
-  -- Have we hit our minion limit?
-  if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS < thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS then
-    if thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() and thisEntity.hSummonWaveAbility:IsOwnersManaEnough() then
-      return CastSummonWave()
-    end
+  -- Have all minions died?
+  if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() and thisEntity.hSummonWaveAbility:IsOwnersManaEnough() then
+    return CastSummonWave()
   end
 
   local function FindNearestValidUnit(entity, unit_group)

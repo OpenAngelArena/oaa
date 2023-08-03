@@ -11,7 +11,7 @@
     "BaseClass"                                           "npc_dota_creature"
     "SoundSet"                                            "Tower.Fire"
     "Level"                                               "1"
-    "ModelScale"                                          "1.8"
+    "ModelScale"                                          "1.5"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
@@ -41,7 +41,7 @@
     "AttackRate"                                          "0.9"   // Speed of attack.
     "AttackAnimationPoint"                                "0.6"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "700"   // Range within a target can be acquired.
-    "AttackRange"                                         "700"   // Range within a target can be attacked.
+    "AttackRange"                                         "800"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
     "ProjectileSpeed"                                      "750"   // Speed of projectile.
 
@@ -60,14 +60,14 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "260"
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"                                       "0"
     "MovementTurnRate"                                    "1.0"
 
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "10000"
-    "StatusHealthRegen"                                   "0" // they can spam heal bombs for effective 500 hp/s heals
+    "StatusHealthRegen"                                   "0"
     "StatusMana"                                          "5000"
     "StatusManaRegen"                                     "20"
 

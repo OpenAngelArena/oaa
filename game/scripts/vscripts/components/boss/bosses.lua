@@ -21,7 +21,7 @@ Bosses = {
   ---- TIER 1 SAFE BOSS PIT
   -----------------------------
   {
-    "npc_dota_boss_tier_1", -- Roshan
+    "npc_dota_creature_dire_tower_boss", -- Roshan
     "npc_dota_boss_twin",
     "npc_dota_creature_ogre_tank_boss",
     "npc_dota_boss_tier_4", -- Killer Tomato
@@ -60,6 +60,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4", -- Killer Tomato
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
@@ -104,6 +105,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
@@ -143,6 +145,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
@@ -173,6 +176,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
@@ -203,6 +207,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",
@@ -233,6 +238,7 @@ Bosses = {
     },
     {
       "npc_dota_boss_tier_4",
+      "npc_dota_creature_dire_tower_boss",
       "npc_dota_creature_spider_boss",
       "npc_dota_creature_temple_guardian_spawner",
       "npc_dota_boss_stopfightingyourself",

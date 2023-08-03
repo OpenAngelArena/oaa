@@ -91,7 +91,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
           caster.zone:AddEnemyToZone( hRanged )
         end
 
-        local vRandomOffset = Vector( RandomInt( -600, 600 ), RandomInt( -600, 600 ), 0 )
+        local vRandomOffset = Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
         local vSpawnPoint = caster_loc + vRandomOffset
         FindClearSpaceForUnit( hRanged, vSpawnPoint, true )
 
@@ -112,7 +112,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
           caster.zone:AddEnemyToZone( hSiege )
         end
 
-        local vRandomOffset = Vector( RandomInt( -600, 600 ), RandomInt( -600, 600 ), 0 )
+        local vRandomOffset = Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
         local vSpawnPoint = caster_loc + vRandomOffset
         FindClearSpaceForUnit( hSiege, vSpawnPoint, true )
 
