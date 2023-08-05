@@ -34,15 +34,16 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "600"
-    "AttackDamageMax"                                     "650"
-    "AttackRate"                                          "1"     // Speed of attack.
-    "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
-    "AttackRange"                                         "100"   // Range within a target can be attacked.
-    "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     ""      // Speed of projectile.
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "600"    // Damage range min.
+    "AttackDamageMax"                                     "650"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
 
 
     // Bounds
@@ -117,16 +118,16 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "900"
-    "AttackDamageMax"                                     "1000"
-    "AttackRate"                                          "1"     // Speed of attack.
-    "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
-    "AttackRange"                                         "100"   // Range within a target can be attacked.
-    "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     ""      // Speed of projectile.
-
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "900"    // Damage range min.
+    "AttackDamageMax"                                     "1000"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
 
     // Bounds
     //----------------------------------------------------------------
@@ -200,15 +201,16 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "1000"
-    "AttackDamageMax"                                     "1250"
-    "AttackRate"                                          "1"     // Speed of attack.
-    "AttackAnimationPoint"                                "0.467"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "500"   // Range within a target can be acquired.
-    "AttackRange"                                         "100"   // Range within a target can be attacked.
-    "ProjectileModel"                                     ""      // Particle system model for projectile.
-    "ProjectileSpeed"                                     ""      // Speed of projectile.
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "1000"    // Damage range min.
+    "AttackDamageMax"                                     "1250"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_bad.vpcf"
+    "ProjectileSpeed"                                     "1100"
 
 
     // Bounds
@@ -231,6 +233,89 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "10000"
+    "StatusHealthRegen"                                   "1"
+    "StatusMana"                                          "1000"
+    "StatusManaRegen"                                     "10"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "800"
+    "VisionNighttimeRange"                                "800"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+
+
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "PathfindingSearchDepthScale"                         "0.1"
+  }
+  //=================================================================================
+  // Creature: Siege Stolen Creep
+  //=================================================================================
+  "npc_dota_creature_siege_stolen_creep"
+  {
+    // General
+    //----------------------------------------------------------------
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"
+    "SoundSet"                                            "Creep_Good_Engine"
+    "Level"                                               "1"
+    "IsAncient"                                           "1"
+    "ModelScale"                                          "0.9"
+    "IsNeutralUnitType"                                   "1"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "1"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "creep_siege"
+    "Ability2"                                            ""
+    "Ability3"                                            ""
+    "Ability4"                                            ""
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "0"
+    "MagicalResistance"                                   "0"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "600"    // Damage range min.
+    "AttackDamageMax"                                     "650"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"                                          "3.0"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.7"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "800"   // Range within a target can be acquired.
+    "AttackRange"                                         "690"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_siege_good.vpcf"
+    "ProjectileSpeed"                                     "1100"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+    "RingRadius"                                          "45"
+    "HealthBarOffset"                                     "150"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "20"
+    "BountyGoldMin"                                       "11"
+    "BountyGoldMax"                                       "15"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"                                       "325"   // Speed
+    "MovementTurnRate"                                    "0.5"   // Turning rate.
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "5000"
     "StatusHealthRegen"                                   "1"
     "StatusMana"                                          "1000"
     "StatusManaRegen"                                     "10"

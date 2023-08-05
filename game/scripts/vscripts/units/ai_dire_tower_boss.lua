@@ -11,8 +11,10 @@ function Spawn( entityKeyValues )
   thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS = {}
   thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS = 50
   thisEntity.nCAST_SUMMON_WAVE_ROUND = 1
+  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = 1
 
   thisEntity.hSummonWaveAbility = thisEntity:FindAbilityByName( "dire_tower_boss_summon_wave" )
+  thisEntity.hGlyphAbility = thisEntity:FindAbilityByName( "dire_tower_boss_glyph" )
 
   thisEntity:SetContextThink( "DireTowerBossThink", DireTowerBossThink, 1 )
 end
@@ -119,9 +121,13 @@ function DireTowerBossThink()
   end
 
   -- Have all minions died?
-  if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then
+  if (#thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 or thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS ~= thisEntity.nCAST_SUMMON_WAVE_ROUND) and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then
     return CastSummonWave()
   end
+
+  --if (thisEntity.nCAST_SUMMON_WAVE_ROUND ~= 1) and thisEntity.hGlyphAbility and thisEntity.hGlyphAbility:IsFullyCastable() then
+    --return CastGlyph()
+  --end
 
   local function FindNearestValidUnit(entity, unit_group)
     for i = 1, #unit_group do
@@ -173,7 +179,17 @@ function CastSummonWave()
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = thisEntity.hSummonWaveAbility:entindex(),
   })
+  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = thisEntity.nCAST_SUMMON_WAVE_ROUND
   return 0.6
+end
+
+function CastGlyph()
+  ExecuteOrderFromTable({
+    UnitIndex = thisEntity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = thisEntity.hGlyphAbility:entindex(),
+  })
+  return
 end
 
 

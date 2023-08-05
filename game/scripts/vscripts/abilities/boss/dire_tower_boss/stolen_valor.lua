@@ -35,7 +35,7 @@ function modifier_stolen_valor:IsPurgable()
 end
 
 function modifier_stolen_valor:RemoveOnDeath()
-  return false
+  return true
 end
 
 function modifier_stolen_valor:OnCreated()
@@ -50,17 +50,51 @@ end
 
 if IsServer() then
     function modifier_stolen_valor:OnDeath(keys)
+        if keys.unit~=self:GetParent() then return end
+
         local unit = self:GetParent() -- Get the unit that has this modifier attached
-        local attacker = keys.attacker -- Get the unit that killed the unit
-        attacker:EmitSound("Roshan.Bash")
-        --if attacker:IsPlayer() then
-          --local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", attacker:GetAbsOrigin(), true, attacker, attacker, attacker:GetTeamNumber() )
-        --else
-            --local owner = attacker:GetOwner()
-            --if owner and owner:IsPlayer() then
-              --local hSiege = CreateUnitByName( "npc_dota_creature_siege_wave1_creep", owner:GetAbsOrigin(), true, owner, owner, owner:GetTeamNumber() )
-            --end
-        --end
+        if unit:HasModifier("modifier_stolen_valor") then
+          local summon_duration = self:GetSpecialValueFor("summon_duration")
+          local attacker = keys.attacker -- Get the unit that killed the unit
+          local vSpawnPoint = unit:GetAbsOrigin() + Vector( RandomInt( -50, 50 ), RandomInt( -50, 50 ), 0 )
+          attacker:EmitSound("Roshan.Bash")
+
+
+          local unitName = unit:GetUnitName()
+          if string.find(unitName, "npc_dota_creature_melee") == 1 then
+              local hMelee = CreateUnitByName( "npc_dota_creature_melee_stolen_creep" , vSpawnPoint, true, attacker, attacker, attacker:GetTeamNumber() )
+              if hMelee then
+                hMelee:AddNewModifier(attacker, self, "modifier_kill", {duration = summon_duration})
+                hMelee:AddNewModifier(attacker, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
+                hMelee:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
+                if attacker.zone then
+                  attacker.zone:AddEnemyToZone( hMelee )
+                end
+              end
+          elseif string.find(unitName, "npc_dota_creature_ranged") == 1 then
+              local hRanged = CreateUnitByName( "npc_dota_creature_ranged_stolen_creep" , vSpawnPoint, true, attacker, attacker, attacker:GetTeamNumber() )
+              if hRanged then
+                hRanged:AddNewModifier(attacker, self, "modifier_kill", {duration = summon_duration})
+                hRanged:AddNewModifier(attacker, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
+                hRanged:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
+                if attacker.zone then
+                  attacker.zone:AddEnemyToZone( hRanged )
+                end
+              end
+          elseif string.find(unitName, "npc_dota_creature_siege") == 1 then
+              local hSiege = CreateUnitByName( "npc_dota_creature_siege_stolen_creep" , vSpawnPoint, true, attacker, attacker, attacker:GetTeamNumber() )
+              if hSiege then
+                hSiege:AddNewModifier(attacker, self, "modifier_kill", {duration = summon_duration})
+                hSiege:AddNewModifier(attacker, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
+                hSiege:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
+                if attacker.zone then
+                  attacker.zone:AddEnemyToZone( hSiege )
+                end
+              end
+          else
+              print("Unknown unit type.")
+          end
+        end
     end
 end
 

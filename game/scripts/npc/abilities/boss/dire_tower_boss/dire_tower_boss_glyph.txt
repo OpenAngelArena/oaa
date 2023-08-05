@@ -1,25 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // DireTowerBoss: Summon Wave
+  // DireTowerBoss: Glyph
   //=================================================================================================================
-  "dire_tower_boss_summon_wave"
+  "dire_tower_boss_glyph"
   {
     //"ID"                                                  "8448"
     "BaseClass"                                           "ability_lua"
-    "AbilityTextureName"                                  "lycan_summon_wolves"
+    //"AbilityTextureName"                                  "lycan_summon_wolves"
     //OBBNOTE: replace textures ^^
-    "ScriptFile"                                          "abilities/boss/dire_tower_boss/dire_tower_boss_summon_wave.lua"
+    "ScriptFile"                                          "abilities/boss/dire_tower_boss/dire_tower_boss_glyph.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityCastAnimation"                                "ACT_DOTA_VICTORY"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25.0"
+    "AbilityCooldown"                                     "45.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,22 +33,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "wave_duration"                                   "35"
+        "glyph_duration"                                   "3.0"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "num_melee_spawn"                                 "3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_ranged_spawn"                                "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_siege_spawn"                                 "1"
+        "splitshot_units"                                 "7"
       }
     }
   }
