@@ -8,19 +8,11 @@ function Spawn( entityKeyValues )
     return
   end
 
-  thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS = {}
-  thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS = 50
-  thisEntity.nCAST_SUMMON_WAVE_ROUND = 1
-  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = 1
-
-  thisEntity.hSummonWaveAbility = thisEntity:FindAbilityByName( "dire_tower_boss_summon_wave" )
-  thisEntity.hGlyphAbility = thisEntity:FindAbilityByName( "dire_tower_boss_glyph" )
-
-  thisEntity:SetContextThink( "DireTowerBossThink", DireTowerBossThink, 1 )
+  thisEntity:SetContextThink( "StolenCreepThink", StolenCreepThink, 1 )
 end
 
 
-function DireTowerBossThink()
+function StolenCreepThink()
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME or not IsValidEntity(thisEntity) or not thisEntity:IsAlive() then
     return -1
   end
@@ -113,21 +105,9 @@ function DireTowerBossThink()
     return 1
   end
 
-  -- Check that the children we have in our list are still valid
-  for i, hSummonedUnit in ipairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
-    if hSummonedUnit:IsNull() or (not hSummonedUnit:IsAlive()) then
-      table.remove( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS, i )
-    end
-  end
 
-  -- Have all minions died?
-  if (#thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS == 0 or thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS ~= thisEntity.nCAST_SUMMON_WAVE_ROUND) and thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then
-    return CastSummonWave()
-  end
 
-  if thisEntity.nCAST_SUMMON_WAVE_ROUND ~= 1 and thisEntity.hGlyphAbility and thisEntity.hGlyphAbility:IsFullyCastable() then
-    return CastGlyph()
-  end
+
 
   local function FindNearestValidUnit(entity, unit_group)
     for i = 1, #unit_group do
@@ -171,25 +151,6 @@ function RetreatHome()
     Position = thisEntity.vInitialSpawnPos
   })
   return 6
-end
-
-function CastSummonWave()
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-    AbilityIndex = thisEntity.hSummonWaveAbility:entindex(),
-  })
-  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = thisEntity.nCAST_SUMMON_WAVE_ROUND
-  return 0.6
-end
-
-function CastGlyph()
-  ExecuteOrderFromTable({
-    UnitIndex = thisEntity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-    AbilityIndex = thisEntity.hGlyphAbility:entindex(),
-  })
-  return 0.7
 end
 
 

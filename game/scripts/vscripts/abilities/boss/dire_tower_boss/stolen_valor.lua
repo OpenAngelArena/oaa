@@ -54,9 +54,10 @@ if IsServer() then
 
         local unit = self:GetParent() -- Get the unit that has this modifier attached
         if unit:HasModifier("modifier_stolen_valor") then
-          local summon_duration = self:GetSpecialValueFor("summon_duration")
-          local attacker = keys.attacker -- Get the unit that killed the unit
-          local vSpawnPoint = unit:GetAbsOrigin() + Vector( RandomInt( -50, 50 ), RandomInt( -50, 50 ), 0 )
+          local summon_duration = 35
+          --OBBNOTE: how to implement?
+          local attacker = keys.attacker
+          local vSpawnPoint = unit:GetAbsOrigin()
           attacker:EmitSound("Roshan.Bash")
 
 

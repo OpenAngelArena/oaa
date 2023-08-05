@@ -6,6 +6,9 @@ function modifier_dire_tower_boss_glyph:IsPurgable()
   return false
 end
 
+function modifier_dire_tower_boss_glyph:IsHidden()
+  return false
+end
 --------------------------------------------------------------------------------
 
 function modifier_dire_tower_boss_glyph:OnCreated( kv )
@@ -30,11 +33,11 @@ end
 function modifier_dire_tower_boss_glyph:DeclareFunctions()
   local funcs = {
     MODIFIER_PROPERTY_MODEL_CHANGE,
-    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
   }
 
   return funcs
@@ -46,13 +49,6 @@ function modifier_dire_tower_boss_glyph:GetModifierModelChange( params )
   return "models/creeps/knoll_1/werewolf_boss.vmdl"
 end
 
---------------------------------------------------------------------------------
-
-function modifier_dire_tower_boss_glyph:GetActivityTranslationModifiers( params )
-  return "shapeshift"
-end
-
---------------------------------------------------------------------------------
 
 function modifier_dire_tower_boss_glyph:GetModifierModelScale( params )
   return 75
@@ -74,4 +70,9 @@ end
 
 function modifier_dire_tower_boss_glyph:GetModifierAttackPointConstant( params )
   return 0.43
+end
+
+
+function modifier_dire_tower_boss_glyph:GetModifierIncomingDamage_Percentage(params)
+  return 0 -- Set the incoming damage percentage to 0 (0% damage taken)
 end
