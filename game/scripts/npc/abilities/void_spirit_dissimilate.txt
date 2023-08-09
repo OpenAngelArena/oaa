@@ -38,11 +38,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "phase_duration"                                    "1.3"
+      "phase_duration"                                    "1.1"
       "destination_fx_radius"                             "183" // proportional to distance_offset
       "portals_per_ring"                                  "6"
       "angle_per_ring_portal"                             "60"
-      "first_ring_distance_offset"                        "520"
+      "first_ring_distance_offset"
+      {
+        "value"                                           "520"
+        "affected_by_aoe_increase"                        "1"
+      }
       "damage_radius"                                     "275" // proportional to distance_offset
       "has_outer_ring"
       {
