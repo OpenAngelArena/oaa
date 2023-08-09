@@ -21,59 +21,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"                                            "18 20 22 24 28 40"
+      "attack_rate"                                       "1.15 1.0 0.85 0.7 0.55 0.4"
+      "count"                                             "12"
+      "armor_reduction"  
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "18 20 22 24 28 40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_rate"                                     "1.15 1.0 0.85 0.7 0.55 0.4"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "count"                                           "12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "1"
+        "value"                                           "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_3"
       }
-      "05"
+      "duration"                                          "16"
+      "destroy_attacks" //OAA  
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "16"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "destroy_attacks"                                 "8" //OAA
+        "value"                                           "8"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_4"
       }
-      "07"
+      "radius"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "100"
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
       }
-      "08"
+      "speed"                                             "750"
+      "spawn_radius"    
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "750"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "09"
+      "shard_cooldown_reduction" // unused?
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spawn_radius"                                    "300"
-      }
-      "10" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_cooldown_reduction"                        "2"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
     }
