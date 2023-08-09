@@ -48,7 +48,11 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "reduction_duration"                                "6.0"
-      "radius"                                            "375"
+      "radius"
+      {
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
+      }
       "targets_buildings"
       {
         "value"                                           "0"
