@@ -30,41 +30,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_interval"                                   "1"
+      "leech_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_interval"                                 "1"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "leech_damage"                                    "20 40 60 80 160 320" //OAA
+        "value"                                           "20 40 60 80 160 320"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_2"
       }
-      "03"
+      "movement_slow" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "-15 -20 -25 -30 -35 -40" //OAA
+        "value"                                           "-15 -20 -25 -30 -35 -40"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_3"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "05"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "650"
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "450"
-      }
+      "duration"                                          "5.0"
+      "projectile_speed"                                  "450"
     }
   }
 }
