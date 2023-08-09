@@ -69,6 +69,14 @@ local abilities_with_custom_talents = {
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
+  spectre_haunt = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  spectre_haunt_single = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
   ursa_fury_swipes = {
     bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},
   },
