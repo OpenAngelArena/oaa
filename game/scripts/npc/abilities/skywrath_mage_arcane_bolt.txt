@@ -33,50 +33,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bolt_speed"                                        "500"
+      "bolt_vision"                                       "325"
+      "bolt_damage"                                       "75 95 115 135 270 405"
+      "int_multiplier" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_speed"                                      "500"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_vision"                                     "325"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bolt_damage"                                     "75 95 115 135 270 405"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "int_multiplier"                                  "1.4" //OAA
+        "value"                                           "1.4"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "05"
+      "vision_duration"                                   "3.34"
+      "extra_bolt_search_radius"                          "700"
+      "lifesteal_duration"                                "5"
+      "lifesteal_amt"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "3.34"
+        "value"                                           "20 30 40 50 55 60"
+        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+25"
       }
-      "06"
+      "total_bolt_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "700"
-        "RequiresScepter"                                 "1"
+        "value"                                           "1"
+        "special_bonus_scepter"                           "+2"
       }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "lifesteal_duration"                              "5"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "lifesteal_amt"                                   "20 30 40 50 60 70"
-      }
+      // "scepter_radius"
+      // {
+        // "value"                                           "700"
+        // "RequiresScepter"                                 "1"
+        // "affected_by_aoe_increase"                        "1"
+      // }
     }
   }
 }

@@ -17,7 +17,11 @@
     "AbilityValues"
     {
       "reincarnate_time"                                  "3.0"
-      "slow_radius"                                       "900"
+      "slow_radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
       "movespeed"                                         "-75"
       "attackslow"                                        "-75 -75 -75 -150 -225"
       "slow_duration"                                     "5.0"
