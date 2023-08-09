@@ -31,34 +31,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "chain_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "chain_radius"                                    "90"
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "750 900 1050 1200 1350 1500"
+        "value"                                           "750 900 1050 1200 1350 1500"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_3"
       }
-      "03"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "225"
+        "value"                                           "225"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "2200 2400 2600 2800 3000 3200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "80 130 180 230 460 920" //OAA
-      }
+      "speed"                                             "2200 2400 2600 2800 3000 3200"
+      "damage"                                            "80 130 180 230 460 920" //OAA
     }
   }
 

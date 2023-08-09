@@ -42,7 +42,7 @@
       "intellect_damage_pct"
       {
         "value"                                           "20 40 60 80 100 120"
-        "special_bonus_unique_silencer_3"                 "+10"
+        "special_bonus_unique_silencer_3"                 "+25"
       }
       "permanent_int_steal_range"                         "925" // for passive permanent INT steal
       "permanent_int_steal_amount"                        "2" // passive permanent INT steal
@@ -54,7 +54,7 @@
       "int_steal"                                         "1 1 2 3 4 5" // INT steal on enemy hit
       "int_steal_duration"                                "20 25 30 35 40 45"
       "bounce_range"                                      "600" // for the talent: special_bonus_unique_silencer_glaives_bounces
-      "bounce_count"                                      "2" // for the talent: special_bonus_unique_silencer_glaives_bounces
+      "bounce_count"                                      "1" // for the talent: special_bonus_unique_silencer_glaives_bounces
       "bounce_damage_reduction"                           "50" // for the talent: special_bonus_unique_silencer_glaives_bounces
       "shard_attacks_for_silence"
       {
