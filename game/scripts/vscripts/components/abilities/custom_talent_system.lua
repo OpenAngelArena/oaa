@@ -69,8 +69,8 @@ local abilities_with_custom_talents = {
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
-  ursa_earthshock = {
-    shock_radius = {"special_bonus_unique_ursa_1_oaa", "+"},
+  ursa_fury_swipes = {
+    bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},
