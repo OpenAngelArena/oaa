@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90 85 80 75 70"
+    "AbilityCooldown"                                     "85 80 75 70 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,39 +30,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "525"
+        "value"                                           "525"
+        "affected_by_aoe_increase"                        "1"  
       }
-      "02"
+      "damage_reduction"                                  "100 100 100 90 80"
+      "damage_amplification"                              "30"
+      "bonus_attack_speed"                                "65 70 75 80 85" //OAA
+      "duration"      
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "100 100 100 90 80"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_amplification"                            "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "65 70 75 80 85" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.25 4.75 5.25 5.25 5.25"
+        "value"                                           "4.25 4.75 5.25 5.25 5.25"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "early_out_timer"                                 "2.5"
-      }
+      "early_out_timer"                                   "2.5"
     }
   }
 }
