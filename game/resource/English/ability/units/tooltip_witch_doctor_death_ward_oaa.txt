@@ -12,11 +12,11 @@
 // "DOTA_Tooltip_ability_witch_doctor_death_ward_attack_range_tooltip"            "ATTACK RANGE:"
 
 // "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo"                          "Voodoo Switcheroo"
-// "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_Description"              "Turns Witch Doctor into a Death Ward for 2 seconds. Death Ward has -30 Attack Speed. He is hidden during this time."
+// "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_Description"              "Turns Witch Doctor into a Death Ward briefly with reduced attack speed. He is hidden during this time"
 // "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration"                 "DURATION:"
 
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa"                              "#{DOTA_Tooltip_ability_witch_doctor_death_ward}"
-"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Description"                  "CHANNELED - Summons a deadly ward to attack enemy heroes within its attack range. Lasts a maximum of %abilitychanneltime% seconds. \n<font color='#FFA500'>Damage Type is Pure. Can attack hero creeps and bosses. Spell amplification can increase the damage.</font>"
+"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Description"                  "CHANNELED - Summons a deadly ward to attack enemy heroes within its attack range. Lasts a maximum of %abilitychanneltime% seconds. \n<font color='#FFA500'>Can attack hero creeps and bosses. Spell amplification can increase the damage.</font>"
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_scepter_description"          "#{DOTA_Tooltip_ability_witch_doctor_death_ward_scepter_description}"
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Lore"                         "#{DOTA_Tooltip_ability_witch_doctor_death_ward_Lore}"
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Note0"                        "#{DOTA_Tooltip_ability_witch_doctor_death_ward_Note0}"
@@ -28,7 +28,7 @@
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_shard_description"            "Grants Voodoo Switcheroo ability."
 
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa"                       "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo}"
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Description"           "Turns Witch Doctor into a Death Ward for %duration% seconds. Death Ward has an attack speed penalty. Witch Doctor is hidden during this time."
+"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Description"           "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_Description}"
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Lore"                  "Death Ward without the Witch Doctor dance."
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Note0"                 "Voodoo Switcheroo is dispellable."
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_duration"              "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration}"
