@@ -39,7 +39,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "1000"
+      "radius"          
+      {
+        "value"                                           "1000"
+        "affected_by_aoe_increase"                        "1"
+      }
       "movespeed" //OAA
       {
         "value"                                           "10 12 14 16 18 20"
@@ -57,7 +61,7 @@
       "slow_duration"                                     "0.2"
       "shard_bonus_spell_lifesteal"
       {
-        "value"                                           "10"
+        "value"                                           "10" // ???
         "RequiresShard"                                   "1"
       }
     }
