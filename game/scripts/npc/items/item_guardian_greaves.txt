@@ -69,7 +69,11 @@
       "aura_radius"                                       "1200"
       "replenish_health"                                  "350"
       "replenish_mana"                                    "200"
-      "replenish_radius"                                  "1200"
+      "replenish_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "max_health_pct_heal_amount"                        "0"
     }
   }

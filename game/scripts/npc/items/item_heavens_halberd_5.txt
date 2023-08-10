@@ -64,43 +64,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20 25 30 35 40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 30 45 65 90"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "disarm_range"                                    "4.0 4.5 5.0 5.5 6.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "disarm_melee"                                    "2.4 2.8 3.2 3.6 4.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "status_resistance"                               "18 20 22 24 26"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_amp"                                    "22 24 26 28 30"
-      }
-      "10" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "18 17 16 15 14"
-      }
+      "bonus_evasion"                                     "20 25 30 35 40"
+      "bonus_strength"                                    "20 30 45 65 90"
+      "disarm_range"                                      "4.0 4.5 5.0 5.5 6.0"
+      "disarm_melee"                                      "2.4 2.8 3.2 3.6 4.0"
+      "status_resistance"                                 "18 20 22 24 26"
+      "hp_regen_amp"                                      "22 24 26 28 30"
+      "cooldown_tooltip"                                  "18 17 16 15 14"
     }
   }
 }
