@@ -25,31 +25,22 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 115 130 145 160 175"
+    "AbilityManaCost"                                     "85 105 125 145 165 185" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "structure_damage_mod"                              "0.5"
+      "delay"                                             "0.8"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "structure_damage_mod"                            "0.5"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "blast_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "0.8"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "100 180 260 340 680 1360"
+        "value"                                           "100 180 260 340 680 1360"
         "LinkedSpecialBonus"                              "special_bonus_unique_pugna_2"
       }
     }
