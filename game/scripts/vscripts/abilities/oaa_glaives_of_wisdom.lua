@@ -15,7 +15,7 @@ end
 
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
