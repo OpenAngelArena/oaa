@@ -35,41 +35,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "aura_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "value"                                           "1200"
       }
-      "02"
+      "damage_per_sec"                                    "60 120 180 360 660" //OAA
+      "tick_interval"                                     "0.2"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_sec"                                  "60 120 180 360 660" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6 2 2.4 2.8 3.2"
+        "value"                                           "1.6 2 2.4 2.8 3.2"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_2"
       }
-      "04"
+      "max_hero_attacks" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks"                                "6 10 14 16 18" //OAA
+        "value"                                           "6 10 14 16 18"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
-      "05" // max_hero_attacks + 3
+      "max_hero_attacks_scepter" // OAA, max_hero_attacks + 3
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_hero_attacks_scepter"                        "9 13 17 19 21" //OAA
+        "value"                                           "9 13 17 19 21"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
         "RequiresScepter"                                 "1"
       }
-      "07" // 06
+      "cast_range_tooltip_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip_scepter"                      "500"
+        "value"                                           "500"
         "RequiresScepter"                                 "1"
       }
     }
