@@ -149,7 +149,7 @@ function CorePointsManager:InitializeCorePointsCounter(hero)
     return
   end
 
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 
@@ -478,7 +478,7 @@ end
 function modifier_core_points_counter_oaa:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
-    if parent:IsTempestDouble() or parent:IsClone() then
+    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
       self:Destroy()
       return
     end
