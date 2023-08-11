@@ -46,7 +46,11 @@
         "value"                                           "10"
         "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "stat_loss_univ"                                    "5" // weird that special_bonus_unique_timbersaw_5 doesnt affect this too
+      "stat_loss_univ"
+      {
+        "value"                                           "5"
+        "special_bonus_unique_timbersaw_5"                "+1"
+      }
       "duration"                                          "12 13 14 15 16 17"
     }
   }
