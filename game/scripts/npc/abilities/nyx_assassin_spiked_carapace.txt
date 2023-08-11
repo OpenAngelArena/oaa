@@ -16,7 +16,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25 20 15 10 10 10"
+    "AbilityCooldown"                                     "17 14 11 8 8 8" //OAA
     "AbilityCastPoint"                                    "0"
 
     // Cost
@@ -37,7 +37,7 @@
         "value"                                           "0.4 0.8 1.2 1.6 1.7 1.8"
         "special_bonus_unique_nyx_6"                      "+0.45"
       }
-      "damage_reflect_pct"                                "100 100 100 100 150 200"
+      "damage_reflect_pct"                                "125"
     }
   }
 }
