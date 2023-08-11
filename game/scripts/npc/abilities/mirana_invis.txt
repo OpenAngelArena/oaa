@@ -31,13 +31,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "fade_delay"			"2.5 2.25 2.0 1.75 1.5" //OAA
-      "duration"				"11" //OAA
-      "bonus_movement_speed"		"9 12 15 18 21"
+      "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
+      "duration"                                          "11" //OAA
+      "bonus_movement_speed"                              "9 12 15 18 21"
       "evasion"
       {
-        "value"			"20"
-        "LinkedSpecialBonus"	"special_bonus_unique_mirana_5"
+        "value"                                           "20"
+        "LinkedSpecialBonus"                              "special_bonus_unique_mirana_5"
       }
     }
   }
