@@ -51,9 +51,6 @@ local abilities_with_custom_talents = {
   invoker_sun_strike = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
   },
-  life_stealer_feast = {
-    hp_damage_percent = {"special_bonus_unique_lifestealer_3_oaa", "+"},
-  },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
   },

@@ -37,7 +37,11 @@
       "heal_percent"                                      "50"
       "max_health_as_damage_pct"                          "2"
       "damage_threshold"                                  "500"
-      "spread_radius"                                     "700"
+      "spread_radius"
+      {
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
+      }
       "slow_tooltip"                                      "50"
       "duration"                                          "7"
     }
