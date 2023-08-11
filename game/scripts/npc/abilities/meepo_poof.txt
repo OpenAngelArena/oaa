@@ -33,7 +33,11 @@
     "AbilityValues"
     {
       "AbilityCastPoint"                                  "1.5 1.5 1.5 1.5 1.0 0.75"
-      "radius"                                            "400"
+      "radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "poof_damage"
       {
         "value"                                           "40 60 80 100 200 400"

@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 125 150 175 200 225" //OAA
+    "AbilityManaCost"                                     "130 150 170 190 210 230" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +34,16 @@
     {
       "damage"                                            "45 90 135 180 360 540"
       "duration"                                          "7 8 9 10 10 10"
-      "hit_radius"                                        "120"
-      "dead_zone_distance"                                "340"
+      "hit_radius"
+      {
+        "value"                                           "120"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "dead_zone_distance"
+      {
+        "value"                                           "340"
+        "affected_by_aoe_increase"                        "1"
+      }
       "num_revenants"
       {
         "value"                                           "4"
