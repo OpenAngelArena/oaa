@@ -288,9 +288,11 @@ function UpdateTimer () {
 
 function handleOAASettingsChange (t, key, kv) {
   if (key === 'player_mmr') {
-    Object.keys(kv).forEach((k) => {
-      playerMmrValues[k] = kv[k];
-    });
+    if (typeof kv === 'object') {
+      Object.keys(kv).forEach((k) => {
+        playerMmrValues[k] = kv[k];
+      });
+    }
   }
 
   OnTeamPlayerListChanged();
