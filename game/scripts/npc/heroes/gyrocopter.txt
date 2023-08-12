@@ -5,8 +5,6 @@
   //=================================================================================================================
   "npc_dota_hero_gyrocopter"
   {
-    "MovementSpeed"                                       "325" // 320
-
     //"Ability10"                                           "special_bonus_unique_gyrocopter_4"
     "Ability11"                                           "special_bonus_unique_gyrocopter_1_oaa" // replaces special_bonus_hp_200
 
@@ -28,8 +26,5 @@
   // special_bonus_unique_gyrocopter_6 - "+{s:value}s Homing Missile Stun Duration"
   // special_bonus_unique_gyrocopter_flak_cannon_bonus_damage - "+{s:bonus_bonus_damage} Flak Cannon Damage"
     // special_bonus_unique_gyrocopter_1_oaa - "Bonus Flak Cannon Range" - custom
-    // special_bonus_hp_200
-    // special_bonus_movement_speed_20
-    // special_bonus_lifesteal_30
   }
 }

@@ -42,6 +42,9 @@ local abilities_with_custom_talents = {
   faceless_void_time_dilation = {
     radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
   },
+  gyrocopter_flak_cannon = {
+    radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
+  },
   hoodwink_acorn_shot = {
     base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
   },

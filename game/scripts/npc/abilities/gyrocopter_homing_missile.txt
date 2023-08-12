@@ -36,81 +36,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "hits_to_kill_tooltip"                              "3"
+      "tower_hits_to_kill_tooltip"                        "6"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hits_to_kill_tooltip"                            "3"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tower_hits_to_kill_tooltip"                      "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.55 1.9 2.25 2.6 2.8 3.0"
+        "value"                                           "1.55 1.9 2.25 2.6 2.7 2.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_6"
       }
-      "04"
+      "attack_speed_bonus_pct"                            "400"
+      "min_damage"                                        "50"
+      "max_distance"                                      "1500"
+      "pre_flight_time"                                   "2.5"
+      "hero_damage"                                       "2"
+      "speed"                                             "500"
+      "acceleration"                                      "15"
+      "enemy_vision_time"                                 "4"
+      "AbilityCharges"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "400"
+        "value"                                           ""
+        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_1" // Valve this is the Flak Cannon talent
       }
-      "05"
+      "shard_delay"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "min_damage"                                      "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_distance"                                    "1500"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pre_flight_time"                                 "2.5"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hero_damage"                                     "2"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "speed"                                           "500"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "acceleration"                                    "15"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "enemy_vision_time"                               "4"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "AbilityCharges"                                  ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_1"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_delay"                                     "1.0"
+        "value"                                           "1.0 1.0 1.0 1.0 0.5 0.1"
         "RequiresShard"                                   "1"
       }
-      "14"
+      "shard_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_radius"                                    "700"
+        "value"                                           "700"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }
