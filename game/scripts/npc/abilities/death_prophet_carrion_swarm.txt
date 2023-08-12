@@ -37,27 +37,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "start_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "start_radius"                                    "110"
+        "value"                                           "110"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "end_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "end_radius"                                      "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "range"                                             "810"
+      "speed"                                             "1100"
+      "slow_percent"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "810"
+        "value"                                           "0"
+        "special_bonus_unique_death_prophet_crypt_swarm_slow"  "-50"
       }
-      "04"
+      "slow_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1100"
+        "value"                                           "0"
+        "special_bonus_unique_death_prophet_crypt_swarm_slow"  "+1"
       }
     }
   }
