@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,6 +41,7 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+150"
+        "affected_by_aoe_increase"                        "1"
       }
       "trail_duration"
       {
@@ -52,9 +53,9 @@
         "value"                                           "-50"
         "RequiresShard"                                   "1"
       }
-      "trail_damage"
+      "trail_damage" //OAA
       {
-        "value"                                           "35"
+        "value"                                           "20 25 30 35 70 140"
         "RequiresShard"                                   "1"
       }
       "trail_damage_interval"
