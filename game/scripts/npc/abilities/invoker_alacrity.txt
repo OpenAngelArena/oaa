@@ -24,7 +24,7 @@
     "AbilityCastRange"                                    "650"
     "AbilityCastPoint"                                    "0.05"
     "AbilityCooldown"                                     "17"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,13 +34,13 @@
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"                                        "wexlevel"
-        "special_bonus_unique_invoker_5"                  "+60"
+        "special_bonus_unique_invoker_5"                  "+45"
       }
       "bonus_damage" //OAA
       {
         "value"                                           "10 22 34 46 58 70 82 94 106 118 130 142 154 166 178"
         "levelkey"                                        "exortlevel"
-        "special_bonus_unique_invoker_5"                  "+60"
+        "special_bonus_unique_invoker_5"                  "+45"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "duration"                                          "9"
