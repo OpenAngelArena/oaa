@@ -29,25 +29,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "650"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_9"
+        "value"                                           "650"
+        "special_bonus_unique_enigma_9"                   "+200"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "damage_percent"                                    "5 7 9 11 13 15"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_percent"                                  "5 7 9 11 12 13"
+        "value"                                           "9 10 11 12 13 14"
+        "special_bonus_unique_enigma_8"                   "+5"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "9 10 11 12 13 14"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_8"
-      }
+      "tick_rate"                                         "0.5"
     }
   }
 }
