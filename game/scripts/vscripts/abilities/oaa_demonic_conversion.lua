@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 enigma_demonic_conversion_oaa = class(AbilityBaseClass)
 
 -- Lazy hack to make shard work
@@ -27,6 +29,7 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
   local splitAttackCount = self:GetSpecialValueFor("split_attack_count")
   local duration = self:GetSpecialValueFor("duration")
   local offset = self:GetSpecialValueFor("spawn_offset")
+  local extend = self:GetSpecialValueFor("life_extension")
 
   -- Lookup table for Eidolon unit names for each level
   local unitNames = {
@@ -51,9 +54,9 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
   for i = 1, spawnCount do
     -- 1 behind the caster, 1 left, 1 right
     local spawn_location = origin - direction * offset
-    if i == 2 then
+    if i == 2 or i == 5 or i == 7 then
       spawn_location = origin - perpendicular_direction * offset
-    elseif i == 3 then
+    elseif i == 3 or i == 6 or i == 8 then
       spawn_location = origin + perpendicular_direction * offset
     end
 
@@ -65,6 +68,7 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
     -- Use built-in modifier to handle summon duration and splitting and eidolon talents hopefully
     eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount})
     eidolon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
+    eidolon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + extend + MANUAL_GARBAGE_CLEANING_TIME})
   end
 
   caster:EmitSound("Hero_Enigma.Demonic_Conversion")
