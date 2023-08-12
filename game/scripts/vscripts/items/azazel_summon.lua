@@ -47,7 +47,7 @@ function azazel_summon:OnSpellStart()
     azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
     azazel_summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
   end
-  
+
   azazel_summon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
 
   -- Fix stats of summons
