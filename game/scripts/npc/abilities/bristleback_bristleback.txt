@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Bristleback: Bristleback
+  //=================================================================================================================
+  "bristleback_bristleback"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "5550"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "HasScepterUpgrade"                                   "1"
+
+    "AbilityCastPoint"                                    "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "side_damage_reduction"
+      {
+        "value"                                           "8 12 16 20 30 40"
+        "special_bonus_unique_bristleback_6"              "+4"
+      }
+      "back_damage_reduction"
+      {
+        "value"                                           "16 24 32 40 45 55"
+        "special_bonus_unique_bristleback_6"              "+8"
+      }
+      "side_angle"                                        "110"
+      "back_angle"                                        "70"
+      "quill_release_threshold"                           "225"
+      "quill_release_interval"                            ".1"
+
+      "activation_cooldown"                               "20"
+      "activation_manacost"                               "100"
+      "activation_delay"                                  "0.5"
+      "activation_num_quill_sprays"                       "6"
+      "activation_spray_interval"                         "0.35"
+      "activation_angle"                                  "45"
+      "cast_range_bonus"                                  "0"
+      "activation_movement_speed_pct"                     "-40"
+      "activation_turn_rate_pct"                          "-100"
+      "activation_disable_turning"                        "1"
+      "activation_ignore_cast_angle"                      "1"
+      "activation_turn_rate"                              "500"
+    }
+  }
+}
