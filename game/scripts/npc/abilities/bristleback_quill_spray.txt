@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700" //OAA, same as radius; to see the AoE when you hover over the ability
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -32,39 +31,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "700"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "quill_base_damage"                                 "25 45 65 85 170 340"
+      "quill_stack_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "quill_base_damage"                               "25 45 65 85 170 340"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "quill_stack_damage"                              "30 35 40 45 90 180" //OAA
+        "value"                                           "30 35 40 45 90 180"
         "LinkedSpecialBonus"                              "special_bonus_unique_bristleback_2"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "quill_stack_duration"                            "14.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_damage"                                      "2000.0" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "2400"
-      }
+      "quill_stack_duration"                              "14.0"
+      "max_damage"                                        "2000" //OAA
+      "projectile_speed"                                  "2400"
     }
   }
 }

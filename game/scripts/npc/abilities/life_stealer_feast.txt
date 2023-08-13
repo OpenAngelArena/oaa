@@ -18,18 +18,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "hp_leech_percent"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "hp_leech_percent"                                "1.6 2.2 2.8 3.4 4.0 4.6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_lifestealer_3"
+        "value"                                           "1.6 2.2 2.8 3.4 4.0 4.6"
+        "special_bonus_unique_lifestealer_3"              "+1.2"
       }
-      "02"
+      "hp_damage_percent"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "hp_damage_percent"                               "0.8 1.1 1.4 1.7 1.8 1.9"
+        "value"                                           "0.8 1.1 1.4 1.7 1.8 1.9"
+        "special_bonus_unique_lifestealer_3"              "+1.2"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

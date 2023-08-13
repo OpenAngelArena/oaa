@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 enigma_demonic_conversion_oaa = class(AbilityBaseClass)
 
 -- Lazy hack to make shard work
@@ -18,14 +20,17 @@ function enigma_demonic_conversion_oaa:OnUpgrade()
 end
 
 function enigma_demonic_conversion_oaa:OnSpellStart()
-  local target = self:GetCursorTarget()
-  local targetOrigin = target:GetOrigin()
+  --local target = self:GetCursorTarget()
   local caster = self:GetCaster()
   local playerID = caster:GetPlayerID()
-  local duration = self:GetDuration()
-  local abilityLevel = self:GetLevel()
+  local origin = caster:GetAbsOrigin() -- target:GetAbsOrigin()
+
   local spawnCount = self:GetSpecialValueFor("spawn_count")
   local splitAttackCount = self:GetSpecialValueFor("split_attack_count")
+  local duration = self:GetSpecialValueFor("duration")
+  local offset = self:GetSpecialValueFor("spawn_offset")
+  local extend = self:GetSpecialValueFor("life_extension")
+
   -- Lookup table for Eidolon unit names for each level
   local unitNames = {
     "npc_dota_lesser_eidolon",
@@ -36,29 +41,40 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
     "npc_dota_colossal_eidolon"
   }
 
-  -- Check whether the caster has learnt the extra eidolons talent
-  local casterHasExtraEidolons = caster:HasLearnedAbility("special_bonus_unique_enigma")
+  -- Kill the target
+  --target:Kill(self, caster)
 
-  -- Grant extra ediolon spawns from talent
-  if casterHasExtraEidolons then
-    spawnCount = spawnCount + caster:FindAbilityByName("special_bonus_unique_enigma"):GetSpecialValueFor("value")
-  end
+  -- Directions
+  local direction = caster:GetForwardVector()
+  direction.z = 0.0
+  direction = direction:Normalized()
+  local perpendicular_direction = Vector(direction.y, -direction.x, 0.0)
 
-  -- Kill the target and spawn Eidolons
-  target:Kill(self, caster)
+  -- Spawn Eidolons
   for i = 1, spawnCount do
-    local eidolon = CreateUnitByName(unitNames[abilityLevel], targetOrigin, true, caster, caster:GetOwner(), caster:GetTeam())
+    -- 1 behind the caster, 1 left, 1 right
+    local spawn_location = origin - direction * offset
+    if i == 2 or i == 5 or i == 7 then
+      spawn_location = origin - perpendicular_direction * offset
+    elseif i == 3 or i == 6 or i == 8 then
+      spawn_location = origin + perpendicular_direction * offset
+    end
+
+    local eidolon = CreateUnitByName(unitNames[self:GetLevel()], spawn_location, true, caster, caster:GetOwner(), caster:GetTeam())
     eidolon:SetControllableByPlayer(playerID, false)
     eidolon:SetOwner(caster)
+    eidolon:SetForwardVector(direction)
 
     -- Use built-in modifier to handle summon duration and splitting and eidolon talents hopefully
     eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount})
+    eidolon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
+    eidolon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + extend + MANUAL_GARBAGE_CLEANING_TIME})
   end
 
-  target:EmitSound("Hero_Enigma.Demonic_Conversion")
+  caster:EmitSound("Hero_Enigma.Demonic_Conversion")
 end
 
--- Runs on client side first
+--[[
 function enigma_demonic_conversion_oaa:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
   local lvlRequirement = self:GetSpecialValueFor("creep_level")
@@ -73,7 +89,7 @@ end
 function enigma_demonic_conversion_oaa:GetCustomCastErrorTarget(target)
   return "#dota_hud_error_cant_cast_creep_level"
 end
-
+]]
 function enigma_demonic_conversion_oaa:OnStolen(hSourceAbility)
   local caster = self:GetCaster()
   if caster:HasModifier("modifier_morphling_replicate_manager") then

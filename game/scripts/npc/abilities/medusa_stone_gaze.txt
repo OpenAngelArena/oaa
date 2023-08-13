@@ -26,7 +26,11 @@
       "AbilityCastRange"                                  "1200"
       "AbilityCooldown"                                   "90"
       "AbilityManaCost"                                   "150 200 250 300 350" //OAA
-      "radius"                                            "1200"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration" //OAA
       {
         "value"                                           "4 4.5 5 5.5 6"

@@ -42,6 +42,9 @@ local abilities_with_custom_talents = {
   faceless_void_time_dilation = {
     radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
   },
+  gyrocopter_flak_cannon = {
+    radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
+  },
   hoodwink_acorn_shot = {
     base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
   },
@@ -50,9 +53,6 @@ local abilities_with_custom_talents = {
   },
   invoker_sun_strike = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
-  },
-  life_stealer_feast = {
-    hp_damage_percent = {"special_bonus_unique_lifestealer_3_oaa", "+"},
   },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
@@ -69,8 +69,16 @@ local abilities_with_custom_talents = {
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
-  ursa_earthshock = {
-    shock_radius = {"special_bonus_unique_ursa_1_oaa", "+"},
+  spectre_haunt = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  spectre_haunt_single = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  ursa_fury_swipes = {
+    bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},

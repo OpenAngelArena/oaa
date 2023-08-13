@@ -36,7 +36,11 @@
         "value"                                           "120 180 240 300 600 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "radius"                                            "500"
+      "radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "disarm_duration"
       {
         "value"                                           "1.9 2.6 3.3 4.0 4.25 4.5"

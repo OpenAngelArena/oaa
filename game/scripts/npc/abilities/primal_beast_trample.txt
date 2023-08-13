@@ -25,7 +25,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "effect_radius"                                     "230"
+      "effect_radius"
+      {
+        "value"                                           "230"
+        "affected_by_aoe_increase"                        "1"
+      }
       "step_distance"                                     "140"
       "base_damage"
       {
@@ -36,12 +40,12 @@
       "attack_damage" //OAA
       {
         "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_primal_beast_trample_attack_damage"  "+25"
+        "special_bonus_unique_primal_beast_trample_attack_damage"  "+20"
       }
       "bonus_magic_resistance"
       {
         "value"                                           "0"
-        "special_bonus_unique_primal_beast_trample_magic_resist"  "+20"
+        "special_bonus_unique_primal_beast_trample_magic_resist"  "+25"
       }
       "AbilityCooldown" //OAA
       {

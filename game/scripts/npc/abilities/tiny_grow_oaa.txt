@@ -40,6 +40,8 @@
         "value"                                           "100 250 400 850 1300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
+      "slow_resistance"                                   "15 30 45 50 55" // for the tooltip
+
       "bonus_armor_oaa"                                   "0 0 0 5 10" // bonus_armor - bonus_armor(at lvl 3)
       "bonus_damage_oaa"                                  "0 0 0 60 120" // bonus_damage - bonus_damage(at lvl 3)
       "bonus_damage_with_tree"                            "0 0 0 60 120" // bonus_damage_oaa + tree_bonus_damage_pct% increase of bonus_damage_oaa
@@ -47,6 +49,7 @@
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
       "bonus_toss_damage_oaa"                             "0 0 0 450 900" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
+      "bonus_slow_resistance"                             "0 0 0 5 10" // slow_resistance - slow_resistance(at lvl 3)
     }
   }
 }

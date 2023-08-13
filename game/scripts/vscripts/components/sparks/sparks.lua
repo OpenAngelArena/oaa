@@ -47,7 +47,7 @@ function Sparks:AddSparkOnHeroSpawn(hero)
     return
   end
 
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 

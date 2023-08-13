@@ -8,13 +8,16 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "6340"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+
+    "AbilityCastRange"                                    "900"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -34,9 +37,17 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_4"
       }
       "attack_interval"                                   "0.25"
-      "attack_radius"                                     "300"
+      "attack_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "attack_targets"                                    "1"
-      "roaming_radius"                                    "200"
+      "roaming_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "roaming_seconds_per_rotation"                      "1.5"
       "roaming_duration"                                  "5.0"
       "pierces_magic_immunity"
@@ -47,8 +58,9 @@
       "target_count"
       {
         "value"                                           "1"
-        "special_bonus_unique_dark_willow_bedlam_targets"  "+2"  
+        "special_bonus_unique_dark_willow_bedlam_targets"  "+2"
       }
+      "travel_speed"                                      "1800"
     }
   }
 }

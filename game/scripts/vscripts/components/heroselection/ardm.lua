@@ -153,7 +153,7 @@ function ARDMMode:ApplyARDMmodifier(hero)
       return
     end
 
-    if hero:IsTempestDouble() or hero:IsClone() then
+    if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
       return
     end
 
@@ -271,7 +271,7 @@ function ARDMMode:PrepareHeroChange(event)
     killed_hero = killed_hero:GetCloneSource()
   end
 
-  if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() then
+  if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() or killed_hero:IsSpiritBearOAA() then
     ARDMMode:AllowReplacing(killed_hero, false) -- prevent hero change when reincarnating
     return
   end

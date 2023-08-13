@@ -62,73 +62,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 20 40 70 110"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "220 320 470 670 920"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "3 6 9 12 15"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_melee"                              "70 120 170 220 270"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_damage_ranged"                             "35 70 105 140 175"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "block_chance"                                    "60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "22 27 32 37 42"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_chance_melee"                               "25"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bash_chance_ranged"                              "10"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_duration"                                   "1.2"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bash_cooldown"                                   "2.3"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "180 230 330 480 680"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.6 1.7 1.8 1.9 2.0"
-      }
+      "bonus_damage"                                      "10 20 40 70 110"
+      "bonus_health"                                      "220 320 470 670 920"
+      "bonus_health_regen"                                "3 6 9 12 15"
+      "block_damage_melee"                                "70 120 170 220 270"
+      "block_damage_ranged"                               "35 70 105 140 175"
+      "block_chance"                                      "60"
+      "bonus_strength"                                    "22 27 32 37 42"
+      "bash_chance_melee"                                 "25"
+      "bash_chance_ranged"                                "10"
+      "bash_duration"                                     "1.2"
+      "bash_cooldown"                                     "2.3"
+      "bonus_chance_damage"                               "180 230 330 480 680"
+      "stun_duration"                                     "1.6 1.7 1.8 1.9 2.0"
     }
   }
 }

@@ -38,7 +38,11 @@
       }
       "tick_interval"                                     "3.0"
       "movement_slow"                                     "-50"
-      "radius"                                            "125"
+      "radius"
+      {
+        "value"                                           "125"
+        "affected_by_aoe_increase"                        "1"
+      }
       "speed"                                             "1200"
       "create_wards"
       {

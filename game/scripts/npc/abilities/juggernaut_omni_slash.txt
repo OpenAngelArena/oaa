@@ -42,7 +42,11 @@
         "value"                                           "3 3.25 3.5 4.25 4.5"
         "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
       }
-      "omni_slash_radius"                                 "425"
+      "omni_slash_radius" //OAA
+      {
+        "value"                                           "425"
+        "affected_by_aoe_increase"                        "1"
+      }
       "AbilityCastRange"
       {
         "value"                                           "350"

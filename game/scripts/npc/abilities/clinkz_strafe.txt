@@ -13,7 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -41,8 +41,8 @@
       "attack_range_bonus"                                "200"
       "AbilityCooldown"
       {
-        "value"                                           "30 25 20 15 14 13"
-        "special_bonus_unique_clinkz_4"                   "-7"
+        "value"                                           "30 25 20 15 15 15"
+        "special_bonus_unique_clinkz_4"                   "-8"
       }
       "strafe_skeleton_radius"                            "1200"
       "archer_attack_speed_pct"                           "50"

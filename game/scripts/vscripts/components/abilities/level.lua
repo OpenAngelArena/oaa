@@ -236,7 +236,7 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation",
+    --special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation",
   }
 
   if exceptionBonuses[name] then

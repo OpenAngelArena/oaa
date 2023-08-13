@@ -24,13 +24,14 @@
     "AbilityValues"
     {
       "dodge_chance"                                      "10 15 20 25 30 33" //OAA
-      "crit_chance"                                       "24"
+      "crit_chance"                                       "20"
       "active_multiplier"
       {
         "value"                                           "3"
         "special_bonus_unique_brewmaster_8"               "+1"
       }
       "crit_multiplier"                                   "145 160 175 190 205 220"
+      "attack_speed"                                      "10 15 20 25 30 35"
       "magic_resist"                                      "5 10 15 20 22 24"
       "armor"                                             "1 3 5 7 9 11"
       "movespeed"                                         "10 15 20 25 30 35"

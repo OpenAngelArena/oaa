@@ -22,7 +22,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250 375 500 625 750"
+    "AbilityManaCost"                                     "200 350 500 650 800" //OAA
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,11 @@
     {
       "golem_duration"                                    "60"
       "stun_duration"                                     "0.8"
-      "aoe"                                               "600"
+      "aoe"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
       "golem_hp"                                          "1400 3200 5000 10400 15800" //OAA
       "golem_dmg"                                         "110 220 330 660 990" //OAA
       "golem_armor"                                       "10 20 30 40 50" //OAA
@@ -47,7 +51,7 @@
         "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "golem_hp_scepter" //OAA
+      "golem_hp_scepter" //OAA, golem_hp x 0.8
       {
         "value"                                           "1120 2560 4000 8320 12640"
         "RequiresScepter"                                 "1"
@@ -57,7 +61,7 @@
         "value"                                           "82 165 250 495 750"
         "RequiresScepter"                                 "1"
       }
-      "golem_gold_bounty_scepter"
+      "golem_gold_bounty_scepter" // golem_gold_bounty x 0.5
       {
         "value"                                           "50 75 100 250 500"
         "RequiresScepter"                                 "1"
@@ -77,6 +81,7 @@
         "value"                                           "10 20 30 40 50"
         "special_bonus_unique_warlock_2"                  "+20"
       }
+      "bonus_slow_resistance"                             "60"
     }
   }
 }

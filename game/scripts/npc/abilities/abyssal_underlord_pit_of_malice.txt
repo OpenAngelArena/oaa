@@ -13,7 +13,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastRange"                                    "675"
-    "AbilityCastPoint"                                    "0.45"
+    "AbilityCastPoint"                                    "0.35"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -31,10 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA
+      "radius" //OAA, intentional nerf
       {
         "value"                                           "350"
         "special_bonus_unique_underlord_6"                "+75"
+        "affected_by_aoe_increase"                        "1"
       }
       "pit_duration"                                      "7 8 9 10 11 12" //OAA
       "pit_interval"                                      "3.6"

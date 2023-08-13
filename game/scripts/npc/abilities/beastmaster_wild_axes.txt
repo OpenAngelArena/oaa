@@ -32,8 +32,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "175"
-      "spread"                                            "450"
+      "radius"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "spread"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
       "range"                                             "1500"
       "axe_damage" //OAA
       {

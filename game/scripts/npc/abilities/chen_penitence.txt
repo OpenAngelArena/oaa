@@ -33,30 +33,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "8" //OAA
+      "speed"                                             "1400"
+      "bonus_movement_speed" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8" //OAA
+        "value"                                           "-18 -24 -30 -36 -42 -48"
+        "special_bonus_unique_chen_8"                     "-14"
       }
-      "02"
+      "bonus_attack_speed"                                "20 40 60 80 120 180"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1400"
+        "value"                                           "0"
+        "special_bonus_unique_chen_11"                    "+225"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "-18 -24 -30 -36 -42 -48" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_chen_8"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "20 40 60 80 120 180"
-      }
+      "self_attack_range_bonus"                           "50 150 250 350 400 450"
     }
   }
 }

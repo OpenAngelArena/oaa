@@ -31,8 +31,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "starfall_radius"                                   "650"
-      "starfall_secondary_radius"                         "650"
+      "starfall_radius"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "starfall_secondary_radius"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "secondary_starfall_damage_percent"                 "75"
       "damage" //OAA
       {

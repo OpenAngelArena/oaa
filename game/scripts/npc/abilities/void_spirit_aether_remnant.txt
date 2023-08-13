@@ -31,17 +31,38 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "start_radius"                                      "90"
-      "end_radius"                                        "90"
-      "radius"                                            "300"
+      "start_radius"
+      {
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "end_radius"
+      {
+        "value"                                           "90"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "projectile_speed"                                  "900"
       "remnant_watch_distance"
       {
         "value"                                           "450"
         "special_bonus_shard"                             "+150"
+        "affected_by_aoe_increase"                        "1"
       }
-      "remnant_watch_radius"                              "130"
-      "watch_path_vision_radius"                          "200"
+      "remnant_watch_radius"
+      {
+        "value"                                           "130"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "watch_path_vision_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "activation_delay"                                  "0.4"
       "impact_damage"
       {
@@ -61,6 +82,16 @@
       {
         "value"                                           "14 13 12 11 11 11"
         "special_bonus_shard"                             "-2"
+      }
+      "damage_tick_rate"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1"
+      }
+      "creep_damage_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+30"
       }
     }
   }

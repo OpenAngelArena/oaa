@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "99999"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -30,49 +30,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "speed_multiplier"                                  "250"
+      "max_charges"                                       "3"
+      "charge_restore_time"                               "25.0" //OAA, Valve is missing special_bonus_unique_ember_spirit_5
+      "damage"                                            "100 250 400 850 1300" //OAA
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_multiplier"                                "250"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "speed"                                             "1300"
+      "scepter_mana_cost" // unused
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "charge_restore_time"                             "25.0" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 250 400 850 1300" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1300"
-      }
-      "07" // unused?
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_mana_cost"                               "75"
+        "value"                                           "75"
         "RequiresScepter"                                 "1"
       }
-      "08" // unused?
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_remnant_speed_pct"                         "300"
-      }
+      "shard_remnant_speed_pct"                           "300" // unused
     }
   }
 }

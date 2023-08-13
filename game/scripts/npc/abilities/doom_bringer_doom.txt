@@ -37,26 +37,31 @@
         "value"                                           "16.0"
         "special_bonus_unique_doom_7"                     "+3"
       }
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "30 60 90 180 270"
+        "value"                                           "30 50 70 130 230"
         "special_bonus_unique_doom_5"                     "+30"
       }
       "deniable_pct"                                      "25"
       "AbilityCooldown" //OAA
       {
         "value"                                           "120"
-        "special_bonus_unique_doom_10"                    "-20"
       }
       "does_break"
       {
         "value"                                           "0"
         "special_bonus_unique_doom_11"                    "+1"
       }
+      "does_mute"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_doom_10"                    "+1"
+      }
       "scepter_aura_radius" //OAA
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+275"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -67,8 +67,9 @@
       "bonus_health"                                      "1500 2100 2850"
       "bonus_strength"                                    "0"
       "max_mana_to_hp_regen"                              "4.25"
-      "active_hp_regen"                                   "200 225 250"
-      "active_hp_regen_amp"                               "50"
+      //"active_hp_regen"                                   "175 200 225"
+      //"active_hp_regen_amp"                               "50"
+      "active_max_hp_as_heal"                             "12.5"
       "duration"                                          "6"
     }
   }

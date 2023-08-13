@@ -14,8 +14,8 @@ azazel_summon = class(ItemBaseClass)
 function azazel_summon:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Prevent use on Spirit Bear and other non-hero units with inventory
-  if not caster:IsRealHero() then
+  -- Prevent use on Tempest Doubles, clones, Spirit Bears and not real heroes
+  if not caster:IsRealHero() or caster:IsTempestDouble() or caster:IsClone() or caster:IsSpiritBearOAA() then
     return
   end
 
@@ -47,6 +47,8 @@ function azazel_summon:OnSpellStart()
     azazel_summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
     azazel_summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
   end
+
+  azazel_summon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
 
   -- Fix stats of summons
   local summon_hp = self:GetSpecialValueFor("summon_health")

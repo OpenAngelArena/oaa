@@ -33,24 +33,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "area_of_effect"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "500"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "heal" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "55 110 165 220 440 660" //OAA
+        "value"                                           "55 110 165 220 440 660"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "400"
-      }
+      "projectile_speed"                                  "400"
     }
   }
 }
