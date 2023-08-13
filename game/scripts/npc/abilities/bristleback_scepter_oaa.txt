@@ -1,15 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bristleback: Bristleback
+  // Bristleback: Bristleback scepter effect
   //=================================================================================================================
-  "bristleback_bristleback"
+  "bristleback_scepter_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5550"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                                                  "3551"
+    "BaseClass"                                           "bristleback_bristleback"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+
     "HasScepterUpgrade"                                   "1"
+
+    "MaxLevel"                                            "1"
 
     "AbilityCastPoint"                                    "0"
 
@@ -17,19 +21,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "side_damage_reduction"
+      "side_damage_reduction" //OAA
       {
-        "value"                                           "8 12 16 20 30 40"
-        "special_bonus_unique_bristleback_6"              "+4"
+        "value"                                           "0" //"8 12 16 20 30 40"
+        //"special_bonus_unique_bristleback_6"              "+4"
       }
-      "back_damage_reduction"
+      "back_damage_reduction" //OAA
       {
-        "value"                                           "16 24 32 40 45 55"
-        "special_bonus_unique_bristleback_6"              "+8"
+        "value"                                           "0" //"16 24 32 40 45 55"
+        //"special_bonus_unique_bristleback_6"              "+8"
       }
-      "side_angle"                                        "110"
-      "back_angle"                                        "70"
-      "quill_release_threshold"                           "225"
+      "side_angle"                                        "0" //OAA "110"
+      "back_angle"                                        "0" //OAA "70"
+      "quill_release_threshold"                           "1" //OAA "225"
       "quill_release_interval"                            ".1"
 
       "activation_cooldown"                               "20"
