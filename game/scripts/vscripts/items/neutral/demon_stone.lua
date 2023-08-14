@@ -31,7 +31,6 @@ function item_demon_stone:OnSpellStart()
 
   -- Add summon passives
   summon:AddNewModifier(caster, self, "modifier_demon_stone_summon_passives", {})
-  summon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
   summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
   summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
 

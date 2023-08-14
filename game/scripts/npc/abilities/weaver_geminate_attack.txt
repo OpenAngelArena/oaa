@@ -43,6 +43,11 @@
         "shard_beetle_search_range"                       "1200"
         "RequiresShard"                                   "1"
       }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shukuchi_attack_mark_radius"                     "1200"
+      }
     }
   }
 }

@@ -81,8 +81,8 @@
       "chain_radius"                                      "650 750 850 950 1050"
       "chain_delay"                                       "0.25"
       "chain_cooldown"                                    "0.2"
-      "max_charges"                                       "0" // unused
-      "illusion_multiplier_pct"                           "150"
+      "max_charges"                                       "0"
+      "chain_damage_per_charge"                           "0"
     }
   }
 }

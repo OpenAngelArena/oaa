@@ -34,39 +34,64 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "snowball_damage"      
+      "01"
       {
-        "value"                                           "80 140 200 260 520 1040"
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_damage"                                 "80 140 200 260 520 1040"
         "LinkedSpecialBonus"                              "special_bonus_unique_tusk_2"
       }
-      "snowball_speed"                                    "575 600 625 650 675 700"
-      "snowball_damage_bonus"                             "40 65 90 115 230 345"
-      "stun_duration"                                     "0.6 0.8 1.0 1.2 1.4 1.6"
-      "snowball_windup_radius"  
+      "02"
       {
-        "value"                                           "100"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_speed"                                  "575 600 625 650 675 700"
       }
-      "snowball_duration"                                 "3.0"
-      "snowball_radius"      
+      "03"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_damage_bonus"                           "40 65 90 115 230 345"
       }
-      "snowball_grow_rate"    
+      "04"
       {
-        "value"                                           "40"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.6 0.8 1.0 1.2 1.4 1.6"
       }
-      "snowball_windup"                                   "3.0"
-      "snowball_grab_radius"    
+      "05"
       {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_windup_radius"                          "100"
       }
-      "snowball_speed_bonus"                              "50"
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "snowball_duration"                               "3.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_radius"                                 "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_grow_rate"                              "40"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "snowball_windup"                                 "3.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_grab_radius"                            "350"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "snowball_speed_bonus"                            "50"
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Magnus: Horn Toss (Scepter ability)
+  // Magnus: Horn Toss (shard)
   //=================================================================================================================
   "magnataur_horn_toss"
   {
@@ -31,22 +31,58 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"                                            "275"
-      "radius"
+      "01"
       {
-        "value"                                           "325"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "275"
       }
-      "air_duration"                                      "0.6"
-      "air_height"                                        "300"
-      "slow_duration"                                     "2"
-      "pull_offset"                                       "75"
-      "destination_offset"                                "175"
-      "pull_angle"                                        "230"
-      "horn_toss_slow_pct"                                "100"
-      "stun_duration"                                     "0.75"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "325"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "air_duration"                                    "0.6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "air_height"                                      "300"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_offset"                                     "75"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "destination_offset"                              "175"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pull_angle"                                      "230"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "horn_toss_slow_pct"                              "100"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.75"
+      }
     }
   }
 }

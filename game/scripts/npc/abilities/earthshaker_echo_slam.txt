@@ -29,30 +29,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "echo_slam_damage_range" //OAA
+      "01"
       {
-        "value"                                           "800"
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_damage_range"                          "800" //OAA
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "echo_slam_echo_search_range" //OAA
+      "02"
       {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_echo_search_range"                     "800" //OAA
       }
-      "echo_slam_echo_range" //OAA
+      "03"
       {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_echo_range"                            "800" //OAA
       }
-      "echo_slam_echo_damage" //OAA
+      "04"
       {
-        "value"                                           "85 125 165 285 485"
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_echo_damage"                           "85 125 165 285 485" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
-      "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "echo_slam_initial_damage"                        "100 180 260 500 900" //OAA
+      }
     }
   }
 }

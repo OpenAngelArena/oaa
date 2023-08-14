@@ -31,7 +31,7 @@ function Courier.SpawnCourier(hero)
     return
   end
 
-  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
+  if hero:IsTempestDouble() or hero:IsClone() then
     return
   end
 

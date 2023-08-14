@@ -37,11 +37,12 @@
       "status_resistance"
       {
         "value"                                           "50"
-        "special_bonus_unique_ursa_8"                     "+20"
+        "special_bonus_unique_ursa_8"                     "+10"
       }
       "duration" //OAA
       {
         "value"                                           "4.0 4.25 4.5 4.75 5.0"
+        "special_bonus_unique_ursa_3"                     "+1.2"
       }
       "cooldown_scepter" //OAA
       {
@@ -52,7 +53,6 @@
       {
         "value"                                           "0"
         "special_bonus_unique_ursa_enrage_radius"         "+700"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -68,13 +68,8 @@
       "aura_mana_regen"                                   "1.75 2.0 2.5 3.25 4.25"
       "aura_radius"                                       "1200"
       "spell_amp"                                         "20 25 30 35 40"
-      "debuff_radius"
-      {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "debuff_radius"                                     "600"
       "resist_debuff_duration"                            "16.0"
-      "shield_damage"                                     "200 300 400 500 600"
     }
   }
 }

@@ -30,24 +30,39 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"
+      "01"
       {
-        "value"                                           "1.5 2.0 2.5 3.0 3.0 3.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.5 2.0 2.5 3.0 3.0 3.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_2"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
       }
-      "damage_per_second"                                 "50 70 90 110 220 440"
-      "tick_interval"                                     "0.5"
-      "unit_count"
+      "03"
       {
-        "value"                                           "2"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "50 70 90 110 220 330"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "unit_count"                                      "2"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_7"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius_scepter"                                  "500"
       }
     }
   }

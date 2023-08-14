@@ -23,6 +23,9 @@
     "AbilityCastRange"                                    "1100"
     "AbilityCastPoint"                                    "0.1"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "75"
@@ -31,18 +34,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "180"  // NOTE: This radius must match the radius for boulder smash
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "180" // NOTE: This radius must match the radius for boulder smash
       "rock_damage"                                       "50 100 150 200 400 800"
       "duration"                                          "2 2.5 3 3.5 4 4.5"
       "pull_units_per_second_heroes"                      "600"
       "pull_units_per_second"                             "900"
       "speed"                                             "800"
       "total_pull_distance"                               "1400"
-      "AbilityCooldown"
+      "AbilityCooldown"   
       {
         "value"                                           "13"
         "special_bonus_unique_earth_spirit_5"             "-2"

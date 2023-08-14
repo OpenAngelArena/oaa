@@ -112,7 +112,7 @@ function HeroKillGold:HeroDeathHandler (keys)
     killedHero = killedHero:GetCloneSource()
   end
 
-  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() or killedHero:IsSpiritBearOAA() then
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() then
     return
   end
 

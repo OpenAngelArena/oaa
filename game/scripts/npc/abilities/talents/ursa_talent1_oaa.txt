@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Ursa talent: Fury Swipes Reset Time
+  // Custom Ursa talent: Earthshock bonus radius
   //=================================================================================================================
   "special_bonus_unique_ursa_1_oaa"
   {
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "8"
+        "value"                                           "100"
       }
     }
   }

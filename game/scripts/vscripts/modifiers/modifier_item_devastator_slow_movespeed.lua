@@ -14,16 +14,18 @@ function modifier_item_devastator_slow_movespeed:IsPurgable()
 end
 
 function modifier_item_devastator_slow_movespeed:OnCreated()
-  --local parent = self:GetParent()
+  local parent = self:GetParent()
   local ability = self:GetAbility()
   local move_speed_slow = -10
 
   if ability then
     move_speed_slow = ability:GetSpecialValueFor("devastator_movespeed_reduction")
   end
-
-  -- Move Speed Slow is reduced with Slow Resistance
-  self.slow = move_speed_slow --parent:GetValueChangedBySlowResistance(move_speed_slow)
+  if IsServer() then
+    self.slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
+  else
+    self.slow = move_speed_slow
+  end
 end
 
 modifier_item_devastator_slow_movespeed.OnRefresh = modifier_item_devastator_slow_movespeed.OnCreated

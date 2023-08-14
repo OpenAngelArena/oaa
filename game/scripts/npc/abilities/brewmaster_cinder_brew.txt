@@ -32,27 +32,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"
+      "01"
       {
-        "value"                                           "5"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
-      "total_damage"
+      "02"
       {
-        "value"                                           "80 160 240 320 640 960"
+        "var_type"                                        "FIELD_INTEGER"
+        "total_damage"                                    "80 160 240 320 640 960"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
-      "movement_slow"                                     "24 28 32 36 40 44"
-      "radius"
+      "03"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "24 28 32 36 40 44"
       }
-      "extra_duration"                                    "3"
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "extra_duration"                                  "3"
+      }
     }
   }
 }

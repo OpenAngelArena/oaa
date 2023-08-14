@@ -28,25 +28,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "base_damage"                                       "200 350 500 950 1400" //OAA
-      "radius"
+      "01"
       {
-        "value"                                           "400 500 600 700 800"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage"                                     "200 350 500 950 1400" //OAA
       }
-      "cast_range"                                        "700" // same as AbilityCastRange
-      "damage_multiplier"
+      "02"
       {
-        "value"                                           "0.4"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400 500 600 700 800"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cast_range"                                      "700"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_multiplier"                               "0.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_outworld_devourer_4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "illusion_bonus_damage"                             "200"
-      "debuff_duration"                                   "7"
-      "percentage_damage"                                 "100"
-      "percentage_heal"                                   "150"
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "illusion_bonus_damage"                           "200"
+      }
     }
   }
 }

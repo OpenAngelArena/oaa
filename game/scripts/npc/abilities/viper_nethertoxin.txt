@@ -26,26 +26,40 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "min_damage"
+      "01"
       {
-        "value"                                           "15 20 25 30 60 120"
+        "var_type"                                        "FIELD_INTEGER"
+        "min_damage"                                      "15 20 25 30 60 120"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_3"
       }
-      "max_damage"
+      "02"
       {
-        "value"                                           "50 75 100 125 250 500"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage"                                      "50 75 100 125 250 500"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_3"
       }
-      "max_duration"                                      "4"
-      "radius"
+      "03"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_duration"                                    "4"
       }
-      "duration"                                          "6.5 7 7.5 8 8 8"
-      "projectile_speed"                                  "2000"
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6.5 7 7.5 8 8 8"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "2000"
+      }
     }
   }
 }

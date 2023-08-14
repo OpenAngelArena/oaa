@@ -24,7 +24,7 @@ function StartingItems.GiveStartingItems (hero)
 
   -- We have a timer here so that the other stuff (e.g. courier) doesn't interfere
   Timers:CreateTimer(1.54, function ()
-    if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
+    if hero:IsTempestDouble() or hero:IsClone() then
       return
     end
     -- Add starting items

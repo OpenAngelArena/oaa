@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5687"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA, Valve has ABILITY_NOT_LEARNABLE
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -28,16 +28,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "375"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "375"
       }
-      "bonus_speed"                                       "20"
-      "duration"                                          "0.8 1.2 1.6 2.0 2.1 2.2"
-      "only_affects_player_units"                         "1"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_speed"                                     "20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "1.1 1.6 2.1 2.6 2.7 2.8"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "only_affects_player_units"                       "1"
+      }
     }
   }
 }

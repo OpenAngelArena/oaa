@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8429"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -24,33 +24,56 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_range"                                       "125 200 275 350 425 500"
-      "acorn_shot_damage"
+      "01"
       {
-        "value"                                           "50 80 110 140 280 420"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_range"                                     "125 200 275 350 425 500"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "acorn_shot_damage"                               "50 80 110 140 280 420"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "base_damage_pct"
+      "03"
       {
-        "value"                                           "75"
+        "var_type"                                        "FIELD_INTEGER"
+        "base_damage_pct"                                 "75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bounce_count"
+      "04"
       {
-        "value"                                           "2 3 4 5 6 7"
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_count"                                    "3 4 5 6 7 8" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_acorn_shot_bounces"
       }
-      "bounce_range"
+      "05"
       {
-        "value"                                           "525"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_range"                                    "525"
       }
-      "debuff_duration"                                   "0.45"
-      "slow"                                              "100"
-      "bounce_delay"                                      "0.1"
-      "projectile_speed"                                  "2200"
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "0.45"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow"                                            "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bounce_delay"                                    "0.1"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_speed"                                "2200"
+      }
     }
   }
 }

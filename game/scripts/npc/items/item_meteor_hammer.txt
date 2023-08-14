@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "300"
+    "ItemCost"                                            "10"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -27,7 +27,7 @@
     "ItemResult"                                          "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_diadem;item_pers;item_crown"
+      "01"                                                "item_rod_of_atos;item_pers"
     }
   }
 
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4150"
+    "ItemCost"                                            "4160"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh;meteor hammer"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -73,9 +73,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "24 29 39 54 74" // vanilla: 8;
-      "bonus_strength"                                    "12 17 27 42 62" // vanila: 8;
-      "bonus_agility"                                     "12 17 27 42 62" // vanila: 8;
+      "bonus_intellect"                                   "24 29 39 54 74" // vanilla: 8; Rod of Atos: 24
+      "bonus_strength"                                    "12 17 27 42 62" // vanila: 8; Rod of Atos: 12
+      "bonus_agility"                                     "12 17 27 42 62" // vanila: 8; Rod of Atos: 12
       "bonus_health_regen"                                "6.5 9 12 15 18" // vanilla: 6.5
       "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0" // vanilla: 2.5
       "burn_dps_boss"                                     "200 400 600 800 1000"

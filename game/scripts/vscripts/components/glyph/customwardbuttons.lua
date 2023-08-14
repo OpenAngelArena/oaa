@@ -23,7 +23,7 @@ function CustomWardButtons:InitCustomWardCharges(hero)
     return
   end
 
-  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
+  if hero:IsTempestDouble() or hero:IsClone() then
     return
   end
 
@@ -106,7 +106,7 @@ end
 if IsServer() then
   function modifier_ui_custom_observer_ward_charges:OnCreated(kv)
     local parent = self:GetParent()
-    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    if parent:IsTempestDouble() or parent:IsClone() then
       self:Destroy()
       return
     end
@@ -149,7 +149,7 @@ end
 if IsServer() then
   function modifier_ui_custom_sentry_ward_charges:OnCreated(kv)
     local parent = self:GetParent()
-    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    if parent:IsTempestDouble() or parent:IsClone() then
       self:Destroy()
       return
     end

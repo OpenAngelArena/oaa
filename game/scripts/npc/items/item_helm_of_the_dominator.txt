@@ -60,21 +60,68 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_stats"                                       "6"
-      "bonus_armor"                                       "6"
-      "bonus_regen"                                       "6"
-      "health_min"                                        "1000"
-      "speed_base"                                        "380"
-      "bounty_gold"                                       "100"
-      "creep_bonus_damage"                                "25"
-      "creep_bonus_hp_regen"                              "12"
-      "creep_bonus_mp_regen"                              "4"
-      "creep_bonus_armor"                                 "4"
-      "model_scale"                                       "0"
-      "count_limit"                                       "1"
-      "creep_ability_level_increase"                      "0"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_stats"                                     "6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_regen"                                     "6"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_min"                                      "1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "speed_base"                                      "380"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bounty_gold"                                     "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_damage"                              "25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_hp_regen"                            "12"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_mp_regen"                            "4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_bonus_armor"                               "4"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "model_scale"                                     "0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "count_limit"                                     "1"
+      }
     }
   }
 }

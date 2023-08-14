@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6401"
+    "ItemCost"                                            "6476"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 2;monkey king bar 2"
@@ -54,12 +54,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"                                      "40 50 70 100 140"
-      "bonus_attack_speed"                                "35 45 55 65 75"
-      "bonus_chance"                                      "75"
-      "bonus_chance_damage"                               "70 100 160 250 370"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "40 50 70 100 140"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_speed"                              "35 45 55 65 75"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_chance"                                    "75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_chance_damage"                             "70 100 160 250 370"
+      }
     }
   }
 }

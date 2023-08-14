@@ -28,25 +28,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "4.0"
-      "heal_additive"    
+      "01"
       {
-        "value"                                           "30 35 40 45 90 180"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "heal_additive"                                   "30 35 40 45 90 180"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_5"
       }
-      "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5"
-      "shard_cooldown_reduction"
+      "03"
       {
-        "value"                                           "4.0"  
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_percentage"                                 "1.75 2.5 3.25 4 4.75 5.5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_cooldown_reduction"                        "4.0"
         "RequiresShard"                                   "1"
       }
-      "shard_splinter_range"
+      "05"
       {
-        "value"                                           "1200"  
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_splinter_range"                            "1200"
         "RequiresShard"                                   "1"
-        "affected_by_aoe_increase"                        "1"  
       }
     }
   }

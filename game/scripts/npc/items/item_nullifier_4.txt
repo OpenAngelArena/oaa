@@ -60,15 +60,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"                                      "55 75 115 175 255"
-      "bonus_armor"                                       "8 9 11 14 18"
-      "bonus_regen"                                       "6 9 12 15 18"
-      "mute_duration"                                     "4.0 4.25 4.5 4.75 5.0"
-      "projectile_speed"                                  "700 800 900 1000 1100"
-      "slow_pct"                                          "80"
-      "slow_interval_duration"                            "0.5"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "55 75 115 175 255"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 9 11 14 18"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_regen"                                     "6 9 12 15 18"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "mute_duration"                                   "4.0 4.25 4.5 4.75 5.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "700 800 900 1000 1100"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "80"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_interval_duration"                          "0.5"
+      }
     }
   }
 }

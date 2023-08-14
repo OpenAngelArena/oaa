@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastRange"                                    "750" //OAA
+    "AbilityCastRange"                                    "800" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,20 +35,16 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "15 14 13 12 11 10"
-        "special_bonus_shard"                             "-3"
+        "special_bonus_unique_marci_lunge_cooldown"       "-3"
       }
       "move_speed"                                        "2000" //OAA
       "min_jump_distance"                                 "150"
       "max_jump_distance" //OAA
       {
-        "value"                                           "750"
+        "value"                                           "800"
         "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_range"
       }
-      "landing_radius"
-      {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "landing_radius"                                    "275"
       "impact_damage"
       {
         "value"                                           "75 150 225 300 600 1200"
@@ -67,11 +63,7 @@
       "max_acceleration"                                  "6000.0"
       "vector_preview_radius"                             "100"
       "ally_buff_duration"                                "5.0"
-      "ally_movespeed_pct"
-      {
-        "value"                                           "25 30 35 40 45 50"
-        "special_bonus_unique_marci_lunge_movespeed"      "+10"
-      }
+      "ally_movespeed_pct"                                "25 30 35 40 45 50"
       "impact_position_offset"                            "64"
       "target_abort_distance"                             "700"
       "scepter_heal"

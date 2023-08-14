@@ -22,27 +22,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "mana_per_second"      
+      "01"
       {
-        "value"                                           "8 12 16 20 24 28"
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_per_second"                                 "8 12 16 20 24 28"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_4"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "LinkedSpecialBonusField"                         "value"
       }
-      "radius"          
+      "02"
       {
-        "value"                                           "500 550 600 650 700 750"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500 550 600 650 700 750"
       }
-      "heal"            
+      "03"
       {
-        "value"                                           "10 22 34 46 92 184"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal"                                            "10 22 34 46 92 184"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "heal_interval"                                     "0.33"
-      "enemy_damage_pct"                                  "100"
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_interval"                                   "0.33"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_damage_pct"                                "100"
+      }
     }
   }
 }

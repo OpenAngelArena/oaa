@@ -32,11 +32,7 @@
     "AbilityValues"
     {
       "mana_cost_per_second"                              "30 50 70 90 110" //OAA
-      "radius"
-      {
-        "value"                                           "525"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "525"
       "damage" //OAA
       {
         "value"                                           "100 150 200 350 600"

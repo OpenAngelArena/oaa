@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "1100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                                          "item_spirit_vessel_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_urn_of_shadows;item_vitality_booster;item_crown;item_crown"
+      "01"                                                "item_urn_of_shadows;item_vitality_booster"
     }
   }
   //=================================================================================================================
@@ -44,7 +44,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "AbilityCastRange"                                    "750 850 950 1050 1150"
+    "AbilityCastRange"                                    "950"
     "AbilityCooldown"                                     "7.0"
     "AbilitySharedCooldown"                               "urn"
 
@@ -67,7 +67,7 @@
     {
       "bonus_health"                                      "250 500 1000 1750 2750"
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "12 17 22 27 32"
+      "bonus_all_stats"                                   "2 10 15 20 25"
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"

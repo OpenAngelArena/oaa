@@ -54,7 +54,7 @@ function HeroKillXP:HeroDeathHandler(keys)
     killedHero = killedHero:GetCloneSource()
   end
 
-  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() or killedTeam == DOTA_TEAM_NEUTRALS or killedHero:IsSpiritBearOAA() then
+  if killedHero:IsReincarnating() or killedHero:IsTempestDouble() or killedTeam == DOTA_TEAM_NEUTRALS then
     return
   end
 

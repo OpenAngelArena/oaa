@@ -70,7 +70,7 @@ if IsServer() then
     local parent = self:GetParent()
 
     -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
-    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsSpiritBearOAA() then
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
       return
     end
 
@@ -113,7 +113,7 @@ if IsServer() then
     end
 
     -- Don't trigger for illusions, Spirit Bear and Tempest Doubles
-    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsSpiritBearOAA() then
+    if parent:IsIllusion() or not parent:IsRealHero() or parent:IsTempestDouble() then
       return
     end
 

@@ -36,11 +36,10 @@
     "AbilityValues"
     {
       "damage_tick_rate"                                  "0.2" // this tick rate is used for scepter burrowstrikes too
-      "sand_storm_radius" //OAA
+      "sand_storm_radius"
       {
         "value"                                           "425 500 575 650 675 700"
-        "special_bonus_unique_sand_king_3"                "+100"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_sand_king_3"                "+125"
       }
       "sand_storm_damage" //OAA
       {
@@ -48,10 +47,10 @@
         "special_bonus_unique_sand_king_2"                "20"
       }
       "fade_delay"                                        "1.0" //OAA
-      "scepter_explosion_radius_pct"
+      "scepter_explosion_radius"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+10"
+        "special_bonus_scepter"                           "+65"
       }
       "scepter_explosion_min_dist"
       {

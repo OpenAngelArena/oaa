@@ -44,11 +44,7 @@
         "special_bonus_unique_muerta_dead_shot_damage"    "+80"
       }
       "speed"                                             "2000"
-      "radius"
-      {
-        "value"                                           "100"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "100"
       "ricochet_radius_start"                             "115"
       "ricochet_radius_end"                               "115"
       "ricochet_distance_multiplier"                      "1.5"

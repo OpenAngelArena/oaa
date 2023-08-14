@@ -51,27 +51,31 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "ward_damage"
+      "01"
       {
-        "value"                                           "60 100 140 220 300"
+        "var_type"                                        "FIELD_INTEGER"
+        "ward_damage"                                     "75 100 125 200 275"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
       }
-      "ward_attack_range"
+      "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "700"
+        "ward_attack_range"                               "700"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
       }
-      "scepter_bounce_radius"
+      "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "650"
+        "scepter_bounce_radius"                           "650"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
-      "duration_tooltip"                                  "8" // same as AbilityChannelTime
+      "04" // same as AbilityChannelTime
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "duration_tooltip"                                "8"
+      }
     }
   }
 }

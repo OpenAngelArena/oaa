@@ -12,11 +12,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "buff_duration"                                     "10" //OAA
-      "health_regen"                                      "40" //OAA
-      "break_on_hero_damage"                              "1"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "buff_duration"                                   "10" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "health_regen"                                    "40" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "break_on_hero_damage"                            "1"
+      }
     }
   }
 }

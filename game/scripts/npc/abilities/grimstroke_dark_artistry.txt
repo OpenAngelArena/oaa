@@ -9,52 +9,72 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8000"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "0.6"
 
     "AbilityCooldown"                                     "11 9 7 5 5 5"
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "start_radius"
+      "01"
       {
-        "value"                                           "120"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "120"
       }
-      "end_radius"
+      "02"
       {
-        "value"                                           "160"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "160"
       }
-      "projectile_speed"                                  "2000"
-      "damage"
+      "03"
       {
-        "value"                                           "100 160 220 280 560 1120"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "2000"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 160 220 280 560 840"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
-      "bonus_damage_per_target"
+      "05"
       {
-        "value"                                           "20 30 40 50 100 150"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage_per_target"                         "20 30 40 50 100 200"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
       }
-      "movement_slow_pct"                                 "50 60 70 80 85 90"
-      "slow_duration"                                     "1.75"
-      "vision_duration"                                   "2.0"
-      "abilitycastrange"
+      "06"
       {
-        "value"                                           "1400"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow_pct"                               "50 60 70 80 80 80"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "1.75"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "2.0"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "abilitycastrange"                                ""
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_3"
       }
     }

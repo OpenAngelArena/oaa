@@ -19,8 +19,9 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100" //OAA
+    "AbilityCooldown"                                     "90" //OAA
     "AbilityCastPoint"                                    "0.4"
+    "AbilityCastRange"                                    "1200" //OAA, same as radius
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,11 +32,7 @@
     "AbilityValues"
     {
       "duration"                                          "5.0 5.5 6.0 6.5 7.0" //OAA
-      "radius"
-      {
-        "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "1200"
       "duration_scepter" //OAA
       {
         "value"                                           "6.0 6.5 7.0 7.5 8.0"

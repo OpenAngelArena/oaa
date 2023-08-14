@@ -41,44 +41,34 @@
         "value"                                           "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_morphling_8"
       }
-      "scepter_stat_steal" // unused
+      "scepter_stat_steal"
       {
-        "value"                                           "20"
+        "value"                                           "10"
         "RequiresScepter"                                 "1"
       }
-      "scepter_spell_amplify" // unused
+      "scepter_spell_amplify"
       {
         "value"                                           "25"
         "RequiresScepter"                                 "1"
       }
-      "scepter_attack_speed" // unused
+      "scepter_attack_speed"
       {
         "value"                                           "70"
         "RequiresScepter"                                 "1"
       }
-      "scepter_status_resist" // unused
+      "scepter_status_resist"
       {
         "value"                                           "40"
         "RequiresScepter"                                 "1"
       }
-      "scepter_additional_stats" // unused
+      "scepter_additional_stats"
       {
-        "value"                                           "20"
+        "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
-      "scepter_cooldown_reduction" // unused
+      "scepter_cooldown_reduction"
       {
         "value"                                           "0"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_illusion_outgoing"
-      {
-        "value"                                           "100"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_illusion_incoming"
-      {
-        "value"                                           "300"
         "RequiresScepter"                                 "1"
       }
     }

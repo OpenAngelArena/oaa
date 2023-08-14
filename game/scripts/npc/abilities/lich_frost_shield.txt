@@ -48,11 +48,7 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "interval"                                          "1"
-      "radius"
-      {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "600"
       "duration" //OAA
       {
         "value"                                           "5 5.5 6 6.5 7 8"

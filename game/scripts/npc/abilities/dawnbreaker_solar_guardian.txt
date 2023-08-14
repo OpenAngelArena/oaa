@@ -11,7 +11,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING" // Valve undocumented change
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
 
@@ -42,7 +42,6 @@
       {
         "value"                                           "500"
         "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_solar_guardian_radius"
-        "affected_by_aoe_increase"                        "1"
       }
       "base_damage" //OAA
       {

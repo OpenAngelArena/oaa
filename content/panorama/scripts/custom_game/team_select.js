@@ -1,4 +1,4 @@
-/* global $, Game, GameUI, DOTATeam_t, CustomNetTables */
+/* global $, Game, GameUI, DOTATeam_t */
 
 'use strict';
 
@@ -121,7 +121,7 @@ function FindOrCreatePanelForPlayer (playerId, parent) {
       $.DispatchEvent('DOTAShowTextTooltip', newPlayerPanel, `OAA Rating: ${Math.round(playerMmrValues[playerId])}`);
     }
   });
-
+  
   newPlayerPanel.SetPanelEvent('onmouseout', function () {
     $.DispatchEvent('DOTAHideTextTooltip', newPlayerPanel);
   });
@@ -288,11 +288,9 @@ function UpdateTimer () {
 
 function handleOAASettingsChange (t, key, kv) {
   if (key === 'player_mmr') {
-    if (typeof kv === 'object') {
-      Object.keys(kv).forEach((k) => {
-        playerMmrValues[k] = kv[k];
-      });
-    }
+    Object.keys(kv).forEach((k) => {
+      playerMmrValues[k] = kv[k]
+    });
   }
 
   OnTeamPlayerListChanged();

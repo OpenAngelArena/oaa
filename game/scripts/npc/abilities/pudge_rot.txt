@@ -20,38 +20,46 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "rot_radius"
+      "01"
       {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "rot_radius"                                      "250"
       }
-      "rot_tick"                                          "0.2"
-      "rot_slow"
+      "02"
       {
-        "value"                                           "-14 -20 -26 -32 -38 -44"
+        "var_type"                                        "FIELD_FLOAT"
+        "rot_tick"                                        "0.2"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rot_slow"                                        "-14 -20 -26 -32 -38 -44"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_4"
       }
-      "rot_damage"
+      "04"
       {
-        "value"                                           "30 60 90 120 240 480"
+        "var_type"                                        "FIELD_INTEGER"
+        "rot_damage"                                      "30 60 90 120 240 480"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_2"
       }
-      "scepter_rot_damage_bonus"
+      "05"
       {
-        "value"                                           "90"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_rot_damage_bonus"                        "90"
         "RequiresScepter"                                 "1"
       }
-      "scepter_rot_radius_bonus"
+      "06" // Valve Spring Breaking
       {
-        "value"                                           "200"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_rot_radius_bonus"                        "200"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
-      "scepter_rot_regen_reduction_pct"
+      "06"
       {
-        "value"                                           "20"
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_rot_regen_reduction_pct"                 "20"
         "RequiresScepter"                                 "1"
       }
     }

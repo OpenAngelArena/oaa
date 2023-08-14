@@ -12,9 +12,9 @@
     //"Ability13"                                           "special_bonus_unique_doom_2"
 
     "Ability14"                                           "special_bonus_unique_doom_5" // replaces special_bonus_unique_doom_9
-    //"Ability15"                                           "special_bonus_unique_doom_1"
+    //"Ability15"                                           "special_bonus_unique_doom_10"
 
-    //"Ability16"                                           "special_bonus_unique_doom_10"
+    //"Ability16"                                           "special_bonus_unique_doom_1"
     //"Ability17"                                           "special_bonus_unique_doom_11"
 
   // special_bonus_unique_doom_1 - "+{s:value}% Infernal Blade Damage"
@@ -23,10 +23,10 @@
   // special_bonus_unique_doom_4 - "+{s:value} Scorched Earth Damage"
   // special_bonus_unique_doom_5 - "+{s:value} Doom DPS"
   // special_bonus_unique_doom_6 - "+{s:value}% Scorched Earth Movement Speed"
-  // special_bonus_unique_doom_7 - "+{s:value}s Doom Duration"                     - unused
+  // special_bonus_unique_doom_7 - "+{s:value} Doom Duration"                     - unused
     // special_bonus_unique_doom_8 - "Permanent Scorched Earth"                     - bad against Rubick
   // special_bonus_unique_doom_9 - "-{s:value}s Scorched Earth Cooldown"          - useless if special_bonus_unique_doom_8 is used
-    // special_bonus_unique_doom_10 - "Doom applies Mute"
+  // special_bonus_unique_doom_10 - "-{s:bonus_AbilityCooldown}s Doom Cooldown"
     // special_bonus_unique_doom_11 - "Doom applies Break"
 
     "AttackRate"                                          "1.7" // 1.9

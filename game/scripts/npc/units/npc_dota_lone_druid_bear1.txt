@@ -21,7 +21,6 @@
     "Ability2"                                            "lone_druid_spirit_bear_demolish"     // Ability 2
     "Ability3"                                            "lone_druid_savage_roar_bear"         // Ability 3
     "Ability4"                                            "lone_druid_spirit_bear_entangle"     // Ability 4
-    "Ability5"                                            "lone_druid_spirit_bear_fetch"
 
     // Armor
     //----------------------------------------------------------------
@@ -30,15 +29,14 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "28"        // Damage range min.
-    "AttackDamageMax"                                     "28"        // Damage range max.
+    "AttackDamageMin"                                     "20"        // Damage range min.
+    "AttackDamageMax"                                     "20"        // Damage range max.
     "AttackRate"                                          "1.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.43"      // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
     "AttackRange"                                         "150"       // Range within a target can be attacked.
     "ProjectileModel"                                     ""          // Particle system model for projectile.
     "ProjectileSpeed"                                     "0"         // Speed of projectile.
-    "AttributePrimary"                                    "DOTA_ATTRIBUTE_ALL"
 
     // Bounds
     //----------------------------------------------------------------
@@ -72,6 +70,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"                            // Team name.
+    
+    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     //Inventory

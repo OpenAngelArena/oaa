@@ -10,11 +10,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "health_regen"                                      "8.0" //OAA
-      "buff_duration"                                     "20.0" //OAA
-      "tooltip_charges"                                   "3"
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "health_regen"                                    "8.0" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "20.0" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_charges"                                 "3"
+      }
     }
   }
 }

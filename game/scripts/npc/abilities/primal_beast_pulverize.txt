@@ -35,11 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "splash_radius"
-      {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "splash_radius"                                     "600"
       "interval"                                          "0.75"
       "ministun"                                          "0.2"
       "cast_range"                                        "200"

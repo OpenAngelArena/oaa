@@ -39,11 +39,7 @@
         "value"                                           "120 110 100 90 80"
         "special_bonus_scepter"                           "-30"
       }
-      "requiem_radius"
-      {
-        "value"                                           "1000"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "requiem_radius"                                    "1000"
       "requiem_reduction_ms"                              "-20 -25 -30 -35 -40"
       "requiem_reduction_mres"                            "-5 -10 -15 -20 -25"
       "requiem_slow_duration"
@@ -59,16 +55,8 @@
       }
       "requiem_reduction_radius"                          "700"
       "requiem_soul_conversion"                           "1"
-      "requiem_line_width_start"
-      {
-        "value"                                           "125"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "requiem_line_width_end"
-      {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "requiem_line_width_start"                          "125"
+      "requiem_line_width_end"                            "350"
       "requiem_line_speed"                                "700"
       "soul_death_release"                                "0.5"
       "requiem_heal_pct_scepter"
@@ -78,7 +66,7 @@
       }
       "requiem_damage_pct_scepter"
       {
-        "value"                                           "60"
+        "value"                                           "40"
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }

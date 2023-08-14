@@ -66,23 +66,53 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "blink_range"                                       "1200"
-      "blink_damage_cooldown"                             "3.0"
-      "blink_range_clamp"                                 "960"
-      "bonus_strength"                                    "25 35 50 70 95"
-      "radius"
+      "01"
       {
-        "value"                                           "800"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range"                                     "1200"
       }
-      "movement_slow"                                     "50 55 60 65 70"
-      "attack_slow"                                       "50 60 70 80 90"
-      "duration"                                          "6"
-      "damage_base"                                       "100 200 300 400 500"
-      "damage_pct_instant"                                "50"
-      "damage_pct_over_time"                              "100"
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blink_damage_cooldown"                           "3.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blink_range_clamp"                               "960"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_strength"                                  "25 35 50 70 95"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "800"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "50 55 60 65 70"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow"                                     "50 60 70 80 90"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "6"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_pct"                                      "150"
+      }
     }
   }
 }

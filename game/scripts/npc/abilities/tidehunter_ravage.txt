@@ -20,6 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "1250" //OAA, same as radius; to see the AoE when you hover over the ability
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -38,11 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "1250"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "1250"
       "speed"                                             "725"
       "duration"
       {

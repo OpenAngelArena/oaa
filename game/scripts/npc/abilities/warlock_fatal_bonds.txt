@@ -27,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -35,29 +35,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "count"
+      "01"
       {
-        "value"                                           "6"
+        "var_type"                                        "FIELD_INTEGER"
+        "count"                                           "6"
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_9"
       }
-      "damage_share_percentage"
+      "02"
       {
-        "value"                                           "12 16 20 24 26 28"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_share_percentage"                         "12 16 20 24 26 28"
         "LinkedSpecialBonus"                              "special_bonus_unique_warlock_5"
       }
-      "duration"                                          "25"
-      "search_aoe"
+      "03"
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "25.0"
       }
-      "imp_duration"                                      "15"
-      "imp_level"
+      "04"
       {
-        "value"                                           "1 2 3 4 5 6"
-        "special_bonus_shard"                             "+1"
+        "var_type"                                        "FIELD_FLOAT"
+        "search_aoe"                                      "700"
       }
     }
   }

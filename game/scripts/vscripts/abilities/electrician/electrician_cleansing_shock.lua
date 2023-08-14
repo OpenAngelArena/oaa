@@ -306,14 +306,12 @@ function modifier_electrician_cleansing_shock_enemy:OnCreated()
   local attack_slow = spell:GetSpecialValueFor("attack_slow")
 
   if IsServer() then
-    -- Attack speed slow is reduced with Status Resistance
+    self.moveSpeed = parent:GetValueChangedByStatusResistance(move_slow)
     self.attackSpeed = parent:GetValueChangedByStatusResistance(attack_slow)
   else
+    self.moveSpeed = move_slow
     self.attackSpeed = attack_slow
   end
-
-  -- Move speed slow is reduced with Slow Resistance
-  self.moveSpeed = move_slow --parent:GetValueChangedBySlowResistance(move_slow)
 
   local duration = self:GetDuration()
   self.moveSpeedChange = self.moveSpeed / ( duration / interval )

@@ -32,48 +32,76 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"
+      "01"
       {
-        "value"                                           "100 160 220 280 560 1120"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "100 160 220 280 560 1120"
         "LinkedSpecialBonus"                              "special_bonus_unique_snapfire_7"
       }
-      "blast_speed"                                       "3000"
-      "blast_width_initial"
+      "02"
       {
-        "value"                                           "225"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "3000"
       }
-      "blast_width_end"
+      "03"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_width_initial"                             "225"
       }
-      "debuff_duration"                                   "1.0"
-      "movement_slow_pct"                                 "100"
-      "attack_slow_pct"                                   "100"
-      "point_blank_range"                                 "450"
-      "point_blank_dmg_bonus_pct"                         "50.0"
-      "shard_knockback_distance"
+      "04"
       {
-        "value"                                           "250"
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_width_end"                                 "400"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "debuff_duration"                                 "1.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow_pct"                               "100"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_slow_pct"                                 "100"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "point_blank_range"                               "450"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "point_blank_dmg_bonus_pct"                       "50.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_knockback_distance"                        "250"
         "RequiresShard"                                   "1"
-        "affected_by_aoe_increase"                        "1"
       }
-      "shard_knockback_duration"
+      "11"
       {
-        "value"                                           "0.3"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_knockback_duration"                        "0.3"
         "RequiresShard"                                   "1"
       }
-      "shard_stun_duration"
+      "12"
       {
-        "value"                                           "1.4"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_stun_duration"                             "1.4"
         "RequiresShard"                                   "1"
       }
-      "shard_bonus_point_blank_dmg_pct"
+      "13"
       {
-        "value"                                           "85.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_bonus_point_blank_dmg_pct"                 "85.0"
         "RequiresShard"                                   "1"
       }
     }

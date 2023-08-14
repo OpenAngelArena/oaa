@@ -104,12 +104,7 @@ if IsServer() then
 
   function modifier_vengefulspirit_command_aura_oaa:OnRespawn(event)
     local parent = self:GetParent()
-    if not parent:HasScepter() or parent:IsIllusion() then
-      return
-    end
-
-    -- Stuff that shoudln't happen, here if this ability is put on other heroes
-    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    if not parent:HasScepter() or parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end
 

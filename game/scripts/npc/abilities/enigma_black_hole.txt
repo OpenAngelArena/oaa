@@ -38,11 +38,7 @@
         "value"                                           "100 150 200 400 600"
         "special_bonus_unique_enigma_6"                   "+50"
       }
-      "radius"
-      {
-        "value"                                           "420"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "420"
       "pull_speed"                                        "30"
       "tick_rate"                                         "0.1"
       "duration"                                          "4.0"
@@ -58,7 +54,6 @@
       {
         "value"                                           "1200"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
       "scepter_drag_speed" //OAA
       {

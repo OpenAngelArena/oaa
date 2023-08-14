@@ -27,11 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pull_radius"
-      {
-        "value"                                           "410"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "pull_radius"                                       "410"
       "polarity_damage" //OAA
       {
         "value"                                           "250 450 650 1050 1850"
@@ -51,7 +47,7 @@
       "stats_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+8"
+        "special_bonus_unique_magnus_reverse_polarity_stats"  "+6"
       }
     }
   }

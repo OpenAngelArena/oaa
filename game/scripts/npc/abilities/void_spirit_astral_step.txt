@@ -29,20 +29,16 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120" //OAA
+    "AbilityManaCost"                                     "150" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "170"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "170"
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "21 20 19 17 15"
+        "value"                                           "22 21 20 19 18"
         "special_bonus_unique_void_spirit_1"              "-4"
       }
       "min_travel_distance"                               "200"

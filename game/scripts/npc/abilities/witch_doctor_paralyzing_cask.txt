@@ -38,18 +38,14 @@
         "value"                                           "50 55 60 65 130 195"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "bounce_range"      
-      {  
-        "value"                                           "575"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "bounce_range"                                      "575"
       "bounces"
       {
         "value"                                           "2 4 6 8 10 12"
         "special_bonus_unique_witch_doctor_3"             "+2"
       }
       "speed"                                             "1200"
-      "bounce_delay"                                      "0.1"
+      "bounce_delay"                                      "0.3"
       "bounce_bonus_damage"
       {
         "value"                                           "10 15 20 25 50 75"

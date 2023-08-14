@@ -33,42 +33,79 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "arrow_speed"
+      "01"
       {
-        "value"                                           "2200"
-        "special_bonus_scepter"                           "+25%"
+        "var_type"                                        "FIELD_FLOAT"
+        "arrow_speed"                                     "2200"
       }
-      "arrow_width"
+      "02"
       {
-        "value"                                           "125"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_width"                                     "125"
       }
-      "arrow_range"                                       "3000"
-      "arrow_vision"
+      "03"
       {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_range"                                     "3000"
       }
-      "max_charge_time"
+      "04"
       {
-        "value"                                           "3.0"
-        "special_bonus_scepter"                           "-25%"
+        "var_type"                                        "FIELD_INTEGER"
+        "arrow_vision"                                    "350"
       }
-      "max_damage" //OAA
+      "05"
       {
-        "value"                                           "600 1200 1800 3600 5400"
-        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+150"
+        "var_type"                                        "FIELD_FLOAT"
+        "max_charge_time"                                 "3.0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_sharpshooter_speed"
       }
-      "recoil_distance"                                   "350"
-      "recoil_height"                                     "75"
-      "recoil_duration"                                   "0.4"
-      "max_slow_debuff_duration"                          "5.0"
-      "misfire_time"                                      "5.0"
-      "slow_move_pct"                                     "30 40 50 60 70"
-      "turn_rate"                                         "60"
-      "base_power"                                        "0.2"
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_damage"                                      "600 1200 1800 3600 5400" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "recoil_distance"                                 "350"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "recoil_height"                                   "75"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "recoil_duration"                                 "0.4"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "max_slow_debuff_duration"                        "5.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "misfire_time"                                    "5.0"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_move_pct"                                   "30 40 50 60 70"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "turn_rate"                                       "60"
+      }
+      "14"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_power"                                      "0.2"
+      }
     }
   }
 }

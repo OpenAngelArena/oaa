@@ -30,14 +30,13 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "16 15 14 13 12 11"
+        "value"                                           "15 14 13 12 12 12"
         "special_bonus_unique_underlord_5"                "-3"
       }
       "radius"
       {
         "value"                                           "425"
         "special_bonus_unique_underlord_8"                "+75"
-        "affected_by_aoe_increase"                        "1"
       }
       "wave_duration"
       {
@@ -54,7 +53,7 @@
       "burn_damage"
       {
         "value"                                           "1.5 2 2.5 3 4 5"
-        "special_bonus_unique_underlord_4"                "+0.8"
+        "special_bonus_unique_underlord_4"                "+1"
       }
       "burn_interval"                                     "1.0"
       "burn_duration"                                     "2.0"

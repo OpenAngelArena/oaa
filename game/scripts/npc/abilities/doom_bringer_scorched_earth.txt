@@ -32,29 +32,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_per_second"
+      "01"
       {
-        "value"                                           "20 35 50 65 130 260"
-        "special_bonus_unique_doom_4"                     "+15"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "20 35 50 65 130 260"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_4"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "600"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "600"
       }
-      "bonus_movement_speed_pct"
+      "03"
       {
-        "value"                                           "8 9 10 11 12 13"
-        "special_bonus_unique_doom_6"                     "+7"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed_pct"                        "8 9 10 11 12 13"
+        "LinkedSpecialBonus"                              "special_bonus_unique_doom_6"
       }
-      "heal_pct"
+      "04"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+60"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0 12.0 14.0 16.0 18.0 20.0"
       }
-      "duration"                                          "10.0 12.0 14.0 16.0 18.0 20.0"
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_hero"                                 "0"
+      }
     }
   }
 }

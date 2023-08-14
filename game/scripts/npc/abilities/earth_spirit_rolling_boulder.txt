@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 10 8 6 4 4" //OAA
+    "AbilityCooldown"                                     "16.0 12.0 8.0 4.0 4.0 4.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,34 +30,61 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "160"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "160"
       }
-      "speed"                                             "1000"
-      "rock_speed"                                        "1600"
-      "distance"
+      "02"
       {
-        "value"                                           "750.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "rock_speed"                                      "1600"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "distance"                                        "750.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_4"
       }
-      "rock_distance_multiplier"                          "2.0"
-      "delay"                                             "0.5"
-      "damage" //OAA
+      "05"
       {
-        "value"                                           "30 60 90 120 240 480"
+        "var_type"                                        "FIELD_FLOAT"
+        "rock_distance_multiplier"                        "2.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "0.5"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "30 60 90 120 240 480" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit"
       }
-      "stun_duration"
+      "08"
       {
-        "value"                                           "0.3 0.5 0.7 0.9 1.0 1.1"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.3 0.5 0.7 0.9 1.0 1.1"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_3"
       }
-      "rock_bonus_duration"                               "0.3 0.5 0.7 0.9 1.0 1.1"
-      "damage_str"                                        "100"
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "rock_bonus_duration"                             "0.3 0.5 0.7 0.9 1.0 1.1"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_str"                                      "100"
+      }
     }
   }
 }

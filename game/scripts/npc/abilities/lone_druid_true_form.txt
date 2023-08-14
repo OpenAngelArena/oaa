@@ -14,6 +14,10 @@
 
     "MaxLevel"                                            "5"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "100"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
@@ -24,21 +28,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_armor"                                       "8 10 12 14 16"
-      "bonus_hp" //OAA
+      "01"
       {
-        "value"                                           "500 1500 2500 5500 8500"
-        "special_bonus_unique_lone_druid_7"               "+1000"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "8 10 12 14 16"
       }
-      "base_attack_time"                                  "0"
-      "duration"                                          "40"
-      "transformation_time"                               "1.933"
-      "AbilityCooldown"
+      "02"
       {
-        "value"                                           "100"
-        "special_bonus_unique_lone_druid_8"               "-50%"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hp"                                        "500 1500 2500 5500 8500" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_lone_druid_7"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "base_attack_time"                                "1.7"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "40"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "transformation_time"                             "1.933"
       }
     }
   }

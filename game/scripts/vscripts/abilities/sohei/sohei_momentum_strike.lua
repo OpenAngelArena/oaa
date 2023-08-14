@@ -287,14 +287,25 @@ function modifier_sohei_momentum_strike_slow:IsStunDebuff()
 end
 
 function modifier_sohei_momentum_strike_slow:OnCreated()
-  --local parent = self:GetParent()
+  local parent = self:GetParent()
   local movement_slow = self:GetAbility():GetSpecialValueFor("movement_slow")
-  -- Move Speed Slow is reduced with Slow Resistance
-  self.slow = movement_slow -- parent:GetValueChangedBySlowResistance(movement_slow)
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
 end
 
 function modifier_sohei_momentum_strike_slow:OnRefresh()
-  self:OnCreated()
+  local parent = self:GetParent()
+  local movement_slow = self:GetAbility():GetSpecialValueFor("movement_slow")
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
 end
 
 function modifier_sohei_momentum_strike_slow:DeclareFunctions()

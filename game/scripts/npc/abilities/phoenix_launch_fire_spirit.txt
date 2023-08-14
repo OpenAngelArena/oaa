@@ -29,25 +29,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "hp_cost_perc"                                      "20"
-      "spirit_duration"                                   "20.0"
-      "spirit_speed"                                      "900"
-      "radius"
+      "01"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost_perc"                                    "20"
       }
-      "duration"                                          "4.0"
-      "attackspeed_slow"                                  "-80 -100 -120 -140 -280 -420"
-      "damage_per_second"
+      "02"
       {
-        "value"                                           "20 40 60 80 160 320"
+        "var_type"                                        "FIELD_FLOAT"
+        "spirit_duration"                                 "20.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spirit_speed"                                    "900"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attackspeed_slow"                                "-80 -100 -120 -140 -280 -420"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "20 40 60 80 160 320"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_3"
       }
-      "spirit_count"                                      "5"
-      "tick_interval"                                     "0.2"
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spirit_count"                                    "5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "1.0"
+      }
     }
   }
 }

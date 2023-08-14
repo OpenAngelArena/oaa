@@ -33,14 +33,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
+      "radius" //OAA
       {
-        "value"                                           "1250"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "1000"
+        "special_bonus_unique_gyrocopter_1_oaa"           "+200"
       }
       "max_attacks"
       {
-        "value"                                           "4 5 6 7 8 9"
+        "value"                                           "4 5 6 7 9 13"
         "special_bonus_unique_gyrocopter_2"               "+3"
       }
       "projectile_speed"                                  "800"
@@ -58,9 +58,7 @@
       {
         "value"                                           "700"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
-      "bonus_night_vision"                                "200"
     }
   }
 }

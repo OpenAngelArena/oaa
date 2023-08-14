@@ -21,17 +21,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "aftershock_range"
+      "01"
       {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "aftershock_range"                                "300"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
       }
-      "aftershock_damage"
+      "02"
       {
-        "value"                                           "70 100 130 160 320 640"
+        "var_type"                                        "FIELD_INTEGER"
+        "aftershock_damage"                               "70 100 130 160 320 640"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_6"
       }
     }

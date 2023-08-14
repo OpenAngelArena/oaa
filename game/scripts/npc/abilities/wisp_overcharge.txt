@@ -29,15 +29,15 @@
     {
       "bonus_attack_speed"                                "50 80 110 140 170 200" //OAA
       "bonus_spell_amp"                                   "8 10 12 14 18 22"
-      "hp_regen" // hp regen based on Io's max HP
+      "hp_regen"
       {
-        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
+        "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0" // hp regen based on Io's max HP
         "special_bonus_unique_wisp_10"                    "+0.2"
       }
       "duration"                                          "8"
-      "shard_bonus_slow_resistance"
+      "shard_bonus_spell_amp"
       {
-        "value"                                           "30"
+        "value"                                           "10"
         "RequiresShard"                                   "1"
       }
       "shard_bonus_spell_lifesteal"

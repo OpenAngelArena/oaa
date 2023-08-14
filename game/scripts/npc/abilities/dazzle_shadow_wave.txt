@@ -20,6 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -28,36 +29,50 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "AbilityCastRange"
+      "01"
       {
-        "value"                                           "800"
-        "special_bonus_unique_dazzle_shadow_wave_cast_range"  "+150"
+        "var_type"                                        "FIELD_INTEGER"
+        "bounce_radius"                                   "475"
       }
-      "bounce_radius"
+      "02"
       {
-        "value"                                           "475"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_radius"                                   "185"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage_radius"
+      "03"
       {
-        "value"                                           "185"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "max_targets"                                     "3 4 5 6 7 8"
       }
-      "max_targets"                                       "3 4 5 6 7 8"
-      "tooltip_max_targets_inc_dazzle"                    "4 5 6 7 8 9"
-      "damage" //OAA
+      "04"
       {
-        "value"                                           "80 120 160 200 400 800"
+        "var_type"                                        "FIELD_INTEGER"
+        "tooltip_max_targets_inc_dazzle"                  "4 5 6 7 8 9"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "80 120 160 200 400 800" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_2"
       }
-      "scepter_heal_pct"                                  "150"
-      "scepter_cd_increase"                               "2"
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_heal_pct"                                "150"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "scepter_cd_increase"                             "2"
+      }
     }
   }
 }

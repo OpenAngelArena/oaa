@@ -158,12 +158,10 @@ function modifier_pangolier_heartpiercer_oaa_debuff:OnCreated(keys)
     else
       parent:EmitSound("Hero_Pangolier.HeartPiercer.Proc.Creep")
     end
+    self.slow = parent:GetValueChangedByStatusResistance(slow_pct)
+  else
+    self.slow = slow_pct
   end
-  self.slow = slow_pct --parent:GetValueChangedBySlowResistance(slow_pct)
-end
-
-function modifier_pangolier_heartpiercer_oaa_debuff:OnRefresh()
-  self:OnCreated()
 end
 
 function modifier_pangolier_heartpiercer_oaa_debuff:DeclareFunctions()

@@ -23,24 +23,31 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "10"
+    "AbilityCooldown"                                     "12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40"
+    "AbilityManaCost"                                     "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "projectile_speed"                                  "1200"
-      "radius"
+      "01"
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1200"
       }
-      "quill_stacks"                                      "1"
-      "goo_stacks"                                        "2"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "700"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quill_stacks"                                    "2"
+      }
     }
   }
 }

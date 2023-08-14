@@ -30,21 +30,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "speed"                                             "1000.0"
-      "range"                                             "1000" //OAA
-      "splash_radius"
+      "01"
       {
-        "value"                                           "400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "1000" //OAA, Valve has 1000.0
+        "RequiresScepter"                                 "1"
       }
-      "tree_grab_radius"
+      "02"
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "1000" //OAA
+        "RequiresScepter"                                 "1"
       }
-      "interval"                                          "0.5"
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "splash_radius"                                   "400"
+        "RequiresScepter"                                 "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_grab_radius"                                "700"
+        "RequiresScepter"                                 "1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "interval"                                        "0.5"
+        "RequiresScepter"                                 "1"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "0"
+        "RequiresScepter"                                 "1"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
     }
   }
 }

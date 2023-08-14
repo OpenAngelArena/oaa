@@ -33,13 +33,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"                                            "90 180 270 360 720 1080"
-      "heal_per_second"                                   "15 25 35 45 90 180"
-      "total_heal_tooltip"                                "135 225 315 405 810 1620"
-      "duration"                                          "9.0"
-      "tick_rate"                                         "1.0"
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "90 180 270 360 720 1080"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "heal_per_second"                                 "11.0 22.0 33.0 44.0 99.0 154.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "total_heal_tooltip"                              "99 198 297 396 891 1386"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "9.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_rate"                                       "1.0"
+      }
     }
   }
 }

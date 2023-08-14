@@ -31,20 +31,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "400"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_7"
-        "affected_by_aoe_increase"                        "1"
       }
-      "damage"                                            "90 160 230 300 600 1200"
-      "movement_slow"                                     "25 35 45 55 65 75"
-      "attack_speed_slow"                                 "25 35 45 55 75 150"
-      "duration"
+      "02"
       {
-        "value"                                           "4.0"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "90 160 230 300 600 1200"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "25 35 45 55 65 75"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "attack_speed_slow"                               "25 35 45 55 75 150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "4.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_3"
       }
     }

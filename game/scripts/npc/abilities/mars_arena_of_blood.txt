@@ -35,23 +35,63 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "5 6 7 8 9"
-      "radius"
+      "01"
       {
-        "value"                                           "550"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5 6 7 8 9"
       }
-      "width"                                             "100"
-      "spear_damage"                                      "100 250 400 850 1600" //OAA
-      "formation_time"                                    "0.3"
-      "spear_distance_from_wall"                          "160"
-      "spear_attack_interval"                             "1"
-      "warrior_count"                                     "14"
-      "first_warrior_angle"                               "0.0"
-      "warrior_fade_min_dist"                             "350.0"
-      "warrior_fade_max_dist"                             "450.0"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "550"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "width"                                           "100"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_damage"                                    "100 250 400 850 1600" //OAA
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "formation_time"                                  "0.3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "spear_distance_from_wall"                        "160"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "spear_attack_interval"                           "1.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "warrior_count"                                   "14"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "first_warrior_angle"                             "0.0"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "warrior_fade_min_dist"                           "350.0"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "warrior_fade_max_dist"                           "450.0"
+      }
     }
   }
 }

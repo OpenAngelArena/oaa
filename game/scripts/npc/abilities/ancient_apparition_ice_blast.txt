@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0" //OAA
+    "AbilityCooldown"                                     "60.0 50.0 40.0 40.0 40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,26 +39,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius_min"
-      {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "radius_grow"
-      {
-        "value"                                           "50.0"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "radius_max"
-      {
-        "value"                                           "1000"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "path_radius"
-      {
-        "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius_min"                                        "275"
+      "radius_grow"                                       "50.0"
+      "radius_max"                                        "1000"
+      "path_radius"                                       "275"
       "frostbite_duration"                                "10 11 12 13 14"
       "dot_damage"
       {

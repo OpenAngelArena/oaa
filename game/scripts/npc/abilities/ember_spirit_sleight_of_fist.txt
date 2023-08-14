@@ -27,28 +27,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "250 350 450 550 600 650"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "250 350 450 550 550 550"
       }
-      "bonus_hero_damage"
+      "02"
       {
-        "value"                                           "45 80 115 150 300 600"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_hero_damage"                               "45 80 115 150 300 600"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "attack_interval"                                   "0.25"
-      "creep_damage_penalty"
+      "03"
       {
-        "value"                                           "0"
+        "var_type"                                        "FIELD_FLOAT"
+        "attack_interval"                                 "0.25"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_penalty"                            "0"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "AbilityCharges"
+      "05"
       {
-        "value"                                           ""
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_4"
       }
     }

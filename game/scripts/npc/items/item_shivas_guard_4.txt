@@ -44,6 +44,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "27"
     "AbilitySharedCooldown"                               "shivas"
+    "AbilityCastRange"                                    "900"
     "AbilityManaCost"                                     "175"
 
     "MaxUpgradeLevel"                                     "5"
@@ -60,24 +61,63 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_intellect"                                   "30 35 45 60 80"
-      "bonus_armor"                                       "10 12 15 19 24"
-      "aura_radius"                                       "1200"
-      "aura_attack_speed"                                 "-45 -60 -80 -105 -135"
-      "blast_damage"                                      "200 400 600 800 1000"
-      "blast_movement_speed"                              "-40 -45 -50 -55 -60"
-      "blast_debuff_duration"                             "4.0"
-      "blast_radius"
+      "01"
       {
-        "value"                                           "900"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_intellect"                                 "30 35 45 60 80"
       }
-      "blast_speed"                                       "400"
-      "hp_regen_degen_aura"                               "25"
-      "illusion_multiplier_pct"                           "150"
-      "mana_cost_tooltip"                                 "100 125 150 175 200"
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "10 12 15 19 24"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_radius"                                     "1200"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "aura_attack_speed"                               "-45 -60 -80 -105 -135"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_damage"                                    "200 400 600 800 1000"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_movement_speed"                            "-40 -45 -50 -55 -60"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "blast_debuff_duration"                           "4.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_radius"                                    "900"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "blast_speed"                                     "400"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_regen_degen_aura"                             "25"
+      }
+      "20" //OAA
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "mana_cost_tooltip"                               "100 125 150 175 200"
+      }
     }
   }
 }

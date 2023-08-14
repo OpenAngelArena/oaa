@@ -20,7 +20,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.5"
+    "AbilityCooldown"                                     "4.0"
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0.25"
 
@@ -37,14 +37,10 @@
       }
       "strength_damage"
       {
-        "value"                                           "60 90 120 150 180 210"
+        "value"                                           "60 80 100 120 140 160"
         "special_bonus_unique_centaur_4"                  "+40"
       }
-      "radius"
-      {
-        "value"                                           "220"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "220"
       "shard_str_pct"
       {
         "special_bonus_shard"                             "+15"

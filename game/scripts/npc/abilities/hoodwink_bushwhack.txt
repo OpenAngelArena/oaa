@@ -36,7 +36,6 @@
       {
         "value"                                           "265"
         "special_bonus_unique_hoodwink_bushwhack_radius"  "+135"
-        "affected_by_aoe_increase"                        "1"
       }
       "debuff_duration"                                   "1.25 1.5 1.75 2.0 2.1 2.2"
       "projectile_speed"                                  "1300"
@@ -44,7 +43,6 @@
       {
         "value"                                           "90 160 230 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_bushwhack_damage"
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"

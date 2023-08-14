@@ -32,39 +32,59 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "skewer_speed"                                      "900"
-      "range"
+      "01"
       {
-        "value"                                           "900 975 1050 1125 1200 1275"
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_speed"                                    "900"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "range"                                           "900 975 1050 1125 1200 1275"
         "LinkedSpecialBonus"                              "special_bonus_unique_magnus_3"
       }
-      "slow_pct"
+      "03"
       {
-        "value"                                           "20 30 40 50 60 70"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_pct"                                        "20 30 40 50 60 70"
       }
-      "skewer_radius"
+      "04"
       {
-        "value"                                           "145"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_radius"                                   "145"
       }
-      "slow_duration"                                     "3.25"
-      "skewer_damage"                                     "90 180 270 360 720 1080"
-      "tree_radius"
+      "05"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "3.25"
       }
-      "tool_attack_slow"                                  "20 30 40 50 60 70" //OAA, same as slow_pct
-      "skewer_cooldown" // unused
+      "06"
       {
-        "value"                                           "6"
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_damage"                                   "90 180 270 360 720 1080" //OAA, Valve's undocumented change
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tree_radius"                                     "200"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tool_attack_slow"                                "20 30 40 50 60 70" //OAA
+      }
+      "09" // unused
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "skewer_cooldown"                                 "6"
         "RequiresScepter"                                 "1"
       }
-      "skewer_manacost" // unused
+      "10" // unused
       {
-        "value"                                           "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "skewer_manacost"                                 "40"
         "RequiresScepter"                                 "1"
       }
     }

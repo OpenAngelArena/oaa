@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -31,20 +31,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "heal"
+      "01"
       {
-        "value"                                           "90 160 230 300 600 900"
+        "var_type"                                        "FIELD_INTEGER"
+        "heal"                                            "90 160 230 300 600 900"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "260"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "260"
         "LinkedSpecialBonus"                              "special_bonus_unique_omniknight_4"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

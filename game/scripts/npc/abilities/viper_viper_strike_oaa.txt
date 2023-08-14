@@ -40,17 +40,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6"
+      "duration"                                          "5"
       "damage"
       {
-        "value"                                           "70 150 230 470 710"
+        "value"                                           "80 160 240 480 720"
         "LinkedSpecialBonus"                              "special_bonus_unique_viper_2" // this works for now
       }
       "bonus_movement_speed"                              "-40 -60 -80 -80 -80"
-      "bonus_attack_speed"                                "-80 -120 -160 -200 -240"
+      "bonus_attack_speed"                                "-40 -60 -80 -180 -280"
       "talent_mana_cost_reduction"                        "50" // for talent: special_bonus_unique_viper_8
       "talent_cooldown_reduction"                         "50"// for talent: special_bonus_unique_viper_8
-      "projectile_speed"                                  "1500"
+      "projectile_speed"                                  "1200"
     }
   }
 }

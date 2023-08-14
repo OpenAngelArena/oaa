@@ -38,17 +38,9 @@
     {
       "charge_speed"                                      "1200"
       "chargeup_time"                                     "2.2"
-      "knockback_radius"
-      {
-        "value"                                           "190"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "knockback_radius"                                  "190"
       "max_distance"                                      "2000"
-      "knockback_distance"
-      {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "knockback_distance"                                "200"
       "knockback_damage"
       {
         "value"                                           "95 190 285 380 760 1520"

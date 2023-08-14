@@ -246,16 +246,28 @@ function modifier_pangolier_lucky_shot_oaa_slow_debuff:IsPurgable()
   return true
 end
 
-function modifier_pangolier_lucky_shot_oaa_slow_debuff:OnCreated()
-  --local parent = self:GetParent()
+function modifier_pangolier_lucky_shot_oaa_slow_debuff:OnCreated(event)
+  local parent = self:GetParent()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("slow")
-  -- Slow is reduced with Slow Resistance
-  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
 end
 
-function modifier_pangolier_lucky_shot_oaa_slow_debuff:OnRefresh()
-  self:OnCreated()
+function modifier_pangolier_lucky_shot_oaa_slow_debuff:OnRefresh(event)
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local movement_slow = ability:GetSpecialValueFor("slow")
+  if IsServer() then
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
+  else
+    self.slow = movement_slow
+  end
 end
 
 function modifier_pangolier_lucky_shot_oaa_slow_debuff:DeclareFunctions()

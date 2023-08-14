@@ -15,7 +15,7 @@ if IsServer() then
       return
     end
 
-    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end
 

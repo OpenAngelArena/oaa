@@ -25,6 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
+    "AbilityCharges"                                      "3"
     "AbilityChargeRestoreTime"                            "35"
 
     // Cost
@@ -33,29 +34,44 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "slow_movement_speed"
+      "01"
       {
-        "value"                                           "-12 -18 -24 -30 -36 -42"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed"                             "-12 -18 -24 -30 -36 -42"
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_5"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "400 425 450 475 475 475"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "400 425 450 475 475 475"
       }
-      "shrapnel_damage"
+      "03"
       {
-        "value"                                           "25 40 55 70 140 280"
+        "var_type"                                        "FIELD_INTEGER"
+        "shrapnel_damage"                                 "25 40 55 70 140 280"
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_1"
       }
-      "duration"                                          "10.0"
-      "damage_delay"                                      "1.2"
-      "slow_duration"                                     "2.0"
-      "AbilityCharges"
+      "04"
       {
-        "value"                                           "3"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "10.0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_delay"                                    "1.2"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "2.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "AbilityCharges"                                  ""
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_2"
       }
     }

@@ -34,33 +34,75 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "spawn_time"                                        "0.0"
-      "speed"                                             "1150"
-      "latch_duration"                                    "5"
-      "destroy_attacks"
+      "01"
       {
-        "value"                                           "6 6 9 9 12 12"
+        "var_type"                                        "FIELD_FLOAT"
+        "spawn_time"                                      "0.0"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "speed"                                           "850"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "latch_duration"                                  "5"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "destroy_attacks"                                 "6 6 9 9 12 12"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_4"
       }
-      "hero_attack_multiplier"                            "3"
-      "damage_per_second"
+      "05"
       {
-        "value"                                           "10 20 30 40 80 160"
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_attack_multiplier"                          "3"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "10 20 30 40 80 160"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_8"
       }
-      "enemy_vision_time"                                 "4"
-      "tick_interval"                                     "0.5"
-      "infection_search_radius"
+      "07"
       {
-        "value"                                           "1000"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "enemy_vision_time"                               "4"
       }
-      "pop_damage"                                        "120 200 280 360 720 1440"
-      "return_projectile_speed"                           "1150"
-      "latched_unit_offset"                               "130"
-      "latched_unit_offset_short"                         "95"
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "tick_interval"                                   "0.5"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "infection_search_radius"                         "1000"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "pop_damage"                                      "120 200 280 360 720 1440"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "return_projectile_speed"                         "1150"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset"                             "130"
+      }
+      "13"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "latched_unit_offset_short"                       "95"
+      }
     }
   }
 }

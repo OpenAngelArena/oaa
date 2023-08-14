@@ -31,33 +31,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "delay"                                             "4"
-      "stun_duration"
+      "01"
       {
-        "value"                                           "1.2 1.6 2.0 2.4 2.6 2.8"
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "4"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 2.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_6"
       }
-      "stun_radius"
+      "03"
       {
-        "value"                                           "360"
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_radius"                                     "360"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_7"
-        "affected_by_aoe_increase"                        "1"
       }
-      "shard_delay_reduction"
+      "04"
       {
-        "value"                                           "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_delay_reduction"                           "1"
         "RequiresShard"                                   "1"
       }
-      "shard_bramble_amount"
+      "05"
       {
-        "value"                                           "4"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_bramble_amount"                            "4"
         "RequiresShard"                                   "1"
       }
-      "shard_spawn_radius"
+      "06"
       {
-        "value"                                           "175"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_spawn_radius"                              "175"
         "RequiresShard"                                   "1"
       }
     }

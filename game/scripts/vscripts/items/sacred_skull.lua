@@ -286,7 +286,7 @@ if IsServer() then
       return
     end
 
-    -- Check if parent is a real hero (it's fine if it works on Spirit Bear)
+    -- Check if parent is a real hero
     if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end

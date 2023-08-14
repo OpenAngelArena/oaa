@@ -38,9 +38,22 @@
         "special_bonus_unique_antimage_4"                 "+20"
       }
       "duration"                                          "1.2"
-      "duration_illusion"                                 "4"
-      "outgoing_damage"                                   "-25"
-      "incoming_damage"                                   "100"
+      "shard_radius"
+      {
+        "special_bonus_shard"                             "+900"
+      }
+      "shard_spell_damage_reduction_pct"
+      {
+        "special_bonus_shard"                             "+10"
+      }
+      "shard_bonus_aura_range"
+      {
+        "special_bonus_shard"                             "+300"
+      }
+      "shard_bonus_spell_damage_reduction_pct"
+      {
+        "special_bonus_shard"                             "+30"
+      }
     }
   }
 }

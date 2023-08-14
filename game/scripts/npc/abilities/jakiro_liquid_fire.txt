@@ -29,24 +29,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "slow_attack_speed_pct" //OAA
+      "01"
       {
-        "value"                                           "-30 -40 -50 -60 -80 -100"
-        "special_bonus_unique_jakiro_4"                   "-100"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_attack_speed_pct"                           "-30 -40 -50 -60 -100 -140"
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_4"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "300"
       }
-      "damage" //OAA
+      "03"
       {
-        "value"                                           "20 30 40 50 100 200"
-        "special_bonus_unique_jakiro_8"                   "+12"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "20 30 40 50 100 200" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_8"
       }
-      "building_dmg_pct"                                  "75"
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER" // HAHA Valve forgot this
+        "building_dmg_pct"                                "75"
+      }
     }
   }
 }

@@ -32,31 +32,59 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "launch_radius"
+      "01"
       {
-        "value"                                           "1600"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "launch_radius"                                   "1600"
       }
-      "slow_radius"
+      "02"
       {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_radius"                                     "250"
       }
-      "speed"                                             "800"
-      "damage"                                            "120 180 240 300 600 1200"
-      "slow_duration"                                     "4.0"
-      "movement_speed_pct"                                "30 35 40 45 50 55" //OAA
-      "shot_vision"                                       "300"
-      "vision_duration"                                   "3.34"
-      "scepter_radius"
+      "03"
       {
-        "value"                                           "700"
+        "var_type"                                        "FIELD_INTEGER"
+        "speed"                                           "800"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "120 180 240 300 600 1200"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "slow_duration"                                   "4.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed_pct"                              "30 35 40 45 50 55" //OAA
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shot_vision"                                     "300"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "vision_duration"                                 "3.34"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
-      "creep_damage_pct"                                  "75"
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_damage_pct"                                "75"
+      }
     }
   }
 

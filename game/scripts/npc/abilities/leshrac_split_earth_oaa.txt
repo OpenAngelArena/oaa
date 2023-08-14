@@ -39,30 +39,45 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage"                                            "120 180 240 300 600 1200"
-      "delay"                                             "0.35"
-      "radius"
+      "01"
       {
-        "value"                                           "150 180 210 240 240 240"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "120 180 240 300 600 1200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "delay"                                           "0.35"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "150 180 210 240 240 240"
         "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_5"
-        "affected_by_aoe_increase"                        "1"
       }
-      "stun_duration"                                     "1.7"
-      "shard_extra_instances"
+      "04"
       {
-        "value"                                           "1"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.7"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_extra_instances"                           "1"
         "RequiresShard"                                   "1"
       }
-      "shard_extra_radius_per_instance"
+      "06"
       {
-        "value"                                           "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_extra_radius_per_instance"                 "40"
         "RequiresShard"                                   "1"
       }
-      "shard_interval"
+      "07"
       {
-        "value"                                           "5.0"
+        "var_type"                                        "FIELD_FLOAT"
+        "shard_interval"                                  "5.0"
         "RequiresShard"                                   "1"
       }
     }

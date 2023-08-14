@@ -35,11 +35,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "700"
       "spirits"
       {
         "value"                                           "8 16 24 24 24"
@@ -48,10 +44,10 @@
       "spirit_speed"                                      "525"
       "max_distance"                                      "2000"
       "give_up_distance"                                  "1200"
-      "min_damage"                                        "62 67 72 144 288" //OAA
-      "max_damage"                                        "67 72 77 154 308" //OAA
+      "min_damage"                                        "59 69 69 134 278" //OAA
+      "max_damage"                                        "64 74 74 154 298" //OAA
       "heal_percent"                                      "25"
-      "average_damage"                                    "64 69 74 149 298" //OAA, important for tooltip
+      "average_damage"                                    "62 72 72 144 288" //OAA, important for tooltip
       "ghost_spawn_rate"                                  "0.35"
       "scepter_movespeed_slow"
       {

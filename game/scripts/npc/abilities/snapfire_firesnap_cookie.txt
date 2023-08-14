@@ -53,11 +53,7 @@
       }
       "pre_land_anim_time"                                "0.14"
       "landing_gesture_duration"                          "0.6"
-      "impact_radius"
-      {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "impact_radius"                                     "300"
       "impact_damage"
       {
         "value"                                           "70 140 210 280 560 1120"

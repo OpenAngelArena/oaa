@@ -29,34 +29,37 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 105 120 135 150 165"
+    "AbilityManaCost"                                     "100 115 130 145 160 175"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "start_radius"
+      "01"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "start_radius"                                    "200"
       }
-      "end_radius"
+      "02"
       {
-        "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_radius"                                      "300"
       }
-      "end_distance"
+      "03"
       {
-        "value"                                           "600"
+        "var_type"                                        "FIELD_INTEGER"
+        "end_distance"                                    "600"
       }
-      "targets" //OAA
+      "04"
       {
-        "value"                                           "9"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" // this is Hex Breaks talent
+        "var_type"                                        "FIELD_INTEGER"
+        "targets"                                         "9" //OAA - ignore the error with LinkedSpecialBonus
+        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_7" // - this is Hex Breaks talent
       }
-      "damage"
+      "05"
       {
-        "value"                                           "140 200 260 320 640 1280"
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "140 200 260 320 640 1280"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_3"
       }
     }

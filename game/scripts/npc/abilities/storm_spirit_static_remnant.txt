@@ -31,19 +31,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "static_remnant_radius"                             "235"
-      "static_remnant_damage_radius"
+      "01"
       {
-        "value"                                           "300"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "static_remnant_radius"                           "235"
       }
-      "static_remnant_delay"                              "1.0"
-      "static_remnant_damage"
+      "02"
       {
-        "value"                                           "120 180 240 300 600 1200"
+        "var_type"                                        "FIELD_INTEGER"
+        "static_remnant_damage_radius"                    "300"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "static_remnant_delay"                            "1.0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "static_remnant_damage"                           "120 180 240 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_5"
       }
     }

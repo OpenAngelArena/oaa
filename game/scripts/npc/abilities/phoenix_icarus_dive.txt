@@ -29,33 +29,55 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "hp_cost_perc"                                      "15"
-      "dash_length"
+      "01"
       {
-        "value"                                           "1100 1200 1300 1400 1500 1600"
+        "var_type"                                        "FIELD_INTEGER"
+        "hp_cost_perc"                                    "15"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_length"                                     "1100 1200 1300 1400 1500 1600"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_4"
       }
-      "dash_width"
+      "03"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "dash_width"                                      "500"
       }
-      "hit_radius"
+      "04"
       {
-        "value"                                           "200"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "hit_radius"                                      "200"
       }
-      "burn_duration"                                     "4"
-      "damage_per_second"                                 "15 35 55 75 150 300"
-      "burn_tick_interval"                                "0.2"
-      "slow_movement_speed_pct"
+      "05"
       {
-        "value"                                           "16 19 22 25 28 31"
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_duration"                                   "4"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage_per_second"                               "15 35 55 75 150 300"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "burn_tick_interval"                              "1.0"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed_pct"                         "16 19 22 25 28 31"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_6"
       }
-      "dive_duration"                                     "2.0"
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "dive_duration"                                   "2.0"
+      }
     }
   }
 }

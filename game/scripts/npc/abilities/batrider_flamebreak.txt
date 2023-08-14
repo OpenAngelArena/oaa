@@ -50,23 +50,14 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "explosion_radius"
-      {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "collision_radius"
-      {
-        "value"                                           "100"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "explosion_radius"                                  "500"
+      "collision_radius"                                  "100"
       "stun_duration"                                     "0.5"
       "speed"                                             "1200"
       "knockback_distance"
       {
         "value"                                           "250"
         "special_bonus_unique_batrider_3"                 "+50"
-        "affected_by_aoe_increase"                        "1"
       }
       "knockback_height"                                  "100"
       "knockback_duration"                                "0.35"

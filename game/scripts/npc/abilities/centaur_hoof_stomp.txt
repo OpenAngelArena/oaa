@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5514"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
@@ -19,7 +19,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastPoint"                                    "0.5"
     "AbilityCooldown"                                     "12" //OAA
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
@@ -27,11 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "325"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "350"
       "stomp_damage"
       {
         "value"                                           "120 180 240 300 600 1200"
@@ -42,7 +38,6 @@
         "value"                                           "1.6 1.8 2.0 2.2 2.4 2.6"
         "special_bonus_unique_centaur_2"                  "+0.8"
       }
-      "windup_time"                                       "0.5"
     }
   }
 }

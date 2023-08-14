@@ -35,7 +35,6 @@
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "4.0"
-    "AbilitySharedCooldown"                               "cleavers"
     "AbilityTextureName"                                  "custom/battle_fury"
 
     //Spicy Parameters
@@ -54,20 +53,68 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "bonus_damage"                                      "65 85 115 155 205"
-      "bonus_health_regen"                                "7.5 11 14 17 20"
-      "bonus_mana_regen"                                  "2.75 3.0 3.5 4.25 5.25"
-      "cleave_damage_percent"                             "70 90 110 130 150" // Cleave against heroes
-      "cleave_damage_percent_creep"                       "40 60 80 100 120"
-      "quelling_bonus"                                    "10"
-      "quelling_bonus_ranged"                             "10" //OAA
-      "cleave_starting_width"                             "150"
-      "cleave_ending_width"                               "360"
-      "cleave_distance"                                   "650"
-      "upgraded_cleave_bonus"                             "25" // unused
-      "upgraded_damage_bonus"                             "15" // unused
+      "01"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "60 80 110 150 200"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_health_regen"                              "7.5 11 14 17 20"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "bonus_mana_regen"                                "2.75 3.0 3.5 4.25 5.25"
+      }
+      "04" // Cleave against heroes
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_damage_percent"                           "70 90 110 130 150"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_damage_percent_creep"                     "40 60 80 100 120"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quelling_bonus"                                  "15"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "quelling_bonus_ranged"                           "15" //OAA
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_starting_width"                           "150"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_ending_width"                             "360"
+      }
+      "10"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "cleave_distance"                                 "650"
+      }
+      "11"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "upgraded_cleave_bonus"                           "25"
+      }
+      "12"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "upgraded_damage_bonus"                           "15"
+      }
     }
   }
 }

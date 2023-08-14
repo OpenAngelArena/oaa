@@ -22,26 +22,33 @@
     "AbilityCastRange"                                    "475"
     "AbilityCastPoint"                                    "0.45"
 
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "11 10 9 8 8 8"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "70 85 100 115 130 145"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "AbilityCooldown"
+      "01"
       {
-        "value"                                           "11 10 9 8 8 8"
-        "special_bonus_unique_ogre_magi_5"                "-1"
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "1.2"
       }
-      "stun_duration"                                     "1.2"
-      "multicast_delay"                                   "0.6"
-
-      "fireblast_damage" //OAA
+      "02"
       {
-        "value"                                           "70 130 190 250 500 750"
-        "special_bonus_unique_ogre_magi_2"                "+250"
+        "var_type"                                        "FIELD_FLOAT"
+        "multicast_delay"                                 "0.6"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "fireblast_damage"                                "70 130 190 250 500 1000"
+        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi_2"
       }
     }
   }

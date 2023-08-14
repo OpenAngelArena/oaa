@@ -137,7 +137,6 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
-  self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 
   local parent = self:GetParent()
   -- Fix for illusions not getting 'modifier_tiny_grow'
@@ -162,7 +161,6 @@ function modifier_tiny_grow_oaa:OnRefresh()
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
-  self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
@@ -174,17 +172,22 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-    MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
 
 function modifier_tiny_grow_oaa:GetModifierPhysicalArmorBonus()
-  return self.bonus_armor or 0
+  if not self.bonus_armor then
+    return 0
+  end
+  return self.bonus_armor
 end
 
 -- function modifier_tiny_grow_oaa:GetModifierPreAttack_BonusDamage()
-  -- return self.bonus_damage or 0
+  -- if not self.bonus_damage then
+    -- return 0
+  -- end
+  -- return self.bonus_damage
 -- end
 
 function modifier_tiny_grow_oaa:GetModifierBaseAttack_BonusDamage()
@@ -211,7 +214,10 @@ end
 -- end
 
 function modifier_tiny_grow_oaa:GetModifierModelScale()
-  return self.model_scale or 0
+  if not self.model_scale then
+    return 0
+  end
+  return self.model_scale
 end
 
 if IsServer() then
@@ -235,10 +241,6 @@ if IsServer() then
       return value + ability:GetSpecialValueFor("bonus_toss_damage_oaa")
     end
     return value
-  end
-
-  function modifier_tiny_grow_oaa:GetModifierSlowResistance()
-    return self.slow_resist or 0
   end
 
   function modifier_tiny_grow_oaa:OnAbilityExecuted(event)

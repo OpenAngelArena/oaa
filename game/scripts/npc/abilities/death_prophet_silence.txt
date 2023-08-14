@@ -32,15 +32,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "450"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "450"
       }
-      "duration"                                          "3.0 4.0 5.0 6.0 6.5 7.0"
-      "projectile_speed"                                  "1200"
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "3.0 4.0 5.0 6.0 6.5 7.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "projectile_speed"                                "1200"
+      }
     }
   }
 }

@@ -36,20 +36,16 @@
     {
       "damage"
       {
-        "value"                                           "70 140 210 280 560 1120"
+        "value"                                           "70 140 210 280 560 840"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hero_shield"
+      "hero_stacks"
       {
-        "value"                                           "50 100 150 200 300 600"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+100"
+        "value"                                           "20"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+5"
       }
-      "duration"                                          "10"
-      "radius"
-      {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "duration"                                          "5"
+      "radius"                                            "500"
       "jump_duration"                                     "0.4"
       "jump_duration_gyroshell"                           "0.75"
       "jump_height"                                       "250"

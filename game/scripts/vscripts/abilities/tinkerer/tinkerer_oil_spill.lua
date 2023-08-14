@@ -190,11 +190,9 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     damage_amp = talent3:GetSpecialValueFor("value")
   end
 
-  -- Resistances and particle
+  -- Status resistance fix
   if IsServer() then
-    -- Move speed slow is reduced with Slow Resistance
-    -- move_speed_slow = parent:GetValueChangedBySlowResistance(move_speed_slow)
-    -- Attack speed slow is reduced with Status Resistance
+    move_speed_slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
     attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
     self.oil_drip = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
   end
@@ -247,11 +245,9 @@ function modifier_tinkerer_oil_spill_debuff:OnRefresh()
     damage_amp = talent3:GetSpecialValueFor("value")
   end
 
-  -- Resistances
+  -- Status resistance fix
   if IsServer() then
-    -- Move speed slow is reduced with Slow Resistance
-    -- move_speed_slow = parent:GetValueChangedBySlowResistance(move_speed_slow)
-    -- Attack speed slow is reduced with Status Resistance
+    move_speed_slow = parent:GetValueChangedByStatusResistance(move_speed_slow)
     attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
   end
 

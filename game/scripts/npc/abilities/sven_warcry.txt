@@ -29,36 +29,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "movespeed"
+      "01"
       {
-        "value"                                           "10 14 18 22 26 30"
+        "var_type"                                        "FIELD_INTEGER"
+        "movespeed"                                       "10 14 18 22 26 30"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_6"
       }
-      "bonus_armor"
+      "02"
       {
-        "value"                                           "6 9 12 15 18 21"
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_armor"                                     "6 9 12 15 18 21"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_7"
       }
-      "radius"
+      "03"
       {
-        "value"                                           "700"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "700"
       }
-      "duration"
+      "05"
       {
-        "value"                                           "10"
+        "var_type"                                        "FIELD_INTEGER"
+        "duration"                                        "10"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
       }
-      "shard_passive_armor" //OAA
+      "06"
       {
-        "value"                                           "3 4 5 6 8 12"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_passive_armor"                             "3 4 5 6 8 12" //OAA
         "RequiresShard"                                   "1"
       }
-      "shard_radius"
+      "07"
       {
-        "value"                                           "1200"
+        "var_type"                                        "FIELD_INTEGER"
+        "shard_radius"                                    "1200"
         "RequiresShard"                                   "1"
       }
     }

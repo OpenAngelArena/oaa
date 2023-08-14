@@ -41,11 +41,7 @@
         "special_bonus_scepter"                           "-0.2"
       }
       "beam_interval_scepter"                             "0.4" // OAA, purely for the tooltip Note, since the scepter tooltip doesn't show this.
-      "radius"
-      {
-        "value"                                           "675"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "675"
       "hit_count" //OAA
       {
         "value"                                           "6 9 12 15 18"

@@ -29,14 +29,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
-      "duration"                                          "11" //OAA
-      "bonus_movement_speed"                              "9 12 15 18 21"
-      "evasion"
+      "01"
       {
-        "value"                                           "20"
+        "var_type"                                        "FIELD_FLOAT"
+        "fade_delay"                                      "2.5 2.25 2.0 1.75 1.5" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "11.0" //OAA
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "9 12 15 18 21"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "evasion"                                         "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_mirana_5"
       }
     }

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "17"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,21 +32,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "duration"                                          "5 6 7 8 9 10"
-      "burn_damage"
+      "01"
       {
-        "value"                                           "20 30 40 50 100 150"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5 6 7 8 9 10"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "burn_damage"                                     "20 30 40 50 100 150"
         "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi_4"
       }
-      "slow_movement_speed_pct"                           "-20 -23 -26 -29 -32 -35"
-      "projectile_speed"                                  "1000"
-      "multicast_delay"                                   "0.6"
-      "ignite_multicast_aoe"
+      "03"
       {
-        "value"                                           "1400"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "slow_movement_speed_pct"                         "-30 -32 -34 -36 -38 -40" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "1000"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "multicast_delay"                                 "0.6"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER" // Valve has FIELD_INT instead of FIELD_INTEGER
+        "ignite_multicast_aoe"                            "1400"
       }
     }
   }

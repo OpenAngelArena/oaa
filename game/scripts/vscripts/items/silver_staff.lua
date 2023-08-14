@@ -18,6 +18,7 @@ function item_silver_staff:OnSpellStart()
 
   -- Apply debuff (duration is not affected by status resistance)
   local debuff_duration = self:GetSpecialValueFor("duration")
+  --debuff_duration = target:GetValueChangedByStatusResistance(debuff_duration)
   target:AddNewModifier(caster, self, "modifier_item_silver_staff_debuff", {duration = debuff_duration})
 
   -- Sound

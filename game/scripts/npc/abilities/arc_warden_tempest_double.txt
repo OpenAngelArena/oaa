@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5683"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
@@ -18,7 +18,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.15"
-    "AbilityCastRange"                                    "700"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,17 +33,13 @@
         "special_bonus_unique_arc_warden_6"               "+12"
       }
       "bounty"                                            "180 240 300 750 1500"
-      "penalty_distance"
-      {
-        "value"                                           "2000"
-        "affected_by_aoe_increase"                        "1" // Valve lmao
-      }
+      "penalty_distance"                                  "2000"
       "ignore_penalty_distance"
       {
         "value"                                           "0"
         "special_bonus_unique_arc_warden_8"               "+1"
       }
-      "attack_damage_penalty"                             "50"
+      "attack_damage_penalty"                             "50" // Valve I think special_bonus_unique_arc_warden_8 is missing here
       "tempest_double_cooldown_reduction" //OAA
       {
         "value"                                           "0"

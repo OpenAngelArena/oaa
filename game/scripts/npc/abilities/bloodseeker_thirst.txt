@@ -17,21 +17,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "min_bonus_pct"                                     "80"
-      "bonus_movement_speed"
+      "01"
       {
-        "value"                                           "16 24 32 40 44 48"
+        "var_type"                                        "FIELD_INTEGER"
+        "min_bonus_pct"                                   "80"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_movement_speed"                            "16 24 32 40 44 48"
         "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_4"
       }
-      "hero_kill_heal"                                    "10 15 20 25 30 35"
-      "creep_kill_heal"                                   "8 12 16 20 24 28"
-      "half_bonus_aoe"                                    "300"
-      "max_bonus_pct"                                     "25"
-      "visibility_threshold_pct"                          "25"
-      "invis_threshold_pct"                               "25"
-      "linger_duration"                                   "4.0"
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "hero_kill_heal"                                  "10 15 20 25 30 35"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "creep_kill_heal"                                 "11 14 17 20 23 26"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "half_bonus_aoe"                                  "300"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "max_bonus_pct"                                   "25"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "visibility_threshold_pct"                        "25"
+      }
+      "08"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "invis_threshold_pct"                             "25"
+      }
+      "09"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "linger_duration"                                 "4.0"
+      }
     }
   }
 }

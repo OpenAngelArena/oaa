@@ -33,25 +33,34 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "radius"
+      "01"
       {
-        "value"                                           "170"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "170"
       }
-      "duration"                                          "2.0"
-      "damage" //OAA
+      "02"
       {
-        "value"                                           "800 1250 1700 3050 4400"
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "2.0"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "damage"                                          "800 1250 1700 3050 4400" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_skywrath_5"
       }
-      "damage_interval"                                   "0.1"
-      "scepter_radius"
+      "04"
       {
-        "value"                                           "700"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "0.1"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "scepter_radius"                                  "700"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

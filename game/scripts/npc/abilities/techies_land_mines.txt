@@ -36,11 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"
-      {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "500"
       "proximity_threshold"                               "1.0"
       "damage" //OAA
       {

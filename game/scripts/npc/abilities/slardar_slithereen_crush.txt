@@ -20,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.25"
+    "AbilityCastPoint"                                    "0.35"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -34,11 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crush_radius"
-      {
-        "value"                                           "350"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "crush_radius"                                      "350"
       "crush_extra_slow"
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
@@ -54,19 +50,18 @@
       }
       "puddle_duration"
       {
-        "value"                                           "7"
-        "special_bonus_scepter"                           "+18"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_scepter"                           "+19"
       }
       "puddle_radius"
       {
         "value"                                           "250"
         "special_bonus_scepter"                           "+350"
-        "affected_by_aoe_increase"                        "1"
       }
-      "crush_damage" //OAA
+      "crush_damage"
       {
         "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_slardar"                    "+300"
+        "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
       }
       "shard_amp_duration"
       {
@@ -77,7 +72,6 @@
       {
         "value"                                           "75"
         "RequiresShard"                                   "1"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -36,19 +36,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "num_explosions"
+      "01"
       {
-        "value"                                           "40"
+        "var_type"                                        "FIELD_INTEGER"
+        "num_explosions"                                  "40"
         "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_1"
       }
-      "radius"
+      "02"
       {
-        "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "500"
       }
-      "tower_bonus"                                       "0"
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "tower_bonus"                                     "0"
+      }
     }
   }
 }

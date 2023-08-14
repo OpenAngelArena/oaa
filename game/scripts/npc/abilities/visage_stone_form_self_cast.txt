@@ -28,18 +28,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "stun_radius"
+      "01"
       {
-        "value"                                           "375"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_radius"                                     "375"
       }
-      "stun_delay"                                        "0.55"
-      "stun_damage"                                       "60 140 220 460 700" //OAA
-      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
-      "stone_duration"                                    "6.0"
-      "hp_regen"                                          "150 175 200 300 400"
+      "02"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_delay"                                      "0.55"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "stun_damage"                                     "60 140 220 460 700" //OAA
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.6"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "stone_duration"                                  "6.0"
+      }
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "hp_regen"                                        "150 175 200 300 400"
+      }
     }
   }
 }

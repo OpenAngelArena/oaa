@@ -552,9 +552,8 @@ end
 
 function modifier_sohei_dash_slow:OnCreated()
   local parent = self:GetParent()
-  local ability = self:GetAbility()
-  local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
-  local attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
+  local movement_slow = self:GetAbility():GetSpecialValueFor("move_speed_slow_pct")
+  local attack_slow = self:GetAbility():GetSpecialValueFor("attack_speed_slow")
 
   -- Talent that increases the slow amount
   local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
@@ -563,13 +562,13 @@ function modifier_sohei_dash_slow:OnCreated()
   end
 
   if IsServer() then
-    -- Attack Speed Slow is reduced with Status Resistance
+    -- Slow is reduced with Status Resistance
+    self.slow = parent:GetValueChangedByStatusResistance(movement_slow)
     self.attack_speed = parent:GetValueChangedByStatusResistance(attack_slow)
   else
+    self.slow = movement_slow
     self.attack_speed = attack_slow
   end
-  -- Move Speed Slow is reduced with Slow Resistance
-  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
 end
 
 function modifier_sohei_dash_slow:OnRefresh()

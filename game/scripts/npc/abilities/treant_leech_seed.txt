@@ -30,27 +30,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_interval"                                   "1"
-      "leech_damage" //OAA
+      "01"
       {
-        "value"                                           "20 40 60 80 160 320"
+        "var_type"                                        "FIELD_FLOAT"
+        "damage_interval"                                 "1"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "leech_damage"                                    "20 40 60 80 160 320" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_2"
       }
-      "movement_slow" //OAA
+      "03"
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_slow"                                   "-15 -20 -25 -30 -35 -40" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_3"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "radius"
+      "05"
       {
-        "value"                                           "650"
-        "affected_by_aoe_increase"                        "1"
+        "var_type"                                        "FIELD_INTEGER"
+        "radius"                                          "650"
       }
-      "duration"                                          "5.0"
-      "projectile_speed"                                  "450"
+      "06"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "duration"                                        "5.0"
+      }
+      "07"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "projectile_speed"                                "450"
+      }
     }
   }
 }

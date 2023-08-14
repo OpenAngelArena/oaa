@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "18 16 14 12 12 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,23 +33,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "lifesteal_pct"
+      "01"
       {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_unique_marci_guardian_lifesteal"   "+10"
+        "var_type"                                        "FIELD_FLOAT"
+        "buff_duration"                                   "7"
       }
-      "bonus_damage" //OAA
+      "02"
       {
-        "value"                                           "6 12 18 24 48 96"
-        "special_bonus_unique_marci_guardian_damage"      "+65"
+        "var_type"                                        "FIELD_FLOAT"
+        "lifesteal_pct"                                   "20 25 30 35 40 45" //OAA
+        "LinkedSpecialBonus"                              "special_bonus_unique_marci_guardian_lifesteal"
       }
-      "bonus_attack_range"                                "0"
-      "nearest_ally_search_range"                         "700"
-      "max_partner_distance"                              "2500"
-      "max_partner_penalty"                               "50"
-      "creep_lifesteal_reduction_pct"                     "40"
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_damage"                                    "20 35 50 65 95 155"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_attack_range"                              "0"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "nearest_ally_search_range"                       "700"
+      }
     }
   }
 }

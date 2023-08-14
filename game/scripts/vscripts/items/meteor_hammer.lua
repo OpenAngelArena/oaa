@@ -182,34 +182,37 @@ function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
 end
 
 function modifier_item_meteor_hammer_oaa_dot:OnCreated()
-  local parent = self:GetParent()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   if IsServer() then
+    local enemy = self:GetParent()
     local caster = self:GetCaster()
 
     self.burn_dps = ability:GetSpecialValueFor("burn_dps")
     self.burn_dps_boss = ability:GetSpecialValueFor("burn_dps_boss")
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
 
+    -- Slow is reduced with Status Resistance
+    self.slow = enemy:GetValueChangedByStatusResistance(movement_slow)
+
     local damage_table = {
-      victim = parent,
+      victim = enemy,
       attacker = caster,
       damage = self.burn_dps * self.burn_interval,
       damage_type = DAMAGE_TYPE_MAGICAL,
       ability = ability,
     }
 
-    if parent:IsOAABoss() then
+    if enemy:IsOAABoss() then
       damage_table.damage = self.burn_dps_boss * self.burn_interval
     end
 
     ApplyDamage(damage_table)
 
     self:StartIntervalThink(self.burn_interval)
+  else
+    self.slow = movement_slow
   end
-  -- Move Speed Slow is reduced with Slow Resistance
-  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
 end
 
 function modifier_item_meteor_hammer_oaa_dot:OnIntervalThink()
