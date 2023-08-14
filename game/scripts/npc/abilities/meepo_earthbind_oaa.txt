@@ -33,34 +33,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "1.0" // net duration increases/stacks, does not refresh
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.0 1.25 1.5 1.75 2.0 2.25" // net duration increases/stacks, does not refresh
+        "value"                                           "220"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "speed"                                             "900"
+      "megameepo_net_offset"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "220"
+        "value"                                           "160"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "abilitycastrange"                                "500 750 1000 1250 1500 1750"
-        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_4"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_point_tooltip"                              "0.3 0.25 0.2 0.15 0.1 0"
-      }
+      "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0"
     }
   }
 }

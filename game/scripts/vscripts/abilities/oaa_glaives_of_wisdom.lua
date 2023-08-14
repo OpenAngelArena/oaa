@@ -15,14 +15,14 @@ end
 
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
-  local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  if talent and talent:GetLevel() > 0 then
-    pierce_bkb = true
-  end
+  --local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  --if talent and talent:GetLevel() > 0 then
+    --pierce_bkb = true
+  --end
 
   if pierce_bkb and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     return UF_SUCCESS
@@ -68,12 +68,15 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Number of bounces left (Data of the current projectile is read-only !!!)
   local bounces_left = data.bounces_left
 
+  -- Does this glaive silences?
+  local do_silence = data.silence == 1
+
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  if talent2 and talent2:GetLevel() > 0 then
-    pierce_bkb = true
-  end
+  --local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  --if talent2 and talent2:GetLevel() > 0 then
+    --pierce_bkb = true
+  --end
 
   -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
   if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
@@ -93,6 +96,11 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
         caster:AddNewModifier(caster, self, "modifier_oaa_glaives_buff", {duration = intStealDuration})
       end
     end
+  end
+
+  -- Shard silence on glaive bounce
+  if do_silence then
+    target:AddNewModifier(caster, self, "modifier_oaa_glaives_shard_silence", {duration = self:GetSpecialValueFor("shard_silence_duration")})
   end
 
   -- Damage table of the bounced projectile (physical part)
@@ -160,7 +168,8 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
             ExtraData = {
               bounces_left = bounces_left - 1,
               physical_damage = bounce_damage,
-              spell_damage = glaives_damage
+              spell_damage = glaives_damage,
+              silence = data.silence,
             }
           }
 
@@ -372,15 +381,15 @@ if IsServer() then
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity
       local pierce_bkb = false
-      local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-      if talent2 and talent2:GetLevel() > 0 then
-        pierce_bkb = true
-      end
+      --local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+      --if talent2 and talent2:GetLevel() > 0 then
+        --pierce_bkb = true
+      --end
 
       --if parent:HasScepter() and target:IsSilenced() then
         --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
       --end
-
+      local silence_on_bounce = 0
       if parent:HasShardOAA() then
         if not self.number_of_attacks then
           self.number_of_attacks = 0
@@ -391,6 +400,7 @@ if IsServer() then
         local number = ability:GetSpecialValueFor("shard_attacks_for_silence")
         if self.number_of_attacks > 0 and (self.number_of_attacks % number == 0) then
           target:AddNewModifier(parent, ability, "modifier_oaa_glaives_shard_silence", {duration = ability:GetSpecialValueFor("shard_silence_duration")})
+          silence_on_bounce = 1
         end
       end
 
@@ -477,7 +487,8 @@ if IsServer() then
                 ExtraData = {
                   bounces_left = number_of_bounces - 1,
                   physical_damage = event.damage,
-                  spell_damage = bonusDamage
+                  spell_damage = bonusDamage,
+                  silence = silence_on_bounce,
                 }
               }
 

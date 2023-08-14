@@ -36,8 +36,16 @@
     "AbilityValues"
     {
       "duration"                                          "1.4"
-      "grab_radius"                                       "300"
-      "radius"                                            "275"
+      "grab_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_damage_pct"                                  "0"
       "toss_damage"
       {

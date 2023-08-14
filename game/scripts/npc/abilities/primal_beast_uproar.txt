@@ -33,12 +33,16 @@
       "slow_duration"                                     "3.0"
       "damage_min"                                        "20"
       "damage_max"                                        "2000"
-      "radius"                                            "900"
+      "radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
       "roared_bonus_attack_speed"                         "0"
       "roared_bonus_armor"
       {
         "value"                                           "2 3 4 5 6 7"
-        "special_bonus_unique_primal_beast_uproar_armor"  "+6"
+        "special_bonus_unique_primal_beast_uproar_armor"  "+7"
       }
       "roar_duration"                                     "7"
       "should_dispell"

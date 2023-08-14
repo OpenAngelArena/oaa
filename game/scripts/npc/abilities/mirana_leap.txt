@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5050"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES "
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve has extra space
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "30 28 26 24 22 20" //OAA
+    "AbilityChargeRestoreTime"                            "31 30 29 28 27 26" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -46,11 +46,13 @@
       {
         "value"                                           "300"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_radius_end"
       {
         "value"                                           "450"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_damage" //OAA
       {

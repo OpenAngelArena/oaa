@@ -52,6 +52,7 @@
       {
         "value"                                           "300"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
+        "affected_by_aoe_increase"                        "1"
       }
       "scepter_height"                                    "950"
       "scepter_height_arcbuffer"                          "100"
@@ -78,7 +79,7 @@
         "value"                                           "650"
         "RequiresScepter"                                 "1"
       }
-      "bonus_attack_range"                                "75"
+      "bonus_attack_range"                                "100"
     }
   }
 }

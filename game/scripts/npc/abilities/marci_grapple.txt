@@ -36,11 +36,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "landing_radius"                                    "300"
+      "landing_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "air_duration"                                      "0.5"
       "air_height"                                        "150"
       "pull_offset"                                       "75"
-      "throw_distance_behind" 
+      "throw_distance_behind"
       {
         "value"                                           "250"
         "special_bonus_unique_marci_dispose_range"        "+350"

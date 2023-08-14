@@ -30,34 +30,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "duration"                                          "30.0"
+      "strike_interval"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "strike_interval"                                 "0.7 0.6 0.5 0.4 0.4"
+        "value"                                           "0.7 0.6 0.5 0.4 0.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_razor_2"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "1" // hardcoded
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 90 120 210 360" //OAA
-      }
+      "armor_reduction"                                   "1" // hardcoded
+      "damage"                                            "60 90 120 210 360" //OAA
     }
   }
 }

@@ -187,6 +187,7 @@ function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location, 
   end
   unit:SetControllableByPlayer(caster:GetPlayerID(), false)
   unit:SetOwner(caster)
+  unit:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
 end
 
 -- function item_trusty_shovel_oaa:GetCreepProperties(creepHandle)

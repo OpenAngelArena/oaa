@@ -33,7 +33,11 @@
     "AbilityValues"
     {
       "healing_ward_heal_amount"                          "2 3 4 5 6 7"
-      "healing_ward_aura_radius"                          "400"
+      "healing_ward_aura_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "healing_ward_movespeed_tooltip"
       {
         "value"                                           "325"

@@ -41,59 +41,42 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "health_cost_percent"                               "0.32 0.38 0.44 0.5 0.56"
+      "health_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_cost_percent"                             "0.32 0.38 0.44 0.5 0.56"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_damage"                                   "0.32 0.38 0.44 0.5 0.56"
+        "value"                                           "0.32 0.38 0.44 0.5 0.56"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar"
       }
-      "03"
+      "charge_speed"                                      "1200"
+      "tooltip_health_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_speed"                                    "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_damage"                           "32 38 44 50 56"
+        "value"                                           "32 38 44 50 56"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar"
         "LinkedSpecialBonusField"                         "value2"
       }
-      "05"
+      "tooltip_health_cost_percent"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_health_cost_percent"                     "32 38 44 50 56"
+        "value"                                           "32 38 44 50 56"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "06"
+      "movespeed"                                         "-60"
+      "attack_speed"                                      "60 100 140 180 220"
+      "slow_duration_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed"                                       "-60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration_tooltip"                           "3 4 5 6 7"
+        "value"                                           "3 4 5 6 7"
         "LinkedSpecialBonus"                              "special_bonus_unique_huskar_4"
       }
-      "08"
+      "taunt_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "taunt_duration"                                  "3.0"
+        "value"                                           "3.0"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "cast_range_bonus"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_bonus"                                "250"
+        "value"                                           "250"
         "RequiresScepter"                                 "1"
       }
     }

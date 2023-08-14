@@ -38,7 +38,11 @@
         "value"                                           "30 60 90 120 240 360"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "radius"                                            "200"
+      "radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"
       {
         "value"                                           "15"
@@ -46,6 +50,7 @@
       }
       "tick_interval"                                     "0.5"
       "tree_radius"                                       "100"
+      "bonus_slow_resistance"                             "0"
     }
   }
 }

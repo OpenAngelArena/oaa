@@ -34,7 +34,11 @@
       "illusion_2_damage_out_pct"                         "-50" //OAA
       "illusion_2_damage_in_pct"                          "500"
       "target_aoe"                                        "325"
-      "search_radius"                                     "900"
+      "search_radius"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
       "delay"                                             "1"
       "illusion_duration"                                 "8"
       "illusion_extended_duration"                        "0" //OAA

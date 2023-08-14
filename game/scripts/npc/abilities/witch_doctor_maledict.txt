@@ -33,29 +33,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "180"
+        "value"                                           "180"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_6"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03" // this is the percentage of the lost health as damage
+      "bonus_damage" // this is the percentage of the lost health as damage
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "16 24 32 40 50 60"
+        "value"                                           "16 24 32 40 50 60"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_7"
       }
-      "04"
+      "bonus_damage_threshold"                            "100"
+      "ticks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_threshold"                          "100"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ticks"                                           "3"
+        "value"                                           "3"
         "LinkedSpecialBonusField"                         "value2" // Valve this whole line is literally useless and does nothing but whatever
       }
     }

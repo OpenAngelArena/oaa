@@ -113,7 +113,7 @@ function HeroSelection:Init ()
       local playerId = hero:GetPlayerID()
       local hero_name = hero:GetUnitName()
       -- Don't trigger for neutrals, Tempest Double and Meepo Clones
-      if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
+      if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
         return
       end
       DebugPrint("OnHeroInGame - Hero "..hero_name.." spawned for the first time.")

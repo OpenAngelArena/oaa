@@ -27,7 +27,7 @@
       "duration"                                          "3 3.5 4 4.5 5.0 5.5"
       "heal_bonus"
       {
-        "value"                                           "45 55 65 75 85 95"
+        "value"                                           "45 55 65 75 80 85"
         "special_bonus_unique_necrophos_sadist_heal_bonus"  "+15"
       }
       "movement_speed"
@@ -35,12 +35,15 @@
         "value"                                           "10 15 20 25 30 35"
         "special_bonus_unique_necrophos_3"                "+20"
       }
-      "slow_aoe"                                          "750"
+      "slow_aoe"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_damage"                                      "-25"
       "AbilityCooldown"
       {
-        "value"                                           "28 24 20 16 14 12"
-        "special_bonus_scepter"                           "-6"
+        "value"                                           "28 24 20 16 15 14"
       }
     }
   }

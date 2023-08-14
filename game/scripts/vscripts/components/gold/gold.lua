@@ -185,7 +185,7 @@ function Gold.HeroSpawn(hero)
   if Gold.hasPassiveGPM[hero] then
     return
   end
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 
@@ -248,7 +248,7 @@ function modifier_oaa_passive_gpm:OnIntervalThink()
     return
   end
   local parent = self:GetParent()
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
     return
   end
   Gold:PassiveGPM(parent)

@@ -32,12 +32,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "325"
+      "radius"
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "projectile_speed"                                  "2000"
       "damage_bonus"
       {
         "value"                                           "15 25 35 45 90 135"
-        "special_bonus_unique_clinkz_1"                   "+20"
+        "special_bonus_unique_clinkz_1"                   "+15"
       }
       "ground_duration"                                   "5"
       "slow_movement_speed"                               "-16 -19 -22 -25 -28 -31"

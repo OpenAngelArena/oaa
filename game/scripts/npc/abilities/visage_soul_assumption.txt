@@ -31,55 +31,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bolt_speed"                                        "1000"
+      "soul_base_damage"                                  "20"
+      "soul_charge_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bolt_speed"                                      "1000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "soul_base_damage"                                "20"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "soul_charge_damage"                              "70 70 70 70 120 210"
+        "value"                                           "70 70 70 70 120 210"
         "LinkedSpecialBonus"                              "special_bonus_unique_visage_4"
       }
-      "04"
+      "stack_limit"                                       "3 4 5 6 7 8"
+      "stack_duration"                                    "6.0"
+      "damage_limit"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stack_limit"                                     "3 4 5 6 7 8"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stack_duration"                                  "6.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_limit"                                    "100"
+        "value"                                           "100"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "07"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1800"
+        "value"                                           "1800"
+        "affected_by_aoe_increase"                        "1"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_min"                                      "2.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_max"                                      "3000.0"
-      }
+      "damage_min"                                        "2.0"
+      "damage_max"                                        "3000.0"
     }
   }
 }

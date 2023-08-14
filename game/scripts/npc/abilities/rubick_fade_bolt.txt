@@ -37,43 +37,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"                                            "100 175 250 325 650 1300"
+      "jump_damage_reduction_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 175 250 325 650 1300"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "jump_damage_reduction_pct"                       "6"
+        "value"                                           "6"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "03"
+      "attack_damage_reduction" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_damage_reduction"                         "20 25 30 35 40 45" //OAA
+        "value"                                           "20 25 30 35 40 45"
         "LinkedSpecialBonus"                              "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "04"
+      "duration"                                          "10.0"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0"
+        "value"                                           "440"
+        "affected_by_aoe_increase"                        "1"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "440"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_delay"                                      "0.25"
-      }
+      "jump_delay"                                        "0.25"
     }
   }
 }

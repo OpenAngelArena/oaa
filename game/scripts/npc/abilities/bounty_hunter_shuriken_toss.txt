@@ -38,7 +38,11 @@
         "special_bonus_unique_bounty_hunter_2"            "+50"
       }
       "speed"                                             "1000"
-      "bounce_aoe"                                        "1200"
+      "bounce_aoe"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "slow_duration"
       {
         "value"                                           "0.35"

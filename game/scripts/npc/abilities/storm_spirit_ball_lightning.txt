@@ -27,57 +27,25 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "8 12 16 24 32"
+    "AbilityDamage"                                       "6 10 14 22 38"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "ball_lightning_initial_mana_percentage"            "9" //OAA
+      "ball_lightning_initial_mana_base"                  "2" //OAA
+      "ball_lightning_move_speed"                         "1400 1850 2300 2750 3200"
+      "ball_lightning_aoe"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_percentage"          "9" //OAA
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_initial_mana_base"                "2" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_move_speed"                       "1400 1850 2300 2750 3200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_aoe"                              "200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_travel_cost_base"                 "2" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ball_lightning_travel_cost_percent"              "0.75" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "ball_lightning_vision_radius"                    "400"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blocker_duration"                                "5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_remnant_interval"                        "300"
-      }
+      "ball_lightning_travel_cost_base"                   "2" //OAA
+      "ball_lightning_travel_cost_percent"                "0.75" //OAA
+      "ball_lightning_vision_radius"                      "400"
+      "blocker_duration"                                  "5"
+      "scepter_remnant_interval"                          "300"
     }
   }
 

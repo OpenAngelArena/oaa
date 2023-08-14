@@ -28,16 +28,31 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "starting_aoe"                                      "100"
-      "distance"                                          "900"
-      "final_aoe"                                         "450"
+      "starting_aoe"
+      {
+        "value"                                           "100"
+      }
+      "distance"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "final_aoe"
+      {
+        "value"                                           "450"
+      }
       "speed"                                             "900"
       "damage" //OAA
       {
-        "value"                                           "310 550 790 1510 2710"
+        "value"                                           "350 600 850 1600 2600"
         "special_bonus_unique_queen_of_pain_7"            "+400"
       }
-      "knockback_distance"                                "350"
+      "tick_rate"                                         "0.1"
+      "knockback_distance"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "knockback_duration"                                "1.4"
       "AbilityCooldown" //OAA
       {

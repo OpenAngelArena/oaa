@@ -36,10 +36,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "start_radius"                                      "200"
-      "end_radius"                                        "300"
-      "end_distance"                                      "600 700 800 900 1000 1100"
-      "targets"                                           "8" //OAA
+      "start_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "end_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "end_distance"
+      {
+        "value"                                           "600 700 800 900 1000 1100"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "targets"                                           "2 4 6 8 8 8"
       "damage" //OAA
       {
         "value"                                           "15 35 55 75 150 300"
@@ -62,7 +74,7 @@
       "attack_range_bonus"
       {
         "value"                                           "0"
-        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+350"
+        "special_bonus_unique_dazzle_poison_touch_attack_range_bonus"  "+300"
       }
     }
   }

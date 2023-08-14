@@ -34,18 +34,26 @@
     "AbilityValues"
     {
       "hammer_damage"                                     "60 90 120 150 300 600" //OAA
-      "projectile_radius"                                 "200"
+      "projectile_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "projectile_speed"
       {
         "value"                                           "1500"
         "special_bonus_unique_dawnbreaker_celestial_hammer_cast_range"  "+80%"
       }
       "flare_debuff_duration"                             "2.5"
-      "flare_radius"                                      "200"
+      "flare_radius"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "move_slow"
       {
         "value"                                           "24 28 32 36 40 44"
-        "special_bonus_unique_dawnbreaker_celestial_hammer_slow"  "+14"
+        "special_bonus_unique_dawnbreaker_celestial_hammer_slow"  "+15"
       }
       "burn_damage"                                       "20 30 40 50 100 200"
       "burn_interval"                                     "0.5"

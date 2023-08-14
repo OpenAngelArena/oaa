@@ -49,21 +49,21 @@
       "04"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration"                               "0.5"
+        "ministun_duration"                               "0.6"
       }
-      "05"
+      "05" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "shard_ministun_duration"                         "1.0"
         "RequiresShard"                                   "1"
       }
-      "06"
+      "06" // unused
       {
         "var_type"                                        "FIELD_FLOAT"
         "shard_bonus_stun_duration"                       "1.45"
         "RequiresShard"                                   "1"
       }
-      "07"
+      "07" // unused
       {
         "var_type"                                        "FIELD_INTEGER"
         "shard_bonus_damage"                              "125"

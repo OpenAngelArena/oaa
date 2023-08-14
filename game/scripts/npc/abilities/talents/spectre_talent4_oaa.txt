@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Feast bonus hp damage percent
+  // Custom Spectre Talent: Bonus Haunt Illusion Damage
   //=================================================================================================================
-  "special_bonus_unique_lifestealer_3_oaa"
+  "special_bonus_unique_spectre_4_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "87012"
+    "ID"                                                  "86902"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -18,8 +18,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "0.6"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "40"
       }
     }
   }

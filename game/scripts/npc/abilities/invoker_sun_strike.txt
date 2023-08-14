@@ -26,13 +26,21 @@
     "AbilityValues"
     {
       "delay"                                             "1.7"
-      "area_of_effect"                                    "175"
+      "area_of_effect"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
       "damage" //OAA
       {
-        "value"                                           "120 200 280 360 440 520 600 680 840 1000 1160 1320 1480 1640 1900"
+        "value"                                           "150 225 300 375 450 525 600 675 825 975 1125 1275 1425 1575 1825"
         "levelkey"                                        "exortlevel"
       }
-      "vision_distance"                                   "400"
+      "vision_distance"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "vision_duration"                                   "4.0"
       "cataclysm_count"
       {
@@ -42,18 +50,20 @@
       }
       "cataclysm_cooldown" //OAA
       {
-        "value"                                           "60"
+        "value"                                           "65"
         "RequiresScepter"                                 "1"
       }
       "cataclysm_min_range"
       {
         "value"                                           "160"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "cataclysm_max_range"
       {
         "value"                                           "200"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

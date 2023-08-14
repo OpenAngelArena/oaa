@@ -31,28 +31,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "impact_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_damage"                                   "140 210 280 350 700 1400"
+        "value"                                           "140 210 280 350 700 1400"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
       }
-      "02"
+      "impact_movement_slow"                              "20 40 60 80 85 90"
+      "impact_slow_duration"                              "4.0"
+      "impact_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_movement_slow"                            "20 40 60 80 85 90"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "impact_slow_duration"                            "4.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impact_radius"                                   "375"
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }
