@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "1200"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                                          "item_spirit_vessel_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_urn_of_shadows;item_vitality_booster;item_crown;item_crown"
+      "01"                                                "item_urn_of_shadows;item_crown;item_fluffy_hat"
     }
   }
   //=================================================================================================================
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2980"
+    "ItemCost"                                            "2780"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "sv;spirit vessel"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

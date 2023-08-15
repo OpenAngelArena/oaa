@@ -21,11 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7"
+    "AbilityCooldown"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "105 120 135 150 165 180"
+    "AbilityManaCost"                                     "105 115 125 135 145 155"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,17 +33,17 @@
     {
       "projectile_speed"                                  "650"
       "projectile_max_time"                               "1.0"
-      "split_radius"      
+      "split_radius"
       {
         "value"                                           "500"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_2"
-        "affected_by_aoe_increase"                        "1"  
+        "affected_by_aoe_increase"                        "1"
       }
       "bonus_movespeed"                                   "-30"
       "movespeed_slow_tooltip"                            "30"
       "duration"                                          "4.0"
       "secondary_projectile_speed"                        "1000"
-      "damage"        
+      "damage"
       {
         "value"                                           "100 180 260 340 680 1360"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_7"

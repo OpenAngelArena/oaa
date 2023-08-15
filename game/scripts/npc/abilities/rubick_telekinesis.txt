@@ -41,12 +41,16 @@
       "lift_duration"
       {
         "value"                                           "0.95 1.2 1.45 1.7 1.8 1.9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_rubick_7"
+        "special_bonus_unique_rubick_7"                   "+0.4"
       }
-      "stun_duration"                                     "0.9 1.1 1.3 1.5 1.6 1.7"
+      "stun_duration"
+      {
+        "value"                                           "0.9 1.1 1.3 1.5 1.6 1.7"
+        "special_bonus_unique_rubick_7"                   "+0.4"
+      }
       "radius"
       {
-        "value"                                           "325"
+        "value"                                           "300 325 350 375 375 375"
         "affected_by_aoe_increase"                        "1"
       }
       "max_land_distance"

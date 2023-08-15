@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
@@ -37,18 +37,18 @@
     {
       "self_damage"
       {
-        "value"                                           "50"
+        "value"                                           "40"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "missile_speed"                                     "1300"
       "target_damage"
       {
-        "value"                                           "90 160 230 300 600 900"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_abaddon_2"                  "+40"
       }
       "heal_amount"
       {
-        "value"                                           "90 160 230 300 600 900"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_abaddon_2"                  "+40"
       }
       "effect_radius"

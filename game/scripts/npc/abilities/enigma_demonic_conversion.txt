@@ -8,11 +8,11 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5147"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "150"
+    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -22,7 +22,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 150 160 170"
+    "AbilityManaCost"                                     "75 100 125 150"
     "AbilityHealthCost"                                   "75 100 125 150"
 
     // Special

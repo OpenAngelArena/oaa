@@ -25,13 +25,17 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 11 10"
     "AbilityManaCost"                                     "55"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "18 16 14 12 11 10"
+        "special_bonus_unique_riki_6"                     "-3"
+      }
       "radius"
       {
         "value"                                           "450"
@@ -43,7 +47,7 @@
       "agility_pct" //OAA
       {
         "value"                                           "75 80 85 90 95 100"
-        "special_bonus_unique_riki_2"                     "+40"
+        "special_bonus_unique_riki_2"                     "+30"
       }
       "scepter_duration"
       {
