@@ -80,11 +80,11 @@ function furion_force_of_nature_oaa:OnSpellStart()
     treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
   end
 
-  -- Talent that increases maximum number of treants
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_furion_2")
-  if talent2 and talent2:GetLevel() > 0 then
-    max_treants = max_treants + talent2:GetSpecialValueFor("value")
-  end
+  -- Talent that increases maximum number of treants - done through kv
+  --local talent2 = caster:FindAbilityByName("special_bonus_unique_furion_2")
+  --if talent2 and talent2:GetLevel() > 0 then
+    --max_treants = max_treants + talent2:GetSpecialValueFor("value")
+  --end
 
   -- Actual number of treants is determined by the number of trees
   local treants_to_spawn = math.min( max_treants, tree_count )
