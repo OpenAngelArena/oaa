@@ -27,59 +27,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "area_of_effect"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "150 225 300 375 450 525"
+        "value"                                           "150 225 300 375 450 525"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "max_treants"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_treants"                                     "2 3 4 5 6 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_furion_2"
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_unique_furion_2"                   "+5"
       }
-      "03"
+      "duration"                                          "50"
+      "treant_health"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "50"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_health"                                   "550 650 750 850 1700 2550"
+        "value"                                           "550 650 750 850 1700 2550"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion_1_oaa"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }
-      "05"
+      "treant_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_damage"                                   "24 32 40 48 148 248"
+        "value"                                           "24 32 40 48 148 248"
         "LinkedSpecialBonus"                              "special_bonus_unique_furion_1_oaa"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_armor"                                    "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_move_speed"                               "300 320 340 360 380 400"
-      }
-      "08" // treant_health x 2
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_large_health"                             "1100 1300 1500 1700 3400 5100"
-      }
-      "09" // treant_damage x 2.5
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "treant_large_damage"                             "60 80 100 120 370 620"
-      }
+      "treant_armor"                                      "0"
+      "treant_move_speed"                                 "300 320 340 360 380 400"
+      "treant_large_health"                               "1100 1300 1500 1700 3400 5100" // treant_health x 2
+      "treant_large_damage"                               "60 80 100 120 370 620" // treant_damage x 2.5
     }
   }
 }

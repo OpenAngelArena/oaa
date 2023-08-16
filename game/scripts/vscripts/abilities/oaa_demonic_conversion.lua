@@ -20,10 +20,10 @@ function enigma_demonic_conversion_oaa:OnUpgrade()
 end
 
 function enigma_demonic_conversion_oaa:OnSpellStart()
-  --local target = self:GetCursorTarget()
   local caster = self:GetCaster()
+  --local target = self:GetCursorTarget()
+  local origin = self:GetCursorPosition() -- target:GetAbsOrigin()
   local playerID = caster:GetPlayerID()
-  local origin = caster:GetAbsOrigin() -- target:GetAbsOrigin()
 
   local spawnCount = self:GetSpecialValueFor("spawn_count")
   local splitAttackCount = self:GetSpecialValueFor("split_attack_count")

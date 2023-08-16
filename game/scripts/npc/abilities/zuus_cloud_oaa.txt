@@ -38,47 +38,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "cloud_duration"                                    "30"
+      "cloud_bolt_interval"                               "2.5"
+      "cloud_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cloud_duration"                                  "30"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "ministun_duration" // zuus_lightning_bolt finally has this key-value
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cloud_bolt_interval"                             "2.5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cloud_radius"                                    "450"
-      }
-      "04" // zuus_lightning_bolt finally has this key-value
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ministun_duration"                               "0.25"
+        "value"                                           "0.25"
         "LinkedSpecialBonus"                              "special_bonus_unique_zeus_3"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hits_to_kill_tooltip"                            "8"
-        "RequiresScepter"                                 "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_hits_to_kill_tooltip"                      "16"
-        "RequiresScepter"                                 "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cloud_bounty_tooltip"                            "125"
-        "RequiresScepter"                                 "1"
-      }
+      "hits_to_kill_tooltip"                              "8"
+      "creep_hits_to_kill_tooltip"                        "16"
+      "cloud_bounty_tooltip"                              "125"
     }
   }
 }
