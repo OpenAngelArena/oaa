@@ -87,5 +87,7 @@ function mud_golem_shard_split_oaa:OnOwnerDied()
       shard:SetMaximumGoldBounty(caster_gold_max_bounty*shard_gold_percentage/100)
       shard:SetDeathXP(caster_xp_bounty*shard_xp_percentage/100)
     end
+
+    shard:AddNewModifier(shard, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
   end
 end
