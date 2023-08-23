@@ -70,7 +70,8 @@ function item_dagon_oaa:OnSpellStart()
 
   -- Add debuff
   if level > 5 then
-    target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
+    local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("blind_duration"))
+    target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = debuff_duration})
   end
 
   local isRealHero = target:IsRealHero() -- do this check before doing dmg to prevent doing check on a killed/deleted target
