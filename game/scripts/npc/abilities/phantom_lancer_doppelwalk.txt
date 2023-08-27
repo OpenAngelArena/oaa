@@ -31,8 +31,8 @@
     {
       "illusion_1_damage_out_pct"                         "-100"
       "illusion_1_damage_in_pct"                          "0"
-      "illusion_2_damage_out_pct"                         "-50" //OAA
-      "illusion_2_damage_in_pct"                          "500"
+      "illusion_2_damage_out_pct"                         "-80 -70 -60 -50 -40 -30" //OAA
+      "illusion_2_damage_in_pct"                          "500 450 400 350 300 250" //OAA
       "target_aoe"                                        "325"
       "search_radius"
       {
