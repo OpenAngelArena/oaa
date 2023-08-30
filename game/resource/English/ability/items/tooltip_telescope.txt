@@ -1,12 +1,12 @@
 //==================================================================
 // Telescope
 //==================================================================
-"DOTA_Tooltip_ability_item_telescope_oaa"                                       "Telescope"
+"DOTA_Tooltip_ability_item_telescope_oaa"                                       "#{DOTA_Tooltip_ability_item_spy_gadget}"
 "DOTA_Tooltip_ability_item_telescope_oaa_Description"                           "<h1>Passive: Prescient Aura</h1> Increases attack range, cast range and vision of allies in a %aura_range% unit radius."
 "DOTA_Tooltip_ability_item_telescope_oaa_bonus_vision"                          "AURA BONUS VISION:"
-"DOTA_Tooltip_ability_item_telescope_oaa_bonus_attack_range"                    "AURA BONUS ATTACK RANGE:"
-"DOTA_Tooltip_ability_item_telescope_oaa_bonus_cast_range"                      "AURA BONUS CAST RANGE:"
-"DOTA_Tooltip_ability_item_telescope_oaa_Lore"                                  "A handy tool that manages to make close what once was far."
+"DOTA_Tooltip_ability_item_telescope_oaa_bonus_attack_range"                    "#{DOTA_Tooltip_ability_item_spy_gadget_attack_range}"
+"DOTA_Tooltip_ability_item_telescope_oaa_bonus_cast_range"                      "#{DOTA_Tooltip_ability_item_spy_gadget_cast_range}"
+"DOTA_Tooltip_ability_item_telescope_oaa_Lore"                                  "#{DOTA_Tooltip_ability_item_spy_gadget_Lore}"
 
-"DOTA_Tooltip_modifier_item_telescope_oaa_effect"                               "Prescient Aura"
-"DOTA_Tooltip_modifier_item_telescope_oaa_effect_Description"                   "Increased attack range, cast range and vision."
+"DOTA_Tooltip_modifier_item_telescope_oaa_effect"                               "#{DOTA_Tooltip_modifier_item_spy_gadget}"
+"DOTA_Tooltip_modifier_item_telescope_oaa_effect_Description"                   "Increased attack range (Ranged only), cast range and vision."

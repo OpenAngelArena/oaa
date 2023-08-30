@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_item_heart_oaa_passive", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_heart_oaa_active", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_heart_oaa_active_illusions", "items/heart.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_heart_oaa_1 = class(ItemBaseClass)
 
@@ -184,8 +185,45 @@ function modifier_item_heart_oaa_active:IsPurgable()
   return false
 end
 
-function modifier_item_heart_oaa_active:AllowIllusionDuplicate()
+function modifier_item_heart_oaa_active:IsAura()
   return true
+end
+
+function modifier_item_heart_oaa_active:GetModifierAura()
+  return "modifier_item_heart_oaa_active_illusions"
+end
+
+function modifier_item_heart_oaa_active:GetAuraRadius()
+  return 50000
+end
+
+function modifier_item_heart_oaa_active:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
+end
+
+function modifier_item_heart_oaa_active:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_HERO
+end
+
+function modifier_item_heart_oaa_active:GetAuraEntityReject(hEntity)
+  local caster = self:GetCaster()
+  if hEntity ~= caster then
+    if IsServer() then
+      if UnitVarToPlayerID(hEntity) ~= UnitVarToPlayerID(caster) or not hEntity:IsIllusion() then
+        return true
+      end
+    else
+      if hEntity.GetPlayerOwnerID then
+        if hEntity:GetPlayerOwnerID() ~= caster:GetPlayerOwnerID() or not hEntity:IsIllusion() then
+          return true
+        end
+      end
+    end
+  else
+    return true
+  end
+
+  return false
 end
 
 function modifier_item_heart_oaa_active:OnCreated()
@@ -227,5 +265,61 @@ function modifier_item_heart_oaa_active:GetEffectAttachType()
 end
 
 function modifier_item_heart_oaa_active:GetTexture()
+  return "item_heart"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_heart_oaa_active_illusions = class(ModifierBaseClass)
+
+function modifier_item_heart_oaa_active_illusions:IsHidden()
+  return false
+end
+
+function modifier_item_heart_oaa_active_illusions:IsDebuff()
+  return false
+end
+
+function modifier_item_heart_oaa_active_illusions:IsPurgable()
+  return false
+end
+
+function modifier_item_heart_oaa_active_illusions:OnCreated()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.str = ability:GetSpecialValueFor("buff_bonus_strength")
+    self.bonus_damage = ability:GetSpecialValueFor("buff_bonus_base_damage")
+  end
+
+  if IsServer() and parent:IsHero() then
+    parent:CalculateStatBonus(true)
+  end
+end
+
+function modifier_item_heart_oaa_active_illusions:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE     -- this is bonus base damage (white)
+  }
+end
+
+function modifier_item_heart_oaa_active_illusions:GetModifierBonusStats_Strength()
+  return self.str
+end
+
+function modifier_item_heart_oaa_active_illusions:GetModifierBaseAttack_BonusDamage()
+  return self.bonus_damage
+end
+
+function modifier_item_heart_oaa_active_illusions:GetEffectName()
+  return "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+end
+
+function modifier_item_heart_oaa_active_illusions:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_item_heart_oaa_active_illusions:GetTexture()
   return "item_heart"
 end

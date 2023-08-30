@@ -4,7 +4,6 @@
 
 //"DOTA_Tooltip_Ability_item_disperser"                                           "Disperser"
 //"DOTA_Tooltip_Ability_item_recipe_disperser"                                    "Disperser Recipe"
-"DOTA_Tooltip_Ability_item_recipe_disperser"                                    "Disperser Recipe"
 //"DOTA_Tooltip_ability_item_disperser_Description"                               "<h1>Active: Suppress</h1> If targetting an enemy, slows it for %enemy_effect_duration% seconds. Both movement speed reduction and increase start at 100%% and gradually decrease to 0 over the course of the buff duration. <br><br>If targeting an ally, applies a basic dispel, and increases their movement speed by %phase_movement_speed%%%, and makes them unslowable for %ally_effect_duration% seconds. The movement speed buff is decreased to 0 over the course of the buff duration. <br><br>Range: %abilitycastrange%\n\n<h1>Passive: Manabreak</h1>Each attack burns %feedback_mana_burn% mana from the target, and deals %damage_per_burn% physical damage per burned mana. <br><br>Burns %feedback_mana_burn_illusion_melee% mana per attack from melee illusions and %feedback_mana_burn_illusion_ranged% mana per attack from ranged illusions. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 //"DOTA_Tooltip_ability_item_disperser_bonus_agility"                             "+$agi"
 //"DOTA_Tooltip_ability_item_disperser_bonus_intellect"                           "+$int"

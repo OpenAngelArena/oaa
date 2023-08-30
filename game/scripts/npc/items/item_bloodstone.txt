@@ -1,157 +1,70 @@
 "DOTAAbilities"
 {
-  "item_recipe_bloodstone"                                "REMOVE"
-  "item_bloodstone"                                       "REMOVE"
-
   //=================================================================================================================
   // Recipe: Bloodstone
   //=================================================================================================================
-  "item_recipe_bloodstone_1"
+  "item_recipe_bloodstone"
   {
-    "ID"                                                  "3400"
-    "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "120"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "ItemCost"                                            "0"
+    //"AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "700"
     "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_bloodstone_1"
+    "ItemResult"                                          "item_bloodstone"
     "ItemRequirements"
     {
-      "01"                                                "item_voodoo_mask;item_kaya;item_soul_booster"
+      "01"                                                "item_voodoo_mask;item_soul_booster"
     }
   }
 
   //=================================================================================================================
   // Bloodstone
   //=================================================================================================================
-  "item_bloodstone_1"
+  "item_bloodstone"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9121"
-    "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/bloodstone.lua"
+    "ID"                                                  "121"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    //"AbilityTextureName"                                  "custom/bloodstone"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "85"
-    "AbilitySharedCooldown"                               "bloodstone"
-    "AbilityTextureName"                                  "custom/bloodstone"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_bloodstone_1;item_bloodstone_2;item_bloodstone_3;item_bloodstone_4"
+    "AbilityCooldown"                                     "35.0"
+    "AbilitySharedCooldown"                               "satanic_core"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5750"
+    "ItemCost"                                            "4400"
     "ItemShopTags"                                        "regen_health;regen_mana;mana_pool;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bs;bloodstone"
-    "ItemInitialCharges"                                  "14"
-    "ItemDisplayCharges"                                  "1"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "AllowedInBackpack"                                   "0"
+    "AllowedInBackpack"                                   "1"
+    "ShouldBeSuggested"                                   "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "425 850 1275 1700 2125"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "425 525 675 875 1125"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "20 25 35 50 70"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_regen_multiplier"                           "100 125 150 175 200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "10 14 18 22 26"
-      }
-      "06" // Voodoo Mask spell lifesteal x (1 + Kaya spell lifesteal amp) = 10 x (1 + 0.24) = 12.4%
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_spell_lifesteal"                            "13 15 17 19 21"
-      }
-      "07" // 2 x (1 + 0.24) = 2.48%
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creep_spell_lifesteal"                           "3 5 7 9 11"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "regen_per_charge"                                "0.2"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "amp_per_charge"                                  "0.35"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "death_charges"                                   "2"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "kill_charges"                                    "1"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_range"                                    "1600"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "initial_charges_tooltip"                         "14"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_percentage"                            "30"
-      }
-      "15"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "restore_duration"                                "2.0"
-      }
-      "16"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "0"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
-      }
-      "18"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "manacost_reduction"                              "0"
-      }
+      "bonus_health"                                      "500"
+      "bonus_mana"                                        "500"
+      "spell_lifesteal"                                   "30"
+      "buff_duration"                                     "5" //OAA
+      "lifesteal_multiplier"                              "2.5"
+      "hp_cost"                                           "0"
     }
   }
 }

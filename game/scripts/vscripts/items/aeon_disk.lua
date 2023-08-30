@@ -50,7 +50,8 @@ function modifier_item_aeon_disk_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_AVOID_DAMAGE,
+    --MODIFIER_PROPERTY_AVOID_DAMAGE,
+    MODIFIER_PROPERTY_AVOID_DAMAGE_AFTER_REDUCTIONS,
   }
 end
 
@@ -67,7 +68,7 @@ end
 -- 2) Instant kill abilities ignore Aeon Disk trigger, Aeon Disk doesnt go on cd
 -- 3) Ignoring self and damage with hp removal flag
 if IsServer() then
-  function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamage(event)
+  function modifier_item_aeon_disk_oaa_passive:GetModifierAvoidDamageAfterReductions(event)
     if not self:IsFirstItemInInventory() then
       return 0
     end
