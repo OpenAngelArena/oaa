@@ -36,35 +36,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "8"
+      "attack_speed"        
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8"
+        "value"                                           "60 90 120 150 180 210"
+        "special_bonus_unique_bloodseeker_5"              "+25"
       }
-      "02"
+      "spell_amp"       
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed"                                    "60 90 120 150 180 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_5"
+        "value"                                           "15 20 25 30 35 40"
+        "special_bonus_unique_bloodseeker_6"              "+8"
       }
-      "03"
+      "damage_pct"        
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_amp"                                       "15 20 25 30 35 40"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_pct"                                      "1.8"
+        "value"                                           "1.8"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
-      "05"
+      "shard_max_health_dmg_pct"  
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_max_health_dmg_pct"                        "1.8"
+        "value"                                           "1.8"
         "RequiresShard"                                   "1"
       }
     }
