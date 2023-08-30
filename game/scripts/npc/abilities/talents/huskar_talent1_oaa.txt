@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dash talent: Increases slow
+  // Custom Huskar talent: Bonus Inner Fire Damage
   //=================================================================================================================
-  "special_bonus_sohei_dash_slow"
+  "special_bonus_unique_huskar_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8510"
+    "ID"                                                  "3552"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,12 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "20"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "20"
+        "value"                                           "400"
       }
     }
   }

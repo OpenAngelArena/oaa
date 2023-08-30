@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dash talent: Increases slow
+  // Custom Faceless Void talent: Time Lock bonus damage
   //=================================================================================================================
-  "special_bonus_sohei_dash_slow"
+  "special_bonus_unique_faceless_void_3_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8510"
+    "ID"                                                  "86807"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,12 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "20"
+        "value"                                           "60"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value2"                                          "20"
+        "value2"                                          "120"
       }
     }
   }

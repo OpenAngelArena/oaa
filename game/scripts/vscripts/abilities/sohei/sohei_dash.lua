@@ -560,6 +560,7 @@ function modifier_sohei_dash_slow:OnCreated()
   local talent = self:GetCaster():FindAbilityByName("special_bonus_sohei_dash_slow")
   if talent and talent:GetLevel() > 0 then
     movement_slow = movement_slow + talent:GetSpecialValueFor("value")
+    attack_slow = attack_slow + talent:GetSpecialValueFor("value2")
   end
 
   if IsServer() then
