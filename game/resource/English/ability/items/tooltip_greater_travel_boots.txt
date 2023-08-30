@@ -6,9 +6,9 @@
 "DOTA_Tooltip_Ability_item_greater_travel_boots_Description"                    "#{item_greater_travel_boots_ability_Description}"
 "DOTA_Tooltip_Ability_item_greater_travel_boots_Lore"                           "The boots of a once renowned legendary merchant."
 "DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_movement_speed"           "+$move_speed"
-"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_boss_damage"              "%BONUS BOSS DAMAGE:"
-"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_damage_during_duels"      "%BONUS ATTACK DAMAGE DURING DUELS:"
-"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_spell_amp_during_duels"   "%BONUS SPELL AMP DURING DUELS:"
+"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_boss_damage"              "%+Damage Amplification against Bosses"
+"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_damage_during_duels"      "#{DOTA_Tooltip_Ability_item_titan_sliver_base_attack_damage} during Duels"
+"DOTA_Tooltip_Ability_item_greater_travel_boots_bonus_spell_amp_during_duels"   "#{DOTA_Tooltip_ability_item_kaya_spell_amp} during Duels"
 "item_greater_travel_boots_ability_Description"                                 "<h1>Active: Teleport</h1> Teleports you to any allied structure or unit, including heroes. Teleporting is interrupted if the target dies or if you become rooted."
 
 "DOTA_Tooltip_Ability_item_greater_travel_boots_2"                              "#{DOTA_Tooltip_Ability_item_greater_travel_boots}"

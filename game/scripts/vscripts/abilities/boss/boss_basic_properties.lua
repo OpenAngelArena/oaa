@@ -66,8 +66,8 @@ if IsServer() then
     end
 
     local inflictor = keys.inflictor
+    -- Block all damage if it was accidental
     if parent:CheckForAccidentalDamage(inflictor) then
-      -- Block all damage if it was accidental
       return keys.damage
     end
 
@@ -145,10 +145,10 @@ if IsServer() then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
         if ability then
           local damage_increase_pct
-          if attacker:IsRealHero() then
-            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
-          else
+          if attacker:IsSpiritBearOAA() then
             damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          else
+            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
           end
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
@@ -184,7 +184,7 @@ if IsServer() then
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
       anti_mage_mana_void = true,
-      bloodseeker_bloodrage = false,          -- doesn't work on vanilla Roshan
+      bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_ice = false,
@@ -195,6 +195,25 @@ if IsServer() then
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
       return 0 - self.dmg_reduction
+    end
+
+    -- Spells that do bonus damage to bosses
+    if name == "pugna_nether_blast" then -- Pugna Nether Blast
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("structure_damage_mod")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "shredder_flamethrower" then -- Timbersaw Flamethrower bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
     end
 
   --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance

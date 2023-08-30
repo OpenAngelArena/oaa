@@ -3,7 +3,7 @@
 //==========================================================================
 "DOTA_Tooltip_Ability_item_demon_stone"                                         "Demon Stone"
 "DOTA_Tooltip_ability_item_demon_stone_Lore"                                    "A weightless charm created by a demon with a powerful scorn for brute force."
-"DOTA_Tooltip_ability_item_demon_stone_Description"                             "<h1>Active: Demonic Summoning</h1> Summons a Demon to fight for you for %summon_duration% seconds.<br><br>Has True Sight. Radius: %summon_true_sight_radius%<br>Health: %summon_health%<br>Damage: %summon_damage%<br>Movement Speed: %summon_move_speed%<br>Armor: %summon_armor% \n<h1>Passive: Demon Experience</h1> Increases passive experience income while reducing attack speed and attack damage."
+"DOTA_Tooltip_ability_item_demon_stone_Description"                             "<h1>Active: Demonic Summoning</h1> Summons a Demon to fight for you for %summon_duration% seconds. Demon takes %summon_dmg_reduction%%% less damage from neutral creeps and Bosses.<br><br>Has True Sight. Radius: %summon_true_sight_radius%<br>Health: %summon_health%<br>Damage: %summon_damage%<br>Movement Speed: %summon_move_speed%<br>Armor: %summon_armor% \n<h1>Passive: Demon Experience</h1> Increases passive experience income while reducing attack speed and attack damage."
 "DOTA_Tooltip_Ability_item_demon_stone_Note0"                                   "Experience gain doesn't work in duels and on illusions or Spirit Bear."
 "DOTA_Tooltip_ability_item_demon_stone_bonus_xpm"                               "+EXPERIENCE PER MINUTE BONUS"
 "DOTA_Tooltip_ability_item_demon_stone_bonus_mana"                              "+$mana"

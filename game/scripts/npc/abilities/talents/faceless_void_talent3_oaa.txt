@@ -1,13 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Invoker Talent: Sunstrike bonus damage
+  // Custom Faceless Void talent: Time Lock bonus damage
   //=================================================================================================================
-  "special_bonus_unique_invoker_2_oaa"
+  "special_bonus_unique_faceless_void_3_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85386"
+    "ID"                                                  "86807"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "75"
+        "value"                                           "60"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "value2"                                          "120"
       }
     }
   }

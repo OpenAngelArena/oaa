@@ -3,14 +3,18 @@
 //==========================================================================
 // "DOTA_Tooltip_Ability_item_wind_waker"                                         "Wind Waker"
 // "DOTA_Tooltip_Ability_item_recipe_wind_waker"                                  "Wind Waker Recipe"
-// "DOTA_Tooltip_ability_item_wind_waker_Description"                             "<h1>Active: wind_waker</h1> Sweeps a target unit up into a wind_waker, making them invulnerable for %wind_waker_duration% seconds. wind_waker can be cast on yourself, enemy units or allied units.<br><br>Enemy units take %tooltip_drop_damage% magical damage upon landing.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+// "DOTA_Tooltip_ability_item_wind_waker_Description"                             "<h1>Active: Cyclone</h1> Sweeps a target unit up into a cyclone, making them invulnerable for %cyclone_duration% seconds. Cyclone can be cast on yourself, enemy units or allied units.<br><br>Enemy units take %tooltip_drop_damage% magical damage upon landing.<br><br>Range: %abilitycastrange%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 // "DOTA_Tooltip_ability_item_wind_waker_Lore"                                    "Proof enough to some that unseen forces manipulate the happenings of the material plane."
-// "DOTA_Tooltip_ability_item_wind_waker_Note0"                                   "wind_waker can purge some buffs and debuffs."
-// "DOTA_Tooltip_ability_item_wind_waker_Note1"                                   "When cast on yourself, the wind_waker can be moved anywhere at a speed of 360."
+// "DOTA_Tooltip_ability_item_wind_waker_Note0"                                   "Cyclone can dispel some buffs and debuffs."
+// "DOTA_Tooltip_ability_item_wind_waker_Note1"                                   "When cast on yourself, the cyclone can be moved anywhere at a speed of 360."
+// "DOTA_Tooltip_ability_item_wind_waker_Note2"                                   "Cyclone duration is unaffected by status resistance."
 // "DOTA_Tooltip_ability_item_wind_waker_bonus_movement_speed"                    "+$move_speed"
 // "DOTA_Tooltip_ability_item_wind_waker_cast_range_bonus"                        "+$cast_range"
 // "DOTA_Tooltip_ability_item_wind_waker_bonus_mana_regen"                        "+$mana_regen"
 // "DOTA_Tooltip_ability_item_wind_waker_bonus_intellect"                         "+$int"
+
+// "DOTA_Tooltip_modifier_wind_waker"                                             "Cyclone"
+// "DOTA_Tooltip_modifier_wind_waker_Description"                                 "Swept up in a cyclone, you are invulnerable and unable to act."
 
 "DOTA_Tooltip_Ability_item_wind_waker_2"                                        "#{DOTA_Tooltip_Ability_item_wind_waker}"
 "DOTA_Tooltip_Ability_item_recipe_wind_waker_2"                                 "#{DOTA_Tooltip_Ability_item_recipe_wind_waker}"

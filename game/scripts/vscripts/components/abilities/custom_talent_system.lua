@@ -48,6 +48,9 @@ local abilities_with_custom_talents = {
   hoodwink_acorn_shot = {
     base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
   },
+  huskar_inner_fire = {
+    damage = {"special_bonus_unique_huskar_1_oaa", "+"},
+  },
   invoker_emp = {
     damage_per_mana_pct = {"special_bonus_unique_invoker_1_oaa", "+"},
   },

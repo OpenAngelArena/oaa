@@ -63,13 +63,23 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "160" // like Spiked Mail
-      "bonus_armor"                                       "24" // like Shiva's Guard
-      "bonus_intellect"                                   "80" // like Shiva's Guard
+      "bonus_armor"                                       "14" // like AC
+      "bonus_intellect"                                   "75" // like Spiked Mail
+      "bonus_attack_speed"                                "50" // like AC
+
       "martyr_duration"                                   "5.5"
       "martyr_heal_aoe"                                   "1200"
       "martyr_heal_percent"                               "100"
-      "aura_attack_speed"                                 "100" // like Assault Cuirass total attack speed
+
+      "aura_attack_speed"                                 "50" // like AC
+      "aura_armor"                                        "15" // like AC
       "aura_radius"                                       "1200"
+
+      "death_heal_base"                                   "100"
+      "death_heal_hp_percent"                             "50"
+      "death_vision_radius"                               "800"
+      "death_effect_duration"                             "30"
+      "death_effect_radius"                               "1800"
     }
 
     "precache"
