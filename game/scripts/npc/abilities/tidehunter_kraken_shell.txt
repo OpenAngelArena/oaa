@@ -16,28 +16,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_reduction"                                "16 34 52 70 140 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_4"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "16 34 52 70 140 210"
       }
-      "02"
+      "damage_cleanse"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_cleanse"                                  "600 550 500 450 425 400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_6"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "600 550 500 450 425 400"
+        "special_bonus_unique_tidehunter_6"               "-100"
       }
-      "03"
+      "damage_reset_interval"                             "7.0"
+      "bonus_reduction_per_stack"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_reset_interval"                           "7.0"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "0"
+        "special_bonus_unique_tidehunter_4"               "+4"
       }
     }
   }

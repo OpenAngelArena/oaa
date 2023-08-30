@@ -34,6 +34,7 @@ function MagmaBossThink()
     thisEntity.state = SIMPLE_AI_STATE_IDLE
     thisEntity.aggro_target = nil
     thisEntity.BossTier = thisEntity.BossTier or 3
+    thisEntity.SiltBreakerProtection = true
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
     thisEntity.initialized = true

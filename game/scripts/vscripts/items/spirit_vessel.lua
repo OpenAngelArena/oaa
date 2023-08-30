@@ -118,7 +118,7 @@ if IsServer() then
       -- Dead unit is not on caster's team
       if caster:GetTeamNumber() ~= dead:GetTeamNumber() then
         -- Dead unit is an actually dead real enemy hero unit or a boss
-        if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone())) or dead:IsOAABoss() then
+        if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) and (not dead:IsSpiritBearOAA())) or dead:IsOAABoss() then
           local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
           local isDeadInChargeRange = casterToDeadVector:Length2D() <= item:GetSpecialValueFor("soul_radius")
 
@@ -137,7 +137,7 @@ if IsServer() then
         end
       end
     -- caster died
-    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() then
+    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() and not caster:IsSpiritBearOAA() then
       local current_charges = item:GetCurrentCharges() or 0
       -- caster has no charges? add 1 on death
       if current_charges == 0 then

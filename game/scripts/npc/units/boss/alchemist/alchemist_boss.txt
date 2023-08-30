@@ -21,10 +21,8 @@
     "Ability1"                                            "boss_alchemist_cannonshot"
     "Ability2"                                            "boss_alchemist_acid_spray"
     "Ability3"                                            "boss_alchemist_chemical_rage"
-    "Ability4"                                            "boss_resistance"
-    "Ability5"                                            "boss_cliffwalk"
-    "Ability6"                                            "boss_regen"
-    "Ability7"                                            "siltbreaker_boss_protection"
+    "Ability4"                                            "boss_basic_properties_oaa"
+    "Ability5"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -34,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "3000"       // Damage range min.
-    "AttackDamageMax"                                     "3000"       // Damage range max.
+    "AttackDamageMin"                                     "2500"       // Damage range min.
+    "AttackDamageMax"                                     "2500"       // Damage range max.
     "AttackRate"                                          "2.5"       // BAT
     "BaseAttackSpeed"                                     "300"       // Attack Speed
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
@@ -116,8 +114,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_beastmaster"
   "Title"         "Recommended items for Beastmaster"
 
@@ -16,18 +16,25 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_helm_of_the_overlord"
+      "item"      "item_radiance"
       "item"      "item_ultimate_scepter"
       "item"      "item_kaya_and_sange"
-      "item"      "item_heart_oaa"
+      "item"      "item_dagger_of_moriah"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_ward_stack"
-      "item"      "item_solar_crest"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_lotus_orb"
       "item"      "item_octarine_core"
       "item"      "item_lucience"
+      "item"      "item_assault"
+    }
+
+    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
+    {
+      "item"      "item_satanic_core"
+      "item"      "item_dagon_oaa"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -37,15 +44,19 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodthorn"
       "item"      "item_crimson_guard"
       "item"      "item_ethereal_blade"
+      "item"      "item_guardian_greaves"
+      "item"      "item_heart_oaa"
       "item"      "item_heavens_halberd"
       "item"      "item_pipe"
       "item"      "item_shivas_guard"
+      "item"      "item_solar_crest"
+      "item"      "item_greater_power_treads"
+      "item"      "item_greater_travel_boots"
       "item"      "item_heart_transplant"
+      "item"      "item_sheepstick_4"
       "item"      "item_trumps_fists"
       "item"      "item_azazel_summon_fighter"
     }

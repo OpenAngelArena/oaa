@@ -6,11 +6,9 @@
   "ogre_tank_boss_jump_smash_tier5"
   {
     "ID"                                                  "8582"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/ogre_tank_boss/ogre_tank_boss_jump_smash_tier5.lua"
-    "AbilityTextureName"                                  "centaur_double_edge"
+    "AbilityTextureName"                                  "elder_titan_echo_stomp"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"

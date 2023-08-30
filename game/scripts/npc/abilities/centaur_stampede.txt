@@ -42,7 +42,11 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow_duration"                                     "3"
-      "radius"                                            "105"
+      "radius"
+      {
+        "value"                                           "105"
+        "affected_by_aoe_increase"                        "1"
+      }
       "slow_movement_speed"                               "100"
       "damage_reduction"
       {

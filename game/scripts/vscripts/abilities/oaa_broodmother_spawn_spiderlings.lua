@@ -117,7 +117,7 @@ if IsServer() then
     local max_count = ability:GetSpecialValueFor("spiderling_max_count")
     local spawn_radius = ability:GetSpecialValueFor("spiderling_spawn_radius")
 
-    if GetMapName() == "10v10" then
+    if HeroSelection.is10v10 then
       max_count = 7
     end
 

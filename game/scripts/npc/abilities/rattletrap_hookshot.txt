@@ -33,33 +33,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "latch_radius"                                      "125"
+      "stun_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "latch_radius"                                    "125"
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_radius"                                     "175"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.2 1.4 1.6 1.8 2.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "4000 5000 6000 7000 7500"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "75 275 475 1075 1675" //OAA
-      }
+      "duration"                                          "1.2 1.4 1.6 1.8 2.0"
+      "speed"                                             "4000 5000 6000 7000 7500"
+      "damage"                                            "75 275 475 1075 1675" //OAA
     }
   }
 }

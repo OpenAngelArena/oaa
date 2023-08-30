@@ -1,4 +1,4 @@
-/* global $ */
+/* global $, Game, Entities, Buffs */
 'use strict';
 /*
   Author:
@@ -11,6 +11,10 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports.ColorToHexCode = ColorToHexCode;
   module.exports.ColoredText = ColoredText;
   module.exports.LuaTableToArray = LuaTableToArray;
+  module.exports.is10v10 = is10v10;
+  module.exports.FindModifier = FindModifier;
+  module.exports.HasModifier = HasModifier;
+  module.exports.GetStackCount = GetStackCount;
 }
 const HudNotFoundException = /** @class */ (function () {
   function HudNotFoundException (message) {
@@ -18,9 +22,11 @@ const HudNotFoundException = /** @class */ (function () {
   }
   return HudNotFoundException;
 }());
+
 function FindDotaHudElement (id) {
   return GetDotaHud().FindChildTraverse(id);
 }
+
 function GetDotaHud () {
   let p = $.GetContextPanel();
   while (p !== null && p.id !== 'Hud') {
@@ -62,6 +68,29 @@ function ColorToHexCode (color) {
   }
   return '#' + red + green + blue;
 }
+
 function ColoredText (colorCode, text) {
   return '<font color="' + colorCode + '">' + text + '</font>';
+}
+
+function is10v10 () {
+  const mapname = Game.GetMapInfo().map_display_name;
+  return mapname === '10v10' || mapname === 'oaa_bigmode';
+}
+
+function FindModifier (unit, modifier) {
+  for (let i = 0; i < Entities.GetNumBuffs(unit); i++) {
+    if (Buffs.GetName(unit, Entities.GetBuff(unit, i)) === modifier) {
+      return Entities.GetBuff(unit, i);
+    }
+  }
+}
+
+function HasModifier (unit, modifier) {
+  return !!FindModifier(unit, modifier);
+}
+
+function GetStackCount (unit, modifier) {
+  const m = FindModifier(unit, modifier);
+  return m ? Buffs.GetStackCount(unit, m) : 0;
 }

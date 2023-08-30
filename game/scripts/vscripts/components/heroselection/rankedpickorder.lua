@@ -68,7 +68,7 @@ rankedpickorder = {
   },
 }
 
-if GetMapName() == "10v10" then
+if GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" then
   rankedpickorder.order = {
     {
       ["type"] = "Pick",

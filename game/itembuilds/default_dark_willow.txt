@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_dark_willow"
   "Title"         "Recommended items for Dark Willow"
 
@@ -16,15 +16,18 @@
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_maelstrom"
+      "item"      "item_hand_of_midas_1"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_bloodthorn"
       "item"      "item_ultimate_scepter"
-      "item"      "item_revenants_brooch"
-      "item"      "item_satanic"
       "item"      "item_mjollnir"
+      "item"      "item_hurricane_pike"
+      "item"      "item_silver_edge"
+      "item"      "item_disperser"
+      "item"      "item_greater_power_treads"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -32,7 +35,7 @@
       "item"      "item_ethereal_blade"
       "item"      "item_octarine_core"
       "item"      "item_wind_waker"
-      "item"      "item_arcane_blink"
+      "item"      "item_blink"
       "item"      "item_sheepstick_4"
     }
 
@@ -44,12 +47,19 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_bloodthorn"
+      "item"      "item_far_sight"
+      "item"      "item_glimmer_cape"
+      "item"      "item_manta"
       "item"      "item_monkey_king_bar"
+      "item"      "item_revenants_brooch"
+      "item"      "item_satanic"
       "item"      "item_shield_staff"
       "item"      "item_skadi"
+      "item"      "item_sphere"
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_aeon_disk_2"
-      "item"      "item_siege_mode"
+      "item"      "item_dispel_orb_1"
       "item"      "item_trumps_fists"
     }
   }

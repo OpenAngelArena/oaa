@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Free Pathing
+  //=================================================================================================================
+  "free_pathing_oaa"
+  {
+    "ID"                                                  "8823"
+    "BaseClass"                                           "ability_datadriven"
+    "AbilityTextureName"                                  "winter_wyvern_arctic_burn"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "1"
+
+    "OnUpgrade"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"                                    "modifier_cliffwalk_oaa"
+        "Target"                                          "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_cliffwalk_oaa"
+      {
+        "Passive"                                         "1"
+        "IsHidden"                                        "1"
+        "IsDebuff"                                        "0"
+        "IsPurgable"                                      "0"
+        "IsBuff"                                          "1"
+        "IsStunDebuff"                                    "0"
+
+        "States"
+        {
+          "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"  "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NO_UNIT_COLLISION"              "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }
+}

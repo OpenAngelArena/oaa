@@ -21,10 +21,9 @@
     //----------------------------------------------------------------
     "Ability1"                                            "boss_fury_swipes"
     "Ability2"                                            "bear_boss_earthshock"
-    "Ability3"                                            "boss_resistance"
-    "Ability4"                                            "boss_cliffwalk"
-    "Ability5"                                            "boss_regen"
-    "Ability6"                                            "boss_true_strike"
+    "Ability3"                                            "boss_basic_properties_oaa"
+    "Ability4"                                            "boss_regen"
+    "Ability5"                                            "boss_true_strike"
 
     // Armor
     //----------------------------------------------------------------
@@ -36,11 +35,10 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "400"    // Damage range min.
     "AttackDamageMax"                                     "400"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.1"    // Speed of attack.
     "AttackAnimationPoint"                                "0.1"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
-    "AttackRange"                                         "228"    // Range within a target can be attacked.
+    "AttackRange"                                         "200"    // Range within a target can be attacked.
 
     // Bounty
     //----------------------------------------------------------------
@@ -77,8 +75,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

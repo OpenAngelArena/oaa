@@ -38,6 +38,7 @@
     "AbilityCastRange"                                    "350"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "4.0"
+    "AbilitySharedCooldown"                               "cleavers"
     //"AbilityTextureName"                                  "custom/small_cleaver"
 
     // Item Info
@@ -50,68 +51,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "35"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "0"
-      }
-      "04" // Cleave against heroes
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent"                           "0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_damage_percent_creep"                     "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus"                                  "8"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "quelling_bonus_ranged"                           "8"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_starting_width"                           "150"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "360"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "650"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "upgraded_cleave_bonus"                           "25"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "upgraded_damage_bonus"                           "15"
-      }
+      "bonus_damage"                                      "35" // Claymore (20) + Broadsword (15)
+      "bonus_health_regen"                                "0"
+      "bonus_mana_regen"                                  "0"
+      "cleave_damage_percent"                             "0" // Cleave against heroes
+      "cleave_damage_percent_creep"                       "30"
+      "quelling_bonus"                                    "8" // like Quelling Blade
+      "quelling_bonus_ranged"                             "4" // like Quelling Blade
+      "cleave_starting_width"                             "150"
+      "cleave_ending_width"                               "360"
+      "cleave_distance"                                   "650"
+      "upgraded_cleave_bonus"                             "0"
+      "upgraded_damage_bonus"                             "0"
     }
   }
 }

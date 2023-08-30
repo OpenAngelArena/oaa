@@ -17,24 +17,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_reset_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_reset_time"                                "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ursa_4"
+        "value"                                           "20"
+        "special_bonus_unique_ursa_4"                     "+20"
       }
-      "02"
+      "bonus_reset_time_roshan"                           "10"
+      "damage_per_stack"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_reset_time_roshan"                         "6"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "150"
+        "value"                                           "150"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa"
+      }
+      "stun_stack_count"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ursa_furyswipes_stun"       "+5"
+      }
+      "stun_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ursa_furyswipes_stun"       "+1.5"
       }
     }
   }

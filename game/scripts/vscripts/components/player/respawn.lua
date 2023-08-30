@@ -17,7 +17,11 @@ function RespawnManager:OnHeroKilled(keys)
   if killed:IsClone() then
     -- Do everything again for the primary Meepo
     keys.killed = killed:GetCloneSource()
-    self:OnHeroKilled(keys)
+    self:OnHeroKilled(keys) -- TODO: Check if this can trigger for each clone when it dies
+  end
+
+  if killed:IsTempestDouble() or killed:IsSpiritBearOAA() then
+    return
   end
 
   local respawnTime = RESPAWN_TIME_TABLE[killed:GetLevel()]

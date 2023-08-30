@@ -19,10 +19,9 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                                            "boss_resistance"
-    "Ability2"                                            "boss_cliffwalk"
-    "Ability3"                                            "boss_regen"
-    "Ability4"                                            "boss_true_strike"
+    "Ability1"                                            "boss_basic_properties_oaa"
+    "Ability2"                                            "boss_regen"
+    "Ability3"                                            "boss_true_strike"
 
     // Armor
     //-----------------------------------------------------------------
@@ -72,8 +71,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

@@ -19,18 +19,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues" 
+    "AbilityValues"
     {
-      "attack_speed_per_instance"
+      "attack_speed_per_instance" // unused
       {
         "value"                                           "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
         "special_bonus_unique_invoker_13"                 "x3"
       }
-      "move_speed_per_instance" //OAA
+      "move_speed_per_instance"
       {
-        "value"                                           "1 2 3 4 5 6 7 8 9 10 11 12 13 14"
-        "special_bonus_unique_invoker_13"                 "x3"
+        "value"                                           "0.8 1.6 2.4 3.2 4 4.8 5.6 6.4 7.2 8 8.8 9.6 10.4 11.2"
+        "special_bonus_unique_invoker_13"                 "x2"
       }
+      "cooldown_reduction" //OAA
+      {
+        "value"                                           "1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 4.75 5.0 5.25 5.5 5.75 6.0"
+        "special_bonus_unique_invoker_13"                 "x2"
+      }
+      "agility_bonus"                                     "1"
     }
   }
 }

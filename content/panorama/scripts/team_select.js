@@ -1,4 +1,4 @@
-/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players */
+/* global $, GameEvents, Game, DOTA_GameState, CustomNetTables, Players, FindDotaHudElement, is10v10 */
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
@@ -27,7 +27,7 @@ const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
     }
   }
 
-  $.GetContextPanel().SetHasClass('TenVTen', Game.GetMapInfo().map_display_name === '10v10');
+  $.GetContextPanel().SetHasClass('TenVTen', is10v10());
 
   $('#SettingsBody').enabled = IsHost;
 
@@ -102,23 +102,6 @@ function hidePregameUI () {
 function showPregameUI () {
   FindDotaHudElement('PreGame').style.opacity = 1;
   FindDotaHudElement('PreGame').style.visibility = 'visible';
-}
-
-function FindDotaHudElement (id) {
-  return GetDotaHud().FindChildTraverse(id);
-}
-
-function GetDotaHud () {
-  let p = $.GetContextPanel();
-  try {
-    while (true) {
-      if (p.id === 'Hud') {
-        return p;
-      } else {
-        p = p.GetParent();
-      }
-    }
-  } catch (e) {}
 }
 
 function listenToGameEvent (event, handler) {

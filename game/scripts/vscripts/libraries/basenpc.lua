@@ -293,7 +293,11 @@ if CDOTA_BaseNPC then
   end
 
   function CDOTA_BaseNPC:IsOAABoss()
-    return self:HasModifier("modifier_boss_resistance")
+    return self:HasModifier("modifier_boss_basic_properties_oaa")
+  end
+
+  function CDOTA_BaseNPC:IsSpiritBearOAA()
+    return string.find(self:GetUnitName(), "npc_dota_lone_druid_bear")
   end
 
   function CDOTA_BaseNPC:HasShardOAA()
@@ -362,7 +366,11 @@ if C_DOTA_BaseNPC then
   end
 
   function C_DOTA_BaseNPC:IsOAABoss()
-    return self:HasModifier("modifier_boss_resistance")
+    return self:HasModifier("modifier_boss_basic_properties_oaa")
+  end
+
+  function C_DOTA_BaseNPC:IsSpiritBearOAA()
+    return string.find(self:GetUnitName(), "npc_dota_lone_druid_bear")
   end
 
   function C_DOTA_BaseNPC:HasShardOAA()

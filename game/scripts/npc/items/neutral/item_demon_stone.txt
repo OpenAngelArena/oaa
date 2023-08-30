@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
+    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -27,58 +27,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_xpm"                                       "666"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "-60"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "-35"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "summon_duration"                                 "40"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_health"                                   "900"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_damage"                                   "100"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_armor"                                    "10"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_move_speed"                               "370"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_true_sight_radius"                        "800"
-      }
+      "bonus_xpm"                                         "720"
+      "bonus_mana"                                        "200"
+      "bonus_damage"                                      "-60"
+      "bonus_attack_speed"                                "-35"
+      "summon_duration"                                   "40"
+      "summon_health"                                     "900"
+      "summon_damage"                                     "100"
+      "summon_armor"                                      "10"
+      "summon_move_speed"                                 "370"
+      "summon_true_sight_radius"                          "800"
+      "summon_dmg_reduction"                              "85" // against neutrals and bosses
     }
 
     "precache"

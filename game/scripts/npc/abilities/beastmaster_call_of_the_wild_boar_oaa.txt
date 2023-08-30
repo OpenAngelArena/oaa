@@ -17,6 +17,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "LinkedAbility"                                       "beastmaster_call_of_the_wild_hawk"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -35,7 +37,7 @@
     "AbilityValues"
     {
       "duration"                                          "60"
-      "boar_health"                                       "300 550 800 1050 2100 3150"
+      "boar_health"                                       "300 600 900 1200 2400 4800"
       "boar_damage"
       {
         "value"                                           "20 40 60 80 180 280"

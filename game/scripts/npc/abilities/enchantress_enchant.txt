@@ -39,10 +39,10 @@
         "value"                                           "200 400 600 800 1600 3200"
         "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
-      "enchant_armor"                                     "2 4 6 8 12 16"
+      "enchant_armor"                                     "0 3 6 9 15 18"
       "enchant_damage"
       {
-        "value"                                           "10 30 50 70 140 280"
+        "value"                                           "0 25 50 75 150 300"
         "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
       "slow_movement_speed"                               "-30 -40 -50 -60 -65 -70"
@@ -51,7 +51,7 @@
       "max_creeps"
       {
         "value"                                           "1"
-        "special_bonus_shard"                             "+1"
+        "special_bonus_scepter"                           "+1"
       }
     }
   }

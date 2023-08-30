@@ -25,13 +25,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage"
       {
         "value"                                           "50 100 150 200 400 800"
         "special_bonus_unique_troll_warlord_3"            "+90"
       }
-      "hit_radius"                                        "100"
-      "max_range"                                         "450.0"
+      "hit_radius"        
+      {
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "max_range"          
+      {
+        "value"                                           "450.0"
+        "affected_by_aoe_increase"                        "1"
+      }
       "axe_movement_speed"                                "1250"
       "blind_duration"
       {

@@ -47,25 +47,31 @@
         "value"                                           "35"
         "special_bonus_unique_magnus_4"                   "+10"
       }
-      "bonus_damage_pct"
+      "bonus_damage_pct" //OAA
       {
-        "value"                                           "12 20 28 36 44 52"
-        "special_bonus_unique_magnus_2"                   "+10"
+        "value"                                           "16 24 32 40 48 56"
+        "special_bonus_unique_magnus_2"                   "+20"
       }
-      "cleave_damage_pct"
+      "cleave_damage_pct" //OAA
       {
-        "value"                                           "10 20 30 40 50 60"
-        "special_bonus_unique_magnus_2"                   "+10"
+        "value"                                           "20 30 40 50 60 70"
+        "special_bonus_unique_magnus_2"                   "+20"
       }
       "cleave_starting_width"
       {
         "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
       "cleave_ending_width"
       {
         "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
       }
-      "cleave_distance"                                   "650"
+      "cleave_distance"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "secondary_cleave_distance"
       {
         "value"                                           "0"

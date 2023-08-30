@@ -49,7 +49,7 @@ function modifier_spark_gold:OnDeath(event)
   local parent = self:GetParent()
   local target = event.unit
 
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or not Gold:IsGoldGenActive() then
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() or not Gold:IsGoldGenActive() then
     return
   end
 

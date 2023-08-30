@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_brewmaster"
   "Title"         "Recommended items for Brewmaster"
 
@@ -12,12 +12,25 @@
       "item"      "item_orb_of_venom"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_harpoon"
+      "item"      "item_silver_edge"
+      "item"      "item_disperser"
+      "item"      "item_greater_power_treads"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
       "item"      "item_assault"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_pipe"
       "item"      "item_shivas_guard"
+      "item"      "item_octarine_core"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -27,15 +40,16 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_helm_of_the_overlord"
-      "item"      "item_refresher_4"
-      "item"      "item_overwhelming_blink"
-      "item"      "item_devastator_2"
       "item"      "item_black_king_bar_1"
-      "item"      "item_heart_oaa"
-      "item"      "item_lucience"
-      "item"      "item_pipe"
+      "item"      "item_crimson_guard"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_ultimate_scepter"
       "item"      "item_aeon_disk_2"
+      "item"      "item_lucience"
+      "item"      "item_refresher_4"
     }
   }
 }

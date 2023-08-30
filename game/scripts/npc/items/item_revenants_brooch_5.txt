@@ -75,7 +75,9 @@
       "passive_cooldown"                                  "8.0"
       "number_of_attacks"                                 "6"
       "active_duration"                                   "15"
-      "active_attack_speed"                               "60"
+      "active_attack_speed"                               "0"
+      "active_mres_reduction"                             "20"
+      "spell_amp_duration"                                "3"
     }
   }
 }

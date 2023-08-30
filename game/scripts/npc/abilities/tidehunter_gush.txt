@@ -35,54 +35,44 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "gush_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "gush_damage"                                     "110 160 210 260 520 1040"
+        "value"                                           "110 160 210 260 520 1040"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_2"
       }
-      "02"
+      "projectile_speed"                                  "2500"
+      "movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "2500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "-40"
+        "value"                                           "-40"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
-      "04"
+      "negative_armor"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "negative_armor"                                  "3 4 5 6 8 14"
+        "value"                                           "3 4 5 6 8 14"
         "LinkedSpecialBonus"                              "special_bonus_unique_tidehunter"
       }
-      "05"
+      "speed_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_scepter"                                   "1500"
+        "value"                                           "1500"
         "RequiresScepter"                                 "1"
       }
-      "06"
+      "aoe_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aoe_scepter"                                     "260"
+        "value"                                           "260"
+        "affected_by_aoe_increase"                        "1"
         "RequiresScepter"                                 "1"
       }
-      "07"
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "7"
+        "value"                                           "7"
         "RequiresScepter"                                 "1"
       }
-      "08"
+      "cast_range_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_scepter"                              "2200"
+        "value"                                           "2200"
         "RequiresScepter"                                 "1"
       }
     }

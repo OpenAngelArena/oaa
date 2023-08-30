@@ -31,40 +31,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"                                            "120 160 200 240 480 960"
+      "int_multiplier"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "120 160 200 240 480 960"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "int_multiplier"                                  "1 1.5 2 2.5 3 3.5"
+        "value"                                           "1 1.5 2 2.5 3 3.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_4"
       }
-      "03"
+      "debuff_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "debuff_duration"                                 "4"
+        "value"                                           "4"
         "LinkedSpecialBonus"                              "special_bonus_unique_silencer_2"
       }
-      "04"
+      "duration"                                          "3 4 5 6 6.5 7"
+      "scepter_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3 4 5 6 6.5 7"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_radius"                                  "500"
+        "value"                                           "500"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "06"
+      "scepter_bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_damage"                            "0"
+        "value"                                           "0"
         "RequiresScepter"                                 "1"
       }
     }

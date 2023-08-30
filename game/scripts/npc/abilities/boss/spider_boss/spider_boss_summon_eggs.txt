@@ -1,13 +1,11 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spider Boss: Summon Eggs
+  // Spider Boss: Summon Eggs - unused
   //=================================================================================================================
   "spider_boss_summon_eggs"
   {
     "ID"                                                  "8454"
-    // General
-    //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/spider_boss/spider_boss_summon_eggs.lua"
     "AbilityTextureName"                                  "broodmother_spawn_spiderlings"

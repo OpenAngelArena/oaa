@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_mirana"
   "Title"         "Recommended items for Mirana"
 
@@ -8,17 +8,18 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_wraith_band"
+      "item"      "item_bracer"
       "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_maelstrom"
-      "item"      "item_greater_crit"
+      "item"      "item_hurricane_pike"
       "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
+      "item"      "item_disperser"
       "item"      "item_satanic"
-      "item"      "item_black_king_bar_1"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -37,17 +38,21 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_bloodthorn"
+      "item"      "item_black_king_bar_1"
       "item"      "item_guardian_greaves"
-      "item"      "item_gungir"
-      "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
       "item"      "item_manta"
       "item"      "item_octarine_core"
+      "item"      "item_pipe"
       "item"      "item_shield_staff"
       "item"      "item_skadi"
+      "item"      "item_solar_crest"
+      "item"      "item_sphere"
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_greater_power_treads"
-      "item"      "item_refresher_4"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_dispel_orb_1"
+      "item"      "item_trumps_fists"
     }
   }
 }

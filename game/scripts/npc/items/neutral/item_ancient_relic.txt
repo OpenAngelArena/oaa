@@ -16,7 +16,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
+    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -25,33 +25,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "45"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "15"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_spell_amp"                                 "10"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "4"
-      }
+      "bonus_damage"                                      "45"
+      "bonus_move_speed"                                  "35"
+      "bonus_hp_regen"                                    "17"
+      "bonus_spell_amp"                                   "12"
+      "bonus_mana_regen"                                  "4.25"
     }
   }
 }

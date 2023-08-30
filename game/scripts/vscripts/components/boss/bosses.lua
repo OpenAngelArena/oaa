@@ -30,7 +30,7 @@ Bosses = {
       "npc_dota_boss_twin_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       --"npc_dota_creature_temple_guardian_spawner_tier5",
-      shielder_or_no(5),
+      --shielder_or_no(5),
       "npc_dota_boss_tier_5", -- Big Bird
     }
   },
@@ -69,9 +69,9 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Tier 5 Skeleton Boss (Geostrike)
       "npc_dota_boss_simple_5_tier5", -- Tier 5 Dire Creep Boss (Great Cleave)
       "npc_dota_boss_twin_tier5",
-      shielder_or_no(5),
+      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Tier 5 Bear Boss (Fury Swipes)
-      "npc_dota_boss_charger_tier5",
+      --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
@@ -113,9 +113,9 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      shielder_or_no(5),
+      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
-      "npc_dota_boss_charger_tier5",
+      --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
@@ -152,9 +152,9 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      shielder_or_no(5),
+      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
-      "npc_dota_boss_charger_tier5",
+      --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",
@@ -182,9 +182,9 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      shielder_or_no(5),
+      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
-      "npc_dota_boss_charger_tier5",
+      --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       "npc_dota_creature_lycan_boss_tier5",
       "npc_dota_creature_temple_guardian_spawner_tier5",

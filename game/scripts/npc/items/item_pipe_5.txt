@@ -72,7 +72,11 @@
       "aura_radius"                                       "1200"
       "barrier_block"                                     "450 550 750 1050 1450"
       "barrier_duration"                                  "12.0"
-      "barrier_radius"                                    "1200"
+      "barrier_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_all_stats"                                   "0"
       "barrier_block_creep"                               "450 550 750 1050 1450"
     }

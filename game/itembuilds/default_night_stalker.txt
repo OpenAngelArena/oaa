@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.33d"
   "hero"          "npc_dota_hero_night_stalker"
   "Title"         "Recommended items for Night Stalker"
 
@@ -13,34 +13,41 @@
       "item"      "item_wind_lace"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_sange_and_yasha"
-      "item"      "item_assault"
+      "item"      "item_harpoon"
+      "item"      "item_silver_edge"
       "item"      "item_abyssal_blade_2"
-      "item"      "item_bloodthorn"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_vampire"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_radiance"
+      "item"      "item_heavens_halberd"
       "item"      "item_far_sight"
+      "item"      "item_ultimate_scepter"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_armlet"
+      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
-      "item"      "item_desolator"
-      "item"      "item_satanic"
+      "item"      "item_crimson_guard"
+      "item"      "item_greater_crit"
       "item"      "item_heart_oaa"
       "item"      "item_monkey_king_bar"
-      "item"      "item_greater_crit"
-      "item"      "item_trumps_fists"
-      "item"      "item_armlet"
-      "item"      "item_heavens_halberd"
-      "item"      "item_silver_edge"
-      "item"      "item_pipe"
-      "item"      "item_vladmir"
-      "item"      "item_mjollnir"
       "item"      "item_nullifier"
-      "item"      "item_crimson_guard"
+      "item"      "item_satanic"
+      "item"      "item_sphere"
+      "item"      "item_sonic"
+      "item"      "item_trumps_fists"
     }
   }
 }

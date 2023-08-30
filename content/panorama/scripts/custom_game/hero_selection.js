@@ -1,4 +1,4 @@
-/* global Players $ GameEvents CustomNetTables FindDotaHudElement Game */
+/* global $, Players, GameEvents, CustomNetTables, FindDotaHudElement, Game, is10v10 */
 
 'use strict';
 
@@ -637,7 +637,7 @@ function UpdateButtons () {
 }
 
 function SetupTopBar () {
-  if (currentMap !== '10v10') {
+  if (!is10v10()) {
     return;
   }
 

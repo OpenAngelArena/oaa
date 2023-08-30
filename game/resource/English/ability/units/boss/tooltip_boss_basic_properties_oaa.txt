@@ -1,0 +1,16 @@
+//=============================================================================
+// Boss Basic Properties
+//=============================================================================
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa"                                "Boss Properties"
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_Description"                    "Takes reduced damage from all sources.\n\nArmor reduction has a cap.\n\nReveals invisible units that damaged it.\n\nHas Flying Movement.\n\nHas Debuff Protection while using abilities. Strong bosses will also have Debuff Protection for %debuff_protection_duration% seconds after blocking a spell or item that stuns, roots, silences or hexes."
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_Lore"                           "Roshan could use this."
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_percent_damage_reduce"          "%DAMAGE REDUCTION:"
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_reveal_duration"                "REVEAL DURATION:"
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_reveal_max_distance"            "REVEAL DISTANCE:"
+"DOTA_Tooltip_Ability_boss_basic_properties_oaa_max_armor_reduction"            "MAX ARMOR REDUCTION:"
+
+"DOTA_Tooltip_modifier_boss_truesight_oaa"                                      "Greater Reveal"
+"DOTA_Tooltip_modifier_boss_truesight_oaa_Description"                          "Can be seen by enemies while invisible; even under Smoke of Deceit."
+
+"dota_tooltip_modifier_boss_debuff_protection_oaa"                              "Debuff Protection"
+"dota_tooltip_modifier_boss_debuff_protection_oaa_Description"                  "Cannot be stunned, silenced, rooted etc."

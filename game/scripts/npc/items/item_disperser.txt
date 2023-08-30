@@ -34,7 +34,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "1097"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -59,6 +59,8 @@
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
+    "UpgradesItems"                                       "item_disperser"
+    "UpgradeRecipe"                                       "item_recipe_disperser" // if there is a bug related to buying, it's caused by this
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -75,7 +77,7 @@
       "enemy_effect_duration"                             "4.0"
       "ally_effect_duration"                              "4.0"
       "bonus_damage"                                      "40 50 65 85 110" //OAA
-      "radius"                                            "450"
+      "radius"                                            "350"
       "attack_speed_slow"                                 "80"
       "phase_movement_speed"                              "100"
       "movement_speed_buff_rate"                          "5"

@@ -13,17 +13,17 @@ CreepTypes = {
       {"npc_dota_neutral_custom_kobold_soldier",    380,    0,  20,    1,    25,  30},
       {"npc_dota_neutral_custom_kobold",            250,    0,  10,   0.5,   15,  25}
     },
-	{
-      {"npc_dota_neutral_dark_troll",               450,  200,  70,    1,    30,  35}, -- has Piercing
-      {"npc_dota_neutral_forest_troll_berserker",   400,    0,  40,    1,    25,  30}, -- has Piercing
-      {"npc_dota_neutral_forest_troll_high_priest", 320,  500,  20,   0.5,   15,  25}  -- has Piercing
+    {
+      {"npc_dota_neutral_dark_troll",               400,  200,  65,   0.75,  30,  35}, -- has Piercing
+      {"npc_dota_neutral_forest_troll_berserker",   350,    0,  35,   0.75,  25,  30}, -- has Piercing
+      {"npc_dota_neutral_forest_troll_high_priest", 300,  500,  15,   0.5,   15,  25}  -- has Piercing
     },
   },
     -- 2 "medium camp" (CreepMax is 8 for all medium camps)
   {
     {                                              --HP   MANA  DMG   ARM   GOLD  EXP  -- expected gold is 60 and XP is 143
-      {"npc_dota_neutral_custom_harpy_storm",       650,  300,  60,   1.3,   35,  82}, -- has Piercing
-      {"npc_dota_neutral_custom_harpy_scout",       400,  200,  50,     1,   25,  61}  -- has Piercing
+      {"npc_dota_neutral_custom_harpy_storm",       650,  300,  35,   1.3,   35,  82},
+      {"npc_dota_neutral_custom_harpy_scout",       400,  200,  30,     1,   25,  61}
     },
     {
       {"npc_dota_neutral_custom_mud_golem",         525,    0,  35,    1,    15,  29}, -- multiply gold value by 2 and xp value by 2.5 because they split

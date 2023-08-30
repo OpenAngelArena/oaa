@@ -31,9 +31,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "450"      // Damage range min.
-    "AttackDamageMax"                                     "450"      // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"                                     "425"      // Damage range min.
+    "AttackDamageMax"                                     "425"      // Damage range max.
     "AttackRate"                                          "1.5"   // Speed of attack.
     "AttackAnimationPoint"                                "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "650"   // Range within a target can be acquired.
@@ -68,8 +67,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision

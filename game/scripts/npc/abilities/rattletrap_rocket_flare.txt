@@ -29,7 +29,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "600"
+      "radius"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "6.0"
       "speed"                                             "2250"
       "damage" //OAA
@@ -45,6 +49,9 @@
       }
       "slow_pct"                                          "100"
       "slow_duration"                                     "0.4"
+      "projectile_vision_radius"                          "250"
+      "projectile_vision_duration"                        "1.0"
+      "projectile_vision_tick_rate"                       "0.15"
     }
   }
 }

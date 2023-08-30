@@ -57,7 +57,11 @@
         "value"                                           "2.75"
         "special_bonus_unique_oracle_2"                   "+0.5"
       }
-      "radius"                                            "350"
+      "radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

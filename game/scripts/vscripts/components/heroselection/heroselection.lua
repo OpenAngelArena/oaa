@@ -28,8 +28,8 @@ function HeroSelection:Init ()
   self.moduleName = "HeroSelection"
 
   self.isCM = GetMapName() == "captains_mode"
-  self.is10v10 = GetMapName() == "10v10"
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "oaa_bigmode"
+  self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy"
   self.is1v1 = GetMapName() == "1v1"
 
   local herolistFile = 'scripts/npc/herolist.txt'
@@ -113,7 +113,7 @@ function HeroSelection:Init ()
       local playerId = hero:GetPlayerID()
       local hero_name = hero:GetUnitName()
       -- Don't trigger for neutrals, Tempest Double and Meepo Clones
-      if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() then
+      if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
         return
       end
       DebugPrint("OnHeroInGame - Hero "..hero_name.." spawned for the first time.")
@@ -589,7 +589,9 @@ function HeroSelection:ChooseBans ()
     elseif OAAOptions.settings.GAME_MODE == "AR" then
       -- 100% chance bans
       PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-        table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+        if rankedpickorder.banChoices[playerID] then
+          table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
+        end
       end)
     end
   end
@@ -879,6 +881,9 @@ function HeroSelection:IsHeroDisabled (hero)
       end
     end
   elseif self:IsHeroChosen(hero) then
+    return true
+  end
+  if not hero or hero == "npc_dota_hero_dummy_dummy" or hero == "empty" then
     return true
   end
   return false

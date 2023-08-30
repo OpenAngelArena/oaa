@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_wisp"
   "Title"         "Recommended items for Io"
 
@@ -8,14 +8,15 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_clarity"
-      "item"      "item_flask"
       "item"      "item_headdress"
+      "item"      "item_bracer"
+      "item"      "item_magic_wand"
       "item"      "item_mango"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
+      "item"      "item_ward_stack"
       "item"      "item_ghost_king_bar_1"
       "item"      "item_guardian_greaves"
       "item"      "item_spirit_vessel_oaa"
@@ -25,10 +26,11 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_radiance"
       "item"      "item_ultimate_scepter"
       "item"      "item_kaya_and_sange"
-      "item"      "item_heart_oaa"
-      "item"      "item_shivas_guard"
+      "item"      "item_dagon_oaa"
+      "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah"
     }
 
@@ -39,13 +41,12 @@
 
     "#DOTA_Item_Build_Late_Items"
     {
-      "item"      "item_bloodthorn"
-      "item"      "item_ethereal_blade"
+      "item"      "item_glimmer_cape"
       "item"      "item_heavens_halberd"
       "item"      "item_helm_of_the_overlord"
       "item"      "item_pipe"
-      "item"      "item_radiance"
       "item"      "item_shield_staff"
+      "item"      "item_solar_crest"
       "item"      "item_wind_waker"
       "item"      "item_aeon_disk_2"
       "item"      "item_greater_tranquil_boots"

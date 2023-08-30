@@ -1,82 +1,65 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Demonic Conversion
+  // Enigma: Demonic Conversion - needed for shard (only AbilityValues matter, casting stuff doesn't)
   //=================================================================================================================
   "enigma_demonic_conversion"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5147"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-
-    "MaxLevel"                                            "6"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "400"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "35" //OAA
+    "AbilityCooldown"                                     "60 52 44 36"
     "AbilityDuration"                                     "40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "140 150 160 170 180 190"
+    "AbilityManaCost"                                     "75 100 125 150"
+    "AbilityHealthCost"                                   "75 100 125 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "spawn_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spawn_count"                                     "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enigma"
+        "value"                                           "3"
+        "special_bonus_unique_enigma"                     "+5"
       }
-      "02"
+      "split_attack_count"                                "6"
+      "eidelon_max_health" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "split_attack_count"                              "6"
+        "value"                                           "180 220 260 300"
+        "special_bonus_unique_enigma_7"                   "+150"
       }
-      "03"
+      "life_extension"                                    "2.0"
+      "eidelon_base_damage"                               "20 30 40 50" //OAA
+      "eidolon_damage_spread"                             "4"
+      "eidolon_bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "eidolon_hp_tooltip"                              "180 200 220 240 1240 2240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_7"
+        "value"                                           "0"
+        "special_bonus_unique_enigma_3"                   "+40"
       }
-      "04"
+      "eidolon_bonus_attack_speed"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "life_extension"                                  "2.0"
+        "value"                                           "0"
+        "special_bonus_unique_enigma_4"                   "+10"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "eidolon_dmg_tooltip"                             "24 32 40 48 96 192" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_enigma_3"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_max_level"                                 "7" //OAA
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "eidolon_magic_resist_tooltip"                    "60" //OAA
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "eidolon_attack_range_tooltip"                    "500" //OAA
-      }
+      "eidelon_base_movespeed"                            "370" //OAA
+      "creep_max_level"                                   "4" // unused
+      "eidolon_magic_resist"                              "60" //OAA
+      "eidolon_attack_range"                              "500" //OAA
+      "allied_damage_pct"                                 "45"
+      "self_modelscale"                                   "-40"
+      "spawn_offset"                                      "100"
     }
   }
 }

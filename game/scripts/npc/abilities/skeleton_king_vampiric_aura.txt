@@ -25,7 +25,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vampiric_aura" //OAA
+      "vampiric_aura"
       {
         "value"                                           "20 30 40 50 55 60"
         "special_bonus_unique_wraith_king_2"              "+10"
@@ -82,6 +82,7 @@
       }
       "skeleton_attack_speed_per_level"                   "1" //OAA
       "skeleton_building_damage_reduction"                "35"
+      "skeleton_bonus_hero_damage"                        "25" // percentage increase
     }
   }
 }

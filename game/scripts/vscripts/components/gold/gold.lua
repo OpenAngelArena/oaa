@@ -185,7 +185,7 @@ function Gold.HeroSpawn(hero)
   if Gold.hasPassiveGPM[hero] then
     return
   end
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 
@@ -200,7 +200,7 @@ function Gold:PassiveGPM(hero)
   if time and self:IsGoldGenActive() then
     local tick =  math.floor(time/GPM_TICK_INTERVAL)
     local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
-    if GetMapName() == "10v10" then
+    if HeroSelection.is10v10 then
       gold_per_tick = math.floor(gold_per_tick * 1.5)
     end
     -- GameRules:SetGoldPerTick doesn't work since 7.23
@@ -248,7 +248,7 @@ function modifier_oaa_passive_gpm:OnIntervalThink()
     return
   end
   local parent = self:GetParent()
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
     return
   end
   Gold:PassiveGPM(parent)

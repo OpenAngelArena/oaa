@@ -43,7 +43,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
 
-    "AbilityCastRange"                                    "950"
+    "AbilityCastRange"                                    "750 850 950 1050 1150"
     "AbilityCooldown"                                     "7.0"
     "AbilitySharedCooldown"                               "urn"
 
@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4481"
+    "ItemCost"                                            "4281"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "sv 2;spirit vessel 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -66,7 +66,7 @@
     {
       "bonus_health"                                      "250 500 1000 1750 2750"
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "2 10 15 20 25"
+      "bonus_all_stats"                                   "12 17 22 27 32"
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"

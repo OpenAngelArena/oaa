@@ -39,7 +39,7 @@ function dotaAbilities (cb) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body.replace(/(\n\s+)([a-zA-Z-_]+)(\s+"[^"]+")/g, '$1"$2"$3'));
+    const data = parseKV(result.body.replace('"SPELL_IMMUNITY_ENEMIES_YES\\"', '"SPELL_IMMUNITY_ENEMIES_YES"'));
     cb(null, data.DOTAAbilities);
   });
 }

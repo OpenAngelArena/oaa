@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Razor: Storm Surge (OAA ability that improves vanilla ability)
+  // Razor: Storm Surge (OAA ability that improves vanilla ability) - unused
   //=================================================================================================================
   "razor_storm_surge_oaa"
   {
@@ -17,24 +17,30 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // bonus movement speed (tooltip only)
+      "self_movement_speed_pct" // bonus movement speed (for the tooltip)
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed_pct"                         "10 15 20 25 30 35"
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_5"
+        "value"                                           "8 12 16 20 24 28"
+        "special_bonus_unique_razor_5"                    "+21"
       }
-      "02"
+      "strike_pct_chance"                                 "18" // for the tooltip
+      "strike_target_count"                               "3" // for the tooltip
+      "strike_damage" // for the tooltip
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "10 15 20 25 30 35"
+        "value"                                           "45 80 115 150 300 600"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25%"
       }
-      "03"
+      "strike_move_slow_pct" // for the tooltip
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_projectile_speed"                   "300 400 500 600 800 1000"
+        "value"                                           "20 25 30 35 40 45"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25"
       }
+      "strike_slow_duration"                              "1.0" // for the tooltip
+      "strike_search_radius"                              "700" // for the tooltip
+      "strike_internal_cd"                                "3.0" // for the tooltip
+      "bonus_attack_speed"                                "8 12 16 20 24 28"
+      "bonus_attack_projectile_speed"                     "300 400 500 600 800 1000"
     }
   }
 }

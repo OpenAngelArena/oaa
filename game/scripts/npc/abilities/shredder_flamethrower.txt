@@ -31,43 +31,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_per_second"                                 "80"
+      "duration"                                          "8"
+      "width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "80"
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "length"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "8"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "275"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "length"                                          "400"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow_pct"                                   "50" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "building_dmg_pct"                                "40"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "debuff_linger_duration"                          "2.0"
-      }
+      "move_slow_pct"                                     "50" //OAA
+      "building_dmg_pct"                                  "200" //OAA, percentage bonus damage against bosses
+      "debuff_linger_duration"                            "2.0"
     }
   }
 }

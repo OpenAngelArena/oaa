@@ -239,7 +239,7 @@ if IsServer() then
 
       local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
 
-      -- Talent that increases mana pool damage percent
+      -- Talent that increases mana pool damage percent - done through kv
       --if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
         --mana_pool_damage_pct = mana_pool_damage_pct + 2
       --end

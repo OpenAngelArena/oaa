@@ -20,12 +20,12 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "575"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "5.5"
+    "AbilityCooldown"                                     "6" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,25 +37,29 @@
     {
       "self_damage"
       {
-        "value"                                           "50"
+        "value"                                           "40"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "missile_speed"                                     "1300"
       "target_damage"
       {
-        "value"                                           "110 160 210 260 520 780"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_abaddon_2"                  "+40"
       }
       "heal_amount"
       {
-        "value"                                           "110 160 210 260 520 780"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_abaddon_2"                  "+40"
       }
       "effect_radius"
       {
         "value"                                           "0"
         "special_bonus_unique_abaddon_4"                  "+400"
+        "affected_by_aoe_increase"                        "1"
       }
+      "effect_duration"                                   "0"
+      "magic_resistance"                                  "0"
+      "armor_bonus"                                       "0"
     }
   }
 }

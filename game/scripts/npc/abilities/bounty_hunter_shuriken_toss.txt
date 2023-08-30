@@ -32,16 +32,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"
+      "bonus_damage" //OAA
       {
-        "value"                                           "80 120 160 200 400 800"
+        "value"                                           "100 160 220 280 560 840"
         "special_bonus_unique_bounty_hunter_2"            "+50"
       }
       "speed"                                             "1000"
-      "bounce_aoe"                                        "1200"
-      "slow_duration"
+      "bounce_aoe"
       {
-        "value"                                           "0.35"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "slow_duration" //OAA
+      {
+        "value"                                           "3"
         "special_bonus_unique_bounty_hunter_5"            "+0.65"
       }
       "scepter_cast_range"
@@ -55,7 +59,7 @@
         "RequiresScepter"                                 "1"
       }
       "cast_range"                                        "375 425 475 525 575 625"
-      "slow"                                              "100"
+      "slow"                                              "20 30 40 50 60 70" //OAA
       "attack_slow"                                       "100"
     }
   }

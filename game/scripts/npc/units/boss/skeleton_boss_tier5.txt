@@ -11,7 +11,7 @@
     "Model"                                               "models/creeps/ice_biome/undeadtusk/undead_tuskskeleton01.vmdl"  // Model.
     "vscripts"                                            "units/ai_simple.lua"
     "SoundSet"                                            "Roshan"          // Name of sound set.
-    "ModelScale"                                          "2"
+    "ModelScale"                                          "2.5"
     "Level"                                               "60"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -20,10 +20,9 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_geostrike"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
-    "Ability5"                                            "boss_true_strike"
+    "Ability2"                                            "boss_basic_properties_oaa"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            "boss_true_strike"
 
     // Armor
     //----------------------------------------------------------------
@@ -33,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "7900"    // Damage range min.
-    "AttackDamageMax"                                     "8050"    // Damage range max.
+    "AttackDamageMin"                                     "8000"    // Damage range min.
+    "AttackDamageMax"                                     "8000"    // Damage range max.
     "AttackRate"                                          "1.0"    // BAT
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.
@@ -74,8 +73,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

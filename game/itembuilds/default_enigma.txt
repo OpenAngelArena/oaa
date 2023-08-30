@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_enigma"
   "Title"         "Recommended items for Enigma"
 
@@ -13,14 +13,29 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_hand_of_midas_1"
+      "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
       "item"      "item_blink"
       "item"      "item_octarine_core"
       "item"      "item_ultimate_scepter"
       "item"      "item_black_king_bar_1"
+      "item"      "item_greater_travel_boots"
       "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ward_stack"
+      "item"      "item_solar_crest"
+      "item"      "item_guardian_greaves"
+      "item"      "item_far_sight"
+      "item"      "item_glimmer_cape"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -30,13 +45,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_sphere"
-      "item"      "item_bubble_orb_1"
-      "item"      "item_guardian_greaves"
+      "item"      "item_boots_of_bearing"
+      "item"      "item_helm_of_the_overlord"
+      "item"      "item_pipe"
       "item"      "item_shivas_guard"
-      "item"      "item_radiance"
-      "item"      "item_aeon_disk_2"
       "item"      "item_silver_edge"
+      "item"      "item_sphere"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_bubble_orb_1"
     }
   }
 }

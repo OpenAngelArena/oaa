@@ -33,29 +33,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "350"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "formation_time"                                    "1"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "formation_time"                                  "1.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.6 3.2 3.8 4.4 4.7 5.0"
+        "value"                                           "2.6 3.2 3.8 4.4 4.7 5.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_5"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_per_second"                               "0"
-      }
+      "damage_per_second"                                 "0"
     }
   }
 }

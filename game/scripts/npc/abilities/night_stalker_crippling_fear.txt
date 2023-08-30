@@ -31,7 +31,13 @@
     {
       "duration_day"                                      "3.0"
       "duration_night"                                    "4.5 5 5.5 6.0 7 8"
-      "radius"                                            "375"
+      "radius"
+      {
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "dps"                                               "25 30 35 40 80 160"
+      "tick_rate"                                         "0.1"
     }
   }
 }

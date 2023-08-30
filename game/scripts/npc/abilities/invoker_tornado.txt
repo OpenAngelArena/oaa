@@ -19,7 +19,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "2000"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityManaCost"                                     "150"
+    "AbilityManaCost"                                     "140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
       "AbilityCooldown"
       {
         "value"                                           "30"
-        "special_bonus_unique_invoker_3"                  "-6"
+        "special_bonus_unique_invoker_3"                  "-4"
       }
       "travel_distance"
       {
@@ -36,18 +36,26 @@
         "levelkey"                                        "wexlevel"
       }
       "travel_speed"                                      "1000"
-      "area_of_effect"                                    "200"
-      "vision_distance"                                   "200"
+      "area_of_effect"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "vision_distance"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "end_vision_duration"                               "1.75"
       "lift_duration"
       {
-        "value"                                           "0.85 1.1 1.35 1.6 1.85 2.1 2.35 2.6 2.85 3.1 3.35 3.4 3.6 3.8 4.0"
+        "value"                                           "1.2 1.4 1.6 1.8 2 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0"
         "special_bonus_unique_invoker_8"                  "+1.25"
         "levelkey"                                        "quaslevel"
       }
       "base_damage"
       {
-        "value"                                           "70"      
+        "value"                                           "70"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "quas_damage"

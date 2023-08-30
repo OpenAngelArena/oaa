@@ -45,7 +45,11 @@
         "value"                                           "3.25 3.5 3.75 4.0 4.25 4.5"
         "special_bonus_unique_jakiro"                     "+0.5"
       }
-      "path_radius"                                       "150"
+      "path_radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
       "damage"
       {
         "value"                                           "50"

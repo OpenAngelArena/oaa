@@ -172,7 +172,7 @@ function CreepCamps:SpawnCreepInCamp (location, creepProperties, maximumUnits)
 
   if creepHandle ~= nil then
     self:SetCreepPropertiesOnHandle(creepHandle, newCreepProperties)
-    if GetMapName() ~= "10v10" or HudTimer:GetGameTime() < DUEL_INTERVAL then
+    if not HeroSelection.is10v10 or HudTimer:GetGameTime() < DUEL_INTERVAL then
       creepHandle:AddNewModifier(creepHandle, nil, "modifier_creep_loot", {locationString = locationString})
     end
   end

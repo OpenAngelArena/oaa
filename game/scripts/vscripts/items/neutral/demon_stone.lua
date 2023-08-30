@@ -31,6 +31,7 @@ function item_demon_stone:OnSpellStart()
 
   -- Add summon passives
   summon:AddNewModifier(caster, self, "modifier_demon_stone_summon_passives", {})
+  summon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
   summon:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
   summon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
 
@@ -181,4 +182,34 @@ end
 
 function modifier_demon_stone_summon_passives:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+function modifier_demon_stone_summon_passives:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+  }
+end
+
+if IsServer() then
+  function modifier_demon_stone_summon_passives:GetModifierTotal_ConstantBlock(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+
+    if attacker == parent then
+      return 0
+    end
+
+    local dmg_reduction = 85
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      dmg_reduction = ability:GetSpecialValueFor("summon_dmg_reduction")
+    end
+
+    -- Block damage from neutrals and always from bosses
+    if attacker:IsOAABoss() or attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      return event.damage * dmg_reduction / 100
+    end
+
+    return 0
+  end
 end

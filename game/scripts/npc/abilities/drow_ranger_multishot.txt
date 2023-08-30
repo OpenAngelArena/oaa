@@ -23,64 +23,35 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityChannelTime"                                  "1.75"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50 70 90 110 130 150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "wave_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_count"                                      "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_8"
+        "value"                                           "3"
+        "special_bonus_unique_drow_ranger_8"              "+1"
       }
-      "02"
+      "arrow_count_per_wave"                              "4"
+      "arrow_damage_pct" // this is based on Drow's base damage
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_count_per_wave"                            "4"
+        "value"                                           "100 120 140 160 200 260"
+        "special_bonus_unique_drow_ranger_1"              "+25"
       }
-      "03" // this is based on Drow's base damage
+      "arrow_slow_duration"                               "1.25 2 2.75 3.5 4.25 5"
+      "arrow_width"                                       "90"
+      "arrow_speed"                                       "1200"
+      "arrow_range_multiplier"                            "1.75"
+      "arrow_angle"                                       "50"
+      "bypass_block"                                      "1"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_damage_pct"                                "100 120 140 160 200 260"
-        "LinkedSpecialBonus"                              "special_bonus_unique_drow_ranger_1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_slow_duration"                             "1.25 2 2.75 3.5 4.25 5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_width"                                     "90"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_speed"                                     "1200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "arrow_range_multiplier"                          "1.75"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "arrow_angle"                                     "50"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bypass_block"                                    "1"
+        "value"                                           "23 22 21 20 19 18"
+        "special_bonus_unique_drow_ranger_6"              "-8"
       }
     }
   }
