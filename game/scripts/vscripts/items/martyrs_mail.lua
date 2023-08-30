@@ -2,6 +2,8 @@ LinkLuaModifier("modifier_item_martyrs_mail_passive", "items/martyrs_mail.lua", 
 LinkLuaModifier("modifier_item_martyrs_mail_passive_aura_effect", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_active", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_martyrs_mail_death_buff", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_martyrs_mail_dummy_stuff", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -45,6 +47,7 @@ function modifier_item_martyrs_mail_passive:OnCreated()
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
     self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
+    self.bonus_as = ability:GetSpecialValueFor("bonus_attack_speed")
     self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
 end
@@ -56,6 +59,8 @@ function modifier_item_martyrs_mail_passive:DeclareFunctions()
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_EVENT_ON_DEATH,
   }
 end
 
@@ -69,6 +74,10 @@ end
 
 function modifier_item_martyrs_mail_passive:GetModifierBonusStats_Intellect()
 	return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+function modifier_item_martyrs_mail_passive:GetModifierAttackSpeedBonus_Constant()
+  return self.bonus_as or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_martyrs_mail_passive:IsAura()
@@ -89,6 +98,80 @@ end
 
 function modifier_item_martyrs_mail_passive:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+end
+
+if IsServer() then
+  function modifier_item_martyrs_mail_passive:OnDeath(event)
+    -- Only the first item will proc
+    if not self:IsFirstItemInInventory() then
+      return
+    end
+
+    local parent = self:GetParent()
+    local dead = event.unit
+    local ability = self:GetAbility()
+
+    -- Check if dead unit is nil or its about to be deleted
+    if not dead or dead:IsNull() then
+      return
+    end
+
+    -- If dead unit is not the parent then dont continue
+    if dead ~= parent then
+      return
+    end
+
+    -- Check if parent is a real hero (it's fine if it works on Spirit Bear)
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
+      return
+    end
+
+    local parent_team = parent:GetTeamNumber()
+    local death_location = parent:GetAbsOrigin()
+
+    local heal_amount = 100 + parent:GetMaxHealth() / 2
+    local heal_radius = 1800
+    local vision_duration = 30
+    local effect_duration = 30
+    --local vision_radius = 800
+
+    if ability and not ability:IsNull() then
+      heal_amount = ability:GetSpecialValueFor("death_heal_base") + (parent:GetMaxHealth() * ability:GetSpecialValueFor("death_heal_hp_percent") / 100)
+      heal_radius = ability:GetSpecialValueFor("death_effect_radius")
+      vision_duration = ability:GetSpecialValueFor("death_effect_duration")
+      effect_duration = ability:GetSpecialValueFor("death_effect_duration")
+      --vision_radius = ability:GetSpecialValueFor("death_vision_radius")
+    end
+
+    local allies = FindUnitsInRadius(
+      parent_team,
+      death_location,
+      nil,
+      heal_radius,
+      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    for _, ally in pairs(allies) do
+      if ally and not ally:IsNull() then
+        -- Healing
+        ally:Heal(heal_amount, ability)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+        -- Buff
+        ally:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_death_buff", {duration = effect_duration})
+      end
+    end
+
+    -- Add vision at death location
+    local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", death_location, false, parent, parent, parent_team)
+    dummy:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_dummy_stuff", {})
+    dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
+    dummy:AddNewModifier(parent, ability, "modifier_generic_dead_tracker_oaa", {duration = vision_duration + MANUAL_GARBAGE_CLEANING_TIME})
+    --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -120,7 +203,7 @@ function modifier_item_martyrs_mail_martyr_active:GetAuraEntityReject( hEntity )
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraRadius()
-  return self.martyr_heal_aoe or 900
+  return self.martyr_heal_aoe or 1200
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetAuraSearchTeam()
@@ -139,7 +222,7 @@ end
 
 function modifier_item_martyrs_mail_martyr_active:OnCreated()
   local ability = self:GetAbility()
-  local radius = 900
+  local radius = 1200
   if ability and not ability:IsNull() then
     radius = ability:GetSpecialValueFor("martyr_heal_aoe")
   end
@@ -184,7 +267,7 @@ if IsServer() then
       return
     end
 
-    local martyr_heal_aoe = ability:GetSpecialValueFor("martyr_heal_aoe")
+    local martyr_heal_aoe = self.martyr_heal_aoe or ability:GetSpecialValueFor("martyr_heal_aoe")
     local martyr_heal_percent = ability:GetSpecialValueFor("martyr_heal_percent")
 
     local allies = FindUnitsInRadius(
@@ -204,6 +287,17 @@ if IsServer() then
       end
     end
   end
+end
+
+function modifier_item_martyrs_mail_martyr_active:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+-- Unbreakable owner
+function modifier_item_martyrs_mail_martyr_active:CheckState()
+  return {
+    [MODIFIER_STATE_PASSIVES_DISABLED] = false,
+  }
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetEffectName()
@@ -234,6 +328,17 @@ function modifier_item_martyrs_mail_martyr_aura:IsPurgable()
   return false
 end
 
+function modifier_item_martyrs_mail_martyr_aura:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+-- Unbreakable allies but not the owner
+function modifier_item_martyrs_mail_martyr_aura:CheckState()
+  return {
+    [MODIFIER_STATE_PASSIVES_DISABLED] = false,
+  }
+end
+
 function modifier_item_martyrs_mail_martyr_aura:GetEffectName()
 	return "particles/world_shrine/radiant_shrine_active_ray.vpcf"
 end
@@ -262,35 +367,31 @@ function modifier_item_martyrs_mail_passive_aura_effect:IsPurgable()
   return false
 end
 
-function modifier_item_martyrs_mail_passive_aura_effect:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
-end
-
 function modifier_item_martyrs_mail_passive_aura_effect:OnCreated()
-  self.attack_speed = 100
+  self.armor = 15
+  self.attack_speed = 50
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.armor = ability:GetSpecialValueFor("aura_armor")
     self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
   end
 end
 
 modifier_item_martyrs_mail_passive_aura_effect.OnRefresh = modifier_item_martyrs_mail_passive_aura_effect.OnCreated
 
-function modifier_item_martyrs_mail_passive_aura_effect:CheckState()
-  return {
-    [MODIFIER_STATE_PASSIVES_DISABLED] = false,
-    --[MODIFIER_STATE_FEARED] = false,
-  }
-end
-
 function modifier_item_martyrs_mail_passive_aura_effect:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
+function modifier_item_martyrs_mail_passive_aura_effect:GetModifierPhysicalArmorBonus()
+	return self.armor
+end
+
 function modifier_item_martyrs_mail_passive_aura_effect:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_speed or self:GetAbility():GetSpecialValueFor("aura_attack_speed")
+  return self.attack_speed
 end
 
 --function modifier_item_martyrs_mail_passive_aura_effect:GetEffectName()
@@ -303,4 +404,140 @@ end
 
 function modifier_item_martyrs_mail_passive_aura_effect:GetTexture()
   return "custom/martyrs_mail_4"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_martyrs_mail_death_buff = class(ModifierBaseClass)
+
+function modifier_item_martyrs_mail_death_buff:IsHidden()
+  return false
+end
+
+function modifier_item_martyrs_mail_death_buff:IsDebuff()
+  return false
+end
+
+function modifier_item_martyrs_mail_death_buff:IsPurgable()
+  return false
+end
+
+function modifier_item_martyrs_mail_death_buff:OnCreated()
+  self.armor = 15
+  self.attack_speed = 50
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.armor = ability:GetSpecialValueFor("aura_armor")
+    self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
+  end
+end
+
+modifier_item_martyrs_mail_death_buff.OnRefresh = modifier_item_martyrs_mail_death_buff.OnCreated
+
+function modifier_item_martyrs_mail_death_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+  }
+end
+
+function modifier_item_martyrs_mail_death_buff:GetModifierPhysicalArmorBonus()
+	return self.armor
+end
+
+function modifier_item_martyrs_mail_death_buff:GetModifierAttackSpeedBonus_Constant()
+  return self.attack_speed
+end
+
+function modifier_item_martyrs_mail_death_buff:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
+function modifier_item_martyrs_mail_death_buff:CheckState()
+  return {
+    [MODIFIER_STATE_PASSIVES_DISABLED] = false,
+  }
+end
+
+function modifier_item_martyrs_mail_death_buff:GetEffectName()
+	return "particles/world_shrine/radiant_shrine_active_ray.vpcf"
+end
+
+function modifier_item_martyrs_mail_death_buff:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_item_martyrs_mail_death_buff:GetTexture()
+  return "custom/martyrs_mail_4"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_martyrs_mail_dummy_stuff = class(ModifierBaseClass)
+
+function modifier_item_martyrs_mail_dummy_stuff:IsHidden()
+  return true
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:IsDebuff()
+  return false
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:IsPurgable()
+  return false
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+    MODIFIER_PROPERTY_BONUS_DAY_VISION,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+  }
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:GetBonusDayVision()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor("death_vision_radius")
+  end
+  return 800
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:GetBonusNightVision()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    return ability:GetSpecialValueFor("death_vision_radius")
+  end
+  return 800
+end
+
+function modifier_item_martyrs_mail_dummy_stuff:CheckState()
+  return {
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+    [MODIFIER_STATE_NO_TEAM_MOVE_TO] = true,
+    [MODIFIER_STATE_NO_TEAM_SELECT] = true,
+    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_FLYING] = true,
+  }
 end
