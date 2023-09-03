@@ -1065,6 +1065,7 @@ read_globals = { -- these globals can only be accessed.
 "EmitSoundOn",
 "EmitSoundOnClient",
 "EmitSoundOnLocationForAllies",
+"EmitSoundOnLocationForPlayer",
 "EmitSoundOnLocationWithCaster",
 "EntIndexToHScript",
 "Entities",
