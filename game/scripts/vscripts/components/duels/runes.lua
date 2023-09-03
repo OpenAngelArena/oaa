@@ -1,5 +1,3 @@
-LinkLuaModifier('modifier_duel_rune_hill', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
-
 -- Taken from bb template
 if DuelRunes == nil then
   DebugPrint ( 'Creating new DuelRunes object.' )

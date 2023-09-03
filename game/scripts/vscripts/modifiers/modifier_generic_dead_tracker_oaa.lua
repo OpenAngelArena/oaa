@@ -30,6 +30,9 @@ function modifier_generic_dead_tracker_oaa:OnDestroy()
 
   local parent = self:GetParent()
   if parent and not parent:IsNull() then
+    if IsInToolsMode() then
+      print("Removing "..parent:GetUnitName().." ( "..parent:GetName().." )")
+    end
     parent:RemoveSelf()
   end
 end

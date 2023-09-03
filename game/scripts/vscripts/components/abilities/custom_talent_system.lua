@@ -4,7 +4,6 @@ end
 
 function CustomTalentSystem:Init()
   self.moduleName = "CustomTalentSystem"
-  LinkLuaModifier("modifier_talent_tracker_oaa", "components/abilities/custom_talent_system.lua", LUA_MODIFIER_MOTION_NONE)
   GameEvents:OnHeroInGame(partial(self.InitializeTalentTracker, self))
 end
 

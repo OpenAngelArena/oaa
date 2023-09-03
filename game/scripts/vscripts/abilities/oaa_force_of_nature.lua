@@ -9,8 +9,6 @@
 ]]
 furion_force_of_nature_oaa = class(AbilityBaseClass)
 
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
 function furion_force_of_nature_oaa:GetAOERadius()
   return self:GetSpecialValueFor( "area_of_effect" )
 end

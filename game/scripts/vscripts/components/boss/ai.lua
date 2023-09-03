@@ -1,6 +1,3 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- Taken from bb template
 if BossAI == nil then
   DebugPrint ( 'creating new BossAI object' )

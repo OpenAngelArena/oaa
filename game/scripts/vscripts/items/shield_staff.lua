@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_shield_staff_non_stacking_stats", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shield_staff_active_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_shield_staff_barrier_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)

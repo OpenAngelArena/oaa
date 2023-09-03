@@ -14,10 +14,6 @@ function item_siege_mode:GetIntrinsicModifierName()
   return "modifier_item_splash_cannon_passive"
 end
 
---function item_siege_mode:GetTransformationModifierName()
-  --return "modifier_item_siege_mode_active"
---end
-
 function item_siege_mode:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorPosition()

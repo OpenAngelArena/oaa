@@ -4,7 +4,6 @@
 -- Does not block hook movement.
 -- Visual effects such as screenshake from stun not always blocked.
 -- Does not block effects from non-targeted spells from being refreshed. e.g. being stunned again by the same skill
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_preemptive_bubble_aura_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_preemptive_bubble_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bubble_orb_visible_buff", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)

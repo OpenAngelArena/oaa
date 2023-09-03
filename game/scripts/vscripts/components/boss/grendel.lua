@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_provides_vision_oaa", "modifiers/modifier_provides_vision_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 Grendel = Components:Register('Grendel', COMPONENT_STRATEGY)
 

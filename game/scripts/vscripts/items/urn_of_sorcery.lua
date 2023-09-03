@@ -1,4 +1,3 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_urn_of_sorcery", "items/urn_of_sorcery.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_urn_of_sorcery_heal", "items/urn_of_sorcery.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_urn_of_sorcery_damage", "items/urn_of_sorcery.lua", LUA_MODIFIER_MOTION_NONE )

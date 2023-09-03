@@ -1,7 +1,3 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_team_buff", "abilities/boss/wanderer/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 Wanderer = Components:Register('Wanderer', COMPONENT_STRATEGY)
 

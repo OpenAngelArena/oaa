@@ -1,8 +1,6 @@
 LinkLuaModifier("modifier_magma_boss_magma_blood_passive", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_magma_boss_magma_blood_debuff", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_magma_boss_magma_blood_warning", "abilities/boss/magma_boss/magma_boss_magma_blood.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 magma_boss_magma_blood = class(AbilityBaseClass)
 

@@ -1,8 +1,6 @@
 -- This module contains functions for saving and restoring the state of heroes
 local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
-LinkLuaModifier('modifier_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
-
 local export = {}
 
 local function RefreshAbilityFilter(ability)
