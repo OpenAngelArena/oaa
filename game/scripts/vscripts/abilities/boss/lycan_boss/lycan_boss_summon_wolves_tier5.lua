@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 lycan_boss_summon_wolves_tier5 = class(AbilityBaseClass)
 

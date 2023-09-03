@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_ghost_state", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_glimmer_cape_fade", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_shroud_passive", "items/shroud.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------

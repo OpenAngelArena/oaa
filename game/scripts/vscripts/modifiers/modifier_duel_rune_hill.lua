@@ -1,4 +1,3 @@
-LinkLuaModifier('modifier_duel_rune_hill_enemy', 'modifiers/modifier_duel_rune_hill.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_rune_hill_tripledamage', 'modifiers/modifier_rune_hill_tripledamage.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_rune_hill_super_sight', 'modifiers/modifier_rune_hill_super_sight.lua', LUA_MODIFIER_MOTION_NONE)
 

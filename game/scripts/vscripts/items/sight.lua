@@ -1,9 +1,7 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_stacking_stats", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_non_stacking_stats", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_far_sight_dummy_stuff", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_far_sight_true_sight", "items/sight.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_far_sight = class(ItemBaseClass)
 

@@ -6,9 +6,6 @@
 --]]
 
 -- This file is also loaded on client
--- but client doesn't have FindAbilityByName
-
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
   function CDOTA_BaseNPC:HasLearnedAbility(abilityName)

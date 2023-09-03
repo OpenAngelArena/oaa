@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_passive", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_buff", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_debuff_with_charge", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)

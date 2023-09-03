@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_refresher_core", "items/refresher_core.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_octarine_core_2 = class(ItemBaseClass)

@@ -1,4 +1,3 @@
-LinkLuaModifier('modifier_ward_invisibility_enemy', 'modifiers/modifier_ward_invisibility.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_ward_invisibility = class(ModifierBaseClass)
 modifier_ward_invisibility_enemy = class(ModifierBaseClass)

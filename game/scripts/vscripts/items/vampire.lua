@@ -1,4 +1,4 @@
-item_vampire = class(TransformationBaseClass)
+item_vampire = class(ItemBaseClass)
 
 local vampire = {}
 
@@ -12,8 +12,11 @@ function item_vampire:GetIntrinsicModifierName()
   return "modifier_item_vampire"
 end
 
-function item_vampire:GetTransformationModifierName()
-  return "modifier_item_vampire_active"
+function item_vampire:OnSpellStart()
+  local caster = self:GetCaster()
+  local modifierName = "modifier_item_vampire_active"
+
+  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
 end
 
 item_vampire_2 = item_vampire

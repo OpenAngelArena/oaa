@@ -1,9 +1,4 @@
 
-LinkLuaModifier( "modifier_animation_translate_permanent_string", "libraries/modifiers/modifier_animation_translate_permanent_string.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_arcana_rockelec", "modifiers/modifier_arcana_rockelec.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_arcana_pepsi", "modifiers/modifier_arcana_pepsi.lua", LUA_MODIFIER_MOTION_NONE)
-
 if HeroCosmetics == nil then
   DebugPrint ( 'Starting HeroCosmetics' )
   HeroCosmetics = class({})

@@ -13,7 +13,6 @@ end
 function Courier:Init ()
   self.moduleName = "Courier"
   self.hasCourier = {}
-  LinkLuaModifier("modifier_custom_courier_stuff", "components/courier/courier.lua", LUA_MODIFIER_MOTION_NONE)
   self.enableCustomCourier = false -- if you want custom couriers just set this to true
   if self.enableCustomCourier then
     GameEvents:OnHeroInGame(Courier.SpawnCourier)

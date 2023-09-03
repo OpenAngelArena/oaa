@@ -10,7 +10,6 @@ end
 
 function CorePointsManager:Init()
   self.moduleName = "CorePointsManager"
-  LinkLuaModifier("modifier_core_points_counter_oaa", "components/corepoints/core_points.lua", LUA_MODIFIER_MOTION_NONE)
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)

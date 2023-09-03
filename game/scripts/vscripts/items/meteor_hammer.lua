@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_thinker", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_dot", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_stun", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)

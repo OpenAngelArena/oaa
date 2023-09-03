@@ -1,5 +1,9 @@
-LinkLuaModifier( "modifier_creep_bounty_effect", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_aura_origin_tracker", "modifiers/aura_baseclass.lua", LUA_MODIFIER_MOTION_NONE)
+if not AuraProviderBaseClass or not AuraEffectBaseClass then
+  require("modifiers/aura_baseclass")
+end
+
+LinkLuaModifier("modifier_creep_bounty_effect", "items/farming/modifier_creep_bounty.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_creep_bounty = class(AuraProviderBaseClass)
 
 function modifier_creep_bounty:IsHidden()

@@ -1,7 +1,5 @@
 item_greater_tranquil_boots = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_passive", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
@@ -9,7 +7,6 @@ LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/farming/great
 LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 

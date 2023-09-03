@@ -2,7 +2,7 @@
 --- Created by Zarnotox.
 --- DateTime: 03-Dec-17 21:32
 ---
-item_dagger_of_moriah_1 = class(TransformationBaseClass)
+item_dagger_of_moriah_1 = class(ItemBaseClass)
 
 LinkLuaModifier("modifier_item_dagger_of_moriah_passive", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_dagger_of_moriah_frostbite", "items/dagger_of_moriah.lua", LUA_MODIFIER_MOTION_NONE)
@@ -15,8 +15,11 @@ function item_dagger_of_moriah_1:GetIntrinsicModifierName()
   return "modifier_item_dagger_of_moriah_passive"
 end
 
-function item_dagger_of_moriah_1:GetTransformationModifierName()
-  return "modifier_item_dagger_of_moriah_sangromancy"
+function item_dagger_of_moriah_1:OnSpellStart()
+  local caster = self:GetCaster()
+  local modifierName = "modifier_item_dagger_of_moriah_sangromancy"
+
+  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
 end
 
 item_dagger_of_moriah_2 = item_dagger_of_moriah_1

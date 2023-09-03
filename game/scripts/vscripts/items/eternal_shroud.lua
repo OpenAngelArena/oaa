@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_eternal_shroud_oaa", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eternal_shroud_oaa_barrier", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 

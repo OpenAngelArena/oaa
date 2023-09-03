@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 beastmaster_call_of_the_wild_boar_oaa = class(AbilityBaseClass)
 

@@ -1,9 +1,6 @@
 local HeroState = require("components/duels/savestate")
 local SafeTeleportAll = require("components/duels/teleport").SafeTeleportAll
 
-LinkLuaModifier("modifier_out_of_duel", "modifiers/modifier_out_of_duel.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_duel_invulnerability", "modifiers/modifier_duel_invulnerability", LUA_MODIFIER_MOTION_NONE)
-
 DUEL_IS_STARTING = 21
 
 Duels = Duels or {}

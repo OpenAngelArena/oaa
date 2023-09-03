@@ -93,7 +93,6 @@ end
 function BossProtectionFilter:Init()
   self.moduleName = "Boss Protection Filter"
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(self, "ModifierGainedFilter"))
-  LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifier_tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function BossProtectionFilter:ModifierGainedFilter(keys)
