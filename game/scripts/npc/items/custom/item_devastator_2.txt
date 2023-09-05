@@ -49,7 +49,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/devastator_2"
 
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "700 750 800 850 900"
     "AbilityCastPoint"                                    "0"
 
     "AbilitySharedCooldown"                               "devastator"
@@ -98,7 +98,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_speed"                                "1200"
+        "devastator_speed"                                "1800"
       }
       "05"
       {
@@ -113,7 +113,7 @@
       "07"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "devastator_distance"                             "800"
+        "devastator_distance"                             "700 750 800 850 900"
       }
       "08"
       {
