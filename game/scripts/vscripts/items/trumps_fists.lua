@@ -96,15 +96,16 @@ function modifier_item_trumps_fists_passive:OnCreated()
   end
 
   if IsServer() then
-    self:GetCaster():ChangeAttackProjectile()
+    self:GetParent():ChangeAttackProjectile()
   end
 end
 
 modifier_item_trumps_fists_passive.OnRefresh = modifier_item_trumps_fists_passive.OnCreated
 
 function modifier_item_trumps_fists_passive:OnDestroy()
-  if IsServer() then
-    self:GetCaster():ChangeAttackProjectile()
+  local parent = self:GetParent()
+  if IsServer() and parent and not parent:IsNull() then
+    parent:ChangeAttackProjectile()
   end
 end
 

@@ -116,9 +116,6 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
   elseif unit:HasModifier("modifier_oaa_arcane_orb_sound") then
     unit:SetRangedProjectileName("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf")
 
-  elseif unit:HasModifier("modifier_searing_arrows_caster") then
-    unit:SetRangedProjectileName("particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf")
-
   -- If it's one of Dragon Knight's forms, use its attack projectile instead
   elseif unit:HasModifier("modifier_dragon_knight_frost_breath") then
     unit:SetRangedProjectileName("particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_frost.vpcf")

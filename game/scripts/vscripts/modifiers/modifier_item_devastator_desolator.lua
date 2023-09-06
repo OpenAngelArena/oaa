@@ -33,8 +33,9 @@ end
 modifier_item_devastator_desolator.OnRefresh = modifier_item_devastator_desolator.OnCreated
 
 function modifier_item_devastator_desolator:OnDestroy()
-  if IsServer() then
-    self:GetParent():ChangeAttackProjectile()
+  local parent = self:GetParent()
+  if IsServer() and parent and not parent:IsNull() then
+    parent:ChangeAttackProjectile()
   end
 end
 
