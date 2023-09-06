@@ -90,7 +90,9 @@ function modifier_oaa_borrowed_time_passive:OnCreated()
       self:Destroy()
       return
     end
-    self.hp_threshold = self:GetAbility():GetSpecialValueFor("hp_threshold")
+    local ability = self:GetAbility()
+    self.hp_threshold = ability:GetSpecialValueFor("hp_threshold")
+    self.pct = ability:GetSpecialValueFor("hp_threshold_max_hp_percent")
     -- Check if we need to auto cast immediately
     self:CheckHealthToTrigger()
   end
@@ -102,8 +104,9 @@ function modifier_oaa_borrowed_time_passive:CheckHealthToTrigger()
 
 	-- Check for ability state, if parent has break debuff
   if not ability:IsHidden() and ability:IsCooldownReady() and ability:IsOwnersManaEnough() and not parent:PassivesDisabled() and parent:IsAlive() and not parent:IsIllusion() then
-    local hp_threshold = self.hp_threshold
     local current_hp = parent:GetHealth()
+    local max_hp = parent:GetMaxHealth()
+    local hp_threshold = self.hp_threshold + max_hp * self.pct / 100
     if current_hp <= hp_threshold and not parent:HasModifier("modifier_oaa_borrowed_time_buff_caster") then
       if parent:IsChanneling() then
         ability:OnSpellStart()
@@ -149,9 +152,9 @@ if IsServer() then
       return
     end
 
-    -- Do nothing if damaged by non-player controlled creep or neutral creep
+    -- Do nothing if damaged by a neutral creep
     -- Boss damage can still proc Borrowed Time
-    if attacker:IsNeutralCreep(false) then
+    if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not attacker:IsOAABoss() then
       return
     end
 

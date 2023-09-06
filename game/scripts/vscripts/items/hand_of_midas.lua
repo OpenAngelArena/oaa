@@ -4,7 +4,7 @@
 item_hand_of_midas_1 = class(ItemBaseClass)
 
 function item_hand_of_midas_1:GetIntrinsicModifierName()
-  return "modifier_item_hand_of_midas"
+  return "modifier_generic_bonus"
 end
 
 function item_hand_of_midas_1:CastFilterResultTarget(target)

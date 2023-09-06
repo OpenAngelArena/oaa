@@ -12,7 +12,7 @@ function ModifyAbilitiesFilter:Init()
 end
 
 function ModifyAbilitiesFilter:ModifierFilter(keys)
-  -- Remove fountain invulnerability
+  -- Remove fountain invulnerability and WR Windrun aghs invis
   if keys.name_const == "modifier_fountain_invulnerability" or keys.name_const == "modifier_windrunner_windrun_invis" then
     return false
   end

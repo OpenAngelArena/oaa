@@ -38,7 +38,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hp_threshold"                                      "400"
+      "hp_threshold"                                      "350"
+      "hp_threshold_max_hp_percent"                       "5"
       "duration"                                          "4.0 4.25 4.5 5 5.5"
       "duration_scepter"
       {

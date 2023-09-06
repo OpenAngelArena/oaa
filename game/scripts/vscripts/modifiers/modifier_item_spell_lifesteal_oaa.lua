@@ -102,7 +102,6 @@ if IsServer() then
       -- "modifier_item_kaya",
       -- "modifier_item_ethereal_blade",
       -- "modifier_item_kaya_and_sange",
-      -- "modifier_item_sacred_skull_passives",
       -- "modifier_item_yasha_and_kaya",
     -- }
 

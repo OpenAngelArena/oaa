@@ -130,7 +130,6 @@ g_ParticleFolderPrecache = {
   "particles/items/heart_transplant",
   --"particles/items/reflection_shard",
   "particles/items/regen_crystal",
-  --"particles/items/sacred_skull",
   "particles/items/trumps_fists",
   "particles/items/vampire",
 }
