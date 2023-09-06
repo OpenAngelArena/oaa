@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Demonic Conversion - needed for shard (only AbilityValues matter, casting stuff doesn't)
+  // Enigma: Demonic Conversion/Summoning - needed for shard (only AbilityValues matter, casting stuff doesn't)
   //=================================================================================================================
   "enigma_demonic_conversion"
   {
@@ -38,7 +38,7 @@
       "eidelon_max_health" //OAA
       {
         "value"                                           "180 220 260 300"
-        "special_bonus_unique_enigma_7"                   "+150"
+        "special_bonus_unique_enigma_7"                   "+200"
       }
       "life_extension"                                    "2.0"
       "eidelon_base_damage"                               "20 30 40 50" //OAA
