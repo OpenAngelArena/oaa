@@ -403,7 +403,7 @@ if IsServer() then
       parentTeam
     )
 
-    if ufResult == UF_SUCCESS then
+    if ufResult == UF_SUCCESS and parent:IsAlive() then
       local lifesteal_amount = damage * amount * 0.01
       parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
 
