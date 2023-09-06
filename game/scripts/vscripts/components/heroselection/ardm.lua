@@ -33,7 +33,7 @@ function ARDMMode:Init ()
   self:LoadHeroPoolsForTeams()
 
   GameRules:SetShowcaseTime(0)
-  GameRules:SetStrategyTime(30)
+  GameRules:SetStrategyTime(40)
 end
 
 -- Start precaching with callback and broadcast when finished
