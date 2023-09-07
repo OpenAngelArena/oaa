@@ -185,6 +185,7 @@ function modifier_chaos_oaa:OnCreated()
     end
   end
 
+  -- Add an actual random modifier after a delay
   self:StartIntervalThink(1)
 end
 
@@ -206,6 +207,8 @@ function modifier_chaos_oaa:OnIntervalThink()
       self.last_mod = new_random
     end
   end
+  -- Don't repeat the code above
+  self:StartIntervalThink(-1)
 end
 
 function modifier_chaos_oaa:DeclareFunctions()
