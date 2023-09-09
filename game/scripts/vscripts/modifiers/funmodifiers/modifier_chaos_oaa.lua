@@ -166,7 +166,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_obsidian_destroyer",
     "npc_dota_hero_medusa",
     "npc_dota_hero_electrician",
-    "npc_dota_hero_witch_doctor",
+    --"npc_dota_hero_witch_doctor",
   }
 
   for _, v in pairs(healer_heroes) do
