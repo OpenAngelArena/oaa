@@ -16,34 +16,34 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastRange"                                    "3000"
-    "AbilityCooldown"                                     "26 24 22 20 19 18" //OAA
+    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
     "AbilityManaCost"                                     "110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "18 20 22 24 28 40"
+      "damage"                                            "18 22 26 30 60 90"
       "attack_rate"                                       "1.15 1.0 0.85 0.7 0.55 0.4"
       "count"                                             "12"
-      "armor_reduction"  
+      "armor_reduction"
       {
         "value"                                           "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_3"
       }
       "duration"                                          "16"
-      "destroy_attacks" //OAA  
+      "destroy_attacks" //OAA
       {
         "value"                                           "8"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_4"
       }
-      "radius"      
+      "radius"
       {
         "value"                                           "100"
         "affected_by_aoe_increase"                        "1"
       }
       "speed"                                             "750"
-      "spawn_radius"    
+      "spawn_radius"
       {
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
