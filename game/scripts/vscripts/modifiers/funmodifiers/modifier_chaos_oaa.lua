@@ -230,7 +230,7 @@ if IsServer() then
     end
 
     local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
-    local late_game_time_start = 20*60
+    local late_game_time_start = 3*mid_game_time_start
 
     if self.last_mod then
       local mod = self.last_mod
