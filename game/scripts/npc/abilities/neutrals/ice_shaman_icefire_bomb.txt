@@ -1,44 +1,42 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shadow Shaman: Voodoo
+  // Ice Shaman: Icefire Bomb
+  // Notes: TODO: add % max hp dmg
   //=================================================================================================================
-  "shadow_shaman_voodoo"
+  "ice_shaman_incendiary_bomb"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5079"
+    "ID"                                                  "937"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                    "700 725 750 800"
+    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "30"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 140 170 200 230 260"
+    "AbilityManaCost"                                     "100 95 90 80"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movespeed"                                         "100"
-      "duration"                                          "1.7 2.0 2.3 2.6 2.9 3.2" //OAA
-      "damage_amp"                                        "5 10 15 20 20 20"
+      "duration"                                          "8"
+      "burn_damage"                                       "50"
+      "building_damage_pct"                               "250" //OAA, percentage bonus damage against bosses
     }
   }
-
 }

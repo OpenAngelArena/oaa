@@ -44,7 +44,7 @@
       "sand_storm_damage" //OAA
       {
         "value"                                           "25 50 75 100 200 400"
-        "special_bonus_unique_sand_king_2"                "20"
+        "special_bonus_unique_sand_king_2"                "+20"
       }
       "fade_delay"                                        "1.0" //OAA
       "scepter_explosion_radius_pct"
@@ -65,7 +65,7 @@
       "sand_storm_move_speed"
       {
         "value"                                           "25 50 75 100 125 150"
-        "special_bonus_unique_sand_king_3"                "+25"
+        "special_bonus_unique_sand_king_3"                "+50"
       }
     }
   }

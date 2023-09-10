@@ -3,6 +3,7 @@ abaddon_borrowed_time_oaa = class(AbilityBaseClass)
 LinkLuaModifier("modifier_oaa_borrowed_time_passive", "abilities/oaa_abaddon_borrowed_time.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_borrowed_time_buff_caster", "abilities/oaa_abaddon_borrowed_time.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_oaa_borrowed_time_buff_ally", "abilities/oaa_abaddon_borrowed_time.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_oaa_borrowed_time_immolation", "abilities/oaa_abaddon_borrowed_time.lua", LUA_MODIFIER_MOTION_NONE)
 
 function abaddon_borrowed_time_oaa:GetIntrinsicModifierName()
   return "modifier_oaa_borrowed_time_passive"
@@ -36,6 +37,12 @@ function abaddon_borrowed_time_oaa:OnSpellStart()
 
   -- Add the Borrowed Time modifier to the caster
   caster:AddNewModifier(caster, self, "modifier_oaa_borrowed_time_buff_caster", {duration = buff_duration})
+
+  -- Immolation talent
+  local talent = caster:FindAbilityByName("special_bonus_unique_abaddon_1_oaa")
+  if talent and talent:GetLevel() > 0 then
+    caster:AddNewModifier(caster, talent, "modifier_oaa_borrowed_time_immolation", {duration = buff_duration})
+  end
 
   -- Caster responses (not really important)
   -- local responses = {
@@ -307,4 +314,84 @@ end
 
 function modifier_oaa_borrowed_time_buff_ally:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_oaa_borrowed_time_immolation = class(ModifierBaseClass)
+
+function modifier_oaa_borrowed_time_immolation:IsHidden()
+  return false
+end
+
+function modifier_oaa_borrowed_time_immolation:IsDebuff()
+  return false
+end
+
+function modifier_oaa_borrowed_time_immolation:IsPurgable()
+  return false
+end
+
+function modifier_oaa_borrowed_time_immolation:OnCreated()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+  local talent = self:GetAbility()
+
+  self.ability = parent:FindAbilityByName("abaddon_borrowed_time_oaa")
+
+  self.dps = talent:GetSpecialValueFor("bonus_immolate_damage")
+  self.radius = talent:GetSpecialValueFor("bonus_immolate_aoe")
+  self.interval = talent:GetSpecialValueFor("immolate_tick")
+
+  self:OnIntervalThink()
+  self:StartIntervalThink(self.interval)
+end
+
+function modifier_oaa_borrowed_time_immolation:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Damage table
+  local damage_table = {
+    attacker = parent,
+    damage = self.dps * self.interval,
+    ability = self.ability,
+  }
+
+  -- Self damage
+  damage_table.victim = parent
+  damage_table.damage_type = DAMAGE_TYPE_PURE
+  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+
+  ApplyDamage(damage_table)
+
+  -- Damage enemies
+  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    parent:GetAbsOrigin(),
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      damage_table.victim = enemy
+
+      ApplyDamage(damage_table)
+    end
+  end
 end

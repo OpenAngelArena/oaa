@@ -215,6 +215,22 @@ if IsServer() then
           return damage_increase_pct
         end
       end
+    elseif name == "jakiro_liquid_fire" then -- Jakiro Liquid Fire bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "ice_shaman_incendiary_bomb" then -- Ice Shaman neutral creep Icefire Bomb bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_damage_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
     end
 
   --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance

@@ -32,9 +32,6 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
-  abaddon_frostmourne = {
-    curse_attack_speed = {"special_bonus_unique_abaddon_1_oaa", "+"},
-  },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },

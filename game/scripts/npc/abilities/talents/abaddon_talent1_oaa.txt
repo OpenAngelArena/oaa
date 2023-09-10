@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Abaddon talent: bonus Curse of Avernus attack speed
+  // Custom Abaddon talent: custom Borrowed Time Immolation talent
   //=================================================================================================================
   "special_bonus_unique_abaddon_1_oaa"
   {
@@ -19,7 +19,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "30"
+        "bonus_immolate_damage"                           "95"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "bonus_immolate_aoe"                              "450"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "immolate_tick"                                   "0.25"
       }
     }
   }
