@@ -181,12 +181,10 @@ function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
 end
 
 function modifier_item_meteor_hammer_oaa_dot:OnCreated()
-  local parent = self:GetParent()
+  --local parent = self:GetParent()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   if IsServer() then
-    local caster = self:GetCaster()
-
     self.burn_dps = ability:GetSpecialValueFor("burn_dps")
     self.burn_dps_boss = ability:GetSpecialValueFor("burn_dps_boss")
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
