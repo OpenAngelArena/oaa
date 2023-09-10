@@ -166,7 +166,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_obsidian_destroyer",
     "npc_dota_hero_medusa",
     "npc_dota_hero_electrician",
-    "npc_dota_hero_witch_doctor",
+    --"npc_dota_hero_witch_doctor",
   }
 
   for _, v in pairs(healer_heroes) do
@@ -185,9 +185,15 @@ function modifier_chaos_oaa:OnCreated()
     end
   end
 
+  -- Add an actual random modifier after a delay
+  self:StartIntervalThink(1)
+end
+
+function modifier_chaos_oaa:OnIntervalThink()
+  local parent = self:GetParent()
   local random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
   if not parent:HasModifier(random_mod) then
-    parent:AddNewModifier(parent, nil, random_mod, {})
+    self.actual_mod = parent:AddNewModifier(parent, nil, random_mod, {})
     self.last_mod = random_mod
   else
     -- Remove the found modifier from the lists
@@ -197,10 +203,12 @@ function modifier_chaos_oaa:OnCreated()
 
     local new_random = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
     if not parent:HasModifier(new_random) then
-      parent:AddNewModifier(parent, nil, new_random, {})
+      self.actual_mod = parent:AddNewModifier(parent, nil, new_random, {})
       self.last_mod = new_random
     end
   end
+  -- Don't repeat the code above
+  self:StartIntervalThink(-1)
 end
 
 function modifier_chaos_oaa:DeclareFunctions()
@@ -222,11 +230,15 @@ if IsServer() then
     end
 
     local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
-    local late_game_time_start = 20*60
+    local late_game_time_start = 3*mid_game_time_start
 
     if self.last_mod then
       local mod = self.last_mod
-      parent:RemoveModifierByName(mod)
+      if self.actual_mod and self.actual_mod:GetName() == mod then
+        self.actual_mod:Destroy()
+      else
+        parent:RemoveModifierByName(mod)
+      end
       -- Remove modifiers from the tables if parent already had them at least twice - imitates pseudo random
       if HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
         if not TableContains(self.already_had, mod) then
@@ -268,7 +280,7 @@ if IsServer() then
         end
       end
       if random_mod ~= self.last_mod and not parent:HasModifier(random_mod) then
-        parent:AddNewModifier(parent, nil, random_mod, {})
+        self.actual_mod = parent:AddNewModifier(parent, nil, random_mod, {})
         self.last_mod = random_mod
         repeat_loop = false
       end
