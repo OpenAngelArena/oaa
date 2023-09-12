@@ -61,10 +61,6 @@ function CDOTA_BaseNPC_Hero:GetNetworth()
   return networth
 end
 
-function CDOTA_BaseNPC_Hero:ModifyGold (playerID, goldAmmt, reliable, nReason)
-  return Gold:ModifyGold(playerID, goldAmmt, reliable, nReason)
-end
-
 CDOTA_BaseNPC_Hero.UnfilteredAddExperience = CDOTA_BaseNPC_Hero.UnfilteredAddExperience or CDOTA_BaseNPC_Hero.AddExperience
 function CDOTA_BaseNPC_Hero:AddExperience(flXP, nReason, bApplyBotDifficultyScaling, bIncrementTotal)
   local eventData = {

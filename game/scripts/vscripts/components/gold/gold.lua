@@ -21,6 +21,9 @@ local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in se
 function Gold:Init()
   self.moduleName = "Gold"
 
+  --GameRules:SetGoldPerTick(GOLD_PER_TICK)
+  --GameRules:SetGoldTickTime(GOLD_TICK_TIME)
+
   -- Create a table for every player
   PlayerTables:CreateTable('gold', {
     gold = {}
@@ -40,6 +43,7 @@ function Gold:Init()
   -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (since patch 7.23 vanilla gpm is tied to couriers, while they shouldn't be)
   self.hasPassiveGPM = {}
   GameEvents:OnHeroInGame(Gold.HeroSpawn)
+  --FilterManager:AddFilter(FilterManager.ModifyGold, self, Dynamic_Wrap(Gold, "GoldFilter"))
 end
 
 function Gold:GetState ()
@@ -138,15 +142,14 @@ function Gold:Think()
   return 0.2
 end
 
-
 function Gold:ClearGold(unitvar)
-  Gold:SetGold(unitvar, 0)
+  self:SetGold(unitvar, 0)
 end
 
 function Gold:SetGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
   local newGold = math.floor(gold)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 -- bReliable and iReason don't do anything
@@ -163,7 +166,7 @@ function Gold:RemoveGold(unitvar, gold)
   self:Think()
   local oldGold = self:GetGold(playerID)
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGold(unitvar, gold)
@@ -171,18 +174,18 @@ function Gold:AddGold(unitvar, gold)
   self:Think()
   local oldGold = self:GetGold(playerID)
   local newGold = (oldGold or 0) + math.floor(gold)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGoldWithMessage(unit, gold, optPlayerID)
   local player = optPlayerID and PlayerResource:GetPlayer(optPlayerID) or PlayerResource:GetPlayer(UnitVarToPlayerID(unit))
   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), player)
-  Gold:AddGold(optPlayerID or unit, gold)
+  self:AddGold(optPlayerID or unit, gold)
 end
 
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
-  local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID] -- self.playerGold[playerID]
   return math.floor(currentGold or 0)
 end
 
@@ -220,6 +223,10 @@ end
 function Gold:IsGoldGenActive()
   return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
 end
+
+--function Gold:GoldFilter(filter_table)
+  --return true
+--end
 
 ---------------------------------------------------------------------------------------------------
 

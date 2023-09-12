@@ -217,7 +217,7 @@ function CaveHandler:SpawnCreepInRoom (room, properties, teamID, roomID)
   end
 
   local function giveBounty (bounty, exp, playerID)
-    PlayerResource:ModifyGold(
+    Gold:ModifyGold(
       playerID, -- player
       bounty, -- amount
       true, -- is reliable gold
@@ -433,7 +433,7 @@ function CaveHandler:GiveBounty (teamID, k)
   DebugPrint("Giving " .. playerCount .. " players " .. bounty .. " gold each from a pool of " .. pool .. " gold.")
 
   each(function(playerID)
-    PlayerResource:ModifyGold(
+    Gold:ModifyGold(
       playerID, -- player
       bounty, -- amount
       true, -- is reliable gold
