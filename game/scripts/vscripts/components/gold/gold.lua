@@ -20,10 +20,18 @@ local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in se
 
 function Gold:Init()
   self.moduleName = "Gold"
-  -- a table for every player
+
+  -- Create a table for every player
   PlayerTables:CreateTable('gold', {
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
+
+  -- self.playerGold = {}
+  -- for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    -- if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+    -- self.playerGold[playerID] = PlayerResource:GetGold(playerID)
+    -- end
+  -- end
 
   -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
@@ -58,23 +66,21 @@ end
 function Gold:UpdatePlayerGold(unitvar, newGold)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    -- get full tree,
-    --[[local allgold = PlayerTables:GetTableValue("gold", "gold")
-    allgold[playerID] = PLAYER_GOLD[playerID].SavedGold
-
+    -- get full tree
+    local allgold = PlayerTables:GetTableValue("gold", "gold")
+    allgold[playerID] = newGold --PLAYER_GOLD[playerID].SavedGold
     PlayerTables:SetTableValue("gold", "gold", allgold)
-
+    --[[
     local player = PlayerResource:GetPlayer(playerID)
     CustomGameEventManager:Send_ServerToAllClients("oaa_update_gold", {
       gold = allgold
     })]]--
-    local tableGold = PlayerTables:GetTableValue("gold", "gold")
-    tableGold[playerID] = newGold
-    PlayerTables:SetTableValue("gold", "gold", tableGold)
 
     newGold = math.min(GOLD_CAP, newGold)
     PlayerResource:SetGold(playerID, newGold, false)
     PlayerResource:SetGold(playerID, 0, true)
+
+    --self.playerGold[playerID] = newGold
   end
 end
 
@@ -88,12 +94,23 @@ end
 ]]
 function Gold:Think()
   foreach(function(i)
-    if PlayerResource:IsValidPlayerID(i) then
+    if PlayerResource:IsValidPlayerID(i) and PlayerResource:IsValidPlayer(i) then
       local gameState = GameRules:State_Get()
       if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
 
         local currentGold = Gold:GetGold(i)
         local currentDotaGold = PlayerResource:GetGold(i)
+        -- local currentHeroGold = 0
+        -- local player = PlayerResource:GetPlayer(i)
+        -- if player then
+          -- local hero = player:GetAssignedHero()
+          -- if hero then
+            -- currentHeroGold = hero:GetGold()
+          -- end
+        -- end
+        -- print("Current OAA gold: "..tostring(currentGold))
+        -- print("Current Dota gold: "..tostring(currentDotaGold))
+        -- print("Current Hero gold: "..tostring(currentHeroGold))
 
         local newGold = currentGold
         local newDotaGold = currentDotaGold
@@ -128,7 +145,6 @@ end
 
 function Gold:SetGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  --PLAYER_GOLD[playerID].SavedGold = math.floor(gold)
   local newGold = math.floor(gold)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
@@ -136,30 +152,24 @@ end
 -- bReliable and iReason don't do anything
 function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
   if gold > 0 then
-    Gold:AddGold(unitvar, gold)
+    self:AddGold(unitvar, gold)
   elseif gold < 0 then
-    Gold:RemoveGold(unitvar, -gold)
+    self:RemoveGold(unitvar, -gold)
   end
 end
 
 function Gold:RemoveGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
   self:Think()
-  --  PLAYER_GOLD[playerID].SavedGold = math.max((PLAYER_GOLD[playerID].SavedGold or 0) - math.ceil(gold), 0)
-  local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  local oldGold = self:GetGold(playerID)
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGold(unitvar, gold)
-  --[[DebugPrint("[Gold] AddGold")
-  DebugPrint("arg.unitvar: " .. unitvar)
-  DebugPrint("arg.gold: " .. gold)
-  DebugPrintTable(PLAYER_GOLD)]]
   local playerID = UnitVarToPlayerID(unitvar)
   self:Think()
-  --PLAYER_GOLD[playerID].SavedGold = (PLAYER_GOLD[playerID].SavedGold or 0) + math.floor(gold)
-  local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  local oldGold = self:GetGold(playerID)
   local newGold = (oldGold or 0) + math.floor(gold)
   Gold:UpdatePlayerGold(playerID, newGold)
 end
@@ -173,7 +183,6 @@ end
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
-  --return math.floor(PLAYER_GOLD[playerID].SavedGold or 0)
   return math.floor(currentGold or 0)
 end
 
