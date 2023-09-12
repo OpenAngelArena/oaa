@@ -26,9 +26,9 @@ end
 
 function modifier_spark_xp:OnCreated()
   -- Experience percentage bonuses
-  self.hero_kill_bonus_xp = 0 --1/2 --> snowbally
-  self.boss_kill_bonus_xp = 0 --1/2 --> snowbally
-  self.bounty_rune_bonus_xp = 0 --1/2 --> snowbally
+  self.hero_kill_bonus_xp = 0
+  self.boss_kill_bonus_xp = 0
+  self.bounty_rune_bonus_xp = 0
   self.passive_bonus_xp = 1/4
 end
 

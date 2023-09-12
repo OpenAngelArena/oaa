@@ -92,37 +92,48 @@ function BountyRunePick:Filter(filter_table)
 
     if hero then
       if xp_reward > 0 then
+        hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, xp_reward, nil)
+
         -- Check for XP spark
         local xp_spark = hero:FindModifierByName("modifier_spark_xp")
-        local specific_hero_xp = xp_reward
         if xp_spark then
-          specific_hero_xp = math.floor(xp_reward + xp_reward * xp_spark.bounty_rune_bonus_xp)
+          local multiplier = xp_spark.bounty_rune_bonus_xp
+          if multiplier and multiplier > 1 then
+            bonus_xp = math.floor((multiplier-1)*xp_reward)
+            hero:AddExperience(bonus_xp, DOTA_ModifyXP_Unspecified, false, true)
+            SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, bonus_xp, nil)
+          end
         end
-        hero:AddExperience(specific_hero_xp, DOTA_ModifyXP_Unspecified, false, true)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, specific_hero_xp, nil)
       end
-      -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
-      local alchemist_ability = hero:FindAbilityByName("alchemist_goblins_greed")
-      if alchemist_ability then
-        local alchemist_ability_level = alchemist_ability:GetLevel()
-        if alchemist_ability_level > 0 then
-          local multiplier = alchemist_ability:GetLevelSpecialValueFor("bounty_multiplier", alchemist_ability_level-1)
-          if multiplier > 1 then
-            local bonus_gold = (multiplier-1)*gold_reward
+      if gold_reward > 0 then
+        -- Gold:ModifyGold(playerid, gold_reward, true, DOTA_ModifyGold_BountyRune)
+        -- SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, gold_reward, nil)
+
+        -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
+        local alchemist_ability = hero:FindAbilityByName("alchemist_goblins_greed")
+        if alchemist_ability then
+          local alchemist_ability_level = alchemist_ability:GetLevel()
+          if alchemist_ability_level > 0 then
+            local multiplier = alchemist_ability:GetLevelSpecialValueFor("bounty_multiplier", alchemist_ability_level-1)
+            if multiplier > 1 then
+              local bonus_gold = math.floor((multiplier-1)*gold_reward)
+              Gold:ModifyGold(playerid, bonus_gold, true, DOTA_ModifyGold_BountyRune)
+              SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, bonus_gold, nil)
+            end
+          end
+        end
+
+        -- Check for Gold spark
+        local gold_spark = hero:FindModifierByName("modifier_spark_gold")
+        if gold_spark then
+          local multiplier = gold_spark.bounty_rune_bonus_gold
+          if multiplier and multiplier > 1 then
+            local bonus_gold = math.floor((multiplier-1)*gold_reward)
             Gold:ModifyGold(playerid, bonus_gold, true, DOTA_ModifyGold_BountyRune)
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, bonus_gold, nil)
           end
         end
-      end
-      -- Check for Gold spark
-      local gold_spark = hero:FindModifierByName("modifier_spark_gold")
-      local specific_hero_gold = 0
-      if gold_spark then
-        specific_hero_gold = math.floor(gold_reward * gold_spark.bounty_rune_bonus_gold)
-      end
-      if specific_hero_gold > 0 then
-        Gold:ModifyGold(playerid, specific_hero_gold, true, DOTA_ModifyGold_BountyRune)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, specific_hero_gold, nil)
       end
     end
   end)
