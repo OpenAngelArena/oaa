@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Spectre: Haunt
+  // Spectre: Haunt (scepter ability)
   //=================================================================================================================
   "spectre_haunt"
   {
@@ -9,12 +9,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5337"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "5"
-    "RequiredLevel"                                       "6"
-    "LevelsBetweenUpgrades"                               "6"
+    "MaxLevel"                                            "1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -22,48 +19,22 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 115 110 105 100" //OAA
+    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 175 200 225 250"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0 6.0 7.0 7.5 8.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_outgoing"                        "-60 -40 -20 0 20"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "40 60 80 100 120"
-        "LinkedSpecialBonus"                              "special_bonus_unique_spectre_4"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_damage_incoming"                        "100 100 100 75 25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_illusion_total_damage_incoming"          "200 200 200 175 125"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_delay"                                    "0"
-      }
+      "duration"                                          "7.0"
+      "illusion_damage_outgoing"                          "-20"
+      "tooltip_outgoing"                                  "80"
+      "illusion_damage_incoming"                          "100"
+      "tooltip_illusion_total_damage_incoming"            "200"
+      "attack_delay"                                      "0"
     }
   }
 

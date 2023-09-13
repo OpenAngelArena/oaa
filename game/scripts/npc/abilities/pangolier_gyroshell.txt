@@ -37,69 +37,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "cast_time_tooltip"                                 "1.2"
+      "tick_interval"                                     "0.05"
+      "forward_move_speed"                                "550"
+      "turn_rate_boosted"                                 "165"
+      "turn_rate"                                         "120"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_time_tooltip"                               "1.2"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "hit_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.05"
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "bounce_duration"                                   "0.4"
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "knockback_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "forward_move_speed"                              "550"
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT" // used after any break in the roll (start/jump/bounce)
-        "turn_rate_boosted"                               "165"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "turn_rate"                                       "120"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hit_radius"                                      "150"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bounce_duration"                                 "0.4"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.6"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "knockback_radius"                                "150"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "10.0"
+        "value"                                           "10.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_6"
       }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_recover_time"                               "0.25"
-      }
+      "jump_recover_time"                                 "0.25"
     }
   }
 }

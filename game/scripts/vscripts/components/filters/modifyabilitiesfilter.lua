@@ -6,21 +6,13 @@ end
 function ModifyAbilitiesFilter:Init()
   self.moduleName = "ModifyAbilitiesFilter"
 
-  -- Requiem Fear duration manipulation and Requiem Fear immunity:
-  LinkLuaModifier("modifier_oaa_requiem_allowed", "modifiers/modifyabilitiesfilter/requiem_fear_manager.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_oaa_requiem_not_allowed", "modifiers/modifyabilitiesfilter/requiem_fear_manager.lua", LUA_MODIFIER_MOTION_NONE)
-  -- Time Dilation additional effect:
-  LinkLuaModifier("modifier_faceless_void_time_dilation_degen_oaa", "modifiers/modifyabilitiesfilter/time_dilation_degen.lua", LUA_MODIFIER_MOTION_NONE)
-  -- Natural Order magic resistance reduction correction:
-  LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/modifyabilitiesfilter/natural_order_correction.lua", LUA_MODIFIER_MOTION_NONE)
-
   FilterManager:AddFilter(FilterManager.ModifierGained, self, Dynamic_Wrap(ModifyAbilitiesFilter, "ModifierFilter"))
   --FilterManager:AddFilter(FilterManager.TrackingProjectile, self, Dynamic_Wrap(ModifyAbilitiesFilter, "ProjectileFilter"))
   --FilterManager:AddFilter(FilterManager.AbilityTuningValue, self, Dynamic_Wrap(ModifyAbilitiesFilter, "TuningValuesFilter"))
 end
 
 function ModifyAbilitiesFilter:ModifierFilter(keys)
-  -- Remove fountain invulnerability
+  -- Remove fountain invulnerability and WR Windrun aghs invis
   if keys.name_const == "modifier_fountain_invulnerability" or keys.name_const == "modifier_windrunner_windrun_invis" then
     return false
   end

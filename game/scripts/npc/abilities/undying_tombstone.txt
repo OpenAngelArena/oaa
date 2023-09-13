@@ -44,7 +44,11 @@
         "special_bonus_unique_undying_5"                  "+6"
       }
       "duration"                                          "30.0"
-      "radius"                                            "1200"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "health_threshold_pct_tooltip"                      "40"
       "zombie_interval"
       {
@@ -75,12 +79,11 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-
       "bunker_units"                                      "1"
       "bunker_heal_pct"                                   "0"
       "tombstone_grab_radius"                             "350"
       "tombstone_bunker_cd"                               "3"
-
+      "tombstone_stun_penalty"                            "3"
       "zombie_damage_interval"
       {
         "value"                                           "0"

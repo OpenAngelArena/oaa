@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Null Talisman
+  //=================================================================================================================
+  "item_null_talisman"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "77"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "2"
+    "ItemBaseLevel"                                       "1"
+    "ItemLevelByGameTime"                                 "10" //OAA
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "505"
+    "ItemShopTags"                                        "damage;int;agi;str"
+    "ItemQuality"                                         "common"
+    "ItemAliases"                                         "null talisman"
+    "ShouldBeInitiallySuggested"                          "1"
+    "ShouldBeSuggested"                                   "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_intellect"                                   "5 10"
+      "bonus_strength"                                    "2 4"
+      "bonus_agility"                                     "2 4"
+      "bonus_max_mana_percentage"                         "3 6"
+      "bonus_mana_regen"                                  "0.75 1.5"
+      "clock_time"                                        "10" //OAA
+    }
+  }
+}

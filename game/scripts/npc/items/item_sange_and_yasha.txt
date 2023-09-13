@@ -29,10 +29,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "16 24 32 48 72"
-      "bonus_agility"                                     "16 24 32 48 72"
+      "bonus_strength"                                    "20 25 35 50 70" //OAA
+      "bonus_agility"                                     "20 25 35 50 70" //OAA
       "status_resistance"                                 "20 22 24 26 28"
-      "bonus_attack_speed"                                "12 17 22 27 32"
+      "bonus_attack_speed"                                "15 20 25 30 35" //OAA
       "movement_speed_percent_bonus"                      "10 12 14 16 18" //OAA
       "hp_regen_amp"                                      "20 22 24 26 28" //OAA
     }

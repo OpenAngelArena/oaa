@@ -35,7 +35,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 90 80"
+    "AbilityCooldown"                                     "110 95 80 75 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,88 +43,67 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "first_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "first_radius"                                    "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "second_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "second_radius"                                   "750"
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "num_first_soldiers"                                "5"
+      "num_second_soldiers"                               "9"
+      "bonus_armor"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_first_soldiers"                              "5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_second_soldiers"                             "9"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "14 19 24 30 36"
+        "value"                                           "14 19 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
-      "06"
+      "attack_interval"                                   "1.2"
+      "base_damage_percent"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_interval"                                 "1.2"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_damage_percent"                             "100"
+        "value"                                           "100"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "08"
+      "proc_chance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "proc_chance"                                     "25"
+        "value"                                           "25"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_1_oaa"
       }
-      "09"
+      "duration"                                          "13"
+      "cast_range_tooltip"                                "550"
+      "ring_spawn_interval"                               "0.7"
+      "cooldown_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "13.0"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range_tooltip"                              "550"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "ring_spawn_interval"                             "0.7"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_scepter"                                "70"
+        "value"                                           "90 80 70 60 60"
         "RequiresScepter"                                 "1"
       }
-      "13"
+      "num_first_soldiers_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_first_soldiers_scepter"                      "8"
+        "value"                                           "6"
         "RequiresScepter"                                 "1"
       }
-      "14"
+      "num_second_soldiers_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_second_soldiers_scepter"                     "12"
+        "value"                                           "10"
         "RequiresScepter"                                 "1"
       }
-      "15"
+      "num_third_soldiers_scepter" // unused
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_third_soldiers_scepter"                      "12"
+        "value"                                           "11"
+        "RequiresScepter"                                 "1"
+      }
+      "soldier_slow_amount_scepter"
+      {
+        "value"                                           "100"
+        "RequiresScepter"                                 "1"
+      }
+      "soldier_slow_duration_scepter"
+      {
+        "value"                                           "0.4"
         "RequiresScepter"                                 "1"
       }
     }

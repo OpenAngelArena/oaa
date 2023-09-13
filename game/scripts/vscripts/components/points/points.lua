@@ -39,12 +39,14 @@ function PointsManager:Init ()
   })
 
   GameEvents:OnHeroKilled(function (keys)
+    local killed = keys.killed
+    local killer = keys.killer
     -- increment points
-    if not keys.killer or not keys.killed then
+    if not killer or not killed then
       return
     end
-    if keys.killer:GetTeam() ~= keys.killed:GetTeam() and not keys.killed:IsReincarnating() and not keys.killed:IsTempestDouble() and keys.killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
-      self:AddPoints(keys.killer:GetTeam())
+    if killer:GetTeam() ~= killed:GetTeam() and not killed:IsReincarnating() and not killed:IsTempestDouble() and not killed:IsSpiritBearOAA() and killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
+      self:AddPoints(killer:GetTeam())
     end
   end)
 
@@ -90,7 +92,7 @@ function PointsManager:Init ()
     local radiant_fountain_origin = radiant_fountain_t:GetAbsOrigin()
     radiant_shrine = Vector(radiant_fountain_bounds.Maxs.x + radiant_fountain_origin.x + 400, radiant_fountain_origin.y, 512)
   else
-    radiant_shrine = Vector(-5200, 0, 512)
+    radiant_shrine = radiant_fountain:GetAbsOrigin() + 400 * Vector(1, 0, 0)
   end
 
   -- Find dire shrine location(s)
@@ -100,14 +102,16 @@ function PointsManager:Init ()
     local dire_fountain_origin = dire_fountain_t:GetAbsOrigin()
     dire_shrine = Vector(dire_fountain_bounds.Mins.x + dire_fountain_origin.x - 400, dire_fountain_origin.y, 512)
   else
-    dire_shrine = Vector(5200, 0, 512)
+    dire_shrine = dire_fountain:GetAbsOrigin() - 400 * Vector(1, 0, 0)
   end
 
   -- Create shrines in front of the fountains
   local coreDude = CreateUnitByName("npc_dota_core_guy", radiant_shrine, true, radiant_fountain, radiant_fountain, DOTA_TEAM_GOODGUYS)
   coreDude = CreateUnitByName("npc_dota_core_guy", dire_shrine, true, dire_fountain, dire_fountain, DOTA_TEAM_BADGUYS)
-  --coreDude = CreateUnitByName("npc_dota_core_guy_2", Vector(-5200, -200, 512), true, nil, nil, DOTA_TEAM_GOODGUYS)
-  --coreDude = CreateUnitByName("npc_dota_core_guy_2", Vector(5200, 200, 512), true, nil, nil, DOTA_TEAM_BADGUYS)
+
+  -- Store their locations
+  PointsManager.radiant_shrine = radiant_shrine
+  PointsManager.dire_shrine = dire_shrine
 end
 
 function PointsManager:GetState ()

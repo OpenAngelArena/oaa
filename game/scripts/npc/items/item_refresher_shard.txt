@@ -33,5 +33,14 @@
     "ItemContributesToNetWorthWhenDropped"                "0"
     "IsTempestDoubleClonable"                             "0"
     "SecretShop"                                          "1" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health_regen"                                "18" //OAA
+      "bonus_mana_regen"                                  "7.5" //OAA
+      "bonus_damage"                                      "255" //OAA
+    }
   }
 }

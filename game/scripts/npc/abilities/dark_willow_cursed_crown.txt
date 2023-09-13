@@ -31,41 +31,33 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "delay"                                             "4"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "4"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "1.2 1.6 2.0 2.4 2.6 2.8"
+        "value"                                           "1.2 1.6 2.0 2.4 2.6 2.8"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_6"
       }
-      "03"
+      "stun_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_radius"                                     "360"
+        "value"                                           "360"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_willow_7"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "shard_delay_reduction"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_delay_reduction"                           "1"
+        "value"                                           "1"
         "RequiresShard"                                   "1"
       }
-      "05"
+      "shard_bramble_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bramble_amount"                            "4"
+        "value"                                           "4"
         "RequiresShard"                                   "1"
       }
-      "06"
+      "shard_spawn_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_spawn_radius"                              "175"
+        "value"                                           "175"
         "RequiresShard"                                   "1"
       }
     }

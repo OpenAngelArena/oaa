@@ -27,52 +27,31 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100"
+    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_per_second" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_second"                               "30 50 70 90 180 360" //OAA
+        "value"                                           "30 50 70 90 180 360"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_9"
       }
-      "02"
+      "movement_slow"                                     "20 25 30 35 40 45"
+      "vines_duration"                                    "9 10 11 12 13 14"
+      "creation_interval"                                 "0.1"
+      "initial_latch_delay"                               "0.3"
+      "vine_spawn_interval"                               "175"
+      "latch_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "20 25 30 35 40 45" //OAA
+        "value"                                           "135"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "latch_vision"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vines_duration"                                  "9 10 11 12 13 14"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "creation_interval"                               "0.1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "initial_latch_delay"                             "0.3"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "vine_spawn_interval"                             "175"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "latch_range"                                     "135"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "latch_vision"                                    "150"
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

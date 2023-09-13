@@ -24,6 +24,51 @@
         "value"                                           "50 45 40 35 25 15"
         "special_bonus_unique_luna_7"                     "-8"
       }
+      "rotating_glaives"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+4"
+      }
+      "rotating_glaives_hit_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+115"
+      }
+      "rotating_glaives_movement_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+175"
+      }
+      "rotating_glaives_damage_reduction"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+20"
+      }
+      "rotating_glaives_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+160"
+      }
+      "rotating_glaives_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+6"
+      }
+      "rotating_glaives_collision_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+75"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+20"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+25"
+      }
     }
   }
 }

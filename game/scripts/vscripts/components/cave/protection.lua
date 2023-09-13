@@ -1,5 +1,3 @@
-LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
-
 if ProtectionAura == nil then
   DebugPrint ( 'Creating new ProtectionAura object.' )
   ProtectionAura = class({})

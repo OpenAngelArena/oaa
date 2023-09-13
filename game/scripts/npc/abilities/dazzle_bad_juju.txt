@@ -23,7 +23,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "3"
-    "AbilityHealthCost"                                   "75 100 125 175 225"
+    "AbilityHealthCost"                                   "75"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "cooldown_reduction"                                "2 3 4 5 6" //OAA
       "cooldown_reduction_items"                          "1 2 3 4 5" //OAA
       "mana_cost_increase_pct"                            "50" // actually health cost increase
-      "mana_cost_increase_duration"                       "30 25 20 15 10"
+      "mana_cost_increase_duration"                       "20"
       "max_stacks"                                        "15"
     }
   }

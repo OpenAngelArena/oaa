@@ -36,51 +36,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "lift_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "lift_duration"                                   "0.95 1.2 1.45 1.7 1.8 1.9"
-        "LinkedSpecialBonus"                              "special_bonus_unique_rubick_7"
+        "value"                                           "0.95 1.2 1.45 1.7 1.8 1.9"
+        "special_bonus_unique_rubick_7"                   "+0.4"
       }
-      "02"
+      "stun_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.9 1.1 1.3 1.5 1.6 1.7"
+        "value"                                           "0.9 1.1 1.3 1.5 1.6 1.7"
+        "special_bonus_unique_rubick_7"                   "+0.4"
       }
-      "03"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
+        "value"                                           "300 325 350 375 375 375"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "max_land_distance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_land_distance"                               "375"
+        "value"                                           "375"
         "LinkedSpecialBonus"                              "special_bonus_unique_rubick"
+        "affected_by_aoe_increase"                        "1"
       }
-      "05"
+      "fall_duration"                                     "0.3"  // the portion of the lift that is falling
+      "shard_max_land_distance_bonus_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fall_duration"                                   "0.3"  // the portion of the lift that is falling
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_max_land_distance_bonus_pct"               "85"
+        "value"                                           "50"
         "RequiresShard"                                   "1"
       }
-      "07"
+      "shard_cooldown_reduction_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_cooldown_reduction_pct"                    "0"
+        "value"                                           "0"
         "RequiresShard"                                   "1"
       }
-      "08"
+      "shard_teammate_throw_delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_teammate_throw_delay"                      "0.5"
+        "value"                                           "0.5"
         "RequiresShard"                                   "1"
       }
     }

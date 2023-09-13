@@ -24,3 +24,11 @@ function modifier_anti_stun_oaa:CheckState()
     [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
   }
 end
+
+function modifier_anti_stun_oaa:GetEffectName()
+  return "particles/items_fx/black_king_bar_overhead.vpcf"
+end
+
+function modifier_anti_stun_oaa:GetEffectAttachType()
+  return PATTACH_OVERHEAD_FOLLOW
+end

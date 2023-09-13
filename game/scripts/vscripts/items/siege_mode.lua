@@ -14,10 +14,6 @@ function item_siege_mode:GetIntrinsicModifierName()
   return "modifier_item_splash_cannon_passive"
 end
 
---function item_siege_mode:GetTransformationModifierName()
-  --return "modifier_item_siege_mode_active"
---end
-
 function item_siege_mode:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorPosition()
@@ -235,8 +231,9 @@ function modifier_item_splash_cannon_passive:OnIntervalThink()
 end
 
 function modifier_item_splash_cannon_passive:OnDestroy()
-  if IsServer() then
-    self:GetParent():ChangeAttackProjectile()
+  local parent = self:GetParent()
+  if IsServer() and parent and not parent:IsNull() then
+    parent:ChangeAttackProjectile()
   end
 end
 

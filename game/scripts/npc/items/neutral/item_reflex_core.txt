@@ -20,7 +20,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
+    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -29,28 +29,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "35"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_dodge_chance"                              "35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_dodge_cooldown"                            "8"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "active_duration"                                 "1.0"
-      }
+      "bonus_evasion"                                     "40"
+      "spell_dodge_chance"                                "40"
+      "spell_dodge_cooldown"                              "8"
+      "active_duration"                                   "1.0"
     }
   }
 }

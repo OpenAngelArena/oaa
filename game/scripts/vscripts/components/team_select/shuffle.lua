@@ -30,6 +30,15 @@ function MMRShuffle:UpdateAverageMMRs ()
       radiant = self:AverageMMR(radTeam)
     }
 
+    self.mmrValues = {}
+    for _, playerId in ipairs(direTeam) do
+      self.mmrValues[playerId] = self:GetMMR(playerId)
+    end
+    for _, playerId in ipairs(radTeam) do
+      self.mmrValues[playerId] = self:GetMMR(playerId)
+    end
+
+    CustomNetTables:SetTableValue('oaa_settings', 'player_mmr', self.mmrValues)
     CustomNetTables:SetTableValue('oaa_settings', 'average_team_mmr', self.averageTeamMMR)
   end)
 end

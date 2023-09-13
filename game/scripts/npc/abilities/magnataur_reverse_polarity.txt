@@ -21,13 +21,17 @@
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "100 95 90 85 80" //OAA
     "AbilityManaCost"                                     "150 225 300 375 450"
-    "AbilityCastRange"                                    "410"
+    "AbilityCastRange"                                    "430" //OAA, same as pull_radius
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "pull_radius"                                       "410"
+      "pull_radius"
+      {
+        "value"                                           "430"
+        "affected_by_aoe_increase"                        "1"
+      }
       "polarity_damage" //OAA
       {
         "value"                                           "250 450 650 1050 1850"
@@ -47,7 +51,7 @@
       "stats_per_stack"
       {
         "value"                                           "0"
-        "special_bonus_unique_magnus_reverse_polarity_stats"  "+6"
+        "special_bonus_unique_magnus_reverse_polarity_stats"  "+8"
       }
     }
   }

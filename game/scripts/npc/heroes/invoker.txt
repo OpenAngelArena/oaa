@@ -17,20 +17,22 @@
     //"Ability23"                                           "special_bonus_unique_invoker_2"
     //"Ability24"                                           "special_bonus_unique_invoker_13"
 
-  // special_bonus_unique_invoker_1 - {s:bonus_spirit_count} Forged Spirits Summoned
+  // special_bonus_unique_invoker_1 - {s:bonus_spirit_count} Forged Spirits Summoned                         - unused
     // special_bonus_unique_invoker_2 - Radial Deafening Blast
   // special_bonus_unique_invoker_3: -{s:bonus_AbilityCooldown}s Tornado Cooldown
-    // special_bonus_unique_invoker_4 - Cataclysm
+    // special_bonus_unique_invoker_4 - Cataclysm                                                            - unused, scepter
   // special_bonus_unique_invoker_5: +{s:bonus_bonus_attack_speed} Alacrity Damage/Speed
-  // special_bonus_unique_invoker_6: +{s:bonus_main_damage}% Chaos Meteor Damage
-  // special_bonus_unique_invoker_7: +{s:bonus_duration}s Cold Snap Duration
-  // special_bonus_unique_invoker_8: +{s:bonus_lift_duration}s Tornado Lift Time
+  // special_bonus_unique_invoker_6: +{s:bonus_main_damage}% Chaos Meteor Damage                             - unused
+  // special_bonus_unique_invoker_7: +{s:bonus_duration}s Cold Snap Duration                                 - unused
+  // special_bonus_unique_invoker_8: +{s:bonus_lift_duration}s Tornado Lift Time                             - unused
   // special_bonus_unique_invoker_9: -{s:bonus_AbilityCooldown}s Cold Snap Cooldown
-  // special_bonus_unique_invoker_10: +{s:bonus_damage_per_mana_pct}% EMP Mana Burnt
-  // special_bonus_unique_invoker_11: +{s:bonus_spirit_attack_speed} Forged Spirit Attack Speed
-    // special_bonus_unique_invoker_12 - Vector Target Ice Wall
-  // special_bonus_unique_invoker_13 - {s:bonus_bonus_damage_per_instance}x Quas/Wex/Exort passive effects
-    // special_bonus_unique_invoker_1_oaa - EMP bonus damage per mana burned - custom
-    // special_bonus_unique_invoker_2_oaa - Sunstrike bonus damage - custom
+  // special_bonus_unique_invoker_10: +{s:bonus_damage_per_mana_pct}% EMP Mana Burnt                         - unused
+  // special_bonus_unique_invoker_11: +{s:bonus_spirit_attack_speed} Forged Spirit Attack Speed              - unused, bad
+    // special_bonus_unique_invoker_12 - Vector Target Ice Wall                                              - unused
+  // special_bonus_unique_invoker_13 - {s:bonus_bonus_damage_per_instance}x Quas/Wex/Exort passive effects   - overpowered
+  // special_bonus_unique_invoker_ice_wall_dps - "+{s:bonus_damage_per_second} Ice Wall DPS"
+  // special_bonus_unique_invoker_additional_chaos_meteors - "+{s:bonus_meteor_count} Chaos Meteors"
+    // special_bonus_unique_invoker_1_oaa - EMP bonus damage per mana burned                                 - custom, unused
+    // special_bonus_unique_invoker_2_oaa - Sunstrike bonus damage                                           - custom
   }
 }

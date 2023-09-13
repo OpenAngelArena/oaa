@@ -32,13 +32,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "110 120 130 140 150 160"
 
-    "AbilityDamage"                                       "100 160 220 280 560 1120"
+    "AbilityDamage"                                       "100 160 220 280 560 1120" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burrow_width"                                      "150"
+      "burrow_width"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
       "burrow_duration"
       {
         "value"                                           "1.2 1.4 1.6 1.8 1.9 2.0"
@@ -48,7 +52,7 @@
       "burrow_anim_time"                                  "0.52"
       "AbilityCastRange"
       {
-        "value"                                           "500 550 600 650 700 750"
+        "value"                                           "525 600 675 750 825 900"
       }
       "burrow_speed_scepter" //OAA, probably unused kv, fixing just in case
       {

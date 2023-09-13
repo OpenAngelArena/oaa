@@ -31,58 +31,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "slow_duration_first"                               "2"
+      "slow_duration_second"                              "4"
+      "damage_first"                                      "150 350 550 1150 1750" //OAA
+      "damage_second"                                     "250 400 550 1000 1750" //OAA
+      "slow_first"                                        "30"
+      "slow_second"                                       "60"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_duration_first"                             "2"
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_duration_second"                            "4"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_first"                                    "150 350 550 1150 1750" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_second"                                   "250 400 550 1000 1450" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_first"                                      "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_second"                                     "60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
-      }
-      "08" //unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "range_scepter"                                   "0"
-      }
-      "09" //unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_second_scepter"                           "175 225 275 400 850"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "missile_delay_tooltip"                           "2"
-      }
+      "range_scepter"                                     "0" // unused
+      "damage_second_scepter"                             "175 225 275 400 850" // unused
+      "missile_delay_tooltip"                             "2"
     }
   }
 }

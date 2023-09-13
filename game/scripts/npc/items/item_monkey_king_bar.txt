@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "675"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4975"
+    "ItemCost"                                            "4900"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb;monkey king bar"
@@ -51,28 +51,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "40 50 70 100 140"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "35 45 55 65 75" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance"                                    "75" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_chance_damage"                             "70 100 160 250 370"
-      }
+      "bonus_damage"                                      "40 50 70 100 140"
+      "bonus_attack_speed"                                "35 45 55 65 75" //OAA
+      "bonus_chance"                                      "75" //OAA
+      "bonus_chance_damage"                               "70 100 160 250 370"
     }
   }
 }

@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_item_sacred_skull_passives", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
@@ -23,15 +22,15 @@ function item_sacred_skull:OnSpellStart()
     -- damage_table.victim = caster
     -- ApplyDamage(damage_table)
     -- -- Hit Particle
-    -- local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    -- local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
     -- ParticleManager:DestroyParticle(particle, false)
     -- ParticleManager:ReleaseParticleIndex(particle)
   -- end
 
   -- Explosion particle
-  local particle_boom = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-  ParticleManager:DestroyParticle(particle_boom, false)
-  ParticleManager:ReleaseParticleIndex(particle_boom)
+  --local particle_boom = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
+  --ParticleManager:DestroyParticle(particle_boom, false)
+  --ParticleManager:ReleaseParticleIndex(particle_boom)
 
   -- Sound
   caster:EmitSound("Hero_Jakiro.LiquidFire")
@@ -91,9 +90,9 @@ function item_sacred_skull:OnSpellStart()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Hit particle
-      local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-      ParticleManager:DestroyParticle(particle, false)
-      ParticleManager:ReleaseParticleIndex(particle)
+      --local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, enemy)
+      --ParticleManager:DestroyParticle(particle, false)
+      --ParticleManager:ReleaseParticleIndex(particle)
       -- Magic Damage
       damage_table.victim = enemy
       ApplyDamage(damage_table)
@@ -109,7 +108,7 @@ function item_sacred_skull:OnSpellStart()
   -- for _, ally in pairs(allies) do
     -- if ally and not ally:IsNull() and ally ~= caster then
       -- -- Heal particle
-      -- local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
+      -- local particle = ParticleManager:CreateParticle("", PATTACH_CENTER_FOLLOW, ally)
       -- ParticleManager:DestroyParticle(particle, false)
       -- ParticleManager:ReleaseParticleIndex(particle)
       -- -- Healing
@@ -286,7 +285,7 @@ if IsServer() then
       return
     end
 
-    -- Check if parent is a real hero
+    -- Check if parent is a real hero (it's fine if it works on Spirit Bear)
     if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end
@@ -327,9 +326,9 @@ if IsServer() then
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
         -- Heal particle
-        local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
-        ParticleManager:DestroyParticle(particle, false)
-        ParticleManager:ReleaseParticleIndex(particle)
+        --local particle = ParticleManager:CreateParticle("", PATTACH_CENTER_FOLLOW, ally)
+        --ParticleManager:DestroyParticle(particle, false)
+        --ParticleManager:ReleaseParticleIndex(particle)
         -- Healing
         ally:Heal(heal_amount, ability)
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
@@ -379,9 +378,9 @@ if IsServer() then
       for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() then
           -- Hit particle
-          local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-          ParticleManager:DestroyParticle(particle, false)
-          ParticleManager:ReleaseParticleIndex(particle)
+          --local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, enemy)
+          --ParticleManager:DestroyParticle(particle, false)
+          --ParticleManager:ReleaseParticleIndex(particle)
           -- Magic Damage
           damage_table.victim = enemy
           ApplyDamage(damage_table)

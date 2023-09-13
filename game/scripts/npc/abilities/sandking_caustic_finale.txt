@@ -19,33 +19,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "caustic_finale_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_radius"                           "500"
+        "value"                                           "500"
       }
-      "02"
+      "caustic_finale_damage_base"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage_base"                      "70 90 110 130 260 520"
+        "value"                                           "70 90 110 130 260 520"
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_8"
       }
-      "03"
+      "caustic_finale_damage_pct"                         "10 14 18 22 26 30"
+      "caustic_finale_duration"                           "6"
+      "caustic_finale_slow" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_damage_pct"                       "10 14 18 22 26 30"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "caustic_finale_duration"                         "6"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "caustic_finale_slow"                             "-10 -20 -30 -40 -50 -60" //OAA
+        "value"                                           "-15 -20 -25 -30 -35 -40"
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_6"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }

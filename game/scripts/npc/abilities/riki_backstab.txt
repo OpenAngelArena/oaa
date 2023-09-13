@@ -24,9 +24,10 @@
     {
       "damage_multiplier"
       {
-        "value"                                           "1.2 1.6 2.0 2.4 2.8"
+        "value"                                           "0.8 1.2 1.6 2.0 2.4"
         "LinkedSpecialBonus"                              "special_bonus_unique_riki_1"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "backstab_angle"                                    "105"
       "fade_delay"                                        "4 3.5 3 2.5 2" //OAA

@@ -81,10 +81,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_debuff_duration_oaa",
     "modifier_drunk_oaa",
     "modifier_echo_strike_oaa",
-    "modifier_explosive_death_oaa",
-    "modifier_glass_cannon_oaa",
     "modifier_ham_oaa",
-    "modifier_hero_anti_stun_oaa",
     "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
@@ -110,6 +107,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
     "modifier_blood_magic_oaa",
+    "modifier_brawler_oaa",
     "modifier_brute_oaa",
     "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
@@ -117,12 +115,12 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_echo_strike_oaa",
     "modifier_glass_cannon_oaa",
     "modifier_ham_oaa",
-    "modifier_hero_anti_stun_oaa",
     "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
     "modifier_nimble_oaa",
+    "modifier_no_brain_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_pro_active_oaa",
     "modifier_range_increase_oaa",
@@ -130,6 +128,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_roshan_power_oaa",
     "modifier_sorcerer_oaa",
     "modifier_spell_block_oaa",
+    "modifier_titan_soul_oaa",
     "modifier_troll_switch_oaa",
     "modifier_true_sight_strike_oaa",
     "modifier_wisdom_oaa",
@@ -167,7 +166,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_obsidian_destroyer",
     "npc_dota_hero_medusa",
     "npc_dota_hero_electrician",
-    "npc_dota_hero_witch_doctor",
+    --"npc_dota_hero_witch_doctor",
   }
 
   for _, v in pairs(healer_heroes) do
@@ -186,9 +185,15 @@ function modifier_chaos_oaa:OnCreated()
     end
   end
 
+  -- Add an actual random modifier after a delay
+  self:StartIntervalThink(1)
+end
+
+function modifier_chaos_oaa:OnIntervalThink()
+  local parent = self:GetParent()
   local random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
   if not parent:HasModifier(random_mod) then
-    parent:AddNewModifier(parent, nil, random_mod, {})
+    self.actual_mod = parent:AddNewModifier(parent, nil, random_mod, {})
     self.last_mod = random_mod
   else
     -- Remove the found modifier from the lists
@@ -198,10 +203,12 @@ function modifier_chaos_oaa:OnCreated()
 
     local new_random = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
     if not parent:HasModifier(new_random) then
-      parent:AddNewModifier(parent, nil, new_random, {})
+      self.actual_mod = parent:AddNewModifier(parent, nil, new_random, {})
       self.last_mod = new_random
     end
   end
+  -- Don't repeat the code above
+  self:StartIntervalThink(-1)
 end
 
 function modifier_chaos_oaa:DeclareFunctions()
@@ -223,11 +230,15 @@ if IsServer() then
     end
 
     local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
-    local late_game_time_start = 20*60
+    local late_game_time_start = 3*mid_game_time_start
 
     if self.last_mod then
       local mod = self.last_mod
-      parent:RemoveModifierByName(mod)
+      if self.actual_mod and self.actual_mod:GetName() == mod then
+        self.actual_mod:Destroy()
+      else
+        parent:RemoveModifierByName(mod)
+      end
       -- Remove modifiers from the tables if parent already had them at least twice - imitates pseudo random
       if HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
         if not TableContains(self.already_had, mod) then
@@ -269,7 +280,7 @@ if IsServer() then
         end
       end
       if random_mod ~= self.last_mod and not parent:HasModifier(random_mod) then
-        parent:AddNewModifier(parent, nil, random_mod, {})
+        self.actual_mod = parent:AddNewModifier(parent, nil, random_mod, {})
         self.last_mod = random_mod
         repeat_loop = false
       end

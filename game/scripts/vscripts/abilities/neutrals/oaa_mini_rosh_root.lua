@@ -43,10 +43,9 @@ end
 modifier_mini_rosh_root_applier.OnRefresh = modifier_mini_rosh_root_applier.OnCreated
 
 function modifier_mini_rosh_root_applier:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then

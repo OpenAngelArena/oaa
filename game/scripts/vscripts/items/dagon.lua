@@ -1,7 +1,5 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_passive", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_oaa_dagon_debuff", "items/dagon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dagon_oaa = class(ItemBaseClass)
 item_dagon_oaa_2 = item_dagon_oaa
@@ -70,7 +68,8 @@ function item_dagon_oaa:OnSpellStart()
 
   -- Add debuff
   if level > 5 then
-    target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = self:GetSpecialValueFor("blind_duration")})
+    local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("blind_duration"))
+    target:AddNewModifier(caster, self, "modifier_item_oaa_dagon_debuff", {duration = debuff_duration})
   end
 
   local isRealHero = target:IsRealHero() -- do this check before doing dmg to prevent doing check on a killed/deleted target

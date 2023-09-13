@@ -8,9 +8,6 @@ end
 function TeamVision:Init()
   self.moduleName = "Team Vision"
 
-  LinkLuaModifier("modifier_generic_vision_dummy_stuff", "modifiers/modifier_generic_vision_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_shrine_oaa", "modifiers/modifier_shrine_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
   GameEvents:OnHeroSelection(partial(TeamVision.AddVision, TeamVision))
 end
 
@@ -52,6 +49,8 @@ function TeamVision:AddVision()
         building:AddNewModifier(building, nil, "modifier_generic_vision_dummy_stuff", {})
         building:AddNewModifier(building, nil, "modifier_shrine_oaa", {})
         --building:RemoveModifierByName("modifier_invulnerable")
+      elseif string.find(building_name, "watch_tower") then
+        building:RemoveModifierByName("modifier_invulnerable")
       end
     end
   end

@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5339"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
@@ -40,7 +40,10 @@
         "value"                                           "50 100 150 200 400 800"
         "LinkedSpecialBonus"                              "special_bonus_unique_doom_3"
       }
-      "armor"                                             "1 3 5 7 9 11"
+      "armor"
+      {
+        "value"                                           "1 3 5 7 9 11"
+      }
       "creep_level"                                       "6" //OAA
       "hero_ability_steal_time"                           "99999"
       "magic_resist"

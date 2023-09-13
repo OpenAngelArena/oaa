@@ -1,17 +1,6 @@
 ARDMMode = ARDMMode or class({})
 
 function ARDMMode:Init ()
-  -- ARDM modifiers
-  LinkLuaModifier("modifier_ardm", "modifiers/ardm/modifier_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_ardm_disable_hero", "modifiers/ardm/modifier_ardm_disable_hero.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_legion_commander_duel_damage_oaa_ardm", "modifiers/ardm/modifier_legion_commander_duel_damage_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_silencer_int_steal_oaa_ardm", "modifiers/ardm/modifier_silencer_int_steal_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_pudge_flesh_heap_oaa_ardm", "modifiers/ardm/modifier_pudge_flesh_heap_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_slark_essence_shift_oaa_ardm", "modifiers/ardm/modifier_slark_essence_shift_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_axe_armor_oaa_ardm", "modifiers/ardm/modifier_axe_armor_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_necrophos_regen_oaa_ardm", "modifiers/ardm/modifier_necrophos_regen_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_moonshard_consumed_oaa_ardm", "modifiers/ardm/modifier_moonshard_consumed_oaa_ardm.lua", LUA_MODIFIER_MOTION_NONE)
-
   self.playedHeroes = {}
   self.precachedHeroes = {
     "npc_dota_hero_sohei",
@@ -44,7 +33,7 @@ function ARDMMode:Init ()
   self:LoadHeroPoolsForTeams()
 
   GameRules:SetShowcaseTime(0)
-  GameRules:SetStrategyTime(30)
+  GameRules:SetStrategyTime(40)
 end
 
 -- Start precaching with callback and broadcast when finished
@@ -153,7 +142,7 @@ function ARDMMode:ApplyARDMmodifier(hero)
       return
     end
 
-    if hero:IsTempestDouble() or hero:IsClone() then
+    if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
       return
     end
 
@@ -271,7 +260,7 @@ function ARDMMode:PrepareHeroChange(event)
     killed_hero = killed_hero:GetCloneSource()
   end
 
-  if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() then
+  if killed_hero:IsReincarnating() or killed_hero:IsTempestDouble() or killed_hero:IsSpiritBearOAA() then
     ARDMMode:AllowReplacing(killed_hero, false) -- prevent hero change when reincarnating
     return
   end

@@ -22,38 +22,44 @@ function item_trusty_shovel_oaa:OnSpellStart()
     self.rewards = {}
   end
 
-  if game_time <= 12*60 then
+  if game_time <= 10*60 then
     self.rewards = {
-      "kobold",
+      "kobold_soldier",
       "flask",
       "enchanted_mango",
       "bottle",
+      "water",
+      "famango",
     }
-  elseif game_time > 12*60 and game_time <= 24*60 then
-    self.rewards = {
-      "kobold_soldier",
-      "burst_elixir",
-      "sustain_elixir",
-    }
-  elseif game_time > 24*60 and game_time <= 36*60 then
+  elseif game_time > 10*60 and game_time <= 20*60 then
     self.rewards = {
       "kobold_commander",
       "burst_elixir",
-      "sustain_elixir",
+      "famango",
     }
-  elseif game_time > 36*60 and game_time <= 46*60 then
+  elseif game_time > 20*60 and game_time <= 30*60 then
+    self.rewards = {
+      "harpy",
+      "burst_elixir",
+      "sustain_elixir",
+      "great_famango",
+    }
+  elseif game_time > 30*60 and game_time <= 40*60 then
     self.rewards = {
       "ghost",
       "burst_elixir",
       "sustain_elixir",
       "hybrid_elixir",
+      "great_famango",
     }
-  elseif game_time > 46*60 then
+  elseif game_time > 40*60 then
     self.rewards = {
       "prowler",
       "burst_elixir",
       "hybrid_elixir",
       "sustain_elixir",
+      "greater_famango",
+      "cheese",
     }
   end
 
@@ -120,12 +126,22 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
     self:DigOutItem("item_enchanted_mango", position)
   elseif random_reward == "bottle" then
     self:DigOutItem("item_infinite_bottle", position)
+  elseif random_reward == "famango" then
+    self:DigOutItem("item_famango", position)
+  elseif random_reward == "great_famango" then
+    self:DigOutItem("item_great_famango", position)
+  elseif random_reward == "greater_famango" then
+    self:DigOutItem("item_greater_famango", position)
+  elseif random_reward == "cheese" then
+    self:DigOutItem("item_cheese", position)
   elseif random_reward == "kobold" then
     self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold", position, caster)
   elseif random_reward == "kobold_soldier" then
     self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_soldier", position, caster)
   elseif random_reward == "kobold_commander" then
     self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_kobold_foreman", position, caster)
+  elseif random_reward == "harpy" then
+    self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_harpy_storm", position, caster)
   elseif random_reward == "ghost" then
     self:SpawnNeutralUnitAtPosition("npc_dota_neutral_custom_ghost", position, caster)
   elseif random_reward == "prowler" then
@@ -136,6 +152,8 @@ function item_trusty_shovel_oaa:OnChannelFinish(bInterrupted)
     self:DigOutItem("item_elixier_hybrid", position)
   elseif random_reward == "sustain_elixir" then
     self:DigOutItem("item_elixier_sustain", position)
+  elseif random_reward == "water" then
+    CreateRune(position, DOTA_RUNE_WATER)
   else
     -- This is not supposed to happen but whatever
     self:DigOutItem("item_tpscroll", position)
@@ -164,11 +182,12 @@ function item_trusty_shovel_oaa:SpawnNeutralUnitAtPosition(unit_name, location, 
   if CreepCamps then
     local unit_properties = CreepCamps:GetCreepProperties(unit)
     local new_properties = CreepCamps:AdjustCreepPropertiesByPowerLevel(unit_properties, minute)
-    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, unit_properties, 1/10)
+    new_properties = CreepCamps:UpgradeCreepProperties(new_properties, unit_properties, 1/12) -- it's intentionally like this because the creep is controllable
     CreepCamps:SetCreepPropertiesOnHandle(unit, new_properties)
   end
   unit:SetControllableByPlayer(caster:GetPlayerID(), false)
   unit:SetOwner(caster)
+  unit:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
 end
 
 -- function item_trusty_shovel_oaa:GetCreepProperties(creepHandle)

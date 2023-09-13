@@ -1,11 +1,10 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_giant_form_stacking_stats", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_giant_form_non_stacking_stats", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_giant_form_grow", "items/giant_form.lua", LUA_MODIFIER_MOTION_NONE)
 
 ---------------------------------------------------------------------------------------------------
 
-item_giant_form = class(TransformationBaseClass)
+item_giant_form = class(ItemBaseClass)
 
 function item_giant_form:GetIntrinsicModifierName()
   return "modifier_intrinsic_multiplexer"
@@ -18,8 +17,11 @@ function item_giant_form:GetIntrinsicModifierNames()
   }
 end
 
-function item_giant_form:GetTransformationModifierName()
-  return "modifier_item_giant_form_grow"
+function item_giant_form:OnSpellStart()
+  local caster = self:GetCaster()
+  local modifierName = "modifier_item_giant_form_grow"
+
+  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
 end
 
 item_giant_form_2 = item_giant_form

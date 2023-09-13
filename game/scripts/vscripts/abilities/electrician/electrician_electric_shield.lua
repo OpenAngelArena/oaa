@@ -153,58 +153,56 @@ if IsServer() then
 	end
   ]]
 
-  function modifier_electrician_electric_shield:GetModifierTotal_ConstantBlock( event )
+  function modifier_electrician_electric_shield:GetModifierTotal_ConstantBlock(event)
+    local parent = self:GetParent()
+
+    -- Continue only if parent has a shard
+    if not parent:HasShardOAA() then
+      return 0
+    end
+
     -- Do nothing if damage has HP removal flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
       return 0
     end
 
-    -- start with the maximum block amount
-    local blockAmount = event.damage * self.shieldRate
-    local parent = self:GetParent()
-    if parent:HasShardOAA() then
-      local ability = self:GetAbility()
-      local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
-      local shield_dmg_block = math.max(ability:GetSpecialValueFor("shard_shield_damage_block"), ability:GetSpecialValueFor("shield_damage_block"))
-      local current_mana = parent:GetMana()
-      local current_shield_hp = current_mana * damage_per_mana
+    -- Don't react on self damage
+    if event.attacker == parent then
+      return 0
+    end
 
-      -- Calculate block amount
-      blockAmount = math.min(event.damage * shield_dmg_block * 0.01, current_shield_hp)
+    local ability = self:GetAbility()
+    local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
+    local shield_dmg_block = math.max(ability:GetSpecialValueFor("shard_shield_damage_block"), ability:GetSpecialValueFor("shield_damage_block"))
+    local current_mana = parent:GetMana()
+    local current_shield_hp = current_mana * damage_per_mana
 
-      -- Calculate what shield hp should be after blocking
-      local shield_hp_after = current_shield_hp - blockAmount
+    -- Calculate block amount
+    local block_amount = math.min(event.damage * shield_dmg_block * 0.01, current_shield_hp)
 
-      -- Calculate what mana should be after blocking
-      local mana_after = shield_hp_after / damage_per_mana
+    -- Calculate what shield hp should be after blocking
+    local shield_hp_after = current_shield_hp - block_amount
 
-      -- Calculate how much mana should be removed
-      local mana_to_remove = math.max(0, current_mana - mana_after)
+    -- Calculate what mana should be after blocking
+    local mana_after = shield_hp_after / damage_per_mana
 
-      -- Remove mana
-      parent:ReduceMana(mana_to_remove, ability)
-    else
-      -- grab the remaining shield hp
-      local hp = self:GetStackCount()
+    -- Calculate how much mana should be removed
+    local mana_to_remove = math.max(0, current_mana - mana_after)
 
-      -- don't block more than remaining hp
-      blockAmount = math.min( blockAmount, hp )
+    -- Remove mana
+    parent:ReduceMana(mana_to_remove, ability)
 
-      -- remove shield hp
-      self:SetStackCount( hp - blockAmount )
-
-      -- destroy the modifier if hp is reduced to nothing
-      if self:GetStackCount() <= 0 then
-        self:Destroy()
+    if block_amount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+        alert_type = OVERHEAD_ALERT_BLOCK
       end
+
+      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
     end
 
-    if blockAmount > 0 then
-      -- do the little block visual effect (TODO: add unique visual effect)
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, blockAmount, nil)
-    end
-
-    return blockAmount
+    return block_amount
   end
 
 --------------------------------------------------------------------------------
@@ -312,10 +310,59 @@ if IsServer() then
 	end
 end
 
-function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant()
+function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(event)
+  local parent = self:GetParent()
   if IsClient() then
-    return self:GetStackCount()
+    -- Shield numbers (visual only)
+    if parent:HasShardOAA() then
+      local ability = self:GetAbility()
+      local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
+      local current_mana = parent:GetMana()
+
+      return current_mana * damage_per_mana
+    else
+      return self:GetStackCount()
+    end
   else
-    return 0
+    -- Continue only if parent doesn't have a shard
+    if parent:HasShardOAA() then
+      return 0
+    end
+
+    -- Don't react to damage with HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
+    -- Don't react on self damage
+    if event.attacker == parent then
+      return 0
+    end
+
+    local damage = event.damage
+    local shield_hp = self:GetStackCount()
+
+    -- Don't block more than remaining hp
+    local block_amount = math.min(damage*self.shieldRate, shield_hp)
+
+    -- Reduce shield hp
+    self:SetStackCount(shield_hp - block_amount)
+
+    if block_amount > 0 then
+      -- Visual effect (TODO: add unique visual effect)
+      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+        alert_type = OVERHEAD_ALERT_BLOCK
+      end
+
+      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+    end
+
+    -- destroy the modifier if hp is reduced to nothing
+    if self:GetStackCount() <= 0 then
+      self:Destroy()
+    end
+
+    return -block_amount
   end
 end

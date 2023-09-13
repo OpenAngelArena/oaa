@@ -10,7 +10,6 @@ end
 
 function CorePointsManager:Init()
   self.moduleName = "CorePointsManager"
-  LinkLuaModifier("modifier_core_points_counter_oaa", "components/corepoints/core_points.lua", LUA_MODIFIER_MOTION_NONE)
   FilterManager:AddFilter(FilterManager.ExecuteOrder, self, Dynamic_Wrap(CorePointsManager, "FilterOrders"))
   GameEvents:OnHeroInGame(partial(self.InitializeCorePointsCounter, self))
   ChatCommand:LinkDevCommand("-corepoints", Dynamic_Wrap(CorePointsManager, "CorePointsCommand"), self)
@@ -149,7 +148,7 @@ function CorePointsManager:InitializeCorePointsCounter(hero)
     return
   end
 
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 
@@ -478,7 +477,7 @@ end
 function modifier_core_points_counter_oaa:OnCreated()
   if IsServer() then
     local parent = self:GetParent()
-    if parent:IsTempestDouble() or parent:IsClone() then
+    if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
       self:Destroy()
       return
     end

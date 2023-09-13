@@ -38,55 +38,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "mana_cost"                                         "20"
+      "shield_per_mana"                                   "0.75 0.95 1.15 1.35 1.6 1.85"
+      "shield_damage_block"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost"                                       "20"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shield_per_mana"                                 "0.75 0.95 1.15 1.35 1.6 1.85"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shield_damage_block"                             "10 18 26 34 42 50"
+        "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "04"
+      "shield_duration"                                   "12.0"
+      "aura_radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shield_duration"                                 "12.0"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
-      "05"
+      "aura_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "350"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_damage"                                     "25 35 45 55 110 220"
+        "value"                                           "25 35 45 55 110 220"
         "LinkedSpecialBonus"                              "special_bonus_electrician_electric_shield_damage"
       }
-      "07"
+      "aura_interval"                                     "0.25"
+      "shard_shield_per_mana"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_interval"                                   "0.25"
+        "value"                                           "1.9 2.1 2.3 2.5 2.75 3.0"
+        "RequiresShard"                                   "1"
       }
-      "08"
+      "shard_shield_damage_block"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_shield_per_mana"                           "1.9 2.1 2.3 2.5 2.75 3.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_shield_damage_block"                       "10 18 26 34 42 50"
+        "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
+        "RequiresShard"                                   "1"
       }
     }
 

@@ -51,6 +51,23 @@ function bristleback_bristleback_oaa:ProcMagicStick()
   return false
 end
 
+-- Lazy 'hack' to make scepter effect work
+function bristleback_bristleback_oaa:OnHeroCalculateStatBonus()
+  local caster = self:GetCaster()
+  local scepter_bristleback = caster:FindAbilityByName("bristleback_scepter_oaa")
+  if not scepter_bristleback then
+    return
+  end
+  if caster:HasScepter() then
+	scepter_bristleback:SetHidden(false)
+    if scepter_bristleback:GetLevel() <= 0 then
+      scepter_bristleback:SetLevel(1)
+    end
+  else
+    scepter_bristleback:SetHidden(true)
+  end
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_bristleback_oaa = class(ModifierBaseClass)

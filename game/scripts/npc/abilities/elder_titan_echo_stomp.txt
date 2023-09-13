@@ -29,7 +29,11 @@
     "AbilityValues"
     {
       "cast_time"                                         "1.7"
-      "radius"                                            "500"
+      "radius"
+      {
+        "value"                                           "475"
+        "affected_by_aoe_increase"                        "1"
+      }
       "sleep_duration"                                    "2 2.8 3.6 4.4 4.8 5.2"
       "stomp_damage" //OAA
       {

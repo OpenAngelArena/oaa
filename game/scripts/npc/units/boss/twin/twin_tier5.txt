@@ -20,10 +20,9 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_twin_twin_empathy"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
-    "Ability5"                                            "boss_true_strike"
+    "Ability2"                                            "boss_basic_properties_oaa"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            "boss_true_strike"
 
     // Armor
     //----------------------------------------------------------------
@@ -35,7 +34,6 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "5500"    // Damage range min.
     "AttackDamageMax"                                     "5500"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.75"      // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.

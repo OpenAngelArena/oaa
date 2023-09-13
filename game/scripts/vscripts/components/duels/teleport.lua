@@ -45,7 +45,9 @@ local function SafeTeleport(unit, location, maxDistance)
     end
     local distance = (location - unit:GetAbsOrigin()):Length2D()
     if distance > maxDistance then
-      SafeTeleport(unit, location, maxDistance)
+      SafeTeleport(unit, location, maxDistance+50)
+      -- Increase the maxDistance by 50 to eventually stop and not cause the infinite loop
+      -- This should stop the infinite glitching of the hero
     end
   end)
 end

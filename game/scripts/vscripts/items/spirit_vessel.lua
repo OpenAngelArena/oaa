@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_passive", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_buff", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_debuff_with_charge", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -118,7 +116,7 @@ if IsServer() then
       -- Dead unit is not on caster's team
       if caster:GetTeamNumber() ~= dead:GetTeamNumber() then
         -- Dead unit is an actually dead real enemy hero unit or a boss
-        if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone())) or dead:IsOAABoss() then
+        if (dead:IsRealHero() and (not dead:IsTempestDouble()) and (not dead:IsReincarnating()) and (not dead:IsClone()) and (not dead:IsSpiritBearOAA())) or dead:IsOAABoss() then
           local casterToDeadVector = dead:GetAbsOrigin() - caster:GetAbsOrigin()
           local isDeadInChargeRange = casterToDeadVector:Length2D() <= item:GetSpecialValueFor("soul_radius")
 
@@ -137,7 +135,7 @@ if IsServer() then
         end
       end
     -- caster died
-    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() then
+    elseif not caster:IsTempestDouble() and not caster:IsReincarnating() and not caster:IsClone() and not caster:IsSpiritBearOAA() then
       local current_charges = item:GetCurrentCharges() or 0
       -- caster has no charges? add 1 on death
       if current_charges == 0 then

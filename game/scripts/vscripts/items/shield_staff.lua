@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_shield_staff_non_stacking_stats", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shield_staff_active_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_shield_staff_barrier_buff", "items/shield_staff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -88,13 +86,14 @@ function item_shield_staff:OnSpellStart()
     target:Stop()
 
     -- Damage table
-    local damage_table = {}
-    damage_table.attacker = caster
-    damage_table.damage_type = DAMAGE_TYPE_PURE
-    damage_table.ability = self
-    damage_table.damage = self:GetSpecialValueFor("damage_to_enemies")
-    damage_table.victim = target
-    damage_table.damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL
+    local damage_table = {
+      attacker = caster,
+      damage_type = DAMAGE_TYPE_PURE,
+      ability = self,
+      damage = self:GetSpecialValueFor("damage_to_enemies"),
+      victim = target,
+      damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL,
+    }
 
     ApplyDamage(damage_table)
   else
@@ -428,59 +427,50 @@ modifier_shield_staff_barrier_buff.OnRefresh = modifier_shield_staff_barrier_buf
 
 function modifier_shield_staff_barrier_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
   }
 end
 
-function modifier_shield_staff_barrier_buff:GetModifierTotal_ConstantBlock(event)
-  if not IsServer() then
-    return
-  end
-
-  local parent = self:GetParent()
-  local block_amount = event.damage
-  local barrier_hp = self:GetStackCount()
-
-  -- Don't react to damage with HP removal flag
-  if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
-    return 0
-  end
-
-  -- Don't react on self damage
-  if event.attacker == parent then
-    return 0
-  end
-
-  -- Don't block more than remaining hp
-  block_amount = math.min(block_amount, barrier_hp)
-
-  -- Reduce barrier hp
-  self:SetStackCount(barrier_hp - block_amount)
-
-  if block_amount > 0 then
-    -- Visual effect
-    local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
-    if event.damage_type == DAMAGE_TYPE_PHYSICAL then
-      alert_type = OVERHEAD_ALERT_BLOCK
-    end
-
-    SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
-  end
-
-  -- Remove the barrier if hp is reduced to nothing
-  if self:GetStackCount() <= 0 then
-    self:Destroy()
-  end
-
-  return block_amount
-end
-
-function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant()
+function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(event)
   if IsClient() then
     return self:GetStackCount()
   else
-    return 0
+    local parent = self:GetParent()
+    local damage = event.damage
+    local barrier_hp = self:GetStackCount()
+
+    -- Don't react to damage with HP removal flag
+    if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+      return 0
+    end
+
+    -- Don't react on self damage
+    if event.attacker == parent then
+      return 0
+    end
+
+    -- Don't block more than remaining hp
+    local block_amount = math.min(damage, barrier_hp)
+
+    -- Reduce barrier hp
+    self:SetStackCount(barrier_hp - block_amount)
+
+    if block_amount > 0 then
+      -- Visual effect
+      local alert_type = OVERHEAD_ALERT_MAGICAL_BLOCK
+      if event.damage_type == DAMAGE_TYPE_PHYSICAL then
+        alert_type = OVERHEAD_ALERT_BLOCK
+      end
+
+      SendOverheadEventMessage(nil, alert_type, parent, block_amount, nil)
+    end
+
+    -- Remove the barrier if hp is reduced to nothing
+    if self:GetStackCount() <= 0 then
+      self:Destroy()
+    end
+
+    return -block_amount
   end
 end
 

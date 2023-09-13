@@ -36,15 +36,19 @@
       "AbilityCastRange"
       {
         "value"                                           "1000"
-        "special_bonus_unique_muerta_dead_shot_range"     "+250"
+        "special_bonus_unique_muerta_dead_shot_range"     "+350"
       }
       "damage"
       {
-        "value"                                           "75 150 225 300 600 900"
+        "value"                                           "100 175 250 325 650 975"
         "special_bonus_unique_muerta_dead_shot_damage"    "+80"
       }
       "speed"                                             "2000"
-      "radius"                                            "100"
+      "radius"
+      {
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
+      }
       "ricochet_radius_start"                             "115"
       "ricochet_radius_end"                               "115"
       "ricochet_distance_multiplier"                      "1.5"
