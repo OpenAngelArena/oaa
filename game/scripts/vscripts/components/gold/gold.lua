@@ -29,12 +29,14 @@ function Gold:Init()
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
 
-  -- self.playerGold = {}
-  -- for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-    -- if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
-    -- self.playerGold[playerID] = PlayerResource:GetGold(playerID)
-    -- end
-  -- end
+  --[[
+  self.playerGold = {}
+  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
+      self.playerGold[playerID] = PlayerResource:GetGold(playerID)
+    end
+  end
+  ]]
 
   -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
@@ -75,7 +77,6 @@ function Gold:UpdatePlayerGold(unitvar, newGold)
     allgold[playerID] = newGold --PLAYER_GOLD[playerID].SavedGold
     PlayerTables:SetTableValue("gold", "gold", allgold)
     --[[
-    local player = PlayerResource:GetPlayer(playerID)
     CustomGameEventManager:Send_ServerToAllClients("oaa_update_gold", {
       gold = allgold
     })]]--
@@ -100,36 +101,24 @@ function Gold:Think()
   foreach(function(i)
     if PlayerResource:IsValidPlayerID(i) and PlayerResource:IsValidPlayer(i) then
       local gameState = GameRules:State_Get()
-      if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
+      if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 
         local currentGold = Gold:GetGold(i)
         local currentDotaGold = PlayerResource:GetGold(i)
-        -- local currentHeroGold = 0
-        -- local player = PlayerResource:GetPlayer(i)
-        -- if player then
-          -- local hero = player:GetAssignedHero()
-          -- if hero then
-            -- currentHeroGold = hero:GetGold()
-          -- end
-        -- end
-        -- print("Current OAA gold: "..tostring(currentGold))
-        -- print("Current Dota gold: "..tostring(currentDotaGold))
-        -- print("Current Hero gold: "..tostring(currentHeroGold))
 
-        local newGold = currentGold
-        local newDotaGold = currentDotaGold
+        --if i == 0 then
+          --print("Current OAA gold: "..tostring(currentGold))
+          --print("Current Dota gold: "..tostring(currentDotaGold))
+        --end
 
+        local newGold
         if currentGold > GOLD_CAP then
           newGold = currentGold + currentDotaGold - GOLD_CAP
         else
           newGold = currentDotaGold
         end
 
-        if newGold > GOLD_CAP then
-          newDotaGold = GOLD_CAP
-        else
-          newDotaGold = newGold
-        end
+        local newDotaGold = math.min(newGold, GOLD_CAP)
 
         if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
           Gold:SetGold(i, newGold)
@@ -159,11 +148,13 @@ function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
   elseif gold < 0 then
     self:RemoveGold(unitvar, -gold)
   end
+  --local playerID = UnitVarToPlayerID(unitvar)
+  --PlayerResource:ModifyGold(playerID, gold, bReliable, iReason)
 end
 
 function Gold:RemoveGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  self:Think()
+  self:Think() -- why?
   local oldGold = self:GetGold(playerID)
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
   self:UpdatePlayerGold(playerID, newGold)
@@ -171,7 +162,7 @@ end
 
 function Gold:AddGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  self:Think()
+  self:Think() -- why?
   local oldGold = self:GetGold(playerID)
   local newGold = (oldGold or 0) + math.floor(gold)
   self:UpdatePlayerGold(playerID, newGold)
@@ -185,7 +176,8 @@ end
 
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
-  local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID] -- self.playerGold[playerID]
+  local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  --local currentGold = self.playerGold[playerID]
   return math.floor(currentGold or 0)
 end
 
@@ -224,9 +216,39 @@ function Gold:IsGoldGenActive()
   return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
 end
 
---function Gold:GoldFilter(filter_table)
-  --return true
---end
+function Gold:GoldFilter(filter_table)
+  local gold = filter_table.gold
+  local playerID = filter_table.player_id_const
+  local reason = filter_table.reason_const
+  local reliable = filter_table.reliable == 1
+
+  -- Reasons:
+  -- DOTA_ModifyGold_Unspecified = 0
+  -- DOTA_ModifyGold_Death = 1
+  -- DOTA_ModifyGold_Buyback = 2
+  -- DOTA_ModifyGold_PurchaseConsumable = 3
+  -- DOTA_ModifyGold_PurchaseItem = 4
+  -- DOTA_ModifyGold_AbandonedRedistribute = 5
+  -- DOTA_ModifyGold_SellItem = 6                -- doesn't trigger when selling items
+  -- DOTA_ModifyGold_AbilityCost = 7
+  -- DOTA_ModifyGold_CheatCommand = 8
+  -- DOTA_ModifyGold_SelectionPenalty = 9
+  -- DOTA_ModifyGold_GameTick = 10               -- additional passive gpm and gpm spark
+  -- DOTA_ModifyGold_Building = 11
+  -- DOTA_ModifyGold_HeroKill = 12               -- filtered out
+  -- DOTA_ModifyGold_CreepKill = 13
+  -- DOTA_ModifyGold_NeutralKill = 14
+  -- DOTA_ModifyGold_RoshanKill = 15             -- cave
+  -- DOTA_ModifyGold_CourierKill = 16
+  -- DOTA_ModifyGold_BountyRune = 17             -- doesn't trigger for Bounty Runes
+  -- DOTA_ModifyGold_SharedGold = 18             -- creep assist gold
+  -- DOTA_ModifyGold_AbilityGold = 19
+  -- DOTA_ModifyGold_WardKill = 20
+  -- DOTA_ModifyGold_CourierKilledByThisPlayer = 21
+
+  -- This filter seems so useless lmao
+  return true
+end
 
 ---------------------------------------------------------------------------------------------------
 
