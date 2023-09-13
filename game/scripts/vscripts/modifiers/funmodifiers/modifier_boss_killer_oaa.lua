@@ -34,7 +34,6 @@ end
 
 if IsServer() then
   function modifier_boss_killer_oaa:GetModifierTotal_ConstantBlock(event)
-    local parent = self:GetParent()
     local attacker = event.attacker
 
     if not attacker or attacker:IsNull() then
