@@ -208,7 +208,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM29: '#game_option_double_multiplier',
     HM30: '#game_option_hybrid',
     HM31: '#game_option_drunk',
-    HM32: '#game_option_splasher'
+    HM32: '#game_option_splasher',
+    HM33: '#game_option_titan_soul',
+    HM34: '#game_option_white_queen'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {

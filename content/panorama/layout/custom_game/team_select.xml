@@ -28,39 +28,42 @@
                   <Label text="#game_option_rd" id="RD"/>
                   <Label text="#game_option_ar" id="AR"/>
                   <Label text="#game_option_lp" id="LP"/>
-                  <Label text="#game_option_ardm" id="ARDM"/>
+                  <!-- <Label text="#game_option_ardm" id="ARDM"/> -->
                 </DropDown>
                 <ToggleButton id="small_player_pool" class="SettingsItem" text="#game_option_spp" onactivate="onPanelChange('small_player_pool')"/>
                 <Label class="SettingsGroupTitle" text="#hero_options_title"/>
                 <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+
+                  <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_titan_soul" id="HM33" onmouseover="UIShowTextTooltip(#game_option_titan_soul_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_white_queen" id="HM34" onmouseover="UIShowTextTooltip(#game_option_white_queen_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hp_mana_switch" id="HM25" onmouseover="UIShowTextTooltip(#game_option_hp_mana_switch_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_splasher" id="HM32" onmouseover="UIShowTextTooltip(#game_option_splasher_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_splasher" id="HM32" onmouseover="UIShowTextTooltip(#game_option_splasher_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_chaos" id="HM28" onmouseover="UIShowTextTooltip(#game_option_chaos_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_sorcerer" id="HM23" onmouseover="UIShowTextTooltip(#game_option_sorcerer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_nimble" id="HM22" onmouseover="UIShowTextTooltip(#game_option_nimble_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_aghanim" id="HM21" onmouseover="UIShowTextTooltip(#game_option_aghanim_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_diarrhetic" id="HM13" onmouseover="UIShowTextTooltip(#game_option_diarrhetic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_diarrhetic" id="HM13" onmouseover="UIShowTextTooltip(#game_option_diarrhetic_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_hyper_experience" id="HM12" onmouseover="UIShowTextTooltip(#game_option_hyper_experience_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_no_cast_points" id="HM07" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_active" id="HM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_echo_strike" id="HM05" onmouseover="UIShowTextTooltip(#game_option_echo_strike_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_timeless_relic" id="HM04" onmouseover="UIShowTextTooltip(#game_option_timeless_relic_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_aoe_radius" id="HM02" onmouseover="UIShowTextTooltip(#game_option_aoe_radius_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_lifesteal" id="HM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_lifesteal" id="HM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/> -->
@@ -71,32 +74,34 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_titan_soul" id="HM33" onmouseover="UIShowTextTooltip(#game_option_titan_soul_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_white_queen" id="HM34" onmouseover="UIShowTextTooltip(#game_option_white_queen_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hp_mana_switch" id="HM25" onmouseover="UIShowTextTooltip(#game_option_hp_mana_switch_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_splasher" id="HM32" onmouseover="UIShowTextTooltip(#game_option_splasher_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_splasher" id="HM32" onmouseover="UIShowTextTooltip(#game_option_splasher_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_hybrid" id="HM30" onmouseover="UIShowTextTooltip(#game_option_hybrid_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_chaos" id="HM28" onmouseover="UIShowTextTooltip(#game_option_chaos_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_brawler" id="HM27" onmouseover="UIShowTextTooltip(#game_option_brawler_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_magus" id="HM26" onmouseover="UIShowTextTooltip(#game_option_magus_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_max_power" id="HM24" onmouseover="UIShowTextTooltip(#game_option_max_power_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_sorcerer" id="HM23" onmouseover="UIShowTextTooltip(#game_option_sorcerer_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_nimble" id="HM22" onmouseover="UIShowTextTooltip(#game_option_nimble_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_aghanim" id="HM21" onmouseover="UIShowTextTooltip(#game_option_aghanim_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_wisdom" id="HM20" onmouseover="UIShowTextTooltip(#game_option_wisdom_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_brute" id="HM19" onmouseover="UIShowTextTooltip(#game_option_brute_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_explosive_death" id="HM17" onmouseover="UIShowTextTooltip(#game_option_explosive_death_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_telescope" id="HM15" onmouseover="UIShowTextTooltip(#game_option_telescope_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_diarrhetic" id="HM13" onmouseover="UIShowTextTooltip(#game_option_diarrhetic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_rend" id="HM14" onmouseover="UIShowTextTooltip(#game_option_rend_description)" onmouseout="UIHideTextTooltip()"/> -->
+                  <!-- <Label text="#game_option_diarrhetic" id="HM13" onmouseover="UIShowTextTooltip(#game_option_diarrhetic_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_hyper_experience" id="HM12" onmouseover="UIShowTextTooltip(#game_option_hyper_experience_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_troll_switch" id="HM11" onmouseover="UIShowTextTooltip(#game_option_troll_switch_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_pro_active" id="HM09" onmouseover="UIShowTextTooltip(#game_option_pro_active_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <Label text="#game_option_no_cast_points" id="HM07" onmouseover="UIShowTextTooltip(#game_option_no_cast_points_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_hyper_active" id="HM06" onmouseover="UIShowTextTooltip(#game_option_hyper_active_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_echo_strike" id="HM05" onmouseover="UIShowTextTooltip(#game_option_echo_strike_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_timeless_relic" id="HM04" onmouseover="UIShowTextTooltip(#game_option_timeless_relic_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_aoe_radius" id="HM02" onmouseover="UIShowTextTooltip(#game_option_aoe_radius_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_lifesteal" id="HM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/>
-                  <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
+                  <!-- <Label text="#game_option_lifesteal" id="HM01" onmouseover="UIShowTextTooltip(#game_option_lifesteal_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_physical_immune" id="HM08" onmouseover="UIShowTextTooltip(#game_option_physical_immune_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_spell_block" id="HM10" onmouseover="UIShowTextTooltip(#game_option_spell_block_description)" onmouseout="UIHideTextTooltip()"/> -->
                   <!-- <Label text="#game_option_healer" id="HM16" onmouseover="UIShowTextTooltip(#game_option_healer_description)" onmouseout="UIHideTextTooltip()"/> -->

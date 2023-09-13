@@ -194,7 +194,15 @@ if IsServer() then
     local parent = self:GetParent()
     local attacker = event.attacker
 
-    if attacker == parent then
+    if not attacker or attacker:IsNull() then
+      return 0
+    end
+
+    if attacker.IsBaseNPC == nil then
+      return 0
+    end
+
+    if not attacker:IsBaseNPC() then
       return 0
     end
 
