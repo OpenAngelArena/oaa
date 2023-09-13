@@ -211,7 +211,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM32: '#game_option_splasher',
     HM33: '#game_option_titan_soul',
     HM34: '#game_option_white_queen',
-    HM35: '#game_option_octarine_soul'
+    HM35: '#game_option_octarine_soul',
+    HM36: '#game_option_smurf'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {

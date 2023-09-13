@@ -43,6 +43,7 @@ local hero_mods = {
   HM33 = "modifier_titan_soul_oaa",
   HM34 = "modifier_hero_anti_stun_oaa",
   HM35 = "modifier_octarine_soul_oaa",
+  HM36 = "modifier_smurf_oaa",
 }
 local boss_mods = {
   BMN  = false,
