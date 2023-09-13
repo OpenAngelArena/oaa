@@ -53,6 +53,7 @@
 "game_option_splasher"                                                          "Splasher"
 "game_option_titan_soul"                                                        "Titan's Soul"
 "game_option_white_queen"                                                       "White Queen"
+"game_option_octarine_soul"                                                     "Octarine Soul"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -93,6 +94,7 @@
 "game_option_splasher_description"                                              "Any damage dealt splashes in 300 radius around the damaged unit."
 "game_option_titan_soul_description"                                            "+1 all stats per hero level. You are bigger, you have free-Pathing and every second you deal damage to enemies within 300 radius. Damage is 2x your primary attribute (2/3 of all stats for Universal)."
 "game_option_white_queen_description"                                           "Debuff Protection and 50% damage reduction while casting or channelling an ability."
+"game_option_octarine_soul_description"                                         "0.08% cooldown reduction per point of Intelligence. Some abilities and items are unaffected."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -202,3 +204,5 @@
 "DOTA_Tooltip_modifier_duelist_oaa_Description"                                 "Dealing 35%% more damage during Duels (affects all damage). Taking 35%% less damage when not in a Duel."
 "DOTA_Tooltip_modifier_boss_killer_oaa"                                         "Boss Killer"
 "DOTA_Tooltip_modifier_boss_killer_oaa_Description"                             "Dealing 85%% more damage to Bosses. Taking 50%% less damage from Bosses."
+"DOTA_Tooltip_modifier_octarine_soul_oaa"                                       "#{game_option_octarine_soul}"
+"DOTA_Tooltip_modifier_octarine_soul_oaa_Description"                           "0.08%% cooldown reduction per point of Intelligence. Some abilities and items are unaffected."

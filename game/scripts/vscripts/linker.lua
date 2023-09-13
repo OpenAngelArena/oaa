@@ -163,3 +163,4 @@ LinkLuaModifier("modifier_titan_soul_oaa", "modifiers/funmodifiers/modifier_tita
 LinkLuaModifier("modifier_glass_cannon_oaa", "modifiers/funmodifiers/modifier_glass_cannon_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_duelist_oaa", "modifiers/funmodifiers/modifier_duelist_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_killer_oaa", "modifiers/funmodifiers/modifier_boss_killer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_octarine_soul_oaa", "modifiers/funmodifiers/modifier_octarine_soul_oaa.lua", LUA_MODIFIER_MOTION_NONE)

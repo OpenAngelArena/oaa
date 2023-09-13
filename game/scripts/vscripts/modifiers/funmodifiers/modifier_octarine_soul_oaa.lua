@@ -1,24 +1,26 @@
--- Hyper Active
+modifier_octarine_soul_oaa = class(ModifierBaseClass)
 
-modifier_ham_oaa = class(ModifierBaseClass)
-
-function modifier_ham_oaa:IsHidden()
+function modifier_octarine_soul_oaa:IsHidden()
   return false
 end
 
-function modifier_ham_oaa:IsDebuff()
+function modifier_octarine_soul_oaa:IsDebuff()
   return false
 end
 
-function modifier_ham_oaa:IsPurgable()
+function modifier_octarine_soul_oaa:IsPurgable()
   return false
 end
 
-function modifier_ham_oaa:RemoveOnDeath()
-  return false
+function modifier_octarine_soul_oaa:RemoveOnDeath()
+  local parent = self:GetParent()
+  if parent:IsRealHero() and not parent:IsOAABoss() then
+    return false
+  end
+  return true
 end
 
-function modifier_ham_oaa:OnCreated()
+function modifier_octarine_soul_oaa:OnCreated()
   self.ignore_abilities = {
     abaddon_borrowed_time_oaa = true,
     brewmaster_primal_split = true,
@@ -84,40 +86,31 @@ function modifier_ham_oaa:OnCreated()
     witch_doctor_voodoo_switcheroo_oaa = true,
   }
 
-  self.cdr_penalty = 5
-  self.cdr = 25
-  self.mana_cost_reduction = 25
-  self.status_resist = 25
+  self.cdr_per_int = 0.08
 end
 
-function modifier_ham_oaa:DeclareFunctions()
+function modifier_octarine_soul_oaa:CheckState()
   return {
-    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
-    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    [MODIFIER_STATE_PASSIVES_DISABLED] = true,
   }
 end
 
-function modifier_ham_oaa:GetModifierPercentageCooldown(keys)
-  if self:GetParent():HasModifier("modifier_pro_active_oaa") then
-    return 0
-  end
+function modifier_octarine_soul_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+  }
+end
+
+function modifier_octarine_soul_oaa:GetModifierPercentageCooldown(keys)
+  local parent = self:GetParent()
   local ability = keys.ability
   if ability and self.ignore_abilities[ability:GetName()] then
-    return self.cdr_penalty
+    return 0
   else
-    return self.cdr
+    return self.cdr_per_int * parent:GetIntellect()
   end
 end
 
-function modifier_ham_oaa:GetModifierPercentageManacostStacking()
-  return self.mana_cost_reduction
-end
-
-function modifier_ham_oaa:GetModifierStatusResistanceStacking()
-  return self.status_resist
-end
-
-function modifier_ham_oaa:GetTexture()
-  return "rune_arcane"
+function modifier_octarine_soul_oaa:GetTexture()
+  return "item_octarine_core"
 end

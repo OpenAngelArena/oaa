@@ -35,7 +35,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS" oninputsubmit="onPanelChange('HEROES_MODS')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
-
+                  <Label text="#game_option_octarine_soul" id="HM35" onmouseover="UIShowTextTooltip(#game_option_octarine_soul_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_titan_soul" id="HM33" onmouseover="UIShowTextTooltip(#game_option_titan_soul_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_white_queen" id="HM34" onmouseover="UIShowTextTooltip(#game_option_white_queen_description)" onmouseout="UIHideTextTooltip()"/>
@@ -74,6 +74,7 @@
                 <DropDown class="SettingsItem" id="HEROES_MODS_2" oninputsubmit="onPanelChange('HEROES_MODS_2')">
                   <Label text="#game_option_none" id="HMN"/>
                   <Label text="#game_option_random" id="HMR"/>
+                  <Label text="#game_option_octarine_soul" id="HM35" onmouseover="UIShowTextTooltip(#game_option_octarine_soul_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_blood_magic" id="HM03" onmouseover="UIShowTextTooltip(#game_option_blood_magic_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_titan_soul" id="HM33" onmouseover="UIShowTextTooltip(#game_option_titan_soul_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_white_queen" id="HM34" onmouseover="UIShowTextTooltip(#game_option_white_queen_description)" onmouseout="UIHideTextTooltip()"/>
