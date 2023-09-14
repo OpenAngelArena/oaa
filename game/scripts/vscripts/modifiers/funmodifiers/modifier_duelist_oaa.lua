@@ -49,7 +49,7 @@ end
 
 function modifier_duelist_oaa:GetModifierIncomingDamage_Percentage()
   if self:GetStackCount() == 1 then
-    return -35
+    return -15
   end
   return 0
 end

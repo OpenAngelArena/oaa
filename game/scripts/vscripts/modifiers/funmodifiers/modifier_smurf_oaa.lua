@@ -19,18 +19,14 @@ end
 
 function modifier_smurf_oaa:OnCreated()
   self.bonus_str_per_lvl = 10
-  self.damageReduction = 15
-  self.evasion = 25
-  self.scale = -70
-  self.aoe_multiplier = 0.5
+  self.scale = -50
+  self.aoe_multiplier = 0.75
   self:ReEquipAllItems()
 end
 
 function modifier_smurf_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
-    MODIFIER_PROPERTY_EVASION_CONSTANT,
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
@@ -40,14 +36,6 @@ end
 function modifier_smurf_oaa:GetModifierBonusStats_Strength()
   local parent = self:GetParent()
   return self.bonus_str_per_lvl * parent:GetLevel()
-end
-
-function modifier_smurf_oaa:GetModifierTotal_ConstantBlock(event)
-  return event.damage * self.damageReduction / 100
-end
-
-function modifier_smurf_oaa:GetModifierEvasion_Constant()
-  return self.evasion
 end
 
 function modifier_smurf_oaa:GetModifierModelScale()
