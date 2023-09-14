@@ -1,3 +1,5 @@
+-- Octarine Soul
+
 modifier_octarine_soul_oaa = class(ModifierBaseClass)
 
 function modifier_octarine_soul_oaa:IsHidden()
@@ -87,12 +89,6 @@ function modifier_octarine_soul_oaa:OnCreated()
   }
 
   self.cdr_per_int = 0.08
-end
-
-function modifier_octarine_soul_oaa:CheckState()
-  return {
-    [MODIFIER_STATE_PASSIVES_DISABLED] = true,
-  }
 end
 
 function modifier_octarine_soul_oaa:DeclareFunctions()
