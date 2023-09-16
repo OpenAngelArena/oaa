@@ -24,7 +24,7 @@ function PointsManager:Init ()
   if HeroSelection.is10v10 then
     scoreLimit = TEN_V_TEN_KILL_LIMIT
     self.limitConstant = 10
-  elseif HeroSelection.is1v1 then
+  elseif HeroSelection.lowPlayerCount then
     scoreLimit = ONE_V_ONE_KILL_LIMIT
     self.limitConstant = 10
   end
@@ -219,7 +219,7 @@ function PointsManager:IncreaseLimit(limit_increase)
     extend_amount = player_count * KILL_LIMIT_INCREASE
     if HeroSelection.is10v10 then
       extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
-    elseif HeroSelection.is1v1 then
+    elseif HeroSelection.lowPlayerCount then
       extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
     end
   else
@@ -275,7 +275,7 @@ function PointsManager:RefreshLimit()
   if HeroSelection.is10v10 then
     base_limit = TEN_V_TEN_KILL_LIMIT
     extend_amount = TEN_V_TEN_LIMIT_INCREASE * current_player_count
-  elseif HeroSelection.is1v1 then
+  elseif HeroSelection.lowPlayerCount then
     base_limit = ONE_V_ONE_KILL_LIMIT
     extend_amount = ONE_V_ONE_LIMIT_INCREASE * current_player_count
   end
