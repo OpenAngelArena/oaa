@@ -8,7 +8,7 @@ end
 
 local hero_mods = {
   HMN  = false,
-  HM01 = "modifier_any_damage_lifesteal_oaa",
+  --HM01 = "modifier_any_damage_lifesteal_oaa",
   HM02 = "modifier_aoe_radius_increase_oaa",
   HM03 = "modifier_blood_magic_oaa",
   HM04 = "modifier_debuff_duration_oaa",
@@ -16,17 +16,17 @@ local hero_mods = {
   HM06 = "modifier_ham_oaa",
   HM07 = "modifier_no_cast_points_oaa",
   --HM08 = "modifier_physical_immunity_oaa",
-  HM09 = "modifier_pro_active_oaa",
+  --HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
-  HM13 = "modifier_diarrhetic_oaa",
-  HM14 = "modifier_rend_oaa",
+  --HM13 = "modifier_diarrhetic_oaa",
+  --HM14 = "modifier_rend_oaa",
   HM15 = "modifier_range_increase_oaa",
   --HM16 = "modifier_healer_oaa",
-  HM17 = "modifier_explosive_death_oaa",
+  --HM17 = "modifier_explosive_death_oaa",
   --HM18 = "modifier_no_health_bar_oaa",
-  HM19 = "modifier_brute_oaa",
+  --HM19 = "modifier_brute_oaa",
   HM20 = "modifier_wisdom_oaa",
   HM21 = "modifier_aghanim_oaa",
   HM22 = "modifier_nimble_oaa",
@@ -34,12 +34,16 @@ local hero_mods = {
   HM24 = "modifier_any_damage_crit_oaa",
   HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
-  HM27 = "modifier_brawler_oaa",
+  --HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
-  HM30 = "modifier_hybrid_oaa",
+  --HM30 = "modifier_hybrid_oaa",
   --HM31 = "modifier_drunk_oaa",
-  HM32 = "modifier_any_damage_splash_oaa",
+  --HM32 = "modifier_any_damage_splash_oaa",
+  HM33 = "modifier_titan_soul_oaa",
+  HM34 = "modifier_hero_anti_stun_oaa",
+  HM35 = "modifier_octarine_soul_oaa",
+  HM36 = "modifier_smurf_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -123,8 +127,10 @@ end
 function OAAOptions:SetupGame()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
-    CustomWardButtons.obs_cooldown = 30
-    CustomWardButtons.sentry_cooldown = 30
+    if CustomWardButtons then
+      CustomWardButtons.obs_cooldown = 30
+      CustomWardButtons.sentry_cooldown = 30
+    end
   end
   if self.settings.GLOBAL_MODS == "GM12" then
     local mode = GameRules:GetGameModeEntity()

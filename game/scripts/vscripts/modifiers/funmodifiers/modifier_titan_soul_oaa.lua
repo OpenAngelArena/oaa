@@ -21,8 +21,8 @@ function modifier_titan_soul_oaa:OnCreated()
     return
   end
 
-  self.primary_attribute_multiplier = 1.75
-  self.damage_radius = 200
+  self.primary_attribute_multiplier = 2
+  self.damage_radius = 300
   self.scale = 60
   self.stats = 1
 
