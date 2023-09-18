@@ -20,12 +20,12 @@ Layer0
 	//---- Layer 0 ----
 	g_flTexCoordRotate0 "0.000"
 	g_flTexCoordScale0 "6.000"
-	g_vColorTint0 "[0.545098 0.611765 0.647059 1.000000]"
+	g_vColorTint0 "[0.549020 0.615686 0.674510 1.000000]"
 	g_vTexCoordOffset0 "[0.000 0.000]"
 	g_vTexCoordScroll0 "[0.000 0.000]"
 	TextureBloom0 "materials/default/default_bloom.tga"
 	TextureColor0 "materials/ground/stone001_color.png"
-	TextureNormal0 "materials/default/default_normal.tga"
+	TextureNormal0 "materials/ground/grass_long_00_normal.png"
 	TextureReflectance0 "materials/ground/grass_long_00_refl.png"
 	TextureSelfIllumMask0 "materials/default/default_selfillum.tga"
 
@@ -45,13 +45,13 @@ Layer0
 	//---- Layer 2 ----
 	g_flTexCoordRotate2 "0.000"
 	g_flTexCoordScale2 "4.000"
-	g_vColorTint2 "[0.815686 0.850980 0.890196 1.000000]"
+	g_vColorTint2 "[0.870588 0.898039 0.933333 1.000000]"
 	g_vTexCoordOffset2 "[0.000 0.000]"
 	g_vTexCoordScroll2 "[0.000 0.000]"
 	TextureBloom2 "materials/default/default_bloom.tga"
 	TextureColor2 "materials/ground/snow_directional_00_color.png"
-	TextureNormal2 "materials/ground/snow_directional_00_normal_psd_6ffc95d.png"
-	TextureReflectance2 "materials/ground/snow_directional_00_normal_refl.png"
+	TextureNormal2 "materials/ground/grass_long_00_normal.png"
+	TextureReflectance2 "materials/ground/grass_long_00_refl.png"
 	TextureRevealMask2 "materials/ground/sand002_blend.png"
 	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"
 

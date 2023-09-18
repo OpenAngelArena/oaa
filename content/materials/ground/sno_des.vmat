@@ -30,6 +30,7 @@ Layer0
 	TextureSelfIllumMask0 "materials/default/default_selfillum.tga"
 
 	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
 	g_flTexCoordScale1 "4.000"
 	g_vColorTint1 "[0.725490 0.658824 0.588235 1.000000]"
 	g_vTexCoordOffset1 "[0.000 0.000]"
@@ -52,7 +53,7 @@ Layer0
 	TextureNormal2 "materials/ground/snow_directional_00_normal_psd_6ffc95d.png"
 	TextureReflectance2 "materials/ground/snow_directional_00_normal_refl.png"
 	TextureRevealMask2 "materials/ground/sand002_blend.png"
-	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"	
+	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"
 
 	//---- Layer 3 ----
 	g_flTexCoordRotate3 "0.000"
@@ -65,7 +66,7 @@ Layer0
 	TextureNormal3 "materials/ground/cliff_wall002_normal.png"
 	TextureReflectance3 "materials/ground/cliff_wall002_refl.png"
 	TextureRevealMask3 "materials/ground/sand002_blend.png"
-	TextureSelfIllumMask3 "materials/default/default_selfillum.tga"g_flTexCoordRotate3 "0.000"
+	TextureSelfIllumMask3 "materials/default/default_selfillum.tga"
 
 	//---- Normal Map ----
 	g_flBumpStrength "1.000"
