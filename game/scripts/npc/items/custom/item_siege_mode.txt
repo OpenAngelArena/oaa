@@ -53,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17203"
+    "ItemCost"                                            "17453"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -81,8 +81,8 @@
       "bonus_damage"                                      "100 150"
       "bonus_agility"                                     "50 70"
       "bonus_strength"                                    "45 65"
-      "bonus_intellect"                                   "45 65"
-      "bonus_health"                                      "800 1000"
+      "bonus_intellect"                                   "50 70"
+      "bonus_health"                                      "700 950"
       "bonus_health_regen"                                "12 15"
       "bonus_attack_range"                                "180 190" // ranged only
       "passive_splash_radius"                             "250"
