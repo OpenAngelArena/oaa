@@ -83,11 +83,11 @@ function modifier_temple_guardian_hammer_throw:OnIntervalThink()
         self:AddHitTarget( enemy )
         if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
           enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = self.stun_duration } )
-        
+
           local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )
           ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
           ParticleManager:ReleaseParticleIndex( nFXIndex )
-        
+
           local damageTable = {
             victim = enemy,
             attacker = self:GetCaster(),

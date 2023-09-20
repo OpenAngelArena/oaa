@@ -73,8 +73,8 @@ function modifier_boss_charger_charge:OnIntervalThink()
     if v and not v:IsNull() and not self.glanced[v:entindex()] then
       self.glanced[v:entindex()] = true
 
-      -- Slow debuff
       if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+        -- Slow debuff
         v:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_glanced", {duration = self.glancing_duration})
 
         -- Damage
@@ -83,7 +83,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
           attacker = caster,
           damage = self.glancing_damage,
           damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
           ability = self:GetAbility()
         })
       end
@@ -142,7 +142,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
 
     if #self.draggedHeroes > 0 then
       iter(self.draggedHeroes):each(function (hero)
-        if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+        if not hero:IsMagicImmune() and not hero:IsDebuffImmune() then
           hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = self.hero_stun_duration})
 
           ApplyDamage({
@@ -150,7 +150,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
             attacker = caster,
             damage = self.hero_pillar_damage,
             damage_type = DAMAGE_TYPE_PHYSICAL,
-            damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
             ability = self:GetAbility()
           })
         end

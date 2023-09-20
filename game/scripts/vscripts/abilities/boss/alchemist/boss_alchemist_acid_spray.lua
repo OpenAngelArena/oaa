@@ -191,6 +191,7 @@ end
 function modifier_boss_acid_spray_debuff:OnIntervalThink()
   local parent = self:GetParent()
   local caster = self:GetCaster()
+  local ability = self:GetAbility()
   if caster and not caster:IsNull() then
     -- Creating the damage table
     local damage_table = {
