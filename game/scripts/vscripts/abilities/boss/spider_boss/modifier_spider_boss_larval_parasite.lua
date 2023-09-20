@@ -65,9 +65,7 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 
 		parent:EmitSound("Broodmother.LarvalParasite.Burst")
 
-		--local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/dungeon_broodmother_debuff_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
-
-		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), parent:GetOrigin(), nil, self.infection_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), parent:GetOrigin(), nil, self.infection_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 		for _, hEnemy in pairs( hEnemies ) do
 			-- Apply explosion damage
 			local damage = {

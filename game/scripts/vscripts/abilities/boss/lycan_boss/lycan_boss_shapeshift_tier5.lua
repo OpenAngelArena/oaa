@@ -3,7 +3,14 @@ LinkLuaModifier( "modifier_lycan_boss_shapeshift", "abilities/boss/lycan_boss/mo
 
 lycan_boss_shapeshift_tier5 = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
+function lycan_boss_shapeshift:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_portrait.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+end
 
 function lycan_boss_shapeshift_tier5:OnAbilityPhaseStart()
 	if IsServer() then

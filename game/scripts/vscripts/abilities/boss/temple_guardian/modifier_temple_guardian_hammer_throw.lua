@@ -77,28 +77,28 @@ function modifier_temple_guardian_hammer_throw:OnIntervalThink()
 
     self.hHammer:SetOrigin( vPos )
 
-    local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self.hHammer:GetOrigin(), self.hHammer, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+    local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self.hHammer:GetOrigin(), self.hHammer, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
     for _, enemy in pairs( enemies ) do
-      if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not self:HasHitTarget( enemy ) then
+      if enemy and not enemy:IsNull() and not self:HasHitTarget( enemy ) then
         self:AddHitTarget( enemy )
-        if not enemy:IsMagicImmune() then
+        if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
           enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = self.stun_duration } )
+        
+          local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )
+          ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
+          ParticleManager:ReleaseParticleIndex( nFXIndex )
+        
+          local damageTable = {
+            victim = enemy,
+            attacker = self:GetCaster(),
+            damage = self.hammer_damage,
+            damage_type = DAMAGE_TYPE_PURE,
+            ability = self:GetAbility(),
+          }
+          ApplyDamage( damageTable )
+
+          enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
         end
-
-        local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )
-        ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
-        ParticleManager:ReleaseParticleIndex( nFXIndex )
-        local damageInfo =
-        {
-          victim = enemy,
-          attacker = self:GetCaster(),
-          damage = self.hammer_damage,
-          damage_type = DAMAGE_TYPE_PURE,
-          ability = self:GetAbility(),
-        }
-        ApplyDamage( damageInfo )
-
-        enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
       end
     end
 

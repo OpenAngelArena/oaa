@@ -82,40 +82,50 @@ end
 function modifier_boss_acid_spray_thinker:OnImpact()
   if IsServer() then
     local parent = self:GetParent()
-	local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_WORLDORIGIN, nil ) --PATTACH_POINT_FOLLOW
-	ParticleManager:SetParticleControl(nFXIndex, 0, parent:GetOrigin())
+    local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_WORLDORIGIN, nil ) --PATTACH_POINT_FOLLOW
+    ParticleManager:SetParticleControl(nFXIndex, 0, parent:GetOrigin())
     --ParticleManager:SetParticleControl(nFXIndex, 0, Vector(0, 0, 0))
-	ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius, 1, 1))
-	ParticleManager:SetParticleControl(nFXIndex, 15, Vector(25, 150, 25))
-	ParticleManager:SetParticleControl(nFXIndex, 16, Vector(0, 0, 0))
+    ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius, 1, 1))
+    ParticleManager:SetParticleControl(nFXIndex, 15, Vector(25, 150, 25))
+    ParticleManager:SetParticleControl(nFXIndex, 16, Vector(0, 0, 0))
     --ParticleManager:ReleaseParticleIndex( nFXIndex )
 
     self.particle = nFXIndex
 
-	parent:EmitSound("OgreMagi.Ignite.Target")
+    parent:EmitSound("OgreMagi.Ignite.Target")
 
-	self:SetDuration( self.area_duration, true )
-	self.bImpact = true
+    self:SetDuration( self.area_duration, true )
+    self.bImpact = true
 
-	self:StartIntervalThink( 0.5 )
+    self:StartIntervalThink( 0.5 )
   end
 end
 
 function modifier_boss_acid_spray_thinker:OnIntervalThink()
-	if IsServer() then
-		if self.bImpact == false then
-			self:OnImpact()
-			return
-		end
+  if IsServer() then
+    if self.bImpact == false then
+      self:OnImpact()
+      return
+    end
 
     local parent = self:GetParent()
-		local enemies = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-		for _, enemy in pairs( enemies ) do
-			if enemy and not enemy:IsNull() then
-				enemy:AddNewModifier( parent, self:GetAbility(), "modifier_boss_acid_spray_debuff", { duration = self.duration } )
-			end
-		end
-	end
+    local enemies = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetOrigin(),
+      nil,
+      self.radius,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+    for _, enemy in pairs( enemies ) do
+      if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+        enemy:AddNewModifier( parent, self:GetAbility(), "modifier_boss_acid_spray_debuff", { duration = self.duration } )
+      end
+    end
+  end
 end
 
 function modifier_boss_acid_spray_thinker:OnDestroy()
@@ -153,7 +163,6 @@ function modifier_boss_acid_spray_debuff:DestroyOnExpire()
 end
 
 function modifier_boss_acid_spray_debuff:OnCreated()
-  local parent = self:GetParent()
   local damage_per_second = 275
   local interval = 0.2
   local damage_type = DAMAGE_TYPE_PURE
@@ -172,55 +181,39 @@ function modifier_boss_acid_spray_debuff:OnCreated()
   self.damage_per_interval = damage_per_second*interval
   self.slow = slow
   self.armor = armor
+  self.damage_type = damage_type
   if IsServer() then
-    local caster = self:GetCaster()
-    if caster and not caster:IsNull() then
-      -- Creating the damage table
-      local damage_table = {}
-      damage_table.attacker = caster
-      damage_table.damage_type = damage_type
-      damage_table.ability = ability
-      damage_table.victim = parent
-      damage_table.damage = self.damage_per_interval
-      -- Apply damage on creation
-      ApplyDamage(damage_table)
-    end
+    self:OnIntervalThink()
     self:StartIntervalThink(interval)
   end
 end
 
 function modifier_boss_acid_spray_debuff:OnIntervalThink()
   local parent = self:GetParent()
-  local damage_type = DAMAGE_TYPE_MAGICAL
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    damage_type = ability:GetAbilityDamageType()
-  end
   local caster = self:GetCaster()
   if caster and not caster:IsNull() then
     -- Creating the damage table
-    local damage_table = {}
-    damage_table.attacker = caster
-    damage_table.damage_type = damage_type
-    damage_table.ability = ability
-    damage_table.victim = parent
-    damage_table.damage = self.damage_per_interval
+    local damage_table = {
+      attacker = caster,
+      victim = parent,
+      damage = self.damage_per_interval,
+      damage_type = self.damage_type,
+      ability = ability,
+    }
     -- Apply damage on interval
     ApplyDamage(damage_table)
   end
 end
 
 function modifier_boss_acid_spray_debuff:DeclareFunctions()
-  local func = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-
-  return func
 end
 
 function modifier_boss_acid_spray_debuff:GetModifierMoveSpeedBonus_Percentage()
-  return self.slow
+  return 0 - math.abs(self.slow)
 end
 
 function modifier_boss_acid_spray_debuff:GetModifierPhysicalArmorBonus()

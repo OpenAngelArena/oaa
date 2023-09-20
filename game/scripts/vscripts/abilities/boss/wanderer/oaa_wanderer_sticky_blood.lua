@@ -127,7 +127,7 @@ end
 
 function modifier_wanderer_sticky_blood_passive:ProcStickyBlood(caster, ability, unit)
   -- If unit is dead, spell immune or in a duel, don't do anything
-  if not unit:IsAlive() or unit:IsMagicImmune() or Duels:IsActive() then
+  if not unit:IsAlive() or unit:IsMagicImmune() or unit:IsDebuffImmune() or Duels:IsActive() then
     return
   end
 

@@ -89,14 +89,15 @@ if IsServer() then
     end
 
     -- Don't damage spell immune heroes
-    if not target:IsMagicImmune() then
-      local damage_table = {}
-      damage_table.victim = target
-      damage_table.damage_type = DAMAGE_TYPE_PURE
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-      damage_table.attacker = parent
-      damage_table.ability = self:GetAbility()
-      damage_table.damage = self.damage * difference
+    if not target:IsMagicImmune() and not target:IsDebuffImmune() then
+      local damage_table = {
+        attacker = parent,
+        victim = target,
+        damage = self.damage * difference,
+        damage_type = DAMAGE_TYPE_PURE,
+        ability = self:GetAbility(),
+      }
+
       ApplyDamage(damage_table)
     end
   end

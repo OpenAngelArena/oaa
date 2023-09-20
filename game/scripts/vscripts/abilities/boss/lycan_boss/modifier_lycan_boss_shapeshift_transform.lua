@@ -28,9 +28,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_shapeshift_transform:CheckState()
-	local state =
-	{
+	return {
 		[MODIFIER_STATE_STUNNED] = true,
 	}
-	return state
 end

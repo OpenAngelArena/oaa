@@ -1,20 +1,32 @@
 
 lycan_boss_rupture_ball_tier5 = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
+function lycan_boss_rupture_ball_tier5:Precache(context)
+  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("particle", "particles/lycanboss_ruptureball_gale.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+end
 
 function lycan_boss_rupture_ball_tier5:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
-		caster:EmitSound("lycan_lycan_attack_09")
+    local delay = self:GetCastPoint()
 
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
-		ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
-		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
-	end
+    -- Cast Sound
+    caster:EmitSound("lycan_lycan_attack_09")
 
-	return true
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
+
+    -- Warning particle
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
+    ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
+    ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
+  end
+
+  return true
 end
 
 --------------------------------------------------------------------------------
@@ -89,6 +101,7 @@ function lycan_boss_rupture_ball_tier5:OnProjectileHit( hTarget, vLocation )
       hTarget:EmitSound("Lycan.RuptureBall.Impact")
     end
 
+    -- TODO: do custom rupture modifier, don't use built-in
     hTarget:AddNewModifier( self:GetCaster(), self, "modifier_bloodseeker_rupture", { duration = self:GetSpecialValueFor( "duration" ) } )
   end
 

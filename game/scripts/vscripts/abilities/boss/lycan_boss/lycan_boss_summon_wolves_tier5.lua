@@ -1,23 +1,26 @@
 
 lycan_boss_summon_wolves_tier5 = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
+function lycan_boss_summon_wolves_tier5:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+end
 
 function lycan_boss_summon_wolves_tier5:OnAbilityPhaseStart()
-	if IsServer() then
+if IsServer() then
     local nSound = RandomInt( 1, 3 )
     local caster = self:GetCaster()
-		if nSound == 1 then
-			caster:EmitSound("lycan_lycan_ability_summon_02")
-		end
-		if nSound == 2 then
-			caster:EmitSound("lycan_lycan_ability_summon_03")
-		end
-		if nSound == 3 then
-			caster:EmitSound("lycan_lycan_ability_summon_06")
-		end
-	end
-	return true
+    if nSound == 1 then
+      caster:EmitSound("lycan_lycan_ability_summon_02")
+    elseif nSound == 2 then
+      caster:EmitSound("lycan_lycan_ability_summon_03")
+    elseif nSound == 3 then
+      caster:EmitSound("lycan_lycan_ability_summon_06")
+    end
+  end
+  return true
 end
 
 --------------------------------------------------------------------------------

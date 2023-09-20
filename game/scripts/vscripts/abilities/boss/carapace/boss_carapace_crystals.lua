@@ -4,7 +4,12 @@ LinkLuaModifier("modifier_boss_carapace_crystals_passive", "abilities/boss/carap
 
 boss_carapace_crystals = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
+function boss_carapace_crystals:Precache(context)
+  PrecacheResource("particle", "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf", context)
+  PrecacheResource("particle", "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context)
+end
 
 function boss_carapace_crystals:GetIntrinsicModifierName()
   if self:GetLevel() > 0 then
@@ -35,14 +40,12 @@ function modifier_boss_carapace_crystals_passive:RemoveOnDeath()
 end
 
 function modifier_boss_carapace_crystals_passive:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_DEATH,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
   }
-  return funcs
 end
 
 if IsServer() then
@@ -278,7 +281,7 @@ if IsServer() then
         local damageTable = {
           victim = caster,
           attacker = attacker,
-          damage = damage_taken * ((ability:GetSpecialValueFor("damage_amplification") / 100) + 1),
+          damage = damage_taken * ability:GetSpecialValueFor("damage_amplification") / 100,
           damage_type = DAMAGE_TYPE_PURE,
           damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
           ability = ability
@@ -312,12 +315,13 @@ if IsServer() then
           ParticleManager:SetParticleControl(indicator, 4, Vector(255, 0, 0))
           ParticleManager:ReleaseParticleIndex(indicator)
 
-          Timers:CreateTimer(2.0, function ()
-            if not IsValidEntity(caster) or not caster:IsAlive() then return nil end
+          local mod = self
+          Timers:CreateTimer(1.0, function ()
+            if not mod or caster:IsNull() or not caster:IsAlive() then return nil end
 
-            ParticleManager:DestroyParticle(self.crystals[id].particle, true)
-            ParticleManager:ReleaseParticleIndex(self.crystals[id].particle)
-            self.crystals[id].particle = nil
+            ParticleManager:DestroyParticle(mod.crystals[id].particle, true)
+            ParticleManager:ReleaseParticleIndex(mod.crystals[id].particle)
+            mod.crystals[id].particle = nil
 
             local explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
             ParticleManager:SetParticleControl(explosion, 0, crystalPosition)
@@ -333,7 +337,7 @@ if IsServer() then
               width,
               DOTA_UNIT_TARGET_TEAM_ENEMY,
               bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+              DOTA_UNIT_TARGET_FLAG_NONE
             )
 
             -- Damage of the crystal when it explodes
@@ -344,13 +348,15 @@ if IsServer() then
               ability = ability
             }
 
-            for _, victim in pairs(units) do
-              explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, victim)
-              ParticleManager:SetParticleControl(explosion, 0, victim:GetAbsOrigin())
-              ParticleManager:ReleaseParticleIndex(explosion)
+            for _, unit in pairs(units) do
+              if unit and not unit:IsNull() and not unit:IsMagicImmune() and not unit:IsDebuffImmune() then
+                local particle = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, unit)
+                ParticleManager:SetParticleControl(particle, 0, unit:GetAbsOrigin())
+                ParticleManager:ReleaseParticleIndex(particle)
 
-              damageTable.victim = victim
-              ApplyDamage(damageTable)
+                damageTable.victim = unit
+                ApplyDamage(damageTable)
+              end
             end
           end)
         end

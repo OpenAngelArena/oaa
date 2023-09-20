@@ -294,7 +294,7 @@ function modifier_boss_shielder_jump:OnDestroy()
     }
 
     for _, enemy in pairs(enemies) do
-      if enemy and not enemy:IsNull() then
+      if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
         -- Apply debuff
         enemy:AddNewModifier(parent, ability, "modifier_boss_shielder_shield_crash_debuff", {duration = debuff_duration})
 

@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_boss_carapace_headbutt_slow", "abilities/boss/carapace/boss_carapace_headbutt.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -28,7 +27,7 @@ function boss_carapace_headbutt:OnAbilityPhaseStart()
     local direction = caster:GetForwardVector()
 
     -- Make the caster uninterruptible while casting this ability
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = castTime - 0.01})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = castTime + 0.1})
 
     -- Warning particle
     local FX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
@@ -60,7 +59,7 @@ function boss_carapace_headbutt:GetEnemies()
     self:GetSpecialValueFor("width"),
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_ALL,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+    DOTA_UNIT_TARGET_FLAG_NONE
   )
 
   return enemies
@@ -75,42 +74,50 @@ function boss_carapace_headbutt:OnSpellStart()
 
   caster:EmitSound("Hero_Juggernaut.BladeDance")
 
+  -- Needs removal because of self-stun
+  caster:RemoveModifierByName("modifier_anti_stun_oaa")
+
   local smoke = ParticleManager:CreateParticle("particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf", PATTACH_CUSTOMORIGIN, caster)
   ParticleManager:SetParticleControl(smoke, 0, caster:GetAbsOrigin())
   ParticleManager:ReleaseParticleIndex(smoke)
 
   local enemies = self:GetEnemies()
 
-  for k, victim in pairs(enemies) do
-    --DebugDrawSphere(victim:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 5.3)
+  local knockbackModifierTable = {
+    should_stun = 0,
+    knockback_duration = 0.5,
+    duration = 0.5,
+    knockback_distance = range,
+    knockback_height = 50,
+    center_x = target.x,
+    center_y = target.y,
+    center_z = target.z
+  }
 
-    victim:EmitSound("Hero_Ursa.Attack")
+  local damageTable = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self
+  }
 
-    local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, victim)
-    ParticleManager:ReleaseParticleIndex(impact)
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+      --DebugDrawSphere(enemy:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 5.3)
 
-    local damageTable = {
-      victim = victim,
-      attacker = caster,
-      damage = self:GetSpecialValueFor("damage"),
-      damage_type = self:GetAbilityDamageType(),
-      ability = self
-    }
-    ApplyDamage(damageTable)
+      enemy:EmitSound("Hero_Ursa.Attack")
 
-    local knockbackModifierTable = {
-      should_stun = 0,
-      knockback_duration = 0.5,
-      duration = 0.5,
-      knockback_distance = range,
-      knockback_height = 50,
-      center_x = target.x,
-      center_y = target.y,
-      center_z = target.z
-    }
+      local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, enemy)
+      ParticleManager:ReleaseParticleIndex(impact)
 
-    victim:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
-    victim:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration = self:GetSpecialValueFor("slow_duration")} )
+      -- Apply modifiers first
+      enemy:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
+      enemy:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration = self:GetSpecialValueFor("slow_duration")} )
+
+      -- Do damage
+      damageTable.victim = enemy
+      ApplyDamage(damageTable)
+    end
   end
 
   caster:SetAbsOrigin(target)
@@ -135,13 +142,10 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_carapace_headbutt_slow:DeclareFunctions()
-	local funcs =
-	{
+	return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
-
-	return funcs
 end
 
 ------------------------------------------------------------------------------------

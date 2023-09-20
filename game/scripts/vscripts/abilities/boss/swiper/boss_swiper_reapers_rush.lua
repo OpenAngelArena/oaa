@@ -162,7 +162,7 @@ if IsServer() then
 			radius,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_ALL,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			DOTA_UNIT_TARGET_FLAG_NONE,
 			FIND_CLOSEST,
 			false
 		)
@@ -174,19 +174,19 @@ if IsServer() then
 
         v:EmitSound("hero_ursa.attack")
 
-        if not v:IsMagicImmune() then
+        if not v:IsMagicImmune() and not v:IsDebuffImmune() then
           v:AddNewModifier(caster, ability, "modifier_boss_swiper_reapers_rush_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
-        end
 
-        local damageTable = {
-          victim = v,
-          attacker = caster,
-          damage = ability:GetSpecialValueFor("max_damage"),
-          damage_type = ability:GetAbilityDamageType(),
-          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-          ability = ability
-        }
-        ApplyDamage(damageTable)
+          local damageTable = {
+            victim = v,
+            attacker = caster,
+            damage = ability:GetSpecialValueFor("max_damage"),
+            damage_type = ability:GetAbilityDamageType(),
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+            ability = ability
+          }
+          ApplyDamage(damageTable)
+        end
       end
     end
 
@@ -243,7 +243,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_ALL,
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_CLOSEST,
 		false
 	)
@@ -268,19 +268,19 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
         center_y = point.y,
         center_z = point.z
       }
-      if not v:IsMagicImmune() then
+      if not v:IsMagicImmune() and not v:IsDebuffImmune() then
         v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
-      end
 
-      local damageTable = {
-        victim = v,
-        attacker = caster,
-        damage = ability:GetSpecialValueFor("min_damage"),
-        damage_type = ability:GetAbilityDamageType(),
-        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-        ability = ability
-      }
-      ApplyDamage(damageTable)
+        local damageTable = {
+          victim = v,
+          attacker = caster,
+          damage = ability:GetSpecialValueFor("min_damage"),
+          damage_type = ability:GetAbilityDamageType(),
+          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+          ability = ability
+        }
+        ApplyDamage(damageTable)
+      end
     end
 	end
 end

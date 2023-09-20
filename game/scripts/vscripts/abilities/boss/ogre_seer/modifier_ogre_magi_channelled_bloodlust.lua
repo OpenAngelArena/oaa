@@ -34,30 +34,28 @@ end
 -----------------------------------------------------------------------------
 
 function modifier_ogre_magi_channelled_bloodlust:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_MODEL_SCALE,
 	}
-	return funcs
 end
 
 
 -----------------------------------------------------------------------------
 
-function modifier_ogre_magi_channelled_bloodlust:GetModifierAttackSpeedBonus_Constant( params )
+function modifier_ogre_magi_channelled_bloodlust:GetModifierAttackSpeedBonus_Constant()
 	return self.bonus_attack_speed
 end
 
 -----------------------------------------------------------------------------
 
-function modifier_ogre_magi_channelled_bloodlust:GetModifierMoveSpeedBonus_Percentage( params )
+function modifier_ogre_magi_channelled_bloodlust:GetModifierMoveSpeedBonus_Percentage()
 	return self.bonus_movement_speed
 end
 
 -----------------------------------------------------------------------------
 
-function modifier_ogre_magi_channelled_bloodlust:GetModifierModelScale( params )
+function modifier_ogre_magi_channelled_bloodlust:GetModifierModelScale()
 	return self.modelscale
 end

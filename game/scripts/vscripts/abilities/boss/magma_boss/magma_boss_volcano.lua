@@ -438,7 +438,7 @@ function modifier_magma_boss_volcano_thinker:OnIntervalThink()
         local ground_origin = GetGroundPosition(unit_origin, unit)
         local unit_z = unit_origin.z
         local ground_z = ground_origin.z
-        if not unit:HasFlyMovementCapability() and unit_z - ground_z < 10 and not unit:HasModifier("modifier_magma_boss_volcano") then
+        if not unit:HasFlyMovementCapability() and unit_z - ground_z < 10 and not unit:HasModifier("modifier_magma_boss_volcano") and not unit:IsMagicImmune() and not unit:IsDebuffImmune() then
           -- Damage enemies only if touching the magma on the ground or underground
           -- Visual Effect
           unit:AddNewModifier(damage_table.attacker, ability, "modifier_magma_boss_volcano_burning_effect", {duration = self.interval+0.1})
@@ -536,7 +536,7 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   }
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Apply stun and motion controller
       enemy:AddNewModifier(caster, ability, "modifier_magma_boss_volcano", {duration = self.stun_duration})
 

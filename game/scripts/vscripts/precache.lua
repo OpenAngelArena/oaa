@@ -71,7 +71,7 @@ g_UnitPrecache = {
   "npc_dota_creature_dire_hound",
   "npc_dota_creature_dire_hound_boss",
   "npc_dota_creature_werewolf",
-  "npc_dota_hero_bloodseeker", -- For Lycan Boss Wolf transformation
+  --"npc_dota_hero_bloodseeker", -- For Lycan Boss Wolf transformation
   "npc_dota_boss_tier_4", -- Killer Tomato
   "npc_dota_boss_tier_6", -- Spooky Ghost
   "npc_dota_creature_temple_guardian",
@@ -102,15 +102,7 @@ g_ParticlePrecache = {
   "particles/units/heroes/hero_pugna/pugna_netherblast.vpcf",
   "particles/items/phase_splinter_impact_model.vpcf", -- Cleave Spark particle
   "particles/units/heroes/hero_treant/treant_leech_seed_damage_glow.vpcf", -- Midas Spark particle
-  -- Carapace Boss
-  "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_smoke.vpcf",
-  "particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf",
-  "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf",
-  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf",
-  "particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf",
-  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf",
-  "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf",
-  "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf",
+  "particles/dungeon_overhead_timer_colored.vpcf", -- Offside overhead numbers
   -- Shrines
   "particles/misc/shrines/radiant_shrine_ambient.vpcf",
   "particles/misc/shrines/dire_shrine_ambient.vpcf",
@@ -135,7 +127,6 @@ g_ParticleFolderPrecache = {
 }
 
 g_SoundPrecache = {
-  "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", -- For Ogre Boss kill sound
   "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
   "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", -- For Explosive Death modifier
   -- Ambient sounds
