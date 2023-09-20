@@ -18,7 +18,7 @@ function modifier_smurf_oaa:RemoveOnDeath()
 end
 
 function modifier_smurf_oaa:OnCreated()
-  self.bonus_str_per_lvl = 10
+  self.bonus_str_per_lvl = 5
   self.scale = -50
   self.aoe_multiplier = 0.75
   self:ReEquipAllItems()
