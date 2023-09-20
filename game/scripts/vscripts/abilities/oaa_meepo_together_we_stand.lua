@@ -278,13 +278,15 @@ function modifier_meepo_together_we_stand_oaa_bonus_buff:DeclareFunctions()
   }
 end
 
-function modifier_meepo_together_we_stand_oaa_bonus_buff:GetModifierIncomingDamage_Percentage()
-  local parent = self:GetParent()
-  if parent:PassivesDisabled() or parent:IsIllusion() then
-    return 0
-  end
+if IsServer() then
+  function modifier_meepo_together_we_stand_oaa_bonus_buff:GetModifierIncomingDamage_Percentage()
+    local parent = self:GetParent()
+    if parent:PassivesDisabled() or parent:IsIllusion() or not parent:IsClone() then
+      return 0
+    end
 
-  return -self.total_dmg_reduction
+    return -self.total_dmg_reduction
+  end
 end
 
 function modifier_meepo_together_we_stand_oaa_bonus_buff:OnTooltip()
