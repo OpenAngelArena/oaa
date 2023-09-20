@@ -489,18 +489,22 @@ function CapturePoints:IsZonePathable(location)
 end
 
 function CapturePoints:GetInitialDelay()
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
   if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
     if Duels then
       return Duels:GetDuelTimeout(1) + Duels:GetDuelIntervalTime() + Duels:GetDuelTimeout() + 10
     else
-      if GetMapName() == "1v1" then
+      if lowPlayerCount then
         return ONE_V_ONE_DUEL_TIMEOUT + ONE_V_ONE_DUEL_INTERVAL + ONE_V_ONE_DUEL_TIMEOUT + 10
       end
       return FIRST_DUEL_TIMEOUT + DUEL_INTERVAL + DUEL_TIMEOUT + 10
     end
   end
 
-  if GetMapName() == "1v1" then
+  if lowPlayerCount then
     return ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY
   end
 
@@ -508,18 +512,22 @@ function CapturePoints:GetInitialDelay()
 end
 
 function CapturePoints:GetCapturePointIntervalTime()
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
   if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
     if Duels then
       return Duels:GetDuelIntervalTime()
     else
-      if GetMapName() == "1v1" then
+      if lowPlayerCount then
         return ONE_V_ONE_DUEL_INTERVAL
       end
       return DUEL_INTERVAL
     end
   end
 
-  if GetMapName() == "1v1" then
+  if lowPlayerCount then
     return ONE_V_ONE_CAPTURE_INTERVAL
   end
 

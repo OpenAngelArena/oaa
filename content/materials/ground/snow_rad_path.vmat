@@ -45,13 +45,13 @@ Layer0
 	//---- Layer 2 ----
 	g_flTexCoordRotate2 "0.000"
 	g_flTexCoordScale2 "6.000"
-	g_vColorTint2 "[0.815686 0.850980 0.890196 1.000000]"
+	g_vColorTint2 "[0.835294 0.874510 0.913726 1.000000]"
 	g_vTexCoordOffset2 "[0.000 0.000]"
 	g_vTexCoordScroll2 "[0.000 0.000]"
 	TextureBloom2 "materials/default/default_bloom.tga"
 	TextureColor2 "materials/ground/snow_directional_00_color.png"
-	TextureNormal2 "materials/ground/snow_directional_00_normal_psd_6ffc95d.png"
-	TextureReflectance2 "materials/ground/snow_directional_00_normal_refl.png"
+	TextureNormal2 "materials/ground/grass_long_00_normal.png"
+	TextureReflectance2 "materials/ground/grass_long_00_refl.png"
 	TextureRevealMask2 "materials/ground/snow_directional_00_normal_blend.png"
 	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"
 

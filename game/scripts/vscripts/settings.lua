@@ -36,7 +36,7 @@ ABANDON_NEEDED = 3                        -- how many total abandons you need be
 
 -- kill limits
 NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 16 + NORMAL_KILL_LIMIT x number of players: 5v5 - 46; 4v4 - 40; 3v3 - 34; 2v2 - 28; 1v1 - 22;
-ONE_V_ONE_KILL_LIMIT = 6                  -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x 2: 22
+ONE_V_ONE_KILL_LIMIT = 6                  -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x number of players: 1v1 - 22; 2v2 - 34; 3v3 - 46; solo - 16;
 TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
 KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
 TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
@@ -93,7 +93,7 @@ ONE_V_ONE_DUEL_TIMEOUT = 70             -- Timeout for every duel in 1v1 mode
 DUEL_END_COUNTDOWN = 10                 -- How many seconds to count down before a duel can timeout (added as a delay before the duel times out)
 DUEL_RUNE_TIMER = 30                    -- how long until the highground object becomes active in duels
 DUEL_INTERVAL = 480                     -- time from duel ending until next duel countdown begins
-ONE_V_ONE_DUEL_INTERVAL = 360           -- time from duel ending until next duel countdown begins in 1v1 mode
+ONE_V_ONE_DUEL_INTERVAL = 360           -- time from duel ending until next duel countdown begins in low player count mode
 DUEL_START_PROTECTION_TIME = 2          -- duel start protection duration
 
 -- CapturePoints

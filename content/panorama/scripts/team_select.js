@@ -18,7 +18,7 @@ const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
 
   hostTitle();
 
-  if (Game.GetMapInfo().map_display_name === '1v1') {
+  if (Game.GetMapInfo().map_display_name === '1v1' || Game.GetMapInfo().map_display_name === 'tinymode') {
     const smallPlayerPoolButton = $('#small_player_pool');
     if (smallPlayerPoolButton) {
       smallPlayerPoolButton.enabled = false;
