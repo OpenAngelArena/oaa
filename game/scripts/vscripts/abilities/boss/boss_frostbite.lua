@@ -43,10 +43,9 @@ end
 modifier_boss_frostbite_applier.OnRefresh = modifier_boss_frostbite_applier.OnCreated
 
 function modifier_boss_frostbite_applier:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -121,13 +120,12 @@ function modifier_boss_frostbite_effect:GetEffectName()
 end
 
 function modifier_boss_frostbite_effect:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_boss_frostbite_effect:GetModifierHealAmplify_PercentageTarget()

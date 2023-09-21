@@ -40,18 +40,15 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 	}
-	return funcs
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_lunge:CheckState()
-  local state =
-  {
+  return {
     [MODIFIER_STATE_STUNNED] = true, -- self stun for some reason
     [MODIFIER_STATE_HEXED] = false,
     [MODIFIER_STATE_ROOTED] = false,
@@ -60,8 +57,6 @@ function modifier_lycan_boss_claw_lunge:CheckState()
     [MODIFIER_STATE_FEARED] = false,
     --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
   }
-
-  return state
 end
 
 --------------------------------------------------------------------------------

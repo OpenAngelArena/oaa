@@ -1,6 +1,3 @@
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
---------------------------------------------------------------------------------
 
 boss_swiper_backswipe_base = class(AbilityBaseClass)
 
@@ -95,16 +92,18 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
         local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, v)
         ParticleManager:ReleaseParticleIndex(impact)
 
-        local damageTable = {
-          victim = v,
-          attacker = caster,
-          damage = self:GetSpecialValueFor("damage"),
-          damage_type = self:GetAbilityDamageType(),
-          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-          ability = self
-        }
+        if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+		  local damageTable = {
+            victim = v,
+            attacker = caster,
+            damage = self:GetSpecialValueFor("damage"),
+            damage_type = self:GetAbilityDamageType(),
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+            ability = self
+          }
 
-        ApplyDamage(damageTable)
+          ApplyDamage(damageTable)
+		end
       end
     end
 
@@ -124,7 +123,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
 					caster:GetTeamNumber(),
 					DOTA_UNIT_TARGET_TEAM_ENEMY,
 					DOTA_UNIT_TARGET_ALL,
-					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					DOTA_UNIT_TARGET_FLAG_NONE,
 					FIND_CLOSEST
 				)
 				for _, target in pairs(units) do

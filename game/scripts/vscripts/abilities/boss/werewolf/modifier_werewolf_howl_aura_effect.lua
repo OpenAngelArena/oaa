@@ -19,12 +19,10 @@ end
 ----------------------------------------
 
 function modifier_werewolf_howl_aura_effect:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 	}
-	return funcs
 end
 
 ----------------------------------------

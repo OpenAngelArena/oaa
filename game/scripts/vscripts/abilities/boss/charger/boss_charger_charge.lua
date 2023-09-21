@@ -64,7 +64,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
     self.glancing_width,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_CLOSEST,
     false
   )
@@ -73,20 +73,20 @@ function modifier_boss_charger_charge:OnIntervalThink()
     if v and not v:IsNull() and not self.glanced[v:entindex()] then
       self.glanced[v:entindex()] = true
 
-      -- Slow debuff
-      if not v:IsMagicImmune() then
+      if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+        -- Slow debuff
         v:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_glanced", {duration = self.glancing_duration})
-      end
 
-      -- Damage
-      ApplyDamage({
-        victim = v,
-        attacker = caster,
-        damage = self.glancing_damage,
-        damage_type = DAMAGE_TYPE_PHYSICAL,
-        damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
-        ability = self:GetAbility()
-      })
+        -- Damage
+        ApplyDamage({
+          victim = v,
+          attacker = caster,
+          damage = self.glancing_damage,
+          damage_type = DAMAGE_TYPE_PHYSICAL,
+          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+          ability = self:GetAbility()
+        })
+      end
     end
   end
 
@@ -142,16 +142,18 @@ function modifier_boss_charger_charge:OnIntervalThink()
 
     if #self.draggedHeroes > 0 then
       iter(self.draggedHeroes):each(function (hero)
-        hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = self.hero_stun_duration})
+        if not hero:IsMagicImmune() and not hero:IsDebuffImmune() then
+          hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = self.hero_stun_duration})
 
-        ApplyDamage({
-          victim = hero,
-          attacker = caster,
-          damage = self.hero_pillar_damage,
-          damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
-          ability = self:GetAbility()
-        })
+          ApplyDamage({
+            victim = hero,
+            attacker = caster,
+            damage = self.hero_pillar_damage,
+            damage_type = DAMAGE_TYPE_PHYSICAL,
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+            ability = self:GetAbility()
+          })
+        end
       end)
     else
       caster:AddNewModifier(caster, caster:FindAbilityByName("boss_charger_super_armor"), "modifier_boss_charger_pillar_debuff", {duration = self.debuff_duration})

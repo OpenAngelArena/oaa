@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_boss_slime_shake_slow", "abilities/boss/slime/boss_slime_shake.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 ------------------------------------------------------------------------------------
 

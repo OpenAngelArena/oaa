@@ -39,7 +39,7 @@ function ranged_quill_attack:OnSpellStart()
 end
 
 function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
-  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsDebuffImmune() and not hTarget:IsInvulnerable() then
     local origin = hTarget:GetOrigin()
 
     local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_bristleback/bristleback_quill_spray_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget )

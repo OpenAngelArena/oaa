@@ -34,7 +34,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_shapeshift:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MODEL_CHANGE,
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
 		MODIFIER_PROPERTY_MODEL_SCALE,
@@ -42,8 +42,6 @@ function modifier_lycan_boss_shapeshift:DeclareFunctions()
 		MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
 		MODIFIER_PROPERTY_ATTACK_POINT_CONSTANT,
 	}
-
-	return funcs
 end
 
 --------------------------------------------------------------------------------

@@ -75,7 +75,7 @@ function magma_boss_projectile:OnSpellStart()
 end
 
 function magma_boss_projectile:OnProjectileHit( hTarget, vLocation )
-  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsDebuffImmune() and not hTarget:IsInvulnerable() then
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
       hTarget:EmitSound("Magma_Boss.AbilityProjectile.Impact")

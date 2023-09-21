@@ -64,23 +64,25 @@ function spider_boss_spidershot:OnSpellStart(keys)
           end)
         end,
         onUnitHitCallback = function (v)
-          v:AddNewModifier(caster, self, "modifier_boss_spiders_spiderball_slow", { duration = self:GetSpecialValueFor("impact_slow_duration") })
+          if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+            v:AddNewModifier(caster, self, "modifier_boss_spiders_spiderball_slow", { duration = self:GetSpecialValueFor("impact_slow_duration") })
 
-          local damageTable = {
-            victim = v,
-            attacker = caster,
-            damage = self:GetSpecialValueFor("impact_damage"),
-            damage_type = self:GetAbilityDamageType(),
-            ability = self
-          }
-          ApplyDamage(damageTable)
+            local damageTable = {
+              victim = v,
+              attacker = caster,
+              damage = self:GetSpecialValueFor("impact_damage"),
+              damage_type = self:GetAbilityDamageType(),
+              ability = self
+            }
+            ApplyDamage(damageTable)
 
-          local impact = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf", PATTACH_POINT, v)
-          ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
-          ParticleManager:ReleaseParticleIndex(impact)
+            local impact = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf", PATTACH_POINT, v)
+            ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
+            ParticleManager:ReleaseParticleIndex(impact)
 
-          if v and not v:IsNull() and v:IsAlive() then
-            v:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
+            if v and not v:IsNull() and v:IsAlive() then
+              v:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
+            end
           end
         end,
         onDiedCallback = function ()

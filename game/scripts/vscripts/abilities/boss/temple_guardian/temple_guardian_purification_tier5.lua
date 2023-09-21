@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 temple_guardian_purification_tier5 = class(AbilityBaseClass)
 
@@ -14,7 +13,7 @@ function temple_guardian_purification_tier5:OnAbilityPhaseStart()
 
     local delay = self:GetCastPoint()
 
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.03})
   end
 
 	return true
@@ -68,7 +67,7 @@ function temple_guardian_purification_tier5:OnSpellStart()
   ParticleManager:ReleaseParticleIndex( nFXIndex2 );
 
   hTarget:EmitSound("TempleGuardian.Purification")
-  local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), hTarget:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+  local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), hTarget:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   for _, enemy in pairs( enemies ) do
     if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
       local damageInfo =

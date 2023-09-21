@@ -1,11 +1,10 @@
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 wanderer_aoe_cleanse = class(AbilityBaseClass)
 
 function wanderer_aoe_cleanse:Precache(context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("particle", "particles/test_particle/ogre_melee_smash.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 
 function wanderer_aoe_cleanse:OnAbilityPhaseStart()
@@ -15,7 +14,7 @@ function wanderer_aoe_cleanse:OnAbilityPhaseStart()
     local delay = self:GetCastPoint()
 
     -- Make the caster uninterruptible while casting this ability
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
 
     -- Warning particle
     self.nPreviewFX = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -89,14 +88,15 @@ function wanderer_aoe_cleanse:OnSpellStart()
   )
 
   -- Damage table constants
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
-  damage_table.ability = self
+  local damage_table = {
+    attacker = caster,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = self,
+  }
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsInvulnerable() then
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Purge - Offensive Basic Dispel - removes buffs
       enemy:Purge(true, false, false, false, false)
       -- Apply knockback
