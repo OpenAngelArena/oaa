@@ -7,6 +7,12 @@ Layer0
 	//---- Normal Maps ----
 	F_NORMAL_MAP 1
 
+	//---- Overlay ----
+	F_OVERLAY 1
+
+	//---- Translucent ----
+	F_TRANSLUCENT 1
+
 	//---- Color ----
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	g_vTexCoordOffset "[0.000 0.000]"
@@ -16,4 +22,18 @@ Layer0
 	//---- Normal Map ----
 	g_flBumpStrength "1.000"
 	TextureNormal "materials/ground/wd_skull_normal.png"
+	TextureNormalAlpha "materials/ground/wd_skull_trans.png"
+
+	//---- Translucent ----
+	g_flOpacityScale "1.000"
+	TextureTranslucency "materials/ground/wd_skull_trans.png"
+
+	UnusedVariables
+	{
+		"TextureSelfIllumMask" ""
+		"g_flSpecularBloom" "0"
+		"g_flSpecularIntensity" "1"
+		"TextureBloom" ""
+		"TextureReflectance" ""
+	}
 }
