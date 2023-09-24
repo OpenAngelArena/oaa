@@ -47,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "13"
     "AbilitySharedCooldown"                               "ethereal"
     "AbilityCastRange"                                    "1200"
 
@@ -78,10 +78,9 @@
       "aura_radius"                                       "1200"
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
-      "active_heal_amp"                                   "30"
-      "active_restore_per_charge"                         "15 25 35 45 55" // hp and mana restore; old magic wand: 15 30 60 120 240; keep in mind the heal_amp + active_heal_amp
+      "active_restore_per_charge"                         "15 25 35 45 55" // hp and mana restore; old magic wand: 15 30 60 120 240; keep in mind the heal_amp
       "active_radius"                                     "1200"
-      "max_charges"                                       "20"
+      "max_charges"                                       "25"
       "charge_radius"                                     "1200" // only in duels, otherwise global
       "buff_magic_resistance"                             "15 17 19 21 23"
       "buff_status_resistance"                            "15 17 19 21 23"
