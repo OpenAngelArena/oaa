@@ -141,12 +141,9 @@ function modifier_boss_slime_jump_slow:IsPurgable()
 end
 
 function modifier_boss_slime_jump_slow:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_boss_slime_jump_slow:GetModifierMoveSpeedBonus_Percentage()

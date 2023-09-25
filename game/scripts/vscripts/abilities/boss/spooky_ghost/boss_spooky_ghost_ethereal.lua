@@ -84,13 +84,11 @@ if IsServer() then
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_DISARMED] = true
   }
-
-  return state
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:GetStatusEffectName()

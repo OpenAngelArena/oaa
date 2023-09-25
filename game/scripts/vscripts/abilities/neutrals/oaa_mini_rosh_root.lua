@@ -158,8 +158,8 @@ function modifier_mini_rosh_root_effect:CheckState()
     [MODIFIER_STATE_ROOTED] = true,
   }
 
-  -- Reveal the affected unit if not under Shadow Dance
-  if not parent:HasModifier("modifier_slark_shadow_dance") then
+  -- Reveal the affected unit if not under Shadow Dance or Depth Shroud
+  if not parent:HasModifier("modifier_slark_shadow_dance") and not parent:HasModifier("modifier_slark_depth_shroud") then
     state[MODIFIER_STATE_INVISIBLE] = false
   end
 

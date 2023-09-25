@@ -1,13 +1,11 @@
 modifier_octarine_vampirism_buff = class(ModifierBaseClass)
 
 --------------------------------------------------------------------------------
-function modifier_octarine_vampirism_buff:DeclareFunctions(params)
-	local funcs = {
+function modifier_octarine_vampirism_buff:DeclareFunctions()
+	return {
 		MODIFIER_EVENT_ON_TAKEDAMAGE,
 		MODIFIER_PROPERTY_TOOLTIP
 	}
-
-	return funcs
 end
 
 function modifier_octarine_vampirism_buff:IsHidden()
@@ -38,7 +36,7 @@ modifier_octarine_vampirism_buff.OnRefresh = modifier_octarine_vampirism_buff.On
 
 --------------------------------------------------------------------------------
 
-function modifier_octarine_vampirism_buff:OnTooltip( params )
+function modifier_octarine_vampirism_buff:OnTooltip()
 	return self.hero_lifesteal
 end
 
@@ -104,7 +102,6 @@ function modifier_octarine_vampirism_buff:OnTakeDamage(params)
         -- Illusions are treated as creeps too
         heal_amount = dmg * nCreepHeal
       end
-
 			if heal_amount > 0 then
 				hero:Heal(heal_amount, self:GetAbility())
 				local particle = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)

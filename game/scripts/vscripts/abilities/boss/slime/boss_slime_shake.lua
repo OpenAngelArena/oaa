@@ -163,12 +163,9 @@ function modifier_boss_slime_shake_slow:IsPurgable()
 end
 
 function modifier_boss_slime_shake_slow:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_boss_slime_shake_slow:GetModifierMoveSpeedBonus_Percentage()

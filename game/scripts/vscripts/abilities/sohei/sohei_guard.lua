@@ -189,14 +189,12 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_guard_reflect:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_AVOID_DAMAGE,
-		MODIFIER_PROPERTY_ABSORB_SPELL,
-		MODIFIER_PROPERTY_REFLECT_SPELL,
-		MODIFIER_EVENT_ON_ATTACK_LANDED,
-	}
-
-	return funcs
+  return {
+    MODIFIER_PROPERTY_AVOID_DAMAGE,
+    MODIFIER_PROPERTY_ABSORB_SPELL,
+    MODIFIER_PROPERTY_REFLECT_SPELL,
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
+  }
 end
 
 --------------------------------------------------------------------------------
@@ -320,22 +318,18 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_guard_knockback:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
-
-	return state
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_sohei_guard_knockback:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
-	}
-
-	return funcs
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
+    MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
+  }
 end
 
 --------------------------------------------------------------------------------

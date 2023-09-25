@@ -92,11 +92,9 @@ end
 
 if IsServer() then
 	function modifier_spider_cold_combustion:DeclareFunctions()
-		local funcs = {
+		return {
 			MODIFIER_EVENT_ON_DEATH,
 		}
-
-		return funcs
 	end
 
 --------------------------------------------------------------------------------

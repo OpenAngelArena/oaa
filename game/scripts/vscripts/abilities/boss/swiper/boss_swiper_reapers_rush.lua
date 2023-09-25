@@ -116,35 +116,39 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationWeight(params)
+function modifier_boss_swiper_reapers_rush_active:GetOverrideAnimationWeight()
   return 1.0
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
     MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
   }
-
-  return funcs
 end
 
 ------------------------------------------------------------------------------------
 
 function modifier_boss_swiper_reapers_rush_active:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
-    [MODIFIER_STATE_STUNNED] = true,
+    [MODIFIER_STATE_STUNNED] = true, -- self stun to prevent casting during Rush?
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_HEXED] = false,
+    [MODIFIER_STATE_ROOTED] = false,
+    [MODIFIER_STATE_SILENCED] = false,
+    [MODIFIER_STATE_FROZEN] = false,
+    [MODIFIER_STATE_FEARED] = false,
+    --[MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
   }
+end
 
-  return state
+function modifier_boss_swiper_reapers_rush_active:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10001
 end
 
 ------------------------------------------------------------------------------------
@@ -298,12 +302,9 @@ function modifier_boss_swiper_reapers_rush_slow:IsPurgable()
 end
 
 function modifier_boss_swiper_reapers_rush_slow:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-
-  return funcs
 end
 
 function modifier_boss_swiper_reapers_rush_slow:GetModifierMoveSpeedBonus_Percentage()

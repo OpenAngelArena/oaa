@@ -497,7 +497,7 @@ function modifier_item_siege_mode_active:OnIntervalThink()
 end
 
 function modifier_item_siege_mode_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
@@ -505,8 +505,6 @@ function modifier_item_siege_mode_active:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
     MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_siege_mode_active:CheckState()

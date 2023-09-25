@@ -125,12 +125,9 @@ end
 ------------------------------------------------------------------------------------
 
 function modifier_boss_spiders_spiderball_slow:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 	}
-
-	return funcs
 end
 
 ------------------------------------------------------------------------------------

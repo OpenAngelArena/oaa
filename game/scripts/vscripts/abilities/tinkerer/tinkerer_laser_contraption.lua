@@ -570,6 +570,10 @@ function modifier_tinkerer_laser_contraption_node:CheckState()
   }
 end
 
+function modifier_tinkerer_laser_contraption_node:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
+end
+
 function modifier_tinkerer_laser_contraption_node:OnDestroy()
   if not IsServer() then
     return

@@ -62,13 +62,13 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_spider_boss_rage:GetModifierPreAttack_BonusDamage( params )
+function modifier_spider_boss_rage:GetModifierPreAttack_BonusDamage()
 	return self.bonus_damage
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage( params )
+function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage()
 	return self.bonus_movespeed_pct
 end
 

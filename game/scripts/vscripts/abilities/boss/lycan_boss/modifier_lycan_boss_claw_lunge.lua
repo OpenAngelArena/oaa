@@ -49,7 +49,8 @@ end
 
 function modifier_lycan_boss_claw_lunge:CheckState()
   return {
-    [MODIFIER_STATE_STUNNED] = true, -- self stun for some reason
+    [MODIFIER_STATE_STUNNED] = true, -- self stun to prevent casting during Lunge?
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_HEXED] = false,
     [MODIFIER_STATE_ROOTED] = false,
     [MODIFIER_STATE_SILENCED] = false,
@@ -59,9 +60,13 @@ function modifier_lycan_boss_claw_lunge:CheckState()
   }
 end
 
+function modifier_lycan_boss_claw_lunge:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10001
+end
+
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_claw_lunge:GetOverrideAnimation( params )
+function modifier_lycan_boss_claw_lunge:GetOverrideAnimation()
 	return ACT_DOTA_RUN_STATUE
 end
 
