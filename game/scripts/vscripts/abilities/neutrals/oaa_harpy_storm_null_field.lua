@@ -94,5 +94,5 @@ function modifier_harpy_null_field_oaa_effect:GetModifierMagicalResistanceBonus(
   if self.magic_resistance then
     return self.magic_resistance
   end
-  return -15
+  return -17
 end
