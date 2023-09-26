@@ -32,7 +32,7 @@ function boss_slime_jump:FindTargets(position)
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_ALL,
     DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_CLOSEST,
+    FIND_ANY_ORDER,
     false
   )
 end

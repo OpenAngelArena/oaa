@@ -65,7 +65,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
     DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_CLOSEST,
+    FIND_ANY_ORDER,
     false
   )
 
