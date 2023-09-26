@@ -143,7 +143,8 @@ function modifier_boss_charger_charge:OnIntervalThink()
     if #self.draggedHeroes > 0 then
       iter(self.draggedHeroes):each(function (hero)
         if not hero:IsMagicImmune() and not hero:IsDebuffImmune() then
-          hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = self.hero_stun_duration})
+          local actual_duration = hero:GetValueChangedByStatusResistance(self.hero_stun_duration)
+          hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = actual_duration})
 
           ApplyDamage({
             victim = hero,

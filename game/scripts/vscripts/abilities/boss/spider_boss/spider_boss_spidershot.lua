@@ -74,13 +74,15 @@ function spider_boss_spidershot:OnSpellStart(keys)
               damage_type = self:GetAbilityDamageType(),
               ability = self
             }
+
             ApplyDamage(damageTable)
 
-            local impact = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf", PATTACH_POINT, v)
-            ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
-            ParticleManager:ReleaseParticleIndex(impact)
-
             if v and not v:IsNull() and v:IsAlive() then
+              -- Particle
+              local impact = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf", PATTACH_POINT, v)
+              ParticleManager:SetParticleControlEnt(impact, 1, v, PATTACH_POINT, "attach_hitloc", v:GetAbsOrigin(), true)
+              ParticleManager:ReleaseParticleIndex(impact)
+              -- Sound
               v:EmitSound("Hero_Broodmother.SpawnSpiderlingsImpact")
             end
           end

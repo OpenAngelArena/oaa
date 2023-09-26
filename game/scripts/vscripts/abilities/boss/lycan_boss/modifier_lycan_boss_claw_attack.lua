@@ -139,7 +139,8 @@ function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
 
     if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Stun first
-      enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("stun_duration")})
+      local actual_duration = enemy:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("stun_duration"))
+      enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = actual_duration})
 
       -- Damage table
       local damageTable = {

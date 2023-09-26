@@ -54,8 +54,6 @@ function bear_boss_earthshock:OnSpellStart()
 
   local knockback_table = {
     should_stun = 1,
-    knockback_duration = 0.5,
-    duration = 0.5,
     knockback_distance = radius/2,
     knockback_height = 100,
     center_x = caster_location.x,
@@ -87,6 +85,9 @@ function bear_boss_earthshock:OnSpellStart()
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+      -- Knockback table variables
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5)
+      knockback_table.duration = knockback_table.knockback_duration
       -- Apply knockback
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
       -- Apply Slow

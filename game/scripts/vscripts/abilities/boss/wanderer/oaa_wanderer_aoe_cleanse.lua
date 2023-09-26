@@ -52,8 +52,6 @@ function wanderer_aoe_cleanse:OnSpellStart()
 
   local knockback_table = {
     should_stun = 1,
-    knockback_duration = 1.0,
-    duration = 1.0,
     knockback_distance = radius,
     knockback_height = 100,
     center_x = caster_location.x,
@@ -99,6 +97,9 @@ function wanderer_aoe_cleanse:OnSpellStart()
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Purge - Offensive Basic Dispel - removes buffs
       enemy:Purge(true, false, false, false, false)
+      -- Knockback table variables
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0)
+      knockback_table.duration = knockback_table.knockback_duration
       -- Apply knockback
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
       -- Damage table variables
