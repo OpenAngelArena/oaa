@@ -125,11 +125,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_sohei_palm_of_life_movement:CheckState()
-	local state = {
+	return {
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
-
-	return state
 end
 
 --------------------------------------------------------------------------------

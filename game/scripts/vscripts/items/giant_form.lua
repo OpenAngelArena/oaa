@@ -311,12 +311,13 @@ if IsServer() then
     local actual_damage = damage*splash_damage*0.01
 
     -- Damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-    damage_table.ability = ability
-    damage_table.damage = actual_damage
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    local damage_table = {
+      attacker = parent,
+      damage = actual_damage,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+      ability = ability,
+    }
 
     -- Show particle only if damage is above zero and only if there are units nearby
     if actual_damage > 0 and #units > 1 then

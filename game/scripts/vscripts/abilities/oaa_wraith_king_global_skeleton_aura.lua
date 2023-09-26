@@ -155,10 +155,11 @@ if IsServer() then
       return
     end
 
-    local damage_table = {}
-    damage_table.victim = target
-    damage_table.attacker = parent
-    damage_table.ability = ability
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      ability = ability,
+    }
 
     if target:IsOAABoss() then
       damage_table.damage = self.bonus_dmg_bosses or ability:GetSpecialValueFor("skeleton_bonus_damage_against_bosses")

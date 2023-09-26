@@ -104,23 +104,21 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   end
 
   -- Damage table of the bounced projectile (physical part)
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = bounce_damage
-  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
-  damage_table.victim = target
-
-  ApplyDamage(damage_table)
+  local damage_table_1 = {
+    attacker = caster,
+    victim = target,
+    damage = bounce_damage,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+  }
 
   -- Damage table of the bounced projectile (Glaives of Wisdom spell damage)
-  damage_table.damage = glaives_damage
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
-
-  ApplyDamage(damage_table)
-
-  -- Overhead particle message
-  SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+  local damage_table_2 = {
+    attacker = caster,
+    victim = target,
+    damage = glaives_damage,
+    damage_type = self:GetAbilityDamageType(),
+    ability = self,
+  }
 
   -- Sound
   target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
@@ -156,7 +154,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
           local projectile_info = {
             Target = enemy,
             Source = target,
-            Ability = damage_table.ability,
+            Ability = self,
             EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
             bDodgable = true,
             bProvidesVision = false,
@@ -181,6 +179,16 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
       end
     end
 	end
+
+  ApplyDamage(damage_table_1)
+
+  -- Check if attacker and victim survived previous damage instance
+  if caster and not caster:IsNull() and target and not target:IsNull() and target:IsAlive() then
+    -- Overhead particle message
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+    -- Do Glaives of Wisdom damage
+    ApplyDamage(damage_table_2)
+  end
 end
 
 
@@ -426,22 +434,18 @@ if IsServer() then
 
       local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
-      local damageTable = {}
-      damageTable.victim = target
-      damageTable.attacker = parent
-      damageTable.damage = bonusDamage
-      damageTable.damage_type = ability:GetAbilityDamageType()
-      damageTable.ability = ability
+      local damageTable = {
+        attacker = parent,
+        victim = target,
+        damage = bonusDamage,
+        damage_type = ability:GetAbilityDamageType(),
+        ability = ability,
+      }
 
       --if parent:HasScepter() and target:IsMagicImmune() then
         --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
         --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
       --end
-
-      ApplyDamage(damageTable)
-
-      -- Overhead particle message
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
 
       -- Sound
       target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
@@ -500,6 +504,12 @@ if IsServer() then
           end
         end
       end
+
+      -- Overhead particle message
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+
+      -- Do Glaives of Wisdom damage
+      ApplyDamage(damageTable)
 
       self.procRecords[event.record] = nil
     end

@@ -9,13 +9,11 @@ end
 -------------------------------------------------------------------
 
 function modifier_spider_egg_sack:CheckState()
-	local state =
-	{
+	return {
 		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = false,
 		[MODIFIER_STATE_INVULNERABLE] = true,
 	}
-	return state
 end
 
 -------------------------------------------------------------------
@@ -39,18 +37,16 @@ end
 -------------------------------------------------------------------
 
 function modifier_spider_egg_sack:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_EVENT_ON_DEATH,
 	}
-	return funcs
 end
 
 -------------------------------------------------------------------
 
-function modifier_spider_egg_sack:OnDeath( params )
+function modifier_spider_egg_sack:OnDeath( event )
 	if IsServer() then
-		if params.unit == self:GetParent() then
+		if event.unit == self:GetParent() then
 			self:Burst( nil )
 		end
 	end

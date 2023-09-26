@@ -41,18 +41,29 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
       ParticleManager:SetParticleControl(smashParticle, 1, Vector(self.impact_radius, self.impact_radius, self.impact_radius))
       ParticleManager:ReleaseParticleIndex(smashParticle)
 
-      local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), parent, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+      local enemies = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        parent:GetOrigin(),
+        nil,
+        self.impact_radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+      )
+
+      local damageTable = {
+        attacker = caster,
+        damage = self.damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = self:GetAbility(),
+      }
+
       for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
-          local damageTable = {
-            attacker = caster,
-            victim = enemy,
-            damage = self.damage,
-            damage_type = DAMAGE_TYPE_PHYSICAL,
-            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-            ability = self:GetAbility(),
-          }
-
+          damageTable.victim = enemy
           ApplyDamage(damageTable)
 
           if not enemy:IsAlive() then
@@ -66,7 +77,8 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
 
             caster:EmitSound("Dungeon.BloodSplatterImpact")
           else
-            enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = self.stun_duration})
+            local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+            enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = actual_duration})
           end
         end
       end

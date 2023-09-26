@@ -107,12 +107,11 @@ function modifier_spider_boss_incapacitating_bite_debuff:OnRefresh()
 end
 
 function modifier_spider_boss_incapacitating_bite_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_MISS_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_spider_boss_incapacitating_bite_debuff:GetModifierMoveSpeedBonus_Percentage()

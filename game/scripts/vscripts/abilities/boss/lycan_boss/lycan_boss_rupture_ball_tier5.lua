@@ -95,7 +95,7 @@ end
 --------------------------------------------------------------------------------
 
 function lycan_boss_rupture_ball_tier5:OnProjectileHit( hTarget, vLocation )
-  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsDebuffImmune() and not hTarget:IsInvulnerable() then
     -- Reduce number of sounds
     if hTarget:IsRealHero() then
       hTarget:EmitSound("Lycan.RuptureBall.Impact")

@@ -46,36 +46,36 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetModifierModelChange( params )
+function modifier_lycan_boss_shapeshift:GetModifierModelChange()
 	return "models/creeps/knoll_1/werewolf_boss.vmdl"
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetActivityTranslationModifiers( params )
+function modifier_lycan_boss_shapeshift:GetActivityTranslationModifiers()
 	return "shapeshift"
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetModifierModelScale( params )
+function modifier_lycan_boss_shapeshift:GetModifierModelScale()
 	return 75
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetModifierMoveSpeed_Absolute( params )
+function modifier_lycan_boss_shapeshift:GetModifierMoveSpeed_Absolute()
 	return 550
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetModifierPercentageCooldown( params )
+function modifier_lycan_boss_shapeshift:GetModifierPercentageCooldown()
 	return 50
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_shapeshift:GetModifierAttackPointConstant( params )
+function modifier_lycan_boss_shapeshift:GetModifierAttackPointConstant()
 	return 0.43
 end

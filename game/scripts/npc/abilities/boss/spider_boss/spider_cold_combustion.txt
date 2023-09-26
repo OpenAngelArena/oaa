@@ -9,12 +9,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8485"
     "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "crystal_maiden_crystal_nova"
     "ScriptFile"                                          "abilities/boss/spider_boss/spider_cold_combustion.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilityTextureName"                                  "crystal_maiden_crystal_nova"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
     "MaxLevel"                                            "1"
 
     // Special

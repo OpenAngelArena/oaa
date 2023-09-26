@@ -46,14 +46,13 @@ function modifier_item_shroud_passive:OnCreated()
 end
 
 function modifier_item_shroud_passive:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
   }
-  return funcs
 end
 
 function modifier_item_shroud_passive:GetModifierBonusStats_Strength()

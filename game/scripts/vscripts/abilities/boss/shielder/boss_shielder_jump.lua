@@ -296,7 +296,8 @@ function modifier_boss_shielder_jump:OnDestroy()
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
         -- Apply debuff
-        enemy:AddNewModifier(parent, ability, "modifier_boss_shielder_shield_crash_debuff", {duration = debuff_duration})
+        local actual_duration = enemy:GetValueChangedByStatusResistance(debuff_duration)
+        enemy:AddNewModifier(parent, ability, "modifier_boss_shielder_shield_crash_debuff", {duration = actual_duration})
 
         -- Particle (on hit enemies)
         local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_pangolier/pangolier_tailthump_shield_impact.vpcf", PATTACH_ABSORIGIN, enemy)

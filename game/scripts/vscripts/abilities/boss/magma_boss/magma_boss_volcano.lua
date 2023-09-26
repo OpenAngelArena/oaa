@@ -543,7 +543,8 @@ function modifier_magma_boss_volcano_thinker:MagmaErupt()
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Apply stun and motion controller
-      enemy:AddNewModifier(caster, ability, "modifier_magma_boss_volcano", {duration = self.stun_duration})
+      local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+      enemy:AddNewModifier(caster, ability, "modifier_magma_boss_volcano", {duration = actual_duration})
 
       -- Apply damage
       damage_table.victim = enemy

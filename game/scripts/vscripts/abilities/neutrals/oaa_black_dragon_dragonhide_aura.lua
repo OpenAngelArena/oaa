@@ -91,10 +91,9 @@ function modifier_dragonhide_aura_oaa_effect:OnRefresh()
 end
 
 function modifier_dragonhide_aura_oaa_effect:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_dragonhide_aura_oaa_effect:GetModifierPhysicalArmorBonus()

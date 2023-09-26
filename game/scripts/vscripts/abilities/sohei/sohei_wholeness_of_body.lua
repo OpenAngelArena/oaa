@@ -77,16 +77,18 @@ function sohei_wholeness_of_body:OnSpellStart()
         })
       end
     else
+      local knockback_table = {
+        should_stun = 0,
+        center_x = position.x,
+        center_y = position.y,
+        center_z = position.z,
+        duration = talent:GetSpecialValueFor("duration"),
+        knockback_duration = talent:GetSpecialValueFor("duration"),
+        knockback_height = 10,
+      }
       for _, enemy in ipairs(enemies) do
-        local modifierKnockback = {
-          center_x = position.x,
-          center_y = position.y,
-          center_z = position.z,
-          duration = talent:GetSpecialValueFor("duration"),
-          knockback_duration = talent:GetSpecialValueFor("duration"),
-          knockback_distance = radius - (position - enemy:GetAbsOrigin()):Length2D(),
-        }
-        enemy:AddNewModifier(caster, self, "modifier_knockback", modifierKnockback )
+        knockback_table.knockback_distance = radius - (position - enemy:GetAbsOrigin()):Length2D()
+        enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
       end
     end
   end

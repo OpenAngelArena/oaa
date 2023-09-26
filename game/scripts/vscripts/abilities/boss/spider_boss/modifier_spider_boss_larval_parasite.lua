@@ -65,17 +65,29 @@ function modifier_spider_boss_larval_parasite:OnDestroy()
 
 		parent:EmitSound("Broodmother.LarvalParasite.Burst")
 
-		local hEnemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), parent:GetOrigin(), nil, self.infection_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+		local damage_table = {
+			attacker = self:GetCaster(),
+			damage = self.explosion_damage,
+			damage_type = self:GetAbility():GetAbilityDamageType(),
+			ability = self:GetAbility()
+		}
+
+		local hEnemies = FindUnitsInRadius(
+		  self:GetCaster():GetTeamNumber(),
+		  parent:GetOrigin(),
+		  nil,
+		  self.infection_radius,
+		  DOTA_UNIT_TARGET_TEAM_ENEMY,
+		  DOTA_UNIT_TARGET_HERO,
+		  DOTA_UNIT_TARGET_FLAG_NONE,
+		  FIND_ANY_ORDER,
+		  false
+		)
+
 		for _, hEnemy in pairs( hEnemies ) do
 			-- Apply explosion damage
-			local damage = {
-				victim = hEnemy,
-				attacker = self:GetCaster(),
-				damage = self.explosion_damage,
-				damage_type = self:GetAbility():GetAbilityDamageType(),
-				ability = self
-			}
-			ApplyDamage( damage )
+			damage_table.victim = hEnemy
+			ApplyDamage( damage_table )
 
 			ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticle( "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf", PATTACH_ABSORIGIN, hEnemy ) )
 

@@ -47,15 +47,8 @@ function item_heart_oaa_1:OnSpellStart()
     duration = self:GetSpecialValueFor("knockback_duration"),
     knockback_duration = self:GetSpecialValueFor("knockback_duration"),
     knockback_distance = self:GetSpecialValueFor("knockback_distance"),
+    knockback_height = 10,
   }
-
-  -- Knockback enemies
-  for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      --knockback_table.knockback_distance = radius - (center - enemy:GetAbsOrigin()):Length2D()
-      enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
-    end
-  end
 
   -- Havoc Damage
   local havoc_damage = self:GetSpecialValueFor("nuke_base_dmg")
@@ -71,9 +64,12 @@ function item_heart_oaa_1:OnSpellStart()
     ability = self,
   }
 
-  -- Damage enemies
+  -- Knockback and Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
+      --knockback_table.knockback_distance = radius - (center - enemy:GetAbsOrigin()):Length2D()
+      enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
+
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end

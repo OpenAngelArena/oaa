@@ -84,11 +84,9 @@ function boss_carapace_headbutt:OnSpellStart()
   local enemies = self:GetEnemies()
 
   local knockbackModifierTable = {
-    should_stun = 0,
-    knockback_duration = 0.5,
-    duration = 0.5,
+    should_stun = 1,
     knockback_distance = range,
-    knockback_height = 50,
+    knockback_height = 80,
     center_x = target.x,
     center_y = target.y,
     center_z = target.z
@@ -98,6 +96,7 @@ function boss_carapace_headbutt:OnSpellStart()
     attacker = caster,
     damage = self:GetSpecialValueFor("damage"),
     damage_type = self:GetAbilityDamageType(),
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self
   }
 
@@ -110,8 +109,11 @@ function boss_carapace_headbutt:OnSpellStart()
       local impact = ParticleManager:CreateParticle("particles/econ/items/pudge/pudge_ti6_immortal/pudge_meathook_witness_impact_ti6.vpcf", PATTACH_POINT_FOLLOW, enemy)
       ParticleManager:ReleaseParticleIndex(impact)
 
-      -- Apply modifiers first
+      knockbackModifierTable.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5)
+      knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
+
       enemy:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
+
       enemy:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration = self:GetSpecialValueFor("slow_duration")} )
 
       -- Do damage
