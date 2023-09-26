@@ -43,6 +43,11 @@ function modifier_titan_soul_oaa:OnIntervalThink()
     return
   end
 
+  -- Don't do anything while dead (don't do damage on the corpse)
+  if not parent:IsAlive() then
+    return
+  end
+
   local primary_attribute = parent:GetPrimaryAttribute()
   local primary_stat = 0
   if primary_attribute == DOTA_ATTRIBUTE_STRENGTH then
