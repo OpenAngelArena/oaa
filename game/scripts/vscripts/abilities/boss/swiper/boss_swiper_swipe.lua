@@ -93,7 +93,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
         ParticleManager:ReleaseParticleIndex(impact)
 
         if not v:IsMagicImmune() and not v:IsDebuffImmune() then
-		  local damageTable = {
+          local damageTable = {
             victim = v,
             attacker = caster,
             damage = self:GetSpecialValueFor("damage"),
@@ -103,7 +103,7 @@ function boss_swiper_backswipe_base:OnAbilityPhaseStart()
           }
 
           ApplyDamage(damageTable)
-		end
+        end
       end
     end
 

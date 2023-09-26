@@ -69,7 +69,7 @@ function item_heart_oaa_1:OnSpellStart()
     if enemy and not enemy:IsNull() then
       --knockback_table.knockback_distance = radius - (center - enemy:GetAbsOrigin()):Length2D()
       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
-      
+
       damage_table.victim = enemy
       ApplyDamage(damage_table)
     end
