@@ -86,7 +86,7 @@ if IsServer() then
       attacker = parent,
       damage = damage * self.splash_percent / 100,
       damage_type = event.damage_type,
-      damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION),
+      damage_flags = bit.bor(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
     }
 
     local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY

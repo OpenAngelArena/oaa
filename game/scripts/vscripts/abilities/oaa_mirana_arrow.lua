@@ -111,12 +111,13 @@ if IsServer() then
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
 
         -- Damage table
-        local damage_table = {}
-        damage_table.victim = target
-        damage_table.attacker = caster
-        damage_table.damage = damage
-        damage_table.ability = self
-        damage_table.damage_type = data.arrow_damage_type
+        local damage_table = {
+          attacker = caster,
+          victim = target,
+          damage = damage,
+          damage_type = data.arrow_damage_type,
+          ability = self,
+        }
 
         ApplyDamage(damage_table)
 
@@ -137,7 +138,7 @@ if IsServer() then
           damage_table.damage_type = DAMAGE_TYPE_MAGICAL
 
           Timers:CreateTimer(particle_delay, function()
-            if target and not target:IsNull() and target:IsAlive() and not target:IsMagicImmune() and not target:IsInvulnerable() then
+            if target and not target:IsNull() and target:IsAlive() and not target:IsMagicImmune() then
               -- Particle -- "particles/econ/items/mirana/mirana_starstorm_bow/mirana_starstorm_starfall_attack.vpcf"
               local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
               ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
@@ -148,7 +149,7 @@ if IsServer() then
           end)
 
           Timers:CreateTimer(damage_delay, function()
-            if target and not target:IsNull() and target:IsAlive() and not target:IsMagicImmune() and not target:IsInvulnerable() then
+            if caster and not caster:IsNull() and target and not target:IsNull() and target:IsAlive() and not target:IsMagicImmune() and not target:IsInvulnerable() then
               -- Sound on hit unit
               target:EmitSound("Hero_Mirana.Starstorm.Impact") -- Ability.StarfallImpact
 
@@ -226,11 +227,12 @@ if IsServer() then
       end
 
       -- Damage table constants
-      local damage_table = {}
-      damage_table.attacker = caster
-      damage_table.damage = damage
-      damage_table.ability = starfall_ability
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+      local damage_table = {
+        attacker = caster,
+        damage = damage,
+        ability = starfall_ability,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+      }
 
       -- Loop through candidates and damage units that are not hit already
       for _, unit in pairs(candidates) do

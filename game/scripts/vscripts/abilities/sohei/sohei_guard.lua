@@ -150,6 +150,7 @@ if IsServer() then
 			attacker = self:GetCaster(),
 			damage = extra_data.damage,
 			damage_type = DAMAGE_TYPE_PHYSICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
 			ability = self
 		} )
 	end

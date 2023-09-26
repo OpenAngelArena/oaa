@@ -101,6 +101,13 @@ function boss_slime_shake:FireProjectile(point)
     ParticleManager:ReleaseParticleIndex(wave)
   end)
 
+  local damageTable = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self
+  }
+
   Timers:CreateTimer(delay + 0.6, function()
     local units = FindUnitsInRadius(
       caster:GetTeamNumber(),
@@ -108,22 +115,18 @@ function boss_slime_shake:FireProjectile(point)
       nil,
       size,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_ALL,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
       DOTA_UNIT_TARGET_FLAG_NONE,
-      FIND_CLOSEST,
+      FIND_ANY_ORDER,
       false
     )
 
     for _, victim in pairs(units) do
+      -- Apply modifiers
       victim:AddNewModifier( caster, self, "modifier_boss_slime_shake_slow", { duration = self:GetSpecialValueFor("slow_duration") })
 
-      local damageTable = {
-        victim = victim,
-        attacker = caster,
-        damage = self:GetSpecialValueFor("damage"),
-        damage_type = self:GetAbilityDamageType(),
-        ability = self
-      }
+      -- Apply damage
+      damageTable.victim = victim
       ApplyDamage(damageTable)
     end
   end)

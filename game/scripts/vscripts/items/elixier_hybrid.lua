@@ -230,9 +230,10 @@ if IsServer() then
     unit:AddNewModifier(parent, nil, "modifier_elixier_hybrid_not_allowed", {duration = 0.5})
 
     -- Create a damage table for proc damage
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.victim = unit
+    local damage_table = {
+      attacker = parent,
+      victim = unit,
+    }
 
     -- Set damage, damage type and overhead alert for the proc damage
     local overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
@@ -277,11 +278,12 @@ if IsServer() then
     end
 
     -- Create a damage table for proc damage
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.victim = target
-    damage_table.damage = self.magic_damage
-    damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      damage = self.magic_damage,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+    }
 
     local damage_dealt = ApplyDamage(damage_table)
     SendOverheadEventMessage(parent:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage_dealt, parent:GetPlayerOwner())

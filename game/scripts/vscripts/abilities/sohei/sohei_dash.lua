@@ -440,11 +440,12 @@ if IsServer() then
       damage = damage + talent:GetSpecialValueFor("value")
     end
 
-    local damage_table = {}
-    damage_table.attacker = caster
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = damage
+    local damage_table = {
+      attacker = caster,
+      damage = damage,
+      damage_type = ability:GetAbilityDamageType(),
+      ability = ability,
+    }
 
     -- Damage enemies in a line
     local enemies = FindUnitsInLine(caster_team, self.start_pos, parent_origin, nil, self.width, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_NONE)

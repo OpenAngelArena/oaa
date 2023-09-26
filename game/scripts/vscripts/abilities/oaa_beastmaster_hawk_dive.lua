@@ -144,12 +144,13 @@ function beastmaster_hawk_dive_oaa:OnProjectileHit(target, location)
 
   target:AddNewModifier(caster, self, "modifier_hawk_dive_stun", {duration = duration})
 
-  local damage_table = {}
-  damage_table.victim = target
-  damage_table.attacker = caster
-  damage_table.damage = damage
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
+  local damage_table = {
+    attacker = caster,
+    victim = target,
+    damage = damage,
+    damage_type = self:GetAbilityDamageType(),
+    ability = self,
+  }
 
   ApplyDamage(damage_table)
 

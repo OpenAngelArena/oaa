@@ -156,11 +156,12 @@ function tinkerer_laser_contraption:OnSpellStart()
   ApplyLaser(caster, "attach_attack2", thinker, "attach_hitloc")
 
   -- Damage table
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = self:GetSpecialValueFor("initial_damage")
-  damage_table.ability = self
-  damage_table.damage_type = DAMAGE_TYPE_PURE
+  local damage_table = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("initial_damage"),
+    damage_type = DAMAGE_TYPE_PURE,
+    ability = self,
+  }
 
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
@@ -353,10 +354,11 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   -- Damage table
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = self.dmg_per_interval * #nodes / 16
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+  local damage_table = {
+    attacker = caster,
+    damage = self.dmg_per_interval * #nodes / 16,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+  }
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then

@@ -269,13 +269,15 @@ if IsServer() then
       local damage_debuff_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf", PATTACH_ABSORIGIN, parent)
       ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
       -- Apply damage
-      local damage_table = {}
-      damage_table.victim = parent
-      damage_table.damage_type = DAMAGE_TYPE_PURE
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-      damage_table.attacker = caster
-      damage_table.ability = self:GetAbility()
-      damage_table.damage = self.bonus_damage * self:GetStackCount()
+      local damage_table = {
+        attacker = caster,
+        victim = parent,
+        damage = self.bonus_damage * self:GetStackCount(),
+        damage_type = DAMAGE_TYPE_PURE,
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = self:GetAbility(),
+      }
+
       ApplyDamage(damage_table)
     end
   end

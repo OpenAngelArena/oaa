@@ -48,6 +48,8 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
     ParticleManager:SetParticleControlEnt( nFXIndex, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, origin, true )
     ParticleManager:ReleaseParticleIndex( nFXIndex )
 
+    hTarget:EmitSound("Hound.QuillAttack.Target")
+
     local damage_table = {
       victim = hTarget,
       attacker = self:GetCaster(),
@@ -58,8 +60,6 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
     }
 
     ApplyDamage(damage_table)
-
-    hTarget:EmitSound("Hound.QuillAttack.Target")
   end
 
   return true
