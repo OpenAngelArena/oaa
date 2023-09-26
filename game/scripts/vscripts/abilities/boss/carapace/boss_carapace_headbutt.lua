@@ -112,8 +112,8 @@ function boss_carapace_headbutt:OnSpellStart()
       ParticleManager:ReleaseParticleIndex(impact)
 
       -- Apply modifiers first
-      --knockbackModifierTable.duration = enemy:GetValueChangedByStatusResistance(0.5) -- uncomment if it stuns
       --knockbackModifierTable.knockback_duration = enemy:GetValueChangedByStatusResistance(0.5) -- uncomment if it stuns
+      --knockbackModifierTable.duration = knockbackModifierTable.knockback_duration -- uncomment if it stuns
       enemy:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
       enemy:AddNewModifier( caster, self, "modifier_boss_carapace_headbutt_slow", {duration = self:GetSpecialValueFor("slow_duration")} )
 

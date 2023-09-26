@@ -84,29 +84,34 @@ function boss_slime_jump:OnSpellStart()
       -- Destination vector (location where slime landed)
       local point = caster:GetAbsOrigin() or target
 
+      local knockbackModifierTable = {
+        should_stun = 1,
+        knockback_distance = self:GetSpecialValueFor("knockback"),
+        knockback_height = 80,
+        center_x = point.x,
+        center_y = point.y,
+        center_z = point.z
+      }
+
+      local damageTable = {
+        attacker = caster,
+        damage = self:GetSpecialValueFor("damage"),
+        damage_type = self:GetAbilityDamageType(),
+        ability = self
+      }
+
       local units = self:FindTargets(point)
 
-      for k, v in pairs(units) do
-        local knockbackModifierTable = {
-          should_stun = 1,
-          knockback_duration = 1.0,
-          duration = 1.0,
-          knockback_distance = self:GetSpecialValueFor("knockback"),
-          knockback_height = 80,
-          center_x = point.x,
-          center_y = point.y,
-          center_z = point.z
-        }
+      for _, v in pairs(units) do
+        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+        knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
+
         v:AddNewModifier(caster, self, "modifier_knockback", knockbackModifierTable)
+
         v:AddNewModifier(caster, self, "modifier_boss_slime_jump_slow", {duration = self:GetSpecialValueFor("slow_duration")})
 
-        local damageTable = {
-          victim = v,
-          attacker = caster,
-          damage = self:GetSpecialValueFor("damage"),
-          damage_type = self:GetAbilityDamageType(),
-          ability = self
-        }
+        -- Apply damage
+        damageTable.victim = v
         ApplyDamage(damageTable)
       end
 

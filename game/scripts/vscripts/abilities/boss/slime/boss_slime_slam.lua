@@ -93,7 +93,20 @@ function boss_slime_slam:OnSpellStart()
 
   local units = self:FindTargets()
 
-  for _,v in pairs(units) do
+  local damageTable = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self
+  }
+
+  local knockbackModifierTable = {
+    should_stun = 1,
+    knockback_distance = self:GetSpecialValueFor("knockback"),
+    knockback_height = 80,
+  }
+
+  for _, v in pairs(units) do
     if v and not v:IsNull() then
       --DebugDrawSphere(v:GetAbsOrigin(), Vector(255,0,255), 255, 64, true, 0.3)
 
@@ -105,26 +118,18 @@ function boss_slime_slam:OnSpellStart()
       local origin = caster:GetAbsOrigin()
       local point = DotProduct(target - origin, v:GetAbsOrigin() - origin) * (target - origin) / (distance * distance) + origin
       point.z = target.z
-      local knockbackModifierTable = {
-        should_stun = 1,
-        knockback_duration = 1.0,
-        duration = 1.0,
-        knockback_distance = self:GetSpecialValueFor("knockback"),
-        knockback_height = 80,
-        center_x = point.x,
-        center_y = point.y,
-        center_z = point.z
-      }
+
+      knockbackModifierTable.center_x = point.x
+      knockbackModifierTable.center_y = point.y
+      knockbackModifierTable.center_z = point.z
+      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+      knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
+
       v:AddNewModifier( caster, self, "modifier_knockback", knockbackModifierTable )
+
       v:AddNewModifier( caster, self, "modifier_boss_slime_slam_slow", { duration = self:GetSpecialValueFor("slow_duration") })
 
-      local damageTable = {
-        victim = v,
-        attacker = caster,
-        damage = self:GetSpecialValueFor("damage"),
-        damage_type = self:GetAbilityDamageType(),
-        ability = self
-      }
+      damageTable.victim = v
       ApplyDamage(damageTable)
     end
   end

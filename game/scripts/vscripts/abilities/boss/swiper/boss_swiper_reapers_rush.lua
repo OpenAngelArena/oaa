@@ -167,9 +167,17 @@ if IsServer() then
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_ALL,
 			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST,
+			FIND_ANY_ORDER,
 			false
 		)
+
+    local damageTable = {
+      attacker = caster,
+      damage = ability:GetSpecialValueFor("max_damage"),
+      damage_type = ability:GetAbilityDamageType(),
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+      ability = ability
+    }
 
     for _, v in pairs(units) do
       if v and not v:IsNull() then
@@ -181,14 +189,7 @@ if IsServer() then
         if not v:IsMagicImmune() and not v:IsDebuffImmune() then
           v:AddNewModifier(caster, ability, "modifier_boss_swiper_reapers_rush_slow", {duration = ability:GetSpecialValueFor("slow_duration")})
 
-          local damageTable = {
-            victim = v,
-            attacker = caster,
-            damage = ability:GetSpecialValueFor("max_damage"),
-            damage_type = ability:GetAbilityDamageType(),
-            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-            ability = ability
-          }
+          damageTable.victim = v
           ApplyDamage(damageTable)
         end
       end
@@ -248,9 +249,27 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_ALL,
 		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_CLOSEST,
+		FIND_ANY_ORDER,
 		false
 	)
+
+  local damageTable = {
+    attacker = caster,
+    damage = ability:GetSpecialValueFor("min_damage"),
+    damage_type = ability:GetAbilityDamageType(),
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = ability
+  }
+
+  local point = caster:GetAbsOrigin()
+
+  local knockbackModifierTable = {
+    should_stun = 1,
+    knockback_height = ability:GetSpecialValueFor("push_length"),
+    center_x = point.x,
+    center_y = point.y,
+    center_z = point.z
+  }
 
   for _, v in pairs(units) do
     if v and not v:IsNull() and not self.hit[v:entindex()] then
@@ -261,28 +280,14 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
 
       v:EmitSound("hero_ursa.attack")
 
-      local point = caster:GetAbsOrigin()
-      local knockbackModifierTable = {
-        should_stun = 1,
-        knockback_duration = 1.0,
-        duration = 1.0,
-        knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
-        knockback_height = ability:GetSpecialValueFor("push_length"),
-        center_x = point.x,
-        center_y = point.y,
-        center_z = point.z
-      }
       if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+        knockbackModifierTable.knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D()
+        knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+        knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
+
         v:AddNewModifier( caster, ability, "modifier_knockback", knockbackModifierTable )
 
-        local damageTable = {
-          victim = v,
-          attacker = caster,
-          damage = ability:GetSpecialValueFor("min_damage"),
-          damage_type = ability:GetAbilityDamageType(),
-          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-          ability = ability
-        }
+        damageTable.victim = v
         ApplyDamage(damageTable)
       end
     end
