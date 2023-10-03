@@ -32,6 +32,7 @@ function modifier_hp_mana_switch_oaa:GetModifierSpellsRequireHP()
   return 1
 end
 
+--[[
 function modifier_hp_mana_switch_oaa:GetModifierManaBonus()
   if self:GetParent():GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_INTELLECT then
     return 500
@@ -45,6 +46,7 @@ function modifier_hp_mana_switch_oaa:GetMinHealth()
     return 0
   end
 end
+]]
 
 if IsServer() then
   function modifier_hp_mana_switch_oaa:GetModifierTotal_ConstantBlock(event)
@@ -67,9 +69,16 @@ if IsServer() then
   end
 end
 
-function modifier_hp_mana_switch_oaa:GetModifierIncomingDamageConstant()
+function modifier_hp_mana_switch_oaa:GetModifierIncomingDamageConstant(event)
+  local parent = self:GetParent()
   if IsClient() then
-    return self:GetParent():GetMana()
+    local max_mana = parent:GetMaxMana()
+    local current_mana = parent:GetMana()
+    if event.report_max then
+      return max_mana -- max shield hp
+    else
+      return current_mana -- current shield hp
+    end
   else
     return 0
   end

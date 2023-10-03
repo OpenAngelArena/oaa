@@ -314,16 +314,28 @@ end
 
 function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(event)
   local parent = self:GetParent()
+  local ability = self:GetAbility()
   if IsClient() then
     -- Shield numbers (visual only)
+    local max_mana = parent:GetMaxMana()
+    local current_mana = parent:GetMana()
+    local max_shield_hp
+    local current_shield_hp
     if parent:HasShardOAA() then
-      local ability = self:GetAbility()
       local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
-      local current_mana = parent:GetMana()
-
-      return current_mana * damage_per_mana
+      max_shield_hp = max_mana * damage_per_mana
+      current_shield_hp = current_mana * damage_per_mana
     else
-      return self:GetStackCount()
+      local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
+      local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
+      max_shield_hp = max_mana_cost * damage_per_mana
+      current_shield_hp = self:GetStackCount()
+    end
+
+    if event.report_max then
+      return max_shield_hp
+    else
+      return current_shield_hp
     end
   else
     -- Continue only if parent doesn't have a shard
