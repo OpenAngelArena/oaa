@@ -60,12 +60,6 @@ game/sounds/
 *.vmat_c
 *.vtex_c
 
-# DotaStats
-settings.kv
-.DS_Store
-demoheader.tmp
-server_log.txt
-
 rich_presence_persistent_data.txt
 cache_*.soc
 .luacheckcache
@@ -89,20 +83,4 @@ game/models/heroes/*
 # IDE specific directories
 .idea
 
-game/materials/models/heroes/lycan/lycan_body_color.vmat_c
-game/materials/models/heroes/lycan/lycan_body_color_png_42b577.vtex_c
-game/materials/models/heroes/lycan/lycan_body_normal_png_edec11a9.vtex_c
-game/materials/models/heroes/lycan/lycan_body_specmask_png_f6e8db91.vtex_c
-game/materials/models/heroes/lycan/lycan_diffusewarp_psd_7c0b25f2.vtex_c
-game/materials/models/heroes/lycan/lycan_head_metalnessmask_png_c8a80c8b.vtex_c
-game/materials/models/heroes/lycan/lycan_wolf_body_color.vmat_c
-game/materials/models/heroes/lycan/lycan_wolf_body_color_png_e7fa7f4d.vtex_c
-game/materials/models/heroes/lycan/lycan_wolf_body_detailmask_png_646f2cb0.vtex_c
-game/materials/models/heroes/lycan/lycan_wolf_body_normal_png_ca0f395d.vtex_c
-game/materials/models/heroes/lycan/lycan_wolf_body_specmask_png_a75d4a03.vtex_c
-game/materials/models/heroes/ogre_magi/ogre_magi_color.vmat_c
-game/materials/models/heroes/ogre_magi/ogre_magi_color_png_46f7b718.vtex_c
-game/materials/models/heroes/ogre_magi/ogre_magi_normal_png_e2656d30.vtex_c
-game/materials/models/heroes/ogre_magi/ogre_magi_selfillummask_png_7d167aaa.vtex_c
-game/materials/models/heroes/ogre_magi/ogre_magi_specmask_png_ab74f64d.vtex_c
 .vscode/settings.json
