@@ -6,8 +6,8 @@ const { transifexApi } = require('@transifex/api');
 
 // setTimeout(function () { var result = {body: fs.readFileSync('./scripts/dota_english.txt', {encoding: 'utf8'})};
 request.get({
-  // url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_english.txt'
-  url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/abilities_english.txt'
+  // url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_english.txt'
 }, async function (err, result) {
   if (err) {
     throw err;

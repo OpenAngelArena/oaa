@@ -31,8 +31,8 @@ function cleanLanguageFile (contents) {
 }
 
 request.get({
-  // url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_english.txt'
-  url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/abilities_english.txt'
+  // url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_english.txt'
+  url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_english.txt'
 }, function (err, result) {
   if (err) {
     throw err;
@@ -133,8 +133,8 @@ function getUnchangedStrings (languageName, cb) {
     languageName = 'schinese';
   }
   request.get({
-    // url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_' + languageName + '.txt'
-    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/abilities_' + languageName + '.txt'
+    // url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_' + languageName + '.txt'
+    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_' + languageName + '.txt'
   }, function (err, result) {
     if (err) {
       console.error(languageName);

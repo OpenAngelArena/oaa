@@ -117,10 +117,10 @@ end
 function modifier_chen_divine_favor_shield_oaa:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.shield = ability:GetSpecialValueFor("shield")
+    self.max_shield_hp = ability:GetSpecialValueFor("shield")
   end
   if IsServer() then
-    self:SetStackCount(self.shield)
+    self:SetStackCount(self.max_shield_hp)
   end
 end
 
@@ -134,7 +134,11 @@ end
 
 function modifier_chen_divine_favor_shield_oaa:GetModifierIncomingPhysicalDamageConstant(event)
   if IsClient() then
-    return self:GetStackCount()
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return self:GetStackCount() -- current shield hp
+    end
   else
     local parent = self:GetParent()
     local damage = event.damage
