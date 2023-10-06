@@ -295,7 +295,7 @@ function DevCheats:SwitchHero(keys)
         PrecacheUnitByNameAsync(hero, function()
           local old_gold = Gold:GetGold(playerID)
           PlayerResource:ReplaceHeroWith(playerID, hero, 0, 0)
-          Gold:SetGold(playerID, old_gold) -- ReplaceHeroWith doesn't work properly ofc
+          Gold:SetGold(playerID, old_gold) -- because ReplaceHeroWith doesn't work properly ofc
         end)
       end
     end

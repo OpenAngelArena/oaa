@@ -21,22 +21,13 @@ local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in se
 function Gold:Init()
   self.moduleName = "Gold"
 
-  --GameRules:SetGoldPerTick(GOLD_PER_TICK)
+  --GameRules:SetGoldPerTick(GOLD_PER_TICK) -- GameRules:SetGoldPerTick doesn't work since 7.23
   --GameRules:SetGoldTickTime(GOLD_TICK_TIME)
 
   -- Create a table for every player
   PlayerTables:CreateTable('gold', {
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
-
-  --[[
-  self.playerGold = {}
-  for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-    if PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) then
-      self.playerGold[playerID] = PlayerResource:GetGold(playerID)
-    end
-  end
-  ]]
 
   -- start think timer
   Timers:CreateTimer(1, Dynamic_Wrap(Gold, 'Think'))
@@ -72,20 +63,13 @@ end
 function Gold:UpdatePlayerGold(unitvar, newGold)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    -- get full tree
     local allgold = PlayerTables:GetTableValue("gold", "gold")
-    allgold[playerID] = newGold --PLAYER_GOLD[playerID].SavedGold
+    allgold[playerID] = newGold
     PlayerTables:SetTableValue("gold", "gold", allgold)
-    --[[
-    CustomGameEventManager:Send_ServerToAllClients("oaa_update_gold", {
-      gold = allgold
-    })]]--
 
     newGold = math.min(GOLD_CAP, newGold)
     PlayerResource:SetGold(playerID, newGold, false)
     PlayerResource:SetGold(playerID, 0, true)
-
-    --self.playerGold[playerID] = newGold
   end
 end
 
@@ -105,11 +89,6 @@ function Gold:Think()
 
         local currentGold = Gold:GetGold(i)
         local currentDotaGold = PlayerResource:GetGold(i)
-
-        --if i == 0 then
-          --print("Current OAA gold: "..tostring(currentGold))
-          --print("Current Dota gold: "..tostring(currentDotaGold))
-        --end
 
         local newGold
         if currentGold > GOLD_CAP then
@@ -148,8 +127,6 @@ function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
   elseif gold < 0 then
     self:RemoveGold(unitvar, -gold)
   end
-  --local playerID = UnitVarToPlayerID(unitvar)
-  --PlayerResource:ModifyGold(playerID, gold, bReliable, iReason)
 end
 
 function Gold:RemoveGold(unitvar, gold)
@@ -177,7 +154,6 @@ end
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
-  --local currentGold = self.playerGold[playerID]
   return math.floor(currentGold or 0)
 end
 
@@ -206,7 +182,6 @@ function Gold:PassiveGPM(hero)
     if HeroSelection.is10v10 then
       gold_per_tick = math.floor(gold_per_tick * 1.5)
     end
-    -- GameRules:SetGoldPerTick doesn't work since 7.23
     self:ModifyGold(hero, gold_per_tick, false, DOTA_ModifyGold_GameTick)
   end
 end
