@@ -36,30 +36,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "value"                                           "500"
         "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_8"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02" // 1 second <=> 4 pulses
+      "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "pulses"                                          "24" //OAA, Valve bad at math or forgot about it
+        "value"                                           "24"
         "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
         "LinkedSpecialBonusField"                         "value2"
       }
-      "03"
+      "damage_max"                                        "200 350 500 950 1400" //OAA
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "200 350 500 950 1400" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
+        "value"                                           "6.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
       }
     }

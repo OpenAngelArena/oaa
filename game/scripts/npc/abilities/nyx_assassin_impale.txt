@@ -32,33 +32,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "140"
+        "value"                                           "140"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.1 1.4 1.7 2.0 2.1 2.2"
+        "value"                                           "1.1 1.4 1.7 2.0 2.1 2.2"
         "LinkedSpecialBonus"                              "special_bonus_unique_nyx_4"
       }
-      "03"
+      "length"                                            "750"
+      "speed"                                             "1600"
+      "impale_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "length"                                          "750"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1600"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "impale_damage"                                   "100 160 220 280 560 840"
+        "value"                                           "100 160 220 280 560 840"
         "LinkedSpecialBonus"                              "special_bonus_unique_nyx_2"
       }
     }

@@ -218,7 +218,7 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
 		)
 
 		-- iterate through them
-		for _, unit in pairs( units ) do
+		for _, unit in ipairs( units ) do
 			-- don't repeat hits
 			if not FindInTable( self.hitTargets, unit ) then
 				return unit
@@ -306,12 +306,14 @@ function modifier_electrician_cleansing_shock_enemy:OnCreated()
   local attack_slow = spell:GetSpecialValueFor("attack_slow")
 
   if IsServer() then
-    self.moveSpeed = parent:GetValueChangedByStatusResistance(move_slow)
+    -- Attack speed slow is reduced with Status Resistance
     self.attackSpeed = parent:GetValueChangedByStatusResistance(attack_slow)
   else
-    self.moveSpeed = move_slow
     self.attackSpeed = attack_slow
   end
+
+  -- Move speed slow is reduced with Slow Resistance
+  self.moveSpeed = move_slow --parent:GetValueChangedBySlowResistance(move_slow)
 
   local duration = self:GetDuration()
   self.moveSpeedChange = self.moveSpeed / ( duration / interval )

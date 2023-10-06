@@ -40,11 +40,20 @@
       {
         "value"                                           "6 12 18 24 30 36 42 48 84 100.8 117.6 134.4 161.2 168 184.8"
         "levelkey"                                        "exortlevel"
+        "special_bonus_unique_invoker_ice_wall_dps"       "+50"
       }
       "wall_place_distance"                               "200"
       "num_wall_elements"                                 "15"
-      "wall_element_spacing"                              "80"
-      "wall_element_radius"                               "105"
+      "wall_element_spacing"
+      {
+        "value"                                           "80"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "wall_element_radius"
+      {
+        "value"                                           "105"
+        "affected_by_aoe_increase"                        "1"
+      }
       "vector_cast_range"
       {
         "value"                                           "0"

@@ -2,17 +2,33 @@ LinkLuaModifier( "modifier_lycan_boss_claw_lunge", "abilities/boss/lycan_boss/mo
 
 lycan_boss_claw_lunge_tier5 = class(AbilityBaseClass)
 
+function lycan_boss_claw_lunge_tier5:Precache(context)
+  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_bloodseeker/bloodseeker_thirst_owner.vpcf", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+end
+
 function lycan_boss_claw_lunge_tier5:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
-		caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
-		caster:EmitSound("LycanBoss.Howl")
+    local delay = self:GetCastPoint()
 
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
-		ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
-		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
-	end
+    -- Howl animation
+    caster:StartGesture( ACT_DOTA_CAST_ABILITY_2 )
+
+    -- Howl sound
+    caster:EmitSound("LycanBoss.Howl")
+
+    -- Make the caster uninterruptible while casting this ability
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
+
+    -- Warning particle
+    self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
+    ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
+    ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
+  end
 
 	return true
 end
@@ -40,6 +56,9 @@ function lycan_boss_claw_lunge_tier5:OnSpellStart()
     self.nPreviewFX = nil
   end
   caster:RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
+
+  -- Needs removal because of self-stun and motion controller
+  caster:RemoveModifierByName("modifier_anti_stun_oaa")
 
   self.lunge_speed = self:GetSpecialValueFor( "lunge_speed" )
   self.lunge_width = self:GetSpecialValueFor( "lunge_width" )
@@ -96,17 +115,18 @@ function lycan_boss_claw_lunge_tier5:OnProjectileHit( hTarget, vLocation )
     return true -- destroy the projectile if caster doesn't have the buff
   end
 
-  if not hTarget:IsInvulnerable() then
-    local damageInfo =
-    {
-      victim = hTarget,
+  if not hTarget:IsMagicImmune() and not hTarget:IsDebuffImmune() then
+    -- Damage table
+    local damageTable = {
       attacker = caster,
+      victim = hTarget,
       damage = self.lunge_damage,
       damage_type = DAMAGE_TYPE_PHYSICAL,
+      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
       ability = self,
     }
 
-    ApplyDamage( damageInfo )
+    ApplyDamage( damageTable )
   end
 
   return false -- projectile keeps going

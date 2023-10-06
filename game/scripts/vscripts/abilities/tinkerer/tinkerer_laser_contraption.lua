@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_tinkerer_laser_contraption_thinker", "abilities/tinkerer/tinkerer_laser_contraption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tinkerer_laser_contraption_debuff", "abilities/tinkerer/tinkerer_laser_contraption.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tinkerer_laser_contraption_node", "abilities/tinkerer/tinkerer_laser_contraption.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 local square_shape = false
 
@@ -157,11 +156,12 @@ function tinkerer_laser_contraption:OnSpellStart()
   ApplyLaser(caster, "attach_attack2", thinker, "attach_hitloc")
 
   -- Damage table
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = self:GetSpecialValueFor("initial_damage")
-  damage_table.ability = self
-  damage_table.damage_type = DAMAGE_TYPE_PURE
+  local damage_table = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("initial_damage"),
+    damage_type = DAMAGE_TYPE_PURE,
+    ability = self,
+  }
 
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
@@ -354,10 +354,11 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   -- Damage table
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = self.dmg_per_interval * #nodes / 16
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
+  local damage_table = {
+    attacker = caster,
+    damage = self.dmg_per_interval * #nodes / 16,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+  }
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -569,6 +570,10 @@ function modifier_tinkerer_laser_contraption_node:CheckState()
     --[MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_STUNNED] = true,
   }
+end
+
+function modifier_tinkerer_laser_contraption_node:GetPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 function modifier_tinkerer_laser_contraption_node:OnDestroy()

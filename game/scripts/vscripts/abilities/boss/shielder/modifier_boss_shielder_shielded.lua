@@ -92,14 +92,16 @@ function modifier_boss_shielder_shielded_buff:GetModifierTotal_ConstantBlock(key
     -- Return Damage
     local damage_return = damage * (ability:GetSpecialValueFor("damage_return_pct")) / 100
     local damage_return_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION)
-    ApplyDamage({
-      victim = attacker,
-      attacker = parent,
-      damage = damage_return,
-      damage_type = damage_type,
-      damage_flags = damage_return_flags,
-      ability = ability
-    })
+    if not attacker:IsMagicImmune() and not attacker:IsDebuffImmune() then
+      ApplyDamage({
+        victim = attacker,
+        attacker = parent,
+        damage = damage_return,
+        damage_type = damage_type,
+        damage_flags = damage_return_flags,
+        ability = ability
+      })
+    end
 
     local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_spectre/spectre_desolate.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())

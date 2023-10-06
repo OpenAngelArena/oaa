@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_chen"
   "Title"         "Recommended items for Chen"
 
@@ -20,6 +20,15 @@
       "item"      "item_ghost_king_bar_1"
       "item"      "item_assault"
       "item"      "item_lucience"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_hurricane_pike"
+      "item"      "item_greater_crit"
+      "item"      "item_disperser"
+      "item"      "item_greater_power_treads"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Shard"

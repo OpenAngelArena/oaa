@@ -180,13 +180,14 @@ if IsServer() then
       end
     end
 
-    local damage_table = {}
-    damage_table.victim = attacker
-    damage_table.attacker = parent
-    damage_table.damage_type = event.damage_type -- Same damage type as original damage
-    damage_table.ability = ability
-    damage_table.damage = new_damage
-    damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    local damage_table = {
+      attacker = parent,
+      victim = attacker,
+      damage = new_damage,
+      damage_type = event.damage_type, -- Same damage type as original damage
+      damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+      ability = ability,
+    }
 
     ApplyDamage(damage_table)
   end
@@ -349,17 +350,21 @@ if IsServer() then
       end
     end
 
-    local damage_table = {}
-    damage_table.victim = attacker
-    damage_table.attacker = parent
-    damage_table.damage_type = event.damage_type -- Same damage type as original damage
-    damage_table.ability = ability
-    damage_table.damage = new_damage
-    damage_table.damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
+    local damage_table = {
+      attacker = parent,
+      victim = attacker,
+      damage = new_damage,
+      damage_type = event.damage_type, -- Same damage type as original damage
+      damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+      ability = ability,
+    }
 
     ApplyDamage(damage_table)
 
-    EmitSoundOnClient("DOTA_Item.BladeMail.Damage", attacker:GetPlayerOwner())
+    -- Sound for the attacker only
+    local playerID = UnitVarToPlayerID(attacker)
+    --EmitSoundOnClient("DOTA_Item.BladeMail.Damage", PlayerResource:GetPlayer(playerID)) -- emits at the center of the map
+    EmitSoundOnLocationForPlayer("DOTA_Item.BladeMail.Damage", attacker:GetAbsOrigin(), playerID)
   end
 end
 

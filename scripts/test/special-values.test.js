@@ -590,7 +590,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
           }
         }
       } else if (parentAbvalues) {
-        t.fail('Extra keyname found in AbilityValues: ' + keyName);
+        t.fail('Extra keyname found in our AbilityValues: ' + keyName + '. Maybe in vanilla it is changed to a kv block.');
       }
     }
   });
@@ -600,7 +600,7 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
       if (abvalues.comments && abvalues.comments[keyName] && abvalues.comments[keyName].includes('OAA')) {
         // do nothing
       } else if (!parentData[keyName]) {
-        t.fail('Extra {keyname} found in AbilityValues: ' + keyName);
+        t.fail('Extra {keyname} found in our AbilityValues: ' + keyName);
       } else if (!parentAbvalues[keyName]) {
         t.fail('Unexpected block AbilityValue: ' + keyName);
       }
@@ -676,8 +676,18 @@ function testAbilityValues (t, isItem, abvalues, parentAbvalues) {
     Object.keys(parentData).forEach(function (name) {
       const actualValue = actualData[name];
       const actualKey = Object.keys(actualData).find(key => actualData[key] === actualValue);
+
       if (!actualValue && !actualKey && name !== actualKey) {
         t.fail('Vanilla ability has a key: ' + name + ' with a value: ' + parentData[name]);
+      }
+      if (actualValue && typeof actualValue === 'object' && typeof parentData[name] === 'object' && name === actualKey) {
+        Object.keys(parentData[name]).forEach(function (keyname) {
+          if (actualValue[keyname] === undefined) {
+            if (!abvalues.comments[name] || !abvalues.comments[name].includes('OAA')) {
+              t.fail('Vanilla ability has a key: ' + keyname + ' inside {' + name + '}');
+            }
+          }
+        });
       }
     });
   }

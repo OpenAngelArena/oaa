@@ -17,7 +17,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "10 15 20" //OAA
+      "bonus_armor"                                       "10 17 24"
       "bonus_damage"
       {
         "value"                                           "50 110 170"
@@ -36,6 +36,7 @@
         "value"                                           "100 250 400"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
+      "slow_resistance"                                   "15 30 45"
     }
   }
 }

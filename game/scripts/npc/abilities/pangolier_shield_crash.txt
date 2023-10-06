@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "60 70 80 90 100 110"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -36,16 +36,21 @@
     {
       "damage"
       {
-        "value"                                           "70 140 210 280 560 840"
+        "value"                                           "70 140 210 280 560 1120"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hero_stacks"
+      "base_shield"                                       "0"
+      "hero_shield"
       {
-        "value"                                           "20"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+5"
+        "value"                                           "50 100 150 200 300 600"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+100"
       }
-      "duration"                                          "5"
-      "radius"                                            "500"
+      "duration"                                          "10"
+      "radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "jump_duration"                                     "0.4"
       "jump_duration_gyroshell"                           "0.75"
       "jump_height"                                       "250"

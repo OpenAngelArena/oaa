@@ -21,7 +21,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
+    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -35,7 +35,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "100"
+        "bonus_health"                                    "75"
       }
       "02"
       {

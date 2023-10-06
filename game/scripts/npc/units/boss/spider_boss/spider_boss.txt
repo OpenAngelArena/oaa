@@ -24,10 +24,8 @@
     "Ability2"                                            "spider_boss_poison_spit"
     "Ability3"                                            "spider_boss_incapacitating_bite"
     "Ability4"                                            "spider_boss_rage"
-    "Ability5"                                            "boss_resistance"
-    "Ability6"                                            "boss_cliffwalk"
-    "Ability7"                                            "boss_regen"
-    "Ability8"                                            "siltbreaker_boss_protection"
+    "Ability5"                                            "boss_basic_properties_oaa"
+    "Ability6"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -115,20 +113,13 @@
 
     "precache"
     {
-      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
       "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_hunger_buff.vpcf"
-      "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
-      "particle"                                          "particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
-      "particle"                                          "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
-      "particle"                                          "particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
-      "particle"                                          "particles/units/heroes/hero_visage/visage_summon_familiars.vpcf"
-      "particle"                                          "particles/econ/items/broodmother/bm_lycosidaes/bm_lycosidaes_spiderlings_debuff.vpcf"
-      "particle"                                          "particles/test_particle/dungeon_broodmother_linear.vpcf"
-      "particle"                                          "particles/test_particle/dungeon_broodmother_debuff_explode.vpcf"
-      "particle"                                          "particles/test_particle/dungeon_generic_aoe.vpcf"
-      "particle"                                          "particles/generic_gameplay/generic_lifesteal.vpcf"
-      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
-      "particle"                                          "particles/dungeon_overhead_timer.vpcf"
+      //"particle"                                          "particles/units/heroes/hero_venomancer/venomancer_poison_nova.vpcf"
+      //"particle"                                          "particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+      //"particle"                                          "particles/econ/items/broodmother/bm_lycosidaes/bm_lycosidaes_spiderlings_debuff.vpcf"
+      //"particle"                                          "particles/test_particle/dungeon_broodmother_linear.vpcf"
+      //"particle"                                          "particles/test_particle/dungeon_generic_aoe.vpcf"
+      //"particle"                                          "particles/dungeon_overhead_timer.vpcf"
     }
   }
 }

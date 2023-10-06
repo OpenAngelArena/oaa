@@ -1,4 +1,3 @@
-LinkLuaModifier( "modifier_temple_guardian_statue", "abilities/boss/temple_guardian/modifier_temple_guardian_statue", LUA_MODIFIER_MOTION_NONE )
 
 function Spawn( entityKeyValues )
 	if not IsServer() then
@@ -40,6 +39,7 @@ function TempleGuardianThink()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.BossTier = thisEntity.BossTier or 5
+    thisEntity.SiltBreakerProtection = true
     thisEntity:AddNewModifier( thisEntity, nil, "modifier_temple_guardian_statue", {} )
     thisEntity.bInitialized = true
   end

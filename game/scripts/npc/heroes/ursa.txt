@@ -14,7 +14,19 @@
     //"Ability14"                                           "special_bonus_unique_ursa_2"
     //"Ability15"                                           "special_bonus_unique_ursa"
 
-    //"Ability16"                                           "special_bonus_unique_ursa_enrage_radius"
+    //"Ability16"                                           "special_bonus_unique_ursa_3"
     //"Ability17"                                           "special_bonus_unique_ursa_7"
+
+  // special_bonus_unique_ursa - "+{s:value} Fury Swipes Damage"
+  // special_bonus_unique_ursa_2 - "+{s:bonus_shock_radius} Earthshock Radius"
+  // special_bonus_unique_ursa_3 - "Earthshock has {s:bonus_AbilityCharges} Charges"
+  // special_bonus_unique_ursa_4 - "+{s:value}s Fury Swipes Reset Time"                                                       - unused on purpose
+  // special_bonus_unique_ursa_5 - "+{s:value} AoE Earthshock"                                                                - doesn't work
+  // special_bonus_unique_ursa_6 - "Enrage gains {s:value}% Status Resistance"                                                - doesn't work
+  // special_bonus_unique_ursa_7 - "+{s:value} Overpower Attacks"
+  // special_bonus_unique_ursa_8 - "+{s:value}% Enrage Status Resistance"
+  // special_bonus_unique_ursa_enrage_radius - "Enrage provides half benefits to allies in a {s:bonus_aoe_radius} radius"     - unused
+  // special_bonus_unique_ursa_earthshock_furyswipes - "Earthshock Applies {s:bonus_fury_swipe_stacks_on_hit} Fury Swipes"
+    // special_bonus_unique_ursa_1_oaa - bonus Fury Swipes Reset Time                                                         - custom
   }
 }

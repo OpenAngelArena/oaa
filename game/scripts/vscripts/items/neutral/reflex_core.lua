@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_item_reflex_core_passive", "items/neutral/reflex_core.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_reflex_core_cooldown", "items/neutral/reflex_core.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_reflex_core_invulnerability", "items/neutral/reflex_core.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reflex_core = class(ItemBaseClass)
 

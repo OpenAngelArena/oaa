@@ -32,6 +32,7 @@ function SwiperBossThink()
     thisEntity.vInitialSpawnPos = thisEntity:GetOrigin()
     thisEntity.bHasAgro = false
     thisEntity.BossTier = thisEntity.BossTier or 2
+    thisEntity.SiltBreakerProtection = true
     thisEntity.fAgroRange = thisEntity:GetAcquisitionRange()
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
@@ -43,7 +44,7 @@ function SwiperBossThink()
 		thisEntity:GetOrigin(), nil,
 		1000,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_CLOSEST,
 		false
@@ -89,7 +90,7 @@ function SwiperBossThink()
 			thisEntity:GetOrigin(), nil,
 			swipeRange,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 			FIND_CLOSEST,
 			false
@@ -150,7 +151,7 @@ function SwiperBossThink()
       nil,
       reapersRushRadius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
-      DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
       DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
       FIND_CLOSEST,
       false

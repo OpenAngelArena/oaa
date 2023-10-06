@@ -142,15 +142,22 @@ function modifier_item_regen_crystal_active:IsPurgable()
 end
 
 function modifier_item_regen_crystal_active:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
-    self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
-  end
+  --local ability = self:GetAbility()
+  --if ability and not ability:IsNull() then
+    --self.hp_regen = ability:GetSpecialValueFor("active_hp_regen")
+    --self.hp_regen_amp = ability:GetSpecialValueFor("active_hp_regen_amp")
+  --end
   if IsServer() and self.particle == nil then
     local parent = self:GetParent()
     self.particle = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
     ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+  end
+
+  self.heal_interval = 0.1
+
+  if IsServer() then
+    self:OnIntervalThink()
+    self:StartIntervalThink(self.heal_interval)
   end
 end
 
@@ -160,31 +167,51 @@ function modifier_item_regen_crystal_active:OnRefresh()
     ParticleManager:ReleaseParticleIndex(self.particle)
     self.particle = nil
   end
-  self:OnCreated()
+  local parent = self:GetParent()
+  self.particle = ParticleManager:CreateParticle("particles/items/regen_crystal/regen_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+  ParticleManager:SetParticleControlEnt(self.particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, nil, parent:GetOrigin(), true)
+end
+
+function modifier_item_regen_crystal_active:OnIntervalThink()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+
+  -- Calculate heal amount per second
+  local max_hp = parent:GetMaxHealth()
+  local max_hp_as_heal = ability:GetSpecialValueFor("active_max_hp_as_heal")
+  local heal_per_second = max_hp * max_hp_as_heal / 100
+
+  -- Heal amount per interval
+  local heal_amount = heal_per_second * self.heal_interval
+
+  parent:Heal(heal_amount, ability)
 end
 
 function modifier_item_regen_crystal_active:OnDestroy()
-  if IsServer() and self.particle then
-    ParticleManager:DestroyParticle(self.particle, false)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-    self.particle = nil
+  if IsServer() then
+    self:StartIntervalThink(-1)
+    if self.particle then
+      ParticleManager:DestroyParticle(self.particle, false)
+      ParticleManager:ReleaseParticleIndex(self.particle)
+      self.particle = nil
+    end
   end
 end
 
-function modifier_item_regen_crystal_active:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-  }
-end
+--function modifier_item_regen_crystal_active:DeclareFunctions()
+  --return {
+    --MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+  --}
+--end
 
-function modifier_item_regen_crystal_active:GetModifierConstantHealthRegen()
-  return self.hp_regen or self:GetAbility():GetSpecialValueFor("active_hp_regen")
-end
+--function modifier_item_regen_crystal_active:GetModifierConstantHealthRegen()
+  --return self.hp_regen or self:GetAbility():GetSpecialValueFor("active_hp_regen")
+--end
 
-function modifier_item_regen_crystal_active:GetModifierHPRegenAmplify_Percentage()
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
-end
+--function modifier_item_regen_crystal_active:GetModifierHPRegenAmplify_Percentage()
+  --return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("active_hp_regen_amp")
+--end
 
 function modifier_item_regen_crystal_active:GetEffectName()
   return "particles/items5_fx/essence_ring.vpcf"

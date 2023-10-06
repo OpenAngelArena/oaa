@@ -38,7 +38,6 @@
       "damage" //OAA
       {
         "value"                                           "250 550 850 1750 2650"
-        "special_bonus_unique_lich_7"                     "+150"
       }
       "jumps"                                             "10"
       "jump_range"                                        "600"
@@ -46,16 +45,24 @@
       "slow_attack_speed"                                 "-65"
       "slow_duration"                                     "2.5"
       "projectile_speed"                                  "850"
-      "vision_radius"                                     "800"
+      "vision_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_jump_damage"
       {
-        "value"                                           "15 20 25 30 35"
+        "value"                                           "15 20 25 35 50"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "initial_projectile_speed"                          "1050"
       "has_unlimited_jumps"
       {
         "special_bonus_unique_lich_5"                     "+1"
+      }
+      "should_fire_chain_frost_on_death"
+      {
+        "special_bonus_unique_lich_7"                     "+1"
       }
     }
   }

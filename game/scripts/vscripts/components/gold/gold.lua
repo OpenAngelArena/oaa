@@ -30,7 +30,6 @@ function Gold:Init()
   --Timers:CreateTimer(GPM_TICK_INTERVAL, Dynamic_Wrap(Gold, 'PassiveGPM'))
 
   -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (since patch 7.23 vanilla gpm is tied to couriers, while they shouldn't be)
-  LinkLuaModifier("modifier_oaa_passive_gpm", "components/gold/gold.lua", LUA_MODIFIER_MOTION_NONE)
   self.hasPassiveGPM = {}
   GameEvents:OnHeroInGame(Gold.HeroSpawn)
 end
@@ -185,7 +184,7 @@ function Gold.HeroSpawn(hero)
   if Gold.hasPassiveGPM[hero] then
     return
   end
-  if hero:IsTempestDouble() or hero:IsClone() then
+  if hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
     return
   end
 
@@ -248,7 +247,7 @@ function modifier_oaa_passive_gpm:OnIntervalThink()
     return
   end
   local parent = self:GetParent()
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() then
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
     return
   end
   Gold:PassiveGPM(parent)

@@ -34,7 +34,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "14"    // Damage range min.
     "AttackDamageMax"                                     "16"    // Damage range max.
-    "AttackRate"                                          "1.35"  // Speed of attack.
+    "AttackRate"                                          "1.2"  // Speed of attack.
     "AttackAnimationPoint"                                "0.5"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "500"    // Range within a target can be acquired.
     "AttackRange"                                         "100"    // Range within a target can be attacked.
@@ -68,8 +68,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

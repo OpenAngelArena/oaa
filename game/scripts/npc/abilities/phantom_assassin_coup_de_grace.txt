@@ -16,19 +16,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "crit_chance" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "12"  //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_phantom_assassin_2"
+        "value"                                           "12"
+        "special_bonus_unique_phantom_assassin_2"         "+5"
       }
-      "02"
+      "dagger_crit_chance" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_bonus"                                      "200 300 400 500 600" //OAA
+        "value"                                           "40"
+        "special_bonus_unique_phantom_assassin_2"         "+5"
       }
+      "crit_bonus"                                        "200 300 400 500 600" //OAA
+      "duration"                                          "6"
     }
   }
 }

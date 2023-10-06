@@ -40,7 +40,15 @@
         "value"                                           "135 165 195 225 255 285"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
-      "strike_radius"                                     "150"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "25 24 23 22 20 18"
+      }
+      "strike_radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
       "strike_cast_range"                                 "1100"
       "soldier_spawn_duration"                            "0"
       "acceleration_z"                                    "5000"
@@ -48,11 +56,7 @@
       "min_height_above_highest"                          "150"
       "max_horizontal_acceleration"                       "30000"
       "duration"                                          "0.2"
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "25 24 23 22 20 18"
-        //"LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_10"
-      }
+      "spring_channel_pct"                                "50"
     }
   }
 }

@@ -201,11 +201,12 @@ function abyssal_underlord_dark_rift_oaa:OnSpellStart()
     caster:AddNewModifier(caster, self, "modifier_underlord_dark_rift_oaa_scepter_buff", {duration = self:GetSpecialValueFor("buff_duration")})
   end
 
-  local damageTable = {}
-  damageTable.attacker = caster
-  damageTable.damage = self:GetSpecialValueFor("damage")
-  damageTable.damage_type = self:GetAbilityDamageType()
-  damageTable.ability = self
+  local damageTable = {
+    attacker = caster,
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self,
+  }
 
   -- Find all enemies and apply effects of the spell: stun them and damage them
   for _, unit in pairs(units_in_portal) do

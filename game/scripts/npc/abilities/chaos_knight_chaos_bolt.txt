@@ -44,7 +44,7 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "stun_min"                                        "1 1.2 1.4 1.6 1.8 2"
+        "stun_min"                                        "1.25 1.5 1.75 2 2.25 2.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_3"
       }
       "03"
@@ -61,7 +61,7 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "120 180 240 300 600 1200"
+        "damage_max"                                      "150 210 270 330 660 1320"
       }
       "06"
       {

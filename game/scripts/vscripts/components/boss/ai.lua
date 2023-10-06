@@ -1,6 +1,3 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- Taken from bb template
 if BossAI == nil then
   DebugPrint ( 'creating new BossAI object' )
@@ -38,9 +35,6 @@ function BossAI:Create (unit, options)
     deathEvent = Event()
   }
 
-  --unit:OnHurt(function (keys)
-    --self:HurtHandler(state, keys)
-  --end)
   unit:OnDeath(function (keys)
     self:DeathHandler(state, keys)
   end)
@@ -52,23 +46,6 @@ function BossAI:Create (unit, options)
     onDeath = state.deathEvent.listen
   }
 end
-
---[[
-function BossAI:HurtHandler (state, keys)
-  if state.state == BossAI.IDLE then
-    DebugPrint('Checking boss agro...')
-    DebugPrintTable(keys)
-
-    state.currentDamage = state.currentDamage + keys.damage
-
-    if state.currentDamage > state.agroDamage then
-      self:Agro(state, EntIndexToHScript(keys.entindex_attacker))
-      state.currentDamage = 0
-    end
-  elseif state.state == BossAI.AGRO then --luacheck: ignore
-  end
-end
-]]
 
 function BossAI:GiveItemToWholeTeam (item, teamId)
   if CorePointsManager then
@@ -122,25 +99,16 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
       --BossSpawner[team .. "Zone2"].disable()
     end
   elseif tier == 2 then
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-
   elseif tier == 3 then
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif tier == 4 then
-
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 5 then
-
     PointsManager:AddPoints(teamId)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 6 then
     PointsManager:AddPoints(teamId)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end
@@ -169,90 +137,3 @@ function BossAI:DeathHandler (state, keys)
 
   state.handle = nil
 end
-
---[[
-function BossAI:Agro (state, target)
-  if state.customAgro then
-    DebugPrint('Running custom agro ai')
-    return
-  end
-
-  Timers:CreateTimer(1, function ()
-    if state.state == BossAI.DEAD then
-      return
-    end
-
-    if not self:Think(state) or state.state == BossAI.IDLE then
-      DebugPrint('Stopping think timer')
-      return
-    end
-    return 1
-  end)
-  state.state = BossAI.AGRO
-  state.agroTarget = target
-
-  state.handle:SetIdleAcquire(true)
-  state.handle:SetAcquisitionRange(128)
-
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = target:GetAbsOrigin(),
-    Queue = 0,
-  })
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-    Position = state.origin,
-    Queue = 1,
-  })
-end
-]]
---[[
-function BossAI:Think (state)
-  if state.handle:IsNull() then
-    -- this shouldn't happen, but sometimes other bugs can cause it
-    -- try to keep the bugged game running
-    return false
-  end
-
-  local distance = (state.handle:GetAbsOrigin() - state.origin):Length()
-  DebugPrint(distance)
-
-  if distance > state.leash then
-    self:Leash(state)
-  elseif distance < state.leash / 2 and state.state == BossAI.LEASHING then
-    state.state = BossAI.IDLE
-    return false
-  elseif distance == 0 and state.state == BossAI.AGRO then
-    state.state = BossAI.IDLE
-    return false
-  end
-
-  return true
-end
-]]
---[[
-function BossAI:Leash (state)
-  local difference = state.handle:GetAbsOrigin() - state.origin
-  local location = state.origin + (difference / 8)
-
-  if state.state ~= BossAI.LEASHING then
-    state.handle:Stop()
-  end
-  state.state = BossAI.LEASHING
-
-  state.handle:SetIdleAcquire(false)
-  state.handle:SetAcquisitionRange(0)
-
-  ExecuteOrderFromTable({
-    UnitIndex = state.handle:entindex(),
-    -- OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = location,
-    Queue = 0,
-  })
-end
-]]

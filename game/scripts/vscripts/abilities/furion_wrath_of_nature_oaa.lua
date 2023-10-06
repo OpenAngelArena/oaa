@@ -6,7 +6,6 @@ LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_buff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_root_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()

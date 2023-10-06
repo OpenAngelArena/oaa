@@ -12,7 +12,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has an extra space
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -35,7 +37,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "splash_radius"                                     "600"
+      "splash_radius"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
       "interval"                                          "0.75"
       "ministun"                                          "0.2"
       "cast_range"                                        "200"

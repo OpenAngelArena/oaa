@@ -20,9 +20,8 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "boss_kraken_shell"
-    "Ability2"                                            "boss_resistance"
-    "Ability3"                                            "boss_cliffwalk"
-    "Ability4"                                            "boss_regen"
+    "Ability2"                                            "boss_basic_properties_oaa"
+    "Ability3"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -34,7 +33,6 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "1250"    // Damage range min.
     "AttackDamageMax"                                     "1250"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "1.0"    // Speed of attack.
     "BaseAttackSpeed"                                     "100"    // Attack Speed
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.

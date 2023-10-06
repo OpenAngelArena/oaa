@@ -66,8 +66,6 @@ function batrider_sticky_napalm_oaa:OnSpellStart()
   local duration = self:GetSpecialValueFor("duration")
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
-      -- Take status resistance of the enemy and calculate actual duration
-      --local actual_duration = enemy:GetValueChangedByStatusResistance(duration)
       enemy:AddNewModifier(caster, self, "modifier_batrider_sticky_napalm_oaa_debuff", {duration = duration})
     end
   end
@@ -161,13 +159,14 @@ function ApplyStickyNapalmDamage(count, ability, caster, target)
   ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
 
   -- Apply damage
-  local damage_table = {}
-  damage_table.victim = target
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-  damage_table.attacker = caster
-  damage_table.ability = ability
-  damage_table.damage = bonus_damage * count
+  local damage_table = {
+    attacker = caster,
+    victim = target,
+    damage = bonus_damage * count,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = ability,
+  }
 
   ApplyDamage(damage_table)
 end
@@ -440,6 +439,8 @@ function modifier_batrider_sticky_napalm_oaa_debuff:IsPurgable()
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:OnCreated()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
@@ -451,12 +452,12 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnCreated()
     self.max_stacks = 10
   end
 
+  -- Move Speed Slow is reduced with Slow Resistance
+  --self.move_speed_slow = parent:GetValueChangedBySlowResistance(self.move_speed_slow)
+
   if IsServer() then
     self:SetStackCount(1)
   end
-
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
 
   self.stack_particle = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_batrider/batrider_stickynapalm_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, parent, caster:GetTeamNumber())
   ParticleManager:SetParticleControl(self.stack_particle, 1, Vector(math.floor(self:GetStackCount() / 10), self:GetStackCount() % 10, 0))
@@ -466,6 +467,8 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnCreated()
 end
 
 function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
+  local parent = self:GetParent()
+  local caster = self:GetCaster()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.move_speed_slow = ability:GetSpecialValueFor("movement_speed_pct")
@@ -477,6 +480,9 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
     self.max_stacks = 10
   end
 
+  -- Move Speed Slow is reduced with Slow Resistance
+  --self.move_speed_slow = parent:GetValueChangedBySlowResistance(self.move_speed_slow)
+
   if IsServer() and self:GetStackCount() < self.max_stacks then
     self:IncrementStackCount()
   end
@@ -484,9 +490,6 @@ function modifier_batrider_sticky_napalm_oaa_debuff:OnRefresh()
   if self.stack_particle then
     ParticleManager:SetParticleControl(self.stack_particle, 1, Vector(math.floor(self:GetStackCount() / 10), self:GetStackCount() % 10, 0))
   end
-
-  local parent = self:GetParent()
-  local caster = self:GetCaster()
 
   ApplyStickyNapalmDamage(self:GetStackCount(), ability, caster, parent)
 end

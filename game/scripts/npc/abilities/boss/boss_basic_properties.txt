@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Boss Basic Properties - Damage reduction + Min armor + Flying movement + True Sight + Debuff Protection
+  //=================================================================================================================
+  "boss_basic_properties_oaa"
+  {
+    "ID"                                                  "9255"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/boss_basic_properties.lua"
+    "AbilityTextureName"                                  "custom/boss_basic_properties"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      // Damage reduction
+      "percent_damage_reduce"                             "85"
+      // Min armor is starting armor - this number
+      "max_armor_reduction"                               "25"
+      // True Sight
+      "reveal_duration"                                   "5.0"
+      "reveal_max_distance"                               "1500"
+      // Debuff Protection
+      "debuff_protection_duration"                        "5"
+      "cooldown"                                          "6"
+    }
+
+    "precache"
+    {
+      "particle"                                          "particles/items_fx/black_king_bar_overhead.vpcf"
+      "particle"                                          "particles/items_fx/immunity_sphere.vpcf"
+    }
+  }
+}

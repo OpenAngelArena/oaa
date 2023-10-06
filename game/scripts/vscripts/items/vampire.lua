@@ -1,4 +1,4 @@
-item_vampire = class(TransformationBaseClass)
+item_vampire = class(ItemBaseClass)
 
 local vampire = {}
 
@@ -12,8 +12,11 @@ function item_vampire:GetIntrinsicModifierName()
   return "modifier_item_vampire"
 end
 
-function item_vampire:GetTransformationModifierName()
-  return "modifier_item_vampire_active"
+function item_vampire:OnSpellStart()
+  local caster = self:GetCaster()
+  local modifierName = "modifier_item_vampire_active"
+
+  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
 end
 
 item_vampire_2 = item_vampire
@@ -268,7 +271,7 @@ function modifier_item_vampire_active:OnIntervalThink()
       attacker = parent,
       damage = damage,
       damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL),
       ability = spell,
     }
 
@@ -400,7 +403,7 @@ if IsServer() then
       parentTeam
     )
 
-    if ufResult == UF_SUCCESS then
+    if ufResult == UF_SUCCESS and parent:IsAlive() then
       local lifesteal_amount = damage * amount * 0.01
       parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
 

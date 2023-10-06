@@ -1,6 +1,5 @@
 
 LinkLuaModifier("modifier_boss_stopfightingyourself_debuff_mirror", "abilities/boss/stopfightingyourself/debuff_mirror.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_purgetester", "modifiers/modifier_purgetester.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_stopfightingyourself_debuff_mirror = class(AbilityBaseClass)
 
@@ -50,17 +49,7 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
       return false
     end
 
-    -- Tests if given modifier is a debuff and purgable with a basic dispel
-    --  Applies the modifier to a test unit, purges the unit with a basic dispel affecting debuffs only,
-    --  then checks if the modifier was purged (All because IsDebuff and IsPurgable don't exist in the Lua API
-    --  for built-in modifiers)
-    local testUnit = CreateUnitByName("npc_dota_lone_druid_bear1", Vector(0, 0, 0), false, caster, caster:GetOwner(), caster:GetTeamNumber())
-    testUnit:AddNewModifier(testUnit, nil, "modifier_purgetester", nil)
-    testUnit:AddNewModifier(modifier:GetCaster(), modifier:GetAbility(), modifier:GetName(), nil)
-    testUnit:Purge(false, true, true, true, true)
-    local modifierIsPurgableDebuff = not testUnit:HasModifier(modifier:GetName())
-    testUnit:RemoveSelf()
-    return modifierIsPurgableDebuff
+    return modifier:IsDebuff() and (not modifier:IsStunDebuff()) and (not modifier:IsHexDebuff())
   end
 
   --print('-------')

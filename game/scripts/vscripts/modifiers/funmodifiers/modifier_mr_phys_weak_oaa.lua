@@ -32,7 +32,7 @@ function modifier_mr_phys_weak_oaa:GetModifierIncomingDamage_Percentage(keys)
 end
 
 function modifier_mr_phys_weak_oaa:GetModifierMagicalResistanceBonus()
-  return 50
+  return 75
 end
 
 function modifier_mr_phys_weak_oaa:GetEffectName()

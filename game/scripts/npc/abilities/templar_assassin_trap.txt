@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5198"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_ALT_CASTABLE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -28,63 +28,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "trap_radius"                                     "400"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "trap_duration"                                   "5.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "trap_bonus_damage"                               "250 350 450 750 1050" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_templar_assassin_3"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_min"                              "30"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed_max"                              "60"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "trap_max_charge_duration"                        "4"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_min_silence_duration"                      "1.5"
-        "RequiresShard"                                   "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_max_silence_duration"                      "3.5"
-        "RequiresShard"                                   "1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_max_traps"                           "4"
-        "RequiresShard"                                   "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_vision"                              "125"
-        "RequiresShard"                                   "1"
-      }
+
     }
   }
 }

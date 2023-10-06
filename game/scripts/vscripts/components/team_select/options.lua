@@ -8,7 +8,7 @@ end
 
 local hero_mods = {
   HMN  = false,
-  HM01 = "modifier_any_damage_lifesteal_oaa",
+  --HM01 = "modifier_any_damage_lifesteal_oaa",
   HM02 = "modifier_aoe_radius_increase_oaa",
   HM03 = "modifier_blood_magic_oaa",
   HM04 = "modifier_debuff_duration_oaa",
@@ -16,17 +16,17 @@ local hero_mods = {
   HM06 = "modifier_ham_oaa",
   HM07 = "modifier_no_cast_points_oaa",
   --HM08 = "modifier_physical_immunity_oaa",
-  HM09 = "modifier_pro_active_oaa",
+  --HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
-  HM13 = "modifier_diarrhetic_oaa",
-  HM14 = "modifier_rend_oaa",
+  --HM13 = "modifier_diarrhetic_oaa",
+  --HM14 = "modifier_rend_oaa",
   HM15 = "modifier_range_increase_oaa",
   --HM16 = "modifier_healer_oaa",
-  HM17 = "modifier_explosive_death_oaa",
+  --HM17 = "modifier_explosive_death_oaa",
   --HM18 = "modifier_no_health_bar_oaa",
-  HM19 = "modifier_brute_oaa",
+  --HM19 = "modifier_brute_oaa",
   HM20 = "modifier_wisdom_oaa",
   HM21 = "modifier_aghanim_oaa",
   HM22 = "modifier_nimble_oaa",
@@ -34,12 +34,16 @@ local hero_mods = {
   HM24 = "modifier_any_damage_crit_oaa",
   HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
-  HM27 = "modifier_brawler_oaa",
+  --HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
-  HM30 = "modifier_hybrid_oaa",
+  --HM30 = "modifier_hybrid_oaa",
   --HM31 = "modifier_drunk_oaa",
-  HM32 = "modifier_any_damage_splash_oaa",
+  --HM32 = "modifier_any_damage_splash_oaa",
+  HM33 = "modifier_titan_soul_oaa",
+  HM34 = "modifier_hero_anti_stun_oaa",
+  HM35 = "modifier_octarine_soul_oaa",
+  HM36 = "modifier_smurf_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -106,53 +110,6 @@ function OAAOptions:Init ()
 
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
-  LinkLuaModifier("modifier_any_damage_lifesteal_oaa", "modifiers/funmodifiers/modifier_any_damage_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_aoe_radius_increase_oaa", "modifiers/funmodifiers/modifier_aoe_radius_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_blood_magic_oaa", "modifiers/funmodifiers/modifier_blood_magic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_debuff_duration_oaa", "modifiers/funmodifiers/modifier_debuff_duration_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_echo_strike_oaa", "modifiers/funmodifiers/modifier_echo_strike_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_ham_oaa", "modifiers/funmodifiers/modifier_ham_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_no_cast_points_oaa", "modifiers/funmodifiers/modifier_no_cast_points_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_physical_immunity_oaa", "modifiers/funmodifiers/modifier_physical_immunity_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_pro_active_oaa", "modifiers/funmodifiers/modifier_pro_active_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spell_block_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_troll_switch_oaa", "modifiers/funmodifiers/modifier_troll_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_hyper_experience_oaa", "modifiers/funmodifiers/modifier_hyper_experience_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_diarrhetic_oaa", "modifiers/funmodifiers/modifier_diarrhetic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_rend_oaa", "modifiers/funmodifiers/modifier_rend_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_range_increase_oaa", "modifiers/funmodifiers/modifier_range_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_healer_oaa", "modifiers/funmodifiers/modifier_healer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_explosive_death_oaa", "modifiers/funmodifiers/modifier_explosive_death_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  --LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_boss_aggresive_oaa", "modifiers/funmodifiers/modifier_boss_aggresive_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_brute_oaa", "modifiers/funmodifiers/modifier_brute_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_wisdom_oaa", "modifiers/funmodifiers/modifier_wisdom_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_aghanim_oaa", "modifiers/funmodifiers/modifier_aghanim_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_nimble_oaa", "modifiers/funmodifiers/modifier_nimble_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_sorcerer_oaa", "modifiers/funmodifiers/modifier_sorcerer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_any_damage_crit_oaa", "modifiers/funmodifiers/modifier_any_damage_crit_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_hp_mana_switch_oaa", "modifiers/funmodifiers/modifier_hp_mana_switch_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_magus_oaa", "modifiers/funmodifiers/modifier_magus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_brawler_oaa", "modifiers/funmodifiers/modifier_brawler_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_chaos_oaa", "modifiers/funmodifiers/modifier_chaos_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  --LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_hybrid_oaa", "modifiers/funmodifiers/modifier_hybrid_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_drunk_oaa", "modifiers/funmodifiers/modifier_drunk_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_any_damage_splash_oaa", "modifiers/funmodifiers/modifier_any_damage_splash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
-  LinkLuaModifier("modifier_all_healing_amplify_oaa", "modifiers/funmodifiers/modifier_all_healing_amplify_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_bonus_armor_negative_magic_resist_oaa", "modifiers/funmodifiers/modifier_bonus_armor_negative_magic_resist_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_cursed_attack_oaa", "modifiers/funmodifiers/modifier_cursed_attack_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_no_brain_oaa", "modifiers/funmodifiers/modifier_no_brain_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_courier_kill_bonus_oaa", "modifiers/funmodifiers/modifier_courier_kill_bonus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_true_sight_strike_oaa", "modifiers/funmodifiers/modifier_true_sight_strike_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_mr_phys_weak_oaa", "modifiers/funmodifiers/modifier_mr_phys_weak_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_angel_oaa", "modifiers/funmodifiers/modifier_angel_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_hero_anti_stun_oaa", "modifiers/funmodifiers/modifier_hero_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_roshan_power_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_titan_soul_oaa", "modifiers/funmodifiers/modifier_titan_soul_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_glass_cannon_oaa", "modifiers/funmodifiers/modifier_glass_cannon_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
   DebugPrint('OAAOptions module Initialization finished!')
 end
 
@@ -170,8 +127,10 @@ end
 function OAAOptions:SetupGame()
   if self.settings.HEROES_MODS == "HM13" or self.settings.HEROES_MODS_2 == "HM13" then
     POOP_WARD_COOLDOWN = 30
-    CustomWardButtons.obs_cooldown = 30
-    CustomWardButtons.sentry_cooldown = 30
+    if CustomWardButtons then
+      CustomWardButtons.obs_cooldown = 30
+      CustomWardButtons.sentry_cooldown = 30
+    end
   end
   if self.settings.GLOBAL_MODS == "GM12" then
     local mode = GameRules:GetGameModeEntity()

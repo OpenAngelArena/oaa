@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "550"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -54,6 +53,21 @@
       {
         "value"                                           "0"
         "special_bonus_unique_razor_static_link_aspd"     "+1"
+      }
+      "pull_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+100"
+      }
+      "min_pull_range"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+175"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "550"
+        "special_bonus_shard"                             "+150"
       }
     }
   }

@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_thinker", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_dot", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_meteor_hammer_oaa_stun", "items/meteor_hammer.lua", LUA_MODIFIER_MOTION_NONE)
@@ -125,6 +124,12 @@ function modifier_item_meteor_hammer_oaa_thinker:OnIntervalThink()
     false
   )
 
+  local damage_table = {
+    attacker = caster,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    ability = ability,
+  }
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Apply damage-over-time debuff (duration is not affected by status resistance)
@@ -133,19 +138,15 @@ function modifier_item_meteor_hammer_oaa_thinker:OnIntervalThink()
       local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
       enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_oaa_stun", {duration = stun_duration})
 
-      local damage_table = {
-        victim = enemy,
-        attacker = caster,
-        damage = self.impact_damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = ability,
-      }
       -- Is the enemy a boss?
       if enemy:IsOAABoss() then
         damage_table.damage = self.impact_damage_bosses
+      else
+        damage_table.damage = self.impact_damage
       end
 
       if enemy:IsAlive() then
+        damage_table.victim = enemy
         ApplyDamage(damage_table)
       end
     end
@@ -182,37 +183,19 @@ function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
 end
 
 function modifier_item_meteor_hammer_oaa_dot:OnCreated()
+  --local parent = self:GetParent()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   if IsServer() then
-    local enemy = self:GetParent()
-    local caster = self:GetCaster()
-
     self.burn_dps = ability:GetSpecialValueFor("burn_dps")
     self.burn_dps_boss = ability:GetSpecialValueFor("burn_dps_boss")
     self.burn_interval = ability:GetSpecialValueFor("burn_interval")
 
-    -- Slow is reduced with Status Resistance
-    self.slow = enemy:GetValueChangedByStatusResistance(movement_slow)
-
-    local damage_table = {
-      victim = enemy,
-      attacker = caster,
-      damage = self.burn_dps * self.burn_interval,
-      damage_type = DAMAGE_TYPE_MAGICAL,
-      ability = ability,
-    }
-
-    if enemy:IsOAABoss() then
-      damage_table.damage = self.burn_dps_boss * self.burn_interval
-    end
-
-    ApplyDamage(damage_table)
-
+    self:OnIntervalThink()
     self:StartIntervalThink(self.burn_interval)
-  else
-    self.slow = movement_slow
   end
+  -- Move Speed Slow is reduced with Slow Resistance
+  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
 end
 
 function modifier_item_meteor_hammer_oaa_dot:OnIntervalThink()

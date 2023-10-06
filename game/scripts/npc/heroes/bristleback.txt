@@ -6,22 +6,25 @@
   "npc_dota_hero_bristleback"
   {
     "Ability3"                                            "bristleback_bristleback_oaa" // replaces bristleback_bristleback
+    "Ability5"                                            "bristleback_scepter_oaa" // replaces generic_hidden
 
-    //"Ability10"                                           "special_bonus_attack_damage_15"
+    //"Ability10"                                           "special_bonus_attack_damage_20"
     //"Ability11"                                           "special_bonus_mp_regen_150"
 
     //"Ability12"                                           "special_bonus_unique_bristleback_5"
     //"Ability13"                                           "special_bonus_unique_bristleback_6"
 
-    "Ability14"                                           "special_bonus_hp_regen_25" // replaces special_bonus_hp_regen_20
+    //"Ability14"                                           "special_bonus_hp_regen_25"
     //"Ability15"                                           "special_bonus_unique_bristleback_2"
 
     "Ability16"                                           "special_bonus_spell_lifesteal_20" // replaces special_bonus_spell_lifesteal_12
     //"Ability17"                                           "special_bonus_unique_bristleback_3"
 
-  // special_bonus_unique_bristleback - "+{s:value} Max Goo Stacks"                  - shard/scepter does this
+  // special_bonus_unique_bristleback - "+{s:value} Max Goo Stacks"                  - shard does this
   // special_bonus_unique_bristleback_2 - "+{s:value} Quill Stack Damage"
   // special_bonus_unique_bristleback_3 - "+{s:value} Warpath Damage Per Stack"
-  // special_bonus_unique_bristleback_4 - "-{s:value} Goo Armor"
+  // special_bonus_unique_bristleback_4 - "-{s:value} Goo Armor Per Stack"
+  // special_bonus_unique_bristleback_5 - "+{s:bonus_AbilityCastRange} Goo Cast Range"
+  // special_bonus_unique_bristleback_6 - "+{s:bonus_back_damage_reduction}%/{s:bonus_side_damage_reduction}% Bristleback Back/Side Damage Reduction"
   }
 }

@@ -7,6 +7,7 @@ LinkLuaModifier("modifier_monkey_clone_oaa_status_effect", "abilities/oaa_wukong
 LinkLuaModifier("modifier_monkey_clone_oaa_idle_effect", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_monkey_clone_oaa_hidden", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wukongs_command_oaa_no_lifesteal", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_monkey_clone_oaa_scepter_slow", "abilities/oaa_wukongs_command", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
   -- For Rubick OnUpgrade never happens, that's why OnStolen is needed but then it will lag
@@ -14,7 +15,7 @@ if IsServer() then
     if self.clones == nil and self:GetCaster():IsRealHero() then
       local unit_name = "npc_dota_monkey_clone_oaa"
       local max_number_of_rings = 2 -- Change this if Monkey King has extra ring talent
-      local max_number_of_monkeys_per_ring = math.max(12, self:GetSpecialValueFor("num_third_soldiers_scepter"))
+      local max_number_of_monkeys_per_ring = math.max(self:GetSpecialValueFor("num_second_soldiers_scepter"), self:GetSpecialValueFor("num_third_soldiers_scepter"))
       local hidden_point = Vector(-10000, -10000, -10000)
       local caster = self:GetCaster()
       -- Initialize tables
@@ -729,6 +730,8 @@ if IsServer() then
 
   function modifier_monkey_clone_oaa:OnAttackLanded(event)
     local parent = self:GetParent()
+    local caster = self:GetCaster()
+    local ability = self:GetAbility()
     local attacker = event.attacker
     local target = event.target
 
@@ -747,11 +750,21 @@ if IsServer() then
       return
     end
 
+    -- Check if attacked entity is something weird
+    if target.HasModifier == nil then
+      return
+    end
+
+    -- Scepter Slow (check if target already has it, to prevent infinite extending)
+    if caster:HasScepter() and not target:HasModifier("modifier_monkey_clone_oaa_scepter_slow") then
+      local slow_duration = ability:GetSpecialValueFor("soldier_slow_duration_scepter")
+      target:AddNewModifier(caster, ability, "modifier_monkey_clone_oaa_scepter_slow", {duration = slow_duration})
+    end
+
     -- Attack particle
     local castHandle = ParticleManager:CreateParticle("particles/units/heroes/hero_monkey_king/monkey_king_fur_army_attack.vpcf", PATTACH_ABSORIGIN, parent)
 
-    local caster = self:GetCaster()
-    local ability = self:GetAbility()
+    -- Get instant attack proc chance
     local chance = ability:GetSpecialValueFor("proc_chance")
 
     -- Talent that increases proc chance
@@ -917,4 +930,42 @@ end
 
 function modifier_wukongs_command_oaa_no_lifesteal:GetModifierLifestealRegenAmplify_Percentage()
   return -200
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_monkey_clone_oaa_scepter_slow = class(ModifierBaseClass)
+
+function modifier_monkey_clone_oaa_scepter_slow:IsHidden()
+  return true
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:IsDebuff()
+  return true
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:IsPurgable()
+  return true
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:OnCreated()
+  --local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local movement_slow = ability:GetSpecialValueFor("soldier_slow_amount_scepter")
+  -- Slow is reduced with Slow Resistance
+  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:OnRefresh()
+  self:OnCreated()
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+end
+
+function modifier_monkey_clone_oaa_scepter_slow:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.slow)
 end

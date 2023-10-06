@@ -25,10 +25,8 @@
     //----------------------------------------------------------------
     "Ability1"                                            "ogre_tank_boss_melee_smash"
     "Ability2"                                            "ogre_tank_boss_jump_smash"
-    "Ability3"                                            "boss_resistance"
-    "Ability4"                                            "boss_cliffwalk"
-    "Ability5"                                            "boss_regen"
-    "Ability6"                                            "siltbreaker_boss_protection"
+    "Ability3"                                            "boss_basic_properties_oaa"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -103,13 +101,6 @@
       }
 
       "DisableResistance"                                 "50.0"
-    }
-
-    "precache"
-    {
-      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
-      "particle"                                          "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
-      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
     }
   }
 }

@@ -40,20 +40,22 @@ function modifier_temple_guardian_wrath_thinker:OnIntervalThink()
       self.radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-      FIND_CLOSEST,
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
       false
     )
-    local damageInfo = {
+
+    local damage_table = {
       attacker = self:GetCaster(),
       damage = self.blast_damage,
       damage_type = DAMAGE_TYPE_PURE,
       ability = self:GetAbility(),
     }
+
     for _, enemy in pairs( enemies ) do
-      if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
-        damageInfo.victim = enemy
-        ApplyDamage( damageInfo )
+      if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
       end
     end
 

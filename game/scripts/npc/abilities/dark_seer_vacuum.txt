@@ -32,29 +32,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400 450 500 550 600 650"
+        "value"                                           "325 400 475 550 600 650"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_2"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "0.3 0.4 0.5 0.6 0.7 0.8"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 150 200 250 500 1000"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_tree"                                     "400 450 500 550 600 650" //OAA, same as radius
-      }
+      "duration"                                          "0.3 0.4 0.5 0.6 0.7 0.8"
+      "damage"                                            "75 150 225 300 600 1200" //OAA
+      "radius_tree"                                       "325 400 475 550 600 650" //OAA, same as radius
     }
   }
 }

@@ -75,22 +75,18 @@ if IsServer() then
       return
     end
 
-    -- Get duration
-    local duration = ability:GetSpecialValueFor("silence_duration")
-
     -- Apply debuff
-    attacker:AddNewModifier(parent, ability, "modifier_boss_spooky_ghost_silence_debuff", {duration = duration})
+    local actual_duration = attacker:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("silence_duration"))
+    attacker:AddNewModifier(parent, ability, "modifier_boss_spooky_ghost_silence_debuff", {duration = actual_duration})
   end
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     [MODIFIER_STATE_DISARMED] = true
   }
-
-  return state
 end
 
 function modifier_boss_spooky_ghost_ethereal_buff:GetStatusEffectName()

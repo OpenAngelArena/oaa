@@ -33,12 +33,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "1400"
+      "radius"
+      {
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "base_damage"                                       "50 75 100 125" //OAA
-      "mana_multiplier"
+      "mana_multiplier" //OAA
       {
         "value"                                           "1 1.2 1.4 1.6"
-        "special_bonus_unique_pugna_3"                    "+1.75"
+        "special_bonus_unique_pugna_3"                    "+2.0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "mana_regen"                                        "0"

@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_item_sacred_skull_passives", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sacred_skull_dummy_stuff", "items/sacred_skull.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_sacred_skull = class(ItemBaseClass)
 
@@ -10,28 +9,28 @@ end
 
 function item_sacred_skull:OnSpellStart()
   local caster = self:GetCaster()
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.ability = self
-
   -- if not caster:IsInvulnerable() then
     -- local current_hp = caster:GetHealth()
     -- local current_hp_as_dmg = self:GetSpecialValueFor("health_cost")
-    -- damage_table.damage = current_hp * current_hp_as_dmg * 0.01
-    -- damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-    -- damage_table.damage_type = DAMAGE_TYPE_PURE
-    -- damage_table.victim = caster
-    -- ApplyDamage(damage_table)
+    -- local damage_table_0 = {
+    --   attacker = caster,
+    --   victim = caster,
+    --   damage = current_hp * current_hp_as_dmg * 0.01,
+    --   damage_type = DAMAGE_TYPE_PURE,
+    --   damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    --   ability = self,
+    -- }
+    -- ApplyDamage(damage_table_0)
     -- -- Hit Particle
-    -- local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    -- local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
     -- ParticleManager:DestroyParticle(particle, false)
     -- ParticleManager:ReleaseParticleIndex(particle)
   -- end
 
   -- Explosion particle
-  local particle_boom = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-  ParticleManager:DestroyParticle(particle_boom, false)
-  ParticleManager:ReleaseParticleIndex(particle_boom)
+  --local particle_boom = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
+  --ParticleManager:DestroyParticle(particle_boom, false)
+  --ParticleManager:ReleaseParticleIndex(particle_boom)
 
   -- Sound
   caster:EmitSound("Hero_Jakiro.LiquidFire")
@@ -75,28 +74,34 @@ function item_sacred_skull:OnSpellStart()
   local magic_damage = self:GetSpecialValueFor("base_dmg") + self:GetSpecialValueFor("magic_dmg_per_current_mana") * current_mana
   local physical_damage = self:GetSpecialValueFor("phys_dmg_per_missing_mana") * missing_mana
 
-  damage_table.damage = magic_damage
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+  local damage_table_1 = {
+    attacker = caster,
+    damage = magic_damage,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self,
+  }
+
   -- local heal_amount = missing_hp * heal_per_missing_hp
 
-  local damage_table_2 = {}
-  damage_table_2.attacker = caster
-  damage_table_2.ability = self
-  damage_table_2.damage = physical_damage
-  damage_table_2.damage_type = DAMAGE_TYPE_PHYSICAL
-  damage_table_2.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+  local damage_table_2 = {
+    attacker = caster,
+    damage = physical_damage,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = self,
+  }
 
   -- Damage enemies
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Hit particle
-      local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-      ParticleManager:DestroyParticle(particle, false)
-      ParticleManager:ReleaseParticleIndex(particle)
+      --local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, enemy)
+      --ParticleManager:DestroyParticle(particle, false)
+      --ParticleManager:ReleaseParticleIndex(particle)
       -- Magic Damage
-      damage_table.victim = enemy
-      ApplyDamage(damage_table)
+      damage_table_1.victim = enemy
+      ApplyDamage(damage_table_1)
       -- Physical Damage
       damage_table_2.victim = enemy
       if not enemy:IsNull() then
@@ -109,7 +114,7 @@ function item_sacred_skull:OnSpellStart()
   -- for _, ally in pairs(allies) do
     -- if ally and not ally:IsNull() and ally ~= caster then
       -- -- Heal particle
-      -- local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
+      -- local particle = ParticleManager:CreateParticle("", PATTACH_CENTER_FOLLOW, ally)
       -- ParticleManager:DestroyParticle(particle, false)
       -- ParticleManager:ReleaseParticleIndex(particle)
       -- -- Healing
@@ -286,7 +291,7 @@ if IsServer() then
       return
     end
 
-    -- Check if parent is a real hero
+    -- Check if parent is a real hero (it's fine if it works on Spirit Bear)
     if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
       return
     end
@@ -327,9 +332,9 @@ if IsServer() then
     for _, ally in pairs(allies) do
       if ally and not ally:IsNull() then
         -- Heal particle
-        local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf", PATTACH_CENTER_FOLLOW, ally)
-        ParticleManager:DestroyParticle(particle, false)
-        ParticleManager:ReleaseParticleIndex(particle)
+        --local particle = ParticleManager:CreateParticle("", PATTACH_CENTER_FOLLOW, ally)
+        --ParticleManager:DestroyParticle(particle, false)
+        --ParticleManager:ReleaseParticleIndex(particle)
         -- Healing
         ally:Heal(heal_amount, ability)
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
@@ -361,27 +366,29 @@ if IsServer() then
       local magic_damage = base_dmg + magic_dmg_mult * current_mana
       local physical_damage = phys_dmg_mult * missing_mana
 
-      local damage_table = {}
-      damage_table.attacker = parent
-      damage_table.ability = ability
-      damage_table.damage = magic_damage
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+      local damage_table = {
+        attacker = parent,
+        damage = magic_damage,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = ability,
+      }
 
-      local damage_table_2 = {}
-      damage_table_2.attacker = parent
-      damage_table_2.ability = ability
-      damage_table_2.damage = physical_damage
-      damage_table_2.damage_type = DAMAGE_TYPE_PHYSICAL
-      damage_table_2.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+      local damage_table_2 = {
+        attacker = parent,
+        damage = physical_damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = ability,
+      }
 
       -- Damage enemies
       for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() then
           -- Hit particle
-          local particle = ParticleManager:CreateParticle("particles/items/sacred_skull/vermillion_robe_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-          ParticleManager:DestroyParticle(particle, false)
-          ParticleManager:ReleaseParticleIndex(particle)
+          --local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, enemy)
+          --ParticleManager:DestroyParticle(particle, false)
+          --ParticleManager:ReleaseParticleIndex(particle)
           -- Magic Damage
           damage_table.victim = enemy
           ApplyDamage(damage_table)

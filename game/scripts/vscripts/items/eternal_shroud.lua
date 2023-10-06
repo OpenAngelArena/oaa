@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_eternal_shroud_oaa", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eternal_shroud_oaa_barrier", "items/eternal_shroud.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -91,7 +89,7 @@ end
 modifier_eternal_shroud_oaa_barrier = class(ModifierBaseClass)
 
 function modifier_eternal_shroud_oaa_barrier:IsHidden()
-  return false
+  return true
 end
 
 function modifier_eternal_shroud_oaa_barrier:IsDebuff()
@@ -105,7 +103,7 @@ end
 function modifier_eternal_shroud_oaa_barrier:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.barrier_health = ability:GetSpecialValueFor("barrier_block")
+    self.max_shield_hp = ability:GetSpecialValueFor("barrier_block")
   end
   if IsServer() then
     local parent = self:GetParent()
@@ -115,6 +113,7 @@ function modifier_eternal_shroud_oaa_barrier:OnCreated()
       ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_origin", parent:GetAbsOrigin(), true)
       ParticleManager:SetParticleControl(self.particle, 2, Vector(parent:GetModelRadius()*1.1, 0, 0))
     end
+    self:SetStackCount(self.max_shield_hp)
   end
 end
 
@@ -134,32 +133,38 @@ function modifier_eternal_shroud_oaa_barrier:DeclareFunctions()
   }
 end
 
-function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConstant(keys)
+function modifier_eternal_shroud_oaa_barrier:GetModifierIncomingSpellDamageConstant(event)
   if IsClient() then
-    return self.barrier_health
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return self:GetStackCount() -- current shield hp
+    end
   else
-    if keys.damage_type == DAMAGE_TYPE_MAGICAL then
+    if event.damage_type == DAMAGE_TYPE_MAGICAL then
       local parent = self:GetParent()
-      local damage = keys.original_damage
+      local damage = event.damage
+      local barrier_hp = self:GetStackCount()
 
       -- Don't block more than remaining barrier hp
-      local block_amount = math.min(damage, self.barrier_health)
+      local block_amount = math.min(damage, barrier_hp)
 
-      -- Magic Block visual effect
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+      -- Reduce barrier hp
+      self:SetStackCount(barrier_hp - block_amount)
 
-      -- Give mana to the parent, mana amount is equal to block amount
-      parent:GiveMana(block_amount)
-
-      -- Decrease barrier HP
-      self.barrier_health = self.barrier_health - block_amount
+      if block_amount > 0 then
+        -- Magic Block visual effect
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_MAGICAL_BLOCK, parent, block_amount, nil)
+        -- Give mana to the parent, mana amount is equal to block amount
+        parent:GiveMana(block_amount)
+      end
 
       -- Destroy the modifier if barrier hp is reduced to 0
-      if self.barrier_health <= 0 then
+      if self:GetStackCount() <= 0 then
         self:Destroy()
       end
 
-      return block_amount * (-1)
+      return -block_amount
     end
 
     return 0

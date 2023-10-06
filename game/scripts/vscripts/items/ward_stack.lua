@@ -4,7 +4,6 @@ LinkLuaModifier("modifier_item_ward_stack_sentries", "items/ward_stack.lua", LUA
 LinkLuaModifier("modifier_item_ward_stack_aura", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sentry_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_observer_ward_recharger", "items/ward_stack.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_ward_stack = class(ItemBaseClass)
 
@@ -413,7 +412,7 @@ end
 -- modifier_item_ward_stack
 --------------------------------------------------------------------------
 
-modifier_item_ward_stack = class(ModifierBaseClass) -- AuraProviderBaseClass
+modifier_item_ward_stack = class(ModifierBaseClass)
 
 function modifier_item_ward_stack:IsHidden()
   return true
@@ -558,7 +557,7 @@ end
 -- modifier_item_ward_stack_aura (Aura effect)
 --------------------------------------------------------------------------
 
-modifier_item_ward_stack_aura = class(ModifierBaseClass) -- AuraEffectBaseClass
+modifier_item_ward_stack_aura = class(ModifierBaseClass)
 
 function modifier_item_ward_stack_aura:DeclareFunctions()
   return {

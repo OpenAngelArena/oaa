@@ -2,14 +2,15 @@
 // Vampire Fang
 //==================================================================
 "dota_tooltip_ability_item_vampire"                                             "Vampire Fang"
-"dota_tooltip_ability_item_vampire_description"                                 "<h1>Active: Vampirism</h1> Grants %active_lifesteal_percent%%% lifesteal. During the night: you gain additional %night_bonus_damage% attack damage and you can sense enemies within %night_thirst_radius% range through fog of war. During the day: you take %damage_per_second_pct%%% of current health in damage per second. Lasts %duration% seconds.\n<h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt. No lifesteal penalties against creeps."
+"dota_tooltip_ability_item_vampire_description"                                 "<h1>Active: Vampirism</h1> Grants %active_lifesteal_percent%%% lifesteal. During the night: you gain additional %night_bonus_damage% attack damage and you can sense enemies within %night_thirst_radius% range through fog of war. During the day: you take %damage_per_second_pct%%% of current health in damage per second. Lasts %duration% seconds.\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. No lifesteal penalties against creeps."
 //"dota_tooltip_ability_item_vampire_Note0"                                       "Other sources of lifesteal will also be disabled while #{dota_tooltip_modifier_item_vampire_active} is active."
 //"dota_tooltip_ability_item_vampire_Note1"                                       "#{transformation_note0}"
 "dota_tooltip_ability_item_vampire_bonus_strength"                              "+$str"
 "dota_tooltip_ability_item_vampire_bonus_damage"                                "+$damage"
 "dota_tooltip_ability_item_vampire_bonus_attack_speed"                          "+$attack"
-"dota_tooltip_ability_item_vampire_bonus_status_resistance"                     "%+Status Resistance"
-"dota_tooltip_ability_item_vampire_bonus_night_vision"                          "+Night Vision"
+"dota_tooltip_ability_item_vampire_bonus_status_resistance"                     "%+$status_resist"
+"dota_tooltip_ability_item_vampire_bonus_night_vision"                          "#{DOTA_Tooltip_ability_item_vampire_fangs_night_vision}"
+"dota_tooltip_ability_item_vampire_lifesteal_percent"                           "%+$lifesteal"
 "dota_tooltip_ability_item_vampire_Lore"                                        "A fang of fallen vampire that grants you vampire powers and weaknesses."
 
 "dota_tooltip_ability_item_vampire_2"                                           "#{dota_tooltip_ability_item_vampire}"
@@ -21,6 +22,7 @@
 "dota_tooltip_ability_item_vampire_2_bonus_attack_speed"                        "#{dota_tooltip_ability_item_vampire_bonus_attack_speed}"
 "dota_tooltip_ability_item_vampire_2_bonus_status_resistance"                   "#{dota_tooltip_ability_item_vampire_bonus_status_resistance}"
 "dota_tooltip_ability_item_vampire_2_bonus_night_vision"                        "#{dota_tooltip_ability_item_vampire_bonus_night_vision}"
+"dota_tooltip_ability_item_vampire_2_lifesteal_percent"                         "#{dota_tooltip_ability_item_vampire_lifesteal_percent}"
 "dota_tooltip_ability_item_vampire_2_Lore"                                      "#{dota_tooltip_ability_item_vampire_Lore}"
 
 "dota_tooltip_modifier_item_vampire_active"                                     "Vampirism"

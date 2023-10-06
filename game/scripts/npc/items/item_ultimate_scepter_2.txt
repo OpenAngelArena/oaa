@@ -56,28 +56,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "10 15 25 40 60"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "175 275 425 625 875"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "175 275 425 625 875"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "talent_level_tooltip"                            "0 10 15 20 25"
-      }
+      "bonus_all_stats"                                   "10 15 25 40 60"
+      "bonus_health"                                      "175 275 425 625 875"
+      "bonus_mana"                                        "175 275 425 625 875"
+      "talent_level_tooltip"                              "0 10 15 20 25"
     }
   }
 }

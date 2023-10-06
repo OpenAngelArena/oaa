@@ -14,10 +14,6 @@ function item_siege_mode:GetIntrinsicModifierName()
   return "modifier_item_splash_cannon_passive"
 end
 
---function item_siege_mode:GetTransformationModifierName()
-  --return "modifier_item_siege_mode_active"
---end
-
 function item_siege_mode:OnSpellStart()
   local caster = self:GetCaster()
   local target = self:GetCursorPosition()
@@ -130,7 +126,7 @@ function item_siege_mode:OnProjectileHit(target, location)
   if caster:IsRangedAttacker() then
     damage_table.damage = bonus_damage + splash_damage
   else
-  -- Melee casters don't apply splash
+    -- Melee casters don't apply splash
     damage_table.damage = bonus_damage
   end
 
@@ -235,8 +231,9 @@ function modifier_item_splash_cannon_passive:OnIntervalThink()
 end
 
 function modifier_item_splash_cannon_passive:OnDestroy()
-  if IsServer() then
-    self:GetParent():ChangeAttackProjectile()
+  local parent = self:GetParent()
+  if IsServer() and parent and not parent:IsNull() then
+    parent:ChangeAttackProjectile()
   end
 end
 
@@ -368,12 +365,13 @@ if IsServer() then
     local actual_damage = damage * splash_percent * 0.01
 
     -- Damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_PHYSICAL
-    damage_table.ability = ability
-    damage_table.damage = actual_damage
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+    local damage_table = {
+      attacker = parent,
+      damage = actual_damage,
+      damage_type = DAMAGE_TYPE_PHYSICAL,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+      ability = ability,
+    }
 
     -- Show particle only if damage is above zero and only if there are units nearby
     if actual_damage > 0 and #units > 1 then
@@ -500,7 +498,7 @@ function modifier_item_siege_mode_active:OnIntervalThink()
 end
 
 function modifier_item_siege_mode_active:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_FIXED_ATTACK_RATE,
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
@@ -508,8 +506,6 @@ function modifier_item_siege_mode_active:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
     MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
   }
-
-  return funcs
 end
 
 function modifier_item_siege_mode_active:CheckState()

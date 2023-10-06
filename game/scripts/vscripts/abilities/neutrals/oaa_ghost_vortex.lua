@@ -114,10 +114,9 @@ function modifier_vortex_oaa_debuff:IsPurgable()
 end
 
 function modifier_vortex_oaa_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-  return funcs
 end
 
 function modifier_vortex_oaa_debuff:GetModifierAttackSpeedBonus_Constant()

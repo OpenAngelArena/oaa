@@ -42,11 +42,11 @@ function item_stoneskin:OnProjectileHit(target, location)
   -- Initialize damage table
   local damage_table = {
     attacker = attacker,
+    victim = target,
     damage = damage,
     damage_type = DAMAGE_TYPE_PHYSICAL,
     damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
     ability = self,
-    victim = target,
   }
 
   -- Apply damage

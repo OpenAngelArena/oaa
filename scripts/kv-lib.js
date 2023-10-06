@@ -34,19 +34,19 @@ module.exports = {
 
 function dotaAbilities (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/scripts/npc/npc_abilities.txt'
+    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/npc_abilities.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);
     }
-    const data = parseKV(result.body.replace(/(\n\s+)([a-zA-Z-_]+)(\s+"[^"]+")/g, '$1"$2"$3'));
+    const data = parseKV(result.body.replace('"SPELL_IMMUNITY_ENEMIES_YES\\"', '"SPELL_IMMUNITY_ENEMIES_YES"'));
     cb(null, data.DOTAAbilities);
   });
 }
 
 function dotaItems (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/scripts/npc/items.txt'
+    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/items.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);
@@ -58,7 +58,7 @@ function dotaItems (cb) {
 
 function dotaHeroes (cb) {
   request.get({
-    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/scripts/npc/npc_heroes.txt'
+    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/npc_heroes.txt'
   }, function (err, result) {
     if (err) {
       return cb(err);

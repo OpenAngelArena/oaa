@@ -93,16 +93,16 @@ end
 
 function modifier_item_blood_sword_lifesteal:DeclareFunctions()
   return {
-    MODIFIER_EVENT_ON_ATTACK_LANDED,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 if IsServer() then
-  function modifier_item_blood_sword_lifesteal:OnAttackLanded(event)
+  function modifier_item_blood_sword_lifesteal:OnTakeDamage(event)
     local parent = self:GetParent()
     local ability = self:GetAbility()
     local attacker = event.attacker
-    local target = event.target
+    local damaged_unit = event.unit
     local damage = event.damage
 
     -- Check if attacker exists
@@ -110,17 +110,18 @@ if IsServer() then
       return
     end
 
+    -- Check if attacker has this modifier
     if attacker ~= parent then
       return
     end
 
-    -- Check if attacked entity exists
-    if not target or target:IsNull() then
+    -- Check if damaged entity exists
+    if not damaged_unit or damaged_unit:IsNull() then
       return
     end
 
-    -- Check if attacked entity is an item, rune or something weird
-    if target.GetUnitName == nil then
+    -- Check if damaged entity is an item, rune or something weird
+    if damaged_unit.GetUnitName == nil then
       return
     end
 
@@ -130,7 +131,15 @@ if IsServer() then
       return
     end
 
-    if damage <= 0 then
+    -- Check if damage is caused by an attack
+    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+      return
+    end
+
+    local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
+
+    -- Check if damage and lifesteal are > 0
+    if damage <= 0 or lifesteal_percent <= 0 then
       self:Destroy()
       return
     end
@@ -138,19 +147,14 @@ if IsServer() then
     local parent_team = parent:GetTeamNumber()
 
     local ufResult = UnitFilter(
-      target,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      damaged_unit,
+      DOTA_UNIT_TARGET_TEAM_ENEMY, -- Reminder: DOTA_UNIT_TARGET_TEAM_BOTH bugs it out with certain flags
       bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
-      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_DEAD),
       parent_team
     )
 
-    local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
-
-    --print(tostring(ufResult)) -- It returns 15, Wtf?
-    -- Maybe DOTA_UNIT_TARGET_TEAM_BOTH is bugging it out lmao
-
-    if (ufResult == UF_SUCCESS or ufResult == UF_FAIL_DEAD) and lifesteal_percent > 0 and parent:IsAlive() then
+    if ufResult == UF_SUCCESS and parent:IsAlive() then
       local lifesteal_amount = damage * lifesteal_percent * 0.01
       parent:HealWithParams(lifesteal_amount, ability, true, true, parent, false)
 

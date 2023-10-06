@@ -30,61 +30,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "30.0"
+      "replica_damage_outgoing"                           "-30 0 30 90 150" //OAA
+      "tooltip_outgoing" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "30.0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_outgoing"                         "-30 0 30 90 150" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_outgoing"                                "70 100 130 190 250" //OAA
+        "value"                                           "70 100 130 190 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_7"
       }
-      "04"
+      "replica_damage_incoming"                           "100 100 100 75 25"
+      "tooltip_replica_total_damage_incoming"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "replica_damage_incoming"                         "100 100 100 75 25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_replica_total_damage_incoming"           "200 200 200 175 125"
+        "value"                                           "200 200 200 175 125"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "06"
+      "width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "width"                                           "1300"
+        "value"                                           "1300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "07"
+      "replica_scale"                                     "0"
+      "movement_slow"                                     "50 60 70 80 90"
+      "slow_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "replica_scale"                                   "0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_slow"                                   "50 60 70 80 90"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "1"
+        "value"                                           "1"
         "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
-      "10" // unused
+      "scepter_length_multiplier" // unused
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_length_multiplier"                       "2"
+        "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
     }

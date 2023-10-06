@@ -44,6 +44,7 @@
       {
         "value"                                           "240"
         "special_bonus_unique_disruptor_3"                "+100"
+        "affected_by_aoe_increase"                        "1"
       }
       "strikes"
       {
@@ -52,6 +53,11 @@
       }
       "strike_interval"                                   "2.0"
       "strike_damage"                                     "40 65 90 115 230 460" //OAA
+      "strike_damage_bonus"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_disruptor_consecutive_strike_damage"  "+10"
+      }
       "slow_duration" //OAA, Valve forgot '+0' on special_bonus_unique_disruptor
       {
         "value"                                           "0.1 0.2 0.3 0.4 0.5 0.6"

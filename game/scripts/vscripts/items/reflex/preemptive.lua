@@ -1,7 +1,6 @@
 -- defines item_reduction_orb_1
 -- defines modifier_item_preemptive
 LinkLuaModifier( "modifier_item_preemptive", "items/reflex/preemptive.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE )
 
 ------------------------------------------------------------------------
 

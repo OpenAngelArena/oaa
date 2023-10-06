@@ -77,10 +77,9 @@ function modifier_alpha_critical_strike_aura_oaa_effect:IsPurgable()
 end
 
 function modifier_alpha_critical_strike_aura_oaa_effect:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
   }
-  return funcs
 end
 
 if IsServer() then

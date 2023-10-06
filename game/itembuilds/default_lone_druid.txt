@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.34b"
   "hero"          "npc_dota_hero_lone_druid"
   "Title"         "Recommended items for Lone Druid"
 
@@ -16,21 +16,20 @@
     {
       "item"      "item_orb_of_corrosion"
       "item"      "item_quelling_blade"
-      "item"      "item_boots"
+      "item"      "item_bracer"
     }
 
     "#DOTA_Item_Build_Core_Items_Secondary"
     {
-      "item"      "item_mjollnir"
+      "item"      "item_ultimate_scepter"
       "item"      "item_greater_crit"
+      "item"      "item_disperser"
       "item"      "item_monkey_king_bar"
-      "item"      "item_nullifier"
       "item"      "item_abyssal_blade_2"
     }
 
     "#DOTA_Item_Build_Druid"
     {
-      "item"      "item_ultimate_scepter"
       "item"      "item_helm_of_the_overlord"
       "item"      "item_assault"
       "item"      "item_aeon_disk_2"
@@ -47,6 +46,8 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_guardian_greaves"
+      "item"      "item_mjollnir"
+      "item"      "item_nullifier"
       "item"      "item_pipe"
       "item"      "item_radiance"
       "item"      "item_satanic"

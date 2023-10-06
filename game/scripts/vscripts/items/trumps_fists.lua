@@ -45,11 +45,13 @@ function item_trumps_fists_1:OnProjectileHit(target, location)
     return
   end
 
-  local debuff_duration = self:GetSpecialValueFor("mute_duration")
-  -- Apply Brand of Judecca debuff (duration is not affected by status resistance)
+  -- Apply Brand of Judecca debuff (duration IS affected by status resistance)
+  local debuff_duration = target:GetValueChangedByStatusResistance(self:GetSpecialValueFor("mute_duration"))
   target:AddNewModifier(caster, self, "modifier_item_trumps_fists_active", {duration = debuff_duration})
-  -- Apply Frostburn debuff (duration is not affected by status resistance)
-  target:AddNewModifier(caster, self, "modifier_item_trumps_fists_frostbite", {duration = debuff_duration})
+
+  -- Apply Frostburn debuff (duration is NOT affected by status resistance)
+  local frostburn_duration = self:GetSpecialValueFor("heal_prevent_duration")
+  target:AddNewModifier(caster, self, "modifier_item_trumps_fists_frostbite", {duration = frostburn_duration})
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items2_fx/paintball_detonation.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -94,15 +96,16 @@ function modifier_item_trumps_fists_passive:OnCreated()
   end
 
   if IsServer() then
-    self:GetCaster():ChangeAttackProjectile()
+    self:GetParent():ChangeAttackProjectile()
   end
 end
 
 modifier_item_trumps_fists_passive.OnRefresh = modifier_item_trumps_fists_passive.OnCreated
 
 function modifier_item_trumps_fists_passive:OnDestroy()
-  if IsServer() then
-    self:GetCaster():ChangeAttackProjectile()
+  local parent = self:GetParent()
+  if IsServer() and parent and not parent:IsNull() then
+    parent:ChangeAttackProjectile()
   end
 end
 

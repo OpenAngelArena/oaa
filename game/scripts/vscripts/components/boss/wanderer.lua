@@ -1,7 +1,3 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_boss_capture_point", "modifiers/modifier_boss_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_wanderer_team_buff", "abilities/boss/wanderer/modifier_wanderer_team_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 Wanderer = Components:Register('Wanderer', COMPONENT_STRATEGY)
 
@@ -119,48 +115,74 @@ function Wanderer:SpawnWanderer ()
   end)
 end
 
-function Wanderer:FindWhereToSpawn ()
-  local maxY = 4000
-  local maxX = 1000
-  local minY = 0
-  local minX = 0
+function Wanderer:FindWhereToSpawn()
+  local center = GetMapCenterOAA()
+  local XBounds = GetMainAreaBoundsX()
+  local YBounds = GetMainAreaBoundsY()
+
+  local maxY = math.ceil(YBounds.maxY)
+  local maxX = math.ceil(XBounds.maxX)
+  local minY = math.floor(YBounds.minY)
+  local minX = math.floor(XBounds.minX)
+
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_BADGUYS)
+
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
-  if scoreDiff >= 20 then
-    maxX = 5500
-    minX = 2500
-  elseif scoreDiff >= 15 then
-    maxX = 2500
-    minX = 1500
-  elseif scoreDiff >= 10 then
-    maxX = 2000
-    minX = 1000
-  elseif scoreDiff >= 5 then
-    maxX = 1500
-    minX = 500
+  -- The following code assumes that:
+  -- 1) real center (0.0) is between the fountains somewhere
+  -- 2) radiant fountain x coordinate is < 0
+  -- 3) dire fountain x coordinate is > 0
+  -- 4) fountains don't share the same y coordinate
+  if isGoodLead then
+    if scoreDiff >= 20 then
+      minX = math.floor(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x + DireFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x + DireFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   else
-    isGoodLead = RandomInt(0, 1) == 0
+    if scoreDiff >= 20 then
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 3 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 1 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   end
 
-  local position = Vector(0, 0, 0)
+  local position = Vector(math.floor((minX + maxX) / 2), center.y, 100) -- this value is not used
   local isValidPosition = false
   local loopCount = 0
+  local maxLoops = 6
 
   while not isValidPosition do
     loopCount = loopCount + 1
-    --if position then
-      --print('Got a bad Wanderer spawn point: ' .. tostring(position))
-    --end
+
     position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-    if RandomInt(0, 1) == 0 then
-      position.y = 0 - position.y
-    end
-    if not isGoodLead then
-      position.x = 0 - position.x
-    end
+
     isValidPosition = true
-    if IsLocationInOffside(position) and loopCount < 7 then
+    if IsLocationInOffside(position) and loopCount < maxLoops then
       isValidPosition = false
     end
   end

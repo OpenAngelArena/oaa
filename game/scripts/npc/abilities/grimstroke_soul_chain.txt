@@ -13,7 +13,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO" // Valve this is partially true
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
@@ -33,7 +33,11 @@
     "AbilityValues"
     {
       "chain_duration"                                    "6.0 7.0 8.0 9.0 10.0"
-      "chain_latch_radius"                                "600"
+      "chain_latch_radius"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
       "chain_break_distance"                              "700"
       "leash_limit_multiplier"                            "1.3"
       "leash_radius_buffer"                               "50"

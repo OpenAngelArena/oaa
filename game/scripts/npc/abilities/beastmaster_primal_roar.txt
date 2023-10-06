@@ -53,10 +53,15 @@
         "value"                                           "300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
+        "affected_by_aoe_increase"                        "1"
       }
       "slow_movement_speed_pct"                           "-60 -65 -70 -75 -80" //OAA
       "slow_attack_speed_pct"                             "-60 -80 -100 -150 -200" //OAA
-      "push_distance"                                     "450"
+      "push_distance"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
       "push_duration"                                     "1.0"
       "slow_duration"                                     "3 3.5 4 4.5 5"
       "movement_speed"                                    "40 45 50 55 60" //OAA

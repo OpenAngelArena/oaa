@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
@@ -32,50 +31,55 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 200 300 600 900" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_jakiro_7"
+        "value"                                           "100 175 250 400 550"
+        "special_bonus_unique_jakiro_7"                   "+50"
       }
-      "02"
+      "path_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "1400"
+        "value"                                           "520"
+        "special_bonus_scepter"                           "+70"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "path_radius"                                     "260"
+        "value"                                           "10.0"
+        "special_bonus_scepter"                           "+5.0"
       }
-      "04"
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "10"
+        "value"                                           "1400"
       }
-      "05"
+      "burn_interval"                                     "0.5"
+      "linger_duration"                                   "2"
+      "pure_damage_type"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "0.5"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
       }
-      "06"
+      "pierces_magic_immunity"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "linger_duration"                                 "2"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
       }
-      "07"
+      "ice_edge_path_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "scepter_bonus_range"                             "400"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+50"
+        "affected_by_aoe_increase"                        "1"
       }
-      "08"
+      "ice_edge_linger_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "scepter_bonus_duration"                          "15"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+0.4"
+      }
+      "ice_edge_movement_slow"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "60"
       }
     }
   }

@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- the range at which we consider outselves basically attacking them
 local CLOSE_FOLLOW_RANGE = 300
 -- range to follow (visible) enemies, targetting the closest first
@@ -22,6 +20,7 @@ function Spawn( entityKeyValues )
   thisEntity.netAbility = thisEntity:FindAbilityByName("wanderer_net")
   thisEntity.cleanseAbility = thisEntity:FindAbilityByName("wanderer_aoe_cleanse")
   thisEntity.BossTier = thisEntity.BossTier or 3
+  thisEntity.SiltBreakerProtection = false
 
   thisEntity:SetContextThink("WandererThink", WandererThink, 1)
 end
@@ -209,7 +208,9 @@ function WandererThink ()
     -- Cast abilities if below 75% health
     if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
       if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
+        local cast_point = thisEntity.netAbility:GetCastPoint()
         thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
+        return math.max(1, cast_point+0.1)
       end
       if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
         if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() then
@@ -227,12 +228,14 @@ function WandererThink ()
             false
           )
           if #enemiesToCleanse > 1 then
+            local cast_point = ability:GetCastPoint()
             ExecuteOrderFromTable({
               UnitIndex = thisEntity:entindex(),
               OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
               AbilityIndex = ability:entindex(),
               Queue = false,
             })
+            return math.max(1, cast_point+0.1)
           end
         end
       end
@@ -281,48 +284,74 @@ function WalkTowardsSpot (spot)
 end
 
 function GetNextWanderLocation (startPosition)
-  local maxY = 4000
-  local maxX = 1000
-  local minY = 0
-  local minX = 0
+  local center = GetMapCenterOAA()
+  local XBounds = GetMainAreaBoundsX()
+  local YBounds = GetMainAreaBoundsY()
+
+  local maxY = math.ceil(YBounds.maxY)
+  local maxX = math.ceil(XBounds.maxX)
+  local minY = math.floor(YBounds.minY)
+  local minX = math.floor(XBounds.minX)
+
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_BADGUYS)
+
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
-  if scoreDiff >= 20 then
-    maxX = 5600
-    minX = 2600
-  elseif scoreDiff >= 15 then
-    maxX = 2600
-    minX = 1400
-  elseif scoreDiff >= 10 then
-    maxX = 2100
-    minX = 900
-  elseif scoreDiff >= 5 then
-    maxX = 1600
-    minX = 400
+  -- The following code assumes that:
+  -- 1) real center (0.0) is between the fountains somewhere
+  -- 2) radiant fountain x coordinate is < 0
+  -- 3) dire fountain x coordinate is > 0
+  -- 4) fountains don't share the same y coordinate
+  if isGoodLead then
+    if scoreDiff >= 20 then
+      minX = math.floor(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x + DireFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x + DireFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   else
-    isGoodLead = RandomInt(0, 1) == 0
+    if scoreDiff >= 20 then
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 3 / 5)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 3 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 2 / 5)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 1 / 5)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x)
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   end
 
-  local nextPosition = Vector(0, 0, 0)
+  local nextPosition = Vector(math.floor((minX + maxX) / 2), RandomInt(minY, maxY), 100) -- this value is not used
   local isValidPosition = false
   local loopCount = 0
+  local maxLoops = 6
 
   while not isValidPosition do
     loopCount = loopCount + 1
-    --if nextPosition then
-      --print('Got a bad position option ' .. tostring(nextPosition))
-    --end
+
     nextPosition = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), startPosition.z)
-    if RandomInt(0, 1) == 0 then
-      nextPosition.y = 0 - nextPosition.y
-    end
-    if not isGoodLead then
-      nextPosition.x = 0 - nextPosition.x
-    end
+
     isValidPosition = true
     if (scoreDiff > 5 and (nextPosition - startPosition):Length2D() < 800) or (IsNearRadiantFountain(nextPosition) or IsNearDireFountain(nextPosition)) then
-      if loopCount < 7 then
+      if loopCount < maxLoops then
         isValidPosition = false
       end
     end
@@ -335,7 +364,7 @@ function IsNearRadiantFountain (pos)
   local radiant_fountain = Entities:FindByName(nil, "fountain_good_trigger")
   if not radiant_fountain then
     print("Radiant fountain trigger not found or referenced name is wrong.")
-    return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_GOODGUYS) <= DistanceFromFountainOAA(PointsManager.radiant_shrine, DOTA_TEAM_GOODGUYS)
   end
   local origin = radiant_fountain:GetAbsOrigin()
   local bounds = radiant_fountain:GetBounds()
@@ -359,7 +388,7 @@ function IsNearDireFountain (pos)
   local bad_fountain = Entities:FindByName(nil, "fountain_bad_trigger")
   if not bad_fountain then
     print("Dire fountain trigger not found or referenced name is wrong.")
-    return math.abs(pos.x) > 4800 and math.abs(pos.y) < 1400
+    return DistanceFromFountainOAA(pos, DOTA_TEAM_BADGUYS) <= DistanceFromFountainOAA(PointsManager.dire_shrine, DOTA_TEAM_BADGUYS)
   end
   local origin = bad_fountain:GetAbsOrigin()
   local bounds = bad_fountain:GetBounds()
@@ -393,7 +422,7 @@ function CheckPathBlocking ()
   thisEntity.pathBlocking = thisEntity.pathBlocking - 1
   if thisEntity.pathBlocking < 0 then
     thisEntity:AddNewModifier(thisEntity, nil, "modifier_batrider_firefly", {
-      duration = 3
+      duration = 8
     })
     ResetPathBlocking()
   end

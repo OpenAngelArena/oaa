@@ -32,10 +32,8 @@
     "Ability3"                                            "lycan_boss_claw_lunge_tier5"
     "Ability4"                                            "lycan_boss_claw_attack_tier5"
     "Ability5"                                            "lycan_boss_rupture_ball_tier5"
-    "Ability6"                                            "boss_resistance"
-    "Ability7"                                            "boss_cliffwalk"
-    "Ability8"                                            "boss_regen"
-    "Ability9"                                            "siltbreaker_boss_protection"
+    "Ability6"                                            "boss_basic_properties_oaa"
+    "Ability7"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -86,19 +84,10 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "precache"
     {
-      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
-      // Rupture
-      "particle"                                          "particles/lycanboss_ruptureball_gale.vpcf"
-      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
-      // Summon Wolves
-      "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf"
-      "particle"                                          "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
       // Model Attack Animation Lycan
       "particle"                                          "particles/units/heroes/hero_lycan/lycan_weapon_blur.vpcf"
       "particle"                                          "particles/units/heroes/hero_lycan/lycan_weapon_blur_b.vpcf"

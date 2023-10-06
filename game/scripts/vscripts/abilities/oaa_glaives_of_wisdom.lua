@@ -15,14 +15,14 @@ end
 
 function silencer_glaives_of_wisdom_oaa:CastFilterResultTarget(target)
   local defaultResult = self.BaseClass.CastFilterResultTarget(self, target)
-  local caster = self:GetCaster()
+  --local caster = self:GetCaster()
 
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
-  local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  if talent and talent:GetLevel() > 0 then
-    pierce_bkb = true
-  end
+  --local talent = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  --if talent and talent:GetLevel() > 0 then
+    --pierce_bkb = true
+  --end
 
   if pierce_bkb and defaultResult == UF_FAIL_MAGIC_IMMUNE_ENEMY then
     return UF_SUCCESS
@@ -68,12 +68,15 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
   -- Number of bounces left (Data of the current projectile is read-only !!!)
   local bounces_left = data.bounces_left
 
+  -- Does this glaive silences?
+  local do_silence = data.silence == 1
+
   -- Talent that allows Glaives of Wisdom to pierce spell immunity
   local pierce_bkb = false
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-  if talent2 and talent2:GetLevel() > 0 then
-    pierce_bkb = true
-  end
+  --local talent2 = caster:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+  --if talent2 and talent2:GetLevel() > 0 then
+    --pierce_bkb = true
+  --end
 
   -- Intelligence steal if the target is a real hero (and not a meepo clone or arc warden tempest double) and not spell immune
   if target:IsRealHero() and not target:IsClone() and not target:IsTempestDouble() then
@@ -95,24 +98,27 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
     end
   end
 
-  -- Damage table of the bounced projectile (physical part)
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage = bounce_damage
-  damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
-  damage_table.victim = target
+  -- Shard silence on glaive bounce
+  if do_silence then
+    target:AddNewModifier(caster, self, "modifier_oaa_glaives_shard_silence", {duration = self:GetSpecialValueFor("shard_silence_duration")})
+  end
 
-  ApplyDamage(damage_table)
+  -- Damage table of the bounced projectile (physical part)
+  local damage_table_1 = {
+    attacker = caster,
+    victim = target,
+    damage = bounce_damage,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+  }
 
   -- Damage table of the bounced projectile (Glaives of Wisdom spell damage)
-  damage_table.damage = glaives_damage
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
-
-  ApplyDamage(damage_table)
-
-  -- Overhead particle message
-  SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+  local damage_table_2 = {
+    attacker = caster,
+    victim = target,
+    damage = glaives_damage,
+    damage_type = self:GetAbilityDamageType(),
+    ability = self,
+  }
 
   -- Sound
   target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
@@ -148,7 +154,7 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
           local projectile_info = {
             Target = enemy,
             Source = target,
-            Ability = damage_table.ability,
+            Ability = self,
             EffectName = "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf",
             bDodgable = true,
             bProvidesVision = false,
@@ -160,7 +166,8 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
             ExtraData = {
               bounces_left = bounces_left - 1,
               physical_damage = bounce_damage,
-              spell_damage = glaives_damage
+              spell_damage = glaives_damage,
+              silence = data.silence,
             }
           }
 
@@ -172,6 +179,16 @@ function silencer_glaives_of_wisdom_oaa:OnProjectileHit_ExtraData(target, locati
       end
     end
 	end
+
+  ApplyDamage(damage_table_1)
+
+  -- Check if attacker and victim survived previous damage instance
+  if caster and not caster:IsNull() and target and not target:IsNull() and target:IsAlive() then
+    -- Overhead particle message
+    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, glaives_damage, caster:GetPlayerOwner())
+    -- Do Glaives of Wisdom damage
+    ApplyDamage(damage_table_2)
+  end
 end
 
 
@@ -372,15 +389,15 @@ if IsServer() then
 
       -- Talent that allows Glaives of Wisdom to pierce spell immunity
       local pierce_bkb = false
-      local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
-      if talent2 and talent2:GetLevel() > 0 then
-        pierce_bkb = true
-      end
+      --local talent2 = parent:FindAbilityByName("special_bonus_unique_silencer_3_oaa")
+      --if talent2 and talent2:GetLevel() > 0 then
+        --pierce_bkb = true
+      --end
 
       --if parent:HasScepter() and target:IsSilenced() then
         --bonusDamagePct = bonusDamagePct * ability:GetSpecialValueFor("scepter_damage_multiplier")
       --end
-
+      local silence_on_bounce = 0
       if parent:HasShardOAA() then
         if not self.number_of_attacks then
           self.number_of_attacks = 0
@@ -391,6 +408,7 @@ if IsServer() then
         local number = ability:GetSpecialValueFor("shard_attacks_for_silence")
         if self.number_of_attacks > 0 and (self.number_of_attacks % number == 0) then
           target:AddNewModifier(parent, ability, "modifier_oaa_glaives_shard_silence", {duration = ability:GetSpecialValueFor("shard_silence_duration")})
+          silence_on_bounce = 1
         end
       end
 
@@ -416,22 +434,18 @@ if IsServer() then
 
       local bonusDamage = parent:GetIntellect() * bonusDamagePct
 
-      local damageTable = {}
-      damageTable.victim = target
-      damageTable.attacker = parent
-      damageTable.damage = bonusDamage
-      damageTable.damage_type = ability:GetAbilityDamageType()
-      damageTable.ability = ability
+      local damageTable = {
+        attacker = parent,
+        victim = target,
+        damage = bonusDamage,
+        damage_type = ability:GetAbilityDamageType(),
+        ability = ability,
+      }
 
       --if parent:HasScepter() and target:IsMagicImmune() then
         --damageTable.damage_type = DAMAGE_TYPE_PHYSICAL
         --damageTable.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
       --end
-
-      ApplyDamage(damageTable)
-
-      -- Overhead particle message
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
 
       -- Sound
       target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
@@ -477,7 +491,8 @@ if IsServer() then
                 ExtraData = {
                   bounces_left = number_of_bounces - 1,
                   physical_damage = event.damage,
-                  spell_damage = bonusDamage
+                  spell_damage = bonusDamage,
+                  silence = silence_on_bounce,
                 }
               }
 
@@ -489,6 +504,12 @@ if IsServer() then
           end
         end
       end
+
+      -- Overhead particle message
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonusDamage, player)
+
+      -- Do Glaives of Wisdom damage
+      ApplyDamage(damageTable)
 
       self.procRecords[event.record] = nil
     end

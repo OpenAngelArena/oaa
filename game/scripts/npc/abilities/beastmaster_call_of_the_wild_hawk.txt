@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Beastmaster: Call of the Wild Hawk
+  //=================================================================================================================
+  "beastmaster_call_of_the_wild_hawk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "7231"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "MaxLevel"                                            "6"
+
+    "LinkedAbility"                                       "beastmaster_call_of_the_wild_boar_oaa"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "50"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"                                          "25"
+      "hawk_base_max_health"                              "250 450 650 850 1250 1850" //OAA
+      "hawk_base_gold_bounty"                             "30 40 50 60 120 240"
+      "hawk_base_vision_range"                            "600 650 700 750 800 850"
+      "hawk_base_xp_bounty"                               "40 50 60 70 80 90"
+      "hawk_base_magic_resist"                            "30 40 50 60 70 80"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "36 34 32 30 28 26"
+        "special_bonus_shard"                             "-10"
+      }
+      "attack_radius"                                     "500"
+      "hawk_count"
+      {
+        "value"                                           "1"
+        "special_bonus_shard"                             "+1"
+      }
+      "dive_damage"                                       "60 90 120 150 300 600"
+      "dive_root_duration"                                "1.0"
+      "roaming_radius"                                    "280"
+      "roaming_seconds_per_rotation"                      "4"
+      "hawk_base_attack_interval"                         "4"
+      "min_move_speed"                                    "455"
+      "max_move_speed"                                    "1100"
+    }
+  }
+}

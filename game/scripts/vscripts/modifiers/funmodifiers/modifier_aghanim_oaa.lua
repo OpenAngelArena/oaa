@@ -20,7 +20,7 @@ if IsServer() then
   function modifier_aghanim_oaa:OnCreated()
     local parent = self:GetParent()
 
-    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() then
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
       return
     end
 

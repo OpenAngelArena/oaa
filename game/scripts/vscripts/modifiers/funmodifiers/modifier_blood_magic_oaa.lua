@@ -18,8 +18,9 @@ end
 
 function modifier_blood_magic_oaa:OnCreated()
   local parent = self:GetParent()
-  self.bonus_hp = parent:GetMaxMana()
+  self.bonus_hp = parent:GetMaxMana() - 75
   self.bonus_hp_regen = parent:GetManaRegen()
+  self.bonus_mana = 0 - self.bonus_hp
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus(true)
     self:StartIntervalThink(0.5)
@@ -28,8 +29,9 @@ end
 
 function modifier_blood_magic_oaa:OnIntervalThink()
   local parent = self:GetParent()
-  self.bonus_hp = math.max(self.bonus_hp + parent:GetMaxMana(), 0)
+  self.bonus_hp = math.max(self.bonus_hp + parent:GetMaxMana(), 0) - 75
   self.bonus_hp_regen = math.max(parent:GetManaRegen(), 0)
+  self.bonus_mana = 0 - self.bonus_hp
   if IsServer() and parent:IsHero() then
     parent:CalculateStatBonus(true)
   end
@@ -39,7 +41,7 @@ function modifier_blood_magic_oaa:OnDestroy()
   local parent = self:GetParent()
   if IsServer() and parent and parent:IsHero() then
     parent:CalculateStatBonus(true)
-    parent:GiveMana(self.bonus_hp + 1)
+    parent:GiveMana(self.bonus_hp + 75)
   end
 end
 
@@ -65,7 +67,7 @@ if IsServer() then
     return self.bonus_hp
   end
   function modifier_blood_magic_oaa:GetModifierManaBonus()
-    return -self.bonus_hp
+    return self.bonus_mana
   end
 end
 

@@ -16,7 +16,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "0"
-
+    "ItemSellable"                                        "0"
     "ItemIsNeutralDrop"                                   "1"
     "ItemPurchasable"                                     "0"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
@@ -27,6 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_all_stats"                                   "25"
       "cooldown_reduction"                                "12"
       "bonus_spell_amp"                                   "15"
       "bonus_heal_amp"                                    "15"

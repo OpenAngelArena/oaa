@@ -85,6 +85,17 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   if level >= 5 or ( level >= 4 and caster:HasScepter() ) then
     caster:AddNewModifier( caster, self, "modifier_dragon_knight_max_level_oaa", { duration = duration, } )
   end
+
+  -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
+  local projectile_name = caster:GetRangedProjectileName()
+  if not projectile_name or projectile_name == "" then
+    if self:IsStolen() then
+      -- For Rubick if he doesn't have a projectile in Dragon Form at least add his base projectile
+      caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
+    else
+      caster:ChangeAttackProjectile()
+    end
+  end
 end
 
 function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()

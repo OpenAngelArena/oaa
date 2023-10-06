@@ -4,7 +4,6 @@ end
 
 function CustomTalentSystem:Init()
   self.moduleName = "CustomTalentSystem"
-  LinkLuaModifier("modifier_talent_tracker_oaa", "components/abilities/custom_talent_system.lua", LUA_MODIFIER_MOTION_NONE)
   GameEvents:OnHeroInGame(partial(self.InitializeTalentTracker, self))
 end
 
@@ -33,26 +32,26 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
-  abaddon_frostmourne = {
-    curse_attack_speed = {"special_bonus_unique_abaddon_1_oaa", "+"},
-  },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
   faceless_void_time_dilation = {
     radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
   },
+  gyrocopter_flak_cannon = {
+    radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
+  },
   hoodwink_acorn_shot = {
     base_damage_pct = {"special_bonus_unique_hoodwink_1_oaa", "+"},
+  },
+  huskar_inner_fire = {
+    damage = {"special_bonus_unique_huskar_1_oaa", "+"},
   },
   invoker_emp = {
     damage_per_mana_pct = {"special_bonus_unique_invoker_1_oaa", "+"},
   },
   invoker_sun_strike = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
-  },
-  life_stealer_feast = {
-    hp_damage_percent = {"special_bonus_unique_lifestealer_3_oaa", "+"},
   },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
@@ -69,8 +68,16 @@ local abilities_with_custom_talents = {
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
   },
-  ursa_earthshock = {
-    shock_radius = {"special_bonus_unique_ursa_1_oaa", "+"},
+  spectre_haunt = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  spectre_haunt_single = {
+    illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+    tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  ursa_fury_swipes = {
+    bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},

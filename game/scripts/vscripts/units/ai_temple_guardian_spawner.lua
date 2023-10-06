@@ -74,7 +74,7 @@ end
 function RemovePedestals(p1, p2, killer_index)
   -- Ideally we would set the velocity but it does not work on Z axis.
   local offset = 0
-  local step = 20
+  local step = 10
 
   local nFXIndex1
   if p1 and not p1:IsNull() then

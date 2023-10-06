@@ -15,6 +15,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
     "MaxLevel"                                            "1"
 
@@ -61,7 +62,6 @@
     {
       "particle"                                          "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
       "particle"                                          "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_base_attack_impact.vpcf"
-      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
     }

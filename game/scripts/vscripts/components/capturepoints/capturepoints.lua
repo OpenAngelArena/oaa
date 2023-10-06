@@ -1,43 +1,9 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_standard_capture_point", "modifiers/modifier_standard_capture_point.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_standard_capture_point_dummy_stuff", "modifiers/modifier_standard_capture_point_dummy_stuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 CAPTUREPOINT_IS_STARTING = 60
 CapturePoints = CapturePoints or class({})
 
 -- local Zones = {
   -- { left = Vector( -1280, -1000, 0), right = Vector( 1280, 1000, 0) }, --Zones
-  -- { left = Vector( -1920, -768, 0), right = Vector( 1920, 768, 0) },
-  -- { left = Vector( -2176, -384, 0), right = Vector( 2176, 384, 0) },
-  -- { left = Vector( -960, -1280, 0), right = Vector( 1152, 1180, 0) },
-  -- { left = Vector( -640, -1664, 0), right = Vector( 640, 1800, 0) },
-  -- { left = Vector( -2048, -1408, 0), right = Vector( 1792, 1280, 0) },
-  -- { left = Vector( -2304, -2048, 0), right = Vector( 2304, 2048, 0) },  -- in the stairs
-  -- { left = Vector( -1700, -2300, 0), right = Vector( 1920, 1920, 0) },
-  -- { left = Vector( -1408, -3200, 128), right = Vector( 1408, 3200, 128) },
-  -- { left = Vector( -2492, -3216, 128), right = Vector( 1892, 3016, 128) },
-  -- { left = Vector( -2304, -2944, 128), right = Vector( 2304, 2944, 128) },
-  -- { left = Vector( -1566, -3584, 128), right = Vector( 1566, 3584, 128) },
-  -- { left = Vector( -1152, -4096, 128), right = Vector( 1152, 4096, 128) },
-  -- { left = Vector( -2650, -3072, 128), right = Vector( 2650, 3072, 128) },
-  -- { left = Vector( -3584, -3072, 128), right = Vector( 3496, 3072, 128) },
-  -- { left = Vector( -4992, -3200, 128), right = Vector( 4992, 3200, 128) },
-  -- { left = Vector( -2047, 670, 0), right = Vector( 2052, -625, 0) },
-  -- { left = Vector( -1920, 768, 0), right = Vector( 1920, -768, 0) },  -- same as the second one
-  -- { left = Vector( -2176, 384, 0), right = Vector( 2176, -384, 0) },
-  -- { left = Vector( -1024, 1280, 0), right = Vector( 1152, -1280, 0) },
-  -- { left = Vector( -1024, 1664, 0), right = Vector( 1024, -1664, 0) },
-  -- { left = Vector( -1664, 1280, 0), right = Vector( 2192, -1380, 0) },
-  -- { left = Vector( -1726, 1924, 0), right = Vector( 1798, -2007, 0) },
-  -- { left = Vector( -1664, 1920, 0), right = Vector( 1664, -1920, 0) },
-  -- { left = Vector( -1408, 3200, 128), right = Vector( 1408, -3200, 128) },
-  -- { left = Vector( -1792, 2816, 128), right = Vector( 2000, -2816, 128) },
-  -- { left = Vector( -2304, 2944, 128), right = Vector( 2304, -2944, 128) },
-  -- { left = Vector( -1566, 3584, 128), right = Vector( 1566, -3584, 128) },
-  -- { left = Vector( -1152, 4096, 128), right = Vector( 1152, -4096, 128) },
-  -- { left = Vector( -3121, 3885, 128), right = Vector( 2709, -3830, 128) },
-  -- { left = Vector( -3584, 3072, 128), right = Vector( 3363, -3228, 128) },
-  -- { left = Vector( -4992, 3200, 128), right = Vector( 4992, -3200, 128) }}
 
 --local NumZones = 32
 local LiveZones = 0
@@ -56,7 +22,7 @@ function CapturePoints:Init ()
 
   self.currentCapture = nil
   self.NumCaptures = 0
-  self.CapturePointLocation = Vector(0, 0, 0)
+  self.CapturePointLocation = GetMapCenterOAA()
 
   self.nextCaptureTime = self:GetInitialDelay()
   self.CaptureLocationSearchDuration = 20
@@ -102,6 +68,10 @@ function CapturePoints:MinimapPing()
   --Timers:CreateTimer(3.2, function ()
     --Minimap:SpawnCaptureIcon(CurrentZones.right)
   --end)
+  if not location then
+    print("Not set default position for Capture Point")
+    return
+  end
   Minimap:SpawnCaptureIcon(location)
   for playerId = 0, DOTA_MAX_TEAM_PLAYERS-1 do
     if PlayerResource:IsValidPlayerID(playerId) then
@@ -190,10 +160,10 @@ function CapturePoints:StartCapture(color)
   self.currentCapture = {
     y = 1
   }
-  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
+  Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="50px"}, replacement_map={seconds_to_cp = CAPTURE_FIRST_WARN}})
   self:MinimapPing()
   Timers:CreateTimer(CAPTURE_FIRST_WARN - CAPTURE_SECOND_WARN, function ()
-    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="70px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
+    Notifications:TopToAll({text="#capturepoints_imminent_warning", duration=3.0, style={color="red", ["font-size"]="50px"}, replacement_map={seconds_to_cp = CAPTURE_SECOND_WARN}})
     CapturePoints:MinimapPing()
   end)
 
@@ -272,7 +242,7 @@ function CapturePoints:ActuallyStartCapture()
   end
 
   local closer_fountain = radiant_fountain
-  if self:DistanceFromFountain(spawnVector, DOTA_TEAM_BADGUYS) < self:DistanceFromFountain(spawnVector, DOTA_TEAM_GOODGUYS) then
+  if DistanceFromFountainOAA(spawnVector, DOTA_TEAM_BADGUYS) < DistanceFromFountainOAA(spawnVector, DOTA_TEAM_GOODGUYS) then
     closer_fountain = dire_fountain
   end
 
@@ -284,6 +254,8 @@ function CapturePoints:ActuallyStartCapture()
   -- Give the capture_point some vision so that spectators can always see the capture point
   capture_point:SetDayTimeVisionRange(1)
   capture_point:SetNightTimeVisionRange(1)
+
+  self.capture_point = capture_point
 
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
@@ -329,7 +301,7 @@ function CapturePoints:EndCapture()
     DebugPrint ('There is no Capture running')
     return
   end
-  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="110px"}})
+  Notifications:TopToAll({text="#capturepoints_end", duration=3.0, style={color="blue", ["font-size"]="100px"}})
   DebugPrint('Capture Point has ended')
   CaptureFinished.broadcast(self.currentCapture)
   self.currentCapture = nil
@@ -341,50 +313,91 @@ function CapturePoints:EndCapture()
   if self.dire_dummy and not self.dire_dummy:IsNull() then
     self.dire_dummy:ForceKillOAA(false)
   end
+  -- Remove capture point itself
+  if self.capture_point and not self.capture_point:IsNull() then
+    self.capture_point:ForceKillOAA(false)
+  end
 end
 
 function CapturePoints:StartSearchingForCaptureLocation()
-  local defaultPosition = Vector(0, 0, 0)
-  local maxDistanceFromFountain = self:DistanceFromFountain(defaultPosition, DOTA_TEAM_GOODGUYS) -- 6656
-  --print("maxDistanceFromFountain is : "..tostring(maxDistanceFromFountain))
-  local minDistanceFromFountain = 800 -- X: 6206
-  local maxY = 4100
-  local maxX = maxDistanceFromFountain - 500 -- 6156
-  local minY = 0
-  local minX = 0
+  local center = GetMapCenterOAA()
+  local XBounds = GetMainAreaBoundsX()
+  local YBounds = GetMainAreaBoundsY()
+
+  -- Get distances from the fountains because they can be different
+  local RadiantFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_GOODGUYS)
+  local DireFountainFromCenter = DistanceFromFountainOAA(center, DOTA_TEAM_BADGUYS)
+
+  local diffDistanceFromFountain = 500
+  local minDistanceFromFountain = 500
+  local maxDistanceFromFountain = math.max(RadiantFountainFromCenter, DireFountainFromCenter) + minDistanceFromFountain
+
+  local maxY = math.ceil(YBounds.maxY)
+  local maxX = math.ceil(XBounds.maxX)
+  local minY = math.floor(YBounds.minY)
+  local minX = math.floor(XBounds.minX)
 
   local scoreDiff = math.abs(PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) - PointsManager:GetPoints(DOTA_TEAM_BADGUYS))
   local isGoodLead = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS) > PointsManager:GetPoints(DOTA_TEAM_BADGUYS)
 
-  if scoreDiff >= 20 then
-    maxDistanceFromFountain = maxDistanceFromFountain / 3.8 -- 1751.58 -> X: 4904.22
-    minX = math.floor(maxX * 4 / 5) -- 4924
-  elseif scoreDiff >= 15 then
-    minDistanceFromFountain = maxDistanceFromFountain / 5 -- 1331.2 -> X: 5324.8
-    maxDistanceFromFountain = maxDistanceFromFountain / 1.5 -- 4437.34 -> X: 2218.67
-    minX = math.floor(maxX * 2 / 5) -- 2462
-    maxX = math.ceil(maxX * 4 / 5)  -- 4925
-  elseif scoreDiff >= 10 then
-    minDistanceFromFountain = maxDistanceFromFountain / 1.7 -- 3915.3 -> X: 2740.7
-    maxDistanceFromFountain = maxDistanceFromFountain / 1.2 -- 5546.67 -> X: 1109.34
-    minX = math.floor(maxX / 5) -- 1231
-    maxX = math.ceil(maxX * 2 / 5)  -- 2462
-  elseif scoreDiff >= 5 then
-    minDistanceFromFountain = maxDistanceFromFountain / 1.25 -- 5324.8 -> X: 1331.2
-    maxX = math.ceil(maxX / 5) -- 1232
+  -- The following code assumes that:
+  -- 1) real center (0.0) is between the fountains somewhere
+  -- 2) radiant fountain x coordinate is < 0
+  -- 3) dire fountain x coordinate is > 0
+  -- 4) fountains don't share the same y coordinate
+  if isGoodLead then
+    if scoreDiff >= 20 then
+      minX = math.floor(center.x + DireFountainFromCenter * 4 / 5)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (1 / 5 + 0.01)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x + DireFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 4 / 5)
+      minDistanceFromFountain = DireFountainFromCenter * (1 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (3 / 5 + 0.01)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x + DireFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 2 / 5)
+      minDistanceFromFountain = DireFountainFromCenter * (3 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + DireFountainFromCenter * (4 / 5 + 0.01)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+      --minDistanceFromFountain = DireFountainFromCenter * (4 / 5 - 0.01)
+      --maxDistanceFromFountain = DireFountainFromCenter
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   else
-    minX = 0
-    maxX = 0
+    if scoreDiff >= 20 then
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 4 / 5)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (1 / 5 + 0.01)
+    elseif scoreDiff >= 15 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 4 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 2 / 5)
+      minDistanceFromFountain = RadiantFountainFromCenter * (1 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (3 / 5 + 0.01)
+    elseif scoreDiff >= 10 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 2 / 5)
+      maxX = math.ceil(center.x - RadiantFountainFromCenter * 1 / 5)
+      minDistanceFromFountain = RadiantFountainFromCenter * (3 / 5 - 0.01)
+      maxDistanceFromFountain = diffDistanceFromFountain + RadiantFountainFromCenter * (4 / 5 + 0.01)
+    elseif scoreDiff >= 5 then
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x)
+      --minDistanceFromFountain = RadiantFountainFromCenter * (4 / 5 - 0.01)
+      --maxDistanceFromFountain = RadiantFountainFromCenter
+    else
+      minX = math.floor(center.x - RadiantFountainFromCenter * 1 / 5)
+      maxX = math.ceil(center.x + DireFountainFromCenter * 1 / 5)
+    end
   end
 
-  defaultPosition = Vector(math.floor((minX + maxX) / 2), minY, 0)
-  if not isGoodLead then
-    defaultPosition.x = 0 - defaultPosition.x
-  end
+  local defaultPosition = Vector(math.floor((minX + maxX) / 2), center.y, 0)
 
   local loopCount = 0
   local maxSearchDuration = self.CaptureLocationSearchDuration
-  local searchInterval = 2 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountain and IsZonePathable checks
+  local searchInterval = 3 -- depends how long FindBestCapturePointLocation lasts and that depends mostly on duration of DistanceFromFountainOAA and IsZonePathable checks
   local maxLoops = math.floor(maxSearchDuration / searchInterval) - 1
 
   Timers:CreateTimer(function ()
@@ -414,84 +427,12 @@ function CapturePoints:FindBestCapturePointLocation(minX, maxX, minY, maxY, minD
   end
 
   local position = Vector(RandomInt(minX, maxX), RandomInt(minY, maxY), 100)
-  if RandomInt(0, 1) == 0 then
-    position.y = 0 - position.y
-  end
-  if not isGoodLead then
-    position.x = 0 - position.x
-  end
 
-  if self:DistanceFromFountain(position, fountainTeam) >= maxDistance or self:DistanceFromFountain(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
+  if DistanceFromFountainOAA(position, fountainTeam) >= maxDistance or DistanceFromFountainOAA(position, fountainTeam) <= minDistance or not self:IsZonePathable(position) then
     return nil
   end
 
   return position
-end
-
-function CapturePoints:IsLocationInFountain(location)
-  if not location then
-    return nil
-  end
-
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local radiant_fountain
-  local dire_fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      radiant_fountain = entity
-    elseif entity:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-      dire_fountain = entity
-    end
-  end
-
-  local radiant_fountain_trigger = Entities:FindByName(nil, "fountain_good_trigger")
-  local dire_fountain_trigger = Entities:FindByName(nil, "fountain_bad_trigger")
-
-  if radiant_fountain_trigger then
-    if IsInTrigger(location, radiant_fountain_trigger) then
-      return true
-    end
-  else
-    print("Radiant fountain trigger not found or referenced name is wrong.")
-    if radiant_fountain then
-      if (radiant_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
-        return true
-      end
-    end
-  end
-
-  if dire_fountain_trigger then
-    if IsInTrigger(location, dire_fountain_trigger) then
-      return true
-    end
-  else
-    print("Dire fountain trigger not found or referenced name is wrong.")
-    if dire_fountain then
-      if (dire_fountain:GetAbsOrigin() - location):Length2D() <= 400 then
-        return true
-      end
-    end
-  end
-
-  return false
-end
-
-function CapturePoints:DistanceFromFountain(location, team)
-  if not location or not team then
-    return nil
-  end
-  local fountains = Entities:FindAllByClassname("ent_dota_fountain")
-  local fountain
-  for _, entity in pairs(fountains) do
-    if entity:GetTeamNumber() == team then
-      fountain = entity
-    end
-  end
-  if not fountain then
-    return nil
-  end
-
-  return (fountain:GetAbsOrigin() - location):Length2D()
 end
 
 function CapturePoints:IsZonePathable(location)
@@ -525,7 +466,7 @@ function CapturePoints:IsZonePathable(location)
         end
       end
       if (pos4.x - zone_center.x)^2 + (pos4.y - zone_center.y)^2 <= zone_radius^2 then
-        -- test_pos is inside the circle
+        -- pos4 is inside the circle
         if not GridNav:IsBlocked(pos4) and GridNav:IsTraversable(pos4) then
           counter = counter + 1
         end
@@ -548,18 +489,22 @@ function CapturePoints:IsZonePathable(location)
 end
 
 function CapturePoints:GetInitialDelay()
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
   if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
     if Duels then
       return Duels:GetDuelTimeout(1) + Duels:GetDuelIntervalTime() + Duels:GetDuelTimeout() + 10
     else
-      if GetMapName() == "1v1" then
+      if lowPlayerCount then
         return ONE_V_ONE_DUEL_TIMEOUT + ONE_V_ONE_DUEL_INTERVAL + ONE_V_ONE_DUEL_TIMEOUT + 10
       end
       return FIRST_DUEL_TIMEOUT + DUEL_INTERVAL + DUEL_TIMEOUT + 10
     end
   end
 
-  if GetMapName() == "1v1" then
+  if lowPlayerCount then
     return ONE_V_ONE_INITIAL_CAPTURE_POINT_DELAY
   end
 
@@ -567,18 +512,22 @@ function CapturePoints:GetInitialDelay()
 end
 
 function CapturePoints:GetCapturePointIntervalTime()
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
   if CAPTURE_POINTS_AND_DUELS_NO_OVERLAP then
     if Duels then
       return Duels:GetDuelIntervalTime()
     else
-      if GetMapName() == "1v1" then
+      if lowPlayerCount then
         return ONE_V_ONE_DUEL_INTERVAL
       end
       return DUEL_INTERVAL
     end
   end
 
-  if GetMapName() == "1v1" then
+  if lowPlayerCount then
     return ONE_V_ONE_CAPTURE_INTERVAL
   end
 

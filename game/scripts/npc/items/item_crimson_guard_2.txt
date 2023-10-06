@@ -71,7 +71,11 @@
       "block_damage_ranged"                               "50 85 120 155 190"
       "block_chance"                                      "75"
       "duration"                                          "8"
-      "bonus_aoe_radius"                                  "1200"
+      "bonus_aoe_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "block_damage_active"                               "70 120 170 220 270"
       "block_chance_active"                               "100"
       "tooltip_reapply_time"                              "20"

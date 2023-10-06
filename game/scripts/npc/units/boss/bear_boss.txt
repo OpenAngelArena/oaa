@@ -21,9 +21,8 @@
     //----------------------------------------------------------------
     "Ability1"                                            "boss_fury_swipes"
     "Ability2"                                            "bear_boss_earthshock"
-    "Ability3"                                            "boss_resistance"
-    "Ability4"                                            "boss_cliffwalk"
-    "Ability5"                                            "boss_regen"
+    "Ability3"                                            "boss_basic_properties_oaa"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
@@ -35,7 +34,6 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "100"    // Damage range min.
     "AttackDamageMax"                                     "100"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
     "AttackRate"                                          "0.6"    // Speed of attack.
     "AttackAnimationPoint"                                "0.6"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"    // Range within a target can be acquired.

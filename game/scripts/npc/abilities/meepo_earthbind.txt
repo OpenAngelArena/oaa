@@ -25,43 +25,25 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 90 100" //OAA
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "2.0"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.0"
+        "value"                                           "220"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "speed"                                             "1000"
+      "megameepo_net_offset"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "220"
+        "value"                                           "160"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "900"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "abilitycastrange"                                ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_meepo_4"
-      }
-      "10" //OAA
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_point_tooltip"                              "0.3 0.25 0.2 0.15 0.1 0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "megameepo_net_offset"                            "160"
-      }
+      "cast_point_tooltip"                                "0.3 0.25 0.2 0.15 0.1 0" //OAA
     }
   }
 }

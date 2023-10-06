@@ -216,11 +216,19 @@ if IsServer() then
     -- Calculate bonus damage
     local min_damage = ability:GetSpecialValueFor("min_damage")
     local max_damage = ability:GetSpecialValueFor("max_damage")
-    local chance = ability:GetSpecialValueFor("chance_pct")
+
+    -- Bonus damage talent
+    local talent = parent:FindAbilityByName("special_bonus_unique_faceless_void_3_oaa")
+    if talent and talent:GetLevel() > 0 then
+      min_damage = min_damage + talent:GetSpecialValueFor("value")
+      max_damage = max_damage + talent:GetSpecialValueFor("value2")
+    end
+
     local bonus_damage = min_damage
 
     -- Imitate multiple proccing without instant attack on each proc
     -- We use true random to simplify the code and to make it more fair and balanced
+    local chance = ability:GetSpecialValueFor("chance_pct")
     if RandomInt(0, 100) <= chance then
       bonus_damage = (min_damage + max_damage) / 2
       if RandomInt(0, 100) <= chance then
@@ -228,19 +236,14 @@ if IsServer() then
       end
     end
 
-    -- Bonus damage talent
-    local talent = parent:FindAbilityByName("special_bonus_unique_faceless_void_3")
-    if talent and talent:GetLevel() > 0 then
-      bonus_damage = bonus_damage + talent:GetSpecialValueFor("value")
-    end
-
     -- Damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = bonus_damage
-    damage_table.victim = target
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      damage = bonus_damage,
+      damage_type = ability:GetAbilityDamageType(),
+      ability = ability,
+    }
 
     -- Apply bonus damage
     ApplyDamage(damage_table)

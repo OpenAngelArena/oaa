@@ -21,7 +21,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "70" //OAA
+    "AbilityChargeRestoreTime"                            "60" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,26 +29,25 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "vision_aoe"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_aoe"                                      "800"
+        "value"                                           "800"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "overgrowth_aoe"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "overgrowth_aoe"                                  "800"
+        "value"                                           "800"
         "LinkedSpecialBonus"                              "special_bonus_unique_treant_5"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "tree_respawn_seconds"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tree_respawn_seconds"                            "10"
+        "value"                                           "10"
         "RequiresScepter"                                 "1"
       }
     }
