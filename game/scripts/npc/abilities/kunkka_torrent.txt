@@ -35,7 +35,7 @@
       "radius"
       {
         "value"                                           "225"
-        "special_bonus_unique_kunkka"                     "+80"
+        "special_bonus_unique_kunkka"                     "+65"
         "affected_by_aoe_increase"                        "1"
       }
       "movespeed_bonus"                                   "-40"
@@ -51,6 +51,7 @@
         "value"                                           "80 160 240 320 640 1280"
         "special_bonus_unique_kunkka_7"                   "+30%"
       }
+      "percent_instant"                                   "0"
       "damage_tick_interval"                              "0.2"
     }
   }

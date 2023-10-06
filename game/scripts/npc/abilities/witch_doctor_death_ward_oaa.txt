@@ -32,7 +32,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "90 80 70 65 60"
     "AbilityChannelTime"                                  "8.0"
 
     // Cost
@@ -55,7 +55,7 @@
     {
       "ward_damage"
       {
-        "value"                                           "60 100 140 220 300"
+        "value"                                           "70 105 140 210 350"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
       }
       "ward_attack_range"
