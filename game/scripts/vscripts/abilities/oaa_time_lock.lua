@@ -237,12 +237,13 @@ if IsServer() then
     end
 
     -- Damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = bonus_damage
-    damage_table.victim = target
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      damage = bonus_damage,
+      damage_type = ability:GetAbilityDamageType(),
+      ability = ability,
+    }
 
     -- Apply bonus damage
     ApplyDamage(damage_table)

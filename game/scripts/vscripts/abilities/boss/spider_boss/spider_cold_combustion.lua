@@ -31,24 +31,28 @@ function spider_cold_combustion:Boom(parent)
       false
     )
 
+    local damage_table = {
+      attacker = parent,
+      damage = damage,
+      damage_type = damageType,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self,
+    }
+
     -- iterate through 'em
     for _, unit in pairs( units ) do
-      -- apply felfrost and increase its stack count
-      local mod = unit:AddNewModifier( parent, self, "modifier_felfrost", {} )
+      if unit and not unit:IsNull() and not unit:IsMagicImmune() and not unit:IsDebuffImmune() then
+        -- apply felfrost and increase its stack count
+        local mod = unit:AddNewModifier( parent, self, "modifier_felfrost", {} )
 
-      if mod then
-        mod:IncrementStackCount()
+        if mod then
+          mod:IncrementStackCount()
+        end
+
+        -- deal damage
+        damage_table.victim = unit
+        ApplyDamage(damage_table)
       end
-
-      -- deal damage
-      ApplyDamage( {
-        victim = unit,
-        attacker = parent,
-        damage = damage,
-        damage_type = damageType,
-        damage_flags = DOTA_DAMAGE_FLAG_NONE,
-        ability = self,
-      } )
     end
 
     -- play sound effect
@@ -92,11 +96,9 @@ end
 
 if IsServer() then
 	function modifier_spider_cold_combustion:DeclareFunctions()
-		local funcs = {
+		return {
 			MODIFIER_EVENT_ON_DEATH,
 		}
-
-		return funcs
 	end
 
 --------------------------------------------------------------------------------

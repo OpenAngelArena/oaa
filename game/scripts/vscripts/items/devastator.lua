@@ -87,7 +87,7 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
     end
 
     -- Damage part should always be applied
-    local damage = {
+    local damage_table = {
       victim = hTarget,
       attacker = caster,
       damage = self.devastator_damage,
@@ -96,7 +96,7 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
       ability = self
     }
 
-    ApplyDamage( damage )
+    ApplyDamage(damage_table)
 
     caster:PerformAttack(hTarget, true, true, true, false, false, false, true)
 

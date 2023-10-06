@@ -9,18 +9,18 @@ end
 
 function item_sacred_skull:OnSpellStart()
   local caster = self:GetCaster()
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.ability = self
-
   -- if not caster:IsInvulnerable() then
     -- local current_hp = caster:GetHealth()
     -- local current_hp_as_dmg = self:GetSpecialValueFor("health_cost")
-    -- damage_table.damage = current_hp * current_hp_as_dmg * 0.01
-    -- damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-    -- damage_table.damage_type = DAMAGE_TYPE_PURE
-    -- damage_table.victim = caster
-    -- ApplyDamage(damage_table)
+    -- local damage_table_0 = {
+    --   attacker = caster,
+    --   victim = caster,
+    --   damage = current_hp * current_hp_as_dmg * 0.01,
+    --   damage_type = DAMAGE_TYPE_PURE,
+    --   damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NON_LETHAL, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    --   ability = self,
+    -- }
+    -- ApplyDamage(damage_table_0)
     -- -- Hit Particle
     -- local particle = ParticleManager:CreateParticle("", PATTACH_ABSORIGIN_FOLLOW, caster)
     -- ParticleManager:DestroyParticle(particle, false)
@@ -74,17 +74,23 @@ function item_sacred_skull:OnSpellStart()
   local magic_damage = self:GetSpecialValueFor("base_dmg") + self:GetSpecialValueFor("magic_dmg_per_current_mana") * current_mana
   local physical_damage = self:GetSpecialValueFor("phys_dmg_per_missing_mana") * missing_mana
 
-  damage_table.damage = magic_damage
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+  local damage_table_1 = {
+    attacker = caster,
+    damage = magic_damage,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = self,
+  }
+
   -- local heal_amount = missing_hp * heal_per_missing_hp
 
-  local damage_table_2 = {}
-  damage_table_2.attacker = caster
-  damage_table_2.ability = self
-  damage_table_2.damage = physical_damage
-  damage_table_2.damage_type = DAMAGE_TYPE_PHYSICAL
-  damage_table_2.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+  local damage_table_2 = {
+    attacker = caster,
+    damage = physical_damage,
+    damage_type = DAMAGE_TYPE_PHYSICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = self,
+  }
 
   -- Damage enemies
   for _, enemy in pairs(enemies) do
@@ -94,8 +100,8 @@ function item_sacred_skull:OnSpellStart()
       --ParticleManager:DestroyParticle(particle, false)
       --ParticleManager:ReleaseParticleIndex(particle)
       -- Magic Damage
-      damage_table.victim = enemy
-      ApplyDamage(damage_table)
+      damage_table_1.victim = enemy
+      ApplyDamage(damage_table_1)
       -- Physical Damage
       damage_table_2.victim = enemy
       if not enemy:IsNull() then
@@ -360,19 +366,21 @@ if IsServer() then
       local magic_damage = base_dmg + magic_dmg_mult * current_mana
       local physical_damage = phys_dmg_mult * missing_mana
 
-      local damage_table = {}
-      damage_table.attacker = parent
-      damage_table.ability = ability
-      damage_table.damage = magic_damage
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+      local damage_table = {
+        attacker = parent,
+        damage = magic_damage,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = ability,
+      }
 
-      local damage_table_2 = {}
-      damage_table_2.attacker = parent
-      damage_table_2.ability = ability
-      damage_table_2.damage = physical_damage
-      damage_table_2.damage_type = DAMAGE_TYPE_PHYSICAL
-      damage_table_2.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+      local damage_table_2 = {
+        attacker = parent,
+        damage = physical_damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = ability,
+      }
 
       -- Damage enemies
       for _, enemy in pairs(enemies) do

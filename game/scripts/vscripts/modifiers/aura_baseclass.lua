@@ -24,7 +24,7 @@ function AuraProviderBaseClass:RemoveOnDeath()
 end
 
 if IsServer() then
-  function AuraProviderBaseClass:OnCreated(keys)
+  function AuraProviderBaseClass:OnCreated()
     self:StartIntervalThink(0.03)
   end
 

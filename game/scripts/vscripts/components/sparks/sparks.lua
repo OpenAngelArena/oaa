@@ -357,7 +357,12 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_zuus = "midas",
   }
 
-  if (OAAOptions and OAAOptions.settings and OAAOptions.settings.small_player_pool == 1) or GetMapName() == "1v1" then
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
+
+  if (OAAOptions and OAAOptions.settings and OAAOptions.settings.small_player_pool == 1) or lowPlayerCount then
     if default_sparks[hero_name] == "midas" then
       return "cleave"
     end

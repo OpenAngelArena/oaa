@@ -1,9 +1,9 @@
 "DOTA_Tooltip_ability_meepo_together_we_stand_oaa"                              "Together We Stand"
-"DOTA_Tooltip_ability_meepo_together_we_stand_oaa_Description"                  "Each Meepo provides stacking damage reduction to other meepos when near each other. Damage Reduction doesn't work if Divided We Stand is not skilled."
+"DOTA_Tooltip_ability_meepo_together_we_stand_oaa_Description"                  "Meepo and his clones grant stacking damage reduction to Meepo's clones when near each other. Damage Reduction doesn't work if Divided We Stand is not skilled."
 "DOTA_Tooltip_ability_meepo_together_we_stand_oaa_Lore"                         "Tougher to kill when together."
 "DOTA_Tooltip_ability_meepo_together_we_stand_oaa_Note0"                        "Can be disabled with Break."
 "DOTA_Tooltip_ability_meepo_together_we_stand_oaa_aura_radius"                  "RADIUS:"
 "DOTA_Tooltip_ability_meepo_together_we_stand_oaa_bonus_dmg_reduction_pct"      "%DAMAGE REDUCTION PER MEEPO:"
 
 "DOTA_Tooltip_modifier_meepo_together_we_stand_oaa_bonus_buff"                  "#{DOTA_Tooltip_ability_meepo_together_we_stand_oaa}"
-"DOTA_Tooltip_modifier_meepo_together_we_stand_oaa_bonus_buff_description"      "Taking %dMODIFIER_PROPERTY_TOOLTIP%%% less damage."
+"DOTA_Tooltip_modifier_meepo_together_we_stand_oaa_bonus_buff_description"      "Taking %dMODIFIER_PROPERTY_TOOLTIP%%% less damage if this Meepo is a clone."

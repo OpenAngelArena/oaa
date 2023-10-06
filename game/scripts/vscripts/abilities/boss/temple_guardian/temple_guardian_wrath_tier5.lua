@@ -3,7 +3,9 @@ LinkLuaModifier( "modifier_temple_guardian_immunity", "abilities/boss/temple_gua
 
 temple_guardian_wrath_tier5 = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
+function temple_guardian_wrath_tier5:Precache(context)
+  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+end
 
 function temple_guardian_wrath_tier5:GetChannelAnimation()
 	return ACT_DOTA_CHANNEL_ABILITY_4

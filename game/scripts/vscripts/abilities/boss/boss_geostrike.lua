@@ -105,11 +105,10 @@ function modifier_boss_geostrike_debuff:OnRefresh()
 end
 
 function modifier_boss_geostrike_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-  return funcs
 end
 
 function modifier_boss_geostrike_debuff:GetModifierMoveSpeedBonus_Percentage()

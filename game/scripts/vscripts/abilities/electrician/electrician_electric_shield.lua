@@ -269,59 +269,73 @@ if IsServer() then
 
 --------------------------------------------------------------------------------
 
-	function modifier_electrician_electric_shield:OnIntervalThink()
-		local parent = self:GetParent()
-		local caster = self:GetCaster()
-		local spell = self:GetAbility()
-		local parentOrigin = parent:GetAbsOrigin()
+  function modifier_electrician_electric_shield:OnIntervalThink()
+    local parent = self:GetParent()
+    local caster = self:GetCaster()
+    local spell = self:GetAbility()
+    local parentOrigin = parent:GetAbsOrigin()
 
-		local units = FindUnitsInRadius(
-			parent:GetTeamNumber(),
-			parentOrigin,
-			nil,
-			self.damageRadius,
-			spell:GetAbilityTargetTeam(),
-			spell:GetAbilityTargetType(),
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_ANY_ORDER,
-			false
-		)
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parentOrigin,
+      nil,
+      self.damageRadius,
+      spell:GetAbilityTargetTeam(),
+      spell:GetAbilityTargetType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
 
-		for _, target in pairs( units ) do
-			ApplyDamage( {
-				victim = target,
-				attacker = caster,
-				damage = self.damagePerInterval,
-				damage_type = self.damageType,
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-				ability = spell,
-			} )
+    local damage_table = {
+      attacker = caster,
+      damage = self.damagePerInterval,
+      damage_type = self.damageType,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = spell,
+    }
 
-      -- old particle
-      --local part = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_POINT_FOLLOW, parent)
-      -- new particle
+    for _, target in pairs( units ) do
+      -- Particle
       local part = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
       ParticleManager:SetParticleControlEnt(part, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
       ParticleManager:SetParticleControlEnt(part, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parentOrigin, true)
       ParticleManager:ReleaseParticleIndex(part)
 
-			target:EmitSound( "Hero_razor.lightning" )
-		end
-	end
+      -- Sound
+      target:EmitSound( "Hero_razor.lightning" )
+
+      -- Apply damage
+      damage_table.victim = target
+      ApplyDamage(damage_table)
+    end
+  end
 end
 
 function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(event)
   local parent = self:GetParent()
+  local ability = self:GetAbility()
   if IsClient() then
     -- Shield numbers (visual only)
+    local max_mana = parent:GetMaxMana()
+    local current_mana = parent:GetMana()
+    local max_shield_hp
+    local current_shield_hp
     if parent:HasShardOAA() then
-      local ability = self:GetAbility()
       local damage_per_mana = math.max(ability:GetSpecialValueFor("shard_shield_per_mana"), ability:GetSpecialValueFor("shield_per_mana"))
-      local current_mana = parent:GetMana()
-
-      return current_mana * damage_per_mana
+      max_shield_hp = max_mana * damage_per_mana
+      current_shield_hp = current_mana * damage_per_mana
     else
-      return self:GetStackCount()
+      local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
+      local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
+      max_shield_hp = max_mana_cost * damage_per_mana
+      current_shield_hp = self:GetStackCount()
+    end
+
+    if event.report_max then
+      return max_shield_hp
+    else
+      return current_shield_hp
     end
   else
     -- Continue only if parent doesn't have a shard

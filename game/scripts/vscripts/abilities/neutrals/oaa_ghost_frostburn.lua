@@ -35,10 +35,9 @@ end
 modifier_frostburn_oaa_applier.OnRefresh = modifier_frostburn_oaa_applier.OnCreated
 
 function modifier_frostburn_oaa_applier:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -119,7 +118,7 @@ function modifier_frostburn_oaa_effect:GetEffectName()
 end
 
 function modifier_frostburn_oaa_effect:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
@@ -127,7 +126,6 @@ function modifier_frostburn_oaa_effect:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     --MODIFIER_EVENT_ON_HEALTH_GAINED
   }
-  return funcs
 end
 
 function modifier_frostburn_oaa_effect:GetModifierHealAmplify_PercentageTarget()

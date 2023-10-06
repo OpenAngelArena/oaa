@@ -8,8 +8,8 @@ test('can read in tooltip list', function (t) {
   const getTranslations = require('../parse-translation');
 
   request.get({
-    // url: https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/dota_english.txt
-    url: 'https://raw.githubusercontent.com/arcadia-redux/dota_vpk_updates/main/resource/localization/abilities_english.txt'
+    // url: https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/dota_english.txt
+    url: 'https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/resource/localization/abilities_english.txt'
   }, function (err, result) {
     if (err) {
       t.fail(err);

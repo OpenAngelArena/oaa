@@ -74,60 +74,59 @@ function witch_doctor_death_ward_oaa:OnProjectileHit_ExtraData(target, location,
   end
 
   -- Damage table of the projectile
-  local damage_table = {}
-  damage_table.attacker = damage_source
-  damage_table.damage = damage
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
-  damage_table.victim = target
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+  local damage_table = {
+    attacker = damage_source,
+    victim = target,
+    damage = damage,
+    damage_type = self:GetAbilityDamageType(),
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    ability = self,
+  }
 
-  ApplyDamage(damage_table)
+  -- If the owner of the Death Ward has Aghanim Scepter
+  if owner:HasScepter() then
+    local projectile_speed = 1000
+    if self.ward_unit and not self.ward_unit:IsNull() then
+      projectile_speed = self.ward_unit:GetProjectileSpeed()
+    end
 
-  -- If the owner of the Death Ward doesn't have Aghanim Scepter, don't continue
-  if not owner:HasScepter() then
-    return
-  end
+    -- Copy data table into new_data table
+    local new_data = {}
+    for k, v in pairs(data) do
+      new_data[k] = v
+    end
 
-  local projectile_speed = 1000
-  if self.ward_unit and not self.ward_unit:IsNull() then
-    projectile_speed = self.ward_unit:GetProjectileSpeed()
-  end
+    -- Mark the target as hit
+    new_data[tostring(target:GetEntityIndex())] = 1
 
-  -- Copy data table into new_data table
-  local new_data = {}
-  for k, v in pairs(data) do
-    new_data[k] = v
-  end
+    local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
+    local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+    -- Find nearest target and fire a projectile from it
+    local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+    for _, enemy in ipairs(enemies) do
+      if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
+        local projectile_info = {
+          Target = enemy,
+          Source = target,
+          Ability = self,
+          EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
+          bDodgable = true,
+          bProvidesVision = false,
+          bVisibleToEnemies = true,
+          bReplaceExisting = false,
+          iMoveSpeed = projectile_speed,
+          bIsAttack = false,
+          iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+          ExtraData = new_data,
+        }
 
-  -- Mark the target as hit
-  new_data[tostring(target:GetEntityIndex())] = 1
-
-  local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
-  local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
-  -- Find nearest target and fire a projectile from it
-  local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-  for _, enemy in ipairs(enemies) do
-    if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
-      local projectile_info = {
-        Target = enemy,
-        Source = target,
-        Ability = self,
-        EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
-        bDodgable = true,
-        bProvidesVision = false,
-        bVisibleToEnemies = true,
-        bReplaceExisting = false,
-        iMoveSpeed = projectile_speed,
-        bIsAttack = false,
-        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-        ExtraData = new_data,
-      }
-
-      ProjectileManager:CreateTrackingProjectile(projectile_info)
-      break
+        ProjectileManager:CreateTrackingProjectile(projectile_info)
+        break
+      end
     end
   end
+
+  ApplyDamage(damage_table)
 end
 
 function witch_doctor_death_ward_oaa:OnUpgrade()
@@ -406,55 +405,52 @@ if IsServer() then
     local damage_source = owner --parent
 
     -- Damage table of the projectile
-    local damage_table = {}
-    damage_table.attacker = damage_source
-    damage_table.damage = damage
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.victim = target
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
-
-    ApplyDamage(damage_table)
+    local damage_table = {
+      attacker = damage_source,
+      victim = target,
+      damage = damage,
+      damage_type = ability:GetAbilityDamageType(),
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+      ability = ability,
+    }
 
     -- Handle Aghanim Scepter bounces
+    if owner:HasScepter() then
+      -- Initialize data table for the scepter bounce
+      local data = {}
 
-    -- If the owner of the Death Ward doesn't have Aghanim Scepter, don't continue
-    if not owner:HasScepter() then
-      return
-    end
+      -- Mark the target as hit
+      data[tostring(target:GetEntityIndex())] = 1
 
-    -- Initialize data table for the scepter bounce
-    local data = {}
+      local bounce_radius = ability:GetSpecialValueFor("scepter_bounce_radius")
+      local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
 
-    -- Mark the target as hit
-    data[tostring(target:GetEntityIndex())] = 1
+      -- Find closest target and fire a projectile from it
+      local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+      for _, enemy in ipairs(enemies) do
+        if enemy ~= target then
+          local projectile_info = {
+            Target = enemy,
+            Source = target,
+            Ability = ability,
+            EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
+            bDodgable = true,
+            bProvidesVision = false,
+            bVisibleToEnemies = true,
+            bReplaceExisting = false,
+            iMoveSpeed = parent:GetProjectileSpeed(),
+            bIsAttack = false,
+            iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+            ExtraData = data,
+          }
 
-    local bounce_radius = ability:GetSpecialValueFor("scepter_bounce_radius")
-    local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
-
-    -- Find closest target and fire a projectile from it
-    local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-    for _, enemy in ipairs(enemies) do
-      if enemy ~= target then
-        local projectile_info = {
-          Target = enemy,
-          Source = target,
-          Ability = ability,
-          EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
-          bDodgable = true,
-          bProvidesVision = false,
-          bVisibleToEnemies = true,
-          bReplaceExisting = false,
-          iMoveSpeed = parent:GetProjectileSpeed(),
-          bIsAttack = false,
-          iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,--DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
-          ExtraData = data,
-        }
-
-        ProjectileManager:CreateTrackingProjectile(projectile_info)
-        break
+          ProjectileManager:CreateTrackingProjectile(projectile_info)
+          break
+        end
       end
     end
+
+    ApplyDamage(damage_table)
   end
 
   function modifier_death_ward_oaa:OnOrder(event)
@@ -568,60 +564,59 @@ function witch_doctor_voodoo_switcheroo_oaa:OnProjectileHit_ExtraData(target, lo
   end
 
   -- Damage table of the projectile
-  local damage_table = {}
-  damage_table.attacker = damage_source
-  damage_table.damage = damage
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
-  damage_table.victim = target
-  damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+  local damage_table = {
+    attacker = damage_source,
+    victim = target,
+    damage = damage,
+    damage_type = self:GetAbilityDamageType(),
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    ability = self
+  }
 
-  ApplyDamage(damage_table)
+  -- If the owner of the Death Ward has Aghanim Scepter
+  if owner:HasScepter() then
+    local projectile_speed = 1000
+    if self.ward_unit and not self.ward_unit:IsNull() then
+      projectile_speed = self.ward_unit:GetProjectileSpeed()
+    end
 
-  -- If the owner of the Death Ward doesn't have Aghanim Scepter, don't continue
-  if not owner:HasScepter() then
-    return
-  end
+    -- Copy data table into new_data table
+    local new_data = {}
+    for k, v in pairs(data) do
+      new_data[k] = v
+    end
 
-  local projectile_speed = 1000
-  if self.ward_unit and not self.ward_unit:IsNull() then
-    projectile_speed = self.ward_unit:GetProjectileSpeed()
-  end
+    -- Mark the target as hit
+    new_data[tostring(target:GetEntityIndex())] = 1
 
-  -- Copy data table into new_data table
-  local new_data = {}
-  for k, v in pairs(data) do
-    new_data[k] = v
-  end
+    local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
+    local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
+    -- Find nearest target and fire a projectile from it
+    local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
+    for _, enemy in ipairs(enemies) do
+      if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
+        local projectile_info = {
+          Target = enemy,
+          Source = target,
+          Ability = self,
+          EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
+          bDodgable = true,
+          bProvidesVision = false,
+          bVisibleToEnemies = true,
+          bReplaceExisting = false,
+          iMoveSpeed = projectile_speed,
+          bIsAttack = false,
+          iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
+          ExtraData = new_data,
+        }
 
-  -- Mark the target as hit
-  new_data[tostring(target:GetEntityIndex())] = 1
-
-  local bounce_radius = self:GetSpecialValueFor("scepter_bounce_radius")
-  local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
-  -- Find nearest target and fire a projectile from it
-  local enemies = FindUnitsInRadius(damage_source:GetTeamNumber(), target:GetAbsOrigin(), nil, bounce_radius, self:GetAbilityTargetTeam(), self:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
-  for _, enemy in ipairs(enemies) do
-    if enemy ~= target and new_data[tostring(enemy:GetEntityIndex())] ~= 1 then
-      local projectile_info = {
-        Target = enemy,
-        Source = target,
-        Ability = self,
-        EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
-        bDodgable = true,
-        bProvidesVision = false,
-        bVisibleToEnemies = true,
-        bReplaceExisting = false,
-        iMoveSpeed = projectile_speed,
-        bIsAttack = false,
-        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-        ExtraData = new_data,
-      }
-
-      ProjectileManager:CreateTrackingProjectile(projectile_info)
-      break
+        ProjectileManager:CreateTrackingProjectile(projectile_info)
+        break
+      end
     end
   end
+
+  ApplyDamage(damage_table)
 end
 
 function witch_doctor_voodoo_switcheroo_oaa:OnHeroCalculateStatBonus()

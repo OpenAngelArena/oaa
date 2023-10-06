@@ -10,11 +10,12 @@
     "AbilityTextureName"                                  "lycan_howl"
     "ScriptFile"                                          "abilities/boss/werewolf/werewolf_howl.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // because it's an aura buff
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

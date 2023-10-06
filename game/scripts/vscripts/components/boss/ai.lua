@@ -99,25 +99,16 @@ function BossAI:RewardBossKill(state, deathEventData, teamId)
       --BossSpawner[team .. "Zone2"].disable()
     end
   elseif tier == 2 then
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_2"], team)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_2", teamId)
-
   elseif tier == 3 then
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_3"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_3", teamId)
   elseif tier == 4 then
-
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 5 then
-
     PointsManager:AddPoints(teamId)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   elseif tier == 6 then
     PointsManager:AddPoints(teamId)
-    -- NGP:GiveItemToTeam(BossItems["item_upgrade_core_4"], team)
     self:GiveItemToWholeTeam("item_upgrade_core_4", teamId)
   end
 end

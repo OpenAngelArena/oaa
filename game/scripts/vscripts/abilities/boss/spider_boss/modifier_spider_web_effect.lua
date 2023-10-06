@@ -21,12 +21,9 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_spider_web_effect:CheckState()
-	local state =
-	{
+	return {
 		[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
 	}
-
-	return state
 end
 
 ------------------------------------------------------------------------------------

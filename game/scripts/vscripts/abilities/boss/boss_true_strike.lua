@@ -27,8 +27,7 @@ function modifier_boss_true_strike_oaa:RemoveOnDeath()
 end
 
 function modifier_boss_true_strike_oaa:CheckState()
-  local state = {
+  return {
     [MODIFIER_STATE_CANNOT_MISS] = true,
   }
-  return state
 end

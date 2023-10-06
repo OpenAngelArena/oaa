@@ -412,6 +412,10 @@ end
 
 function modifier_shield_staff_barrier_buff:OnCreated(event)
   local parent = self:GetParent()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.max_shield_hp = ability:GetSpecialValueFor("barrier_block")
+  end
 
   if IsServer() then
     if event.barrierHP then
@@ -433,7 +437,11 @@ end
 
 function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(event)
   if IsClient() then
-    return self:GetStackCount()
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return self:GetStackCount() -- current shield hp
+    end
   else
     local parent = self:GetParent()
     local damage = event.damage

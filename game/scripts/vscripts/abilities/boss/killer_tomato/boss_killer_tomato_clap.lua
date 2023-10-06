@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_boss_killer_tomato_clap_debuff", "abilities/boss/killer_tomato/boss_killer_tomato_clap.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_killer_tomato_clap = class(AbilityBaseClass)
 
@@ -7,7 +6,7 @@ function boss_killer_tomato_clap:Precache(context)
   PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_ursa/ursa_earthshock_modifier.vpcf", context)
-  PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
+  --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
 end
 
 function boss_killer_tomato_clap:OnAbilityPhaseStart()
@@ -17,7 +16,7 @@ function boss_killer_tomato_clap:OnAbilityPhaseStart()
     local delay = self:GetCastPoint()
 
     -- Make the caster uninterruptible while casting this ability
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
 
     Timers:CreateTimer(delay/2, function()
       caster:EmitSound("n_creep_Ursa.Clap")
@@ -70,21 +69,22 @@ function boss_killer_tomato_clap:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )
 
   -- Damage table constants
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage_type = self:GetAbilityDamageType()
-  --damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
-  damage_table.ability = self
-  damage_table.damage = damage
+  local damage_table = {
+    attacker = caster,
+    damage = damage,
+    damage_type = self:GetAbilityDamageType(),
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = self,
+  }
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not enemy:IsMagicImmune() then
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Apply Slow
       enemy:AddNewModifier(caster, self, "modifier_boss_killer_tomato_clap_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
       -- Damage table variables

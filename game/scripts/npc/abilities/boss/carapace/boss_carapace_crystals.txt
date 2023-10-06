@@ -12,8 +12,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
     "MaxLevel"                                            "1"
 
     // Special
@@ -23,7 +25,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_amplification"                            "200"
+        "damage_amplification"                            "350"
       }
       "02" // min hp of the crystal
       {
@@ -43,7 +45,7 @@
       "05" // damage done to enemies that destroy the crystal
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "200"
+        "damage"                                          "300"
       }
       "06"
       {
@@ -70,17 +72,6 @@
         "var_type"                                        "FIELD_INTEGER"
         "bonus_magic_resistance"                          "50"
       }
-    }
-
-    "precache"
-    {
-      "particle"                                          "particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf"
-      "particle"                                          "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf"
-      "particle"                                          "particles/units/heroes/hero_pugna/pugna_ward_sphereinner.vpcf"
-      "particle"                                          "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail_c.vpcf"
-      "particle"                                          "particles/units/heroes/hero_crystalmaiden/maiden_base_attack_trail.vpcf"
-      "particle"                                          "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
     }
   }
 }

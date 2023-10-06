@@ -17,7 +17,7 @@ modifier_boss_slime_split_passive = class(ModifierBaseClass)
 
 ------------------------------------------------------------------------------------
 
-function modifier_boss_slime_split_passive:GetModifierModelChange( params )
+function modifier_boss_slime_split_passive:GetModifierModelChange()
 	return "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
 end
 
@@ -54,7 +54,7 @@ end
 
 ------------------------------------------------------------------------------------
 
-function modifier_boss_slime_split_passive:GetModifierModelScale( params )
+function modifier_boss_slime_split_passive:GetModifierModelScale()
 	return 150.0
 end
 

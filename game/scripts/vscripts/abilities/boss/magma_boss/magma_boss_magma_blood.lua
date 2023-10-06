@@ -49,7 +49,7 @@ function magma_boss_magma_blood:OnProjectileHit(target, location)
   )
 
   for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
+    if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
       -- Apply debuff
       enemy:AddNewModifier(caster, self, "modifier_magma_boss_magma_blood_debuff", {duration = self:GetSpecialValueFor("slow_duration")})
       -- Apply damage
@@ -339,10 +339,9 @@ function modifier_magma_boss_magma_blood_debuff:OnCreated()
 end
 
 function modifier_magma_boss_magma_blood_debuff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
-  return funcs
 end
 
 function modifier_magma_boss_magma_blood_debuff:GetModifierMoveSpeedBonus_Percentage()

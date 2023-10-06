@@ -124,6 +124,12 @@ function modifier_item_meteor_hammer_oaa_thinker:OnIntervalThink()
     false
   )
 
+  local damage_table = {
+    attacker = caster,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    ability = ability,
+  }
+
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
       -- Apply damage-over-time debuff (duration is not affected by status resistance)
@@ -132,19 +138,15 @@ function modifier_item_meteor_hammer_oaa_thinker:OnIntervalThink()
       local stun_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
       enemy:AddNewModifier(caster, ability, "modifier_item_meteor_hammer_oaa_stun", {duration = stun_duration})
 
-      local damage_table = {
-        victim = enemy,
-        attacker = caster,
-        damage = self.impact_damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = ability,
-      }
       -- Is the enemy a boss?
       if enemy:IsOAABoss() then
         damage_table.damage = self.impact_damage_bosses
+      else
+        damage_table.damage = self.impact_damage
       end
 
       if enemy:IsAlive() then
+        damage_table.victim = enemy
         ApplyDamage(damage_table)
       end
     end

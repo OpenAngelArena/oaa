@@ -1,7 +1,12 @@
 LinkLuaModifier("modifier_lycan_boss_claw_attack", "abilities/boss/lycan_boss/modifier_lycan_boss_claw_attack", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 lycan_boss_claw_attack = class(AbilityBaseClass)
+
+function lycan_boss_claw_attack:Precache(context)
+  PrecacheResource("particle", "particles/test_particle/generic_attack_crit_blur.vpcf", context)
+  PrecacheResource("particle", "particles/test_particle/generic_attack_crit_blur_shapeshift.vpcf", context)
+  PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
+end
 
 function lycan_boss_claw_attack:OnAbilityPhaseStart()
   if IsServer() then
@@ -11,8 +16,8 @@ function lycan_boss_claw_attack:OnAbilityPhaseStart()
     self.shapeshift_animation_time = self:GetSpecialValueFor( "shapeshift_animation_time" )
     self.shapeshift_initial_delay = self:GetSpecialValueFor( "shapeshift_initial_delay" )
 
-    local bShapeshift = caster:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
-    if RandomInt( 0, 2 ) == 1 then
+    local bShapeshift = caster:HasModifier( "modifier_lycan_boss_shapeshift" )
+    if RandomInt( 0, 1 ) == 1 then
       self:PlayClawAttackSpeech( bShapeshift )
     end
 
@@ -63,34 +68,23 @@ end
 function lycan_boss_claw_attack:PlayClawAttackSpeech( bShapeshift )
   if IsServer() then
     local caster = self:GetCaster()
-		if caster.nLastClawSound == nil then
-			caster.nLastClawSound = 0
-		end
-		local nSound = RandomInt( 0, 3 )
-		while nSound == caster.nLastClawSound do
-			nSound = RandomInt( 0, 3 )
-		end
-		if nSound == 1 then
+    local nSound = RandomInt( 0, 3 )
+    if nSound == 1 then
       caster:EmitSound("lycan_lycan_pain_01")
-		end
-		if nSound == 2 then
-			caster:EmitSound("lycan_lycan_pain_08")
-		end
-		if bShapeshift then
-			if nSound == 0 then
-				caster:EmitSound("lycan_lycan_wolf_attack_01")
-			end
-			if nSound == 3 then
-				caster:EmitSound("lycan_lycan_wolf_attack_10")
-			end
-		else
-			if nSound == 0 then
-				caster:EmitSound("lycan_lycan_attack_01")
-			end
-			if nSound == 3 then
-				caster:EmitSound("lycan_lycan_pain_09")
-			end
-		end
-		caster.nLastClawSound = nSound
-	end
+    elseif nSound == 2 then
+      caster:EmitSound("lycan_lycan_pain_08")
+    else
+      if bShapeshift then
+        if nSound == 0 then
+          caster:EmitSound("lycan_lycan_wolf_attack_01")
+        elseif nSound == 3 then
+          caster:EmitSound("lycan_lycan_wolf_attack_10")
+        end
+      elseif nSound == 0 then
+        caster:EmitSound("lycan_lycan_attack_01")
+      elseif nSound == 3 then
+        caster:EmitSound("lycan_lycan_pain_09")
+      end
+    end
+  end
 end

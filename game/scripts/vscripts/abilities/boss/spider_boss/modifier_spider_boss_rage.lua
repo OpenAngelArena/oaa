@@ -50,8 +50,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_spider_boss_rage:DeclareFunctions()
-  local funcs =
-  {
+  return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
@@ -59,18 +58,17 @@ function modifier_spider_boss_rage:DeclareFunctions()
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_TOOLTIP,
   }
-  return funcs
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_spider_boss_rage:GetModifierPreAttack_BonusDamage( params )
+function modifier_spider_boss_rage:GetModifierPreAttack_BonusDamage()
 	return self.bonus_damage
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage( params )
+function modifier_spider_boss_rage:GetModifierMoveSpeedBonus_Percentage()
 	return self.bonus_movespeed_pct
 end
 

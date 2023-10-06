@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_basic_proper
 LinkLuaModifier("modifier_boss_debuff_protection_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_tier_indicator_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_basic_properties_oaa = class(AbilityBaseClass)
 

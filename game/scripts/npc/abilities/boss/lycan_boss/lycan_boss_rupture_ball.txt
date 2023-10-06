@@ -9,21 +9,20 @@
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "bloodseeker_rupture"
     "ScriptFile"                                          "abilities/boss/lycan_boss/lycan_boss_rupture_ball.lua"
-
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" // uses Bloodseeker Rupture
 
     "MaxLevel"                                            "1"
-
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "1.0" // was 0.5
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AnimationIgnoresModelScale"                          "1"
 
     // Time

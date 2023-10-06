@@ -284,19 +284,20 @@ if IsServer() then
     local caster = self:GetCaster()
     local ability = self:GetAbility()
 
-    local damage_table = {}
-    damage_table.attacker = kv.attacker
-    damage_table.damage_type = kv.damage_type or DAMAGE_TYPE_PURE
-
     local redirect_pct = 40
     if ability then
       redirect_pct = ability:GetSpecialValueFor("damage_redirect_scepter")
-      damage_table.ability = ability
     end
 
     local redirect_damage = kv.damage * (redirect_pct/100)
-    damage_table.damage = redirect_damage
-    damage_table.victim = caster
+
+    local damage_table = {
+      attacker = kv.attacker,
+      victim = caster,
+      damage = redirect_damage,
+      damage_type = kv.damage_type or DAMAGE_TYPE_PURE,
+      ability = ability,
+    }
 
     -- Redirect the damage to Abaddon (caster) if Borrowed Time is still active and if damage is not negative
     if caster:HasModifier("modifier_oaa_borrowed_time_buff_caster") and redirect_damage > 0 then
