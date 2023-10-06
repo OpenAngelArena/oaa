@@ -9,7 +9,7 @@
     <include src="file://{resources}/scripts/custom_game/huderrors.js" />
     <include src="file://{resources}/scripts/custom_game/health_mana.js" />
     <include src="file://{resources}/scripts/custom_game/hero_bounty_override.js" />
-    <!-- <include src="file://{resources}/scripts/custom_game/scepter_talents_overlay.js" /> -->
+    <!--<include src="file://{resources}/scripts/custom_game/scepter_talents_overlay.js" />-->
     <!--<include src="file://{resources}/scripts/custom_game/armor_resist_value.js" />-->
     <!--<include src="file://{resources}/scripts/custom_game/vector_targeting.js" />-->
     <include src="file://{resources}/scripts/custom_game/top_bar_fix.js" />
@@ -93,7 +93,6 @@
 
   <Panel>
     <!-- CustomUIElements go here.-->
-
     <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/team_select.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/info.xml" />
