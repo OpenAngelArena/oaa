@@ -66,25 +66,24 @@ function CreateHudTalentButton () {
 function InitializeHeroTalents() {
   const talentWindowChildren = talentWindow.Children();
   const talentCount = talentWindow.GetChildCount();
-  
+
   for (let index = 1; index < talentCount; index++) {
     const talentRow = talentWindowChildren[index];
     const talentRowChildren = talentRow.Children();
-	const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
-	// this ^ is the same as:
-	// talentRow.Children()[0].Children()[0].Children()[0].text;
-	// talentRow.GetChild(0).GetChild(0).GetChild(0).text;
-	const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent');
-	const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent');
-	if (requiredLevel === '55') {
+    const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
+    // this ^ is the same as:
+    // talentRow.Children()[0].Children()[0].Children()[0].text;
+    // talentRow.GetChild(0).GetChild(0).GetChild(0).text;
+    const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent');
+    const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent');
+    if (requiredLevel === '55') {
       leftTalent[0].GetChild(0).text ='Super Talent Left';
-	  leftTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent[0], 'description left'); });
-	  leftTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-	  rightTalent[0].GetChild(0).text ='Super Talent Right';
-	  rightTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent[0], 'description right'); });
-	  rightTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-	}
-	
+      leftTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent[0], 'description left'); });
+      leftTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+      rightTalent[0].GetChild(0).text ='Super Talent Right';
+      rightTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent[0], 'description right'); });
+      rightTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+    }
   }
 }
   /*
