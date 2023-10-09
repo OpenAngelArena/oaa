@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400 475 550 625 700 775"
+    "AbilityCastRange"                                    "475 550 625 700 775 850"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -40,7 +40,7 @@
         "value"                                           "-30 -40 -50 -60 -70 -80"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "bonus_movement_speed"                              "-30 -40 -50 -60 -70 -80"
+      "bonus_movement_speed"                              "-45 -50 -55 -60 -65 -70"
       "AbilityDuration"
       {
         "value"                                           "3.5"
