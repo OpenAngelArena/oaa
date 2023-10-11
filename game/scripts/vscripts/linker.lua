@@ -165,3 +165,5 @@ LinkLuaModifier("modifier_duelist_oaa", "modifiers/funmodifiers/modifier_duelist
 LinkLuaModifier("modifier_boss_killer_oaa", "modifiers/funmodifiers/modifier_boss_killer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_octarine_soul_oaa", "modifiers/funmodifiers/modifier_octarine_soul_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_smurf_oaa", "modifiers/funmodifiers/modifier_smurf_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_speedster_oaa", "modifiers/funmodifiers/modifier_speedster_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_universal_oaa", "modifiers/funmodifiers/modifier_universal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
