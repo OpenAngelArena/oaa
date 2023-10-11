@@ -45,6 +45,7 @@ local hero_mods = {
   HM35 = "modifier_octarine_soul_oaa",
   --HM36 = "modifier_smurf_oaa",
   HM37 = "modifier_speedster_oaa",
+  HM38 = "modifier_universal_oaa",
 }
 local boss_mods = {
   BMN  = false,
