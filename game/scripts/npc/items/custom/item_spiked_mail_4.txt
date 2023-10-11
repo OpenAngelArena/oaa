@@ -39,14 +39,14 @@
     "ID"                                                  "3875"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spiked_mail.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "AbilityTextureName"                                  "custom/lionsmane_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25.0"
     "AbilitySharedCooldown"                               "blademail"
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
