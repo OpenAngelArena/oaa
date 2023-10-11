@@ -143,6 +143,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_roshan_power_oaa",
     "modifier_smurf_oaa",
     "modifier_sorcerer_oaa",
+    "modifier_speedster_oaa",
     "modifier_spell_block_oaa",
     "modifier_titan_soul_oaa",
     "modifier_troll_switch_oaa",
@@ -166,6 +167,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_octarine_soul_oaa",
     "modifier_range_increase_oaa",
     "modifier_sorcerer_oaa",
+    "modifier_speedster_oaa",
     "modifier_titan_soul_oaa",
     "modifier_wisdom_oaa",
   }

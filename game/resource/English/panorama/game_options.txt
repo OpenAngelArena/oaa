@@ -55,6 +55,7 @@
 "game_option_white_queen"                                                       "White Queen"
 "game_option_octarine_soul"                                                     "Octarine Soul"
 "game_option_smurf"                                                             "Smurf"
+"game_option_speedster"                                                         "Speedster"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -97,6 +98,7 @@
 "game_option_white_queen_description"                                           "Debuff Immunity while casting or channelling an ability."
 "game_option_octarine_soul_description"                                         "0.08% cooldown reduction per point of Intelligence. Some abilities and items are unaffected."
 "game_option_smurf_description"                                                 "Grants 5 strength per hero level. You are smaller and most spells' and items' AoEs are decreased by 25%."
+"game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -210,3 +212,5 @@
 "DOTA_Tooltip_modifier_octarine_soul_oaa_Description"                           "0.08%% cooldown reduction per point of Intelligence. Some abilities and items are unaffected."
 "DOTA_Tooltip_modifier_smurf_oaa"                                               "#{game_option_smurf}"
 "DOTA_Tooltip_modifier_smurf_oaa_Description"                                   "+5 STR per hero level. You are smaller and most spells' and items' AoEs are decreased by 25%%."
+"DOTA_Tooltip_modifier_speedster_oaa"                                           "#{game_option_speedster}"
+"DOTA_Tooltip_modifier_speedster_oaa_Description"                               "+50%% move speed, +25%% attack speed, +30%% cast speed, +100%% turn speed."
