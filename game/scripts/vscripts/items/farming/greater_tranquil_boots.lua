@@ -11,7 +11,7 @@ LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/
 --------------------------------------------------------------------------------
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
-	return "modifier_item_greater_tranquil_boots_passive"
+  return "modifier_item_greater_tranquil_boots_passive"
 end
 
 --function item_greater_tranquil_boots:ShouldUseResources()
@@ -116,11 +116,6 @@ function item_greater_tranquil_boots:Sprout(target)
   local c = math.sqrt(2) * 0.5 * r
   local x_offset = { -r, -c, 0.0, c, r, c, 0.0, -c }
   local y_offset = { 0.0, c, r, c, 0.0, -c, -r, -c }
-
-  --local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, caster)
-  --ParticleManager:SetParticleControl(nFXIndex, 0, target_loc)
-  --ParticleManager:SetParticleControl(nFXIndex, 1, Vector(0.0, r, 0.0))
-  --ParticleManager:ReleaseParticleIndex(nFXIndex)
 
   -- Create trees
   for i = 1, 8 do
@@ -575,11 +570,11 @@ function modifier_greater_tranquils_tranquilize_debuff:CheckState()
 end
 
 --function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()
-  --return "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
+  --return ".vpcf"
 --end
 
 --function modifier_greater_tranquils_tranquilize_debuff:GetEffectAttachType()
-  --return PATTACH_OVERHEAD_FOLLOW
+  --return PATTACH_
 --end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetTexture()
