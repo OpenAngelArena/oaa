@@ -95,20 +95,20 @@ function item_greater_tranquil_boots:Sprout(target)
   local team = caster:GetTeamNumber()
 
   -- Vision
-  local vision_radius
-  if target:GetTeamNumber() == team then
+  --local vision_radius
+  --if target:GetTeamNumber() == team then
     -- same vision as the target
-    vision_radius = math.min(target:GetCurrentVisionRange(), 900)
-  else
-    vision_radius = self:GetSpecialValueFor("sprout_vision_range")
-  end
+    --vision_radius = math.min(target:GetCurrentVisionRange(), 900)
+  --else
+    --vision_radius = self:GetSpecialValueFor("sprout_vision_range")
+  --end
 
   -- Create an invisible dummy/thinker
-  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, team)
-  dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
-  dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
-  dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
-  dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
+  --local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, team)
+  --dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
+  --dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
+  --dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+  --dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   --self:CreateVisibilityNode(target_loc, vision_radius, duration)
 
@@ -514,6 +514,13 @@ function modifier_greater_tranquils_trees_buff:GetModifierStatusResistanceStacki
   return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
 end
 
+-- Flying Vision because Tree-vision needs wizardry
+function modifier_greater_tranquils_trees_buff:CheckState()
+  return {
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+  }
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_greater_tranquils_tranquilize_debuff = class(ModifierBaseClass)
@@ -550,7 +557,7 @@ modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranq
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    --MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+    MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
   }
 end
 
@@ -558,9 +565,15 @@ function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBon
   return self.attack_slow
 end
 
---function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
-  --return 1
---end
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
+  return 1
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:CheckState()
+  return {
+    [MODIFIER_STATE_PROVIDES_VISION] = true,
+  }
+end
 
 --function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()
   --return "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
