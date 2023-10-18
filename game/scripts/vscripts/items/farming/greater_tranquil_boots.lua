@@ -598,25 +598,25 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
   end
 
   if IsServer() then
-    if self.particle == nil then
-      local parent = self:GetParent()
+    --if self.particle == nil then
+      --local parent = self:GetParent()
       -- Particle
-      local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
-      self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
-      ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
-    end
+      --local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+      --self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+      --ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      --ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+    --end
 
     self:StartIntervalThink(0.1)
   end
 end
 
 function modifier_greater_tranquils_bearing_buff:OnRefresh()
-  if IsServer() and self.particle then
-    ParticleManager:DestroyParticle(self.particle, true)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-    self.particle = nil
-  end
+  --if IsServer() and self.particle then
+    --ParticleManager:DestroyParticle(self.particle, true)
+    --ParticleManager:ReleaseParticleIndex(self.particle)
+    --self.particle = nil
+  --end
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -624,14 +624,14 @@ function modifier_greater_tranquils_bearing_buff:OnRefresh()
     self.attack_speed = ability:GetSpecialValueFor("bearing_attack_speed")
   end
 
-  if IsServer() and self.particle == nil then
-    local parent = self:GetParent()
+  --if IsServer() and self.particle == nil then
+    --local parent = self:GetParent()
     -- Particle
-    local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
-    self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
-  end
+    --local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+    --self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+    --ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+    --ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+  --end
 end
 
 function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
@@ -642,13 +642,13 @@ function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
   end
 end
 
-function modifier_greater_tranquils_bearing_buff:OnDestroy()
-  if IsServer() and self.particle then
-    ParticleManager:DestroyParticle(self.particle, false)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-    self.particle = nil
-  end
-end
+--function modifier_greater_tranquils_bearing_buff:OnDestroy()
+  --if IsServer() and self.particle then
+    --ParticleManager:DestroyParticle(self.particle, false)
+    --ParticleManager:ReleaseParticleIndex(self.particle)
+    --self.particle = nil
+  --end
+--end
 
 function modifier_greater_tranquils_bearing_buff:DeclareFunctions()
   return {
