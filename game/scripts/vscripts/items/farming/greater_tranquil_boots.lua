@@ -454,14 +454,14 @@ if IsServer() then
     end
 
     -- Ignore illusions and Meepo Clones
-    if parent:IsIllusion() or parent:IsClone() or parent:HasModifier("modifier_item_greater_tranquil_boots_passive") then
+    if parent:IsIllusion() or parent:IsClone() then
       self:StartIntervalThink(-1)
       self:Destroy()
       return
     end
 
-    -- Ignore banished units
-    if parent:IsOutOfGame() then
+    -- Ignore banished units and units that have passive Tree Protection
+    if parent:IsOutOfGame() or parent:HasModifier("modifier_item_greater_tranquil_boots_passive") then
       self:SetStackCount(2) -- don't grant tree stats
       return
     end
