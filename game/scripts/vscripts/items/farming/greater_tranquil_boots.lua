@@ -92,7 +92,7 @@ function item_greater_tranquil_boots:Sprout(target)
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("sprout_duration")
   local target_loc = target:GetAbsOrigin()
-  local team = caster:GetTeamNumber()
+  --local team = caster:GetTeamNumber()
 
   -- Vision
   --local vision_radius
@@ -452,7 +452,6 @@ end
 if IsServer() then
   function modifier_greater_tranquils_trees_buff:OnIntervalThink()
     local parent = self:GetParent()
-    local ability = self:GetAbility()
 
     if not parent or parent:IsNull() then
       self:StartIntervalThink(-1)
