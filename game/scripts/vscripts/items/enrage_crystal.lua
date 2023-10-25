@@ -60,7 +60,7 @@ function modifier_item_enrage_crystal_passive:OnRefresh()
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
-    self.bonus_slow_resist = = ability:GetSpecialValueFor("bonus_slow_resist")
+    self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.dmg_reduction = ability:GetSpecialValueFor("dmg_reduction_while_stunned")
   end
 
