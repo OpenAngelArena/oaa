@@ -60,6 +60,8 @@ LinkLuaModifier("modifier_faceless_void_time_dilation_degen_oaa", "modifiers/mod
 LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/modifyabilitiesfilter/natural_order_correction.lua", LUA_MODIFIER_MOTION_NONE)
 -- Tidehunter custom Anchor Smash modifier for bosses
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifier_tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
+-- Windranger Windrun aghs additional effect:
+LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

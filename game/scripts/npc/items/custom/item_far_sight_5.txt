@@ -45,8 +45,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "farsight"
+    "AbilityManaCost"                                     "100"
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
     "AoERadius"                                           "750"
 
     // Spicy Parameters
@@ -56,7 +56,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
     "ItemCost"                                            "33459"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
