@@ -155,10 +155,67 @@ if IsServer() then
     end
 
     local damaging_ability = event.inflictor
-    if damaging_ability and not damaging_ability:IsNull() then
-      local kvs = damaging_ability:GetAbilityKeyValues()
-      if kvs and kvs.SpellImmunityType and kvs.SpellImmunityType ~= "SPELL_IMMUNITY_ENEMIES_YES" then
-        return
+    local damage_type = event.damage_type
+
+    -- Interaction with Debuff Immunity
+    if attacker:IsDebuffImmune() then
+      -- Pure damage abilities
+      local ability_blacklist = {
+        "axe_counter_helix",
+        --"axe_culling_blade",
+        "bane_brain_sap",
+        "bane_enfeeble",
+        --"bane_fiends_grip",
+        "bloodseeker_blood_bath",
+        "bloodseeker_bloodrage", -- shard
+        --"bloodseeker_rupture",
+        --"doom_bringer_doom",
+        "enchantress_impetus",
+        --"enigma_black_hole",
+        "huskar_burning_spear", -- talent
+        "invoker_sun_strike",
+        --"jakiro_macropyre", -- scepter
+        "leshrac_diabolic_edict",
+        --"lina_laguna_blade", -- talent
+        "meepo_poof",
+        "meepo_ransack",
+        --"nyx_assassin_vendetta",
+        "omniknight_hammer_of_purity",
+        "omniknight_purification",
+        "phantom_assassin_fan_of_knives", -- shard
+        "pudge_meat_hook",
+        --"queenofpain_sonic_wave",
+        "spectre_desolate",
+        "spectre_spectral_dagger",
+        "templar_assassin_psi_blades",
+        --"shredder_chakram",
+        --"shredder_chakram_2",
+        "shredder_timber_chain",
+        "shredder_whirling_death",
+        "tinker_laser",
+        --"tinkerer_laser_contraption",
+        "warlock_golem_flaming_fists",
+        --"witch_doctor_death_ward_oaa",
+        --"witch_doctor_voodoo_switcheroo_oaa",
+      }
+
+      if damaging_ability and not damaging_ability:IsNull() and damage_type == DAMAGE_TYPE_PURE then
+        local name = damaging_ability:GetAbilityName()
+        for _, v in pairs(ability_blacklist) do
+          if name == v then
+            return -- don't return dmg
+          end
+        end
+      end
+    end
+
+    -- Interaction with Spell Immunity
+    if attacker:IsMagicImmune() then
+      if damaging_ability and not damaging_ability:IsNull() then
+        local kvs = damaging_ability:GetAbilityKeyValues()
+        if kvs and kvs.SpellImmunityType and (kvs.SpellImmunityType == "SPELL_IMMUNITY_ENEMIES_NO" or kvs.SpellImmunityType == "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO") then
+          return -- don't return dmg
+        end
       end
     end
 
@@ -184,7 +241,7 @@ if IsServer() then
       attacker = parent,
       victim = attacker,
       damage = new_damage,
-      damage_type = event.damage_type, -- Same damage type as original damage
+      damage_type = damage_type, -- Same damage type as original damage
       damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }
@@ -315,10 +372,67 @@ if IsServer() then
     end
 
     local damaging_ability = event.inflictor
-    if damaging_ability and not damaging_ability:IsNull() then
-      local kvs = damaging_ability:GetAbilityKeyValues()
-      if kvs and kvs.SpellImmunityType and kvs.SpellImmunityType ~= "SPELL_IMMUNITY_ENEMIES_YES" then
-        return
+    local damage_type = event.damage_type
+
+    -- Interaction with Debuff Immunity
+    if attacker:IsDebuffImmune() then
+      -- Pure damage abilities
+      local ability_blacklist = {
+        "axe_counter_helix",
+        --"axe_culling_blade",
+        "bane_brain_sap",
+        "bane_enfeeble",
+        --"bane_fiends_grip",
+        "bloodseeker_blood_bath",
+        "bloodseeker_bloodrage", -- shard
+        --"bloodseeker_rupture",
+        --"doom_bringer_doom",
+        "enchantress_impetus",
+        --"enigma_black_hole",
+        "huskar_burning_spear", -- talent
+        "invoker_sun_strike",
+        --"jakiro_macropyre", -- scepter
+        "leshrac_diabolic_edict",
+        --"lina_laguna_blade", -- talent
+        "meepo_poof",
+        "meepo_ransack",
+        --"nyx_assassin_vendetta",
+        "omniknight_hammer_of_purity",
+        "omniknight_purification",
+        "phantom_assassin_fan_of_knives", -- shard
+        "pudge_meat_hook",
+        --"queenofpain_sonic_wave",
+        "spectre_desolate",
+        "spectre_spectral_dagger",
+        "templar_assassin_psi_blades",
+        --"shredder_chakram",
+        --"shredder_chakram_2",
+        "shredder_timber_chain",
+        "shredder_whirling_death",
+        "tinker_laser",
+        --"tinkerer_laser_contraption",
+        "warlock_golem_flaming_fists",
+        --"witch_doctor_death_ward_oaa",
+        --"witch_doctor_voodoo_switcheroo_oaa",
+      }
+
+      if damaging_ability and not damaging_ability:IsNull() and damage_type == DAMAGE_TYPE_PURE then
+        local name = damaging_ability:GetAbilityName()
+        for _, v in pairs(ability_blacklist) do
+          if name == v then
+            return -- don't return dmg
+          end
+        end
+      end
+    end
+
+    -- Interaction with Spell Immunity
+    if attacker:IsMagicImmune() then
+      if damaging_ability and not damaging_ability:IsNull() then
+        local kvs = damaging_ability:GetAbilityKeyValues()
+        if kvs and kvs.SpellImmunityType and (kvs.SpellImmunityType == "SPELL_IMMUNITY_ENEMIES_NO" or kvs.SpellImmunityType == "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO") then
+          return -- don't return dmg
+        end
       end
     end
 
@@ -329,7 +443,7 @@ if IsServer() then
     if parent:HasModifier("modifier_item_blade_mail") then
       local blade_mail = parent:FindItemInInventory("item_blade_mail")
       if blade_mail then
-        if not blade_mail:IsInBackpack() then
+        if not blade_mail:IsInBackpack() and not damaging_ability then
           damage_return = damage_return - blade_mail:GetSpecialValueFor("passive_reflection_pct")
         end
       end
@@ -354,7 +468,7 @@ if IsServer() then
       attacker = parent,
       victim = attacker,
       damage = new_damage,
-      damage_type = event.damage_type, -- Same damage type as original damage
+      damage_type = damage_type, -- Same damage type as original damage
       damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }

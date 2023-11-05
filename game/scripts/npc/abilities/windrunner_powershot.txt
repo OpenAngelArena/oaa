@@ -37,11 +37,11 @@
       "damage_reduction" //OAA
       {
         "value"                                           "10"
-        "special_bonus_unique_windranger_3"               "-5"
+        "special_bonus_unique_windranger_3"               "-10"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "arrow_width"      
+      "arrow_width"
       {
         "value"                                           "125"
         "affected_by_aoe_increase"                        "1"
@@ -49,7 +49,7 @@
       "arrow_range"                                       "3000"
       "arrow_speed"                                       "3000.0"
       "tree_width"                                        "75"
-      "vision_radius"      
+      "vision_radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"

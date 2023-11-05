@@ -12,8 +12,8 @@ function ModifyAbilitiesFilter:Init()
 end
 
 function ModifyAbilitiesFilter:ModifierFilter(keys)
-  -- Remove fountain invulnerability and WR Windrun aghs invis
-  if keys.name_const == "modifier_fountain_invulnerability" or keys.name_const == "modifier_windrunner_windrun_invis" then
+  -- Remove fountain invulnerability
+  if keys.name_const == "modifier_fountain_invulnerability" then
     return false
   end
 
@@ -47,6 +47,9 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})
     end
+  elseif modifier_name == "modifier_windrunner_windrun_invis" then
+    caster:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
+    return false
   end
 
   return true

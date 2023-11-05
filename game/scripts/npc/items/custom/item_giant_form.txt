@@ -44,14 +44,13 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "75"
     "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "giant_form"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17253"
+    "ItemCost"                                            "17103"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

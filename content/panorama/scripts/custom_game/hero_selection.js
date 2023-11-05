@@ -183,11 +183,11 @@ function handleOAASettingsChange (n, key, settings) {
     HM04: '#game_option_timeless_relic',
     HM05: '#game_option_echo_strike',
     HM06: '#game_option_hyper_active',
-    HM07: '#game_option_no_cast_points',
+    HM07: '#game_option_quick_spells',
     HM08: '#game_option_physical_immune',
     HM09: '#game_option_pro_active',
     HM10: '#game_option_spell_block',
-    HM11: '#game_option_troll_switch',
+    HM11: '#game_option_attack_switch',
     HM12: '#game_option_hyper_experience',
     HM13: '#game_option_diarrhetic',
     HM14: '#game_option_rend',
@@ -201,7 +201,7 @@ function handleOAASettingsChange (n, key, settings) {
     HM22: '#game_option_nimble',
     HM23: '#game_option_sorcerer',
     HM24: '#game_option_max_power',
-    HM25: '#game_option_hp_mana_switch',
+    HM25: '#game_option_moriah_shield',
     HM26: '#game_option_magus',
     HM27: '#game_option_brawler',
     HM28: '#game_option_chaos',
@@ -212,7 +212,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM33: '#game_option_titan_soul',
     HM34: '#game_option_white_queen',
     HM35: '#game_option_octarine_soul',
-    HM36: '#game_option_smurf'
+    HM36: '#game_option_smurf',
+    HM37: '#game_option_speedster',
+    HM38: '#game_option_universal'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
@@ -236,7 +238,7 @@ function handleOAASettingsChange (n, key, settings) {
       BM02: '#game_option_echo_strike',
       BM03: '#game_option_physical_immune',
       BM04: '#game_option_spell_block',
-      BM05: '#game_option_no_cast_points',
+      BM05: '#game_option_quick_spells',
       BM06: '#game_option_hyper_active',
       BM07: '#game_option_agressive_bosses',
       BM08: '#game_option_brawler'
