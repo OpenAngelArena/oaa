@@ -15,10 +15,10 @@
                 <Label class="talentLevel" text="55"></Label>
             </Panel>
         </Panel>
-        <Panel class="leftTalent">
+        <Panel class="leftTalentSuper">
             <Label class="talentImage" text="L55-S1"/>
         </Panel>
-        <Panel class="rightTalent">
+        <Panel class="rightTalentSuper">
             <Label class="talentImage" text="R55-S2"/>
         </Panel>
     </Panel>
@@ -34,6 +34,9 @@
         <Panel class="rightTalent">
             <Label class="talentImage" text="R25"/>
         </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A25"/>
+        </Panel>
     </Panel>
     <Panel class="talentRow">
         <Panel class="talentLevels">
@@ -46,6 +49,9 @@
         </Panel>
         <Panel class="rightTalent">
             <Label class="talentImage" text="R20"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A20"/>
         </Panel>
     </Panel>
     <Panel class="talentRow">
@@ -60,6 +66,9 @@
         <Panel class="rightTalent">
             <Label class="talentImage" text="R15"/>
         </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A15"/>
+        </Panel>
     </Panel>
     <Panel class="talentRow">
         <Panel class="talentLevels">
@@ -72,6 +81,9 @@
         </Panel>
         <Panel class="rightTalent">
             <Label class="talentImage" text="R10"/>
+        </Panel>
+        <Panel class="aghsTalent">
+            <Label class="talentImage" text="A10"/>
         </Panel>
     </Panel>
   </Panel>
