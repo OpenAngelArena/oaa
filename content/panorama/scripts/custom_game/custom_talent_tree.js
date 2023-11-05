@@ -149,7 +149,7 @@ function InitializeHeroTalents () {
     }
   }
 
-  lastSelectedUnitID = currentlySelectedUnitID
+  lastSelectedUnitID = currentlySelectedUnitID;
 
   if (!Entities.IsRealHero(currentlySelectedUnitID) || !Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) return;
 
@@ -303,7 +303,7 @@ function LearnTalent (talent, minLevel) {
         // Get hero level
         const level = Entities.GetLevel(currentlySelectedUnitID);
         // Get required level
-        const requiredLevel = // calculate required level if the other is learned
+        const requiredLevel = 10; // calculate required level if the other is learned
         if (level >= minLevel && level >= requiredLevel) {
           // Send the event to server to learn the talent
         }
@@ -313,14 +313,14 @@ function LearnTalent (talent, minLevel) {
 }
 
 function ConfigureTalentLearnHotkeys () {
-  //const talentRightHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_TALENT_UPGRADE_RIGHT);
-  //const talentLeftHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_TALENT_UPGRADE_LEFT);
-  //const commandName1 = 'TalentRightHotkey' + Date.now().toString();
-  //Game.CreateCustomKeyBind(talentRightHotkey, commandName1);
-  //Game.AddCommand(commandName1, function () { }, '', 0);
-  //const commandName2 = 'TalentLeftHotkey' + Date.now().toString();
-  //Game.CreateCustomKeyBind(talentLeftHotkey, commandName2);
-  //Game.AddCommand(commandName2, function () { }, '', 0);
+  // const talentRightHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_TALENT_UPGRADE_RIGHT);
+  // const talentLeftHotkey = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_TALENT_UPGRADE_LEFT);
+  // const commandName1 = 'TalentRightHotkey' + Date.now().toString();
+  // Game.CreateCustomKeyBind(talentRightHotkey, commandName1);
+  // Game.AddCommand(commandName1, function () { }, '', 0);
+  // const commandName2 = 'TalentLeftHotkey' + Date.now().toString();
+  // Game.CreateCustomKeyBind(talentLeftHotkey, commandName2);
+  // Game.AddCommand(commandName2, function () { }, '', 0);
 }
 
 function RecurseEnableFocus (panel) {
