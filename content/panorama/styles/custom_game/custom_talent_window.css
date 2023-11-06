@@ -4,18 +4,18 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	flow-children: down;
-	height: 450px;
-	horizontal-align: left;
+	height: 500px;
+	horizontal-align: middle;
 	margin-bottom: 75px;
-	transform: translateX(-850px);
-	transition-duration: 0.1s;
+	transform: translateY(100%);
+	transition-duration: 0.2s;
 	transition-property: transform;
 	vertical-align: middle;
-	width: 850px;
+	width: 900px;
 }
 
 .OAA_Talent_Window.Talent_Window_open {
-	transform: translatey(0px);
+	transform: translateY(150px);
 }
 
 #TalentsHeader {
@@ -34,7 +34,7 @@
 
 .talentRow {
 	width: 100%;
-	height: 65px;
+	height: 75px;
 	margin-top: 7px;
 	margin-bottom: 7px;
 	flow-children: right;
@@ -71,7 +71,7 @@
 }
 
 .leftTalent {
-	width: 25%;
+	width: 26%;
 	height: 100%;
 	margin-left: 20px;
 	margin-bottom: 5px;
@@ -79,7 +79,7 @@
 }
 
 .rightTalent {
-	width: 25%;
+	width: 26%;
 	height: 100%;
 	margin-left: 30px;
 	margin-bottom: 5px;
@@ -87,7 +87,7 @@
 }
 
 .aghsTalent {
-	width: 25%;
+	width: 26%;
 	height: 100%;
 	margin-left: 30px;
 	margin-bottom: 5px;
@@ -116,16 +116,15 @@
 	border-radius: 5px;
 	border-right: 1px solid #00000088;
 	border-top: 1px solid #bbbbbb44;
-	color: #E7D291; /*#ff9900*/
-	font-family: "RadianceM";
+	color: rgba(255,255,255,.7333333333); /*#E7D291; /*#ff9900*/
+	font-family: "Radiance", sans-serif;
 	font-size: 18px;
+	font-weight: bold;
 	height: 100%;
 	width: 100%;
-	overflow: noclip;
-	text-align: center;
+	text-align: center; /* this aligns only horizontally */
+	text-overflow: noclip;
 	text-shadow: 1px 1px 2px 2 #000000;
-	padding-bottom: 32%;
-	padding-top: 32%;
 }
 
 .talentImage:hover:not(.talentImageUnlearnable) {

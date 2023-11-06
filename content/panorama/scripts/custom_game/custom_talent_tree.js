@@ -1,23 +1,26 @@
 /* global FindDotaHudElement, $, Players, Entities, Game, GameEvents, DOTAKeybindCommand_t, GameUI, CLICK_BEHAVIORS, Abilities, ABILITY_TYPES */
 'use strict';
 
-const contextPanel = $.GetContextPanel();
-const HUDElements = FindDotaHudElement('HUDElements');
-const centerBlock = HUDElements.FindChildTraverse('center_block');
 // CSS classes
 const cssTalendWindowOpen = 'Talent_Window_open';
 const cssOverlaySelected = 'visible_overlay';
 const cssTalentLearned = 'talentImageLearned';
 const cssTalentButtonUpgradeReady = 'upgradeAvailable';
 const cssTalentUnlearnable = 'talentImageUnlearnable';
-// const cssTalentLearnable = 'talentLearnableGlow';
+const cssTalentLearnable = 'talentLearnableGlow';
+// Selected units
 let currentlySelectedUnitID;
 let lastSelectedUnitID;
+// Panels
+const contextPanel = $.GetContextPanel();
+const HUDElements = FindDotaHudElement('HUDElements');
+const centerBlock = HUDElements.FindChildTraverse('center_block');
 let hudButtonContainer;
 let hudButton;
 let hudOverlay;
 let hudScene;
 let talentWindow;
+// Bools
 let isTalentWindowCurrentlyOpen = false; // when you load in, talent window is not supposed to be visible
 let isTalentButtonVisible = true; // when you load in, talent button is supposed to be visible, because you hero is selected
 
@@ -78,22 +81,16 @@ function InitializeHeroTalents () {
   const talentRowCount = talentWindow.GetChildCount(); // 5 rows for now, but the following code allows more
   const normalTalents = [];
 
-  // Count how many abilities this hero actually has, GetAbilityCount returns max amount of abilities (35)
-  // Make sure that hero kv doesn't have 'holes' (nil or "" abilities) because the loop stops when the first nil ability is encountered
-  // Use "generic_hidden" instead of "" in hero kv
-  let abilityCount = 0;
+  // Filter out talents out of all abilities and add them to the normalTalents array
   for (let index = 0; index < Entities.GetAbilityCount(currentlySelectedUnitID); index++) {
     const ability = Entities.GetAbility(currentlySelectedUnitID, index);
-    if (Entities.IsValidEntity(ability)) abilityCount++;
-    else break;
-  }
-
-  // Filter out talents out of all abilities and add them to the normalTalents array
-  for (let index = 0; index < abilityCount; index++) {
-    const ability = Entities.GetAbility(currentlySelectedUnitID, index);
-    const abilityName = Abilities.GetAbilityName(ability);
-    if (Abilities.GetAbilityType(ability) === ABILITY_TYPES.ABILITY_TYPE_ATTRIBUTES && abilityName !== 'special_bonus_attributes') {
-      normalTalents.push(abilityName);
+    if (ability) {
+      if (Entities.IsValidEntity(ability)) {
+        const abilityName = Abilities.GetAbilityName(ability);
+        if (Abilities.GetAbilityType(ability) === ABILITY_TYPES.ABILITY_TYPE_ATTRIBUTES && abilityName !== 'special_bonus_attributes') {
+          normalTalents.push(abilityName);
+        }
+      }
     }
   }
 
@@ -106,17 +103,17 @@ function InitializeHeroTalents () {
     // talentRow.Children()[0].Children()[0].Children()[0].text;
     // talentRow.GetChild(0).GetChild(0).GetChild(0).text;
     if (requiredLevel === '55') {
-      const leftTalentSuper = talentRow.FindChildrenWithClassTraverse('leftTalentSuper');
-      const rightTalentSuper = talentRow.FindChildrenWithClassTraverse('rightTalentSuper');
-      leftTalentSuper[0].GetChild(0).text = 'Super Talent Left';
-      leftTalentSuper[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalentSuper[0], 'Description left'); });
-      leftTalentSuper[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-      rightTalentSuper[0].GetChild(0).text = 'Super Talent Right';
-      rightTalentSuper[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalentSuper[0], 'Description right'); });
-      rightTalentSuper[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+      const leftTalentSuper = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+      const rightTalentSuper = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
+      leftTalentSuper.GetChild(0).text = 'Super Talent Left';
+      leftTalentSuper.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalentSuper, 'Description left'); });
+      leftTalentSuper.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+      rightTalentSuper.GetChild(0).text = 'Super Talent Right';
+      rightTalentSuper.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalentSuper, 'Description right'); });
+      rightTalentSuper.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
     } else {
-      const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent');
-      const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent');
+      const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+      const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
       let rightTalentName = 'right';
       let leftTalentName = 'left';
       if (requiredLevel === '10') {
@@ -133,18 +130,18 @@ function InitializeHeroTalents () {
         leftTalentName = normalTalents[7];
       }
       // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
-      rightTalent[0].GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent[0].GetChild(0));
-      leftTalent[0].GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent[0].GetChild(0));
-      const rightTalentDescription = $.Localize(rightTalentName + '_Description', rightTalent[0].GetChild(0));
-      const leftTalentDescription = $.Localize(leftTalentName + '_Description', leftTalent[0].GetChild(0));
+      rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
+      leftTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent.GetChild(0));
+      const rightTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName + '_Description', rightTalent.GetChild(0));
+      const leftTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName + '_Description', leftTalent.GetChild(0));
       // Check if talent descriptions exist before setting panel events (Localize will return the input string if localization not found)
-      if (rightTalentDescription !== rightTalentName + '_Description') {
-        rightTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent[0], rightTalentDescription); });
-        rightTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+      if (rightTalentDescription !== '#DOTA_Tooltip_Ability_' + rightTalentName + '_Description') {
+        rightTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent, rightTalentDescription); });
+        rightTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
       }
-      if (leftTalentDescription !== leftTalentName + '_Description') {
-        leftTalent[0].SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent[0], leftTalentDescription); });
-        leftTalent[0].SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+      if (leftTalentDescription !== '#DOTA_Tooltip_Ability_' + leftTalentName + '_Description') {
+        leftTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent, leftTalentDescription); });
+        leftTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
       }
     }
   }
@@ -156,17 +153,48 @@ function InitializeHeroTalents () {
   for (let index = 1; index < talentRowCount; index++) {
     const talentRow = talentWindowChildren[index];
     const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
-    if (requiredLevel === '55') {
-      const leftTalentSuper = talentRow.FindChildrenWithClassTraverse('leftTalentSuper');
-      const rightTalentSuper = talentRow.FindChildrenWithClassTraverse('rightTalentSuper');
-      leftTalentSuper[0].SetPanelEvent('onactivate', function () { LearnTalent(leftTalentSuper, 55); });
-      rightTalentSuper[0].SetPanelEvent('onactivate', function () { LearnTalent(rightTalentSuper, 55); });
-    } else {
-      const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent');
-      const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent');
-      rightTalent[0].SetPanelEvent('onactivate', function () { LearnTalent(rightTalent, requiredLevel); });
-      leftTalent[0].SetPanelEvent('onactivate', function () { LearnTalent(leftTalent, requiredLevel); });
+    let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+    let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+    if (!rightTalent) {
+      rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
     }
+    if (!leftTalent) {
+      leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+    }
+    rightTalent.SetPanelEvent('onactivate', function () { LearnTalent(rightTalent, requiredLevel); });
+    leftTalent.SetPanelEvent('onactivate', function () { LearnTalent(leftTalent, requiredLevel); });
+    MakeTalentUnlearnable(rightTalent);
+    MakeTalentUnlearnable(leftTalent);
+  }
+}
+
+function MakeTalentUnlearnable (talent) {
+  // Don't make the talent unlearnable if it's already unlearnable or learnable
+  if (!talent.BHasClass(cssTalentLearnable) && !talent.BHasClass(cssTalentUnlearnable)) {
+    talent.AddClass(cssTalentUnlearnable);
+  }
+}
+
+function MakeOtherTalentUnlearnable (talent) {
+  const talentRow = talent.GetParent();
+  let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+  let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+  if (!rightTalent) {
+    rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
+  }
+  if (!leftTalent) {
+    leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+  }
+  let otherTalent;
+  if (talent === rightTalent) {
+    otherTalent = leftTalent;
+  } else if (talent === leftTalent) {
+    otherTalent = rightTalent;
+  }
+  // Mark the other talent unlearnable if not already learned
+  if (!otherTalent.BHasClass(cssTalentLearned) && otherTalent.BHasClass(cssTalentLearnable)) {
+    otherTalent.RemoveClass(cssTalentLearnable);
+    otherTalent.AddClass(cssTalentUnlearnable);
   }
 }
 
@@ -223,11 +251,22 @@ function CanHeroUpgradeAnyTalent () {
 
     // Check if the selected hero has any upgrade points
     if (Entities.GetAbilityPoints(currentlySelectedUnitID) > 0) {
-      // Check if any row is unlocked by level
-      const level = Entities.GetLevel(currentlySelectedUnitID);
-      const requiredLevel = 10;
-      if (level >= requiredLevel) {
-        return true;
+      const talentWindowChildren = talentWindow.Children();
+      const talentRowCount = talentWindow.GetChildCount();
+      // Check if any talent is learnable
+      for (let index = 1; index < talentRowCount; index++) {
+        const talentRow = talentWindowChildren[index];
+        let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+        let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+        if (!rightTalent) {
+          rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
+        }
+        if (!leftTalent) {
+          leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+        }
+        if (rightTalent.BHasClass(cssTalentLearnable) || leftTalent.BHasClass(cssTalentLearnable)) {
+          return true;
+        }
       }
     }
   }
@@ -238,7 +277,7 @@ function CanHeroUpgradeAnyTalent () {
 function AnimateTalentTree () {
   if (currentlySelectedUnitID) {
     if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) {
-      // Animating the talent button
+      // Animate the talent button
       $.Schedule(0, function () {
         if (CanHeroUpgradeAnyTalent()) {
           if (!hudButton.BHasClass(cssTalentButtonUpgradeReady)) {
@@ -249,6 +288,41 @@ function AnimateTalentTree () {
           if (hudButton.BHasClass(cssTalentButtonUpgradeReady)) {
             hudButton.RemoveClass(cssTalentButtonUpgradeReady);
             hudScene.RemoveClass(cssTalentButtonUpgradeReady);
+          }
+        }
+      });
+      // Animate talent choices (add glow); make them learnable
+      $.Schedule(0, function () {
+        const talentWindowChildren = talentWindow.Children();
+        const talentRowCount = talentWindow.GetChildCount();
+        const level = Entities.GetLevel(currentlySelectedUnitID);
+        for (let index = 1; index < talentRowCount; index++) {
+          const talentRow = talentWindowChildren[index];
+          const minLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
+          let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+          let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+          if (!rightTalent) {
+            rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
+          }
+          if (!leftTalent) {
+            leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+          }
+          if (!rightTalent.BHasClass(cssTalentLearned) && !leftTalent.BHasClass(cssTalentLearned) && level >= minLevel) {
+            // if both talents in a row are unlearned, and hero level >= minLevel, then make both talents learnable
+            rightTalent.RemoveClass(cssTalentUnlearnable);
+            rightTalent.AddClass(cssTalentLearnable);
+            leftTalent.RemoveClass(cssTalentUnlearnable);
+            leftTalent.AddClass(cssTalentLearnable);
+          }
+          if ((minLevel === '10' && level >= 15) || (minLevel === '15' && level >= 20) || (minLevel === '20' && level >= 35) || (minLevel === '25' && level >= 45) || (minLevel === '55' && level >= 60)) {
+            // if one of the talents in a row is already learned, if level is >= required level, make the other learnable
+            if (rightTalent.BHasClass(cssTalentLearned) && !leftTalent.BHasClass(cssTalentLearned)) {
+              leftTalent.RemoveClass(cssTalentUnlearnable);
+              leftTalent.AddClass(cssTalentLearnable);
+            } else if (!rightTalent.BHasClass(cssTalentLearned) && leftTalent.BHasClass(cssTalentLearned)) {
+              rightTalent.RemoveClass(cssTalentUnlearnable);
+              rightTalent.AddClass(cssTalentLearnable);
+            }
           }
         }
       });
@@ -293,19 +367,36 @@ function CheckSelectedAndAnimate () {
 }
 
 function LearnTalent (talent, minLevel) {
-  // If talent is learned or unlearnable, do nothing
-  if (talent.BHasClass(cssTalentLearned) || talent.BHasClass(cssTalentUnlearnable)) return;
+  if (GameUI.IsAltDown()) {
+    // Pinging talents
+    if (talent.BHasClass(cssTalentLearned)) {
+      // Send the event to server with message: 'Talent ready' if ally, 'Beware talent' if enemy
+    } else if (talent.BHasClass(cssTalentLearnable)) {
+      // Send the event to server with message: 'Talent required level' if ally, if enemy, no message
+    } else if (talent.BHasClass(cssTalentUnlearnable)) {
+      // Send the event to server with message: 'Talent not learned'
+    }
+  } else {
+    // If talent is learned or unlearnable, do nothing
+    if (talent.BHasClass(cssTalentLearned) || talent.BHasClass(cssTalentUnlearnable)) return;
 
-  if (currentlySelectedUnitID) {
-    if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) {
-      // Check if the selected hero has any upgrade points
-      if (Entities.GetAbilityPoints(currentlySelectedUnitID) > 0) {
-        // Get hero level
-        const level = Entities.GetLevel(currentlySelectedUnitID);
-        // Get required level
-        const requiredLevel = 10; // calculate required level if the other is learned
-        if (level >= minLevel && level >= requiredLevel) {
-          // Send the event to server to learn the talent
+    if (currentlySelectedUnitID) {
+      if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) {
+        // Check if the selected hero has any upgrade points
+        if (Entities.GetAbilityPoints(currentlySelectedUnitID) > 0) {
+          // Get hero level
+          const level = Entities.GetLevel(currentlySelectedUnitID);
+          if (level >= minLevel && talent.BHasClass(cssTalentLearnable)) {
+            // Send the event to server to learn the talent
+
+            // Remove the glow and mark as learned
+            talent.RemoveClass(cssTalentLearnable);
+            talent.AddClass(cssTalentLearned);
+
+            $.Msg('Learned talent is: ' + talent.GetChild(0).text);
+
+            MakeOtherTalentUnlearnable(talent);
+          }
         }
       }
     }
