@@ -130,10 +130,14 @@ function InitializeHeroTalents () {
         leftTalentName = normalTalents[7];
       }
       // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
-      rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
-      leftTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent.GetChild(0));
+      // rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
+      GameUI.SetupDOTATalentNameLabel(rightTalent.GetChild(0), rightTalentName);
+      // leftTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent.GetChild(0));
+      GameUI.SetupDOTATalentNameLabel(leftTalent.GetChild(0), leftTalentName);
       const rightTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName + '_Description', rightTalent.GetChild(0));
       const leftTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName + '_Description', leftTalent.GetChild(0));
+      rightTalent.SetPanelEvent('onmouseover', function () { });
+      leftTalent.SetPanelEvent('onmouseover', function () { });
       // Check if talent descriptions exist before setting panel events (Localize will return the input string if localization not found)
       if (rightTalentDescription !== '#DOTA_Tooltip_Ability_' + rightTalentName + '_Description') {
         rightTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent, rightTalentDescription); });
@@ -148,7 +152,7 @@ function InitializeHeroTalents () {
 
   lastSelectedUnitID = currentlySelectedUnitID;
 
-  if (!Entities.IsRealHero(currentlySelectedUnitID) || !Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) return;
+  if (!Entities.IsRealHero(currentlySelectedUnitID) || !Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer()) || currentlySelectedUnitID !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
 
   for (let index = 1; index < talentRowCount; index++) {
     const talentRow = talentWindowChildren[index];
@@ -276,7 +280,7 @@ function CanHeroUpgradeAnyTalent () {
 
 function AnimateTalentTree () {
   if (currentlySelectedUnitID) {
-    if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) {
+    if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && currentlySelectedUnitID === Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
       // Animate the talent button
       $.Schedule(0, function () {
         if (CanHeroUpgradeAnyTalent()) {
@@ -381,7 +385,7 @@ function LearnTalent (talent, minLevel) {
     if (talent.BHasClass(cssTalentLearned) || talent.BHasClass(cssTalentUnlearnable)) return;
 
     if (currentlySelectedUnitID) {
-      if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && Entities.IsControllableByPlayer(currentlySelectedUnitID, Players.GetLocalPlayer())) {
+      if (Entities.IsValidEntity(currentlySelectedUnitID) && Entities.IsRealHero(currentlySelectedUnitID) && currentlySelectedUnitID === Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) {
         // Check if the selected hero has any upgrade points
         if (Entities.GetAbilityPoints(currentlySelectedUnitID) > 0) {
           // Get hero level
@@ -396,6 +400,8 @@ function LearnTalent (talent, minLevel) {
             $.Msg('Learned talent is: ' + talent.GetChild(0).text);
 
             MakeOtherTalentUnlearnable(talent);
+
+            AnimateTalentTree(); // keep this only if dota_player_learned_ability doesn't trigger it
           }
         }
       }
