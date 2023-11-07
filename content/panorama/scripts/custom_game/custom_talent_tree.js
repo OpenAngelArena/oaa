@@ -15,6 +15,7 @@ let lastSelectedUnitID;
 const contextPanel = $.GetContextPanel();
 const HUDElements = FindDotaHudElement('HUDElements');
 const centerBlock = HUDElements.FindChildTraverse('center_block');
+const talentTree = centerBlock.FindChildTraverse('StatBranch');
 let hudButtonContainer;
 let hudButton;
 let hudOverlay;
@@ -25,8 +26,47 @@ let isTalentWindowCurrentlyOpen = false; // when you load in, talent window is n
 let isTalentButtonVisible = true; // when you load in, talent button is supposed to be visible, because you hero is selected
 
 function RemoveDotaTalentTree () {
-  // Find the talent tree
-  const talentTree = centerBlock.FindChildTraverse('StatBranch');
+  // Find root panels for vanilla talent trees so we can inject new panels into them
+  const nameLabel = HUDElements.FindChildTraverse('UpgradeName8');
+  const button = nameLabel.GetParent(); // Upgrade8
+  const container1 = button.GetParent(); // Upgrade8Container
+  const pair1 = container1.GetParent(); // UpgradeOption4
+  const root1 = pair1.GetParent(); // StatBranchColumn
+  const descriptionLabel = HUDElements.FindChildTraverse('Description8');
+  const descriptionPanel = descriptionLabel.GetParent(); // Upgrade8Description
+  const descriptionContainer = descriptionPanel.GetParent(); // Upgrade8DescriptionContainer
+  const container2 = descriptionContainer.GetParent(); // Upgrade8Container
+  const pair2 = container2.GetParent(); // TalentPair4
+  const root2 = pair2.GetParent(); // TalentDescriptions
+
+  const old1 = root1.FindChildTraverse('UpgradeOption5');
+  const old2 = root2.FindChildTraverse('TalentPair5');
+  if (old1) {
+    old1.DeleteAsync(0);
+  }
+  if (old2) {
+    old2.DeleteAsync(0);
+  }
+
+  // Inject panels into vanilla talent tree for 2 more talents to prevent crashes
+  const a1 = $.CreatePanel('Panel', root1, 'UpgradeOption5');
+  const b1 = $.CreatePanel('Panel', a1, 'Upgrade9Container');
+  const c1 = $.CreatePanel('Button', b1, 'Upgrade9');
+  $.CreatePanel('Label', c1, 'UpgradeName9');
+  const d1 = $.CreatePanel('Panel', a1, 'Upgrade10Container');
+  const e1 = $.CreatePanel('Button', d1, 'Upgrade10');
+  $.CreatePanel('Label', e1, 'UpgradeName10');
+
+  const a2 = $.CreatePanel('Panel', root2, 'TalentPair5');
+  const b2 = $.CreatePanel('Panel', a2, 'Upgrade9Container');
+  const c2 = $.CreatePanel('Panel', b2, 'Upgrade9DescriptionContainer');
+  const d2 = $.CreatePanel('Panel', c2, 'Upgrade9Description');
+  $.CreatePanel('Label', d2, 'Description9');
+  const e2 = $.CreatePanel('Panel', a2, 'Upgrade10Container');
+  const f2 = $.CreatePanel('Panel', e2, 'Upgrade10DescriptionContainer');
+  const g2 = $.CreatePanel('Panel', f2, 'Upgrade10Description');
+  $.CreatePanel('Label', g2, 'Description10');
+
   // Collapse the talent tree
   talentTree.style.visibility = 'collapse';
   // Disable clicking on the talent tree
@@ -43,10 +83,7 @@ function RemoveDotaTalentTree () {
 
 function CreateCustomHudTalentButton () {
   // Find the ability bar
-  const abilityBar = centerBlock.FindChildTraverse('StatBranch').GetParent();
-
-  // Find the ability list
-  const abilityList = abilityBar.FindChildTraverse('StatBranch');
+  const abilityBar = talentTree.GetParent();
 
   // Delete previous instances of 'talent_btn_container' for testing purposes in tools,
   // because of constant recompiling after every change
@@ -59,7 +96,7 @@ function CreateCustomHudTalentButton () {
   hudButtonContainer = $.CreatePanel('Panel', abilityBar, 'talent_btn_container');
   hudButtonContainer.BLoadLayout('file://{resources}/layout/custom_game/custom_talent_hud.xml', true, false);
   hudButtonContainer.SetParent(abilityBar);
-  abilityBar.MoveChildAfter(hudButtonContainer, abilityList);
+  abilityBar.MoveChildAfter(hudButtonContainer, talentTree);
 
   // Find the button inside the container (custom_talent_hud.xml has the talent_hud_btn button)
   hudButton = hudButtonContainer.FindChildTraverse('talent_hud_btn');
@@ -102,51 +139,53 @@ function InitializeHeroTalents () {
     // talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text is the same as:
     // talentRow.Children()[0].Children()[0].Children()[0].text;
     // talentRow.GetChild(0).GetChild(0).GetChild(0).text;
-    if (requiredLevel === '55') {
-      const leftTalentSuper = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
-      const rightTalentSuper = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
-      leftTalentSuper.GetChild(0).text = 'Super Talent Left';
-      leftTalentSuper.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalentSuper, 'Description left'); });
-      leftTalentSuper.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-      rightTalentSuper.GetChild(0).text = 'Super Talent Right';
-      rightTalentSuper.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalentSuper, 'Description right'); });
-      rightTalentSuper.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-    } else {
-      const rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
-      const leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
-      let rightTalentName = 'right';
-      let leftTalentName = 'left';
-      if (requiredLevel === '10') {
-        rightTalentName = normalTalents[0];
-        leftTalentName = normalTalents[1];
-      } else if (requiredLevel === '15') {
-        rightTalentName = normalTalents[2];
-        leftTalentName = normalTalents[3];
-      } else if (requiredLevel === '20') {
-        rightTalentName = normalTalents[4];
-        leftTalentName = normalTalents[5];
-      } else if (requiredLevel === '25') {
-        rightTalentName = normalTalents[6];
-        leftTalentName = normalTalents[7];
-      }
-      // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
-      // rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
+    let rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalent')[0];
+    let leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalent')[0];
+    if (!rightTalent) {
+      rightTalent = talentRow.FindChildrenWithClassTraverse('rightTalentSuper')[0];
+    }
+    if (!leftTalent) {
+      leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
+    }
+    let rightTalentName = 'right';
+    let leftTalentName = 'left';
+    if (requiredLevel === '10') {
+      rightTalentName = normalTalents[0];
+      leftTalentName = normalTalents[1];
+    } else if (requiredLevel === '15') {
+      rightTalentName = normalTalents[2];
+      leftTalentName = normalTalents[3];
+    } else if (requiredLevel === '20') {
+      rightTalentName = normalTalents[4];
+      leftTalentName = normalTalents[5];
+    } else if (requiredLevel === '25') {
+      rightTalentName = normalTalents[6];
+      leftTalentName = normalTalents[7];
+    } else if (requiredLevel === '55') {
+      rightTalentName = normalTalents[8];
+      leftTalentName = normalTalents[9];
+    }
+    // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
+    // rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
+    if (rightTalentName) {
       GameUI.SetupDOTATalentNameLabel(rightTalent.GetChild(0), rightTalentName);
-      // leftTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent.GetChild(0));
+    }
+    // leftTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName, leftTalent.GetChild(0));
+    if (leftTalentName) {
       GameUI.SetupDOTATalentNameLabel(leftTalent.GetChild(0), leftTalentName);
-      const rightTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName + '_Description', rightTalent.GetChild(0));
-      const leftTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName + '_Description', leftTalent.GetChild(0));
-      rightTalent.SetPanelEvent('onmouseover', function () { });
-      leftTalent.SetPanelEvent('onmouseover', function () { });
-      // Check if talent descriptions exist before setting panel events (Localize will return the input string if localization not found)
-      if (rightTalentDescription !== '#DOTA_Tooltip_Ability_' + rightTalentName + '_Description') {
-        rightTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent, rightTalentDescription); });
-        rightTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-      }
-      if (leftTalentDescription !== '#DOTA_Tooltip_Ability_' + leftTalentName + '_Description') {
-        leftTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent, leftTalentDescription); });
-        leftTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
-      }
+    }
+    const rightTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName + '_Description', rightTalent.GetChild(0));
+    const leftTalentDescription = $.Localize('#DOTA_Tooltip_Ability_' + leftTalentName + '_Description', leftTalent.GetChild(0));
+    rightTalent.SetPanelEvent('onmouseover', function () { });
+    leftTalent.SetPanelEvent('onmouseover', function () { });
+    // Check if talent descriptions exist before setting panel events (Localize will return the input string if localization not found)
+    if (rightTalentDescription !== '#DOTA_Tooltip_Ability_' + rightTalentName + '_Description') {
+      rightTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', rightTalent, rightTalentDescription); });
+      rightTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
+    }
+    if (leftTalentDescription !== '#DOTA_Tooltip_Ability_' + leftTalentName + '_Description') {
+      leftTalent.SetPanelEvent('onmouseover', function () { $.DispatchEvent('DOTAShowTextTooltip', leftTalent, leftTalentDescription); });
+      leftTalent.SetPanelEvent('onmouseout', function () { $.DispatchEvent('DOTAHideTextTooltip'); });
     }
   }
 
