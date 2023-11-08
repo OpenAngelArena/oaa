@@ -19,7 +19,6 @@ function modifier_duelist_oaa:RemoveOnDeath()
 end
 
 function modifier_duelist_oaa:OnCreated()
-  self:OnRefresh()
   if IsServer() then
     self:StartIntervalThink(0.1)
   end
