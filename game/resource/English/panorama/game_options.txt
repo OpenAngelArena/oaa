@@ -62,7 +62,7 @@
 "game_option_buyback"                                                           "Enabled Buyback"
 
 "game_option_random_description"                                                "This modifier will be revealed when the game starts!"
-"game_option_lifesteal_description"                                             "75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
+"game_option_lifesteal_description"                                             "75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_aoe_radius_description"                                            "Most spells' and items' radius (AoE) increased by 50%."
 "game_option_blood_magic_description"                                           "Spells cost health equal to 2.5 times their mana cost. All mana (except base mana) turned into bonus hp. All mana regen turned into bonus hp regen."
 "game_option_timeless_relic_description"                                        "Bonus 30% debuff duration and bonus 30% spell amplification."
@@ -102,11 +102,11 @@
 "game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
 
-"game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 25% against creeps and illusions."
+"game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
 
 "DOTA_Tooltip_modifier_any_damage_lifesteal_oaa"                                "#{game_option_lifesteal}"
-"DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"                    "75%% lifesteal and spell lifesteal against heroes. 25%% against creeps and illusions."
+"DOTA_Tooltip_modifier_any_damage_lifesteal_oaa_Description"                    "75%% lifesteal and spell lifesteal against heroes. 15%% against creeps and illusions."
 "DOTA_Tooltip_modifier_aoe_radius_increase_oaa"                                 "#{game_option_aoe_radius}"
 "DOTA_Tooltip_modifier_aoe_radius_increase_oaa_Description"                     "Most spells' and items' radius (AoE) increased by 50%%."
 "DOTA_Tooltip_modifier_blood_magic_oaa"                                         "#{game_option_blood_magic}"
