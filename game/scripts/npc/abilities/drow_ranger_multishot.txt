@@ -31,16 +31,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "wave_count"
+      "wave_count" //OAA
       {
         "value"                                           "3"
-        "special_bonus_unique_drow_ranger_8"              "+1"
+        "special_bonus_unique_drow_ranger_8"              "+2"
       }
       "arrow_count_per_wave"                              "4"
-      "arrow_damage_pct" // this is based on Drow's base damage
+      "arrow_damage_pct" // OAA, this is multiplied with (Drow's base (white) damage + Frost Arrow damage)
       {
-        "value"                                           "100 120 140 160 200 260"
-        "special_bonus_unique_drow_ranger_1"              "+25"
+        "value"                                           "100 120 140 160 180 200"
+        "special_bonus_unique_drow_ranger_1"              "+50"
       }
       "arrow_slow_duration"                               "1.25 2 2.75 3.5 4.25 5"
       "arrow_width"                                       "90"
