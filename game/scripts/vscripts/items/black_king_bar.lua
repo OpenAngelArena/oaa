@@ -15,7 +15,6 @@ function item_black_king_bar_1:OnSpellStart()
   -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
   caster:RemoveModifierByName("modifier_slark_pounce_leash")
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
-  caster:RemoveModifierByName("modifier_oracle_fates_edict")
 
 	-- Apply spell immunity buff
   caster:AddNewModifier(caster, self, "modifier_black_king_bar_immune", {duration = self:GetSpecialValueFor("duration")})

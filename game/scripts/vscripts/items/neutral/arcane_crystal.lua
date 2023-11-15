@@ -30,6 +30,7 @@ function modifier_item_arcane_crystal_passive:OnCreated()
     self.cdr = ability:GetSpecialValueFor("cooldown_reduction")
     self.heal_amp = ability:GetSpecialValueFor("bonus_heal_amp")
     self.cast_time_reduction = ability:GetSpecialValueFor("cast_pct_improvement")
+    self.debuff_amp = ability:GetSpecialValueFor("debuff_amp")
   end
 end
 
@@ -45,6 +46,7 @@ function modifier_item_arcane_crystal_passive:DeclareFunctions()
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_CASTER,
   }
 end
 
@@ -77,5 +79,16 @@ function modifier_item_arcane_crystal_passive:GetModifierHealAmplify_PercentageT
 end
 
 function modifier_item_arcane_crystal_passive:GetModifierPercentageCasttime()
+  local parent = self:GetParent()
+  -- If parent has better cast time improvements return 0
+  if parent:HasModifier("modifier_no_cast_points_oaa") or parent:HasModifier("modifier_speedster_oaa") or parent:HasModifier("modifier_sonic_fly") then
+    return 0
+  end
   return self.cast_time_reduction or self:GetAbility():GetSpecialValueFor("cast_pct_improvement")
+end
+
+if IsServer() then
+  function modifier_item_arcane_crystal_passive:GetModifierStatusResistanceCaster()
+    return self.debuff_amp or self:GetAbility():GetSpecialValueFor("debuff_amp")
+  end
 end

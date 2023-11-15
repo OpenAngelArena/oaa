@@ -104,7 +104,8 @@ function modifier_item_reduction_orb_active:OnDestroy()
     local ability = self:GetAbility()
     local amountToHeal = self.endHeal
 
-    parent:Heal(amountToHeal, ability)
+    --parent:Heal(amountToHeal, ability)
+    parent:SetHealth(parent:GetHealth() + amountToHeal)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, amountToHeal, nil)
   end
 end
@@ -130,9 +131,11 @@ function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event
   end
 
   local parent = self:GetParent()
-  local damage = event.damage
+  local damage = math.max(event.original_damage, event.damage)
 
-  self.endHeal = self.endHeal + damage * self.damageheal / 100
+  if damage > 0 then
+    self.endHeal = self.endHeal + damage * self.damageheal / 100
+  end
 
   local block_amount = damage * self.damageReduction / 100
 

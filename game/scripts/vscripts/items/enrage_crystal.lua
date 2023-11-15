@@ -13,6 +13,10 @@ function item_enrage_crystal_1:OnSpellStart()
   -- Strong Dispel
   caster:Purge(false, true, false, true, false)
 
+  -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
+  caster:RemoveModifierByName("modifier_slark_pounce_leash")
+  caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
+
   -- Sound
   caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
 
