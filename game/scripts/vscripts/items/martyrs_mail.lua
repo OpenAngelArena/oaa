@@ -309,7 +309,7 @@ function modifier_item_martyrs_mail_martyr_active:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -348,7 +348,7 @@ function modifier_item_martyrs_mail_martyr_aura:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_martyr_aura:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -403,7 +403,7 @@ end
 --end
 
 function modifier_item_martyrs_mail_passive_aura_effect:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -468,7 +468,7 @@ function modifier_item_martyrs_mail_death_buff:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_death_buff:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------

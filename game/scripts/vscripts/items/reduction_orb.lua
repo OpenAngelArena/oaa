@@ -2,8 +2,6 @@ LinkLuaModifier("modifier_item_reduction_orb_passive", "items/reduction_orb.lua"
 LinkLuaModifier("modifier_item_reduction_orb_active", "items/reduction_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reduction_orb_1 = class(ItemBaseClass)
-item_reduction_orb_2 = item_reduction_orb_1
-item_reduction_orb_3 = item_reduction_orb_1
 
 function item_reduction_orb_1:GetIntrinsicModifierName()
   return "modifier_item_reduction_orb_passive"
@@ -84,7 +82,7 @@ function modifier_item_reduction_orb_active:IsPurgable()
 end
 
 function modifier_item_reduction_orb_active:OnCreated()
-  self.damageheal = 75
+  self.damageheal = 25
   self.damageReduction = 100
   self.endHeal = 0
   self:OnRefresh()
@@ -157,5 +155,5 @@ function modifier_item_reduction_orb_active:GetModifierModelScale()
 end
 
 function modifier_item_reduction_orb_active:GetTexture()
-  return "custom/reduction_orb_3"
+  return "custom/reduction_orb"
 end
