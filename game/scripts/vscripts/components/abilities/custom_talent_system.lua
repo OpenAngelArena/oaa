@@ -126,7 +126,7 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecial(keys)
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
     local custom_talent = parent:FindAbilityByName(v[1])
-    if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
+    if keys.ability_special_value == k and custom_talent and custom_talent:GetLevel() > 0 then
       return 1
     end
   end
@@ -145,7 +145,7 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecialValue(keys
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
     local custom_talent = parent:FindAbilityByName(v[1])
-    if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
+    if keys.ability_special_value == k and custom_talent and custom_talent:GetLevel() > 0 then
       local talent_type = v[2]
       local talent_value = custom_talent:GetSpecialValueFor("value")
       if talent_type == "+" then
