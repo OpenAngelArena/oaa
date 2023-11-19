@@ -112,25 +112,6 @@ test('KV Values', function (t) {
         }
       }
     }
-    /*
-    // short signed (-32767, 32767)
-    console.log('items/abilities with potentially bad ID if unique ID is short signed type:');
-    for (iter = 10000; iter < 9999999; iter++) {
-      if (idsFound[iter] !== undefined) {
-        for (j = 1; j < 306; j = j + 2) {
-          if (iter > 32767 * j && iter < 32768 * (j + 2)) {
-            idToCheck = iter - 32768 * (j + 1) + 1;
-            if (idToCheck < 0) {
-              console.log('potentially negative ID: ' + iter, idsFound[iter]);
-            }
-            if (idToCheck >= 0 && idsFound[idToCheck] !== undefined) {
-              console.log('ID: ' + iter, idsFound[iter]);
-              console.log('is in potential conflict with: ' + idToCheck, idsFound[idToCheck]);
-            }
-          }
-        }
-      }
-    } */
     t.end();
   });
 });
@@ -348,7 +329,7 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
 }
 
 function checkInheritedValues (t, isItem, values, comments, parentValues) {
-  if (values.ID) {
+  if (values.ID && parentValues.ID) {
     t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
   }
   const keys = [
