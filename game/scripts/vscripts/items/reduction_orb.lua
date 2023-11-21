@@ -99,7 +99,7 @@ end
 function modifier_item_reduction_orb_active:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
-    local ability = self:GetAbility()
+    --local ability = self:GetAbility()
     local amountToHeal = self.endHeal
 
     --parent:Heal(amountToHeal, ability)
