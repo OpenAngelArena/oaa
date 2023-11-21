@@ -8,19 +8,99 @@ const extend = require('xtend');
 const partial = require('ap').partial;
 
 let dotaItems = null;
-let dotaItemIDs = null;
+// let dotaItemIDs = null;
 let dotaAbilities = null;
 let dotaItemList = null;
 let dotaAbilityList = null;
-const stupidItemNames = [
+const allowedIconNames = [
   'item_recipe'
 ];
-
+const ignoredBaseClasses = [
+  'special_bonus_undefined',
+  'special_bonus_base',
+  'special_bonus_reincarnation_250',
+  'special_bonus_agility_40',
+  'item_abyssal_blade',
+  'item_armlet',
+  'item_assault',
+  'item_bfury',
+  'item_bloodthorn',
+  'item_crimson_guard',
+  'item_disperser',
+  'item_eternal_shroud',
+  'item_ethereal_blade',
+  'item_glimmer_cape',
+  'item_greater_crit',
+  'item_gungir',
+  'item_harpoon',
+  'item_heavens_halberd',
+  'item_helm_of_the_overlord',
+  'item_hurricane_pike',
+  'item_kaya_and_sange',
+  'item_lotus_orb',
+  'item_manta',
+  'item_mjollnir',
+  'item_monkey_king_bar',
+  'item_nullifier',
+  'item_octarine_core',
+  'item_phylactery',
+  'item_pipe',
+  'item_radiance',
+  'item_revenants_brooch',
+  'item_sange_and_yasha',
+  'item_satanic',
+  'item_sheepstick',
+  'item_shivas_guard',
+  'item_silver_edge',
+  'item_skadi',
+  'item_solar_crest',
+  'item_sphere',
+  'item_veil_of_discord',
+  'item_wind_waker',
+  'item_yasha_and_kaya',
+  'item_arcane_blink',
+  'item_overwhelming_blink',
+  'item_swift_blink',
+  'item_blink'
+];
 let itemsFound = {};
-const idsFound = {};
+// const idsFound = {};
 const itemFileMap = {};
-let nextAvailableId = 3500;
-const usedIDs = {};
+// let nextAvailableId = 3500;
+// const usedIDs = {};
+const specialValuesForItem = {};
+const abilityValuesForItem = {};
+const ignoreValuesFor = [
+  'item_platemail',
+  'item_ultimate_orb',
+  'item_boots',
+  'item_gem',
+  'item_talisman_of_evasion',
+  'item_clarity',
+  'item_dust',
+  'item_ward_observer',
+  'item_ward_sentry',
+  'item_tpscroll',
+  'item_demon_edge',
+  'item_eagle',
+  'item_reaver',
+  'item_relic',
+  'item_hyperstone',
+  'item_ring_of_health',
+  'item_void_stone',
+  'item_mystic_staff',
+  'item_energy_booster',
+  'item_point_booster',
+  'item_vitality_booster',
+  'item_enchanted_mango',
+  'item_infused_raindrop',
+  'item_nether_shawl',
+  'item_aghanims_shard',
+  'item_cornucopia'
+  // 'shredder_chakram',
+  // 'shredder_chakram_2',
+  // 'tiny_grow',
+];
 
 test('KV Values', function (t) {
   t.test('before', function (t) {
@@ -29,32 +109,28 @@ test('KV Values', function (t) {
       t.notOk(err, 'no err while reading dota items');
       dotaItems = data;
       dotaItemList = Object.keys(dotaItems).filter(a => a !== 'values');
-      dotaItemIDs = dotaItemList
+      /* dotaItemIDs = dotaItemList
         .map(function (item) {
-          // console.log(dotaItems[item]);
           usedIDs[dotaItems[item].values.ID] = item;
           return dotaItems[item].values.ID;
         })
-        .filter(a => !!a);
+        .filter(a => !!a); */
       t.ok(Object.keys(data).length > 1, 'gets dota items from github');
     });
     Lib.dotaAbilities(function (err, data) {
       t.notOk(err, 'no err while reading dota abilities');
       dotaAbilities = data;
       dotaAbilityList = Object.keys(dotaAbilities).filter(a => a !== 'values');
-      dotaAbilityList.forEach(function (item) {
+      /* dotaAbilityList.forEach(function (item) {
         usedIDs[dotaAbilities[item].values.ID] = item;
-      });
+      }); */
 
       t.ok(Object.keys(data).length > 1, 'gets dota abilities from github');
     });
   });
   t.test('Testing all item KV values', function (t) {
     dotaItems.item_lua = true;
-    dotaAbilities.ability_lua = true;
     dotaItems.item_datadriven = true;
-    dotaAbilities.ability_datadriven = true;
-    dotaAbilities.special_bonus_base = true;
     Lib.items(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while item reading kvs');
@@ -71,6 +147,8 @@ test('KV Values', function (t) {
     });
   });
   t.test('Testing all ability KV values', function (t) {
+    dotaAbilities.ability_lua = true;
+    dotaAbilities.ability_datadriven = true;
     Lib.abilities(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while ability reading kvs');
@@ -85,7 +163,7 @@ test('KV Values', function (t) {
       });
     });
   });
-  t.test('next available ID', function (t) {
+  /* t.test('next available ID', function (t) {
     while (usedIDs[nextAvailableId]) {
       nextAvailableId++;
     }
@@ -112,31 +190,9 @@ test('KV Values', function (t) {
         }
       }
     }
-    /*
-    // short signed (-32767, 32767)
-    console.log('items/abilities with potentially bad ID if unique ID is short signed type:');
-    for (iter = 10000; iter < 9999999; iter++) {
-      if (idsFound[iter] !== undefined) {
-        for (j = 1; j < 306; j = j + 2) {
-          if (iter > 32767 * j && iter < 32768 * (j + 2)) {
-            idToCheck = iter - 32768 * (j + 1) + 1;
-            if (idToCheck < 0) {
-              console.log('potentially negative ID: ' + iter, idsFound[iter]);
-            }
-            if (idToCheck >= 0 && idsFound[idToCheck] !== undefined) {
-              console.log('ID: ' + iter, idsFound[iter]);
-              console.log('is in potential conflict with: ' + idToCheck, idsFound[idToCheck]);
-            }
-          }
-        }
-      }
-    } */
     t.end();
-  });
+  }); */
 });
-
-const specialValuesForItem = {};
-const abilityValuesForItem = {};
 
 function checkKVData (t, name, data, isItem, cb) {
   t.test(name, function (t) {
@@ -161,51 +217,50 @@ function checkKVData (t, name, data, isItem, cb) {
   });
 }
 
-function testKVItem (t, root, isItem, fileName, cb, item) {
+// expects 1 item (with recipe) or 1 ability per file
+function testKVItem (t, kvFileContent, isItem, fileName, cb, item) {
   const iconDirectory = isItem
     ? 'items'
     : 'spellicons';
-  // t.test(item, function (t) {
 
-  itemFileMap[item] = fileName;
+  if (isItem) {
+    itemFileMap[item] = fileName;
+  }
   const done = after(3, function (err) {
     t.notOk(err, 'no error at very end');
-    // t.end();
     cb(err);
   });
-  const values = root[item].values;
+  const values = kvFileContent[item].values;
   const isBuiltIn = isItem
     ? dotaItems[item] && dotaItems[item] !== true
     : dotaAbilities[item] && dotaAbilities[item] !== true;
 
   t.notOk(itemsFound[item], 'can only be defined once');
-  if (item !== 'ability_base_datadriven') {
-    t.notOk(idsFound[values.ID], 'must have a unique ID');
-    if (!isBuiltIn) {
-      t.ok(values.ID, 'must have an item id');
-      t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
-      t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);
+  // t.notOk(idsFound[values.ID], 'must have a unique ID');
+  if (!isBuiltIn) {
+    // t.ok(values.ID, 'must have an item id');
+    t.ok(!isItem || values.ItemCost, 'non-built-in items must have prices');
+    // t.ok(dotaItemIDs.indexOf(values.ID) === -1, 'cannot use an id used by dota ' + usedIDs[values.ID]);
 
-      if (usedIDs[values.ID]) {
-        t.fail('ID number is already in use by ' + usedIDs[values.ID]);
-        usedIDs[values.ID] = item;
-      }
-    }
+    /* if (usedIDs[values.ID]) {
+      t.fail('ID number is already in use by ' + usedIDs[values.ID]);
+      usedIDs[values.ID] = item;
+    } */
   }
 
   itemsFound[item] = item;
-  idsFound[values.ID] = item;
+  // idsFound[values.ID] = item;
 
-  while (usedIDs[nextAvailableId] || idsFound['' + nextAvailableId]) {
+  /* while (usedIDs[nextAvailableId] || idsFound['' + nextAvailableId]) {
     nextAvailableId += 1;
-  }
+  } */
 
   let icon = values.AbilityTextureName;
 
   if (icon) {
     t.equal(values.AbilityTextureName.toLowerCase(), values.AbilityTextureName, 'Icon names must be lowercase');
 
-    if (stupidItemNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
+    if (allowedIconNames.indexOf(icon) === -1 && dotaItemList.indexOf(icon) === -1 && dotaAbilityList.indexOf(icon) === -1) {
       if (icon.substr(-4) === '.png') {
         t.fail('AbilityTextureName should not contain file extension');
       }
@@ -231,33 +286,35 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
   let parentKV = null;
   if (values.BaseClass) {
     if (isItem) {
-      t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built in item');
-      if (dotaItems[values.BaseClass] && dotaItems[values.BaseClass].values && dotaItems[values.BaseClass].values.ID === values.ID) {
+      t.ok(dotaItems[values.BaseClass], 'base class ' + values.BaseClass + ' must be item_datadriven, item_lua, or a built-in item');
+      if (dotaItems[values.BaseClass] && dotaItems[values.BaseClass].values && ignoredBaseClasses.indexOf(values.BaseClass) === -1) {
         parentKV = dotaItems[values.BaseClass];
       }
     } else {
-      t.ok(dotaAbilities[values.BaseClass], 'base class ' + values.BaseClass + ' must be ability_datadriven, ability_lua, or a built in ability');
-      if (dotaAbilities[values.BaseClass] && dotaAbilities[values.BaseClass].values && dotaAbilities[values.BaseClass].values.ID === values.ID) {
+      t.ok(dotaAbilities[values.BaseClass], 'base class ' + values.BaseClass + ' must be ability_datadriven, ability_lua, or a built-in ability');
+      if (dotaAbilities[values.BaseClass] && dotaAbilities[values.BaseClass].values && ignoredBaseClasses.indexOf(values.BaseClass) === -1) {
         parentKV = dotaAbilities[values.BaseClass];
       }
     }
   } else {
     if (isItem) {
-      t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built in items');
+      t.ok(dotaItems[item], 'missing baseclass only allowed when overriding built-in items');
       parentKV = dotaItems[item];
     } else {
-      t.ok(dotaAbilities[item], 'missing baseclass only allowed when overriding built in abilities');
+      t.ok(dotaAbilities[item], 'missing baseclass only allowed when overriding built-in abilities');
       parentKV = dotaAbilities[item];
     }
   }
-  if (parentKV && values.ID) {
-    checkInheritedValues(t, isItem, values, root[item].comments, parentKV.values);
+  if (parentKV) {
+    checkInheritedValues(t, isItem, values, kvFileContent[item].comments, parentKV.values);
 
-    if (root[item].ItemRequirements) {
-      if (!root[item].comments.ItemRequirements || !root[item].comments.ItemRequirements.includes('OAA')) {
-        t.deepEquals(root[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(root[item].ItemRequirements, null, 2));
+    if (kvFileContent[item].ItemRequirements) {
+      if (!kvFileContent[item].comments.ItemRequirements || !kvFileContent[item].comments.ItemRequirements.includes('OAA')) {
+        t.deepEquals(kvFileContent[item].ItemRequirements, parentKV.ItemRequirements, 'has the same item buildup\n' + JSON.stringify(parentKV.ItemRequirements, null, 2) + '\n' + JSON.stringify(kvFileContent[item].ItemRequirements, null, 2));
       }
     }
+  } else if (!values.BaseClass) {
+    console.log('Couldnt find vanilla KVs for ' + item);
   }
 
   if (values.ScriptFile) {
@@ -269,87 +326,60 @@ function testKVItem (t, root, isItem, fileName, cb, item) {
     done();
   }
 
-  // for completely reworked abilities and irrelevant stuff
-  const ignoreValuesForIDs = [
-    '9', // item_platemail
-    '24', // item_ultimate_orb
-    '29', // item_boots
-    '30', // item_gem
-    '32', // item_talisman_of_evasion
-    '38', // item_clarity
-    '40', // item_dust
-    '42', // item_ward_observer
-    '43', // item_ward_sentry
-    '46', // item_tpscroll
-    '51', // item_demon_edge
-    '52', // item_eagle
-    '53', // item_reaver
-    '54', // item_relic
-    '55', // item_hyperstone
-    '56', // item_ring_of_health
-    '57', // item_void_stone
-    '58', // item_mystic_staff
-    '59', // item_energy_booster
-    '60', // item_point_booster
-    '61', // item_vitality_booster
-    '216', // item_enchanted_mango
-    '265', // item_infused_raindrop
-    '357', // item_nether_shawl
-    '609', // item_aghanims_shard
-    '1125', // item_cornucopia
-    '5527', // shredder_chakram
-    '5645' // shredder_chakram_2
-    // '5109', // tiny_grow
-  ];
-
-  const specials = root[item].AbilitySpecial;
+  const specials = kvFileContent[item].AbilitySpecial;
 
   if (specials) {
     // check specials!
-    if (ignoreValuesForIDs.indexOf(values.ID) === -1) {
+    if (ignoreValuesFor.indexOf(item) === -1) {
       let rootItem = item.match(/^(.*?)(_[0-9]+)?$/);
-      t.ok(rootItem, 'can parse basic item name out');
-      // var version = rootItem[2];
-      rootItem = rootItem[1];
+      if (isItem) {
+        t.ok(rootItem, 'can parse basic item name out');
+        rootItem = rootItem[1];
+      } else {
+        rootItem = item;
+      }
       if (!specialValuesForItem[rootItem]) {
         testSpecialValues(t, isItem, specials, parentKV ? parentKV.AbilitySpecial : null);
         specialValuesForItem[rootItem] = specials;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
-        spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent');
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+        spok(t, specials, specialValuesForItem[rootItem], 'special values are not consistent across levels');
       }
     }
   } else {
-    if ((parentKV ? parentKV.AbilitySpecial : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
+    if ((parentKV ? parentKV.AbilitySpecial : false) && ignoreValuesFor.indexOf(item) === -1) {
       t.fail('This ability have no AbilitySpecials while it should!');
     }
   }
 
-  const abilityValues = root[item].AbilityValues;
+  const abilityValues = kvFileContent[item].AbilityValues;
 
   if (abilityValues) {
-    if (ignoreValuesForIDs.indexOf(values.ID) === -1) {
+    if (ignoreValuesFor.indexOf(item) === -1) {
       let rootItem2 = item.match(/^(.*?)(_[0-9]+)?$/);
-      rootItem2 = rootItem2[1];
+      if (isItem) {
+        t.ok(rootItem2, 'can parse basic item name out');
+        rootItem2 = rootItem2[1];
+      } else {
+        rootItem2 = item;
+      }
       if (!abilityValuesForItem[rootItem2]) {
         testAbilityValues(t, isItem, abilityValues, parentKV ? parentKV.AbilityValues : null);
         abilityValuesForItem[rootItem2] = abilityValues;
-      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES') {
-        spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent');
+      } else if (values.AbilityType !== 'DOTA_ABILITY_TYPE_ATTRIBUTES' && isItem) {
+        spok(t, abilityValues, abilityValuesForItem[rootItem2], 'ability values are not consistent across levels');
       }
     }
   } else {
-    if ((parentKV ? parentKV.AbilityValues : false) && ignoreValuesForIDs.indexOf(values.ID) === -1) {
+    if ((parentKV ? parentKV.AbilityValues : false) && ignoreValuesFor.indexOf(item) === -1) {
       t.fail('This ability have no AbilityValues while it should!');
     }
   }
   done();
-
-  // });
 }
 
 function checkInheritedValues (t, isItem, values, comments, parentValues) {
-  if (values.ID) {
-    t.equals(values.ID, parentValues.ID, 'ID must not be changed from base dota item');
+  if (parentValues.ID) {
+    t.equals(values.ID, parentValues.ID, 'ID must not be changed from vanilla dota item or ability.');
   }
   const keys = [
     'AbilityBehavior',

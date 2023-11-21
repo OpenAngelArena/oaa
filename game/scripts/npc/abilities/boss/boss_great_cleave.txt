@@ -35,8 +35,13 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "great_cleave_damage"                             "100"
+        "great_cleave_damage"                             "100" //OAA
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_8"
+      }
+      "05"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "strength_bonus"                                  "0" //OAA
       }
     }
   }
