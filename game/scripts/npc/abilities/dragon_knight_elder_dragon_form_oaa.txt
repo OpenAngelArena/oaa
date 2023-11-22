@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "80"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
       "bonus_attack_damage"                               "0"
-      "corrosive_breath_damage"                           "25 45 65 125 125"
+      "corrosive_breath_damage"                           "25 30 35 70 70"
       "corrosive_breath_duration"                         "5.0"
       "splash_radius"                                     "350"
       "splash_damage_percent"
@@ -70,7 +70,7 @@
       }
       "model_scale"                                       "0 0 0 30 30"
       // changing 5th value will have effect for this kv:
-      "magic_resistance"                                  "0 0 0 25 40"
+      "magic_resistance"                                  "0 0 0 25 30"
       // original kvs:
       "rage_chance"                                       "40" // unused
       "rage_duration"                                     "2.0" // unused

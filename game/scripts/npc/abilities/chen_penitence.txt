@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "700 800 900 1000 1050 1100" //OAA, base attack range (650) + self_attack_range_bonus
     "AbilityCooldown"                                     "14.0 13.0 12.0 11.0 10.0 9.0"
 
     // Cost

@@ -41,10 +41,10 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "20 30 40 50 100 200"
-        "special_bonus_unique_jakiro_8"                   "+12"
+        "special_bonus_unique_jakiro_8"                   "+30"
       }
       "building_dmg_pct"                                  "75" // percentage bonus damage against bosses
     }
