@@ -81,7 +81,7 @@ function modifier_item_vampire:DeclareFunctions()
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-    MODIFIER_PROPERTY_SLOW_RESISTANCE,
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -104,13 +104,14 @@ function modifier_item_vampire:GetModifierStatusResistanceStacking()
   end
 end
 
-function modifier_item_vampire:GetModifierSlowResistance()
-  if self:GetStackCount() == 2 then
-    return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
-  else
-    return 0
-  end
-end
+-- Doesn't work, Thanks Valve
+-- function modifier_item_vampire:GetModifierSlowResistance()
+  -- if self:GetStackCount() == 2 then
+    -- return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
+  -- else
+    -- return 0
+  -- end
+-- end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
   return self.bonus_attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
