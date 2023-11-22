@@ -40,6 +40,7 @@ function modifier_item_dispel_orb_active:OnCreated()
     end
 
     local interval = self:GetAbility():GetSpecialValueFor("tick_interval")
+    self:OnIntervalThink()
     self:StartIntervalThink(interval)
   end
 end

@@ -1,74 +1,73 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Reduction Orb 2
+  // Recipe: Reduction Orb
   //=================================================================================================================
-  "item_recipe_reduction_orb_2"
+  "item_recipe_reduction_orb_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3806"
+    "ID"                                                  "3821"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_reduction_orb_2"
+    "ItemResult"                                          "item_reduction_orb_1"
     "ItemRequirements"
     {
-      "01"                                                "item_reduction_orb_1;item_upgrade_core_3"
+      "01"                                                "item_heart_oaa_4;item_upgrade_core_4"
+      "02"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "03"                                                "item_heart_transplant;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Reduction Orb 2
+  // Reduction Orb 1
   //=================================================================================================================
-  "item_reduction_orb_2"
+  "item_reduction_orb_1"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3805"
+    "ID"                                                  "3802"
     "BaseClass"                                           "item_lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/reduction_orb_2"
+    "AbilityTextureName"                                  "custom/reduction_orb"
     "ScriptFile"                                          "items/reduction_orb.lua"
-
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "200"
     "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "reduction"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16728"
+    "ItemCost"                                            "35104"
     "ItemShopTags"                                        "health_pool;armor;magic_resist;unique;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "Reduction orb 2"
+    "ItemAliases"                                         "reduction orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "2850"
+      "bonus_health"                                      "2850" // same as Regen Crystal max level
       "bonus_armor"                                       "15"
       "bonus_magic_resistance"                            "25"
       "damage_reduction"                                  "100"
       "duration"                                          "4.0"
-      "damage_as_healing"                                 "75"
+      "damage_as_healing"                                 "25"
     }
   }
 }

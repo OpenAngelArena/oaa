@@ -37,7 +37,18 @@ function modifier_item_vampire:IsPurgable()
 	return false
 end
 
+function modifier_item_vampire:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_vampire:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_item_vampire:OnRefresh()
   if not self.procRecords then
     self.procRecords = {}
   end
@@ -46,22 +57,34 @@ function modifier_item_vampire:OnCreated()
     self.bonus_dmg = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resistance")
+    self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
     self.bonus_night_vision = ability:GetSpecialValueFor("bonus_night_vision")
   end
+
+  if IsServer() then
+    self:OnIntervalThink()
+  end
 end
 
-modifier_item_vampire.OnRefresh = modifier_item_vampire.OnCreated
+function modifier_item_vampire:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
 
 function modifier_item_vampire:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
-    MODIFIER_EVENT_ON_ATTACK_LANDED
+    MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
@@ -74,15 +97,32 @@ function modifier_item_vampire:GetModifierBonusStats_Strength()
 end
 
 function modifier_item_vampire:GetModifierStatusResistanceStacking()
-  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
+  if self:GetStackCount() == 2 then
+    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resistance")
+  else
+    return 0
+  end
 end
+
+-- Doesn't work, Thanks Valve
+-- function modifier_item_vampire:GetModifierSlowResistance()
+  -- if self:GetStackCount() == 2 then
+    -- return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
+  -- else
+    -- return 0
+  -- end
+-- end
 
 function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
   return self.bonus_attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_vampire:GetBonusNightVision()
-  return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
+  if self:GetStackCount() == 2 then
+    return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
+  else
+    return 0
+  end
 end
 
 if IsServer() then
@@ -220,7 +260,7 @@ function modifier_item_vampire_active:OnRefresh()
       self.procRecords = {}
     end
 
-	if self.particle then
+    if self.particle then
       ParticleManager:DestroyParticle(self.particle, true)
       ParticleManager:ReleaseParticleIndex(self.particle)
       self.particle = nil
@@ -456,6 +496,12 @@ end
 
 function modifier_item_vampire_active_detect_life_effect:GetModifierProvidesFOWVision()
 	return 1
+end
+
+function modifier_item_vampire_active_detect_life_effect:CheckState()
+  return {
+    [MODIFIER_STATE_PROVIDES_VISION] = true,
+  }
 end
 
 function modifier_item_vampire_active_detect_life_effect:GetTexture()

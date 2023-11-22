@@ -23,7 +23,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "movespeed"                                         "-75"
-      "attackslow"                                        "-75 -75 -75 -150 -225"
+      "attackslow"                                        "-75"
       "slow_duration"                                     "5.0"
       "scepter_duration"
       {
@@ -40,7 +40,7 @@
       "scepter_attack_speed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+65 70 75 80 85"
+        "special_bonus_scepter"                           "+50"
         "RequiresScepter"                                 "1"
       }
       "scepter_move_speed_pct"

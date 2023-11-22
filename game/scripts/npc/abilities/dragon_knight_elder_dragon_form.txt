@@ -19,7 +19,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"  //OAA
+    "AbilityCooldown"                                     "80" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
       "bonus_attack_damage"                               "0"
-      "corrosive_breath_damage"                           "25 45 65 125 125" //OAA
+      "corrosive_breath_damage"                           "25 30 35 70 70" //OAA
       "corrosive_breath_duration"                         "5.0"
       "splash_radius"
       {

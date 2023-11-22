@@ -45,7 +45,7 @@ function item_stoneskin:OnProjectileHit(target, location)
     victim = target,
     damage = damage,
     damage_type = DAMAGE_TYPE_PHYSICAL,
-    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL),
     ability = self,
   }
 
@@ -290,7 +290,7 @@ function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
         Source = parent,
         vSourceLoc = parent:GetAbsOrigin(),
         Target = closest,
-        iMoveSpeed = attacker:GetProjectileSpeed(),
+        iMoveSpeed = attacker:GetProjectileSpeed() * 3/4,
         bDodgeable = true,
         bProvidesVision = true,
         iVisionRadius = 250,

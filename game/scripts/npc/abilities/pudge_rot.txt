@@ -38,9 +38,9 @@
         "value"                                           "30 60 90 120 240 480"
         "LinkedSpecialBonus"                              "special_bonus_unique_pudge_2"
       }
-      "scepter_rot_damage_bonus"
+      "scepter_rot_damage_bonus" //OAA
       {
-        "value"                                           "90"
+        "value"                                           "75 80 85 90 95 100"
         "RequiresScepter"                                 "1"
       }
       "scepter_rot_radius_bonus"
@@ -49,9 +49,9 @@
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
       }
-      "scepter_rot_regen_reduction_pct"
+      "scepter_rot_regen_reduction_pct" //OAA
       {
-        "value"                                           "20"
+        "value"                                           "5 10 15 20 25 30"
         "RequiresScepter"                                 "1"
       }
     }
