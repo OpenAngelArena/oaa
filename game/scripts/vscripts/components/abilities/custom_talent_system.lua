@@ -26,6 +26,7 @@ end
   -- kv_name_2 = {"custom_talent_name", "type"},
   -- ...
 -- },
+-- kv_name can't be AbilityDamage or #AbilityDamage, it doesn't work for that
 -- type can be: +, *, x, /, %
 -- * and x are the same -  muliplies the base value with the talent value
 -- / - can be used for dividing cooldowns, intervals etc.
@@ -61,6 +62,9 @@ local abilities_with_custom_talents = {
   },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
+  },
+  sandking_epicenter = {
+    AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},
   },
   silencer_last_word = {
     damage = {"special_bonus_unique_silencer_2_oaa", "+"},
