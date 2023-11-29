@@ -25,9 +25,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.4"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
@@ -39,7 +36,7 @@
       "duration"                                          "9 10 11 12 13"
       "movement_damage_pct" //OAA
       {
-        "value"                                           "35 65 95 185 275"
+        "value"                                           "35 55 75 135 195"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"
@@ -64,12 +61,12 @@
         "value"                                           "0"
         "special_bonus_unique_bloodseeker_rupture_charges"  "+2"
       }
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"                                           "75 70 65 60 55"
         "special_bonus_unique_bloodseeker_rupture_charges"  "=0.25"
       }
-      "AbilityChargeRestoreTime"    
+      "AbilityChargeRestoreTime"
       {
         "value"                                           "0"
         "special_bonus_unique_bloodseeker_rupture_charges"  "=65"
