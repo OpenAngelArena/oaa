@@ -236,6 +236,7 @@ function modifier_chaos_oaa:OnIntervalThink()
     remove_mod_from_table(self.initial_modifiers, random_mod)
     remove_mod_from_table(self.mid_game_modifiers, random_mod)
     remove_mod_from_table(self.late_game_modifiers, random_mod)
+    remove_mod_from_table(self.already_had, random_mod)
 
     local new_random = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
     if not parent:HasModifier(new_random) then
@@ -267,6 +268,7 @@ if IsServer() then
 
     local mid_game_time_start = FIRST_DUEL_TIMEOUT + DUEL_INTERVAL
     local late_game_time_start = 3*mid_game_time_start
+    local current_time = HudTimer:GetGameTime()
 
     if self.last_mod then
       local mod = self.last_mod
@@ -275,29 +277,33 @@ if IsServer() then
       else
         parent:RemoveModifierByName(mod)
       end
-      -- Remove modifiers from the tables if parent already had them at least twice - imitates pseudo random
-      if HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
-        if not TableContains(self.already_had, mod) then
-          table.insert(self.already_had, mod)
-        else
-          remove_mod_from_table(self.mid_game_modifiers, mod)
+
+      -- Add old modifier to already_had table
+      if not TableContains(self.already_had, mod) then
+        table.insert(self.already_had, mod)
+      end
+
+      -- Remove the modifier from the tables because parent already had it
+      if current_time <= mid_game_time_start then
+        remove_mod_from_table(self.initial_modifiers, mod)
+        remove_mod_from_table(self.mid_game_modifiers, mod)
+        remove_mod_from_table(self.late_game_modifiers, mod)
+      elseif current_time > mid_game_time_start and current_time <= late_game_time_start then
+        remove_mod_from_table(self.mid_game_modifiers, mod)
+        remove_mod_from_table(self.late_game_modifiers, mod)
+      elseif current_time > late_game_time_start then
+        remove_mod_from_table(self.late_game_modifiers, mod)
+      end
+
+      -- Reset tables if low amount of elements
+      if #self.initial_modifiers < 2 then
+        self.initial_modifiers = self.already_had
+      end
+      if #self.mid_game_modifiers < 2 then
+        self.mid_game_modifiers = self.already_had
         end
-        -- Reset the table if low amount of elements
-        if #self.mid_game_modifiers <= 3 then
-          self.mid_game_modifiers = self.already_had
-          self.already_had = {}
-        end
-      elseif HudTimer:GetGameTime() > late_game_time_start then
-        if not TableContains(self.already_had, mod) then
-          table.insert(self.already_had, mod)
-        else
-          remove_mod_from_table(self.late_game_modifiers, mod)
-        end
-        -- Reset the table if low amount of elements
-        if #self.late_game_modifiers <= 3 then
-          self.late_game_modifiers = self.already_had
-          self.already_had = {}
-        end
+      if #self.late_game_modifiers < 2 then
+        self.late_game_modifiers = self.already_had
       end
     end
 
@@ -307,13 +313,13 @@ if IsServer() then
 
     local repeat_loop = true
     while repeat_loop do
-      local random_mod = self.late_game_modifiers[RandomInt(1, #self.late_game_modifiers)]
-      if HudTimer then
-        if HudTimer:GetGameTime() <= mid_game_time_start then
-          random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
-        elseif HudTimer:GetGameTime() > mid_game_time_start and HudTimer:GetGameTime() <= late_game_time_start then
-          random_mod = self.mid_game_modifiers[RandomInt(1, #self.mid_game_modifiers)]
-        end
+      local random_mod
+      if current_time <= mid_game_time_start then
+        random_mod = self.initial_modifiers[RandomInt(1, #self.initial_modifiers)]
+      elseif current_time > mid_game_time_start and current_time <= late_game_time_start then
+        random_mod = self.mid_game_modifiers[RandomInt(1, #self.mid_game_modifiers)]
+      elseif current_time > late_game_time_start then
+        random_mod = self.late_game_modifiers[RandomInt(1, #self.late_game_modifiers)]
       end
       if random_mod ~= self.last_mod and not parent:HasModifier(random_mod) then
         self.actual_mod = parent:AddNewModifier(parent, nil, random_mod, {})

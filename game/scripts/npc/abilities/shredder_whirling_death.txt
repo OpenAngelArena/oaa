@@ -43,12 +43,12 @@
       "whirling_tick"                                     "0.3"
       "stat_loss_pct"
       {
-        "value"                                           "10"
+        "value"                                           "13"
         "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "stat_loss_univ"
+      "stat_loss_univ" //OAA, Valve forgot about this
       {
-        "value"                                           "5"
+        "value"                                           "7"
         "special_bonus_unique_timbersaw_5"                "+1"
       }
       "duration"                                          "12 13 14 15 16 17"

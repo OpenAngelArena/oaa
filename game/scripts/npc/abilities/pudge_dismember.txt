@@ -32,13 +32,13 @@
     {
       "dismember_damage" //OAA
       {
-        "value"                                           "80 130 180 360 540"
+        "value"                                           "80 120 160 280 400"
         "special_bonus_unique_pudge_3"                    "x1.8"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "strength_damage"
       {
-        "value"                                           "0.3 0.6 0.9 1.0 1.1"
+        "value"                                           "0.3 0.6 0.9 1.2 1.5"
         "special_bonus_unique_pudge_3"                    "x1.8"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -60,9 +60,9 @@
         "value"                                           "5.5"
         "special_bonus_unique_pudge_6"                    "+0.75"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "30 25 20 19 18"
+        "value"                                           "22 21 20 19 18"
         "special_bonus_shard"                             "-5"
       }
       "shard_regen_pct"

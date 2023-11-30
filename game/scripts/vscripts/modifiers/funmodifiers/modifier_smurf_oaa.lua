@@ -162,5 +162,5 @@ function modifier_smurf_oaa:GetModifierOverrideAbilitySpecialValue(keys)
 end
 
 function modifier_smurf_oaa:GetTexture()
-  return "custom/reduction_orb_3"
+  return "custom/reduction_orb"
 end

@@ -25,6 +25,10 @@ function sohei_wholeness_of_body:OnSpellStart()
   -- Strong Dispel
   target:Purge(false, true, false, true, true)
 
+  -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
+  caster:RemoveModifierByName("modifier_slark_pounce_leash")
+  caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
+
   -- Immediate heal
   --local heal_amount = self:GetSpecialValueFor("heal_immediate")
   --target:Heal(heal_amount, self)
@@ -34,64 +38,64 @@ function sohei_wholeness_of_body:OnSpellStart()
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
 
   -- Knockback talent
-  local talent = caster:FindAbilityByName("special_bonus_sohei_wholeness_knockback")
-  if talent and talent:GetLevel() > 0 then
-    local position = target:GetAbsOrigin()
-    local radius = talent:GetSpecialValueFor("value")
+  -- local talent = caster:FindAbilityByName("special_bonus_sohei_wholeness_knockback")
+  -- if talent and talent:GetLevel() > 0 then
+    -- local position = target:GetAbsOrigin()
+    -- local radius = talent:GetSpecialValueFor("value")
 
-    local enemies = FindUnitsInRadius(
-      caster:GetTeamNumber(),
-      position,
-      nil,
-      radius,
-      DOTA_UNIT_TARGET_TEAM_ENEMY,
-      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-      DOTA_UNIT_TARGET_FLAG_NONE,
-      FIND_ANY_ORDER,
-      false
-    )
+    -- local enemies = FindUnitsInRadius(
+      -- caster:GetTeamNumber(),
+      -- position,
+      -- nil,
+      -- radius,
+      -- DOTA_UNIT_TARGET_TEAM_ENEMY,
+      -- bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      -- DOTA_UNIT_TARGET_FLAG_NONE,
+      -- FIND_ANY_ORDER,
+      -- false
+    -- )
 
-    -- Check if caster has Momentum Strike learned, if not apply regular knockback
-    local momentum_strike = caster:FindAbilityByName("sohei_momentum_strike")
-    if momentum_strike and momentum_strike:GetLevel() > 0 then
-      -- Knockback parameters
-      local distance = momentum_strike:GetSpecialValueFor("knockback_distance")
-      local speed = momentum_strike:GetSpecialValueFor("knockback_speed")
-      local duration = distance / speed
-      local collision_radius = momentum_strike:GetSpecialValueFor("collision_radius")
+    -- -- Check if caster has Momentum Strike learned, if not apply regular knockback
+    -- local momentum_strike = caster:FindAbilityByName("sohei_momentum_strike")
+    -- if momentum_strike and momentum_strike:GetLevel() > 0 then
+      -- -- Knockback parameters
+      -- local distance = momentum_strike:GetSpecialValueFor("knockback_distance")
+      -- local speed = momentum_strike:GetSpecialValueFor("knockback_speed")
+      -- local duration = distance / speed
+      -- local collision_radius = momentum_strike:GetSpecialValueFor("collision_radius")
 
-      for _, enemy in ipairs(enemies) do
-        local direction = enemy:GetAbsOrigin() - position
-        direction.z = 0
-        direction = direction:Normalized()
+      -- for _, enemy in ipairs(enemies) do
+        -- local direction = enemy:GetAbsOrigin() - position
+        -- direction.z = 0
+        -- direction = direction:Normalized()
 
-        -- Apply Momentum Strike Knockback to the enemy
-        enemy:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
-        enemy:AddNewModifier(caster, momentum_strike, "modifier_sohei_momentum_strike_knockback", {
-          duration = duration,
-          distance = distance,
-          speed = speed,
-          collision_radius = collision_radius,
-          direction_x = direction.x,
-          direction_y = direction.y,
-        })
-      end
-    else
-      local knockback_table = {
-        should_stun = 0,
-        center_x = position.x,
-        center_y = position.y,
-        center_z = position.z,
-        duration = talent:GetSpecialValueFor("duration"),
-        knockback_duration = talent:GetSpecialValueFor("duration"),
-        knockback_height = 10,
-      }
-      for _, enemy in ipairs(enemies) do
-        knockback_table.knockback_distance = radius - (position - enemy:GetAbsOrigin()):Length2D()
-        enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
-      end
-    end
-  end
+        -- -- Apply Momentum Strike Knockback to the enemy
+        -- enemy:RemoveModifierByName("modifier_sohei_momentum_strike_knockback")
+        -- enemy:AddNewModifier(caster, momentum_strike, "modifier_sohei_momentum_strike_knockback", {
+          -- duration = duration,
+          -- distance = distance,
+          -- speed = speed,
+          -- collision_radius = collision_radius,
+          -- direction_x = direction.x,
+          -- direction_y = direction.y,
+        -- })
+      -- end
+    -- else
+      -- local knockback_table = {
+        -- should_stun = 0,
+        -- center_x = position.x,
+        -- center_y = position.y,
+        -- center_z = position.z,
+        -- duration = talent:GetSpecialValueFor("duration"),
+        -- knockback_duration = talent:GetSpecialValueFor("duration"),
+        -- knockback_height = 10,
+      -- }
+      -- for _, enemy in ipairs(enemies) do
+        -- knockback_table.knockback_distance = radius - (position - enemy:GetAbsOrigin()):Length2D()
+        -- enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
+      -- end
+    -- end
+  -- end
 end
 
 ---------------------------------------------------------------------------------------------------

@@ -24,23 +24,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "100"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "7.0"
-      }
+      "bonus_damage"                                      "100" //OAA
+      "corruption_armor"                                  "-25" //OAA
+      "corruption_duration"                               "7.0"
     }
   }
 }

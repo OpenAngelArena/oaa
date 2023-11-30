@@ -30,7 +30,7 @@ end
 
 function modifier_any_damage_lifesteal_oaa:OnCreated(kv)
   self.hero_lifesteal = 75
-  self.creep_lifesteal = 25
+  self.creep_lifesteal = 15 -- self.hero_lifesteal / 5
   self.global = kv.isGlobal == 1
 
   if not self.global and IsServer() then
@@ -121,15 +121,16 @@ if IsServer() then
     end
 
     if heal_amount > 0 then
-      attacker:Heal(heal_amount, nil)
       -- Particle
       if inflictor then
         -- Spell Lifesteal
+        attacker:HealWithParams(heal_amount, nil, false, true, attacker, true)
         local particle1 = ParticleManager:CreateParticle("particles/items3_fx/octarine_core_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
         ParticleManager:SetParticleControl(particle1, 0, attacker:GetAbsOrigin())
         ParticleManager:ReleaseParticleIndex(particle1)
       else
         -- Normal Lifesteal
+        attacker:HealWithParams(heal_amount, nil, true, true, attacker, false)
         local particle2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
         ParticleManager:ReleaseParticleIndex(particle2)
       end
