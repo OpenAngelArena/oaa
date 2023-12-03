@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shadow Shaman: Global Serpent Wards Aura - buffs serpent wards
+  //=================================================================================================================
+  "shadow_shaman_global_serpent_aura_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_shadow_shaman_global_serpent_aura.lua"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_multiplier_against_bosses"                  "0.5" // magic dmg
+    }
+  }
+}
