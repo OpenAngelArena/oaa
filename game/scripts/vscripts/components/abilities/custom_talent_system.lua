@@ -33,6 +33,10 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
+  death_prophet_spirit_siphon = {
+    damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
+    AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
+  },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
