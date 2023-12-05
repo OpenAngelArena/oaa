@@ -1,14 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Cleansing Shock current hp dmg
+  // Swashbuckle bonus damage
   //=================================================================================================================
-  "special_bonus_unique_electrician_9"
+  "special_bonus_unique_pangolier_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3549"
-    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -19,7 +17,8 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "8"
+        "value"                                           "45" //OAA
+        "ad_linked_abilities"                             "pangolier_swashbuckle"
       }
     }
   }
