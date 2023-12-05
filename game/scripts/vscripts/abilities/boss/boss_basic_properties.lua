@@ -185,14 +185,17 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
-      anti_mage_mana_void = true,
+      anti_mage_mana_void = false,
+      bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_ice = false,
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
-      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+      venomancer_noxious_plague = false,
+      winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
+      zuus_arc_lightning = false,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
