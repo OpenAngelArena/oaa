@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "distance_damage_pct" //OAA
       {
         "value"                                           "5 10 15 20 40 60"
-        "special_bonus_unique_enchantress_4"              "+13"
+        "special_bonus_unique_enchantress_4"              "+10"
       }
       "distance_cap"                                      "1750"
       "creep_multiplier"                                  "2"
