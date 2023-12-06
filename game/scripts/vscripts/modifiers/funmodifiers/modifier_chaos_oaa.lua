@@ -88,7 +88,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_diarrhetic_oaa",
     "modifier_drunk_oaa",
     "modifier_duelist_oaa",
-    --"modifier_echo_strike_oaa",
+    "modifier_echo_strike_oaa",
     --"modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
     --"modifier_hp_mana_switch_oaa",
@@ -97,9 +97,9 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_mr_phys_weak_oaa",
     "modifier_no_brain_oaa",
     --"modifier_no_cast_points_oaa",
-    --"modifier_octarine_soul_oaa",
+    "modifier_octarine_soul_oaa",
     "modifier_pro_active_oaa",
-    --"modifier_range_increase_oaa",
+    "modifier_range_increase_oaa",
     "modifier_rend_oaa",
     "modifier_roshan_power_oaa",
     "modifier_smurf_oaa",
@@ -123,7 +123,7 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_brute_oaa",
     "modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
-    --"modifier_drunk_oaa",
+    "modifier_drunk_oaa",
     "modifier_duelist_oaa",
     "modifier_echo_strike_oaa",
     "modifier_glass_cannon_oaa",
@@ -219,6 +219,22 @@ function modifier_chaos_oaa:OnCreated()
       remove_mod_from_table(self.mid_game_modifiers, "modifier_blood_magic_oaa")
       remove_mod_from_table(self.late_game_modifiers, "modifier_blood_magic_oaa")
     end
+  end
+
+  -- Remove Cursed Attack modifier from AGI heroes, No Brain modifier from INT heroes and
+  -- Glass Cannon from STR heroes
+  if parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
+    remove_mod_from_table(self.initial_modifiers, "modifier_cursed_attack_oaa")
+    remove_mod_from_table(self.mid_game_modifiers, "modifier_cursed_attack_oaa")
+    remove_mod_from_table(self.late_game_modifiers, "modifier_cursed_attack_oaa")
+  elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
+    remove_mod_from_table(self.initial_modifiers, "modifier_no_brain_oaa")
+    remove_mod_from_table(self.mid_game_modifiers, "modifier_no_brain_oaa")
+    remove_mod_from_table(self.late_game_modifiers, "modifier_no_brain_oaa")
+  elseif parent:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
+    remove_mod_from_table(self.initial_modifiers, "modifier_glass_cannon_oaa")
+    remove_mod_from_table(self.mid_game_modifiers, "modifier_glass_cannon_oaa")
+    remove_mod_from_table(self.late_game_modifiers, "modifier_glass_cannon_oaa")
   end
 
   -- Add an actual random modifier after a delay
