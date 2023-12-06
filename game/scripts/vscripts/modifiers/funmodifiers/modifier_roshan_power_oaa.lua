@@ -30,6 +30,40 @@ function modifier_roshan_power_oaa:OnCreated()
   self.status_resist = 25
   --self.magic_resist = 55
   self.dmg_per_minute = 6
+
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Berserkers Rage or similar modifier that changes attack range
+  if parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_troll_switch_oaa") then
+    return
+  end
+
+  if parent:IsRangedAttacker() then
+    -- Parent is ranged -> turn to melee
+    parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
+    self.original_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
+  end
+end
+
+function modifier_roshan_power_oaa:OnDestroy()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Berserkers Rage or similar modifier that changes attack range
+  if parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_troll_switch_oaa") then
+    return
+  end
+
+  if self.original_attack_capability then
+    parent:SetAttackCapability(self.original_attack_capability)
+  end
 end
 
 function modifier_roshan_power_oaa:DeclareFunctions()
