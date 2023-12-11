@@ -46,6 +46,9 @@ function modifier_roshan_power_oaa:OnCreated()
     -- Parent is ranged -> turn to melee
     parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
     self.original_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
+    local attack_range = parent:GetBaseAttackRange()
+    self.range = 150 - attack_range
+    self:SetStackCount(self.range)
   end
 end
 
@@ -75,6 +78,7 @@ function modifier_roshan_power_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
   }
 end
 
@@ -96,6 +100,15 @@ end
 
 function modifier_roshan_power_oaa:GetModifierPreAttack_BonusDamage()
   return math.max(self.dmg_per_minute, self.dmg_per_minute * math.floor(GameRules:GetGameTime() / 60))
+end
+
+function modifier_roshan_power_oaa:GetModifierAttackRangeBonus()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_lone_druid_true_form") or parent:IsRangedAttacker() then
+    return 0
+  end
+
+  return self:GetStackCount()
 end
 
 if IsServer() then
