@@ -41,6 +41,7 @@
     "ScriptFile"                                          "items/spiked_mail.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
     "AbilityTextureName"                                  "custom/lionsmane_3"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

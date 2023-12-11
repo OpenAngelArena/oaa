@@ -43,10 +43,11 @@
     "ScriptFile"                                          "items/aeon_disk.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/combo_breaker"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "105 95 85 75 65" // OAA old: "105 95 75 55 35"
+    "AbilityCooldown"                                     "105 95 85 75 65" // old: "105 95 75 55 35"
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityManaCost"                                     "0"
 

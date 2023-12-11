@@ -308,10 +308,6 @@ function modifier_sohei_guard_knockback:IsPurgable()
 	return false
 end
 
-function modifier_sohei_guard_knockback:IsStunDebuff()
-	return false
-end
-
 function modifier_sohei_guard_knockback:GetPriority()
 	return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end

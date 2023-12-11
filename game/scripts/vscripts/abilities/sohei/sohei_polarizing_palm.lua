@@ -194,10 +194,6 @@ function modifier_sohei_polarizing_palm_movement:IsPurgable()
   return true
 end
 
-function modifier_sohei_polarizing_palm_movement:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_polarizing_palm_movement:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,

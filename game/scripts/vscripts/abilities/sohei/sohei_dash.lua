@@ -345,10 +345,6 @@ function modifier_sohei_dash_movement:IsPurgable()
   return true
 end
 
-function modifier_sohei_dash_movement:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_dash_movement:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
@@ -545,10 +541,6 @@ end
 
 function modifier_sohei_dash_slow:IsPurgable()
   return true
-end
-
-function modifier_sohei_dash_slow:IsStunDebuff()
-  return false
 end
 
 function modifier_sohei_dash_slow:OnCreated()

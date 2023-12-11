@@ -142,7 +142,7 @@ function modifier_custom_glyph_knockback:IsPurgable()
 end
 
 function modifier_custom_glyph_knockback:IsStunDebuff()
-  return false
+  return true
 end
 
 function modifier_custom_glyph_knockback:DeclareFunctions()
