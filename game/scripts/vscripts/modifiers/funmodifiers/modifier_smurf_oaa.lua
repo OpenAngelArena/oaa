@@ -83,10 +83,10 @@ local other_keywords = {
 }
 
 local ignore_abilities = {
-  arc_warden_flux = true,
-  monkey_king_wukongs_command_oaa = true,
-  phantom_assassin_blur = true,
-  spectre_desolate = true,
+  --arc_warden_flux = true,
+  --monkey_king_wukongs_command_oaa = true,
+  --phantom_assassin_blur = true,
+  --spectre_desolate = true,
 }
 
 function modifier_smurf_oaa:OnDestroy()
@@ -162,5 +162,5 @@ function modifier_smurf_oaa:GetModifierOverrideAbilitySpecialValue(keys)
 end
 
 function modifier_smurf_oaa:GetTexture()
-  return "custom/reduction_orb_3"
+  return "custom/reduction_orb"
 end

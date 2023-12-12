@@ -72,7 +72,7 @@ if IsServer() then
 end
 
 function modifier_blood_magic_oaa:GetModifierSpellsRequireHP()
-  return 2.5
+  return 2.25
 end
 
 function modifier_blood_magic_oaa:GetTexture()

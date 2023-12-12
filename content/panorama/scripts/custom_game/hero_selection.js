@@ -633,7 +633,7 @@ function UpdateButtons () {
     FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
     FindDotaHudElement('HeroBan').style.visibility = 'collapse';
     FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
-    FindDotaHudElement('HeroReRandom').style.visibility = 'collapse';
+    FindDotaHudElement('HeroReRandom').style.visibility = canReRandom ? 'visible' : 'collapse';
     return;
   }
   FindDotaHudElement('HeroLockIn').style.visibility = isPicking && !isBanning ? 'visible' : 'collapse';

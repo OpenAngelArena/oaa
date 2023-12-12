@@ -28,7 +28,7 @@ function modifier_glass_cannon_oaa:GetModifierBonusStats_Strength()
 end
 
 function modifier_glass_cannon_oaa:GetModifierPreAttack_BonusDamage()
-  return 500
+  return 750
 end
 
 function modifier_glass_cannon_oaa:GetTexture()

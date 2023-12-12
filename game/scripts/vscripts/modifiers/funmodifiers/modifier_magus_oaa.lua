@@ -121,6 +121,7 @@ function modifier_magus_oaa:OnCreated()
     hoodwink_acorn_shot = 1,                             -- looping
     juggernaut_omnislash = 1,                            -- invulnerability and looping
     juggernaut_swift_slash = 1,                          -- invulnerability and looping
+    kunkka_torrent_storm = 1,                            -- lag
     leshrac_diabolic_edict = 1,                          -- powerful
     lycan_summon_wolves = 1,                             -- self grief in most cases
     lone_druid_spirit_bear = 1,                          -- self grief in most cases
@@ -200,10 +201,12 @@ if IsServer() then
     if number <= self.chance then
       local lucky = number <= self.penalty_chance
 
-      self:CastASpell(attacker, target, lucky)
+      local go_on_cd = self:CastASpell(attacker, target, lucky)
 
       -- Start cooldown by adding a modifier
-      attacker:AddNewModifier(attacker, nil, "modifier_magus_cooldown_oaa", {duration = self.cooldown})
+      if go_on_cd then
+        attacker:AddNewModifier(attacker, nil, "modifier_magus_cooldown_oaa", {duration = self.cooldown})
+      end
     end
   end
 end
@@ -212,12 +215,12 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local ability = self:GetRandomSpell(caster)
 
   if not ability then
-    return
+    return true
   end
 
   local name = ability:GetAbilityName()
   if self.low_chance_to_proc[name] and not lucky then
-    return
+    return false
   end
 
   local target_team = ability:GetAbilityTargetTeam()
@@ -240,17 +243,17 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   if not isNoTarget and not isUnitTargetting and not isPointTargetting then
     local ability_data = GetAbilityKeyValuesByName(name)
     if not ability_data then
-      return
+      return true
     end
     behavior = ability_data.AbilityBehavior
     if not behavior then
-      return
+      return true
     end
     isNoTarget = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_NO_TARGET")
     isUnitTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET")
     isPointTargetting = string.find(behavior, "DOTA_ABILITY_BEHAVIOR_POINT")
     if not isNoTarget and not isUnitTargetting and not isPointTargetting then
-      return
+      return true
     end
   end
 
@@ -275,7 +278,7 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
     if isUnitTargetting then
       -- Spell Block check
       if real_target:TriggerSpellAbsorb(ability) and real_target:GetTeamNumber() ~= real_caster:GetTeamNumber() then
-        return
+        return true
       end
       real_caster:SetCursorCastTarget(real_target)
     end
@@ -304,12 +307,14 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
 
     if isChannel then
       -- Channeling spells never end so we need to create a dummy and cast the spell
-      return
+      return false
     end
 
     ability:OnAbilityPhaseStart()
     ability:OnSpellStart()
   end
+
+  return true
 end
 
 function modifier_magus_oaa:GetRandomSpell(caster)

@@ -43,8 +43,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "regen_crystal"
     "AbilityManaCost"                                     "200"
 
@@ -69,7 +68,7 @@
       "max_mana_to_hp_regen"                              "4.25"
       //"active_hp_regen"                                   "175 200 225"
       //"active_hp_regen_amp"                               "50"
-      "active_max_hp_as_heal"                             "12.5"
+      "active_max_hp_as_heal"                             "7"
       "duration"                                          "6"
     }
 

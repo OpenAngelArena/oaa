@@ -13,6 +13,10 @@ function item_enrage_crystal_1:OnSpellStart()
   -- Strong Dispel
   caster:Purge(false, true, false, true, false)
 
+  -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
+  caster:RemoveModifierByName("modifier_slark_pounce_leash")
+  caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
+
   -- Sound
   caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
 
@@ -60,6 +64,7 @@ function modifier_item_enrage_crystal_passive:OnRefresh()
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
+    self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.dmg_reduction = ability:GetSpecialValueFor("dmg_reduction_while_stunned")
   end
 
@@ -81,6 +86,7 @@ function modifier_item_enrage_crystal_passive:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
 end
@@ -100,6 +106,15 @@ function modifier_item_enrage_crystal_passive:GetModifierStatusResistanceStackin
     return 0
   end
 end
+
+-- Doesn't work, Thanks Valve
+-- function modifier_item_enrage_crystal_passive:GetModifierSlowResistance()
+  -- if self:GetStackCount() == 2 then
+    -- return self.bonus_slow_resist or self:GetAbility():GetSpecialValueFor("bonus_slow_resist")
+  -- else
+    -- return 0
+  -- end
+-- end
 
 if IsServer() then
   function modifier_item_enrage_crystal_passive:GetModifierTotal_ConstantBlock(event)

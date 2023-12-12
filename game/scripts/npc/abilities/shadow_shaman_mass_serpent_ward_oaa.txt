@@ -43,11 +43,18 @@
       "ward_count"                                        "10"
       "duration"                                          "45"
       "spawn_radius"                                      "150"
-      "damage_tooltip"
+      "damage_tooltip" // not piercing in OAA
       {
-        "value"                                           "50 125 200 425 800"
+        "value"                                           "30 75 120 255 390"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_4"
         "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "bonus_damage_against_bosses" // percent of ward damage as magic damage
+      {
+        "value"                                           "50"
+        "CalculateSpellDamageTooltip"                     "0"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "attack_range_tooltip"
       {

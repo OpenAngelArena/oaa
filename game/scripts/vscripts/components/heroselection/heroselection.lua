@@ -909,6 +909,7 @@ function HeroSelection:ForceRandomHero (playerId)
   DebugPrint("ForceRandomHero - Started forced random for player " .. playerId .. " on team " .. team)
   if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
     DebugPrint("ForceRandomHero - Force picking highlighted hero")
+    selectedtable[playerId].didRandom = "true"
     return previewHero
   end
 
@@ -1047,6 +1048,10 @@ function HeroSelection:UpdateTable (playerID, hero)
     selectedtable[playerID].didRandom = "true"
   elseif hero == "forcerandom" then
     DebugPrint("UpdateTable - Force Randoming a hero for playerID: "..tostring(playerID))
+    if not selectedtable[playerID] then
+      selectedtable[playerID] = {}
+    end
+    selectedtable[playerID].didRandom = "true"
     hero = self:ForceRandomHero(playerID)
   end
 

@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 19 16 13 13 13"
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,12 +36,12 @@
     {
       "damage_impact"
       {
-        "value"                                           "25 50 75 100 150 200"
+        "value"                                           "25 50 75 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_per_second"
       {
-        "value"                                           "10 20 30 40 60 80"
+        "value"                                           "10 20 30 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "damage_duration"
@@ -80,7 +80,7 @@
         "value"                                           "0"
         "special_bonus_unique_batrider_5"                 "+2"
       }
-      "damage_total_tooltip"                              "75 150 225 350 450 600" //OAA, damage_impact + damage_per_second x damage_duration
+      "damage_total_tooltip"                              "75 150 225 350 600 1000" //OAA, damage_impact + damage_per_second x damage_duration
       "slow"                                              "10 15 20 25 30 35"
     }
   }

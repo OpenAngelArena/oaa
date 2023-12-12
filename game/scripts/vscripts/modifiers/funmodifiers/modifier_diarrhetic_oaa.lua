@@ -18,9 +18,9 @@ function modifier_diarrhetic_oaa:RemoveOnDeath()
 end
 
 function modifier_diarrhetic_oaa:OnCreated()
-  local interval = 30
+  local interval = 15
   self.check_for_ward_radius = POOP_WARD_RADIUS
-  self.duration = 2 * interval
+  self.duration = 4 * interval
 
   if IsServer() then
     self:StartIntervalThink(interval)

@@ -34,14 +34,14 @@
       "damage" //OAA
       {
         "value"                                           "300 425 550 925 1300"
-        "special_bonus_unique_zeus_4"                     "+200"
+        "special_bonus_unique_zeus_4"                     "+250"
       }
-      "damage_pct"
+      "damage_pct" //OAA
       {
-        "value"                                           "5 7.5 10 10 10"
+        "value"                                           "6 7 8 9 10"
       }
-      "second_strike_delay"                               "0.75"
-      "second_strike_damage_percent"                      "50"
+      "second_strike_delay"                               "0.75" // unused
+      "second_strike_damage_percent"                      "50" // unused
     }
   }
 }

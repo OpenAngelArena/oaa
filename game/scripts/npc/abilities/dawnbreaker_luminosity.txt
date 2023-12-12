@@ -36,14 +36,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "heal_pct"                                          "35 40 45 50 55 60"
-      "heal_from_creeps"                                  "25" //OAA, this is a heal penalty according to the tooltip
+      "heal_from_creeps"                                  "40" // this is a heal penalty according to the tooltip
       "bonus_damage"
       {
         "value"                                           "125 150 175 200 225 250"
         "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_crit"
       }
       "proc_cooldown"                                     "0.00"
-      "allied_healing_pct"                                "50 55 60 65 70 75" //OAA
+      "allied_healing_pct"                                "90" //OAA
       "cooldown_reduction"                                "0.5 1 1.5 2" // unused
     }
   }

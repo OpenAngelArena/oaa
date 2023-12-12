@@ -59,6 +59,11 @@
         "special_bonus_unique_windranger_windrun_undispellable"  "+1"
       }
       "duration"                                          "3 4 5 6 6.5 7"
+      "scepter_spell_amp" //OAA
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "35"
+      }
     }
   }
 }

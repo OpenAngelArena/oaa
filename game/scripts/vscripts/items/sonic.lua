@@ -17,9 +17,6 @@ function item_sonic:OnSpellStart()
     return
   end
 
-  -- Apply Basic Dispel
-  --caster:Purge(false, true, false, false, false)
-
   -- Apply Sonic buff to caster
   caster:AddNewModifier(caster, self, "modifier_sonic_fly", {duration = self:GetSpecialValueFor("duration")})
 
@@ -107,6 +104,7 @@ function modifier_sonic_fly:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.speed = ability:GetSpecialValueFor("active_speed_bonus")
+    self.cast_speed = ability:GetSpecialValueFor("active_cast_speed")
   end
 end
 
@@ -118,6 +116,7 @@ function modifier_sonic_fly:DeclareFunctions()
     MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
     MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
     MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
+    MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
     --MODIFIER_PROPERTY_IGNORE_ATTACKSPEED_LIMIT,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING
   }
@@ -156,6 +155,15 @@ end
 --function modifier_sonic_fly:GetModifierStatusResistanceStacking()
   --return self:GetAbility():GetSpecialValueFor("status_resist")
 --end
+
+function modifier_sonic_fly:GetModifierPercentageCasttime()
+  local parent = self:GetParent()
+  -- If parent has better cast time improvements return 0
+  if parent:HasModifier("modifier_no_cast_points_oaa") or parent:HasModifier("modifier_speedster_oaa") then
+    return 0
+  end
+  return self.cast_speed or self:GetAbility():GetSpecialValueFor("active_cast_speed")
+end
 
 function modifier_sonic_fly:GetEffectName()
   return "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"

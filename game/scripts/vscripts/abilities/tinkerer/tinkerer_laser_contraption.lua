@@ -36,6 +36,7 @@ function tinkerer_laser_contraption:GetCastRange(location, target)
   return self.BaseClass.GetCastRange(self, location, target)
 end
 
+--[[
 function tinkerer_laser_contraption:OnAbilityPhaseStart()
   if not IsServer() then
     return
@@ -57,6 +58,7 @@ function tinkerer_laser_contraption:OnAbilityPhaseInterrupted()
   -- Interrupt casting sound
   self:GetCaster():StopSound("Hero_Tinker.LaserAnim")
 end
+]]
 
 function tinkerer_laser_contraption:OnSpellStart()
   local caster = self:GetCaster()
@@ -156,12 +158,12 @@ function tinkerer_laser_contraption:OnSpellStart()
   ApplyLaser(caster, "attach_attack2", thinker, "attach_hitloc")
 
   -- Damage table
-  local damage_table = {
-    attacker = caster,
-    damage = self:GetSpecialValueFor("initial_damage"),
-    damage_type = DAMAGE_TYPE_PURE,
-    ability = self,
-  }
+  -- local damage_table = {
+    -- attacker = caster,
+    -- damage = self:GetSpecialValueFor("initial_damage"),
+    -- damage_type = DAMAGE_TYPE_PURE,
+    -- ability = self,
+  -- }
 
   -- Unstuck all non-node units and damage non-spell-immune enemies if non-square shape
   for _, unit in pairs(units) do
@@ -169,36 +171,36 @@ function tinkerer_laser_contraption:OnSpellStart()
       --local origin = unit:GetAbsOrigin()
       --FindClearSpaceForUnit(unit, origin, true) -- this interrupts some mobility spells like Huskar Life Break
       unit:AddNewModifier(unit, self, "modifier_phased", {duration = FrameTime()})
-      if unit:GetTeamNumber() ~= team and not unit:IsMagicImmune() and not square_shape then
-        damage_table.victim = unit
-        ApplyDamage(damage_table)
-      end
+      -- if unit:GetTeamNumber() ~= team and not unit:IsMagicImmune() and not square_shape then
+        -- damage_table.victim = unit
+        -- ApplyDamage(damage_table)
+      -- end
     end
   end
 
-  if square_shape then
-    local enemies = FindUnitsInLine(
-      team,
-      cursor + radius * Vector(-1, 0, 0),
-      cursor + radius * Vector(1, 0, 0),
-      nil,
-      radius,
-      self:GetAbilityTargetTeam(),
-      self:GetAbilityTargetType(),
-      DOTA_UNIT_TARGET_FLAG_NONE
-    )
+  -- if square_shape then
+    -- local enemies = FindUnitsInLine(
+      -- team,
+      -- cursor + radius * Vector(-1, 0, 0),
+      -- cursor + radius * Vector(1, 0, 0),
+      -- nil,
+      -- radius,
+      -- self:GetAbilityTargetTeam(),
+      -- self:GetAbilityTargetType(),
+      -- DOTA_UNIT_TARGET_FLAG_NONE
+    -- )
 
-    -- Damage enemies in a square
-    for _, enemy in pairs(enemies) do
-      if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
-        damage_table.victim = enemy
-        ApplyDamage(damage_table)
-      end
-    end
-  end
+    -- -- Damage enemies in a square
+    -- for _, enemy in pairs(enemies) do
+      -- if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
+        -- damage_table.victim = enemy
+        -- ApplyDamage(damage_table)
+      -- end
+    -- end
+  -- end
 
   -- Sound
-  caster:EmitSound("Hero_Tinker.Laser")
+  caster:EmitSound("Hero_Tinker.March_of_the_Machines.Cast")
 end
 
 function tinkerer_laser_contraption:ProcsMagicStick()
@@ -246,8 +248,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
     return
   end
 
-  local delay = 0.5
-  local dmg_interval = 2
+  local delay = 0.1
+  local dmg_interval = 0.5
   local dps = 75
   local radius = 300
 
@@ -263,6 +265,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   self.dmg_per_interval = dmg_interval * dps
   self.rad_or_width = radius
   self.established = false
+  self.counter = 0
 
   local center = Vector(tonumber(kv.center_x), tonumber(kv.center_y), 0)
   self.center = center
@@ -367,14 +370,17 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   -- Visual effect - lasers
-  for _, node in pairs(nodes) do
-    if node and not node:IsNull() and node:IsAlive() then
-      ApplyLaser(node, "attach_attack1", parent, "attach_hitloc")
-    end
-  end
+  -- for _, node in pairs(nodes) do
+    -- if node and not node:IsNull() and node:IsAlive() then
+      -- ApplyLaser(node, "attach_attack1", parent, "attach_hitloc")
+    -- end
+  -- end
 
   -- Talent that applies Tar Spill
-  self:ApplyTarSpill()
+  self.counter = self.counter + 1
+  if self.counter == 1 or self.counter % 10 == 0 then
+    self:ApplyTarSpill()
+  end
 
   -- Damage enemies
   for _, enemy in pairs(enemies) do
@@ -386,7 +392,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   -- Sound
-  parent:EmitSound("Hero_Tinker.LaserImpact")
+  --parent:EmitSound("Hero_Tinker.LaserImpact")
 
   if not self.established then
     self.established = true
@@ -437,20 +443,12 @@ modifier_tinkerer_laser_contraption_debuff.OnRefresh = modifier_tinkerer_laser_c
 
 function modifier_tinkerer_laser_contraption_debuff:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_MISS_PERCENTAGE, -- blind
     MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
   }
 end
-
--- function modifier_tinkerer_laser_contraption_debuff:GetModifierMiss_Percentage()
-  -- if not self:GetParent():IsMagicImmune() then
-    -- return self.blind_pct or self:GetAbility():GetSpecialValueFor("scepter_blind")
-  -- end
-  -- return 0
--- end
 
 function modifier_tinkerer_laser_contraption_debuff:GetModifierHealAmplify_PercentageTarget()
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")

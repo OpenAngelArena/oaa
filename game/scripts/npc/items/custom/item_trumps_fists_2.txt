@@ -46,8 +46,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "judecca"
     "AbilityManaCost"                                     "100"
 
@@ -74,7 +73,7 @@
       "bonus_mana"                                        "1100 1400"
       "heal_prevent_percent"                              "55 65"
       "heal_prevent_duration"                             "3"
-      "mute_duration"                                     "4"
+      "mute_duration"                                     "3 3.5"
       "projectile_speed"                                  "900"
     }
   }

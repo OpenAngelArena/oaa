@@ -45,7 +45,7 @@ function item_stoneskin:OnProjectileHit(target, location)
     victim = target,
     damage = damage,
     damage_type = DAMAGE_TYPE_PHYSICAL,
-    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_NON_LETHAL),
     ability = self,
   }
 
@@ -77,19 +77,56 @@ function modifier_item_stoneskin_passives:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
+function modifier_item_stoneskin_passives:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_item_stoneskin_passives:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
+    self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
+  end
+
+  if IsServer() then
+    self:OnIntervalThink()
+  end
+end
+
+function modifier_item_stoneskin_passives:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
+
 function modifier_item_stoneskin_passives:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
 end
 
 function modifier_item_stoneskin_passives:GetModifierPhysicalArmorBonus()
-  return self:GetAbility():GetSpecialValueFor("bonus_armor")
+  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_stoneskin_passives:GetModifierBonusStats_Intellect()
-  return self:GetAbility():GetSpecialValueFor("bonus_intellect")
+  return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+end
+
+function modifier_item_stoneskin_passives:GetModifierStatusResistanceStacking()
+  if self:GetStackCount() == 2 then
+    return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
+  else
+    return 0
+  end
 end
 
 function modifier_item_stoneskin_passives:IsAura()
@@ -139,13 +176,7 @@ function modifier_item_stoneskin_aura_effect:OnCreated()
 end
 
 function modifier_item_stoneskin_aura_effect:OnRefresh()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
-    self.lifesteal_amp = ability:GetSpecialValueFor("lifesteal_amp")
-    self.heal_amp = ability:GetSpecialValueFor("heal_amp")
-    self.spell_lifesteal_amp = ability:GetSpecialValueFor("spell_lifesteal_amp")
-  end
+  self:OnCreated()
 end
 
 function modifier_item_stoneskin_aura_effect:DeclareFunctions()
@@ -196,9 +227,9 @@ end
 function modifier_item_stoneskin_stone_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_AVOID_DAMAGE,
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
   }
 end
@@ -213,15 +244,15 @@ function modifier_item_stoneskin_stone_armor:GetModifierPhysicalArmorBonus()
   return self:GetAbility():GetSpecialValueFor("stone_armor")
 end
 
-function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
-  if not self:GetAbility() then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return 0
-  end
-  return self:GetAbility():GetSpecialValueFor("stone_magic_resist")
-end
+-- function modifier_item_stoneskin_stone_armor:GetModifierMagicalResistanceBonus()
+  -- if not self:GetAbility() then
+    -- if not self:IsNull() then
+      -- self:Destroy()
+    -- end
+    -- return 0
+  -- end
+  -- return self:GetAbility():GetSpecialValueFor("stone_magic_resist")
+-- end
 
 function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
   local parent = self:GetParent()
@@ -254,12 +285,12 @@ function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
     end
     if closest and attacker then
       local info = {
-	    EffectName = attacker:GetRangedProjectileName(),
+        EffectName = attacker:GetRangedProjectileName(),
         Ability = ability,
         Source = parent,
         vSourceLoc = parent:GetAbsOrigin(),
         Target = closest,
-        iMoveSpeed = attacker:GetProjectileSpeed(),
+        iMoveSpeed = attacker:GetProjectileSpeed() * 3/4,
         bDodgeable = true,
         bProvidesVision = true,
         iVisionRadius = 250,
@@ -290,15 +321,15 @@ function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
   return 0
 end
 
-function modifier_item_stoneskin_stone_armor:GetModifierStatusResistanceStacking()
-  if not self:GetAbility() then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return 0
-  end
-  return self:GetAbility():GetSpecialValueFor("stone_status_resist")
-end
+-- function modifier_item_stoneskin_stone_armor:GetModifierStatusResistanceStacking()
+  -- if not self:GetAbility() then
+    -- if not self:IsNull() then
+      -- self:Destroy()
+    -- end
+    -- return 0
+  -- end
+  -- return self:GetAbility():GetSpecialValueFor("stone_status_resist")
+-- end
 
 function modifier_item_stoneskin_stone_armor:GetStatusEffectName()
   return "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
@@ -308,15 +339,15 @@ function modifier_item_stoneskin_stone_armor:StatusEffectPriority()
   return MODIFIER_PRIORITY_ULTRA
 end
 
-function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
-  if not self:GetAbility() then
-    if not self:IsNull() then
-      self:Destroy()
-    end
-    return
-  end
-  return self:GetAbility():GetSpecialValueFor("stone_move_speed")
-end
+-- function modifier_item_stoneskin_stone_armor:GetModifierMoveSpeed_Absolute()
+  -- if not self:GetAbility() then
+    -- if not self:IsNull() then
+      -- self:Destroy()
+    -- end
+    -- return
+  -- end
+  -- return self:GetAbility():GetSpecialValueFor("stone_move_speed")
+-- end
 
 function modifier_item_stoneskin_stone_armor:GetTexture()
   return "custom/stoneskin_2_active"

@@ -44,7 +44,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "vampire"
@@ -67,14 +66,15 @@
     {
       "bonus_strength"                                    "70 95"
       "bonus_damage"                                      "110 160"
-      "bonus_status_resistance"                           "24 26"
-      "bonus_attack_speed"                                "40 50"
+      "bonus_status_resistance"                           "22 24"
+      "bonus_slow_resist"                                 "22 24"
+      "bonus_attack_speed"                                "30 40"
       "bonus_night_vision"                                "400 600"
       "lifesteal_percent"                                 "45 50"
       "active_lifesteal_percent"                          "175"
       "damage_per_second_pct"                             "8" // only during the day
       "ticks_per_second"                                  "4"
-      "night_bonus_damage"                                "110 160"
+      "night_bonus_damage"                                "100 150"
       "night_thirst_radius"                               "1200"
       "duration"                                          "6.0"
     }
