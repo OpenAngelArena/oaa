@@ -12,6 +12,7 @@
     "ScriptFile"                                          "items/neutral/reflex_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reflex_core"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilityCooldown"                                     "12"
     "AbilityManaCost"                                     "0"

@@ -41,6 +41,7 @@
     "ScriptFile"                                          "items/dispel_orb.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/dispel_orb_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"

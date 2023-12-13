@@ -15,10 +15,6 @@ function modifier_out_of_duel:IsHidden()
   return false
 end
 
-function modifier_out_of_duel:IsPurgeable()
-  return false
-end
-
-function modifier_out_of_duel:IsPurgeException()
+function modifier_out_of_duel:IsPurgable()
   return false
 end

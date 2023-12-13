@@ -622,7 +622,7 @@ end
 function witch_doctor_voodoo_switcheroo_oaa:OnHeroCalculateStatBonus()
   local caster = self:GetCaster()
 
-  if caster:HasShardOAA() then
+  if caster:HasShardOAA() or self:IsStolen() then
     self:SetHidden(false)
     if self:GetLevel() <= 0 then
       self:SetLevel(1)
@@ -644,16 +644,16 @@ end
 
 modifier_voodoo_switcheroo_oaa = class(ModifierBaseClass)
 
-function modifier_voodoo_switcheroo_oaa:IsDebuff()
-  return false
-end
-
 function modifier_voodoo_switcheroo_oaa:IsHidden()
   return true
 end
 
+function modifier_voodoo_switcheroo_oaa:IsDebuff()
+  return false
+end
+
 function modifier_voodoo_switcheroo_oaa:IsPurgable()
-  return true
+  return false
 end
 
 if IsServer() then

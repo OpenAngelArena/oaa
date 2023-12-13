@@ -346,6 +346,10 @@ function modifier_item_trumps_fists_active:IsDebuff()
   return true
 end
 
+function modifier_item_trumps_fists_active:IsStunDebuff()
+  return true
+end
+
 function modifier_item_trumps_fists_active:IsPurgable()
   return true
 end

@@ -399,11 +399,12 @@ if IsServer() then
       end
 
       -- Talent that increases health and damage of treants with a multiplier
-      local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
-      if talent1 and talent1:GetLevel() > 0 then
-        treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
-        treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
-      end
+      -- uncomment if special_bonus_unique_furion talent is changed
+      --local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
+      --if talent1 and talent1:GetLevel() > 0 then
+        --treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
+        --treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
+      --end
 
       local treant = CreateUnitByName(treantName, parent:GetAbsOrigin(), true, caster, caster:GetOwner(), caster:GetTeamNumber())
       if treant then

@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflex/reactive_reflect.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflection_shard.lua", LUA_MODIFIER_MOTION_NONE )
 --LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_reflection_shard_1 = class(ItemBaseClass)

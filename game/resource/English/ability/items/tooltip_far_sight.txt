@@ -14,7 +14,7 @@
 //"DOTA_Tooltip_Ability_item_far_sight_bonus_armor"                               "+$armor"
 //"DOTA_Tooltip_Ability_item_far_sight_bonus_intellect"                           "+$int"
 "DOTA_Tooltip_Ability_item_far_sight_bonus_to_worst_attribute"                  "+Lowest Attribute"
-"DOTA_Tooltip_Ability_item_far_sight_bonus_vision_percentage"                   "%+Vision Bonus"
+"DOTA_Tooltip_Ability_item_far_sight_bonus_vision_range"                        "#{DOTA_Tooltip_ability_item_seer_stone_vision_bonus}"
 "DOTA_Tooltip_Ability_item_far_sight_bonus_cast_range"                          "+$cast_range"
 
 "DOTA_Tooltip_Ability_item_far_sight_2"                                         "#{DOTA_Tooltip_Ability_item_far_sight}"
@@ -25,7 +25,7 @@
 "DOTA_Tooltip_Ability_item_far_sight_2_bonus_mana"                              "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana}"
 "DOTA_Tooltip_Ability_item_far_sight_2_bonus_mana_regen"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_far_sight_2_bonus_to_worst_attribute"                "#{DOTA_Tooltip_Ability_item_far_sight_bonus_to_worst_attribute}"
-"DOTA_Tooltip_Ability_item_far_sight_2_bonus_vision_percentage"                 "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_percentage}"
+"DOTA_Tooltip_Ability_item_far_sight_2_bonus_vision_range"                      "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_range}"
 "DOTA_Tooltip_Ability_item_far_sight_2_bonus_cast_range"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_cast_range}"
 
 "DOTA_Tooltip_Ability_item_far_sight_3"                                         "#{DOTA_Tooltip_Ability_item_far_sight}"
@@ -36,7 +36,7 @@
 "DOTA_Tooltip_Ability_item_far_sight_3_bonus_mana"                              "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana}"
 "DOTA_Tooltip_Ability_item_far_sight_3_bonus_mana_regen"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_far_sight_3_bonus_to_worst_attribute"                "#{DOTA_Tooltip_Ability_item_far_sight_bonus_to_worst_attribute}"
-"DOTA_Tooltip_Ability_item_far_sight_3_bonus_vision_percentage"                 "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_percentage}"
+"DOTA_Tooltip_Ability_item_far_sight_3_bonus_vision_range"                      "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_range}"
 "DOTA_Tooltip_Ability_item_far_sight_3_bonus_cast_range"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_cast_range}"
 
 "DOTA_Tooltip_Ability_item_far_sight_4"                                         "#{DOTA_Tooltip_Ability_item_far_sight}"
@@ -47,7 +47,7 @@
 "DOTA_Tooltip_Ability_item_far_sight_4_bonus_mana"                              "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana}"
 "DOTA_Tooltip_Ability_item_far_sight_4_bonus_mana_regen"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_far_sight_4_bonus_to_worst_attribute"                "#{DOTA_Tooltip_Ability_item_far_sight_bonus_to_worst_attribute}"
-"DOTA_Tooltip_Ability_item_far_sight_4_bonus_vision_percentage"                 "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_percentage}"
+"DOTA_Tooltip_Ability_item_far_sight_4_bonus_vision_range"                      "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_range}"
 "DOTA_Tooltip_Ability_item_far_sight_4_bonus_cast_range"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_cast_range}"
 
 "DOTA_Tooltip_Ability_item_far_sight_5"                                         "#{DOTA_Tooltip_Ability_item_far_sight}"
@@ -58,5 +58,5 @@
 "DOTA_Tooltip_Ability_item_far_sight_5_bonus_mana"                              "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana}"
 "DOTA_Tooltip_Ability_item_far_sight_5_bonus_mana_regen"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_mana_regen}"
 "DOTA_Tooltip_Ability_item_far_sight_5_bonus_to_worst_attribute"                "#{DOTA_Tooltip_Ability_item_far_sight_bonus_to_worst_attribute}"
-"DOTA_Tooltip_Ability_item_far_sight_5_bonus_vision_percentage"                 "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_percentage}"
+"DOTA_Tooltip_Ability_item_far_sight_5_bonus_vision_range"                      "#{DOTA_Tooltip_Ability_item_far_sight_bonus_vision_range}"
 "DOTA_Tooltip_Ability_item_far_sight_5_bonus_cast_range"                        "#{DOTA_Tooltip_Ability_item_far_sight_bonus_cast_range}"
