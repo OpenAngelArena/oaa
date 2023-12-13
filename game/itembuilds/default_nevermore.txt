@@ -1,8 +1,8 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34"
   "hero"          "npc_dota_hero_nevermore"
-  "Title"         "Recommended items for Nevermore"
+  "Title"         "Recommended items for Shadow Fiend"
 
   "Items"
   {
@@ -17,17 +17,21 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_devastator_2"
+      "item"      "item_desolator"
       "item"      "item_satanic"
       "item"      "item_greater_crit"
       "item"      "item_black_king_bar_1"
+      "item"      "item_hurricane_pike"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_ethereal_blade"
-      "item"      "item_octarine_core"
+      "item"      "item_revenants_brooch"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_dagger_of_moriah"
+      "item"      "item_sonic"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -37,13 +41,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_monkey_king_bar"
       "item"      "item_butterfly_oaa"
-      "item"      "item_sange_and_yasha"
-      "item"      "item_skadi"
-      "item"      "item_silver_edge"
-      "item"      "item_nullifier"
       "item"      "item_manta"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_nullifier"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
       "item"      "item_sheepstick_4"
       "item"      "item_refresher_4"
     }

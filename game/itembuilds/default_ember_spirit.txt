@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_ember_spirit"
   "Title"         "Recommended items for Ember Spirit"
 
@@ -9,9 +9,8 @@
     "#DOTA_Item_Build_Starting_Items"
     {
       "item"      "item_quelling_blade"
-      "item"      "item_flask"
-      "item"      "item_boots"
       "item"      "item_orb_of_corrosion"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_Physical_Core"
@@ -19,7 +18,8 @@
       "item"      "item_bfury"
       "item"      "item_desolator"
       "item"      "item_greater_crit"
-      "item"      "item_skadi"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_phase_boots"
       "item"      "item_giant_form"
     }
 
@@ -27,14 +27,9 @@
     {
       "item"      "item_maelstrom"
       "item"      "item_radiance"
-      "item"      "item_ultimate_scepter"
       "item"      "item_kaya_and_sange"
+      "item"      "item_ultimate_scepter"
       "item"      "item_shivas_guard"
-    }
-
-    "#DOTA_Item_Build_Late_Items"
-    {
-      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -45,14 +40,16 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_ethereal_blade"
-      "item"      "item_heart_oaa"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_blink"
+      "item"      "item_octarine_core"
       "item"      "item_satanic"
+      "item"      "item_skadi"
       "item"      "item_sphere"
+      "item"      "item_spirit_vessel_oaa"
       "item"      "item_aeon_disk_2"
-      "item"      "item_greater_travel_boots"
+      "item"      "item_greater_power_treads"
       "item"      "item_dagger_of_moriah"
+      "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"
       "item"      "item_trumps_fists"
       "item"      "item_rapier"

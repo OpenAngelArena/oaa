@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_chen"
   "Title"         "Recommended items for Chen"
 
@@ -13,7 +13,7 @@
       "item"      "item_magic_wand"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Core_Items" // DOTA_Item_Build_Support_Core
     {
       "item"      "item_guardian_greaves"
       "item"      "item_helm_of_the_overlord"
@@ -27,6 +27,7 @@
       "item"      "item_hurricane_pike"
       "item"      "item_greater_crit"
       "item"      "item_disperser"
+      "item"      "item_monkey_king_bar"
       "item"      "item_greater_power_treads"
       "item"      "item_siege_mode"
     }

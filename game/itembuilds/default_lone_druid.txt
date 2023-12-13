@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_lone_druid"
   "Title"         "Recommended items for Lone Druid"
 
@@ -21,9 +21,10 @@
 
     "#DOTA_Item_Build_Core_Items_Secondary"
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_greater_crit"
       "item"      "item_disperser"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_harpoon"
+      "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
       "item"      "item_abyssal_blade_2"
     }

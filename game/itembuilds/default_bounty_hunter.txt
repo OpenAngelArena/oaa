@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_bounty_hunter"
   "Title"         "Recommended items for Bounty Hunter"
 
@@ -12,30 +12,50 @@
       "item"      "item_orb_of_venom"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Support_Core"
     {
+      //"item"      "item_orb_of_corrosion"
+      "item"      "item_ward_stack"
       "item"      "item_solar_crest"
-      "item"      "item_assault"
-      "item"      "item_black_king_bar_1"
-      "item"      "item_skadi"
+      "item"      "item_shield_staff"
+      "item"      "item_lotus_orb"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_satanic"
-      "item"      "item_abyssal_blade_2"
+      "item"      "item_phylactery"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_kaya_and_sange" // ethereal blade is self-grief
+      "item"      "item_octarine_core"
+      "item"      "item_dagon_oaa"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_desolator"
+      "item"      "item_assault"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_monkey_king_bar"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_butterfly_oaa"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_boots_of_bearing"
+      "item"      "item_heavens_halberd"
+      "item"      "item_manta"
       "item"      "item_nullifier"
+      "item"      "item_orchid"
+      "item"      "item_pipe"
       "item"      "item_sange_and_yasha"
-      "item"      "item_sphere"
-      "item"      "item_blink"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_vladmir"
+      "item"      "item_sheepstick_4"
     }
   }
 }

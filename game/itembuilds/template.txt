@@ -43,11 +43,12 @@
 
     "#DOTA_Item_Build_For_Farming"
     {
-      "item"      "item_mask_of_madness"
-      "item"      "item_maelstrom"
-      "item"      "item_radiance"
       "item"      "item_blade_mail"
+      "item"      "item_hand_of_midas_1"
       "item"      "item_lesser_crit"
+      "item"      "item_maelstrom"
+      "item"      "item_mask_of_madness"
+      "item"      "item_radiance"
       "item"      "item_small_cleaver_oaa"
       "item"      "item_vanguard"
     }
@@ -82,15 +83,15 @@
       "item"      "item_ultimate_scepter"
     }
 
-    "#DOTA_Item_Build_Shard"
-    {
-      "item"      "item_aghanims_shard"
-    }
-
     "#DOTA_Item_Build_Late_Items"
     {
       "item"      "item_martyrs_mail_1"
       "item"      "item_reduction_orb_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
