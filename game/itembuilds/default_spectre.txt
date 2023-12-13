@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_spectre"
   "Title"         "Recommended items for Spectre"
 
@@ -23,15 +23,15 @@
       "item"      "item_bloodthorn"
       "item"      "item_butterfly_oaa"
       "item"      "item_satanic"
+      "item"      "item_black_king_bar_1"
     }
 
     "#DOTA_Item_Build_Tank_Core"
     {
+      "item"      "item_radiance"
       "item"      "item_shield_staff"
       "item"      "item_greater_tranquil_boots"
       "item"      "item_enrage_crystal_1"
-      "item"      "item_magic_lamp_1"
-      "item"      "item_martyrs_mail_1"
       "item"      "item_reduction_orb_1"
     }
 
@@ -42,12 +42,10 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
       "item"      "item_diffusal_blade"
       "item"      "item_greater_crit"
       "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
-      "item"      "item_radiance"
       "item"      "item_sange_and_yasha"
       "item"      "item_silver_edge"
       "item"      "item_skadi"

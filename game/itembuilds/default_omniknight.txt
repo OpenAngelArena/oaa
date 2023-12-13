@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_omniknight"
   "Title"         "Recommended items for Omniknight"
 
@@ -8,19 +8,26 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
+      "item"      "item_bracer"
       "item"      "item_flask"
-      "item"      "item_ward_stack"
-      "item"      "item_magic_wand"
-      "item"      "item_enchanted_mango"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core" // shard build
     {
+      "item"      "item_harpoon"
+      "item"      "item_overwhelming_blink"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_heart_oaa"
+      "item"      "item_silver_edge"
+    }
+
+    "#DOTA_Item_Build_Support_Core" // scepter + healing build
+    {
+      "item"      "item_guardian_greaves"
       "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
+      "item"      "item_aether_lens"
+      "item"      "item_shield_staff"
       "item"      "item_ghost_king_bar_1"
-      "item"      "item_shivas_guard"
-      "item"      "item_refresher_4"
       "item"      "item_stoneskin"
     }
 
@@ -31,14 +38,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_sheepstick_4"
-      "item"      "item_vladmir"
       "item"      "item_ancient_janggo"
-      "item"      "item_heart_oaa"
-      "item"      "item_heart_transplant"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_octarine_core"
       "item"      "item_pipe"
-      "item"      "item_lotus_orb"
-      "item"      "item_heavens_halberd"
+      "item"      "item_shivas_guard"
+      "item"      "item_solar_crest"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
     }
   }
 }
