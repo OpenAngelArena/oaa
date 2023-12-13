@@ -42,7 +42,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "120" //OAA
     "AbilitySharedCooldown"                               "refresher_oaa" //OAA
     "AbilityManaCost"                                     "350"
@@ -64,8 +63,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "500 1000 1500 2000 2500" //OAA
-      "bonus_mana"                                        "500 600 750 950 1200" //OAA
+      "bonus_health"                                      "625 975 1425 1975 2625" //OAA
+      "bonus_mana"                                        "625 725 875 1075 1325" //OAA
       "bonus_health_regen"                                "0" //OAA
       "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5" //OAA
       "bonus_damage"                                      "0" //OAA

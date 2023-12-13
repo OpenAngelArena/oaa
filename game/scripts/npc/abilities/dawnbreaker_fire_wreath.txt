@@ -30,10 +30,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA, nerf if OP
+      "AbilityCooldown" //OAA
       {
         "value"                                           "14 13 12 11 11 11"
-        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-6"
+        "special_bonus_unique_dawnbreaker_fire_wreath_cooldown"  "-5"
       }
       "duration"                                          "1.1"
       "swipe_radius"
@@ -51,7 +51,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "smash_damage" //OAA, Valve has it wrong
+      "smash_damage" //OAA, Valve has the talent bonus wrong
       {
         "value"                                           "25 40 55 70 140 280"
         "special_bonus_unique_dawnbreaker_fire_wreath_swipe"  "+20"

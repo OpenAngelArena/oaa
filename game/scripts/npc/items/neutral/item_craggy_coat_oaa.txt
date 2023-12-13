@@ -12,6 +12,7 @@
     "ScriptFile"                                          "items/neutral/craggy_coat.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "item_craggy_coat"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCooldown"                                     "15"
 

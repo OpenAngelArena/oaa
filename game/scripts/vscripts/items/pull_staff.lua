@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pull_staff_active_buff", "items/pull_staff.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_pull_staff_echo_strike_passive", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pull_staff_echo_strike_cd", "items/pull_staff.lua", LUA_MODIFIER_MOTION_NONE)

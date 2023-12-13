@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE )
-
 local ABILITY_empathy = nil
 
 function SpawnDumbTwin()

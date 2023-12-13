@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Enigma: Demonic Conversion - needed for shard (only AbilityValues matter, casting stuff doesn't)
+  // Enigma: Demonic Conversion/Summoning - needed for shard (only AbilityValues matter, casting stuff doesn't)
   //=================================================================================================================
   "enigma_demonic_conversion"
   {
@@ -17,12 +17,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 52 44 36"
+    "AbilityCooldown"                                     "40 38 36 34"
     "AbilityDuration"                                     "40.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 100 125 150"
+    "AbilityManaCost"                                     "70 80 90 100"
     "AbilityHealthCost"                                   "75 100 125 150"
 
     // Special
@@ -38,7 +38,7 @@
       "eidelon_max_health" //OAA
       {
         "value"                                           "180 220 260 300"
-        "special_bonus_unique_enigma_7"                   "+150"
+        "special_bonus_unique_enigma_7"                   "+200"
       }
       "life_extension"                                    "2.0"
       "eidelon_base_damage"                               "20 30 40 50" //OAA

@@ -22,7 +22,7 @@ function modifier_lycan_boss_claw_attack:OnCreated( kv )
 		self.flBeginAttackTime = GameRules:GetGameTime() + kv["initial_delay"]
 		self.bPlayedSound = false
 		self.bInit = false
-		self.bShapeshift = self:GetCaster():FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
+		self.bShapeshift = self:GetCaster():HasModifier( "modifier_lycan_boss_shapeshift" )
 
 		self:StartIntervalThink( 0.01 )
 	end
@@ -73,10 +73,10 @@ function modifier_lycan_boss_claw_attack:OnIntervalThink()
 		if self.attachAttack1 then
 			self.vLocation1 = parent:GetAttachmentOrigin( self.attachAttack1 )
 			--DebugDrawCircle( self.vLocation1, Vector( 0, 255, 0 ), 255, self.damage_radius, false, 1.0 )
-			local enemies1 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation1, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+			local enemies1 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation1, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 			if #enemies1 > 0 then
-				for _,enemy in pairs( enemies1 ) do
-					if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+				for _, enemy in pairs( enemies1 ) do
+					if enemy and not enemy:IsNull() and not self:HasHitTarget( enemy ) then
 						self:TryToHitTarget( enemy )
 					end
 				end
@@ -86,10 +86,10 @@ function modifier_lycan_boss_claw_attack:OnIntervalThink()
 		if self.attachAttack2 then
 			self.vLocation2 = parent:GetAttachmentOrigin( self.attachAttack2 )
 			--DebugDrawCircle( self.vLocation2, Vector( 0, 0, 255 ), 255, self.damage_radius, false, 1.0 )
-			local enemies2 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation2, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+			local enemies2 = FindUnitsInRadius( parent:GetTeamNumber(), self.vLocation2, self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 			if #enemies2 > 0 then
-				for _,enemy in pairs( enemies2 ) do
-					if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+				for _, enemy in pairs( enemies2 ) do
+					if enemy and not enemy:IsNull() and not self:HasHitTarget( enemy ) then
 						self:TryToHitTarget( enemy )
 					end
 				end
@@ -97,10 +97,10 @@ function modifier_lycan_boss_claw_attack:OnIntervalThink()
 		end
 
 		--DebugDrawCircle( self.vLocation2, Vector( 0, 0, 255 ), 255, self.damage_radius, false, 1.0 )
-		local enemies3 = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+		local enemies3 = FindUnitsInRadius( parent:GetTeamNumber(), parent:GetOrigin(), self:GetCaster(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 		if #enemies3 > 0 then
-			for _,enemy in pairs( enemies3 ) do
-				if enemy and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+			for _, enemy in pairs( enemies3 ) do
+				if enemy and not enemy:IsNull() and not self:HasHitTarget( enemy ) then
 					self:TryToHitTarget( enemy )
 				end
 			end
@@ -111,16 +111,14 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_claw_attack:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_DISABLE_TURNING,
 	}
-	return funcs
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_lycan_boss_claw_attack:GetModifierDisableTurning( params )
+function modifier_lycan_boss_claw_attack:GetModifierDisableTurning()
 	return 1
 end
 
@@ -134,24 +132,27 @@ function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
   local flDirectionDot = DotProduct( vToTarget, parent:GetForwardVector() )
   local flAngle = 180 * math.acos( flDirectionDot ) / math.pi
   if flAngle < 90 then
+    -- Always add to the list of hit targets even if enemy is spell immune, to prevent this code repeating itself
     self:AddHitTarget( enemy )
     -- Hit sound
     enemy:EmitSound("Roshan.Attack.Post")
-    -- Damage table
-    local damageInfo =
-    {
-      victim = enemy,
-      attacker = parent,
-      damage = self.damage,
-      damage_type = DAMAGE_TYPE_PHYSICAL,
-      ability = ability,
-    }
 
-    ApplyDamage( damageInfo )
+    if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+      -- Stun first
+      local actual_duration = enemy:GetValueChangedByStatusResistance(ability:GetSpecialValueFor("stun_duration"))
+      enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = actual_duration})
 
-    -- Stun only alive and non-spell-immune units
-    if enemy:IsAlive() and not enemy:IsMagicImmune() then
-      enemy:AddNewModifier(parent, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("stun_duration")})
+      -- Damage table
+      local damageTable = {
+        attacker = parent,
+        victim = enemy,
+        damage = self.damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = ability,
+      }
+
+      ApplyDamage( damageTable )
     end
   end
 end

@@ -40,6 +40,7 @@
     "ScriptFile"                                          "items/dispel_orb.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/dispel_orb_3"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
@@ -49,7 +50,6 @@
     "AbilityManaCost"                                     "100"
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "purge"
-    "AbilityCastPoint"                                    "0.0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

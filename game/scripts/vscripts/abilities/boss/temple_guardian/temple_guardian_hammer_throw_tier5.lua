@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier( "modifier_temple_guardian_hammer_throw", "abilities/boss/temple_guardian/modifier_temple_guardian_hammer_throw", LUA_MODIFIER_MOTION_NONE )
 
 temple_guardian_hammer_throw_tier5 = class(AbilityBaseClass)
@@ -15,7 +14,7 @@ function temple_guardian_hammer_throw_tier5:OnAbilityPhaseStart()
 
     local delay = self:GetCastPoint()
 
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.03})
 
     caster:EmitSound("TempleGuardian.PreAttack")
   end

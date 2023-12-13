@@ -41,11 +41,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityTextureName"                                  "custom/siege_mode_1"
 
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "1100"
     "AbilityManaCost"                                     "100"
     "AbilityCooldown"                                     "15"
@@ -53,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17203"
+    "ItemCost"                                            "17453"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -81,8 +79,8 @@
       "bonus_damage"                                      "100 150"
       "bonus_agility"                                     "50 70"
       "bonus_strength"                                    "45 65"
-      "bonus_intellect"                                   "45 65"
-      "bonus_health"                                      "800 1000"
+      "bonus_intellect"                                   "50 70"
+      "bonus_health"                                      "700 950"
       "bonus_health_regen"                                "12 15"
       "bonus_attack_range"                                "180 190" // ranged only
       "passive_splash_radius"                             "250"

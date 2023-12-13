@@ -6,7 +6,6 @@ LinkLuaModifier("modifier_furion_wrath_of_nature_hit_debuff", "abilities/furion_
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_counter", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_kill_damage_buff", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_furion_wrath_of_nature_scepter_root_oaa", "abilities/furion_wrath_of_nature_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function furion_wrath_of_nature_oaa:OnAbilityPhaseStart()
   local caster = self:GetCaster()
@@ -400,11 +399,12 @@ if IsServer() then
       end
 
       -- Talent that increases health and damage of treants with a multiplier
-      local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
-      if talent1 and talent1:GetLevel() > 0 then
-        treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
-        treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
-      end
+      -- uncomment if special_bonus_unique_furion talent is changed
+      --local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
+      --if talent1 and talent1:GetLevel() > 0 then
+        --treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
+        --treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
+      --end
 
       local treant = CreateUnitByName(treantName, parent:GetAbsOrigin(), true, caster, caster:GetOwner(), caster:GetTeamNumber())
       if treant then

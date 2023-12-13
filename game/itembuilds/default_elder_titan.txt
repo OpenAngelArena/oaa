@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_elder_titan"
   "Title"         "Recommended items for Elder Titan."
 
@@ -14,32 +14,59 @@
       "item"      "item_enchanted_mango"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_sphere"
-      "item"      "item_lotus_orb"
+      "item"      "item_mask_of_madness"
+      "item"      "item_hand_of_midas_1"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_echo_sabre"
-      "item"      "item_greater_crit"
-      "item"      "item_satanic"
-      "item"      "item_aeon_disk_2"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_harpoon"
+      "item"      "item_silver_edge"
+      "item"      "item_monkey_king_bar"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ward_stack"
+      "item"      "item_shield_staff"
+      "item"      "item_ancient_janggo"
+      "item"      "item_solar_crest"
+      "item"      "item_cyclone"
+      "item"      "item_lucience"
+      "item"      "item_greater_tranquil_boots"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_veil_of_discord"
+      "item"      "item_kaya_and_sange" // ethereal blade is self grief
+      "item"      "item_dagon_oaa"
+      "item"      "item_revenants_brooch"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_heart_oaa"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_pipe"
-      "item"      "item_vladmir"
-      "item"      "item_veil_of_discord"
       "item"      "item_assault"
-      "item"      "item_crimson_guard"
+      "item"      "item_bfury"
+      "item"      "item_black_king_bar_1"
       "item"      "item_blademail"
+      "item"      "item_desolator"
+      "item"      "item_greater_crit"
+      "item"      "item_satanic"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_greater_power_treads"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
     }
   }
 }

@@ -86,6 +86,11 @@ function wanderer_net:OnProjectileHit(target, location)
     return
   end
 
+  -- Check for spell immunity and invulnerability
+  if target:IsMagicImmune() or target:IsDebuffImmune() or target:IsInvulnerable() then
+    return
+  end
+
   local caster = self:GetCaster()
 
   -- Check if caster was killed or deleted while Net was flying

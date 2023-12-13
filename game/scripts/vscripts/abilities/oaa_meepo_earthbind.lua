@@ -131,11 +131,10 @@ function modifier_meepo_earthbind_oaa:GetPriority()
 end
 
 function modifier_meepo_earthbind_oaa:CheckState()
-  local funcs = {
+  return {
     [MODIFIER_STATE_INVISIBLE] = false,
     [MODIFIER_STATE_ROOTED] = true,
   }
-  return funcs
 end
 
 function modifier_meepo_earthbind_oaa:GetEffectName()

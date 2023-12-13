@@ -94,11 +94,12 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
     radius = radius + self.shard_split_earth_count * ability:GetSpecialValueFor("shard_extra_radius_per_instance")
   end
 
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage_type = ability:GetAbilityDamageType()
-  damage_table.ability = ability
-  damage_table.damage = damage
+  local damage_table = {
+    attacker = caster,
+    damage = damage,
+    damage_type = ability:GetAbilityDamageType(),
+    ability = ability,
+  }
 
   -- Destroy trees
   GridNav:DestroyTreesAroundPoint(target_pos, radius, false)

@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_item_dispel_orb_active", "items/dispel_orb.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dispel_orb_1 = class(ItemBaseClass)
 item_dispel_orb_2 = item_dispel_orb_1
@@ -41,6 +40,7 @@ function modifier_item_dispel_orb_active:OnCreated()
     end
 
     local interval = self:GetAbility():GetSpecialValueFor("tick_interval")
+    self:OnIntervalThink()
     self:StartIntervalThink(interval)
   end
 end

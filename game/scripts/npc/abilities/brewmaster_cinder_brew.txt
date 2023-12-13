@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 17 14 11 10 9"
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
       }
       "total_damage"
       {
-        "value"                                           "80 160 240 320 640 960"
+        "value"                                           "80 160 240 320 640 1280"
         "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
       }

@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 275 325"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -59,7 +59,7 @@
       "max_damage" //OAA
       {
         "value"                                           "600 1200 1800 3600 5400"
-        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+150"
+        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+250"
       }
       "recoil_distance"                                   "350"
       "recoil_height"                                     "75"

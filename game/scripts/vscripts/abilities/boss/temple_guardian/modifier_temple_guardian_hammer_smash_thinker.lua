@@ -10,14 +10,14 @@ function modifier_temple_guardian_hammer_smash_thinker:OnCreated(kv)
       self.damage = ability:GetSpecialValueFor("damage")
     end
 
-    self:StartIntervalThink(0.01)
+    self:StartIntervalThink(0)
   end
 end
 
 function modifier_temple_guardian_hammer_smash_thinker:OnIntervalThink()
   if IsServer() then
     local caster = self:GetCaster()
-    if caster == nil or caster:IsNull() or (not caster:IsAlive()) or caster:IsStunned() then
+    if caster == nil or caster:IsNull() or (not caster:IsAlive()) then
       -- If caster is nil, dead, or stunned, remove smash thinker
       self:StartIntervalThink(-1)
       local parent = self:GetParent()
@@ -41,19 +41,31 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
       ParticleManager:SetParticleControl(smashParticle, 1, Vector(self.impact_radius, self.impact_radius, self.impact_radius))
       ParticleManager:ReleaseParticleIndex(smashParticle)
 
-      local enemies = FindUnitsInRadius(caster:GetTeamNumber(), parent:GetOrigin(), parent, self.impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-      for _, enemy in pairs(enemies) do
-        if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() then
-          local damageInfo =
-          {
-            victim = enemy,
-            attacker = caster,
-            damage = self.damage,
-            damage_type = DAMAGE_TYPE_PHYSICAL,
-            ability = self:GetAbility(),
-          }
+      local enemies = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        parent:GetOrigin(),
+        nil,
+        self.impact_radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false
+      )
 
-          ApplyDamage(damageInfo)
+      local damageTable = {
+        attacker = caster,
+        damage = self.damage,
+        damage_type = DAMAGE_TYPE_PHYSICAL,
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = self:GetAbility(),
+      }
+
+      for _, enemy in pairs(enemies) do
+        if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+          damageTable.victim = enemy
+          ApplyDamage(damageTable)
+
           if not enemy:IsAlive() then
             local critParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
             ParticleManager:SetParticleControlEnt(critParticle, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
@@ -65,9 +77,8 @@ function modifier_temple_guardian_hammer_smash_thinker:OnDestroy()
 
             caster:EmitSound("Dungeon.BloodSplatterImpact")
           else
-            if not enemy:IsMagicImmune() then
-              enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = self.stun_duration})
-            end
+            local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+            enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = actual_duration})
           end
         end
       end

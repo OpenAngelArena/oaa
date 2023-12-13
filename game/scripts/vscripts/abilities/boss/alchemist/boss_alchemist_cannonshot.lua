@@ -51,52 +51,57 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_alchemist_cannonshot:Explode(explosive)
-	local radius = self:GetSpecialValueFor("radius")
+  local radius = self:GetSpecialValueFor("radius")
+  local point = explosive:GetAbsOrigin()
 
-	local units = FindUnitsInRadius(
-		explosive:GetTeamNumber(),
-		explosive:GetAbsOrigin(),
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-		DOTA_UNIT_TARGET_FLAG_NONE,
-		FIND_CLOSEST,
-		false
-	)
+  local units = FindUnitsInRadius(
+    explosive:GetTeamNumber(),
+    point,
+    nil,
+    radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
 
-	for k,v in pairs(units) do
-		local point = explosive:GetAbsOrigin()
-		local knockbackModifierTable = {
-			should_stun = 1,
-			knockback_duration = 1.0,
-			duration = 1.0,
-			knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D(),
-			knockback_height = 80,
-			center_x = point.x,
-			center_y = point.y,
-			center_z = point.z
-		}
-		v:AddNewModifier( explosive, self, "modifier_knockback", knockbackModifierTable )
+  local knockbackModifierTable = {
+    should_stun = 1,
+    knockback_height = 80,
+    center_x = point.x,
+    center_y = point.y,
+    center_z = point.z
+  }
 
-		local damageTable = {
-			victim = v,
-			attacker = explosive,
-			damage = self:GetSpecialValueFor("damage"),
-			damage_type = self:GetAbilityDamageType(),
-			ability = self
-		}
-		ApplyDamage(damageTable)
-	end
+  local damageTable = {
+    attacker = explosive,
+    damage = self:GetSpecialValueFor("damage"),
+    damage_type = self:GetAbilityDamageType(),
+    ability = self
+  }
 
-	EmitSoundOnLocationWithCaster(explosive:GetAbsOrigin(), "Hero_Techies.Suicide", explosive)
+  for _, v in pairs(units) do
+    if v and not v:IsNull() and not v:IsMagicImmune() and not v:IsDebuffImmune() then
+      knockbackModifierTable.knockback_distance = radius - (v:GetAbsOrigin() - point):Length2D()
+      knockbackModifierTable.knockback_duration = v:GetValueChangedByStatusResistance(1.0)
+      knockbackModifierTable.duration = knockbackModifierTable.knockback_duration
 
-	local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
-	ParticleManager:SetParticleControl(explosion, 0, explosive:GetAbsOrigin())
-	ParticleManager:SetParticleControl(explosion, 3, explosive:GetAbsOrigin())
-	ParticleManager:ReleaseParticleIndex(explosion)
+      v:AddNewModifier( explosive, self, "modifier_knockback", knockbackModifierTable )
+
+      damageTable.victim = v
+      ApplyDamage(damageTable)
+    end
+  end
+
+  EmitSoundOnLocationWithCaster(point, "Hero_Techies.Suicide", explosive)
+
+  local explosion = ParticleManager:CreateParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+  ParticleManager:SetParticleControl(explosion, 0, point)
+  ParticleManager:SetParticleControl(explosion, 3, point)
+  ParticleManager:ReleaseParticleIndex(explosion)
 
   if explosive and not explosive:IsNull() then
     explosive:ForceKillOAA(false)
-	end
+  end
 end

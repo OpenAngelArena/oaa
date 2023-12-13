@@ -37,7 +37,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCastRange"                                    "700"
     "AbilityCooldown"                                     "15"
     "AbilityManaCost"                                     "0"
@@ -61,9 +60,6 @@
 
     "precache"
     {
-      "particle"                                          "particles/items/sacred_skull/vermillion_robe_hit.vpcf"
-      "particle"                                          "particles/items/sacred_skull/vermillion_robe_explosion.vpcf"
-      "particle"                                          "particles/items/sacred_skull/huskar_inner_vitality_glyph.vpcf"
       "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
     }
 

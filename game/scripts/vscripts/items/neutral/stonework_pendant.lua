@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_stonework_pendant_passive", "items/neutral/stonework_pendant.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_stonework_pendant = class(ItemBaseClass)

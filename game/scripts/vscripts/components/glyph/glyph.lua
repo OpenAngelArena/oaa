@@ -1,9 +1,3 @@
-LinkLuaModifier("modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_scan_true_sight_thinker", "modifiers/modifier_scan_true_sight.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_oaa_scan_thinker", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_oaa_scan_debuff", "modifiers/modifier_oaa_scan_thinker.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_custom_glyph_knockback", "components/glyph/glyph.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-
 if Glyph == nil then
   -- Debug:EnableDebugging()
   Glyph = class({})
@@ -148,7 +142,7 @@ function modifier_custom_glyph_knockback:IsPurgable()
 end
 
 function modifier_custom_glyph_knockback:IsStunDebuff()
-  return false
+  return true
 end
 
 function modifier_custom_glyph_knockback:DeclareFunctions()

@@ -33,7 +33,6 @@
     "AbilityTextureName"                                  "custom/azazel_summon_fighter"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
-    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "azazel_summon"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
@@ -48,12 +47,11 @@
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "summon, fighter, azazel"
+    "ItemAliases"                                         "Azazel's Fighter; fighter"
     "ItemKillable"                                        "1"
     "ItemPurchasable"                                     "1"
-    "ItemSellable"                                        "0"
+
     "SecretShop"                                          "1"
-    "SecretShopType"                                      "Summons"
     "IsTempestDoubleClonable"                             "0"
 
     // Special

@@ -19,7 +19,7 @@
     "Ability13"                                           "special_bonus_unique_broodmother_2" // replaces special_bonus_unique_broodmother_7
 
     "Ability14"                                           "special_bonus_unique_broodmother_4_oaa" // replaces special_bonus_unique_broodmother_2
-    // "Ability15"                                           "special_bonus_unique_broodmother_4" // replaces special_bonus_attack_speed_35
+    // "Ability15"                                           "special_bonus_attack_speed_35"
 
     //"Ability16"                                           "special_bonus_unique_broodmother_1"
     "Ability17"                                           "special_bonus_unique_broodmother_2_oaa" // replaces special_bonus_unique_broodmother_4
@@ -27,11 +27,13 @@
   // special_bonus_unique_broodmother_1 - "-{s:bonus_bat_bonus}s BAT during Insatiable Hunger"             - 25
   // special_bonus_unique_broodmother_2 - "{s:bonus_aoe} AoE Silken Bola"                                  - 20 -> 15
   // special_bonus_unique_broodmother_3 - "+{s:bonus_damage} Spawn Spiderlings Damage"                     - useless
-  // special_bonus_unique_broodmother_4 - "+{s:bonus_movement_speed}% Silken Bola Slow/Miss Chance"        - 25 -> 20
+  // special_bonus_unique_broodmother_4 - "+{s:bonus_movement_speed}% Silken Bola Slow/Miss Chance"        - unused
   // special_bonus_unique_broodmother_5 - "-{s:bonus_AbilityChargeRestoreTime}s Spin Web Recharge Time"    - 15
   // special_bonus_unique_broodmother_6 - "+{s:bonus_count} Spin Web Simultaneous Webs"                    - 10
   // special_bonus_unique_broodmother_7 - "+{s:bonus_hp_bonus} Spiderlings Health"                         - replaced with custom one
   // special_bonus_unique_broodmother_2_oaa - "+{s:value} Spiderlings Health"                              - 25
   // special_bonus_unique_broodmother_4_oaa - "+{s:value} Spiderlings Attack Damage"                       - 20
+
+    "AttributeStrengthGain"                               "2.6" // 2.3
   }
 }

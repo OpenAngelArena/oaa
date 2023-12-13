@@ -44,11 +44,10 @@ function modifier_kobold_foreman_warcry_oaa_buff:IsPurgable()
 end
 
 function modifier_kobold_foreman_warcry_oaa_buff:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
-  return funcs
 end
 
 function modifier_kobold_foreman_warcry_oaa_buff:GetModifierPreAttack_BonusDamage()

@@ -43,6 +43,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastRange"                                    "750 850 950 1050 1150"
     "AbilityCooldown"                                     "7.0"
@@ -75,7 +76,7 @@
       "soul_damage_amount"                                "35 45 65 95 135"
       "duration"                                          "8.0"
       "heal_reduction_with_charge"                        "45 50 55 60 65"
-      "heal_reduction_no_charge"                          "25"
+      "heal_reduction_no_charge"                          "20 25 30 35 40"
       "current_hp_as_dmg"                                 "4 4.5 5 5.5 6"
     }
   }

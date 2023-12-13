@@ -117,10 +117,10 @@ end
 function modifier_chen_divine_favor_shield_oaa:OnCreated()
   local ability = self:GetAbility()
   if ability then
-    self.shield = ability:GetSpecialValueFor("shield")
+    self.max_shield_hp = ability:GetSpecialValueFor("shield")
   end
   if IsServer() then
-    self:SetStackCount(self.shield)
+    self:SetStackCount(self.max_shield_hp)
   end
 end
 
@@ -128,48 +128,39 @@ modifier_chen_divine_favor_shield_oaa.OnRefresh = modifier_chen_divine_favor_shi
 
 function modifier_chen_divine_favor_shield_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT,
   }
 end
 
-function modifier_chen_divine_favor_shield_oaa:GetModifierTotal_ConstantBlock(event)
-  if not IsServer() then
-    return
-  end
-
-  if event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
-    return 0
-  end
-
-  local parent = self:GetParent()
-  local block_amount = event.damage
-  local barrier_hp = self:GetStackCount()
-
-  -- Don't block more than remaining hp
-  block_amount = math.min(block_amount, barrier_hp)
-
-  -- Reduce barrier hp
-  self:SetStackCount(barrier_hp - block_amount)
-
-  if block_amount > 0 then
-    -- Visual effect
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
-  end
-
-  -- Remove the barrier if hp is reduced to nothing
-  if self:GetStackCount() <= 0 then
-    self:Destroy()
-  end
-
-  return block_amount
-end
-
 function modifier_chen_divine_favor_shield_oaa:GetModifierIncomingPhysicalDamageConstant(event)
   if IsClient() then
-    return self:GetStackCount()
+    if event.report_max then
+      return self.max_shield_hp
+    else
+      return self:GetStackCount() -- current shield hp
+    end
   else
-    return 0
+    local parent = self:GetParent()
+    local damage = event.damage
+    local barrier_hp = self:GetStackCount()
+
+    -- Don't block more than remaining hp
+    local block_amount = math.min(damage, barrier_hp)
+
+    -- Reduce barrier hp
+    self:SetStackCount(barrier_hp - block_amount)
+
+    if block_amount > 0 then
+      -- Visual effect
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, parent, block_amount, nil)
+    end
+
+    -- Remove the barrier if hp is reduced to nothing
+    if self:GetStackCount() <= 0 then
+      self:Destroy()
+    end
+
+    return -block_amount
   end
 end
 

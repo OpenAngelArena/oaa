@@ -43,14 +43,14 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18"
+    "AbilitySharedCooldown"                               "splash_cannon"
     "AbilityCastRange"                                    "1200"
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "72809"
+    "ItemCost"                                            "73059"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "azazels;azazels crossbow;crossbow"

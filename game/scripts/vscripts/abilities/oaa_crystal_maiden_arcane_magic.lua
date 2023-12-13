@@ -83,41 +83,34 @@ end
 
 function modifier_crystal_maiden_arcane_aura_effect_oaa:OnCreated()
   local ability = self:GetAbility()
-  if ability then
-    self.mana_cost_reduction = ability:GetSpecialValueFor("mana_cost_reduction_pct")
+  if ability and not ability:IsNull() then
+    --self.mana_cost_reduction = ability:GetSpecialValueFor("mana_cost_reduction_pct")
     self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
     --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
     --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
-    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
+    --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
+    self.int = ability:GetSpecialValueFor("bonus_intelligence")
   end
 end
 
-function modifier_crystal_maiden_arcane_aura_effect_oaa:OnRefresh()
-  local ability = self:GetAbility()
-  if ability then
-    self.mana_cost_reduction = ability:GetSpecialValueFor("mana_cost_reduction_pct")
-    self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
-    --self.cd_reduction = ability:GetSpecialValueFor("cd_reduction")
-    --self.mana_regen = ability:GetSpecialValueFor("mana_regen")
-    self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resistance")
-  end
-end
+modifier_crystal_maiden_arcane_aura_effect_oaa.OnRefresh = modifier_crystal_maiden_arcane_aura_effect_oaa.OnCreated
 
 function modifier_crystal_maiden_arcane_aura_effect_oaa:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, --GetModifierPercentageManacostStacking
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE, -- GetModifierSpellAmplify_Percentage
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
+    --MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, --GetModifierPercentageManacostStacking
     --MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, -- GetModifierPercentageCooldown
     --MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, -- GetModifierConstantManaRegen
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
+    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS, -- GetModifierMagicalResistanceBonus
     --MODIFIER_PROPERTY_TOOLTIP, -- OnTooltip
     --MODIFIER_PROPERTY_TOOLTIP2, -- OnTooltip2
   }
 end
 
-function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierPercentageManacostStacking()
-  return self.mana_cost_reduction or self:GetAbility():GetSpecialValueFor("mana_cost_reduction_pct")
-end
+--function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierPercentageManacostStacking()
+  --return self.mana_cost_reduction or self:GetAbility():GetSpecialValueFor("mana_cost_reduction_pct")
+--end
 
 function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierSpellAmplify_Percentage()
   return self.spell_amp or self:GetAbility():GetSpecialValueFor("bonus_spell_amp")
@@ -131,8 +124,12 @@ end
   --return self.mana_regen or self:GetAbility():GetSpecialValueFor("mana_regen")
 --end
 
-function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierMagicalResistanceBonus()
-  return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
+--function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierMagicalResistanceBonus()
+  --return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resistance")
+--end
+
+function modifier_crystal_maiden_arcane_aura_effect_oaa:GetModifierBonusStats_Intellect()
+  return self.int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
 end
 
 --function modifier_crystal_maiden_arcane_aura_effect_oaa:OnTooltip()

@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_boss_spooky_ghost_siphon_debuff", "abilities/boss/spooky_ghost/boss_spooky_ghost_siphon.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_frostbite_effect", "abilities/boss/boss_frostbite.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_spooky_ghost_siphon = class(AbilityBaseClass)
@@ -17,7 +16,7 @@ function boss_spooky_ghost_siphon:OnAbilityPhaseStart()
     local delay = self:GetCastPoint()
 
     -- Make the caster uninterruptible while casting this ability
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
 
     -- Warning particle
     local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -61,7 +60,7 @@ function boss_spooky_ghost_siphon:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )
@@ -144,7 +143,7 @@ function modifier_boss_spooky_ghost_siphon_debuff:OnIntervalThink()
   end
 
   -- If parent is dead or becomes spell-immune, invulnerable or banished then destroy this debuff
-  if not parent:IsAlive() or parent:IsMagicImmune() or parent:IsInvulnerable() or parent:IsOutOfGame() then
+  if not parent:IsAlive() or parent:IsMagicImmune() or parent:IsDebuffImmune() or parent:IsInvulnerable() or parent:IsOutOfGame() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return

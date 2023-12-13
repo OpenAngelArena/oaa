@@ -133,7 +133,7 @@ if IsServer() then
     local heal_radius = 1800
     local vision_duration = 30
     local effect_duration = 30
-    --local vision_radius = 800
+    --local vision_radius = 1200
 
     if ability and not ability:IsNull() then
       heal_amount = ability:GetSpecialValueFor("death_heal_base") + (parent:GetMaxHealth() * ability:GetSpecialValueFor("death_heal_hp_percent") / 100)
@@ -170,7 +170,7 @@ if IsServer() then
     dummy:AddNewModifier(parent, ability, "modifier_item_martyrs_mail_dummy_stuff", {})
     dummy:AddNewModifier(parent, ability, "modifier_kill", {duration = vision_duration})
     dummy:AddNewModifier(parent, ability, "modifier_generic_dead_tracker_oaa", {duration = vision_duration + MANUAL_GARBAGE_CLEANING_TIME})
-    --AddFOWViewer(parent:GetTeamNumber(), death_location, vision_radius, vision_duration, false)
+    --AddFOWViewer(parent_team, death_location, vision_radius, vision_duration, false)
   end
 end
 
@@ -309,7 +309,7 @@ function modifier_item_martyrs_mail_martyr_active:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -348,7 +348,7 @@ function modifier_item_martyrs_mail_martyr_aura:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_martyr_aura:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -403,7 +403,7 @@ end
 --end
 
 function modifier_item_martyrs_mail_passive_aura_effect:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -468,7 +468,7 @@ function modifier_item_martyrs_mail_death_buff:GetEffectAttachType()
 end
 
 function modifier_item_martyrs_mail_death_buff:GetTexture()
-  return "custom/martyrs_mail_4"
+  return "custom/martyrs_mail"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -514,7 +514,7 @@ function modifier_item_martyrs_mail_dummy_stuff:GetBonusDayVision()
   if ability and not ability:IsNull() then
     return ability:GetSpecialValueFor("death_vision_radius")
   end
-  return 800
+  return 1200
 end
 
 function modifier_item_martyrs_mail_dummy_stuff:GetBonusNightVision()
@@ -522,7 +522,7 @@ function modifier_item_martyrs_mail_dummy_stuff:GetBonusNightVision()
   if ability and not ability:IsNull() then
     return ability:GetSpecialValueFor("death_vision_radius")
   end
-  return 800
+  return 1200
 end
 
 function modifier_item_martyrs_mail_dummy_stuff:CheckState()

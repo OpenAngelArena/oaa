@@ -61,54 +61,67 @@ end
 -------------------------------------------------------------------
 
 function modifier_temple_guardian_hammer_throw:OnIntervalThink()
-  if IsServer() then
-    local flPct = ( self.flDieTime - GameRules:GetGameTime() ) / self.throw_duration
-    local t = 1.0 - flPct
+  local caster = self:GetCaster()
+  local flPct = ( self.flDieTime - GameRules:GetGameTime() ) / self.throw_duration
+  local t = 1.0 - flPct
 
-    local vPos = self.vSourceLoc + ( self.vDir * self.flDist * t * 2 )
-    if self.bReturning == true then
-      vPos = self.vTargetLoc - ( self.vDir * self.flDist * ( t - 0.5 ) * 2 )
-    end
+  local vPos = self.vSourceLoc + ( self.vDir * self.flDist * t * 2 )
+  if self.bReturning == true then
+    vPos = self.vTargetLoc - ( self.vDir * self.flDist * ( t - 0.5 ) * 2 )
+  end
 
-    if FrameTime() > 0.0 then
-      local vVel = vPos - self.hHammer:GetOrigin() / FrameTime()
-      self.hHammer:SetVelocity( vVel )
-    end
+  if FrameTime() > 0.0 then
+    local vVel = vPos - self.hHammer:GetOrigin() / FrameTime()
+    self.hHammer:SetVelocity( vVel )
+  end
 
-    self.hHammer:SetOrigin( vPos )
+  self.hHammer:SetOrigin( vPos )
 
-    local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self.hHammer:GetOrigin(), self.hHammer, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
-    for _, enemy in pairs( enemies ) do
-      if enemy and not enemy:IsNull() and not enemy:IsInvulnerable() and not self:HasHitTarget( enemy ) then
-        self:AddHitTarget( enemy )
-        if not enemy:IsMagicImmune() then
-          enemy:AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = self.stun_duration } )
-        end
+  local enemies = FindUnitsInRadius(
+    self:GetParent():GetTeamNumber(),
+    self.hHammer:GetOrigin(),
+    nil,
+    self.radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  local damageTable = {
+    attacker = caster,
+    damage = self.hammer_damage,
+    damage_type = DAMAGE_TYPE_PURE,
+    ability = self:GetAbility(),
+  }
+
+  for _, enemy in pairs( enemies ) do
+    if enemy and not enemy:IsNull() and not self:HasHitTarget( enemy ) then
+      self:AddHitTarget( enemy )
+
+      enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
+
+      if not enemy:IsMagicImmune() and not enemy:IsDebuffImmune() then
+        local actual_duration = enemy:GetValueChangedByStatusResistance(self.stun_duration)
+        enemy:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", {duration = actual_duration})
 
         local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_beastmaster/beastmaster_wildaxes_hit.vpcf", PATTACH_CUSTOMORIGIN, nil )
         ParticleManager:SetParticleControlEnt( nFXIndex, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetOrigin(), true )
         ParticleManager:ReleaseParticleIndex( nFXIndex )
-        local damageInfo =
-        {
-          victim = enemy,
-          attacker = self:GetCaster(),
-          damage = self.hammer_damage,
-          damage_type = DAMAGE_TYPE_PURE,
-          ability = self:GetAbility(),
-        }
-        ApplyDamage( damageInfo )
 
-        enemy:EmitSound("TempleGuardian.HammerThrow.Damage")
+        damageTable.victim = enemy
+        ApplyDamage( damageTable )
       end
     end
+  end
 
-    if t >= 0.5 then
-      self.bReturning = true
-    end
+  if t >= 0.5 then
+    self.bReturning = true
+  end
 
-    if t >= 0.95 then
-      self:Destroy()
-    end
+  if t >= 0.95 then
+    self:Destroy()
   end
 end
 

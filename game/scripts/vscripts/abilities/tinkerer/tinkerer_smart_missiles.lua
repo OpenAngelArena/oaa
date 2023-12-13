@@ -115,12 +115,13 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   end
 
   -- Damage table
-  local damage_table = {}
-  damage_table.victim = target
-  damage_table.attacker = caster
-  damage_table.damage = base_damage
-  damage_table.ability = self
-  damage_table.damage_type = self:GetAbilityDamageType()
+  local damage_table = {
+    attacker = caster,
+    victim = target,
+    damage = base_damage,
+    damage_type = self:GetAbilityDamageType(),
+    ability = self,
+  }
 
   -- Glance (go through them, damage them but don't explode) neutral creeps but not bosses and ignore couriers completely
   if (target:GetTeamNumber() == DOTA_TEAM_NEUTRALS and not target:IsOAABoss()) or target:IsCourier() then

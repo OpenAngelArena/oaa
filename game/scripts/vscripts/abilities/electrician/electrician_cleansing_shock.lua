@@ -218,7 +218,7 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
 		)
 
 		-- iterate through them
-		for _, unit in pairs( units ) do
+		for _, unit in ipairs( units ) do
 			-- don't repeat hits
 			if not FindInTable( self.hitTargets, unit ) then
 				return unit

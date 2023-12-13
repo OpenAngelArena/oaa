@@ -21,13 +21,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "caustic_finale_radius"
+      "caustic_finale_radius" //OAA
       {
-        "value"                                           "500"
+        "value"                                           "800"
       }
-      "caustic_finale_damage_base"
+      "caustic_finale_damage_base" //OAA
       {
-        "value"                                           "70 90 110 130 260 520"
+        "value"                                           "70 100 130 160 320 640"
         "LinkedSpecialBonus"                              "special_bonus_unique_sand_king_8"
       }
       "caustic_finale_damage_pct"                         "10 14 18 22 26 30"

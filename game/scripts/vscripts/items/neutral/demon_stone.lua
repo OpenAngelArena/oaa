@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_item_demon_stone_passive", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_stone_summon_passives", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_demon_stone = class(ItemBaseClass)
 
@@ -192,10 +191,17 @@ end
 
 if IsServer() then
   function modifier_demon_stone_summon_passives:GetModifierTotal_ConstantBlock(event)
-    local parent = self:GetParent()
     local attacker = event.attacker
 
-    if attacker == parent then
+    if not attacker or attacker:IsNull() then
+      return 0
+    end
+
+    if attacker.IsBaseNPC == nil then
+      return 0
+    end
+
+    if not attacker:IsBaseNPC() then
       return 0
     end
 

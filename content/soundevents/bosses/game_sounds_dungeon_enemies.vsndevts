@@ -704,11 +704,7 @@
 	}
 
  "Dungeon.BloodSplatterImpact" = {
-		type = "dota_src1_3d"
-		vsnd_files =
-		[
-			"sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd",
-		]
+		type = "dota_update_default"
 		volume = "0.799805"
 		pitch_rand_min = "-0.100000"
 		pitch_rand_max = "0.100000"
@@ -718,23 +714,11 @@
 		distance_max = "2500.000000"
 		soundevent_layer2 = "Hero_PhantomAssassin.Spatter"
 		soundevent_layer2_on = "1.000000"
-	}
-
- "Dungeon.BloodSplatterImpact.Lesser" = {
-		type = "dota_update_default"
-		vsnd_files =
+       vsnd_files =
 		[
 			"sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd",
 		]
-		volume = "0.399805"
-		pitch_rand_min = "-0.100000"
-		pitch_rand_max = "0.100000"
-		pitch = "1.000000"
-		soundlevel = "78.000000"
-		mixgroup = "Weapons"
-		distance_max = "2500.000000"
-		soundevent_layer2 = "Hero_PhantomAssassin.Spatter"
-		soundevent_layer2_on = "1.000000"
+       vsnd_duration = 1.943243
 	}
 
  "Dungeon.BanditDagger.Cast" = {

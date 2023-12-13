@@ -122,13 +122,11 @@ function modifier_clinkz_death_pact_oaa:OnRefresh(event)
 end
 
 function modifier_clinkz_death_pact_oaa:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,       -- this is bonus raw damage (green)
     --MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE,     -- this is bonus base damage (white)
     MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS,
   }
-
-  return funcs
 end
 
 --function modifier_clinkz_death_pact_oaa:GetModifierBaseAttack_BonusDamage()

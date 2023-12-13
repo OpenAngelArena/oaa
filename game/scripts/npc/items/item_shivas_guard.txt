@@ -39,7 +39,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "27"
+    "AbilityCooldown"                                     "27 26 25 24 23"
     "AbilitySharedCooldown"                               "shivas"
     "AbilityManaCost"                                     "100"
 
@@ -74,7 +74,7 @@
       "blast_speed"                                       "400"
       "hp_regen_degen_aura"                               "25"
       "illusion_multiplier_pct"                           "150"
-      "mana_cost_tooltip"                                 "100 125 150 175 200" //OAA
+      "cooldown_tooltip"                                  "27 26 25 24 23" //OAA
     }
   }
 }

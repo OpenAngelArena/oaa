@@ -194,10 +194,6 @@ function modifier_sohei_polarizing_palm_movement:IsPurgable()
   return true
 end
 
-function modifier_sohei_polarizing_palm_movement:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_polarizing_palm_movement:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
@@ -394,12 +390,13 @@ if IsServer() then
     local str_multiplier = ability:GetSpecialValueFor("strength_damage") / 100
     local bonus_damage = str_multiplier * caster:GetStrength()
 
-    local damage_table = {}
-    damage_table.attacker = caster
-    damage_table.damage_type = ability:GetAbilityDamageType()
-    damage_table.ability = ability
-    damage_table.damage = base_damage + bonus_damage
-    damage_table.victim = unit
+    local damage_table = {
+      attacker = caster,
+      victim = unit,
+      damage = base_damage + bonus_damage,
+      damage_type = ability:GetAbilityDamageType(),
+      ability = ability,
+    }
 
     ApplyDamage(damage_table)
   end

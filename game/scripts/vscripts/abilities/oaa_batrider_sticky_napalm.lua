@@ -159,13 +159,14 @@ function ApplyStickyNapalmDamage(count, ability, caster, target)
   ParticleManager:ReleaseParticleIndex(damage_debuff_particle)
 
   -- Apply damage
-  local damage_table = {}
-  damage_table.victim = target
-  damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-  damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-  damage_table.attacker = caster
-  damage_table.ability = ability
-  damage_table.damage = bonus_damage * count
+  local damage_table = {
+    attacker = caster,
+    victim = target,
+    damage = bonus_damage * count,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    ability = ability,
+  }
 
   ApplyDamage(damage_table)
 end

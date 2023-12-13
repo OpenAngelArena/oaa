@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.34"
   "hero"          "npc_dota_hero_tidehunter"
   "Title"         "Recommended items for Tidehunter"
 
@@ -15,7 +15,7 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_devastator_2"
+      "item"      "item_desolator"
       "item"      "item_greater_crit"
       "item"      "item_assault"
       "item"      "item_satanic"
@@ -24,6 +24,7 @@
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_blink"
+      "item"      "item_meteor_hammer_1"
       "item"      "item_ultimate_scepter"
       "item"      "item_refresher_4"
     }

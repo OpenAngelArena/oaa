@@ -2,7 +2,6 @@ zuus_cloud_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_zuus_cloud_oaa", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_zuus_bolt_true_sight", "abilities/oaa_zuus_cloud.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 function zuus_cloud_oaa:GetAOERadius()
   return self:GetSpecialValueFor("cloud_radius")
@@ -198,6 +197,14 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
 
     CreateModifierThinker( caster, lightning_bolt_ability, "modifier_zuus_bolt_true_sight", { duration = sight_duration }, target:GetAbsOrigin(), caster_team, false )
 
+    -- Renders the particle on the sigil
+    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud_strike.vpcf", PATTACH_POINT_FOLLOW, parent)
+    ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
+
+    -- Sound at the end (because light is faster than sound)
+    target:EmitSound("Hero_Zuus.LightningBolt.Cloud")
+
     -- Calculate mini-stun duration
     local ministun_duration = self.ability:GetSpecialValueFor("ministun_duration")
 
@@ -214,54 +221,46 @@ function modifier_zuus_cloud_oaa:CastLightningBolt(target)
       -- Apply mini-stun modifier
       target:AddNewModifier(caster, lightning_bolt_ability, "modifier_stunned", {duration = ministun_duration})
 
-      -- Damage table values that are the same for both lightning bolt and static field
-      local damage_table = {}
-      damage_table.damage_type = DAMAGE_TYPE_MAGICAL
-      damage_table.victim = target
+      -- Damage table for Lightning Bolt
+      local damage_table = {
+        attacker = parent,
+        victim = target,
+        damage = lightning_bolt_ability:GetAbilityDamage(),
+        damage_type = lightning_bolt_ability:GetAbilityDamageType(),
+        damage_flags = DOTA_DAMAGE_FLAG_NONE,
+        ability = lightning_bolt_ability,
+      }
 
       -- Static Field damage comes from Zeus but cannot be reflected back to him
+      --[[
       if not caster:PassivesDisabled() then
-		local static_field_damage = 0
-		-- Check for Static Field if its leveled up
-		local static_field_ability = caster:FindAbilityByName("zuus_static_field")
-		if static_field_ability and static_field_ability:GetLevel() > 0 then
+        local static_field_damage = 0
+        -- Check for Static Field if its leveled up
+        local static_field_ability = caster:FindAbilityByName("zuus_static_field")
+        if static_field_ability and static_field_ability:GetLevel() > 0 then
           static_field_damage = static_field_ability:GetSpecialValueFor("damage_health_pct")
-
-          -- Check for the talent (static field bonus damage)
-          --local static_field_talent = caster:FindAbilityByName("special_bonus_unique_zeus")
-          --if static_field_talent and static_field_talent:GetLevel() > 0 then
-            --static_field_damage = static_field_damage + static_field_talent:GetSpecialValueFor("value")
-          --end
         end
 
-        if not target:IsOAABoss() then
-          damage_table.attacker = caster
-          damage_table.damage = (target:GetHealth()/100)*static_field_damage
-          damage_table.ability = static_field_ability
-          damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL)
+        -- Damage table for Static Field
+        local damage_table_2 = {
+          attacker = caster,
+          victim = target,
+          damage = (target:GetHealth()/100)*static_field_damage,
+          damage_type = DAMAGE_TYPE_MAGICAL,
+          damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL),
+          ability = static_field_ability,
+        }
 
-          -- Apply Static Field damage (before lightning bolt damage)
-          ApplyDamage(damage_table)
+        -- Apply Static Field damage (before lightning bolt damage) to non-boss units
+        if not target:IsOAABoss() then
+          ApplyDamage(damage_table_2)
         end
       end
-
-      -- Lightning bolt damage table values
-      damage_table.attacker = parent
-      damage_table.damage = lightning_bolt_ability:GetAbilityDamage()
-      damage_table.ability = lightning_bolt_ability
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+      ]]
 
       -- Apply Lightning Bolt damage
       ApplyDamage(damage_table)
     end
-
-    -- Renders the particle on the sigil
-    local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud_strike.vpcf", PATTACH_POINT_FOLLOW, parent)
-    ParticleManager:SetParticleControlEnt(particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin())
-
-    -- Sound at the end (because light is faster than sound)
-    target:EmitSound("Hero_Zuus.LightningBolt.Cloud")
   end
 end
 

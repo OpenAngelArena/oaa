@@ -2,6 +2,8 @@ LinkLuaModifier("modifier_boss_basic_properties_oaa", "abilities/boss/boss_basic
 LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_debuff_protection_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_tier_indicator_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_basic_properties_oaa = class(AbilityBaseClass)
 
@@ -183,14 +185,17 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
-      anti_mage_mana_void = true,
+      anti_mage_mana_void = false,
+      bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_ice = false,
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
-      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+      venomancer_noxious_plague = false,
+      winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
+      zuus_arc_lightning = false,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
@@ -210,6 +215,22 @@ if IsServer() then
       local ability = attacker:FindAbilityByName(name)
       if ability then
         local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "jakiro_liquid_fire" then -- Jakiro Liquid Fire bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "ice_shaman_incendiary_bomb" then -- Ice Shaman neutral creep Icefire Bomb bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_damage_pct")
         if damage_increase_pct and damage_increase_pct > 0 then
           return damage_increase_pct
         end

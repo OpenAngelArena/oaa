@@ -29,6 +29,7 @@
 #base "abilities/meepo_together_we_stand_oaa.txt"
 #base "abilities/mirana_arrow_oaa.txt"
 #base "abilities/monkey_king_wukongs_command_oaa.txt"
+#base "abilities/muerta_hidden_ability_oaa.txt"
 #base "abilities/nevermore_dark_lord_oaa.txt"
 #base "abilities/obsidian_destroyer_arcane_orb_oaa.txt"
 //#base "abilities/omniknight_degen_aura_oaa.txt"
@@ -36,6 +37,7 @@
 //#base "abilities/pangolier_lucky_shot_oaa.txt"
 #base "abilities/pugna_nether_ward_oaa.txt"
 //#base "abilities/razor_unstable_current_oaa.txt"
+#base "abilities/shadow_shaman_global_serpent_aura_oaa.txt"
 #base "abilities/shadow_shaman_mass_serpent_ward_oaa.txt"
 #base "abilities/silencer_glaives_of_wisdom_oaa.txt"
 #base "abilities/slardar_bash_oaa.txt"
@@ -52,6 +54,7 @@
 #base "abilities/tinkerer_smart_missiles.txt"
 #base "abilities/tinkerer_oil_spill.txt"
 #base "abilities/tinkerer_laser_contraption.txt"
+#base "abilities/tinkerer_laser_oaa.txt"
 #base "abilities/tiny_grow_oaa.txt"
 #base "abilities/undying_global_zombie_aura_oaa.txt"
 #base "abilities/vengefulspirit_command_aura_oaa.txt"
@@ -78,6 +81,8 @@
 #base "abilities/talents/broodmother_talent4_oaa.txt"
 //#base "abilities/talents/clinkz_talent1_oaa.txt"
 //#base "abilities/talents/clinkz_talent2_oaa.txt"
+#base "abilities/talents/death_prophet_talent1_oaa.txt"
+#base "abilities/talents/death_prophet_talent5_oaa.txt"
 #base "abilities/talents/electrician_talent1_oaa.txt"
 #base "abilities/talents/electrician_talent2_oaa.txt"
 #base "abilities/talents/electrician_talent3_oaa.txt"
@@ -102,13 +107,15 @@
 #base "abilities/talents/monkey_king_talent1_oaa.txt"
 //#base "abilities/talents/monkey_king_talent4_oaa.txt"
 //#base "abilities/talents/monkey_king_talent6_oaa.txt"
-#base "abilities/talents/natures_prophet_talent1_oaa.txt"
+//#base "abilities/talents/natures_prophet_talent1_oaa.txt"
 #base "abilities/talents/queen_of_pain_talent4_oaa.txt"
 //#base "abilities/talents/riki_talent1_oaa.txt"
+#base "abilities/talents/sand_king_talent1_oaa.txt"
 #base "abilities/talents/shadow_fiend_talent1_oaa.txt"
 #base "abilities/talents/silencer_talent2_oaa.txt"
 //#base "abilities/talents/silencer_talent3_oaa.txt"
 #base "abilities/talents/skywrath_mage_talent1_oaa.txt"
+#base "abilities/talents/sniper_talent6_oaa.txt"
 #base "abilities/talents/sohei_talent1_oaa.txt"
 #base "abilities/talents/sohei_talent2_oaa.txt"
 #base "abilities/talents/sohei_talent3_oaa.txt"
@@ -135,6 +142,7 @@
 //#base "abilities/talents/visage_talent6_oaa.txt"
 #base "abilities/talents/windranger_talent1_oaa.txt"
 #base "abilities/talents/winter_wyvern_talent1_oaa.txt"
+#base "abilities/talents/zeus_talent1_oaa.txt"
 
 #base "abilities/boss/boss_basic_properties.txt"
 #base "abilities/boss/boss_frostbite.txt"
@@ -222,36 +230,26 @@
 #base "abilities/boss/wanderer/wanderer_sticky_blood.txt"
 #base "abilities/boss/werewolf/werewolf_howl.txt"
 
-#base "abilities/neutrals/custom_ability_name_oaa.txt"
-
-#base "abilities/neutrals/black_dragon_fireball.txt"
-#base "abilities/neutrals/black_dragon_dragonhide_aura_oaa.txt"
-
-#base "abilities/neutrals/ghost_frostburn_oaa.txt"
-#base "abilities/neutrals/ghost_vortex_oaa.txt"
-
-#base "abilities/neutrals/centaur_khan_endurance_aura.txt"
-#base "abilities/neutrals/centaur_khan_war_stomp.txt"
-
-#base "abilities/neutrals/hellbear_thunder_clap.txt"
-#base "abilities/neutrals/hellbear_cloak_aura.txt"
-
-#base "abilities/neutrals/mud_golem_hurl_boulder.txt"
-#base "abilities/neutrals/mud_golem_shard_split_oaa.txt"
-
-#base "abilities/neutrals/harpy_storm_chain_lightning.txt"
-#base "abilities/neutrals/harpy_storm_null_field_oaa.txt"
-
-#base "abilities/neutrals/kobold_disarm.txt"
-
-#base "abilities/neutrals/kobold_foreman_warcry_oaa.txt"
-#base "abilities/neutrals/kobold_foreman_speed_aura.txt"
-
-#base "abilities/neutrals/alpha_wolf_invisibility_oaa.txt"
 #base "abilities/neutrals/alpha_wolf_critical_strike_aura_oaa.txt"
-
-#base "abilities/neutrals/mini_rosh_root.txt"
+#base "abilities/neutrals/alpha_wolf_invisibility_oaa.txt"
+#base "abilities/neutrals/black_dragon_dragonhide_aura_oaa.txt"
+//#base "abilities/neutrals/black_dragon_fireball_oaa.txt" // TODO
+//#base "abilities/neutrals/centaur_khan_endurance_aura_oaa.txt" // TODO
+//#base "abilities/neutrals/centaur_khan_war_stomp_oaa.txt" // TODO
+#base "abilities/neutrals/ghost_frostburn_oaa.txt"
+//#base "abilities/neutrals/ghost_vortex_oaa.txt"
+//#base "abilities/neutrals/harpy_storm_chain_lightning_oaa.txt" // TODO
+#base "abilities/neutrals/harpy_storm_null_field_oaa.txt"
+//#base "abilities/neutrals/hellbear_cloak_aura_oaa.txt" // TODO
+//#base "abilities/neutrals/hellbear_thunder_clap_oaa.txt" // TODO
+//#base "abilities/neutrals/ice_shaman_icefire_bomb_oaa.txt" // TODO
+//#base "abilities/neutrals/kobold_disarm_oaa.txt" // TODO
+//#base "abilities/neutrals/kobold_foreman_speed_aura_oaa.txt" // TODO
+#base "abilities/neutrals/kobold_foreman_warcry_oaa.txt"
 #base "abilities/neutrals/mini_rosh_passives.txt"
+#base "abilities/neutrals/mini_rosh_root.txt"
+//#base "abilities/neutrals/mud_golem_hurl_boulder_oaa.txt" // TODO
+#base "abilities/neutrals/mud_golem_shard_split_oaa.txt"
 
 #base "abilities/misc/bottle_selection.txt"
 #base "abilities/misc/core_guy_consume.txt"

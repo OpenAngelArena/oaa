@@ -73,14 +73,13 @@ end
 
 -- function modifier_mini_rosh_passives:CheckState()
   -- local parent = self:GetParent()
-  -- local state = {}
   -- if not parent:IsControllableByAnyPlayer() then
-    -- state = {
+    -- return {
       -- [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
       -- [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     -- }
   -- end
-  -- return state
+  -- return {}
 -- end
 
 function modifier_mini_rosh_passives:GetModifierStatusResistanceStacking()
@@ -165,10 +164,9 @@ function modifier_mini_rosh_aura_effect:OnRefresh()
 end
 
 function modifier_mini_rosh_aura_effect:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
-  return funcs
 end
 
 function modifier_mini_rosh_aura_effect:GetModifierPhysicalArmorBonus()

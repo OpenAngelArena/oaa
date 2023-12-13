@@ -74,15 +74,17 @@ function boss_swiper_thrust:OnProjectileHit( target, location )
     local impact = ParticleManager:CreateParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_burst.vpcf", PATTACH_POINT_FOLLOW, target)
     ParticleManager:ReleaseParticleIndex(impact)
 
-    local damageTable = {
-      victim = target,
-      attacker = self:GetCaster(),
-      damage = self:GetSpecialValueFor("damage"),
-      damage_type = self:GetAbilityDamageType(),
-      damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-      ability = self
-    }
-    ApplyDamage(damageTable)
+    if not target:IsMagicImmune() and not target:IsDebuffImmune() then
+      local damageTable = {
+        victim = target,
+        attacker = self:GetCaster(),
+        damage = self:GetSpecialValueFor("damage"),
+        damage_type = self:GetAbilityDamageType(),
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = self
+      }
+      ApplyDamage(damageTable)
+    end
   end
 
   return false

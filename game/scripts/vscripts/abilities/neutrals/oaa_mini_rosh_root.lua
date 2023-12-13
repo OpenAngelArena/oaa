@@ -43,10 +43,9 @@ end
 modifier_mini_rosh_root_applier.OnRefresh = modifier_mini_rosh_root_applier.OnCreated
 
 function modifier_mini_rosh_root_applier:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
-  return funcs
 end
 
 if IsServer() then
@@ -108,18 +107,21 @@ if IsServer() then
       self:SetStackCount(0)
 
       -- Apply root
-      target:AddNewModifier(attacker, self:GetAbility(), "modifier_mini_rosh_root_effect", {duration = self.duration})
+      local actual_duration = target:GetValueChangedByStatusResistance(self.duration)
+      target:AddNewModifier(attacker, self:GetAbility(), "modifier_mini_rosh_root_effect", {duration = actual_duration})
 
       -- Sound
       parent:EmitSound("n_creep_TrollWarlord.Ensnare")
 
       -- Damage table
-      local damage_table = {}
-      damage_table.attacker = parent
-      damage_table.damage_type = ability:GetAbilityDamageType()
-      damage_table.ability = ability
-      damage_table.damage = damage
-      damage_table.victim = target
+      local damage_table = {
+        attacker = parent,
+        victim = target,
+        damage = damage,
+        damage_type = ability:GetAbilityDamageType(),
+        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+        ability = ability,
+      }
 
       -- Apply bonus damage
       ApplyDamage(damage_table)
@@ -159,8 +161,8 @@ function modifier_mini_rosh_root_effect:CheckState()
     [MODIFIER_STATE_ROOTED] = true,
   }
 
-  -- Reveal the affected unit if not under Shadow Dance
-  if not parent:HasModifier("modifier_slark_shadow_dance") then
+  -- Reveal the affected unit if not under Shadow Dance or Depth Shroud
+  if not parent:HasModifier("modifier_slark_shadow_dance") and not parent:HasModifier("modifier_slark_depth_shroud") then
     state[MODIFIER_STATE_INVISIBLE] = false
   end
 

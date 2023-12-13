@@ -77,7 +77,10 @@ function item_infinite_bottle:OnSpellStart()
   local restore_time = self:GetSpecialValueFor("restore_time")
   local caster = self:GetCaster()
 
-  EmitSoundOnClient("Bottle.Drink", caster:GetPlayerOwner())
+  -- Sound for the owner only
+  local playerID = UnitVarToPlayerID(caster)
+  --EmitSoundOnClient("Bottle.Drink", PlayerResource:GetPlayer(playerID)) -- emits at the center of the map
+  EmitSoundOnLocationForPlayer("Bottle.Drink", caster:GetAbsOrigin(), playerID)
 
   caster:AddNewModifier(caster, self, "modifier_bottle_regeneration", { duration = restore_time })
 

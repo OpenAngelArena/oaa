@@ -323,7 +323,6 @@ function modifier_item_ghost_king_bar_active:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.extra_spell_damage_percent = ability:GetSpecialValueFor("ethereal_damage_bonus")
-    self.heal_amp = ability:GetSpecialValueFor("active_heal_amp")
   end
 
   --self:StartIntervalThink(FrameTime())
@@ -344,8 +343,6 @@ function modifier_item_ghost_king_bar_active:DeclareFunctions()
     --MODIFIER_PROPERTY_AVOID_DAMAGE,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
     MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
-    MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
     MODIFIER_EVENT_ON_HEAL_RECEIVED,
   }
 end
@@ -364,14 +361,6 @@ end
 
 function modifier_item_ghost_king_bar_active:GetAbsoluteNoDamagePhysical()
   return 1
-end
-
-function modifier_item_ghost_king_bar_active:GetModifierHealAmplify_PercentageSource()
-  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
-end
-
-function modifier_item_ghost_king_bar_active:GetModifierHealAmplify_PercentageTarget()
-  return self.heal_amp or self:GetAbility():GetSpecialValueFor("active_heal_amp")
 end
 
 if IsServer() then

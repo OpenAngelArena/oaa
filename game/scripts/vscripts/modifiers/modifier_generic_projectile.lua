@@ -101,11 +101,11 @@ function modifier_generic_projectile:OnIntervalThink()
                 DOTA_UNIT_TARGET_TEAM_ENEMY,
                 DOTA_UNIT_TARGET_ALL,
                 DOTA_UNIT_TARGET_FLAG_NONE,
-                FIND_CLOSEST,
+                FIND_ANY_ORDER,
                 false
             )
 
-            for k,v in pairs(units) do
+            for _, v in pairs(units) do
                 if not self.hits[v:entindex()] then
                     self.hits[v:entindex()] = true
 

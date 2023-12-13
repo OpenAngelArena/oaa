@@ -30,7 +30,7 @@ function HeroSelection:Init ()
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
   self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy"
-  self.is1v1 = GetMapName() == "1v1"
+  self.lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
 
   local herolistFile = 'scripts/npc/herolist.txt'
   if self.isCM then
@@ -39,10 +39,10 @@ function HeroSelection:Init ()
   if self.is10v10 then
     herolistFile = 'scripts/npc/herolist_10v10.txt'
   end
-  if self.is1v1 then
-    herolistFile = 'scripts/npc/herolist_1v1.txt'
+  if self.lowPlayerCount then
+    herolistFile = 'scripts/npc/herolist_2_6_players.txt'
   end
-  if self.isRanked or self.is10v10 or self.is1v1 then
+  if self.isRanked or self.is10v10 or self.lowPlayerCount then
     self.isBanning = true
   end
 
@@ -236,13 +236,14 @@ function HeroSelection:StartSelection ()
 
   if OAAOptions and OAAOptions.settings then
     if OAAOptions.settings.small_player_pool == 1 then
-      local herolistFile = 'scripts/npc/herolist_3v3.txt'
+      local herolistFile = 'scripts/npc/herolist_2_6_players.txt'
       local herolistTable = LoadKeyValues(herolistFile)
       for key, value in pairs(herolistTable) do
         if value == 0 then
           table.insert(rankedpickorder.bans, key)
         end
       end
+      HeroSelection.lowPlayerCount = true
     end
     if OAAOptions.settings.GAME_MODE == "ARDM" then
       local herolistFile = 'scripts/npc/herolist_ardm.txt'
@@ -908,6 +909,7 @@ function HeroSelection:ForceRandomHero (playerId)
   DebugPrint("ForceRandomHero - Started forced random for player " .. playerId .. " on team " .. team)
   if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
     DebugPrint("ForceRandomHero - Force picking highlighted hero")
+    selectedtable[playerId].didRandom = "true"
     return previewHero
   end
 
@@ -1046,6 +1048,10 @@ function HeroSelection:UpdateTable (playerID, hero)
     selectedtable[playerID].didRandom = "true"
   elseif hero == "forcerandom" then
     DebugPrint("UpdateTable - Force Randoming a hero for playerID: "..tostring(playerID))
+    if not selectedtable[playerID] then
+      selectedtable[playerID] = {}
+    end
+    selectedtable[playerID].didRandom = "true"
     hero = self:ForceRandomHero(playerID)
   end
 

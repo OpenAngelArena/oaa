@@ -159,7 +159,7 @@ function modifier_hybrid_dmg_stack_oaa:RemoveOnDeath()
 end
 
 function modifier_hybrid_dmg_stack_oaa:OnCreated()
-  self.dmg_per_cooldow_second = 2
+  self.dmg_per_cooldow_second = 3
 end
 
 function modifier_hybrid_dmg_stack_oaa:DeclareFunctions()

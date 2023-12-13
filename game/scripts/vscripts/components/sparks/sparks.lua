@@ -5,14 +5,6 @@ function Sparks:Init()
   --Debug:EnableDebugging()
   DebugPrint("Sparks:Init running!")
 
-  LinkLuaModifier("modifier_spark_gpm", "modifiers/sparks/modifier_spark_gpm.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_cleave", "modifiers/sparks/modifier_spark_cleave.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_midas", "modifiers/sparks/modifier_spark_midas.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_power", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
-  LinkLuaModifier("modifier_spark_power_effect", "modifiers/sparks/modifier_spark_power.lua", LUA_MODIFIER_MOTION_NONE)
-  --LinkLuaModifier("modifier_spark_xp", "modifiers/sparks/modifier_spark_xp.lua", LUA_MODIFIER_MOTION_NONE)
-  --LinkLuaModifier("modifier_spark_gold", "modifiers/sparks/modifier_spark_gold.lua", LUA_MODIFIER_MOTION_NONE)
-
   Sparks.data = {
     [DOTA_TEAM_GOODGUYS] = {
       gpm = 0,
@@ -365,7 +357,12 @@ function Sparks:FindDefaultSparkForHero(hero)
     npc_dota_hero_zuus = "midas",
   }
 
-  if (OAAOptions and OAAOptions.settings and OAAOptions.settings.small_player_pool == 1) or GetMapName() == "1v1" then
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
+
+  if (OAAOptions and OAAOptions.settings and OAAOptions.settings.small_player_pool == 1) or lowPlayerCount then
     if default_sparks[hero_name] == "midas" then
       return "cleave"
     end

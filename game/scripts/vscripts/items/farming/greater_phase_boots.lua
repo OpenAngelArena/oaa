@@ -34,11 +34,12 @@ function item_greater_phase_boots:OnSpellStart()
   if not caster:IsRangedAttacker() then
     caster:AddNewModifier(caster, self, "modifier_item_greater_phase_boots_active", {duration = active_duration})
   else
+    local bonus_search_range = self:GetSpecialValueFor("active_bonus_range")
     local enemies = FindUnitsInRadius(
       caster:GetTeamNumber(),
       caster:GetAbsOrigin(),
       nil,
-      caster:GetAttackRange(),
+      caster:GetAttackRange() + bonus_search_range,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
       bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE),

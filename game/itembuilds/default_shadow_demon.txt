@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_shadow_demon"
   "Title"         "Recommended items for Shadow Demon"
 
@@ -11,36 +11,44 @@
       "item"      "item_boots"
       "item"      "item_clarity"
       "item"      "item_mango"
-      "item"      "item_mango"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_cyclone"
+      "item"      "item_ward_stack"
+      "item"      "item_blink"
       "item"      "item_ultimate_scepter"
-      "item"      "item_sphere"
-      "item"      "item_heart_oaa"
+      "item"      "item_octarine_core"
+      "item"      "item_shield_staff"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_guardian_greaves"
-      "item"      "item_octarine_core"
-      "item"      "item_aeon_disk_2"
-      "item"      "item_sheepstick_4"
-      "item"      "item_refresher_4"
+      "item"      "item_veil_of_discord"
+      "item"      "item_ethereal_blade"
+      "item"      "item_phylactery"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_aether_lens"
       "item"      "item_glimmer_cape"
-      "item"      "item_blink"
-      "item"      "item_veil_of_discord"
-      "item"      "item_pipe"
+      "item"      "item_guardian_greaves"
+      "item"      "item_heart_oaa"
+      "item"      "item_helm_of_the_overlord"
       "item"      "item_shivas_guard"
-      "item"      "item_lotus_orb"
-      "item"      "item_silver_edge"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_aeon_disk_2"
+      "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
+      "item"      "item_silver_staff"
     }
   }
 }

@@ -1,5 +1,3 @@
-LinkLuaModifier('modifier_is_in_offside', 'modifiers/modifier_offside.lua', LUA_MODIFIER_MOTION_NONE)
-
 if ProtectionAura == nil then
   DebugPrint ( 'Creating new ProtectionAura object.' )
   ProtectionAura = class({})
@@ -14,7 +12,7 @@ function ProtectionAura:Init ()
   if legacy then
     self.max_rooms = 4
   end
-  self.IsValidMap = GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" or legacy or GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
+  self.IsValidMap = GetMapName() == "oaa_seasonal" or GetMapName() == "1v1" or legacy or GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" or GetMapName() == "tinymode"
 
   self.zones = {
     [DOTA_TEAM_GOODGUYS] = {},

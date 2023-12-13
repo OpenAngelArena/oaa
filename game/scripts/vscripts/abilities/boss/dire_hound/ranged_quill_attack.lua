@@ -39,7 +39,7 @@ function ranged_quill_attack:OnSpellStart()
 end
 
 function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
-  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsInvulnerable() then
+  if hTarget and not hTarget:IsMagicImmune() and not hTarget:IsDebuffImmune() and not hTarget:IsInvulnerable() then
     local origin = hTarget:GetOrigin()
 
     local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_bristleback/bristleback_quill_spray_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget )
@@ -47,6 +47,8 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
     ParticleManager:SetParticleControlEnt( nFXIndex, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", origin, true )
     ParticleManager:SetParticleControlEnt( nFXIndex, 2, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, origin, true )
     ParticleManager:ReleaseParticleIndex( nFXIndex )
+
+    hTarget:EmitSound("Hound.QuillAttack.Target")
 
     local damage_table = {
       victim = hTarget,
@@ -58,8 +60,6 @@ function ranged_quill_attack:OnProjectileHit( hTarget, vLocation )
     }
 
     ApplyDamage(damage_table)
-
-    hTarget:EmitSound("Hound.QuillAttack.Target")
   end
 
   return true

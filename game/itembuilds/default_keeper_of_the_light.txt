@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_keeper_of_the_light"
   "Title"         "Recommended items for Keeper of the Light"
 
@@ -8,34 +8,41 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_flask"
       "item"      "item_boots"
-      "item"      "item_magic_stick"
-      "item"      "item_branches"
+      "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Mid_Items"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_ancient_janggo"
-      "item"      "item_rod_of_atos"
+      "item"      "item_spirit_vessel_oaa"
       "item"      "item_octarine_core"
+      "item"      "item_ethereal_blade"
+      "item"      "item_dagon_oaa"
+      "item"      "item_wind_waker"
+      "item"      "item_greater_travel_boots"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_lucience"
-      "item"      "item_sheepstick_4"
-      "item"      "item_refresher_4"
+      "item"      "item_far_sight"
+      "item"      "item_shield_staff"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_glimmer_cape"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_spirit_vessel_oaa"
-      "item"      "item_pipe"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_bloodthorn"
+      "item"      "item_revenants_brooch"
       "item"      "item_regen_crystal_1"
-      "item"      "item_ethereal_blade"
+      "item"      "item_sheepstick_4"
     }
   }
 }

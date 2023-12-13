@@ -26,7 +26,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_spiked_mail_3;item_upgrade_core_3"
     }
   }
 
@@ -42,6 +41,7 @@
     "ScriptFile"                                          "items/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -76,14 +76,15 @@
     {
       "bonus_armor"                                       "20 25"
       "bonus_intellect"                                   "60 80"
+      "bonus_status_resist"                               "22 24"
       "hp_regen_amp"                                      "25"
       "heal_amp"                                          "25"
       "lifesteal_amp"                                     "25"
       "spell_lifesteal_amp"                               "25"
       "aura_radius"                                       "1200"
-      "stone_armor"                                       "100"
-      "stone_magic_resist"                                "0"
-      "stone_status_resist"                               "30"
+      "stone_armor"                                       "100 200"
+      //"stone_magic_resist"                                "0"
+      //"stone_status_resist"                               "30"
       "stone_deflect_chance"                              "40"
       "stone_deflect_radius"                              "400"
       //"stone_move_speed"                                  "100"

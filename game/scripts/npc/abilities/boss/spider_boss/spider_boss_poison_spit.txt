@@ -15,15 +15,15 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // uses Venomancer Gale
 
     "MaxLevel"                                            "1"
-
-    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.5" // was 0.25
+    "AbilityCastAnimation"                                "ACT_DOTA_ATTACK"
     "AnimationPlaybackRate"                               "0.5" // default 1.0
     "AnimationIgnoresModelScale"                          "1"
 

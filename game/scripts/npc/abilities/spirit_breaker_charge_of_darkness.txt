@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
+    "AbilityCooldown"                                     "19 17 15 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@
     {
       "movement_speed" //OAA
       {
-        "value"                                           "325 350 375 400 425 450"
+        "value"                                           "350 375 400 425 450 475"
         "special_bonus_unique_spirit_breaker_4"           "+200"
       }
       "stun_duration"                                     "1.2 1.5 1.8 2.1 2.2 2.3"
@@ -54,7 +54,7 @@
       "vision_duration"                                   "0.94"
       "scepter_cooldown"
       {
-        "value"                                           "8"
+        "value"                                           "9"
         "RequiresScepter"                                 "1"
       }
       "scepter_speed" // OAA, Valve has it wrong, luckily it's unused

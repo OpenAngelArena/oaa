@@ -183,11 +183,11 @@ function handleOAASettingsChange (n, key, settings) {
     HM04: '#game_option_timeless_relic',
     HM05: '#game_option_echo_strike',
     HM06: '#game_option_hyper_active',
-    HM07: '#game_option_no_cast_points',
+    HM07: '#game_option_quick_spells',
     HM08: '#game_option_physical_immune',
     HM09: '#game_option_pro_active',
     HM10: '#game_option_spell_block',
-    HM11: '#game_option_troll_switch',
+    HM11: '#game_option_attack_switch',
     HM12: '#game_option_hyper_experience',
     HM13: '#game_option_diarrhetic',
     HM14: '#game_option_rend',
@@ -201,14 +201,20 @@ function handleOAASettingsChange (n, key, settings) {
     HM22: '#game_option_nimble',
     HM23: '#game_option_sorcerer',
     HM24: '#game_option_max_power',
-    HM25: '#game_option_hp_mana_switch',
+    HM25: '#game_option_moriah_shield',
     HM26: '#game_option_magus',
     HM27: '#game_option_brawler',
     HM28: '#game_option_chaos',
     HM29: '#game_option_double_multiplier',
     HM30: '#game_option_hybrid',
     HM31: '#game_option_drunk',
-    HM32: '#game_option_splasher'
+    HM32: '#game_option_splasher',
+    HM33: '#game_option_titan_soul',
+    HM34: '#game_option_white_queen',
+    HM35: '#game_option_octarine_soul',
+    HM36: '#game_option_smurf',
+    HM37: '#game_option_speedster',
+    HM38: '#game_option_universal'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
@@ -232,7 +238,7 @@ function handleOAASettingsChange (n, key, settings) {
       BM02: '#game_option_echo_strike',
       BM03: '#game_option_physical_immune',
       BM04: '#game_option_spell_block',
-      BM05: '#game_option_no_cast_points',
+      BM05: '#game_option_quick_spells',
       BM06: '#game_option_hyper_active',
       BM07: '#game_option_agressive_bosses',
       BM08: '#game_option_brawler'
@@ -627,7 +633,7 @@ function UpdateButtons () {
     FindDotaHudElement('HeroLockIn').style.visibility = 'collapse';
     FindDotaHudElement('HeroBan').style.visibility = 'collapse';
     FindDotaHudElement('HeroRandom').style.visibility = 'collapse';
-    FindDotaHudElement('HeroReRandom').style.visibility = 'collapse';
+    FindDotaHudElement('HeroReRandom').style.visibility = canReRandom ? 'visible' : 'collapse';
     return;
   }
   FindDotaHudElement('HeroLockIn').style.visibility = isPicking && !isBanning ? 'visible' : 'collapse';
@@ -864,7 +870,7 @@ function ReloadCMStatus (data) {
         newbutton.group = 'CMHeroChoises';
         newbutton.AddClass('CMHeroPreviewItem');
         newbutton.SetPanelEvent('onactivate', function () { SelectHero(obj.hero); });
-        $.CreatePanelWithProperties('Label', newbutton, '', { class: 'HeroPickLabel', text: '#' + obj.hero });
+        $.CreatePanel('Label', newbutton, '', { class: 'HeroPickLabel', text: '#' + obj.hero });
 
         CreateHeroPanel(newbutton, obj.hero);
         const newlabel = $.CreatePanel('DOTAUserName', newbutton, 'CMHeroPickLabel_' + obj.hero);
@@ -1057,7 +1063,7 @@ function SelectArcana () {
     const preview = FindDotaHudElement('HeroPreview');
     preview.RemoveAndDeleteChildren();
     if (selectedArcana.setName !== 'DefaultSet') {
-      $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+      $.CreatePanel('DOTAScenePanel', preview, id, {
         style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
         map: 'prefabs\\heroes\\' + selectedArcana.setName,
         particleonly: 'false',
@@ -1071,7 +1077,7 @@ function SelectArcana () {
       });
     } else {
       if (selectedArcana.hero === 'npc_dota_hero_sohei') {
-        $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+        $.CreatePanel('DOTAScenePanel', preview, id, {
           style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
           map: 'prefabs\\heroes\\sohei',
           particleonly: 'false',
@@ -1084,7 +1090,7 @@ function SelectArcana () {
           pitchmax: '10'
         });
       } else if (selectedArcana.hero === 'npc_dota_hero_electrician') {
-        $.CreatePanelWithProperties('DOTAScenePanel', preview, id, {
+        $.CreatePanel('DOTAScenePanel', preview, id, {
           style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
           map: 'prefabs\\heroes\\electrician',
           particleonly: 'false',
@@ -1243,7 +1249,7 @@ function CreateHeroPanel (parent, hero) {
   const id = 'Scene' + ~~(Math.random() * 100);
   let scene = null;
   if (hero === 'npc_dota_hero_sohei') {
-    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
       style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
       map: 'prefabs\\heroes\\sohei',
       particleonly: 'false',
@@ -1256,7 +1262,7 @@ function CreateHeroPanel (parent, hero) {
       pitchmax: '10'
     });
   } else if (hero === 'npc_dota_hero_electrician') {
-    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
       style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
       map: 'prefabs\\heroes\\electrician',
       particleonly: 'false',
@@ -1269,7 +1275,7 @@ function CreateHeroPanel (parent, hero) {
       pitchmax: '10'
     });
   } else {
-    scene = $.CreatePanelWithProperties('DOTAScenePanel', parent, id, {
+    scene = $.CreatePanel('DOTAScenePanel', parent, id, {
       style: "opacity-mask: url('s2r://panorama/images/masks/softedge_box_png.vtex');",
       hittest: 'false',
       drawbackground: '0',
@@ -1290,7 +1296,7 @@ function CreateHeroPanel (parent, hero) {
 
 function CreateAbilityPanel (parent, ability) {
   const id = 'Ability_' + ability;
-  $.CreatePanelWithProperties('DOTAAbilityImage', parent, id, { abilityname: ability });
+  $.CreatePanel('DOTAAbilityImage', parent, id, { abilityname: ability });
   const icon = $('#' + id);
   icon.SetPanelEvent('onmouseover', function () {
     $.DispatchEvent('DOTAShowAbilityTooltip', icon, ability);

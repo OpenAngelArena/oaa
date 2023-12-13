@@ -17,7 +17,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastPoint"                                    "0.2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,8 +38,8 @@
         "value"                                           "50 55 60 65 130 195"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "bounce_range"      
-      {  
+      "bounce_range"
+      {
         "value"                                           "575"
         "affected_by_aoe_increase"                        "1"
       }
@@ -55,7 +55,7 @@
         "value"                                           "10 15 20 25 50 75"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "creep_damage_pct"                                  "200"
+      "creep_damage_pct"                                  "150"
     }
   }
 }

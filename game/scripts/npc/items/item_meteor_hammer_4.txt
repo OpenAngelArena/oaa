@@ -41,7 +41,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"                                  "item_custom/meteor_hammer_4"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -81,7 +81,11 @@
       "stun_duration"                                     "1.5"
       "burn_interval"                                     "1.0"
       "land_time"                                         "0.5"
-      "impact_radius"                                     "400"
+      "impact_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "impact_damage_boss"                                "200 400 700 1100 1600"
       "impact_damage"                                     "150 350 650 1050 1550"
       "move_speed_slow_pct"                               "20 25 30 35 40"

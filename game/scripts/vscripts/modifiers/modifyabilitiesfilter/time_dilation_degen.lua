@@ -16,7 +16,7 @@ end
 
 function modifier_faceless_void_time_dilation_degen_oaa:OnCreated()
   local ability = self:GetAbility()
-  if ability then
+  if ability and not ability:IsNull() then
     self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
   else
     self.heal_prevent_percent = -10
@@ -24,12 +24,7 @@ function modifier_faceless_void_time_dilation_degen_oaa:OnCreated()
 end
 
 function modifier_faceless_void_time_dilation_degen_oaa:OnRefresh()
-  local ability = self:GetAbility()
-  if ability then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-  else
-    self.heal_prevent_percent = -10
-  end
+  self:OnCreated()
 end
 
 function modifier_faceless_void_time_dilation_degen_oaa:DeclareFunctions()

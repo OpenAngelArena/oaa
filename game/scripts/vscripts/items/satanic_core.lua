@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -146,7 +144,8 @@ end
 function modifier_satanic_core_unholy:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+    self.hero_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+    self.creep_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal")
     self.dmg_to_mana = ability:GetSpecialValueFor("unholy_damage_dealt_to_mana")
   end
 end
@@ -156,12 +155,17 @@ modifier_satanic_core_unholy.OnRefresh = modifier_satanic_core_unholy.OnCreated
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP2,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 function modifier_satanic_core_unholy:OnTooltip()
-  return self.tooltip
+  return self.hero_lifesteal_tooltip
+end
+
+function modifier_satanic_core_unholy:OnTooltip2()
+  return self.creep_lifesteal_tooltip
 end
 
 if IsServer() then
