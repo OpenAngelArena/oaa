@@ -90,7 +90,7 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
     local dmg_flags = event.damage_flags
-    local damage = event.damage
+    local damage_type = event.damage_type
     local inflictor = event.inflictor
 
     -- Check if attacker exists
@@ -134,9 +134,13 @@ if IsServer() then
     end
 
     -- Don't proc on pure damage
-    if event.damage_type == DAMAGE_TYPE_PURE then
+    if damage_type == DAMAGE_TYPE_PURE then
       return
     end
+
+    --if event.damage <= 0 then
+      --return
+    --end
 
     -- Don't proc on damage from attacks (we use OnAttackLanded for that);
     -- it also prevents procing on itself (prevents infinite loop)
