@@ -35,7 +35,7 @@
       "evasion_pct_tooltip"                               "100"
       "enemy_movespeed_bonus_pct"
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "value"                                           "0"
       }
       "radius" //OAA
       {
@@ -46,12 +46,12 @@
       "scepter_movespeed_bonus_pct"
       {
         "RequiresScepter"                                 "1"
-        "value"                                           "-35 -40 -45 -50 -55 -60"
+        "value"                                           "0"
       }
       "physical_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "-35"
+        "special_bonus_scepter"                           "-45"
       }
       "cannot_be_dispelled"
       {

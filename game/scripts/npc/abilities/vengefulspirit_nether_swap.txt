@@ -40,18 +40,18 @@
     {
       "damage_reduction" //OAA
       {
-        "value"                                           "30 34 38 42 46"
+        "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "special_bonus_unique_vengeful_spirit_swap_damage_reduction"  "+40"
+        "special_bonus_unique_vengeful_spirit_swap_damage_reduction"  "+60"
       }
       "damage_reduction_duration"
       {
-        "value"                                           "3"
+        "value"                                           "10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage"
       {
-        "value"                                           "50"
+        "value"                                           "150 300 450 900 1800"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+200"
       }
     }

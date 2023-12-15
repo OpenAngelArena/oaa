@@ -44,7 +44,7 @@
       "03" // at OAA levels wards stop having piercing dmg (they start doing more dmg against heroes)
       {
         "var_type"                                        "FIELD_INTEGER"
-        "ward_damage_tooltip"                             "13 22 31 40 140 240"
+        "ward_damage_tooltip"                             "14 22 30 38 138 238"
         "LinkedSpecialBonus"                              "special_bonus_unique_venomancer"
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
         "CalculateSpellDamageTooltip"                     "0"

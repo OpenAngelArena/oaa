@@ -27,28 +27,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"            
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "85 90 180 360" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "8.0 9 10 12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "burn_interval"                                   "0.5"
-      }
+      "damage"                                            "85 90 180 360" //OAA
+      "duration"                                          "8.0 9 10 12"
+      "burn_interval"                                     "0.5"
     }
   }
 }

@@ -24,38 +24,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "stun_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_radius"                                     "375"
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"   // stun_radius will pull from owner's visage_stone_form_self_cast
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_delay"                                      "0.55"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "stun_damage"                                     "60 140 220 460 700" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_duration"                                   "0.8 1.0 1.2 1.4 1.6"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "stone_duration"                                  "6.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hp_regen"                                        "150 175 200 300 400"
-      }
+      "stun_delay"                                        "0.55"    
+      "stun_damage"                                       "60 140 220 460 700" //OAA
+      "stun_duration"                                     "0.8 1.0 1.2 1.4 1.6"
+      "stone_duration"                                    "6.0"
+      "hp_regen"                                          "150.0 175.0 200.0 300.0 400.0"
     }
   }
 }
