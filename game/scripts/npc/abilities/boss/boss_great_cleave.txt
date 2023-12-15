@@ -19,25 +19,25 @@
     {
       "cleave_starting_width"
       {
-        "value"     "150"
+        "value"                                           "150"
         // intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
       }
       "cleave_ending_width"
       {
-        "value"     "360"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
       }
       "cleave_distance"
       {
-        "value"     "700"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
       "great_cleave_damage" //OAA 
       {
-        "value"       "100"
-        "LinkedSpecialBonus"  "special_bonus_unique_sven_8"
+        "value"                                           "100"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sven_8"
       }
-      "strength_bonus"    "0" //OAA
+      "strength_bonus"                                    "0" //OAA
     }
   }
 }
