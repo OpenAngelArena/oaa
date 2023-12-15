@@ -43,7 +43,11 @@
       }
       "ball_lightning_travel_cost_base"                   "2" //OAA
       "ball_lightning_travel_cost_percent"                "0.75" //OAA
-      "ball_lightning_vision_radius"                      "400"
+      "ball_lightning_vision_radius"
+      {
+        "value"                                           "400"   
+        "affected_by_aoe_increase"                        "1"
+      }
       "blocker_duration"                                  "5"
       "scepter_remnant_interval"                          "300"
     }

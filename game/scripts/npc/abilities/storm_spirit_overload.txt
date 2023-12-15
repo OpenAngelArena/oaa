@@ -21,7 +21,7 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
       "overload_aoe"
       {
@@ -30,10 +30,10 @@
       }
       "overload_move_slow"                                "-80"
       "overload_attack_slow"                              "-80"
-      "overload_damage"
+      "overload_damage" //OAA
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50 75 100 125 250 375" //OAA
+        "value"                                           "50 75 100 125 250 375"
         "special_bonus_unique_storm_spirit_6"             "+24"
       }
       "shard_activation_radius"
