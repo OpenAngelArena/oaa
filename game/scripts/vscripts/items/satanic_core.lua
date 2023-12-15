@@ -83,10 +83,7 @@ function modifier_item_satanic_core:OnIntervalThink()
       self:SetStackCount(2)
     else
       self:SetStackCount(1)
-      return -- no need to continue on the server if not the first item
     end
-  elseif self:GetStackCount() ~= 2 then
-    return -- no need to continue on the client
   end
 end
 
