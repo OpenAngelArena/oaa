@@ -109,9 +109,8 @@ function modifier_item_greater_guardian_greaves:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_ms = ability:GetSpecialValueFor("bonus_movement")
-    self.bonus_stats = ability:GetSpecialValueFor("bonus_all_stats")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    self.mana_regen = ability:GetSpecialValueFor("mana_regen")
     self.aura_radius = ability:GetSpecialValueFor("aura_radius")
   end
   if IsServer() then
@@ -142,45 +141,21 @@ modifier_item_greater_guardian_greaves.OnRefresh = modifier_item_greater_guardia
 function modifier_item_greater_guardian_greaves:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-    MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
-end
-
-function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Agility()
-  if self:GetParent():IsClone() then
-    return 0
-  end
-  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
-end
-
-function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Intellect()
-  if self:GetParent():IsClone() then
-    return 0
-  end
-  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
-end
-
-function modifier_item_greater_guardian_greaves:GetModifierBonusStats_Strength()
-  if self:GetParent():IsClone() then
-    return 0
-  end
-  return self.bonus_stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_greater_guardian_greaves:GetModifierMoveSpeedBonus_Special_Boots()
   return self.bonus_ms or self:GetAbility():GetSpecialValueFor("bonus_movement")
 end
 
-function modifier_item_greater_guardian_greaves:GetModifierManaBonus()
-  return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
-end
-
 function modifier_item_greater_guardian_greaves:GetModifierPhysicalArmorBonus()
   return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_item_greater_guardian_greaves:GetModifierConstantManaRegen()
+  return self.mana_regen or self:GetAbility():GetSpecialValueFor("mana_regen")
 end
 
 --------------------------------------------------------------------------
@@ -213,32 +188,61 @@ modifier_item_greater_guardian_greaves_aura = class({})
 function modifier_item_greater_guardian_greaves_aura:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
   }
 end
 
 function modifier_item_greater_guardian_greaves_aura:GetModifierConstantHealthRegen()
   local hero = self:GetParent()
   if not hero or not hero.GetHealth then
-    return
+    return 0
   end
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return 0
+  end
+  local default = ability:GetSpecialValueFor("aura_health_regen")
   local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
-  if hpPercent < self:GetAbility():GetSpecialValueFor("aura_bonus_threshold") then
-    return self:GetAbility():GetSpecialValueFor("aura_health_regen_bonus")
+  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
+    return ability:GetSpecialValueFor("aura_health_regen_bonus")
   else
-    return self:GetAbility():GetSpecialValueFor("aura_health_regen")
+    return default
   end
 end
 
 function modifier_item_greater_guardian_greaves_aura:GetModifierPhysicalArmorBonus()
   local hero = self:GetParent()
   if not hero or not hero.GetHealth then
-    return
-  end
-  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
-  if hpPercent < self:GetAbility():GetSpecialValueFor("aura_bonus_threshold") then
-    return self:GetAbility():GetSpecialValueFor("aura_armor_bonus")
-  else
     return 0
+  end
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return 0
+  end
+  local default = ability:GetSpecialValueFor("aura_armor")
+  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
+  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
+    return ability:GetSpecialValueFor("aura_armor_bonus")
+  else
+    return default
+  end
+end
+
+function modifier_item_greater_guardian_greaves_aura:GetModifierConstantManaRegen()
+  local hero = self:GetParent()
+  if not hero or not hero.GetHealth then
+    return 0
+  end
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return 0
+  end
+  local default = ability:GetSpecialValueFor("aura_mana_regen")
+  local hpPercent = (hero:GetHealth() / hero:GetMaxHealth()) * 100
+  if hpPercent <= ability:GetSpecialValueFor("aura_bonus_threshold") then
+    return ability:GetSpecialValueFor("aura_mana_regen_bonus")
+  else
+    return default
   end
 end

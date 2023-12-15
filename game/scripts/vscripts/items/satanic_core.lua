@@ -50,6 +50,11 @@ function modifier_item_satanic_core:GetAttributes()
 end
 
 function modifier_item_satanic_core:OnCreated()
+  self:OnRefresh()
+  self:StartIntervalThink(0.3)
+end
+
+function modifier_item_satanic_core:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
@@ -59,10 +64,31 @@ function modifier_item_satanic_core:OnCreated()
     --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
     --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
     --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
+  end
+
+  if IsServer() then
+    -- Check only on the server
+    if self:IsFirstItemInInventory() then
+      self:SetStackCount(2)
+    else
+      self:SetStackCount(1)
+    end
   end
 end
 
-modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
+function modifier_item_satanic_core:OnIntervalThink()
+  if IsServer() then
+    if self:IsFirstItemInInventory() then
+      self:SetStackCount(2)
+    else
+      self:SetStackCount(1)
+      return -- no need to continue on the server if not the first item
+    end
+  elseif self:GetStackCount() ~= 2 then
+    return -- no need to continue on the client
+  end
+end
 
 function modifier_item_satanic_core:DeclareFunctions()
   return {
@@ -75,6 +101,7 @@ function modifier_item_satanic_core:DeclareFunctions()
     --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
     --MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_AOE_BONUS_CONSTANT,
   }
 end
 
@@ -99,6 +126,10 @@ function modifier_item_satanic_core:GetModifierMagicalResistanceBonus()
 end
 
 function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
+  -- Prevent stacking with itself
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
   -- local parent = self:GetParent()
   -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
@@ -108,6 +139,10 @@ function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
 end
 
 function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
+  -- Prevent stacking with itself
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
   -- local parent = self:GetParent()
   -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
@@ -117,12 +152,29 @@ function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
 end
 
 function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
+  -- Prevent stacking with itself
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
   -- local parent = self:GetParent()
   -- Prevent stacking with Sange items
   -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
   return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+end
+
+function modifier_item_satanic_core:GetModifierAoEBonusConstant()
+  -- Prevent stacking with itself
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+  local parent = self:GetParent()
+  -- Prevent stacking with Bloodstone
+  if parent:HasModifier("modifier_item_bloodstone") then
+    return 0
+  end
+  return self.bonus_aoe or self:GetAbility():GetSpecialValueFor("bonus_aoe")
 end
 
 ---------------------------------------------------------------------------------------------------

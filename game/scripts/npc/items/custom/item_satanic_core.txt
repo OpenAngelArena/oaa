@@ -70,7 +70,7 @@
       "bonus_health"                                      "500 600 750 950 1200"
       "bonus_mana"                                        "500 600 750 950 1200"
       "hero_spell_lifesteal"                              "30 32 34 36 38"
-      "creep_spell_lifesteal"                             "6 7 8 9 10" // (hero_spell_lifesteal / 5) is the minimum
+      "creep_spell_lifesteal"                             "6 6.5 7 7.5 8" // (hero_spell_lifesteal / 5) is the minimum
       "unholy_hero_spell_lifesteal"                       "200"
       "unholy_creep_spell_lifesteal"                      "40" // (unholy_hero_spell_lifesteal / 5) is the minimum
       "unholy_damage_dealt_to_mana"                       "0"
@@ -78,6 +78,7 @@
       "bonus_status_resist"                               "0"
       "bonus_magic_resist"                                "0"
       "hp_regen_amp"                                      "0"
+      "bonus_aoe"                                         "75"
     }
 
     // Precache
