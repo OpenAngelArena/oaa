@@ -76,9 +76,9 @@
       // "active_mres_reduction"                             "16 17 18 19 20"
       // "spell_amp_duration"                                "4"
 
-      "bonus_damage"                                      "70"
-      "spell_lifesteal"                                   "20"
-      "manacost_per_hit"                                  "100" //OAA, this doesn't matter for OD, such a failed concept
+      "bonus_damage"                                      "55 65 85 115 155" //OAA
+      "spell_lifesteal"                                   "12 14 16 18 20" //OAA
+      "manacost_per_hit"                                  "200" //OAA, this doesn't matter for OD, such a failed concept
     }
   }
 }

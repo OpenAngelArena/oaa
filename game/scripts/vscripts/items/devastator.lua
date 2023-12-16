@@ -1,15 +1,15 @@
-LinkLuaModifier("modifier_item_devastator_desolator", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_devastator_corruption_armor", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_devastator_slow_movespeed", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_devastator_reduce_armor", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_oaa_desolator", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_oaa_corruption_armor", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_oaa_slow_movespeed", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_devastator_oaa_reduce_armor", "items/devastator.lua", LUA_MODIFIER_MOTION_NONE)
 
-item_devastator_1 = class(ItemBaseClass)
+item_devastator_oaa_1 = class(ItemBaseClass)
 
-function item_devastator_1:GetIntrinsicModifierName()
-  return "modifier_item_devastator_desolator"
+function item_devastator_oaa_1:GetIntrinsicModifierName()
+  return "modifier_item_devastator_oaa_desolator"
 end
 
-function item_devastator_1:OnSpellStart()
+function item_devastator_oaa_1:OnSpellStart()
   local caster = self:GetCaster()
   self.devastator_speed = self:GetSpecialValueFor( "devastator_speed" )
   self.devastator_width_initial = self:GetSpecialValueFor( "devastator_width_initial" )
@@ -56,13 +56,13 @@ function item_devastator_1:OnSpellStart()
 end
 
 -- Impact of the projectile
-function item_devastator_1:OnProjectileHit( hTarget, vLocation )
+function item_devastator_oaa_1:OnProjectileHit( hTarget, vLocation )
   if hTarget ~= nil  and ( not hTarget:IsInvulnerable() ) and ( not hTarget:IsAttackImmune() ) then
     local caster = self:GetCaster()
     local armor_reduction_duration = hTarget:GetValueChangedByStatusResistance(self.devastator_armor_reduction_duration)
 
     -- Apply the slow debuff always
-    hTarget:AddNewModifier( caster, self, "modifier_item_devastator_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
+    hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_slow_movespeed", { duration = self.devastator_movespeed_reduction_duration } )
 
     -- Armor reduction values
     local armor_reduction = self:GetSpecialValueFor( "devastator_armor_reduction" )
@@ -74,16 +74,16 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
     end
 
     -- if the target has Devastator passive armor reduction debuff then check which armor reduction is better
-    if hTarget:HasModifier("modifier_item_devastator_corruption_armor") then
+    if hTarget:HasModifier("modifier_item_devastator_oaa_corruption_armor") then
       -- If active armor reduction is better than passive then remove Devastator passive armor reduction debuff
       -- and apply Devastator active armor reduction debuff
       if math.abs(armor_reduction) > math.abs(corruption_armor) then
-        hTarget:RemoveModifierByName("modifier_item_devastator_corruption_armor")
-        hTarget:AddNewModifier( caster, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
+        hTarget:RemoveModifierByName("modifier_item_devastator_oaa_corruption_armor")
+        hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
       end
     else
       -- Apply the Devastator active armor reduction debuff if Devastator passive armor reduction debuff is not there
-      hTarget:AddNewModifier( caster, self, "modifier_item_devastator_reduce_armor", { duration = armor_reduction_duration } )
+      hTarget:AddNewModifier( caster, self, "modifier_item_devastator_oaa_reduce_armor", { duration = armor_reduction_duration } )
     end
 
     -- Damage part should always be applied
@@ -112,32 +112,32 @@ function item_devastator_1:OnProjectileHit( hTarget, vLocation )
   return false
 end
 
-item_devastator_2 = item_devastator_1
-item_devastator_3 = item_devastator_1
-item_devastator_4 = item_devastator_1
-item_devastator_5 = item_devastator_1
+item_devastator_oaa_2 = item_devastator_oaa_1
+item_devastator_oaa_3 = item_devastator_oaa_1
+item_devastator_oaa_4 = item_devastator_oaa_1
+item_devastator_oaa_5 = item_devastator_oaa_1
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_devastator_desolator = class(ModifierBaseClass)
+modifier_item_devastator_oaa_desolator = class(ModifierBaseClass)
 
-function modifier_item_devastator_desolator:IsHidden()
+function modifier_item_devastator_oaa_desolator:IsHidden()
   return true
 end
 
-function modifier_item_devastator_desolator:IsDebuff()
+function modifier_item_devastator_oaa_desolator:IsDebuff()
   return false
 end
 
-function modifier_item_devastator_desolator:IsPurgable()
+function modifier_item_devastator_oaa_desolator:IsPurgable()
   return false
 end
 
-function modifier_item_devastator_desolator:GetAttributes()
+function modifier_item_devastator_oaa_desolator:GetAttributes()
   return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_devastator_desolator:OnCreated()
+function modifier_item_devastator_oaa_desolator:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
@@ -148,28 +148,28 @@ function modifier_item_devastator_desolator:OnCreated()
   end
 end
 
-modifier_item_devastator_desolator.OnRefresh = modifier_item_devastator_desolator.OnCreated
+modifier_item_devastator_oaa_desolator.OnRefresh = modifier_item_devastator_oaa_desolator.OnCreated
 
-function modifier_item_devastator_desolator:OnDestroy()
+function modifier_item_devastator_oaa_desolator:OnDestroy()
   local parent = self:GetParent()
   if IsServer() and parent and not parent:IsNull() then
     parent:ChangeAttackProjectile()
   end
 end
 
-function modifier_item_devastator_desolator:DeclareFunctions()
+function modifier_item_devastator_oaa_desolator:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACK_LANDED,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE
   }
 end
 
-function modifier_item_devastator_desolator:GetModifierPreAttack_BonusDamage()
+function modifier_item_devastator_oaa_desolator:GetModifierPreAttack_BonusDamage()
   return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 if IsServer() then
-  function modifier_item_devastator_desolator:OnAttackLanded(event)
+  function modifier_item_devastator_oaa_desolator:OnAttackLanded(event)
     if not self:IsFirstItemInInventory() then
       return
     end
@@ -211,13 +211,13 @@ if IsServer() then
     local corruption_armor = ability:GetSpecialValueFor( "corruption_armor" )
 
     -- If the target has Devastator active debuff
-    if target:HasModifier("modifier_item_devastator_reduce_armor") then
+    if target:HasModifier("modifier_item_devastator_oaa_reduce_armor") then
       -- If devastator_armor_reduction (active armor reduction) is higher than corruption_armor (passive armor reduction) then do nothing
       if math.abs(armor_reduction) > math.abs(corruption_armor) then
         return
       end
       -- If devastator_armor_reduction is lower than corruption_armor then remove the Devastator active debuff
-      target:RemoveModifierByName("modifier_item_devastator_reduce_armor")
+      target:RemoveModifierByName("modifier_item_devastator_oaa_reduce_armor")
     end
 
     -- Calculate duration of the debuff
@@ -225,33 +225,33 @@ if IsServer() then
     -- Calculate duration while keeping status resistance in mind
     local armor_reduction_duration = target:GetValueChangedByStatusResistance(corruption_duration)
     -- Apply Devastator passive debuff
-    target:AddNewModifier( parent, ability, "modifier_item_devastator_corruption_armor", {duration = armor_reduction_duration})
+    target:AddNewModifier( parent, ability, "modifier_item_devastator_oaa_corruption_armor", {duration = armor_reduction_duration})
   end
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_devastator_corruption_armor = class(ModifierBaseClass)
+modifier_item_devastator_oaa_corruption_armor = class(ModifierBaseClass)
 
-function modifier_item_devastator_corruption_armor:IsHidden()
+function modifier_item_devastator_oaa_corruption_armor:IsHidden()
   return false
 end
 
-function modifier_item_devastator_corruption_armor:IsDebuff()
+function modifier_item_devastator_oaa_corruption_armor:IsDebuff()
   return true
 end
 
-function modifier_item_devastator_corruption_armor:IsPurgable()
+function modifier_item_devastator_oaa_corruption_armor:IsPurgable()
   return true
 end
 
-function modifier_item_devastator_corruption_armor:OnCreated()
+function modifier_item_devastator_oaa_corruption_armor:OnCreated()
   if IsServer() then
     self:StartIntervalThink(0.1)
   end
 end
 
-function modifier_item_devastator_corruption_armor:OnIntervalThink()
+function modifier_item_devastator_oaa_corruption_armor:OnIntervalThink()
   local parent = self:GetParent()
 
   if parent:HasModifier("modifier_desolator_buff") then
@@ -261,17 +261,17 @@ function modifier_item_devastator_corruption_armor:OnIntervalThink()
   end
 end
 
-function modifier_item_devastator_corruption_armor:DeclareFunctions()
+function modifier_item_devastator_oaa_corruption_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
   }
 end
 
-function modifier_item_devastator_corruption_armor:GetModifierPhysicalArmorBonus()
+function modifier_item_devastator_oaa_corruption_armor:GetModifierPhysicalArmorBonus()
   return self:GetAbility():GetSpecialValueFor("corruption_armor")
 end
 
-function modifier_item_devastator_corruption_armor:GetTexture()
+function modifier_item_devastator_oaa_corruption_armor:GetTexture()
   --local ability = self:GetAbility()
   --if ability and not ability:IsNull() then
     --local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
@@ -282,21 +282,21 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_devastator_slow_movespeed = class(ModifierBaseClass)
+modifier_item_devastator_oaa_slow_movespeed = class(ModifierBaseClass)
 
-function modifier_item_devastator_slow_movespeed:IsHidden()
+function modifier_item_devastator_oaa_slow_movespeed:IsHidden()
   return false
 end
 
-function modifier_item_devastator_slow_movespeed:IsDebuff()
+function modifier_item_devastator_oaa_slow_movespeed:IsDebuff()
   return true
 end
 
-function modifier_item_devastator_slow_movespeed:IsPurgable()
+function modifier_item_devastator_oaa_slow_movespeed:IsPurgable()
   return true
 end
 
-function modifier_item_devastator_slow_movespeed:OnCreated()
+function modifier_item_devastator_oaa_slow_movespeed:OnCreated()
   --local parent = self:GetParent()
   local ability = self:GetAbility()
   local move_speed_slow = -10
@@ -320,9 +320,9 @@ function modifier_item_devastator_slow_movespeed:OnCreated()
   end
 end
 
-modifier_item_devastator_slow_movespeed.OnRefresh = modifier_item_devastator_slow_movespeed.OnCreated
+modifier_item_devastator_oaa_slow_movespeed.OnRefresh = modifier_item_devastator_oaa_slow_movespeed.OnCreated
 
-function modifier_item_devastator_slow_movespeed:OnIntervalThink()
+function modifier_item_devastator_oaa_slow_movespeed:OnIntervalThink()
   if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
@@ -340,17 +340,17 @@ function modifier_item_devastator_slow_movespeed:OnIntervalThink()
   end
 end
 
-function modifier_item_devastator_slow_movespeed:DeclareFunctions()
+function modifier_item_devastator_oaa_slow_movespeed:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
   }
 end
 
-function modifier_item_devastator_slow_movespeed:GetModifierMoveSpeedBonus_Percentage()
+function modifier_item_devastator_oaa_slow_movespeed:GetModifierMoveSpeedBonus_Percentage()
   return 0 - math.abs(self.slow)
 end
 
-function modifier_item_devastator_slow_movespeed:GetTexture()
+function modifier_item_devastator_oaa_slow_movespeed:GetTexture()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
@@ -360,27 +360,27 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_devastator_reduce_armor = class(ModifierBaseClass)
+modifier_item_devastator_oaa_reduce_armor = class(ModifierBaseClass)
 
-function modifier_item_devastator_reduce_armor:IsHidden()
+function modifier_item_devastator_oaa_reduce_armor:IsHidden()
   return false
 end
 
-function modifier_item_devastator_reduce_armor:IsDebuff()
+function modifier_item_devastator_oaa_reduce_armor:IsDebuff()
   return true
 end
 
-function modifier_item_devastator_reduce_armor:IsPurgable()
+function modifier_item_devastator_oaa_reduce_armor:IsPurgable()
   return true
 end
 
-function modifier_item_devastator_reduce_armor:OnCreated()
+function modifier_item_devastator_oaa_reduce_armor:OnCreated()
   if IsServer() then
     self:StartIntervalThink(0.1)
   end
 end
 
-function modifier_item_devastator_reduce_armor:OnIntervalThink()
+function modifier_item_devastator_oaa_reduce_armor:OnIntervalThink()
   local parent = self:GetParent()
   -- We assume that devastator active has a better armor reduction than the desolator armor reduction
   -- Remove the desolator debuff to prevent stacking armor reductions
@@ -389,17 +389,17 @@ function modifier_item_devastator_reduce_armor:OnIntervalThink()
   end
 end
 
-function modifier_item_devastator_reduce_armor:DeclareFunctions()
+function modifier_item_devastator_oaa_reduce_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
   }
 end
 
-function modifier_item_devastator_reduce_armor:GetModifierPhysicalArmorBonus()
+function modifier_item_devastator_oaa_reduce_armor:GetModifierPhysicalArmorBonus()
   return self:GetAbility():GetSpecialValueFor("devastator_armor_reduction")
 end
 
-function modifier_item_devastator_reduce_armor:GetTexture()
+function modifier_item_devastator_oaa_reduce_armor:GetTexture()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
