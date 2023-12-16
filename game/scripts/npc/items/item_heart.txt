@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "1300"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -27,7 +27,7 @@
     "ItemResult"                                          "item_heart_oaa_1"
     "ItemRequirements"
     {
-      "01"                                                "item_vitality_booster;item_reaver"
+      "01"                                                "item_vitality_booster;item_reaver;item_ring_of_tarrasque"
     }
   }
 
@@ -60,7 +60,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5100"
+    "ItemCost"                                            "5600"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hot;heart of tarrasque;heart"
