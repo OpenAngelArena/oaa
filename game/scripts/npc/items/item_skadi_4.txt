@@ -42,7 +42,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "19803"
+    "ItemCost"                                            "18303"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 4;eye of skadi 4;skadi 4"
@@ -60,9 +60,9 @@
       "bonus_health"                                      "220 320 470 670 920"
       "bonus_mana"                                        "220 320 470 670 920"
       "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_attack_slow_melee"                            "-10"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
-      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
       "heal_reduction"                                    "40 45 50 55 60"
     }
