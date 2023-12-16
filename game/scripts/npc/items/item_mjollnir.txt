@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
+    "ItemCost"                                            "550"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5750"
+    "ItemCost"                                            "5500"
     "ItemShopTags"                                        "damage;attack_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mjollnir;lightning"
@@ -66,7 +66,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "25 45 75 115 165"
-      "bonus_attack_speed"                                "60 70 80 90 100" //OAA
+      "bonus_attack_speed"                                "85 90 95 100 105" //OAA, Maelstrom (25), Hyperstone (60)
       "static_duration"                                   "15.0"
       "static_chance"                                     "20"
       "static_strikes"                                    "4"
