@@ -54,6 +54,7 @@ function modifier_item_dagger_of_moriah_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.armor = ability:GetSpecialValueFor("bonus_armor")
     self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.mp_regen = ability:GetSpecialValueFor("bonus_mana_regen")
     self.spell_amp = ability:GetSpecialValueFor("spell_amp_per_intellect")
@@ -103,6 +104,7 @@ function modifier_item_dagger_of_moriah_passive:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
@@ -119,6 +121,10 @@ end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierBonusStats_Intellect()
   return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_dagger_of_moriah_passive:GetModifierPhysicalArmorBonus()
+  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_dagger_of_moriah_passive:GetModifierConstantHealthRegen()
@@ -254,12 +260,12 @@ function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchType()
 end
 
 -- Prevent stacking with Veil of Discord
-function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
-  if hEntity:HasModifier("modifier_item_veil_of_discord_debuff") then
-    return true
-  end
-  return false
-end
+-- function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
+  -- if hEntity:HasModifier("modifier_item_veil_of_discord_debuff") then
+    -- return true
+  -- end
+  -- return false
+-- end
 
 function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --local spell = self:GetAbility()

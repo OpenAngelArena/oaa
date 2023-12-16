@@ -9,14 +9,14 @@
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sheepstick"
     "ItemRequirements"
     {
-      "01"                                                "item_mystic_staff;item_ultimate_orb;item_void_stone"
+      "01"                                                "item_mystic_staff;item_tiara_of_selemene"
     }
   }
 
@@ -31,6 +31,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "custom/scythe_of_vyse_1"
 
     // Stats
@@ -47,7 +48,7 @@
 
     // Item Info
     //---------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6300"
+    "ItemCost"                                            "5200"
     "ItemShopTags"                                        "int;regen_mana;str;agi;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "hex;sheepstick;scythe of vyse"
@@ -57,9 +58,7 @@
     //-----------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "12 17 27 42 62" //OAA
-      "bonus_agility"                                     "12 17 27 42 62" //OAA
-      "bonus_intellect"                                   "24 29 39 50 70" //OAA
+      "bonus_intellect"                                   "35 40 50 65 85" //OAA
       "bonus_mana_regen"                                  "3.0 3.25 3.75 8.5 9.5" //OAA
       "sheep_duration"                                    "2.25 2.5 2.75 3.0 3.25" //OAA
       "sheep_movement_speed"                              "140"
