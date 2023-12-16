@@ -48,7 +48,11 @@
       "damage"                                            "120 180 240 300 600 1200"
       "slow_duration"                                     "4.0"
       "movement_speed_pct"                                "30 35 40 45 50 55" //OAA
-      "shot_vision"                                       "300"
+      "shot_vision"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "vision_duration"                                   "3.34"
       "scepter_radius"
       {

@@ -57,7 +57,7 @@
       "shard_skeleton_count"
       {
         "value"                                           "1 2 3 4 5"
-        "special_bonus_shard"                             "+3"
+        "special_bonus_shard"                             "+2"
       }
       "scepter_respawn_pct" // this doesn't work in OAA
       {
@@ -70,7 +70,6 @@
         "value"                                           "140 120 100 95 90"
         "special_bonus_scepter"                           "-30"
       }
-      "scepter_cooldown_tooltip"                          "30"
     }
   }
 }

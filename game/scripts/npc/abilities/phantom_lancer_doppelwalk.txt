@@ -33,7 +33,11 @@
       "illusion_1_damage_in_pct"                          "0"
       "illusion_2_damage_out_pct"                         "-80 -70 -60 -50 -40 -30" //OAA
       "illusion_2_damage_in_pct"                          "500 450 400 350 300 250" //OAA
-      "target_aoe"                                        "325"
+      "target_aoe"
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "search_radius"
       {
         "value"                                           "900"
@@ -47,7 +51,6 @@
         "value"                                           "1"
         "special_bonus_unique_phantom_lancer_doppel_illusion2_amt"  "+1"
       }
-      "cast_range_tooltip"                                "575 600 625 650 675 700" //OAA
     }
   }
 }

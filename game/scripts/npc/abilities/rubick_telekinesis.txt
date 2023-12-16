@@ -24,7 +24,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -56,13 +55,12 @@
       "max_land_distance"
       {
         "value"                                           "375"
-        "LinkedSpecialBonus"                              "special_bonus_unique_rubick"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_rubick"                     "+400"
       }
       "fall_duration"                                     "0.3"  // the portion of the lift that is falling
       "shard_max_land_distance_bonus_pct"
       {
-        "value"                                           "50"
+        "value"                                           "35"
         "RequiresShard"                                   "1"
       }
       "shard_cooldown_reduction_pct"
@@ -74,6 +72,11 @@
       {
         "value"                                           "0.5"
         "RequiresShard"                                   "1"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "16"
+        "special_bonus_unique_rubick_4"                   "-4"
       }
     }
   }

@@ -47,7 +47,7 @@
       {
         "value"                                           "200"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
+        // "affected_by_aoe_increase" explicitly removed here so scepter aoe increase doesn't double dip with base radius increase
       }
       "scepter_rot_regen_reduction_pct" //OAA
       {

@@ -34,7 +34,11 @@
       }
       "max_distance"                                      "1950"
       "orb_speed"                                         "550 550 550 550 600 650"
-      "orb_vision"                                        "450"
+      "orb_vision"
+      {
+        "value"                                           "450"   
+        "affected_by_aoe_increase"                        "1"
+      }
       "vision_duration"                                   "3.34"
       "damage"
       {
@@ -43,7 +47,7 @@
       }
       "AbilityCooldown"
       {
-        "value"                                           "12 11 10 9 8 7"
+        "value"                                           "11 10 9 8 7 6"
         "special_bonus_unique_puck_8"                     "-2"
       }
     }

@@ -35,56 +35,26 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "disruption_duration"   
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "disruption_duration"                             "2.75"
+        "value"                                           "2.75"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_5"
       }
-      "02"
+      "illusion_duration"                                 "11 12 13 14 16 18"
+      "illusion_outgoing_damage"                          "-70.0 -55.0 -40.0 -25.0 5.0 50.0" //OAA
+      "illusion_outgoing_tooltip"                         "30.0 45.0 60.0 75.0 105.0 150.0" //OAA
+      "illusion_flat_damage"                              "200 175 150 125 75 25" //OAA
+      "illusion_incoming_damage"                          "200"
+      "tooltip_total_illusion_incoming_damage"            "300 275 250 225 175 125" //OAA
+      "AbilityCharges"  
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_duration"                               "11 12 13 14 16 18"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_damage"                        "-70.0 -55.0 -40.0 -25.0 5.0 50.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_outgoing_tooltip"                       "30.0 45.0 60.0 75.0 105.0 150.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "illusion_incoming_damage"                        "200 175 150 125 75 25" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tooltip_total_illusion_incoming_damage"          "300 275 250 225 175 125" //OAA
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "AbilityCharges"                                  ""
+        "value"                                           ""
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_7"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_bounty_base"                            "0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illusion_bounty_growth"                          "2"
-      }
+      "illusion_bounty_base"                              "0"
+      "illusion_bounty_growth"                            "2"
     }
   }
 }
