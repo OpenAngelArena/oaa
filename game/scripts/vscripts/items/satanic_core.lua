@@ -51,7 +51,9 @@ end
 
 function modifier_item_satanic_core:OnCreated()
   self:OnRefresh()
-  self:StartIntervalThink(0.3)
+  if IsServer() then
+    self:StartIntervalThink(0.3)
+  end
 end
 
 function modifier_item_satanic_core:OnRefresh()
@@ -68,22 +70,15 @@ function modifier_item_satanic_core:OnRefresh()
   end
 
   if IsServer() then
-    -- Check only on the server
-    if self:IsFirstItemInInventory() then
-      self:SetStackCount(2)
-    else
-      self:SetStackCount(1)
-    end
+    self:OnIntervalThink()
   end
 end
 
 function modifier_item_satanic_core:OnIntervalThink()
-  if IsServer() then
-    if self:IsFirstItemInInventory() then
-      self:SetStackCount(2)
-    else
-      self:SetStackCount(1)
-    end
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
   end
 end
 

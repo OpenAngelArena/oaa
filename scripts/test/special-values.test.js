@@ -43,7 +43,6 @@ const ignoredBaseClasses = [
   'item_monkey_king_bar',
   'item_nullifier',
   'item_octarine_core',
-  'item_phylactery',
   'item_pipe',
   'item_radiance',
   'item_revenants_brooch',
@@ -55,7 +54,6 @@ const ignoredBaseClasses = [
   'item_skadi',
   'item_solar_crest',
   'item_sphere',
-  'item_veil_of_discord',
   'item_wind_waker',
   'item_yasha_and_kaya',
   'item_arcane_blink',
@@ -96,7 +94,9 @@ const ignoreValuesFor = [
   'item_infused_raindrop',
   'item_nether_shawl',
   'item_aghanims_shard',
-  'item_cornucopia'
+  'item_cornucopia',
+  'item_ring_of_tarrasque',
+  'item_tiara_of_selemene'
   // 'shredder_chakram',
   // 'shredder_chakram_2',
   // 'tiny_grow',
