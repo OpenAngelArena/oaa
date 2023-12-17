@@ -39,8 +39,9 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/heart.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/heart_3"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/heart_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

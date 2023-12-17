@@ -39,6 +39,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/bubble_orb.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "custom/bubble_orb_2"
 
     "MaxUpgradeLevel"                                     "2"
