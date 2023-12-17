@@ -1,68 +1,72 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Revenants Brooch
+  // Recipe: Parasma
   //=================================================================================================================
-  "item_recipe_revenants_brooch"
+  "item_recipe_devastator"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "910"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "800"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_revenants_brooch"
-    "ItemRequirements"
+    "ItemResult"                                          "item_devastator"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_relic;item_voodoo_mask"
+      "01"                                                "item_witch_blade;item_mystic_staff"
     }
   }
 
   //=================================================================================================================
-  // Revenants Brooch
+  // Parasma
   //=================================================================================================================
-  "item_revenants_brooch"
+  "item_devastator"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "911"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityTextureName"                                  "custom/revenants_brooch"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    //"AbilityTextureName"                                  "custom/parasma_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    // "AbilityCooldown"                                     "25"
-    // "AbilityCastPoint"                                    "0.0"
-    // "AbilitySharedCooldown"                               "revenants_brooch"
-    // "AbilityManaCost"                                     "300"
+    "AbilityCooldown"                                     "7"
+    "AbilitySharedCooldown"                               "parasma"
+    "AbilityManaCost"                                     "0"
+
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4900"
+    "ItemCost"                                            "5575"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "revenant;brooch;revenants brooch;rb"
+    "ItemAliases"                                         "parasma; prasma; pasma; pirasma"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-
-    "ItemBaseLevel"                                       "1"
-    "MaxUpgradeLevel"                                     "5"
-    "UpgradesItems"                                       "item_revenants_brooch;item_revenants_brooch_2;item_revenants_brooch_3;item_revenants_brooch_4;item_revenants_brooch_5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 65 85 115 155" //OAA
-      "spell_lifesteal"                                   "12 14 16 18 20" //OAA
-      "manacost_per_hit"                                  "200" //OAA, this doesn't matter for OD, such a failed concept
+      "bonus_intellect"                                   "45 50 60 75 95" // old: 37 42 52 67 87
+      "bonus_attack_speed"                                "40 45 50 55 60" // old: 35 45 55 65 75
+      "bonus_armor"                                       "8 9 11 14 18" // old: 6 7 9 12 16
+      "bonus_mana_regen"                                  "1.5 1.75 2.25 3 4" //OAA, Valve forgot this
+      "projectile_speed"                                  "300 350 400 450 500"
+      "int_damage_multiplier"                             "1"
+      "slow"                                              "25 30 35 40 45"
+      "slow_duration"                                     "4"
+      "active_mres_reduction"                             "16 17 18 19 20" //OAA
+      "passive_cooldown"                                  "4" // ???
     }
   }
 }

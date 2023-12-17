@@ -59,7 +59,9 @@ const ignoredBaseClasses = [
   'item_arcane_blink',
   'item_overwhelming_blink',
   'item_swift_blink',
-  'item_blink'
+  'item_blink',
+  'item_devastator',
+  'item_angels_demise'
 ];
 let itemsFound = {};
 // const idsFound = {};
