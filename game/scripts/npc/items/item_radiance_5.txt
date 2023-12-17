@@ -38,6 +38,7 @@
     "ID"                                                  "4007"
     "BaseClass"                                           "item_radiance"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"                                  "custom/radiance_5"
 
     "AbilityCastRange"                                    "700 750 800 850 900"

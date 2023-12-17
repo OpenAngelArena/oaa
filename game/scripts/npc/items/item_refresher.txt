@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2600"
+    "ItemCost"                                            "200"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_refresher"
     "ItemRequirements"
     {
-      "01"                                                "item_cornucopia;item_cornucopia"
+      "01"                                                "item_cornucopia;item_ring_of_tarrasque;item_tiara_of_selemene"
     }
   }
 
