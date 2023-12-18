@@ -46,7 +46,11 @@
       "bonus_attack_damage"                               "0"
       "corrosive_breath_damage"                           "25 30 35 70 70"
       "corrosive_breath_duration"                         "5.0"
-      "splash_radius"                                     "350"
+      "splash_radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "splash_damage_percent"
       {
         "value"                                           "75 75 75 100 100"

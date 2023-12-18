@@ -29,28 +29,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_attack_speed"                                "50"
+      "bonus_attack_damage"                               "20"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "50"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_damage"                             "20"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "6.0"
-      }
+      "buff_duration"                                     "6.0"
     }
   }
 }

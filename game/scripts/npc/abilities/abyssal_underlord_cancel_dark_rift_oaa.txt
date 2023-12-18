@@ -25,12 +25,12 @@
     "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_4"
     "AbilityCastGestureSlot"                              "DEFAULT"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "value"                                           "430"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }
