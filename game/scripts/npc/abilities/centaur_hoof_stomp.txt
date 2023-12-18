@@ -20,7 +20,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
-    "AbilityCooldown"                                     "12" //OAA
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
     "AbilityManaCost"                                     "100 110 120 130 140 150"
 
     // Special
@@ -34,7 +34,7 @@
       }
       "stomp_damage"
       {
-        "value"                                           "120 180 240 300 600 1200"
+        "value"                                           "90 160 230 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "stun_duration"

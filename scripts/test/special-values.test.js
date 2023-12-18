@@ -151,6 +151,7 @@ test('KV Values', function (t) {
   t.test('Testing all ability KV values', function (t) {
     dotaAbilities.ability_lua = true;
     dotaAbilities.ability_datadriven = true;
+    dotaAbilities.special_bonus_base = true;
     Lib.abilities(function (err, data) {
       if (err) {
         t.notOk(err, 'no err while ability reading kvs');

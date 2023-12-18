@@ -38,7 +38,6 @@
       "placement_range"
       {
         "value"                                           "500"
-        "affected_by_aoe_increase"                        "1"
       }
       "placement_count"                                   "8"
       "placement_duration"                                "8.5" //OAA, calculated with values: 22s cd, -7s cd talent, 0.3s cast point, 0.3s creation delay and 0.1s inactivity delay
@@ -46,12 +45,16 @@
       "latch_range"
       {
         "value"                                           "90"
-        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_tick"                                   "50 55 60 65 130 195"
       "latch_creation_interval"                           "0.075"
       "latch_creation_delay"                              "0.1"
       "initial_creation_delay"                            "0.3"
+      "aoe_increase" // ????
+      {
+        "value"                                           "1"
+        "affected_by_aoe_increase"                        "0"
+      }
     }
   }
 }
