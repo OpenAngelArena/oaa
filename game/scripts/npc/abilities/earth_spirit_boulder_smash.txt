@@ -63,7 +63,11 @@
         "value"                                           "2000.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
-      "remnant_smash_radius_tooltip"                      "200"
+      "remnant_smash_radius_tooltip"
+      {
+        "value"					"200"
+        "affected_by_aoe_increase"	"1"
+      }
       "creep_multiplier"                                  "1.4"
     }
   }

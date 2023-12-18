@@ -18,35 +18,38 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.3"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80 70 60 50 40" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_duration_first"                               "2"
-      "slow_duration_second"                              "4"
-      "damage_first"                                      "150 350 550 1150 1750" //OAA
-      "damage_second"                                     "250 400 550 1000 1750" //OAA
-      "slow_first"                                        "30"
-      "slow_second"                                       "60"
+      "AbilityCastRange"
+      {
+        "value"                                           "1000"
+        "special_bonus_unique_gyrocopter_5"               "=0"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "80 75 70 65 60"
+        "special_bonus_unique_gyrocopter_5"               "-30"
+      }
+      "slow_duration"                                     "4"
+      "slow"                                              "50"
+      "damage"                                            "250 500 750 1500 2750" //OAA
       "radius"
       {
-        "value"                                           "600"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "range_scepter"                                     "0" // unused
-      "damage_second_scepter"                             "175 225 275 400 850" // unused
       "missile_delay_tooltip"                             "2"
+      "strike_delay"                                      "1.0"
+      "total_strikes"                                     "3"
+      "strike_separation"                                 "500"
     }
   }
 }

@@ -12,9 +12,6 @@
     "ScriptFile"                                          "abilities/oaa_demonic_conversion.lua"
     "AbilityTextureName"                                  "enigma_demonic_conversion"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-    //"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
-    //"AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC"
-    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 
     "MaxLevel"                                            "6"
 
@@ -72,6 +69,7 @@
       "eidolon_magic_resist"                              "60"
       "eidolon_attack_range"                              "500"
       "spawn_offset"                                      "100"
+      "current_health_pct"                                "4" //TODO
     }
   }
 }

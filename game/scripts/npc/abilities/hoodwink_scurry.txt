@@ -46,7 +46,11 @@
         "special_bonus_unique_hoodwink_scurry_evasion"    "+40"
       }
       "decoy_duration"                                    "6.0"
-      "decoy_detonate_radius"                             "250"
+      "decoy_detonate_radius"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "decoy_stun_duration"                               "1.6"
       "images_do_damage_percent"                          "0"
       "images_take_damage_percent"                        "100"
