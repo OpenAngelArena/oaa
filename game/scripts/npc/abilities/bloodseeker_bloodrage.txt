@@ -11,7 +11,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Valve is wrong (SPELL_IMMUNITY_ENEMIES_YES doesn't make sense if you can target only allies)
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA, Valve has it wrong (SPELL_IMMUNITY_ENEMIES_YES doesn't make sense if you can target only allies)
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "6"
