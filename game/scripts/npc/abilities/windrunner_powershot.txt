@@ -34,16 +34,16 @@
         "value"                                           "170 270 370 470 940 1880"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "slow"  
+      "slow"
       {
         "value"                                           "15 20 25 30 35 40"
         "special_bonus_unique_windranger_powershot_slow"  "+20"
       }
       "slow_duration"                                     "4"
-      "damage_reduction" //OAA
+      "damage_reduction"
       {
-        "value"                                           "10"
-        "special_bonus_unique_windranger_3"               "-10"
+        "value"                                           "15"
+        "special_bonus_unique_windranger_3"               "-15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
