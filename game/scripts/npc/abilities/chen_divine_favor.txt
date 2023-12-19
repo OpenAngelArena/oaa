@@ -33,13 +33,15 @@
       "armor"                                             "0"
       "heal_rate"                                         "4 6 8 10 20 30" //OAA
       "aura_radius"                                       "1200"
-      "teleport_delay" //OAA, Valve forgot
+      "duration"                                          "6"
+      "teleport_delay"
       {
         "value"                                           "6"
         "special_bonus_unique_chen_3"                     "-2"
       }
       "bonus_armor"                                       "12 16 20 24 32 44"
       "heal_amp"                                          "20"
+      "creep_bonus"                                       "1"
     }
   }
 }

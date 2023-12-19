@@ -38,7 +38,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction" //OAA
+      "damage_reduction"
       {
         "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
@@ -49,9 +49,9 @@
         "value"                                           "10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage"
+      "damage" //OAA
       {
-        "value"                                           "150 300 450 900 1800"
+        "value"                                           "150 450 750 1350 1950"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+200"
       }
     }

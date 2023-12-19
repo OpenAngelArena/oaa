@@ -36,13 +36,13 @@
       "orb_speed"                                         "550 550 550 550 600 650"
       "orb_vision"
       {
-        "value"                                           "450"   
+        "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
       "vision_duration"                                   "3.34"
-      "damage"
+      "damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "90 160 230 300 600 1200"
         "special_bonus_unique_puck_orb_damage"            "+50"
       }
       "AbilityCooldown"

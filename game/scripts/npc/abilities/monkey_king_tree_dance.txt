@@ -44,7 +44,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "give_up_distance"                                "2800" // OAA, 1000 + Talent + Arcane Supremacy + Octarine Core + Seer Stone + Telescope Aura + 125
+        "give_up_distance"                                "2610" // OAA, Range(800) + Talent(450) + Arcane Supremacy(360) + Far Sight(425) + Seer Stone(350) + Telescope Aura(100) + 125
       }
       "04"
       {
@@ -93,6 +93,7 @@
         "var_type"                                        "FIELD_INTEGER"
         "impact_damage_tooltip"                           "140 210 280 350 700 1400"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_3"
+        // Valve, this will result in a tooltip error, AbilitySpecials need to be changed into AbilityValues ...
       }
       "13" // same as in Primal Spring ability
       {

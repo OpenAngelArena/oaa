@@ -34,19 +34,19 @@
     "AbilityValues"
     {
       "duration"                                          "5.0 5.5 6.0 6.5 7.0" //OAA
-      "scepter_max_charges" 
+      "scepter_max_charges"
       {
         "value"                                           "3"
         "RequiresScepter"                                 "1"
       }
-      "AbilityChargeRestoreTime"    
+      "AbilityChargeRestoreTime"
       {
         "value"                                           "80 70 60 55 50"
-        "special_bonus_unique_omniknight_7"               "-15"   
+        "special_bonus_unique_omniknight_7"               "-15"
       }
-      "AbilityCastRange"        
+      "AbilityCastRange"
       {
-        "value"                                           "900" 
+        "value"                                           "900"
         "special_bonus_scepter"                           "=0"
       }
     }

@@ -39,8 +39,17 @@
       {
         "value"                                           "250 550 850 1750 2650"
       }
+      "bonus_jump_damage"
+      {
+        "value"                                           "15 20 25 40 55"
+        "CalculateSpellDamageTooltip"                     "1"
+      }
       "jumps"                                             "10"
-      "jump_range"                                        "600"
+      "jump_range"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
       "slow_movement_speed"                               "-65"
       "slow_attack_speed"                                 "-65"
       "slow_duration"                                     "2.5"
@@ -49,11 +58,6 @@
       {
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
-      }
-      "bonus_jump_damage"
-      {
-        "value"                                           "15 20 25 40 55"
-        "CalculateSpellDamageTooltip"                     "1"
       }
       "initial_projectile_speed"                          "1050"
       "has_unlimited_jumps"

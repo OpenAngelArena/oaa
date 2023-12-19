@@ -25,7 +25,7 @@
     {
       "overload_aoe"
       {
-        "value"                                           "300"   
+        "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
       "overload_move_slow"                                "-80"
@@ -34,23 +34,23 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "value"                                           "50 75 100 125 250 375"
-        "special_bonus_unique_storm_spirit_6"             "+24"
+        "special_bonus_unique_storm_spirit_6"             "+125"
       }
       "shard_activation_radius"
       {
         "value"                                           "750"
         "RequiresShard"                                   "1"
-      } 
+      }
       "shard_activation_charges"
       {
         "value"                                           "3"
         "RequiresShard"                                   "1"
-      } 
+      }
       "shard_activation_duration"
       {
         "value"                                           "12"
         "RequiresShard"                                   "1"
-      } 
+      }
       "shard_manacost"
       {
         "value"                                           "150"
@@ -60,12 +60,12 @@
       {
         "value"                                           "30"
         "RequiresShard"                                   "1"
-      } 
+      }
       "shard_attack_speed_bonus"
       {
         "value"                                           "40"
         "RequiresShard"                                   "1"
-      }                                 
+      }
       "overload_cast_range"
       {
         "value"                                           "0"
