@@ -28,10 +28,10 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_phantom_lancer"
       }
       "bonus_speed"                                       "800"
-      "bonus_agility"
+      "bonus_agility" //OAA, Valve forgot '+' on special_bonus_unique_phantom_lancer_phantom_rush_agility
       {
         "value"                                           "10 20 30 40 60 90"
-        "special_bonus_unique_phantom_lancer_phantom_rush_agility"  "10"
+        "special_bonus_unique_phantom_lancer_phantom_rush_agility"  "+10"
       }
       "agility_duration"
       {

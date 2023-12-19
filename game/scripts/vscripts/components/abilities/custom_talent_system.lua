@@ -69,6 +69,7 @@ local abilities_with_custom_talents = {
   },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
+    duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
   sandking_epicenter = {
     AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},
