@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_mask_of_madness"
   {
-    "ID"                                                  "171"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     "ItemCost"                                            "0"
@@ -26,7 +25,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "172"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 

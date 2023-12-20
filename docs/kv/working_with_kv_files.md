@@ -55,7 +55,6 @@ Here's a very simplified breakdown of what you should expect to see when you loo
 ```
 
 ## Dota 2 KV Guidelines
-- "ID" is one of the few required Keys for NPC data. It is also a Unique ID. Do not duplicate "ID"s, do not change "ID"s.
 - "BaseClass" is also a required Keys for NPC data. It defines the way in which the set of KeyValues hooks into the rest of Dota 2.
 - Nesting - Indent your code when nesting, please. It helps everyone visualize the database's structure.
 - Comment Code - If you comment, then other contributors will know what's up. Commenting can also be used to remove data without deleting it. Comment code by putting "//".
