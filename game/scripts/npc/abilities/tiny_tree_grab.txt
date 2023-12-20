@@ -35,57 +35,37 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "attack_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_count"                                    "5"
+        "value"                                           "5"
         "LinkedSpecialBonus"                              "special_bonus_unique_tiny_6"
       }
-      "02" // percentage bonus damage against creeps, works against bosses too
+      "bonus_damage" // percentage bonus base damage against creeps, works against bosses too
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20"
+        "value"                                           "20 25 30 35 40 45"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "03" // bonus damage against bosses
+      "bonus_damage_buildings" // bonus damage against bosses
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage_buildings"                          "40 55 70 85 100 115"
+        "value"                                           "40 55 70 85 100 115"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "04"
+      "attack_range"                                      "350"
+      "splash_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range"                                    "350"
+        "value"                                           "200"
       }
-      "05"
+      "splash_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_width"                                    "200"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_range"                                    "400"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_pct"                                      "40 60 80 100 120 140"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bat_increase"                                    "0.0"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_reduction"                                 "0"
-      }
+      "splash_pct"                                        "40 60 80 100 120 140"
+      "bat_increase"                                      "0.0"
+      "speed_reduction"                                   "0"
     }
   }
 }

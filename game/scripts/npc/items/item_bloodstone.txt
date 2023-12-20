@@ -58,9 +58,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_aoe"                                         "50" //OAA
       "bonus_health"                                      "500"
       "bonus_mana"                                        "500"
-      "spell_lifesteal"                                   "30"
+      "spell_lifesteal"                                   "28" //OAA
       "buff_duration"                                     "5" //OAA
       "lifesteal_multiplier"                              "2.5"
       "hp_cost"                                           "0"

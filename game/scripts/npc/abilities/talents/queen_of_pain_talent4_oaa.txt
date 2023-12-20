@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Queen of Pain Talent: Shadow Strike bonus heal per tick
+  // Custom Queen of Pain Talent: Shadow Strike bonus damage and heal per tick
   //=================================================================================================================
   "special_bonus_unique_queen_of_pain_4_oaa"
   {
@@ -19,7 +19,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "60"
+        "value"                                           "40"
       }
     }
   }

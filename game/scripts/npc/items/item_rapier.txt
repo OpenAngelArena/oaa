@@ -14,7 +14,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "40000" // OAA
+    "ItemCost"                                            "30000" // OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -40,8 +40,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "30"
-    "ItemCost"                                            "45601" // OAA
+    "ItemCorePointCost"                                   "40"
+    "ItemCost"                                            "35601" // OAA
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "divine rapier"
@@ -58,6 +58,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_spell_amp"                                   "35" //OAA
       "bonus_damage"                                      "1500" //OAA
     }
   }

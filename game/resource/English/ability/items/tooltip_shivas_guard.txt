@@ -1,7 +1,24 @@
 //=============================================================================+
 // Shiva's Guard
 //=============================================================================+
+// "DOTA_Tooltip_Ability_item_shivas_guard"                                       "Shiva's Guard"
+// "DOTA_Tooltip_Ability_item_recipe_shivas_guard"                                "Shiva's Guard Recipe"
+// "DOTA_Tooltip_ability_item_shivas_guard_Description"                           "<h1>Active: Arctic Blast</h1> Emits a freezing wave that causes enemies to take %spell_amp%%% more damage from spells for %resist_debuff_duration% seconds, deals %blast_damage% magical damage and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds. Deals %illusion_multiplier_pct%%% damage to illusions.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and all heals, regeneration and lifesteal by %hp_regen_degen_aura%%%. <br><br>Radius: %aura_radius%"
+// "DOTA_Tooltip_ability_item_shivas_guard_Lore"                                  "Said to have belonged to a goddess, today it retains much of its former power."
+// "DOTA_Tooltip_ability_item_shivas_guard_Note0"                                 "The wave extends at a speed of %blast_speed% to a max size of %blast_radius%."
+// "DOTA_Tooltip_ability_item_shivas_guard_Note1"                                 "The Arctic Blast follows its caster."
+// "DOTA_Tooltip_ability_item_shivas_guard_Note2"                                 "Multiple instances of Freezing Aura do not stack."
+// "DOTA_Tooltip_ability_item_shivas_guard_bonus_intellect"                       "+$int"
+// "DOTA_Tooltip_ability_item_shivas_guard_bonus_agility"                         "+$agi"
+// "DOTA_Tooltip_ability_item_shivas_guard_bonus_strength"                        "+$str"
+// "DOTA_Tooltip_ability_item_shivas_guard_bonus_armor"                           "+$armor"
+// "DOTA_Tooltip_ability_item_shivas_guard_bonus_hp_regen"                        "+$hp_regen"
 "DOTA_Tooltip_Ability_item_shivas_guard_cooldown_tooltip"                       "Cooldown:"
+
+// "DOTA_Tooltip_modifier_item_shivas_guard_aura"                                 "Freezing Aura"
+// "DOTA_Tooltip_modifier_item_shivas_guard_aura_Description"                     "Attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% and regeneration by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
+// "DOTA_Tooltip_modifier_item_shivas_guard_blast"                                "Arctic Blast"
+// "DOTA_Tooltip_modifier_item_shivas_guard_blast_Description"                    "Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "DOTA_Tooltip_Ability_item_shivas_guard_2"                                      "#{DOTA_Tooltip_Ability_item_shivas_guard}"
 "DOTA_Tooltip_Ability_item_recipe_shivas_guard_2"                               "#{DOTA_Tooltip_Ability_item_recipe_shivas_guard}"
@@ -11,7 +28,10 @@
 "DOTA_Tooltip_Ability_item_shivas_guard_2_Note1"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note1}"
 "DOTA_Tooltip_ability_item_shivas_guard_2_Note2"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note2}"
 "DOTA_Tooltip_Ability_item_shivas_guard_2_bonus_intellect"                      "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_intellect}"
+"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_agility"                        "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_agility}"
+"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_strength"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_strength}"
 "DOTA_Tooltip_Ability_item_shivas_guard_2_bonus_armor"                          "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_armor}"
+"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_hp_regen}"
 "DOTA_Tooltip_Ability_item_shivas_guard_2_cooldown_tooltip"                     "#{DOTA_Tooltip_Ability_item_shivas_guard_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_shivas_guard_3"                                      "#{DOTA_Tooltip_Ability_item_shivas_guard}"
@@ -22,7 +42,10 @@
 "DOTA_Tooltip_Ability_item_shivas_guard_3_Note1"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note1}"
 "DOTA_Tooltip_ability_item_shivas_guard_3_Note2"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note2}"
 "DOTA_Tooltip_Ability_item_shivas_guard_3_bonus_intellect"                      "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_intellect}"
+"DOTA_Tooltip_ability_item_shivas_guard_3_bonus_agility"                        "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_agility}"
+"DOTA_Tooltip_ability_item_shivas_guard_3_bonus_strength"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_strength}"
 "DOTA_Tooltip_Ability_item_shivas_guard_3_bonus_armor"                          "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_armor}"
+"DOTA_Tooltip_ability_item_shivas_guard_3_bonus_hp_regen"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_hp_regen}"
 "DOTA_Tooltip_Ability_item_shivas_guard_3_cooldown_tooltip"                     "#{DOTA_Tooltip_Ability_item_shivas_guard_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_shivas_guard_4"                                      "#{DOTA_Tooltip_Ability_item_shivas_guard}"
@@ -33,7 +56,10 @@
 "DOTA_Tooltip_Ability_item_shivas_guard_4_Note1"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note1}"
 "DOTA_Tooltip_ability_item_shivas_guard_4_Note2"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note2}"
 "DOTA_Tooltip_Ability_item_shivas_guard_4_bonus_intellect"                      "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_intellect}"
+"DOTA_Tooltip_ability_item_shivas_guard_4_bonus_agility"                        "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_agility}"
+"DOTA_Tooltip_ability_item_shivas_guard_4_bonus_strength"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_strength}"
 "DOTA_Tooltip_Ability_item_shivas_guard_4_bonus_armor"                          "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_armor}"
+"DOTA_Tooltip_ability_item_shivas_guard_4_bonus_hp_regen"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_hp_regen}"
 "DOTA_Tooltip_Ability_item_shivas_guard_4_cooldown_tooltip"                     "#{DOTA_Tooltip_Ability_item_shivas_guard_cooldown_tooltip}"
 
 "DOTA_Tooltip_Ability_item_shivas_guard_5"                                      "#{DOTA_Tooltip_Ability_item_shivas_guard}"
@@ -44,5 +70,8 @@
 "DOTA_Tooltip_Ability_item_shivas_guard_5_Note1"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note1}"
 "DOTA_Tooltip_ability_item_shivas_guard_5_Note2"                                "#{DOTA_Tooltip_ability_item_shivas_guard_Note2}"
 "DOTA_Tooltip_Ability_item_shivas_guard_5_bonus_intellect"                      "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_intellect}"
+"DOTA_Tooltip_ability_item_shivas_guard_5_bonus_agility"                        "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_agility}"
+"DOTA_Tooltip_ability_item_shivas_guard_5_bonus_strength"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_strength}"
 "DOTA_Tooltip_Ability_item_shivas_guard_5_bonus_armor"                          "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_armor}"
+"DOTA_Tooltip_ability_item_shivas_guard_5_bonus_hp_regen"                       "#{DOTA_Tooltip_ability_item_shivas_guard_bonus_hp_regen}"
 "DOTA_Tooltip_Ability_item_shivas_guard_5_cooldown_tooltip"                     "#{DOTA_Tooltip_Ability_item_shivas_guard_cooldown_tooltip}"

@@ -40,6 +40,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/linkens_sphere_3"
 
     "AbilityCastRange"                                    "700"
@@ -48,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9602"
+    "ItemCost"                                            "9302"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 3;linken's sphere 3;linkens 3"
@@ -63,13 +64,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "16 21 26 31 36"
+      "bonus_all_stats"                                   "16 21 31 46 66"
       "bonus_health_regen"                                "6 9 12 15 18"
       "bonus_mana_regen"                                  "4.25 4.5 5 5.75 6.75"
       "block_cooldown"                                    "14.0 13.0 12.0 11.0 10.0"
       "upgrade_absorb_duration"                           "10.0"
       "damage_absorb"                                     "300"
-      "bonus_damage"                                      "10 20 40 70 110"
     }
   }
 }

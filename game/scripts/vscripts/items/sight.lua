@@ -258,8 +258,8 @@ end
 function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Aether Lens
-  if parent:HasModifier("modifier_item_aether_lens") then
+  -- Prevent stacking with Aether Lens and Ethereal Blade
+  if parent:HasModifier("modifier_item_aether_lens") or parent:HasModifier("modifier_item_ethereal_blade") then
     return 0
   end
 

@@ -37,7 +37,11 @@
     {
       "movespeed"                                         "100"
       "duration"                                          "2 2.3 2.6 2.9 3.2 3.5"
-      "damage_amp"                                        "10 15 20 25 25 25"
+      "damage_amp"
+      {
+        "value"                                           "10 15 20 25 25 25"
+        "special_bonus_unique_shadow_shaman_hex_damage_amp"  "+10"
+      }
     }
   }
 

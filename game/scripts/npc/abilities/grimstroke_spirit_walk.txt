@@ -60,12 +60,12 @@
       "max_threshold_duration"                            "2.5" // isn't this supposed to be slightly lower than buff_duration?
       "shard_bonus_damage_pct"
       {
-        "value"                                           "40"
+        "value"                                           "30"
         "RequiresShard"                                   "1"
       }
       "shard_heal_pct"
       {
-        "value"                                           "40"
+        "value"                                           "30"
         "RequiresShard"                                   "1"
       }
       "shard_creep_penalty"

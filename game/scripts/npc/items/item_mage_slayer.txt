@@ -36,11 +36,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2500"
+    "ItemCost"                                            "2625"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mage slayer;ms"
@@ -49,13 +50,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_magical_armor"                               "20" //OAA
-      "bonus_attack_speed"                                "20"
-      "bonus_damage"                                      "20"
+      "bonus_magical_armor"                               "25"
+      "bonus_attack_speed"                                "45"
       "spell_amp_debuff"                                  "35"
       "bonus_mana_regen"                                  "2"
       "duration"                                          "6"
       "bonus_intellect"                                   "10"
+      "dps"                                               "20"
     }
   }
 }

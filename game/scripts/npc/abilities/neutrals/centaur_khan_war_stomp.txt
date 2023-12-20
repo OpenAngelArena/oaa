@@ -30,23 +30,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "250"
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "non_hero_stun_duration"                          "3.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "hero_stun_duration"                              "1.6"
-      }
+      "non_hero_stun_duration"                            "3.0"
+      "hero_stun_duration"                                "1.6"
     }
   }
 }

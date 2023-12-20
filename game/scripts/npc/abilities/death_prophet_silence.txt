@@ -41,6 +41,11 @@
       }
       "duration"                                          "3.0 4.0 5.0 6.0 6.5 7.0"
       "projectile_speed"                                  "1200"
+      "movement_slow"
+      {
+        "value"                                           "10 15 20 25 30 35"
+        "special_bonus_unique_death_prophet_silence_slow"  "+15"
+      }
     }
   }
 }

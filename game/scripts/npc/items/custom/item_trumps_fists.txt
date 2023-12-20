@@ -41,13 +41,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityTextureName"                                  "custom/trumps_fists"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilityTextureName"                                  "custom/trumps_fists"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "judecca"
     "AbilityManaCost"                                     "100"
 

@@ -29,7 +29,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vision_range"                                      "250"
+      "vision_range"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "3 4 5 6 6.5 7"
       "blind_pct"
       {
@@ -43,7 +47,11 @@
       }
       "sprout_damage"                                     "14 20 26 32 64 128"
       "sprout_damage_inteval"                             "0.5"
-      "sprout_damage_radius"                              "275"
+      "sprout_damage_radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

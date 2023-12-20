@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5016"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -22,9 +22,6 @@
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "90 100 110 120 130 140"
@@ -33,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"       
+      "AbilityCooldown"
       {
         "value"                                           "15 14 13 12 12 12"
         "special_bonus_unique_bloodseeker"                "-2.5"
@@ -46,8 +43,8 @@
       "silence_duration"                                  "3 4 5 6 6.5 7"
       "damage"
       {
-        "value"                                           "90 140 190 240 480 960"
-        "special_bonus_unique_bloodseeker_2"              "+85"
+        "value"                                           "110 180 250 320 640 1280"
+        "special_bonus_unique_bloodseeker_2"              "+120"
       }
       "delay"                                             "2.6"
       "delay_plus_castpoint_tooltip"                      "2.9"
