@@ -37,7 +37,7 @@
       "strike_damage" //OAA
       {
         "value"                                           "30 70 110 150 300 600"
-        "special_bonus_scepter"                           "+75"
+        "special_bonus_scepter"                           "+60"
       }
       "duration_damage"                                   "20 40 60 80 160 320"
       "movement_slow"                                     "-35 -45 -55 -65 -70 -75" //OAA
@@ -47,7 +47,11 @@
         "value"                                           "3.0"
         "special_bonus_unique_queen_of_pain_4"            "-0.7"
       }
-      "duration_heal"                                     "10 20 30 40 80 160"
+      "duration_heal"   
+      {
+        "value"                                           "10 20 30 40 80 160"
+        "special_bonus_unique_queen_of_pain_strike_heal"  "+10"
+      }
       "generate_scream"
       {
         "value"                                           "0"
@@ -56,7 +60,8 @@
       "aoe_radius"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+400"
+        "special_bonus_scepter"                           "+375"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "15"
     }

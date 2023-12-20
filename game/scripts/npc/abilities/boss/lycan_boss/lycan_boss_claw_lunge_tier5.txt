@@ -9,16 +9,15 @@
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "lycan_feral_impulse"
     "ScriptFile"                                          "abilities/boss/lycan_boss/lycan_boss_claw_lunge_tier5.lua"
-
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "2.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------

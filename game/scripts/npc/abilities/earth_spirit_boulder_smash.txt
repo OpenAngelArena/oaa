@@ -35,12 +35,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "180" // NOTE: This radius must match the radius for geomagnetic grip
-      "rock_search_aoe"                                   "200"
-      "rock_damage"
+      "radius"
+      {
+        "value"                                           "180"  // NOTE: This radius must match the radius for geomagnetic grip
+        "affected_by_aoe_increase"                        "1"
+      }
+      "rock_search_aoe"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "rock_damage" //OAA
       {
         "value"                                           "120 180 240 300 600 1200"
-        "special_bonus_unique_earth_spirit_6"             "+125"
+        "special_bonus_unique_earth_spirit_6"             "+200"
       }
       "move_slow"                                         "50"
       "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
@@ -55,8 +63,12 @@
         "value"                                           "2000.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
-      "remnant_smash_radius_tooltip"                      "200"
-      "creep_multiplier"                                  "1.25"
+      "remnant_smash_radius_tooltip"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "creep_multiplier"                                  "1.4"
     }
   }
 }

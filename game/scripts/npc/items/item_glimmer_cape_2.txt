@@ -40,12 +40,13 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/glimmer_cape_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600 700 800 900 1000"
-    "AbilityCooldown"                                     "12.0"
+    "AbilityCooldown"                                     "14.0"
     "AbilitySharedCooldown"                               "glimmer"
     "AbilityManaCost"                                     "90"
 
@@ -66,7 +67,7 @@
     {
       "initial_fade_delay"                                "0.5"
       "secondary_fade_delay"                              "0.5"
-      "active_movement_speed"                             "40"
+      "active_movement_speed"                             "40 45 50 55 60"
       "duration"                                          "6"
       "bonus_magical_armor"                               "25 26 27 28 29"
       "barrier_block"                                     "400 800 1200 1600 2000"

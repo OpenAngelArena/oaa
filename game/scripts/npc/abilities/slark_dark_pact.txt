@@ -19,7 +19,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.001"
-    "AbilityCastRange"                                    "325" //OAA, same as radius; to see the AoE when you hover over the ability
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -31,44 +30,23 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "delay"                                             "1.5"
+      "pulse_duration"                                    "1.0"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1.5"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "total_damage" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "pulse_duration"                                  "1.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "325"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_damage"                                    "75 150 225 300 600 1200"
+        "value"                                           "90 160 230 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark_2"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_pulses"                                    "10"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "pulse_interval"                                  "0.1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_damage_pct"                                 "30"
-      }
+      "total_pulses"                                      "10"
+      "pulse_interval"                                    "0.1"
+      "self_damage_pct"                                   "30"
     }
   }
 

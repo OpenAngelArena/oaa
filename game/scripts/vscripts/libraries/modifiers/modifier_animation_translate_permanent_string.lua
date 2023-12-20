@@ -22,11 +22,9 @@ function modifier_animation_translate_permanent_string:IsPurgable()
 end
 
 function modifier_animation_translate_permanent_string:DeclareFunctions()
-  local funcs = {
+  return {
     MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
   }
-
-  return funcs
 end
 
 function modifier_animation_translate_permanent_string:GetActivityTranslationModifiers(...)

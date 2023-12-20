@@ -12,9 +12,9 @@
     "ScriptFile"                                          "items/neutral/reflex_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reflex_core"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilityCooldown"                                     "12"
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
 
     // Item Info
@@ -29,28 +29,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "35"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_dodge_chance"                              "35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spell_dodge_cooldown"                            "8"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "active_duration"                                 "1.0"
-      }
+      "bonus_evasion"                                     "40"
+      "spell_dodge_chance"                                "40"
+      "spell_dodge_cooldown"                              "8"
+      "active_duration"                                   "1.0"
     }
   }
 }

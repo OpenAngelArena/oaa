@@ -21,8 +21,8 @@ function modifier_titan_soul_oaa:OnCreated()
     return
   end
 
-  self.primary_attribute_multiplier = 1.75
-  self.damage_radius = 200
+  self.primary_attribute_multiplier = 2
+  self.damage_radius = 300
   self.scale = 60
   self.stats = 1
 
@@ -40,6 +40,11 @@ function modifier_titan_soul_oaa:OnIntervalThink()
 
   -- Check if parent has the stuff
   if parent.GetPrimaryAttribute == nil then
+    return
+  end
+
+  -- Don't do anything while dead (don't do damage on the corpse)
+  if not parent:IsAlive() then
     return
   end
 

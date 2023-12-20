@@ -73,6 +73,14 @@ function electrician_energy_absorption:OnSpellStart()
     local mana_absorbed = 0
     local speed_absorbed = 0
 
+    local damage_table = {
+      attacker = caster,
+      damage = damage,
+      damage_type = damageType,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+      ability = self,
+    }
+
     -- iterate through each unit struck
     for _, target in pairs( units ) do
       if target and not target:IsNull() then
@@ -139,18 +147,12 @@ function electrician_energy_absorption:OnSpellStart()
           end
         end
 
-        -- deal damage
-        ApplyDamage( {
-          victim = target,
-          attacker = caster,
-          damage = damage,
-          damage_type = damageType,
-          damage_flags = DOTA_DAMAGE_FLAG_NONE,
-          ability = self,
-        } )
-
         -- play hit sound
         target:EmitSound( "Hero_StormSpirit.Attack" )
+
+        -- deal damage
+        damage_table.victim = target
+        ApplyDamage(damage_table)
       end
     end
 

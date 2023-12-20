@@ -50,22 +50,19 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    //"AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     //"CastFilterRejectCaster"                              "1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "650 750 850 950 1050"
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18 17 16 15 14"
     "AbilitySharedCooldown"                               "pull"
+    "AbilityManaCost"                                     "50"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25"
-    "ItemCost"                                            "3575"
+    "ItemCost"                                            "3775"
 
-    "ItemSellable"                                        "1"
     "ItemPurchasable"                                     "1"
     "ItemDroppable"                                       "1"
     "ItemShareability"                                    "ITEM_NOT_SHAREABLE"

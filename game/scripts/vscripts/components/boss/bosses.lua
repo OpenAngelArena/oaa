@@ -1,18 +1,13 @@
 
-local function shielder_or_no (tier)
-  local is1v1 = GetMapName() == "1v1"
-  if tier == 5 then
-    if is1v1 then
-      return "npc_dota_boss_simple_2_tier5"
-    else
-      return "npc_dota_boss_shielder_tier5"
-    end
+local function shielder_filter ()
+  local lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
+  if HeroSelection then
+    lowPlayerCount = HeroSelection.lowPlayerCount
+  end
+  if lowPlayerCount then
+    return "npc_dota_boss_twin"
   else
-    if is1v1 then
-      return "npc_dota_boss_twin"
-    else
-      return "npc_dota_boss_shielder"
-    end
+    return "npc_dota_boss_shielder"
   end
 end
 
@@ -30,7 +25,6 @@ Bosses = {
       "npc_dota_boss_twin_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
       --"npc_dota_creature_temple_guardian_spawner_tier5",
-      --shielder_or_no(5),
       "npc_dota_boss_tier_5", -- Big Bird
     }
   },
@@ -45,7 +39,7 @@ Bosses = {
     },
     {
       --"npc_dota_boss_twin",
-      shielder_or_no(),
+      shielder_filter(),
       "npc_dota_boss_simple_2", -- Bear Boss (Fury Swipes)
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
@@ -70,7 +64,6 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Tier 5 Skeleton Boss (Geostrike)
       "npc_dota_boss_simple_5_tier5", -- Tier 5 Dire Creep Boss (Great Cleave)
       "npc_dota_boss_twin_tier5",
-      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Tier 5 Bear Boss (Fury Swipes)
       --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
@@ -90,7 +83,7 @@ Bosses = {
     },
     {
       --"npc_dota_boss_twin",
-      shielder_or_no(),
+      shielder_filter(),
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
@@ -115,7 +108,6 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
       --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
@@ -130,7 +122,7 @@ Bosses = {
   {
     {
       --"npc_dota_boss_twin",
-      shielder_or_no(),
+      shielder_filter(),
       "npc_dota_boss_simple_2", -- Fury Swipes
       "npc_dota_creature_slime_spawner",
       "npc_dota_boss_charger",
@@ -155,7 +147,6 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
       --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",
@@ -186,7 +177,6 @@ Bosses = {
       "npc_dota_boss_simple_1_tier5", -- Geostrike
       "npc_dota_boss_simple_5_tier5", -- Great Cleave
       "npc_dota_boss_twin_tier5",
-      --shielder_or_no(5),
       "npc_dota_boss_simple_2_tier5", -- Fury Swipes
       --"npc_dota_boss_charger_tier5",
       "npc_dota_creature_ogre_tank_boss_tier5",

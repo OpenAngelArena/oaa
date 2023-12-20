@@ -30,6 +30,43 @@ function modifier_roshan_power_oaa:OnCreated()
   self.status_resist = 25
   --self.magic_resist = 55
   self.dmg_per_minute = 6
+
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Berserkers Rage or similar modifier that changes attack range
+  if parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_troll_switch_oaa") then
+    return
+  end
+
+  if parent:IsRangedAttacker() then
+    -- Parent is ranged -> turn to melee
+    parent:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
+    self.original_attack_capability = DOTA_UNIT_CAP_RANGED_ATTACK
+    local attack_range = parent:GetBaseAttackRange()
+    self.range = 150 - attack_range
+    self:SetStackCount(self.range)
+  end
+end
+
+function modifier_roshan_power_oaa:OnDestroy()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- Check if parent has Berserkers Rage or similar modifier that changes attack range
+  if parent:HasAbility("troll_warlord_berserkers_rage") or parent:HasModifier("modifier_troll_switch_oaa") then
+    return
+  end
+
+  if self.original_attack_capability then
+    parent:SetAttackCapability(self.original_attack_capability)
+  end
 end
 
 function modifier_roshan_power_oaa:DeclareFunctions()
@@ -41,6 +78,7 @@ function modifier_roshan_power_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
   }
 end
 
@@ -62,6 +100,15 @@ end
 
 function modifier_roshan_power_oaa:GetModifierPreAttack_BonusDamage()
   return math.max(self.dmg_per_minute, self.dmg_per_minute * math.floor(GameRules:GetGameTime() / 60))
+end
+
+function modifier_roshan_power_oaa:GetModifierAttackRangeBonus()
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_lone_druid_true_form") or parent:IsRangedAttacker() then
+    return 0
+  end
+
+  return self:GetStackCount()
 end
 
 if IsServer() then

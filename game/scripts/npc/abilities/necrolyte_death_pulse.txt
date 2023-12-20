@@ -25,32 +25,27 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 150 225 300 600 1200" //OAA
+    "AbilityDamage"                                       "90 160 230 300 600 1200" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 180 200"
+    "AbilityManaCost"                                     "115 130 145 160 190 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "area_of_effect"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "area_of_effect"                                  "500"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "heal"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal"                                            "55 110 165 220 440 660" //OAA
+        "value"                                           "55 80 105 130 260 520"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_4"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "400"
-      }
+      "projectile_speed"                                  "400"
     }
   }
 }

@@ -157,12 +157,14 @@ function sohei_quivering_palm:QuiveringPalmEffect(victim)
   local attack_damage = caster:GetAverageTrueAttackDamage(nil)
   local bonus_damage = math.max((caster_str - victim_str) * diff_multiplier, 0)
 
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage_type = self:GetAbilityDamageType()
-  damage_table.ability = self
-  damage_table.damage = base_damage + attack_damage + bonus_damage
-  damage_table.victim = victim
+  local damage_table = {
+    attacker = caster,
+    victim = victim,
+    damage = base_damage + attack_damage + bonus_damage,
+    damage_type = self:GetAbilityDamageType(),
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    ability = self,
+  }
   ApplyDamage(damage_table)
 end
 

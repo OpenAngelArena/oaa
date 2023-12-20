@@ -9,7 +9,7 @@ function modifier_boss_phase_controller:OnRefresh ()
   self:StartIntervalThink( 0.5 )
 end
 
-function modifier_boss_phase_controller:OnCreated (keys)
+function modifier_boss_phase_controller:OnCreated ()
   if not IsServer() then
     return
   end

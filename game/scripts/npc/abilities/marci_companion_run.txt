@@ -37,7 +37,7 @@
         "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_marci_lunge_cooldown"       "-3"
       }
-      "move_speed"                                        "2000" //OAA
+      "move_speed"                                        "1900" //OAA
       "min_jump_distance"                                 "150"
       "max_jump_distance" //OAA
       {
@@ -47,7 +47,7 @@
       "landing_radius"                                    "275"
       "impact_damage"
       {
-        "value"                                           "75 150 225 300 600 1200"
+        "value"                                           "70 150 230 310 620 1240"
         "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_damage"
       }
       "debuff_duration"

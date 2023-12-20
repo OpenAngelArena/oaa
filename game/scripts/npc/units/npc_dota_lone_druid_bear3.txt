@@ -5,76 +5,23 @@
   //=================================================================================
   "npc_dota_lone_druid_bear3"
   {
-    // General
-    //----------------------------------------------------------------
-    "Model"                                               "models/heroes/lone_druid/spirit_bear.vmdl" // Model.
-    "BaseClass"                                           "npc_dota_lone_druid_bear"
-    "SoundSet"                                            "LoneDruid_SpiritBear"
-    "Level"                                               "1"
+    "include_keys_from"                                   "npc_dota_lone_druid_bear1"
+
     "ModelScale"                                          ".78"
-    "ConsideredHero"                                      "1"
-    "UnitLabel"                                           "spirit_bear"
 
-    // Abilities
-    //----------------------------------------------------------------
-    "Ability1"                                            "lone_druid_spirit_bear_return"        // Ability 1
-    "Ability2"                                            "lone_druid_spirit_bear_demolish"     // Ability 2
-    "Ability3"                                            "lone_druid_savage_roar_bear"         // Ability 3
-    "Ability4"                                            "lone_druid_spirit_bear_entangle"     // Ability 4
+    "ArmorPhysical"                                       "5" // OAA
 
-    // Armor
-    //----------------------------------------------------------------
-    "ArmorPhysical"                                       "7"         // OAA
+    //"AttackDamageMin"                                     "40" // OAA
+    //"AttackDamageMax"                                     "40" // OAA
+    "AttackRate"                                          "1.55"
 
-    // Attack
-    //----------------------------------------------------------------
-    "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "40"        // OAA
-    "AttackDamageMax"                                     "40"        // OAA
-    "AttackRate"                                          "1.55"      // Speed of attack.
-    "AttackAnimationPoint"                                "0.43"      // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"                              "500"       // Range within a target can be acquired.
-    "AttackRange"                                         "150"       // Range within a target can be attacked.
-    "ProjectileModel"                                     ""          // Particle system model for projectile.
-    "ProjectileSpeed"                                     "0"         // Speed of projectile.
+    "BountyXP"                                            "500"
+    "BountyGoldMin"                                       "900"
+    "BountyGoldMax"                                       "900"
 
-    // Bounds
-    //----------------------------------------------------------------
-    "RingRadius"                                          "70"
-    "HealthBarOffset"                                     "215"
+    "MovementSpeed"                                       "380"
 
-    // Bounty
-    //----------------------------------------------------------------
-    "BountyXP"                                            "500"       // Experience earn.
-    "BountyGoldMin"                                       "900"       // Gold earned min.
-    "BountyGoldMax"                                       "900"       // Gold earned max.
-
-    // Movement
-    //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"                                       "380"       // Speed.
-    "MovementTurnRate"                                    "0.6"       // Turning rate.
-
-    // Status
-    //----------------------------------------------------------------
-    "StatusHealth"                                        "2100"      // OAA
-    "StatusHealthRegen"                                   "9"        // OAA
-    "StatusMana"                                          "300"       // Base mana.
-    "StatusManaRegen"                                     "0.5"       // Mana regeneration rate.
-
-    // Vision
-    //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "1400"      // Range of vision during day light.
-    "VisionNighttimeRange"                                "800"       // Range of vision at night time.
-
-    // Team
-    //----------------------------------------------------------------
-    "TeamName"                                            "DOTA_TEAM_NEUTRALS"                            // Team name.
-    
-    
-    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
-    //Inventory
-    "HasInventory"                                        "1"
+    "StatusHealth"                                        "1900" // OAA
+    "StatusHealthRegen"                                   "9" // OAA
   }
 }

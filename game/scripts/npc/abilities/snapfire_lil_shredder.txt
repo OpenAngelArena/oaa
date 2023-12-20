@@ -25,23 +25,28 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 65 80 95 110 125"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "20 45 70 95 190 285"
+      "damage"                                            "30 55 80 105 210 315"
       "buffed_attacks"
       {
         "value"                                           "6"
         "special_bonus_unique_snapfire_2"                 "+2"
       }
+      "damage_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_snapfire_6"                 "+100"
+      }
       "attack_speed_bonus"                                "300"
       "attack_range_bonus"                                "75 150 225 300 375 450"
       "buff_duration_tooltip"                             "6"
       "base_attack_time"                                  "1.0"
-      "armor_reduction_per_attack"                        "0.5 0.6 0.7 0.8 0.9 1.0" //OAA
+      "armor_reduction_per_attack"                        "0.5"
       "armor_duration"                                    "5.0"
     }
   }

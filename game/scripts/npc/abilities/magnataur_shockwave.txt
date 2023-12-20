@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 70 80 90 100 110" //OAA
+    "AbilityManaCost"                                     "60 65 70 75 80 85" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
       "shock_damage" //OAA
       {
         "value"                                           "90 160 230 300 600 1200"
-        "special_bonus_unique_magnus"                     "+250"
+        "special_bonus_unique_magnus"                     "+300"
       }
       "pull_duration"                                     "0.2"
       "movement_slow"                                     "75"
@@ -58,7 +58,7 @@
       "return_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+50"
+        "special_bonus_shard"                             "+75"
       }
       "AbilityCastRange"
       {

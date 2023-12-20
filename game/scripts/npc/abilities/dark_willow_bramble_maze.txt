@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "22"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,52 +33,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "placement_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "placement_range"                                 "500"
+        "value"                                           "500"
       }
-      "02"
+      "placement_count"                                   "8"
+      "placement_duration"                                "8.5" //OAA, calculated with values: 22s cd, -7s cd talent, 0.3s cast point, 0.3s creation delay and 0.1s inactivity delay
+      "latch_duration"                                    "1.0 1.5 2.0 2.5 3.0 3.5"
+      "latch_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "placement_count"                                 "8"
+        "value"                                           "90"
       }
-      "03" // calculated with values: 20s cd, -7s cd talent, 0.3s cast point, 0.3s creation delay and 0.1s inactivity delay
+      "damage_per_tick"                                   "50 55 60 65 130 195"
+      "latch_creation_interval"                           "0.075"
+      "latch_creation_delay"                              "0.1"
+      "initial_creation_delay"                            "0.3"
+      "aoe_increase" // ????
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "placement_duration"                              "7" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "latch_duration"                                  "1.0 1.5 2.0 2.5 3.0 3.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "latch_range"                                     "90"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_tick"                                 "50 55 60 65 130 195"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "latch_creation_interval"                         "0.075"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "latch_creation_delay"                            "0.1"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "initial_creation_delay"                          "0.3"
+        "value"                                           "1"
+        "affected_by_aoe_increase"                        "0"
       }
     }
   }

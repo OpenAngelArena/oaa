@@ -35,7 +35,11 @@
         "value"                                           "4 6 8 10 12 14"
         "special_bonus_unique_broodmother_6"              "+3"
       }
-      "heath_regen"                                       "2 5 8 11 22 33"
+      "health_regen"
+      {
+        "value"                                           "2 5 8 11 22 33"
+        "special_bonus_unique_broodmother_web_hpregen"    "+8"
+      }
       "bonus_movespeed"                                   "10 22 34 46 58 70"
       "AbilityChargeRestoreTime"
       {

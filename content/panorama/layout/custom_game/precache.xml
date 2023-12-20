@@ -2,103 +2,96 @@
 	<Panel style="visibility:collapse;">
 		<Panel id="container" style="visibility:collapse;">
 			<Image src="file://panorama/images/heroes/npc_dota_hero_sohei.png" hittest="false" />
-      <Image src="file://panorama/images/heroes/npc_dota_hero_electrician.png" hittest="false" /> <!-- Cookies: Find out why it doesn't precache the image, and then hide it just like the other one -->
-      <Image src="file://panorama/images/heroes/electrician/npc_dota_hero_electrician.png" hittest="false" />
+      <Image src="file://panorama/images/heroes/npc_dota_hero_electrician.png" hittest="false" />
       <Image src="file://panorama/images/heroes/selection/npc_dota_hero_electrician.png" hittest="false" />
       <Image src="file://panorama/images/heroes/selection/npc_dota_hero_sohei.png" hittest="false" />
-      <Image src="file://materials/overviews/oaa.tga" hittest="false" />
-      <Image src="file://panorama/images/items/custom/force_staff_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/hurricane_pike_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/siege_mode_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/butterfly.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/skadi_1.png" hittest="false" />
+      <!-- <Image src="file://materials/overviews/oaa.tga" hittest="false" /> -->
       <Image src="file://panorama/images/items/custom/abyssal_blade_2.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/trumps_fists.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/satanic.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/vampire_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/mjollnir_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/monkey_king_bar_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/sange_and_yasha.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/phylactery.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/harpoon.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/disperser.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/kaya_and_sange.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/yasha_and_kaya.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/armlet_dormant.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/battle_fury.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/devastator_2.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/giant_form_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/daedalus_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/bloodthorn.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/nullifier_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/manta_style_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/radiance_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/heavens_halberd_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/revenants_brooch.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/silver_edge_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/lionsmane_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/shivas_guard_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/stoneskin.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/martyrs_mail_4.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/assault_cuirass_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/black_king_bar.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/enrage_crystal_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/lotus_orb_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/dispel_orb_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/bubble_orb_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/linkens_sphere_1.png" hittest="false" />
-      <!-- <Image src="file://panorama/images/items/custom/reflection_shard_1.png" hittest="false" /> -->
-      <Image src="file://panorama/images/items/custom/combo_breaker_2.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/magic_lamp.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/veil_of_discord_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/dagger_of_moriah_1.png" hittest="false" />
-      <!-- <Image src="file://panorama/images/items/custom/dagon_5.png" hittest="false" /> -->
-      <!-- <Image src="file://panorama/images/items/custom/bloodstone.png" hittest="false" /> -->
-      <!-- <Image src="file://panorama/images/items/custom/purpleskull_2.png" hittest="false" /> -->
-      <Image src="file://panorama/images/items/custom/gungir.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/wind_waker.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/meteor_hammer_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/scythe_of_vyse_4.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/octarine_core_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/refresher_orb_4.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/ethereal_blade.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/ghoststaff_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/overwhelming_blink.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/swift_blink.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/arcane_blink.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/lucience.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/spirit_vessel_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/helm_of_the_overlord.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/dragonstaff_4.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/pipe_of_insight_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/glimmer_cape_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/eternal_shroud.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/satanic_core_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/pull_staff_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/solar_crest_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/far_sight.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/greater_phase_boots.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/greater_power_treads.png" hittest="false" />
-      <!-- <Image src="file://panorama/images/items/custom/greater_tranquils.png" hittest="false" /> -->
-      <Image src="file://panorama/images/items/custom/greater_travels.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/sonic_2.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/heart.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/crimson_guard_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/regen_crystal_1.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/heart_transplant.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/reduction_orb_3.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/ultimate_scepter.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/core_info.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/azazel_summon_tank.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/azazel_summon_scout.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/arcane_crystal.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/armlet_dormant.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/assault_cuirass_1.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/azazel_summon_fighter.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/azazel_summon_scout.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/azazel_summon_tank.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/battle_fury.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/black_king_bar.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/bloodthorn.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/bubble_orb_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/butterfly.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/combo_breaker_2.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/core_info.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/creed_of_omniscience.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/crimson_guard_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/daedalus_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/dagger_of_moriah_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/devastator_2.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/dispel_orb_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/disperser.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/dragonstaff_4.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/elixier_burst_4.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/elixier_hybrid_4.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/elixier_sustain_4.png" hittest="false" />
-      <Image src="file://panorama/images/items/custom/creed_of_omniscience.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/enrage_crystal_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/eternal_shroud.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/ethereal_blade.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/far_sight.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/force_staff_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/ghoststaff_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/giant_form_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/glimmer_cape_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/greater_phase_boots.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/greater_power_treads.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/greater_travels.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/gungir.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/harpoon.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/heart.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/heart_transplant.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/heavens_halberd_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/helm_of_the_overlord.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/hurricane_pike_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/kaya_and_sange.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/linkens_sphere_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/lionsmane_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/lotus_orb_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/lucience.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/magic_lamp.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/manta_style_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/martyrs_mail.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/meteor_hammer_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/mjollnir_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/monkey_king_bar_1.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/moon_crest.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/nullifier_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/octarine_core_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/overwhelming_blink.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/pipe_of_insight_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/pull_staff_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/radiance_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/reduction_orb.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/reflex_core.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/refresher_orb_4.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/regen_crystal_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/revenants_brooch.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/sange_and_yasha.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/satanic.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/satanic_core_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/scythe_of_vyse_4.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/shivas_guard_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/siege_mode_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/silver_edge_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/skadi_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/solar_crest_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/sonic_2.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/spirit_vessel_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/stoneskin.png" hittest="false" />
       <Image src="file://panorama/images/items/custom/stonework_pendant.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/swift_blink.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/trumps_fists.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/ultimate_scepter.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/vampire_1.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/wind_waker.png" hittest="false" />
+      <Image src="file://panorama/images/items/custom/yasha_and_kaya.png" hittest="false" />
 		</Panel>
 	</Panel>
 </root>

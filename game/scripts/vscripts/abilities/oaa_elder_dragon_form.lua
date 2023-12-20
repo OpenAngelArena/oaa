@@ -85,6 +85,17 @@ function dragon_knight_elder_dragon_form_oaa:OnSpellStart()
   if level >= 5 or ( level >= 4 and caster:HasScepter() ) then
     caster:AddNewModifier( caster, self, "modifier_dragon_knight_max_level_oaa", { duration = duration, } )
   end
+
+  -- Manage Attack Projectile if there is none (if it's not handled with vanilla modifiers)
+  local projectile_name = caster:GetRangedProjectileName()
+  if not projectile_name or projectile_name == "" then
+    if self:IsStolen() then
+      -- For Rubick if he doesn't have a projectile in Dragon Form at least add his base projectile
+      caster:SetRangedProjectileName(caster:GetBaseRangedProjectileName())
+    else
+      caster:ChangeAttackProjectile()
+    end
+  end
 end
 
 function dragon_knight_elder_dragon_form_oaa:GetIntrinsicModifierName()
@@ -542,7 +553,13 @@ if IsServer() then
       return
     end
 
-    if cast_ability:GetAbilityName() == "dragon_knight_breathe_fire" and parent:HasModifier("modifier_dragon_knight_max_level_oaa") then
+    local ability = self:GetAbility() or parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local level = ability:GetLevel()
+    if cast_ability:GetAbilityName() == "dragon_knight_breathe_fire" and (level >= 5 or (level >= 4 and parent:HasScepter())) then
       self.radius = cast_ability:GetSpecialValueFor("start_radius") + cast_ability:GetSpecialValueFor("range") + cast_ability:GetSpecialValueFor("end_radius") + parent:GetCastRangeBonus()
       self.travel_time = self.radius / math.max(cast_ability:GetSpecialValueFor("speed"), 1)
       self.cast_ability = cast_ability

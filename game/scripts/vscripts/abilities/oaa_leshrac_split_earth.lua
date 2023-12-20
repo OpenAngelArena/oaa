@@ -8,14 +8,14 @@ function leshrac_split_earth_oaa:Precache(context)
 end
 
 function leshrac_split_earth_oaa:GetAOERadius()
-  local caster = self:GetCaster()
+  -- local caster = self:GetCaster()
   local radius = self:GetSpecialValueFor("radius")
 
-  -- Talent that increases radius
-  local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
-  if radius_talent and radius_talent:GetLevel() > 0 then
-    radius = radius + radius_talent:GetSpecialValueFor("value")
-  end
+  -- Talent that increases radius - done through KV
+  -- local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
+  -- if radius_talent and radius_talent:GetLevel() > 0 then
+    -- radius = radius + radius_talent:GetSpecialValueFor("value")
+  -- end
 
   return radius
 end
@@ -72,11 +72,11 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
   local damage = ability:GetSpecialValueFor("damage")
   local stun_duration = ability:GetSpecialValueFor("stun_duration")
 
-  -- Talent that increases radius
-  local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
-  if radius_talent and radius_talent:GetLevel() > 0 then
-    radius = radius + radius_talent:GetSpecialValueFor("value")
-  end
+  -- Talent that increases radius - done through KV
+  -- local radius_talent = caster:FindAbilityByName("special_bonus_unique_leshrac_5")
+  -- if radius_talent and radius_talent:GetLevel() > 0 then
+    -- radius = radius + radius_talent:GetSpecialValueFor("value")
+  -- end
 
   if self.shard_split_earth and self.shard_split_earth_count then
     -- Remove the previous instance of the indicator particle
@@ -94,11 +94,12 @@ function modifier_leshrac_split_earth_oaa_thinker:OnIntervalThink()
     radius = radius + self.shard_split_earth_count * ability:GetSpecialValueFor("shard_extra_radius_per_instance")
   end
 
-  local damage_table = {}
-  damage_table.attacker = caster
-  damage_table.damage_type = ability:GetAbilityDamageType()
-  damage_table.ability = ability
-  damage_table.damage = damage
+  local damage_table = {
+    attacker = caster,
+    damage = damage,
+    damage_type = ability:GetAbilityDamageType(),
+    ability = ability,
+  }
 
   -- Destroy trees
   GridNav:DestroyTreesAroundPoint(target_pos, radius, false)

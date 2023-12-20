@@ -41,7 +41,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8102"
+    "ItemCost"                                            "8502"
     "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud 3;es 3"
@@ -54,10 +54,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_spell_resist"                                "30 32 34 36 38"
+      "bonus_spell_resist"                                "25 26 27 28 29"
       "bonus_strength"                                    "14 19 29 44 64"
-      "bonus_health_regen"                                "7 10 13 16 19"
-      "mana_restore_pct"                                  "30"
+      "bonus_health"                                      "250 350 500 700 950"
+      "stack_threshold"                                   "300"
+      "stack_duration"                                    "8"
+      "stack_resist"                                      "4"
+      "mana_restore_pct"                                  "20"
+      "max_stacks"                                        "6"
     }
   }
 }

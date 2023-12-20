@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "80"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -31,97 +31,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "45"
+      // kvs that serve as backup if vanilla ability doesn't work
+      // 5th value will be the same as 4th value no matter what we write here,
+      // so it's better to be the same as 4th value to avoid confusion in the tooltip
+      "bonus_movement_speed"                              "30 35 40 45 45"
+      "bonus_attack_range"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "45"
-      }
-      "02" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "25 30 35 35 35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "350"
+        "value"                                           "350"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
-      "04"
+      "bonus_attack_damage"                               "0"
+      "corrosive_breath_damage"                           "25 30 35 70 70"
+      "corrosive_breath_duration"                         "5.0"
+      "splash_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_damage"                             "0"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
-      "05" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
+      "splash_damage_percent"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "corrosive_breath_damage"                         "20 40 60 120 120"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "corrosive_breath_duration"                       "5.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_radius"                                   "350"
-      }
-      "08" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "splash_damage_percent"                           "75 75 75 100 100"
+        "value"                                           "0 75 75 100 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_6"
       }
-      "09" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
+      "frost_bonus_movement_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_movement_speed"                      "-40 -40 -40 -60 -60"
+        "value"                                           "0 0 -40 -60 -60"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
-      "10" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
+      "frost_bonus_attack_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "frost_bonus_attack_speed"                        "-40 -40 -40 -80 -80"
+        "value"                                           "0 0 -40 -80 -80"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
-      "11"
+      "frost_duration"                                    "0 0 3"
+      "frost_aoe" // to match splash_radius
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_duration"                                  "3.0"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
       }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "frost_aoe"                                       "300"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "0 0 0 25 40"
-      }
-      "14" // 5th value will be the same as 4th value no matter what we write here, so it's better to be the same as 4th value to avoid confusion in the tooltip
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "model_scale"                                     "0 0 0 30 30"
-      }
-      "15" // unused
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "rage_chance"                                     "40"
-      }
-      "16" // unused
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "rage_duration"                                   "2.0"
-      }
-      "17"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_suppression_pct"                            "40"
-      }
+      "model_scale"                                       "0 0 0 30 30"
+      // changing 5th value will have effect for this kv:
+      "magic_resistance"                                  "0 0 0 25 30"
+      // original kvs:
+      "rage_chance"                                       "40" // unused
+      "rage_duration"                                     "2.0" // unused
+      "heal_suppression_pct"                              "40"
     }
   }
 }

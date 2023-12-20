@@ -4,7 +4,6 @@
 -- Does not block hook movement.
 -- Visual effects such as screenshake from stun not always blocked.
 -- Does not block effects from non-targeted spells from being refreshed. e.g. being stunned again by the same skill
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_preemptive_bubble_aura_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_preemptive_bubble_block", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bubble_orb_visible_buff", "items/bubble_orb.lua", LUA_MODIFIER_MOTION_NONE)
@@ -40,18 +39,21 @@ function item_bubble_orb_1:OnSpellStart()
     FIND_ANY_ORDER,
     false
   )
-  local modifierKnockback = {
+  local knockback_table = {
+    should_stun = 1,
     center_x = targetPoint.x,
     center_y = targetPoint.y,
     center_z = targetPoint.z,
-    duration = 0.5,
-    knockback_duration = 0.5,
     knockback_distance = radius,
+    knockback_height = 10,
   }
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() then
-      --modifierKnockback.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
-      enemy:AddNewModifier(caster, self, "modifier_knockback", modifierKnockback)
+      --knockback_table.knockback_distance = radius - (targetPoint - enemy:GetAbsOrigin()):Length2D()
+      knockback_table.knockback_duration = enemy:GetValueChangedByStatusResistance(1.0)
+      knockback_table.duration = knockback_table.knockback_duration
+
+      enemy:AddNewModifier(caster, self, "modifier_knockback", knockback_table)
     end
   end
 

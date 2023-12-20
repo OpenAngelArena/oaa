@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 beastmaster_call_of_the_wild_boar_oaa = class(AbilityBaseClass)
 
@@ -45,15 +44,8 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   local boar_armor = self:GetLevelSpecialValueFor("boar_armor", abilityLevel-1)
   local boar_speed = self:GetLevelSpecialValueFor("boar_move_speed", abilityLevel-1)
 
-  -- Talent that increases attack damage of boars
-  local talent = caster:FindAbilityByName("special_bonus_unique_beastmaster_2_oaa")
-  if talent and talent:GetLevel() > 0 then
-    boar_dmg = boar_dmg + talent:GetSpecialValueFor("value")
-  end
-
   -- Spawn boar and orient it to face the same way as the caster
   local boar = self:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, false)
-  boar:AddNewModifier(caster, self, "modifier_beastmaster_boar_poison", {})
 
   -- Fix stats of boars
   -- HP
@@ -75,6 +67,7 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   local boarPoisonAbility = boar:FindAbilityByName("beastmaster_boar_poison")
   if boarPoisonAbility then
     boarPoisonAbility:SetLevel(abilityLevel)
+    boar:AddNewModifier(caster, self, "modifier_beastmaster_boar_poison", {})
   end
 
   -- Create particle effects
@@ -84,14 +77,14 @@ function beastmaster_call_of_the_wild_boar_oaa:SpawnBoar(caster, playerID, abili
   ParticleManager:ReleaseParticleIndex(particle1)
 end
 
-function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
-  local position = caster:GetOrigin();
+function beastmaster_call_of_the_wild_boar_oaa:SpawnUnit(unitName, caster, playerID, abilityLevel, duration, bRandomPosition)
+  local position = caster:GetOrigin()
 
   if bRandomPosition then
     position = position + RandomVector(1):Normalized() * RandomFloat(50, 100)
   end
 
-  local npcCreep = CreateUnitByName(levelUnitName, position, true, caster, caster:GetOwner(), caster:GetTeam())
+  local npcCreep = CreateUnitByName(unitName, position, true, caster, caster:GetOwner(), caster:GetTeam())
   npcCreep:SetControllableByPlayer(playerID, false)
   npcCreep:SetOwner(caster)
   npcCreep:SetForwardVector(caster:GetForwardVector())
@@ -193,7 +186,7 @@ function beastmaster_call_of_the_wild_hawk_oaa:SpawnHawk(caster, playerID, abili
 end
 
 function beastmaster_call_of_the_wild_hawk_oaa:SpawnUnit(levelUnitName, caster, playerID, abilityLevel, duration, bRandomPosition)
-  local position = caster:GetOrigin();
+  local position = caster:GetOrigin()
 
   if bRandomPosition then
     position = position + RandomVector(1):Normalized() * RandomFloat(50, 100)

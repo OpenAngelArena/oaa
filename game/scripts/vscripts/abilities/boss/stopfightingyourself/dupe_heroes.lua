@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_boss_stopfightingyourself_illusion", "abilities/boss/stopfightingyourself/dupe_heroes.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_stopfightingyourself_dupe_heroes = class(AbilityBaseClass)
 
@@ -16,7 +15,7 @@ function boss_stopfightingyourself_dupe_heroes:OnAbilityPhaseStart()
     local delay = self:GetCastPoint()
 
     -- Make the caster uninterruptible while casting this ability
-    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay})
+    caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
 
     -- Warning particle
     local indicator = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -63,7 +62,7 @@ function boss_stopfightingyourself_dupe_heroes:OnSpellStart()
     radius,
     DOTA_UNIT_TARGET_TEAM_ENEMY,
     DOTA_UNIT_TARGET_HERO,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    DOTA_UNIT_TARGET_FLAG_NONE,
     FIND_ANY_ORDER,
     false
   )

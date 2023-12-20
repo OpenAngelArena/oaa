@@ -35,11 +35,11 @@
     "AbilityValues"
     {
       "duration"                                          "60"
-      "boar_health"                                       "300 600 900 1200 2400 4800"
+      "boar_health"                                       "450 750 1050 1350 2700 5400"
       "boar_damage"
       {
         "value"                                           "20 40 60 80 180 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_beastmaster_2_oaa"
+        "special_bonus_unique_beastmaster_2"              "+60"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "boar_armor"                                        "0"

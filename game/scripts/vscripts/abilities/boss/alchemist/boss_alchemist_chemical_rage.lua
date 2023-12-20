@@ -1,7 +1,6 @@
 boss_alchemist_chemical_rage = class(AbilityBaseClass)
 
 function boss_alchemist_chemical_rage:Precache(context)
-  --PrecacheResource("particle", "", context)
   PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts", context)
 end
 

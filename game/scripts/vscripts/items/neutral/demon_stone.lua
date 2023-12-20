@@ -1,6 +1,5 @@
 LinkLuaModifier("modifier_item_demon_stone_passive", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_stone_summon_passives", "items/neutral/demon_stone.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_demon_stone = class(ItemBaseClass)
 
@@ -181,4 +180,41 @@ end
 
 function modifier_demon_stone_summon_passives:GetAuraSearchFlags()
   return bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_INVULNERABLE)
+end
+
+function modifier_demon_stone_summon_passives:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+  }
+end
+
+if IsServer() then
+  function modifier_demon_stone_summon_passives:GetModifierTotal_ConstantBlock(event)
+    local attacker = event.attacker
+
+    if not attacker or attacker:IsNull() then
+      return 0
+    end
+
+    if attacker.IsBaseNPC == nil then
+      return 0
+    end
+
+    if not attacker:IsBaseNPC() then
+      return 0
+    end
+
+    local dmg_reduction = 85
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() then
+      dmg_reduction = ability:GetSpecialValueFor("summon_dmg_reduction")
+    end
+
+    -- Block damage from neutrals and always from bosses
+    if attacker:IsOAABoss() or attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      return event.damage * dmg_reduction / 100
+    end
+
+    return 0
+  end
 end

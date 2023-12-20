@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "100"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -36,29 +36,20 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_per_unit" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_unit"                                 "20 30 40 50 100 150" //OAA
+        "value"                                           "20 30 40 50 100 150"
         "LinkedSpecialBonus"                              "special_bonus_unique_undying_6"
       }
-      "02"
+      "max_units"                                         "10"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_units"                                       "10"
+        "value"                                           "1300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1300"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tombstone_heal"                                  "4 8 12 16 18 20"
-      }
+      "tombstone_heal"                                    "4 8 12 16 18 20"
     }
   }
 }

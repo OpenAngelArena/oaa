@@ -42,20 +42,32 @@
         "special_bonus_unique_snapfire_1"                 "+6"
       }
       "projectile_speed"                                  "1300"
-      "projectile_width"                                  "130"
-      "impact_radius"                                     "275"
+      "projectile_width"
+      {
+        "value"                                           "130"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "impact_radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
+      }
       "damage_per_impact" //OAA
       {
-        "value"                                           "160 320 480 960 1280"
+        "value"                                           "180 360 540 1080 1620"
         "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+60"
       }
       "duration_tooltip"                                  "5.5"
-      "projectile_vision"                                 "500"
+      "projectile_vision"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "turn_rate"                                         "75"
       "burn_interval"                                     "0.5"
       "burn_damage" //OAA
       {
-        "value"                                           "60 100 140 260 460"
+        "value"                                           "60 100 140 260 380"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct"

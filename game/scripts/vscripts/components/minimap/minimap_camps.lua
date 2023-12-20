@@ -1,4 +1,3 @@
-LinkLuaModifier("modifier_minimap", "modifiers/modifier_minimap", LUA_MODIFIER_MOTION_NONE)
 
 -- -- Drop out of self-include
 -- if not Entities or not Entities.CreateByClassname then return end
@@ -6,7 +5,7 @@ LinkLuaModifier("modifier_minimap", "modifiers/modifier_minimap", LUA_MODIFIER_M
 -----------------------------------------------------------------
 
 if not Minimap then
-    Minimap = class({})
+  Minimap = class({})
 end
 
 -- Called when game starts

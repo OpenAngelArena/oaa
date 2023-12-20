@@ -255,10 +255,6 @@ function modifier_sohei_momentum_knockback:IsPurgable()
   return false
 end
 
-function modifier_sohei_momentum_knockback:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_momentum_knockback:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end
@@ -393,30 +389,6 @@ end
 
 function modifier_sohei_momentum_slow:IsPurgable()
   return false
-end
-
-function modifier_sohei_momentum_slow:IsStunDebuff()
-  return false
-end
-
-function modifier_sohei_momentum_slow:OnCreated( event )
-  local parent = self:GetParent()
-  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
-  if IsServer() then
-    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
-  else
-    self.slow = movement_slow
-  end
-end
-
-function modifier_sohei_momentum_slow:OnRefresh( event )
-  local parent = self:GetParent()
-  local movement_slow = self:GetAbility():GetSpecialValueFor( "movement_slow" )
-  if IsServer() then
-    self.slow = parent:GetValueChangedByStatusResistance( movement_slow )
-  else
-    self.slow = movement_slow
-  end
 end
 
 -- slows don't show correctly if they're in an IsServer() block govs

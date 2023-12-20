@@ -17,6 +17,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.1"
@@ -37,7 +39,7 @@
       }
       "side_angle"                                        "110"
       "back_angle"                                        "70"
-      "quill_release_threshold"                           "225"
+      "quill_release_threshold"                           "300 275 250 225 200 175"
     }
 
     "precache"

@@ -38,8 +38,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "start_radius"                                      "225"
-      "end_radius"                                        "275"
+      "start_radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "end_radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
+      }
       "AbilityCastRange"
       {
         "value"                                           "750"
@@ -49,17 +57,17 @@
       "fire_delay"                                        "0.2"
       "burn_damage"
       {
-        "value"                                           "20 40 60 80 180 280"
+        "value"                                           "20 40 60 80 160 320"
         "special_bonus_unique_jakiro_2"                   "+100%"
       }
       "slow_movement_speed_pct"
       {
-        "value"                                           "-28 -32 -36 -40 -60 -80"
+        "value"                                           "-25 -30 -35 -40 -45 -50"
         "special_bonus_unique_jakiro_dualbreath_slow"     "-10"
       }
       "slow_attack_speed_pct"
       {
-        "value"                                           "-28 -32 -36 -40 -60 -80"
+        "value"                                           "-25 -30 -35 -40 -60 -80"
         "special_bonus_unique_jakiro_dualbreath_slow"     "-10"
       }
       "speed_fire"                                        "1050"

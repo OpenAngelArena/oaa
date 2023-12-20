@@ -43,10 +43,11 @@
     "ScriptFile"                                          "items/black_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/black_king_bar"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "50"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
 
@@ -69,9 +70,9 @@
     {
       "bonus_strength"                                    "10 20 35 55 80"
       "bonus_damage"                                      "24 34 54 84 124"
-      "duration"                                          "6.0 6.5 7.0 7.5 8.0"
+      "duration"                                          "7"
       "model_scale"                                       "30"     // Percentage over model scale
-      "magic_resist"                                      "50"
+      "magic_resist"                                      "50 55 60 65 70"
     }
   }
 }

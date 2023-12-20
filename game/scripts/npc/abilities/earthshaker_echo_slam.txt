@@ -21,44 +21,38 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100" //OAA
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "145 205 265 325 385"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "echo_slam_damage_range" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_damage_range"                          "800" //OAA
+        "value"                                           "800"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "02"
+      "echo_slam_echo_search_range" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_search_range"                     "800" //OAA
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "echo_slam_echo_range" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_range"                            "800" //OAA
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "echo_slam_echo_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_echo_damage"                           "85 125 165 285 485" //OAA
+        "value"                                           "90 130 170 290 490"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "echo_slam_initial_damage"                        "100 180 260 500 900" //OAA
-      }
+      "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA
     }
   }
 }

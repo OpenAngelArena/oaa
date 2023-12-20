@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5016"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -22,44 +22,32 @@
     "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "90 100 110 120 130 140"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "600"
+        "value"                                           "15 14 13 12 12 12"
+        "special_bonus_unique_bloodseeker"                "-2.5"
       }
-      "02"
+      "radius"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration"                                "3 4 5 6 7 8"
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "silence_duration"                                  "3 4 5 6 6.5 7"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 140 190 240 480 960"
-        "LinkedSpecialBonus"                              "special_bonus_unique_bloodseeker_2"
+        "value"                                           "110 180 250 320 640 1280"
+        "special_bonus_unique_bloodseeker_2"              "+120"
       }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "2.6"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay_plus_castpoint_tooltip"                    "2.9"
-      }
+      "delay"                                             "2.6"
+      "delay_plus_castpoint_tooltip"                      "2.9"
     }
   }
 }

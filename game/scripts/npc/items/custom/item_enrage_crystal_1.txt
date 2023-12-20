@@ -40,18 +40,19 @@
     "ScriptFile"                                          "items/enrage_crystal.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/enrage_crystal_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0 15.0 10.0"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "30 24 18"
+    "AbilitySharedCooldown"                               "enrage_crystal"
+    "AbilityManaCost"                                     "0"
 
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
     "ItemCost"                                            "9052"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
@@ -63,12 +64,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "40 60 85" // better than BKB 3-5
-      "bonus_damage"                                      "60 90 130" // better than BKB 3-5
-      "bonus_status_resist"                               "22 24 26"
+      "bonus_strength"                                    "35 55 80"
+      "bonus_damage"                                      "54 84 124"
+      "bonus_status_resist"                               "20 22 24"
+      "bonus_slow_resist"                                 "20 22 24"
       "dmg_reduction_while_stunned"                       "20 25 30"
-      "cooldown_tooltip"                                  "20 15 10"
-      "active_duration"                                   "1"
+      "cooldown_tooltip"                                  "30 24 18"
+      "active_duration"                                   "2"
     }
 
     // Precache

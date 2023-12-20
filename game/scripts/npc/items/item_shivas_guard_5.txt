@@ -38,21 +38,22 @@
     "ID"                                                  "3837"
     "BaseClass"                                           "item_shivas_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/shivas_guard_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "27"
+    "AbilityCooldown"                                     "27 26 25 24 23"
     "AbilitySharedCooldown"                               "shivas"
-    "AbilityCastRange"                                    "900"
-    "AbilityManaCost"                                     "200"
+    "AbilityManaCost"                                     "100"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34854"
+    "ItemCost"                                            "34829"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard 5;shivas guard 5;shiva 5"
@@ -61,63 +62,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_intellect"                                   "8 13 18 23 28"
+      "bonus_strength"                                    "8 13 18 23 28"
+      "bonus_agility"                                     "8 13 18 23 28"
+      "bonus_hp_regen"                                    "8 11 14 17 20"
+      "bonus_armor"                                       "16 17 19 22 26"
+      "aura_radius"                                       "1200"
+      "aura_attack_speed"                                 "-45 -60 -80 -105 -135"
+      "blast_damage"                                      "200 400 600 800 1000"
+      "blast_movement_speed"                              "-40 -45 -50 -55 -60"
+      "blast_debuff_duration"                             "4.0"
+      "blast_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "30 35 45 60 80"
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "10 12 15 19 24"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_attack_speed"                               "-45 -60 -80 -105 -135"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_damage"                                    "200 400 600 800 1000"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_movement_speed"                            "-40 -45 -50 -55 -60"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "blast_debuff_duration"                           "4.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_radius"                                    "900"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "blast_speed"                                     "400"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen_degen_aura"                             "25"
-      }
-      "20" //OAA
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_tooltip"                               "100 125 150 175 200"
-      }
+      "blast_speed"                                       "400"
+      "hp_regen_degen_aura"                               "25"
+      "illusion_multiplier_pct"                           "150"
+      "spell_amp"                                         "15 20 25 30 35"
+      "resist_debuff_duration"                            "16.0"
+      "cooldown_tooltip"                                  "27 26 25 24 23"
     }
   }
 }

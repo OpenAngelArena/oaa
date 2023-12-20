@@ -31,19 +31,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "max_attacks"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "3 4 5 6 7 8"
+        "value"                                           "3 4 5 6 7 8"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa_7"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_bonus_pct"                          "400"
-      }
+      "attack_speed_bonus_pct"                            "400"
+      "slow_resist"                                       "15 20 25 30 35 40"
     }
   }
 }

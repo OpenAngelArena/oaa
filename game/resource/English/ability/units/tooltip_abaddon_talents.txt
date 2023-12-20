@@ -1,2 +1,11 @@
+//"DOTA_Tooltip_ability_special_bonus_unique_abaddon_immolation"                  "{s:bonus_immolate_damage} DPS Borrowed Time Immolation"
+//"DOTA_Tooltip_ability_special_bonus_unique_abaddon_immolation_Description"      "Affects Abaddon and all enemies in a {s:bonus_immolate_aoe} AoE."
 
-"DOTA_Tooltip_ability_special_bonus_unique_abaddon_1_oaa"                       "+{s:value} Curse of Avernus Attack Speed"
+//"DOTA_Tooltip_modifier_abaddon_borrowed_time_immolate_damage"                   "Avernal Immolation"
+//"DOTA_Tooltip_modifier_abaddon_borrowed_time_immolate_damage_Description"       "Taking and dealing damage over time while Borrowed Time is active."
+
+"DOTA_Tooltip_ability_special_bonus_unique_abaddon_1_oaa"                       "#{DOTA_Tooltip_ability_special_bonus_unique_abaddon_immolation}"
+"DOTA_Tooltip_ability_special_bonus_unique_abaddon_1_oaa_Description"           "#{DOTA_Tooltip_ability_special_bonus_unique_abaddon_immolation_Description}"
+
+"DOTA_Tooltip_modifier_oaa_borrowed_time_immolation"                            "#{DOTA_Tooltip_modifier_abaddon_borrowed_time_immolate_damage}"
+"DOTA_Tooltip_modifier_oaa_borrowed_time_immolation_Description"                "#{DOTA_Tooltip_modifier_abaddon_borrowed_time_immolate_damage_Description}"

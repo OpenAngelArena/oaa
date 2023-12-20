@@ -41,11 +41,11 @@
     "ScriptFile"                                          "items/elixier_sustain.lua"
     "AbilityTextureName"                                  "custom/elixier_sustain_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "elixier"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
@@ -54,19 +54,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "6"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "elixier, elixir, sustain, sustainability"
+    "ItemAliases"                                         "sustain; sustain elixier; sustain elixir; lifesteal"
     "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
     "ItemKillable"                                        "1"
     "ItemPurchasable"                                     "1"
-    "ItemSellable"                                        "0"
+
     "SecretShop"                                          "1"
-    "SecretShopType"                                      "Elixirs"
     "IsTempestDoubleClonable"                             "0"
 
     // Precache
@@ -82,7 +81,7 @@
     "AbilityValues"
     {
       "bonus_hp_regen"                                    "50"
-      "bonus_lifesteal"                                   "50" // half against creeps
+      "bonus_lifesteal"                                   "55" // 60% of this against creeps
       "bonus_spell_lifesteal"                             "40" // 5th against creeps
       "duration"                                          "180"
     }

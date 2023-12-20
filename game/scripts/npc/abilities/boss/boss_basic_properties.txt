@@ -10,6 +10,7 @@
     "ScriptFile"                                          "abilities/boss/boss_basic_properties.lua"
     "AbilityTextureName"                                  "custom/boss_basic_properties"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "1"
 
@@ -17,7 +18,7 @@
     {
       // Damage reduction
       "percent_damage_reduce"                             "85"
-      // Min armor
+      // Min armor is starting armor - this number
       "max_armor_reduction"                               "25"
       // True Sight
       "reveal_duration"                                   "5.0"

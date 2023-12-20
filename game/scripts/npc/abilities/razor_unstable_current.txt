@@ -8,64 +8,37 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5084"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "self_movement_speed_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "self_movement_speed_pct"                         "10 15 20 25 30 35" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_razor_5"
+        "value"                                           "8 12 16 20 24 28"
       }
-      "02"
+      "strike_pct_chance"                                 "18"
+      "strike_target_count"                               "3"
+      "strike_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_pct_chance"                                "18"
-        "RequiresShard"                                   "1"
+        "value"                                           "40 80 120 160 320 640"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25%"
       }
-      "03"
+      "strike_move_slow_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_target_count"                              "3"
-        "RequiresShard"                                   "1"
+        "value"                                           "25 30 35 40 45 50"
+        "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25"
       }
-      "04"
+      "strike_slow_duration"                              "1.0"
+      "strike_search_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_damage"                                    "55 95 135 175 350 525" //OAA
-        "RequiresShard"                                   "1"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "CalculateSpellDamageTooltip"                     "1"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_move_slow_pct"                             "50"
-        "RequiresShard"                                   "1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_slow_duration"                             "1.5"
-        "RequiresShard"                                   "1"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_search_radius"                             "900"
-        "RequiresShard"                                   "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_internal_cd"                               "1.0 1.0 1.0 1.0 0.5 0.1"
-        "RequiresShard"                                   "1"
-      }
+      "strike_internal_cd"                                "3.0"
     }
   }
 }

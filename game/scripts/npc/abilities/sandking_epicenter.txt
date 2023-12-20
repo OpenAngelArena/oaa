@@ -39,18 +39,20 @@
       }
       "epicenter_damage" //OAA
       {
-        "value"                                           "120 180 240 420 720"
-        "special_bonus_shard"                             "+10"
+        "value"                                           "120 170 220 370 620"
+        "special_bonus_shard"                             "+40"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"
       {
-        "value"                                           "500 500 500 550 600"
+        "value"                                           "500"
         "special_bonus_unique_sand_king_5"                "+100"
+        "affected_by_aoe_increase"                        "1"
       }
       "epicenter_radius_increment"
       {
         "value"                                           "25"
+        "special_bonus_unique_sand_king_5"                "+25"
       }
       "epicenter_slow"
       {
@@ -65,10 +67,11 @@
         "value"                                           "425"
         "special_bonus_unique_sand_king_5"                "+100"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "shard_move_distance"
+      "shard_interval"
       {
-        "value"                                           "700.0"
+        "value"                                           "3.5"
         "RequiresShard"                                   "1"
       }
     }

@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_bfury_3;item_upgrade_core_3"
-      "02"                                                "item_devastator_3;item_upgrade_core_3"
     }
   }
 
@@ -43,16 +42,15 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "75"
     "AbilityCooldown"                                     "16"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16503"
+    "ItemCost"                                            "17103"
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"

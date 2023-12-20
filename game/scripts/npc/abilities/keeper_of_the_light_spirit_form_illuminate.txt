@@ -27,18 +27,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "total_damage"
+      "total_damage" //OAA
       {
         "value"                                           "185 290 395 500 1000 2000"
-        "special_bonus_unique_keeper_of_the_light"        "+180"
+        "special_bonus_unique_keeper_of_the_light"        "+250"
       }
       "max_channel_time"                                  "3"
-      "radius"                                            "400"
+      "radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "range"                                             "1550"
-      "speed"                                             "900.0"
-      "vision_radius"                                     "800"
+      "speed"                                             "900" //OAA, Valve has it wrong
+      "vision_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "vision_duration"                                   "3.34"
-      "channel_vision_radius"                             "400"
+      "channel_vision_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "channel_vision_interval"                           "0.5"
       "channel_vision_duration"                           "10.34"
       "channel_vision_step"                               "150 180 210 240 270 300"

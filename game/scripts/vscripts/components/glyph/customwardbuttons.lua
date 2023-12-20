@@ -1,8 +1,3 @@
-LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ui_custom_observer_ward_charges", "components/glyph/customwardbuttons.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_ui_custom_sentry_ward_charges", "components/glyph/customwardbuttons.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
 if CustomWardButtons == nil then
   -- Debug:EnableDebugging()
   CustomWardButtons = class({})

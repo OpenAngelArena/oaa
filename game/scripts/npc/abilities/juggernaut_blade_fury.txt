@@ -20,9 +20,6 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 26 22 18 18 18" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,40 +29,39 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blade_fury_damage_tick"
+      "blade_fury_aspd_multiplier"
       {
-        "value"                                           "0.2"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "2.0"
       }
       "blade_fury_radius"
       {
         "value"                                           "260"
-        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut"
+        "special_bonus_unique_juggernaut"                 "+100"
+        "special_bonus_shard"                             "+100"
+        "affected_by_aoe_increase"                        "1"
       }
-      "blade_fury_damage"
+      "blade_fury_damage_per_tick" // OAA, old dps: 90 115 140 165 330 660
       {
-        "value"                                           "90 115 140 165 330 660"
-        "LinkedSpecialBonus"                              "special_bonus_unique_juggernaut_3"
+        "value"                                           "40 45 50 55 70 85"
       }
       "duration"
       {
         "value"                                           "5.0"
-        "special_bonus_unique_juggernaut_4"               "+1"
       }
-      "shard_bonus_move_speed"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "75"
-        "RequiresShard"                                   "1"
+        "value"                                           "27 24 21 18 18 18"
+        "special_bonus_unique_juggernaut_blade_fury_cooldown"  "-3"
       }
-      "shard_attack_rate"
+      "bonus_movespeed"
       {
-        "value"                                           "1.4"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_unique_juggernaut_blade_fury_movespeed"  "+30"
       }
-      "shard_damage_pct"
+      "movement_slow"
       {
-        "value"                                           "75"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "+35"
       }
     }
   }

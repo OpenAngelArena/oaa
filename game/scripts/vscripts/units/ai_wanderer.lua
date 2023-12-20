@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_wanderer_boss_buff", "abilities/boss/wanderer/modifier_wanderer_boss_buff.lua", LUA_MODIFIER_MOTION_NONE)
-
 -- the range at which we consider outselves basically attacking them
 local CLOSE_FOLLOW_RANGE = 300
 -- range to follow (visible) enemies, targetting the closest first
@@ -210,7 +208,9 @@ function WandererThink ()
     -- Cast abilities if below 75% health
     if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.75 then
       if thisEntity.netAbility and thisEntity.netAbility:IsFullyCastable() and nearestEnemy then
+        local cast_point = thisEntity.netAbility:GetCastPoint()
         thisEntity:CastAbilityOnTarget(nearestEnemy, thisEntity.netAbility, thisEntity:entindex())
+        return math.max(1, cast_point+0.1)
       end
       if thisEntity:GetHealth() / thisEntity:GetMaxHealth() <= 0.5 then
         if thisEntity.cleanseAbility and thisEntity.cleanseAbility:IsFullyCastable() then
@@ -228,12 +228,14 @@ function WandererThink ()
             false
           )
           if #enemiesToCleanse > 1 then
+            local cast_point = ability:GetCastPoint()
             ExecuteOrderFromTable({
               UnitIndex = thisEntity:entindex(),
               OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
               AbilityIndex = ability:entindex(),
               Queue = false,
             })
+            return math.max(1, cast_point+0.1)
           end
         end
       end

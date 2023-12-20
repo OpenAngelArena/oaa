@@ -40,13 +40,13 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
+    "AbilityCooldown"                                     "65"
     "AbilitySharedCooldown"                               "magic_lamp_oaa"
     "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34604"
+    "ItemCost"                                            "34304"
     "ItemShopTags"                                        "health_pool;mana_pool;hard_to_tag"
     "ItemAliases"                                         "magic lamp;panic button"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"

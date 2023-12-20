@@ -42,7 +42,7 @@
       "duration"                                          "45"
       "spark_damage_tempest"
       {
-        "value"                                           "75 135 195 255 510 765"
+        "value"                                           "75 140 205 270 540 810"
         "special_bonus_unique_arc_warden"                 "+35%"
       }
       "tempest_activation_delay"                          "1.0"
@@ -68,6 +68,7 @@
         "value"                                           "225"
         "RequiresScepter"                                 "1"
       }
+      "creep_damage_bonus_pct"                            "40"
     }
   }
 }

@@ -36,11 +36,12 @@
       "aoe"
       {
         "value"                                           "500 550 600 650 700 750"
-        "special_bonus_unique_warlock_upheaval_aoe"       "+75"
+        "special_bonus_unique_warlock_upheaval_aoe"       "+65"
+        "affected_by_aoe_increase"                        "1"
       }
-      "slow_per_second"                                   "10 15 20 25 30 35"
+      "slow_per_second"                                   "11 14 17 20 23 26"
       "duration"                                          "3.0"
-      "max_slow"                                          "75 80 85 90 95 100" //OAA
+      "max_slow"                                          "70 80 90 100 100 100" //OAA
       "aspd_per_second"                                   "10" // Valve forgot special_bonus_unique_warlock_10
       "damage_per_second"                                 "10" // min dps
       "max_damage"                                        "35 60 85 110 220 440" // max dps

@@ -9,6 +9,12 @@
 // "DOTA_Tooltip_ability_bristleback_bristleback_side_damage_reduction"           "%SIDE DAMAGE REDUCTION:"
 // "DOTA_Tooltip_ability_bristleback_bristleback_back_damage_reduction"           "%BACK DAMAGE REDUCTION:"
 // "DOTA_Tooltip_ability_bristleback_bristleback_quill_release_threshold"         "DAMAGE THRESHOLD:"
+// "DOTA_Tooltip_ability_bristleback_bristleback_scepter_description"             "Adds active ability to Bristleback. Bristleback rotates towards the targeted direction and, after %activation_delay%s, forcefully ejects %activation_num_quill_sprays% sequential Quill Sprays in a tight conical pattern out of his back every %activation_spray_interval%s. Bristleback's facing is locked during this time, he is disarmed, and his speed is reduced by %activation_movement_speed_pct%%%."
+
+"DOTA_Tooltip_ability_bristleback_scepter_oaa"                                  "Quillback"
+"DOTA_Tooltip_ability_bristleback_scepter_oaa_Description"                      "Bristleback rotates towards the targeted direction and, after %activation_delay%s, forcefully ejects %activation_num_quill_sprays% sequential Quill Sprays in a tight conical pattern out of his back every %activation_spray_interval%s. Bristleback's facing is locked during this time, he is disarmed, and his speed is reduced by %activation_movement_speed_pct%%%."
+"DOTA_Tooltip_ability_bristleback_scepter_oaa_scepter_description"              "#{DOTA_Tooltip_ability_bristleback_scepter_oaa_Description}"
+"DOTA_Tooltip_ability_bristleback_scepter_oaa_Lore"                             "HAHA"
 
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa"                              "#{DOTA_Tooltip_ability_bristleback_bristleback}"
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa_Description"                  "#{DOTA_Tooltip_ability_bristleback_bristleback_Description}\n<font color='#FFA500'>Bristleback has a cooldown.</font>"
@@ -18,3 +24,4 @@
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa_side_damage_reduction"        "#{DOTA_Tooltip_ability_bristleback_bristleback_side_damage_reduction}"
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa_back_damage_reduction"        "#{DOTA_Tooltip_ability_bristleback_bristleback_back_damage_reduction}"
 "DOTA_Tooltip_ability_bristleback_bristleback_oaa_quill_release_threshold"      "#{DOTA_Tooltip_ability_bristleback_bristleback_quill_release_threshold}"
+"DOTA_Tooltip_ability_bristleback_bristleback_oaa_scepter_description"          "Grants #{DOTA_Tooltip_ability_bristleback_scepter_oaa} ability."

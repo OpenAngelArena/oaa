@@ -3,7 +3,7 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator_5"
+  "item_recipe_devastator_oaa_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -21,18 +21,18 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator_5"
+    "ItemResult"                                          "item_devastator_oaa_5"
 
     "ItemRequirements"
     {
-      "01"                                                "item_devastator_4;item_upgrade_core_4"
+      "01"                                                "item_devastator_oaa_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator_5"
+  "item_devastator_oaa_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -49,8 +49,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/devastator_5"
 
-    "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0"
+    "AbilityCastRange"                                    "700 750 800 850 900"
 
     "AbilitySharedCooldown"                               "devastator"
     "AbilityCooldown"                                     "11 10 9 8 7"
@@ -77,69 +76,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "50 70 100 140 190"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "corruption_armor"                                "-6 -9 -13 -18 -24"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "corruption_duration"                             "7.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_speed"                                "1200"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_width_initial"                        "200"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_width_end"                            "200"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_distance"                             "800"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_damage"                               "75 150 300 525 825"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_movespeed_reduction"                  "-10 -20 -30 -40 -50"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "devastator_movespeed_reduction_duration"         "7.0"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "devastator_armor_reduction"                      "-9 -12 -16 -21 -27"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "devastator_armor_reduction_duration"             "7.0"
-      }
+      "bonus_damage"                                      "50 70 100 140 190"
+      "corruption_armor"                                  "-6 -9 -13 -18 -24"
+      "corruption_duration"                               "7.0"
+      "devastator_speed"                                  "1800"
+      "devastator_width_initial"                          "200"
+      "devastator_width_end"                              "200"
+      "devastator_distance"                               "700 750 800 850 900"
+      "devastator_damage"                                 "75 150 300 525 825"
+      "devastator_movespeed_reduction"                    "-10 -20 -30 -40 -50"
+      "devastator_movespeed_reduction_duration"           "7"
+      "devastator_armor_reduction"                        "-9 -12 -16 -21 -27"
+      "devastator_armor_reduction_duration"               "7"
+      "interval"                                          "3"
+      "damage_per_interval"                               "50"
     }
   }
 }

@@ -10,6 +10,18 @@ end
 
 modifier_boss_stopfightingyourself_dupe_items = class(ModifierBaseClass)
 
+function modifier_boss_stopfightingyourself_dupe_items:IsHidden()
+  return true
+end
+
+function modifier_boss_stopfightingyourself_dupe_items:IsDebuff()
+  return false
+end
+
+function modifier_boss_stopfightingyourself_dupe_items:IsPurgable()
+  return false
+end
+
 function modifier_boss_stopfightingyourself_dupe_items:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_ATTACKED

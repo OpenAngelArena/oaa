@@ -31,7 +31,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
+    "AbilityManaCost"                                     "45 50 55 60 65 70"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,9 +48,9 @@
         "value"                                           "950"
         "RequiresScepter"                                 "1"
       }
-      "aftershock_range"
+      "aftershock_range" //OAA, should be the same as radius in earthshaker_aftershock
       {
-        "value"                                           "300"
+        "value"                                           "350"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
       }
       "scepter_height"                                    "950"

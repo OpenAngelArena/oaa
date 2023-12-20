@@ -1,0 +1,50 @@
+"itembuilds"
+{
+  "author"        "OAA 7.35x"
+  "hero"          "npc_dota_hero_muerta"
+  "Title"         "Recommended Items for Muerta"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_circlet"
+      "item"      "item_mantle"
+      "item"      "item_branches"
+      "item"      "item_branches"
+      "item"      "item_faerie_fire"
+    }
+
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_mask_of_madness"
+      "item"      "item_maelstrom"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_hurricane_pike"
+      "item"      "item_mjollnir"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_siege_mode"
+      "item"      "item_vampire"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_bloodthorn"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_sphere"
+      "item"      "item_swift_blink"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_refresher_4"
+      "item"      "item_trumps_fists"
+      "item"      "item_rapier"
+    }
+  }
+}

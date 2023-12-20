@@ -25,7 +25,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 13 11 9 7 5" //OAA
+    "AbilityCooldown"                                     "15 13 11 9 8 7" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -55,10 +55,10 @@
       "slow_duration" //OAA, Valve forgot '+0' on special_bonus_unique_disruptor
       {
         "value"                                           "0.1 0.2 0.3 0.4 0.5 0.6"
-        "special_bonus_unique_disruptor"                  "+0.4"
+        "special_bonus_unique_disruptor"                  "+0.5"
       }
       "slow_amount"                                       "100"
-      "shard_ground_delay"                                "5"
+      "shard_ground_delay"                                "7"
     }
   }
 }

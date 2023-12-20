@@ -26,77 +26,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "7 8 9 10 11 12"
+      "attack_range_bonus"                                "350 400 450 500 550 600"
+      "percent_damage"                                    "4 6 8 10 11 12"
+      "tick_rate"                                         "1.0"
+      "damage_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7 8 9 10 11 12"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range_bonus"                              "350 400 450 500 550 600"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "percent_damage"                                  "4 6 8 10 11 12"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "1.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_duration"                                 "5.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
+        "value"                                           "5.0"
         "CalculateSpellDamageTooltip"                     "0"
+        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "06"
+      "move_slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "16 24 32 40 45 50"
+        "value"                                           "16 24 32 40 45 50"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_1"
       }
-      "07"
+      "night_vision_bonus"                                "400"
+      "projectile_speed_bonus"                            "500"
+      "tree_destruction_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "night_vision_bonus"                              "400"
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1" 
       }
-      "08"
+      "attack_point"                                      "0.1"
+      "max_attacks"                                       "5"
+      "mana_cost_scepter" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed_bonus"                          "500"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tree_destruction_radius"                         "175"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "attack_point"                                    "0.1"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_attacks"                                     "5"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_cost_scepter"                               "20 25 30 35 40 45" //OAA
+        "value"                                           "20 25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
-      "13"
+      "movement_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_scepter"                                "25"
+        "value"                                           "25"
         "RequiresScepter"                                 "1"
       }
     }

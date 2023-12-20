@@ -25,8 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_reflection_shard_2;item_upgrade_core_3"
-      //"02"                                                "item_sphere_3;item_upgrade_core_3"
-      //"03"                                                "item_aeon_disk_3;item_upgrade_core_3"
     }
   }
 
@@ -39,13 +37,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "3820"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/reflex/reactive_reflect.lua"
+    "ScriptFile"                                          "items/reflection_shard.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reflection_shard_3"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "8 7 6 5"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilitySharedCooldown"                               "reflection_shard"
+    "AbilityManaCost"                                     "45"
 
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "3"
@@ -56,7 +55,6 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50"
     "ItemCost"                                            "16853"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"

@@ -15,14 +15,14 @@ SPECIAL_BOTTLES = {
   [141335296] = {1}, -- SquawkyArctangent
   [56309069] = {1}, -- imaGecko
   [116407282] = {1}, -- Haganeko
-  [123791730] = {1}, -- Warpdragon
+  [123791730] = {1,57}, -- Warpdragon
   [98536810] = {1}, -- Honeth
   [53917791] = {1}, -- Minnakht
   [103179022] = {1}, -- Allan vbhg
   [114538910] = {1}, -- Apisal
   [53999591] = {1}, -- carlosrpg
   [72521220] = {1}, -- Abit Gray
-  [37885614] = {1,55}, --Darkonius
+  [37885614] = {4,5,55}, --Darkonius
 
 
   -- golden tournament winners
@@ -65,11 +65,22 @@ SPECIAL_BOTTLES = {
 
 
   -- special people
-  [110318967] = {7}, -- timo
+  [110318967] = {4,5,7}, -- timo
   [34314091] = {8}, -- frej
   [370166341] = {9}, -- Melon
   [110964954] = {3,4,10}, -- Karmatic
-
+  [121375868] = {3,4,5}, -- BUDSTER
+  [110199172] = {3,4,5}, -- Mr F
+  [315878482] = {3,4,5}, -- GFC
+  [71409875] = {3,4,5}, -- Dabeast
+  [180650885] = {3,4,5}, -- Glaceon
+  [165382017] = {4,5,26,44,55,57}, -- Noob322
+  [312688223] = {3,4,5,59}, -- Nate
+  [211047291] = {3,4,5,56}, -- Mungeon
+  [290575742] = {3,4,5,54}, -- Obby
+  [858631509] = {3,4,5,54}, -- Obby
+  [256293935] = {3,4,5,9}, -- Woozi
+  [151615799] = {4,5,60}, -- FrostKitten
 
   -- twitch donators 3
 
@@ -147,7 +158,6 @@ SPECIAL_BOTTLES = {
   [92726647] = {3}, --steam: http://steamcommunity.com/profiles/76561198052992375 - twitch: -no name given}, current steam name Pomfritten
   [201059237] = {3}, --steam: https://steamcommunity.com/profiles/76561198161324965/ - twitch: GiveYaTheWorld
 
-
   -- twitch donators 20
 
   --KarmaticNeutral
@@ -173,7 +183,6 @@ SPECIAL_BOTTLES = {
   [74822878] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198035088606 - twitch: UrusMerek
   [123104098] = {3,4}, --steam: http://steamcommunity.com/profiles/76561198083369826 - twitch: sir_mampfer
 
-
   -- twitch donators 50
 
   [116097701] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198076363429 - twitch: Azure_Robe
@@ -186,17 +195,6 @@ SPECIAL_BOTTLES = {
   [53067223] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198013332951 - twitch: BattleSammy
   [107719587] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198067985315 - twitch: Creatures_rule1
   [80434451] = {3,4,5}, --steam: http://steamcommunity.com/profiles/76561198040700179 - twitch: xxSlaniz
-  [121375868] = {3,4,5}, -- BUDSTER
-  [110199172] = {3,4,5}, -- Mr F
-  [315878482] = {3,4,5}, -- GFC
-  [71409875] = {3,4,5}, -- Dabeast
-  [180650885] = {3,4,5}, -- Glaceon
-  [165382017] = {3,4,5,26,44,55,57}, -- Noob322
-  [312688223] = {3,4,5,59}, -- Nate
-  [211047291] = {3,4,5,56}, -- Mungeon
-  [290575742] = {3,4,5,54}, -- Obby
-  [858631509] = {3,4,5,54}, -- Obby
-  [256293935] = {3,4,5,9}, -- Woozi
 
   -- twitch donators 50 Custom
 

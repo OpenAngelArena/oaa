@@ -41,11 +41,11 @@
     "ScriptFile"                                          "items/elixier_burst.lua"
     "AbilityTextureName"                                  "custom/elixier_burst_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "elixier"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
@@ -54,19 +54,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "2"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "elixier, elixir, burst"
+    "ItemAliases"                                         "burst; burst elixier; burst elixir; attack speed"
     "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
     "ItemKillable"                                        "1"
     "ItemPurchasable"                                     "1"
-    "ItemSellable"                                        "0"
+
     "SecretShop"                                          "1"
-    "SecretShopType"                                      "Elixirs"
     "IsTempestDoubleClonable"                             "0"
 
     // Precache
@@ -79,33 +78,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_ms"                                        "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_as"                                        "400"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attacks"                                   "5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_duration"                                  "20"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "total_duration"                                  "60"
-      }
+      "bonus_ms"                                          "50"
+      "total_duration"                                    "60"
+      // stats when it procs:
+      "bonus_as"                                          "400"
+      "bonus_attacks"                                     "6"
+      "bonus_duration"                                    "20"
     }
   }
 }

@@ -13,6 +13,7 @@
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -29,7 +30,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 135 150 165 180 195"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -50,7 +51,7 @@
       "enfeeble_tick_damage" //OAA
       {
         "value"                                           "12 18 24 30 60 90"
-        "special_bonus_unique_bane_10"                    "+15"
+        "special_bonus_unique_bane_10"                    "+25"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "enfeeble_heal_pct"

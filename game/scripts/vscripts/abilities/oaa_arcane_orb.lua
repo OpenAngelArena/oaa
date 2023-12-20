@@ -239,7 +239,7 @@ if IsServer() then
 
       local mana_pool_damage_pct = ability:GetSpecialValueFor("mana_pool_damage_pct")
 
-      -- Talent that increases mana pool damage percent
+      -- Talent that increases mana pool damage percent - done through kv
       --if attacker:HasLearnedAbility("special_bonus_unique_outworld_devourer") then
         --mana_pool_damage_pct = mana_pool_damage_pct + 2
       --end
@@ -272,16 +272,22 @@ if IsServer() then
       local player = attacker:GetPlayerOwner()
       local point = target:GetAbsOrigin() -- store the location before we apply damage to the target
 
-      local damage_table = {}
-      damage_table.attacker = attacker
-      damage_table.damage_type = ability:GetAbilityDamageType()
-      damage_table.ability = ability
-      damage_table.damage = bonus_damage
-      damage_table.victim = target
+      -- Primary damage table
+      local damage_table_1 = {
+        attacker = attacker,
+        victim = target,
+        damage = bonus_damage,
+        damage_type = ability:GetAbilityDamageType(),
+        ability = ability,
+      }
 
-      -- Apply bonus damage to the attacked target (after all Arcane Orb debuffs)
-      ApplyDamage(damage_table)
-      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
+      -- Splash damage table
+      local damage_table_2 = {
+        attacker = attacker,
+        damage_type = ability:GetAbilityDamageType(),
+        ability = ability,
+      }
+
       target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
 
       -- Splash damage around the target (after dealing damage to the attacked target)
@@ -292,17 +298,25 @@ if IsServer() then
         local target_type = bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO)
         local target_flags = DOTA_UNIT_TARGET_FLAG_NONE
         local splash_damage = bonus_damage * splash_pct * 0.01
-        damage_table.damage = splash_damage
+        damage_table_2.damage = splash_damage
 
         local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), point, nil, radius, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
         for _, enemy in pairs(enemies) do
           if enemy and not enemy:IsNull() and enemy ~= target then
-            damage_table.victim = enemy
-            ApplyDamage(damage_table)
-            SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
+            damage_table_2.victim = enemy
+
+            --SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, enemy, splash_damage, player)
+
+            ApplyDamage(damage_table_2)
           end
         end
       end
+
+      -- Overhead particle message
+      SendOverheadEventMessage(player, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, bonus_damage, player)
+
+      -- Apply bonus damage to the attacked target
+      ApplyDamage(damage_table_1)
 
       self.procRecords[event.record] = nil
     end

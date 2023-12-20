@@ -1,0 +1,111 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "multiblend.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Specular ----
+	F_SPECULAR 1
+
+	//---- World Space UVs ----
+	F_WORLDSPACE_UVS 1
+
+	//---- Global ----
+	g_flSpecularBloom "0.000"
+	g_flSpecularIntensity "1.000"
+
+	//---- Layer 0 ----
+	g_flTexCoordRotate0 "0.000"
+	g_flTexCoordScale0 "6.000"
+	g_vColorTint0 "[0.549020 0.615686 0.674510 1.000000]"
+	g_vTexCoordOffset0 "[0.000 0.000]"
+	g_vTexCoordScroll0 "[0.000 0.000]"
+	TextureBloom0 "materials/default/default_bloom.tga"
+	TextureColor0 "materials/ground/stone001_color.png"
+	TextureNormal0 "materials/ground/grass_long_00_normal.png"
+	TextureReflectance0 "materials/ground/grass_long_00_refl.png"
+	TextureSelfIllumMask0 "materials/default/default_selfillum.tga"
+
+	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
+	g_flTexCoordScale1 "4.000"
+	g_vColorTint1 "[0.725490 0.658824 0.588235 1.000000]"
+	g_vTexCoordOffset1 "[0.000 0.000]"
+	g_vTexCoordScroll1 "[0.000 0.000]"
+	TextureBloom1 "materials/default/default_bloom.tga"
+	TextureColor1 "materials/ground/dirt_cracked_patchy_00_color.png"
+	TextureNormal1 "materials/ground/dirt_cracked_patchy_00_normal.png"
+	TextureReflectance1 "materials/default/default_refl.tga"
+	TextureRevealMask1 "materials/ground/dirt_cracked_patchy_blend.png"
+	TextureSelfIllumMask1 "materials/default/default_selfillum.tga"
+
+	//---- Layer 2 ----
+	g_flTexCoordRotate2 "0.000"
+	g_flTexCoordScale2 "4.000"
+	g_vColorTint2 "[0.870588 0.898039 0.933333 1.000000]"
+	g_vTexCoordOffset2 "[0.000 0.000]"
+	g_vTexCoordScroll2 "[0.000 0.000]"
+	TextureBloom2 "materials/default/default_bloom.tga"
+	TextureColor2 "materials/ground/snow_directional_00_color.png"
+	TextureNormal2 "materials/ground/grass_long_00_normal.png"
+	TextureReflectance2 "materials/ground/grass_long_00_refl.png"
+	TextureRevealMask2 "materials/ground/sand002_blend.png"
+	TextureSelfIllumMask2 "materials/default/default_selfillum.tga"
+
+	//---- Layer 3 ----
+	g_flTexCoordRotate3 "0.000"
+	g_flTexCoordScale3 "8.000"
+	g_vColorTint3 "[0.603922 0.513726 0.411765 1.000000]"
+	g_vTexCoordOffset3 "[0.000 0.000]"
+	g_vTexCoordScroll3 "[0.000 0.000]"
+	TextureBloom3 "materials/default/default_bloom.tga"
+	TextureColor3 "materials/ground/stone001_color.png"
+	TextureNormal3 "materials/default/default_normal.tga"
+	TextureReflectance3 "materials/default/default_refl.tga"
+	TextureRevealMask3 "materials/ground/sand002_blend.png"
+	TextureSelfIllumMask3 "materials/default/default_selfillum.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "1.000"
+
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+
+	SystemAttributes
+	{
+		WorldMappingWidth "1024"
+		WorldMappingHeight "1024"
+	}
+
+
+	VariableState
+	{
+		"Global"
+		{
+		}
+		"Layer 0"
+		{
+			"Texture Coords" 0
+		}
+		"Layer 1"
+		{
+			"Texture Coords" 0
+		}
+		"Layer 2"
+		{
+			"Texture Coords" 0
+		}
+		"Layer 3"
+		{
+			"Texture Coords" 0
+		}
+		"Normal Map"
+		{
+		}
+	}
+}

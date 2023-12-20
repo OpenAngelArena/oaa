@@ -23,7 +23,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_skeleton_global_aura_emitter = class(ModifierBaseClass)
+modifier_skeleton_global_aura_emitter = class({})
 
 function modifier_skeleton_global_aura_emitter:IsHidden()
   return true
@@ -70,7 +70,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_skeleton_global_aura_effect = class(ModifierBaseClass)
+modifier_skeleton_global_aura_effect = class({})
 
 function modifier_skeleton_global_aura_effect:IsHidden()
   return true
@@ -155,10 +155,11 @@ if IsServer() then
       return
     end
 
-    local damage_table = {}
-    damage_table.victim = target
-    damage_table.attacker = parent
-    damage_table.ability = ability
+    local damage_table = {
+      attacker = parent,
+      victim = target,
+      --ability = ability,
+    }
 
     if target:IsOAABoss() then
       damage_table.damage = self.bonus_dmg_bosses or ability:GetSpecialValueFor("skeleton_bonus_damage_against_bosses")

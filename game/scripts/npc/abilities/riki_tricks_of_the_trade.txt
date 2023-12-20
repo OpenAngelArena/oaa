@@ -25,13 +25,17 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 11 10"
-    "AbilityManaCost"                                     "55"
+    "AbilityManaCost"                                     "45 55 65 75 85 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "18 16 14 12 11 10"
+        "special_bonus_unique_riki_6"                     "-3"
+      }
       "radius"
       {
         "value"                                           "450"
@@ -39,10 +43,10 @@
       }
       "attack_count"                                      "4"
       "damage_pct"                                        "40"
-      "agility_pct" //OAA
+      "agility_pct"
       {
-        "value"                                           "75 80 85 90 95 100"
-        "special_bonus_unique_riki_2"                     "+40"
+        "value"                                           "70 80 90 100 105 110"
+        "special_bonus_unique_riki_2"                     "+30"
       }
       "scepter_duration"
       {

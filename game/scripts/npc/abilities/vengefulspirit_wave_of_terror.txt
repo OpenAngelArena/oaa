@@ -27,43 +27,40 @@
     "AbilityCooldown"                                     "16 14 12 10 9 9"
     "AbilityDuration"                                     "8"
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "85 100 115 130 260 520"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 30 35 40 45 50"
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage"                                            "85 100 115 130 260 520"
+      "wave_speed"                                        "2000.0"
+      "wave_width"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_speed"                                      "2000.0"
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "armor_reduction"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "wave_width"                                      "325"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction"                                 "-3 -4 -5 -6 -8 -12"
+        "value"                                           "-3 -4 -5 -6 -8 -12"
         "LinkedSpecialBonus"                              "special_bonus_unique_vengeful_spirit_4"
       }
-      "04"
+      "attack_reduction" // reducing total attack damage
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_aoe"                                      "350"
+        "value"                                           "10 15 20 25 30 35"
       }
-      "05"
+      "vision_aoe"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "vision_duration"                                 "4"
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "vision_duration"                                   "4"
+      "steal_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_vengeful_spirit_wave_of_terror_steal"  "+20"
       }
     }
   }

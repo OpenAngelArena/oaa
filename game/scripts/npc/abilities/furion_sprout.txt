@@ -22,14 +22,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "625 700 775 850 925 1000"
     "AbilityCastPoint"                                    "0.35"
-    "AbilityCooldown"                                     "12 11 10 9 8.5 8"
+    "AbilityCooldown"                                     "12 11 10 9 9 9" //OAA
     "AbilityManaCost"                                     "70 90 110 130 150 170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "vision_range"                                      "250"
+      "vision_range"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "3 4 5 6 6.5 7"
       "blind_pct"
       {
@@ -40,6 +44,13 @@
       {
         "value"                                           "0"
         "special_bonus_unique_furion_7"                   "+1"
+      }
+      "sprout_damage"                                     "14 20 26 32 64 128"
+      "sprout_damage_inteval"                             "0.5"
+      "sprout_damage_radius"
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

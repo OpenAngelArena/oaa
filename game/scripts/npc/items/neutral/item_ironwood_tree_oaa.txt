@@ -27,18 +27,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "8" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tree_duration"                                   "10" //OAA
-      }
+      "bonus_all_stats"                                   "8" //OAA
+      "tree_duration"                                     "10" //OAA
     }
   }
 }

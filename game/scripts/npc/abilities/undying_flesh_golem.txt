@@ -35,14 +35,14 @@
         "value"                                           "35"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "slow_duration"                                     "6"
+      "slow_duration"                                     "4"
       "str_percentage" //OAA
       {
         "value"                                           "40"
         "special_bonus_unique_undying_4"                  "+60"
       }
       "duration"                                          "40"
-      "movement_bonus"                                    "30 35 40 45 50" //OAA
+      "movement_bonus"                                    "20 30 40 45 50"
     }
   }
 }

@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_heart_oaa_2;item_upgrade_core_2"
-      //"02"                                                "item_crimson_guard_2;item_upgrade_core_2"
     }
   }
 
@@ -41,11 +40,11 @@
     "ScriptFile"                                          "items/regen_crystal.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/regen_crystal_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "30"
     "AbilitySharedCooldown"                               "regen_crystal"
     "AbilityManaCost"                                     "200"
 
@@ -54,7 +53,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "10002"
+    "ItemCost"                                            "10602"
     "ItemShopTags"                                        "regen_health;health_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "regen crystal"
@@ -68,8 +67,9 @@
       "bonus_health"                                      "1500 2100 2850"
       "bonus_strength"                                    "0"
       "max_mana_to_hp_regen"                              "4.25"
-      "active_hp_regen"                                   "200 225 250"
-      "active_hp_regen_amp"                               "50"
+      //"active_hp_regen"                                   "175 200 225"
+      //"active_hp_regen_amp"                               "50"
+      "active_max_hp_as_heal"                             "7"
       "duration"                                          "6"
     }
 

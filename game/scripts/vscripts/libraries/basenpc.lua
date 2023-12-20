@@ -6,9 +6,6 @@
 --]]
 
 -- This file is also loaded on client
--- but client doesn't have FindAbilityByName
-
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
   function CDOTA_BaseNPC:HasLearnedAbility(abilityName)
@@ -321,9 +318,37 @@ if CDOTA_BaseNPC then
       "modifier_puck_coiled",
       "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
+      "modifier_tidehunter_anchor_clamp",
       -- custom:
       "modifier_tinkerer_laser_contraption_debuff",
     }
+
+    -- Check for Leash immunities first (Sonic for example)
+    if self:HasModifier("modifier_sonic_fly") then
+      return false
+    end
+
+    -- Debuff Immunity interactions
+    if self:IsDebuffImmune() then
+      -- Grimstroke ult always pierces debuff immunity
+      if self:HasModifier("modifier_grimstroke_soul_chain") then
+        return true
+      end
+
+      -- Puck Dream Coil pierce debuff immunity with the talent
+      local dream_coil = self:FindModifierByName("modifier_puck_coiled")
+      if dream_coil then
+        local caster = dream_coil:GetCaster()
+        if caster then
+          local talent = caster:FindAbilityByName("special_bonus_unique_puck_5")
+          if talent and talent:GetLevel() then
+            return true
+          end
+        end
+      end
+
+      return false
+    end
 
     for _, v in pairs(normal_leashes) do
       if self:HasModifier(v) then
@@ -390,9 +415,25 @@ if C_DOTA_BaseNPC then
       "modifier_puck_coiled",
       "modifier_rattletrap_cog_leash", -- not sure if this modifier exists
       "modifier_slark_pounce_leash",
+      "modifier_tidehunter_anchor_clamp",
       -- custom:
       "modifier_tinkerer_laser_contraption_debuff",
     }
+
+    -- Check for Leash immunities first (Sonic for example)
+    if self:HasModifier("modifier_sonic_fly") then
+      return false
+    end
+
+    -- Debuff Immunity interactions
+    if self:IsDebuffImmune() then
+      -- Grimstroke Soulbind always pierces debuff immunity
+      if self:HasModifier("modifier_grimstroke_soul_chain") then
+        return true
+      end
+
+      return false
+    end
 
     for _, v in pairs(normal_leashes) do
       if self:HasModifier(v) then

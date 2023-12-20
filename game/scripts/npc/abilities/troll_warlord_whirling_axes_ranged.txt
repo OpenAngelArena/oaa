@@ -28,9 +28,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "axe_width"                                         "100"
-      "axe_speed"                                         "1500.0"
-      "axe_range"                                         "950.0"
+      "axe_width"
+      {
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "axe_speed"
+      {
+        "value"                                           "1500.0"
+      }
+      "axe_range"
+      {
+        "value"                                           "950.0"
+      }
       "axe_damage" //OAA
       {
         "value"                                           "50 100 150 200 400 800"
@@ -38,7 +48,7 @@
       }
       "axe_slow_duration"
       {
-        "value"                                           "2.5 3 3.5 4 4.5 5"
+        "value"                                           "2.5 3 3.5 4 4 4"
         "special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"  "+2"
       }
       "movement_speed"                                    "40"

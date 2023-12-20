@@ -40,6 +40,7 @@
     "ScriptFile"                                          "items/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -55,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34854"
+    "ItemCost"                                            "34829"
     "ItemShopTags"                                        "armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin armor 2"
@@ -71,16 +72,20 @@
 
     "AbilityValues"
     {
-      "bonus_armor"                                       "20 25"
-      "bonus_intellect"                                   "60 80"
+      "bonus_all_stats"                                   "23 28"
+      "bonus_armor"                                       "22 26"
+      "bonus_health_regen"                                "17 20"
+      "bonus_status_resist"                               "20 22"
+      // Aura stuff
       "hp_regen_amp"                                      "25"
       "heal_amp"                                          "25"
       "lifesteal_amp"                                     "25"
       "spell_lifesteal_amp"                               "25"
       "aura_radius"                                       "1200"
-      "stone_armor"                                       "100"
-      "stone_magic_resist"                                "0"
-      "stone_status_resist"                               "30"
+      // Active stuff
+      "stone_armor"                                       "100 200"
+      //"stone_magic_resist"                                "0"
+      //"stone_status_resist"                               "30"
       "stone_deflect_chance"                              "40"
       "stone_deflect_radius"                              "400"
       //"stone_move_speed"                                  "100"

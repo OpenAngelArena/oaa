@@ -36,6 +36,7 @@
     "ScriptFile"                                          "items/aeon_disk.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/combo_breaker_4"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -51,7 +52,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17603"
+    "ItemCost"                                            "17303"
     "ItemShopTags"                                        "health_pool;mana_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ad 4;aeon disk 4"

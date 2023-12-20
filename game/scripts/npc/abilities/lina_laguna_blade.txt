@@ -30,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "500 800 1100 2000 3200" //OAA
+      "damage"                                            "500 850 1200 2250 3300" //OAA
       "damage_delay"                                      "0.25"
       "AbilityCooldown" //OAA
       {
@@ -41,6 +41,12 @@
       {
         "value"                                           "0"
         "special_bonus_unique_lina_7"                     "+1"
+      }
+      "supercharge_duration"                              "5"
+      "supercharge_stacks"
+      {
+        "value"                                           "10"
+        "special_bonus_unique_lina_supercharge_stacks"    "+5"
       }
     }
   }

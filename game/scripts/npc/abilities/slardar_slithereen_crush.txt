@@ -20,11 +20,11 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.35"
+    "AbilityCastPoint"                                    "0.25"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8"
+    "AbilityCooldown"                                     "7"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "crush_radius"                                      "350"
+      "crush_radius"
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "crush_extra_slow"
       {
         "value"                                           "-20 -25 -30 -35 -40 -45"
@@ -42,7 +46,7 @@
         "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
       }
       "crush_attack_slow_tooltip"                         "-20 -25 -30 -35 -40 -45"
-      "crush_extra_slow_duration"                         "3 4 5 6 7 8"
+      "crush_extra_slow_duration"                         "3 4 5 6 6 6"
       "stun_duration"
       {
         "value"                                           "0.8"
@@ -50,18 +54,19 @@
       }
       "puddle_duration"
       {
-        "value"                                           "3 4 5 6 7 8"
-        "special_bonus_scepter"                           "+19"
+        "value"                                           "7"
+        "special_bonus_scepter"                           "+18"
       }
       "puddle_radius"
       {
         "value"                                           "250"
         "special_bonus_scepter"                           "+350"
+        "affected_by_aoe_increase"                        "1"
       }
-      "crush_damage"
+      "crush_damage" //OAA
       {
         "value"                                           "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slardar"
+        "special_bonus_unique_slardar"                    "+300"
       }
       "shard_amp_duration"
       {

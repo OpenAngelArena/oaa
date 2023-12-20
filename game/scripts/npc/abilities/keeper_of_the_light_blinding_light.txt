@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 20 18 16 15 14" //OAA
+    "AbilityCooldown"                                     "19 18 17 16 15 14" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,10 +38,18 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_8"
       }
       "duration"                                          "4"
-      "radius"                                            "425 450 475 500 525 550"
+      "radius"
+      {
+        "value"                                           "425 450 475 500 525 550"
+        "affected_by_aoe_increase"                        "1"
+      }
       "knockback_duration"                                "0.6"
-      "knockback_distance"                                "400"
-      "damage"                                            "85 130 175 220 440 880"
+      "knockback_distance"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "damage"                                            "90 160 230 300 600 1200" //OAA
     }
   }
 }

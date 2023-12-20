@@ -16,14 +16,11 @@ end
 -----------------------------------------------------------------------------------------
 
 function modifier_temple_guardian_immunity:CheckState()
-	local state = {}
-	if IsServer()  then
-		state[MODIFIER_STATE_MAGIC_IMMUNE] = true
-		state[MODIFIER_STATE_INVULNERABLE] = true
-		state[MODIFIER_STATE_OUT_OF_GAME] = true
-	end
-
-	return state
+  return {
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_OUT_OF_GAME] = true,
+  }
 end
 
 -----------------------------------------------------------------------------------------

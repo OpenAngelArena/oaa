@@ -18,7 +18,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1400"
-    "AbilityCastPoint"                                    "0.1"
+    "AbilityCastPoint"                                    "0.0" //OAA
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,11 @@
         "value"                                           "100 250 400 850 1300"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "radius"                                            "450"
+      "radius"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "45.0"
       "scepter_range"
       {
@@ -63,18 +67,20 @@
       }
       "shard_radius"
       {
-        "value"                                           "600"
+        "value"                                           "450"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "shard_damage_per_second"  //OAA
+      "shard_damage_per_second" //OAA
       {
-        "value"                                           "90"
+        "value"                                           "45 50 55 110 220"
         "RequiresShard"                                   "1"
       }
       "shard_charge_radius"
       {
         "value"                                           "400"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

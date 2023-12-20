@@ -1,7 +1,5 @@
 item_greater_tranquil_boots = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_oaa_thinker", "modifiers/modifier_oaa_thinker.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_greater_tranquil_boots_passive", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
@@ -9,19 +7,11 @@ LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/farming/great
 LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
 function item_greater_tranquil_boots:GetIntrinsicModifierName()
-	return "modifier_intrinsic_multiplexer"
-end
-
-function item_greater_tranquil_boots:GetIntrinsicModifierNames()
-  return {
-    "modifier_item_greater_tranquil_boots_passive",
-    "modifier_greater_tranquils_trees_buff"
-  }
+  return "modifier_item_greater_tranquil_boots_passive"
 end
 
 --function item_greater_tranquil_boots:ShouldUseResources()
@@ -102,23 +92,23 @@ function item_greater_tranquil_boots:Sprout(target)
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("sprout_duration")
   local target_loc = target:GetAbsOrigin()
-  local team = caster:GetTeamNumber()
+  --local team = caster:GetTeamNumber()
 
   -- Vision
-  local vision_radius
-  if target:GetTeamNumber() == team then
+  --local vision_radius
+  --if target:GetTeamNumber() == team then
     -- same vision as the target
-    vision_radius = math.min(target:GetCurrentVisionRange(), 900)
-  else
-    vision_radius = self:GetSpecialValueFor("sprout_vision_range")
-  end
+    --vision_radius = math.min(target:GetCurrentVisionRange(), 900)
+  --else
+    --vision_radius = self:GetSpecialValueFor("sprout_vision_range")
+  --end
 
   -- Create an invisible dummy/thinker
-  local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, team)
-  dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
-  dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
-  dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
-  dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
+  --local dummy = CreateUnitByName("npc_dota_custom_dummy_unit", target_loc, false, caster, caster, team)
+  --dummy:AddNewModifier(caster, self, "modifier_oaa_thinker", {})
+  --dummy:AddNewModifier(caster, self, "modifier_greater_tranquils_trees_dummy_stuff", {radius = vision_radius})
+  --dummy:AddNewModifier(caster, self, "modifier_kill", {duration = duration})
+  --dummy:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + MANUAL_GARBAGE_CLEANING_TIME})
 
   --self:CreateVisibilityNode(target_loc, vision_radius, duration)
 
@@ -126,11 +116,6 @@ function item_greater_tranquil_boots:Sprout(target)
   local c = math.sqrt(2) * 0.5 * r
   local x_offset = { -r, -c, 0.0, c, r, c, 0.0, -c }
   local y_offset = { 0.0, c, r, c, 0.0, -c, -r, -c }
-
-  local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_furion/furion_sprout.vpcf", PATTACH_CUSTOMORIGIN, caster)
-  ParticleManager:SetParticleControl(nFXIndex, 0, target_loc)
-  ParticleManager:SetParticleControl(nFXIndex, 1, Vector(0.0, r, 0.0))
-  ParticleManager:ReleaseParticleIndex(nFXIndex)
 
   -- Create trees
   for i = 1, 8 do
@@ -165,10 +150,10 @@ function item_greater_tranquil_boots:OnProjectileHit(target, location)
   self:Sprout(target)
 end
 
-function item_greater_tranquil_boots:IsBreakable()
-  local break_time = self:GetSpecialValueFor("break_time")
-  return break_time and break_time > 0
-end
+-- function item_greater_tranquil_boots:IsBreakable()
+  -- local break_time = self:GetSpecialValueFor("break_time")
+  -- return break_time and break_time > 0
+-- end
 
 item_greater_tranquil_boots_2 = item_greater_tranquil_boots
 item_greater_tranquil_boots_3 = item_greater_tranquil_boots
@@ -196,17 +181,66 @@ end
 --end
 
 function modifier_item_greater_tranquil_boots_passive:OnCreated()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
-    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.str = ability:GetSpecialValueFor("bonus_str")
-    self.int = ability:GetSpecialValueFor("bonus_int")
-    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
   end
 end
 
-modifier_item_greater_tranquil_boots_passive.OnRefresh = modifier_item_greater_tranquil_boots_passive.OnCreated
+function modifier_item_greater_tranquil_boots_passive:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_ms = ability:GetSpecialValueFor("bonus_movement_speed")
+    self.bonus_hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
+    self.bonus_str = ability:GetSpecialValueFor("bonus_str")
+    self.bonus_int = ability:GetSpecialValueFor("bonus_int")
+    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+    -- Stuff active only near trees:
+    self.hp_regen_amp = ability:GetSpecialValueFor("tree_hp_regen_amp")
+    self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
+    self.status_resist = ability:GetSpecialValueFor("tree_status_resistance")
+    self.tree_radius = ability:GetSpecialValueFor("tree_radius")
+  end
+end
+
+if IsServer() then
+  function modifier_item_greater_tranquil_boots_passive:OnIntervalThink()
+    local parent = self:GetParent()
+
+    if not parent or parent:IsNull() then
+      self:StartIntervalThink(-1)
+      return
+    end
+
+    -- Ignore illusions
+    if parent:IsIllusion() then
+      self:StartIntervalThink(-1) -- dynamic illusions still don't exist, so we can stop thinking
+      self:SetStackCount(2) -- don't grant tree stats
+      return
+    end
+
+    -- Ignore Meepo clones
+    if parent:IsClone() then
+      self:StartIntervalThink(-1) -- dynamic clones still don't exist, so we can stop thinking
+      self:SetStackCount(3) -- don't grant tree stats, strength and intelligence
+      return
+    end
+
+    -- Ignore banished units
+    if parent:IsOutOfGame() then
+      self:SetStackCount(2) -- don't grant tree stats
+      return
+    end
+
+    local parent_origin = parent:GetAbsOrigin()
+    -- Check if tree is nearby
+    if self.tree_radius and GridNav:IsNearbyTree(parent_origin, self.tree_radius, true) then
+      self:SetStackCount(1) -- grant tree stats
+    else
+      self:SetStackCount(2) -- don't grant tree stats
+    end
+  end
+end
 
 function modifier_item_greater_tranquil_boots_passive:IsAura()
   return true
@@ -234,30 +268,33 @@ function modifier_item_greater_tranquil_boots_passive:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
 
 function modifier_item_greater_tranquil_boots_passive:GetModifierMoveSpeedBonus_Special_Boots()
-  return self.moveSpd or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
+  return self.bonus_ms or self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
 end
 
 function modifier_item_greater_tranquil_boots_passive:GetModifierConstantHealthRegen()
-  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
+  return self.bonus_hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
 function modifier_item_greater_tranquil_boots_passive:GetModifierBonusStats_Strength()
-  if self:GetParent():IsClone() then
+  if self:GetStackCount() == 3 then
     return 0
   end
-  return self.str or self:GetAbility():GetSpecialValueFor("bonus_str")
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_str")
 end
 
 function modifier_item_greater_tranquil_boots_passive:GetModifierBonusStats_Intellect()
-  if self:GetParent():IsClone() then
+  if self:GetStackCount() == 3 then
     return 0
   end
-  return self.int or self:GetAbility():GetSpecialValueFor("bonus_int")
+  return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_int")
 end
 
 -- if IsServer() then
@@ -285,6 +322,30 @@ end
     -- end
 	-- end
 -- end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierHPRegenAmplify_Percentage()
+  if self:GetStackCount() ~= 1 then
+    return 0
+  end
+
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierIncomingDamage_Percentage()
+  if self:GetStackCount() ~= 1 then
+    return 0
+  end
+
+  return self.dmg_reduction or self:GetAbility():GetSpecialValueFor("tree_damage_reduction")
+end
+
+function modifier_item_greater_tranquil_boots_passive:GetModifierStatusResistanceStacking()
+  if self:GetStackCount() ~= 1 then
+    return 0
+  end
+
+  return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
+end
 
 function modifier_item_greater_tranquil_boots_passive:CheckState()
   return {
@@ -355,7 +416,7 @@ end
 modifier_greater_tranquils_trees_buff = class(ModifierBaseClass)
 
 function modifier_greater_tranquils_trees_buff:IsHidden()
-  return self:GetStackCount() ~= 0
+  return false
 end
 
 function modifier_greater_tranquils_trees_buff:IsDebuff()
@@ -363,14 +424,13 @@ function modifier_greater_tranquils_trees_buff:IsDebuff()
 end
 
 function modifier_greater_tranquils_trees_buff:IsPurgable()
-  return false
+  return true
 end
 
 function modifier_greater_tranquils_trees_buff:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:SetStackCount(2)
-    self:StartIntervalThink(0)
+    self:StartIntervalThink(0.1)
   end
 end
 
@@ -380,40 +440,38 @@ function modifier_greater_tranquils_trees_buff:OnRefresh()
     self.hp_regen_amp = ability:GetSpecialValueFor("tree_hp_regen_amp")
     self.dmg_reduction = ability:GetSpecialValueFor("tree_damage_reduction")
     self.status_resist = ability:GetSpecialValueFor("tree_status_resistance")
+    self.tree_radius = ability:GetSpecialValueFor("tree_radius")
   end
 end
 
 if IsServer() then
   function modifier_greater_tranquils_trees_buff:OnIntervalThink()
     local parent = self:GetParent()
-    local ability = self:GetAbility()
 
     if not parent or parent:IsNull() then
+      self:StartIntervalThink(-1)
       return
     end
 
-    -- Ignore illusions
-    if parent:IsIllusion() then
+    -- Ignore illusions and Meepo Clones
+    if parent:IsIllusion() or parent:IsClone() then
+      self:StartIntervalThink(-1)
+      self:Destroy()
       return
     end
 
-    -- Ignore banished units
-    if parent:IsOutOfGame() then
-      self:SetStackCount(2)
-      return
-    end
-
-    if not ability or ability:IsNull() then
+    -- Ignore banished units and units that have passive Tree Protection
+    if parent:IsOutOfGame() or parent:HasModifier("modifier_item_greater_tranquil_boots_passive") then
+      self:SetStackCount(2) -- don't grant tree stats
       return
     end
 
     local parent_origin = parent:GetAbsOrigin()
-    local tree_radius = ability:GetSpecialValueFor("tree_radius")
-
-    if GridNav:IsNearbyTree(parent_origin, tree_radius, true) then
-      self:SetStackCount(0)
+    -- Check if tree is nearby
+    if self.tree_radius and GridNav:IsNearbyTree(parent_origin, self.tree_radius, true) then
+      self:SetStackCount(1) -- grant tree stats
     else
-      self:SetStackCount(2)
+      self:SetStackCount(2) -- don't grant tree stats
     end
   end
 end
@@ -427,43 +485,34 @@ function modifier_greater_tranquils_trees_buff:DeclareFunctions()
 end
 
 function modifier_greater_tranquils_trees_buff:GetModifierHPRegenAmplify_Percentage()
-  if self:GetStackCount() == 0 then
-    return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
-  end
-
-  return 0
-end
-
-if IsServer() then
-  function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percentage(event)
-    --if event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
-      --return 0
-    --end
-    local ability = self:GetAbility()
-    if self:GetStackCount() == 0 then
-      local dmg_reduction = 0
-      if self.dmg_reduction then
-        dmg_reduction = 0 - self.dmg_reduction
-      elseif ability and not ability:IsNull() then
-        dmg_reduction = 0 - ability:GetSpecialValueFor("tree_damage_reduction")
-      end
-      if self:GetParent():IsClone() then
-        return dmg_reduction / 2
-      else
-        return dmg_reduction
-      end
-    end
-
+  if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
     return 0
   end
+
+  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
+end
+
+function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percentage()
+  if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
+    return 0
+  end
+
+  return self.dmg_reduction or self:GetAbility():GetSpecialValueFor("tree_damage_reduction")
 end
 
 function modifier_greater_tranquils_trees_buff:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() == 0 then
-    return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
+  if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
+    return 0
   end
 
-  return 0
+  return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
+end
+
+-- Flying Vision because Tree-vision needs wizardry
+function modifier_greater_tranquils_trees_buff:CheckState()
+  return {
+    [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
+  }
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -502,7 +551,7 @@ modifier_greater_tranquils_tranquilize_debuff.OnRefresh = modifier_greater_tranq
 function modifier_greater_tranquils_tranquilize_debuff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-    --MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+    MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
   }
 end
 
@@ -510,17 +559,23 @@ function modifier_greater_tranquils_tranquilize_debuff:GetModifierAttackSpeedBon
   return self.attack_slow
 end
 
---function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
-  --return 1
+function modifier_greater_tranquils_tranquilize_debuff:GetModifierProvidesFOWVision()
+  return 1
+end
+
+function modifier_greater_tranquils_tranquilize_debuff:CheckState()
+  return {
+    [MODIFIER_STATE_PROVIDES_VISION] = true,
+  }
+end
+
+--function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()
+  --return ".vpcf"
 --end
 
-function modifier_greater_tranquils_tranquilize_debuff:GetEffectName()
-  return "particles/units/heroes/hero_enchantress/enchantress_untouchable.vpcf"
-end
-
-function modifier_greater_tranquils_tranquilize_debuff:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
-end
+--function modifier_greater_tranquils_tranquilize_debuff:GetEffectAttachType()
+  --return PATTACH_
+--end
 
 function modifier_greater_tranquils_tranquilize_debuff:GetTexture()
   return "custom/greater_tranquils_4"
@@ -550,25 +605,25 @@ function modifier_greater_tranquils_bearing_buff:OnCreated()
   end
 
   if IsServer() then
-    if self.particle == nil then
-      local parent = self:GetParent()
+    --if self.particle == nil then
+      --local parent = self:GetParent()
       -- Particle
-      local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
-      self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
-      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
-      ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
-    end
+      --local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+      --self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+      --ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      --ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+    --end
 
     self:StartIntervalThink(0.1)
   end
 end
 
 function modifier_greater_tranquils_bearing_buff:OnRefresh()
-  if IsServer() and self.particle then
-    ParticleManager:DestroyParticle(self.particle, true)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-    self.particle = nil
-  end
+  --if IsServer() and self.particle then
+    --ParticleManager:DestroyParticle(self.particle, true)
+    --ParticleManager:ReleaseParticleIndex(self.particle)
+    --self.particle = nil
+  --end
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -576,14 +631,14 @@ function modifier_greater_tranquils_bearing_buff:OnRefresh()
     self.attack_speed = ability:GetSpecialValueFor("bearing_attack_speed")
   end
 
-  if IsServer() and self.particle == nil then
-    local parent = self:GetParent()
+  --if IsServer() and self.particle == nil then
+    --local parent = self:GetParent()
     -- Particle
-    local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
-    self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
-    ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
-    ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
-  end
+    --local particle_name = "particles/items_fx/drum_of_endurance_buff.vpcf"
+    --self.particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, parent)
+    --ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+    --ParticleManager:SetParticleControl(self.particle, 1, Vector(0,0,0))
+  --end
 end
 
 function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
@@ -594,13 +649,13 @@ function modifier_greater_tranquils_bearing_buff:OnIntervalThink()
   end
 end
 
-function modifier_greater_tranquils_bearing_buff:OnDestroy()
-  if IsServer() and self.particle then
-    ParticleManager:DestroyParticle(self.particle, false)
-    ParticleManager:ReleaseParticleIndex(self.particle)
-    self.particle = nil
-  end
-end
+--function modifier_greater_tranquils_bearing_buff:OnDestroy()
+  --if IsServer() and self.particle then
+    --ParticleManager:DestroyParticle(self.particle, false)
+    --ParticleManager:ReleaseParticleIndex(self.particle)
+    --self.particle = nil
+  --end
+--end
 
 function modifier_greater_tranquils_bearing_buff:DeclareFunctions()
   return {

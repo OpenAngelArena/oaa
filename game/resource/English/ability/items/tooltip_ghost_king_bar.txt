@@ -3,19 +3,16 @@
 //==========================================================================
 //"DOTA_Tooltip_Ability_item_holy_locket"                                         "Holy Locket"
 //"DOTA_Tooltip_Ability_item_recipe_holy_locket"                                  "Holy Locket Recipe"
-//"DOTA_Tooltip_ability_item_holy_locket_Description"                             "<h1>Active: Energy Charge</h1>Target an allied unit to instantly restore %restore_per_charge% health and mana per charge stored. <br><br>Max %max_charges% charges. Automatically gains a charge every %charge_gain_timer% seconds and whenever a visible enemy within %charge_radius% range uses an ability.\n\n<h1>Passive: Holy Blessing</h1>Amplifies heals you provide by %heal_increase%%%.\n\n<h1>Passive: Regeneration Aura</h1>Grants %aura_health_regen% health regeneration to allies.<br><br>Radius: %aura_radius%"
-//"DOTA_Tooltip_ability_item_holy_locket_bonus_health"                            "+$health"
-//"DOTA_Tooltip_ability_item_holy_locket_bonus_mana"                              "+$mana"
-//"DOTA_Tooltip_ability_item_holy_locket_health_regen"                            "+$hp_regen"
+//"DOTA_Tooltip_ability_item_holy_locket_Description"                             "<h1>Active: Energy Charge</h1>Target an allied unit to instantly restore %restore_per_charge% health and mana per charge stored. <br><br>Automatically gains a charge every %AbilityChargeRestoreTime% seconds and whenever a visible enemy within %charge_radius% range uses an ability.\n\n<h1>Passive: Holy Blessing</h1>Amplifies heals you provide by %heal_increase%%%."
 //"DOTA_Tooltip_ability_item_holy_locket_bonus_all_stats"                         "+$all"
 //"DOTA_Tooltip_ability_item_holy_locket_Lore"                                    "A prized relic long thought lost forever in a failed crusade."
 
-//"DOTA_Tooltip_modifier_item_holy_locket_aura"                                   "Holy Locket Aura"
-//"DOTA_Tooltip_modifier_item_holy_locket_aura_Description"                       "Regenerating %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."
+//"DOTA_Tooltip_modifier_item_headdress_aura"                                     "Headdress Regeneration Aura"
+//"DOTA_Tooltip_modifier_item_headdress_aura_Description"                         "Regenerating %fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP per second."
 
 "DOTA_Tooltip_Ability_item_ghost_king_bar_1"                                    "Ghost King Bar"
 "DOTA_Tooltip_Ability_item_recipe_ghost_king_bar_1"                             "Ghost King Bar Recipe"
-"DOTA_Tooltip_ability_item_ghost_king_bar_1_Description"                        "<h1>Active: Ghost King Form</h1> You become phased (lets you move through units), ethereal (renders you immune to physical damage, unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage) and you restore %active_restore_per_charge% health and mana per charge stored to self and all allies within %active_radius% range.<br>While in Ghost King Form all healing you do and receive is amplified by %active_heal_amp%%% and healed units receive Ghost King Blessing: bonus %buff_magic_resistance%%% magic resistance, bonus %buff_status_resistance%%% status resistance and bonus %buff_move_speed%%% move speed for %buff_duration% seconds.<br><br>Duration: %duration% <br><br>Max %max_charges% charges.  Gains a charge whenever any enemy on the map uses an ability. <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Regeneration Aura</h1>Grants %aura_health_regen% health regeneration to allies.<br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_ability_item_ghost_king_bar_1_Description"                        "<h1>Active: Ghost King Form</h1> You become phased (lets you move through units), ethereal (renders you immune to physical damage, unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage) and you restore %active_restore_per_charge% health and mana per charge stored to self and all allies within %active_radius% range.<br>While in Ghost King Form: healed units receive Ghost King Blessing: bonus %buff_magic_resistance%%% magic resistance, bonus %buff_status_resistance%%% status resistance and bonus %buff_move_speed%%% move speed for %buff_duration% seconds.<br><br>Duration: %duration% <br><br>Max %max_charges% charges.  Gains a charge whenever any enemy on the map uses an ability. <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Regeneration Aura</h1>Grants %aura_health_regen% health regeneration to allies.<br><br>Radius: %aura_radius%"
 "DOTA_Tooltip_ability_item_ghost_king_bar_1_Lore"                               "A powerful staff that belongs to one Undead King."
 //"DOTA_Tooltip_Ability_item_ghost_king_bar_1_Note0"                              "If you are Spell Immune it will only restore health and mana and not apply the buff. Spell Immunity doesn't remove the buff."
 "DOTA_Tooltip_Ability_item_ghost_king_bar_1_Note1"                              "Shares cooldown with Ethereal Blade and Holy Locket."
@@ -25,13 +22,13 @@
 "DOTA_Tooltip_Ability_item_ghost_king_bar_1_heal_amp"                           "%+Healing Amplification"
 
 "DOTA_Tooltip_modifier_item_ghost_king_bar_active"                              "Ghost King Form"
-"DOTA_Tooltip_modifier_item_ghost_king_bar_active_Description"                  "Ethereal, taking extra %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% magic damage. All healing you do and receive is amplified by %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE%%%. Your heals apply Ghost King Blessing buff."
+"DOTA_Tooltip_modifier_item_ghost_king_bar_active_Description"                  "Ethereal, taking extra %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%% magic damage. Your heals apply Ghost King Blessing buff."
 
 "DOTA_Tooltip_modifier_item_ghost_king_bar_buff"                                "Ghost King Blessing"
 "DOTA_Tooltip_modifier_item_ghost_king_bar_buff_Description"                    "Bonus %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance, bonus %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resist and bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% move speed."
 
-"DOTA_Tooltip_modifier_item_ghost_king_bar_aura_effect"                         "#{DOTA_Tooltip_modifier_item_holy_locket_aura}"
-"DOTA_Tooltip_modifier_item_ghost_king_bar_aura_effect_Description"             "#{DOTA_Tooltip_modifier_item_holy_locket_aura_Description}"
+"DOTA_Tooltip_modifier_item_ghost_king_bar_aura_effect"                         "#{DOTA_Tooltip_modifier_item_headdress_aura}"
+"DOTA_Tooltip_modifier_item_ghost_king_bar_aura_effect_Description"             "#{DOTA_Tooltip_modifier_item_headdress_aura_Description}"
 
 "DOTA_Tooltip_Ability_item_ghost_king_bar_2"                                    "#{DOTA_Tooltip_Ability_item_ghost_king_bar_1}"
 "DOTA_Tooltip_Ability_item_recipe_ghost_king_bar_2"                             "#{DOTA_Tooltip_Ability_item_recipe_ghost_king_bar_1}"
@@ -76,4 +73,3 @@
 //"DOTA_Tooltip_Ability_item_ghost_king_bar_5_bonus_mana"                         "#{DOTA_Tooltip_Ability_item_ghost_king_bar_1_bonus_mana}"
 "DOTA_Tooltip_Ability_item_ghost_king_bar_5_bonus_all_stats"                    "#{DOTA_Tooltip_Ability_item_ghost_king_bar_1_bonus_all_stats}"
 "DOTA_Tooltip_Ability_item_ghost_king_bar_5_heal_amp"                           "#{DOTA_Tooltip_Ability_item_ghost_king_bar_1_heal_amp}"
-

@@ -89,21 +89,19 @@ function FindOrCreatePanelForPlayer (playerId, parent) {
 
     if (playerPanel.GetAttributeInt('player_id', -1) === playerId) {
       playerPanel.SetParent(parent);
-      let badgeLevel = 0;
+      let badgeLevel = 1;
       const mmr = playerMmrValues[playerId];
-      if (mmr > 1000) {
+
+      if (mmr > 1100) {
         badgeLevel++;
       }
-      if (mmr > 1200) {
+      if (mmr > 1300) {
         badgeLevel++;
       }
-      if (mmr > 1400) {
+      if (mmr > 1500) {
         badgeLevel++;
       }
-      if (mmr > 1600) {
-        badgeLevel++;
-      }
-      if (mmr > 1800) {
+      if (mmr > 1700) {
         badgeLevel++;
       }
       playerPanel.SetHasClass(`mmr_badge_${badgeLevel}`, true);

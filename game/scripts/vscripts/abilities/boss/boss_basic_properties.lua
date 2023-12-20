@@ -2,6 +2,8 @@ LinkLuaModifier("modifier_boss_basic_properties_oaa", "abilities/boss/boss_basic
 LinkLuaModifier("modifier_boss_truesight_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_debuff_protection_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_tier_indicator_oaa", "abilities/boss/boss_basic_properties.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_boss_phase_controller", "modifiers/modifier_boss_phase_controller", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_anti_stun_oaa", "modifiers/modifier_anti_stun_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_basic_properties_oaa = class(AbilityBaseClass)
 
@@ -66,8 +68,8 @@ if IsServer() then
     end
 
     local inflictor = keys.inflictor
+    -- Block all damage if it was accidental
     if parent:CheckForAccidentalDamage(inflictor) then
-      -- Block all damage if it was accidental
       return keys.damage
     end
 
@@ -145,10 +147,10 @@ if IsServer() then
         local ability = attacker:FindAbilityByName("lone_druid_spirit_bear_demolish")
         if ability then
           local damage_increase_pct
-          if attacker:IsRealHero() then
-            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
-          else
+          if attacker:IsSpiritBearOAA() then
             damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          else
+            damage_increase_pct = ability:GetSpecialValueFor("true_form_bonus_building_damage")
           end
           if damage_increase_pct and damage_increase_pct > 0 then
             return damage_increase_pct
@@ -183,18 +185,55 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
-      anti_mage_mana_void = true,
-      bloodseeker_bloodrage = false,          -- doesn't work on vanilla Roshan
+      anti_mage_mana_void = false,
+      bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_ice = false,
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
-      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+      venomancer_noxious_plague = false,
+      winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
+      zuus_arc_lightning = false,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
       return 0 - self.dmg_reduction
+    end
+
+    -- Spells that do bonus damage to bosses
+    if name == "pugna_nether_blast" then -- Pugna Nether Blast
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("structure_damage_mod")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "shredder_flamethrower" then -- Timbersaw Flamethrower bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "jakiro_liquid_fire" then -- Jakiro Liquid Fire bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
+    elseif name == "ice_shaman_incendiary_bomb" then -- Ice Shaman neutral creep Icefire Bomb bonus damage
+      local ability = attacker:FindAbilityByName(name)
+      if ability then
+        local damage_increase_pct = ability:GetSpecialValueFor("building_damage_pct")
+        if damage_increase_pct and damage_increase_pct > 0 then
+          return damage_increase_pct
+        end
+      end
     end
 
   --   -- List of modifiers with all damage amplification that need to stack multiplicatively with Boss Resistance

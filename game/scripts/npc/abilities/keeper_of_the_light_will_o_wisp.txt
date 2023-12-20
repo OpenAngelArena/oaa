@@ -32,48 +32,21 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "on_count"                                          "5"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "on_count"                                        "5"
+        "value"                                           "725"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "725"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "hit_count"                                       "12" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "off_duration"                                    "1.85"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "on_duration"                                     "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "off_duration_initial"                            "1.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "fixed_movement_speed"                            "60"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bounty"                                          "100"
-      }
+      "hit_count"                                         "12" //OAA
+      "wisp_damage"                                       "75"
+      "off_duration"                                      "1.85"
+      "on_duration"                                       "1.0"
+      "off_duration_initial"                              "1.0"
+      "fixed_movement_speed"                              "60"
+      "bounty"                                            "100"
     }
   }
 }

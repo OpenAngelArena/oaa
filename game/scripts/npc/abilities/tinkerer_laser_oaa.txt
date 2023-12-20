@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tinkerer: Laser - shard ability
+  //=================================================================================================================
+  "tinkerer_laser_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/tinkerer/tinkerer_laser.lua"
+    "AbilityTextureName"                                  "tinker_laser"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "650"
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
+
+    // Time and Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16"
+    "AbilityManaCost"                                     "140"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "miss_rate"                                         "100"
+      "duration_hero"                                     "4.5"
+      "duration_creep"                                    "6.0"
+      "base_damage"                                       "350"
+      "current_hp_damage_pct"                             "10"
+      "radius"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

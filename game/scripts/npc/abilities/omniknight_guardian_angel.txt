@@ -8,8 +8,10 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "5266"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -19,29 +21,33 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "90" //OAA
+    "AbilityCooldown"                                     "0.5"
+    "AbilityCharges"                                      "2"
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "1200" //OAA, same as radius
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 200 250 300 350"
+    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "5.0 5.5 6.0 6.5 7.0" //OAA
-      "radius"                                            "1200"
-      "duration_scepter" //OAA
+      "scepter_max_charges"
       {
-        "value"                                           "6.0 6.5 7.0 7.5 8.0"
+        "value"                                           "3"
         "RequiresScepter"                                 "1"
       }
-      "scepter_status_resist"
+      "AbilityChargeRestoreTime"
       {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
+        "value"                                           "80 70 60 55 50"
+        "special_bonus_unique_omniknight_7"               "-15"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "900"
+        "special_bonus_scepter"                           "=0"
       }
     }
   }

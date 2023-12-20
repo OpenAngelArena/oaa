@@ -108,10 +108,6 @@ function modifier_sohei_momentum_strike_knockback:IsPurgable()
   return true
 end
 
-function modifier_sohei_momentum_strike_knockback:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_momentum_strike_knockback:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_HIGHEST
 end
@@ -280,10 +276,6 @@ end
 
 function modifier_sohei_momentum_strike_slow:IsPurgable()
   return true
-end
-
-function modifier_sohei_momentum_strike_slow:IsStunDebuff()
-  return false
 end
 
 function modifier_sohei_momentum_strike_slow:OnCreated()

@@ -2,7 +2,6 @@ slardar_bash_oaa = class( AbilityBaseClass )
 
 LinkLuaModifier( "modifier_slardar_bash_oaa", "abilities/oaa_bash_of_the_deep.lua", LUA_MODIFIER_MOTION_NONE )
 
---------------------------------------------------------------------------------
 
 function slardar_bash_oaa:GetIntrinsicModifierName()
   return "modifier_slardar_bash_oaa"
@@ -12,11 +11,9 @@ function slardar_bash_oaa:ShouldUseResources()
   return true
 end
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_slardar_bash_oaa = class( ModifierBaseClass )
-
---------------------------------------------------------------------------------
 
 function modifier_slardar_bash_oaa:IsHidden()
   return true
@@ -34,15 +31,12 @@ function modifier_slardar_bash_oaa:RemoveOnDeath()
   return false
 end
 
---------------------------------------------------------------------------------
-
 function modifier_slardar_bash_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
-
---------------------------------------------------------------------------------
 
 if IsServer() then
   -- we're putting the stuff in this function because it's only run on a successful attack
@@ -100,16 +94,7 @@ if IsServer() then
       -- go on cooldown
       spell:UseResources( false, false, false, true )
 
-      -- because talents are dumb we need to manually get its value
-      local damageTalent = 0
-
-      -- we also have to manually check if it's been skilled or not
-      local dtalent = parent:FindAbilityByName( "special_bonus_unique_slardar_2" )
-      if dtalent and dtalent:GetLevel() > 0 then
-        damageTalent = dtalent:GetSpecialValueFor( "value" )
-      end
-
-      local damage = spell:GetSpecialValueFor( "bonus_damage" ) + damageTalent
+      local damage = spell:GetSpecialValueFor( "bonus_damage" ) -- talent is applied through kv
       local creep_multiplier = spell:GetSpecialValueFor( "creep_dmg_multiplier" )
 
       -- creeps have different damage
@@ -125,5 +110,12 @@ if IsServer() then
 
       return 0
     end
+  end
+end
+
+function modifier_slardar_bash_oaa:GetModifierPreAttack_BonusDamage()
+  local parent = self:GetParent()
+  if (parent:HasModifier("modifier_slardar_sprint_river") or parent:HasModifier("modifier_slardar_puddle")) and not parent:PassivesDisabled() then
+    return self:GetAbility():GetSpecialValueFor("water_damage")
   end
 end

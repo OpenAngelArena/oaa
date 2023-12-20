@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_item_satanic_core", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_satanic_core_unholy", "items/satanic_core.lua", LUA_MODIFIER_MOTION_NONE )
 
@@ -13,6 +11,7 @@ end
 
 function item_satanic_core:GetIntrinsicModifierNames()
   return {
+    "modifier_item_bloodstone",
     "modifier_item_satanic_core",
     "modifier_item_spell_lifesteal_oaa",
   }
@@ -52,31 +51,45 @@ function modifier_item_satanic_core:GetAttributes()
 end
 
 function modifier_item_satanic_core:OnCreated()
+  self:OnRefresh()
+  -- if IsServer() then
+    -- self:StartIntervalThink(0.3)
+  -- end
+end
+
+function modifier_item_satanic_core:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
-    --self.bonus_int = ability:GetSpecialValueFor("bonus_intelligence")
-    self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    --self.bonus_magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
+    --self.bonus_hp = ability:GetSpecialValueFor("bonus_health")
+    --self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
     --self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
     --self.hp_regen_amp = ability:GetSpecialValueFor("hp_regen_amp")
+    --self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
   end
+
+  -- if IsServer() then
+    -- self:OnIntervalThink()
+  -- end
 end
 
-modifier_item_satanic_core.OnRefresh = modifier_item_satanic_core.OnCreated
+-- function modifier_item_satanic_core:OnIntervalThink()
+  -- if self:IsFirstItemInInventory() then
+    -- self:SetStackCount(2)
+  -- else
+    -- self:SetStackCount(1)
+  -- end
+-- end
 
 function modifier_item_satanic_core:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-    --MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_MANA_BONUS,
-    --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-    --MODIFIER_EVENT_ON_TAKEDAMAGE,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
+    --MODIFIER_PROPERTY_HEALTH_BONUS, -- GetModifierHealthBonus
+    --MODIFIER_PROPERTY_MANA_BONUS, -- GetModifierManaBonus
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING, -- GetModifierStatusResistanceStacking
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierHPRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE, -- GetModifierLifestealRegenAmplify_Percentage
+    --MODIFIER_PROPERTY_AOE_BONUS_CONSTANT, -- GetModifierAoEBonusConstant
   }
 end
 
@@ -84,48 +97,50 @@ function modifier_item_satanic_core:GetModifierBonusStats_Strength()
   return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
-function modifier_item_satanic_core:GetModifierBonusStats_Intellect()
-  return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_intelligence")
-end
+-- function modifier_item_satanic_core:GetModifierHealthBonus()
+  -- return self.bonus_hp or self:GetAbility():GetSpecialValueFor("bonus_health")
+-- end
 
-function modifier_item_satanic_core:GetModifierHealthBonus()
-  return self.bonus_hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
+-- function modifier_item_satanic_core:GetModifierManaBonus()
+  -- return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
+-- end
 
-function modifier_item_satanic_core:GetModifierManaBonus()
-  return self.bonus_mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
-end
-
-function modifier_item_satanic_core:GetModifierMagicalResistanceBonus()
-  return self.bonus_magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
-end
-
-function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
+-- function modifier_item_satanic_core:GetModifierStatusResistanceStacking()
   -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items
-  -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+  -- Prevent stacking with Sange items and with itself
+  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
-  return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
-end
+  -- return self.bonus_status_resist or self:GetAbility():GetSpecialValueFor("bonus_status_resist")
+-- end
 
-function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
+-- function modifier_item_satanic_core:GetModifierHPRegenAmplify_Percentage()
   -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items
-  -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+  -- Prevent stacking with Sange items and with itself
+  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
-end
+  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+-- end
 
-function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
+-- function modifier_item_satanic_core:GetModifierLifestealRegenAmplify_Percentage()
   -- local parent = self:GetParent()
-  -- Prevent stacking with Sange items
-  -- if parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
+  -- Prevent stacking with Sange items and with itself
+  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_sange") or parent:HasModifier("modifier_item_sange_and_yasha") or parent:HasModifier("modifier_item_kaya_and_sange") or parent:HasModifier("item_heavens_halberd") then
     -- return 0
   -- end
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
-end
+  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("hp_regen_amp")
+-- end
+
+-- Doesn't work, Thanks Valve
+-- function modifier_item_satanic_core:GetModifierAoEBonusConstant(event)
+  -- local parent = self:GetParent()
+  -- Prevent stacking with Bloodstone and with itself
+  -- if self:GetStackCount() ~= 2 or parent:HasModifier("modifier_item_bloodstone") then
+    -- return 0
+  -- end
+  -- return self.bonus_aoe or self:GetAbility():GetSpecialValueFor("bonus_aoe")
+-- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -146,7 +161,8 @@ end
 function modifier_satanic_core_unholy:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+    self.hero_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_hero_spell_lifesteal")
+    self.creep_lifesteal_tooltip = ability:GetSpecialValueFor("unholy_creep_spell_lifesteal")
     self.dmg_to_mana = ability:GetSpecialValueFor("unholy_damage_dealt_to_mana")
   end
 end
@@ -156,12 +172,17 @@ modifier_satanic_core_unholy.OnRefresh = modifier_satanic_core_unholy.OnCreated
 function modifier_satanic_core_unholy:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOOLTIP,
+    MODIFIER_PROPERTY_TOOLTIP2,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
 
 function modifier_satanic_core_unholy:OnTooltip()
-  return self.tooltip
+  return self.hero_lifesteal_tooltip
+end
+
+function modifier_satanic_core_unholy:OnTooltip2()
+  return self.creep_lifesteal_tooltip
 end
 
 if IsServer() then

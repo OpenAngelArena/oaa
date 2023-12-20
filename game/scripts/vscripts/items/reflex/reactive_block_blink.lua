@@ -1,5 +1,4 @@
 LinkLuaModifier( "modifier_item_reactive_2b", "items/reflex/reactive_block_blink.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reactive_2b = class(ItemBaseClass)
 

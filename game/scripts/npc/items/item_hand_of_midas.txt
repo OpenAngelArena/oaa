@@ -17,7 +17,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1750"
+    "ItemCost"                                            "1500"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -26,7 +26,7 @@
     "ItemResult"                                          "item_hand_of_midas_1"
     "ItemRequirements"
     {
-      "01"                                                "item_gloves"
+      "01"                                                "item_gloves;item_wind_lace"
     }
   }
 
@@ -49,7 +49,6 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "60"
     "AbilitySharedCooldown"                               "hand_of_midas"
     "AbilityManaCost"                                     "0"
@@ -67,6 +66,7 @@
     "AbilityValues"
     {
       "bonus_attack_speed"                                "50"
+      "bonus_movement_speed"                              "30"
       "xp_multiplier"                                     "3"
       "bonus_gold"                                        "160"
     }

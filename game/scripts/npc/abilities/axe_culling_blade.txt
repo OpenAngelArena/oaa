@@ -43,13 +43,21 @@
     {
       "damage" //OAA
       {
-        "value"                                           "250 450 650 1250 2250"
+        "value"                                           "275 475 675 1275 2275"
         "special_bonus_unique_axe_5"                      "+150"
       }
-      "speed_bonus"                                       "25 30 35 40 45" //OAA
-      "atk_speed_bonus"                                   "20 30 40 50 60"
-      "speed_duration"                                    "6"
-      "speed_aoe"                                         "900"
+      "speed_bonus"                                       "20 25 30 35 40"
+      "armor_bonus"                                       "20 25 30 35 40"
+      "speed_duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_axe_culling_blade_speed_duration"  "+4"
+      }
+      "speed_aoe"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
       "charge_speed"                                      "1200"
       "armor_per_stack" //OAA
       {

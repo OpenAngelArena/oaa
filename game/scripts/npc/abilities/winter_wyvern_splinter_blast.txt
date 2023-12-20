@@ -21,56 +21,31 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "7"
+    "AbilityCooldown"                                     "6"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "105 120 135 150 165 180"
+    "AbilityManaCost"                                     "105 115 125 135 145 155"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "projectile_speed"                                  "750"
+      "projectile_max_time"                               "1.0"
+      "split_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_speed"                                "650"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "projectile_max_time"                             "1.0"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "split_radius"                                    "500"
+        "value"                                           "500"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_2"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "bonus_movespeed"                                   "-30"
+      "movespeed_slow_tooltip"                            "30"
+      "duration"                                          "4.0"
+      "secondary_projectile_speed"                        "1000"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movespeed"                                 "-30"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow_tooltip"                          "30"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "secondary_projectile_speed"                      "1000"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "100 180 260 340 680 1360"
+        "value"                                           "100 180 260 340 680 1360"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_7"
       }
     }

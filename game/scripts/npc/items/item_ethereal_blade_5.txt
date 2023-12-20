@@ -40,6 +40,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/ethereal_blade_5"
 
     // Stats
@@ -57,7 +59,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34654"
+    "ItemCost"                                            "35379"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -68,12 +70,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "5 10 15 20 25"
-      "bonus_strength"                                    "5 10 15 20 25"
-      "bonus_intellect"                                   "25 30 35 40 45"
-      "spell_amp"                                         "12 16 20 24 28"
-      "spell_lifesteal_amp"                               "24 26 28 30 32"
-      "mana_regen_multiplier"                             "60 70 80 90 100"
+      "bonus_agility"                                     "8 13 18 23 28"
+      "bonus_strength"                                    "8 13 18 23 28"
+      "bonus_intellect"                                   "8 13 18 23 28"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_cast_range"                                  "225 275 325 375 425"
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
       "blast_movement_slow"                               "-80"
       "duration"                                          "4.0"
       "blast_agility_multiplier"                          "1.5"

@@ -18,7 +18,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "625"
+    "AbilityCastRange"                                    "550 575 600 625 650 675"
     "AbilityCastPoint"                                    "0"
 
     // Cost
@@ -36,6 +36,12 @@
       }
       "duration"                                          "2 2.4 2.8 3.2 3.6 4"
       "movespeed"                                         "120"
+      "radius"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_lion_4"                     "+250"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

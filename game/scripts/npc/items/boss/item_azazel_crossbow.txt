@@ -15,7 +15,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -43,14 +43,14 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18"
+    "AbilitySharedCooldown"                               "splash_cannon"
     "AbilityCastRange"                                    "1200"
-    "AbilityManaCost"                                     "50"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "72859"
+    "ItemCost"                                            "89559"
     "ItemShopTags"                                        "int;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "azazels;azazels crossbow;crossbow"
@@ -60,9 +60,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "90"
+      "bonus_agility"                                     "70"
       "bonus_strength"                                    "65"
-      "bonus_intellect"                                   "65"
+      "bonus_intellect"                                   "70"
       "bonus_health"                                      "1000"
       "bonus_health_regen"                                "15"
       "bonus_attack_range"                                "200"
@@ -77,7 +77,7 @@
       "active_radius"                                     "600"
       "active_splash_percent"                             "200"
       "active_crit_chance"                                "100"
-      "knockback_distance"                                "250"
+      "knockback_distance"                                "300"
       "knockback_duration"                                "0.5"
       "projectile_speed"                                  "1800"
     }

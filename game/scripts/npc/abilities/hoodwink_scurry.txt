@@ -34,7 +34,7 @@
     {
       "radius"                                            "275"
       "movement_speed_pct"                                "20 25 30 35 40 45"
-      "duration"                                          "4.0"
+      "duration"                                          "3.5 4.0 4.5 5.0 5.5 6.0"
       "evasion"                                           "15 20 25 30 35 40"
       "bonus_active_evasion"
       {
@@ -42,7 +42,11 @@
         "special_bonus_unique_hoodwink_scurry_evasion"    "+40"
       }
       "decoy_duration"                                    "6.0"
-      "decoy_detonate_radius"                             "250"
+      "decoy_detonate_radius"
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "decoy_stun_duration"                               "1.6"
       "images_do_damage_percent"                          "0"
       "images_take_damage_percent"                        "100"

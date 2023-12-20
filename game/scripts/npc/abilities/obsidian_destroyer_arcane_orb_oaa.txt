@@ -37,7 +37,11 @@
         "special_bonus_unique_outworld_devourer"          "+2"
       }
       "mana_cost_percentage"                              "20"
-      "radius"                                            "300" // splash radius
+      "radius" // splash radius
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "splash_damage_percent"                             "40"
       "int_steal"                                         "0"
       "int_steal_duration"                                "0"

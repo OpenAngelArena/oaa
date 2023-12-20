@@ -15,15 +15,13 @@ end
 -----------------------------------------------------------------------------------------
 
 function modifier_temple_guardian_passive:DeclareFunctions()
-	local funcs =
-	{
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 	}
-	return funcs
 end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_temple_guardian_passive:GetModifierMoveSpeed_Absolute( params )
+function modifier_temple_guardian_passive:GetModifierMoveSpeed_Absolute()
 	return self:GetAbility():GetSpecialValueFor( "movement_speed" )
 end

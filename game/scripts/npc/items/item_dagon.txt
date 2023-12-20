@@ -43,14 +43,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"                                  "item_dagon"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 750 800 850 900 950 1000 1050 1100"
-    "AbilityCastPoint"                                    "0.0"
 
-    "AbilityCooldown"                                     "24 22 19 17 15 13 12 11 10"
+    "AbilityCooldown"                                     "29 24 20 17 15 14 13 12 11"
     "AbilitySharedCooldown"                               "dagon"
 
     "AbilityManaCost"                                     "120 140 160 180 200 220 240 260 280"
@@ -76,15 +76,15 @@
       "bonus_agi"                                         "7 9 11 13 15 20 25 30 35"
       "spell_amp"                                         "0"
       "damage"                                            "400 500 600 700 800 950 1150 1400 1700"
-      "current_hp_dmg"                                    "0 0 0 0 0 8 11 14 17"
+      "current_hp_dmg"                                    "0 0 0 0 0 6 10 14 18"
       "hero_spell_lifesteal"                              "11 12 13 14 15 17 19 21 23"
       "creep_spell_lifesteal"                             "2.2 2.4 2.6 2.8 3.0 3.4 3.8 4.2 4.6"
       "burst_heal_percent"                                "75"
       "damage_delay"                                      "0"
       "blind_pct"                                         "100" // Blind is applied only for Dagons 6+
-      "blind_duration"                                    "2"
+      "blind_duration"                                    "3"
       "mana_cost_tooltip"                                 "120 140 160 180 200 220 240 260 280"
-      "cooldown_tooltip"                                  "24 22 19 17 15 13 12 11 10"
+      "cooldown_tooltip"                                  "29 24 20 17 15 14 13 12 11"
     }
 
     "precache"

@@ -41,8 +41,12 @@
         "value"                                           "80 115 150 185 370 740"
         "special_bonus_unique_razor_4"                    "+45"
       }
-      "radius"                                            "700"
-      "speed"                                             "636"  // 1.2 second to reach radius
+      "radius"
+      {
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "total_ability_time"                                "2.2"
       "slow_min"                                          "5"
       "slow_max"                                          "25 30 35 40 45 50"
       "slow_duration"                                     "1.5"

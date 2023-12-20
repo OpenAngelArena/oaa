@@ -32,60 +32,36 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "speed"                                             "1200"
+      "damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "1200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "60 105 150 195 390 585"
+        "value"                                           "60 105 150 195 390 585"
         "LinkedSpecialBonus"                              "special_bonus_unique_void_spirit_4"
       }
-      "04"
+      "buff_duration"                                     "10.0"
+      "base_absorb_amount"                                "40 80 120 160 320 640"
+      "absorb_per_hero_hit"                               "40 60 80 100 200 400"
+      "return_projectile_speed"                           "900"
+      "max_charges"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "10.0"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "base_absorb_amount"                              "40 80 120 160 320 640"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "absorb_per_hero_hit"                             "30 50 70 90 180 360"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "return_projectile_speed"                         "900"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
+        "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "09"
+      "charge_restore_time"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "18"
+        "value"                                           "15"
         "RequiresScepter"                                 "1"
       }
-      "10"
+      "silence_duration_scepter"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "silence_duration_scepter"                        "2.0"
+        "value"                                           "2.0"
         "RequiresScepter"                                 "1"
       }
     }

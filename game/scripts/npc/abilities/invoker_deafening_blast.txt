@@ -19,17 +19,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.05"
-    "AbilityCooldown"                                     "40"
-    "AbilityManaCost"                                     "300"
+    "AbilityCooldown"                                     "30" //OAA
+    "AbilityManaCost"                                     "250"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "travel_distance"                                   "1000"
+      "travel_distance"
+      {
+        "value"                                           "1000"
+        "affected_by_aoe_increase"                        "1"
+      }
       "travel_speed"                                      "1100"
-      "radius_start"                                      "175"
-      "radius_end"                                        "225"
+      "radius_start"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "radius_end"
+      {
+        "value"                                           "225"
+        "affected_by_aoe_increase"                        "1"
+      }
       "end_vision_duration"                               "1.75"
       "damage" //OAA
       {
@@ -38,7 +50,7 @@
       }
       "knockback_duration"
       {
-        "value"                                           "0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.85 2.1 2.35 2.6 2.85 3.1 3.35"
+        "value"                                           "0.2 0.4 0.6 0.8 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0"
         "levelkey"                                        "quaslevel"
       }
       "disarm_duration" //OAA

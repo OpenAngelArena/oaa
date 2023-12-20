@@ -20,8 +20,8 @@
     {
       "physical_damage_reduction" //OAA
       {
-        "value"                                           "40 45 50 55 65 75"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+10"
+        "value"                                           "40 47 54 61 68 75"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+12"
       }
       "forward_angle"                                     "140"
       "physical_damage_reduction_side"
@@ -41,15 +41,20 @@
         "value"                                           "18"
         "special_bonus_unique_mars_bulwark_speed"         "-10"
       }
-      "redirect_close_range"                              "100"
+      "redirect_close_range"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_redirection_grace_distance"                 "0"
       "soldier_count"
       {
-        "value"                                           "5"
+        "value"                                           "4"
         "RequiresScepter"                                 "1"
       }
       "soldier_offset"
       {
-        "value"                                           "200"
+        "value"                                           "150"
         "RequiresScepter"                                 "1"
       }
       "scepter_movement_slow_pct"
@@ -65,6 +70,21 @@
       "scepter_bonus_damage"
       {
         "value"                                           "75"
+        "RequiresScepter"                                 "1"
+      }
+      "stationary_attack_delay"
+      {
+        "value"                                           "0.0"
+        "RequiresScepter"                                 "1"
+      }
+      "knockback_distance"
+      {
+        "value"                                           "325"
+        "RequiresScepter"                                 "1"
+      }
+      "soldier_attack_range"
+      {
+        "value"                                           "275"
         "RequiresScepter"                                 "1"
       }
     }

@@ -21,11 +21,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 16 14" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "400 525 650 775 900 1025"
+    "AbilityCastRange"                                    "500 600 700 800 900 1000"
     "AbilityCastPoint"                                    "0.15"
 
     // Cost
@@ -34,66 +34,43 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "buff_duration"                                     "5"
+      "movespeed_bonus_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "3"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_bonus_pct"                             "20"
+        "value"                                           "20"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_6"
       }
-      "03"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "value"                                           "375"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "max_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_damage"                                      "90 180 270 360 720 1440"
+        "value"                                           "90 180 270 360 720 1440"
         "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_5"
       }
-      "05"
+      "max_stun"                                          "1.6 2.0 2.4 2.8 3.2 3.6" //OAA
+      "damage_per_tick"                                   "5 8 11 14 28 56"
+      "tick_rate"                                         "0.2"
+      "tick_dps_tooltip"                                  "25 40 55 70 140 280" // damage_per_tick divided by tick_rate
+      "max_threshold_duration"                            "2.5" // isn't this supposed to be slightly lower than buff_duration?
+      "shard_bonus_damage_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_stun"                                        "1.6 2.0 2.4 2.8 3.2 3.6" //OAA
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_tick"                                 "5 8 11 14 28 56"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_rate"                                       "0.2"
-      }
-      "08" // damage_per_tick divided by tick_rate
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "tick_dps_tooltip"                                "25 40 55 70 140 280"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_threshold_duration"                          "2.5"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_damage_pct"                          "40"
+        "value"                                           "30"
         "RequiresShard"                                   "1"
       }
-      "11"
+      "shard_heal_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_heal_pct"                                  "40"
+        "value"                                           "30"
+        "RequiresShard"                                   "1"
+      }
+      "shard_creep_penalty"
+      {
+        "value"                                           "0.2"
         "RequiresShard"                                   "1"
       }
     }

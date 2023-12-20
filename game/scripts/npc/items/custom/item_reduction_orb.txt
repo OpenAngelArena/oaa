@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Reduction Orb
+  //=================================================================================================================
+  "item_recipe_reduction_orb_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3821"
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "17000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_reduction_orb_1"
+    "ItemRequirements"
+    {
+      "01"                                                "item_heart_oaa_4;item_upgrade_core_4"
+      "02"                                                "item_regen_crystal_2;item_upgrade_core_4"
+      "03"                                                "item_heart_transplant;item_upgrade_core_4"
+    }
+  }
+
+  //=================================================================================================================
+  // Reduction Orb 1
+  //=================================================================================================================
+  "item_reduction_orb_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                                                  "3802"
+    "BaseClass"                                           "item_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityTextureName"                                  "custom/reduction_orb"
+    "ScriptFile"                                          "items/reduction_orb.lua"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
+    "AbilityCooldown"                                     "30"
+    "AbilitySharedCooldown"                               "reduction"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "35604"
+    "ItemShopTags"                                        "health_pool;armor;magic_resist;unique;hard_to_tag"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "reduction orb"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_health"                                      "2850" // same as Regen Crystal max level
+      "bonus_armor"                                       "15"
+      "bonus_magic_resistance"                            "25"
+      "damage_reduction"                                  "100"
+      "duration"                                          "4.0"
+      "damage_as_healing"                                 "25"
+    }
+  }
+}

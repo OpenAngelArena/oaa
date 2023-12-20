@@ -25,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_skadi_3;item_upgrade_core_3"
-      "02"                                                "item_abyssal_blade_3;item_upgrade_core_3"
     }
   }
 
@@ -42,13 +41,14 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
     "AbilityTextureName"                                  "custom/trumps_fists"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "judecca"
     "AbilityManaCost"                                     "100"
 
@@ -76,7 +76,7 @@
       "bonus_mana"                                        "1100 1400"
       "heal_prevent_percent"                              "55 65"
       "heal_prevent_duration"                             "3"
-      "mute_duration"                                     "4"
+      "mute_duration"                                     "3 3.5"
       "projectile_speed"                                  "900"
     }
 

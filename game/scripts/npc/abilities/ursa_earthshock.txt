@@ -38,9 +38,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "shock_radius"                                      "385"
+      "shock_radius"
+      {
+        "value"                                           "385"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_ursa_2"                     "+400"
+      }
       "movement_slow"                                     "-22 -28 -34 -40 -45 -50"
-      "hop_distance"                                      "250"
+      "hop_distance"
+      {
+        "value"                                           "250"
+      }
       "hop_duration"                                      "0.25"
       "hop_height"                                        "83"
       "shard_enrage_duration"
@@ -56,7 +64,16 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "11 10 9 8 8 8"
-        "special_bonus_unique_ursa_2"                     "-2"
+        "special_bonus_unique_ursa_3"                     "=0.25"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_ursa_3"                     "+2"
+      }
+      "AbilityChargeRestoreTime" //OAA, same as AbilityCooldown
+      {
+        "value"                                           "11 10 9 8 8 8"
       }
     }
   }

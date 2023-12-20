@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "6461"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -34,28 +34,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"
+      "damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 840"
+        "value"                                           "75 150 225 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "hero_stacks"
+      "base_shield"                                       "0"
+      "hero_shield"
       {
-        "value"                                           "20"
-        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+5"
+        "value"                                           "50 100 150 200 300 600"
+        "special_bonus_unique_pangolier_shield_crash_herostacks"  "+80"
       }
-      "duration"                                          "5"
-      "radius"                                            "500"
+      "duration"                                          "10"
+      "radius"
+      {
+        "value"                                           "500"
+        "special_bonus_unique_pangolier_shield_crash_radius"  "+125"
+        "affected_by_aoe_increase"                        "1"
+      }
       "jump_duration"                                     "0.4"
       "jump_duration_gyroshell"                           "0.75"
       "jump_height"                                       "250"
       "jump_height_gyroshell"                             "350"
       "jump_horizontal_distance"                          "225"
-      "rolling_thunder_cooldown"
-      {
-        "value"                                           "0"
-        "special_bonus_unique_pangolier_2"                "+3.0"
-      }
       "slow"                                              "20 25 30 35 40 45"
       "slow_duration"                                     "3"
     }

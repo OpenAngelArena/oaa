@@ -7,7 +7,9 @@
   {
     "include_keys_from"                                   "npc_dota_shadow_shaman_ward_1"
 
-    "AttackDamageMin"                                     "250"      // Damage range min.
-    "AttackDamageMax"                                     "250"      // Damage range max.
+    "Ability1"                                            ""
+
+    "AttackDamageMin"                                     "120"
+    "AttackDamageMax"                                     "120"
   }
 }

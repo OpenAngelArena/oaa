@@ -15,10 +15,10 @@
 
     "MaxLevel"                                            "6"
 
-    "AbilityCooldown"                                     "12" //OAA
+    "AbilityCooldown"                                     "14" //OAA
 
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "400"
+    "AbilityCastRange"                                    "500" //OAA, Valve has it wrong
 
     "AbilityManaCost"                                     "50"
 
@@ -40,7 +40,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "radius"                                          "500"
       }
       "04"
       {
@@ -50,13 +50,13 @@
       "05" // Valve Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "6" //OAA
+        "scepter_cooldown"                                "50"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_fade_duration"                           "0.75"
+        "scepter_fade_duration"                           "0.5"
         "RequiresScepter"                                 "1"
       }
     }

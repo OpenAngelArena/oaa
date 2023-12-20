@@ -50,12 +50,10 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_felfrost:DeclareFunctions()
-	local funcs = {
+	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	}
-
-	return funcs
 end
 --------------------------------------------------------------------------------
 

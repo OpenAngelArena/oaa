@@ -32,10 +32,9 @@
     "AbilityTextureName"                                  "custom/sonic_3"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "50"
     "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "sonic"
-    "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -47,33 +46,14 @@
     "ItemAliases"                                         "sonic"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "75 80"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 45"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "70 95"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_speed_bonus"                              "35 40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
+      "bonus_movement_speed"                              "75 80"
+      "bonus_attack_speed"                                "40 45"
+      "bonus_agility"                                     "70 95"
+      "active_speed_bonus"                                "35 40"
+      "active_cast_speed"                                 "25 30"
+      "duration"                                          "6"
     }
   }
 }

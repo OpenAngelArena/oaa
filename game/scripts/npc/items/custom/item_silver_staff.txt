@@ -42,10 +42,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "silver_staff"
-    "AbilityCastRange"                                    "950"
+    "AbilityCastRange"                                    "950 1050"
     "AbilityManaCost"                                     "75"
 
     // Spicy Parameters
@@ -55,7 +57,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15983"
+    "ItemCost"                                            "15783"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "silver staff; break staff; dragon staff"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -67,7 +69,7 @@
     {
       "bonus_health"                                      "1750 2750"
       "bonus_mana_regen"                                  "3.25 4.25"
-      "bonus_all_stats"                                   "20 25"
+      "bonus_all_stats"                                   "27 32"
       "bonus_armor"                                       "8 12"
       "base_damage"                                       "95 135"
       "max_hp_damage"                                     "4 5"

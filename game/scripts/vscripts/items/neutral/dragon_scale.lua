@@ -106,12 +106,14 @@ if IsServer() then
     local damage_type = DAMAGE_TYPE_MAGICAL --event.damage_type
 
     -- Create a damage table
-    local damage_table = {}
-    damage_table.attacker = parent
-    damage_table.victim = attacker
-    damage_table.damage = ability:GetSpecialValueFor("afterburn_damage")
-    damage_table.damage_type = damage_type
-    damage_table.damage_flags = bit.bor(DOTA_DAMAGE_FLAG_BYPASSES_BLOCK, DOTA_DAMAGE_FLAG_REFLECTION)
+    local damage_table = {
+      attacker = parent,
+      victim = attacker,
+      damage = ability:GetSpecialValueFor("afterburn_damage"),
+      damage_type = damage_type,
+      damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+      ability = ability,
+    }
 
     -- Set overhead alert
     local overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE

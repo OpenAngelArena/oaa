@@ -75,12 +75,11 @@
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-
       "bunker_units"                                      "1"
       "bunker_heal_pct"                                   "0"
       "tombstone_grab_radius"                             "350"
       "tombstone_bunker_cd"                               "3"
-
+      "tombstone_stun_penalty"                            "2"
       "zombie_damage_interval"
       {
         "value"                                           "0"

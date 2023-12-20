@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_faceless_void"
   "Title"         "Recommended items for Faceless Void"
 
@@ -15,15 +15,16 @@
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_mask_of_madness"
+      "item"      "item_hand_of_midas_1"
       "item"      "item_maelstrom"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
-      "item"      "item_silver_edge"
       "item"      "item_satanic"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -47,7 +48,7 @@
       "item"      "item_diffusal_blade"
       "item"      "item_greater_crit"
       "item"      "item_manta"
-      "item"      "item_revenants_brooch"
+      "item"      "item_devastator"
       "item"      "item_skadi"
       "item"      "item_sphere"
       "item"      "item_ultimate_scepter"

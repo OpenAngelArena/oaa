@@ -1,5 +1,3 @@
-LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_generic_dead_tracker_oaa", "modifiers/modifier_generic_dead_tracker_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 modifier_diarrhetic_oaa = class(ModifierBaseClass)
 
@@ -20,9 +18,9 @@ function modifier_diarrhetic_oaa:RemoveOnDeath()
 end
 
 function modifier_diarrhetic_oaa:OnCreated()
-  local interval = 30
+  local interval = 15
   self.check_for_ward_radius = POOP_WARD_RADIUS
-  self.duration = 2 * interval
+  self.duration = 4 * interval
 
   if IsServer() then
     self:StartIntervalThink(interval)

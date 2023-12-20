@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "8158"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES_STRONG"
 
@@ -37,11 +37,11 @@
         "value"                                           "265"
         "special_bonus_unique_hoodwink_bushwhack_radius"  "+135"
       }
-      "debuff_duration"                                   "1.25 1.5 1.75 2.0 2.1 2.2"
+      "debuff_duration"                                   "1.4 1.6 1.8 2.0 2.1 2.2"
       "projectile_speed"                                  "1300"
       "total_damage"
       {
-        "value"                                           "90 160 230 300 600 1200"
+        "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "animation_rate"                                    "0.3"

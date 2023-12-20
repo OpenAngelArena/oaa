@@ -283,7 +283,7 @@ end
 
 function modifier_spark_power_effect:OnTooltip()
   local parent = self:GetParent()
-  local damage = self.bonus
+  local damage = self.bonus or 0
   if damage == 0 then
     local caster = self:GetCaster()
     if caster then
@@ -298,7 +298,7 @@ end
 
 function modifier_spark_power_effect:OnTooltip2()
   local parent = self:GetParent()
-  local block = self.bonus
+  local block = self.bonus or 0
   if block == 0 then
     local caster = self:GetCaster()
     if caster then

@@ -3,7 +3,7 @@
 //=============================================================================
 "DOTA_Tooltip_Ability_item_sonic"                                               "Sonic Mask"
 "DOTA_Tooltip_Ability_item_recipe_sonic"                                        "Sonic Mask Recipe"
-"DOTA_Tooltip_Ability_item_sonic_Description"                                   "<h1>Active: Sonic Flight</h1> Grants flying movement and %active_speed_bonus%%% bonus movement speed, makes you unslowable (move speed and attack speed slows have no effect), unrootable and unleashable. Removes movement speed limit. Lasts %duration% seconds."
+"DOTA_Tooltip_Ability_item_sonic_Description"                                   "<h1>Active: Sonic Flight</h1> Grants flying movement, %active_speed_bonus%%% bonus movement speed, %active_cast_speed%%% cast time reduction and makes you unslowable (move speed and attack speed slows have no effect), unrootable and unleashable. Removes movement speed limit. Lasts %duration% seconds."
 "DOTA_Tooltip_Ability_item_sonic_Note0"                                         "Spells and items that apply roots, leashes and slows still apply their secondary effects if they have them (e.g. damage, disarm, reveal etc.)"
 "DOTA_Tooltip_Ability_item_sonic_bonus_movement_speed"                          "+$move_speed"
 "DOTA_Tooltip_Ability_item_sonic_bonus_attack_speed"                            "+$attack"
@@ -20,4 +20,4 @@
 "DOTA_Tooltip_Ability_item_sonic_2_Lore"                                        "#{DOTA_Tooltip_Ability_item_sonic_Lore}"
 
 "dota_tooltip_modifier_sonic_fly"                                               "Sonic Flight"
-"dota_tooltip_modifier_sonic_fly_Description"                                   "Flying, unslowable, unrootable, unleashable, bonus movement speed and no move speed limit."
+"dota_tooltip_modifier_sonic_fly_Description"                                   "Flying, unslowable, unrootable, unleashable, bonus movement and cast speed and no move speed limit."

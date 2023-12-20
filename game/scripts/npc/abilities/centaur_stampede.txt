@@ -38,7 +38,7 @@
       "base_damage"                                       "0"
       "strength_damage"
       {
-        "value"                                           "2 2.5 3 4 5"
+        "value"                                           "2 2.5 3 4 6"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow_duration"                                     "3"
@@ -50,7 +50,7 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "100 95 90 85 80"
+        "value"                                           "95 90 85 80 75"
         "special_bonus_unique_centaur_5"                  "-25"
       }
       "has_flying_movement"

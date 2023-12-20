@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "600" //OAA
+    "ItemCost"                                            "450"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -38,6 +38,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
@@ -55,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6050" //OAA
+    "ItemCost"                                            "5650"
     "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir;gliepnir;glaypnir"
@@ -65,19 +66,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "30 40 60 90 130" // Maelstrom (24)
+      "bonus_damage"                                      "30 40 60 90 130" // Maelstrom (25)
+      "bonus_attack_speed"                                "30 35 40 45 50"
       "chain_chance"                                      "30"
-      "chain_damage"                                      "160 210 310 460 660" // Maelstrom (135)
+      "chain_damage"                                      "160 210 310 460 660" // Maelstrom (120)
       "chain_strikes"                                     "4"
       "chain_radius"                                      "650 750 850 950 1050"
       "chain_delay"                                       "0.25"
       "chain_cooldown"                                    "0.2"
-      "bonus_intellect"                                   "24 29 39 54 74" // Rod of Atos (24)
-      "bonus_strength"                                    "12 17 27 42 62" //OAA, Rod of Atos (12)
-      "bonus_agility"                                     "12 17 27 42 62" //OAA, Rod of Atos (12)
+      "bonus_intellect"                                   "24 29 39 54 74" // Rod of Atos (15)
+      "bonus_hp"                                          "350 600 1100 1850 2850"
       "duration"                                          "2.0 2.5 3.0 3.5 4.0"
-      "radius"                                            "375"
+      "radius"
+      {
+        "value"                                           "375"
+        "affected_by_aoe_increase"                        "1"
+      }
       "active_damage"                                     "180 380 580 780 980"
+      "illusion_multiplier_pct"                           "150"
     }
   }
 }

@@ -1,7 +1,5 @@
-LinkLuaModifier("modifier_intrinsic_multiplexer", "modifiers/modifier_intrinsic_multiplexer.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bloodstone_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_bloodstone_non_stacking_stats", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_spell_lifesteal_oaa", "modifiers/modifier_item_spell_lifesteal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_item_bloodstone_charge_collector", "items/bloodstone.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_bloodstone_1 = class(ItemBaseClass)

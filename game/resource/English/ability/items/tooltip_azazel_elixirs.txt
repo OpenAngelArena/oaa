@@ -1,21 +1,37 @@
 //======================================================================
-// Azazel's Elixiers
+// Azazel's Elixirs
 //======================================================================
-"DOTA_Tooltip_Ability_item_elixier_burst"                                       "Burst Elixier"
-"DOTA_Tooltip_Ability_item_recipe_elixier_burst"                                "Burst Elixier Recipe"
-"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra movement speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixier. <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_burst"                                       "Burst Elixir"
+"DOTA_Tooltip_Ability_item_recipe_elixier_burst"                                "#{DOTA_Tooltip_Ability_item_elixier_burst} Recipe"
+"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra movement speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixir. <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_elixier_burst_Lore"                                  "A tangy concoction that grants a sudden burst of swiftness."
 "DOTA_Tooltip_Ability_item_elixier_burst_Note0"                                 "Buff is not lost on death and not purged by the Duel."
 
-"DOTA_Tooltip_Ability_item_elixier_hybrid"                                      "Hybrid Elixier"
-"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid"                               "Hybrid Elixier Recipe"
-"DOTA_Tooltip_Ability_item_elixier_hybrid_Description"                          "<h1>Active: Imbibe</h1> For %bonus_duration% seconds, increases mana regen by %bonus_mana_regen%.\n\nDeals extra %bonus_physical_damage% physical damage every time you deal magic damage and extra %bonus_magic_damage% magic damage every time you deal physical damage. <br><font color='#FF0000'>Costs 8 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_hybrid"                                      "Hybrid Elixir"
+"DOTA_Tooltip_Ability_item_recipe_elixier_hybrid"                               "#{DOTA_Tooltip_Ability_item_elixier_hybrid} Recipe"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_Description"                          "<h1>Active: Imbibe</h1> For %duration% seconds, increases mana regen by %bonus_mana_regen%.\n\nDeals extra %bonus_physical_damage% physical damage every time you deal magic damage and extra %bonus_magic_damage% magic damage every time you deal physical damage. <br><font color='#FF0000'>Costs 10 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Lore"                                 "A sweet concoction that empowers both mind and body with the essence of magic."
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Note0"                                "Doesn't proc on Pure damage."
 "DOTA_Tooltip_Ability_item_elixier_hybrid_Note1"                                "#{DOTA_Tooltip_Ability_item_elixier_burst_Note0}"
+"DOTA_Tooltip_Ability_item_elixier_hybrid_Note2"                                "Places a hidden buff on enemies with 0.5s duration that prevents Hybrid Elixir from proccing its damage very often."
 
-"DOTA_Tooltip_Ability_item_elixier_sustain"                                     "Sustain Elixier"
-"DOTA_Tooltip_Ability_item_recipe_elixier_sustain"                              "Sustain Elixier Recipe"
-"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %duration% seconds, grants %bonus_hp_regen% health regen, %bonus_lifesteal%%% lifesteal and %bonus_spell_lifesteal%%% spell lifesteal. Lifesteal is halved against creeps, and spell lifesteal is 1/5 against creeps. <br><font color='#FF0000'>Costs 6 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_sustain"                                     "Sustain Elixir"
+"DOTA_Tooltip_Ability_item_recipe_elixier_sustain"                              "#{DOTA_Tooltip_Ability_item_elixier_sustain} Recipe"
+"DOTA_Tooltip_Ability_item_elixier_sustain_Description"                         "<h1>Active: Imbibe</h1> For %duration% seconds, grants %bonus_hp_regen% health regen, %bonus_lifesteal%%% lifesteal and %bonus_spell_lifesteal%%% spell lifesteal. Lifesteal and spell lifesteal are reduced against creeps and illusions. <br><font color='#FF0000'>Costs 6 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_elixier_sustain_Lore"                                "A mellow concoction that protects the body and enhances its natural regeneration."
 "DOTA_Tooltip_Ability_item_elixier_sustain_Note0"                               "#{DOTA_Tooltip_Ability_item_elixier_burst_Note0}"
+
+// Modifiers
+"DOTA_Tooltip_modifier_elixier_burst_active"                                    "#{DOTA_Tooltip_Ability_item_elixier_burst} Movement"
+"DOTA_Tooltip_modifier_elixier_burst_active_Description"                        "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
+"DOTA_Tooltip_modifier_elixier_burst_trigger"                                   "#{DOTA_Tooltip_Ability_item_elixier_burst} Attack"
+"DOTA_Tooltip_modifier_elixier_burst_trigger_Description"                       "When you attack an enemy, you will gain bonus attack speed for the next few attacks."
+"DOTA_Tooltip_modifier_elixier_burst_bonus"                                     "#{DOTA_Tooltip_Ability_item_elixier_burst} Overpower"
+"DOTA_Tooltip_modifier_elixier_burst_bonus_Description"                         "Bonus attack speed for the next few attacks."
+
+"DOTA_Tooltip_modifier_elixier_sustain_active"                                  "#{DOTA_Tooltip_Ability_item_elixier_sustain}"
+"DOTA_Tooltip_modifier_elixier_sustain_active_Description"                      "Bonus %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% hp regen, lifesteal and spell lifesteal."
+
+"DOTA_Tooltip_modifier_elixier_hybrid_active"                                   "#{DOTA_Tooltip_Ability_item_elixier_hybrid}"
+"DOTA_Tooltip_modifier_elixier_hybrid_active_Description"                       "Bonus %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen. Every time you deal physical damage you will deal bonus magic damage and every time you deal magic damage you will deal bonus physical damage."
+

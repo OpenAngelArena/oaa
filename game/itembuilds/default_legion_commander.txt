@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_legion_commander"
   "Title"         "Recommended Items for Legion Commander"
 
@@ -10,6 +10,7 @@
     {
       "item"      "item_quelling_blade"
       "item"      "item_chainmail"
+      "item"      "item_flask"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -20,10 +21,9 @@
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_silver_edge"
-      "item"      "item_skadi"
-      "item"      "item_satanic"
+      "item"      "item_mjollnir"
+      "item"      "item_assault"
       "item"      "item_heavens_halberd"
-      "item"      "item_nullifier"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -33,16 +33,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_armlet"
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
-      "item"      "item_bloodthorn"
       "item"      "item_desolator"
-      "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
-      "item"      "item_silver_edge"
-      "item"      "item_sphere"
+      "item"      "item_nullifier"
+      "item"      "item_sange_and_yasha"
+      "item"      "item_satanic"
       "item"      "item_ultimate_scepter"
       "item"      "item_trumps_fists"
+      "item"      "item_refresher_4"
       "item"      "item_martyrs_mail_1"
     }
   }
