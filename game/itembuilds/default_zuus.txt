@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_zuus"
   "Title"         "Recommended items for Zeus"
 
@@ -13,13 +13,25 @@
       "item"      "item_boots"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ethereal_blade"
+      "item"      "item_kaya_and_sange"
       "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
-      "item"      "item_greater_power_treads"
+      "item"      "item_shivas_guard"
+      "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_hurricane_pike"
+      "item"      "item_devastator"
+      "item"      "item_angels_demise"
+      "item"      "item_yasha_and_kaya"
+      "item"      "item_mjollnir"
+      "item"      "item_greater_power_treads"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -31,11 +43,12 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
+      "item"      "item_bloodthorn"
       "item"      "item_dagon_oaa"
+      "item"      "item_octarine_core"
       "item"      "item_shield_staff"
       "item"      "item_wind_waker"
       "item"      "item_aeon_disk_oaa_2"
-      "item"      "item_greater_travel_boots"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"
     }

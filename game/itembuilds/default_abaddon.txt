@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_abaddon"
   "Title"         "Recommended items for Abaddon"
 
@@ -30,9 +30,9 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_harpoon"
-      "item"      "item_silver_edge"
       "item"      "item_manta"
-      "item"      "item_disperser"
+      "item"      "item_greater_crit"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Shard"

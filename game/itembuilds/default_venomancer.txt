@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_venomancer"
   "Title"         "Recommended items for Venomancer"
 
@@ -15,8 +15,10 @@
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_kaya"
+      "item"      "item_ethereal_blade"
       "item"      "item_ultimate_scepter"
       "item"      "item_octarine_core"
+      "item"      "item_shivas_guard"
       "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
     }
@@ -25,8 +27,6 @@
     {
       "item"      "item_shield_staff"
       "item"      "item_guardian_greaves"
-      "item"      "item_ethereal_blade"
-      "item"      "item_shivas_guard"
       "item"      "item_wind_waker"
     }
 

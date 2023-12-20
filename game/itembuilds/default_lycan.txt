@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_lycan"
   "Title"         "Recommended items for Lycan"
 
@@ -18,7 +18,6 @@
     {
       "item"      "item_harpoon"
       "item"      "item_monkey_king_bar"
-      "item"      "item_disperser"
       "item"      "item_greater_power_treads"
     }
 
@@ -28,6 +27,7 @@
       "item"      "item_assault"
       "item"      "item_lucience"
       "item"      "item_ultimate_scepter"
+      "item"      "item_bloodthorn"
       "item"      "item_martyrs_mail_1"
       "item"      "item_azazel_summon_fighter"
     }
@@ -40,7 +40,6 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodthorn"
       "item"      "item_heavens_halberd"
       "item"      "item_manta"
       "item"      "item_nullifier"

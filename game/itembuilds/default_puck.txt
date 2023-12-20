@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_puck"
   "Title"         "Recommended items for Puck"
 
@@ -15,6 +15,7 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_kaya_and_sange"
       "item"      "item_ethereal_blade"
       "item"      "item_overwhelming_blink"
       "item"      "item_octarine_core"
