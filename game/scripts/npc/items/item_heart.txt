@@ -10,7 +10,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80113"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -38,7 +37,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80114"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/heart.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"

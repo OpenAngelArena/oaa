@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_octarine_core_3"
   {
-    "ID"                                                  "8472"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -29,7 +28,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8461"
     "BaseClass"                                           "item_octarine_core"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/octarine_core_3"

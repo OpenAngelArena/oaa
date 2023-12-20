@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3340"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -43,7 +42,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3341"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/pull_staff.lua"
     "AbilityTextureName"                                  "custom/pull_staff_1"
