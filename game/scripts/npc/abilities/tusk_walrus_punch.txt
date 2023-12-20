@@ -36,35 +36,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_damage"                                      "50"
+      "crit_multiplier"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "250 325 400 450 500"
+        "value"                                           "200 275 350 425 500"
         "LinkedSpecialBonus"                              "special_bonus_unique_tusk"
       }
-      "02"
+      "air_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "air_time"                                        "1.0"
+        "value"                                           "1.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_tusk_7"
       }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "2.0 2.5 3.0 3.5 4.0" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_slow"                                       "40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "push_length"                                     "1000"
-      }
+      "slow_duration"                                     "2.0 2.5 3.0 3.5 4.0" //OAA
+      "move_slow"                                         "40"
+      "push_length"                                       "1000"
     }
   }
 

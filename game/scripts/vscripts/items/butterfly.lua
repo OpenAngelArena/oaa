@@ -44,16 +44,34 @@ function modifier_item_butterfly_oaa_passive:GetAttributes()
 end
 
 function modifier_item_butterfly_oaa_passive:OnCreated()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.3)
+  end
+end
+
+function modifier_item_butterfly_oaa_passive:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.agi = ability:GetSpecialValueFor("bonus_agility")
     self.evasion = ability:GetSpecialValueFor("bonus_evasion")
     self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+    self.as_per_agi = ability:GetSpecialValueFor("bonus_attack_speed_per_agility_pct")
     self.dmg = ability:GetSpecialValueFor("bonus_damage")
+  end
+
+  if IsServer() then
+    self:OnIntervalThink()
   end
 end
 
-modifier_item_butterfly_oaa_passive.OnRefresh = modifier_item_butterfly_oaa_passive.OnCreated
+function modifier_item_butterfly_oaa_passive:OnIntervalThink()
+  if self:IsFirstItemInInventory() then
+    self:SetStackCount(2)
+  else
+    self:SetStackCount(1)
+  end
+end
 
 function modifier_item_butterfly_oaa_passive:DeclareFunctions()
   return {
@@ -69,7 +87,15 @@ function modifier_item_butterfly_oaa_passive:GetModifierBonusStats_Agility()
 end
 
 function modifier_item_butterfly_oaa_passive:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+  -- Prevent stacking with itself
+  if self:GetStackCount() ~= 2 then
+    return 0
+  end
+  local parent = self:GetParent()
+  if parent.GetAgility == nil then
+    return self.attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
+  end
+  return self.attack_speed + (self.as_per_agi * parent:GetAgility() * 0.01)
 end
 
 function modifier_item_butterfly_oaa_passive:GetModifierEvasion_Constant()

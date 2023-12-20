@@ -8,46 +8,40 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "7306"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES" // OAA
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "LinkedAbility"                                       "chen_divine_favor_oaa"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.2"
+    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "armor"                                             "0"
+      "heal_rate"                                         "4 6 8 10 20 30" //OAA
+      "aura_radius"                                       "1200"
+      "duration"                                          "6"
+      "teleport_delay"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor"                                           "1 2 3 4 6 12"
+        "value"                                           "6"
+        "special_bonus_unique_chen_3"                     "-2"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_rate"                                       "4 6 8 10 20 30" //OAA
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "teleport_delay"                                  "6 5 4 3 2 1" //OAA
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "creep_bonus"                                     "1"
-      }
+      "bonus_armor"                                       "12 16 20 24 32 44"
+      "heal_amp"                                          "20"
+      "creep_bonus"                                       "1"
     }
   }
 }

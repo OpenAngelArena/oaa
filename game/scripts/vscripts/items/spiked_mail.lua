@@ -166,7 +166,6 @@ if IsServer() then
         "bane_brain_sap",
         "bane_enfeeble",
         --"bane_fiends_grip",
-        "bloodseeker_blood_bath",
         "bloodseeker_bloodrage", -- shard
         --"bloodseeker_rupture",
         --"doom_bringer_doom",
@@ -176,13 +175,10 @@ if IsServer() then
         "invoker_sun_strike",
         --"jakiro_macropyre", -- scepter
         "leshrac_diabolic_edict",
-        --"lina_laguna_blade", -- talent
-        "meepo_poof",
         "meepo_ransack",
         --"nyx_assassin_vendetta",
         "omniknight_hammer_of_purity",
         "omniknight_purification",
-        "phantom_assassin_fan_of_knives", -- shard
         "pudge_meat_hook",
         --"queenofpain_sonic_wave",
         "spectre_desolate",
@@ -193,7 +189,7 @@ if IsServer() then
         "shredder_timber_chain",
         "shredder_whirling_death",
         "tinker_laser",
-        --"tinkerer_laser_contraption",
+        "tinkerer_laser_oaa",
         "warlock_golem_flaming_fists",
         --"witch_doctor_death_ward_oaa",
         --"witch_doctor_voodoo_switcheroo_oaa",
@@ -383,7 +379,6 @@ if IsServer() then
         "bane_brain_sap",
         "bane_enfeeble",
         --"bane_fiends_grip",
-        "bloodseeker_blood_bath",
         "bloodseeker_bloodrage", -- shard
         --"bloodseeker_rupture",
         --"doom_bringer_doom",
@@ -393,13 +388,10 @@ if IsServer() then
         "invoker_sun_strike",
         --"jakiro_macropyre", -- scepter
         "leshrac_diabolic_edict",
-        --"lina_laguna_blade", -- talent
-        "meepo_poof",
         "meepo_ransack",
         --"nyx_assassin_vendetta",
         "omniknight_hammer_of_purity",
         "omniknight_purification",
-        "phantom_assassin_fan_of_knives", -- shard
         "pudge_meat_hook",
         --"queenofpain_sonic_wave",
         "spectre_desolate",
@@ -410,7 +402,7 @@ if IsServer() then
         "shredder_timber_chain",
         "shredder_whirling_death",
         "tinker_laser",
-        --"tinkerer_laser_contraption",
+        "tinkerer_laser_oaa",
         "warlock_golem_flaming_fists",
         --"witch_doctor_death_ward_oaa",
         --"witch_doctor_voodoo_switcheroo_oaa",

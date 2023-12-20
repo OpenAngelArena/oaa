@@ -15,7 +15,7 @@
     "ItemResult"                                          "item_mask_of_madness"
     "ItemRequirements"
     {
-      "01"                                                "item_lifesteal;item_quarterstaff"
+      "01"                                                "item_lifesteal;item_broadsword"
     }
   }
 
@@ -28,6 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                                                  "172"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,7 +43,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1775"
+    "ItemCost"                                            "1900"
     "ItemShopTags"                                        "unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "mom;mask of madness"
@@ -53,11 +54,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "10"
-      "bonus_attack_speed"                                "10"
+      "bonus_damage"                                      "20"
       "lifesteal_percent"                                 "24"
       "creep_lifesteal_reduction_pct"                     "40"
-      "berserk_bonus_attack_speed"                        "90" //OAA
+      "berserk_bonus_attack_speed"                        "100" //OAA
       "berserk_bonus_movement_speed"                      "30"
       "berserk_armor_reduction"                           "8"
       "berserk_duration"                                  "6.0"

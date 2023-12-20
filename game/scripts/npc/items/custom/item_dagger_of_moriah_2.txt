@@ -55,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "31529"
+    "ItemCost"                                            "34829"
     "ItemShopTags"                                        "agi;str;int;mana_regen;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
@@ -65,10 +65,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health_regen"                                "0"
-      "bonus_all_stats"                                   "20 25"
-      "bonus_mana_regen"                                  "3.25 4.25"
+      "bonus_all_stats"                                   "23 28"
+      "bonus_armor"                                       "22 26"
+      "bonus_health_regen"                                "17 20"
+      "bonus_mana_regen"                                  "0"
       "spell_amp_per_intellect"                           "0.08"
+      // Active stuff
       "radius"                                            "1200"
       "magic_dmg_amp"                                     "30 35"
       "heal_reduction_duration"                           "3"

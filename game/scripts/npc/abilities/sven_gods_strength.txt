@@ -31,19 +31,17 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "gods_strength_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "gods_strength_damage"                            "100 140 180 260 340"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_2"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "100 140 180 260 340" 
+        "special_bonus_unique_sven_2"                     "+50" 
       }
-      "02"
+      "bonus_slow_resistance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_slow_resistance"                           "30"
+        "value"                                           "30"  
+        "special_bonus_unique_sven_gods_strength_slow_resist"  "+20" 
       }
     }
   }

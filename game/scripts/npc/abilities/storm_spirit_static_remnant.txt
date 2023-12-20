@@ -33,14 +33,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "static_remnant_radius"                             "235"
+      "static_remnant_radius"
+      {
+        "value"                                           "235"
+        "affected_by_aoe_increase"                        "1" 
+      }
       "static_remnant_damage_radius"
       {
         "value"                                           "300"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "affected_by_aoe_increase"                        "1"
       }
-      "static_remnant_delay"                              "1.0"
+      "static_remnant_delay"                              "0.75"
       "static_remnant_damage"
       {
         "value"                                           "120 180 240 300 600 1200"

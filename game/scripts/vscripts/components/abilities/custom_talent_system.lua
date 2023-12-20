@@ -37,6 +37,9 @@ local abilities_with_custom_talents = {
     damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
     AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
   },
+  dragon_knight_breathe_fire = {
+    damage = {"special_bonus_unique_dragon_knight_1_oaa", "+"},
+  },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
@@ -66,6 +69,7 @@ local abilities_with_custom_talents = {
   },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
+    duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
   },
   sandking_epicenter = {
     AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},

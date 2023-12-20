@@ -48,7 +48,11 @@
         "affected_by_aoe_increase"                        "1"
       }
       "burn_duration"                                     "4"
-      "damage_per_second"                                 "15 35 55 75 150 300"
+      "damage_per_second"
+      {
+        "value"                                           "15 35 55 75 150 300"
+        "special_bonus_unique_phoenix_dive_damage"        "+20"
+      }
       "burn_tick_interval"                                "0.2"
       "slow_movement_speed_pct"
       {

@@ -46,7 +46,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "350" // original: 800 x 100
+      "radius" // original: 800 x 100
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "9"
       "delay"                                             "0.1"
       // "initial_damage"

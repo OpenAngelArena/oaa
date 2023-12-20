@@ -43,11 +43,15 @@
       }
       "min_range"                                         "550"
       "min_travel_time"                                   "0.45"
-      "max_travel_time"                                   "1.7"
-      "bounce_travel_time"                                "0.6"
+      "max_travel_time"                                   "1.5"
+      "bounce_travel_time"                                "0.5"
       "stun_duration"                                     "1.4"
-      "fragment_impact_distance"                          "600"
-      "fragment_impact_radius"                            "150"
+      "fragment_impact_distance"                          "525"
+      "fragment_impact_radius"
+      {
+        "value"                                           "185"
+        "affected_by_aoe_increase"                        "1" 
+      }
     }
   }
 }

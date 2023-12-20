@@ -13,7 +13,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "1300"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +22,7 @@
     "ItemResult"                                          "item_skadi"
     "ItemRequirements"
     {
-      "01"                                                "item_ultimate_orb;item_ultimate_orb;item_point_booster"
+      "01"                                                "item_ultimate_orb;item_point_booster"
     }
   }
 
@@ -57,9 +57,9 @@
       "bonus_health"                                      "220 320 470 670 920"
       "bonus_mana"                                        "220 320 470 670 920"
       "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_attack_slow_melee"                            "-10"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60" //OAA
-      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
       "heal_reduction"                                    "40 45 50 55 60"
     }

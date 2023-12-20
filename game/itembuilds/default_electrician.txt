@@ -1,6 +1,6 @@
 "itembuilds/default_electrician.txt"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_electrician"
   "Title"         "Recommended items for Chatterjee"
 
@@ -11,7 +11,6 @@
       "item"      "item_boots"
       "item"      "item_flask"
       "item"      "item_clarity"
-      "item"      "item_ward_stack"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -19,13 +18,22 @@
       "item"      "item_vanguard"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
+      "item"      "item_harpoon"
+      "item"      "item_greater_crit"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_power_treads"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_aether_lens"
       "item"      "item_shield_staff"
-      "item"      "item_guardian_greaves"
-      "item"      "item_far_sight"
+      "item"      "item_eternal_shroud"
       "item"      "item_shivas_guard"
       "item"      "item_octarine_core"
+      "item"      "item_ultimate_scepter"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -33,18 +41,25 @@
       "item"      "item_aghanims_shard"
     }
 
+    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
+    {
+      "item"      "item_satanic_core"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_stoneskin"
+    }
+
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_eternal_shroud"
+      "item"      "item_disperser"
       "item"      "item_ethereal_blade"
-      "item"      "item_heart_oaa"
+      "item"      "item_far_sight"
+      "item"      "item_heart_oaa_1"
       "item"      "item_heavens_halberd"
       "item"      "item_pipe"
       "item"      "item_radiance"
       "item"      "item_solar_crest"
       "item"      "item_sphere"
       "item"      "item_spiked_mail_1"
-      "item"      "item_ultimate_scepter"
       "item"      "item_wind_waker"
       "item"      "item_abyssal_blade_2"
       "item"      "item_regen_crystal_1"

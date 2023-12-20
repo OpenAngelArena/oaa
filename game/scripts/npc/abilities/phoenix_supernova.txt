@@ -40,6 +40,7 @@
       "aura_radius"
       {
         "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_sec"                                    "60 120 180 360 660" //OAA
       "tick_interval"                                     "0.2"

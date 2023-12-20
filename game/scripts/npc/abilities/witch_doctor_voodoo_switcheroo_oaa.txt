@@ -54,13 +54,11 @@
       }
       "ward_attack_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
         "value"                                           "600"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
       }
       "scepter_bounce_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
         "value"                                           "650"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"

@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Orchid
+  //=================================================================================================================
+  "item_orchid"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "900"
+    "AbilityCastPoint"                                    "0.0"
+    "AbilityCooldown"                                     "18.0"
+    "AbilitySharedCooldown"                               "orchid"
+    "AbilityManaCost"                                     "100"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "3475"
+    "ItemShopTags"                                        "attack_speed;damage;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "orchid malevolence;silence"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ShouldBeSuggested"                                   "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_attack_speed"                                "40"
+      "bonus_damage"                                      "10"
+      "bonus_mana_regen"                                  "3.5"
+      "bonus_health_regen"                                "6.0"
+      "bonus_intellect"                                   "12"
+      "silence_damage_percent"                            "30"
+      "silence_duration"                                  "5"
+    }
+  }
+}

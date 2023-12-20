@@ -18,7 +18,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "300"
+    "ItemCost"                                            "100"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -27,7 +27,7 @@
     "ItemResult"                                          "item_meteor_hammer_1"
     "ItemRequirements"
     {
-      "01"                                                "item_staff_of_wizardry;item_diadem;item_pers;item_crown"
+      "01"                                                "item_kaya;item_diadem;item_crown"
     }
   }
 
@@ -64,7 +64,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4150"
+    "ItemCost"                                            "3600"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh;meteor hammer"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -73,13 +73,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "24 29 39 54 74" // vanilla: 8;
-      "bonus_strength"                                    "12 17 27 42 62" // vanila: 8;
-      "bonus_agility"                                     "12 17 27 42 62" // vanila: 8;
-      "bonus_health_regen"                                "6.5 9 12 15 18" // vanilla: 6.5
-      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0" // vanilla: 2.5
-      "burn_dps_boss"                                     "200 400 600 800 1000"
-      "burn_dps"                                          "100 200 300 400 500" // vanilla: 60
+      "bonus_intellect"                                   "26 31 41 56 76" // Kaya (16); Diadem (6); Crown (4);
+      "bonus_strength"                                    "10 15 25 40 60" // Diadem (6); Crown (4);
+      "bonus_agility"                                     "10 15 25 40 60" // Diadem (6); Crown (4);
+      "spell_amp"                                         "10 14 18 22 26" // Kaya (8)
+      "mana_regen_multiplier"                             "50 60 70 80 90" // Kaya (50)
+      "spell_lifesteal_amp"                               "24 26 28 30 32" // Kaya (24)
+
+      "burn_dps_boss"                                     "150 350 550 750 950"
+      "burn_dps"                                          "75 175 275 375 475" // vanilla: 50
       "burn_duration"                                     "6"
       "stun_duration"                                     "1.5" // vanilla: 0.5
       "burn_interval"                                     "1.0"
@@ -90,7 +92,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "150 350 650 1050 1550" // vanilla: 150
+      "impact_damage"                                     "130 330 630 1030 1530" // vanilla: 130
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }
