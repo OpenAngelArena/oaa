@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5596"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -32,23 +31,24 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"                                          "5.0"
+      "move_speed"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.0"
+        "value"                                           "10 14 18 22 26 30"
+        "special_bonus_unique_legion_commander_pta_movespeed"  "+8"
       }
-      "02"
+      "hp_regen" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed"                                      "10 14 18 22 26 30"
+        "value"                                           "30 50 70 90 130 250"
+        "special_bonus_unique_legion_commander_6"         "+30"
       }
-      "03"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "hp_regen"                                        "30 50 70 90 130 250" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander_6"
+        "value"                                           "0"
+        "special_bonus_unique_legion_commander_5"         "+250"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

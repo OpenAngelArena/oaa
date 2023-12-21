@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85188"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_pugna_nether_ward.lua"
     "AbilityTextureName"                                  "pugna_nether_ward"
@@ -37,7 +36,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "1400"
+      "radius"
+      {
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "base_damage"                                       "50 75 100 125 250 500"
       "mana_multiplier"
       {

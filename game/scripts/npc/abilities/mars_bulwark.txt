@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6582"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 
     "MaxLevel"                                            "6"
@@ -41,7 +40,12 @@
         "value"                                           "18"
         "special_bonus_unique_mars_bulwark_speed"         "-10"
       }
-      "redirect_close_range"                              "100"
+      "redirect_close_range"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_redirection_grace_distance"                 "0"
       "soldier_count"
       {
         "value"                                           "4"

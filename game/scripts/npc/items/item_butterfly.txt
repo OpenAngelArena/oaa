@@ -10,7 +10,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80138"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -23,7 +22,7 @@
     "ItemResult"                                          "item_butterfly_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_eagle;item_talisman_of_evasion;item_quarterstaff"
+      "01"                                                "item_eagle;item_talisman_of_evasion;item_claymore"
     }
   }
 
@@ -34,7 +33,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80139"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/butterfly.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -56,7 +54,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "4975"
+    "ItemCost"                                            "5450"
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly;butterfly"
@@ -64,43 +62,16 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 35 50 70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_evasion"                                   "20 25 30 35 40"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "15 20 25 30 35"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "10 30 60 100 150"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_ms_per_agility"                             "0.1"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "buff_evasion"                                    "100"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "buff_duration"                                   "3.0"
-      }
+      "bonus_agility"                                     "25 35 50 70 95"
+      "bonus_evasion"                                     "20 25 30 35 40"
+      "bonus_attack_speed"                                "15"
+      "bonus_attack_speed_per_agility_pct"                "20" // +20% Agility Attack Speed
+      "bonus_damage"                                      "20 40 70 110 160"
+      "buff_ms_per_agility"                               "0.1"
+      "buff_evasion"                                      "100"
+      "buff_duration"                                     "3.0"
     }
 
     "precache"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5046"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -25,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 8 7 6 5 4" //OAA
+    "AbilityCooldown"                                     "9 8 7 6 5 5" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@
       "duration"                                          "5.0"
       "mana_per_second" //OAA
       {
-        "value"                                           "20 60 100 140 280 420"
+        "value"                                           "20 55 90 125 250 375"
       }
       "break_distance"
       {
@@ -51,7 +50,7 @@
         "value"                                           "20 25 30 35 40 45"
         "special_bonus_unique_lion_6"                     "+15"
       }
-      "shard_bonus_break_distance" // unused?
+      "shard_bonus_break_distance" // unused
       {
         "value"                                           "400"
         "RequiresShard"                                   "1"
@@ -63,8 +62,8 @@
       }
       "damage_pct"
       {
-        "value"                                           "0"
-        "special_bonus_unique_lion_manadrain_damage"      "+150"
+        "value"                                           "100"
+        "special_bonus_unique_lion_manadrain_damage"      "+100"
       }
       "magic_resist"
       {

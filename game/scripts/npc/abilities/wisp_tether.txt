@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5485"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -64,6 +63,8 @@
         "value"                                           "10"
         "RequiresShard"                                   "1"
       }
+      "damage"                                            "10 20 30 40 80 160"
+      "tick_rate"                                         "0.5"
     }
   }
 }

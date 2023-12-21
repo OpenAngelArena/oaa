@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5029"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 
     "MaxLevel"                                            "6"
@@ -37,6 +36,7 @@
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_juggernaut_3"               "+150"
       }
       "healing_ward_movespeed_tooltip"
       {

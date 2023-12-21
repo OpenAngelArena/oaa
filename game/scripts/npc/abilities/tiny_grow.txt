@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5109"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
 
@@ -33,7 +32,7 @@
       "attack_speed_reduction"                            "-30"
       "toss_bonus_damage" //OAA
       {
-        "value"                                           "100 250 400"
+        "value"                                           "100 300 500"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "slow_resistance"                                   "15 30 45"

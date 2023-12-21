@@ -29,6 +29,10 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
   local duration = self:GetSpecialValueFor("duration")
   local offset = self:GetSpecialValueFor("spawn_offset")
   local extend = self:GetSpecialValueFor("life_extension")
+  local healthIncreasePercentage = self:GetSpecialValueFor("current_health_pct")
+
+  -- Calculate health increase amount
+  local healthIncrease = caster:GetHealth() * (healthIncreasePercentage / 100)
 
   -- Lookup table for Eidolon unit names for each level
   local unitNames = {
@@ -42,7 +46,6 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
 
   -- Kill the target
   --target:Kill(self, caster)
-
   -- Directions
   local direction = caster:GetForwardVector()
   direction.z = 0.0
@@ -64,8 +67,14 @@ function enigma_demonic_conversion_oaa:OnSpellStart()
     eidolon:SetOwner(caster)
     eidolon:SetForwardVector(direction)
 
+    -- Increase Eidolon health based on percentage of caster's current health
+    local currentHealth = eidolon:GetHealth()
+    eidolon:SetMaxHealth(currentHealth + healthIncrease)
+    eidolon:SetBaseMaxHealth(currentHealth + healthIncrease)
+    eidolon:SetHealth(currentHealth + healthIncrease)
+
     -- Use built-in modifier to handle summon duration and splitting and eidolon talents hopefully
-    eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount})
+    eidolon:AddNewModifier(caster, self, "modifier_demonic_conversion", {duration = duration, allowsplit = splitAttackCount, current_health_pct = healthIncreasePercentage})
     eidolon:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
     eidolon:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = duration + extend + MANUAL_GARBAGE_CLEANING_TIME})
   end

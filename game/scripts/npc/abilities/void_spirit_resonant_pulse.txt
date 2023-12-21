@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7710"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -47,7 +46,7 @@
       }
       "buff_duration"                                     "10.0"
       "base_absorb_amount"                                "40 80 120 160 320 640"
-      "absorb_per_hero_hit"                               "30 50 70 90 180 360"
+      "absorb_per_hero_hit"                               "40 60 80 100 200 400"
       "return_projectile_speed"                           "900"
       "max_charges"
       {

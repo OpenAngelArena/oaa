@@ -87,8 +87,9 @@ end
 function modifier_item_stoneskin_passives:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
+    self.stats = ability:GetSpecialValueFor("bonus_all_stats")
     self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.bonus_int = ability:GetSpecialValueFor("bonus_intellect")
+    self.hp_regen = ability:GetSpecialValueFor("bonus_health_regen")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resist")
   end
 
@@ -107,18 +108,33 @@ end
 
 function modifier_item_stoneskin_passives:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
+end
+
+function modifier_item_stoneskin_passives:GetModifierBonusStats_Strength()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_stoneskin_passives:GetModifierBonusStats_Agility()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
+end
+
+function modifier_item_stoneskin_passives:GetModifierBonusStats_Intellect()
+  return self.stats or self:GetAbility():GetSpecialValueFor("bonus_all_stats")
 end
 
 function modifier_item_stoneskin_passives:GetModifierPhysicalArmorBonus()
   return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
-function modifier_item_stoneskin_passives:GetModifierBonusStats_Intellect()
-  return self.bonus_int or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+function modifier_item_stoneskin_passives:GetModifierConstantHealthRegen()
+  return self.hp_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
 end
 
 function modifier_item_stoneskin_passives:GetModifierStatusResistanceStacking()

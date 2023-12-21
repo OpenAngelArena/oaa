@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5444"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
@@ -83,7 +82,7 @@
       "bunker_heal_pct"                                   "0"
       "tombstone_grab_radius"                             "350"
       "tombstone_bunker_cd"                               "3"
-      "tombstone_stun_penalty"                            "3"
+      "tombstone_stun_penalty"                            "2"
       "zombie_damage_interval"
       {
         "value"                                           "0"

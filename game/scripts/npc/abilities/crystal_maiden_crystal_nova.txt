@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5126"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -27,7 +26,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "12 11 10 9 8 8"
-        "special_bonus_unique_crystal_maiden_5"           "-3"
+        "special_bonus_unique_crystal_maiden_5"           "-4"
       }
       "AbilityManaCost"                                   "115 135 155 175 195 215"
       "radius"

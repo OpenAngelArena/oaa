@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3245"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3247"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -56,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34854"
+    "ItemCost"                                            "34829"
     "ItemShopTags"                                        "armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin armor 2"
@@ -72,14 +70,17 @@
 
     "AbilityValues"
     {
-      "bonus_armor"                                       "20 25"
-      "bonus_intellect"                                   "60 80"
-      "bonus_status_resist"                               "22 24"
+      "bonus_all_stats"                                   "23 28"
+      "bonus_armor"                                       "22 26"
+      "bonus_health_regen"                                "17 20"
+      "bonus_status_resist"                               "20 22"
+      // Aura stuff
       "hp_regen_amp"                                      "25"
       "heal_amp"                                          "25"
       "lifesteal_amp"                                     "25"
       "spell_lifesteal_amp"                               "25"
       "aura_radius"                                       "1200"
+      // Active stuff
       "stone_armor"                                       "100 200"
       //"stone_magic_resist"                                "0"
       //"stone_status_resist"                               "30"

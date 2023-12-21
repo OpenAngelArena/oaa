@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "910"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_revenants_brooch"
     "ItemRequirements"
     {
-      "01"                                                "item_witch_blade;item_mystic_staff"
+      "01"                                                "item_relic;item_voodoo_mask"
     }
   }
 
@@ -33,20 +32,19 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "911"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/revenants_brooch"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilitySharedCooldown"                               "revenants_brooch"
-    "AbilityManaCost"                                     "300"
+    // "AbilityCooldown"                                     "25"
+    // "AbilityCastPoint"                                    "0.0"
+    // "AbilitySharedCooldown"                               "revenants_brooch"
+    // "AbilityManaCost"                                     "300"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6200"
+    "ItemCost"                                            "4900"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant;brooch;revenants brooch;rb"
@@ -60,21 +58,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "37 42 52 67 87" //OAA
-      "bonus_attack_speed"                                "35 45 55 65 75" //OAA
-      "bonus_armor"                                       "6 7 9 12 16" //OAA
-      "projectile_speed"                                  "300 350 400 450 500"
-      "int_damage_multiplier"                             "1"
-      "slow"                                              "25 30 35 40 45"
-      "slow_duration"                                     "4"
-      "mana_cost"                                         "100" // what is this Valve?
-      "damage_penalty"                                    "0"
-      "passive_cooldown"                                  "8.0" //OAA
-      "number_of_attacks"                                 "5 6 7 8 9"
-      "active_duration"                                   "15"
-      "active_attack_speed"                               "0"
-      "active_mres_reduction"                             "16 17 18 19 20" //OAA
-      "spell_amp_duration"                                "4" //OAA
+      "bonus_damage"                                      "55 65 85 115 155" //OAA
+      "spell_lifesteal"                                   "12 14 16 18 20" //OAA
+      "manacost_per_hit"                                  "200" //OAA, this doesn't matter for OD, such a failed concept
     }
   }
 }

@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5220"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -28,10 +27,15 @@
         "value"                                           "8 18 28 38 76 114"
         "special_bonus_unique_viper_1"                    "+18"
       }
-      "max_range_tooltip"                                 "1400"
+      "max_range"
+      {
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "effect_multiplier_distance"
       {
         "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
         "RequiresScepter"                                 "1"
       }
       "effect_multiplier"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "1120"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -42,7 +41,7 @@
       "AbilityCooldown"
       {
         "value"                                           "30 25 20 15 15 15"
-        "special_bonus_unique_clinkz_4"                   "-8"
+        "special_bonus_unique_clinkz_4"                   "-9"
       }
       "strafe_skeleton_radius"                            "1200"
       "archer_attack_speed_pct"                           "50 55 60 65 70 75"

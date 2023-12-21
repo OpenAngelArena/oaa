@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5346"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -63,12 +62,11 @@
       "vortex_duration"
       {
         "value"                                           "6 8 10 12 12 12"
-        "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+4"
+        //"special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+4"
       }
-      "shard_dps" //OAA, not shard
+      "shard_dps" // not shard
       {
-        "value"                                           "18 24 30 36 72 108"
-        "RequiresShard"                                   "1"
+        "value"                                           "12 18 24 30 60 90"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"
       }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5191"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -39,7 +38,7 @@
       }
       "duration"
       {
-        "value"                                           "2"
+        "value"                                           "2.5"
         "special_bonus_unique_phantom_assassin_4"         "+0.5"
       }
       "AbilityCastRange"
@@ -47,8 +46,8 @@
         "value"                                           "1000"
         "special_bonus_unique_phantom_assassin_6"         "+250"
       }
-      "lifesteal_pct"                                     "10 15 20 25 30 35"
-      "creep_lifesteal_penalty"                           "40"
+      "lifesteal_pct"                                     "0"
+      "creep_lifesteal_penalty"                           "0"
     }
   }
 }

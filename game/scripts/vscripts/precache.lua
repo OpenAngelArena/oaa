@@ -6,7 +6,7 @@ g_ItemPrecache = {
   "item_dagger_of_moriah_1",
   "item_dagon_oaa",
   "item_demon_stone",
-  "item_devastator_3",
+  "item_devastator_oaa_2",
   "item_dispel_orb_1",
   --"item_dragon_scale_oaa",
   "item_elixier_burst",

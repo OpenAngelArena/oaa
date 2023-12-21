@@ -5,9 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_phantom_lancer"
   {
-
     //"Ability10"                                           "special_bonus_unique_phantom_lancer_lance_damage"
-    "Ability11"                                           "special_bonus_strength_15" // replaces special_bonus_strength_8
+    //"Ability11"                                           "special_bonus_unique_phantom_lancer_phantom_rush_agility"
 
     //"Ability12"                                           "special_bonus_unique_phantom_lancer_2"
     //"Ability13"                                           "special_bonus_unique_phantom_lancer_5"
@@ -18,6 +17,5 @@
     "Ability16"                                           "special_bonus_lifesteal_40" // replaces special_bonus_unique_phantom_lancer_4
     //"Ability17"                                           "special_bonus_24_crit_2"
 
-    // special_bonus_hp_900
   }
 }

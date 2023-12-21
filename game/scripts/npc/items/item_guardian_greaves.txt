@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "230"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
@@ -33,7 +32,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "231"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
     // Stats
@@ -59,14 +57,16 @@
     "AbilityValues"
     {
       "bonus_movement"                                    "50"
-      "bonus_mana"                                        "250"
       "bonus_armor"                                       "4"
+      "mana_regen"                                        "1.5"
       "aura_health_regen"                                 "2.5"
       "aura_armor"                                        "3"
+      "aura_mana_regen"                                   "1.5"
+      "aura_radius"                                       "1200"
       "aura_health_regen_bonus"                           "14.5"
+      "aura_mana_regen_bonus"                             "5"
       "aura_armor_bonus"                                  "8"
       "aura_bonus_threshold"                              "25"
-      "aura_radius"                                       "1200"
       "replenish_health"                                  "350"
       "replenish_mana"                                    "200"
       "replenish_radius"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3625"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -34,11 +33,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3658"
     "BaseClass"                                           "item_disperser"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/disperser_2"
 
@@ -68,7 +67,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "20 30 45 65 90"
+      "bonus_agility"                                     "40 45 55 70 90"
       "bonus_intellect"                                   "10 15 25 40 60"
       "feedback_mana_burn"                                "40 50 70 100 140"
       "feedback_mana_burn_illusion_melee"                 "8 18 28 38 48"
@@ -76,11 +75,13 @@
       "purge_rate"                                        "5"
       "purge_root_duration"                               "3.0"
       "damage_per_burn"                                   "1.0"
-      "enemy_effect_duration"                             "4.0"
-      "ally_effect_duration"                              "4.0"
-      "bonus_damage"                                      "40 50 70 100 140"
-      "radius"                                            "350"
-      "attack_speed_slow"                                 "80"
+      "enemy_effect_duration"                             "5.0"
+      "ally_effect_duration"                              "5.0"
+      "radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "phase_movement_speed"                              "100"
       "movement_speed_buff_rate"                          "5"
     }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5176"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -35,11 +34,11 @@
       "distance"
       {
         "value"                                           "900"
-        "affected_by_aoe_increase"                        "1"
       }
       "final_aoe"
       {
         "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
       "speed"                                             "900"
       "damage" //OAA
@@ -57,7 +56,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "100 95 90 85 80"
-        "special_bonus_unique_queen_of_pain_3"            "-40"
+        "special_bonus_unique_queen_of_pain_3"            "-45"
       }
     }
   }

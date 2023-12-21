@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5262"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -40,7 +39,7 @@
       "health_gain"
       {
         "value"                                           "175 250 325 400 800 1600"
-        "special_bonus_unique_clinkz_8"                   "+300"
+        "special_bonus_unique_clinkz_8"                   "+350"
       }
       "skeleton_duration"                                 "45"
       "skeleton_health"

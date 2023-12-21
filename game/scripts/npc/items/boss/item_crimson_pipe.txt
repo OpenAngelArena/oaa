@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3204"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_6"
@@ -15,7 +14,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -36,7 +35,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3206"
     "BaseClass"                                           "item_datadriven"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "AbilityTextureName"                                  "item_pipe"
@@ -49,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "70609"
+    "ItemCost"                                            "86959"
     "ItemShopTags"                                        "armor;boost_armor;regen_health;block;health_pool;boost_magic_resist"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "crimson pipe"
@@ -61,24 +59,25 @@
     "AbilityValues"
     {
       "bonus_health"                                      "1750"
-      "bonus_health_regen"                                "37"
-      "bonus_all_stats"                                   "7"
-      "bonus_armor"                                       "16"
-      "magic_resistance"                                  "35"
+      "bonus_health_regen"                                "35"
+      "bonus_all_stats"                                   "15"
+      "bonus_armor"                                       "18"
+      "magic_resistance"                                  "30"
 
       "aura_radius"                                       "1200"
       "aura_magic_resistance"                             "20"
-      "aura_health_regen"                                 "10"
+      "aura_health_regen"                                 "11"
       "aura_block_damage_melee"                           "275"
       "aura_block_damage_ranged"                          "190"
       "aura_magic_damage_block"                           "250"
-      "block_chance"                                      "60"
+      "block_chance"                                      "75"
 
       "effect_radius"                                     "1200"
       "block_damage_melee_active"                         "300"
       "block_damage_ranged_active"                        "300"
+      "strength_pct_as_damage_block"                      "100"
       "block_chance_active"                               "100"
-      "barrier_magic_damage_block"                        "1400"
+      "barrier_magic_damage_block"                        "1500"
       "duration"                                          "12"
     }
   }

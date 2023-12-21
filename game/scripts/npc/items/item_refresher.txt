@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "109"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2600"
+    "ItemCost"                                            "200"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_refresher"
     "ItemRequirements"
     {
-      "01"                                                "item_cornucopia;item_cornucopia"
+      "01"                                                "item_cornucopia;item_ring_of_tarrasque;item_tiara_of_selemene"
     }
   }
 
@@ -33,8 +32,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "110"
-    //"ID"                                                  "80110"
     //"BaseClass"                                           "item_lua"
     //"ScriptFile"                                          "items/refresher.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -66,7 +63,7 @@
       "bonus_health"                                      "625 975 1425 1975 2625" //OAA
       "bonus_mana"                                        "625 725 875 1075 1325" //OAA
       "bonus_health_regen"                                "0" //OAA
-      "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5" //OAA
+      "bonus_mana_regen"                                  "6 6.25 6.75 7.5 8.5" //OAA
       "bonus_damage"                                      "0" //OAA
     }
   }

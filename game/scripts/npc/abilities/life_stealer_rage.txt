@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5249"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -32,7 +31,7 @@
     {
       "movement_speed_bonus"
       {
-        "value"                                           "15 16 17 18 19 20"
+        "value"                                           "9 12 15 18 19 20"
         "special_bonus_unique_lifestealer_2"              "+12"
       }
       "duration" //OAA

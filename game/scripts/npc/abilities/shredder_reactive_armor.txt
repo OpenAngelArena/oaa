@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5526"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -20,16 +19,24 @@
     "AbilityValues"
     {
       "bonus_armor"                                       "1 2 3 4 5 6" //OAA
-      "bonus_hp_regen"                                    "1 2 3 4 5 6" //OAA
+      "bonus_hp_regen" //OAA
+      {
+        "value"                                           "1 2 3 4 5 6"
+        "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.2"
+      }
       "stack_limit" //OAA
       {
-        "value"                                           "5 6 7 8 8 8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
+        "value"                                           "5 6 7 8 9 10"
+        "special_bonus_unique_timbersaw_2"                "+6"
       }
       "stack_duration"
       {
         "value"                                           "10 12 14 16 18 20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_2"
+      }
+      "stacks_per_hero_attack" //OAA
+      {
+        "value"                                           "1"
+        "special_bonus_unique_timbersaw_2"                "+1"
       }
       "AbilityManaCost"
       {

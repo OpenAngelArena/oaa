@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85151"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/tinkerer/tinkerer_smart_missiles.lua"
     "AbilityTextureName"                                  "tinker_heat_seeking_missile"
@@ -56,7 +55,11 @@
       "rocket_speed"                                      "1200"
       "rocket_width"                                      "110" // original: 75
       "rocket_range"                                      "3000"
-      "rocket_vision"                                     "400"
+      "rocket_vision"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_hp_damage_max"                               "8"
       "bonus_hp_damage_min"                               "0.1"
       "bonus_damage_max_range"                            "2000"

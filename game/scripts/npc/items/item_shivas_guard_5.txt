@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3849"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,9 +34,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3837"
     "BaseClass"                                           "item_shivas_guard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/shivas_guard_5"
 
     // Stats
@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34854"
+    "ItemCost"                                            "34829"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard 5;shivas guard 5;shiva 5"
@@ -62,8 +62,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "30 35 45 60 80"
-      "bonus_armor"                                       "10 12 15 19 24"
+      "bonus_intellect"                                   "8 13 18 23 28"
+      "bonus_strength"                                    "8 13 18 23 28"
+      "bonus_agility"                                     "8 13 18 23 28"
+      "bonus_hp_regen"                                    "8 11 14 17 20"
+      "bonus_armor"                                       "16 17 19 22 26"
       "aura_radius"                                       "1200"
       "aura_attack_speed"                                 "-45 -60 -80 -105 -135"
       "blast_damage"                                      "200 400 600 800 1000"
@@ -77,6 +80,8 @@
       "blast_speed"                                       "400"
       "hp_regen_degen_aura"                               "25"
       "illusion_multiplier_pct"                           "150"
+      "spell_amp"                                         "15 20 25 30 35"
+      "resist_debuff_duration"                            "16.0"
       "cooldown_tooltip"                                  "27 26 25 24 23"
     }
   }

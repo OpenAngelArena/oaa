@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5626"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -53,7 +52,7 @@
       "turn_rate"                                         "25"
       "shard_move_slow_pct"
       {
-        "value"                                           "12"
+        "value"                                           "10"
         "RequiresShard"                                   "1"
       }
       "blind_per_second"                                  "10"

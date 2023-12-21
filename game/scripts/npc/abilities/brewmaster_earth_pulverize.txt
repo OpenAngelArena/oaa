@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5406"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "5"
@@ -19,7 +18,7 @@
       "01" // percentage bonus damage against bosses
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_building_damage"                           "90 180 270 315 360"
+        "bonus_building_damage"                           "90 170 250 330 410"
       }
     }
   }

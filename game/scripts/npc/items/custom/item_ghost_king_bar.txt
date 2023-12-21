@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8615"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -15,7 +14,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "250"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -25,7 +24,7 @@
 
     "ItemRequirements"
     {
-      "01"                                                "item_holy_locket;item_ghost"
+      "01"                                                "item_holy_locket;item_ghost;item_headdress"
     }
   }
 
@@ -36,7 +35,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8616"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/ghost_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -58,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4150"
+    "ItemCost"                                            "4275"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -77,7 +75,7 @@
       "aura_radius"                                       "1200"
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
-      "active_restore_per_charge"                         "15 25 35 45 55" // hp and mana restore; old magic wand: 15 30 60 120 240; keep in mind the heal_amp
+      "active_restore_per_charge"                         "17 27 37 47 57" // hp and mana restore; old magic wand: 15 30 60 120 240; keep in mind the heal_amp
       "active_radius"                                     "1200"
       "max_charges"                                       "25"
       "charge_radius"                                     "1200" // only in duels, otherwise global

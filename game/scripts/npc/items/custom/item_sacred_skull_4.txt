@@ -5,20 +5,19 @@
   //=================================================================================================================
   "item_recipe_sacred_skull_4"
   {
-    "ID"                                                  "8495"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "17000"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sacred_skull_4"
 
     "ItemRequirements"
     {
-      "01"                                                "item_sacred_skull_3;item_upgrade_core_4"
+      "01"                                                "item_sacred_skull_3;item_upgrade_core_3"
     }
   }
 
@@ -29,11 +28,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8496"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/purpleskull_5"
+    "AbilityTextureName"                                  "custom/purpleskull_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -44,12 +42,12 @@
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "4"
+    "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34654"
+    "ItemCost"                                            "16908"
     "ItemShopTags"                                        "damage;agi;str;int;regen_mana;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 4;sacred skull 4"
@@ -61,29 +59,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "10 20 35 55"
-      "bonus_strength"                                    "10 20 35 55"
-      "bonus_intellect"                                   "30 40 55 75"
-      "bonus_health"                                      "0"
-      "bonus_mana"                                        "0"
-      "bonus_magic_resistance"                            "0"
-      "bonus_health_regen"                                "0"
-      "bonus_mana_regen"                                  "3.0 3.5 4.25 5.25"
-      //"hp_regen_amp"                                      "20 22 24 26"
-      "spell_amp"                                         "20 24 28 32"
-      "spell_lifesteal_amp"                               "30 32 34 36"
-      "mana_regen_multiplier"                             "80 90 100 110"
-      //"health_cost"                                       "50"
-      //"damage_per_missing_hp"                             "15 20 25 30"
-      //"heal_per_missing_hp"                               "15 20 30 45"
-      "base_dmg"                                          "200 300 400 500"
+      "bonus_strength"                                    "6 11 21 36 56"
+      "bonus_armor"                                       "2 3 5 8 12"
+      "bonus_health"                                      "500 600 750 950 1200"
+      "bonus_mana"                                        "500 600 750 950 1200"
+      "health_cost"                                       "15"
+      "min_mana_gain"                                     "170 220 320 470 670"
+      "base_dmg"                                          "100 200 300 400 500"
       "magic_dmg_per_current_mana"                        "0.125"
       "phys_dmg_per_missing_mana"                         "0.5"
       "effect_radius"                                     "700"
-      "death_heal_base"                                   "100"
-      "death_heal_radius"                                 "1200"
-      "death_vision_radius"                               "800"
-      "death_vision_duration"                             "30"
+      "active_bonus_aoe"                                  "75"
+      "active_bonus_cdr"                                  "5 7 9 11 13"
+      "duration"                                          "10"
     }
   }
 }

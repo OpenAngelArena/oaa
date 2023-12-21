@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85238"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/tinkerer/tinkerer_laser_contraption.lua"
     "AbilityTextureName"                                  "custom/tinkerer_laser_contraption"
@@ -46,7 +45,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "350" // original: 800 x 100
+      "radius" // original: 800 x 100
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "9"
       "delay"                                             "0.1"
       // "initial_damage"

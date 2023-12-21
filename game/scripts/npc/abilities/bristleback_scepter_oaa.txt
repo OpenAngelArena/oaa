@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3551"
     "BaseClass"                                           "bristleback_bristleback"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
@@ -36,7 +35,7 @@
       "quill_release_threshold"                           "99999" //OAA, intentional
       "quill_release_interval"                            ".1"
 
-      "activation_cooldown"                               "20"
+      "activation_cooldown"                               "24"
       "activation_manacost"                               "100"
       "activation_delay"                                  "0.5"
       "activation_num_quill_sprays"                       "6"

@@ -5,7 +5,6 @@
   //=================================================================================================================
   // "item_recipe_azazel_summon_fighter"
   // {
-    // "ID"                            "8558"
     // "BaseClass"                     "item_datadriven"
     // "AbilityTextureName"            "custom/recipe/recipe_4"
     // "Model"                         "models/props_gameplay/recipe.vmdl"
@@ -27,7 +26,6 @@
   //=================================================================================================================
   "item_azazel_summon_fighter"
   {
-    "ID"                                                  "8559"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/azazel_summon.lua"
     "AbilityTextureName"                                  "custom/azazel_summon_fighter"

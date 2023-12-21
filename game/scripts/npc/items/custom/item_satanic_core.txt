@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3218"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3221"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/satanic_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -65,19 +63,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "25 30 40 55 75"
-      "bonus_intelligence"                                "0"
+      // Bloodstone KVs
+      "bonus_aoe"                                         "50 60 70 80 90"
       "bonus_health"                                      "500 600 750 950 1200"
       "bonus_mana"                                        "500 600 750 950 1200"
+      "spell_lifesteal"                                   "0"
+      // Satanic/Blood Core KVs
+      "bonus_strength"                                    "25 30 40 55 75"
+      "bonus_status_resist"                               "0"
+      "hp_regen_amp"                                      "0"
       "hero_spell_lifesteal"                              "30 32 34 36 38"
-      "creep_spell_lifesteal"                             "6 7 8 9 10" // (hero_spell_lifesteal / 5) is the minimum
+      "creep_spell_lifesteal"                             "6 6.5 7 7.5 8" // (hero_spell_lifesteal / 5) is the minimum
+      // Satanic/Blood Core active stuff
       "unholy_hero_spell_lifesteal"                       "200"
       "unholy_creep_spell_lifesteal"                      "40" // (unholy_hero_spell_lifesteal / 5) is the minimum
       "unholy_damage_dealt_to_mana"                       "0"
       "duration"                                          "5"
-      "bonus_status_resist"                               "0"
-      "bonus_magic_resist"                                "0"
-      "hp_regen_amp"                                      "0"
     }
 
     // Precache

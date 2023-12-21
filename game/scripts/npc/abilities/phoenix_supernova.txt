@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5630"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -40,6 +39,7 @@
       "aura_radius"
       {
         "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_sec"                                    "60 120 180 360 660" //OAA
       "tick_interval"                                     "0.2"

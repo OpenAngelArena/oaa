@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5651"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -46,7 +45,11 @@
       }
       "night_vision_bonus"                                "400"
       "projectile_speed_bonus"                            "500"
-      "tree_destruction_radius"                           "175"
+      "tree_destruction_radius"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1" 
+      }
       "attack_point"                                      "0.1"
       "max_attacks"                                       "5"
       "mana_cost_scepter" //OAA

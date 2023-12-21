@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5394"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -33,7 +32,7 @@
       "base_damage"                                       "200 400 600 1200 1800" //OAA
       "radius"
       {
-        "value"                                           "400 500 600 700 800"
+        "value"                                           "450 525 600 675 750"
         "affected_by_aoe_increase"                        "1"
       }
       "cast_range"                                        "700" // same as AbilityCastRange

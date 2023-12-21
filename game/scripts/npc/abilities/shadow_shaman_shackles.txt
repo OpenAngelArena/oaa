@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5080"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -69,7 +68,7 @@
       "06" // Valve Spring Breaking
       {
         "var_type"                                        "FIELD_FLOAT"
-        "shard_ward_duration"                             "7"
+        "shard_ward_duration"                             "6"
         "RequiresShard"                                   "1"
       }
       "06"

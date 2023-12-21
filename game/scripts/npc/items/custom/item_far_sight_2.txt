@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8604"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -35,10 +34,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8605"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/far_sight_2"
 
     // Stats
@@ -56,7 +55,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4956"
+    "ItemCost"                                            "4506"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
@@ -70,8 +69,8 @@
       "bonus_health"                                      "0"
       "bonus_health_regen"                                "0"
       "bonus_mana"                                        "300 400 550 750 1000"
-      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
-      "bonus_armor"                                       "0"
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
+      "bonus_armor"                                       "4 5 7 10 14"
       "bonus_to_worst_attribute"                          "10 15 25 40 60"
       "bonus_vision_range"                                "225 275 325 375 425"
       "bonus_cast_range"                                  "225 275 325 375 425"

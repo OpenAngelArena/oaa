@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_octarine_core_5"
   {
-    "ID"                                                  "8464"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -29,14 +28,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8465"
     "BaseClass"                                           "item_octarine_core"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/octarine_core_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34604"
+    "ItemCost"                                            "34804"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "octarine core 5;octarine 5"
@@ -54,7 +52,7 @@
       "bonus_health"                                      "625 975 1425 1975 2625"
       "bonus_mana"                                        "625 725 875 1075 1325"
       "bonus_health_regen"                                "0"
-      "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5"
+      "bonus_mana_regen"                                  "6 6.25 6.75 7.5 8.5"
     }
   }
 }

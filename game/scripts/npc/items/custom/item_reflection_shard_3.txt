@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3819"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -25,8 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_reflection_shard_2;item_upgrade_core_3"
-      //"02"                                                "item_sphere_3;item_upgrade_core_3"
-      //"03"                                                "item_aeon_disk_3;item_upgrade_core_3"
     }
   }
 
@@ -37,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3820"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/reflection_shard.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"

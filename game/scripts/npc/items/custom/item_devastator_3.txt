@@ -3,11 +3,10 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator_3"
+  "item_recipe_devastator_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4054"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -21,22 +20,21 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator_3"
+    "ItemResult"                                          "item_devastator_oaa_3"
 
     "ItemRequirements"
     {
-      "01"                                                "item_devastator_2;item_upgrade_core_2"
+      "01"                                                "item_devastator_oaa_2;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator_3"
+  "item_devastator_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4051"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"

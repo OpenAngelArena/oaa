@@ -7,7 +7,6 @@
   // {
     // // General
     // //-------------------------------------------------------------------------------------------------------------
-    // "ID"                                    "7553"
     // "BaseClass"                             "item_datadriven"
     // "AbilityTextureName"                    "custom/recipe/recipe_3"
     // "Model"                                 "models/props_gameplay/recipe.vmdl"
@@ -36,11 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7554"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/elixier_hybrid.lua"
     "AbilityTextureName"                                  "custom/elixier_hybrid_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------

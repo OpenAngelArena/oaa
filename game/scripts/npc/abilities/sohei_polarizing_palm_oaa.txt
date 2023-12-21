@@ -1,13 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Sohei: Polarizing Palm - Pushes and damage the target enemy, stuns if enemy collides with something.
+  // Sohei: Repulsive Palm - Pushes and damage the target enemy, stuns if enemy collides with something.
   //=================================================================================================================
   "sohei_polarizing_palm"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3674"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/sohei/sohei_polarizing_palm.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

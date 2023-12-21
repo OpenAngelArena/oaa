@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5605"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -17,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450" // OAA, same as radius
+    "AbilityCastRange"                                    "500" // OAA, same as radius
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -35,7 +34,7 @@
       "duration"                                          "20" //OAA
       "radius"
       {
-        "value"                                           "450"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "absorb_amount" //OAA
@@ -51,6 +50,7 @@
       }
       "blind_pct"                                         "50" // unused
       "shield_pct_absorb"                                 "70"
+      "linger_duration"                                   "0.5"
     }
   }
 }

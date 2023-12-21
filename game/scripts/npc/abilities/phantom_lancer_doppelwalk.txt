@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5066"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
     "MaxLevel"                                            "6"
@@ -33,7 +32,11 @@
       "illusion_1_damage_in_pct"                          "0"
       "illusion_2_damage_out_pct"                         "-80 -70 -60 -50 -40 -30" //OAA
       "illusion_2_damage_in_pct"                          "500 450 400 350 300 250" //OAA
-      "target_aoe"                                        "325"
+      "target_aoe"
+      {
+        "value"                                           "325"
+        "affected_by_aoe_increase"                        "1"
+      }
       "search_radius"
       {
         "value"                                           "900"

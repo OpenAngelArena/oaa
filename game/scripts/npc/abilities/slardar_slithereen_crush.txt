@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5115"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -36,7 +35,7 @@
     {
       "crush_radius"
       {
-        "value"                                           "350"
+        "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
       "crush_extra_slow"
@@ -77,7 +76,6 @@
       {
         "value"                                           "75"
         "RequiresShard"                                   "1"
-        "affected_by_aoe_increase"                        "1"
       }
     }
   }

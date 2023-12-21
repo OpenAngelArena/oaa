@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7304"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -23,21 +22,21 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "3"
-    "AbilityHealthCost"                                   "75"
+    "AbilityHealthCost"                                   "50 75 100 125 150" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor_reduction"
+      "armor_reduction" //OAA
       {
-        "value"                                           "1 2 3 4 5"
+        "value"                                           "1 3 5 7 9"
         "LinkedSpecialBonus"                              "special_bonus_unique_dazzle_4"
       }
       "duration"                                          "8 10 12 14 16"
       "cooldown_reduction"                                "2 3 4 5 6" //OAA
-      "cooldown_reduction_items"                          "1 1.5 2 2.5 3" //OAA
-      "mana_cost_increase_pct"                            "100" // OAA, actually health cost increase
+      "cooldown_reduction_items"                          "0"
+      "mana_cost_increase_pct"                            "75" //OAA, actually health cost increase
       "mana_cost_increase_duration"                       "20"
       "max_stacks"                                        "15"
     }

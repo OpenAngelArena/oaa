@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8619"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -36,7 +35,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8620"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/ghost_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -58,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "9152"
+    "ItemCost"                                            "9277"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -77,7 +75,7 @@
       "aura_radius"                                       "1200"
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
-      "active_restore_per_charge"                         "15 25 35 45 55"
+      "active_restore_per_charge"                         "17 27 37 47 57"
       "active_radius"                                     "1200"
       "max_charges"                                       "25"
       "charge_radius"                                     "1200"

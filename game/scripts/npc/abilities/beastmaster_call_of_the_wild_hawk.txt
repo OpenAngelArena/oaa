@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7231"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -46,7 +45,11 @@
         "value"                                           "1"
         "special_bonus_shard"                             "+1"
       }
-      "dive_damage"                                       "90 120 150 180 360 720" //OAA
+      "dive_damage" //OAA
+      {
+        "value"                                           "90 120 150 180 360 720"
+        "special_bonus_unique_beastmaster_2"              "+60"
+      }
       "dive_root_duration"                                "0.25 0.5 0.75 1.0 1.25 1.5"
       "roaming_radius"                                    "280"
       "roaming_seconds_per_rotation"                      "4"

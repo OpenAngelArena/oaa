@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6482"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -54,11 +53,15 @@
       }
       "damage_per_impact" //OAA
       {
-        "value"                                           "160 320 480 960 1440"
+        "value"                                           "180 360 540 1080 1620"
         "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+60"
       }
       "duration_tooltip"                                  "5.5"
-      "projectile_vision"                                 "500"
+      "projectile_vision"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "turn_rate"                                         "75"
       "burn_interval"                                     "0.5"
       "burn_damage" //OAA

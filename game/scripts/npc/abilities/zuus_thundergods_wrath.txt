@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5113"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -28,8 +27,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "sight_radius_day"                                  "500"
-      "sight_radius_night"                                "500"
+      "sight_radius_day"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "sight_radius_night"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "sight_duration"                                    "3.0"
       "damage" //OAA
       {

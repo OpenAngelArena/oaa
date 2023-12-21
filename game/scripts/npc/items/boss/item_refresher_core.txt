@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3212"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_6"
@@ -15,7 +14,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "20000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3215"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/refresher_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -49,7 +47,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "72709"
+    "ItemCost"                                            "89609"
     "ItemShopTags"                                        "regen_health;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "refresher core;refresher 3"
@@ -59,14 +57,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "4250"
-      "bonus_mana"                                        "2850"
-      "bonus_health_regen"                                "25"
-      "bonus_mana_regen"                                  "7"
-      "bonus_cast_range"                                  "450"
-      "cooldown_reduction"                                "33"
-
+      "bonus_health"                                      "5250"
+      "bonus_mana"                                        "2650"
+      "bonus_damage"                                      "25"
       "bonus_intelligence"                                "25"
+      "bonus_health_regen"                                "25"
+      "bonus_mana_regen"                                  "17"
+      "cooldown_reduction"                                "33"
+      "bonus_cast_range"                                  "250"
       "hero_spell_lifesteal"                              "30"
       "creep_spell_lifesteal"                             "10"
     }

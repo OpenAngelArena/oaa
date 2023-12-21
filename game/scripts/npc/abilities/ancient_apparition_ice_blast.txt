@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5348"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -47,7 +46,6 @@
       "radius_grow"
       {
         "value"                                           "50.0"
-        "affected_by_aoe_increase"                        "1"
       }
       "radius_max"
       {
@@ -59,7 +57,11 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "frostbite_duration"                                "10"
+      "frostbite_duration" //OAA
+      {
+        "value"                                           "5"
+        "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+5"
+      }
       "dot_damage"
       {
         "value"                                           "12.5 20.0 32.0 48.5 69.5"

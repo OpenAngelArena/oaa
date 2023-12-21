@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6495"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -31,7 +30,7 @@
     {
       "crit_mult"
       {
-        "value"                                           "150 190 230 270 310 350"
+        "value"                                           "150 200 250 300 350 400"
         "special_bonus_unique_mars_gods_rebuke_extra_crit"  "+65"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }
@@ -51,7 +50,7 @@
         "special_bonus_unique_mars_rebuke_slow"           "+0"
       }
       "activity_duration"                                 "2"
-      "bonus_damage_vs_heroes"                            "20 25 30 35 70 140" //OAA
+      "bonus_damage_vs_heroes"                            "10 15 20 25 50 100"
       "AbilityCooldown"
       {
         "value"                                           "16 14 12 10 10 10"
