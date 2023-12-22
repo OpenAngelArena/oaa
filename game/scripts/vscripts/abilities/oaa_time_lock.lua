@@ -163,6 +163,11 @@ if IsServer() then
       return
     end
 
+    -- Don't trigger when attacking allies or self
+    if target == parent or target:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
+
     -- Don't bash while on cooldown
     if not ability:IsCooldownReady() then
       return
