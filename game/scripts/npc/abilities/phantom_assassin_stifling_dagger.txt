@@ -34,16 +34,16 @@
     {
       "move_slow"                                         "-50"
       "dagger_speed"                                      "1200"
-      "duration"                                          "2.2 2.8 3.4 4 4.6 5.2"
-      "base_damage"                                       "65 70 75 80 85 90"
+      "duration"                                          "2.2 2.8 3.4 4 4 4"
+      "base_damage"                                       "65 70 75 80 90 110"
       "attack_factor"
       {
-        "value"                                           "-70 -55 -40 -25 -10 0"
+        "value"                                           "-70 -55 -40 -25 -15 -5"
         "special_bonus_unique_phantom_assassin_5"         "+20"
       }
       "attack_factor_tooltip"
       {
-        "value"                                           "30 45 60 75 90 100"
+        "value"                                           "30 45 60 75 85 95"
         "special_bonus_unique_phantom_assassin_5"         "+20"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }

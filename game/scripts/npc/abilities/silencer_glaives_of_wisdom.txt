@@ -14,6 +14,10 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "0.0"
@@ -38,7 +42,7 @@
       }
       "int_steal" //OAA
       {
-        "value"                                           "1 1 2 3 4 5"
+        "value"                                           "1 1 2 2 3 4"
         "special_bonus_shard"                             "+1"
       }
       "int_steal_duration"                                "20 25 30 35 40 45"

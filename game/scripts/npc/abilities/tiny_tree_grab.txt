@@ -26,7 +26,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 8 6" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,12 +41,12 @@
         "value"                                           "5"
         "LinkedSpecialBonus"                              "special_bonus_unique_tiny_6"
       }
-      "bonus_damage" // percentage bonus base damage against creeps, works against bosses too
+      "bonus_damage" // bonus base damage; not percentage!
       {
-        "value"                                           "20 25 30 35 40 45"
+        "value"                                           "20 25 30 35 70 105"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_buildings" // bonus damage against bosses
+      "bonus_damage_buildings" // percentage bonus damage against bosses
       {
         "value"                                           "40 55 70 85 100 115"
         "CalculateSpellDamageTooltip"                     "0"
