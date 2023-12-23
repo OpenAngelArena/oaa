@@ -196,7 +196,76 @@ modifier_spirit_vessel_oaa_buff.OnRefresh = modifier_spirit_vessel_oaa_buff.OnCr
 function modifier_spirit_vessel_oaa_buff:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
+end
+
+if IsServer() then
+  function modifier_spirit_vessel_oaa_buff:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local flags = event.damage_flags
+    local damage = event.damage -- damage after reductions
+
+    -- Check if damaged unit exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Check if damaged unit has this modifier
+    if damaged_unit ~= parent then
+      return
+    end
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Ignore self damage
+    if parent == attacker then
+      return
+    end
+
+    -- Check if attacker is something weird
+    if attacker.GetUnitName == nil then
+      return
+    end
+
+    -- Check if attacker is on the neutral team or uncontrollable by the players
+    if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS or not attacker:IsControllableByAnyPlayer() then
+      return
+    end
+
+    -- Check if damage is negative or 0
+    if damage <= 0 then
+      return
+    end
+
+    -- Stop started thinking if there is any
+    self:StartIntervalThink(-1)
+    -- Changed buff state (it can be anything we want, in this case we halve the regen)
+    -- negative stack counts arent shown in the UI
+    self:SetStackCount(-2)
+    -- Start damage cooldown
+    self:StartIntervalThink(3)
+  end
+
+  function modifier_spirit_vessel_oaa_buff:OnIntervalThink()
+    -- Revert the buff to normal state
+    self:SetStackCount(0)
+    -- Stop thinking
+    self:StartIntervalThink(-1)
+  end
+end
+
+function modifier_spirit_vessel_oaa_buff:GetModifierConstantHealthRegen()
+  if math.abs(self:GetStackCount()) ~= 2 then
+    return self.health_regen or self:GetAbility():GetSpecialValueFor("soul_heal_amount")
+  elseif self.health_regen then
+    return self.health_regen / 2
+  end
 end
 
 function modifier_spirit_vessel_oaa_buff:GetEffectName()
@@ -205,10 +274,6 @@ end
 
 function modifier_spirit_vessel_oaa_buff:GetEffectAttachType()
   return PATTACH_ABSORIGIN_FOLLOW
-end
-
-function modifier_spirit_vessel_oaa_buff:GetModifierConstantHealthRegen()
-  return self.health_regen or self:GetAbility():GetSpecialValueFor("soul_heal_amount")
 end
 
 function modifier_spirit_vessel_oaa_buff:GetTexture()

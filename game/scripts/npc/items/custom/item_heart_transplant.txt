@@ -45,25 +45,25 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "800"
     "AbilityCooldown"                                     "0.1"
     "AbilitySharedCooldown"                               "transplant"
     //"AbilityChannelTime"                                  "7.0"
-
-    // "IsTempestDoubleClonable"                          "0"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200"
     "ItemCost"                                            "18603"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
+    "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "transplant;heart transplant"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_heart_transplant"
+
+    // "IsTempestDoubleClonable"                          "0"
 
     "precache"
     {
@@ -74,58 +74,18 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // same as Heart lvls 4-5
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "70 95"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1500 2000"
-      }
-      "03" // same as Heart lvls 4-5
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_regen_pct"                                "1.6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_melee"                                  "5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cooldown_ranged"                                 "7"
-      }
-      "06" // same as Heart lvls 3-4
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_strength"                       "50 70"
-      }
-      "07" // same as Heart lvls 4-5
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transplant_bonus_health"                         "700 950"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "transplant_health_regen_pct"                     "1.5"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transplant_max_range"                            "1000"
-      }
-      "10" // same as Solar Crest
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "transplant_max_duration"                         "12"
-      }
+      "bonus_strength"                                    "55 75" // same as Heart lvls 4-5
+      "bonus_health"                                      "1400 1900" // transplant_bonus_health x 2
+      "health_regen_pct"                                  "1.6" // same as Heart lvls 4-5
+      "cooldown_melee"                                    "5"
+      "cooldown_ranged"                                   "7"
+      "transplant_bonus_strength"                         "50 70"
+      "transplant_bonus_health"                           "700 950" // same as Heart lvls 4-5
+      "transplant_health_regen_pct"                       "1.5"
+      "transplant_max_range"                              "1000" // this is affected by cast range bonuses, not aoe increase
+      "transplant_max_duration"                           "12"
     }
   }
 }

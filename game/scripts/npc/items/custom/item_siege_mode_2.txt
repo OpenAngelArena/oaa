@@ -43,8 +43,8 @@
     "AbilityTextureName"                                  "custom/siege_mode_2"
 
     "AbilityCastRange"                                    "1100"
-    "AbilityManaCost"                                     "100"
-    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "11"
     "AbilitySharedCooldown"                               "splash_cannon"
 
     // Item Info
@@ -62,18 +62,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "100 150"
-      "bonus_agility"                                     "50 70"
-      "bonus_strength"                                    "45 65"
-      "bonus_intellect"                                   "50 70"
-      "bonus_health"                                      "700 950"
-      "bonus_health_regen"                                "12 15"
+      "bonus_damage"                                      "100 140"
+      "bonus_agility"                                     "47 67"
+      "bonus_strength"                                    "27 32"
+      "bonus_intellect"                                   "27 32"
+      "bonus_health"                                      "0"
+      "bonus_health_regen"                                "0"
       "bonus_attack_range"                                "180 190" // ranged only
       "passive_splash_radius"                             "250"
       "passive_splash_percent"                            "40"
       "active_damage"                                     "700 1000"
       "active_radius"                                     "500"
-      "active_splash_percent"                             "200"
+      "active_splash_percent"                             "250"
       "knockback_distance"                                "300"
       "knockback_duration"                                "0.5"
       "projectile_speed"                                  "1800"

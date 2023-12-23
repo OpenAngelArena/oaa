@@ -1,6 +1,8 @@
 //============================================================
 // Armlet of Mordiggian
 //============================================================
+"DOTA_Tooltip_ability_item_armlet_Description"                                  "<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, <font color='#FFA500'>+%unholy_bonus_attack_speed% attack speed</font>, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+
 "DOTA_Tooltip_Ability_item_armlet_2"                                            "#{DOTA_Tooltip_Ability_item_armlet}"
 "DOTA_Tooltip_Ability_item_recipe_armlet_2"                                     "#{DOTA_Tooltip_Ability_item_recipe_armlet}"
 "DOTA_Tooltip_Ability_item_armlet_2_Description"                                "#{DOTA_Tooltip_ability_item_armlet_Description}"

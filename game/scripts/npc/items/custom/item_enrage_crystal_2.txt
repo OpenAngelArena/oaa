@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Postactive Reflex 2b
+  // Recipe: Enrage Crystal 2
   //=================================================================================================================
   "item_recipe_enrage_crystal_2"
   {
@@ -9,12 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -23,12 +23,12 @@
     "ItemResult"                                          "item_enrage_crystal_2"
     "ItemRequirements"
     {
-      "01"                                                "item_enrage_crystal_1;item_upgrade_core_3"
+      "01"                                                "item_enrage_crystal_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Postactive Reflex 2b
+  // Enrage Crystal 2
   //=================================================================================================================
   "item_enrage_crystal_2"
   {
@@ -42,16 +42,16 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30 24 18"
+    "AbilityCooldown"                                     "24 18"
     "AbilitySharedCooldown"                               "enrage_crystal"
     "AbilityManaCost"                                     "0"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17053"
+    "ItemCost"                                            "1.7976931348623157e+308"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal 2"
@@ -62,12 +62,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "35 55 80"
-      "bonus_damage"                                      "54 84 124"
-      "bonus_status_resist"                               "20 22 24"
-      "bonus_slow_resist"                                 "20 22 24"
-      "dmg_reduction_while_stunned"                       "20 25 30"
-      "cooldown_tooltip"                                  "30 24 18"
+      "bonus_strength"                                    "42 62"
+      "bonus_damage"                                      "85 125"
+      "bonus_status_resist"                               "20 22"
+      "bonus_slow_resist"                                 "20 22"
+      "dmg_reduction_while_stunned"                       "25 30"
+      "cooldown_tooltip"                                  "24 18"
       "active_duration"                                   "2"
     }
   }

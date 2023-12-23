@@ -45,7 +45,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50"
+    "AbilityCooldown"                                     "40"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
 
@@ -66,8 +66,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "10 20 35 55 80"
-      "bonus_damage"                                      "24 34 54 84 124"
+      "bonus_strength"                                    "12 17 27 42 62"
+      "bonus_damage"                                      "25 35 55 85 125"
       "duration"                                          "7"
       "model_scale"                                       "30"     // Percentage over model scale
       "magic_resist"                                      "50 55 60 65 70"

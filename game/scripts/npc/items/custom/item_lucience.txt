@@ -67,58 +67,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "15 25 40 60"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana"                                      "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "15 25 40 60"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_hp_regen"                             "60 80 120 180"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "aura_bonus_mana_regen"                           "1.75 2.25 3.0 4.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_percentage_bonus_movement_speed"            "20 25 30 35"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_attack_speed"                         "25 35 45 55"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
-      }
+      "bonus_strength"                                    "15 25 40 60"
+      "bonus_intellect"                                   "15 25 40 60"
+      "aura_bonus_hp_regen"                               "60 80 120 180"
+      "aura_bonus_mana_regen"                             "1.75 2.25 3.0 4.0"
+      "aura_percentage_bonus_movement_speed"              "20 25 30 35"
+      "aura_bonus_attack_speed"                           "25 35 45 55"
+      "aura_radius"                                       "1200"
     }
   }
 }

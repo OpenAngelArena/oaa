@@ -63,16 +63,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "30 45 65"
+      "bonus_strength"                                    "27 42 62" // inherited from BKB
       "bonus_agility"                                     "41 56 76" // inherited from Manta
-      "bonus_intellect"                                   "25 40 60" // inherited from Manta
-      "bonus_damage"                                      "40 55 75"
+      "bonus_intellect"                                   "22 27 32" // inherited from Manta
+      "bonus_damage"                                      "55 85 125" // inherited from BKB
       "bonus_armor"                                       "0"
       "bonus_health_regen"                                "0"
       "bonus_mana_regen"                                  "0"
       "bonus_mana"                                        "0"
       "tick_interval"                                     "0.2"
-      "duration"                                          "7.0 7.5 8.0"
+      "duration"                                          "7.0"
     }
 
     // Precache
