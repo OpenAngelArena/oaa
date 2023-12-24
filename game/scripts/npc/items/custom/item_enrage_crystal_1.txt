@@ -56,7 +56,7 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
       "bonus_strength"                                    "42 62"
       "bonus_damage"                                      "85 125"
       "bonus_status_resist"                               "20 22"
-      "bonus_slow_resist"                                 "20 22"
+      //"bonus_slow_resist"                                 "20 22"
       "dmg_reduction_while_stunned"                       "25 30"
       "cooldown_tooltip"                                  "24 18"
       "active_duration"                                   "2"
@@ -75,7 +75,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "precache"
     {
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+      //"soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
       "particle"                                          "particles/items/enrage_crystal/enrage_crystal_explosion.vpcf"
     }
   }

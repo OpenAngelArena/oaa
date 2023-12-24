@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_enrage_crystal_2"
     "ItemRequirements"
     {
-      "01"                                                "item_enrage_crystal_2;item_upgrade_core_4"
+      "01"                                                "item_enrage_crystal_1;item_upgrade_core_4"
     }
   }
 
@@ -51,12 +51,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1.7976931348623157e+308"
+    "ItemCost"                                            "34054"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@
       "bonus_strength"                                    "42 62"
       "bonus_damage"                                      "85 125"
       "bonus_status_resist"                               "20 22"
-      "bonus_slow_resist"                                 "20 22"
+      //"bonus_slow_resist"                                 "20 22"
       "dmg_reduction_while_stunned"                       "25 30"
       "cooldown_tooltip"                                  "24 18"
       "active_duration"                                   "2"

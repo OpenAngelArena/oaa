@@ -57,9 +57,9 @@ function modifier_item_vampire:OnRefresh()
     self.bonus_dmg = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_status_resist = ability:GetSpecialValueFor("bonus_status_resistance")
-    self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
-    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+    --self.bonus_slow_resist = ability:GetSpecialValueFor("bonus_slow_resist")
     self.bonus_night_vision = ability:GetSpecialValueFor("bonus_night_vision")
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
   end
 
   if IsServer() then
@@ -79,10 +79,10 @@ function modifier_item_vampire:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_SLOW_RESISTANCE,
     MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
@@ -113,16 +113,16 @@ end
   -- end
 -- end
 
-function modifier_item_vampire:GetModifierAttackSpeedBonus_Constant()
-  return self.bonus_attack_speed or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-end
-
 function modifier_item_vampire:GetBonusNightVision()
   if self:GetStackCount() == 2 then
     return self.bonus_night_vision or self:GetAbility():GetSpecialValueFor("bonus_night_vision")
   else
     return 0
   end
+end
+
+function modifier_item_vampire:GetModifierPhysicalArmorBonus()
+  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 if IsServer() then
