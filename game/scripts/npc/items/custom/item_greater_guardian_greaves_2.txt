@@ -53,7 +53,7 @@
     "ItemShopTags"                                        "move_speed;mana_pool;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "greater guardian greaves 2;guardian greaves 2;ggg 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAlertable"                                       "1"
 
     "MaxUpgradeLevel"                                     "4"
@@ -76,7 +76,7 @@
       "aura_armor_bonus"                                  "10 11 12 13"
       "aura_bonus_threshold"                              "25"
       "replenish_health"                                  "450 650 950 1350"
-      "replenish_mana"                                    "300 400 550 750"
+      "replenish_mana"                                    "300 425 575 750"
       "replenish_radius"
       {
         "value"                                           "1200"
