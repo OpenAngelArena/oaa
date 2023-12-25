@@ -84,9 +84,17 @@
       "passive_splash_radius"                             "250"
       "passive_splash_percent"                            "40"
       "active_damage"                                     "700 1000"
-      "active_radius"                                     "500"
+      "active_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
       "active_splash_percent"                             "250"
-      "knockback_distance"                                "300"
+      "knockback_distance"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "knockback_duration"                                "0.5"
       "projectile_speed"                                  "1800"
       "recoil_distance"                                   "300"
