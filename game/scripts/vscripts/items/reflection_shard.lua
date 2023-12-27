@@ -315,7 +315,7 @@ end
 ]]
 
 function modifier_item_reflection_shard_active:GetEffectName()
-  return "particles/units/heroes/hero_oracle/oracle_fatesedict.vpcf"
+  return "particles/items_fx/black_king_bar_avatar.vpcf"
 end
 
 function modifier_item_reflection_shard_active:GetTexture()
