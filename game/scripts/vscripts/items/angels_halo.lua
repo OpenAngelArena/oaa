@@ -45,9 +45,9 @@ function modifier_angels_halo_active:RemoveOnDeath()
   return false
 end
 
---function modifier_angels_halo_active:GetTexture()
-  --return "custom/angels_halo"
---end
+function modifier_angels_halo_active:GetTexture()
+  return "custom/angels_halo"
+end
 
 function modifier_angels_halo_active:OnCreated(event)
   if IsServer() then
@@ -143,9 +143,9 @@ function modifier_angels_halo_aura_effect:IsDebuff()
   return true
 end
 
---function modifier_angels_halo_aura_effect:GetTexture()
-  --return "custom/angels_halo"
---end
+function modifier_angels_halo_aura_effect:GetTexture()
+  return "custom/angels_halo"
+end
 
 ---------------------------------------------------------------------------------------------------
 
