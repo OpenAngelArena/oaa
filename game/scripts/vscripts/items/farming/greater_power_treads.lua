@@ -92,9 +92,7 @@ function modifier_item_greater_power_treads:OnCreated()
 end
 
 function modifier_item_greater_power_treads:OnRefresh()
-  local parent = self:GetParent()
   local ability = self:GetAbility()
-
   if not ability or ability:IsNull() then
     return
   end

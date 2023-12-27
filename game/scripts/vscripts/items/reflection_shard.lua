@@ -1,5 +1,5 @@
-LinkLuaModifier( "modifier_item_reactive_reflect", "items/reflection_shard.lua", LUA_MODIFIER_MOTION_NONE )
---LinkLuaModifier( "modifier_charge_replenisher", "modifiers/modifier_charge_replenisher.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_item_reflection_shard_passive", "items/reflection_shard.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_reflection_shard_active", "items/reflection_shard.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reflection_shard_1 = class(ItemBaseClass)
 item_reflection_shard_2 = item_reflection_shard_1
@@ -7,74 +7,116 @@ item_reflection_shard_3 = item_reflection_shard_1
 item_reflection_shard_4 = item_reflection_shard_1
 
 function item_reflection_shard_1:GetIntrinsicModifierName()
-  return "modifier_generic_bonus" -- "modifier_charge_replenisher"
+  return "modifier_item_reflection_shard_passive"
 end
 
 function item_reflection_shard_1:OnSpellStart()
-  --[[
-  local charges = self:GetCurrentCharges()
-  if charges <= 0 then
-    return false
-  end
-  ]]
-
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
 
-  --[[
-  self:SetCurrentCharges( charges - 1 )
-  if charges == 1 then
-    self:StartCooldown(self:GetCooldownTime())
-  end
-  ]]
+  -- Sound
+  caster:EmitSound("Hero_Antimage.Counterspell.Cast")
 
-  caster:AddNewModifier(caster, self, "modifier_item_reactive_reflect", {duration = duration})
-end
+  -- Apply Reflection shard modifier
+  caster:AddNewModifier(caster, self, "modifier_item_reflection_shard_active", {duration = duration})
 
-function item_reflection_shard_1:ProcsMagicStick()
-  return false
+  -- Built-in modifier (Lotus Orb Echo Shell)
+  caster:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", {duration = duration})
 end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_reactive_reflect = class(ModifierBaseClass)
+modifier_item_reflection_shard_passive = class(ModifierBaseClass)
 
-function modifier_item_reactive_reflect:IsHidden()
+function modifier_item_reflection_shard_passive:IsHidden()
+  return true
+end
+
+function modifier_item_reflection_shard_passive:IsDebuff()
   return false
 end
 
-function modifier_item_reactive_reflect:IsDebuff()
+function modifier_item_reflection_shard_passive:IsPurgable()
   return false
 end
 
-function modifier_item_reactive_reflect:IsPurgable()
-  return false
+function modifier_item_reflection_shard_passive:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function modifier_item_reactive_reflect:OnCreated(event)
-  if IsServer() then
-    local parent = self:GetParent()
-    parent:EmitSound("Hero_Antimage.Counterspell.Cast")
-    if self.nPreviewFX == nil then
-      self.nPreviewFX = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
-      --self.nPreviewFX = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, parent)
-    end
+function modifier_item_reflection_shard_passive:OnCreated()
+  self:OnRefresh()
+end
 
-    if parent.stored_reflected_spells == nil then
-      parent.stored_reflected_spells = {}
-    end
+function modifier_item_reflection_shard_passive:OnRefresh()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.bonus_str = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.magic_resist = ability:GetSpecialValueFor("bonus_magic_resist")
   end
 end
 
-function modifier_item_reactive_reflect:OnDestroy()
+function modifier_item_reflection_shard_passive:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+  }
+end
+
+function modifier_item_reflection_shard_passive:GetModifierBonusStats_Strength()
+  return self.bonus_str or self:GetAbility():GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_item_reflection_shard_passive:GetModifierPreAttack_BonusDamage()
+  return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
+end
+
+function modifier_item_reflection_shard_passive:GetModifierMagicalResistanceBonus()
+  return self.magic_resist or self:GetAbility():GetSpecialValueFor("bonus_magic_resist")
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_reflection_shard_active = class(ModifierBaseClass)
+
+function modifier_item_reflection_shard_active:IsHidden()
+  return false
+end
+
+function modifier_item_reflection_shard_active:IsDebuff()
+  return false
+end
+
+function modifier_item_reflection_shard_active:IsPurgable()
+  return false
+end
+
+function modifier_item_reflection_shard_active:OnCreated(event)
   if IsServer() then
     local parent = self:GetParent()
-    parent:EmitSound("Item.LotusOrb.Destroy")
-    if self.nPreviewFX then
-      ParticleManager:DestroyParticle(self.nPreviewFX, false)
-      ParticleManager:ReleaseParticleIndex(self.nPreviewFX)
-      self.nPreviewFX = nil
+    if self.particleID == nil then
+      self.particleID = ParticleManager:CreateParticle("particles/items/reflection_shard/reflection_shield.vpcf", PATTACH_ROOTBONE_FOLLOW, parent)
     end
+
+    --if parent.stored_reflected_spells == nil then
+      --parent.stored_reflected_spells = {}
+    --end
+  end
+end
+
+
+function modifier_item_reflection_shard_active:OnDestroy()
+  if IsServer() then
+    --local parent = self:GetParent()
+    --parent:EmitSound("Item.LotusOrb.Destroy")
+    if self.particleID then
+      ParticleManager:DestroyParticle(self.particleID, false)
+      ParticleManager:ReleaseParticleIndex(self.particleID)
+      self.particleID = nil
+    end
+    --[[
     for _, ability in pairs(parent.stored_reflected_spells) do
       -- If this ability is not having active modifiers and its not channeling it can be removed
       if ability and not ability:IsNull() then
@@ -90,36 +132,70 @@ function modifier_item_reactive_reflect:OnDestroy()
         end
       end
     end
+    ]]
   end
 end
 
-function modifier_item_reactive_reflect:DeclareFunctions()
+function modifier_item_reflection_shard_active:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
-    --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
     MODIFIER_PROPERTY_ABSORB_SPELL,
-    MODIFIER_PROPERTY_REFLECT_SPELL,
+    --MODIFIER_PROPERTY_REFLECT_SPELL,
   }
 end
+
+-- function modifier_item_reflection_shard_active:GetAbsoluteNoDamagePhysical()
+  -- return 1
+-- end
+
+function modifier_item_reflection_shard_active:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+-- function modifier_item_reflection_shard_active:GetAbsoluteNoDamagePure()
+  -- return 1
+-- end
+
+function modifier_item_reflection_shard_active:GetAbsorbSpell(event)
+  local parent = self:GetParent()
+  local casted_ability = event.ability
+
+  if not casted_ability or casted_ability:IsNull() then
+    return 0
+  end
+
+  local caster = casted_ability:GetCaster()
+
+  -- Don't block allied spells
+  if caster:GetTeamNumber() == parent:GetTeamNumber() then
+    return 0
+  end
+
+  -- No need to block if parent is invulnerable
+  if parent:IsInvulnerable() or parent:IsOutOfGame() then
+    return 0
+  end
+
+  -- Sound
+  parent:EmitSound("Hero_Antimage.Counterspell.Target")
+
+  -- Particle
+  local burst = ParticleManager:CreateParticle("particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+  local duration = self:GetDuration()
+  Timers:CreateTimer(duration, function()
+    if burst then
+      ParticleManager:DestroyParticle(burst, false)
+      ParticleManager:ReleaseParticleIndex(burst)
+    end
+  end)
+
+  return 1
+end
+
 --[[
-function modifier_item_reactive_reflect:GetAbsoluteNoDamagePhysical()
-  return 1
-end
-
-function modifier_item_reactive_reflect:GetAbsoluteNoDamageMagical()
-  return 1
-end
-
-function modifier_item_reactive_reflect:GetAbsoluteNoDamagePure()
-  return 1
-end
-]]
-function modifier_item_reactive_reflect:GetAbsorbSpell()
-  return 1
-end
-
-function modifier_item_reactive_reflect:GetReflectSpell(kv)
+function modifier_item_reflection_shard_active:GetReflectSpell(kv)
   if IsServer() then
     local parent = self:GetParent()
 
@@ -134,24 +210,24 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     local exception_list = {
       ["rubick_spell_steal"] = true,
       ["morphling_replicate"] = true,
-      --["grimstroke_soul_chain"] = true, -- uncomment this if Grimstroke Soul Bind becomes buggy
-      --["legion_commander_duel"] = true, -- uncomment this if Legion Commander's Duel becomes buggy
+      ["grimstroke_soul_chain"] = true,
+      ["legion_commander_duel"] = true,
     }
 
     -- Do not reflect allied spells for any reason
     if target:GetTeamNumber() == parent:GetTeamNumber() then
-      return nil
+      return
     end
 
     -- If this is a reflected ability from other Reflection shard, do nothing
     -- (reflecting reflected spells should not be possible)
     if kv.ability.reflected_spell then
-      return nil
+      return
     end
 
     local reflecting_modifiers = {
       "modifier_item_lotus_orb_active", -- Lotus Orb active
-      "modifier_item_reactive_reflect", -- Reflection Shard active
+      "modifier_item_reflection_shard_active", -- Reflection Shard active
       "modifier_item_mirror_shield",    -- Mirror Shield
       "modifier_antimage_counterspell", -- Anti-Mage Counter Spell active
     }
@@ -167,17 +243,17 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     -- If target has reflecting modifiers do nothing to prevent infinite loops
     -- (reflecting reflected spells should not be possible)
     if found then
-      return nil
+      return
     end
 
     -- If ability is on the exception list do nothing
     if exception_list[ability_name] then
-      return nil
+      return
     end
 
     -- If ability is channeling, dont reflect it because channeling abilities are buggy as hell
     if bit.band(ability_behaviour, DOTA_ABILITY_BEHAVIOR_CHANNELLED) == DOTA_ABILITY_BEHAVIOR_CHANNELLED then
-      return nil
+      return
     end
 
     -- Check if the parent already has the reflected ability
@@ -196,7 +272,8 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
 
     -- Reflect particle
     local burst = ParticleManager:CreateParticle("particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, parent)
-    Timers:CreateTimer(1.5, function()
+    local duration = self:GetDuration()
+    Timers:CreateTimer(duration, function()
       ParticleManager:DestroyParticle(burst, false)
       ParticleManager:ReleaseParticleIndex(burst)
     end)
@@ -235,7 +312,12 @@ function modifier_item_reactive_reflect:GetReflectSpell(kv)
     reflect_ability:OnSpellStart()                -- Cast the spell.
   end
 end
+]]
 
-function modifier_item_reactive_reflect:GetTexture()
-  return "custom/reflection_shard_3"
+function modifier_item_reflection_shard_active:GetEffectName()
+  return "particles/units/heroes/hero_oracle/oracle_fatesedict.vpcf"
+end
+
+function modifier_item_reflection_shard_active:GetTexture()
+  return "custom/reflection_shard_1"
 end

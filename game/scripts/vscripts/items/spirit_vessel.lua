@@ -205,7 +205,6 @@ if IsServer() then
     local parent = self:GetParent()
     local attacker = event.attacker
     local damaged_unit = event.unit
-    local flags = event.damage_flags
     local damage = event.damage -- damage after reductions
 
     -- Check if damaged unit exists
