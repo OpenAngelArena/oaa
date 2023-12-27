@@ -1,9 +1,9 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Spell Breaker 5
+  // Recipe: Vladmir's Grimoire 5
   //=================================================================================================================
-  "item_recipe_spell_breaker_5"
+  "item_recipe_vladmirs_grimoire_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -20,36 +20,31 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_spell_breaker_5"
+    "ItemResult"                                          "item_vladmirs_grimoire_5"
+
     "ItemRequirements"
     {
-      "01"                                                "item_spell_breaker_4;item_upgrade_core_4"
+      "01"                                                "item_vladmirs_grimoire_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Spell Breaker 5
+  // Vladmir's Grimoire 5
   //=================================================================================================================
-  "item_spell_breaker_5"
+  "item_vladmirs_grimoire_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/spell_breaker.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
-    //"AbilityTextureName"                                  "custom/spell_breaker_5"
-    "AbilityTextureName"                                  "custom/mage_slayer_5"
+    "ScriptFile"                                          "items/vladmirs_grimoire.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/vladmirs_grimoire_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 650 700 750 800"
-    "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "spell_breaker"
-    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "15"
+    "AbilitySharedCooldown"                               "vladmirs_grimoire"
+    "AbilityManaCost"                                     "50"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -58,10 +53,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35229"
-    "ItemShopTags"                                        "hard_to_tag"
+    "ItemCost"                                            "34854"
+    "ItemShopTags"                                        "mana_pool;damage;armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "spell breaker;spell disrupter; mage bane; mage slayer"
+    "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -69,21 +64,18 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      // Mage Slayer stats
-      "bonus_magical_armor"                               "21 22 23 24 25"
-      "bonus_attack_speed"                                "35 40 45 50 55"
-      "bonus_intellect"                                   "12 17 27 42 62"
-      "spell_amp_debuff"                                  "36 37 38 39 40"
-      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
-      "duration"                                          "6"
-      "dps"                                               "25 35 55 85 125"
-      // Spell Breaker passive stats
-      "bonus_attack_damage"                               "25 35 55 85 125"
-      // Spell Breaker active stuff
-      "silence_duration"                                  "0.1"
-      "aoe_decrease_percent"                              "30"
-      "spell_lifesteal_reduction"                         "50"
-      "debuff_duration"                                   "5"
+      "bonus_all_stats"                                   "5 10 15 20 25"
+      "bonus_health"                                      "220 320 470 670 920"
+      "bonus_mana"                                        "220 320 470 670 920"
+      // Vladmir Aura
+      "armor_aura"                                        "4 6 9 13 18"
+      "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
+      "lifesteal_aura"                                    "20 25 30 35 40"
+      "damage_aura"                                       "18 26 34 42 50"
+      // Grimoire unique aura parts
+      "damage_reduction_against_bosses"                   "20 24 28 32 36"
+      "banish_duration"                                   "4"
+      "aura_radius"                                       "1200"
     }
   }
 }
