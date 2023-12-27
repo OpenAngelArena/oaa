@@ -23,8 +23,7 @@
     "ItemResult"                                          "item_reflection_shard_1"
     "ItemRequirements"
     {
-      "01"                                                "item_lotus_orb;item_upgrade_core"
-      "02"                                                "item_sphere;item_upgrade_core"
+      "01"                                                "item_black_king_bar_1;item_upgrade_core"
     }
   }
 
@@ -38,28 +37,26 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/reflection_shard.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/reflection_shard_1"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "8 7 6 5"
+    "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "reflection_shard"
     "AbilityManaCost"                                     "45"
 
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "1"
 
-    //"ItemInitialCharges"                                  "1 2 3"
-    //"ItemRequiresCharges"                                 "1"
-    //"ItemDisplayCharges"                                  "1"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5351"
-    "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
+    "ItemCost"                                            "5551"
+    "ItemShopTags"                                        "str;damage;boost_magic_resist;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflect shard 1"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
@@ -81,33 +78,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01" // better than Linken's Sphere or like Eye of Skadi
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_all_stats"                                 "30 40 55 75"
-      }
-      "02" // better than Linken's Sphere
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_health_regen"                              "11 14 17 20"
-      }
-      "03" // like Linken's Sphere
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "bonus_mana_regen"                                "5.25 5.75 6.5 7.5"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "1.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "cooldown_tooltip"                                "8 7 6 5"
-      }
+      "bonus_strength"                                    "17 27 42 62"
+      "bonus_damage"                                      "35 55 85 125"
+      "bonus_magic_resist"                                "17 18 19 20"
+      "duration"                                          "2.5"
     }
   }
 }

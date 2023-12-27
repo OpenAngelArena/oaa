@@ -57,7 +57,7 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bubble; bubble orb"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +68,11 @@
       "bonus_mana_regen"                                  "5.5 6.5"
       "bonus_mana"                                        "700 950"
       "duration"                                          "6.0 7.0"
-      "radius"                                            "300"
+      "radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "aura_stickiness"                                   "0.1" // The time that the buff effect lingers after exiting the bubble
     }
 

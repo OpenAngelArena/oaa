@@ -42,7 +42,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50"
+    "AbilityCooldown"                                     "40"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
 
@@ -56,14 +56,14 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb 5;black king bar 5"
     "ItemSellable"                                        "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "10 20 35 55 80"
-      "bonus_damage"                                      "24 34 54 84 124"
+      "bonus_strength"                                    "12 17 27 42 62"
+      "bonus_damage"                                      "25 35 55 85 125"
       "duration"                                          "7"
       "model_scale"                                       "30"
       "magic_resist"                                      "50 55 60 65 70"

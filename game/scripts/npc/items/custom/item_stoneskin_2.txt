@@ -58,7 +58,7 @@
     "ItemShopTags"                                        "armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin armor 2"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -85,7 +85,11 @@
       //"stone_magic_resist"                                "0"
       //"stone_status_resist"                               "30"
       "stone_deflect_chance"                              "40"
-      "stone_deflect_radius"                              "400"
+      "stone_deflect_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       //"stone_move_speed"                                  "100"
       "duration"                                          "6.0"
     }

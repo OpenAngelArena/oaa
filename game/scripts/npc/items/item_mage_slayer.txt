@@ -48,12 +48,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_magical_armor"                               "25"
-      "bonus_attack_speed"                                "45"
-      "spell_amp_debuff"                                  "40"
+      "bonus_magical_armor"                               "20" //OAA, Cloak (20);
+      "bonus_attack_speed"                                "35" //OAA, Oblivion Staff (35);
+      "spell_amp_debuff"                                  "35" //OAA
       "bonus_mana_regen"                                  "2"
       "duration"                                          "6"
-      "bonus_intellect"                                   "10"
+      "bonus_intellect"                                   "10" // Oblivion Staff (10);
       "dps"                                               "20"
     }
   }

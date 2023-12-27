@@ -14,6 +14,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------

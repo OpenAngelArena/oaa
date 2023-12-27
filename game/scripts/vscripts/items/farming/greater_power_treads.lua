@@ -85,9 +85,14 @@ end
 --end
 
 function modifier_item_greater_power_treads:OnCreated()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
 
+function modifier_item_greater_power_treads:OnRefresh()
+  local ability = self:GetAbility()
   if not ability or ability:IsNull() then
     return
   end
@@ -103,40 +108,34 @@ function modifier_item_greater_power_treads:OnCreated()
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
   self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
-  self.str = ability:GetSpecialValueFor("bonus_all_stats")
-  self.agi = ability:GetSpecialValueFor("bonus_all_stats")
-  self.int = ability:GetSpecialValueFor("bonus_all_stats")
   self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
   self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+  self.bonus_to_secondary_stats = ability:GetSpecialValueFor("bonus_secondary_stats")
 
-  if IsServer() then
-    local attribute = parent:GetPrimaryAttribute()
-    self:SetStackCount(attribute)
-  end
+  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat/3) + math.ceil(self.bonus_to_secondary_stats/2)
 end
 
-function modifier_item_greater_power_treads:OnRefresh()
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
+if IsServer() then
+  function modifier_item_greater_power_treads:OnIntervalThink()
+    local parent = self:GetParent()
 
-  if not ability or ability:IsNull() then
-    return
-  end
+    if not parent or parent:IsNull() then
+      self:StartIntervalThink(-1)
+      return
+    end
 
-  self.moveSpd = ability:GetSpecialValueFor("bonus_movement_speed")
-  self.atkSpd = ability:GetSpecialValueFor("bonus_attack_speed")
-  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-  self.magic_resistance = ability:GetSpecialValueFor("bonus_magic_resistance")
-  self.spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
-  self.str = ability:GetSpecialValueFor("bonus_all_stats")
-  self.agi = ability:GetSpecialValueFor("bonus_all_stats")
-  self.int = ability:GetSpecialValueFor("bonus_all_stats")
-  self.multiplier = ability:GetSpecialValueFor("primary_attribute_multiplier")
-  self.bonus_to_primary_stat = ability:GetSpecialValueFor("primary_attribute_bonus")
+    -- Ignore Meepo clones
+    if parent:IsClone() then
+      self:StartIntervalThink(-1) -- dynamic clones still don't exist, so we can stop thinking
+      self:SetStackCount(DOTA_ATTRIBUTE_MAX+1) -- don't grant STR, AGI or INT to clones
+      return
+    end
 
-  if IsServer() then
     local attribute = parent:GetPrimaryAttribute()
     self:SetStackCount(attribute)
+    -- We can stop the interval if dynamic changing of the primary attribute doesn't exist
+    -- Morphling ultimate changes primary attribute ...
+    self:StartIntervalThink(-1)
   end
 end
 
@@ -159,42 +158,39 @@ function modifier_item_greater_power_treads:GetModifierMoveSpeedBonus_Special_Bo
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Strength()
-  if self:GetParent():IsClone() then
-    return 0
-  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_STRENGTH then
-    return self.str + self.bonus_to_primary_stat
+    return self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.str + math.ceil(self.bonus_to_primary_stat/3)
+    return self.bonus_stat_for_universal
+  elseif attribute == DOTA_ATTRIBUTE_MAX+1 then
+    return 0
   end
-  return self.str
+  return self.bonus_to_secondary_stats
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Agility()
-  if self:GetParent():IsClone() then
-    return 0
-  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_AGILITY then
-    return self.agi + self.bonus_to_primary_stat
+    return self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.agi + math.ceil(self.bonus_to_primary_stat/3)
+    return self.bonus_stat_for_universal
+  elseif attribute == DOTA_ATTRIBUTE_MAX+1 then
+    return 0
   end
-  return self.agi
+  return self.bonus_to_secondary_stats
 end
 
 function modifier_item_greater_power_treads:GetModifierBonusStats_Intellect()
-  if self:GetParent():IsClone() then
-    return 0
-  end
   local attribute = self:GetStackCount()
   if attribute == DOTA_ATTRIBUTE_INTELLECT then
-    return self.int + self.bonus_to_primary_stat
+    return self.bonus_to_primary_stat
   elseif attribute == DOTA_ATTRIBUTE_ALL then
-    return self.int + math.ceil(self.bonus_to_primary_stat/3)
+    return self.bonus_stat_for_universal
+  elseif attribute == DOTA_ATTRIBUTE_MAX+1 then
+    return 0
   end
-  return self.int
+  return self.bonus_to_secondary_stats
 end
 
 function modifier_item_greater_power_treads:GetModifierMagicalResistanceBonus()

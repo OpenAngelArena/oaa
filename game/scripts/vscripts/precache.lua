@@ -1,4 +1,5 @@
 g_ItemPrecache = {
+  "item_angels_halo",
   --"item_blood_sword",
   "item_bubble_orb_1",
   "item_butterfly_oaa",
@@ -24,6 +25,7 @@ g_ItemPrecache = {
   "item_martyrs_mail_1",
   --"item_meteor_hammer_1",
   --"item_pull_staff",
+  "item_reflection_shard_1",
   --"item_reflex_core",
   "item_regen_crystal_1",
   --"item_rune_breaker_oaa",
@@ -120,14 +122,14 @@ g_ParticleFolderPrecache = {
   "particles/items/elixiers",
   "particles/items/enrage_crystal",
   "particles/items/heart_transplant",
-  --"particles/items/reflection_shard",
+  "particles/items/reflection_shard",
   "particles/items/regen_crystal",
   "particles/items/trumps_fists",
   "particles/items/vampire",
 }
 
 g_SoundPrecache = {
-  "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds
+  "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", -- Midas Spark sounds, Giant Form sound
   "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts", -- For Explosive Death modifier
   -- Ambient sounds
   --"soundevents/ambient/doors.vsndevts",

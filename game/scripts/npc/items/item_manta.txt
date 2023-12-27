@@ -34,17 +34,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "10 15 25 40 60"
-      "bonus_agility"                                     "26 31 41 56 76"
-      "bonus_intellect"                                   "10 15 25 40 60"
-      "bonus_attack_speed"                                "15 20 25 30 35"
-      "bonus_movement_speed"                              "10 12 14 16 18"
+      "bonus_strength"                                    "12 17 22 27 32" //OAA, Diadem (6);
+      "bonus_agility"                                     "26 31 41 56 76" // Yasha (16); Diadem (6);
+      "bonus_intellect"                                   "12 17 22 27 32" //OAA, Diadem (6);
+      "bonus_attack_speed"                                "15 20 25 30 35" // Yasha (15);
+      "bonus_movement_speed"                              "10 12 14 16 18" // Yasha (10);
       "images_count"                                      "2"
       "tooltip_illusion_duration"                         "20"
       "images_do_damage_percent_melee"                    "-50 -45 -40 -35 -30" //OAA
       "tooltip_damage_outgoing_melee"                     "50 55 60 65 70" //OAA
-      "images_take_damage_percent"                        "200 175 150 125 100"
-      "tooltip_damage_incoming_total_pct"                 "300 275 250 225 200"
+      "images_take_damage_percent"                        "200 170 140 110 80"
+      "tooltip_damage_incoming_total_pct"                 "300 270 240 210 180"
       "images_do_damage_percent_ranged"                   "-55 -50 -45 -40 -35" //OAA
       "tooltip_damage_outgoing_ranged"                    "45 50 55 60 65" //OAA
       "invuln_duration"                                   "0.1"

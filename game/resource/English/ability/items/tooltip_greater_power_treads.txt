@@ -1,6 +1,8 @@
 //===================================================================================
 // Greater Power Treads
 //===================================================================================
+//"DOTA_Tooltip_ability_item_pupils_gift_secondary_stats"                         "+SECONDARY STATS"
+
 "DOTA_Tooltip_Ability_item_greater_power_treads"                                "Powerful Treads"
 "DOTA_Tooltip_Ability_item_recipe_greater_power_treads"                         "Powerful Treads Recipe"
 //"DOTA_Tooltip_Ability_item_greater_power_treads_str"                            "Strength"
@@ -9,10 +11,10 @@
 "DOTA_Tooltip_Ability_item_greater_power_treads_Description"                    "<h1>Passive: Speciality</h1> Bonus magic resistance from this item is doubled on <font color='#ec3d06'>Strength</font> heroes.<br>Bonus attack speed from this item is doubled on <font color='#3ed038'>Agility</font> heroes. <br>Bonus spell amplification from this item is doubled on <font color='#00d9ec'>Intelligence</font> heroes. Bonus attack damage from this item is doubled on <font color='#BF40BF'>Universal</font> heroes."
 //"<h1>Active: Switch Attribute</h1>Switches between +%bonus_stat% Strength, +%bonus_stat% Agility, or +%bonus_stat% Intelligence. When switched to Strength/Agility/Intelligence it also gives bonus magic resistance/damage/spell amplification."
 "DOTA_Tooltip_Ability_item_greater_power_treads_Lore"                           "These boots allow the wearer to trample lesser foes without a care."
-"DOTA_Tooltip_Ability_item_greater_power_treads_Note0"                          "Universal heroes gain 1/3 of the primary attribute value as all stats. E.g. +15 Primary Attribute is +5 All Atrributes for Universal heroes."
+"DOTA_Tooltip_Ability_item_greater_power_treads_Note0"                          "Universal heroes gain +10/16/24/33 to each attribute."
 "DOTA_Tooltip_Ability_item_greater_power_treads_bonus_movement_speed"           "+$move_speed"
 "DOTA_Tooltip_Ability_item_greater_power_treads_primary_attribute_bonus"        "+$primary_attribute"
-"DOTA_Tooltip_Ability_item_greater_power_treads_bonus_all_stats"                "+$all"
+"DOTA_Tooltip_Ability_item_greater_power_treads_bonus_secondary_stats"          "+Secondary Attributes"
 "DOTA_Tooltip_Ability_item_greater_power_treads_bonus_attack_speed"             "+<font color='#3ed038'>#{dota_ability_variable_attack}</font>" // green
 "DOTA_Tooltip_Ability_item_greater_power_treads_bonus_damage"                   "+<font color='#BF40BF'>#{dota_ability_variable_damage}</font>" // purple
 "DOTA_Tooltip_Ability_item_greater_power_treads_bonus_magic_resistance"         "%+<font color='#ec3d06'>#{dota_ability_variable_spell_resist}</font>" // red
@@ -29,7 +31,7 @@
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_Note0"                        "#{DOTA_Tooltip_Ability_item_greater_power_treads_Note0}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_movement_speed"         "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_primary_attribute_bonus"      "#{DOTA_Tooltip_Ability_item_greater_power_treads_primary_attribute_bonus}"
-"DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_all_stats"              "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_all_stats}"
+"DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_secondary_stats"        "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_secondary_stats}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_attack_speed"           "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_damage"                 "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_2_bonus_magic_resistance"       "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_magic_resistance}"
@@ -45,7 +47,7 @@
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_Note0"                        "#{DOTA_Tooltip_Ability_item_greater_power_treads_Note0}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_movement_speed"         "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_primary_attribute_bonus"      "#{DOTA_Tooltip_Ability_item_greater_power_treads_primary_attribute_bonus}"
-"DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_all_stats"              "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_all_stats}"
+"DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_secondary_stats"        "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_secondary_stats}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_attack_speed"           "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_damage"                 "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_3_bonus_magic_resistance"       "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_magic_resistance}"
@@ -61,7 +63,7 @@
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_Note0"                        "#{DOTA_Tooltip_Ability_item_greater_power_treads_Note0}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_movement_speed"         "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_movement_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_primary_attribute_bonus"      "#{DOTA_Tooltip_Ability_item_greater_power_treads_primary_attribute_bonus}"
-"DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_all_stats"              "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_all_stats}"
+"DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_secondary_stats"        "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_secondary_stats}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_attack_speed"           "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_attack_speed}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_damage"                 "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_damage}"
 "DOTA_Tooltip_Ability_item_greater_power_treads_4_bonus_magic_resistance"       "#{DOTA_Tooltip_Ability_item_greater_power_treads_bonus_magic_resistance}"

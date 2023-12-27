@@ -40,13 +40,13 @@
       "absorb_amount" //OAA
       {
         "value"                                           "95 230 365 500 1000 2000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_1"
+        "special_bonus_unique_ember_spirit_1"             "+500"
       }
       "tick_interval"                                     "0.2"
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
         "value"                                           "25 35 45 55 110 220"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
+        "special_bonus_unique_ember_spirit_3"             "+100"
       }
       "blind_pct"                                         "50" // unused
       "shield_pct_absorb"                                 "70"

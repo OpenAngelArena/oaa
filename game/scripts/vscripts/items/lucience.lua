@@ -108,12 +108,8 @@ function modifier_item_lucience_aura_handler:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     ability.auraHandler = self
-    self.hp = ability:GetSpecialValueFor("bonus_health")
     self.str = ability:GetSpecialValueFor("bonus_strength")
-    self.mana = ability:GetSpecialValueFor("bonus_mana")
     self.int = ability:GetSpecialValueFor("bonus_intellect")
-    self.armor = ability:GetSpecialValueFor("bonus_armor")
-    --self.agi = ability:GetSpecialValueFor("bonus_agility")
   end
 
   if IsServer() then
@@ -176,34 +172,14 @@ end
 
 function modifier_item_lucience_aura_handler:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    --MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
   }
-end
-
-function modifier_item_lucience_aura_handler:GetModifierHealthBonus()
-  return self.hp or self:GetAbility():GetSpecialValueFor("bonus_health")
-end
-
-function modifier_item_lucience_aura_handler:GetModifierManaBonus()
-  return self.mana or self:GetAbility():GetSpecialValueFor("bonus_mana")
-end
-
-function modifier_item_lucience_aura_handler:GetModifierPhysicalArmorBonus()
-  return self.armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Strength()
   return self.str or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
-
---function modifier_item_lucience_aura_handler:GetModifierBonusStats_Agility()
-  --return self.agi or self:GetAbility():GetSpecialValueFor("bonus_agility")
---end
 
 function modifier_item_lucience_aura_handler:GetModifierBonusStats_Intellect()
   return self.int or self:GetAbility():GetSpecialValueFor("bonus_intellect")

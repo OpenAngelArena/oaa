@@ -54,17 +54,17 @@
     "ItemShopTags"                                        "agi;damage;evasion;attack_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bfly 5;butterfly 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "25 35 50 70 95"
+      "bonus_agility"                                     "25 30 40 55 75"
       "bonus_evasion"                                     "20 25 30 35 40"
-      "bonus_attack_speed"                                "15"
+      "bonus_attack_speed"                                "20"
       "bonus_attack_speed_per_agility_pct"                "20"
-      "bonus_damage"                                      "20 40 70 110 160"
+      "bonus_damage"                                      "20 30 50 80 120"
       "buff_ms_per_agility"                               "0.1"
       "buff_evasion"                                      "100"
       "buff_duration"                                     "3.0"
