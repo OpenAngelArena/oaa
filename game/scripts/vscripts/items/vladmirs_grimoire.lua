@@ -52,6 +52,9 @@ function item_vladmirs_grimoire_1:OnSpellStart()
       unit:AddNoDraw()
       unit:SetAbsOrigin(Vector(-10000, -10000, -10000))
     end)
+
+  -- Activation Sound
+  caster:EmitSound("Miniboss.Tormenter.Base.Open")
 end
 
 function item_vladmirs_grimoire_1:GetIntrinsicModifierName()
@@ -410,5 +413,6 @@ if IsServer() then
     parent:RemoveNoDraw()
     parent:AddNewModifier(parent, nil, "modifier_phased", {duration = FrameTime()})
     caster:AddNewModifier(caster, nil, "modifier_phased", {duration = FrameTime()})
+    caster:EmitSound("Miniboss.Tormenter.Base.Close")
   end
 end
