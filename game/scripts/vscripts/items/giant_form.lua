@@ -19,9 +19,12 @@ end
 
 function item_giant_form:OnSpellStart()
   local caster = self:GetCaster()
-  local modifierName = "modifier_item_giant_form_grow"
 
-  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
+  -- Apply Giant Form buff to caster
+  caster:AddNewModifier(caster, self, "modifier_item_giant_form_grow", {duration = self:GetSpecialValueFor("duration")})
+
+  -- Activation Sound
+  caster:EmitSound("Hero_Treant.Overgrowth.CastAnim")
 end
 
 item_giant_form_2 = item_giant_form

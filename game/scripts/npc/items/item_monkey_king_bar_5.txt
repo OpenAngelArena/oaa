@@ -40,7 +40,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34904"
+    "ItemCost"                                            "34504"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 5;monkey king bar 5"
@@ -55,9 +55,9 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "40 50 70 100 140"
-      "bonus_attack_speed"                                "35 45 55 65 75"
-      "bonus_chance"                                      "75"
-      "bonus_chance_damage"                               "70 100 160 250 370"
+      "bonus_attack_speed"                                "35 40 45 50 55"
+      "bonus_chance"                                      "80"
+      "bonus_chance_damage"                               "70 90 120 160 210"
     }
   }
 }

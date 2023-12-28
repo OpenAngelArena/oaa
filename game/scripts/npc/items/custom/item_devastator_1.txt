@@ -64,7 +64,7 @@
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
@@ -80,8 +80,16 @@
       "corruption_armor"                                  "-6 -9 -13 -18 -24"
       "corruption_duration"                               "7.0"
       "devastator_speed"                                  "1800"
-      "devastator_width_initial"                          "200"
-      "devastator_width_end"                              "200"
+      "devastator_width_initial"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "devastator_width_end"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "devastator_distance"                               "700 750 800 850 900"
       "devastator_damage"                                 "75 150 300 525 825"
       "devastator_movespeed_reduction"                    "-10 -20 -30 -40 -50" // like Solar Crest

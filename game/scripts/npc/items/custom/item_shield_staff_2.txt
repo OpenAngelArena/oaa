@@ -45,7 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCooldown"                                     "19 17 15 13 11"
+    "AbilityCooldown"                                     "19 18 17 16 15"
     "AbilitySharedCooldown"                               "force"
     "AbilityManaCost"                                     "150"
 
@@ -166,7 +166,7 @@
       "19"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "cooldown_tooltip"                                "19 17 15 13 11"
+        "cooldown_tooltip"                                "19 18 17 16 15"
       }
     }
   }

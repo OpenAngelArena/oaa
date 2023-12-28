@@ -1,0 +1,15 @@
+//======================================================================
+// Azazel's Elixirs
+//======================================================================
+"DOTA_Tooltip_Ability_item_angels_halo"                                         "Angel's Halo"
+"DOTA_Tooltip_Ability_item_angels_halo_Description"                             "<h1>Use: Consume</h1>Consume the Angel's Halo to permanently gain %consumed_bonus_move_speed% move speed, %consumed_bonus_day_vision% bonus day vision and weaker version of Angel's Presence (%consumed_aura_damage% AoE magic damage per second within %radius% radius). Max 1 use.\n\n<h1>Passive: Angel's Presence</h1>Burns enemies around you for %aura_damage% magical damage per second.<br><br>Radius: %radius%<br><br><font color='#FF0000'>Costs 30 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_angels_halo_Lore"                                    "Do I seriously need to write flavor text for this?"
+"DOTA_Tooltip_Ability_item_angels_halo_Note0"                                   "Permanent buff."
+"DOTA_Tooltip_Ability_item_angels_halo_bonus_move_speed"                        "+$move_speed"
+"DOTA_Tooltip_Ability_item_angels_halo_bonus_day_vision"                        "+Day Vision"
+
+"DOTA_Tooltip_modifier_angels_halo_active"                                      "#{DOTA_Tooltip_Ability_item_angels_halo}"
+"DOTA_Tooltip_modifier_angels_halo_active_Description"                          "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed, day vision increased by %MODIFIER_PROPERTY_BONUS_DAY_VISION% and doing AoE damage per second."
+
+"DOTA_Tooltip_modifier_angels_halo_aura_effect"                                 "#{DOTA_Tooltip_Ability_item_angels_halo}"
+"DOTA_Tooltip_modifier_angels_halo_aura_effect_Description"                     "Taking damage while near Angel's Halo."

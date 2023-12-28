@@ -73,7 +73,11 @@
       "bearing_attack_speed"                              "50 55 60 65"
       "bearing_movement_speed_pct"                        "15 16 17 18"
       "bearing_duration"                                  "6"
-      "bearing_radius"                                    "1200"
+      "bearing_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bearing_unslowable_duration"                       "1.5"
       "tranquilize_attack_speed_slow"                     "-700"
       "tranquilize_slow_duration"                         "2.5 3.0 3.5 4.0"
@@ -84,7 +88,11 @@
       "tree_status_resistance"                            "16 18 20 22"
       "tree_radius"                                       "175"
       "tree_protection_duration"                          "3.5 4.0 4.5 5.0"
-      "sprout_vision_range"                               "250" // when cast on enemies
+      "sprout_vision_range" // when cast on enemies
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "cooldown_tooltip"                                  "20 19 18 17"
     }
 

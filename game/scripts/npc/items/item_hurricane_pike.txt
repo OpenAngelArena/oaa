@@ -60,10 +60,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "20 25 35 50 70" //OAA
-      "bonus_health"                                      "250 350 500 700 950" //OAA
-      "bonus_agility"                                     "20 25 35 50 70"
-      "bonus_strength"                                    "15 20 30 45 65"
+      "bonus_intellect"                                   "12 17 22 27 32" //OAA, Force Staff (10);
+      "bonus_health"                                      "200 450 950 1700 2700" // Force Staff (175);
+      "bonus_agility"                                     "17 22 32 47 67" //OAA, Dragon Lance (15);
+      "bonus_strength"                                    "12 17 22 27 32" //OAA, Dragon Lance (10);
       "base_attack_range"                                 "150 160 170 180 190"
       "push_length"                                       "600"
       "enemy_length"                                      "450"

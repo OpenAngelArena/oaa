@@ -62,16 +62,16 @@
     "ItemCost"                                            "8602"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh 3;meteor hammer 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_intellect"                                   "26 31 41 56 76"
-      "bonus_strength"                                    "10 15 25 40 60"
-      "bonus_agility"                                     "10 15 25 40 60"
-      "spell_amp"                                         "10 14 18 22 26"
+      "bonus_strength"                                    "12 17 22 27 32"
+      "bonus_agility"                                     "12 17 22 27 32"
+      "spell_amp"                                         "12 16 20 24 28"
       "mana_regen_multiplier"                             "50 60 70 80 90"
       "spell_lifesteal_amp"                               "24 26 28 30 32"
 

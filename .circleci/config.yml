@@ -27,7 +27,7 @@ jobs:
           name: install hererocks and lua
           command: |
             pip install --user hererocks
-            hererocks here --lua 5.3
+            hererocks here --lua 5.3 -r https://github.com/mpeterv/luarocks@upgrade-install
       - run:
           name: luacheck
           command: |

@@ -1,0 +1,81 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Vladmir's Grimoire 1
+  //=================================================================================================================
+  "item_recipe_vladmirs_grimoire_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "1000"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_vladmirs_grimoire_1"
+
+    "ItemRequirements"
+    {
+      "01"                                                "item_vladmir;item_point_booster;item_crown"
+    }
+  }
+
+  //=================================================================================================================
+  // Vladmir's Grimoire 1
+  //=================================================================================================================
+  "item_vladmirs_grimoire_1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/vladmirs_grimoire.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"                                  "custom/vladmirs_grimoire_1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "15"
+    "AbilitySharedCooldown"                               "vladmirs_grimoire"
+    "AbilityManaCost"                                     "50"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "1"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "4850"
+    "ItemShopTags"                                        "mana_pool;damage;armor;regen_mana;hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_all_stats"                                   "5 10 15 20 25"
+      "bonus_health"                                      "220 320 470 670 920"
+      "bonus_mana"                                        "220 320 470 670 920"
+      // Vladmir Aura
+      "armor_aura"                                        "4 6 9 13 18"
+      "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
+      "lifesteal_aura"                                    "20 25 30 35 40"
+      "damage_aura"                                       "18 26 34 42 50"
+      // Grimoire unique aura parts
+      "damage_reduction_against_bosses"                   "20 24 28 32 36"
+      "banish_duration"                                   "4"
+      "aura_radius"                                       "1200"
+    }
+  }
+}

@@ -65,14 +65,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 1000 1750 2750"
+      "bonus_health"                                      "250 500 1000 1750 2750" // vanilla (125);
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "12 17 22 27 32"
+      "bonus_all_stats"                                   "7 12 17 22 27" // Urn (2); Crown (4); vanilla (6);
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"
-      "soul_heal_amount"                                  "50 65 90 125 170"
-      "soul_damage_amount"                                "35 45 65 95 135"
+      "soul_heal_amount"                                  "45 60 85 120 165" // Urn (30); vanilla (40);
+      "soul_damage_amount"                                "35 45 65 95 135" // Urn (25); vanilla (35);
       "duration"                                          "8.0"
       "heal_reduction_with_charge"                        "45 50 55 60 65"
       "heal_reduction_no_charge"                          "20 25 30 35 40"

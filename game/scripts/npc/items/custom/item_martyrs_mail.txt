@@ -66,7 +66,11 @@
       "bonus_attack_speed"                                "50" // like AC
 
       "martyr_duration"                                   "5.5"
-      "martyr_heal_aoe"                                   "1200"
+      "martyr_heal_aoe"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "martyr_heal_percent"                               "100"
 
       "aura_attack_speed"                                 "50" // like AC
@@ -75,9 +79,17 @@
 
       "death_heal_base"                                   "100"
       "death_heal_hp_percent"                             "50"
-      "death_vision_radius"                               "800"
+      "death_vision_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "death_effect_duration"                             "30"
-      "death_effect_radius"                               "1800"
+      "death_effect_radius"
+      {
+        "value"                                           "1800"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
 
     "precache"

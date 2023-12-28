@@ -1,13 +1,8 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf58:version{9bada39c-a931-42d0-abdd-e5c1b13d37a6} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nMaxParticles = 0
-	m_Children = 
-	[
-		{
-			m_ChildRef = resource:"particles/generic/generic_marker_model.vpcf"
-		},
-	]
+	m_nBehaviorVersion = 12
 	m_controlPointConfigurations = 
 	[
 		{
@@ -16,11 +11,15 @@
 			[
 				{
 					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_vecOffset = [ 0.0, 0.0, 0.0 ]
-					m_angOffset = [ null, null, null ]
 					m_entityName = "self"
 				},
 			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/warning/generic_marker_model.vpcf"
 		},
 	]
 }
