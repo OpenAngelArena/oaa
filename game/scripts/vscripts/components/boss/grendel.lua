@@ -8,9 +8,9 @@ function Grendel:Init()
   ChatCommand:LinkDevCommand("-spawngrendel", Dynamic_Wrap(self, 'SpawnGrendel'), self)
   self.level = 0
   self.nextSpawn = spawn_time
-  self.respawn_time = 5 * 60
+  self.respawn_time = 4 * 60
   self.respawned = false
-  self.xp_reward_per_hero = 3500
+  self.xp_reward_per_hero = 2500
 end
 
 function Grendel:GetState()
@@ -55,7 +55,7 @@ function Grendel:SpawnGrendel()
 
   self.level = self.level + 1
 
-  if self.level > 2 then
+  if self.level > 4 then
     return
   end
 
@@ -130,7 +130,7 @@ function Grendel:SpawnGrendel()
     end
 
     -- Increase the score limit
-    PointsManager:IncreaseLimit()
+    PointsManager:IncreaseLimit(5)
 
     -- Remove Grendel calls
     Grendel:GoNearTeam(nil)
