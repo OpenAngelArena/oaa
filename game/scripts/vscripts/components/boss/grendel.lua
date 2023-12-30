@@ -130,8 +130,7 @@ function Grendel:SpawnGrendel()
     end
 
     -- Increase the score limit
-    local player_count = PlayerResource:SafeGetTeamPlayerCount()
-    PointsManager:IncreaseLimit(player_count//2)
+    PointsManager:IncreaseLimit("grendel")
 
     -- Remove Grendel calls
     Grendel:GoNearTeam(nil)

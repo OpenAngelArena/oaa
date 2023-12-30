@@ -214,19 +214,24 @@ end
 
 function PointsManager:IncreaseLimit(limit_increase)
   local extend_amount = 0
+  local player_count = PlayerResource:SafeGetTeamPlayerCount()
+  local standard_extend_amount = player_count * KILL_LIMIT_INCREASE
+  if HeroSelection.is10v10 then
+    standard_extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
+  elseif HeroSelection.lowPlayerCount then
+    standard_extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
+  end
   if not limit_increase then
-    local player_count = PlayerResource:SafeGetTeamPlayerCount()
-    extend_amount = player_count * KILL_LIMIT_INCREASE
-    if HeroSelection.is10v10 then
-      extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
-    elseif HeroSelection.lowPlayerCount then
-      extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
-    end
-  else
+    extend_amount = standard_extend_amount
+  elseif type(limit_increase) == "number" then
     extend_amount = limit_increase
+  elseif limit_increase == "grendel" then
+    extend_amount = standard_extend_amount/2
+  else
+    print("limit_increase argument must be a number of 'grendel'! When ommited it will use the standard value.")
   end
 
-  self.extend_counter = self.extend_counter + 1
+  self.extend_counter = self.extend_counter + math.floor(extend_amount/standard_extend_amount)
 
   PointsManager:SetLimit(PointsManager:GetLimit() + extend_amount)
   Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=extend_amount}})
