@@ -231,7 +231,7 @@ function PointsManager:IncreaseLimit(limit_increase)
     print("limit_increase argument must be a number of 'grendel'! When ommited it will use the standard value.")
   end
 
-  self.extend_counter = self.extend_counter + math.floor(extend_amount/standard_extend_amount)
+  self.extend_counter = self.extend_counter + extend_amount/standard_extend_amount
 
   PointsManager:SetLimit(PointsManager:GetLimit() + extend_amount)
   Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=extend_amount}})
@@ -286,7 +286,7 @@ function PointsManager:RefreshLimit()
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.
-  local newLimit = self.limitConstant + base_limit * current_player_count + self.extend_counter * extend_amount
+  local newLimit = self.limitConstant + base_limit * current_player_count + math.floor(self.extend_counter * extend_amount)
   if newLimit < limit then
     local limitChange = limit - newLimit -- this used to be constant 10 and not dependent on number of players
     newLimit = math.min(limit, math.max(maxPoints + limitChange, limit - limitChange))
