@@ -226,7 +226,7 @@ function PointsManager:IncreaseLimit(limit_increase)
   elseif type(limit_increase) == "number" then
     extend_amount = limit_increase
   elseif limit_increase == "grendel" then
-    extend_amount = standard_extend_amount/2
+    extend_amount = standard_extend_amoun//2
   else
     print("limit_increase argument must be a number of 'grendel'! When ommited it will use the standard value.")
   end
