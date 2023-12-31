@@ -58,6 +58,9 @@
 "game_option_speedster"                                                         "Speedster"
 "game_option_universal"                                                         "Universal"
 
+"game_option_wealthy"                                                           "Wealthy"
+"game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning"
+
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
 
@@ -218,3 +221,5 @@
 "DOTA_Tooltip_modifier_speedster_oaa_Description"                               "+50%% move speed, +25%% attack speed, +30%% cast speed, +100%% turn speed."
 "DOTA_Tooltip_modifier_universal_oaa"                                           "#{game_option_universal}"
 "DOTA_Tooltip_modifier_universal_oaa_Description"                               "+%dMODIFIER_PROPERTY_TOOLTIP%%% spell amplification, +%dMODIFIER_PROPERTY_TOOLTIP%%% healing amplification and your summons and illusions do %dMODIFIER_PROPERTY_TOOLTIP%%% more damage and take %dMODIFIER_PROPERTY_TOOLTIP%%% less damage."
+"DOTA_Tooltip_modifier_rich_man_oaa"                                           "#{game_option_wealthy}"
+"DOTA_Tooltip_modifier_rich_man_oaa_Description"                               "+%dMODIFIER_PROPERTY_TOOLTIP% gold per minute, plus bonus gold on death."

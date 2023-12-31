@@ -214,7 +214,8 @@ function handleOAASettingsChange (n, key, settings) {
     HM35: '#game_option_octarine_soul',
     HM36: '#game_option_smurf',
     HM37: '#game_option_speedster',
-    HM38: '#game_option_universal'
+    HM38: '#game_option_universal',
+    HM39: '#game_option_wealthy'
   };
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
