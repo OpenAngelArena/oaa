@@ -11,6 +11,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 local herolist = {}
 local lockedHeroes = {}
 local loadedHeroes = {}
+local successfullyAssignedHeroes = {}
 local totalheroes = 0
 
 local cmtimer = nil
@@ -112,6 +113,12 @@ function HeroSelection:Init ()
     if not HeroSelection.isARDM then
       local playerId = hero:GetPlayerID()
       local hero_name = hero:GetUnitName()
+
+      if lockedHeroes[playerId] ~= hero_name then
+        -- the player spawned in the wrong hero
+        -- they're probably disconnected
+        -- we can't fix this here...
+      end
       -- Don't trigger for neutrals, Tempest Double and Meepo Clones
       if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
         return
@@ -174,6 +181,7 @@ function HeroSelection:Init ()
         lockedHeroes[playerid] = hero_name
       else
         -- Reconnected during picking and not locked yet
+
         return
       end
     else
@@ -190,18 +198,24 @@ function HeroSelection:Init ()
       -- Player has a hero after reconnecting (game probably started)
       -- Check if player has a hero they didn't lock during the picking screen, change it to the locked hero
       if hero and hero_name ~= locked_hero_name and OAAOptions.settings.GAME_MODE ~= "ARDM" then
-        local new_hero_name = locked_hero_name
-        if OAAOptions.settings.GAME_MODE == "AR" and HeroSelection:IsHeroDisabled(new_hero_name) then
+        local new_hero_name = hero_name
+        if OAAOptions.settings.GAME_MODE == "AR" and HeroSelection:IsHeroDisabled(hero_name) then
           new_hero_name = HeroSelection:RandomHero()
         end
-        if loadedHeroes[new_hero_name] then
-          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
-          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-        else
-          PrecacheUnitByNameAsync(new_hero_name, function()
+        if not loadedHeroes[locked_hero_name] then
+          new_hero_name = locked_hero_name
+        end
+
+        if hero_name ~= new_hero_name then
+          if loadedHeroes[new_hero_name] then
             PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
             Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-          end)
+          else
+            PrecacheUnitByNameAsync(new_hero_name, function()
+              PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+              Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
+            end)
+          end
         end
       end
     end
@@ -594,6 +608,31 @@ function HeroSelection:ChooseBans ()
           table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
         end
       end)
+    elseif OAAOptions.settings.GAME_MODE == "SD" then
+      -- generate 3 hero choices for each player
+      local heroExclusions = {}
+      local singleDraftChoices = {}
+      PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
+        local strengthChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_STRENGTH', heroExclusions)
+        local agilityChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_AGILITY', heroExclusions)
+        local intellectChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_INTELLECT', heroExclusions)
+        local allChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_ALL', heroExclusions)
+
+        heroExclusions[strengthChoice] = PlayerID
+        heroExclusions[agilityChoice] = PlayerID
+        heroExclusions[intellectChoice] = PlayerID
+        heroExclusions[allChoice] = PlayerID
+
+        DebugPrint('Got choices for player ' .. PlayerID .. ', ' .. strengthChoice .. ', ' .. agilityChoice .. ', ' .. intellectChoice .. ', ' .. allChoice)
+        singleDraftChoices[PlayerID] = {
+          DOTA_ATTRIBUTE_STRENGTH = strengthChoice,
+          DOTA_ATTRIBUTE_AGILITY = agilityChoice,
+          DOTA_ATTRIBUTE_INTELLECT = intellectChoice,
+          DOTA_ATTRIBUTE_ALL = allChoice
+        }
+      end)
+      DebugPrintTable(singleDraftChoices)
+      CustomNetTables:SetTableValue('hero_selection', 'SDdata', singleDraftChoices)
     end
   end
 end
@@ -935,10 +974,32 @@ function HeroSelection:GetPreviewHero (playerId)
   return
 end
 
-function HeroSelection:RandomHero ()
+function HeroSelection:RandomHeroByAbility (ability, heroExclusions)
+  local attempts = 0
   while true do
+    attempts = attempts + 1
+    local choice = HeroSelection:RandomHero()
+    if not heroExclusions[choice] and herolist[choice] == ability then
+      return choice
+    end
+
+    if attempts > 1000 then
+      return choice
+    end
+  end
+
+end
+
+function HeroSelection:RandomHero ()
+  local attempts = 0
+  while true do
+    attempts = attempts + 1
     local choice = HeroSelection:UnsafeRandomHero()
     if not self:IsHeroDisabled(choice) then
+      return choice
+    end
+
+    if attempts > 1000 then
       return choice
     end
   end
