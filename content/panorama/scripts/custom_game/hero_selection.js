@@ -935,7 +935,7 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
-  if (name === "random") {
+  if (name === 'random') {
     return false;
   }
   const playerId = Game.GetLocalPlayerID();
@@ -1245,7 +1245,7 @@ function CaptainSelectHero () {
 function RandomHero () {
   selectedhero = 'random';
   selectedherocm = 'random';
-  $.Msg('Randoming!')
+  $.Msg('Randoming!');
   if (iscm) {
     CaptainSelectHero();
   } else {
@@ -1379,7 +1379,7 @@ function HandleSingleDraftData (data) {
 }
 
 function createAllySingleDraftOptions () {
-  const teamID = Players.GetTeam(Game.GetLocalPlayerID());
+  // const teamID = Players.GetTeam(Game.GetLocalPlayerID());
   const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
 
   Object.keys(apData).forEach(function (playerId) {
@@ -1393,10 +1393,10 @@ function createAllySingleDraftOptions () {
 
     sdHolder.RemoveAndDeleteChildren();
 
-    addHeroOption (sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH);
-    addHeroOption (sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_AGILITY);
-    addHeroOption (sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT);
-    addHeroOption (sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_AGILITY);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL);
 
     $.Msg(`${playerId} has steamid ${steamid} and str hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH}`);
   });
