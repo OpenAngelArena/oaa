@@ -197,16 +197,11 @@ function HeroSelection:Init ()
         local new_hero_name = locked_hero_name
         -- All Random mode special cases
         if OAAOptions.settings.GAME_MODE == "AR" then
-          if HeroSelection:IsHeroDisabled(locked_hero_name) then
-            -- Locked hero is not allowed, check if actual hero is allowed, random a new one if it's not
-            if HeroSelection:IsHeroDisabled(hero_name) then
-              new_hero_name = HeroSelection:RandomHero()
-            else
-              return -- actual hero is allowed, don't do anything
-            end
+          -- Locked hero is not allowed, check if actual hero is allowed, random a new one if it's not
+          if HeroSelection:IsHeroDisabled(hero_name) then
+            new_hero_name = HeroSelection:RandomHero()
           else
-            -- locked hero is allowed
-            new_hero_name = locked_hero_name
+            new_hero_name = hero_name
           end
         end
 
