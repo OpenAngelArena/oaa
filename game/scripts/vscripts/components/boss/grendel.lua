@@ -130,7 +130,7 @@ function Grendel:SpawnGrendel()
     end
 
     -- Increase the score limit
-    PointsManager:IncreaseLimit(5)
+    PointsManager:IncreaseLimit("grendel")
 
     -- Remove Grendel calls
     Grendel:GoNearTeam(nil)

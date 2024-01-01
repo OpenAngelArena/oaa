@@ -214,19 +214,24 @@ end
 
 function PointsManager:IncreaseLimit(limit_increase)
   local extend_amount = 0
+  local player_count = PlayerResource:SafeGetTeamPlayerCount()
+  local standard_extend_amount = player_count * KILL_LIMIT_INCREASE
+  if HeroSelection.is10v10 then
+    standard_extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
+  elseif HeroSelection.lowPlayerCount then
+    standard_extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
+  end
   if not limit_increase then
-    local player_count = PlayerResource:SafeGetTeamPlayerCount()
-    extend_amount = player_count * KILL_LIMIT_INCREASE
-    if HeroSelection.is10v10 then
-      extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
-    elseif HeroSelection.lowPlayerCount then
-      extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
-    end
-  else
+    extend_amount = standard_extend_amount
+  elseif type(limit_increase) == "number" then
     extend_amount = limit_increase
+  elseif limit_increase == "grendel" then
+    extend_amount = math.floor(standard_extend_amount/2)
+  else
+    print("limit_increase argument must be a number or 'grendel' string! When ommited it will use the standard value.")
   end
 
-  self.extend_counter = self.extend_counter + 1
+  self.extend_counter = self.extend_counter + extend_amount/standard_extend_amount
 
   PointsManager:SetLimit(PointsManager:GetLimit() + extend_amount)
   Notifications:TopToAll({text="#duel_final_duel_objective_extended", duration=5.0, replacement_map={extend_amount=extend_amount}})
@@ -281,7 +286,7 @@ function PointsManager:RefreshLimit()
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.
-  local newLimit = self.limitConstant + base_limit * current_player_count + self.extend_counter * extend_amount
+  local newLimit = self.limitConstant + base_limit * current_player_count + math.floor(self.extend_counter * extend_amount)
   if newLimit < limit then
     local limitChange = limit - newLimit -- this used to be constant 10 and not dependent on number of players
     newLimit = math.min(limit, math.max(maxPoints + limitChange, limit - limitChange))
