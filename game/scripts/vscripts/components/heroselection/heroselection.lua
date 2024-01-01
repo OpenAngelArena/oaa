@@ -1059,6 +1059,42 @@ function HeroSelection:HeroSelected (event)
     return
   end
 
+  if OAAOptions.settings.GAME_MODE == "SD" then
+    -- do SD check
+    local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+    local myChoices = singleDraftChoices[tostring(playerId)]
+    if myChoices then
+      Debug:EnableDebugging()
+      DebugPrint('Attempting sindle draft pick!')
+      DebugPrintTable(myChoices)
+      local previewHero = HeroSelection:GetPreviewHero(playerId)
+      local isAValidChoice = false
+      local randomIndex = RandomInt(1, 4)
+      local index = 1
+      -- if they're forced to pick then we'll take preview hero instead
+      for attr,heroName in pairs(myChoices) do
+        if hero == "forcerandom" and previewHero == heroName then
+          hero = heroName
+        end
+      end
+      -- otherwise random the hero when needed and mark as valid when valid
+      for attr,heroName in pairs(myChoices) do
+        DebugPrint('Is it a ' .. heroName)
+        if hero == "random" and index == randomIndex then
+          hero = heroName
+        end
+        if heroName == hero then
+          isAValidChoice = true
+        end
+        index = index + 1
+      end
+      DebugPrint('Is that a valid option? ' .. tostring(isAValidChoice))
+      if not isAValidChoice then
+        return
+      end
+    end
+  end
+
   local player_name = tostring(event.player_name) -- tostring(PlayerResource:GetPlayerName(playerId)) doesn't work
   local hero_name = tostring(event.hero_name) -- string but localized hero name not internal name
 

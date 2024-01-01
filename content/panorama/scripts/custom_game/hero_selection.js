@@ -935,6 +935,9 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
+  if (name === "random") {
+    return false;
+  }
   const playerId = Game.GetLocalPlayerID();
   if (singleDraftTable[playerId]) {
     return !Object.keys(singleDraftTable[playerId]).find((key) => singleDraftTable[playerId][key] === name);
@@ -1193,6 +1196,9 @@ function SelectHero (hero) {
       selectedhero = hero;
     }
   }
+  $.Msg(`selected hero: ${selectedhero}`);
+  $.Msg(`IsHeroDisabled: ${IsHeroDisabled(selectedhero)}`);
+
   if (!herolocked) {
     let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
@@ -1239,6 +1245,7 @@ function CaptainSelectHero () {
 function RandomHero () {
   selectedhero = 'random';
   selectedherocm = 'random';
+  $.Msg('Randoming!')
   if (iscm) {
     CaptainSelectHero();
   } else {
@@ -1349,8 +1356,6 @@ function HandleSingleDraftData (data) {
   const myRolls = data[playerId];
   singleDraftTable = data;
 
-  $.Msg(myRolls);
-
   const strengthHolder = FindDotaHudElement('StrengthHeroes');
   const agilityHolder = FindDotaHudElement('AgilityHeroes');
   const intelligenceHolder = FindDotaHudElement('IntelligenceHeroes');
@@ -1370,31 +1375,7 @@ function HandleSingleDraftData (data) {
 
   createAllySingleDraftOptions();
 
-  // Object.keys(data.herolist).sort().forEach(function (heroName) {
-  //   let currentstat = null;
-
-  //   switch (data.herolist[heroName]) {
-  //     case 'DOTA_ATTRIBUTE_STRENGTH':
-  //       currentstat = strengthholder;
-  //       break;
-  //     case 'DOTA_ATTRIBUTE_AGILITY':
-  //       currentstat = agilityholder;
-  //       break;
-  //     case 'DOTA_ATTRIBUTE_INTELLECT':
-  //       currentstat = intelligenceholder;
-  //       break;
-  //     case 'DOTA_ATTRIBUTE_ALL':
-  //       currentstat = voidholder;
-  //       break;
-  //   }
-  //   const newhero = $.CreatePanel('RadioButton', currentstat, heroName);
-  //   newhero.group = 'HeroChoises';
-  //   newhero.SetPanelEvent('onactivate', function () { PreviewHero(heroName); });
-  //   const newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
-  //   newheroimage.hittest = false;
-  //   newheroimage.AddClass('HeroCard');
-  //   ChangeHeroImage(newheroimage, heroName);
-  // });
+  UpdateButtons();
 }
 
 function createAllySingleDraftOptions () {
