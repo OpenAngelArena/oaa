@@ -10,8 +10,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 -- available heroes
 local herolist = {}
 local lockedHeroes = {}
-local loadedHeroes = {}
-local successfullyAssignedHeroes = {}
+local loadedHeroes = {} -- marks the hero as precached
 local totalheroes = 0
 
 local cmtimer = nil
@@ -114,11 +113,6 @@ function HeroSelection:Init ()
       local playerId = hero:GetPlayerID()
       local hero_name = hero:GetUnitName()
 
-      if lockedHeroes[playerId] ~= hero_name then
-        -- the player spawned in the wrong hero
-        -- they're probably disconnected
-        -- we can't fix this here...
-      end
       -- Don't trigger for neutrals, Tempest Double and Meepo Clones
       if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
         return
@@ -128,6 +122,9 @@ function HeroSelection:Init ()
         DebugPrint("OnHeroInGame - Applying custom arcana for player "..tostring(playerId).." and hero "..hero_name..".")
         HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
       end
+
+      -- loadedHeroes is here to mark the spawned hero as already precached in case the player spawned in the wrong hero with 'vanilla random'
+      -- we can't fix the wrong hero here...
       loadedHeroes[hero_name] = true
     end
   end)
@@ -181,7 +178,6 @@ function HeroSelection:Init ()
         lockedHeroes[playerid] = hero_name
       else
         -- Reconnected during picking and not locked yet
-
         return
       end
     else
@@ -198,26 +194,65 @@ function HeroSelection:Init ()
       -- Player has a hero after reconnecting (game probably started)
       -- Check if player has a hero they didn't lock during the picking screen, change it to the locked hero
       if hero and hero_name ~= locked_hero_name and OAAOptions.settings.GAME_MODE ~= "ARDM" then
-        local new_hero_name = hero_name
-        if OAAOptions.settings.GAME_MODE == "AR" and HeroSelection:IsHeroDisabled(hero_name) then
-          new_hero_name = HeroSelection:RandomHero()
-        end
-        if not loadedHeroes[locked_hero_name] then
-          new_hero_name = locked_hero_name
-        end
-
-        if hero_name ~= new_hero_name then
-          if loadedHeroes[new_hero_name] then
-            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
-            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
+        local new_hero_name = locked_hero_name
+        -- All Random mode special cases
+        if OAAOptions.settings.GAME_MODE == "AR" then
+          if HeroSelection:IsHeroDisabled(locked_hero_name) then
+            -- Locked hero is not allowed, check if actual hero is allowed, random a new one if it's not
+            if HeroSelection:IsHeroDisabled(hero_name) then
+              new_hero_name = HeroSelection:RandomHero()
+            else
+              return -- actual hero is allowed, don't do anything
+            end
           else
-            PrecacheUnitByNameAsync(new_hero_name, function()
-              PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
-              Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
-            end)
+            -- locked hero is allowed
+            new_hero_name = locked_hero_name
           end
         end
+
+        -- Change locked hero (For All Random mode)
+        lockedHeroes[playerid] = new_hero_name
+
+        -- Check if new_hero_name is already precached
+        if loadedHeroes[new_hero_name] then
+          PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+          Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
+        else
+          PrecacheUnitByNameAsync(new_hero_name, function()
+            PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
+            Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
+          end)
+        end
       end
+    end
+  end)
+
+  GameEvents:OnHeroSwapped(function (keys)
+    local p1 = tonumber(keys.playerid1)
+    local p2 = tonumber(keys.playerid2)
+
+    if not p1 or not p2 or not PlayerResource:IsValidPlayerID(p1) or not PlayerResource:IsValidPlayerID(p2) then
+      print("Player IDs are not valid numbers. Thanks Valve")
+      return
+    end
+
+    local h1 = PlayerResource:GetSelectedHeroEntity(p1)
+    local h1_name
+    if h1 then
+      h1_name = h1:GetUnitName()
+    end
+    local h2 = PlayerResource:GetSelectedHeroEntity(p2)
+    local h2_name
+    if h2 then
+      h2_name = h2:GetUnitName()
+    end
+
+    -- Change locked heroes (we will assume that OnHeroSwapped triggers after a successful hero-swap)
+    if lockedHeroes[p1] ~= h1_name then
+      lockedHeroes[p1] = h1_name
+    end
+    if lockedHeroes[p2] ~= h2_name then
+      lockedHeroes[p2] = h2_name
     end
   end)
 
