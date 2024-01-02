@@ -652,10 +652,10 @@ function HeroSelection:ChooseBans ()
       local heroExclusions = {}
       local singleDraftChoices = {}
       PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
-        local strengthChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_STRENGTH', heroExclusions)
-        local agilityChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_AGILITY', heroExclusions)
-        local intellectChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_INTELLECT', heroExclusions)
-        local allChoice = HeroSelection:RandomHeroByAbility('DOTA_ATTRIBUTE_ALL', heroExclusions)
+        local strengthChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_STRENGTH', heroExclusions)
+        local agilityChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_AGILITY', heroExclusions)
+        local intellectChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_INTELLECT', heroExclusions)
+        local allChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_ALL', heroExclusions)
 
         heroExclusions[strengthChoice] = PlayerID
         heroExclusions[agilityChoice] = PlayerID
@@ -1061,12 +1061,12 @@ function HeroSelection:GetPreviewHero (playerId)
   return
 end
 
-function HeroSelection:RandomHeroByAbility (ability, heroExclusions)
+function HeroSelection:RandomHeroByAttribute (attribute, heroExclusions)
   local attempts = 0
   while true do
     attempts = attempts + 1
     local choice = HeroSelection:RandomHero()
-    if not heroExclusions[choice] and herolist[choice] == ability then
+    if not heroExclusions[choice] and herolist[choice] == attribute then
       return choice
     end
 
