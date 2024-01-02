@@ -474,7 +474,11 @@ function HeroSelection:RankedManager (event)
     local playerId = event.PlayerID
     local playercontroller = PlayerResource:GetPlayer(playerId) or PlayerResource:FindFirstValidPlayer()
     if choice == 'random' then
-      choice = self:RandomHero()
+      if OAAOptions.settings.GAME_MODE == "SD" then
+        choice = self:SingleDraftRandom(playerId)
+      else
+        choice = self:RandomHero(playerId)
+      end
 
       -- Mark this player ID as a randomer
       if not selectedtable[playerId] then
@@ -490,7 +494,12 @@ function HeroSelection:RankedManager (event)
         picker_playerid = playerId
       })
     elseif choice == 'forcerandom' then
-      choice = self:ForceRandomHero(playerId)
+      if OAAOptions.settings.GAME_MODE == "SD" then
+        choice = self:SingleDraftForceRandom(playerId)
+      else
+        choice = self:ForceRandomHero(playerId)
+      end
+
       local previewHero = self:GetPreviewHero(playerId)
       local data = {
         player_name = PlayerResource:GetPlayerName(playerId),
@@ -653,7 +662,6 @@ function HeroSelection:ChooseBans ()
         heroExclusions[intellectChoice] = PlayerID
         heroExclusions[allChoice] = PlayerID
 
-        DebugPrint('Got choices for player ' .. PlayerID .. ', ' .. strengthChoice .. ', ' .. agilityChoice .. ', ' .. intellectChoice .. ', ' .. allChoice)
         singleDraftChoices[PlayerID] = {
           DOTA_ATTRIBUTE_STRENGTH = strengthChoice,
           DOTA_ATTRIBUTE_AGILITY = agilityChoice,
@@ -661,7 +669,6 @@ function HeroSelection:ChooseBans ()
           DOTA_ATTRIBUTE_ALL = allChoice
         }
       end)
-      DebugPrintTable(singleDraftChoices)
       CustomNetTables:SetTableValue('hero_selection', 'SDdata', singleDraftChoices)
     end
   end
@@ -730,7 +737,6 @@ function HeroSelection:CMManager (event)
 
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       --random if not selected
-      DebugPrintTable(event)
       if event.hero == "random" then
         event.hero = HeroSelection:RandomHero()
       elseif event.hero == "forcerandom" then
@@ -992,6 +998,59 @@ function HeroSelection:ForceRandomHero (playerId)
   return HeroSelection:RandomHero()
 end
 
+function HeroSelection:SingleDraftForceRandom(playerId)
+  local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+  local myChoices = singleDraftChoices[tostring(playerId)]
+  if not myChoices then
+    return self:ForceRandomHero(playerId)
+  end
+  local previewHero = HeroSelection:GetPreviewHero(playerId)
+  -- if they're forced to pick then we'll take preview hero instead
+  for attr,heroName in pairs(myChoices) do
+    if previewHero == heroName then
+      return heroName
+    end
+  end
+
+  -- otherwise random the hero
+  local randomIndex = RandomInt(1, 4)
+  local index = 1
+  for attr,heroName in pairs(myChoices) do
+    if index == randomIndex then
+      return heroName
+    end
+    index = index + 1
+  end
+
+  -- error case? how did this happen?
+  DebugPrint('Failed to FORCE random hero for player ' .. tostring(playerId))
+  return self:ForceRandomHero(playerId)
+end
+
+function HeroSelection:SingleDraftRandom(playerId)
+  local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+  local myChoices = singleDraftChoices[tostring(playerId)]
+  if not myChoices then
+    return self:RandomHero(playerId)
+  end
+
+  local randomIndex = RandomInt(1, 4)
+  local index = 1
+  -- random the hero!
+  local randomIndex = RandomInt(1, 4)
+  local index = 1
+  for attr,heroName in pairs(myChoices) do
+    if index == randomIndex then
+      return heroName
+    end
+    index = index + 1
+  end
+
+  -- error case? how did this happen?
+  DebugPrint('Failed to random hero for player ' .. tostring(playerId))
+  return self:RandomHero(playerId)
+end
+
 function HeroSelection:GetPreviewHero (playerId)
   local previewTable = CustomNetTables:GetTableValue('hero_selection', 'preview_table') or {}
   local team = tostring(PlayerResource:GetTeam(playerId))
@@ -1080,8 +1139,8 @@ end
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
   local playerId = event.PlayerID
-  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random.")
   local hero = event.hero -- string but in a form npc_dota_hero_blah, can also be 'empty', 'random' or 'forcerandom'
+  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random: " .. tostring(hero))
 
   if not hero or hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(hero)) then
     Debug:EnableDebugging()
@@ -1094,31 +1153,18 @@ function HeroSelection:HeroSelected (event)
     local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
     local myChoices = singleDraftChoices[tostring(playerId)]
     if myChoices then
-      Debug:EnableDebugging()
-      DebugPrint('Attempting sindle draft pick!')
-      DebugPrintTable(myChoices)
       local previewHero = HeroSelection:GetPreviewHero(playerId)
       local isAValidChoice = false
-      local randomIndex = RandomInt(1, 4)
-      local index = 1
-      -- if they're forced to pick then we'll take preview hero instead
-      for attr,heroName in pairs(myChoices) do
-        if hero == "forcerandom" and previewHero == heroName then
-          hero = heroName
-        end
+
+      if hero == "random" or hero == "forcerandom" then
+        isAValidChoice = true
       end
-      -- otherwise random the hero when needed and mark as valid when valid
+      -- mark as valid when valid
       for attr,heroName in pairs(myChoices) do
-        DebugPrint('Is it a ' .. heroName)
-        if hero == "random" and index == randomIndex then
-          hero = heroName
-        end
         if heroName == hero then
           isAValidChoice = true
         end
-        index = index + 1
       end
-      DebugPrint('Is that a valid option? ' .. tostring(isAValidChoice))
       if not isAValidChoice then
         return
       end
@@ -1163,10 +1209,15 @@ end
 -- write new values to table
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
+  DebugPrint("UpdateTable - Called with: " .. tostring(playerID) .. " = " .. tostring(hero))
 
   if hero == "random" then
     DebugPrint("UpdateTable - Randoming a hero for playerID: "..tostring(playerID))
-    hero = self:RandomHero()
+    if OAAOptions.settings.GAME_MODE == "SD" then
+      hero = self:SingleDraftRandom(playerID)
+    else
+      hero = self:RandomHero(playerID)
+    end
 
     -- Mark this player ID as a randomer
     if not selectedtable[playerID] then
@@ -1179,7 +1230,12 @@ function HeroSelection:UpdateTable (playerID, hero)
       selectedtable[playerID] = {}
     end
     selectedtable[playerID].didRandom = "true"
-    hero = self:ForceRandomHero(playerID)
+
+    if OAAOptions.settings.GAME_MODE == "SD" then
+      hero = self:SingleDraftForceRandom(playerID)
+    else
+      hero = self:ForceRandomHero(playerID)
+    end
   end
 
   if lockedHeroes[playerID] then
@@ -1264,7 +1320,12 @@ function HeroSelection:HeroRerandom(event)
   CustomNetTables:SetTableValue('hero_selection', 'rankedData', rankedpickorder)
 
   -- Re-random new hero
-  local new_hero = HeroSelection:RandomHero()
+  local new_hero = nil
+  if OAAOptions.settings.GAME_MODE == "SD" then
+    new_hero = HeroSelection:SingleDraftRandom(playerId)
+  else
+    new_hero = HeroSelection:RandomHero(playerId)
+  end
 
   -- Nullify hero tables
   selectedtable[playerId].selectedhero = "empty"
