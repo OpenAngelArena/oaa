@@ -1034,8 +1034,6 @@ function HeroSelection:SingleDraftRandom(playerId)
     return self:RandomHero(playerId)
   end
 
-  local randomIndex = RandomInt(1, 4)
-  local index = 1
   -- random the hero!
   local randomIndex = RandomInt(1, 4)
   local index = 1
@@ -1153,7 +1151,6 @@ function HeroSelection:HeroSelected (event)
     local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
     local myChoices = singleDraftChoices[tostring(playerId)]
     if myChoices then
-      local previewHero = HeroSelection:GetPreviewHero(playerId)
       local isAValidChoice = false
 
       if hero == "random" or hero == "forcerandom" then
