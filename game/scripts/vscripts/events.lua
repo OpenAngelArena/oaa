@@ -251,3 +251,8 @@ function GameMode:OnItemCombined(keys)
   -- The cost of the item purchased
   --local itemcost = keys.itemcost
 end
+
+local OnHeroSwapedEvent = CreateGameEvent('OnHeroSwapped')
+function GameMode:OnHeroSwapped(keys)
+  OnHeroSwapedEvent(keys)
+end

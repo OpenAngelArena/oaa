@@ -105,11 +105,21 @@ Label {
   height: 100%;
 }
 
-#TeamRadiant {
-  flow-children: right;
+#TeamRadiant, #TeamDire {
   width: 45%;
   height: 65%;
   background-color: #171A2590;
+}
+
+.SINGLE_DRAFT_MODE #TeamRadiant, #TeamDire {
+  height: 85%;
+}
+
+#TeamRadiant {
+  flow-children: right;
+}
+#TeamDire {
+  flow-children: left;
 }
 
 #Clock {
@@ -133,17 +143,36 @@ Label {
   vertical-align: bottom;
 }
 
-#TeamDire {
-  flow-children: left;
-  width: 45%;
-  height: 65%;
-  background-color: #171A2590;
-}
-
- .Player {
+.Player {
   margin: 0 3px 5px 3px;
   width: 18%;
   height: 100%;
+}
+
+.SINGLE_DRAFT_MODE .PlayerImage {
+  height: 70%;
+  z-index: 0;
+}
+
+.SINGLE_DRAFT_MODE .PlayerLabel {
+  z-index: 2;
+  transform: translateY(-15px);
+}
+
+#SingleDraftChoices {
+  height: 30%;
+  width: 100%;
+  vertical-align: bottom;
+  z-index: 1;
+  flow-children: right;
+}
+
+#SingleDraftChoices RadioButton {
+  width: 22%;
+  height: 90%;
+  box-shadow: none;
+  margin: 3px;
+  vertical-align: bottom;
 }
 
 .TenVTen .Player {
@@ -493,6 +522,12 @@ RadioButton {
   width: 80px;
   height: 45px;
   box-shadow: #000000ff -2px -2px 4px 4px;
+}
+
+.SINGLE_DRAFT_MODE .HeroHolder RadioButton {
+  margin: 3px;
+  width: 400px;
+  height: 225px;
 }
 
 RadioButton:hover {

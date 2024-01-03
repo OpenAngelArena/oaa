@@ -21,8 +21,6 @@ function modifier_rich_man_oaa:OnCreated()
   if not IsServer() then
     return
   end
-  local parent = self:GetParent()
-  local player = parent:GetPlayerOwner()
 
   self:StartIntervalThink(1)
 end
@@ -35,9 +33,6 @@ function modifier_rich_man_oaa:GetGoldPerSecond()
 end
 
 function modifier_rich_man_oaa:OnIntervalThink()
-  if not IsServer() then
-    return
-  end
   local parent = self:GetParent()
   local player = parent:GetPlayerOwner()
   local interval = 10
@@ -46,7 +41,7 @@ function modifier_rich_man_oaa:OnIntervalThink()
 
   self:SetStackCount(goldPerMinute)
 
-  self:StartIntervalThink(10)
+  self:StartIntervalThink(interval)
 end
 
 function modifier_rich_man_oaa:GetTexture()
@@ -60,16 +55,23 @@ function modifier_rich_man_oaa:DeclareFunctions()
   }
 end
 
+if IsServer() then
+  function modifier_rich_man_oaa:OnRespawn(event)
+    local parent = self:GetParent()
 
-function modifier_rich_man_oaa:OnRespawn(event)
-  if not IsServer() then
-    return
+    if event.unit ~= parent then
+      return
+    end
+
+    if not parent:IsRealHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      return
+    end
+
+    local player = parent:GetPlayerOwner()
+
+    -- fuck it
+    Gold:AddGoldWithMessage(player:GetAssignedHero(), 1000 + GameRules:GetGameTime() * 2)
   end
-  local parent = self:GetParent()
-  local player = parent:GetPlayerOwner()
-
-  -- fuck it
-  Gold:AddGoldWithMessage(player:GetAssignedHero(), 1000 + GameRules:GetGameTime() * 2)
 end
 
 function modifier_rich_man_oaa:OnTooltip()

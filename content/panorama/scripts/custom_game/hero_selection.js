@@ -15,6 +15,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 const heroAbilities = {};
 const currentMap = Game.GetMapInfo().map_display_name;
+let singleDraftTable = {};
 let selectedhero = 'empty';
 let disabledheroes = [];
 let herolocked = false;
@@ -142,6 +143,7 @@ function init () {
 
   onPlayerStatChange(null, 'APdata', CustomNetTables.GetTableValue('hero_selection', 'APdata'));
   onPlayerStatChange(null, 'CMdata', CustomNetTables.GetTableValue('hero_selection', 'CMdata'));
+  onPlayerStatChange(null, 'SDdata', CustomNetTables.GetTableValue('hero_selection', 'SDdata'));
   onPlayerStatChange(null, 'rankedData', CustomNetTables.GetTableValue('hero_selection', 'rankedData'));
   onPlayerStatChange(null, 'time', CustomNetTables.GetTableValue('hero_selection', 'time'));
   onPlayerStatChange(null, 'preview_table', CustomNetTables.GetTableValue('hero_selection', 'preview_table'));
@@ -174,6 +176,8 @@ function handleOAASettingsChange (n, key, settings) {
 
   lines.push($.Localize('#game_options_hero_selection') + ' ' + $.Localize('#game_option_' + settings.GAME_MODE.toLowerCase()));
   lines.push('');
+
+  $.GetContextPanel().AddClass(`GAME_MODE_${settings.GAME_MODE}`);
 
   const heroModifierNames = {
     HMR: '#game_option_random',
@@ -341,6 +345,8 @@ function onPlayerStatChange (table, key, data) {
     });
   } else if (key === 'preview_table' && data != null) {
     UpdatePreviews(data);
+  } else if (key === 'SDdata' && data != null) {
+    HandleSingleDraftData(data);
   } else if (key === 'APdata' && data != null) {
     canReRandom = data[playerId] && data[playerId].selectedhero !== 'empty' && data[playerId].didRandom === 'true' && iscm === false;
     const length = Object.keys(data).length;
@@ -929,6 +935,13 @@ function DisableHero (name) {
 }
 
 function IsHeroDisabled (name) {
+  if (name === 'random') {
+    return false;
+  }
+  const playerId = Game.GetLocalPlayerID();
+  if (singleDraftTable[playerId]) {
+    return !Object.keys(singleDraftTable[playerId]).find((key) => singleDraftTable[playerId][key] === name);
+  }
   // if it's not -1 it's in the disabled list
   return disabledheroes.indexOf(name) !== -1;
 }
@@ -996,7 +1009,7 @@ function UpdateBottlePassArcana (heroName) {
   }
 
   $.Schedule(0.2, function () {
-    $.Msg('UpdateBottlePassArcana(' + heroName + ')');
+    // $.Msg('UpdateBottlePassArcana(' + heroName + ')');
     let arcanas = null;
 
     const specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
@@ -1183,6 +1196,7 @@ function SelectHero (hero) {
       selectedhero = hero;
     }
   }
+
   if (!herolocked) {
     let newhero = 'empty';
     if (iscm && selectedherocm !== 'empty') {
@@ -1332,4 +1346,67 @@ function SendMessageToTeam (event) {
   }
 
   Game.ServerCmd(`say ${message}`);
+}
+
+function HandleSingleDraftData (data) {
+  const playerId = Game.GetLocalPlayerID();
+  const myRolls = data[playerId];
+  singleDraftTable = data;
+
+  const strengthHolder = FindDotaHudElement('StrengthHeroes');
+  const agilityHolder = FindDotaHudElement('AgilityHeroes');
+  const intelligenceHolder = FindDotaHudElement('IntelligenceHeroes');
+  const voidHolder = FindDotaHudElement('VoidHeroes');
+
+  strengthHolder.RemoveAndDeleteChildren();
+  agilityHolder.RemoveAndDeleteChildren();
+  intelligenceHolder.RemoveAndDeleteChildren();
+  voidHolder.RemoveAndDeleteChildren();
+
+  addHeroOption(strengthHolder, myRolls.DOTA_ATTRIBUTE_STRENGTH);
+  addHeroOption(agilityHolder, myRolls.DOTA_ATTRIBUTE_AGILITY);
+  addHeroOption(intelligenceHolder, myRolls.DOTA_ATTRIBUTE_INTELLECT);
+  addHeroOption(voidHolder, myRolls.DOTA_ATTRIBUTE_ALL);
+
+  $.GetContextPanel().AddClass('SINGLE_DRAFT_MODE');
+
+  createAllySingleDraftOptions();
+
+  UpdateButtons();
+}
+
+function createAllySingleDraftOptions () {
+  const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
+
+  Object.keys(apData).forEach(function (playerId) {
+    const { steamid } = apData[playerId];
+    const player = FindDotaHudElement(steamid).GetParent();
+
+    let sdHolder = player.FindChildTraverse('SingleDraftChoices');
+    if (!sdHolder) {
+      sdHolder = $.CreatePanel('Panel', player, 'SingleDraftChoices');
+    }
+
+    sdHolder.RemoveAndDeleteChildren();
+
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_AGILITY);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT);
+    addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL);
+
+    $.Msg(`Player ${playerId} has STR hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH}`);
+    $.Msg(`Player ${playerId} has AGI hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_AGILITY}`);
+    $.Msg(`Player ${playerId} has INT hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT}`);
+    $.Msg(`Player ${playerId} has UNI hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL}`);
+  });
+}
+
+function addHeroOption (holder, heroName) {
+  const newhero = $.CreatePanel('RadioButton', holder, heroName);
+  newhero.group = 'HeroChoises';
+  newhero.SetPanelEvent('onactivate', function () { PreviewHero(heroName); });
+  const newheroimage = $.CreatePanel('DOTAHeroImage', newhero, '');
+  newheroimage.hittest = false;
+  newheroimage.AddClass('HeroCard');
+  ChangeHeroImage(newheroimage, heroName);
 }
