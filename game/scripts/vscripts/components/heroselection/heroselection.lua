@@ -112,7 +112,6 @@ function HeroSelection:Init ()
     if not HeroSelection.isARDM then
       local playerId = hero:GetPlayerID()
       local hero_name = hero:GetUnitName()
-
       -- Don't trigger for neutrals, Tempest Double and Meepo Clones
       if hero:GetTeamNumber() == DOTA_TEAM_NEUTRALS or hero:IsTempestDouble() or hero:IsClone() or hero:IsSpiritBearOAA() then
         return
@@ -122,7 +121,6 @@ function HeroSelection:Init ()
         DebugPrint("OnHeroInGame - Applying custom arcana for player "..tostring(playerId).." and hero "..hero_name..".")
         HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
       end
-
       -- loadedHeroes is here to mark the spawned hero as already precached in case the player spawned in the wrong hero with 'vanilla random'
       -- we can't fix the wrong hero here...
       loadedHeroes[hero_name] = true
@@ -208,7 +206,7 @@ function HeroSelection:Init ()
         -- Change locked hero (For All Random mode)
         lockedHeroes[playerid] = new_hero_name
 
-        -- Check if new_hero_name is already precached
+        -- Check if new_hero_name is already precached, change the hero to new_hero_name immediately if true
         if loadedHeroes[new_hero_name] then
           PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
           Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
@@ -1006,7 +1004,7 @@ function HeroSelection:SingleDraftForceRandom(playerId)
   end
   local previewHero = HeroSelection:GetPreviewHero(playerId)
   -- if they're forced to pick then we'll take preview hero instead
-  for attr,heroName in pairs(myChoices) do
+  for attr, heroName in pairs(myChoices) do
     if previewHero == heroName then
       return heroName
     end
@@ -1015,7 +1013,7 @@ function HeroSelection:SingleDraftForceRandom(playerId)
   -- otherwise random the hero
   local randomIndex = RandomInt(1, 4)
   local index = 1
-  for attr,heroName in pairs(myChoices) do
+  for attr, heroName in pairs(myChoices) do
     if index == randomIndex then
       return heroName
     end
@@ -1023,7 +1021,7 @@ function HeroSelection:SingleDraftForceRandom(playerId)
   end
 
   -- error case? how did this happen?
-  DebugPrint('Failed to FORCE random hero for player ' .. tostring(playerId))
+  DebugPrint('Single Draft: Failed to FORCE random hero for player ' .. tostring(playerId))
   return self:ForceRandomHero(playerId)
 end
 
@@ -1037,7 +1035,7 @@ function HeroSelection:SingleDraftRandom(playerId)
   -- random the hero!
   local randomIndex = RandomInt(1, 4)
   local index = 1
-  for attr,heroName in pairs(myChoices) do
+  for attr, heroName in pairs(myChoices) do
     if index == randomIndex then
       return heroName
     end
@@ -1045,7 +1043,7 @@ function HeroSelection:SingleDraftRandom(playerId)
   end
 
   -- error case? how did this happen?
-  DebugPrint('Failed to random hero for player ' .. tostring(playerId))
+  DebugPrint('Single Draft: Failed to random hero for player ' .. tostring(playerId))
   return self:RandomHero(playerId)
 end
 
@@ -1317,7 +1315,7 @@ function HeroSelection:HeroRerandom(event)
   CustomNetTables:SetTableValue('hero_selection', 'rankedData', rankedpickorder)
 
   -- Re-random new hero
-  local new_hero = nil
+  local new_hero
   if OAAOptions.settings.GAME_MODE == "SD" then
     new_hero = HeroSelection:SingleDraftRandom(playerId)
   else

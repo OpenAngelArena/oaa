@@ -1009,7 +1009,7 @@ function UpdateBottlePassArcana (heroName) {
   }
 
   $.Schedule(0.2, function () {
-    $.Msg('UpdateBottlePassArcana(' + heroName + ')');
+    // $.Msg('UpdateBottlePassArcana(' + heroName + ')');
     let arcanas = null;
 
     const specialArcanas = CustomNetTables.GetTableValue('bottlepass', 'special_arcanas');
@@ -1196,8 +1196,6 @@ function SelectHero (hero) {
       selectedhero = hero;
     }
   }
-  $.Msg(`selected hero: ${selectedhero}`);
-  $.Msg(`IsHeroDisabled: ${IsHeroDisabled(selectedhero)}`);
 
   if (!herolocked) {
     let newhero = 'empty';
@@ -1245,7 +1243,6 @@ function CaptainSelectHero () {
 function RandomHero () {
   selectedhero = 'random';
   selectedherocm = 'random';
-  $.Msg('Randoming!');
   if (iscm) {
     CaptainSelectHero();
   } else {
@@ -1379,7 +1376,6 @@ function HandleSingleDraftData (data) {
 }
 
 function createAllySingleDraftOptions () {
-  // const teamID = Players.GetTeam(Game.GetLocalPlayerID());
   const apData = CustomNetTables.GetTableValue('hero_selection', 'APdata');
 
   Object.keys(apData).forEach(function (playerId) {
@@ -1398,7 +1394,10 @@ function createAllySingleDraftOptions () {
     addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT);
     addHeroOption(sdHolder, singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL);
 
-    $.Msg(`${playerId} has steamid ${steamid} and str hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH}`);
+    $.Msg(`Player ${playerId} has STR hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_STRENGTH}`);
+    $.Msg(`Player ${playerId} has AGI hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_AGILITY}`);
+    $.Msg(`Player ${playerId} has INT hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_INTELLECT}`);
+    $.Msg(`Player ${playerId} has UNI hero ${singleDraftTable[playerId].DOTA_ATTRIBUTE_ALL}`);
   });
 }
 
