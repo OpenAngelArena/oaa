@@ -7,10 +7,14 @@ function modifier_item_revenants_brooch_active_oaa:IsHidden()
 end
 
 function modifier_item_revenants_brooch_active_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_item_revenants_brooch_active_oaa:IsPurgable()
+  return false
+end
+
+function modifier_item_revenants_brooch_active_oaa:RemoveOnDeath()
   return false
 end
 
@@ -35,7 +39,7 @@ function modifier_item_revenants_brooch_active_oaa:OnIntervalThink()
   end
 
   self.negative_spell_amp = ability:GetSpecialValueFor("negative_spell_amp_while_active")
-
+  self:SetStackCount(self.negative_spell_amp)
 end
 
 function modifier_item_revenants_brooch_active_oaa:DeclareFunctions()
@@ -45,5 +49,5 @@ function modifier_item_revenants_brooch_active_oaa:DeclareFunctions()
 end
 
 function modifier_item_revenants_brooch_active_oaa:GetModifierSpellAmplify_Percentage()
-  return self.negative_spell_amp
+  return 0 - math.abs(self:GetStackCount())
 end
