@@ -61,6 +61,7 @@
       "bonus_damage"                                      "55 65 85 115 155" //OAA
       "spell_lifesteal"                                   "12 14 16 18 20" //OAA
       "manacost_per_hit"                                  "200" //OAA, this doesn't matter for OD, such a failed concept
+      "negative_spell_amp_while_active"                   "-50 -40 -35 -30 0" //OAA
     }
   }
 }
