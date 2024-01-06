@@ -334,6 +334,10 @@ function modifier_item_vladmirs_grimoire_aura_effect:OnTooltip2()
   return ability:GetSpecialValueFor("damage_reduction_against_bosses")
 end
 
+function modifier_item_vladmirs_grimoire_aura_effect:GetTexture()
+  return "item_vladmir"
+end
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_item_vladmirs_grimoire_active = class(ModifierBaseClass)

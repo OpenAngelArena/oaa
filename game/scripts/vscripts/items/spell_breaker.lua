@@ -242,6 +242,6 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialVal
   return value
 end
 
---function modifier_item_spell_breaker_active:GetTexture()
-  --return "custom/spell_breaker_1"
---end
+function modifier_item_spell_breaker_active:GetTexture()
+  return "custom/spell_breaker_1"
+end
