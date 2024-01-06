@@ -289,6 +289,12 @@ if IsServer() then
       if not time_walk_modifier then
         return
       end
+      local ability = time_walk_modifier:GetAbility()
+      if ability then
+        if ability:GetName() ~= "faceless_void_time_walk" then
+          return
+        end
+      end
       local remaining_duration = time_walk_modifier:GetRemainingTime()
       parent:AddNewModifier(parent, nil, "modifier_faceless_void_time_walk_scepter_proc_oaa", {duration = remaining_duration})
     end
@@ -365,7 +371,7 @@ function modifier_faceless_void_time_walk_scepter_proc_oaa:OnDestroy()
   --print("Cast Position is: "..tostring(cast_position))
 
   -- Get radius
-  local radius = time_walk_ability:GetSpecialValueFor("radius_scepter")
+  local radius = time_walk_ability:GetSpecialValueFor("radius")
 
   -- Find enemies in radius (ignore spell immune enemies on purpose)
   local enemies = FindUnitsInRadius(
