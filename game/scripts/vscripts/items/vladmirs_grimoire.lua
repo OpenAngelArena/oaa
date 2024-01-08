@@ -45,8 +45,9 @@ function item_vladmirs_grimoire_1:OnSpellStart()
       -- Disjoint disjointable projectiles
       ProjectileManager:ProjectileDodge(unit)
 
-      -- Absolute Purge (Strong Dispel + removing most undispellable buffs and debuffs)
-      unit:AbsolutePurge()
+      -- Dispel all debuffs (99.99% at least)
+      unit:DispelUndispellableDebuffs()
+      unit:Purge(false, true, false, true, false)
 
       -- Hide it
       unit:AddNoDraw()
@@ -224,6 +225,7 @@ end
 
 if IsServer() then
   function modifier_item_vladmirs_grimoire_aura_effect:GetModifierTotal_ConstantBlock(event)
+    local parent = self:GetParent()
     local ability = self:GetAbility()
     if not ability or ability:IsNull() then
       return 0
@@ -243,10 +245,15 @@ if IsServer() then
     end
 
     local dmg_reduction = ability:GetSpecialValueFor("damage_reduction_against_bosses")
+    local creep_dmg_reduction = ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
 
     -- Block damage from from bosses
     if attacker:IsOAABoss() then
-      return event.damage * dmg_reduction / 100
+      if parent:IsHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+        return event.damage * dmg_reduction / 100
+      else
+        return event.damage * creep_dmg_reduction / 100
+      end
     end
 
     return 0
@@ -331,7 +338,12 @@ function modifier_item_vladmirs_grimoire_aura_effect:OnTooltip2()
   if not ability or ability:IsNull() then
     return 0
   end
-  return ability:GetSpecialValueFor("damage_reduction_against_bosses")
+  local parent = self:GetParent()
+  if parent:IsHero() or parent:IsSpiritBearOAA() then
+    return ability:GetSpecialValueFor("damage_reduction_against_bosses")
+  else
+    return ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
+  end
 end
 
 ---------------------------------------------------------------------------------------------------
