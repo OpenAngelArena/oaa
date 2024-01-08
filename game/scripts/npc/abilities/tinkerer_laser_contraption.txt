@@ -59,7 +59,7 @@
       // }
       "damage_per_second"
       {
-        "value"                                           "100 200 300 600 900" // original: 75 125 175
+        "value"                                           "130 260 390 780 1170" // original: 75 125 175
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "damage_interval"
@@ -67,7 +67,11 @@
         "value"                                           "0.5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "attacks_to_destroy"                                "2"
+      "attacks_to_destroy"
+      {
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+1"
+      }
       "scepter_cast_range"
       {
         "value"                                           "1000"

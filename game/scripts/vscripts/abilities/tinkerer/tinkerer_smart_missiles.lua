@@ -108,12 +108,6 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local caster = self:GetCaster()
   local base_damage = self:GetSpecialValueFor("base_damage")
 
-  -- Check for bonus base damage talent
-  local talent2 = caster:FindAbilityByName("special_bonus_unique_tinkerer_2")
-  if talent2 and talent2:GetLevel() > 0 then
-    base_damage = base_damage + talent2:GetSpecialValueFor("value")
-  end
-
   -- Damage table
   local damage_table = {
     attacker = caster,
@@ -195,10 +189,10 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return true
   end
 
-  local explode_radius = talent3:GetSpecialValueFor("explode_radius")
+  local explode_radius = self:GetSpecialValueFor("explode_radius")
   local enemies = FindUnitsInRadius(
     caster:GetTeamNumber(),
-    location,
+    target:GetAbsOrigin(),
     nil,
     explode_radius,
     self:GetAbilityTargetTeam(),
@@ -211,13 +205,20 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and enemy ~= target and not enemy:IsMagicImmune() then
       -- Status resistance fix
-      local enemy_duration = target:GetValueChangedByStatusResistance(stun_duration)
+      local enemy_duration = enemy:GetValueChangedByStatusResistance(stun_duration)
 
       -- Apply Stun before damage (Applying stun after damage is bad)
-      target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = enemy_duration})
+      enemy:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = enemy_duration})
 
-      -- Damage
+      -- Damage (make sure damage is based on the enemy's max hp and not the target's)
       damage_table.victim = enemy
+      damage_table.damage = base_damage + enemy:GetMaxHealth() * max_hp_mult * 0.01
+
+      -- Check if boss
+      if enemy:IsOAABoss() then
+        damage_table.damage = damage_table.damage * 15/100
+      end
+
       ApplyDamage(damage_table)
     end
   end

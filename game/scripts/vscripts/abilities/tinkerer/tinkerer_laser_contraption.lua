@@ -377,7 +377,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   -- end
 
   -- Talent that applies Tar Spill
-  local tar_spill_duration = 5
+  local tar_spill_duration = 4
   local tar_spill_iteration = tar_spill_duration / self.interval
   self.counter = self.counter + 1
   if self.counter == 1 or self.counter % tar_spill_iteration == 0 then

@@ -89,7 +89,7 @@
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "MAX DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range. Trapped enemies are leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies are leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEAL REDUCTION:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_shard_description"             "Grants Laser ability: #{DOTA_Tooltip_ability_tinkerer_laser_oaa_Description}"
@@ -120,9 +120,9 @@
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1"                          "+{s:multishot_count} Multishot Smart Missiles"
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1_Description"              "The extra missiles are launched in a cone shape, 30 degrees to the left and right of the original missile, and can hit the same target."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_2"                          "+{s:value} Smart Missiles Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_2"                          "+{s:bonus_base_damage} Smart Missiles Damage"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "+{s:explode_radius} Smart Missiles AoE"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "+{s:bonus_explode_radius} Smart Missiles AoE"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:value} Tar Spill Duration"
 
@@ -131,6 +131,6 @@
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:value} Tar Spill Burn Damage"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Amplifies Damage"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by 25%."
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by 20%."
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          "Keen Contraption Applies Tar Spill"
