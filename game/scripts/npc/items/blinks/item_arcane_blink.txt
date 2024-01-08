@@ -37,8 +37,8 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1400 1500 1600 1700 1800"
-    "AbilityOvershootCastRange"                           "1120 1200 1280 1360 1440" // 4/5 of AbilityCastRange
+    "AbilityCastRange"                                    "1400 1450 1500 1550 1600"
+    "AbilityOvershootCastRange"                           "1120 1160 1200 1240 1280" // 4/5 of AbilityCastRange
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "7.0"
     "AbilityManaCost"                                     "0"
@@ -62,9 +62,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"                                       "1400 1500 1600 1700 1800"
+      "blink_range"                                       "1400 1450 1500 1550 1600"
       "blink_damage_cooldown"                             "3.0 2.5 2.0 1.5 1.0"
-      "blink_range_clamp"                                 "1120 1200 1280 1360 1440" //OAA
+      "blink_range_clamp"                                 "1120 1160 1200 1240 1280" //OAA
       "bonus_intellect"                                   "25 30 40 55 75"
       "heal_amount"                                       "200 300 500 800 1200"
       "mana_amount"                                       "100 200 325 475 650"
