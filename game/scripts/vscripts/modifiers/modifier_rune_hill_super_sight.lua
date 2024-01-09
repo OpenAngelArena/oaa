@@ -5,6 +5,10 @@ function modifier_rune_hill_super_sight:IsHidden()
   return false
 end
 
+function modifier_rune_hill_super_sight:IsDebuff()
+  return false
+end
+
 function modifier_rune_hill_super_sight:IsPurgable()
   return false
 end
@@ -33,10 +37,12 @@ function modifier_rune_hill_super_sight:OnIntervalThink()
     return
   end
 
-  if not Duels:IsActive() then
+  local parent = self:GetParent()
+
+  -- Remove itself if not in a duel or if parent somehow doesnt exist
+  if not Duels:IsActive() or not parent or parent:IsNull() then
     self:StartIntervalThink(-1)
     self:Destroy()
-    return
   end
 end
 
