@@ -319,8 +319,10 @@ if IsServer() then
 
           local mod = self
           Timers:CreateTimer(1.0, function ()
-            if not mod or caster:IsNull() or not caster:IsAlive() then return nil end
-            
+            if not mod or caster:IsNull() or not caster:IsAlive() then
+              return
+            end
+
             if mod.crystals[id].particle then
               ParticleManager:DestroyParticle(mod.crystals[id].particle, true)
               ParticleManager:ReleaseParticleIndex(mod.crystals[id].particle)
