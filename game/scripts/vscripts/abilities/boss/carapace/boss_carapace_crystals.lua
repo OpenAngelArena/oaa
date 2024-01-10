@@ -296,8 +296,10 @@ if IsServer() then
 
         if self.crystals[id].taken >= self.crystals[id].threshold then
           self.crystals[id].full = true
-          ParticleManager:DestroyParticle(self.crystals[id].particle, true)
-          ParticleManager:ReleaseParticleIndex(self.crystals[id].particle)
+          if self.crystals[id].particle then
+            ParticleManager:DestroyParticle(self.crystals[id].particle, true)
+            ParticleManager:ReleaseParticleIndex(self.crystals[id].particle)
+          end
 
           self.crystals[id].particle = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_ball_lightning_sphere.vpcf", PATTACH_CUSTOMORIGIN, caster)
 
@@ -318,10 +320,12 @@ if IsServer() then
           local mod = self
           Timers:CreateTimer(1.0, function ()
             if not mod or caster:IsNull() or not caster:IsAlive() then return nil end
-
-            ParticleManager:DestroyParticle(mod.crystals[id].particle, true)
-            ParticleManager:ReleaseParticleIndex(mod.crystals[id].particle)
-            mod.crystals[id].particle = nil
+            
+            if mod.crystals[id].particle then
+              ParticleManager:DestroyParticle(mod.crystals[id].particle, true)
+              ParticleManager:ReleaseParticleIndex(mod.crystals[id].particle)
+              mod.crystals[id].particle = nil
+            end
 
             local explosion = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, caster)
             ParticleManager:SetParticleControl(explosion, 0, crystalPosition)

@@ -3,7 +3,7 @@ LinkLuaModifier( "modifier_lycan_boss_shapeshift", "abilities/boss/lycan_boss/mo
 
 lycan_boss_shapeshift_tier5 = class(AbilityBaseClass)
 
-function lycan_boss_shapeshift:Precache(context)
+function lycan_boss_shapeshift_tier5:Precache(context)
   PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_cast.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_lycan/lycan_shapeshift_portrait.vpcf", context)

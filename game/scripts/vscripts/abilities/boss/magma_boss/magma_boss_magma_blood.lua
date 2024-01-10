@@ -216,7 +216,7 @@ end
 
 function modifier_magma_boss_magma_blood_passive:ProcMagmaBlood(caster, ability, unit)
   -- If unit is dead, spell immune or in a duel, don't do anything
-  if not unit:IsAlive() or unit:IsMagicImmune() or Duels:IsActive() then
+  if not unit:IsAlive() or unit:IsMagicImmune() or Duels:IsActive() or not caster:IsAlive() then
     return
   end
 
