@@ -51,9 +51,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "14653"
-    "ItemShopTags"                                        "str;agi;int;damage;move_speed;hard_to_tag"
+    "ItemShopTags"                                        "str;int;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 3;lucio 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

@@ -52,6 +52,7 @@
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "parasma; prasma; pasma; pirasma"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

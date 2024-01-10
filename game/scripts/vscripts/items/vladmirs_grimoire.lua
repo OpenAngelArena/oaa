@@ -247,7 +247,7 @@ if IsServer() then
     local dmg_reduction = ability:GetSpecialValueFor("damage_reduction_against_bosses")
     local creep_dmg_reduction = ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
 
-    -- Block damage from from bosses
+    -- Block damage from bosses
     if attacker:IsOAABoss() then
       if parent:IsHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
         return event.damage * dmg_reduction / 100

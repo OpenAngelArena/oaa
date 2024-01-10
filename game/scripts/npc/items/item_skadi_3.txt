@@ -44,6 +44,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 3;eye of skadi 3;skadi 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"

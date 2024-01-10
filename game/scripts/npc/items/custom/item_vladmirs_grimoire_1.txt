@@ -58,7 +58,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
