@@ -1,19 +1,39 @@
 spider_boss_poison_spit = class(AbilityBaseClass)
 
 function spider_boss_poison_spit:Precache( context )
-  PrecacheResource( "particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf", context )
-  PrecacheResource( "particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", context )
-  PrecacheResource( "particle", "particles/darkmoon_creep_warning.vpcf", context )
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_venomancer/venomancer_venomous_gale_impact.vpcf", context)
 end
 
 function spider_boss_poison_spit:OnAbilityPhaseStart()
   if IsServer() then
     local caster = self:GetCaster()
-    -- Warning Particle
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
-    ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
-    ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
+    local width = math.max(self:GetSpecialValueFor("attack_width_end"), self:GetSpecialValueFor("attack_width_initial"))
+    local distance = self:GetSpecialValueFor("attack_distance")
+
+    local target
+    if self:GetCursorTarget() then
+      target = self:GetCursorTarget():GetOrigin()
+    else
+      target = self:GetCursorPosition()
+    end
+
+    local direction
+    if not target then
+      direction = caster:GetForwardVector()
+    else
+      direction = target - caster:GetAbsOrigin()
+      direction.z = 0.0
+      direction = direction:Normalized()
+    end
+
+    -- Warning particle
+    self.nPreviewFX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(self.nPreviewFX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(self.nPreviewFX, 2, caster:GetAbsOrigin() + direction*(distance+width) + Vector(0, 0, 50))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 4, Vector(255, 0, 0))
   end
 
   return true

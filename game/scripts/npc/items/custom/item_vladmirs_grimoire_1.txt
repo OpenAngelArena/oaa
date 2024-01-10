@@ -58,7 +58,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vladmir's grimoire; vlads; grimoire"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@
       "mana_regen_aura"                                   "1.75 2.0 2.5 3.25 4.25"
       "lifesteal_aura"                                    "20 25 30 35 40"
       "damage_aura"                                       "18 26 34 42 50"
-      // Grimoire unique aura parts
+      // Grimoire unique parts
       "damage_reduction_against_bosses"                   "20 24 28 32 36"
       "creep_damage_reduction_against_bosses"             "40 48 56 64 72"
       "banish_duration"                                   "4"

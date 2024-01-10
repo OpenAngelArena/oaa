@@ -22,6 +22,7 @@ end
 function spider_boss_larval_parasite:OnAbilityPhaseInterrupted()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
+		ParticleManager:ReleaseParticleIndex( self.nPreviewFX )
 	end
 end
 
@@ -37,6 +38,7 @@ function spider_boss_larval_parasite:OnSpellStart()
   if IsServer() then
     local caster = self:GetCaster()
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
+		ParticleManager:ReleaseParticleIndex( self.nPreviewFX )
 
 		self.projectile_speed = self:GetSpecialValueFor( "projectile_speed" )
 		--self.damage = self:GetSpecialValueFor( "damage" )

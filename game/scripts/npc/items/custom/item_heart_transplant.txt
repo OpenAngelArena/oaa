@@ -54,10 +54,10 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "18603"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemShopTags"                                        "str;regen_health;health_pool"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "transplant;heart transplant"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "1"

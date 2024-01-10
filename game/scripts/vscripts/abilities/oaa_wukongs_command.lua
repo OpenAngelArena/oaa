@@ -937,7 +937,7 @@ end
 modifier_monkey_clone_oaa_scepter_slow = class(ModifierBaseClass)
 
 function modifier_monkey_clone_oaa_scepter_slow:IsHidden()
-  return true
+  return false
 end
 
 function modifier_monkey_clone_oaa_scepter_slow:IsDebuff()

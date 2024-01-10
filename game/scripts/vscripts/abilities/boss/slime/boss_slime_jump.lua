@@ -78,8 +78,10 @@ function boss_slime_jump:OnSpellStart()
       ParticleManager:ReleaseParticleIndex(smoke)
 
       -- Remove warning particle
-      ParticleManager:DestroyParticle(indicator, true)
-      ParticleManager:ReleaseParticleIndex(indicator)
+      if indicator then
+        ParticleManager:DestroyParticle(indicator, true)
+        ParticleManager:ReleaseParticleIndex(indicator)
+      end
 
       -- Destination vector (location where slime landed)
       local point = caster:GetAbsOrigin() or target

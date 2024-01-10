@@ -13,39 +13,42 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_alchemist_cannonshot:OnSpellStart()
-	local caster = self:GetCaster()
+  local caster = self:GetCaster()
 
-	if self.target_points then
-		caster:EmitSound("hero_ursa.attack")
+  if self.target_points then
+    caster:EmitSound("hero_ursa.attack")
 
-		for _, target in pairs(self.target_points) do
-			if target then
-				local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, caster)
-				ParticleManager:SetParticleControl(indicator, 0, target + Vector(0,0,32))
-				ParticleManager:SetParticleControl(indicator, 15, Vector(255,55,55))
-				ParticleManager:SetParticleControl(indicator, 16, Vector(1,1,1))
+    for _, target in pairs(self.target_points) do
+      if target then
+        local indicator = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, caster)
+        ParticleManager:SetParticleControl(indicator, 0, target + Vector(0,0,32))
+        ParticleManager:SetParticleControl(indicator, 15, Vector(255,55,55))
+        ParticleManager:SetParticleControl(indicator, 16, Vector(1,1,1))
 
-				local origin = caster:GetAbsOrigin() + (caster:GetForwardVector() * 30)
+        local origin = caster:GetAbsOrigin() + (caster:GetForwardVector() * 30)
 
-				local explosive = CreateUnitByName("npc_dota_boss_spiders_explosive", origin, false, caster, caster, caster:GetTeamNumber())
+        local explosive = CreateUnitByName("npc_dota_boss_spiders_explosive", origin, false, caster, caster, caster:GetTeamNumber())
 
-				local projectileModifier = explosive:AddNewModifier(explosive, self, "modifier_generic_projectile", {})
-				local projectileTable = {
-					onLandedCallback = function ()
-						ParticleManager:DestroyParticle(indicator, true)
-						self:Explode(explosive)
-					end,
-					speed = self:GetSpecialValueFor("projectile_speed"),
-					origin = origin,
-					target = target,
-					height = self:GetSpecialValueFor("projectile_height"),
-				}
-				projectileModifier:InitProjectile(projectileTable)
-			end
-		end
+        local projectileModifier = explosive:AddNewModifier(explosive, self, "modifier_generic_projectile", {})
+        local projectileTable = {
+          onLandedCallback = function ()
+            if indicator then
+              ParticleManager:DestroyParticle(indicator, true)
+              ParticleManager:ReleaseParticleIndex(indicator)
+            end
+            self:Explode(explosive)
+          end,
+          speed = self:GetSpecialValueFor("projectile_speed"),
+          origin = origin,
+          target = target,
+          height = self:GetSpecialValueFor("projectile_height"),
+        }
+        projectileModifier:InitProjectile(projectileTable)
+      end
+    end
 
-		self.target_points = nil
-	end
+    self.target_points = nil
+  end
 end
 
 ------------------------------------------------------------------------------------

@@ -47,14 +47,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "4"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_lucience_2;item_lucience_3;item_lucience_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "6652"
-    "ItemShopTags"                                        "str;int;damage;move_speed;hard_to_tag"
+    "ItemShopTags"                                        "str;int;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience 2;lucio 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

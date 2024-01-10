@@ -247,7 +247,7 @@ if IsServer() then
     local dmg_reduction = ability:GetSpecialValueFor("damage_reduction_against_bosses")
     local creep_dmg_reduction = ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
 
-    -- Block damage from from bosses
+    -- Block damage from bosses
     if attacker:IsOAABoss() then
       if parent:IsHero() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
         return event.damage * dmg_reduction / 100
@@ -344,6 +344,10 @@ function modifier_item_vladmirs_grimoire_aura_effect:OnTooltip2()
   else
     return ability:GetSpecialValueFor("creep_damage_reduction_against_bosses")
   end
+end
+
+function modifier_item_vladmirs_grimoire_aura_effect:GetTexture()
+  return "item_vladmir"
 end
 
 ---------------------------------------------------------------------------------------------------

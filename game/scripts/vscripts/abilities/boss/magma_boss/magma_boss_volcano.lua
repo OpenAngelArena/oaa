@@ -13,8 +13,7 @@ end
 function magma_boss_volcano:Precache(context)
   PrecacheResource("model", "models/heroes/undying/undying_tower.vmdl", context)
   PrecacheResource("particle", "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf", context)
-  --PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
-  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/boss_magma_mage_volcano1.vpcf", context)
   PrecacheResource("particle", "particles/magma_boss/magma_center.vpcf", context)
@@ -343,13 +342,10 @@ function modifier_magma_boss_volcano_thinker:OnCreated()
   self.damage_type = ability:GetAbilityDamageType() or DAMAGE_TYPE_MAGICAL
 
   -- Warning particle
-  --self.warning_particle = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_indicator1.vpcf", PATTACH_WORLDORIGIN, parent)
-  --ParticleManager:SetParticleControl(self.warning_particle, 0, center)
-  --ParticleManager:SetParticleControl(self.warning_particle, 1, Vector(self.radius, self.delay, 0))
-  self.warning_particle = ParticleManager:CreateParticle("particles/darkmoon_creep_warning.vpcf", PATTACH_CUSTOMORIGIN, parent)
-  ParticleManager:SetParticleControl(self.warning_particle, 0, center)
-  ParticleManager:SetParticleControl(self.warning_particle, 1, Vector(self.radius, self.radius, self.radius))
-  ParticleManager:SetParticleControl(self.warning_particle, 15, Vector(255, 26, 26))
+  self.warning_particle = ParticleManager:CreateParticle("particles/ui_mouseactions/wards_area_view.vpcf", PATTACH_CUSTOMORIGIN, parent)
+  ParticleManager:SetParticleControl(self.warning_particle, 0, center + Vector(0,0,32))
+  ParticleManager:SetParticleControl(self.warning_particle, 15, Vector(255,55,55))
+  ParticleManager:SetParticleControl(self.warning_particle, 16, Vector(1,1,1))
 
   self.ember_particle = ParticleManager:CreateParticle("particles/magma_boss/boss_magma_mage_volcano_embers.vpcf", PATTACH_WORLDORIGIN, parent)
   ParticleManager:SetParticleControl(self.ember_particle, 2, center)
@@ -492,8 +488,6 @@ function modifier_magma_boss_volcano_thinker:CheckState()
   if self.bErupted == false then
     state[MODIFIER_STATE_NO_HEALTH_BAR] = true
     state[MODIFIER_STATE_UNSELECTABLE] = true
-    state[MODIFIER_STATE_INVISIBLE] = true
-    state[MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
   end
   return state
 end
