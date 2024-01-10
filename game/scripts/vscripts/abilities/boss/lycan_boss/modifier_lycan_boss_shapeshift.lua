@@ -14,12 +14,10 @@ function modifier_lycan_boss_shapeshift:OnCreated( kv )
     if self.nFXIndex then
       ParticleManager:DestroyParticle(self.nFXIndex, true)
       ParticleManager:ReleaseParticleIndex(self.nFXIndex)
-      self.nFXIndex = nil
     end
     if self.nPortraitFXIndex then
       ParticleManager:DestroyParticle(self.nPortraitFXIndex, true)
       ParticleManager:ReleaseParticleIndex(self.nPortraitFXIndex)
-      self.nPortraitFXIndex = nil
     end
 
     self.nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
