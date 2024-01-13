@@ -345,7 +345,7 @@ if CDOTA_BaseNPC then
         local caster = dream_coil:GetCaster()
         if caster then
           local talent = caster:FindAbilityByName("special_bonus_unique_puck_5")
-          if talent and talent:GetLevel() then
+          if talent and talent:GetLevel() > 0 then
             return true
           end
         end
@@ -365,7 +365,7 @@ if CDOTA_BaseNPC then
       local caster = power_cogs:GetCaster()
       if caster then
         local talent = caster:FindAbilityByName("special_bonus_unique_clockwerk_2")
-        if talent and talent:GetLevel() then
+        if talent and talent:GetLevel() > 0 then
           return true
         end
       end

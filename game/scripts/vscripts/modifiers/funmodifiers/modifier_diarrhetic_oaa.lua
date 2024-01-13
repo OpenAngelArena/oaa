@@ -6,7 +6,7 @@ function modifier_diarrhetic_oaa:IsHidden()
 end
 
 function modifier_diarrhetic_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_diarrhetic_oaa:IsPurgable()

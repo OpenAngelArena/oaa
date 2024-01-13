@@ -56,7 +56,7 @@ end
 
 function modifier_pro_active_oaa:CheckState()
   return {
-    [MODIFIER_STATE_PASSIVES_DISABLED] = true,
+    [MODIFIER_STATE_PASSIVES_DISABLED] = not self:GetParent():IsDebuffImmune(),
   }
 end
 

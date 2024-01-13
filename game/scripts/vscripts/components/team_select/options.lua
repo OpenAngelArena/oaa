@@ -110,6 +110,7 @@ function OAAOptions:Init ()
   GameEvents:OnHeroSelection(partial(OAAOptions.AdjustGameMode, OAAOptions))
   GameEvents:OnCustomGameSetup(partial(OAAOptions.ChangeDefaultSettings, OAAOptions))
   GameEvents:OnGameInProgress(partial(OAAOptions.SetupGame, OAAOptions))
+  ChatCommand:LinkDevCommand("-testheromod", Dynamic_Wrap(OAAOptions, "TestHeroModifier"), OAAOptions)
 
   ListenToGameEvent("npc_spawned", Dynamic_Wrap(OAAOptions, 'OnUnitSpawn'), OAAOptions)
 
@@ -309,4 +310,89 @@ function OAAOptions:ChangeDefaultSettings()
 
   self:RestoreDefaults()
   self:SaveSettings()
+end
+
+function OAAOptions:TestHeroModifier(keys)
+  local short_names = {
+    aghanim = "modifier_aghanim_oaa",
+    angels_wings = "modifier_angel_oaa",
+    anti_judecca = "modifier_all_healing_amplify_oaa",
+    aoe_increase = "modifier_aoe_radius_increase_oaa",
+    attack_range_switch = "modifier_troll_switch_oaa",
+    blood_magic = "modifier_blood_magic_oaa",
+    boss_killer = "modifier_boss_killer_oaa",
+    brawler = "modifier_brawler_oaa",
+    brute = "modifier_brute_oaa",
+    chaos = "modifier_chaos_oaa",
+    courier_hunter = "modifier_courier_kill_bonus_oaa",
+    cursed_attack = "modifier_cursed_attack_oaa",
+    diar = "modifier_diarrhetic_oaa",
+    drunk = "modifier_drunk_oaa",
+    duelist = "modifier_duelist_oaa",
+    echo_strike = "modifier_echo_strike_oaa",
+    explosive_death = "modifier_explosive_death_oaa",
+    fates_madness = "modifier_mr_phys_weak_oaa",
+    glass_cannon = "modifier_glass_cannon_oaa",
+    guardians_weakness = "modifier_bonus_armor_negative_magic_resist_oaa",
+    healer = "modifier_healer_oaa",
+    hybrid = "modifier_hybrid_oaa",
+    hyper_active = "modifier_ham_oaa",
+    hyper_lifesteal = "modifier_any_damage_lifesteal_oaa",
+    hyper_xp = "modifier_hyper_experience_oaa",
+    keeper_of_the_truth = "modifier_true_sight_strike_oaa",
+    magus = "modifier_magus_oaa",
+    max_power = "modifier_any_damage_crit_oaa",
+    moriah_shield = "modifier_hp_mana_switch_oaa",
+    nimble = "modifier_nimble_oaa",
+    no_brain = "modifier_no_brain_oaa",
+    no_hp_bar = "modifier_no_health_bar_oaa",
+    octarine_soul = "modifier_octarine_soul_oaa",
+    phys_immune = "modifier_physical_immunity_oaa",
+    pro_active = "modifier_pro_active_oaa",
+    quick_spells = "modifier_no_cast_points_oaa",
+    rend = "modifier_rend_oaa",
+    roshans_body = "modifier_roshan_power_oaa",
+    smurf = "modifier_smurf_oaa",
+    sorcerer = "modifier_sorcerer_oaa",
+    speedster = "modifier_speedster_oaa",
+    spell_resist = "modifier_spell_block_oaa",
+    splasher = "modifier_any_damage_splash_oaa",
+    telescope = "modifier_range_increase_oaa",
+    timeless = "modifier_debuff_duration_oaa",
+    titan_soul = "modifier_titan_soul_oaa",
+    two_x = "modifier_double_multiplier_oaa",
+    universal = "modifier_universal_oaa",
+    wealthy = "modifier_rich_man_oaa",
+    white_queen = "modifier_hero_anti_stun_oaa",
+    wisdom = "modifier_wisdom_oaa",
+  }
+  local text = keys.text
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local splitted = split(text, " ")
+  local name = splitted[2]
+  local extra = splitted[3]
+  if name then
+    if short_names[name] or hero_mods[name] then
+      local mod_name = short_names[name] or hero_mods[name]
+      if extra and extra == "remove" then
+        hero:RemoveModifierByName(mod_name)
+      else
+        hero:AddNewModifier(hero, nil, mod_name, {})
+      end
+      return
+    end
+    -- For detecting string without underscore
+    if extra and extra ~= "remove" then
+      local full_name = name.."_"..extra
+      local extra2 = splitted[4]
+      if short_names[full_name] then
+        local mod_name = short_names[full_name]
+        if extra2 and extra2 == "remove" then
+          hero:RemoveModifierByName(mod_name)
+        else
+          hero:AddNewModifier(hero, nil, mod_name, {})
+        end
+      end
+    end
+  end
 end
