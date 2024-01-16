@@ -16,7 +16,7 @@ local hero_mods = {
   HM06 = "modifier_ham_oaa",
   HM07 = "modifier_no_cast_points_oaa",
   --HM08 = "modifier_physical_immunity_oaa",
-  --HM09 = "modifier_pro_active_oaa",
+  HM09 = "modifier_pro_active_oaa",
   --HM10 = "modifier_spell_block_oaa",
   HM11 = "modifier_troll_switch_oaa",
   HM12 = "modifier_hyper_experience_oaa",
@@ -34,7 +34,7 @@ local hero_mods = {
   HM24 = "modifier_any_damage_crit_oaa",
   HM25 = "modifier_hp_mana_switch_oaa",
   HM26 = "modifier_magus_oaa",
-  --HM27 = "modifier_brawler_oaa",
+  HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
   --HM29 = "modifier_double_multiplier_oaa",
   --HM30 = "modifier_hybrid_oaa",
@@ -43,7 +43,7 @@ local hero_mods = {
   HM33 = "modifier_titan_soul_oaa",
   --HM34 = "modifier_hero_anti_stun_oaa",
   HM35 = "modifier_octarine_soul_oaa",
-  --HM36 = "modifier_smurf_oaa",
+  HM36 = "modifier_smurf_oaa",
   HM37 = "modifier_speedster_oaa",
   HM38 = "modifier_universal_oaa",
   HM39 = "modifier_rich_man_oaa",
@@ -75,6 +75,13 @@ local global_mods = {
   GM12 = true,
 }
 
+local bundles = {
+  HMBN = false,
+  HMB01 = {"modifier_titan_soul_oaa", "modifier_brute_oaa", "modifier_aoe_radius_increase_oaa"},
+  HMB02 = {"modifier_speedster_oaa", "modifier_no_cast_points_oaa", "modifier_ham_oaa"},
+  HMB03 = {"modifier_rich_man_oaa", "modifier_hyper_experience_oaa", "modifier_boss_killer_oaa"},
+}
+
 function OAAOptions:Init ()
   --Debug:EnableDebugging()
   DebugPrint('OAAOptions module Initialization started!')
@@ -82,6 +89,7 @@ function OAAOptions:Init ()
 
   self.settings = {}
   self.settingsDefault = {}
+  self.heroes_mods = {}
 
   self:InitializeSettingsTable()
   self:SaveSettings()
@@ -98,12 +106,12 @@ function OAAOptions:Init ()
     if name == "RESET" then
       self:RestoreDefaults()
       self:SaveSettings()
-    elseif name == "RANDOMIZE" then
-      self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
-      self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
+    --elseif name == "RANDOMIZE" then
+      --self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
+      --self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
       --self.settings.BOSSES_MODS = self:GetRandomModifier(boss_mods)
       --self.settings.GLOBAL_MODS = self:GetRandomModifier(global_mods)
-      self:SaveSettings()
+      --self:SaveSettings()
     end
   end)
 
@@ -148,6 +156,7 @@ function OAAOptions:InitializeSettingsTable()
     small_player_pool = 0,              -- 1 - some heroes that are strong when there are 2-6 players are disabled; 0 - normal;
     HEROES_MODS = "HMN",
     HEROES_MODS_2 = "HMN",
+    HEROES_MODS_BUNDLE = "HMBN",
     BOSSES_MODS = "BMN",
     GLOBAL_MODS = "GMN",
   }
@@ -174,15 +183,24 @@ function OAAOptions:AdjustGameMode()
     if self.settings.HEROES_MODS == "HMR" then
       self.settings.HEROES_MODS = self:GetRandomModifier(hero_mods)
     end
-    self.heroes_mod = hero_mods[self.settings.HEROES_MODS]
+    table.insert(self.heroes_mods, hero_mods[self.settings.HEROES_MODS])
   end
 
-  if self.settings.HEROES_MODS_2 ~= "HMN" and self.settings.HEROES_MODS_2 ~= self.settings.HEROES_MODS then
+  if self.settings.HEROES_MODS_2 ~= "HMN" then
     if self.settings.HEROES_MODS_2 == "HMR" then
       self.settings.HEROES_MODS_2 = self:GetRandomModifier(hero_mods)
     end
     if self.settings.HEROES_MODS_2 ~= self.settings.HEROES_MODS then
-      self.heroes_mod_2 = hero_mods[self.settings.HEROES_MODS_2]
+      table.insert(self.heroes_mods, hero_mods[self.settings.HEROES_MODS_2])
+    end
+  end
+
+  if self.settings.HEROES_MODS_BUNDLE ~= "HMBN" then
+    local bundle = bundles[self.settings.HEROES_MODS_BUNDLE]
+    for _, mod in pairs(bundle) do
+      if mod then
+        table.insert(self.heroes_mods, mod)
+      end
     end
   end
 
@@ -211,8 +229,6 @@ function OAAOptions:AdjustGameMode()
         global_thinker:AddNewModifier(global_thinker, nil, "modifier_oaa_thinker", {})
         global_thinker:AddNewModifier(global_thinker, nil, global_event_mod, {isGlobal = 1})
       end
-    -- elseif global_setting == "GM13" then
-      -- self.heroes_extra_mod =
     end
   end
 
@@ -257,27 +273,17 @@ function OAAOptions:OnUnitSpawn(event)
 
   if (npc:IsRealHero() or npc:IsTempestDouble() or npc:IsClone()) and npc:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
     -- npc is a non-neutral hero
-    if self.heroes_mod then
-      if not npc:HasModifier(self.heroes_mod) then
-        npc:AddNewModifier(npc, nil, self.heroes_mod, {})
-      end
-    end
-
-    if self.heroes_mod_2 then
-      if not npc:HasModifier(self.heroes_mod_2) then
-        npc:AddNewModifier(npc, nil, self.heroes_mod_2, {})
+    if self.heroes_mods then
+      for _, mod in pairs(self.heroes_mods) do
+        if mod and not npc:HasModifier(mod) then
+          npc:AddNewModifier(npc, nil, mod, {})
+        end
       end
     end
 
     if self.settings.GLOBAL_MODS == "GM12" then
       PlayerResource:SetCustomBuybackCooldown(npc:GetPlayerID(), math.max(DUEL_INTERVAL, CAPTURE_INTERVAL))
     end
-
-    -- if self.heroes_extra_mod then
-      -- if not npc:HasModifier(self.heroes_extra_mod) then
-        -- npc:AddNewModifier(npc, nil, self.heroes_extra_mod, {})
-      -- end
-    -- end
   elseif npc:IsOAABoss() then
     -- npc is a boss
     if self.bosses_mod then

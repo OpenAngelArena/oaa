@@ -16,8 +16,9 @@
 "game_options_randomize"                                                        "Randomize Hero Modifiers"
 
 "hero_options_title"                                                            "Hero Modifiers:"
-"boss_options_title"                                                            "Boss Modifiers:"
-"units_options_title"                                                           "Other Modifiers:"
+"boss_options_title"                                                            "Boss Modifier:"
+"units_options_title"                                                           "Other Options:"
+"hero_mod_bundle_title"                                                         "Hero Modifier Bundle:"
 
 "game_option_lifesteal"                                                         "Hyper Lifesteal"
 "game_option_aoe_radius"                                                        "Bonus AoE/Radius"
@@ -58,12 +59,14 @@
 "game_option_smurf"                                                             "Smurf"
 "game_option_speedster"                                                         "Speedster"
 "game_option_universal"                                                         "Universal"
-
 "game_option_wealthy"                                                           "Wealthy"
-"game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
+
+"game_option_giant"                                                             "Giant"
+"game_option_league"                                                            "League of Legends"
+"game_option_turbo"                                                             "Turbo"
 
 "game_option_random_description"                                                "This modifier will be revealed when the game starts!"
 "game_option_lifesteal_description"                                             "75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
@@ -105,6 +108,7 @@
 "game_option_smurf_description"                                                 "Grants 5 strength per hero level. You are smaller and most spells' and items' AoEs are decreased by 25%."
 "game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
+"game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -226,3 +230,7 @@
 "DOTA_Tooltip_modifier_universal_oaa_Description"                               "+%dMODIFIER_PROPERTY_TOOLTIP%%% spell amplification, +%dMODIFIER_PROPERTY_TOOLTIP%%% healing amplification and your summons and illusions do %dMODIFIER_PROPERTY_TOOLTIP%%% more damage and take %dMODIFIER_PROPERTY_TOOLTIP%%% less damage."
 "DOTA_Tooltip_modifier_rich_man_oaa"                                            "#{game_option_wealthy}"
 "DOTA_Tooltip_modifier_rich_man_oaa_Description"                                "+%dMODIFIER_PROPERTY_TOOLTIP% gold per minute, plus bonus gold on death."
+
+"game_option_giant_description"                                                 "#{game_option_titan_soul} + #{game_option_brute} + #{game_option_aoe_radius}"
+"game_option_league_description"                                                "#{game_option_speedster} + #{game_option_quick_spells} + #{game_option_hyper_active}"
+"game_option_turbo_description"                                                 "#{game_option_wealthy} + #{game_option_hyper_experience} + #{DOTA_Tooltip_modifier_boss_killer_oaa}"
