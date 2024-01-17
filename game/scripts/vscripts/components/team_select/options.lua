@@ -47,6 +47,7 @@ local hero_mods = {
   HM37 = "modifier_speedster_oaa",
   HM38 = "modifier_universal_oaa",
   HM39 = "modifier_rich_man_oaa",
+  HM40 = "modifier_bottle_collector_oaa",
 }
 local boss_mods = {
   BMN  = false,

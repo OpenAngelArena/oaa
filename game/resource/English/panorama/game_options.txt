@@ -60,6 +60,7 @@
 "game_option_speedster"                                                         "Speedster"
 "game_option_universal"                                                         "Universal"
 "game_option_wealthy"                                                           "Wealthy"
+"game_option_bottle_collector"                                                  "Bottle Collector"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -114,6 +115,7 @@
 "game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
 "game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning."
+"game_option_bottle_collector_description"                                      "Grants 1 attack damage and 0.1% spell amplification per Infinity Bottle charge. On Death, your bottle loses half the charges (a bottle with half the charges is dropped on the ground)"
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -244,6 +246,8 @@
 "DOTA_Tooltip_modifier_change_to_int_oaa"                                       "#{game_option_magician}"
 "DOTA_Tooltip_modifier_change_to_int_oaa_Description"                           "Changes primary attribute to INT."
 "DOTA_Tooltip_modifier_sangromancer_oaa"                                        "#{game_option_sangromancer}"
+"DOTA_Tooltip_modifier_bottle_collector_oaa"                                    "#{game_option_bottle_collector}"
+"DOTA_Tooltip_modifier_bottle_collector_oaa_Description"                        "+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage, +%fMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification. On Death, your bottle loses half the charges (a bottle with half the charges is dropped on the ground)."
 
 "game_option_giant_description"                                                 "#{game_option_titan_soul} + #{game_option_brute} + #{game_option_aoe_radius}"
 "game_option_league_description"                                                "#{game_option_speedster} + #{game_option_quick_spells} + #{game_option_hyper_active}"

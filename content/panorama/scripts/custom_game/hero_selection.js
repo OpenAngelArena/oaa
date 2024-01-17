@@ -220,6 +220,7 @@ function handleOAASettingsChange (n, key, settings) {
     HM37: '#game_option_speedster',
     HM38: '#game_option_universal',
     HM39: '#game_option_wealthy',
+    HM40: '#game_option_bottle_collector',
     HMB01: '#game_option_giant',
     HMB02: '#game_option_league',
     HMB03: '#game_option_turbo',
@@ -238,7 +239,6 @@ function handleOAASettingsChange (n, key, settings) {
     if (settings.HEROES_MODS !== 'HMN') {
       if (bundleBool) {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS]));
-        lines.push(' + ');
       } else {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
         lines.push('');
@@ -248,7 +248,6 @@ function handleOAASettingsChange (n, key, settings) {
     if (settings.HEROES_MODS_2 !== 'HMN') {
       if (bundleBool) {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2]));
-        lines.push(' + ');
       } else {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
         lines.push('');
