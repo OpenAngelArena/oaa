@@ -333,6 +333,7 @@ function OAAOptions:TestHeroModifier(keys)
     attack_range_switch = "modifier_troll_switch_oaa",
     blood_magic = "modifier_blood_magic_oaa",
     boss_killer = "modifier_boss_killer_oaa",
+    bottle_collector = "modifier_bottle_collector_oaa",
     brawler = "modifier_brawler_oaa",
     brute = "modifier_brute_oaa",
     chaos = "modifier_chaos_oaa",

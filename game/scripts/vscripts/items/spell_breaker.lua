@@ -198,7 +198,7 @@ local other_keywords = {
   dash_width = true,
 }
 
-local ignore_abilities = {
+local ignored_abilities = {
   --arc_warden_flux = true,
   --monkey_king_wukongs_command_oaa = true,
   --phantom_assassin_blur = true,
@@ -206,17 +206,24 @@ local ignore_abilities = {
 }
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(keys)
-  if not keys.ability or not keys.ability_special_value or not aoe_keywords then
+  local ability = keys.ability
+  if not ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignore_abilities[keys.ability:GetAbilityName()] or keys.ability:IsItem() then
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return 0
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return 1
+  if ability:IsItem() then
+    return 0
+  end
+
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return 1
+      end
     end
   end
 
@@ -228,10 +235,26 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(ke
 end
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialValue(keys)
-  local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return value * self.aoe_multiplier
+  local ability = keys.ability
+  if not keys.ability_special_value or not keys.ability_special_level then
+    return
+  end
+
+  local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+    return value
+  end
+
+  if ability:IsItem() then
+    return value
+  end
+
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return value * self.aoe_multiplier
+      end
     end
   end
 

@@ -60,7 +60,7 @@ local other_keywords = {
   dash_width = true,
 }
 
-local ignore_abilities = {
+local ignored_abilities = {
   arc_warden_flux = true,
   monkey_king_wukongs_command_oaa = true,
   phantom_assassin_blur = true,
@@ -126,17 +126,19 @@ function modifier_aoe_radius_increase_oaa:DeclareFunctions()
 end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)
-  if not keys.ability or not keys.ability_special_value or not aoe_keywords then
+  if not keys.ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignore_abilities[keys.ability:GetAbilityName()] then
+  if ignored_abilities and ignored_abilities[keys.ability:GetAbilityName()] then
     return 0
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return 1
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return 1
+      end
     end
   end
 
@@ -150,13 +152,15 @@ end
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
 
-  if ignore_abilities[keys.ability:GetAbilityName()] then
+  if ignored_abilities and ignored_abilities[keys.ability:GetAbilityName()] then
     return value
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return value * self.aoe_multiplier
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return value * self.aoe_multiplier
+      end
     end
   end
 

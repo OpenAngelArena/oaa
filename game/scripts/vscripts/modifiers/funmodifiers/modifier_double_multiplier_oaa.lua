@@ -89,11 +89,11 @@ local affected_kvs = {
 
 function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)
   local ability = keys.ability
-  if not ability or not keys.ability_special_value or not aoe_keywords or not affected_kvs then
+  if not ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignored_abilities[ability:GetAbilityName()] then
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return 0
   end
 
@@ -101,9 +101,11 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)
     return 0
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return 1
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return 1
+      end
     end
   end
 
@@ -122,7 +124,7 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecialValue(k
 
   local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
 
-  if ignored_abilities[ability:GetAbilityName()] then
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return value
   end
 
@@ -130,9 +132,11 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecialValue(k
     return value
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return value * self.multiplier
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return value * self.multiplier
+      end
     end
   end
 
