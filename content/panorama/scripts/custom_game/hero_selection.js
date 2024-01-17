@@ -222,7 +222,12 @@ function handleOAASettingsChange (n, key, settings) {
     HM39: '#game_option_wealthy',
     HMB01: '#game_option_giant',
     HMB02: '#game_option_league',
-    HMB03: '#game_option_turbo'
+    HMB03: '#game_option_turbo',
+    HMB04: '#game_option_striker',
+    HMB05: '#game_option_cunning',
+    HMB06: '#game_option_magician',
+    HMB07: '#game_option_might',
+    HMB08: '#game_option_sangromancer'
   };
 
   const bundleBool = settings.HEROES_MODS_BUNDLE !== 'HMBN';
@@ -233,19 +238,21 @@ function handleOAASettingsChange (n, key, settings) {
     if (settings.HEROES_MODS !== 'HMN') {
       if (bundleBool) {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS]));
+        lines.push(' + ');
       } else {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
+        lines.push('');
       }
-      lines.push('');
     }
 
     if (settings.HEROES_MODS_2 !== 'HMN') {
       if (bundleBool) {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2]));
+        lines.push(' + ');
       } else {
         lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
+        lines.push('');
       }
-      lines.push('');
     }
   }
 

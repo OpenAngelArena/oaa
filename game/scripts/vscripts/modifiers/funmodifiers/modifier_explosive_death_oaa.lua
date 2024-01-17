@@ -19,6 +19,7 @@ end
 
 function modifier_explosive_death_oaa:OnCreated()
   self.radius = 500
+  self.radius_per_lvl = 5
   self.delay = 0.4
   self.base_damage = 150
   self.hp_percent = 10
@@ -28,6 +29,7 @@ end
 function modifier_explosive_death_oaa:DeclareFunctions()
   return {
     MODIFIER_EVENT_ON_DEATH,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
@@ -60,7 +62,7 @@ if IsServer() then
       self.networth = parent:GetNetworth()
     end
 
-    local radius = self.radius + (5 * level)
+    local radius = self.radius + (self.radius_per_lvl * level)
     local delay = self.delay
 
     -- Warning Sound
@@ -83,7 +85,7 @@ if IsServer() then
     local health = self.health
     local networth = self.networth
 
-    local radius = self.radius + (5 * level)
+    local radius = self.radius + (self.radius_per_lvl * level)
     local base_damage = self.base_damage
     local hp_percent = self.hp_percent
     local networth_percent = self.networth_percent
@@ -117,6 +119,8 @@ if IsServer() then
       damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
     }
 
+    self:SetStackCount(0-damage_table.damage)
+
     local knockback_table = {
       should_stun = 0,
       knockback_duration = 0.5,
@@ -140,6 +144,10 @@ if IsServer() then
 
     self:StartIntervalThink(-1)
   end
+end
+
+function modifier_explosive_death_oaa:OnTooltip()
+  return math.abs(self:GetStackCount())
 end
 
 function modifier_explosive_death_oaa:GetTexture()

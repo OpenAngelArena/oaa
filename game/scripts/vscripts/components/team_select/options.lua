@@ -77,9 +77,14 @@ local global_mods = {
 
 local bundles = {
   HMBN = false,
-  HMB01 = {"modifier_titan_soul_oaa", "modifier_brute_oaa", "modifier_aoe_radius_increase_oaa"},
-  HMB02 = {"modifier_speedster_oaa", "modifier_no_cast_points_oaa", "modifier_ham_oaa"},
-  HMB03 = {"modifier_rich_man_oaa", "modifier_hyper_experience_oaa", "modifier_boss_killer_oaa"},
+  HMB01 = {"modifier_titan_soul_oaa", "modifier_brute_oaa", "modifier_aoe_radius_increase_oaa"}, -- Giant
+  HMB02 = {"modifier_speedster_oaa", "modifier_no_cast_points_oaa", "modifier_ham_oaa"}, -- League
+  HMB03 = {"modifier_rich_man_oaa", "modifier_hyper_experience_oaa", "modifier_boss_killer_oaa"}, -- Turbo
+  HMB04 = {"modifier_echo_strike_oaa", "modifier_magus_oaa", "modifier_hybrid_oaa", "modifier_rend_oaa"}, -- Striker
+  HMB05 = {"modifier_nimble_oaa", "modifier_speedster_oaa", "modifier_brawler_oaa", "modifier_change_to_agi_oaa"}, -- Cunning
+  HMB06 = {"modifier_wisdom_oaa", "modifier_octarine_soul_oaa", "modifier_debuff_duration_oaa", "modifier_change_to_int_oaa"}, -- Magician
+  HMB07 = {"modifier_brute_oaa", "modifier_smurf_oaa", "modifier_any_damage_crit_oaa", "modifier_change_to_str_oaa"}, -- Mighty
+  HMB08 = {"modifier_sangromancer_oaa", "modifier_wisdom_oaa", "modifier_debuff_duration_oaa", "modifier_explosive_death_oaa"}, -- Sangromancer
 }
 
 function OAAOptions:Init ()

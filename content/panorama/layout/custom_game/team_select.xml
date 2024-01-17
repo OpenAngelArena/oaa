@@ -122,8 +122,13 @@
                 <Label class="SettingsGroupTitle" text="#hero_mod_bundle_title"/>
                 <DropDown class="SettingsItem" id="HEROES_MODS_BUNDLE" oninputsubmit="onPanelChange('HEROES_MODS_BUNDLE')">
                   <Label text="#game_option_none" id="HMBN"/>
+                  <Label text="#game_option_cunning" id="HMB05" onmouseover="UIShowTextTooltip(#game_option_cunning_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_giant" id="HMB01" onmouseover="UIShowTextTooltip(#game_option_giant_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_league" id="HMB02" onmouseover="UIShowTextTooltip(#game_option_league_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_magician" id="HMB06" onmouseover="UIShowTextTooltip(#game_option_magician_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_might" id="HMB07" onmouseover="UIShowTextTooltip(#game_option_might_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_sangromancer" id="HMB08" onmouseover="UIShowTextTooltip(#game_option_sangromancer_description)" onmouseout="UIHideTextTooltip()"/>
+                  <Label text="#game_option_striker" id="HMB04" onmouseover="UIShowTextTooltip(#game_option_striker_description)" onmouseout="UIHideTextTooltip()"/>
                   <Label text="#game_option_turbo" id="HMB03" onmouseover="UIShowTextTooltip(#game_option_turbo_description)" onmouseout="UIHideTextTooltip()"/>
                 </DropDown>
                 <Label class="SettingsGroupTitle" text="#boss_options_title"/>

@@ -57,6 +57,7 @@ end
 function modifier_octarine_soul_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
@@ -71,6 +72,10 @@ function modifier_octarine_soul_oaa:GetModifierPercentageCooldown(keys)
   else
     return self.cdr_per_int * parent:GetIntellect()
   end
+end
+
+function modifier_octarine_soul_oaa:OnTooltip()
+  return self.cdr_per_int * self:GetParent():GetIntellect()
 end
 
 function modifier_octarine_soul_oaa:GetTexture()

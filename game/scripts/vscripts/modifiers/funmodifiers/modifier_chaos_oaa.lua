@@ -196,13 +196,22 @@ function modifier_chaos_oaa:OnCreated()
   }
 
   local bad_blood_magic_heroes = {
-    "npc_dota_hero_enchantress",
-    "npc_dota_hero_leshrac",
-    "npc_dota_hero_storm_spirit",
-    "npc_dota_hero_obsidian_destroyer",
-    "npc_dota_hero_medusa",
+    "npc_dota_hero_ancient_apparition",
+    "npc_dota_hero_clinkz",
+    "npc_dota_hero_drow_ranger",
     "npc_dota_hero_electrician",
-    --"npc_dota_hero_witch_doctor",
+    "npc_dota_hero_enchantress",
+    "npc_dota_hero_keeper_of_the_light",
+    "npc_dota_hero_leshrac",
+    "npc_dota_hero_medusa",
+    "npc_dota_hero_morphling",
+    "npc_dota_hero_obsidian_destroyer",
+    "npc_dota_hero_shredder",
+    "npc_dota_hero_silencer",
+    "npc_dota_hero_storm_spirit",
+    "npc_dota_hero_tusk",
+    "npc_dota_hero_viper",
+    "npc_dota_hero_witch_doctor",
   }
 
   for _, v in pairs(healer_heroes) do

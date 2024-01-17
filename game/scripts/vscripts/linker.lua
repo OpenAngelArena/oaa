@@ -171,3 +171,7 @@ LinkLuaModifier("modifier_smurf_oaa", "modifiers/funmodifiers/modifier_smurf_oaa
 LinkLuaModifier("modifier_speedster_oaa", "modifiers/funmodifiers/modifier_speedster_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_universal_oaa", "modifiers/funmodifiers/modifier_universal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rich_man_oaa", "modifiers/funmodifiers/modifier_rich_man_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_agi_oaa", "modifiers/funmodifiers/modifier_change_to_agi_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_str_oaa", "modifiers/funmodifiers/modifier_change_to_str_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_int_oaa", "modifiers/funmodifiers/modifier_change_to_int_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sangromancer_oaa", "modifiers/funmodifiers/modifier_sangromancer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
