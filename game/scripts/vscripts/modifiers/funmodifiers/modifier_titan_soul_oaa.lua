@@ -62,6 +62,10 @@ function modifier_titan_soul_oaa:OnIntervalThink()
 
   local damage_per_interval = primary_stat * multiplier
 
+  if parent:IsClone() then
+    damage_per_interval = damage_per_interval / 3
+  end
+
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),

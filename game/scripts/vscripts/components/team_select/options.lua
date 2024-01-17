@@ -36,7 +36,7 @@ local hero_mods = {
   HM26 = "modifier_magus_oaa",
   HM27 = "modifier_brawler_oaa",
   HM28 = "modifier_chaos_oaa",
-  --HM29 = "modifier_double_multiplier_oaa",
+  HM29 = "modifier_double_multiplier_oaa",
   --HM30 = "modifier_hybrid_oaa",
   --HM31 = "modifier_drunk_oaa",
   HM32 = "modifier_any_damage_splash_oaa",
@@ -243,7 +243,7 @@ end
 function OAAOptions:GetRandomModifier(mod_list)
   local options = {}
   for k, v in pairs(mod_list) do
-    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" and v ~= "modifier_diarrhetic_oaa" then
+    if v ~= false and v ~= "modifier_hyper_experience_oaa" and v ~= "modifier_aghanim_oaa" and v ~= "modifier_diarrhetic_oaa" and v ~= "modifier_double_multiplier_oaa" then
       table.insert(options, k)
     end
   end

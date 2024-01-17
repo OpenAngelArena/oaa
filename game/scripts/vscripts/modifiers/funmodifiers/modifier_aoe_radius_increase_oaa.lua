@@ -65,6 +65,17 @@ local ignore_abilities = {
   monkey_king_wukongs_command_oaa = true,
   phantom_assassin_blur = true,
   spectre_desolate = true,
+  item_bloodstone = true,
+  item_satanic_core = true,
+  item_satanic_core_2 = true,
+  item_satanic_core_3 = true,
+  item_satanic_core_4 = true,
+  item_satanic_core_5 = true,
+  item_spell_breaker_1 = true,
+  item_spell_breaker_2 = true,
+  item_spell_breaker_3 = true,
+  item_spell_breaker_4 = true,
+  item_spell_breaker_5 = true,
 }
 
 function modifier_aoe_radius_increase_oaa:OnCreated()
@@ -138,6 +149,11 @@ end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+
+  if ignore_abilities[keys.ability:GetAbilityName()] then
+    return value
+  end
+
   for keyword, _ in pairs(aoe_keywords) do
     if string.find(keys.ability_special_value, keyword) then
       return value * self.aoe_multiplier
