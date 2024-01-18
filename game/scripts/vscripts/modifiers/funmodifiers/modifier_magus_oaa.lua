@@ -233,6 +233,9 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   if type(behavior) == 'userdata' then
     behavior = tonumber(tostring(behavior))
   end
+  if not behavior then
+    behavior = DOTA_ABILITY_BEHAVIOR_NONE
+  end
   local real_target = target
   local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
   local isUnitTargetting = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) > 0
@@ -404,7 +407,7 @@ function modifier_magus_cooldown_oaa:IsHidden()
 end
 
 function modifier_magus_cooldown_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_magus_cooldown_oaa:IsPurgable()

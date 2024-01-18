@@ -7,7 +7,7 @@ function modifier_hp_mana_switch_oaa:IsHidden()
 end
 
 function modifier_hp_mana_switch_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_hp_mana_switch_oaa:IsPurgable()

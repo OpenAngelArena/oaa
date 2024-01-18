@@ -17,14 +17,14 @@ function modifier_titan_soul_oaa:RemoveOnDeath()
 end
 
 function modifier_titan_soul_oaa:OnCreated()
-  if not IsServer() then
-    return
-  end
-
   self.primary_attribute_multiplier = 2
   self.damage_radius = 300
   self.scale = 60
   self.stats = 1
+
+  if not IsServer() then
+    return
+  end
 
   self:StartIntervalThink(1)
 end
@@ -61,6 +61,10 @@ function modifier_titan_soul_oaa:OnIntervalThink()
   end
 
   local damage_per_interval = primary_stat * multiplier
+
+  if parent:IsClone() then
+    damage_per_interval = damage_per_interval / 3
+  end
 
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),

@@ -36,7 +36,7 @@ function modifier_rich_man_oaa:OnIntervalThink()
   local parent = self:GetParent()
   local player = parent:GetPlayerOwner()
   local interval = 10
-  local goldPerMinute = self:GetGoldPerSecond(interval)
+  local goldPerMinute = self:GetGoldPerSecond()
   Gold:ModifyGold(player:GetPlayerID(), goldPerMinute * interval / 60 , false, DOTA_ModifyGold_CreepKill)
 
   self:SetStackCount(goldPerMinute)

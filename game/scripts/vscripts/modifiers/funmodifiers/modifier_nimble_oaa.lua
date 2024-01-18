@@ -17,25 +17,9 @@ function modifier_nimble_oaa:RemoveOnDeath()
 end
 
 function modifier_nimble_oaa:OnCreated()
-  self.bonus_agi_per_lvl = 1
+  self.bonus_agi_per_lvl = 2
   self.bonus_ms_per_agi = 0.08
   self.bonus_evasion_per_agi = 0.05
-
-  if not IsServer() then
-    return
-  end
-
-  -- local parent = self:GetParent()
-
-  -- -- Check if parent has the stuff
-  -- if parent.GetPrimaryAttribute == nil then
-    -- return
-  -- end
-
-  -- -- Change Primary attribute to Agility
-  -- if parent:GetPrimaryAttribute() ~= DOTA_ATTRIBUTE_AGILITY then
-    -- parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
-  -- end
 end
 
 function modifier_nimble_oaa:DeclareFunctions()

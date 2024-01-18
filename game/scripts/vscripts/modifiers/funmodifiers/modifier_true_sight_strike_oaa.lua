@@ -20,10 +20,6 @@ function modifier_true_sight_strike_oaa:RemoveOnDeath()
   return false
 end
 
-function modifier_true_sight_strike_oaa:OnCreated()
-  self.radius = 800
-end
-
 function modifier_true_sight_strike_oaa:IsAura()
   return true
 end
@@ -45,7 +41,7 @@ function modifier_true_sight_strike_oaa:GetAuraSearchFlags()
 end
 
 function modifier_true_sight_strike_oaa:GetAuraRadius()
-  return self.radius
+  return self:GetParent():GetCurrentVisionRange() or 800
 end
 
 function modifier_true_sight_strike_oaa:CheckState()
@@ -66,7 +62,18 @@ function modifier_truesight_aura_effect_oaa:IsHidden()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
-  if not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud") then
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return true
+  end
+
+  -- Check for True Sight immunities
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return true
+  end
+
+  -- Only reveal when within 900 radius
+  if parent.GetAbsOrigin and (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then
     return true
   end
 
@@ -89,7 +96,17 @@ function modifier_truesight_aura_effect_oaa:CheckState()
   local parent = self:GetParent()
   local caster = self:GetCaster()
 
-  if parent.HasModifier and (not caster or caster:IsNull() or parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+  -- Check if caster exists
+  if not caster or caster:IsNull() then
+    return {}
+  end
+
+  if parent.HasModifier and (parent:HasModifier("modifier_slark_shadow_dance") or parent:HasModifier("modifier_slark_depth_shroud")) then
+    return {}
+  end
+
+  -- Only reveal when within 900 radius
+  if parent.GetAbsOrigin and (parent:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then
     return {}
   end
 
