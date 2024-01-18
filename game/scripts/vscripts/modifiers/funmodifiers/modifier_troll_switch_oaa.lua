@@ -7,7 +7,7 @@ function modifier_troll_switch_oaa:IsHidden()
 end
 
 function modifier_troll_switch_oaa:IsDebuff()
-  return not self:GetParent():IsRangedAttacker()
+  return false
 end
 
 function modifier_troll_switch_oaa:IsPurgable()

@@ -219,21 +219,45 @@ function handleOAASettingsChange (n, key, settings) {
     HM36: '#game_option_smurf',
     HM37: '#game_option_speedster',
     HM38: '#game_option_universal',
-    HM39: '#game_option_wealthy'
+    HM39: '#game_option_wealthy',
+    HM40: '#game_option_bottle_collector',
+    HMB01: '#game_option_giant',
+    HMB02: '#game_option_league',
+    HMB03: '#game_option_turbo',
+    HMB04: '#game_option_striker',
+    HMB05: '#game_option_cunning',
+    HMB06: '#game_option_magician',
+    HMB07: '#game_option_might',
+    HMB08: '#game_option_sangromancer'
   };
+
+  const bundleBool = settings.HEROES_MODS_BUNDLE !== 'HMBN';
 
   if (settings.HEROES_MODS !== 'HMN' || settings.HEROES_MODS_2 !== 'HMN') {
     lines.push($.Localize('#hero_options_title'));
 
     if (settings.HEROES_MODS !== 'HMN') {
-      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
-      lines.push('');
+      if (bundleBool) {
+        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS]));
+      } else {
+        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
+        lines.push('');
+      }
     }
 
     if (settings.HEROES_MODS_2 !== 'HMN') {
-      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
-      lines.push('');
+      if (bundleBool) {
+        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2]));
+      } else {
+        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
+        lines.push('');
+      }
     }
+  }
+
+  if (bundleBool) {
+    lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_BUNDLE] + '_description'));
+    lines.push('');
   }
 
   if (settings.BOSSES_MODS !== 'BMN') {

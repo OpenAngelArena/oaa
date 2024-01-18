@@ -113,7 +113,7 @@ if IsServer() then
     if type(behavior) == 'userdata' then
       behavior = tonumber(tostring(behavior))
     end
-    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) > 0 then
+    if behavior and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_TOGGLE) > 0 then
       return
     end
 
@@ -222,6 +222,6 @@ function modifier_hybrid_spell_amp_stack_oaa:GetModifierSpellAmplify_Percentage(
   return self:GetStackCount() * self.spell_amp_per_stack
 end
 
-function modifier_hybrid_dmg_stack_oaa:GetTexture()
+function modifier_hybrid_spell_amp_stack_oaa:GetTexture()
   return "custom/elixier_hybrid_2"
 end

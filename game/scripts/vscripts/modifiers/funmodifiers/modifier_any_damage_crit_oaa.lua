@@ -133,7 +133,7 @@ if IsServer() then
 
       ApplyDamage(damage_table)
 
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, damaged_unit, damage_table.damage, nil)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, damaged_unit, damage + damage_table.damage, nil)
     end
   end
 end
