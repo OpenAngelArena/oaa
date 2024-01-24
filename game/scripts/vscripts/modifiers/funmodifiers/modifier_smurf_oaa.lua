@@ -82,11 +82,22 @@ local other_keywords = {
   dash_width = true,
 }
 
-local ignore_abilities = {
+local ignored_abilities = {
   --arc_warden_flux = true,
   --monkey_king_wukongs_command_oaa = true,
   --phantom_assassin_blur = true,
   --spectre_desolate = true,
+  item_bloodstone = true,
+  item_satanic_core = true,
+  item_satanic_core_2 = true,
+  item_satanic_core_3 = true,
+  item_satanic_core_4 = true,
+  item_satanic_core_5 = true,
+  item_spell_breaker_1 = true,
+  item_spell_breaker_2 = true,
+  item_spell_breaker_3 = true,
+  item_spell_breaker_4 = true,
+  item_spell_breaker_5 = true,
 }
 
 function modifier_smurf_oaa:OnDestroy()
@@ -125,17 +136,19 @@ function modifier_smurf_oaa:ReEquipAllItems()
 end
 
 function modifier_smurf_oaa:GetModifierOverrideAbilitySpecial(keys)
-  if not keys.ability or not keys.ability_special_value or not aoe_keywords then
+  if not keys.ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignore_abilities[keys.ability:GetAbilityName()] then
+  if ignored_abilities and ignored_abilities[keys.ability:GetAbilityName()] then
     return 0
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return 1
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return 1
+      end
     end
   end
 
@@ -148,9 +161,16 @@ end
 
 function modifier_smurf_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return value * self.aoe_multiplier
+
+  if ignored_abilities and ignored_abilities[keys.ability:GetAbilityName()] then
+    return value
+  end
+
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return value * self.aoe_multiplier
+      end
     end
   end
 

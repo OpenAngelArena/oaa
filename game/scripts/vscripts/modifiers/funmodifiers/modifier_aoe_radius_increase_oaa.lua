@@ -83,6 +83,13 @@ function modifier_aoe_radius_increase_oaa:OnCreated()
   self:ReEquipAllItems()
 end
 
+function modifier_aoe_radius_increase_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
+    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
+  }
+end
+
 function modifier_aoe_radius_increase_oaa:OnDestroy()
   self:ReEquipAllItems()
 end
@@ -116,13 +123,6 @@ function modifier_aoe_radius_increase_oaa:ReEquipAllItems()
     neutral_item:OnUnequip()
     neutral_item:OnEquip()
   end
-end
-
-function modifier_aoe_radius_increase_oaa:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
-    MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE
-  }
 end
 
 function modifier_aoe_radius_increase_oaa:GetModifierOverrideAbilitySpecial(keys)
