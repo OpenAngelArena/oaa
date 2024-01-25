@@ -10,7 +10,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_demonic_conversion.lua"
     "AbilityTextureName"                                  "enigma_demonic_conversion"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 
     "MaxLevel"                                            "6"
 

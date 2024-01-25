@@ -44,10 +44,10 @@ local aoe_keywords = {
 }
 
 local ignored_abilities = {
-  --arc_warden_flux = true,
+  arc_warden_flux = true,
   monkey_king_wukongs_command_oaa = true,
-  --phantom_assassin_blur = true,
-  --spectre_desolate = true,
+  phantom_assassin_blur = true,
+  spectre_desolate = true,
 }
 
 local affected_kvs = {

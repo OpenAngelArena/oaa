@@ -237,19 +237,15 @@ function handleOAASettingsChange (n, key, settings) {
     lines.push($.Localize('#hero_options_title'));
 
     if (settings.HEROES_MODS !== 'HMN') {
-      if (bundleBool) {
-        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS]));
-      } else {
-        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS] + '_description'));
+      if (!bundleBool) {
         lines.push('');
       }
     }
 
     if (settings.HEROES_MODS_2 !== 'HMN') {
-      if (bundleBool) {
-        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2]));
-      } else {
-        lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
+      lines.push(' ' + $.Localize(heroModifierNames[settings.HEROES_MODS_2] + '_description'));
+      if (!bundleBool) {
         lines.push('');
       }
     }
