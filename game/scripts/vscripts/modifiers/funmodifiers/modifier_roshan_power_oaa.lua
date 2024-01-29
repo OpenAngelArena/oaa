@@ -158,6 +158,7 @@ if IsServer() then
     local parent = self:GetParent()
     local casted_ability = event.ability
 
+    -- Don't block if we don't have required variables
     if not casted_ability or casted_ability:IsNull() then
       return 0
     end
@@ -169,8 +170,9 @@ if IsServer() then
       return 0
     end
 
-    -- No need to block if parent is invulnerable
-    if parent:IsInvulnerable() or parent:IsOutOfGame() then
+    -- Don't block if parent is an illusion
+    -- Some stuff pierce invulnerability (like Nullifier) so we need to block them too
+    if parent:IsIllusion() then
       return 0
     end
 

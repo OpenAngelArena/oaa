@@ -12,6 +12,9 @@ function item_reflex_core:OnSpellStart()
   local duration = self:GetSpecialValueFor("active_duration")
   local caster = self:GetCaster()
 
+  -- Disjoint projectiles on cast
+  ProjectileManager:ProjectileDodge(caster)
+
   caster:AddNewModifier(caster, self, "modifier_item_reflex_core_invulnerability", {duration = duration})
 end
 
@@ -51,44 +54,54 @@ function modifier_item_reflex_core_passive:GetModifierEvasion_Constant()
   return self.evasion or self:GetAbility():GetSpecialValueFor("bonus_evasion")
 end
 
-function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
-  if not IsServer() then
-    return
-  end
+if IsServer() then
+  function modifier_item_reflex_core_passive:GetAbsorbSpell(event)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local casted_ability = event.ability
 
-  local parent = self:GetParent()
-  local ability = self:GetAbility()
+    -- Don't block if we don't have required variables
+    if not ability or ability:IsNull() or not casted_ability or casted_ability:IsNull() then
+      return 0
+    end
 
-  if not ability or ability:IsNull() then
-    return
-  end
+    local caster = casted_ability:GetCaster()
 
-  -- No need to dodge if parent is invulnerable
-  if parent:HasModifier("modifier_item_reflex_core_invulnerability") or parent:IsInvulnerable() then
-    return
-  end
+    -- Don't block allied spells
+    if caster:GetTeamNumber() == parent:GetTeamNumber() then
+      return 0
+    end
 
-  -- Don't dodge if passive is on cooldown
-  if parent:HasModifier("modifier_item_reflex_core_cooldown") then
-    return
-  end
+    -- Don't block if parent is an illusion
+    -- Some stuff pierce invulnerability (like Nullifier) so we need to block them too
+    if parent:IsIllusion() then
+      return 0
+    end
 
-  local chance = ability:GetSpecialValueFor("spell_dodge_chance")/100
+    -- Don't dodge if passive is on cooldown
+    if parent:HasModifier("modifier_item_reflex_core_cooldown") then
+      return 0
+    end
 
-  -- Get number of failures
-  local prngMult = self:GetStackCount() + 1
+    local chance = ability:GetSpecialValueFor("spell_dodge_chance")/100
 
-  if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
-    -- Reset failure count
-    self:SetStackCount(0)
+    -- Get number of failures
+    local prngMult = self:GetStackCount() + 1
 
-    -- Start cooldown by adding a modifier
-    parent:AddNewModifier(parent, ability, "modifier_item_reflex_core_cooldown", {duration = ability:GetSpecialValueFor("spell_dodge_cooldown")})
+    if RandomFloat(0.0, 1.0) <= (PrdCFinder:GetCForP(chance) * prngMult) then
+      -- Reset failure count
+      self:SetStackCount(0)
 
-    return 1
-  else
-    -- Increment number of failures
-    self:SetStackCount(prngMult)
+      -- Start cooldown by adding a modifier
+      parent:AddNewModifier(parent, ability, "modifier_item_reflex_core_cooldown", {duration = ability:GetSpecialValueFor("spell_dodge_cooldown")})
+
+      return 1
+    else
+      -- Increment number of failures
+      self:SetStackCount(prngMult)
+    end
+
+    return 0
   end
 end
 
