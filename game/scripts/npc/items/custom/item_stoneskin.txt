@@ -74,19 +74,17 @@
     "AbilityValues"
     {
       "bonus_all_stats"                                   "21 26"
-      "bonus_armor"                                       "22 26"
+      "bonus_armor"                                       "21 25"
       "bonus_health_regen"                                "15 18"
       "bonus_status_resist"                               "20 22"
       // Aura stuff
-      "hp_regen_amp"                                      "25"
-      "heal_amp"                                          "25"
-      "lifesteal_amp"                                     "25"
-      "spell_lifesteal_amp"                               "25"
+      "hp_regen_amp"                                      "20"
+      "heal_amp"                                          "20"
+      "lifesteal_amp"                                     "20"
+      "spell_lifesteal_amp"                               "20"
       "aura_radius"                                       "1200"
       // Active stuff
-      "stone_armor"                                       "100 200"
-      //"stone_magic_resist"                                "0"
-      //"stone_status_resist"                               "30"
+      "stone_armor"                                       "100 175"
       "stone_deflect_chance"                              "40"
       "stone_deflect_radius"
       {
