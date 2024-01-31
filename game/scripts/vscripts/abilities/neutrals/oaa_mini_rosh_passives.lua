@@ -108,8 +108,9 @@ if IsServer() then
       return 0
     end
 
-    -- Don't block if parent is invulnerable, dominated, under break of if parent is an illusion
-    if parent:IsInvulnerable() or parent:IsDominated() or parent:PassivesDisabled() or parent:IsIllusion() then
+    -- Don't block if parent is dominated, under break of if parent is an illusion
+    -- Some stuff pierce invulnerability (like Nullifier) so we need to block them too
+    if parent:IsDominated() or parent:PassivesDisabled() or parent:IsIllusion() then
       return 0
     end
 

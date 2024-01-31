@@ -157,41 +157,40 @@ end
 -- function modifier_item_reflection_shard_active:GetAbsoluteNoDamagePure()
   -- return 1
 -- end
+if IsServer() then
+  function modifier_item_reflection_shard_active:GetAbsorbSpell(event)
+    local parent = self:GetParent()
+    local casted_ability = event.ability
 
-function modifier_item_reflection_shard_active:GetAbsorbSpell(event)
-  local parent = self:GetParent()
-  local casted_ability = event.ability
-
-  if not casted_ability or casted_ability:IsNull() then
-    return 0
-  end
-
-  local caster = casted_ability:GetCaster()
-
-  -- Don't block allied spells
-  if caster:GetTeamNumber() == parent:GetTeamNumber() then
-    return 0
-  end
-
-  -- No need to block if parent is invulnerable
-  if parent:IsInvulnerable() or parent:IsOutOfGame() then
-    return 0
-  end
-
-  -- Sound
-  parent:EmitSound("Hero_Antimage.Counterspell.Target")
-
-  -- Particle
-  local burst = ParticleManager:CreateParticle("particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, self:GetParent())
-  local duration = self:GetDuration()
-  Timers:CreateTimer(duration, function()
-    if burst then
-      ParticleManager:DestroyParticle(burst, false)
-      ParticleManager:ReleaseParticleIndex(burst)
+    -- Don't block if we don't have required variables
+    if not casted_ability or casted_ability:IsNull() then
+      return 0
     end
-  end)
 
-  return 1
+    local caster = casted_ability:GetCaster()
+
+    -- Don't block allied spells
+    if caster:GetTeamNumber() == parent:GetTeamNumber() then
+      return 0
+    end
+
+    -- Some stuff pierce invulnerability (like Nullifier) so we need to block them too
+
+    -- Sound
+    parent:EmitSound("Hero_Antimage.Counterspell.Target")
+
+    -- Particle
+    local burst = ParticleManager:CreateParticle("particles/items/reflection_shard/immunity_sphere_yellow.vpcf", PATTACH_ABSORIGIN, parent)
+    local duration = self:GetDuration()
+    Timers:CreateTimer(duration, function()
+      if burst then
+        ParticleManager:DestroyParticle(burst, false)
+        ParticleManager:ReleaseParticleIndex(burst)
+      end
+    end)
+
+    return 1
+  end
 end
 
 --[[
