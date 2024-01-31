@@ -1,9 +1,9 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Echo Slam Echo Damage
+  // Bonus Aftershock Damage
   //=================================================================================================================
-  "special_bonus_unique_earthshaker_2"
+  "special_bonus_unique_earthshaker_6"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
       {
         "var_type"                                        "FIELD_INTEGER"
         "value"                                           "100" //OAA
-        "ad_linked_abilities"                             "earthshaker_echo_slam"
+        "ad_linked_abilities"                             "earthshaker_aftershock"
       }
     }
   }
