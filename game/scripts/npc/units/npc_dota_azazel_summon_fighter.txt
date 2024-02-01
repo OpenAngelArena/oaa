@@ -36,7 +36,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"                                     "1000"       // Damage range min.
     "AttackDamageMax"                                     "1000"       // Damage range max.
-    "AttackRate"                                          "2.0"
+    "AttackRate"                                          "1.7"
     "BaseAttackSpeed"                                     "200"
     "AttackAnimationPoint"                                "0.6"
     "AttackAcquisitionRange"                              "700"
@@ -65,12 +65,11 @@
     // Status
     //----------------------------------------------------------------
     "StatusHealth"                                        "25000"
-    "StatusHealthRegen"                                   "1.0"
+    "StatusHealthRegen"                                   "25"
     "StatusMana"                                          "0"
     "StatusManaRegen"                                     "0.0"
 
-    
-    
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
