@@ -167,7 +167,7 @@ if IsServer() then
     -- get the damage modifier
     local actual_damage = damage*percent*0.01
 
-    DoCleaveAttack(parent, target, ability, actual_damage, start_radius, end_radius, distance, "particles/items_fx/battlefury_cleave.vpcf")
+    DoCleaveAttack(parent, target, nil, actual_damage, start_radius, end_radius, distance, "particles/items_fx/battlefury_cleave.vpcf")
   end
 end
 
@@ -264,7 +264,6 @@ end
 
 if IsServer() then
   function modifier_azazel_summon_tank_innate:GetModifierTotal_ConstantBlock(event)
-    local parent = self:GetParent()
     local attacker = event.attacker
 
     if not attacker or attacker:IsNull() then
