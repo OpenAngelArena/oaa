@@ -26,7 +26,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_time"                                         "1.7"
+      "cast_time"                                         "1.65" //OAA
       "radius"
       {
         "value"                                           "475"
@@ -39,10 +39,10 @@
         "special_bonus_unique_elder_titan_2"              "+150"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL" // Valve has it wrong
       }
-      "wake_damage_limit" //OAA, Valve has it wrong
+      "wake_damage_limit" //OAA
       {
-        "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_elder_titan_4"              "+450"
+        "value"                                           "100 150 200 250 500 1000"
+        "special_bonus_unique_elder_titan_4"              "+600"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "animation_rate"                                    "0.0"
