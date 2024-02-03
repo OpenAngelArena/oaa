@@ -18,16 +18,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "1 2 3 4 5 6" //OAA
+      "bonus_armor"                                       "0.6 1.4 2.2 3.0 3.8 4.6" //OAA, total armor: 6/14/22/30/38/46
       "bonus_hp_regen" //OAA
       {
-        "value"                                           "1 2 3 4 5 6"
-        "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.2"
+        "value"                                           "0.5 1.2 1.9 2.6 3.3 4.0" // total regen: 5/12/19/26/33/40
+        "special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"  "+0.2" // total regen with this talent: 7/14/21/28/35/42
       }
       "stack_limit" //OAA
       {
-        "value"                                           "5 6 7 8 9 10"
-        "special_bonus_unique_timbersaw_2"                "+6"
+        "value"                                           "10"
+        "special_bonus_unique_timbersaw_2"                "+5" // armor: 9/21/33/45/57/69; regen: 10.5/21/31.5/42/52.5/63
       }
       "stack_duration"
       {
@@ -35,7 +35,7 @@
       }
       "stacks_per_hero_attack" //OAA
       {
-        "value"                                           "1"
+        "value"                                           "2"
         "special_bonus_unique_timbersaw_2"                "+1"
       }
       "AbilityManaCost"
