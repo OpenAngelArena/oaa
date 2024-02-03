@@ -7,10 +7,10 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
-    "Model"                                               "models/heroes/doom/doom.vmdl"  // Model.
-    "vscripts"                                            "units/shielder.lua" // uses neutral creep AI
-    "SoundSet"                                            "axe"                    // Name of sound set.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                                               "models/heroes/doom/doom.vmdl"
+    "vscripts"                                            "units/shielder.lua"
+    "SoundSet"                                            "Roshan" // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "30"
     "IsAncient"                                           "1"
@@ -27,7 +27,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "28"            // Physical protection.
-    "MagicalResistance"                                   "-50"           // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"           // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -54,8 +54,8 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-    "MovementSpeed"                                       "420"       // Speed
-    "MovementTurnRate"                                    "0.8"       // Turning rate.
+    "MovementSpeed"                                       "320"       // Speed
+    "MovementTurnRate"                                    "0.5"       // Turning rate.
 
     // Status
     //----------------------------------------------------------------
@@ -65,17 +65,28 @@
     "StatusManaRegen"                                     "5"     // Mana regeneration rate.
 
     // Creature data
-    //"Creature"
-    //{
-      // Makes it only have 50% remaining of applied crowd control
-      //"DisableResistance"                                 "50.0"
-    //}
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "1" // Doom's Bracers
+        {
+          "ItemDef"                                       "235"
+        }
+        "2" // Doom's Shoulder Armor
+        {
+          "ItemDef"                                       "234"
+        }
+        "3" // Centaur's Diretide Shimmer Shield
+        {
+          "ItemDef"                                       "362"
+        }
+      }
+    }
 
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision
