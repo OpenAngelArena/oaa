@@ -1,37 +1,37 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: A Sacred Skull
+  // Recipe: A Sacred Skull 5
   //=================================================================================================================
-  "item_recipe_sacred_skull"
+  "item_recipe_sacred_skull_5"
   {
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_sacred_skull"
+    "ItemResult"                                          "item_sacred_skull_5"
 
     "ItemRequirements"
     {
-      "01"                                                "item_soul_booster;item_soul_ring"
+      "01"                                                "item_sacred_skull_4;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // A Sacred Skull
+  // A Sacred Skull 5
   //=================================================================================================================
-  "item_sacred_skull"
+  "item_sacred_skull_5"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityTextureName"                                  "custom/purpleskull_1"
+    "AbilityTextureName"                                  "custom/purpleskull_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -42,14 +42,14 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
+    "ItemBaseLevel"                                       "5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3905"
+    "ItemCost"                                            "16908"
     "ItemShopTags"                                        "damage;agi;str;int;regen_mana;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "ass;sacred skull"
+    "ItemAliases"                                         "ass 5;sacred skull 5"
 
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -64,8 +64,6 @@
       "bonus_mana"                                        "500 600 750 950 1200"
       "health_cost"                                       "15"
       "min_mana_gain"                                     "170 220 320 470 670"
-      "spell_amp"                                         "100"
-      "passive_armor_reduction"                           "-6 -9 -13 -18 -24"
       "duration"                                          "10"
     }
   }
