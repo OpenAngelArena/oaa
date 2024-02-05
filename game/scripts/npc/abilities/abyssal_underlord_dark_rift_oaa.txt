@@ -42,7 +42,7 @@
     {
       "radius"
       {
-        "value"                                           "425"
+        "value"                                           "430"
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"                                     "2.5 2.75 3.0 3.25 3.5"
@@ -55,12 +55,12 @@
       }
       "damage_reduction"
       {
-        "value"                                           "10 15 20 25 30"
+        "value"                                           "30"
         "RequiresScepter"                                 "1"
       }
       "bonus_ms"
       {
-        "value"                                           "10 15 20 25 30"
+        "value"                                           "10 20 30 40 50"
         "RequiresScepter"                                 "1"
       }
       "buff_duration"

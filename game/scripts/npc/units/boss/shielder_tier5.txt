@@ -7,10 +7,10 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creep_neutral" // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
     "Model"                                               "models/heroes/doom/doom.vmdl"  // Model.
-    "vscripts"                                            "units/shielder.lua" // uses neutral creep AI
-    "SoundSet"                                            "axe"                    // Name of sound set.
+    "vscripts"                                            "units/shielder.lua"
+    "SoundSet"                                            "Roshan"                    // Name of sound set.
     "ModelScale"                                          "1"
     "Level"                                               "60"
     "IsAncient"                                           "1"
@@ -28,7 +28,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "43"            // Physical protection.
-    "MagicalResistance"                                   "-50"           // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"           // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -55,8 +55,8 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"         // Type of locomotion - ground, air
-    "MovementSpeed"                                       "320"       // Speed
-    "MovementTurnRate"                                    "0.8"       // Turning rate.
+    "MovementSpeed"                                       "420"       // Speed
+    "MovementTurnRate"                                    "0.5"       // Turning rate.
 
     // Status
     //----------------------------------------------------------------
@@ -75,8 +75,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"            // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

@@ -32,8 +32,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"                                     "100"    // Damage range min.
-    "AttackDamageMax"                                     "100"    // Damage range max.
+    "AttackDamageMin"                                     "10"    // Damage range min.
+    "AttackDamageMax"                                     "10"    // Damage range max.
     "AttackRate"                                          "2.0"    // Speed of attack.
     "AttackAnimationPoint"                                "0.3"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "200"    // Range within a target can be acquired.
@@ -60,8 +60,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "40000"    // Base health.
-    "StatusHealthRegen"                                   "1.0"      // Health regeneration rate.
+    "StatusHealth"                                        "30000"    // Base health.
+    "StatusHealthRegen"                                   "15"      // Health regeneration rate.
     "StatusMana"                                          "0"    // Base mana.
     "StatusManaRegen"                                     "0"    // Mana regeneration rate.
 
@@ -73,12 +73,13 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"              // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     //Inventory
     "HasInventory"                                        "0"
+
+    "ImmuneToOmnislash"                                   "1"
+    "UntargetableByExorcismSpirits"                       "1"
   }
 
 }

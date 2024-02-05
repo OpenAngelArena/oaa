@@ -15,6 +15,14 @@ function item_shield_staff:GetIntrinsicModifierNames()
   }
 end
 
+local forbidden_modifiers = {
+  "modifier_enigma_black_hole_pull",
+  "modifier_faceless_void_chronosphere_freeze",
+  "modifier_legion_commander_duel",
+  "modifier_batrider_flaming_lasso",
+  "modifier_disruptor_kinetic_field",
+}
+
 --function item_shield_staff:CastFilterResultTarget(target)
   --local caster = self:GetCaster()
   --local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
@@ -23,13 +31,6 @@ end
     --return UF_FAIL_CUSTOM
   --end
 
-  -- local forbidden_modifiers = {
-    -- "modifier_enigma_black_hole_pull",
-    -- "modifier_faceless_void_chronosphere_freeze",
-    -- "modifier_legion_commander_duel",
-    -- "modifier_batrider_flaming_lasso",
-    -- "modifier_disruptor_kinetic_field",
-  -- }
   -- for _, modifier in pairs(forbidden_modifiers) do
     -- if target:HasModifier(modifier) then
       -- return UF_FAIL_CUSTOM
@@ -60,6 +61,21 @@ end
     -- return "#oaa_hud_error_pull_staff_kinetic_field"
   -- end
 -- end
+
+function item_shield_staff:GetCooldown(level)
+  local cooldown = self.BaseClass.GetCooldown(self, level)
+
+  if IsServer() then
+    local target = self:GetCursorTarget()
+    for _, modifier in pairs(forbidden_modifiers) do
+      if target:HasModifier(modifier) then
+        return cooldown / 2
+      end
+    end
+  end
+
+  return cooldown
+end
 
 function item_shield_staff:OnSpellStart()
   local target = self:GetCursorTarget()
@@ -103,14 +119,6 @@ function item_shield_staff:OnSpellStart()
       barrierHP = self:GetSpecialValueFor("barrier_block"),
     })
   end
-
-  local forbidden_modifiers = {
-    "modifier_enigma_black_hole_pull",
-    "modifier_faceless_void_chronosphere_freeze",
-    "modifier_legion_commander_duel",
-    "modifier_batrider_flaming_lasso",
-    "modifier_disruptor_kinetic_field",
-  }
 
   -- If target has any of these debuffs, don't continue
   for _, modifier in pairs(forbidden_modifiers) do

@@ -27,7 +27,7 @@ end
   -- ...
 -- },
 -- kv_name can't be AbilityDamage or #AbilityDamage, it doesn't work for that
--- type can be: +, *, x, /, %
+-- type can be: +, -, *, x, /, %
 -- * and x are the same -  muliplies the base value with the talent value
 -- / - can be used for dividing cooldowns, intervals etc.
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
@@ -165,6 +165,8 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecialValue(keys
       local talent_value = custom_talent:GetSpecialValueFor("value")
       if talent_type == "+" then
         return value + talent_value
+      elseif talent_type == "-" then
+        return value - talent_value
       elseif talent_type == "x" or talent_type == "*" then
         return value * talent_value
       elseif talent_type == "/" and talent_value ~= 0 then
