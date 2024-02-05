@@ -47,7 +47,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "5406"
-    "ItemShopTags"                                        "damage;agi;str;int;regen_mana;hard_to_tag"
+    "ItemShopTags"                                        "str;health_pool;mana_pool;boost_mana;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 2;sacred skull 2"
 
@@ -64,12 +64,8 @@
       "bonus_mana"                                        "500 600 750 950 1200"
       "health_cost"                                       "15"
       "min_mana_gain"                                     "170 220 320 470 670"
-      "base_dmg"                                          "100 200 300 400 500"
-      "magic_dmg_per_current_mana"                        "0.125"
-      "phys_dmg_per_missing_mana"                         "0.5"
-      "effect_radius"                                     "700"
-      "active_bonus_aoe"                                  "75"
-      "active_bonus_cdr"                                  "5 7 9 11 13"
+      "spell_amp"                                         "75"
+      "passive_armor_reduction"                           "-5 -6 -8 -11 -15"
       "duration"                                          "10"
     }
   }
