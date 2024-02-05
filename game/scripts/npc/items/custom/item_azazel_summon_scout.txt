@@ -1,34 +1,6 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Azazel Summon - Scout
-  //=================================================================================================================
-  // "item_recipe_azazel_summon_scout"
-  // {
-    // // General
-    // //-------------------------------------------------------------------------------------------------------------
-    // "BaseClass"                             "item_datadriven"
-    // "AbilityTextureName"                    "custom/recipe/recipe_3"
-    // "Model"                                 "models/props_gameplay/recipe.vmdl"
-
-    // // Item Info
-    // //-------------------------------------------------------------------------------------------------------------
-    // "ItemCorePointCost"                                   "8"
-    // "ItemCost"                                            "1"
-    // "SecretShop"                            "1"
-    // "ItemShopTags"                          ""
-
-    // // Recipe
-    // //-------------------------------------------------------------------------------------------------------------
-    // "ItemRecipe"                            "1"
-    // "ItemResult"                            "item_azazel_summon_scout"
-    // "ItemRequirements" // OAA
-    // {
-      // "01"                                  "item_upgrade_core_3"
-    // }
-  // }
-
-  //=================================================================================================================
   // Azazel Summon - Scout
   //=================================================================================================================
   "item_azazel_summon_scout"
@@ -42,7 +14,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
     "AbilitySharedCooldown"                               "azazel_summon"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
@@ -67,33 +38,13 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_health"                                   "2500"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_armor"                                    "15"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_ms"                                       "500"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_damage"                                   "0"
-      }
-      "05" // needs to be changed on the unit as well
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_vision"                                   "900"
-      }
+      "summon_health"                                     "2500"
+      "summon_armor"                                      "15"
+      "summon_ms"                                         "500"
+      "summon_damage"                                     "0"
+      "summon_vision"                                     "900" // needs to be changed on the unit as well
     }
   }
 }

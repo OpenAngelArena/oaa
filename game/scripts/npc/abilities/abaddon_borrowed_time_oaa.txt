@@ -39,10 +39,10 @@
     {
       "hp_threshold"                                      "350"
       "hp_threshold_max_hp_percent"                       "5"
-      "duration"                                          "4.0 4.25 4.5 5 5.5"
+      "duration"                                          "4.0 4.25 4.5 5.0 5.5"
       "duration_scepter"
       {
-        "value"                                           "5 5.5 6.0 7.0 8.0"
+        "value"                                           "5.0 5.5 6.0 7.0 8.0"
         "RequiresScepter"                                 "1"
       }
       "damage_redirect_scepter"

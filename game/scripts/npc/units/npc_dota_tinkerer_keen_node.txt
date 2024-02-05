@@ -4,13 +4,14 @@
   {
     // General
     //
-    "BaseClass"                                           "npc_dota_creature"  // Class of entity of link to.
+    "BaseClass"                                           "npc_dota_shadowshaman_serpentward"  // Class of entity of link to.
     "Model"                                               "models/items/rattletrap/warmachine_cog_dc/warmachine_cog_dc.vmdl"  // Model.
     "SoundSet"                                            "Creep_Good_Melee"
     "Level"                                               "50"
     "ModelScale"                                          "2.2"
     "IsAncient"                                           "1"
     "CanBeDominated"                                      "0"
+    "IgnoreAddSummonedToSelection"                        "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -55,21 +56,19 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "25"      // Experience earn.
+    "BountyXP"                                            "0"      // Experience earn.
     "BountyGoldMin"                                       "100"    // Gold earned min.
     "BountyGoldMax"                                       "100"    // Gold earned max.
 
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"                                  "200"    // Range of vision during day light.
-    "VisionNighttimeRange"                                "200"    // Range of vision at night time.
+    "VisionDaytimeRange"                                  "400"    // Range of vision during day light.
+    "VisionNighttimeRange"                                "400"    // Range of vision at night time.
 
     "ImmuneToOmnislash"                                   "1"
     "UntargetableByExorcismSpirits"                       "1"

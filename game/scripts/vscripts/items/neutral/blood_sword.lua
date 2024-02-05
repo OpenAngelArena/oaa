@@ -136,6 +136,12 @@ if IsServer() then
       return
     end
 
+    -- Normal lifesteal should not work for spells and magic damage attacks
+    --if (event.inflictor or event.damage_type ~= DAMAGE_TYPE_PHYSICAL) and event.damage_category == DOTA_DAMAGE_CATEGORY_ATTACK then
+      --self:Destroy()
+      --return
+    --end
+
     local lifesteal_percent = ability:GetSpecialValueFor("active_lifesteal_percent")
 
     -- Check if damage and lifesteal are > 0

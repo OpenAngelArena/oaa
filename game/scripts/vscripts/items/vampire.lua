@@ -161,6 +161,10 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
 
+    if not spell or spell:IsNull() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -376,6 +380,10 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
 
+    if not spell or spell:IsNull() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -410,6 +418,7 @@ if IsServer() then
       return
     end
 
+    -- Check if attacker has this modifier
     if attacker ~= parent or not self.procRecords[event.record] then
       return
     end
@@ -425,7 +434,8 @@ if IsServer() then
       return
     end
 
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+    -- Normal lifesteal should not work for spells and magic damage attacks
+    if event.inflictor or event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
 

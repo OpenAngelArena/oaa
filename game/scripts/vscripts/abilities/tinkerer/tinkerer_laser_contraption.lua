@@ -249,9 +249,9 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   end
 
   local delay = 0.1
-  local dmg_interval = 0.5
-  local dps = 75
-  local radius = 300
+  local dmg_interval = 0.2
+  local dps = 130
+  local radius = 325
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
@@ -336,30 +336,10 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
     )
   end
 
-  local allies = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    self.center,
-    nil,
-    self.rad_or_width * math.sqrt(2) + 10,
-    DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-    DOTA_UNIT_TARGET_BASIC,
-    DOTA_UNIT_TARGET_FLAG_NONE,
-    FIND_ANY_ORDER,
-    false
-  )
-
-  -- Store nodes
-  local nodes = {}
-  for _, unit in pairs(allies) do
-    if unit and not unit:IsNull() and unit:IsAlive() and unit:GetUnitName() == "npc_dota_tinkerer_keen_node" then
-      table.insert(nodes, unit)
-    end
-  end
-
   -- Damage table
   local damage_table = {
     attacker = caster,
-    damage = self.dmg_per_interval * #nodes / 16,
+    damage = self.dmg_per_interval,
     damage_type = DAMAGE_TYPE_MAGICAL,
   }
 
@@ -368,13 +348,6 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
     damage_table.ability = ability
     damage_table.damage_type = ability:GetAbilityDamageType()
   end
-
-  -- Visual effect - lasers
-  -- for _, node in pairs(nodes) do
-    -- if node and not node:IsNull() and node:IsAlive() then
-      -- ApplyLaser(node, "attach_attack1", parent, "attach_hitloc")
-    -- end
-  -- end
 
   -- Talent that applies Tar Spill
   local tar_spill_duration = 4

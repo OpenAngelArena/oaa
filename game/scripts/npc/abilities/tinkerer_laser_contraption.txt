@@ -64,7 +64,7 @@
       }
       "damage_interval"
       {
-        "value"                                           "0.5"
+        "value"                                           "0.2"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "attacks_to_destroy"
@@ -79,7 +79,7 @@
       }
       "scepter_heal_prevent_percent"
       {
-        "value"                                           "-20 -25 -30 -35 -40"
+        "value"                                           "-25 -30 -35 -40 -45"
         "RequiresScepter"                                 "1"
       }
     }
