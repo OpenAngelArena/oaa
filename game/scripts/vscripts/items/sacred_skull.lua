@@ -25,7 +25,8 @@ function item_sacred_skull:OnSpellStart()
   caster:CalculateStatBonus(true)
 
   -- Grant mana
-  caster:GiveMana(mana_to_give)
+  local mana = self:GetSpecialValueFor("min_mana_gain") + self:GetHealthCost()
+  caster:GiveMana(mana)
 end
 
 item_sacred_skull_2 = item_sacred_skull
