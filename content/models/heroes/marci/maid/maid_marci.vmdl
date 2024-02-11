@@ -1,0 +1,58 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						children = 
+						[
+							{
+								_class = "ReplaceMeshMaterials"
+								remaps = 
+								[
+									{
+										from = "models/heroes/marci/maid/blinn10.vmat"
+										to = "materials/models/heroes/marci/marci_head.vmat"
+									},
+									{
+										from = "models/heroes/marci/maid/blinn8.vmat"
+										to = "materials/models/heroes/marci/marci_eye_shadow.vmat"
+									},
+									{
+										from = "models/heroes/marci/maid/blinn6.vmat"
+										to = "materials/models/heroes/marci/marci_base.vmat"
+									},
+									{
+										from = "models/heroes/marci/maid/mx_face.vmat"
+										to = "materials/models/heroes/marci/maid/mx_head.vmat"
+									},
+									{
+										from = "models/heroes/marci/maid/mx_armor.vmat"
+										to = "materials/models/heroes/marci/maid/mx_armor.vmat"
+									},
+								]
+							},
+						]
+						filename = "models/heroes/marci/maid/maid_marci.dmx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}
