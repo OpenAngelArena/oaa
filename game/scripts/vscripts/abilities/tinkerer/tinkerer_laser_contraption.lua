@@ -36,30 +36,6 @@ function tinkerer_laser_contraption:GetCastRange(location, target)
   return self.BaseClass.GetCastRange(self, location, target)
 end
 
---[[
-function tinkerer_laser_contraption:OnAbilityPhaseStart()
-  if not IsServer() then
-    return
-  end
-
-  local caster = self:GetCaster()
-
-  -- Sound during casting
-  caster:EmitSound("Hero_Tinker.LaserAnim")
-
-  return true
-end
-
-function tinkerer_laser_contraption:OnAbilityPhaseInterrupted()
-  if not IsServer() then
-    return
-  end
-
-  -- Interrupt casting sound
-  self:GetCaster():StopSound("Hero_Tinker.LaserAnim")
-end
-]]
-
 function tinkerer_laser_contraption:OnSpellStart()
   local caster = self:GetCaster()
   local cursor = self:GetCursorPosition()
@@ -248,14 +224,12 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
     return
   end
 
-  local delay = 0.1
   local dmg_interval = 0.2
   local dps = 130
   local radius = 325
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    delay = ability:GetSpecialValueFor("delay")
     dmg_interval = ability:GetSpecialValueFor("damage_interval")
     dps = ability:GetSpecialValueFor("damage_per_second")
     radius = ability:GetSpecialValueFor("radius")
@@ -264,7 +238,6 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   self.interval = dmg_interval
   self.dmg_per_interval = dmg_interval * dps
   self.rad_or_width = radius
-  self.established = false
   self.counter = 0
 
   local center = Vector(tonumber(kv.center_x), tonumber(kv.center_y), 0)
@@ -275,7 +248,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   end
 
   -- Start thinking
-  self:StartIntervalThink(delay)
+  self:OnIntervalThink()
+  self:StartIntervalThink(dmg_interval)
 end
 
 function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
@@ -350,12 +324,14 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   -- Talent that applies Tar Spill
-  local tar_spill_duration = 4
-  local tar_spill_iteration = tar_spill_duration / self.interval
-  self.counter = self.counter + 1
-  if self.counter == 1 or self.counter % tar_spill_iteration == 0 then
+  local tar_spill_interval = 3
+  local tar_spill_iteration = math.ceil(tar_spill_interval / self.interval)
+  if self.counter == 0 or self.counter % tar_spill_iteration == 0 then
     self:ApplyTarSpill()
   end
+
+  -- Increase counter
+  self.counter = self.counter + 1
 
   -- Damage enemies
   for _, enemy in pairs(enemies) do
@@ -368,12 +344,6 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
 
   -- Sound
   --parent:EmitSound("Hero_Tinker.LaserImpact")
-
-  if not self.established then
-    self.established = true
-    -- Change thinking interval
-    self:StartIntervalThink(self.interval)
-  end
 end
 
 function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
