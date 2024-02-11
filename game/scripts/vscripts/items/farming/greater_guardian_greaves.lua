@@ -115,24 +115,24 @@ function modifier_item_greater_guardian_greaves:OnCreated()
   end
   if IsServer() then
     local parent = self:GetParent()
-    -- Remove effect modifiers from units in radius to force refresh
+    -- Remove aura effect modifier from units in radius to force refresh
     local units = FindUnitsInRadius(
       parent:GetTeamNumber(),
       parent:GetAbsOrigin(),
       nil,
-      self.aura_radius,
-      DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-      bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
       DOTA_UNIT_TARGET_FLAG_NONE,
       FIND_ANY_ORDER,
       false
     )
 
-    local function RemoveGuardianAuraEffect(unit)
-      unit:RemoveModifierByName("modifier_item_guardian_greaves_aura")
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
     end
 
-    foreach(RemoveGuardianAuraEffect, units)
+    foreach(RemoveAuraEffect, units)
   end
 end
 

@@ -184,6 +184,27 @@ function modifier_item_greater_tranquil_boots_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
     self:StartIntervalThink(0.1)
+
+    local parent = self:GetParent()
+
+    -- Remove aura effect modifier from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
+    end
+
+    foreach(RemoveAuraEffect, units)
   end
 end
 
@@ -684,7 +705,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_greater_tranquils_endurance_aura_effect = class(ModifierBaseClass)
+modifier_greater_tranquils_endurance_aura_effect = class({})
 
 function modifier_greater_tranquils_endurance_aura_effect:IsHidden()
   local parent = self:GetParent()
