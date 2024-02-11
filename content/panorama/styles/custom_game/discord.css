@@ -11,9 +11,10 @@
 
 .Discord
 {
-  horizontal-align: right;
+  horizontal-align: left;
   vertical-align: top;
-  margin-top: 42px;
+  margin-top: 5px;
+  margin-left: 300px;
   width: 148px;
   height: fit-children;
   flow-children: down;
