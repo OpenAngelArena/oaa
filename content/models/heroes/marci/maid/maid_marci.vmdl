@@ -98,6 +98,33 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "pelvis"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_head"
+						parent_bone = "head"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_sword"
+						parent_bone = "hand_R"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -107,6 +134,18 @@
 					{
 						_class = "HitboxSet"
 						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "pelvis"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.0, -30.0, -60.0 ]
+								hitbox_maxs = [ 20.0, 30.0, 20.0 ]
+							},
+						]
 					},
 				]
 			},
@@ -114,28 +153,6 @@
 				_class = "AnimationList"
 				children = 
 				[
-					{
-						_class = "AnimFile"
-						name = "marci_attack"
-						activity_name = "ACT_DOTA_ATTACK"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/heroes/marci/maid/anims/marci_attack.dmx"
-						import_bone_scales = false
-						start_frame = -1
-						end_frame = -1
-						framerate = -1.0
-						reverse = false
-					},
 					{
 						_class = "AnimFile"
 						name = "bind_pose"
@@ -160,6 +177,42 @@
 					},
 					{
 						_class = "AnimFile"
+						name = "marci_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/marci/maid/anims/marci_attack.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
 						name = "marci_attack_alt1"
 						children = 
 						[
@@ -175,7 +228,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_ATTACK2"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -188,6 +241,78 @@
 						disable_compression = false
 						animgraph_additive = false
 						source_filename = "models/heroes/marci/maid/anims/marci_attack_alt1.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "marci_attack_alt2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/marci/maid/anims/marci_attack_alt2.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "marci_attack_alt3"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/marci/maid/anims/marci_attack_alt3.dmx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
@@ -211,7 +336,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_ATTACK_SPECIAL"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -232,8 +357,44 @@
 					},
 					{
 						_class = "AnimFile"
+						name = "marci_attack_faster"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/marci/maid/anims/marci_attack_faster.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
 						name = "marci_cast_companion_lunge_and_effigy"
-						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -277,7 +438,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_cast_companion_lunge_leap"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -357,7 +518,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_cast_grapple_alt"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -423,7 +584,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_cast_unleash"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -569,7 +730,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_flail"
-						activity_name = "ACT_DOTA_FLAIL"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -582,6 +743,28 @@
 						disable_compression = false
 						animgraph_additive = false
 						source_filename = "models/heroes/marci/maid/anims/marci_flail.dmx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "marci_forcestaff_friendly"
+						activity_name = "force"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/heroes/marci/maid/anims/marci_forcestaff_friendly.dmx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
@@ -635,7 +818,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_idle_injured"
-						activity_name = "ACT_DOTA_IDLE"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -657,7 +840,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_idle_unleash"
-						activity_name = "ACT_DOTA_IDLE"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -679,7 +862,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_idle_unleash_recharge"
-						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -723,7 +906,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_portrait"
-						activity_name = "portrait"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -795,7 +978,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_RUN_RARE"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -831,7 +1014,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_RUN"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -867,7 +1050,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_RUN"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -911,7 +1094,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_teleport_channel"
-						activity_name = "ACT_DOTA_TELEPORT"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -933,7 +1116,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_teleport_end"
-						activity_name = "ACT_DOTA_TELEPORT_END"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -955,7 +1138,7 @@
 					{
 						_class = "AnimFile"
 						name = "marci_teleport_start"
-						activity_name = "ACT_DOTA_TELEPORT_START"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -991,7 +1174,7 @@
 								motion_type = "Single"
 							},
 						]
-						activity_name = "ACT_DOTA_ATTACK_SPECIAL"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
