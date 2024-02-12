@@ -55,7 +55,7 @@ function modifier_elixier_sustain_active:GetEffectAttachType()
 end
 
 function modifier_elixier_sustain_active:GetTexture()
-  return "custom/elixier_sustain_2"
+  return "custom/elixier_sustain"
 end
 
 function modifier_elixier_sustain_active:OnCreated()
