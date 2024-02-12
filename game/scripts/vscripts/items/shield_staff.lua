@@ -499,5 +499,5 @@ function modifier_shield_staff_barrier_buff:GetEffectAttachType()
 end
 
 function modifier_shield_staff_barrier_buff:GetTexture()
-  return "custom/force_staff_1"
+  return "item_force_staff"
 end

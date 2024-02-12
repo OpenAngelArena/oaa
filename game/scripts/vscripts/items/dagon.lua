@@ -182,3 +182,7 @@ end
 function modifier_item_oaa_dagon_debuff:GetModifierMiss_Percentage()
   return self.blind_pct or self:GetAbility():GetSpecialValueFor("blind_pct")
 end
+
+function modifier_item_oaa_dagon_debuff:GetTexture()
+  return "item_dagon_5"
+end
