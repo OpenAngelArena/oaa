@@ -7,6 +7,8 @@ function HidePickScreen () {
     pregame.visible = false;
   } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     pregame.visible = true;
+  } else if (Game.GameStateIsAfter(DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)) {
+    pregame.visible = false;
   }
 }
 
@@ -63,7 +65,7 @@ function HidePickScreen () {
   $.Msg('Now receiving Server Messages.');
 
   // Hiding vanilla picking screen
-  // GameEvents.Subscribe('game_rules_state_change', HidePickScreen);
+  GameEvents.Subscribe('game_rules_state_change', HidePickScreen);
   // Cheat Mode Check
   GameEvents.Subscribe('onGameInCheatMode', function () {
     $.Msg('This Match is in Cheat Mode!');
