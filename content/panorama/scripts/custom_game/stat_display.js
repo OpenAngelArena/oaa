@@ -1,4 +1,4 @@
-/* global $ CustomNetTables Game Players */
+/* global $ CustomNetTables Game Players GameEvents */
 
 (function () {
   if (Game.GetLocalPlayerID() !== -1) {
@@ -8,6 +8,9 @@
       // Listen to shop open/close events
       $.RegisterForUnhandledEvent('DOTAHUDShopOpened', HideStatDisplay);
       $.RegisterForUnhandledEvent('DOTAHUDShopClosed', ShowStatDisplay);
+    } else {
+      // Killcam (death summary) creation and removal event
+      GameEvents.Subscribe('dota_player_update_killcam_unit', HideOrShowStatDisplay);
     }
   } else {
     $.GetContextPanel().FindChildTraverse('OAAStatDisplay').GetParent().RemoveAndDeleteChildren();
@@ -27,7 +30,6 @@ function onTeamStatChange (table, key, data) {
 
 function UpdateStatDisplay (name, value) {
   const display = $('#OAAStatDisplay');
-
   display.FindChildTraverse(name + 'Row').FindChildTraverse('QuickStatLabelValue').text = value;
 }
 
@@ -41,4 +43,14 @@ function ShowStatDisplay () {
   const customStatsDisplay = $('#OAAStatDisplay').GetParent();
   customStatsDisplay.style.opacity = 1;
   customStatsDisplay.style.visibility = 'visible';
+}
+
+function HideOrShowStatDisplay () {
+  const customStatsDisplay = $('#OAAStatDisplay').GetParent();
+  const hidden = customStatsDisplay.style.opacity === '0.0';
+  if (hidden) {
+    ShowStatDisplay();
+  } else {
+    HideStatDisplay();
+  }
 }
