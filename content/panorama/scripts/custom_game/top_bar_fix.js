@@ -32,5 +32,5 @@ function OverrideTopBarHeroImages () {
 
 (function () {
   GameEvents.Subscribe('game_rules_state_change', OverrideTopBarHeroImages);
-  GameEvents.Subscribe('player_connect', OverrideTopBarHeroImages);
+  GameEvents.Subscribe('player_connect_full', OverrideTopBarHeroImages);
 })();
