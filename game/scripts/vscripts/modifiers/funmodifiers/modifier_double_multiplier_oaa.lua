@@ -87,6 +87,18 @@ local affected_kvs = {
   AbilityCastRange = true,
 }
 
+local forbidden_kvs = {
+  ancient_apparition_ice_blast = {radius_grow = true,},
+  --dawnbreaker_celestial_hammer = {hammer_aoe_radius = true,},
+  grimstroke_soul_chain = {leash_radius_buffer = true,},
+  --legion_commander_overwhelming_odds = {duel_radius_bonus = true,}, -- uncomment if flat change
+  --leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,}, -- uncomment if flat change
+  lich_frost_nova = {aoe_damage = true,},
+  --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change
+  sandking_epicenter = {epicenter_radius_increment = true,},
+  sandking_sand_storm = {scepter_explosion_radius_pct = true,},
+}
+
 function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)
   local ability = keys.ability
   if not ability or not keys.ability_special_value then
@@ -99,6 +111,13 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)
 
   if ability:IsItem() then
     return 0
+  end
+
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return 0
+    end
   end
 
   if aoe_keywords then
@@ -130,6 +149,13 @@ function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecialValue(k
 
   if ability:IsItem() then
     return value
+  end
+
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return value
+    end
   end
 
   if aoe_keywords then
