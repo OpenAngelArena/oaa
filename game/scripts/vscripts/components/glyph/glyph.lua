@@ -130,7 +130,7 @@ end
 modifier_custom_glyph_knockback = class(ModifierBaseClass)
 
 function modifier_custom_glyph_knockback:IsDebuff()
-  return false
+  return false -- false because of Debuff Immunity
 end
 
 function modifier_custom_glyph_knockback:IsHidden()

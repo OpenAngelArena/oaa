@@ -147,7 +147,7 @@ function modifier_chen_divine_favor_shield_oaa:GetModifierIncomingPhysicalDamage
     -- Don't block more than remaining hp
     local block_amount = math.min(damage, barrier_hp)
 
-    -- Reduce barrier hp
+    -- Reduce barrier hp (using negative stacks to not show them on the buff)
     self:SetStackCount(block_amount - barrier_hp)
 
     if block_amount > 0 then
