@@ -89,6 +89,28 @@ end
 
 function modifier_item_vladmirs_grimoire_passive:OnCreated()
   self:OnRefresh()
+  if IsServer() then
+    local parent = self:GetParent()
+
+    -- Remove aura effect modifier from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
+    end
+
+    foreach(RemoveAuraEffect, units)
+  end
 end
 
 function modifier_item_vladmirs_grimoire_passive:OnRefresh()
@@ -150,9 +172,9 @@ function modifier_item_vladmirs_grimoire_passive:GetAuraRadius()
   return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
-function modifier_item_vladmirs_grimoire_passive:GetAuraEntityReject(hTarget)
-  return hTarget:HasModifier("modifier_item_imba_vladmir_blood_aura")
-end
+-- function modifier_item_vladmirs_grimoire_passive:GetAuraEntityReject(hTarget)
+  -- return hTarget:HasModifier("modifier_item_vladmir_aura")
+-- end
 
 function modifier_item_vladmirs_grimoire_passive:GetModifierAura()
   return "modifier_item_vladmirs_grimoire_aura_effect"
@@ -163,8 +185,7 @@ end
 modifier_item_vladmirs_grimoire_aura_effect = class({})
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsHidden()
-  local parent = self:GetParent()
-  return parent:HasModifier("modifier_item_vladmir_aura")
+  return self:GetParent():HasModifier("modifier_item_vladmir_aura")
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsDebuff()

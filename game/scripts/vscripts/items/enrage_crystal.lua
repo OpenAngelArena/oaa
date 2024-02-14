@@ -169,5 +169,5 @@ function modifier_item_enrage_crystal_active:GetEffectName()
 end
 
 function modifier_item_enrage_crystal_active:GetTexture()
-  return "custom/enrage_crystal_1"
+  return "custom/enrage_crystal"
 end

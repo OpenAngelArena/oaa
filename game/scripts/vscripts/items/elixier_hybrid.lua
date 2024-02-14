@@ -56,7 +56,7 @@ function modifier_elixier_hybrid_active:GetEffectAttachType()
 end
 
 function modifier_elixier_hybrid_active:GetTexture()
-  return "custom/elixier_hybrid_2"
+  return "custom/elixier_hybrid"
 end
 
 function modifier_elixier_hybrid_active:OnCreated()

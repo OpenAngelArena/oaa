@@ -64,6 +64,7 @@ function modifier_magus_oaa:OnCreated()
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    life_stealer_consume = 1,                            -- self grief
     meepo_megameepo_fling = 1,                           -- self grief
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_primal_spring = 1,                       -- breaks ability

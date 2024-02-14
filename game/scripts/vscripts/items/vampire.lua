@@ -210,7 +210,8 @@ function modifier_item_vampire_active:GetModifierAura()
 end
 
 function modifier_item_vampire_active:GetAuraRadius()
-  if self:GetStackCount() == 1 then
+  -- Check if it's day time
+  if math.abs(self:GetStackCount()) == 1 then
     return 1
   else
     local ability = self:GetAbility()
@@ -253,7 +254,7 @@ function modifier_item_vampire_active:OnCreated()
     if not GameRules:IsDaytime() then
       self:SetStackCount(0)
     else
-      self:SetStackCount(1)
+      self:SetStackCount(-1)
     end
   end
 end
@@ -290,12 +291,12 @@ end
 
 function modifier_item_vampire_active:OnIntervalThink()
   if IsServer() then
-    -- Don't do damage during the night
+    -- Don't do self damage during the night
     if not GameRules:IsDaytime() then
       self:SetStackCount(0)
       return
     else
-      self:SetStackCount(1)
+      self:SetStackCount(-1)
     end
     local parent = self:GetParent()
     local spell = self:GetAbility()
@@ -332,7 +333,8 @@ function modifier_item_vampire_active:DeclareFunctions()
 end
 
 function modifier_item_vampire_active:GetModifierPreAttack_BonusDamage()
-  if self:GetStackCount() == 1 then
+  -- Check if it's day time
+  if math.abs(self:GetStackCount()) == 1 then
     return 0
   else
     local ability = self:GetAbility()

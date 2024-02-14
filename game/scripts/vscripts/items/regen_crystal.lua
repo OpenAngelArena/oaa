@@ -222,5 +222,5 @@ function modifier_item_regen_crystal_active:GetEffectAttachType()
 end
 
 function modifier_item_regen_crystal_active:GetTexture()
-  return "custom/regen_crystal_1"
+  return "custom/regen_crystal"
 end

@@ -7,12 +7,25 @@ GameEvents:OnItemCombined(function (keys)
     return
   end
 
-  -- The name of the item purchased
+  -- Problematic auras
+  local auraItems = {
+    "item_assault_",
+    "item_pipe_",
+    "item_radiance_",
+    "item_shivas_guard_",
+  }
+
+  -- The name of the combined (purchased) item
   local itemName = keys.itemname
 
   local hero = PlayerResource:GetSelectedHeroEntity(plyID)
   if hero then
-    -- Doesn't work when hero is dead
-    hero:AddNewModifier(hero, nil, "modifier_aura_item_upgrade", {ItemName = itemName})
+    -- Check if combined item is on the list, add the modifier only if found
+    for _, value in ipairs(auraItems) do
+      if string.find(itemName, value) then
+        -- Doesn't work when hero is dead, but items should refresh on respawn so it should not be a problem
+        hero:AddNewModifier(hero, nil, "modifier_aura_item_upgrade", {ItemName = itemName})
+      end
+    end
   end
 end)
