@@ -1,4 +1,4 @@
-LinkLuaModifier( "modifier_item_greater_travel_boots_passives", "items/farming/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_travel_boots_passives", "items/greater_travel_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_travel_boots = class(ItemBaseClass)
 
@@ -104,7 +104,8 @@ function item_greater_travel_boots:OnSpellStart()
 end
 
 function item_greater_travel_boots:OnChannelThink (delta)
-  if not self.targetEntity:IsAlive() or self:GetCaster():IsRooted() then
+  local caster = self:GetCaster()
+  if not self.targetEntity:IsAlive() or caster:IsRooted() or caster:IsLeashedOAA() then
     self:EndChannel(true)
   end
 end
@@ -133,9 +134,10 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
-  self.targetEntity:EmitSound("Portal.Hero_Appear")
 
   FindClearSpaceForUnit(hCaster, self.targetEntity:GetAbsOrigin(), true)
+
+  EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Appear", hCaster)
 end
 
 item_greater_travel_boots_2 = class(item_greater_travel_boots)

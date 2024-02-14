@@ -1,12 +1,12 @@
 item_greater_tranquil_boots = class(ItemBaseClass)
 
-LinkLuaModifier( "modifier_item_greater_tranquil_boots_passive", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_tranquil_boots_passive", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_trees_buff", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_tranquilize_debuff", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_bearing_buff", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_bearing_unslowable", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_endurance_aura_effect", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_greater_tranquils_trees_dummy_stuff", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 
@@ -376,7 +376,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 --[[ Old Tranquils effect
-LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/farming/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_tranquil_boots_sap", "items/greater_tranquil_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 modifier_item_greater_tranquil_boots_sap = class(ModifierBaseClass)
 

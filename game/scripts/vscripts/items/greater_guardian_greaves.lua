@@ -1,5 +1,5 @@
-LinkLuaModifier( "modifier_item_greater_guardian_greaves", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_greater_guardian_greaves_aura", "items/farming/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_guardian_greaves", "items/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_guardian_greaves_aura", "items/greater_guardian_greaves.lua", LUA_MODIFIER_MOTION_NONE )
 
 item_greater_guardian_greaves = class(ItemBaseClass)
 

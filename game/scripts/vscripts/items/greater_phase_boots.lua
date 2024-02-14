@@ -1,7 +1,7 @@
 item_greater_phase_boots = class(ItemBaseClass)
 
-LinkLuaModifier("modifier_item_greater_phase_boots_passives", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_greater_phase_boots_active", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_greater_phase_boots_passives", "items/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_greater_phase_boots_active", "items/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -131,7 +131,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 --[[  Old split attack Greater Phase Boots effect - it procced instant attacks to splintered targets
-LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/farming/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_greater_phase_boots_splinter_shot", "items/greater_phase_boots.lua", LUA_MODIFIER_MOTION_NONE )
 
 function item_greater_phase_boots:OnProjectileHit(target, location)
   if IsValidEntity(target) then
