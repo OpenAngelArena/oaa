@@ -115,7 +115,7 @@ end
 
 function modifier_slardar_bash_oaa:GetModifierPreAttack_BonusDamage()
   local parent = self:GetParent()
-  if parent:HasModifier("modifier_slardar_sprint_river") or parent:HasModifier("modifier_slardar_puddle") and not parent:PassivesDisabled() then
+  if (parent:HasModifier("modifier_slardar_sprint_river") or parent:HasModifier("modifier_slardar_puddle")) and not parent:PassivesDisabled() then
     return self:GetAbility():GetSpecialValueFor("water_damage")
   end
 end

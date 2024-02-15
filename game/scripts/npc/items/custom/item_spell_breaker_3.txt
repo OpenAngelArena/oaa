@@ -1,0 +1,88 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Recipe: Spell Breaker 3
+  //=================================================================================================================
+  "item_recipe_spell_breaker_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_datadriven"
+    "Model"                                               "models/props_gameplay/recipe.vmdl"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "0"
+    "ItemCost"                                            "3500"
+    "ItemShopTags"                                        ""
+
+    // Recipe
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemRecipe"                                          "1"
+    "ItemResult"                                          "item_spell_breaker_3"
+    "ItemRequirements"
+    {
+      "01"                                                "item_spell_breaker_2;item_upgrade_core_2"
+    }
+  }
+
+  //=================================================================================================================
+  // Spell Breaker 3
+  //=================================================================================================================
+  "item_spell_breaker_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/spell_breaker.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"                                  "custom/spell_breaker_3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600 650 700 750 800"
+    "AbilityCooldown"                                     "16"
+    "AbilitySharedCooldown"                               "spell_breaker"
+    "AbilityManaCost"                                     "75"
+
+    // Spicy Parameters
+    //-------------------------------------------------------------------------------------------------------------
+    "MaxUpgradeLevel"                                     "5"
+    "ItemBaseLevel"                                       "3"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                                            "10227"
+    "ItemShopTags"                                        "hard_to_tag"
+    "ItemQuality"                                         "rare"
+    "ItemAliases"                                         "spell breaker;spell disrupter; mage bane; mage slayer"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      // Mage Slayer stats
+      "bonus_magical_armor"                               "21 22 23 24 25"
+      "bonus_attack_speed"                                "35 40 45 50 55"
+      "bonus_intellect"                                   "12 17 27 42 62"
+      "spell_amp_debuff"                                  "20 25 30 35 40"
+      "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
+      "duration"                                          "6"
+      "dps"                                               "25 35 55 85 125"
+      // Spell Breaker passive stats
+      "bonus_attack_damage"                               "25 35 55 85 125"
+      // Spell Breaker active stuff
+      "silence_duration"                                  "0.1"
+      "aoe_decrease_percent"                              "25"
+      "spell_lifesteal_reduction"                         "45"
+      "debuff_duration"                                   "5"
+    }
+  }
+}

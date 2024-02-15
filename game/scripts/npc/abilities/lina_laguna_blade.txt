@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5043"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -30,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "500 800 1100 2000 3200" //OAA
+      "damage"                                            "500 850 1200 2250 3300" //OAA
       "damage_delay"                                      "0.25"
       "AbilityCooldown" //OAA
       {
@@ -43,7 +42,11 @@
         "special_bonus_unique_lina_7"                     "+1"
       }
       "supercharge_duration"                              "5"
-      "supercharge_stacks"                                "10"
+      "supercharge_stacks"
+      {
+        "value"                                           "10"
+        "special_bonus_unique_lina_supercharge_stacks"    "+5"
+      }
     }
   }
 }

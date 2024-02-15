@@ -50,6 +50,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
     caster:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false
+  elseif modifier_name == "modifier_item_revenants_brooch_active" then
+    caster:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
   end
 
   return true

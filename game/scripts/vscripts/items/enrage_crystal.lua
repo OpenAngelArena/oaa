@@ -18,7 +18,7 @@ function item_enrage_crystal_1:OnSpellStart()
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
   -- Sound
-  caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+  caster:EmitSound("DOTA_Item.MinotaurHorn.Cast")
 
   -- Particle
   local particle = ParticleManager:CreateParticle("particles/items/enrage_crystal/enrage_crystal_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -29,7 +29,6 @@ function item_enrage_crystal_1:OnSpellStart()
 end
 
 item_enrage_crystal_2 = item_enrage_crystal_1
-item_enrage_crystal_3 = item_enrage_crystal_1
 
 ---------------------------------------------------------------------------------------------------
 
@@ -54,7 +53,7 @@ end
 function modifier_item_enrage_crystal_passive:OnCreated()
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(0.3)
   end
 end
 
@@ -166,9 +165,9 @@ function modifier_item_enrage_crystal_active:CheckState()
 end
 
 function modifier_item_enrage_crystal_active:GetEffectName()
-  return "particles/items_fx/black_king_bar_avatar.vpcf"
+  return "particles/items5_fx/minotaur_horn.vpcf" --"particles/items_fx/black_king_bar_avatar.vpcf"
 end
 
 function modifier_item_enrage_crystal_active:GetTexture()
-  return "custom/enrage_crystal_1"
+  return "custom/enrage_crystal"
 end

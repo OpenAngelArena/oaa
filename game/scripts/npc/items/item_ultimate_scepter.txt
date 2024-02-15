@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "107"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -31,7 +30,6 @@
   //=================================================================================================================
   "item_ultimate_scepter"
   {
-    "ID"                                                  "108"
     "AbilityTextureName"                                  "custom/ultimate_scepter"
 
     "AbilityCastRange"                                    "99999" //OAA, for Alchemist when he gives to others
@@ -44,7 +42,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "10 15 25 40 60"
+      "bonus_all_stats"                                   "10 15 20 25 30"
       "bonus_health"                                      "175 275 425 625 875"
       "bonus_mana"                                        "175 275 425 625 875"
       "talent_level_tooltip"                              "0 10 15 20 25" //OAA

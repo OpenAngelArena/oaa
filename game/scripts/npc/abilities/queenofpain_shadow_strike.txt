@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5173"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -47,7 +46,11 @@
         "value"                                           "3.0"
         "special_bonus_unique_queen_of_pain_4"            "-0.7"
       }
-      "duration_heal"                                     "10 20 30 40 80 160"
+      "duration_heal"   
+      {
+        "value"                                           "10 20 30 40 80 160"
+        "special_bonus_unique_queen_of_pain_strike_heal"  "+10"
+      }
       "generate_scream"
       {
         "value"                                           "0"
@@ -56,7 +59,7 @@
       "aoe_radius"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+400"
+        "special_bonus_scepter"                           "+375"
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "15"

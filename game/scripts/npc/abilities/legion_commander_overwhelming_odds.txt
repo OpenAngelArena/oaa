@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5595"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -49,17 +48,17 @@
         "special_bonus_unique_legion_commander_2"         "+150"
         "affected_by_aoe_increase"                        "1"
       }
-      "armor_per_creep"
+      "armor_per_creep" // unused?
       {
         "value"                                           "1"
         "RequiresShard"                                   "1"
       }
-      "armor_per_hero" //OAA
+      "armor_per_hero" // unused?
       {
-        "value"                                           "3 4 5 6 8 12"
+        "value"                                           "5"
         "RequiresShard"                                   "1"
       }
-      "shard_duration"
+      "shard_duration" // unused?
       {
         "value"                                           "8"
         "RequiresShard"                                   "1"
@@ -68,6 +67,11 @@
       {
         "value"                                           "15"
         "special_bonus_unique_legion_commander_9"         "-2"
+      }
+      "duel_radius_bonus"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+250"
       }
     }
   }

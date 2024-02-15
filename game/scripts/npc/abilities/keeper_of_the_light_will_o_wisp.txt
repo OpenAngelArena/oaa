@@ -5,7 +5,6 @@
   //=================================================================================================================
   "keeper_of_the_light_will_o_wisp"
   {
-    "ID"                                                  "7316"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -41,6 +40,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "hit_count"                                         "12" //OAA
+      "wisp_damage"                                       "75"
       "off_duration"                                      "1.85"
       "on_duration"                                       "1.0"
       "off_duration_initial"                              "1.0"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5527"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
@@ -42,7 +41,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "pass_damage"                                       "110 200 290 470 830" //OAA
-      "damage_per_second"                                 "50 100 150 250 400" //OAA
+      "damage_per_second"                                 "50 100 150 250 350" //OAA
       "slow"
       {
         "value"                                           "5"

@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5218"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -18,7 +17,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 640 680 720 760 800"
+    "AbilityCastRange"                                    "600 640 680 720 730 740"
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -41,20 +40,20 @@
       "damage"
       {
         "value"                                           "4 8 12 16 32 48"
-        "special_bonus_unique_viper_7"                    "+25%"
+        "special_bonus_unique_viper_7"                    "+20%"
       }
       "movement_speed"
       {
         "value"                                           "3 6 9 12 14 16"
-        "special_bonus_unique_viper_7"                    "+25%"
+        "special_bonus_unique_viper_7"                    "+20%"
       }
       "magic_resistance"
       {
         "value"                                           "4 6 8 10 11 12"
-        "special_bonus_unique_viper_4"                    "+5"
+        "special_bonus_unique_viper_4"                    "+4"
       }
       "max_stacks"                                        "5"
-      "bonus_range"                                       "25 65 105 145 185 225"
+      "bonus_range"                                       "25 65 105 145 155 165"
       "shard_armor_reduction"
       {
         "value"                                           "1"
@@ -67,7 +66,7 @@
       }
       "shard_bonus_max_stacks"
       {
-        "value"                                           "3"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
     }

@@ -7,7 +7,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/python:3.10.4-node
+      - image: cimg/python:3.10.13-node
     steps:
       - checkout
       - restore_cache:
@@ -19,6 +19,9 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: node tests
+          command: npm test
 
       - run:
           name: install hererocks and lua
@@ -36,9 +39,6 @@ jobs:
           command: |
             source here/bin/activate
             lua contrib/test_oaa.lua
-      - run:
-          name: node tests
-          command: npm test
 environment:
   global:
   - secure: CXtGIW41jxLnBpi/ousJUEfSWuHEtVkPLgln+Gez9RGkfoevyCkVdmP0ORN0+YHq7c34HCaxSy+pEY8FgbL3/+i6Bt2/i9EAO10oge5ygiCPEmdkwakooZR4pS6Qb3vB89h/DbZaAOKctfZrNs/DxWWFGM0ufDDx4TbnnZX8QNC7RypyR7oYQ/T39r/AzNxPljQjzaXGD5/YHE9Qu/foCrpwSMQ0sm/m6zXLLHXdfmR4W6EUtuvyWu42vgcCJbHQAHYzXgvrRc83wweGBSZZcqNiC8rIhfc5+w7Zyd2smmIMOpQr0b0jkfd2gs3Dxx9sLVTbAXv+OdFMOczTOHeI6cl1HzCa4mAd+ZndltJNMPl1pMUpDxC1Tp3y1xTgeRN7woag66WdhWd8Ip0m+w4sDxbZuaKr6dLrCR5PcDwhqwCcXLmIJZmcYIt913nupYmntWLmymJ7M6nmEPqDrCn76ZhafJghk7r+IHpzeCJTHgsCoBnDD9RT4zfH5FzPUcGJlM0xCeUyQ1998wxljeoX0rIApF9hfzxSn8Ql3eTk7vb2TV0NXtpQudSapegW0/UH/FJ+GeIBXCw97nS7RdcOm7XGGsDklGsxo7EcozgUu8GpzuUF2QcVAMcDkitQpMCeaq5Dc5rpSxW0vzyl+MBrNH5ABh8hb5fJxXdPflvgrwM=

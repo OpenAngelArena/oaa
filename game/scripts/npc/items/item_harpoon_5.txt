@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3704"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -31,7 +30,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3705"
     "BaseClass"                                           "item_harpoon"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -48,9 +46,10 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34504"
+    "ItemCost"                                            "34704"
     "ItemPurchasable"                                     "1"
     "ItemAliases"                                         "pull 5;harpoon 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "5"
@@ -59,15 +58,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"                                "10 15 20 25 30"
-      "bonus_damage"                                      "15 25 45 75 115"
-
-      "bonus_strength"                                    "20 25 35 50 70"
-      "bonus_agility"                                     "10 15 25 40 60"
-      "bonus_intellect"                                   "16 21 31 46 66"
+      "bonus_damage"                                      "20 30 50 80 120"
+      "bonus_strength"                                    "25 30 40 55 75"
+      "bonus_agility"                                     "6 11 16 21 26"
+      "bonus_intellect"                                   "6 11 16 21 26"
       "bonus_mana_regen"                                  "2.0 2.25 2.75 3.5 4.5"
 
-      "passive_cooldown"                                  "6 3.5 3 2.5 2"
+      "passive_cooldown"                                  "5 3.5 3 2.5 2"
       "movement_slow"                                     "100"
       "slow_duration"                                     "1.0"
 

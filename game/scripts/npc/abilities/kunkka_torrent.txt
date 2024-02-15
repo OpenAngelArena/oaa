@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5031"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -19,10 +18,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 14 12 10 9 8"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +34,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "movespeed_bonus"                                   "-40"
-      "slow_duration"                                     "1 2 3 4 5 6"
+      "slow_duration"                                     "1 2 3 4 4 4"
       "stun_duration"
       {
         "value"                                           "1.6"
@@ -53,6 +48,11 @@
       }
       "percent_instant"                                   "0"
       "damage_tick_interval"                              "0.2"
+      "AbilityCooldown"
+      {
+        "value"                                           "16 14 12 10 10 10"
+        "special_bonus_unique_kunkka_torrent_cooldown"    "-4"
+      }
     }
   }
 }

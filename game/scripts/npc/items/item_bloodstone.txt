@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "120"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -33,7 +32,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "121"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityTextureName"                                  "custom/bloodstone"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
@@ -58,9 +56,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bonus_aoe"                                         "50" //OAA
       "bonus_health"                                      "500"
       "bonus_mana"                                        "500"
-      "spell_lifesteal"                                   "30"
+      "spell_lifesteal"                                   "28" //OAA
       "buff_duration"                                     "5" //OAA
       "lifesteal_multiplier"                              "2.5"
       "hp_cost"                                           "0"

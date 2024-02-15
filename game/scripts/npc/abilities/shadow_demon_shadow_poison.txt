@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5423"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -53,7 +52,7 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed"                                             "1000"
+      "speed"                                             "1200"
       "hit_damage" // Damage that is applied every time shadow poison is applied.
       {
         "value"                                           "30 40 50 60 120 240"

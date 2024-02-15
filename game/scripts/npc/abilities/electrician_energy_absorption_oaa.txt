@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8479"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/electrician/electrician_energy_absorption.lua"
     "AbilityTextureName"                                  "custom/electrician_energy_absorption"
@@ -36,50 +35,28 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "350"
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02" // original: 85/150/215/280
+      "damage" // original: 85/150/215/280
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "90 160 230 300 600 1200"
+        "value"                                           "90 160 230 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_electrician_8"
       }
-      "03" // original: 12/16/20/24
+      "mana_absorb_base"                                  "16 24 32 40 56 72" // original: 12/16/20/24
+      "mana_absorb_percentage" // original: 8/10/12/14%
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_absorb_base"                                "16 24 32 40 56 72"
-      }
-      "04" // original: 8/10/12/14%
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "mana_absorb_percentage"                          "8 10 12 14 16 18"
+        "value"                                           "8 10 12 14 16 18"
         "LinkedSpecialBonus"                              "special_bonus_electrician_energy_absorption_mana"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_absorb_heroes"                             "10 15 20 25 30 35"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed_absorb_non_heroes"                         "5"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "7.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_cap"                                  "300 400 500 600 1200 1800"
-      }
+      "speed_absorb_heroes"                               "10 15 20 25 30 35"
+      "speed_absorb_non_heroes"                           "5"
+      "duration"                                          "7"
+      "bonus_mana_cap"                                    "300 400 500 600 1200 1800"
     }
 
     // Precache

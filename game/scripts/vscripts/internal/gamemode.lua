@@ -90,8 +90,9 @@ function GameMode:_InitGameMode()
   ListenToGameEvent('entity_hurt', Dynamic_Wrap(GameMode, 'OnEntityHurt'), self)
   ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GameMode, '_OnGameRulesStateChange'), self)
   ListenToGameEvent('npc_spawned', Dynamic_Wrap(GameMode, '_OnNPCSpawned'), self)
-  ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
-  ListenToGameEvent("dota_item_combined", Dynamic_Wrap(GameMode, 'OnItemCombined'), self)
+  ListenToGameEvent('player_reconnected', Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
+  ListenToGameEvent('dota_item_combined', Dynamic_Wrap(GameMode, 'OnItemCombined'), self)
+  ListenToGameEvent('dota_hero_swap', Dynamic_Wrap(GameMode, 'OnHeroSwapped'), self)
 
   -- Change random seed
   local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '^0+','')
@@ -162,7 +163,7 @@ function GameMode:_CaptureGameMode()
     mode:SetForceRightClickAttackDisabled(true)
     mode:SetCustomBackpackSwapCooldown(3.0)
     mode:SetDefaultStickyItem("item_aghanims_shard")
-    mode:DisableHudFlip(true)
+    --mode:DisableHudFlip(true)
     mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20) -- Health per strength
     --mode:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_ALL_DAMAGE, 0.6) -- Damage per attribute for universal heroes
 

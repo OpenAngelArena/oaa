@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5100"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -21,64 +20,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "overload_aoe"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "overload_aoe"                                    "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "overload_move_slow"                                "-80"
+      "overload_attack_slow"                              "-80"
+      "overload_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "overload_move_slow"                              "-80"
+        "value"                                           "50 75 100 125 250 375"
+        "special_bonus_unique_storm_spirit_6"             "+125"
       }
-      "03"
+      "shard_activation_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "overload_attack_slow"                            "-80"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "overload_damage"                                 "50 75 100 125 250 375" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_6"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_activation_radius"                         "750"
+        "value"                                           "750"
         "RequiresShard"                                   "1"
       }
-      "06"
+      "shard_activation_charges"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_activation_charges"                        "3"
+        "value"                                           "3"
         "RequiresShard"                                   "1"
       }
-      "07"
+      "shard_activation_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_activation_duration"                       "12"
+        "value"                                           "12"
         "RequiresShard"                                   "1"
       }
-      "08"
+      "shard_manacost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_manacost"                                  "150"
+        "value"                                           "150"
         "RequiresShard"                                   "1"
       }
-      "09"
+      "shard_cooldown"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_cooldown"                                  "30"
+        "value"                                           "30"
         "RequiresShard"                                   "1"
       }
-      "10"
+      "shard_attack_speed_bonus"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_attack_speed_bonus"                        "40"
+        "value"                                           "40"
         "RequiresShard"                                   "1"
+      }
+      "overload_cast_range"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_storm_spirit_overload_aspd"  "+150.0"
       }
     }
   }

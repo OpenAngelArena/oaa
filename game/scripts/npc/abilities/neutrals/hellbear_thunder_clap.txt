@@ -5,7 +5,6 @@
   //=================================================================================================================
   "polar_furbolg_ursa_warrior_thunder_clap"
   {
-    "ID"                                                  "5302"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_hellbear_thunder_clap.lua"
     //"AbilityTextureName"                                  "polar_furbolg_ursa_warrior_thunder_clap"
@@ -26,32 +25,20 @@
     "AbilityManaCost"                                     "50"
     "AbilityProcsMagicStick"                              "1"
 
-    "AbilityDamage"                                       "150 250 350 450" //OAA
+    "AbilityDamage"                                       "150 250 500 1000" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "300"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movespeed_slow"                                  "-25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attackspeed_slow"                                "-25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.0"
-      }
+      "movespeed_slow"                                    "-25"
+      "attackspeed_slow"                                  "-25"
+      "duration"                                          "3.0"
     }
   }
 }

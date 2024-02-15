@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "227"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
+    "ItemCost"                                            "600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_solar_crest"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_medallion_of_courage;item_crown;item_wind_lace"
+      "01"                                                "item_pavise;item_crown;item_wind_lace"
     }
   }
 
@@ -33,21 +32,22 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "229"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/solar_crest_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1000"
     "AbilityCooldown"                                     "16.0"
-    "AbilitySharedCooldown"                               "medallion"
+    "AbilitySharedCooldown"                               "pavise"
+    "AbilityManaCost"                                     "100"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2425"
+    "ItemCost"                                            "2700"
     "ItemShopTags"                                        "armor;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "solar crest"
@@ -61,14 +61,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "6 9 13 18 24"
-      "bonus_all_stats"                                   "6 10 15 20 25"
+      "bonus_armor"                                       "4 7 11 16 22"
+      "bonus_all_stats"                                   "5 10 15 20 25" //OAA
       "self_movement_speed"                               "25 30 35 40 45"
-      "bonus_mana_regen_pct"                              "1.75 2.0 2.5 3.25 4.25"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_health"                                      "200 300 450 650 900"
       "target_movement_speed"                             "15 20 25 30 35"
-      "target_attack_speed"                               "60 75 95 120 150" //OAA
-      "target_armor"                                      "7 10 13 16 19"
+      "target_attack_speed"                               "70 75 80 85 90"
+      "target_armor"                                      "7 8 10 13 17"
       "duration"                                          "8"
+      "absorb_amount"                                     "400 800 1200 1600 2000"
     }
   }
 }

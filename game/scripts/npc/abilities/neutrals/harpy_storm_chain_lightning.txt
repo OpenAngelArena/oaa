@@ -5,7 +5,6 @@
   //=================================================================================================================
   "harpy_storm_chain_lightning"
   {
-    "ID"                                                  "5319"
     //"BaseClass"                                           "ability_lua"
     //"ScriptFile"                                          "abilities/neutrals/oaa_harpy_storm_chain_lightning.lua"
     //"AbilityTextureName"                                  "harpy_storm_chain_lightning"
@@ -33,7 +32,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "initial_damage"                                  "100 130 210 260" //OAA
+        "initial_damage"                                  "100 150 300 600" //OAA
       }
       "02"
       {

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5685"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -37,10 +36,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA
+      "damage"
       {
-        "value"                                           "25 50 75 100 200 400"
-        "special_bonus_unique_death_prophet_3"            "+50"
+        "value"                                           "25 50 75 100 200 300"
+        "special_bonus_unique_death_prophet_3"            "+30"
       }
       "damage_pct"                                        "0"
       "haunt_duration"                                    "6"
@@ -48,7 +47,7 @@
       "AbilityChargeRestoreTime" //OAA
       {
         "value"                                           "30"
-        "special_bonus_unique_death_prophet_5"            "-20"
+        "special_bonus_unique_death_prophet_5"            "-22"
       }
       "shard_bonus_charges"
       {
@@ -57,7 +56,7 @@
       }
       "shard_fear_duration"
       {
-        "value"                                           "1.2"
+        "value"                                           "1.0"
         "RequiresShard"                                   "1"
       }
       "shard_consecutive_siphon_duration"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3524"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,10 +34,10 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3525"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/far_sight_5"
 
     // Stats
@@ -56,12 +55,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33459"
+    "ItemCost"                                            "33009"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -70,15 +69,23 @@
       "bonus_health"                                      "0"
       "bonus_health_regen"                                "0"
       "bonus_mana"                                        "300 400 550 750 1000"
-      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
-      "bonus_armor"                                       "0"
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
+      "bonus_armor"                                       "4 5 7 10 14"
       "bonus_to_worst_attribute"                          "10 15 25 40 60"
-      "bonus_vision_percentage"                           "10 20 30 40 50"
+      "bonus_vision_range"                                "225 275 325 375 425"
       "bonus_cast_range"                                  "225 275 325 375 425"
-      "reveal_radius"                                     "750"
+      "reveal_radius"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
       "reveal_duration"                                   "8"
       "dust_duration"                                     "12"
-      "dust_radius"                                       "750"
+      "dust_radius"
+      {
+        "value"                                           "750"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

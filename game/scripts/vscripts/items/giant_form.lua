@@ -19,9 +19,12 @@ end
 
 function item_giant_form:OnSpellStart()
   local caster = self:GetCaster()
-  local modifierName = "modifier_item_giant_form_grow"
 
-  caster:AddNewModifier(caster, self, modifierName, {duration = self:GetSpecialValueFor("duration")})
+  -- Apply Giant Form buff to caster
+  caster:AddNewModifier(caster, self, "modifier_item_giant_form_grow", {duration = self:GetSpecialValueFor("duration")})
+
+  -- Activation Sound
+  caster:EmitSound("Hero_Treant.Overgrowth.CastAnim")
 end
 
 item_giant_form_2 = item_giant_form
@@ -50,7 +53,6 @@ function modifier_item_giant_form_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
     self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
   end
 end
@@ -60,7 +62,6 @@ modifier_item_giant_form_stacking_stats.OnRefresh = modifier_item_giant_form_sta
 function modifier_item_giant_form_stacking_stats:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
@@ -68,10 +69,6 @@ end
 
 function modifier_item_giant_form_stacking_stats:GetModifierConstantHealthRegen()
   return self.bonus_health_regen or self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-end
-
-function modifier_item_giant_form_stacking_stats:GetModifierBonusStats_Strength()
-  return self.bonus_strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_giant_form_stacking_stats:GetModifierPreAttack_BonusDamage()
@@ -184,17 +181,42 @@ function modifier_item_giant_form_grow:IsPurgable()
 end
 
 function modifier_item_giant_form_grow:OnCreated()
-  local ability = self:GetAbility()
-
-  if ability and not ability:IsNull() then
-    self.atkDmg = ability:GetSpecialValueFor("giant_attack_damage")
-    self.atkSpeed = ability:GetSpecialValueFor("giant_attack_speed_reduction")
-    self.scale = ability:GetSpecialValueFor("giant_scale")
-    self.bonus_strength = ability:GetSpecialValueFor("giant_bonus_strength")
+  self:OnRefresh()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
   end
 end
 
-modifier_item_giant_form_grow.OnRefresh = modifier_item_giant_form_grow.OnCreated
+function modifier_item_giant_form_grow:OnRefresh()
+  local ability = self:GetAbility()
+  if not ability or ability:IsNull() then
+    return
+  end
+
+  self.atkDmg = ability:GetSpecialValueFor("giant_attack_damage")
+  self.atkSpeed = ability:GetSpecialValueFor("giant_attack_speed_reduction")
+  self.scale = ability:GetSpecialValueFor("giant_scale")
+  self.bonus_to_primary_stat = ability:GetSpecialValueFor("giant_primary_attribute_bonus")
+
+  self.bonus_stat_for_universal = math.ceil(self.bonus_to_primary_stat/3)
+end
+
+if IsServer() then
+  function modifier_item_giant_form_grow:OnIntervalThink()
+    local parent = self:GetParent()
+
+    if not parent or parent:IsNull() then
+      self:StartIntervalThink(-1)
+      return
+    end
+
+    local attribute = parent:GetPrimaryAttribute()
+    self:SetStackCount(0 - attribute)
+    -- We can stop the interval if dynamic changing of the primary attribute doesn't exist
+    -- Morphling ultimate changes primary attribute ...
+    self:StartIntervalThink(-1)
+  end
+end
 
 function modifier_item_giant_form_grow:CheckState()
   return {
@@ -205,6 +227,8 @@ end
 function modifier_item_giant_form_grow:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+    MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     --MODIFIER_PROPERTY_ATTACKSPEED_REDUCTION_PERCENTAGE,
     --MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
@@ -215,7 +239,33 @@ function modifier_item_giant_form_grow:DeclareFunctions()
 end
 
 function modifier_item_giant_form_grow:GetModifierBonusStats_Strength()
-  return self.bonus_strength
+  local attribute = math.abs(self:GetStackCount())
+  if attribute == DOTA_ATTRIBUTE_STRENGTH then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return 0
+end
+
+function modifier_item_giant_form_grow:GetModifierBonusStats_Agility()
+  local attribute = math.abs(self:GetStackCount())
+  if attribute == DOTA_ATTRIBUTE_AGILITY then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return 0
+end
+
+function modifier_item_giant_form_grow:GetModifierBonusStats_Intellect()
+  local attribute = math.abs(self:GetStackCount())
+  if attribute == DOTA_ATTRIBUTE_INTELLECT then
+    return self.bonus_to_primary_stat
+  elseif attribute == DOTA_ATTRIBUTE_ALL then
+    return self.bonus_stat_for_universal
+  end
+  return 0
 end
 
 function modifier_item_giant_form_grow:GetModifierPreAttack_BonusDamage()

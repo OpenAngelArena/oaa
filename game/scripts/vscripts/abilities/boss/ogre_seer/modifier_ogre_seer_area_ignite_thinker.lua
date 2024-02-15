@@ -66,7 +66,7 @@ end
 modifier_ogre_seer_ignite_debuff = class(ModifierBaseClass)
 
 function modifier_ogre_seer_ignite_debuff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_ogre_seer_ignite_debuff:IsPurgable()

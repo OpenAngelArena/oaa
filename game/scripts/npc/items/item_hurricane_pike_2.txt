@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3738"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3739"
     "BaseClass"                                           "item_hurricane_pike"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -56,6 +54,7 @@
     "ItemShopTags"                                        "agi;str;int;damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "hurricane pike 2;pike 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -65,10 +64,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "20 25 35 50 70"
-      "bonus_health"                                      "250 350 500 700 950"
-      "bonus_agility"                                     "20 25 35 50 70"
-      "bonus_strength"                                    "15 20 30 45 65"
+      "bonus_intellect"                                   "12 17 22 27 32"
+      "bonus_health"                                      "200 450 950 1700 2700"
+      "bonus_agility"                                     "17 22 32 47 67"
+      "bonus_strength"                                    "12 17 22 27 32"
       "base_attack_range"                                 "150 160 170 180 190"
       "push_length"                                       "600"
       "enemy_length"                                      "450"
@@ -79,6 +78,7 @@
       "push_time"                                         "0.5"
       "dizzy_duration"                                    "0"
       "dizzy_distance_pct"                                "0"
+      "cooldown_tooltip"                                  "19 17 15 13 11"
     }
   }
 }

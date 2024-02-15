@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5632"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -55,7 +54,7 @@
       }
       "gust_reveals_invis"
       {
-        "value"                                           "0"
+        "value"                                           "1"
         "special_bonus_unique_drow_ranger_gust_invis"     "=1"
       }
     }

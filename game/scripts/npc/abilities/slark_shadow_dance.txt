@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5497"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -38,7 +37,7 @@
       "bonus_regen"
       {
         "value"                                           "60 90 120 240 480"
-        "special_bonus_unique_slark_8"                    "+40"
+        "special_bonus_unique_slark_8"                    "+50"
       }
       "activation_delay"                                  "0.5"
       "neutral_disable"                                   "0.0" //OAA

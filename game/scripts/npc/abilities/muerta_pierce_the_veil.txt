@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5754"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -29,9 +28,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6 7 8 8.5 9"
+      "duration"                                          "6.0 6.5 7.0 7.5 8.0" //OAA
       "transform_duration"                                "0.35"
-      "base_damage_pct"                                   "100"
+      "base_damage_pct"                                   "100" // this kv does nothing atm
       "modelscale"                                        "30"
       "bonus_damage"                                      "0" //OAA
       "spell_lifesteal"
@@ -39,9 +38,9 @@
         "value"                                           "30"
         "RequiresShard"                                   "1"
       }
-      "spell_amp_steal"
+      "spell_amp_steal" //OAA
       {
-        "value"                                           "2"
+        "value"                                           "1"
         "RequiresShard"                                   "1"
       }
       "spell_amp_steal_range"

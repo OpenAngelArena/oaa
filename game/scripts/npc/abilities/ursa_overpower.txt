@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5358"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -39,7 +38,7 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa_7"
       }
       "attack_speed_bonus_pct"                            "400"
-      "slow_resist"                                       "10 15 20 25 30 35"
+      "slow_resist"                                       "15 20 25 30 35 40"
     }
   }
 }

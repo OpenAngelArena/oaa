@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5285"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 
     // Unit Targeting
@@ -41,7 +40,7 @@
       "bounce_aoe"
       {
         "value"                                           "1200"
-        "affected_by_aoe_increase"                        "1"
+        //"affected_by_aoe_increase"                        "1"
       }
       "slow_duration" //OAA
       {
@@ -58,7 +57,7 @@
         "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
-      "cast_range"                                        "375 425 475 525 575 625"
+      "cast_range"                                        "375 425 475 525 575 625" // same as AbilityCastRange
       "slow"                                              "25 35 45 55 65 75" //OAA
       "attack_slow"                                       "100"
     }

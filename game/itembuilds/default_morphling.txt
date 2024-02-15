@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "Valve"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_morphling"
   "Title"         "Recommended items for Morphling"
 
@@ -8,24 +8,35 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_slippers"
-      "item"      "item_circlet"
+      "item"      "item_wraith_band"
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Late_Items"
+    "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_skadi"
+      "item"      "item_manta"
       "item"      "item_butterfly_oaa"
       "item"      "item_satanic"
+      "item"      "item_greater_crit"
+      "item"      "item_hurricane_pike"
+      "item"      "item_siege_mode"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
       "item"      "item_aghanims_shard"
     }
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_manta"
-      "item"      "item_hurricane_pike"
+      "item"      "item_angels_demise"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_disperser"
       "item"      "item_monkey_king_bar"
+      "item"      "item_silver_edge"
+      "item"      "item_skadi"
+      "item"      "item_sphere"
+      "item"      "item_swift_blink"
       "item"      "item_ultimate_scepter"
     }
   }

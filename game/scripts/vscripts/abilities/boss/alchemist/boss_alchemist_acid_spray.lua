@@ -147,7 +147,7 @@ end
 modifier_boss_acid_spray_debuff = class(ModifierBaseClass)
 
 function modifier_boss_acid_spray_debuff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_boss_acid_spray_debuff:IsPurgable()

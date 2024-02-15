@@ -7,9 +7,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85151"
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities//tinkerer/tinkerer_smart_missiles.lua"
+    "ScriptFile"                                          "abilities/tinkerer/tinkerer_smart_missiles.lua"
     "AbilityTextureName"                                  "tinker_heat_seeking_missile"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -51,16 +50,26 @@
       "base_damage"
       {
         "value"                                           "90 105 120 135 270 540" // original: 90/105/120/135
-        "LinkedSpecialBonus"                              "special_bonus_unique_tinkerer_2"
+        "special_bonus_unique_tinkerer_2"                 "+60"
       }
       "rocket_speed"                                      "1200"
       "rocket_width"                                      "110" // original: 75
       "rocket_range"                                      "3000"
-      "rocket_vision"                                     "400"
+      "rocket_vision"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_hp_damage_max"                               "8"
       "bonus_hp_damage_min"                               "0.1"
       "bonus_damage_max_range"                            "2000"
       "stun_duration"                                     "0.1"
+      "explode_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_tinkerer_3"                 "+350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "rocket_explode_vision"                             "400"
       "vision_duration"                                   "1.5"
     }

@@ -1,11 +1,19 @@
 LinkLuaModifier('modifier_rune_hill_tripledamage', 'modifiers/modifier_rune_hill_tripledamage.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_rune_hill_super_sight', 'modifiers/modifier_rune_hill_super_sight.lua', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_rune_hill_lesser_regeneration', 'modifiers/modifier_rune_hill_lesser_regeneration.lua', LUA_MODIFIER_MOTION_NONE)
 
 modifier_duel_rune_hill = class(ModifierBaseClass)
-modifier_duel_rune_hill_enemy = class(ModifierBaseClass)
 
-function modifier_duel_rune_hill_enemy:IsHidden()
-  return true
+function modifier_duel_rune_hill:IsHidden()
+  return false
+end
+
+function modifier_duel_rune_hill:IsDebuff()
+  return false
+end
+
+function modifier_duel_rune_hill:IsPurgable()
+  return false
 end
 
 function modifier_duel_rune_hill:OnCreated()
@@ -91,13 +99,13 @@ function modifier_duel_rune_hill:OnIntervalThink()
   local stackCount = self:GetStackCount() + 1
 
   local rewardTable = {
-    [30] = "modifier_rune_regen",
+    [30] = "modifier_rune_hill_lesser_regeneration",
     [80] = "modifier_rune_haste",
-    [90] = "modifier_rune_regen",
+    [90] = "modifier_rune_hill_lesser_regeneration",
     [100] = "modifier_rune_doubledamage",
-    [110] = "modifier_rune_invis",
+    [110] = "modifier_rune_arcane",
     [120] = "modifier_rune_regen",
-    [130] = "modifier_rune_arcane",
+    [130] = "modifier_rune_invis",
     [150] = "modifier_rune_hill_tripledamage",
     [200] = "modifier_rune_hill_super_sight",
   }
@@ -114,9 +122,9 @@ function modifier_duel_rune_hill:OnIntervalThink()
     [80] = "particles/units/heroes/hero_phantom_lancer/phantom_lancer_doppleganger_illlmove.vpcf",
     [90] = "particles/items2_fx/mekanism.vpcf",
     [100] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
-    [110] = "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
+    [110] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
     [120] = "particles/items2_fx/mekanism.vpcf",
-    [130] = "particles/items2_fx/mekanism.vpcf",
+    [130] = "particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_guided_missle_explosion_smoke.vpcf",
     [150] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
     [200] = "particles/econ/items/tinker/boots_of_travel/teleport_end_bots_flare.vpcf",
   }
@@ -163,4 +171,20 @@ if IsServer() then
 
     self:SetStackCount(0)
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_duel_rune_hill_enemy = class(ModifierBaseClass)
+
+function modifier_duel_rune_hill_enemy:IsHidden()
+  return true
+end
+
+function modifier_duel_rune_hill_enemy:IsDebuff()
+  return false
+end
+
+function modifier_duel_rune_hill_enemy:IsPurgable()
+  return false
 end

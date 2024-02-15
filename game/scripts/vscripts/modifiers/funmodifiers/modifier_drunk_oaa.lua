@@ -43,8 +43,6 @@ function modifier_drunk_oaa:OnCreated()
     chen_holy_persuasion = 1,                            -- dominating heroes lmao
     clinkz_death_pact = 1,                               -- instant kill
     doom_bringer_devour = 1,                             -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
-    enigma_demonic_conversion = 1,                       -- instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
-    enigma_demonic_conversion_oaa = 1,                   -- instant kill
     morphling_replicate = 1,                             -- bugged, DOTA_UNIT_TARGET_TEAM_CUSTOM
     muerta_parting_shot = 1,                             -- bugged
     night_stalker_hunter_in_the_night = 1,               -- instant kill
@@ -68,6 +66,11 @@ function modifier_drunk_oaa:OnIntervalThink()
   local parent = self:GetParent()
 
   if not parent:IsIdle() then
+    return
+  end
+
+  -- Check if parent is debuff immune
+  if parent:IsDebuffImmune() then
     return
   end
 
@@ -187,7 +190,7 @@ if IsServer() then
 
       ApplyDamage(damage_table)
 
-      SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, damaged_unit, damage_table.damage, nil)
+      SendOverheadEventMessage(nil, OVERHEAD_ALERT_CRITICAL, damaged_unit, damage + damage_table.damage, nil)
     end
   end
 
@@ -217,10 +220,10 @@ if IsServer() then
       return
     end
 
-		-- Check if target of the executed ability is an ally of the target
-		--if target:GetTeamNumber() == parent:GetTeamNumber() then
-			--return
-		--end
+		-- Check if caster is debuff immune
+    if parent:IsDebuffImmune() then
+      return
+    end
 
     -- Check if sober
     if RandomInt(1, 100) > self.miss_spell_chance then

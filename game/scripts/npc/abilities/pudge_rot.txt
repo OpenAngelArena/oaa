@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5076"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -47,7 +46,7 @@
       {
         "value"                                           "200"
         "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
+        // "affected_by_aoe_increase" explicitly removed here so scepter aoe increase doesn't double dip with base radius increase
       }
       "scepter_rot_regen_reduction_pct" //OAA
       {

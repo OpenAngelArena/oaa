@@ -151,7 +151,15 @@ function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event
 end
 
 function modifier_item_reduction_orb_active:GetModifierModelScale()
-  return -40
+  return -30
+end
+
+function modifier_item_reduction_orb_active:GetStatusEffectName()
+  return "particles/status_fx/status_effect_glow_white_over_time.vpcf"
+end
+
+function modifier_item_reduction_orb_active:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 function modifier_item_reduction_orb_active:GetTexture()

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3629"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,17 +34,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3633"
     "BaseClass"                                           "item_monkey_king_bar"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/monkey_king_bar_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34904"
+    "ItemCost"                                            "34504"
     "ItemShopTags"                                        "damage;attack_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mkb 5;monkey king bar 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -57,9 +56,9 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "40 50 70 100 140"
-      "bonus_attack_speed"                                "35 45 55 65 75"
-      "bonus_chance"                                      "75"
-      "bonus_chance_damage"                               "70 100 160 250 370"
+      "bonus_attack_speed"                                "35 40 45 50 55"
+      "bonus_chance"                                      "80"
+      "bonus_chance_damage"                               "70 90 120 160 210"
     }
   }
 }

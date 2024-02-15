@@ -9,26 +9,44 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_shapeshift:OnCreated( kv )
-	if IsServer() then
-		self.nPortraitFXIndex = -1
-		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-		ParticleManager:SetParticleControlEnt( nFXIndex, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_mane", self:GetParent():GetOrigin(), true )
-		ParticleManager:SetParticleControlEnt( nFXIndex, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_tail", self:GetParent():GetOrigin(), true )
-		if self.nPortraitFXIndex == -1 then
-			self.nPortraitFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_portrait.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
-			ParticleManager:SetParticleControlEnt( self.nPortraitFXIndex, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_mouth", self:GetParent():GetOrigin(), true )
-			ParticleManager:SetParticleControlEnt( self.nPortraitFXIndex, 2, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_upper_jaw", self:GetParent():GetOrigin(), true )
-		end
-	end
+  if IsServer() then
+    local parent = self:GetParent()
+    if self.nFXIndex then
+      ParticleManager:DestroyParticle(self.nFXIndex, true)
+      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+    end
+    if self.nPortraitFXIndex then
+      ParticleManager:DestroyParticle(self.nPortraitFXIndex, true)
+      ParticleManager:ReleaseParticleIndex(self.nPortraitFXIndex)
+    end
+
+    self.nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+    ParticleManager:SetParticleControlEnt(self.nFXIndex, 1, parent, PATTACH_POINT_FOLLOW, "attach_mane", parent:GetOrigin(), true )
+    ParticleManager:SetParticleControlEnt(self.nFXIndex, 2, parent, PATTACH_POINT_FOLLOW, "attach_tail", parent:GetOrigin(), true )
+
+    self.nPortraitFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_portrait.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent )
+    ParticleManager:SetParticleControlEnt(self.nPortraitFXIndex, 1, parent, PATTACH_POINT_FOLLOW, "attach_mouth", parent:GetOrigin(), true )
+    ParticleManager:SetParticleControlEnt(self.nPortraitFXIndex, 2, parent, PATTACH_POINT_FOLLOW, "attach_upper_jaw", parent:GetOrigin(), true )
+  end
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_lycan_boss_shapeshift:OnDestroy()
-	if IsServer() then
-		ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() ) )
-		ParticleManager:DestroyParticle( self.nPortraitFXIndex, true )
-	end
+  if IsServer() then
+    local revert_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_lycan/lycan_shapeshift_revert.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    ParticleManager:ReleaseParticleIndex(revert_particle)
+    if self.nFXIndex then
+      ParticleManager:DestroyParticle(self.nFXIndex, true)
+      ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+      self.nFXIndex = nil
+    end
+    if self.nPortraitFXIndex then
+      ParticleManager:DestroyParticle(self.nPortraitFXIndex, true)
+      ParticleManager:ReleaseParticleIndex(self.nPortraitFXIndex)
+      self.nPortraitFXIndex = nil
+    end
+  end
 end
 
 --------------------------------------------------------------------------------

@@ -225,10 +225,16 @@ end
 if IsServer() then
   -- Spell block is done with modifier filter
   -- function modifier_item_preemptive_bubble_block:GetAbsorbSpell(keys)
-    -- local caster = keys.ability:GetCaster()
+    -- local ability = self:GetAbility()
+    -- local casted_ability = keys.ability
+    -- -- Don't block if we don't have required variables
+    -- if not ability or ability:IsNull() or not casted_ability or casted_ability:IsNull() then
+    --   return 0
+    -- end
+    -- local caster = casted_ability:GetCaster()
     -- local casterIsAlly = caster:GetTeamNumber() == self:GetParent():GetTeamNumber()
 
-    -- if casterIsAlly or IsUnitInBubble(caster, self.bubbleCenter, self:GetAbility()) then
+    -- if casterIsAlly or IsUnitInBubble(caster, self.bubbleCenter, ability) then
       -- return 0
     -- else
       -- self:PlayBlockEffect()

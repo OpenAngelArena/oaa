@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3554"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3555"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/siege_mode.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
@@ -45,8 +43,8 @@
     "AbilityTextureName"                                  "custom/siege_mode_1"
 
     "AbilityCastRange"                                    "1100"
-    "AbilityManaCost"                                     "100"
-    "AbilityCooldown"                                     "15"
+    "AbilityManaCost"                                     "75"
+    "AbilityCooldown"                                     "11"
     "AbilitySharedCooldown"                               "splash_cannon"
 
     // Item Info
@@ -55,6 +53,7 @@
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAliases"                                         "splash cannon;splash;siege;cannon"
 
     "MaxUpgradeLevel"                                     "2"
@@ -76,19 +75,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "100 150"
-      "bonus_agility"                                     "50 70"
-      "bonus_strength"                                    "45 65"
-      "bonus_intellect"                                   "50 70"
-      "bonus_health"                                      "700 950"
-      "bonus_health_regen"                                "12 15"
+      "bonus_damage"                                      "100 140"
+      "bonus_agility"                                     "47 67"
+      "bonus_strength"                                    "27 32"
+      "bonus_intellect"                                   "27 32"
       "bonus_attack_range"                                "180 190" // ranged only
       "passive_splash_radius"                             "250"
       "passive_splash_percent"                            "40"
       "active_damage"                                     "700 1000"
-      "active_radius"                                     "500"
-      "active_splash_percent"                             "200"
-      "knockback_distance"                                "300"
+      "active_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "active_splash_percent"                             "250"
+      "knockback_distance"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "knockback_duration"                                "0.5"
       "projectile_speed"                                  "1800"
       "recoil_distance"                                   "300"

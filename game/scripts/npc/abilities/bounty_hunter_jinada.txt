@@ -7,8 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5286"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK" //OAA, Valve has double AbilityBehavior
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -22,23 +21,24 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "9 7 5 3 2 2"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_damage" //OAA
       {
-        "value"                                           "60 100 140 180 360 540"
-        "special_bonus_unique_bounty_hunter_4"            "+180"
+        "value"                                           "60 100 140 180 260 340"
+        "special_bonus_unique_bounty_hunter_4"            "+60"
       }
-      "gold_steal" //OAA, GPM: 300 600 1200 3000 9000 18000
+      "gold_steal" //OAA
       {
-        "value"                                           "45 70 100 150 300 600"
+        "value"                                           "36 60 84 108 216 432"
         "special_bonus_unique_bounty_hunter"              "+50"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "9 7 5 3 2 1"
+        "special_bonus_unique_bounty_hunter_jinada_no_cooldown"  "-100%"
       }
     }
   }

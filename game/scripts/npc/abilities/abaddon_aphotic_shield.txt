@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5586"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -48,6 +47,11 @@
         "value"                                           "120 150 180 210 420 630"
         "special_bonus_unique_abaddon"                    "+210"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+      }
+      "regen"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_abaddon_7"                  "+15"
       }
     }
   }

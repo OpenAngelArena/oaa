@@ -1,42 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Azazel Summon - Tank
-  //=================================================================================================================
-  // "item_recipe_azazel_summon_tank"
-  // {
-    // // General
-    // //-------------------------------------------------------------------------------------------------------------
-    // "ID"                                    "7564"
-    // "BaseClass"                             "item_datadriven"
-    // "AbilityTextureName"                    "custom/recipe/recipe_1"
-    // "Model"                                 "models/props_gameplay/recipe.vmdl"
-
-    // // Item Info
-    // //-------------------------------------------------------------------------------------------------------------
-    // "ItemCorePointCost"                                   "2"
-    // "ItemCost"                                            "1"
-    // "SecretShop"                            "1"
-    // "ItemShopTags"                          ""
-
-    // // Recipe
-    // //-------------------------------------------------------------------------------------------------------------
-    // "ItemRecipe"                            "1"
-    // "ItemResult"                            "item_azazel_summon_tank"
-    // "ItemRequirements" // OAA
-    // {
-      // "01"                                  "item_upgrade_core"
-    // }
-  // }
-
-  //=================================================================================================================
   // Azazel Summon - Tank
   //=================================================================================================================
   "item_azazel_summon_tank"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7565"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/azazel_summon.lua"
     "AbilityTextureName"                                  "custom/azazel_summon_tank"
@@ -44,7 +14,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "0"
     "AbilitySharedCooldown"                               "azazel_summon"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
@@ -53,50 +22,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "1"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "summon, tank, azazel"
+    "ItemAliases"                                         "Azazel's Tank; tank"
     "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
     "ItemKillable"                                        "1"
     "ItemPurchasable"                                     "1"
-    "ItemSellable"                                        "0"
+
     "SecretShop"                                          "1"
-    "SecretShopType"                                      "Summons"
     "IsTempestDoubleClonable"                             "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_health"                                   "40000"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_armor"                                    "50"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_ms"                                       "240"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_damage"                                   "10"
-      }
-      "05" // needs to be changed on the unit as well
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "summon_vision"                                   "100"
-      }
+      "summon_health"                                     "30000"
+      "summon_armor"                                      "50"
+      "summon_ms"                                         "240"
+      "summon_damage"                                     "10"
+      "summon_vision"                                     "100" // needs to be changed on the unit as well
+      "damage_reduction_against_neutrals"                 "20"
     }
   }
 }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5639"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,7 +20,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCastPoint"                                    "0.15"
+    "AbilityCastPoint"                                    "0.10"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,8 +35,8 @@
     "AbilityValues"
     {
       "damage"                                            "90 180 270 360 720 1080"
-      "heal_per_second"                                   "15 25 35 45 90 180"
-      "total_heal_tooltip"                                "135 225 315 405 810 1620"
+      "heal_per_second"                                   "15 25 35 45 90 135"
+      "total_heal_tooltip"                                "135 225 315 405 810 1215"
       "duration"                                          "9.0"
       "tick_rate"                                         "1.0"
     }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5270"
     //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -29,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45 50 55 60 65 70" //OAA
+    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@
       "distance_damage_pct" //OAA
       {
         "value"                                           "5 10 15 20 40 60"
-        "special_bonus_unique_enchantress_4"              "+13"
+        "special_bonus_unique_enchantress_4"              "+10"
       }
       "distance_cap"                                      "1750"
       "creep_multiplier"                                  "2"

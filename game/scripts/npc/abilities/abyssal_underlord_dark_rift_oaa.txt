@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85616"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_dark_rift.lua"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -41,7 +40,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"                                            "430"
+      "radius"
+      {
+        "value"                                           "430"
+        "affected_by_aoe_increase"                        "1"
+      }
       "stun_duration"                                     "2.5 2.75 3.0 3.25 3.5"
       "damage"                                            "300 500 700 1300 1900"
       "minimum_range"                                     "0"
@@ -52,12 +55,12 @@
       }
       "damage_reduction"
       {
-        "value"                                           "10 15 20 25 30"
+        "value"                                           "30"
         "RequiresScepter"                                 "1"
       }
       "bonus_ms"
       {
-        "value"                                           "10 15 20 25 30"
+        "value"                                           "10 20 30 40 50"
         "RequiresScepter"                                 "1"
       }
       "buff_duration"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5297"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -40,7 +39,7 @@
     {
       "start_radius"
       {
-        "value"                                           "225"
+        "value"                                           "150"
         "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
@@ -62,12 +61,12 @@
       }
       "slow_movement_speed_pct"
       {
-        "value"                                           "-28 -32 -36 -40 -44 -48"
+        "value"                                           "-25 -30 -35 -40 -45 -50"
         "special_bonus_unique_jakiro_dualbreath_slow"     "-10"
       }
       "slow_attack_speed_pct"
       {
-        "value"                                           "-28 -32 -36 -40 -60 -80"
+        "value"                                           "-25 -30 -35 -40 -60 -80"
         "special_bonus_unique_jakiro_dualbreath_slow"     "-10"
       }
       "speed_fire"                                        "1050"

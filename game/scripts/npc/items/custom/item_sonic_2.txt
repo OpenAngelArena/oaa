@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_sonic_2"
   {
-    "ID"                                                  "8515"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -25,7 +24,6 @@
   //=================================================================================================================
   "item_sonic_2"
   {
-    "ID"                                                  "8516"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sonic.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -44,13 +42,14 @@
     "ItemShopTags"                                        "agi;attack_speed;move_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sonic"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "AbilityValues"
     {
       "bonus_movement_speed"                              "75 80"
       "bonus_attack_speed"                                "40 45"
-      "bonus_agility"                                     "70 95"
+      "bonus_agility"                                     "55 75"
       "active_speed_bonus"                                "35 40"
       "active_cast_speed"                                 "25 30"
       "duration"                                          "6"

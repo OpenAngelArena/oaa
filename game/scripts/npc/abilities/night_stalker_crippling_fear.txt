@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5276"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
     "MaxLevel"                                            "6"
@@ -36,7 +35,7 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "dps"                                               "25 30 35 40 80 160"
+      "dps"                                               "25 35 45 55 110 220" //OAA
       "tick_rate"                                         "0.1"
     }
   }

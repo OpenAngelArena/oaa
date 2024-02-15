@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5645"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -39,7 +38,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "pass_damage"                                       "110 200 290 470 830" //OAA
-      "damage_per_second"                                 "50 100 150 250 400" //OAA
+      "damage_per_second"                                 "50 100 150 250 350" //OAA
       "slow" //OAA
       {
         "value"                                           "5"

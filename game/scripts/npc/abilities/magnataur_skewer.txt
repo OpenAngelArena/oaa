@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5520"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -50,23 +49,14 @@
         "affected_by_aoe_increase"                        "1"
       }
       "slow_duration"                                     "3.25"
-      "skewer_damage"                                     "90 180 270 360 720 1080"
+      "skewer_damage"                                     "70 140 210 280 560 840"
       "tree_radius"
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
       "tool_attack_slow"                                  "20 30 40 50 60 70" //OAA, same as slow_pct
-      "skewer_cooldown" // unused
-      {
-        "value"                                           "6"
-        "RequiresScepter"                                 "1"
-      }
-      "skewer_manacost" // unused
-      {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
-      }
+      "damage_distance_pct"                               "6 9 12 15 18 21"
     }
   }
 }

@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_abyssal_blade_3"
   {
-    "ID"                                                  "3109"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -29,7 +28,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3113"
     "BaseClass"                                           "item_abyssal_blade"
     "AbilityTextureName"                                  "custom/abyssal_blade_3"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

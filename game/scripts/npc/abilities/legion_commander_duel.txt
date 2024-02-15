@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5598"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -40,7 +39,7 @@
       "reward_damage"
       {
         "value"                                           "10 20 30 50 70"
-        "LinkedSpecialBonus"                              "special_bonus_unique_legion_commander"
+        "special_bonus_shard"                             "+8"
       }
       "victory_range"                                     "600"
       "scepter_damage_reduction_pct"
@@ -52,6 +51,11 @@
       {
         "value"                                           "50"
         "special_bonus_scepter"                           "-20"
+      }
+      "shard_duel_damage_bonus"
+      {
+        "value"                                           "8"
+        "RequiresShard"                                   "1"
       }
     }
   }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5619"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -31,8 +30,8 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 18 17 16 14 12"
-        "special_bonus_unique_terrorblade_2"              "-3"
+        "value"                                           "19 18 17 16 15 14"
+        "special_bonus_unique_terrorblade_2"              "-4"
       }
       "illusion_duration"
       {
@@ -40,12 +39,12 @@
       }
       "illusion_outgoing_damage"
       {
-        "value"                                           "-45 -30 -15 0 20 40"
+        "value"                                           "-45 -30 -15 0 30 75"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                           "55 70 85 100 120 140"
+        "value"                                           "55 70 85 100 130 175"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "move_slow"

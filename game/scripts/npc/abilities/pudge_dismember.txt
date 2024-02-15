@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5077"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -32,7 +31,7 @@
     {
       "dismember_damage" //OAA
       {
-        "value"                                           "80 120 160 280 400"
+        "value"                                           "80 120 160 280 480"
         "special_bonus_unique_pudge_3"                    "x1.8"
         "CalculateSpellDamageTooltip"                     "1"
       }

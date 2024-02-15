@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Angel's Halo
+  //=================================================================================================================
+  "item_angels_halo"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "item_lua"
+    "ScriptFile"                                          "items/angels_halo.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityTextureName"                                  "custom/angels_halo"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySharedCooldown"                               "angels_halo"
+    "AbilityCooldown"                                     "1.0"
+    "AbilityManaCost"                                     "0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCorePointCost"                                   "30"
+    "ItemCost"                                            "1"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShopTags"                                        "consumable"
+    "ItemQuality"                                         "epic"
+    "ItemAliases"                                         "angel's halo; halo"
+    "ItemStackable"                                       "0"
+    "ItemPermanent"                                       "0"
+    "ItemInitialCharges"                                  "1"
+    "ItemRequiresCharges"                                 "1"
+    "ItemKillable"                                        "1"
+    "ItemPurchasable"                                     "1"
+
+    "SecretShop"                                          "1"
+    "IsTempestDoubleClonable"                             "0"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_halo_buff.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_move_speed"                                  "100"
+      "bonus_day_vision"                                  "400"
+      "aura_damage"                                       "360"
+      "consumed_bonus_move_speed"                         "50"
+      "consumed_bonus_day_vision"                         "200"
+      "consumed_aura_damage"                              "180"
+      "radius"                                            "900"
+    }
+  }
+}

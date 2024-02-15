@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7739"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES" //OAA, Valve has an extra space
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -43,11 +42,15 @@
       }
       "min_range"                                         "550"
       "min_travel_time"                                   "0.45"
-      "max_travel_time"                                   "1.7"
-      "bounce_travel_time"                                "0.6"
+      "max_travel_time"                                   "1.5"
+      "bounce_travel_time"                                "0.5"
       "stun_duration"                                     "1.4"
-      "fragment_impact_distance"                          "600"
-      "fragment_impact_radius"                            "150"
+      "fragment_impact_distance"                          "525"
+      "fragment_impact_radius"
+      {
+        "value"                                           "185"
+        "affected_by_aoe_increase"                        "1" 
+      }
     }
   }
 }

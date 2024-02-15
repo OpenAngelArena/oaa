@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7701"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -66,7 +65,7 @@
       "activation_delay"                                  "0.4"
       "impact_damage"
       {
-        "value"                                           "70 120 170 220 440 660"
+        "value"                                           "70 120 170 220 440 880"
         "special_bonus_unique_void_spirit_2"              "+50"
       }
       "pull_duration"                                     "1.0 1.2 1.4 1.6 1.8 2.0"

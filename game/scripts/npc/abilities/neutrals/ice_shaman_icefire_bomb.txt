@@ -8,7 +8,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "937"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
@@ -35,7 +34,7 @@
     "AbilityValues"
     {
       "duration"                                          "8"
-      "burn_damage"                                       "50"
+      "burn_damage"                                       "50 100 200 300" //OAA
       "building_damage_pct"                               "250" //OAA, percentage bonus damage against bosses
     }
   }

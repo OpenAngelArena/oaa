@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9434"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -24,7 +23,7 @@
     "ItemResult"                                          "item_dagger_of_moriah_1"
     "ItemRequirements"
     {
-      "01"                                                "item_veil_of_discord_3;item_upgrade_core_3"
+      "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
     }
   }
 
@@ -35,17 +34,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9444"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/dagger_of_moriah.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/dagger_of_moriah_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "1200"
     "AbilityManaCost"                                     "75"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "23"
     "AbilitySharedCooldown"                               "dagger_of_moriah"
 
     "MaxUpgradeLevel"                                     "2"
@@ -54,25 +53,28 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "14528"
+    "ItemCost"                                            "17828"
     "ItemShopTags"                                        "agi;str;int;mana_regen;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health_regen"                                "0"
-      "bonus_all_stats"                                   "20 25"
-      "bonus_mana_regen"                                  "3.25 4.25"
+      "bonus_all_stats"                                   "21 26"
+      "bonus_armor"                                       "21 25"
+      "bonus_health_regen"                                "15 18"
+      "bonus_mana_regen"                                  "0"
       "spell_amp_per_intellect"                           "0.08"
+      // Active stuff
       "radius"                                            "1200"
-      "magic_dmg_amp"                                     "30 35" // Old Veil of Discord: -25 -30 -36 -42 -50
+      "magic_dmg_amp"                                     "30 35"
       "heal_reduction_duration"                           "3"
-      "heal_reduction_percent"                            "45"
-      "duration"                                          "6.0"
+      "heal_reduction_percent"                            "45 50"
+      "duration"                                          "8.0"
       //"sangromancy_spell_amp"                             "75 100"
       //"sangromancy_self_damage"                           "100 75"
       //"sangromancy_bonus_damage_from_others"              "50 25"

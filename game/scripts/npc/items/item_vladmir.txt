@@ -7,12 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "250"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -32,7 +31,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "81"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     //"AbilityTextureName"                                  "custom/vladmir_1"
     "AbilityCastRange"                                    "1200"
@@ -42,11 +40,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2450"
+    "ItemCost"                                            "2200"
     "ItemShopTags"                                        "damage;armor;regen_mana"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "vladmir's offering;vlads"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

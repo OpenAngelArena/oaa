@@ -23,7 +23,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_skeleton_global_aura_emitter = class(ModifierBaseClass)
+modifier_skeleton_global_aura_emitter = class({})
 
 function modifier_skeleton_global_aura_emitter:IsHidden()
   return true
@@ -70,7 +70,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_skeleton_global_aura_effect = class(ModifierBaseClass)
+modifier_skeleton_global_aura_effect = class({})
 
 function modifier_skeleton_global_aura_effect:IsHidden()
   return true
@@ -158,7 +158,7 @@ if IsServer() then
     local damage_table = {
       attacker = parent,
       victim = target,
-      ability = ability,
+      --ability = ability,
     }
 
     if target:IsOAABoss() then

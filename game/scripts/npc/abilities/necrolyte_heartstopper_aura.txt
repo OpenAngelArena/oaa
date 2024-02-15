@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5159"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -37,9 +36,9 @@
       "heal_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_unique_necrophos_5"                "+30"
+        "special_bonus_unique_necrophos_5"                "+25"
       }
-      "heal_regen_to_damage" //OAA
+      "heal_regen_to_damage"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+50"

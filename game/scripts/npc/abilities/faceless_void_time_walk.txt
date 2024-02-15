@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5182"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 
     "MaxLevel"                                            "6"
@@ -17,45 +16,36 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.3"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 15 11 7 6 6" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "40"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "speed"                                             "3000"
+      "range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "speed"                                           "3000"
+        "value"                                           "650 700 750 800 850 900"
+        "special_bonus_shard"                             "+150"
       }
-      "02"
+      "AbilityCooldown" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "range"                                           "650 700 750 800 850 900"
+        "value"                                           "19 15 11 7 6 6"
+        "special_bonus_unique_faceless_void_5"            "-1"
       }
-      "03"
+      "backtrack_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "backtrack_duration"                              "2.0 2.0 2.0 2.0 2.5 3.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_7"
+        "value"                                           "2.0 2.0 2.0 2.0 2.5 3.0"
+        "special_bonus_unique_faceless_void_7"            "+0.5"
       }
-      "04" // Valve Spring Breaking
+      "radius" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius_scepter"                                  "400"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+350"
+        "affected_by_aoe_increase"                        "1"
         "RequiresScepter"                                 "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_range"                               "150"
-        "RequiresShard"                                   "1"
       }
     }
   }

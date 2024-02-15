@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7705"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -42,7 +41,7 @@
       }
       "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "21 20 19 17 15"
+        "value"                                           "19 18 17 16 15"
         "special_bonus_unique_void_spirit_1"              "-4"
       }
       "min_travel_distance"                               "200"

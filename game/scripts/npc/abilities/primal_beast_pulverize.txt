@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "996"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE" //OAA, Valve has an extra space
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -50,10 +49,10 @@
       {
         "value"                                           "125 225 325 625 925"
       }
-      "channel_time"
+      "channel_time" //OAA
       {
         "value"                                           "2.3"
-        "special_bonus_unique_primal_beast_pulverize_duration"  "+67%"
+        "special_bonus_unique_primal_beast_pulverize_duration"  "+75%"
       }
       "pierce_immunity"
       {

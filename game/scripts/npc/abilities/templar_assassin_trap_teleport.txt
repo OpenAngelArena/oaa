@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7853"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES" //OAA, Valve is wrong, casting while rooted only disabled internally
 
     "MaxLevel"                                            "5"
@@ -29,7 +28,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-
+      "extra_damage"                                      "200"
     }
   }
 }

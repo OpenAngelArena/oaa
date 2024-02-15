@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5321"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -61,7 +60,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"                                     "0.5"
-      "speed"                                             "1200"
+      "speed"                                             "1400"
       "knockback_distance"
       {
         "value"                                           "250"
@@ -81,7 +80,7 @@
         "special_bonus_unique_batrider_5"                 "+2"
       }
       "damage_total_tooltip"                              "75 150 225 350 600 1000" //OAA, damage_impact + damage_per_second x damage_duration
-      "slow"                                              "10 15 20 25 30 35"
+      "slow"                                              "15 20 25 30 35 40"
     }
   }
 }

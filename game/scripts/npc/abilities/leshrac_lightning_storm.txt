@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5243"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -46,7 +45,8 @@
         "affected_by_aoe_increase"                        "1"
       }
       "jump_delay"                                        "0.25"
-      "slow_movement_speed"                               "-75"
+      "movespeed_slow"                                    "75"
+      "attackspeed_slow"                                  "20 30 40 50 60 70"
       "slow_duration"                                     "0.45 0.7 0.95 1.2 1.3 1.4"
       "bounce_twice"
       {

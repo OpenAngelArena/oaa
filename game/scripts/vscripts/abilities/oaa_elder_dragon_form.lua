@@ -553,7 +553,13 @@ if IsServer() then
       return
     end
 
-    if cast_ability:GetAbilityName() == "dragon_knight_breathe_fire" and parent:HasModifier("modifier_dragon_knight_max_level_oaa") then
+    local ability = self:GetAbility() or parent:FindAbilityByName("dragon_knight_elder_dragon_form_oaa")
+    if not ability or ability:IsNull() then
+      return
+    end
+
+    local level = ability:GetLevel()
+    if cast_ability:GetAbilityName() == "dragon_knight_breathe_fire" and (level >= 5 or (level >= 4 and parent:HasScepter())) then
       self.radius = cast_ability:GetSpecialValueFor("start_radius") + cast_ability:GetSpecialValueFor("range") + cast_ability:GetSpecialValueFor("end_radius") + parent:GetCastRangeBonus()
       self.travel_time = self.radius / math.max(cast_ability:GetSpecialValueFor("speed"), 1)
       self.cast_ability = cast_ability

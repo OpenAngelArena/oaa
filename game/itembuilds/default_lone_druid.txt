@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_lone_druid"
   "Title"         "Recommended items for Lone Druid"
 
@@ -22,17 +22,18 @@
     "#DOTA_Item_Build_Core_Items_Secondary"
     {
       "item"      "item_ultimate_scepter"
+      "item"      "item_harpoon"
       "item"      "item_greater_crit"
-      "item"      "item_disperser"
       "item"      "item_monkey_king_bar"
       "item"      "item_abyssal_blade_2"
+      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Druid"
     {
       "item"      "item_helm_of_the_overlord"
       "item"      "item_assault"
-      "item"      "item_aeon_disk_2"
+      "item"      "item_aeon_disk_oaa_2"
       "item"      "item_greater_tranquil_boots"
       "item"      "item_lucience"
     }
@@ -54,7 +55,7 @@
       "item"      "item_shivas_guard"
       "item"      "item_silver_edge"
       "item"      "item_solar_crest"
-      "item"      "item_devastator_2"
+      "item"      "item_devastator_oaa_2"
       "item"      "item_sheepstick_4"
       "item"      "item_stoneskin"
       "item"      "item_trumps_fists"

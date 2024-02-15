@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3536"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -34,17 +33,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3537"
     "BaseClass"                                           "item_eternal_shroud"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/eternal_shroud_2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4601"
+    "ItemCost"                                            "5001"
     "ItemShopTags"                                        "regen_health;magic_resist;str"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "eternal shroud 2;es 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -54,10 +53,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_spell_resist"                                "30 32 34 36 38"
-      "bonus_strength"                                    "14 24 39 59 84"
-      "bonus_health_regen"                                "7 10 13 16 19"
-      "mana_restore_pct"                                  "30"
+      "bonus_spell_resist"                                "20 21 22 23 24"
+      "bonus_strength"                                    "14 19 29 44 64"
+      "bonus_health"                                      "250 350 500 700 950"
+      "stack_threshold"                                   "300"
+      "stack_duration"                                    "6"
+      "stack_resist"                                      "4"
+      "mana_restore_pct"                                  "20"
+      "max_stacks"                                        "6"
     }
   }
 }

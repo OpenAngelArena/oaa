@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5511"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -30,7 +29,7 @@
       }
       "extra_attack_chance_per_stack"
       {
-        "value"                                           "3"
+        "value"                                           "4"
         "RequiresShard"                                   "1"
       }
       "base_chance"

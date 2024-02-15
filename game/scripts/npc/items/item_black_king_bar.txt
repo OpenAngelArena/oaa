@@ -10,7 +10,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80115"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -38,15 +37,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80116"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/black_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/black_king_bar"
+    "AbilityTextureName"                                  "custom/black_king_bar_1"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50"
+    "AbilityCooldown"                                     "40"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
 
@@ -61,14 +60,15 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb;black king bar"
     "ItemSellable"                                        "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "10 20 35 55 80"
-      "bonus_damage"                                      "24 34 54 84 124"
+      "bonus_strength"                                    "12 17 27 42 62"
+      "bonus_damage"                                      "25 35 55 85 125"
       "duration"                                          "7"
       "model_scale"                                       "30"     // Percentage over model scale
       "magic_resist"                                      "50 55 60 65 70"

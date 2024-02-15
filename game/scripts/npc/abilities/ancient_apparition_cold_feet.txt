@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5345"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -39,7 +38,7 @@
     {
       "damage"
       {
-        "value"                                           "30 50 70 90 190 290"
+        "value"                                           "30 50 70 90 180 270"
         "special_bonus_unique_ancient_apparition_8"       "+40"
         "CalculateSpellDamageTooltip"                     "1"
       }

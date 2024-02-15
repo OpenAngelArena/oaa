@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5459"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -48,7 +47,7 @@
       "max_damage" //OAA, Valve forgot '+' on special_bonus_unique_disruptor_9
       {
         "value"                                           "125 175 225 275 550 1100"
-        "special_bonus_unique_disruptor_9"                "+250"
+        "special_bonus_unique_disruptor_9"                "+275"
       }
       "max_distance"                                      "1400"
     }

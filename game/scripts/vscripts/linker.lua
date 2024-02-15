@@ -62,6 +62,8 @@ LinkLuaModifier("modifier_elder_titan_natural_order_correction_oaa", "modifiers/
 LinkLuaModifier("modifier_tidehunter_anchor_smash_oaa_boss", "modifiers/modifier_tidehunter_anchor_smash_oaa_boss.lua", LUA_MODIFIER_MOTION_NONE)
 -- Windranger Windrun aghs additional effect:
 LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfilter/windrun_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+-- Revenants Brooch active modifier
+LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyabilitiesfilter/revenants_brooch_mod.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
@@ -134,7 +136,7 @@ LinkLuaModifier("modifier_rend_oaa", "modifiers/funmodifiers/modifier_rend_oaa.l
 LinkLuaModifier("modifier_range_increase_oaa", "modifiers/funmodifiers/modifier_range_increase_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_healer_oaa", "modifiers/funmodifiers/modifier_healer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_explosive_death_oaa", "modifiers/funmodifiers/modifier_explosive_death_oaa.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_no_health_bar_oaa", "modifiers/funmodifiers/modifier_no_health_bar_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boss_aggresive_oaa", "modifiers/funmodifiers/modifier_boss_aggresive_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_brute_oaa", "modifiers/funmodifiers/modifier_brute_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wisdom_oaa", "modifiers/funmodifiers/modifier_wisdom_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -146,11 +148,10 @@ LinkLuaModifier("modifier_hp_mana_switch_oaa", "modifiers/funmodifiers/modifier_
 LinkLuaModifier("modifier_magus_oaa", "modifiers/funmodifiers/modifier_magus_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_brawler_oaa", "modifiers/funmodifiers/modifier_brawler_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_chaos_oaa", "modifiers/funmodifiers/modifier_chaos_oaa.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_double_multiplier_oaa", "modifiers/funmodifiers/modifier_double_multiplier_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hybrid_oaa", "modifiers/funmodifiers/modifier_hybrid_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_drunk_oaa", "modifiers/funmodifiers/modifier_drunk_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_any_damage_splash_oaa", "modifiers/funmodifiers/modifier_any_damage_splash_oaa.lua", LUA_MODIFIER_MOTION_NONE)
-
 LinkLuaModifier("modifier_all_healing_amplify_oaa", "modifiers/funmodifiers/modifier_all_healing_amplify_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bonus_armor_negative_magic_resist_oaa", "modifiers/funmodifiers/modifier_bonus_armor_negative_magic_resist_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cursed_attack_oaa", "modifiers/funmodifiers/modifier_cursed_attack_oaa.lua", LUA_MODIFIER_MOTION_NONE)
@@ -169,3 +170,9 @@ LinkLuaModifier("modifier_octarine_soul_oaa", "modifiers/funmodifiers/modifier_o
 LinkLuaModifier("modifier_smurf_oaa", "modifiers/funmodifiers/modifier_smurf_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_speedster_oaa", "modifiers/funmodifiers/modifier_speedster_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_universal_oaa", "modifiers/funmodifiers/modifier_universal_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_rich_man_oaa", "modifiers/funmodifiers/modifier_rich_man_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_agi_oaa", "modifiers/funmodifiers/modifier_change_to_agi_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_str_oaa", "modifiers/funmodifiers/modifier_change_to_str_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_change_to_int_oaa", "modifiers/funmodifiers/modifier_change_to_int_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sangromancer_oaa", "modifiers/funmodifiers/modifier_sangromancer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bottle_collector_oaa", "modifiers/funmodifiers/modifier_bottle_collector_oaa.lua", LUA_MODIFIER_MOTION_NONE)

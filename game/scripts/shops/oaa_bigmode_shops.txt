@@ -80,15 +80,17 @@
     "item"                                                "item_boots"
     "item"                                                "item_cloak"
     "item"                                                "item_voodoo_mask"
-    "item"                                                "item_energy_booster"
+    //"item"                                                "item_energy_booster"
     "item"                                                "item_ring_of_health"
     "item"                                                "item_void_stone"
     "item"                                                "item_cornucopia"
     "item"                                                "item_lifesteal"
-    "item"                                                "item_shadow_amulet"
+    //"item"                                                "item_shadow_amulet"
     "item"                                                "item_vitality_booster"
     "item"                                                "item_point_booster"
     "item"                                                "item_ghost"
+    "item"                                                "item_ring_of_tarrasque"
+    //"item"                                                "item_tiara_of_selemene"
     "item"                                                "item_blink"
     "item"                                                "item_relic"
   }
@@ -102,19 +104,11 @@
     "item"                                                "item_elixier_hybrid"
     "item"                                                "item_elixier_sustain"
     "item"                                                "item_moon_shard_oaa"
+    "item"                                                "item_angels_halo"
     "item"                                                "item_refresher_shard"
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
-    "item"                                                ""
   }
 
-  "basics"
+  "basics" //18
   {
     "item"                                                "item_magic_wand"
     "item"                                                "item_null_talisman"
@@ -125,7 +119,8 @@
     "item"                                                "item_falcon_blade"
     "item"                                                "item_power_treads"
     "item"                                                "item_phase_boots"
-    //"item"                                                "item_oblivion_staff"
+    "item"                                                "item_oblivion_staff"
+    "item"                                                "item_pers"
     "item"                                                "item_mask_of_madness"
     "item"                                                "item_hand_of_midas_1"
     "item"                                                "item_helm_of_the_dominator"
@@ -135,25 +130,26 @@
     "item"                                                "item_core_info"
   }
 
-  "support"
+  "support" //18
   {
     //"item"                                                "item_buckler"
     //"item"                                                "item_ring_of_basilius"
     //"item"                                                "item_headdress"
     //"item"                                                "item_urn_of_shadows"
-    "item"                                                "item_tranquil_boots"
-    //"item"                                                "item_medallion_of_courage"
+    //"item"                                                "item_tranquil_boots"
     "item"                                                "item_pavise"
-    "item"                                                "item_arcane_boots"
+    //"item"                                                "item_arcane_boots"
     "item"                                                "item_ancient_janggo"
     "item"                                                "item_mekansm"
     "item"                                                "item_holy_locket"
     "item"                                                "item_vladmir"
     "item"                                                "item_spirit_vessel_oaa"
+    "item"                                                "item_solar_crest"
     "item"                                                "item_pipe"
     "item"                                                "item_guardian_greaves"
     "item"                                                "item_boots_of_bearing"
     "item"                                                "item_far_sight"
+    "item"                                                "item_vladmirs_grimoire_1"
     "item"                                                "item_ghost_king_bar_1"
     "item"                                                "item_shield_staff"
     "item"                                                "item_lucience"
@@ -162,7 +158,7 @@
     "item"                                                "item_martyrs_mail_1"
   }
 
-  "magics"
+  "magics" //18
   {
     "item"                                                "item_veil_of_discord"
     "item"                                                "item_glimmer_cape"
@@ -180,17 +176,16 @@
     "item"                                                "item_sheepstick_4"
     "item"                                                "item_gungir"
     "item"                                                "item_wind_waker"
+    "item"                                                "item_devastator" // Parasma
     "item"                                                "item_dagger_of_moriah_1"
   }
 
   "defense"
   {
-    "item"                                                "item_hood_of_defiance"
     "item"                                                "item_vanguard"
     "item"                                                "item_blade_mail"
     "item"                                                "item_aeon_disk_oaa_2"
     //"item"                                                "item_soul_booster"
-    "item"                                                "item_eternal_shroud"
     "item"                                                "item_crimson_guard"
     "item"                                                "item_lotus_orb"
     "item"                                                "item_black_king_bar_1"
@@ -201,22 +196,25 @@
     "item"                                                "item_heart_oaa_1"
     "item"                                                "item_assault"
     "item"                                                "item_bloodstone"
-    "item"                                                "item_satanic_core"
+    "item"                                                "item_eternal_shroud"
+    "item"                                                "item_satanic_core" // Blood Core
     "item"                                                "item_spiked_mail_1"
-    "item"                                                "item_regen_crystal_1"
+    "item"                                                "item_reflection_shard_1"
     "item"                                                "item_dispel_orb_1"
     "item"                                                "item_enrage_crystal_1"
     "item"                                                "item_bubble_orb_1"
     "item"                                                "item_stoneskin"
     "item"                                                "item_magic_lamp_1"
+    "item"                                                "item_regen_crystal_1"
     "item"                                                "item_reduction_orb_1"
   }
 
-  "weapons"
+  "weapons" //22
   {
-    "item"                                                "item_lesser_crit"
+    //"item"                                                "item_lesser_crit"
     "item"                                                "item_meteor_hammer_1"
     "item"                                                "item_armlet"
+    //"item"                                                "item_basher"
     "item"                                                "item_invis_sword"
     "item"                                                "item_desolator"
     "item"                                                "item_bfury"
@@ -227,18 +225,21 @@
     "item"                                                "item_radiance"
     "item"                                                "item_greater_crit"
     "item"                                                "item_silver_edge"
-    "item"                                                "item_rapier"
     "item"                                                "item_bloodthorn"
     "item"                                                "item_abyssal_blade_2"
-    "item"                                                "item_revenants_brooch"
+    "item"                                                "item_revenants_brooch_4"
     "item"                                                "item_disperser"
-    "item"                                                "item_devastator_2"
-    "item"                                                "item_trumps_fists_1"
+    //"item"                                                "item_aetherial_halo"
+    //"item"                                                "item_caster_rapier"
+    "item"                                                "item_angels_demise" // Khanda
+    "item"                                                "item_devastator_oaa_2"
+    "item"                                                "item_trumps_fists_1" // Blade of Judecca
     "item"                                                "item_giant_form"
-    "item"                                                "item_siege_mode"
+    "item"                                                "item_siege_mode" // Splash Cannon
+    "item"                                                "item_rapier"
   }
 
-  "artifacts"
+  "artifacts" //22
   {
     "item"                                                "item_dragon_lance"
     "item"                                                "item_sange"
@@ -260,6 +261,7 @@
     "item"                                                "item_swift_blink"
     "item"                                                "item_arcane_blink"
     "item"                                                "item_harpoon"
+    "item"                                                "item_spell_breaker_1"
     "item"                                                "item_vampire"
   }
 

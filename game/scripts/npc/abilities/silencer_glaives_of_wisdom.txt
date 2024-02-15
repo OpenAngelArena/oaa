@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Silencer: Glaives of Wisdom
+  //=================================================================================================================
+  "silencer_glaives_of_wisdom"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityDuration"                                     "0.0"
+    "AbilityCastRange"                                    "600"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "15 20 25 30 35 40" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "intellect_damage_pct"
+      {
+        "value"                                           "20 40 60 80 100 120"
+        "special_bonus_unique_silencer_3"                 "+25"
+      }
+      "int_steal" //OAA
+      {
+        "value"                                           "1 1 2 2 3 4"
+        "special_bonus_shard"                             "+1"
+      }
+      "int_steal_duration"                                "20 25 30 35 40 45"
+      "bounce_range"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_silencer_glaives_bounces"   "+600"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bounce_count"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_silencer_glaives_bounces"   "+1"
+      }
+      "permanent_int_steal_range"
+      {
+        "value"                                           "925"
+      }
+      "permanent_int_steal_amount" //OAA
+      {
+        "value"                                           "2"
+        "special_bonus_shard"                             "+1"
+      }
+      "stacks_for_silence"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+4"
+      }
+      "silence_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+1.75"
+      }
+    }
+  }
+}
+

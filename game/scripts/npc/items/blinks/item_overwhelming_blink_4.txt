@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3570"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -36,7 +35,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3571"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
     "BaseClass"                                           "item_overwhelming_blink"
     "AbilityTextureName"                                  "custom/overwhelming_blink_4"
@@ -71,7 +69,7 @@
       "blink_range"                                       "1200"
       "blink_damage_cooldown"                             "3.0"
       "blink_range_clamp"                                 "960"
-      "bonus_strength"                                    "25 35 50 70 95"
+      "bonus_strength"                                    "25 30 40 55 75"
       "radius"
       {
         "value"                                           "800"
@@ -81,7 +79,7 @@
       "attack_slow"                                       "50 60 70 80 90"
       "duration"                                          "6"
       "damage_base"                                       "100 200 300 400 500"
-      "damage_pct_instant"                                "50"
+      "damage_pct_instant"                                "80"
       "damage_pct_over_time"                              "100"
     }
   }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3354"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -36,15 +35,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3355"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
     "BaseClass"                                           "item_arcane_blink"
     "AbilityTextureName"                                  "custom/arcane_blink_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1400 1500 1600 1700 1800"
-    "AbilityOvershootCastRange"                           "1120 1200 1280 1360 1440" // 4/5 of AbilityCastRange
+    "AbilityCastRange"                                    "1400 1450 1500 1550 1600"
+    "AbilityOvershootCastRange"                           "1120 1160 1200 1240 1280" // 4/5 of AbilityCastRange
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "7.0"
     "AbilityManaCost"                                     "0"
@@ -68,12 +66,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blink_range"                                       "1400 1500 1600 1700 1800"
+      "blink_range"                                       "1400 1450 1500 1550 1600"
       "blink_damage_cooldown"                             "3.0 2.5 2.0 1.5 1.0"
-      "blink_range_clamp"                                 "1120 1200 1280 1360 1440"
-      "bonus_intellect"                                   "25 35 50 70 95"
+      "blink_range_clamp"                                 "1120 1160 1200 1240 1280"
+      "bonus_intellect"                                   "25 30 40 55 75"
       "heal_amount"                                       "200 300 500 800 1200"
-      "mana_amount"                                       "100 150 250 400 600"
+      "mana_amount"                                       "100 200 325 475 650"
     }
   }
 }

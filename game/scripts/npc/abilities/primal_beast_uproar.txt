@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "995"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -67,7 +66,7 @@
       }
       "projectile_damage" //OAA
       {
-        "value"                                           "70 80 90 100 150 200"
+        "value"                                           "70 80 90 100 150 250"
         "RequiresScepter"                                 "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"

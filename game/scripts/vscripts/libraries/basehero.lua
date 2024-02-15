@@ -107,7 +107,7 @@ function CDOTA_BaseNPC_Hero:ChangeAttackProjectile()
   elseif unit:HasModifier("modifier_item_trumps_fists_passive") then
     unit:SetRangedProjectileName("particles/items/trumps_fists/trumps_fists_projectile.vpcf")
 
-  elseif unit:HasModifier("modifier_item_devastator_desolator") then
+  elseif unit:HasModifier("modifier_item_devastator_oaa_desolator") then
     unit:SetRangedProjectileName("particles/items_fx/desolator_projectile.vpcf")
 
   elseif unit:HasModifier("modifier_oaa_glaives_of_wisdom_fx") then

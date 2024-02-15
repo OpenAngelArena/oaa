@@ -6,7 +6,7 @@ function modifier_diarrhetic_oaa:IsHidden()
 end
 
 function modifier_diarrhetic_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_diarrhetic_oaa:IsPurgable()
@@ -18,9 +18,11 @@ function modifier_diarrhetic_oaa:RemoveOnDeath()
 end
 
 function modifier_diarrhetic_oaa:OnCreated()
-  local interval = 30
+  local interval = 15
   self.check_for_ward_radius = POOP_WARD_RADIUS
-  self.duration = 2 * interval
+  self.duration = 4 * interval
+  self.base_dmg = 100
+  self.max_hp_dmg = 20
 
   if IsServer() then
     self:StartIntervalThink(interval)
@@ -67,6 +69,32 @@ if IsServer() then
         true_sight_range = 700,
         duration = self.duration
       })
+    end
+
+    local enemies = FindUnitsInRadius(
+      team,
+      position,
+      nil,
+      500,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local damage_table = {
+      attacker = parent,
+      damage_type = DAMAGE_TYPE_MAGICAL,
+      damage_flags = DOTA_DAMAGE_FLAG_NONE,
+    }
+
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        damage_table.victim = enemy
+        damage_table.damage = self.base_dmg + self.max_hp_dmg * enemy:GetMaxHealth() * 0.01
+        ApplyDamage(damage_table)
+      end
     end
   end
 end

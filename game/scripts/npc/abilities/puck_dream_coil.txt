@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5073"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -40,7 +39,7 @@
       "coil_initial_damage" //OAA
       {
         "value"                                           "150 300 450 900 1350"
-        "special_bonus_unique_puck_coil_damage"           "+150"
+        "special_bonus_unique_puck_coil_damage"           "+175"
       }
       "coil_stun_duration"
       {
@@ -50,14 +49,14 @@
       "coil_break_damage" //OAA
       {
         "value"                                           "200 400 600 1200 2200"
-        "special_bonus_unique_puck_coil_damage"           "+150"
+        "special_bonus_unique_puck_coil_damage"           "+175"
       }
       "coil_radius"
       {
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "coil_rapid_fire_rate" // unused
+      "coil_rapid_fire_rate" // unused?
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+0.6"

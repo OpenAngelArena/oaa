@@ -229,7 +229,7 @@ end
 function modifier_item_far_sight_non_stacking_stats:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.vision = ability:GetSpecialValueFor("bonus_vision_percentage")
+    self.vision = ability:GetSpecialValueFor("bonus_vision_range")
     self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
   end
 end
@@ -237,31 +237,41 @@ end
 function modifier_item_far_sight_non_stacking_stats:OnRefresh()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.vision = ability:GetSpecialValueFor("bonus_vision_percentage")
+    self.vision = ability:GetSpecialValueFor("bonus_vision_range")
     self.cast_range = ability:GetSpecialValueFor("bonus_cast_range")
   end
 end
 
 function modifier_item_far_sight_non_stacking_stats:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
     MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+    MODIFIER_PROPERTY_BONUS_DAY_VISION,
+    MODIFIER_PROPERTY_BONUS_NIGHT_VISION,
+    --MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE,
   }
 end
 
-function modifier_item_far_sight_non_stacking_stats:GetBonusVisionPercentage()
-  return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_percentage")
-end
+--function modifier_item_far_sight_non_stacking_stats:GetBonusVisionPercentage()
+  --return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_percentage")
+--end
 
 function modifier_item_far_sight_non_stacking_stats:GetModifierCastRangeBonusStacking()
   local parent = self:GetParent()
 
-  -- Prevent stacking with Aether Lens
-  if parent:HasModifier("modifier_item_aether_lens") then
+  -- Prevent stacking with Aether Lens and Ethereal Blade
+  if parent:HasModifier("modifier_item_aether_lens") or parent:HasModifier("modifier_item_ethereal_blade") then
     return 0
   end
 
   return self.cast_range or self:GetAbility():GetSpecialValueFor("bonus_cast_range")
+end
+
+function modifier_item_far_sight_non_stacking_stats:GetBonusDayVision()
+  return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_range")
+end
+
+function modifier_item_far_sight_non_stacking_stats:GetBonusNightVision()
+  return self.vision or self:GetAbility():GetSpecialValueFor("bonus_vision_range")
 end
 
 ---------------------------------------------------------------------------------------------------

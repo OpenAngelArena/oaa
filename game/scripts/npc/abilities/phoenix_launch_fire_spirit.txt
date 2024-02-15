@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5631"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -33,7 +32,7 @@
     {
       "hp_cost_perc"                                      "20"
       "spirit_duration"                                   "20.0"
-      "spirit_speed"                                      "900"
+      "spirit_speed"                                      "1000"
       "radius"
       {
         "value"                                           "200"

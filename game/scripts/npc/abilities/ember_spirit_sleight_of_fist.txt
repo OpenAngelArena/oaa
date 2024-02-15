@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5604"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -36,7 +35,7 @@
       }
       "bonus_hero_damage"
       {
-        "value"                                           "45 80 115 150 300 600"
+        "value"                                           "45 85 125 165 330 660"
         "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_6"
         "CalculateSpellDamageTooltip"                     "0"
       }

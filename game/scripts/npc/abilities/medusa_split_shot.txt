@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5504"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -22,14 +21,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_modifier"
+      "damage_modifier" //OAA
       {
-        "value"                                           "-65 -50 -35 -20 -15 -10"
+        "value"                                           "-55 -45 -35 -25 -20 -15"
         "special_bonus_unique_medusa_2"                   "+10"
       }
-      "damage_modifier_tooltip" // damage_modifier + 100
+      "damage_modifier_tooltip" // OAA, damage_modifier + 100
       {
-        "value"                                           "35 50 65 80 85 90"
+        "value"                                           "45 55 65 75 80 85"
         "special_bonus_unique_medusa_2"                   "+10"
       }
       "arrow_count"                                       "4"

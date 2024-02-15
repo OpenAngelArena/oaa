@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9500"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/sohei/sohei_dash.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -53,7 +52,11 @@
     {
       "dash_speed"                                        "4000" // max Dash speed
       "move_speed_multiplier"                             "7.5"
-      "dash_width"                                        "175"
+      "dash_width"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
       "dash_range" // max Dash range
       {
         "value"                                           "600"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5471"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -33,10 +32,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "total_damage"
+      "total_damage" //OAA
       {
         "value"                                           "185 290 395 500 1000 2000"
-        "special_bonus_unique_keeper_of_the_light"        "+180"
+        "special_bonus_unique_keeper_of_the_light"        "+250"
       }
       "max_channel_time"                                  "3"
       "radius"
@@ -45,7 +44,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "range"                                             "1550"
-      "speed"                                             "900.0"
+      "speed"                                             "900"
       "vision_radius"
       {
         "value"                                           "800"

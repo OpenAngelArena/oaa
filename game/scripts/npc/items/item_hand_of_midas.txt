@@ -10,7 +10,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4049"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "item_recipe_hand_of_midas" // item_recipe
@@ -37,7 +36,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4050"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/hand_of_midas.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -59,6 +57,7 @@
     "ItemShopTags"                                        "attack_speed;hard_to_tag"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "hand of midas;midas"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special

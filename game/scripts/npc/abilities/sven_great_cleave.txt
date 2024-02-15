@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5095"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -17,34 +16,29 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "cleave_starting_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_starting_width"                           "150"
+        "value"                                           "150"
+        // intentionally omitted affected_by_aoe_increase here because it warps the cleave box too much
       }
-      "02"
+      "cleave_ending_width"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_ending_width"                             "360"
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "cleave_distance"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "cleave_distance"                                 "700"
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
       }
-      "04"
+      "great_cleave_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "great_cleave_damage"                             "40 60 80 100 120 140"
+        "value"                                           "40 60 80 100 120 140"
         "LinkedSpecialBonus"                              "special_bonus_unique_sven_8"
       }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "strength_bonus"                                  "2 4 6 8 16 32"
-      }
+      "strength_bonus"                                    "3 6 9 12 24 36"
     }
   }
 }

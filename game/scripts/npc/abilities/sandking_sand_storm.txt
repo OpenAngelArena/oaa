@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5103"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -35,19 +34,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_tick_rate"                                  "0.2" // this tick rate is used for scepter burrowstrikes too
-      "sand_storm_radius" //OAA
+      "damage_tick_rate"                                  "0.5" //OAA, this tick rate is used for scepter burrowstrikes too
+      "sand_storm_radius"
       {
         "value"                                           "425 500 575 650 675 700"
         "affected_by_aoe_increase"                        "1"
       }
       "sand_storm_damage" //OAA
       {
-        "value"                                           "25 50 75 100 200 400"
-        "special_bonus_unique_sand_king_2"                "+20"
+        "value"                                           "25 45 65 85 170 340"
+        "special_bonus_unique_sand_king_2"                "+35"
       }
       "fade_delay"                                        "1.0" //OAA
-      "scepter_explosion_radius_pct"
+      "scepter_explosion_radius_pct" // Burrowstrike spine radius: percentage of sand_storm_radius (10%)
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+10"

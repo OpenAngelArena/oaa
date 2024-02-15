@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "916"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC" //OAA
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -40,7 +39,7 @@
     {
       "purge_damage" //OAA
       {
-        "value"                                           "300 500 700 1300 1900"
+        "value"                                           "300 600 900 1800 2700"
         "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
       }
       "max_charges"

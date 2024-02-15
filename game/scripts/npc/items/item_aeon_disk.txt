@@ -10,7 +10,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80255"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_1"
@@ -38,15 +37,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80256"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/aeon_disk.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/combo_breaker"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "105 95 85 75 65" // OAA old: "105 95 75 55 35"
+    "AbilityCooldown"                                     "105 95 85 75 65" // old: "105 95 75 55 35"
     "AbilitySharedCooldown"                               "combobreaker"
     "AbilityManaCost"                                     "0"
 
@@ -62,7 +61,8 @@
     "ItemShopTags"                                        "health_pool;mana_pool"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ad;aeon disk"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
