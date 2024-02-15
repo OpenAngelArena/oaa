@@ -19,10 +19,6 @@ function item_elixier_burst:OnSpellStart()
   caster:RemoveModifierByName("modifier_elixier_burst_active")
   caster:RemoveModifierByName("modifier_elixier_burst_trigger")
   caster:RemoveModifierByName("modifier_elixier_burst_bonus")
-  caster:RemoveModifierByName("modifier_elixier_sustain_active")
-  caster:RemoveModifierByName("modifier_elixier_sustain_trigger")
-  caster:RemoveModifierByName("modifier_elixier_hybrid_active")
-  caster:RemoveModifierByName("modifier_elixier_hybrid_trigger")
 
   caster:AddNewModifier(caster, self, "modifier_elixier_burst_active", {duration = self:GetSpecialValueFor("total_duration")})
   caster:AddNewModifier(caster, self, "modifier_elixier_burst_trigger", {bonus_as = self:GetSpecialValueFor("bonus_as"), bonus_attacks = self:GetSpecialValueFor("bonus_attacks"), bonus_duration = self:GetSpecialValueFor("bonus_duration"), duration = self:GetSpecialValueFor("total_duration")})
@@ -59,7 +55,7 @@ function modifier_elixier_burst_active:GetEffectAttachType()
 end
 
 function modifier_elixier_burst_active:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_active:OnCreated(keys)
@@ -99,7 +95,7 @@ function modifier_elixier_burst_trigger:RemoveOnDeath()
 end
 
 function modifier_elixier_burst_trigger:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_trigger:OnCreated(keys)
@@ -152,7 +148,7 @@ function modifier_elixier_burst_bonus:GetEffectAttachType()
 end
 
 function modifier_elixier_burst_bonus:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_bonus:OnCreated(keys)

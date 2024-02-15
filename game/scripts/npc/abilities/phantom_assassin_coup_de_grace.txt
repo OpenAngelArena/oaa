@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5193"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -25,7 +24,7 @@
       }
       "dagger_crit_chance" //OAA
       {
-        "value"                                           "40"
+        "value"                                           "25"
         "special_bonus_unique_phantom_assassin_2"         "+5"
       }
       "crit_bonus"                                        "200 300 400 500 600" //OAA

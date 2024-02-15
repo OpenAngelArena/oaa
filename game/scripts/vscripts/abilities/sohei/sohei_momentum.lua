@@ -255,10 +255,6 @@ function modifier_sohei_momentum_knockback:IsPurgable()
   return false
 end
 
-function modifier_sohei_momentum_knockback:IsStunDebuff()
-  return false
-end
-
 function modifier_sohei_momentum_knockback:GetPriority()
   return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end
@@ -392,10 +388,6 @@ function modifier_sohei_momentum_slow:IsHidden()
 end
 
 function modifier_sohei_momentum_slow:IsPurgable()
-  return false
-end
-
-function modifier_sohei_momentum_slow:IsStunDebuff()
   return false
 end
 

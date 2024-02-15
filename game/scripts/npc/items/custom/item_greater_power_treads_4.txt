@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3013"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,9 +34,8 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3018"
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/farming/greater_power_treads.lua"
+    "ScriptFile"                                          "items/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads_4"
 
@@ -47,6 +45,7 @@
     "ItemShopTags"                                        "attack_speed;move_speed;int;agi;str"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "greater power treads 4;power treads 4;treads 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "4"
@@ -63,7 +62,7 @@
       "bonus_spell_amp"                                   "6 8 10 12"
       "bonus_damage"                                      "10 25 45 70"
       "primary_attribute_multiplier"                      "2"
-      "bonus_all_stats"                                   "5 10 15 20"
+      "bonus_secondary_stats"                             "10 15 20 25"
     }
   }
 }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5223"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -19,7 +18,7 @@
     {
       "range"                                             "500"
       "bounces"                                           "3 4 5 6 7 8"
-      "damage_reduction_percent" //OAA
+      "damage_reduction_percent"
       {
         "value"                                           "50 45 40 35 25 15"
         "special_bonus_unique_luna_7"                     "-8"
@@ -42,7 +41,7 @@
       "rotating_glaives_damage_reduction"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+20"
+        "special_bonus_shard"                             "+25"
       }
       "rotating_glaives_speed"
       {
@@ -52,7 +51,7 @@
       "rotating_glaives_duration"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+6"
+        "special_bonus_shard"                             "+7"
       }
       "rotating_glaives_collision_damage"
       {

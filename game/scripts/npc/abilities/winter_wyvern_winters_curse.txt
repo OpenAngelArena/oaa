@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5654"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -17,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700 750 800 850 900"
+    "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -26,26 +25,26 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "250"
+    "AbilityManaCost"                                     "200 225 250 275 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"      
+      "radius"
       {
         "value"                                           "525"
-        "affected_by_aoe_increase"                        "1"  
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_reduction"                                  "100 100 100 90 80"
       "damage_amplification"                              "30"
       "bonus_attack_speed"                                "65 70 75 80 85" //OAA
-      "duration"      
+      "duration"
       {
-        "value"                                           "4.25 4.75 5.25 5.25 5.25"
+        "value"                                           "4.5 5 5.5 5.5 5.5"
         "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
       }
-      "early_out_timer"                                   "2.5"
+      "early_out_timer"                                   "2.5 2.5 2.5 3.5 4.5"
     }
   }
 }

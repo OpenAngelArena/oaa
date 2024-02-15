@@ -1,21 +1,20 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Postactive Reflex 2b
+  // Recipe: Enrage Crystal 2
   //=================================================================================================================
   "item_recipe_enrage_crystal_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3829"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -24,52 +23,52 @@
     "ItemResult"                                          "item_enrage_crystal_2"
     "ItemRequirements"
     {
-      "01"                                                "item_enrage_crystal_1;item_upgrade_core_3"
+      "01"                                                "item_enrage_crystal_1;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Postactive Reflex 2b
+  // Enrage Crystal 2
   //=================================================================================================================
   "item_enrage_crystal_2"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3830"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/enrage_crystal.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/enrage_crystal_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20.0 15.0 10.0"
+    "AbilityCooldown"                                     "24 18"
     "AbilitySharedCooldown"                               "enrage_crystal"
-    "AbilityCastPoint"                                    "0.0"
+    "AbilityManaCost"                                     "0"
 
-    "MaxUpgradeLevel"                                     "3"
+    "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "0"
-    "ItemCost"                                            "17053"
+    "ItemCost"                                            "34054"
     "ItemShopTags"                                        "str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "enrage crystal 2"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "40 60 85"
-      "bonus_damage"                                      "60 90 130"
-      "bonus_status_resist"                               "22 24 26"
-      "dmg_reduction_while_stunned"                       "20 25 30"
-      "cooldown_tooltip"                                  "20 15 10"
-      "active_duration"                                   "1"
+      "bonus_strength"                                    "42 62"
+      "bonus_damage"                                      "85 125"
+      "bonus_status_resist"                               "20 22"
+      //"bonus_slow_resist"                                 "20 22"
+      "dmg_reduction_while_stunned"                       "25 30"
+      "cooldown_tooltip"                                  "24 18"
+      "active_duration"                                   "2"
     }
   }
 }

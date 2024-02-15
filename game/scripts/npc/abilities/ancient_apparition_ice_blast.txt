@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5348"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -25,15 +24,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60.0" //OAA
+    "AbilityCooldown"                                     "120" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "175"
+    "AbilityManaCost"                                     "150 225 300 375 450" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "250 325 400 800 1600"
+    "AbilityDamage"                                       "300 400 500 800 1300" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,7 +46,6 @@
       "radius_grow"
       {
         "value"                                           "50.0"
-        "affected_by_aoe_increase"                        "1"
       }
       "radius_max"
       {
@@ -59,10 +57,14 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "frostbite_duration"                                "10 11 12 13 14"
-      "dot_damage"
+      "frostbite_duration" //OAA
       {
-        "value"                                           "12.5 20.0 32.0 48.5 69.5"
+        "value"                                           "7"
+        "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+5"
+      }
+      "dot_damage" //OAA
+      {
+        "value"                                           "12.0 22.0 32.0 52.0 72.0"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "speed"                                             "1500"

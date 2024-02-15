@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3659"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -34,11 +33,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3693"
     "BaseClass"                                           "item_disperser"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/disperser_3"
 
@@ -49,6 +48,7 @@
     "AbilityCooldown"                                     "15.0"
     "AbilityManaCost"                                     "75"
     "AbilitySharedCooldown"                               "diffusal"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Item Info
@@ -68,19 +68,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "20 30 45 65 90"
+      "bonus_agility"                                     "40 45 55 70 90"
       "bonus_intellect"                                   "10 15 25 40 60"
-      "feedback_mana_burn"                                "40 60 90 130 180"
-      "feedback_mana_burn_illusion_melee"                 "8 16 24 32 40"
-      "feedback_mana_burn_illusion_ranged"                "8 16 24 32 40"
+      "feedback_mana_burn"                                "40 50 70 100 140"
+      "feedback_mana_burn_illusion_melee"                 "8 18 28 38 48"
+      "feedback_mana_burn_illusion_ranged"                "8 18 28 38 48"
       "purge_rate"                                        "5"
       "purge_root_duration"                               "3.0"
       "damage_per_burn"                                   "1.0"
-      "enemy_effect_duration"                             "4.0"
-      "ally_effect_duration"                              "4.0"
-      "bonus_damage"                                      "40 50 65 85 110"
-      "radius"                                            "350"
-      "attack_speed_slow"                                 "80"
+      "enemy_effect_duration"                             "5.0"
+      "ally_effect_duration"                              "5.0"
+      "radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "phase_movement_speed"                              "100"
       "movement_speed_buff_rate"                          "5"
     }

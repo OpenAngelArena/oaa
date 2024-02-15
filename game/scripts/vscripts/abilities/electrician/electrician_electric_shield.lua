@@ -100,11 +100,7 @@ function modifier_electrician_electric_shield:IsDebuff()
 end
 
 function modifier_electrician_electric_shield:IsHidden()
-  if self:GetParent():HasShardOAA() then
-    return false
-  end
-
-  return true
+  return false
 end
 
 function modifier_electrician_electric_shield:IsPurgable()
@@ -133,19 +129,19 @@ if IsServer() then
 		-- start with the maximum block amount
 		local blockAmount = event.damage * self.shieldRate
 		-- grab the remaining shield hp
-		local hp = self:GetStackCount()
+		local hp = math.abs(self:GetStackCount())
 
 		-- don't block more than remaining hp
 		blockAmount = math.min( blockAmount, hp )
 
-		-- remove shield hp
-		self:SetStackCount( hp - blockAmount )
+		-- remove shield hp (using negative stacks to not show them on the buff)
+		self:SetStackCount( blockAmount - hp )
 
 		-- do the little block visual effect
 		SendOverheadEventMessage( nil, 8, self:GetParent(), blockAmount, nil )
 
 		-- destroy the modifier if hp is reduced to nothing
-		if self:GetStackCount() <= 0 then
+		if self:GetStackCount() >= 0 then
 			self:Destroy()
 		end
 
@@ -213,7 +209,7 @@ if IsServer() then
     local caster = self:GetCaster()
 
     if not caster:HasShardOAA() and event.shieldHP ~= -1 then
-      self:SetStackCount(event.shieldHP)
+      self:SetStackCount(0 - event.shieldHP)
     end
 
     -- grab ability specials
@@ -329,7 +325,7 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
       local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
       local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
       max_shield_hp = max_mana_cost * damage_per_mana
-      current_shield_hp = self:GetStackCount()
+      current_shield_hp = math.abs(self:GetStackCount())
     end
 
     if event.report_max then
@@ -354,13 +350,13 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
     end
 
     local damage = event.damage
-    local shield_hp = self:GetStackCount()
+    local shield_hp = math.abs(self:GetStackCount())
 
     -- Don't block more than remaining hp
     local block_amount = math.min(damage*self.shieldRate, shield_hp)
 
-    -- Reduce shield hp
-    self:SetStackCount(shield_hp - block_amount)
+    -- Reduce shield hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - shield_hp)
 
     if block_amount > 0 then
       -- Visual effect (TODO: add unique visual effect)
@@ -373,7 +369,7 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
     end
 
     -- destroy the modifier if hp is reduced to nothing
-    if self:GetStackCount() <= 0 then
+    if self:GetStackCount() >= 0 then
       self:Destroy()
     end
 

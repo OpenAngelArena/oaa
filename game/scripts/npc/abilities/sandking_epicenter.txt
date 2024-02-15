@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5105"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -39,8 +38,8 @@
       }
       "epicenter_damage" //OAA
       {
-        "value"                                           "120 180 240 420 720"
-        "special_bonus_shard"                             "+10"
+        "value"                                           "120 170 220 370 520"
+        "special_bonus_shard"                             "+20"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "epicenter_radius_base"
@@ -53,7 +52,6 @@
       {
         "value"                                           "25"
         "special_bonus_unique_sand_king_5"                "+25"
-        "affected_by_aoe_increase"                        "1"
       }
       "epicenter_slow"
       {

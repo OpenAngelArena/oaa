@@ -10,16 +10,16 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80247"
     "BaseClass"                                           "item_moon_shard"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "30"
-    "ItemCost"                                            "1"
+    "ItemCost"                                            "1" //OAA
     "ItemShopTags"                                        "attack_speed"
     "ItemQuality"                                         "consumable"
     "ItemAliases"                                         "moon shard"
@@ -29,28 +29,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "140"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_night_vision"                              "400"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "consumed_bonus"                                  "70"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "consumed_bonus_night_vision"                     "200"
-      }
+      "bonus_attack_speed"                                "140"
+      "bonus_night_vision"                                "400"
+      "consumed_bonus"                                    "70" //OAA
+      "consumed_bonus_night_vision"                       "200"
     }
   }
 }

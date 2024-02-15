@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5589"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -19,7 +18,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.4"
+    "AbilityCastPoint"                                    "0.35" //OAA
     "AbilityCastRange"                                    "500"
     "AbilityChannelTime"                                  "1.3"
     "AbilityManaCost"                                     "100"
@@ -28,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "cast_time"                                         "1.7"
+      "cast_time"                                         "1.65" //OAA
       "radius"
       {
         "value"                                           "475"
@@ -43,10 +42,10 @@
       }
       "initial_stun_duration"                             "0.2"
       "animation_rate"                                    "0.0"
-      "wake_damage_limit"
+      "wake_damage_limit" //OAA
       {
-        "value"                                           "55 120 185 250 500 750"
-        "special_bonus_unique_elder_titan_4"              "+450"
+        "value"                                           "100 150 200 250 500 1000"
+        "special_bonus_unique_elder_titan_4"              "+600"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
       }

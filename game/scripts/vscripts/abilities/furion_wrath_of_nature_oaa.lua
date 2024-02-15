@@ -389,7 +389,6 @@ if IsServer() then
       local treant_armor = force_of_nature_ability:GetLevelSpecialValueFor("treant_armor", level-1)
       local treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_damage", level-1)
       local treant_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", level-1)
-      local treant_duration = force_of_nature_ability:GetSpecialValueFor("duration")
 
       local treantName = "npc_dota_furion_treant_" .. level
       if parent:IsRealHero() then
@@ -399,18 +398,17 @@ if IsServer() then
       end
 
       -- Talent that increases health and damage of treants with a multiplier
-      local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
-      if talent1 and talent1:GetLevel() > 0 then
-        treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
-        treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
-      end
+      -- uncomment if special_bonus_unique_furion talent is changed
+      --local talent1 = caster:FindAbilityByName("special_bonus_unique_furion_1_oaa")
+      --if talent1 and talent1:GetLevel() > 0 then
+        --treant_hp = treant_hp * talent1:GetSpecialValueFor("value")
+        --treant_dmg = treant_dmg * talent1:GetSpecialValueFor("value")
+      --end
 
       local treant = CreateUnitByName(treantName, parent:GetAbsOrigin(), true, caster, caster:GetOwner(), caster:GetTeamNumber())
       if treant then
         treant:SetControllableByPlayer(caster:GetPlayerID(), false)
         treant:SetOwner(caster)
-        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_kill", {duration = treant_duration})
-        treant:AddNewModifier(caster, force_of_nature_ability, "modifier_generic_dead_tracker_oaa", {duration = treant_duration + MANUAL_GARBAGE_CLEANING_TIME})
 
         -- Fix stats of treants
         -- HP

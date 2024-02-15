@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5022"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -23,8 +22,8 @@
     {
       "chance" //OAA
       {
-        "value"                                           "20 30 40 45 50"
-        "special_bonus_unique_drow_ranger_3"              "+12"
+        "value"                                           "20 25 30 35 40"
+        "special_bonus_unique_drow_ranger_3"              "+20"
       }
       "bonus_damage"
       {

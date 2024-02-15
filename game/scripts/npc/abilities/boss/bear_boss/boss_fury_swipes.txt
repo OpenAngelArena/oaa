@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8359"
     "BaseClass"                                           "ursa_fury_swipes"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -19,13 +18,13 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_reset_time"
+      "bonus_reset_time" //OAA
       {
         "value"                                           "20"
         "special_bonus_unique_ursa_4"                     "+20"
       }
       "bonus_reset_time_roshan"                           "10"
-      "damage_per_stack"
+      "damage_per_stack" //OAA
       {
         "value"                                           "150"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa"

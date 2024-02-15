@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6470"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -28,7 +27,7 @@
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 180 260 340 680 1020"
+    "AbilityDamage"                                       "100 180 260 340 680 1360"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,7 +38,11 @@
     "AbilityValues"
     {
       "phase_duration"                                    "1.1"
-      "destination_fx_radius"                             "183" // proportional to distance_offset
+      "destination_fx_radius" // proportional to distance_offset
+      {
+        "value"                                           "183"
+        "affected_by_aoe_increase"                        "1"   
+      }
       "portals_per_ring"                                  "6"
       "angle_per_ring_portal"                             "60"
       "first_ring_distance_offset"
@@ -47,7 +50,11 @@
         "value"                                           "520"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_radius"                                     "275" // proportional to distance_offset
+      "damage_radius" // proportional to distance_offset
+      {
+        "value"                                           "275"
+        "affected_by_aoe_increase"                        "1"   
+      }
       "has_outer_ring"
       {
         "value"                                           "0"

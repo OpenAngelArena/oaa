@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5469"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -37,7 +36,11 @@
         "value"                                           "34 41 48 55 155 255"
         "LinkedSpecialBonus"                              "special_bonus_unique_naga_siren_2"
       }
-      "radius"                                            "300"
+      "radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "4.0"
       "debuff_duration"                                   "10"
     }

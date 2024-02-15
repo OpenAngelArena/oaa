@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8106"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -59,7 +58,7 @@
       "max_damage" //OAA
       {
         "value"                                           "600 1200 1800 3600 5400"
-        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+150"
+        "special_bonus_unique_hoodwink_sharpshooter_damage"  "+250"
       }
       "recoil_distance"                                   "350"
       "recoil_height"                                     "75"

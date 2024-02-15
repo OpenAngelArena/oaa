@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "175"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1100"
+    "ItemCost"                                            "1600"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_ethereal_blade"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_kaya;item_ghost"
+      "01"                                                "item_aether_lens;item_ghost"
     }
   }
 
@@ -33,10 +32,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "176"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/ethereal_blade"
 
     // Stats
@@ -55,27 +55,27 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4650"
+    "ItemCost"                                            "5375"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemAliases"                                         "eb;ethereal blade;eblade"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_agility"                                     "5 10 15 20 25" // old: 40 45 50 55 60
-      "bonus_strength"                                    "5 10 15 20 25" // old: 10 15 20 25 30
-      "bonus_intellect"                                   "25 30 35 40 45" // old: 10 15 20 25 30
-      "spell_amp"                                         "12 16 20 24 28"
-      "spell_lifesteal_amp"                               "24 26 28 30 32"
-      "mana_regen_multiplier"                             "60 70 80 90 100" //OAA
+      "bonus_agility"                                     "8 13 18 23 28"
+      "bonus_strength"                                    "8 13 18 23 28"
+      "bonus_intellect"                                   "8 13 18 23 28"
+      "bonus_mana"                                        "300 400 550 750 1000"
+      "bonus_cast_range"                                  "225 275 325 375 425" //OAA
+      "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
       "blast_movement_slow"                               "-80"
       "duration"                                          "4.0"
       "blast_agility_multiplier"                          "1.5"
-      "blast_damage_base"                                 "50 150 250 350 450"
+      "blast_damage_base"                                 "75 175 275 375 475" //OAA
       "duration_ally"                                     "4.0"
       "ethereal_damage_bonus"                             "-40 -45 -50 -55 -60"
       "projectile_speed"                                  "1275"

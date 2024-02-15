@@ -2,8 +2,7 @@
 {
   "weaver_geminate_attack"
   {
-    "ID"                                                  "5291"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_BREAK_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -14,7 +13,7 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "7 5.5 4 2.5 2.25 2"
+    "AbilityCooldown"                                     "8.5 6.5 4.5 2.5 2.25 2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +33,7 @@
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "15 30 45 60 120 240"
+        "bonus_damage"                                    "20 35 50 65 130 195"
         "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
       }
       "04"

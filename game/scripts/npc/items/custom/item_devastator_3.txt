@@ -3,11 +3,10 @@
   //=================================================================================================================
   // Recipe: Devastator
   //=================================================================================================================
-  "item_recipe_devastator_3"
+  "item_recipe_devastator_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4054"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_3"
@@ -21,22 +20,21 @@
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_devastator_3"
+    "ItemResult"                                          "item_devastator_oaa_3"
 
     "ItemRequirements"
     {
-      "01"                                                "item_devastator_2;item_upgrade_core_2"
+      "01"                                                "item_devastator_oaa_2;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
   // Devastator
   //=================================================================================================================
-  "item_devastator_3"
+  "item_devastator_oaa_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "4051"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/devastator.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
@@ -50,7 +48,6 @@
     "AbilityTextureName"                                  "custom/devastator_3"
 
     "AbilityCastRange"                                    "700 750 800 850 900"
-    "AbilityCastPoint"                                    "0"
 
     "AbilitySharedCooldown"                               "devastator"
     "AbilityCooldown"                                     "11 10 9 8 7"
@@ -67,7 +64,8 @@
     "ItemShopTags"                                        "damage;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "devastator 3"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "precache"
     {
@@ -83,8 +81,16 @@
       "corruption_armor"                                  "-6 -9 -13 -18 -24"
       "corruption_duration"                               "7.0"
       "devastator_speed"                                  "1800"
-      "devastator_width_initial"                          "200"
-      "devastator_width_end"                              "200"
+      "devastator_width_initial"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "devastator_width_end"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "devastator_distance"                               "700 750 800 850 900"
       "devastator_damage"                                 "75 150 300 525 825"
       "devastator_movespeed_reduction"                    "-10 -20 -30 -40 -50"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85320"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_batrider_sticky_napalm.lua"
     "AbilityTextureName"                                  "batrider_sticky_napalm"
@@ -34,64 +33,34 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 30 35 40 50 70"
+    "AbilityManaCost"                                     "25 30 35 40 45 50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "damage_per_stack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "4 8 12 16 32 64"
+        "value"                                           "4 8 12 16 32 64"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_4_oaa"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "02"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "375"
+        "value"                                           "375"
         "LinkedSpecialBonus"                              "special_bonus_unique_batrider_7_oaa"
+        "affected_by_aoe_increase"                        "1"
       }
-      "03"
+      "duration"                                          "6"
+      "movement_speed_pct"                                "-1.5 -3 -4.5 -6 -7.5 -8"
+      "turn_rate_pct"                                     "-10 -30 -50 -70 -75 -80"
+      "max_stacks"                                        "10"
+      "damage_creeps"                                     "75" // Percentage of damage dealt to non-ancient creeps
+      "damage_ancients"                                   "50" // Percentage of damage dealt to ancient creeps but not bosses
+      "damage_bosses"                                     "150" // Percentage of damage dealt to bosses
+      "shard_number_of_attack_proc"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "6"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "movement_speed_pct"                              "-1.5 -3 -4.5 -6 -7.5 -8"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "turn_rate_pct"                                   "-10 -30 -50 -70 -75 -80"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_stacks"                                      "10"
-      }
-      "07" // Percentage of damage dealt to non-ancient creeps
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_creeps"                                   "75"
-      }
-      "08" // Percentage of damage dealt to ancient creeps but not bosses
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_ancients"                                 "50"
-      }
-      "09" // Percentage of damage dealt to bosses
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_bosses"                                   "50"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_number_of_attack_proc"                     "2"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
     }

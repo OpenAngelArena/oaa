@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5045"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -36,6 +35,12 @@
       }
       "duration"                                          "2 2.4 2.8 3.2 3.6 4"
       "movespeed"                                         "120"
+      "radius"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_lion_4"                     "+250"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

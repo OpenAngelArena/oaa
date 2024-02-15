@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5645"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -32,20 +31,29 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "900.0"
-      "radius"                                            "200"
-      "pass_damage"                                       "110 200 290 470 830"
-      "damage_per_second"                                 "50 100 150 250 400"
-      "slow"
+      "speed"                                             "900.0" //OAA
+      "radius" //OAA
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "pass_damage"                                       "110 200 290 470 830" //OAA
+      "damage_per_second"                                 "50 100 150 250 350" //OAA
+      "slow" //OAA
       {
         "value"                                           "5"
         "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_4"
       }
-      "damage_interval"                                   "0.5"
-      "break_distance"                                    "2000.0"
-      "mana_per_second"                                   "14 22 30 38 46"
-      "pass_slow_duration"                                "0.5"
-      "slow_health_percentage"                            "5"
+      "damage_interval"                                   "0.5" //OAA
+      "break_distance"                                    "2000.0" //OAA
+      "mana_per_second"                                   "14 22 30 38 46" //OAA
+      "pass_slow_duration"                                "0.5" //OAA
+      "slow_health_percentage"                            "5" //OAA
+      "scepter_bonus_damage"
+      {
+        "value"                                           "20"
+        "RequiresScepter"                                 "1"
+      }
       "second_chakram"
       {
         "value"                                           "0"

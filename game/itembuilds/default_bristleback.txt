@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.34e"
   "hero"          "npc_dota_hero_bristleback"
   "Title"         "Recommended items for Bristleback"
 
@@ -8,33 +8,41 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_bracer"
-      "item"      "item_quelling_blade"
+      "item"      "item_ring_of_health"
       "item"      "item_clarity"
     }
 
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_vanguard"
-      "item"      "item_blade_mail"
-      "item"      "item_radiance"
+      "item"      "item_ultimate_scepter"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
+    "#DOTA_Item_Build_Core_Items" // Standard dota item progression
     {
-      "item"      "item_ultimate_scepter"
-      "item"      "item_silver_edge"
+      "item"      "item_satanic_core"
+      "item"      "item_lotus_orb"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_heart_oaa_1"
+      "item"      "item_black_king_bar_1" // prevents Break
+    }
+
+    "#DOTA_Item_Build_Physical_Core" // Rightclick
+    {
       "item"      "item_assault"
-      "item"      "item_devastator_2"
+      "item"      "item_silver_edge"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_devastator_oaa_2"
     }
 
     "#DOTA_Item_Build_Tank_Core" // Standard Tank
     {
       "item"      "item_crimson_guard"
       "item"      "item_spiked_mail_1"
-      "item"      "item_heart_oaa"
       "item"      "item_shivas_guard"
-      "item"      "item_pipe"
+      "item"      "item_stoneskin"
+      "item"      "item_martyrs_mail_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -42,26 +50,12 @@
       "item"      "item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
-    {
-      "item"      "item_satanic_core"
-      "item"      "item_kaya_and_sange"
-      "item"      "item_dagon_oaa"
-      "item"      "item_stoneskin"
-    }
-
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
       "item"      "item_heavens_halberd"
-      "item"      "item_lotus_orb"
-      "item"      "item_nullifier"
-      "item"      "item_satanic"
+      "item"      "item_pipe"
+      "item"      "item_radiance"
       "item"      "item_shield_staff"
-      "item"      "item_skadi"
-      "item"      "item_solar_crest"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_martyrs_mail_1"
     }
   }
 }

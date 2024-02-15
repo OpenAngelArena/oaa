@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5082"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -46,7 +45,7 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "speed"                                             "636"  // 1.2 second to reach radius
+      "total_ability_time"                                "2.2"
       "slow_min"                                          "5"
       "slow_max"                                          "25 30 35 40 45 50"
       "slow_duration"                                     "1.5"

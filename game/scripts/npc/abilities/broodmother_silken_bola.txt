@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "639"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -24,8 +23,6 @@
     "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.1"
 
-    "HasShardUpgrade"                                     "1" // Valve forgot this
-
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18 16 14 12 11 10" //OAA
@@ -40,7 +37,7 @@
     {
       "movement_speed" //OAA
       {
-        "value"                                           "10 25 40 55 60 65"
+        "value"                                           "25 35 45 55 60 65"
         "special_bonus_unique_broodmother_4"              "+25"
       }
       "aoe"

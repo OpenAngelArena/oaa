@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5290"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -26,7 +25,7 @@
     {
       "damage"
       {
-        "value"                                           "100 125 150 175 350 700"
+        "value"                                           "100 130 160 190 380 760"
         "special_bonus_unique_weaver_1"                   "+55"
       }
       "speed"                                             "200 230 260 290 300 310" // unused?
@@ -50,6 +49,7 @@
       "shukuchi_attack_mark_radius"
       {
         "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
         "special_bonus_shard"                             "+1200"
       }
       "shukuchi_attack_delay"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8421"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,13 +34,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8422"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/meteor_hammer.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityTextureName"                                  "item_custom/meteor_hammer_5"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -61,29 +59,36 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34154"
+    "ItemCost"                                            "33604"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh 5;meteor hammer 5"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "24 29 39 54 74"
-      "bonus_strength"                                    "12 17 27 42 62"
-      "bonus_agility"                                     "12 17 27 42 62"
-      "bonus_health_regen"                                "6.5 9 12 15 18"
-      "bonus_mana_regen"                                  "2.5 2.75 3.25 4.0 5.0"
-      "burn_dps_boss"                                     "200 400 600 800 1000"
-      "burn_dps"                                          "100 200 300 400 500"
+      "bonus_intellect"                                   "26 31 41 56 76"
+      "bonus_strength"                                    "12 17 22 27 32"
+      "bonus_agility"                                     "12 17 22 27 32"
+      "spell_amp"                                         "12 16 20 24 28"
+      "mana_regen_multiplier"                             "50 60 70 80 90"
+      "spell_lifesteal_amp"                               "24 26 28 30 32"
+
+      "burn_dps_boss"                                     "140 340 540 740 940"
+      "burn_dps"                                          "70 170 270 370 470"
       "burn_duration"                                     "6"
       "stun_duration"                                     "1.5"
       "burn_interval"                                     "1.0"
       "land_time"                                         "0.5"
-      "impact_radius"                                     "400"
+      "impact_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "impact_damage_boss"                                "200 400 700 1100 1600"
-      "impact_damage"                                     "150 350 650 1050 1550"
+      "impact_damage"                                     "130 330 630 1030 1530"
       "move_speed_slow_pct"                               "20 25 30 35 40"
       "cooldown_tooltip"                                  "24 22 20 18 16"
     }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5107"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -39,7 +38,6 @@
       "grab_radius"
       {
         "value"                                           "300"
-        "affected_by_aoe_increase"                        "1"
       }
       "radius"
       {
@@ -47,9 +45,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage_pct"                                  "0"
-      "toss_damage"
+      "toss_damage" // reminder: this gets increased with Grow
       {
-        "value"                                           "75 150 225 300 600 900" // this gets increased with Grow
+        "value"                                           "80 160 240 320 640 960"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "AbilityCharges"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5084"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -19,22 +18,25 @@
       "self_movement_speed_pct"
       {
         "value"                                           "8 12 16 20 24 28"
-        "special_bonus_unique_razor_5"                    "+21"
       }
       "strike_pct_chance"                                 "18"
       "strike_target_count"                               "3"
       "strike_damage"
       {
-        "value"                                           "45 80 115 150 300 600"
+        "value"                                           "40 80 120 160 320 640"
         "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25%"
       }
       "strike_move_slow_pct"
       {
-        "value"                                           "20 25 30 35 40 45"
+        "value"                                           "25 30 35 40 45 50"
         "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+25"
       }
       "strike_slow_duration"                              "1.0"
-      "strike_search_radius"                              "700"
+      "strike_search_radius"
+      {
+        "value"                                           "700"
+        "affected_by_aoe_increase"                        "1"
+      }
       "strike_internal_cd"                                "3.0"
     }
   }

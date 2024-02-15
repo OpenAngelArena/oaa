@@ -106,6 +106,24 @@ function modifier_item_ghost_king_bar_passives:OnCreated()
         item:SetCurrentCharges(parent.ghostKingBarChargesOAA)
       end
     end
+    -- Remove aura effect modifier from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
+    end
+
+    foreach(RemoveAuraEffect, units)
   end
 end
 
@@ -225,6 +243,10 @@ function modifier_item_ghost_king_bar_passives:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
+-- function modifier_item_ghost_king_bar_passives:GetAuraEntityReject(hTarget)
+  -- return hTarget:HasModifier("modifier_item_headdress_aura")
+-- end
+
 -- Add charges when abilities are cast by visible enemies
 if IsServer() then
   function modifier_item_ghost_king_bar_passives:OnAbilityExecuted(event)
@@ -263,10 +285,10 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_ghost_king_bar_aura_effect = class(ModifierBaseClass)
+modifier_item_ghost_king_bar_aura_effect = class({})
 
 function modifier_item_ghost_king_bar_aura_effect:IsHidden() -- needs tooltip
-  return self:GetParent():HasModifier("modifier_item_holy_locket_aura")
+  return self:GetParent():HasModifier("modifier_item_headdress_aura")
 end
 
 function modifier_item_ghost_king_bar_aura_effect:IsDebuff()
@@ -293,14 +315,14 @@ function modifier_item_ghost_king_bar_aura_effect:DeclareFunctions()
 end
 
 function modifier_item_ghost_king_bar_aura_effect:GetModifierConstantHealthRegen()
-  if self:GetParent():HasModifier("modifier_item_holy_locket_aura") then
+  if self:GetParent():HasModifier("modifier_item_headdress_aura") then
     return 0
   end
   return self.hp_regen or self:GetAbility():GetSpecialValueFor("aura_health_regen")
 end
 
 function modifier_item_ghost_king_bar_aura_effect:GetTexture()
-  return "item_holy_locket"
+  return "item_headdress"
 end
 
 ---------------------------------------------------------------------------------------------------

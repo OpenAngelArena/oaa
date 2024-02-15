@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3945"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3946"
     "BaseClass"                                           "item_helm_of_the_overlord"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -53,10 +51,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "19653"
+    "ItemCost"                                            "19203"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 4;helm of the overlord 4;helm 4;overlord 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -66,8 +65,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_stats"                                       "6 10 15 20 25"
-      "bonus_armor"                                       "6 7 8 9 10"
+      "bonus_stats"                                       "21 26 31 36 41"
+      "bonus_armor"                                       "6 7 9 12 16"
       "bonus_regen"                                       "6 9 12 15 18"
       "health_min"                                        "2000 4500 7000 9500 12000"
       "speed_base"                                        "380"
@@ -78,12 +77,6 @@
       "creep_bonus_armor"                                 "7 9 11 13 15"
       "model_scale"                                       "20 30 40 50 60"
       "count_limit"                                       "1"
-      "armor_aura"                                        "3.0 4.0 6.0 9.0 13.0"
-      "mana_regen_aura"                                   "2.0 2.25 2.75 3.5 4.5"
-      "lifesteal_aura"                                    "20 25 30 35 40"
-      "creep_lifesteal_reduction_pct"                     "40"
-      "damage_aura"                                       "18 26 34 42 50"
-      "aura_radius"                                       "1200"
       "creep_ability_level_increase"                      "1"
     }
   }

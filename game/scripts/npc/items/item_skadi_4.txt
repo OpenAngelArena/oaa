@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3192"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3196"
     "BaseClass"                                           "item_skadi"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_4"
@@ -46,6 +44,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos 4;eye of skadi 4;skadi 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -60,9 +59,9 @@
       "bonus_health"                                      "220 320 470 670 920"
       "bonus_mana"                                        "220 320 470 670 920"
       "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_attack_slow_melee"                            "-10"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60"
-      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
       "heal_reduction"                                    "40 45 50 55 60"
     }

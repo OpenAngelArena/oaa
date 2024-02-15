@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5414"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -28,7 +27,7 @@
     {
       "radius"
       {
-        "value"                                           "375"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_speed"                                       "20"
@@ -38,6 +37,7 @@
       {
         "value"                                           "700"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "shard_movement_speed_pct"
       {
@@ -56,8 +56,8 @@
       }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "25 24 23 22 21 20"
-        "special_bonus_unique_lone_druid_4"               "-8"
+        "value"                                           "24 23 22 21 20 19"
+        "special_bonus_unique_lone_druid_4"               "-7"
       }
     }
   }

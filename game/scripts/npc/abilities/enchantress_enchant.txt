@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5268"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -33,20 +32,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "slow_movement_speed"                               "-30 -40 -50 -60 -65 -70"
+      "slow_duration"                                     "5"
+      "damage"                                            "20 30 40 50 100 200"
       "dominate_duration"                                 "30 60 90 120 150 180"
       "enchant_health"  //OAA, this is bonus hp, not minimum hp
       {
         "value"                                           "200 400 600 800 1600 3200"
         "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
-      "enchant_armor"                                     "0 3 6 9 15 18"
+      "enchant_armor"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_enchantress_enchant_armor"  "+10"
+      }
       "enchant_damage"
       {
         "value"                                           "0 25 50 75 150 300"
         "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
-      "slow_movement_speed"                               "-30 -40 -50 -60 -65 -70"
-      "slow_duration"                                     "5"
       "level_req"                                         "6" //OAA
       "max_creeps"
       {

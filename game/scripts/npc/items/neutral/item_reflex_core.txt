@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3521"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/neutral/reflex_core.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityTextureName"                                  "custom/reflex_core"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "AbilityCooldown"                                     "12"
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
 
     // Item Info

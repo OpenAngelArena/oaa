@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3683"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -35,11 +34,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3684"
     "BaseClass"                                           "item_sphere"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/linkens_sphere_4"
 
     "AbilityCastRange"                                    "700"
@@ -48,10 +47,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17603"
+    "ItemCost"                                            "17303"
     "ItemShopTags"                                        "regen_health;regen_mana;str;agi;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ls 4;linken's sphere 4;linkens 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     "ActiveDescriptionLine"                               "2"
 
@@ -63,13 +63,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_all_stats"                                   "16 21 26 31 36"
+      "bonus_all_stats"                                   "16 21 31 46 66"
       "bonus_health_regen"                                "6 9 12 15 18"
       "bonus_mana_regen"                                  "4.25 4.5 5 5.75 6.75"
       "block_cooldown"                                    "14.0 13.0 12.0 11.0 10.0"
       "upgrade_absorb_duration"                           "10.0"
       "damage_absorb"                                     "300"
-      "bonus_damage"                                      "10 15 25 40 60"
     }
   }
 }

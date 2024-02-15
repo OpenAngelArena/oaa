@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "656"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -38,7 +37,7 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "13 12 11 10 9 9"
+        "value"                                           "13 12 11 10 10 10"
         "special_bonus_unique_omniknight_3"               "-6"
       }
       "base_damage" // this is damage based on Omniknight's base damage (strength)

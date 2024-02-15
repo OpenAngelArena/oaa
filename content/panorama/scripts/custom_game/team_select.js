@@ -1,9 +1,12 @@
-/* global $, Game, GameUI, DOTATeam_t, CustomNetTables */
+/* global $, GameEvents, Game, GameUI, CustomNetTables, Players, is10v10, DOTATeam_t */
 
 'use strict';
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
+    MMRShuffle: MMRShuffle,
+    onPanelChange: onPanelChange,
+    onFocus: onFocus,
     OnLeaveTeamPressed: OnLeaveTeamPressed,
     OnLockAndStartPressed: OnLockAndStartPressed,
     OnCancelAndUnlockPressed: OnCancelAndUnlockPressed,
@@ -21,6 +24,10 @@ const playerPanels = [];
 const DOTA_TEAM_SPECTATOR = 1;
 // object to store the mmr values for each player
 const playerMmrValues = {};
+// Is the local player host?
+const IsHost = Game.GetLocalPlayerInfo().player_has_host_privileges;
+// Current map name
+const mapName = Game.GetMapInfo().map_display_name;
 
 // --------------------------------------------------------------------------------------------------
 // Handler for when the unssigned players panel is clicked that causes the player to be reassigned
@@ -68,7 +75,7 @@ function OnAutoAssignPressed () {
 }
 
 // --------------------------------------------------------------------------------------------------
-// Handler for the shuffle player teams button being pressed
+// Handler for the shuffle player teams button being pressed - unused
 // --------------------------------------------------------------------------------------------------
 function OnShufflePlayersPressed () {
   // Shuffle the team assignments of any players which are assigned to a team,
@@ -163,8 +170,10 @@ function UpdateTeamPanel (teamPanel) {
   const teamPlayers = Game.GetPlayerIDsOnTeam(teamId);
   for (let i = 0; i < teamPlayers.length; ++i) {
     playerSlot = FindPlayerSlotInTeamPanel(teamPanel, i);
-    playerSlot.RemoveAndDeleteChildren();
-    FindOrCreatePanelForPlayer(teamPlayers[i], playerSlot);
+    if (playerSlot) {
+      playerSlot.RemoveAndDeleteChildren();
+      FindOrCreatePanelForPlayer(teamPlayers[i], playerSlot);
+    }
   }
 
   // Fill in the remaining player slots with the empty slot indicator
@@ -261,8 +270,7 @@ function UpdateTimer () {
 
   CheckForHostPrivileges();
 
-  const mapInfo = Game.GetMapInfo();
-  $('#MapInfo').SetDialogVariable('map_name', mapInfo.map_display_name);
+  $('#MapInfo').SetDialogVariable('map_name', mapName);
 
   if (transitionTime >= 0) {
     $('#StartGameCountdownTimer').SetDialogVariableInt('countdown_timer_seconds', Math.max(0, Math.floor(transitionTime - gameTime)));
@@ -285,6 +293,21 @@ function UpdateTimer () {
 }
 
 function handleOAASettingsChange (t, key, kv) {
+  if (key === 'settings') {
+    $.Msg('oaa_settings :' + key);
+    loadSettings(kv);
+    return;
+  }
+  if (key === 'locked') {
+    $.Msg('oaa_settings :' + key);
+    $('#SettingsBody').enabled = false;
+    loadSettings(kv);
+    return;
+  }
+  if (key === 'average_team_mmr') {
+    $.Msg('oaa_settings :' + key);
+    loadAverageMMRValues(kv);
+  }
   if (key === 'player_mmr') {
     if (typeof kv === 'object') {
       Object.keys(kv).forEach((k) => {
@@ -294,6 +317,112 @@ function handleOAASettingsChange (t, key, kv) {
   }
 
   OnTeamPlayerListChanged();
+}
+
+function loadAverageMMRValues (values) {
+  $('#RadiantAverageMMR').text = 'Average MMR: ' + values.radiant;
+  $('#DireAverageMMR').text = 'Average MMR: ' + values.dire;
+}
+
+function MMRShuffle () {
+  if (!IsHost) {
+    return;
+  }
+  GameEvents.SendCustomGameEventToServer('mmrShuffle', {
+    shuffle: true
+  });
+}
+
+function hostTitle () {
+  if ($('#Host')) {
+    for (const i of Game.GetAllPlayerIDs()) {
+      if (Game.GetPlayerInfo(i) && Game.GetPlayerInfo(i).player_has_host_privileges) {
+        $('#Host').text = 'HOST: ' + Players.GetPlayerName(i);
+      }
+    }
+  } else {
+    $.Msg('Failed to set host name on Team Select screen');
+    // $.Schedule(0.1, hostTitle);
+  }
+}
+
+function loadSettings (kv, secondTime) {
+  if (kv) {
+    for (const i in kv) {
+      updatePanel({ setting: i, value: kv[i] });
+    }
+    $.Msg('Succesfully loaded/changed Game Settings.');
+  }
+}
+
+function onPanelChange (name) {
+  if (!IsHost) {
+    return;
+  }
+  const panel = $('#' + name);
+  if (!panel) {
+    return;
+  }
+  const panelType = panel.paneltype;
+  let val;
+
+  if (panelType === 'DropDown') {
+    val = panel.GetSelected().id;
+  } else if (panelType === 'ToggleButton') {
+    val = panel.checked;
+  } else if (panelType === 'TextEntry') {
+    val = parseFloat(panel.text);
+    if (isNaN(val)) {
+      val = 0;
+    }
+  }
+  if (val !== undefined) {
+    GameEvents.SendCustomGameEventToAllClients('oaa_setting_changed', { setting: name, value: val });
+    GameEvents.SendCustomGameEventToServer('oaa_setting_changed', { setting: name, value: val });
+  }
+  if (panelType === 'Button') {
+    GameEvents.SendCustomGameEventToServer('oaa_button_clicked', { button: name });
+  }
+}
+
+function updatePanel (kv) {
+  const name = kv.setting;
+  const val = kv.value;
+  const panel = $('#' + name);
+  if (panel) {
+    const panelType = panel.paneltype;
+    switch (panelType) {
+      case 'DropDown':
+        panel.SetSelected(val);
+        break;
+      case 'Label':
+        panel.text = val;
+        break;
+      case 'ToggleButton':
+        panel.checked = val;
+        break;
+      case 'TextEntry':
+        panel.text = val + panel.GetAttributeString('unit', '');
+        if (parseFloat(val) !== parseFloat(panel.text)) {
+          panel.text = val;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+function onFocus (name) {
+  if (!IsHost) {
+    return;
+  }
+  const panel = $('#' + name);
+  const panelType = panel.paneltype;
+  if (panelType === 'TextEntry') {
+    panel.text = parseFloat(panel.text);
+  }
+  panel.SetAcceptsFocus(true);
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -351,6 +480,25 @@ function handleOAASettingsChange (t, key, kv) {
   // Register a listener for the event which is broadcast whenever a player attempts to pick a team
   $.RegisterForUnhandledEvent('DOTAGame_PlayerSelectedCustomTeam', OnPlayerSelectedTeam);
 
+  hostTitle();
+
+  if (mapName === '1v1' || mapName === 'tinymode') {
+    const smallPlayerPoolButton = $('#small_player_pool');
+    if (smallPlayerPoolButton) {
+      smallPlayerPoolButton.enabled = false;
+      smallPlayerPoolButton.style.opacity = 0;
+      smallPlayerPoolButton.style.visibility = 'collapse';
+    }
+  }
+
+  $.GetContextPanel().SetHasClass('TenVTen', is10v10());
+
+  $('#SettingsBody').enabled = IsHost;
+
   CustomNetTables.SubscribeNetTableListener('oaa_settings', handleOAASettingsChange);
+  handleOAASettingsChange(null, 'settings', CustomNetTables.GetTableValue('oaa_settings', 'settings'));
+  handleOAASettingsChange(null, 'average_team_mmr', CustomNetTables.GetTableValue('oaa_settings', 'average_team_mmr'));
   handleOAASettingsChange(null, 'player_mmr', CustomNetTables.GetTableValue('oaa_settings', 'player_mmr'));
-})();
+
+  GameEvents.SendCustomGameEventToServer('updateAverageMMR', {});
+}());

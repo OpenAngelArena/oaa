@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5074"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -27,7 +26,7 @@
     {
       "damage_block"
       {
-        "value"                                           "8 14 20 26 38 62"
+        "value"                                           "8 14 20 26 44 62"
         "special_bonus_unique_pudge_1"                    "x1.5"
       }
       "flesh_heap_strength_buff_amount"

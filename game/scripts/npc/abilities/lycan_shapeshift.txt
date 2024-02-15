@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5398"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -38,8 +37,8 @@
       {
         "value"                                           "40"
       }
-      "crit_multiplier"                                   "160 190 220 250 280"
-      "health_bonus"                                      "200 400 600 1000 1800" //OAA
+      "crit_multiplier"                                   "160 190 220 250 280" //OAA, intentional nerf
+      "health_bonus"                                      "250 450 650 1050 1850" //OAA
     }
   }
 }

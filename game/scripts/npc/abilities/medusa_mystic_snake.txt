@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5505"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -37,7 +36,7 @@
       "snake_jumps"
       {
         "value"                                           "3 4 5 6 7 8"
-        "special_bonus_unique_medusa_3"                   "+2"
+        "special_bonus_unique_medusa_3"                   "+3"
       }
       "jump_delay"                                        "0.25"
       "snake_damage"

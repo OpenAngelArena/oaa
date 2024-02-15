@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5132"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -35,23 +34,23 @@
       "evasion_pct_tooltip"                               "100"
       "enemy_movespeed_bonus_pct"
       {
-        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "value"                                           "0"
       }
-      "radius" //OAA
+      "radius"
       {
-        "value"                                           "550"
-        "special_bonus_unique_windranger"                 "+0"
+        "value"                                           "325"
+        "special_bonus_unique_windranger"                 "+225"
         "affected_by_aoe_increase"                        "1"
       }
       "scepter_movespeed_bonus_pct"
       {
         "RequiresScepter"                                 "1"
-        "value"                                           "-35 -40 -45 -50 -55 -60"
+        "value"                                           "0"
       }
       "physical_damage_pct"
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "-35"
+        "special_bonus_scepter"                           "-45"
       }
       "cannot_be_dispelled"
       {
@@ -59,6 +58,11 @@
         "special_bonus_unique_windranger_windrun_undispellable"  "+1"
       }
       "duration"                                          "3 4 5 6 6.5 7"
+      "scepter_spell_amp" //OAA
+      {
+        "RequiresScepter"                                 "1"
+        "value"                                           "45"
+      }
     }
   }
 }

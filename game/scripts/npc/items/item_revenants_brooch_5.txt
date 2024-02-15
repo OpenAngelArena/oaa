@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3544"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,24 +34,17 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3545"
     "BaseClass"                                           "item_revenants_brooch"
     "AbilityTextureName"                                  "custom/revenants_brooch_5"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25"
-    "AbilityCastPoint"                                    "0.0"
-    "AbilitySharedCooldown"                               "revenants_brooch"
-    "AbilityManaCost"                                     "300"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "36204"
+    "ItemCost"                                            "34379"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 5;brooch 5;revenants brooch 5;rb 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemBaseLevel"                                       "5"
@@ -63,21 +55,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "37 42 52 67 87"
-      "bonus_attack_speed"                                "35 45 55 65 75"
-      "bonus_armor"                                       "6 7 9 12 16"
-      "projectile_speed"                                  "300 350 400 450 500"
-      "int_damage_multiplier"                             "1"
-      "slow"                                              "25 30 35 40 45"
-      "slow_duration"                                     "4"
-      "mana_cost"                                         "100"
-      "damage_penalty"                                    "0"
-      "passive_cooldown"                                  "8.0"
-      "number_of_attacks"                                 "6"
-      "active_duration"                                   "15"
-      "active_attack_speed"                               "0"
-      "active_mres_reduction"                             "20"
-      "spell_amp_duration"                                "3"
+      "bonus_damage"                                      "55 65 85 115 155"
+      "spell_lifesteal"                                   "12 14 16 18 20"
+      "manacost_per_hit"                                  "200"
+      "negative_spell_amp_while_active"                   "-50 -40 -35 -30 0"
     }
   }
 }

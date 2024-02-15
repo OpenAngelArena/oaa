@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8234"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -20,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
+    "AbilityCastRange"                                    "1000"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -42,11 +41,11 @@
       }
       "bonus_damage" //OAA
       {
-        "value"                                           "6 12 18 24 48 96"
-        "special_bonus_unique_marci_guardian_damage"      "+65"
+        "value"                                           "6 12 24 48 96 144"
+        "special_bonus_unique_marci_guardian_damage"      "+48"
       }
       "bonus_attack_range"                                "0"
-      "nearest_ally_search_range"                         "700"
+      "nearest_ally_search_range"                         "1000" //OAA, same as AbilityCastRange
       "max_partner_distance"                              "2500"
       "max_partner_penalty"                               "50"
       "creep_lifesteal_reduction_pct"                     "40"

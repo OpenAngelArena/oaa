@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85229"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_elder_dragon_form.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -23,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "80"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,33 +43,37 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
       "bonus_attack_damage"                               "0"
-      "corrosive_breath_damage"                           "25 45 65 125 125"
+      "corrosive_breath_damage"                           "25 30 35 70 70"
       "corrosive_breath_duration"                         "5.0"
-      "splash_radius"                                     "350"
+      "splash_radius"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "splash_damage_percent"
       {
-        "value"                                           "75 75 75 100 100"
+        "value"                                           "0 75 75 100 100"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_6"
       }
       "frost_bonus_movement_speed"
       {
-        "value"                                           "-40 -40 -40 -60 -60"
+        "value"                                           "0 0 -40 -60 -60"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "frost_bonus_attack_speed"
       {
-        "value"                                           "-40 -40 -40 -80 -80"
+        "value"                                           "0 0 -40 -80 -80"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
-      "frost_duration"                                    "3.0"
-      "frost_aoe"
+      "frost_duration"                                    "0 0 3"
+      "frost_aoe" // to match splash_radius
       {
-        "value"                                           "300"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "model_scale"                                       "0 0 0 30 30"
       // changing 5th value will have effect for this kv:
-      "magic_resistance"                                  "0 0 0 25 40"
+      "magic_resistance"                                  "0 0 0 25 30"
       // original kvs:
       "rage_chance"                                       "40" // unused
       "rage_duration"                                     "2.0" // unused

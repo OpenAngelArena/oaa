@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5525"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -36,7 +35,6 @@
       "chain_radius"
       {
         "value"                                           "90"
-        "affected_by_aoe_increase"                        "1"
       }
       "range"
       {
@@ -48,7 +46,7 @@
         "value"                                           "225"
       }
       "speed"                                             "2200 2400 2600 2800 3000 3200"
-      "damage"                                            "80 130 180 230 460 920" //OAA
+      "damage"                                            "70 120 170 220 440 880" //OAA
     }
   }
 

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3244"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -26,7 +25,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_spiked_mail_3;item_upgrade_core_3"
     }
   }
 
@@ -37,11 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3246"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -58,11 +56,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17853"
+    "ItemCost"                                            "17828"
     "ItemShopTags"                                        "armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian;stoneskin armor"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -74,18 +73,24 @@
 
     "AbilityValues"
     {
-      "bonus_armor"                                       "20 25"
-      "bonus_intellect"                                   "60 80"
-      "hp_regen_amp"                                      "25"
-      "heal_amp"                                          "25"
-      "lifesteal_amp"                                     "25"
-      "spell_lifesteal_amp"                               "25"
+      "bonus_all_stats"                                   "21 26"
+      "bonus_armor"                                       "21 25"
+      "bonus_health_regen"                                "15 18"
+      "bonus_status_resist"                               "20 22"
+      // Aura stuff
+      "hp_regen_amp"                                      "20"
+      "heal_amp"                                          "20"
+      "lifesteal_amp"                                     "20"
+      "spell_lifesteal_amp"                               "20"
       "aura_radius"                                       "1200"
-      "stone_armor"                                       "100"
-      "stone_magic_resist"                                "0"
-      "stone_status_resist"                               "30"
+      // Active stuff
+      "stone_armor"                                       "100 175"
       "stone_deflect_chance"                              "40"
-      "stone_deflect_radius"                              "400"
+      "stone_deflect_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
       //"stone_move_speed"                                  "100"
       "duration"                                          "6.0"
     }

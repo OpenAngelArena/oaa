@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "81115"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_2"
@@ -35,15 +34,15 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "81116"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/black_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/black_king_bar_2"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60"
+    "AbilityCooldown"                                     "40"
     "AbilityManaCost"                                     "50"
     "AbilitySharedCooldown"                               "avatar"
 
@@ -58,17 +57,18 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb 2;black king bar 2"
     "ItemSellable"                                        "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "10 20 35 55 80"
-      "bonus_damage"                                      "24 34 54 84 124"
-      "duration"                                          "6.0 6.5 7.0 7.5 8.0"
+      "bonus_strength"                                    "12 17 27 42 62"
+      "bonus_damage"                                      "25 35 55 85 125"
+      "duration"                                          "7"
       "model_scale"                                       "30"
-      "magic_resist"                                      "50"
+      "magic_resist"                                      "50 55 60 65 70"
     }
   }
 }

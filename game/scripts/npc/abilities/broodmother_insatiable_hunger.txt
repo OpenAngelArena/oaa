@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5282"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     //"AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -28,7 +27,7 @@
     {
       "bonus_damage"
       {
-        "value"                                           "40 50 60 70 90 110"
+        "value"                                           "40 50 60 70 90 120"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "lifesteal_pct" //OAA

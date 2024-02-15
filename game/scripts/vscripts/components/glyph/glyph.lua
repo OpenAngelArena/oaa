@@ -85,7 +85,7 @@ function Glyph:CustomGlyphEffect(playerID)
         -- Calculate distance
         local distance = math.max(400, 4200 - (3800/4200) * DistanceFromFountainOAA(unit_loc, team))
         -- Push away from the fountain (off highground)
-        unit:AddNewModifier(hero, nil, "modifier_custom_glyph_knockback", {
+        unit:AddNewModifier(unit, nil, "modifier_custom_glyph_knockback", {
           distance = distance,
           speed = 1200,
           direction_x = direction.x,
@@ -130,7 +130,7 @@ end
 modifier_custom_glyph_knockback = class(ModifierBaseClass)
 
 function modifier_custom_glyph_knockback:IsDebuff()
-  return true
+  return false -- false because of Debuff Immunity
 end
 
 function modifier_custom_glyph_knockback:IsHidden()
@@ -142,7 +142,7 @@ function modifier_custom_glyph_knockback:IsPurgable()
 end
 
 function modifier_custom_glyph_knockback:IsStunDebuff()
-  return false
+  return true
 end
 
 function modifier_custom_glyph_knockback:DeclareFunctions()
@@ -171,7 +171,7 @@ if IsServer() then
   function modifier_custom_glyph_knockback:OnCreated(event)
     -- Data sent with AddNewModifier (not available on the client)
     self.direction = Vector(event.direction_x, event.direction_y, 0)
-    self.distance = event.distance + 1
+    self.distance = event.distance
     self.speed = event.speed
 
     if self:ApplyHorizontalMotionController() == false then

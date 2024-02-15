@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9454"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_4"
@@ -35,7 +34,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "9455"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/vampire.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -44,7 +42,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "vampire"
@@ -59,23 +56,29 @@
     "ItemShopTags"                                        "damage;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "vampire;vampire tooth;vampire fang"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "70 95"
-      "bonus_damage"                                      "110 160"
-      "bonus_status_resistance"                           "24 26"
-      "bonus_attack_speed"                                "40 50"
+      "bonus_strength"                                    "55 75"
+      "bonus_damage"                                      "85 125"
+      "bonus_armor"                                       "11 15"
+      "bonus_status_resistance"                           "20 22"
+      //"bonus_slow_resist"                                 "20 22"
       "bonus_night_vision"                                "400 600"
       "lifesteal_percent"                                 "45 50"
-      "active_lifesteal_percent"                          "175"
+      "active_lifesteal_percent"                          "190"
       "damage_per_second_pct"                             "8" // only during the day
       "ticks_per_second"                                  "4"
-      "night_bonus_damage"                                "110 160"
-      "night_thirst_radius"                               "1200"
+      "night_bonus_damage"                                "100 140"
+      "night_thirst_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "duration"                                          "6.0"
     }
 

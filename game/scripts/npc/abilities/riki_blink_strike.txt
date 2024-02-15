@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5143"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
@@ -41,12 +40,12 @@
         "value"                                           "40 55 70 85 170 340"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "AbilityChargeRestoreTime"
+      "AbilityChargeRestoreTime" //OAA
       {
-        "value"                                           "25 21 17 13 12 11"
+        "value"                                           "16 15 14 13 12 11"
         "special_bonus_unique_riki_9"                     "-4"
       }
-      "slow"                                              "0.4"
+      "slow"                                              "0.5" //OAA
     }
   }
 }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5035"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -44,7 +43,7 @@
       "buff_duration"                                     "10"
       "stun_duration"                                     "1.2"
       "ghostship_speed"                                   "650"
-      "ghostship_absorb"                                  "45"
+      "ghostship_absorb"                                  "35"
       "AbilityCooldown" //OAA
       {
         "value"                                           "65 60 55 50 45"

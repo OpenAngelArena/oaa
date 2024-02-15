@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5330"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -45,11 +44,6 @@
         "value"                                           "10 20 30 40 80 160"
         "special_bonus_unique_chen_5"                     "+24"
       }
-      "teleport_delay" //OAA
-      {
-        "value"                                           "6 5 4 3 3 3"
-        "special_bonus_unique_chen_3"                     "-2"
-      }
       "is_martyr"
       {
         "value"                                           "0"
@@ -58,7 +52,7 @@
       "creep_ability_level"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "=2"
+        "special_bonus_shard"                             "=2 =2 =2 =2 =3 =4"
       }
     }
   }

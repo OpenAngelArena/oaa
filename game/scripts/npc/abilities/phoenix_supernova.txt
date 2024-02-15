@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5630"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -40,6 +39,7 @@
       "aura_radius"
       {
         "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_per_sec"                                    "60 120 180 360 660" //OAA
       "tick_interval"                                     "0.2"
@@ -50,12 +50,12 @@
       }
       "max_hero_attacks" //OAA
       {
-        "value"                                           "6 10 14 16 18"
+        "value"                                           "6 9 12 15 18"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
       }
-      "max_hero_attacks_scepter" // OAA, max_hero_attacks + 3
+      "max_hero_attacks_scepter" // OAA, max_hero_attacks + 1
       {
-        "value"                                           "9 13 17 19 21"
+        "value"                                           "7 10 13 16 19"
         "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_1"
         "RequiresScepter"                                 "1"
       }

@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5089"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -23,7 +22,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "movespeed"                                         "-75"
-      "attackslow"                                        "-75 -75 -75 -150 -225"
+      "attackslow"                                        "-75"
       "slow_duration"                                     "5.0"
       "scepter_duration"
       {
@@ -40,7 +39,7 @@
       "scepter_attack_speed" //OAA
       {
         "value"                                           "0"
-        "special_bonus_scepter"                           "+65 70 75 80 85"
+        "special_bonus_scepter"                           "+50"
         "RequiresScepter"                                 "1"
       }
       "scepter_move_speed_pct"
@@ -57,7 +56,7 @@
       "shard_skeleton_count"
       {
         "value"                                           "1 2 3 4 5"
-        "special_bonus_shard"                             "+3"
+        "special_bonus_shard"                             "+2"
       }
       "scepter_respawn_pct" // this doesn't work in OAA
       {
@@ -68,9 +67,8 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "140 120 100 95 90"
-        "special_bonus_scepter"                           "-30"
+        "special_bonus_scepter"                           "-15"
       }
-      "scepter_cooldown_tooltip"                          "30"
     }
   }
 }

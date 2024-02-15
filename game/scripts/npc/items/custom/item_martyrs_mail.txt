@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3370"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -25,8 +24,7 @@
     "ItemRequirements"
     {
       "01"                                                "item_spiked_mail_4;item_upgrade_core_4"
-      "02"                                                "item_shivas_guard_4;item_upgrade_core_4"
-      "03"                                                "item_assault_4;item_upgrade_core_4"
+      "02"                                                "item_assault_4;item_upgrade_core_4"
     }
   }
 
@@ -37,11 +35,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3371"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/martyrs_mail.lua"
-    "AbilityTextureName"                                  "custom/martyrs_mail_4"
+    "AbilityTextureName"                                  "custom/martyrs_mail"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
@@ -52,11 +50,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34854"
+    "ItemCost"                                            "35004"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "martyr;martyrs mail"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +67,11 @@
       "bonus_attack_speed"                                "50" // like AC
 
       "martyr_duration"                                   "5.5"
-      "martyr_heal_aoe"                                   "1200"
+      "martyr_heal_aoe"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "martyr_heal_percent"                               "100"
 
       "aura_attack_speed"                                 "50" // like AC
@@ -77,9 +80,17 @@
 
       "death_heal_base"                                   "100"
       "death_heal_hp_percent"                             "50"
-      "death_vision_radius"                               "800"
+      "death_vision_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "death_effect_duration"                             "30"
-      "death_effect_radius"                               "1800"
+      "death_effect_radius"
+      {
+        "value"                                           "1800"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
 
     "precache"

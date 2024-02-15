@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_satanic"
   {
-    "ID"                                                  "155"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
@@ -27,14 +26,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "156"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/satanic"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30.0"
+    "AbilityCooldown"                                     "25" //OAA
     "AbilitySharedCooldown"                               "satanic"
     "AbilityManaCost"                                     "50" //OAA
 
@@ -50,18 +48,19 @@
     "ItemShopTags"                                        "damage;str;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "satanic"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "25 35 50 70 95"
-      "bonus_damage"                                      "20 40 70 110 160" //OAA
+      "bonus_strength"                                    "25 30 40 55 75"
+      "bonus_damage"                                      "25 35 55 85 125"
       "lifesteal_percent"                                 "30 35 40 45 50"
       "creep_lifesteal_reduction_pct"                     "40"
-      "unholy_lifesteal_percent"                          "145 140 135 130 125"
-      "unholy_lifesteal_total_tooltip"                    "175"
+      "unholy_lifesteal_percent"                          "150" //OAA
+      "unholy_lifesteal_total_tooltip"                    "180 185 190 195 200" //OAA
       "unholy_duration"                                   "6.0"
     }
   }

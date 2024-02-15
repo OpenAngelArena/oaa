@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5079"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -25,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "17 16 15 14 13 12" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,8 +35,12 @@
     "AbilityValues"
     {
       "movespeed"                                         "100"
-      "duration"                                          "1.7 2.0 2.3 2.6 2.9 3.2" //OAA
-      "damage_amp"                                        "5 10 15 20 20 20"
+      "duration"                                          "2 2.3 2.6 2.9 3.2 3.5"
+      "damage_amp"
+      {
+        "value"                                           "10 15 20 25 25 25"
+        "special_bonus_unique_shadow_shaman_hex_damage_amp"  "+10"
+      }
     }
   }
 

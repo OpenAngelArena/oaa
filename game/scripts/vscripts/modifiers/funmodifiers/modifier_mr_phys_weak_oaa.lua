@@ -1,4 +1,4 @@
--- Fate's Weakness
+-- Fate's Madness
 
 modifier_mr_phys_weak_oaa = class(ModifierBaseClass)
 
@@ -22,17 +22,25 @@ function modifier_mr_phys_weak_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
 function modifier_mr_phys_weak_oaa:GetModifierIncomingDamage_Percentage(keys)
+  if self:GetParent():IsDebuffImmune() then
+    return 0
+  end
   if keys.damage_type == DAMAGE_TYPE_PHYSICAL then
-    return 50
+    return 40
   end
 end
 
 function modifier_mr_phys_weak_oaa:GetModifierMagicalResistanceBonus()
   return 75
+end
+
+function modifier_mr_phys_weak_oaa:GetModifierAttackSpeedBonus_Constant()
+  return 120
 end
 
 function modifier_mr_phys_weak_oaa:GetEffectName()

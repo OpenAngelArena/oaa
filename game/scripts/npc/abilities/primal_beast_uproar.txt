@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "995"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -21,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "6 12 18 24 48 96"
+      "bonus_damage"                                      "5 10 15 20 40 80"
       "bonus_damage_per_stack"                            "10 15 20 25 50 100" //OAA
       "stack_limit"
       {
@@ -67,7 +66,7 @@
       }
       "projectile_damage" //OAA
       {
-        "value"                                           "70 80 90 100 150 200"
+        "value"                                           "70 80 90 100 150 250"
         "RequiresScepter"                                 "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "CalculateSpellDamageTooltip"                     "1"

@@ -7,8 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5683"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
@@ -31,7 +30,7 @@
       "duration" //OAA
       {
         "value"                                           "18 20 22 24 26"
-        "special_bonus_unique_arc_warden_6"               "+12"
+        "special_bonus_unique_arc_warden_6"               "+10"
       }
       "bounty"                                            "180 240 300 750 1500"
       "penalty_distance"

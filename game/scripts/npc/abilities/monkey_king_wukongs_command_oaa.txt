@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85725"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_wukongs_command.lua"
     "AbilityTextureName"                                  "monkey_king_wukongs_command"
@@ -30,12 +29,12 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "1.0"
-    "AbilityCastRange"                                    "550"
+    "AbilityCastRange"                                    "625"
     "AbilityCastAnimation"                                "ACT_DOTA_MK_FUR_ARMY"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110 95 80 75 70"
+    "AbilityCooldown"                                     "100 90 80 75 70"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -62,7 +61,7 @@
         "value"                                           "14 19 24 30 36"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_4_oaa"
       }
-      "attack_interval"                                   "1.2"
+      "attack_interval"                                   "1.1"
       "base_damage_percent"
       {
         "value"                                           "100"
@@ -70,15 +69,15 @@
       }
       "proc_chance"
       {
-        "value"                                           "25"
+        "value"                                           "40"
         "LinkedSpecialBonus"                              "special_bonus_unique_monkey_king_1_oaa"
       }
       "duration"                                          "13"
-      "cast_range_tooltip"                                "550"
+      "cast_range_tooltip"                                "625"
       "ring_spawn_interval"                               "0.7"
       "cooldown_scepter"
       {
-        "value"                                           "90 80 70 60 60"
+        "value"                                           "90 80 70 60 50"
         "RequiresScepter"                                 "1"
       }
       "num_first_soldiers_scepter"
@@ -103,7 +102,7 @@
       }
       "soldier_slow_duration_scepter"
       {
-        "value"                                           "0.4"
+        "value"                                           "0.5"
         "RequiresScepter"                                 "1"
       }
     }

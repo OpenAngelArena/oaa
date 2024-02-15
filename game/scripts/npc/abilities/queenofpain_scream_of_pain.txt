@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5175"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -25,7 +24,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -39,8 +38,8 @@
       "projectile_speed"                                  "900"
       "damage" //OAA
       {
-        "value"                                           "75 150 225 300 600 1200"
-        "special_bonus_unique_queen_of_pain_2"            "+220"
+        "value"                                           "90 160 230 300 600 1200"
+        "special_bonus_unique_queen_of_pain_2"            "+200"
       }
     }
   }

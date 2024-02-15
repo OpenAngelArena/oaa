@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5192"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -15,10 +14,10 @@
 
     "MaxLevel"                                            "6"
 
-    "AbilityCooldown"                                     "12" //OAA
+    "AbilityCooldown"                                     "14" //OAA
 
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "400"
+    "AbilityCastRange"                                    "450" //OAA
 
     "AbilityManaCost"                                     "50"
 
@@ -35,12 +34,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4" //OAA
+        "duration"                                        "5" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "400"
+        "radius"                                          "450" //OAA
       }
       "04"
       {
@@ -50,13 +49,13 @@
       "05" // Valve Spring Breaking
       {
         "var_type"                                        "FIELD_INTEGER"
-        "scepter_cooldown"                                "6" //OAA
+        "scepter_cooldown"                                "50"
         "RequiresScepter"                                 "1"
       }
       "05"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "scepter_fade_duration"                           "0.75"
+        "scepter_fade_duration"                           "0.5"
         "RequiresScepter"                                 "1"
       }
     }

@@ -1,10 +1,10 @@
 -- Azazel's Sustainability Elixiers
 -- by Firetoad, April 1st, 2018
+-- changed and modified by Darkonius many times
 
 --------------------------------------------------------------------------------
 
 LinkLuaModifier("modifier_elixier_sustain_active", "items/elixier_sustain.lua", LUA_MODIFIER_MOTION_NONE)
---LinkLuaModifier("modifier_elixier_sustain_trigger", "items/elixier_sustain.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -13,18 +13,16 @@ item_elixier_sustain = class(ItemBaseClass)
 function item_elixier_sustain:OnSpellStart()
   local caster = self:GetCaster()
 
+  -- Activation sound
   caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
 
-  caster:RemoveModifierByName("modifier_elixier_burst_active")
-  caster:RemoveModifierByName("modifier_elixier_burst_trigger")
-  caster:RemoveModifierByName("modifier_elixier_burst_bonus")
-  caster:RemoveModifierByName("modifier_elixier_sustain_active")
-  caster:RemoveModifierByName("modifier_elixier_sustain_trigger")
-  caster:RemoveModifierByName("modifier_elixier_hybrid_active")
-  caster:RemoveModifierByName("modifier_elixier_hybrid_trigger")
+  -- Apply a buff
+  local buff = caster:AddNewModifier(caster, self, "modifier_elixier_sustain_active", {duration = self:GetSpecialValueFor("duration")})
+  buff.regen = self:GetSpecialValueFor("bonus_hp_regen")
+  buff.hero_lifesteal = self:GetSpecialValueFor("bonus_lifesteal")
+  buff.hero_spell_lifesteal = self:GetSpecialValueFor("bonus_spell_lifesteal")
 
-  caster:AddNewModifier(caster, self, "modifier_elixier_sustain_active", {duration = self:GetSpecialValueFor("duration")})
-
+  -- Consume the item
   self:SpendCharge()
 end
 
@@ -57,42 +55,24 @@ function modifier_elixier_sustain_active:GetEffectAttachType()
 end
 
 function modifier_elixier_sustain_active:GetTexture()
-  return "custom/elixier_sustain_2"
+  return "custom/elixier_sustain"
 end
 
 function modifier_elixier_sustain_active:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.regen = ability:GetSpecialValueFor("bonus_hp_regen")
-    --self.dmg_reduction = ability:GetSpecialValueFor("bonus_dmg_reduction")
     self.hero_lifesteal = ability:GetSpecialValueFor("bonus_lifesteal")
     self.hero_spell_lifesteal = ability:GetSpecialValueFor("bonus_spell_lifesteal")
   else
-    self.regen = 50
-    self.hero_lifesteal = 50
-    self.hero_spell_lifesteal = 40
+    self.regen = self.regen or 50
+    self.hero_lifesteal = self.hero_lifesteal or 55
+    self.hero_spell_lifesteal = self.hero_spell_lifesteal or 40
   end
-    --self:SetStackCount(self.regen)
-    --self:StartIntervalThink(0.03)
 
-    self.creep_lifesteal = self.hero_lifesteal / 2
-    self.creep_spell_lifesteal = self.hero_spell_lifesteal / 5
+  self.creep_lifesteal = self.hero_lifesteal * 0.6
+  self.creep_spell_lifesteal = self.hero_spell_lifesteal / 5
 end
-
---[[
-function modifier_elixier_sustain_active:OnIntervalThink()
-  if IsServer() then
-    local caster = self:GetParent()
-    if caster:IsStunned() or caster:IsHexed() or caster:IsOutOfGame() then
-      if not caster:HasModifier("modifier_elixier_sustain_trigger") then
-        caster:AddNewModifier(caster, self:GetAbility(), "modifier_elixier_sustain_trigger", {dmg_reduction = self.dmg_reduction})
-      end
-    else
-      caster:RemoveModifierByName("modifier_elixier_sustain_trigger")
-    end
-  end
-end
-]]
 
 function modifier_elixier_sustain_active:DeclareFunctions()
   return {

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3712"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,9 +34,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3713"
     "BaseClass"                                           "item_pipe"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "AbilityTextureName"                                  "custom/pipe_of_insight_5"
 
     // Stats
@@ -52,10 +51,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "33379"
+    "ItemCost"                                            "33229"
     "ItemShopTags"                                        "regen_health;boost_magic_resist"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "pipe of insight 5;pipe 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAlertable"                                       "1"
 
@@ -63,11 +63,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "health_regen"                                      "6.0 7 8 9 10"
+      "health_regen"                                      "6 7 8 9 10"
       "magic_resistance"                                  "20 22 24 26 28"
       "barrier_debuff_duration"                           "50.0"
       "tooltip_resist"                                    "20 22 24 26 28"
-      "aura_health_regen"                                 "2.5 4 6 8 10"
+      "aura_health_regen"                                 "2.5 4.5 6.5 8.5 10.5"
       "magic_resistance_aura"                             "10 12 14 16 18"
       "aura_radius"                                       "1200"
       "barrier_block"                                     "450 550 750 1050 1450"

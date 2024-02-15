@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5026"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -21,11 +20,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100" //OAA
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "145 205 265 325 385"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -33,23 +32,23 @@
     {
       "echo_slam_damage_range" //OAA
       {
-        "value"                                           "800"
+        "value"                                           "750"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "echo_slam_echo_search_range" //OAA
       {
-        "value"                                           "800"
+        "value"                                           "750"
         "affected_by_aoe_increase"                        "1"
       }
       "echo_slam_echo_range" //OAA
       {
-        "value"                                           "800"
+        "value"                                           "750"
         "affected_by_aoe_increase"                        "1"
       }
       "echo_slam_echo_damage" //OAA
       {
-        "value"                                           "85 125 165 285 485"
+        "value"                                           "90 130 170 290 490"
         "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_2"
       }
       "echo_slam_initial_damage"                          "100 180 260 500 900" //OAA

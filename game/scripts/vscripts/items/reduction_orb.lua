@@ -2,8 +2,6 @@ LinkLuaModifier("modifier_item_reduction_orb_passive", "items/reduction_orb.lua"
 LinkLuaModifier("modifier_item_reduction_orb_active", "items/reduction_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_reduction_orb_1 = class(ItemBaseClass)
-item_reduction_orb_2 = item_reduction_orb_1
-item_reduction_orb_3 = item_reduction_orb_1
 
 function item_reduction_orb_1:GetIntrinsicModifierName()
   return "modifier_item_reduction_orb_passive"
@@ -84,7 +82,7 @@ function modifier_item_reduction_orb_active:IsPurgable()
 end
 
 function modifier_item_reduction_orb_active:OnCreated()
-  self.damageheal = 75
+  self.damageheal = 25
   self.damageReduction = 100
   self.endHeal = 0
   self:OnRefresh()
@@ -101,10 +99,11 @@ end
 function modifier_item_reduction_orb_active:OnDestroy()
   if IsServer() then
     local parent = self:GetParent()
-    local ability = self:GetAbility()
+    --local ability = self:GetAbility()
     local amountToHeal = self.endHeal
 
-    parent:Heal(amountToHeal, ability)
+    --parent:Heal(amountToHeal, ability)
+    parent:SetHealth(parent:GetHealth() + amountToHeal)
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, parent, amountToHeal, nil)
   end
 end
@@ -130,9 +129,11 @@ function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event
   end
 
   local parent = self:GetParent()
-  local damage = event.damage
+  local damage = math.max(event.original_damage, event.damage)
 
-  self.endHeal = self.endHeal + damage * self.damageheal / 100
+  if damage > 0 then
+    self.endHeal = self.endHeal + damage * self.damageheal / 100
+  end
 
   local block_amount = damage * self.damageReduction / 100
 
@@ -150,9 +151,17 @@ function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event
 end
 
 function modifier_item_reduction_orb_active:GetModifierModelScale()
-  return -40
+  return -30
+end
+
+function modifier_item_reduction_orb_active:GetStatusEffectName()
+  return "particles/status_fx/status_effect_glow_white_over_time.vpcf"
+end
+
+function modifier_item_reduction_orb_active:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 function modifier_item_reduction_orb_active:GetTexture()
-  return "custom/reduction_orb_3"
+  return "custom/reduction_orb"
 end

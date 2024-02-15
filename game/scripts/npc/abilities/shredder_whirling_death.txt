@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5524"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -27,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80"
+    "AbilityManaCost"                                     "80 85 90 95 100 105"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,17 +37,17 @@
         "value"                                           "325"
         "affected_by_aoe_increase"                        "1"
       }
-      "whirling_damage"                                   "80 120 160 200 400 800"
+      "whirling_damage"                                   "85 130 175 220 440 880"
       "tree_damage_scale"                                 "11 18 25 32 64 128"
       "whirling_tick"                                     "0.3"
       "stat_loss_pct"
       {
-        "value"                                           "10"
+        "value"                                           "13"
         "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "stat_loss_univ"
+      "stat_loss_univ" //OAA, Valve forgot about this
       {
-        "value"                                           "5"
+        "value"                                           "7"
         "special_bonus_unique_timbersaw_5"                "+1"
       }
       "duration"                                          "12 13 14 15 16 17"

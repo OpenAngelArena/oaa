@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5468"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -40,7 +39,7 @@
         "value"                                           "12"
         "special_bonus_unique_naga_siren_net_cooldown"    "-2"
       }
-      "AbilityCastRange" //OAA
+      "AbilityCastRange" //OAA, Valve has the scepter bonus wrong
       {
         "value"                                           "500 525 550 575 600 625"
         "special_bonus_scepter"                           "+60%"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5010"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -47,9 +46,17 @@
         "special_bonus_unique_axe_5"                      "+150"
       }
       "speed_bonus"                                       "20 25 30 35 40"
-      "atk_speed_bonus"                                   "20 30 40 50 60"
-      "speed_duration"                                    "6"
-      "speed_aoe"                                         "900"
+      "armor_bonus"                                       "20 25 30 35 40"
+      "speed_duration"
+      {
+        "value"                                           "6"
+        "special_bonus_unique_axe_culling_blade_speed_duration"  "+4"
+      }
+      "speed_aoe"
+      {
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
+      }
       "charge_speed"                                      "1200"
       "armor_per_stack" //OAA
       {

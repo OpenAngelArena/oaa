@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "6344"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
@@ -27,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
+    "AbilityManaCost"                                     "75 80 85 90 95 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +40,7 @@
       }
       "damage"
       {
-        "value"                                           "25 45 65 85 185 370"
+        "value"                                           "25 45 65 85 170 340"
         "LinkedSpecialBonus"                              "special_bonus_unique_pangolier_3"
         "CalculateSpellDamageTooltip"                     "0"
       }
@@ -49,12 +48,12 @@
       "attack_interval"                                   "0.1"
       "start_radius"
       {
-        "value"                                           "125"
+        "value"                                           "140"
         "affected_by_aoe_increase"                        "1"
       }
       "end_radius"
       {
-        "value"                                           "125"
+        "value"                                           "140"
         "affected_by_aoe_increase"                        "1"
       }
       "strikes"

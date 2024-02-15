@@ -9,7 +9,7 @@
     //"Ability11"                                           "special_bonus_unique_sand_king_burrowstrike_stun"
 
     //"Ability12"                                           "special_bonus_unique_sand_king_3"
-    //"Ability13"                                           "special_bonus_unique_sand_king_8"
+    "Ability13"                                           "special_bonus_unique_sand_king_1_oaa" // replaces special_bonus_unique_sand_king_8
 
     //"Ability14"                                           "special_bonus_unique_sand_king_7"
     //"Ability15"                                           "special_bonus_unique_sand_king_5"
@@ -17,15 +17,15 @@
     //"Ability16"                                           "special_bonus_unique_sand_king"
     //"Ability17"                                           "special_bonus_unique_sand_king_4"
 
-  // special_bonus_unique_sand_king - "+{s:value} Epicenter Pulses"
-  // special_bonus_unique_sand_king_2 - "+{s:value} Sand Storm DPS"
-  // special_bonus_unique_sand_king_3 - "{s:value} Sand Storm Radius"
+  // special_bonus_unique_sand_king - "+{s:bonus_epicenter_pulses} Epicenter Pulses"
+  // special_bonus_unique_sand_king_2 - "+{s:bonus_sand_storm_damage} Sand Storm DPS"
+  // special_bonus_unique_sand_king_3 - "+{s:bonus_sand_storm_move_speed} Sand Storm Movement Speed"
   // special_bonus_unique_sand_king_4 - "{s:value}% Sand Storm Slow and Blind"
-  // special_bonus_unique_sand_king_5 - "+{s:value} Epicenter Radius"
+  // special_bonus_unique_sand_king_5 - "+{s:bonus_epicenter_radius_base}/{s:bonus_epicenter_radius_increment} Base/Incremental Radius of Epicenter"
   // special_bonus_unique_sand_king_6 - "+{s:value}% Caustic Finale Slow"
   // special_bonus_unique_sand_king_7 - "-{s:value}s Burrowstrike Cooldown"
   // special_bonus_unique_sand_king_8 - "+{s:value} Caustic Finale Damage"
   // special_bonus_unique_sand_king_burrowstrike_stun - "+{s:bonus_burrow_duration}s Burrowstrike Stun"
-    // special_bonus_hp_regen_50
+  // special_bonus_unique_sand_king_1_oaa - "-{s:value}s Epicenter Cast Point" - custom talent
   }
 }

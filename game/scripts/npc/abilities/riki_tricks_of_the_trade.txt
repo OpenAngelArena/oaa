@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5145"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -25,15 +24,15 @@
 
     // Ability Data
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "55"
+    "AbilityManaCost"                                     "45 55 65 75 85 95"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "18 16 14 12 11 10"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_riki_6"                     "-3"
       }
       "radius"

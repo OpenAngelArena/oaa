@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5094"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -26,11 +25,11 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 14 13 12 12 12" //OAA
+    "AbilityCooldown"                                     "15 14 13 12 11 10" //OAA
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "110 180 250 320 640 960" //OAA
+    "AbilityDamage"                                       "110 180 250 320 640 1280" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -61,6 +60,7 @@
         "value"                                           "350" // Valve didn't apply the nerf
         "RequiresScepter"                                 "1"
       }
+      "scepter_bonus_damage"                              "30 80 130 180 280 480" //OAA
     }
   }
 }

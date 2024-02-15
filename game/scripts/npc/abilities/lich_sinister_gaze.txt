@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7325"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -28,7 +27,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "50 60 70 80 160 240"
+    "AbilityManaCost"                                     "50 60 70 80 90 100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +44,7 @@
         "special_bonus_unique_lich_2"                     "+0.4"
       }
       "destination"                                       "32 38 44 50 56 62"
-      "mana_drain"                                        "10"
+      "mana_drain"                                        "12"
       "aoe_scepter"
       {
         "special_bonus_scepter"                           "+400"

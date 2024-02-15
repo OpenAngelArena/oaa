@@ -5,18 +5,17 @@
   //=================================================================================================================
   "item_recipe_octarine_core"
   {
-    "ID"                                                  "228"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_octarine_core"
     "ItemRequirements"
     {
-      "01"                                                "item_void_stone;item_void_stone;item_soul_booster"
+      "01"                                                "item_tiara_of_selemene;item_soul_booster"
     }
   }
 
@@ -27,22 +26,20 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "235"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/octarine_core_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4600"
+    "ItemCost"                                            "4800"
     "ItemShopTags"                                        "health_pool;mana_pool;boost_mana;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mana;mb;octarine core"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_octarine_core"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -52,7 +49,7 @@
       "bonus_health"                                      "625 975 1425 1975 2625"
       "bonus_mana"                                        "625 725 875 1075 1325"
       "bonus_health_regen"                                "0"
-      "bonus_mana_regen"                                  "5 5.25 5.75 6.5 7.5"
+      "bonus_mana_regen"                                  "6 6.25 6.75 7.5 8.5"
     }
   }
 }

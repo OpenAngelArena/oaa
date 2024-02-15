@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5156"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -29,7 +28,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_range"                              "130 220 310 400 490 580"
+        "bonus_attack_range"                              "130 220 310 400 450 500"
         "LinkedSpecialBonus"                              "special_bonus_unique_sniper_6"
       }
       "02"

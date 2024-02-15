@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85618"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_arcane_orb.lua"
     "AbilityTextureName"                                  "obsidian_destroyer_arcane_orb"
@@ -33,11 +32,15 @@
     {
       "mana_pool_damage_pct"
       {
-        "value"                                           "11 12 13 14 15 16"
+        "value"                                           "10 11 12 13 14 15"
         "special_bonus_unique_outworld_devourer"          "+2"
       }
       "mana_cost_percentage"                              "20"
-      "radius"                                            "300" // splash radius
+      "radius" // splash radius
+      {
+        "value"                                           "250"
+        "affected_by_aoe_increase"                        "1"
+      }
       "splash_damage_percent"                             "40"
       "int_steal"                                         "0"
       "int_steal_duration"                                "0"

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5360"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -23,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 45 40 35 30" //OAA
+    "AbilityCooldown"                                     "50 40 30 30 30" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -41,11 +40,11 @@
       }
       "duration" //OAA
       {
-        "value"                                           "4.0 4.25 4.5 4.75 5.0"
+        "value"                                           "4.0 4.25 4.5 5.0 5.5"
       }
       "cooldown_scepter" //OAA
       {
-        "value"                                           "28 26 24 22 20"
+        "value"                                           "30 27 24 21 18"
         "RequiresScepter"                                 "1"
       }
       "aoe_radius"

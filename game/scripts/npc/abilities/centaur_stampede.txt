@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5517"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -38,7 +37,7 @@
       "base_damage"                                       "0"
       "strength_damage"
       {
-        "value"                                           "2 2.5 3 4 5"
+        "value"                                           "2 2.5 3 4 6"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow_duration"                                     "3"

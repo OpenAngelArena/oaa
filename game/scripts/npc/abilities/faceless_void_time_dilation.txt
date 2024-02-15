@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5691"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -34,7 +33,7 @@
       "slow"
       {
         "value"                                           "10"
-        "special_bonus_unique_faceless_void_8"            "+10"
+        "special_bonus_unique_faceless_void_8"            "+12"
       }
       "cooldown_percentage"                               "60"
       "base_damage"                                       "0"

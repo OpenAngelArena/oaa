@@ -1,13 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Chen: Divine Favor (OAA Rework)
+  // Chen: Test of Faith (OAA Rework)
   //=================================================================================================================
   "chen_divine_favor_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "87306"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_chen_divine_favor.lua"
     "AbilityTextureName"                                  "chen_divine_favor"
@@ -21,6 +20,8 @@
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
+
+    "LinkedAbility"                                       "chen_divine_favor"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,12 +40,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "armor"                                             "1 2 3 4 6 12" // for tooltip
-      "hp_regen"                                          "4 6 8 10 20 30" // for tooltip
-      "aura_radius"                                       "1200" // for tooltip
-
-      "damage"                                            "90 160 230 300 600 1200"
-      "shield"                                            "100 180 240 320 640 1280" // Pavise: 300
+      "damage"                                            "100 175 250 325 650 1300"
+      "shield"                                            "100 175 250 325 650 1300"
       "shield_duration"                                   "15"
       "effect_radius"
       {

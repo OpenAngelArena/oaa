@@ -257,10 +257,16 @@ if IsServer() then
       ["item_cloak_of_flames"] = true,
       ["item_trumps_fists"] = true,           -- Blade of Judecca
       ["item_trumps_fists_2"] = true,
-      ["item_silver_staff"] = true,
-      ["item_silver_staff_2"] = true,
+      --["item_silver_staff"] = true,
+      --["item_silver_staff_2"] = true,
       ["item_paintball"] = true,              -- Fae Grenade
       ["item_blood_grenade"] = true,
+      ["item_mage_slayer"] = true,
+      ["item_spell_breaker_1"] = true,
+      ["item_spell_breaker_2"] = true,
+      ["item_spell_breaker_3"] = true,
+      ["item_spell_breaker_4"] = true,
+      ["item_spell_breaker_5"] = true,
     }
 
     -- For debugging

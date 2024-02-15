@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5361"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -37,7 +36,7 @@
       "rockets_per_second"                                "10"
       "rocket_damage"
       {
-        "value"                                           "6 12 18 24 48 96"
+        "value"                                           "8 14 20 26 52 104"
         "LinkedSpecialBonus"                              "special_bonus_unique_gyrocopter_3"
       }
       "bonus_movement_speed"

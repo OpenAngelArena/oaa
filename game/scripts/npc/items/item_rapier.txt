@@ -7,14 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "132"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_farming_6"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "40000" // OAA
+    "ItemCost"                                            "30000" // OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -34,14 +33,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "133"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Model"                                               "models/props_gameplay/divine_rapier.vmdl"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "30"
-    "ItemCost"                                            "45601" // OAA
+    "ItemCorePointCost"                                   "40"
+    "ItemCost"                                            "35601" // OAA
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "divine rapier"
@@ -58,7 +56,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "2000" //OAA
+      "bonus_spell_amp"                                   "35" //OAA
+      "bonus_damage"                                      "550" //OAA
     }
   }
 }

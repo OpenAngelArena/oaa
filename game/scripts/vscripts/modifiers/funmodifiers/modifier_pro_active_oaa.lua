@@ -25,19 +25,24 @@ function modifier_pro_active_oaa:OnCreated()
     abaddon_borrowed_time_oaa = true,
     brewmaster_primal_split = true,
     dark_willow_shadow_realm = true,
-    --dazzle_good_juju = true,
+    dazzle_bad_juju = true,
     dazzle_shallow_grave = true,
     earth_spirit_petrify = true,
+    earth_spirit_rolling_boulder = true,
+    faceless_void_time_walk = true,
     meepo_petrify = true,
     obsidian_destroyer_astral_imprisonment = true,
-    oracle_fates_edict = true,
     oracle_false_promise = true,
+    oracle_fates_edict = true,
     phantom_lancer_doppelwalk = true,
     puck_phase_shift = true,
     riki_tricks_of_the_trade = true,
     shadow_demon_disruption = true,
     skeleton_king_reincarnation = true,
+    slark_shadow_dance = true,
+    terrorblade_sunder = true,
     tusk_snowball = true,
+    ursa_enrage = true,
     venomancer_plague_ward = true,
     visage_gravekeepers_cloak = true,
     visage_gravekeepers_cloak_oaa = true,
@@ -51,7 +56,7 @@ end
 
 function modifier_pro_active_oaa:CheckState()
   return {
-    [MODIFIER_STATE_PASSIVES_DISABLED] = true,
+    [MODIFIER_STATE_PASSIVES_DISABLED] = not self:GetParent():IsDebuffImmune(),
   }
 end
 

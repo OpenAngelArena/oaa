@@ -6,7 +6,6 @@
   //=================================================================================================================
   "wanderer_sticky_blood"
   {
-    "ID"                                                  "8501"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/wanderer/oaa_wanderer_sticky_blood.lua"
     "AbilityTextureName"                                  "batrider_sticky_napalm"
@@ -30,7 +29,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "damage_per_stack"                                "100"
+        "damage_per_stack"                                "90"
       }
       "02"
       {

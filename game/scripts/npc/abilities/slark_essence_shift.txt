@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5496"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
@@ -34,7 +33,7 @@
       "03"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "25 50 75 100 110 120" //OAA
+        "duration"                                        "20 40 60 80 100 120"
         "LinkedSpecialBonus"                              "special_bonus_unique_slark_4"
       }
     }

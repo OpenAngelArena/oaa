@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "88251"
     "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_immolate_damage"                           "95"
+        "bonus_immolate_damage"                           "100"
       }
       "02"
       {

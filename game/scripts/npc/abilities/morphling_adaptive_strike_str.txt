@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7000"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -49,7 +48,7 @@
       "shared_cooldown"                                   "1" //OAA
       "bonus_attributes"
       {
-        "value"                                           "3 5 7 9 13 25"
+        "value"                                           "3 5 7 9 18 27"
         "special_bonus_shard"                             "+6"
       }
     }

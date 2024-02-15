@@ -30,7 +30,7 @@ end
 
 function modifier_echo_strike_oaa:OnCreated(kv)
   self.chance = 25
-  self.cooldown = 0.5
+  self.cooldown = 0.8
   self.global = kv.isGlobal == 1
 
   if not self.global and IsServer() then
@@ -117,7 +117,7 @@ function modifier_echo_strike_cooldown_oaa:IsHidden()
 end
 
 function modifier_echo_strike_cooldown_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_echo_strike_cooldown_oaa:IsPurgable()

@@ -9,14 +9,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/dev_blink_dagger.lua"
-    "ID"                                                  "3602"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityTextureName"                                  "item_blink"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "0.0"
     "AbilityManaCost"                                     "0"
 
@@ -28,7 +26,7 @@
     "ItemAliases"                                         "blink dagger"
     "ItemPurchasable"                                     "0"
     "SideShop"                                            "0"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

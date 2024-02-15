@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7318"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -20,7 +19,7 @@
     {
       "health_steal_heroes"
       {
-        "value"                                           "6 10 14 18 36 54"
+        "value"                                           "9 12 15 18 36 54"
         "LinkedSpecialBonus"                              "special_bonus_unique_meepo_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }

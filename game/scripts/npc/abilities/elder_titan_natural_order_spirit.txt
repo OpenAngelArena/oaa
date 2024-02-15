@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5750"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -17,23 +16,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "350"
+        "value"                                           "350"
+        "special_bonus_unique_elder_titan_5"              "+100"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "armor_reduction_pct"                             "40 60 80 100 120 140"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance_pct"                            "40 60 80 100 120 140"
-      }
+      "armor_reduction_pct"                               "40 60 80 100 120 140"
+      "magic_resistance_pct"                              "40 60 80 100 120 140"
     }
   }
 }

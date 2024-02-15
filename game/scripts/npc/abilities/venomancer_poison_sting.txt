@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5179"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
@@ -26,7 +25,7 @@
       "movement_speed"
       {
         "value"                                           "-8 -10 -12 -14 -16 -18"
-        "special_bonus_unique_venomancer_2"               "-8"
+        "special_bonus_unique_venomancer_2"               "-6"
       }
       "hp_regen_reduction"
       {

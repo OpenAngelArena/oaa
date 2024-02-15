@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8007"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -21,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "21 20 19 18 16 14" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -60,12 +59,17 @@
       "max_threshold_duration"                            "2.5" // isn't this supposed to be slightly lower than buff_duration?
       "shard_bonus_damage_pct"
       {
-        "value"                                           "40"
+        "value"                                           "30"
         "RequiresShard"                                   "1"
       }
       "shard_heal_pct"
       {
-        "value"                                           "40"
+        "value"                                           "30"
+        "RequiresShard"                                   "1"
+      }
+      "shard_creep_penalty"
+      {
+        "value"                                           "0.2"
         "RequiresShard"                                   "1"
       }
     }

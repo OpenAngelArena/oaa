@@ -8,10 +8,22 @@
     //"Ability10"                                           "special_bonus_unique_bounty_hunter_5"
     "Ability11"                                           "special_bonus_unique_bounty_hunter" // replaces special_bonus_unique_bounty_hunter_4
 
-    //"Ability14"                                           "special_bonus_unique_bounty_hunter_8"
+    //"Ability12"                                           "special_bonus_unique_bounty_hunter_9"
+    "Ability13"                                           "special_bonus_unique_bounty_hunter_8" // replaces special_bonus_unique_bounty_hunter_3
+
+    "Ability14"                                           "special_bonus_cast_range_225" // replaces special_bonus_unique_bounty_hunter_8
     "Ability15"                                           "special_bonus_unique_bounty_hunter_4" // replaces special_bonus_unique_bounty_hunter
 
     //"Ability16"                                           "special_bonus_unique_bounty_hunter_7"
-    "Ability17"                                           "special_bonus_cast_range_350" // replaces special_bonus_unique_bounty_hunter_3
+    //"Ability17"                                           "special_bonus_unique_bounty_hunter_jinada_no_cooldown"
+
+    // special_bonus_cast_range_350
+    // special_bonus_unique_bounty_hunter - Jinada bonus gold steal
+    // special_bonus_unique_bounty_hunter_3 - Track bonus gold
+    // special_bonus_unique_bounty_hunter_4 - Jinada bonus damage
+    // special_bonus_unique_bounty_hunter_5 - Shuriken Toss bonus slow duration
+    // special_bonus_unique_bounty_hunter_7 - Shuriken Toss charges
+    // special_bonus_unique_bounty_hunter_8 - Track Grants Shared Vision
+    // special_bonus_unique_bounty_hunter_9 - Shadow Walk damage reduction
   }
 }

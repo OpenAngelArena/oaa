@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "118"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "650"
+    "ItemCost"                                            "1700"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_shivas_guard"
     "ItemRequirements"
     {
-      "01"                                                "item_platemail;item_mystic_staff"
+      "01"                                                "item_veil_of_discord;item_platemail"
     }
   }
 
@@ -33,22 +32,23 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "119"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" //OAA, Valve forgot
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/shivas_guard_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "27"
+    "AbilityCooldown"                                     "27 26 25 24 23"
     "AbilitySharedCooldown"                               "shivas"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100" //OAA
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "4850"
+    "ItemCost"                                            "4825"
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -59,8 +59,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "30 35 45 60 80"
-      "bonus_armor"                                       "10 12 15 19 24" //OAA
+      "bonus_intellect"                                   "6 11 16 21 26"
+      "bonus_strength"                                    "6 11 16 21 26"
+      "bonus_agility"                                     "6 11 16 21 26"
+      "bonus_hp_regen"                                    "6 9 12 15 18"
+      "bonus_armor"                                       "15 16 18 21 25" //OAA, Platemail (10); Veil of Discord (5);
       "aura_radius"                                       "1200"
       "aura_attack_speed"                                 "-45 -60 -80 -105 -135"
       "blast_damage"                                      "200 400 600 800 1000"
@@ -74,7 +77,9 @@
       "blast_speed"                                       "400"
       "hp_regen_degen_aura"                               "25"
       "illusion_multiplier_pct"                           "150"
-      "mana_cost_tooltip"                                 "100 125 150 175 200" //OAA
+      "spell_amp"                                         "15 20 25 30 35"
+      "resist_debuff_duration"                            "16.0"
+      "cooldown_tooltip"                                  "27 26 25 24 23" //OAA
     }
   }
 }

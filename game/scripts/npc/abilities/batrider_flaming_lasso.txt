@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5323"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -42,12 +41,13 @@
       "break_distance"                                    "425"
       "damage" //OAA, total damage
       {
-        "value"                                           "100 250 400 700 1300" // if they change it to dps put 45 87 130 256 465
+        "value"                                           "100 300 500 900 1700" // if they change it to dps put 45 87 130 256 465
         "CalculateSpellDamageTooltip"                     "1"
       }
       "grab_radius_scepter"
       {
-        "value"                                           "650"
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+650"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
       }

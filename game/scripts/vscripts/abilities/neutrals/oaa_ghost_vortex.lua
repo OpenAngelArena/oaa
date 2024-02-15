@@ -60,8 +60,10 @@ function modifier_vortex_oaa_thinker:OnDestroy()
     -- Stop sound loop
     self:GetParent():StopSound("Hero_Ancient_Apparition.IceVortex")
     -- Remove the particle
-    ParticleManager:DestroyParticle(self.nfx, false)
-    ParticleManager:ReleaseParticleIndex(self.nfx)
+    if self.nfx then
+      ParticleManager:DestroyParticle(self.nfx, false)
+      ParticleManager:ReleaseParticleIndex(self.nfx)
+    end
   end
 end
 

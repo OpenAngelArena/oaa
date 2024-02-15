@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7906"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -57,7 +56,7 @@
       "pulse_interval"                                    "0.5"
       "land_damage" //OAA
       {
-        "value"                                           "130 190 250 500 750"
+        "value"                                           "150 225 300 525 900"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "land_stun_duration"                                "1.4 1.6 1.8 2.0 2.2"

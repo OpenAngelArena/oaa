@@ -7,13 +7,12 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "159"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "1300"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -22,7 +21,7 @@
     "ItemResult"                                          "item_skadi"
     "ItemRequirements"
     {
-      "01"                                                "item_ultimate_orb;item_ultimate_orb;item_point_booster"
+      "01"                                                "item_ultimate_orb;item_point_booster"
     }
   }
 
@@ -33,7 +32,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "160"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/skadi_1"
 
@@ -43,6 +41,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "eos;eye of skadi;skadi"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
@@ -57,9 +56,9 @@
       "bonus_health"                                      "220 320 470 670 920"
       "bonus_mana"                                        "220 320 470 670 920"
       "cold_slow_melee"                                   "-20 -25 -30 -35 -40"
-      "cold_attack_slow_melee"                            "-30 -35 -40 -45 -50"
+      "cold_attack_slow_melee"                            "-10"
       "cold_slow_ranged"                                  "-40 -45 -50 -55 -60" //OAA
-      "cold_attack_slow_ranged"                           "-60 -65 -70 -75 -80"
+      "cold_attack_slow_ranged"                           "-20"
       "cold_duration"                                     "3.0"
       "heal_reduction"                                    "40 45 50 55 60"
     }

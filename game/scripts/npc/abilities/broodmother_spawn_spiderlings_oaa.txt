@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "85279"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_broodmother_spawn_spiderlings.lua"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
@@ -74,7 +73,7 @@
       "10"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "spiderling_max_count"                            "15"
+        "spiderling_max_count"                            "12"
       }
       "11"
       {

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5125"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -38,20 +37,20 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction" //OAA
+      "damage_reduction"
       {
-        "value"                                           "30 34 38 42 46"
+        "value"                                           "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "special_bonus_unique_vengeful_spirit_swap_damage_reduction"  "+40"
+        "special_bonus_unique_vengeful_spirit_swap_damage_reduction"  "+60"
       }
       "damage_reduction_duration"
       {
-        "value"                                           "3"
+        "value"                                           "10"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "damage"
+      "damage" //OAA
       {
-        "value"                                           "50"
+        "value"                                           "150 450 750 1350 1950"
         "special_bonus_unique_vengeful_spirit_swap_damage"  "+200"
       }
     }

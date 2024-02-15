@@ -1,13 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Witch Doctor: Voodoo Switcheroo (OAA rework)
+  // Witch Doctor: Voodoo Switcheroo (OAA rework) - shard ability
   //=================================================================================================================
   "witch_doctor_voodoo_switcheroo_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "80632"
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/oaa_witch_doctor_death_ward.lua"
     "AbilityTextureName"                                  "witch_doctor_voodoo_switcheroo"
@@ -16,7 +15,7 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // only with dispels that pierce invulnerability
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
 
@@ -49,18 +48,16 @@
     {
       "ward_damage"
       {
-        "value"                                           "60 100 140 220 300"
+        "value"                                           "65 100 135 205 345"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
       }
       "ward_attack_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
         "value"                                           "600"
         "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
       }
       "scepter_bounce_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
         "value"                                           "650"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"

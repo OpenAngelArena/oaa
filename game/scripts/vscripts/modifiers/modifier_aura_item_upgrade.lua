@@ -4,6 +4,10 @@ function modifier_aura_item_upgrade:IsHidden()
   return true
 end
 
+function modifier_aura_item_upgrade:IsDebuff()
+  return false
+end
+
 function modifier_aura_item_upgrade:IsPurgable()
   return false
 end
@@ -18,35 +22,21 @@ end
 
 if IsServer() then
   function modifier_aura_item_upgrade:OnCreated( kv )
-    local auraItems =
-    {
-      "item_greater_guardian_greaves",
-      "item_assault_",
-      "item_lucience_",
-      "item_pipe_",
-      "item_radiance_",
-      "item_shivas_guard_",
-    }
-
     local hero = self:GetParent()
-    local item
 
-    -- Only remove the item if it has aura upgrade
-    for _, value in ipairs(auraItems) do
-      if string.find(kv.ItemName, value) then
-        -- only remove the item if it is in a active slot
-        for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
-          item = hero:GetItemInSlot(i)
-          if item and item:GetName() == kv.ItemName then
-            self.ItemSlot = i
-            self.hUpgradeItem = hero:TakeItem(item)
-            self:StartIntervalThink(1)
-            return
-          end
-        end
+    -- Remove the first found item of the given name
+    -- and remove it only if it is in a active slot (not backpack or stash)
+    for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
+      local item = hero:GetItemInSlot(i)
+      if item and item:GetName() == kv.ItemName then
+        self.ItemSlot = i
+        self.hUpgradeItem = hero:TakeItem(item)
+        self:StartIntervalThink(1)
+        return
       end
     end
 
+    -- If item isn't found (which shouldn't happen) then remove the modifier
     self:Destroy()
   end
 

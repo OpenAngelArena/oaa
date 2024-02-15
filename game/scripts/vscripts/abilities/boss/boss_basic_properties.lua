@@ -185,14 +185,16 @@ if IsServer() then
 
     -- Reduce the damage of some percentage damage spells
     local percentDamageSpells = {
-      anti_mage_mana_void = true,
-      bloodseeker_bloodrage = true,           -- doesn't work on vanilla Roshan
+      anti_mage_mana_void = false,
+      bloodseeker_blood_mist = true,          -- doesn't work on vanilla Roshan
       doom_bringer_infernal_blade = true,     -- doesn't work on vanilla Roshan
       huskar_life_break = true,               -- doesn't work on vanilla Roshan
       jakiro_liquid_ice = false,
       necrolyte_reapers_scythe = true,        -- doesn't work on vanilla Roshan
       phantom_assassin_fan_of_knives = false,
-      winter_wyvern_arctic_burn = true        -- doesn't work on vanilla Roshan
+      venomancer_noxious_plague = false,
+      winter_wyvern_arctic_burn = true,       -- doesn't work on vanilla Roshan
+      zuus_arc_lightning = false,
     }
     local name = inflictor:GetAbilityName()
     if percentDamageSpells[name] then
@@ -200,34 +202,17 @@ if IsServer() then
     end
 
     -- Spells that do bonus damage to bosses
-    if name == "pugna_nether_blast" then -- Pugna Nether Blast
+    local bonusBossDamageSpells = {
+      death_prophet_exorcism = true, -- Death Prophet Exorcism
+      ice_shaman_incendiary_bomb = true, -- Ice Shaman neutral creep Icefire Bomb
+      jakiro_liquid_fire = true, -- Jakiro Liquid Fire
+      pugna_nether_blast = true, -- Pugna Nether Blast
+      shredder_flamethrower = true, -- Timbersaw Flamethrower
+    }
+    if bonusBossDamageSpells[name] then
       local ability = attacker:FindAbilityByName(name)
       if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("structure_damage_mod")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
-        end
-      end
-    elseif name == "shredder_flamethrower" then -- Timbersaw Flamethrower bonus damage
-      local ability = attacker:FindAbilityByName(name)
-      if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
-        end
-      end
-    elseif name == "jakiro_liquid_fire" then -- Jakiro Liquid Fire bonus damage
-      local ability = attacker:FindAbilityByName(name)
-      if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("building_dmg_pct")
-        if damage_increase_pct and damage_increase_pct > 0 then
-          return damage_increase_pct
-        end
-      end
-    elseif name == "ice_shaman_incendiary_bomb" then -- Ice Shaman neutral creep Icefire Bomb bonus damage
-      local ability = attacker:FindAbilityByName(name)
-      if ability then
-        local damage_increase_pct = ability:GetSpecialValueFor("building_damage_pct")
+        local damage_increase_pct = math.max(ability:GetSpecialValueFor("building_dmg_pct"), ability:GetSpecialValueFor("building_damage_pct"), ability:GetSpecialValueFor("structure_damage_mod"))
         if damage_increase_pct and damage_increase_pct > 0 then
           return damage_increase_pct
         end

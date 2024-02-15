@@ -120,7 +120,7 @@ function modifier_chen_divine_favor_shield_oaa:OnCreated()
     self.max_shield_hp = ability:GetSpecialValueFor("shield")
   end
   if IsServer() then
-    self:SetStackCount(self.max_shield_hp)
+    self:SetStackCount(0 - self.max_shield_hp)
   end
 end
 
@@ -137,18 +137,18 @@ function modifier_chen_divine_favor_shield_oaa:GetModifierIncomingPhysicalDamage
     if event.report_max then
       return self.max_shield_hp
     else
-      return self:GetStackCount() -- current shield hp
+      return math.abs(self:GetStackCount()) -- current shield hp
     end
   else
     local parent = self:GetParent()
     local damage = event.damage
-    local barrier_hp = self:GetStackCount()
+    local barrier_hp = math.abs(self:GetStackCount())
 
     -- Don't block more than remaining hp
     local block_amount = math.min(damage, barrier_hp)
 
-    -- Reduce barrier hp
-    self:SetStackCount(barrier_hp - block_amount)
+    -- Reduce barrier hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - barrier_hp)
 
     if block_amount > 0 then
       -- Visual effect
@@ -156,7 +156,7 @@ function modifier_chen_divine_favor_shield_oaa:GetModifierIncomingPhysicalDamage
     end
 
     -- Remove the barrier if hp is reduced to nothing
-    if self:GetStackCount() <= 0 then
+    if self:GetStackCount() >= 0 then
       self:Destroy()
     end
 

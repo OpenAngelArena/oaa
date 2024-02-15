@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5158"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
@@ -25,11 +24,11 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "90 160 230 300 600 1200" //OAA
+    "AbilityDamage"                                       "100 160 220 280 560 1120"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 120 140 160 180 200"
+    "AbilityManaCost"                                     "115 130 145 160 190 210"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -40,9 +39,9 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "heal" //OAA
+      "heal"
       {
-        "value"                                           "55 110 165 220 440 660"
+        "value"                                           "55 80 105 130 260 520"
         "LinkedSpecialBonus"                              "special_bonus_unique_necrophos_4"
       }
       "projectile_speed"                                  "400"

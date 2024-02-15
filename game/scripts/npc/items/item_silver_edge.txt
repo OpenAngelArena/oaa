@@ -5,18 +5,17 @@
   //=================================================================================================================
   "item_recipe_silver_edge"
   {
-    "ID"                                                  "248"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     //"AbilityTextureName"                                  "custom/recipe/recipe_1"
 
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "250"
     "ItemShopTags"                                        ""
 
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_silver_edge"
     "ItemRequirements" //OAA
     {
-      "01"                                                "item_invis_sword;item_lesser_crit"
+      "01"                                                "item_invis_sword;item_demon_edge"
     }
   }
 
@@ -27,8 +26,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "249"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL" //OAA, Valve forgot
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
     "AbilityTextureName"                                  "custom/silver_edge_1"
 
     // Stats
@@ -49,25 +49,24 @@
     "ItemShopTags"                                        "damage;attack_speed;crit;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sb;invis;shadow blade;silver edge"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "52 62 82 112 152" // Shadow Blade (20) + Crystalys (32)
-      "bonus_attack_speed"                                "35 45 55 65 75" // Shadow Blade (35)
+      "bonus_damage"                                      "60 70 90 120 160" // Shadow Blade (20) + Demon Edge (40)
+      "bonus_attack_speed"                                "35 40 45 50 55" // Shadow Blade (35)
       "bonus_strength"                                    "0"
       "bonus_intellect"                                   "0"
       "bonus_mana_regen"                                  "0"
       "windwalk_duration"                                 "10.0" // OAA
       "windwalk_movement_speed"                           "25 30 35 40 45"
       "windwalk_fade_time"                                "0.3"
-      "windwalk_bonus_damage"                             "175 275 375 475 575"
-      "backstab_duration"                                 "4"
-      "crit_chance"                                       "30"
-      "crit_multiplier"                                   "160 180 200 220 240" // Crystalys (160)
-      "tooltip_crit_damage"                               "60 80 100 120 140" // crit_multiplier - 100
+      "windwalk_bonus_damage"                             "300 400 500 600 700"
+      "backstab_duration"                                 "5"
+      "visibility_radius"                                 "1025"
     }
   }
 }

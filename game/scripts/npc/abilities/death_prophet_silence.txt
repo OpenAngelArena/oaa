@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5091"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -24,7 +23,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "15 14 13 12 11 11"
-    "AbilityDuration"                                     "3 4 5 6 6.5 7"
+    "AbilityDuration"                                     "3.5 4.0 4.5 5.0 5.5 6.0" //OAA, Valve has it wrong
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -39,8 +38,13 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                                          "3.0 4.0 5.0 6.0 6.5 7.0"
+      "duration"                                          "3.5 4.0 4.5 5.0 5.5 6.0"
       "projectile_speed"                                  "1200"
+      "movement_slow"
+      {
+        "value"                                           "10 15 20 25 30 35"
+        "special_bonus_unique_death_prophet_silence_slow"  "+15"
+      }
     }
   }
 }

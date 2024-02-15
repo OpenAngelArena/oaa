@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5509"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -36,12 +35,10 @@
       "axe_speed"
       {
         "value"                                           "1500.0"
-        "affected_by_aoe_increase"                        "1"
       }
       "axe_range"
       {
         "value"                                           "950.0"
-        "affected_by_aoe_increase"                        "1"
       }
       "axe_damage" //OAA
       {
@@ -50,7 +47,7 @@
       }
       "axe_slow_duration"
       {
-        "value"                                           "2.5 3 3.5 4 4.5 5"
+        "value"                                           "2.5 3 3.5 4 4 4"
         "special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"  "+2"
       }
       "movement_speed"                                    "40"

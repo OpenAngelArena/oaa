@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5411"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -27,7 +26,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "220"
+        "radius"                                          "400" //OAA
       }
     }
   }

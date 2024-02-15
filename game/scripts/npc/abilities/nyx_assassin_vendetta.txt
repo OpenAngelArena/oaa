@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5465"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
@@ -35,7 +34,8 @@
       "movement_speed"                                    "16 18 20 22 24"
       "bonus_damage" //OAA
       {
-        "value"                                           "300 500 700 1300 2300"
+        "value"                                           "300 500 700 1300 1900"
+        "special_bonus_unique_nyx_vendetta_damage"        "+75"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "health_regen_rate_scepter"                         "3"

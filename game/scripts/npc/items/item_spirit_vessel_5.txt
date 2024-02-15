@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3500"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -35,13 +34,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3501"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
     "AbilityTextureName"                                  "custom/spirit_vessel_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityCastRange"                                    "750 850 950 1050 1150"
     "AbilityCooldown"                                     "7.0"
@@ -66,11 +66,11 @@
     {
       "bonus_health"                                      "250 500 1000 1750 2750"
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "12 17 22 27 32"
+      "bonus_all_stats"                                   "7 12 17 22 27"
       "bonus_armor"                                       "2 3 5 8 12"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"
-      "soul_heal_amount"                                  "50 65 90 125 170"
+      "soul_heal_amount"                                  "45 60 85 120 165"
       "soul_damage_amount"                                "35 45 65 95 135"
       "duration"                                          "8.0"
       "heal_reduction_with_charge"                        "45 50 55 60 65"

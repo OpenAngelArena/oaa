@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5844"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "BaseClass"                                           "riki_permanent_invisibility"
     "MaxLevel"                                            "1"
@@ -20,7 +19,12 @@
       "01"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "fade_delay"                                      "0.5"
+        "fade_delay"                                      "0.5" //OAA
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "movement_speed"                                  "0" //OAA
       }
     }
   }

@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5605"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -17,7 +16,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "450" // OAA, same as radius
+    "AbilityCastRange"                                    "500" // OAA, same as radius
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -35,22 +34,23 @@
       "duration"                                          "20" //OAA
       "radius"
       {
-        "value"                                           "450"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "absorb_amount" //OAA
       {
         "value"                                           "95 230 365 500 1000 2000"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_1"
+        "special_bonus_unique_ember_spirit_1"             "+500"
       }
       "tick_interval"                                     "0.2"
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
         "value"                                           "25 35 45 55 110 220"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_3"
+        "special_bonus_unique_ember_spirit_3"             "+100"
       }
       "blind_pct"                                         "50" // unused
       "shield_pct_absorb"                                 "70"
+      "linger_duration"                                   "0.5"
     }
   }
 }

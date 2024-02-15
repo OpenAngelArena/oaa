@@ -7,7 +7,6 @@
   // {
     // // General
     // //-------------------------------------------------------------------------------------------------------------
-    // "ID"                                    "7553"
     // "BaseClass"                             "item_datadriven"
     // "AbilityTextureName"                    "custom/recipe/recipe_3"
     // "Model"                                 "models/props_gameplay/recipe.vmdl"
@@ -36,37 +35,35 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "7554"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/elixier_hybrid.lua"
     "AbilityTextureName"                                  "custom/elixier_hybrid_4"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "0"
-    "AbilityCastPoint"                                    "0.0"
     "AbilitySharedCooldown"                               "elixier"
     "AbilityCooldown"                                     "1.0"
     "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "8"
+    "ItemCorePointCost"                                   "10"
     "ItemCost"                                            "1"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShopTags"                                        "consumable"
     "ItemQuality"                                         "epic"
-    "ItemAliases"                                         "elixier, elixir, hybrid"
+    "ItemAliases"                                         "hybrid; hybrid elixier; hybrid elixir"
     "ItemStackable"                                       "0"
     "ItemPermanent"                                       "0"
     "ItemInitialCharges"                                  "1"
     "ItemRequiresCharges"                                 "1"
     "ItemKillable"                                        "1"
     "ItemPurchasable"                                     "1"
-    "ItemSellable"                                        "0"
+
     "SecretShop"                                          "1"
-    "SecretShopType"                                      "Elixirs"
     "IsTempestDoubleClonable"                             "0"
 
     // Precache
@@ -79,28 +76,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_mana_regen"                                "10"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_magic_damage"                              "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_physical_damage"                           "300"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_duration"                                  "180"
-      }
+      "bonus_mana_regen"                                  "10"
+      "bonus_magic_damage"                                "200"
+      "bonus_physical_damage"                             "300"
+      "duration"                                          "180"
     }
   }
 }

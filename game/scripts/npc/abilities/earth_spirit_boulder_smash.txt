@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5608"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -45,10 +44,10 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "rock_damage"
+      "rock_damage" //OAA
       {
         "value"                                           "120 180 240 300 600 1200"
-        "special_bonus_unique_earth_spirit_6"             "+125"
+        "special_bonus_unique_earth_spirit_6"             "+200"
       }
       "move_slow"                                         "50"
       "duration"                                          "1.25 2.5 3.25 4 4.75 5.5"
@@ -63,7 +62,11 @@
         "value"                                           "2000.0"
         "LinkedSpecialBonus"                              "special_bonus_unique_earth_spirit_7"
       }
-      "remnant_smash_radius_tooltip"                      "200"
+      "remnant_smash_radius_tooltip"
+      {
+        "value"                                           "200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "creep_multiplier"                                  "1.4"
     }
   }

@@ -114,10 +114,6 @@ function modifier_sohei_palm_of_life_movement:IsPurgable()
 	return false
 end
 
-function modifier_sohei_palm_of_life_movement:IsStunDebuff()
-	return false
-end
-
 function modifier_sohei_palm_of_life_movement:GetPriority()
 	return DOTA_MOTION_CONTROLLER_PRIORITY_MEDIUM
 end

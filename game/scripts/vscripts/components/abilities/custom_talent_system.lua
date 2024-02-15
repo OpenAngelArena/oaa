@@ -26,12 +26,20 @@ end
   -- kv_name_2 = {"custom_talent_name", "type"},
   -- ...
 -- },
--- type can be: +, *, x, /, %
+-- kv_name can't be AbilityDamage or #AbilityDamage, it doesn't work for that
+-- type can be: +, -, *, x, /, %
 -- * and x are the same -  muliplies the base value with the talent value
 -- / - can be used for dividing cooldowns, intervals etc.
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
+  death_prophet_spirit_siphon = {
+    damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
+    AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
+  },
+  dragon_knight_breathe_fire = {
+    damage = {"special_bonus_unique_dragon_knight_1_oaa", "+"},
+  },
   faceless_void_chronosphere = {
     AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
@@ -61,12 +69,19 @@ local abilities_with_custom_talents = {
   },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
+    duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
+  },
+  sandking_epicenter = {
+    AbilityCastPoint = {"special_bonus_unique_sand_king_1_oaa", "+"},
   },
   silencer_last_word = {
     damage = {"special_bonus_unique_silencer_2_oaa", "+"},
   },
   skywrath_mage_arcane_bolt = {
     bolt_damage = {"special_bonus_unique_skywrath_1_oaa", "+"},
+  },
+  sniper_take_aim = {
+    active_attack_range_bonus = {"special_bonus_unique_sniper_6_oaa", "+"},
   },
   spectre_haunt = {
     illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
@@ -84,6 +99,9 @@ local abilities_with_custom_talents = {
   },
   winter_wyvern_cold_embrace = {
     heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
+  },
+  zuus_thundergods_wrath = {
+    AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},
   },
 }
 
@@ -123,7 +141,7 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecial(keys)
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
     local custom_talent = parent:FindAbilityByName(v[1])
-    if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
+    if keys.ability_special_value == k and custom_talent and custom_talent:GetLevel() > 0 then
       return 1
     end
   end
@@ -142,11 +160,13 @@ function modifier_talent_tracker_oaa:GetModifierOverrideAbilitySpecialValue(keys
   local keyvalues_to_upgrade = abilities_with_custom_talents[keys.ability:GetAbilityName()]
   for k, v in pairs(keyvalues_to_upgrade) do
     local custom_talent = parent:FindAbilityByName(v[1])
-    if string.find(keys.ability_special_value, k) and custom_talent and custom_talent:GetLevel() > 0 then
+    if keys.ability_special_value == k and custom_talent and custom_talent:GetLevel() > 0 then
       local talent_type = v[2]
       local talent_value = custom_talent:GetSpecialValueFor("value")
       if talent_type == "+" then
         return value + talent_value
+      elseif talent_type == "-" then
+        return value - talent_value
       elseif talent_type == "x" or talent_type == "*" then
         return value * talent_value
       elseif talent_type == "/" and talent_value ~= 0 then

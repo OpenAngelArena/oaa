@@ -5,7 +5,6 @@
   //=================================================================================================================
   "item_recipe_sonic_2"
   {
-    "ID"                                                  "8515"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -25,17 +24,15 @@
   //=================================================================================================================
   "item_sonic_2"
   {
-    "ID"                                                  "8516"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sonic.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/sonic_3"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityManaCost"                                     "0"
+    "AbilityManaCost"                                     "50"
     "AbilityCooldown"                                     "16"
     "AbilitySharedCooldown"                               "sonic"
-    "AbilityCastPoint"                                    "0.0"
 
     "MaxUpgradeLevel"                                     "2"
     "ItemBaseLevel"                                       "2"
@@ -45,35 +42,17 @@
     "ItemShopTags"                                        "agi;attack_speed;move_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sonic"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_movement_speed"                            "75 80"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "40 45"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "70 95"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_speed_bonus"                              "35 40"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "6.0"
-      }
+      "bonus_movement_speed"                              "75 80"
+      "bonus_attack_speed"                                "40 45"
+      "bonus_agility"                                     "55 75"
+      "active_speed_bonus"                                "35 40"
+      "active_cast_speed"                                 "25 30"
+      "duration"                                          "6"
     }
   }
 }

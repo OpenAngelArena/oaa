@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5027"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     "MaxLevel"                                            "6"
@@ -17,7 +16,11 @@
     "AbilityValues"
     {
       "blade_dance_crit_chance"                           "20 25 30 35 40 45"
-      "blade_dance_crit_mult"                             "190"
+      "blade_dance_crit_mult"
+      {
+        "value"                                           "190"
+        "special_bonus_unique_juggernaut_4"               "+10"
+      }
       "blade_dance_lifesteal"
       {
         "value"                                           "0"

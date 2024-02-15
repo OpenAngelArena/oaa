@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8555"
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
     "AbilityTextureName"                                  "custom/recipe/recipe_5"
@@ -36,7 +35,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "8556"
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/ghost_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
@@ -45,7 +43,6 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "0"
     "AbilityCooldown"                                     "13"
     "AbilitySharedCooldown"                               "ethereal"
@@ -59,7 +56,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34154"
+    "ItemCost"                                            "34279"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -73,13 +70,17 @@
       "bonus_health"                                      "0"
       "bonus_mana"                                        "0"
       "bonus_all_stats"                                   "15 20 25 30 35"
-      "heal_amp"                                          "35 40 45 50 55"
+      "heal_amp"                                          "30 35 40 45 50"
       "aura_health_regen"                                 "3 6 9 12 15"
       "aura_radius"                                       "1200"
       "duration"                                          "4.0 4.25 4.5 4.75 5.0"
       "ethereal_damage_bonus"                             "-40 -30 -20 -10 0"
-      "active_restore_per_charge"                         "15 25 35 45 55"
-      "active_radius"                                     "1200"
+      "active_restore_per_charge"                         "17 27 37 47 57"
+      "active_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "max_charges"                                       "25"
       "charge_radius"                                     "1200"
       "buff_magic_resistance"                             "15 17 19 21 23"

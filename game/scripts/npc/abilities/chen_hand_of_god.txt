@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5331"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
@@ -35,7 +34,7 @@
     {
       "heal_amount" //OAA
       {
-        "value"                                           "200 400 600 1200 2200"
+        "value"                                           "150 350 550 1150 2150"
         "special_bonus_unique_chen_2"                     "+400"
       }
       "hot_duration"                                      "8"

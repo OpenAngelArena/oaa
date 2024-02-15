@@ -7,7 +7,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5359"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
@@ -29,7 +28,7 @@
       "bonus_reset_time_roshan"                           "10"
       "damage_per_stack"
       {
-        "value"                                           "10 19 28 37 55 73"
+        "value"                                           "13 21 29 37 53 69"
         "LinkedSpecialBonus"                              "special_bonus_unique_ursa"
       }
       "stun_stack_count"

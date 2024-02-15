@@ -4,7 +4,6 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "5110"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -34,17 +33,17 @@
       {
         "value"                                           "85 110 135 160 320 480"
       }
-      "radius"        
+      "radius"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "jump_count"                                        "5 7 9 11 13 15" //OAA
       "jump_delay"                                        "0.25"
-      "damage_health_pct" //OAA, unnerf if shard change
+      "damage_health_pct"
       {
-        "value"                                           "3 4 5 6 6 6"
-        "special_bonus_unique_zeus_2"                     "+2"
+        "value"                                           "3 4 5 6 7 8"
+        "special_bonus_unique_zeus_2"                     "+6"
       }
     }
   }
