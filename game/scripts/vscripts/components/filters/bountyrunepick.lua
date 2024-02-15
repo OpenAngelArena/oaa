@@ -92,10 +92,8 @@ function BountyRunePick:Filter(filter_table)
 
     if hero then
       if xp_reward > 0 then
-        -- Normal XP reward
-        hero:AddExperience(xp_reward, DOTA_ModifyXP_Unspecified, false, true)
-        -- XP reward bonuses
-        local bonus_xp = 0 -- bonus experience from bounty runes
+        -- Calculate bonus xp rewards
+        local bonus_xp = 0
 
         -- Check for XP spark
         local xp_spark = hero:FindModifierByName("modifier_spark_xp")
@@ -106,13 +104,11 @@ function BountyRunePick:Filter(filter_table)
           end
         end
 
-        hero:AddExperience(bonus_xp, DOTA_ModifyXP_Unspecified, false, true)
-        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, xp_reward + bonus_xp, nil)
+        hero:AddExperience(bonus_xp + xp_reward, DOTA_ModifyXP_Unspecified, false, true)
+        SendOverheadEventMessage(player, OVERHEAD_ALERT_XP, hero, bonus_xp + xp_reward, nil)
       end
       if gold_reward > 0 then
-        -- Normal gold reward
-        -- Gold:ModifyGold(playerid, gold_reward, true, DOTA_ModifyGold_BountyRune)
-        -- Gold reward bonuses
+        -- Calculate bonus gold rewards
         local bonus_gold = 0
 
         -- Check for Alchemist Greevil's Greed bounty rune gold multiplier
@@ -136,6 +132,7 @@ function BountyRunePick:Filter(filter_table)
           end
         end
 
+        -- if filter_table.gold_bounty doesn't work change 'bonus_gold` to 'bonus_gold + gold_reward'
         Gold:ModifyGold(playerid, bonus_gold, true, DOTA_ModifyGold_BountyRune)
         SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, hero, gold_reward + bonus_gold, nil)
       end
