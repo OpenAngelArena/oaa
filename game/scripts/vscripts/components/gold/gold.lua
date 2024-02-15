@@ -14,7 +14,7 @@ if Gold == nil then
   Gold = class({})
 end
 
-local GOLD_CAP = 99999
+local GOLD_CAP = 90000
 local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
 local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
 
@@ -83,27 +83,24 @@ end
 ]]
 function Gold:Think()
   foreach(function(i)
-    if PlayerResource:IsValidPlayerID(i) and PlayerResource:IsValidPlayer(i) then
-      local gameState = GameRules:State_Get()
-      if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    local gameState = GameRules:State_Get()
+    if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
+      local currentGold = Gold:GetGold(i)
+      local currentDotaGold = PlayerResource:GetGold(i)
 
-        local currentGold = Gold:GetGold(i)
-        local currentDotaGold = PlayerResource:GetGold(i)
+      local newGold
+      if currentGold > GOLD_CAP then
+        newGold = currentGold + currentDotaGold - GOLD_CAP
+      else
+        newGold = currentDotaGold
+      end
 
-        local newGold
-        if currentGold > GOLD_CAP then
-          newGold = currentGold + currentDotaGold - GOLD_CAP
-        else
-          newGold = currentDotaGold
-        end
+      local newDotaGold = math.min(newGold, GOLD_CAP)
 
-        local newDotaGold = math.min(newGold, GOLD_CAP)
-
-        if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
-          Gold:SetGold(i, newGold)
-          PlayerResource:SetGold(i, newDotaGold, false)
-          PlayerResource:SetGold(i, 0, true)
-        end
+      if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
+        Gold:SetGold(i, newGold)
+        PlayerResource:SetGold(i, newDotaGold, false)
+        PlayerResource:SetGold(i, 0, true)
       end
     end
   end, PlayerResource:GetAllTeamPlayerIDs())
@@ -175,9 +172,9 @@ function Gold.HeroSpawn(hero)
 end
 -- exponential gpm increase
 function Gold:PassiveGPM(hero)
-  local time = HudTimer:GetGameTime()
-  if time and self:IsGoldGenActive() then
-    local tick =  math.floor(time/GPM_TICK_INTERVAL)
+  local current_time = HudTimer:GetGameTime()
+  if current_time and self:IsGoldGenActive() then
+    local tick =  math.floor(current_time/GPM_TICK_INTERVAL)
     local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
     if HeroSelection.is10v10 then
       gold_per_tick = math.floor(gold_per_tick * 1.5)
@@ -186,16 +183,16 @@ function Gold:PassiveGPM(hero)
   end
 end
 
--- used to determine whether or not gold generation from farming boots should occur
+-- used to determine whether or not gold generation from sparks should occur
 function Gold:IsGoldGenActive()
   return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
 end
 
-function Gold:GoldFilter(filter_table)
-  local gold = filter_table.gold
-  local playerID = filter_table.player_id_const
-  local reason = filter_table.reason_const
-  local reliable = filter_table.reliable == 1
+-- function Gold:GoldFilter(filter_table)
+  -- local gold = filter_table.gold
+  -- local playerID = filter_table.player_id_const
+  -- local reason = filter_table.reason_const
+  -- local reliable = filter_table.reliable == 1
 
   -- Reasons:
   -- DOTA_ModifyGold_Unspecified = 0
@@ -222,8 +219,8 @@ function Gold:GoldFilter(filter_table)
   -- DOTA_ModifyGold_CourierKilledByThisPlayer = 21
 
   -- This filter seems so useless lmao
-  return true
-end
+  -- return true
+-- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -235,6 +232,10 @@ end
 
 function modifier_oaa_passive_gpm:IsHidden()
   return true
+end
+
+function modifier_oaa_passive_gpm:IsDebuff()
+  return false
 end
 
 function modifier_oaa_passive_gpm:IsPurgable()
