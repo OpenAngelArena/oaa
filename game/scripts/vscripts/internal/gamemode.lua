@@ -21,8 +21,6 @@ function GameMode:_InitGameMode()
     GameRules:SetUseCustomHeroXPValues(true)
     -- Start custom XP system
 	end
-  GameRules:SetGoldPerTick(GOLD_PER_TICK)
-  GameRules:SetGoldTickTime(GOLD_TICK_TIME)
 
   GameRules:SetUseBaseGoldBountyOnHeroes(USE_STANDARD_HERO_GOLD_BOUNTY)
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )

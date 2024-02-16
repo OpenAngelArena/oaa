@@ -14,13 +14,17 @@ if Gold == nil then
   Gold = class({})
 end
 
-local GOLD_CAP = 99999
+local GOLD_CAP = 90000
 local GPM_TICK_INTERVAL = GOLD_TICK_TIME or 1  -- GOLD_TICK_TIME is located in settings.lua
 local GOLD_PER_INTERVAL = GOLD_PER_TICK or 1   -- GOLD_PER_TICK is located in settings.lua
 
 function Gold:Init()
   self.moduleName = "Gold"
-  -- a table for every player
+
+  --GameRules:SetGoldPerTick(GOLD_PER_TICK) -- GameRules:SetGoldPerTick doesn't work since 7.23
+  --GameRules:SetGoldTickTime(GOLD_TICK_TIME)
+
+  -- Create a table for every player
   PlayerTables:CreateTable('gold', {
     gold = {}
   }, totable(PlayerResource:GetAllTeamPlayerIDs()))
@@ -32,6 +36,7 @@ function Gold:Init()
   -- Set Bonus Passive GPM for each hero; vanilla gpm is always active (since patch 7.23 vanilla gpm is tied to couriers, while they shouldn't be)
   self.hasPassiveGPM = {}
   GameEvents:OnHeroInGame(Gold.HeroSpawn)
+  --FilterManager:AddFilter(FilterManager.ModifyGold, self, Dynamic_Wrap(Gold, "GoldFilter"))
 end
 
 function Gold:GetState ()
@@ -58,19 +63,9 @@ end
 function Gold:UpdatePlayerGold(unitvar, newGold)
   local playerID = UnitVarToPlayerID(unitvar)
   if playerID and playerID > -1 then
-    -- get full tree,
-    --[[local allgold = PlayerTables:GetTableValue("gold", "gold")
-    allgold[playerID] = PLAYER_GOLD[playerID].SavedGold
-
+    local allgold = PlayerTables:GetTableValue("gold", "gold")
+    allgold[playerID] = newGold
     PlayerTables:SetTableValue("gold", "gold", allgold)
-
-    local player = PlayerResource:GetPlayer(playerID)
-    CustomGameEventManager:Send_ServerToAllClients("oaa_update_gold", {
-      gold = allgold
-    })]]--
-    local tableGold = PlayerTables:GetTableValue("gold", "gold")
-    tableGold[playerID] = newGold
-    PlayerTables:SetTableValue("gold", "gold", tableGold)
 
     newGold = math.min(GOLD_CAP, newGold)
     PlayerResource:SetGold(playerID, newGold, false)
@@ -88,92 +83,74 @@ end
 ]]
 function Gold:Think()
   foreach(function(i)
-    if PlayerResource:IsValidPlayerID(i) then
-      local gameState = GameRules:State_Get()
-      if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
+    local gameState = GameRules:State_Get()
+    if gameState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS or gameState == DOTA_GAMERULES_STATE_PRE_GAME then
+      local currentGold = Gold:GetGold(i)
+      local currentDotaGold = PlayerResource:GetGold(i)
 
-        local currentGold = Gold:GetGold(i)
-        local currentDotaGold = PlayerResource:GetGold(i)
+      local newGold
+      if currentGold > GOLD_CAP then
+        newGold = currentGold + currentDotaGold - GOLD_CAP
+      else
+        newGold = currentDotaGold
+      end
 
-        local newGold = currentGold
-        local newDotaGold = currentDotaGold
+      local newDotaGold = math.min(newGold, GOLD_CAP)
 
-        if currentGold > GOLD_CAP then
-          newGold = currentGold + currentDotaGold - GOLD_CAP
-        else
-          newGold = currentDotaGold
-        end
-
-        if newGold > GOLD_CAP then
-          newDotaGold = GOLD_CAP
-        else
-          newDotaGold = newGold
-        end
-
-        if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
-          Gold:SetGold(i, newGold)
-          PlayerResource:SetGold(i, newDotaGold, false)
-          PlayerResource:SetGold(i, 0, true)
-        end
+      if newGold ~= currentGold or newDotaGold ~= currentDotaGold then
+        Gold:SetGold(i, newGold)
+        PlayerResource:SetGold(i, newDotaGold, false)
+        PlayerResource:SetGold(i, 0, true)
       end
     end
   end, PlayerResource:GetAllTeamPlayerIDs())
   return 0.2
 end
 
-
 function Gold:ClearGold(unitvar)
-  Gold:SetGold(unitvar, 0)
+  self:SetGold(unitvar, 0)
 end
 
 function Gold:SetGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  --PLAYER_GOLD[playerID].SavedGold = math.floor(gold)
   local newGold = math.floor(gold)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 -- bReliable and iReason don't do anything
 function Gold:ModifyGold(unitvar, gold, bReliable, iReason)
   if gold > 0 then
-    Gold:AddGold(unitvar, gold)
+    self:AddGold(unitvar, gold)
   elseif gold < 0 then
-    Gold:RemoveGold(unitvar, -gold)
+    self:RemoveGold(unitvar, -gold)
   end
 end
 
 function Gold:RemoveGold(unitvar, gold)
   local playerID = UnitVarToPlayerID(unitvar)
-  self:Think()
-  --  PLAYER_GOLD[playerID].SavedGold = math.max((PLAYER_GOLD[playerID].SavedGold or 0) - math.ceil(gold), 0)
-  local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  self:Think() -- why?
+  local oldGold = self:GetGold(playerID)
   local newGold = math.max((oldGold or 0) - math.ceil(gold), 0)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGold(unitvar, gold)
-  --[[DebugPrint("[Gold] AddGold")
-  DebugPrint("arg.unitvar: " .. unitvar)
-  DebugPrint("arg.gold: " .. gold)
-  DebugPrintTable(PLAYER_GOLD)]]
   local playerID = UnitVarToPlayerID(unitvar)
-  self:Think()
-  --PLAYER_GOLD[playerID].SavedGold = (PLAYER_GOLD[playerID].SavedGold or 0) + math.floor(gold)
-  local oldGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
+  self:Think() -- why?
+  local oldGold = self:GetGold(playerID)
   local newGold = (oldGold or 0) + math.floor(gold)
-  Gold:UpdatePlayerGold(playerID, newGold)
+  self:UpdatePlayerGold(playerID, newGold)
 end
 
 function Gold:AddGoldWithMessage(unit, gold, optPlayerID)
   local player = optPlayerID and PlayerResource:GetPlayer(optPlayerID) or PlayerResource:GetPlayer(UnitVarToPlayerID(unit))
   SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, math.floor(gold), player)
-  Gold:AddGold(optPlayerID or unit, gold)
+  self:AddGold(optPlayerID or unit, gold)
 end
 
 function Gold:GetGold(unitvar)
   local playerID = UnitVarToPlayerID(unitvar)
   local currentGold = PlayerTables:GetTableValue("gold", "gold")[playerID]
-  --return math.floor(PLAYER_GOLD[playerID].SavedGold or 0)
   return math.floor(currentGold or 0)
 end
 
@@ -195,22 +172,55 @@ function Gold.HeroSpawn(hero)
 end
 -- exponential gpm increase
 function Gold:PassiveGPM(hero)
-  local time = HudTimer:GetGameTime()
-  if time and self:IsGoldGenActive() then
-    local tick =  math.floor(time/GPM_TICK_INTERVAL)
+  local current_time = HudTimer:GetGameTime()
+  if current_time and self:IsGoldGenActive() then
+    local tick =  math.floor(current_time/GPM_TICK_INTERVAL)
     local gold_per_tick = math.max(GOLD_PER_INTERVAL, math.floor(GPM_TICK_INTERVAL*(tick*tick - 140*tick + 192200)/115000))
     if HeroSelection.is10v10 then
       gold_per_tick = math.floor(gold_per_tick * 1.5)
     end
-    -- GameRules:SetGoldPerTick doesn't work since 7.23
     self:ModifyGold(hero, gold_per_tick, false, DOTA_ModifyGold_GameTick)
   end
 end
 
--- used to determine whether or not gold generation from farming boots should occur
+-- used to determine whether or not gold generation from sparks should occur
 function Gold:IsGoldGenActive()
   return (not Duels:IsActive()) and HudTimer:GetGameTime() > 0
 end
+
+-- function Gold:GoldFilter(filter_table)
+  -- local gold = filter_table.gold
+  -- local playerID = filter_table.player_id_const
+  -- local reason = filter_table.reason_const
+  -- local reliable = filter_table.reliable == 1
+
+  -- Reasons:
+  -- DOTA_ModifyGold_Unspecified = 0
+  -- DOTA_ModifyGold_Death = 1
+  -- DOTA_ModifyGold_Buyback = 2
+  -- DOTA_ModifyGold_PurchaseConsumable = 3
+  -- DOTA_ModifyGold_PurchaseItem = 4
+  -- DOTA_ModifyGold_AbandonedRedistribute = 5
+  -- DOTA_ModifyGold_SellItem = 6                -- doesn't trigger when selling items
+  -- DOTA_ModifyGold_AbilityCost = 7
+  -- DOTA_ModifyGold_CheatCommand = 8
+  -- DOTA_ModifyGold_SelectionPenalty = 9
+  -- DOTA_ModifyGold_GameTick = 10               -- additional passive gpm and gpm spark
+  -- DOTA_ModifyGold_Building = 11
+  -- DOTA_ModifyGold_HeroKill = 12               -- filtered out
+  -- DOTA_ModifyGold_CreepKill = 13
+  -- DOTA_ModifyGold_NeutralKill = 14
+  -- DOTA_ModifyGold_RoshanKill = 15             -- cave
+  -- DOTA_ModifyGold_CourierKill = 16
+  -- DOTA_ModifyGold_BountyRune = 17             -- doesn't trigger for Bounty Runes
+  -- DOTA_ModifyGold_SharedGold = 18             -- creep assist gold
+  -- DOTA_ModifyGold_AbilityGold = 19
+  -- DOTA_ModifyGold_WardKill = 20
+  -- DOTA_ModifyGold_CourierKilledByThisPlayer = 21
+
+  -- This filter seems so useless lmao
+  -- return true
+-- end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -222,6 +232,10 @@ end
 
 function modifier_oaa_passive_gpm:IsHidden()
   return true
+end
+
+function modifier_oaa_passive_gpm:IsDebuff()
+  return false
 end
 
 function modifier_oaa_passive_gpm:IsPurgable()

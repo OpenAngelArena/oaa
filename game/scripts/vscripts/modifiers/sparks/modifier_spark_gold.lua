@@ -26,10 +26,10 @@ end
 
 function modifier_spark_gold:OnCreated()
   -- Gold percentage bonuses
-  self.hero_kill_bonus_gold = 0 --1/2 --> snowbally
-  self.bounty_rune_bonus_gold = 0 --1/2 --> snowbally
+  self.hero_kill_bonus_gold = 0
+  self.bounty_rune_bonus_gold = 0 -- must be > 1 to take effect
   -- Gold flat bonuses
-  self.boss_kill_bonus_gold = 300
+  self.boss_kill_bonus_gold = 0
 end
 
 modifier_spark_gold.OnRefresh = modifier_spark_gold.OnCreated

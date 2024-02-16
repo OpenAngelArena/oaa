@@ -101,6 +101,7 @@ GameEvents:OnEntityFatalDamage(function (keys)
 
   -- bonus gold if player has specific sparks that give percentage gold bonus bounty
   -- I am not using MODIFIER_PROPERTY_BOUNTY_CREEP_MULTIPLIER in case Valve makes it actually work
+  --[[ -- uncomment if you want sparks to give bonus gold again
   local creepBountyMultiplier = 1
   if attacker:HasModifier("modifier_spark_cleave") then
     creepBountyMultiplier = creepBountyMultiplier + CREEP_BOUNTY_BONUS_PERCENT_CLEAVE/100
@@ -114,4 +115,12 @@ GameEvents:OnEntityFatalDamage(function (keys)
   local newGoldBountyMax = oldGoldBountyMax * creepBountyMultiplier
   killedUnit:SetMinimumGoldBounty(newGoldBountyMin)
   killedUnit:SetMaximumGoldBounty(newGoldBountyMax)
+  ]]
+
+  --[[ -- uncomment this if vanilla gold gain from killing creeps is somehow disabled
+  local newBounty = math.ceil((newGoldBountyMin + newGoldBountyMax) / 2)
+  local attackingPlayer = PlayerResource:GetPlayer(playerID)
+  Gold:ModifyGold(playerID, newBounty, false, DOTA_ModifyGold_CreepKill)
+  SendOverheadEventMessage(attackingPlayer, OVERHEAD_ALERT_GOLD, killedUnit, newBounty, attackingPlayer)
+  ]]
 end)
