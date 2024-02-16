@@ -70,7 +70,7 @@ end
 function modifier_spark_gpm:CalculateGPM()
   local gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000}
   local gpm = gpmChart[self:GetSparkLevel()]
-  if GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" then
+  if HeroSelection and HeroSelection.is10v10 then
     gpm = gpm * 1.5
   end
   return math.floor(gpm)
