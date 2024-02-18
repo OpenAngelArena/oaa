@@ -2,6 +2,7 @@ sohei_polarizing_palm = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_sohei_polarizing_palm_movement", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_polarizing_palm_stun", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_polarizing_palm_slow", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_NONE)
 
 local forbidden_modifiers = {
   "modifier_enigma_black_hole_pull",
@@ -172,7 +173,7 @@ function sohei_polarizing_palm:OnSpellStart()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Polarizing Palm motion controller
+-- Repulsive Palm motion controller
 modifier_sohei_polarizing_palm_movement = class(ModifierBaseClass)
 
 function modifier_sohei_polarizing_palm_movement:IsDebuff()
@@ -251,6 +252,7 @@ if IsServer() then
     --FindClearSpaceForUnit(parent, parent_origin, false)
     ResolveNPCPositions(parent_origin, 128)
 
+    self:ApplySlow(parent, caster, ability)
     self:PolarizingPalmDamage(parent, caster, ability)
   end
 
@@ -267,7 +269,7 @@ if IsServer() then
     -- Check if an ally and if affected by nullifier
     local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
     -- Check if enemy and if spell-immune or under dispel orb effect
-    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_preemptive_purge") or parent:IsMagicImmune())
+    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_dispel_orb_active") or parent:IsMagicImmune())
 
     if isParentNullified or isParentDispelled then
       self:Destroy()
@@ -380,6 +382,17 @@ if IsServer() then
     unit:EmitSound("Sohei.Momentum.Collision")
   end
 
+  function modifier_sohei_polarizing_palm_movement:ApplySlow(unit, caster, ability)
+    if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
+      return
+    end
+
+    local slow_duration = ability:GetSpecialValueFor("slow_duration")
+
+    -- Apply slow debuff
+    unit:AddNewModifier(caster, ability, "modifier_sohei_polarizing_palm_slow", {duration = slow_duration})
+  end
+
   function modifier_sohei_polarizing_palm_movement:PolarizingPalmDamage(unit, caster, ability)
     -- Damage only enemies without spell immunity
     if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
@@ -404,7 +417,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Stun debuff
+-- Repulsive Palm Stun debuff
 modifier_sohei_polarizing_palm_stun = class(ModifierBaseClass)
 
 function modifier_sohei_polarizing_palm_stun:IsHidden()
@@ -445,4 +458,43 @@ function modifier_sohei_polarizing_palm_stun:CheckState()
   return {
     [MODIFIER_STATE_STUNNED] = true,
   }
+end
+
+---------------------------------------------------------------------------------------------------
+-- Repulsive Palm Slow debuff
+modifier_sohei_polarizing_palm_slow = class(ModifierBaseClass)
+
+function modifier_sohei_polarizing_palm_slow:IsHidden()
+  return self:GetParent():HasModifier("modifier_sohei_polarizing_palm_stun")
+end
+
+function modifier_sohei_polarizing_palm_slow:IsDebuff()
+  return true
+end
+
+function modifier_sohei_polarizing_palm_slow:IsPurgable()
+  return true
+end
+
+function modifier_sohei_polarizing_palm_slow:OnCreated()
+  --local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
+
+  -- Move Speed Slow is reduced with Slow Resistance
+  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
+end
+
+function modifier_sohei_polarizing_palm_slow:OnRefresh()
+  self:OnCreated()
+end
+
+function modifier_sohei_polarizing_palm_slow:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+  }
+end
+
+function modifier_sohei_polarizing_palm_slow:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.slow)
 end

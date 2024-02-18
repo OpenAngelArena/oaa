@@ -40,7 +40,7 @@
     "AbilityValues"
     {
       "mana_cost"                                         "20"
-      "shield_per_mana"                                   "0.75 0.95 1.15 1.35 1.6 1.85"
+      "shield_per_mana"                                   "0.75 0.95 1.15 1.35 1.65 1.95"
       "shield_damage_block"
       {
         "value"                                           "10 18 26 34 42 50"
@@ -58,9 +58,9 @@
         "LinkedSpecialBonus"                              "special_bonus_electrician_electric_shield_damage"
       }
       "aura_interval"                                     "0.25"
-      "shard_shield_per_mana"
+      "shard_shield_per_mana" // shield_per_mana + 1
       {
-        "value"                                           "1.9 2.1 2.3 2.5 2.75 3.0"
+        "value"                                           "1.75 1.95 2.15 2.35 2.65 2.95"
         "RequiresShard"                                   "1"
       }
       "shard_shield_damage_block"

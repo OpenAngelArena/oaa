@@ -57,13 +57,15 @@
     {
       "damage"                                            "90 160 230 300 600 1200"
       "strength_damage"                                   "60 90 120 150 180 210"
-      "push_pull_length"                                  "300 325 350 375 400 450"
+      "push_pull_length"                                  "400"
       "push_pull_speed"                                   "1200"
       "stun_duration"
       {
-        "value"                                           "1.0 1.2 1.4 1.6 1.8 2.0"
+        "value"                                           "1.2 1.4 1.6 1.8 2.0 2.2"
         "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
       }
+      "slow_duration"                                     "0.6"
+      "move_speed_slow_pct"                               "100"
     }
   }
 }
