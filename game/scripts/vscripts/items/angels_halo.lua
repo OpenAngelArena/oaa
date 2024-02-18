@@ -66,6 +66,11 @@ end
 function modifier_angels_halo_active:OnIntervalThink()
   local parent = self:GetParent()
 
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
+
   -- If parent has another Angel's Halo in the inventory prevent stacking
   if parent:HasModifier("modifier_angels_halo_passive") then
     return
@@ -195,6 +200,11 @@ end
 
 function modifier_angels_halo_passive:OnIntervalThink()
   local parent = self:GetParent()
+
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
 
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
