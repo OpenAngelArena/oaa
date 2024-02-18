@@ -19,85 +19,50 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "spiderling_base_hp"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_base_hp"                              "320"
+        "value"                                           "320"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
+      }
+      "spiderling_hp_per_level"
+      {
+        "value"                                           "30"
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
       }
-      "02"
+      "spiderling_base_armor"                             "0"
+      "spiderling_armor_per_level"                        "0.25"
+      "spiderling_magic_resist_per_level"                 "1"
+      "spiderling_speed"                                  "350"
+      "spiderling_base_attack_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_hp_per_level"                         "30"
+        "value"                                           "11"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "03"
+      "spiderling_attack_damage_per_level"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_base_armor"                           "0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "spiderling_armor_per_level"                      "0.25"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_speed"                                "350"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_base_attack_damage"                   "14"
+        "value"                                           "3"
         "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "07"
+      "spiderling_duration"                               "40"
+      "spiderling_spawn_count"                            "1"
+      "spiderling_max_count"                              "12"
+      "giant_spiderling_base_hp"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_attack_damage_per_level"              "3"
+        "value"                                           "640"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
+      }
+      "giant_spiderling_base_attack_damage"
+      {
+        "value"                                           "30"
+        //"LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "spiderling_duration"                             "40"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_spawn_count"                          "1"
-      }
-      "10"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_max_count"                            "12"
-      }
-      "11"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_spiderling_base_hp"                        "640"
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_2_oaa"
-      }
-      "12"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_spiderling_base_attack_damage"             "30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_broodmother_4_oaa"
-        "CalculateSpellDamageTooltip"                     "0"
-      }
-      "13"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "giant_spiderling_spawn_count"                    "1"
-      }
-      "14"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spiderling_spawn_radius"                         "900"
-      }
+      "giant_spiderling_spawn_count"                      "1"
+      "spiderling_spawn_radius"                           "900"
     }
   }
 }
