@@ -38,16 +38,16 @@
         "affected_by_aoe_increase"                        "1"
       }
       "whirling_damage"                                   "85 130 175 220 440 880"
-      "tree_damage_scale"                                 "11 18 25 32 64 128"
+      "tree_damage_scale"                                 "11 18 25 32 46 60"
       "whirling_tick"                                     "0.3"
-      "stat_loss_pct"
+      "stat_loss_pct" //OAA
       {
-        "value"                                           "13"
+        "value"                                           "12"
         "special_bonus_unique_timbersaw_5"                "+3"
       }
-      "stat_loss_univ" //OAA, Valve forgot about this
+      "stat_loss_univ" //OAA
       {
-        "value"                                           "7"
+        "value"                                           "6"
         "special_bonus_unique_timbersaw_5"                "+1"
       }
       "duration"                                          "12 13 14 15 16 17"

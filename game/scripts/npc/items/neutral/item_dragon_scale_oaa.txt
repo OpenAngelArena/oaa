@@ -12,7 +12,8 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "item_dragon_scale"
 
-    "AbilityCooldown"                                     "0.5"
+    "AbilityCooldown"                                     "0"
+    "AbilityManaCost"                                     "0"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -26,23 +27,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "5"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_hp_regen"                                  "5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "afterburn_damage"                                "50"
-      }
+      "bonus_armor"                                       "5"
+      "bonus_hp_regen"                                    "5"
+      "dragon_skin_damage"                                "45"
+      "damage_interval"                                   "1"
+      "dragon_skin_debuff_duration"                       "3"
+      "bonus_boss_damage"                                 "15"
     }
   }
 }

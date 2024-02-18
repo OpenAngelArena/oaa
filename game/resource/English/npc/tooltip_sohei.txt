@@ -25,7 +25,7 @@
 //"DOTA_Tooltip_Ability_sohei_guard_guard_duration"                               "DURATION:"
 
 "DOTA_Tooltip_Ability_sohei_polarizing_palm"                                    "Repulsive Palm"
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Enemy units take damage based on Sohei's strength. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be stunned."
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Enemy units take damage based on Sohei's strength. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be damaged and stunned. Pushed enemies that don't collide with anything are briefly slowed."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_Lore"                               "Takuan's Ki can be repulsive and attractive."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_push_pull_length"                   "DISTANCE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_damage"                             "BASE DAMAGE:"
@@ -112,8 +112,11 @@
 "DOTA_Tooltip_modifier_sohei_polarizing_palm_stun"                              "Repulsive Palm"
 "DOTA_Tooltip_modifier_sohei_polarizing_palm_stun_Description"                  "Stunned."
 
+"DOTA_Tooltip_modifier_sohei_polarizing_palm_slow"                              "Repulsive Palm"
+"DOTA_Tooltip_modifier_sohei_polarizing_palm_slow_Description"                  "Move speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+
 "DOTA_Tooltip_modifier_sohei_flurry_self"                                       "Flurry of Blows"
-"DOTA_Tooltip_modifier_sohei_flurry_self_Description"                           "Invulnerable, rooted, attacking everything in the area."
+"DOTA_Tooltip_modifier_sohei_flurry_self_Description"                           "Invulnerable, rooted, attacking random enemies in the area."
 
 // "DOTA_Tooltip_modifier_sohei_quivering_palm_debuff"                            "Quivering Palm"
 // "DOTA_Tooltip_modifier_sohei_quivering_palm_debuff_Description"                "Attacked by Sohei, if you were the last one attacked you will take extra magic damage if he activates the ability."

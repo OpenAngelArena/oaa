@@ -87,7 +87,7 @@ function sohei_ki_attraction:OnSpellStart()
 
   -- Pulling towards the caster
   local direction = caster_loc - target_loc
-  local distance = reposition_range
+  local distance = reposition_range -- this is pull distance for allies, for enemies is defined later
   local flurry = caster:HasModifier("modifier_sohei_flurry_self")
 
   -- Pulling towards Flurry of Blows center during Flurry of Blows
@@ -104,15 +104,18 @@ function sohei_ki_attraction:OnSpellStart()
       return
     end
 
-    -- For pulling when not in Flurry of Blows
+    -- Different distance during Flurry of Blows
     if not flurry then
       distance = direction:Length2D() - caster:GetPaddedCollisionRadius() - target:GetPaddedCollisionRadius()
-      if distance > reposition_range then
-        distance = reposition_range
-      end
-      if distance <= 0 then
-        distance = 1
-      end
+    else
+      distance = direction:Length2D()
+    end
+    -- Capping distance for enemies
+    if distance > reposition_range then -- to prevent pulling enemies more than reposition_range
+      distance = reposition_range
+    end
+    if distance <= 0 then -- to prevent pulling enemies behind you or out of Flurry radius
+      distance = 1
     end
   end
 
@@ -268,7 +271,7 @@ if IsServer() then
     -- Check if an ally and if affected by nullifier
     local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
     -- Check if enemy and if spell-immune or under dispel orb effect
-    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_preemptive_purge") or parent:IsMagicImmune())
+    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_dispel_orb_active") or parent:IsMagicImmune())
 
     if isParentNullified or isParentDispelled then
       self:Destroy()
