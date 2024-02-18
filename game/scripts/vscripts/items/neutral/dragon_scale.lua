@@ -154,14 +154,13 @@ end
 function modifier_item_dragon_scale_oaa_debuff:OnCreated()
   local damage_per_second = 45
   local interval = 1
-  local damage_type = DAMAGE_TYPE_MAGICAL
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     damage_per_second = ability:GetSpecialValueFor("dragon_skin_damage")
     interval = ability:GetSpecialValueFor("damage_interval")
   end
   self.damage_per_interval = damage_per_second*interval
-  self.damage_type = damage_type
+  self.damage_type = DAMAGE_TYPE_MAGICAL
 
   if IsServer() then
     self:OnIntervalThink()
@@ -179,7 +178,7 @@ function modifier_item_dragon_scale_oaa_debuff:OnIntervalThink()
       attacker = caster,
       victim = parent,
       damage = self.damage_per_interval,
-      damage_type = damage_type,
+      damage_type = self.damage_type,
       damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }
