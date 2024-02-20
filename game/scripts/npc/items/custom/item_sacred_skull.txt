@@ -1,28 +1,28 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: A Sacred Skull
+  // Recipe: A Sacred Skull 1
   //=================================================================================================================
   "item_recipe_sacred_skull"
   {
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "AbilityTextureName"                                  "custom/recipe/recipe_3"
 
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "100"
+    "ItemCost"                                            "3500"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sacred_skull"
 
     "ItemRequirements"
     {
-      "01"                                                "item_soul_booster;item_soul_ring"
+      "01"                                                "item_assault_2;item_upgrade_core_2"
     }
   }
 
   //=================================================================================================================
-  // A Sacred Skull
+  // A Sacred Skull 1
   //=================================================================================================================
   "item_sacred_skull"
   {
@@ -30,54 +30,39 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/purpleskull_1"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/purpleskull_3"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "0"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "sacred_skull"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
-    "UpgradesItems"                                       "item_sacred_skull;item_sacred_skull_2;item_sacred_skull_3;item_sacred_skull_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3905"
-    "ItemShopTags"                                        "damage;agi;str;int;regen_mana;hard_to_tag"
+    "ItemCost"                                            "10127"
+    "ItemShopTags"                                        "health_pool;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass;sacred skull"
 
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-    "precache"
-    {
-      "soundfile"                                         "soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-    }
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "6 11 21 36 56"
-      "bonus_armor"                                       "2 3 5 8 12"
-      "bonus_health"                                      "500 600 750 950 1200"
-      "bonus_mana"                                        "500 600 750 950 1200"
-      "health_cost"                                       "15"
-      "min_mana_gain"                                     "170 220 320 470 670"
-      "base_dmg"                                          "100 200 300 400 500"
-      "magic_dmg_per_current_mana"                        "0.125"
-      "phys_dmg_per_missing_mana"                         "0.5"
-      "effect_radius"                                     "700"
-      "active_bonus_aoe"                                  "75"
-      "active_bonus_cdr"                                  "5 7 9 11 13"
-      "duration"                                          "10"
+      "bonus_armor"                                       "20 24 29"
+      "bonus_health"                                      "750 950 1200"
+      "cooldown_reduction"                                "20"
+      "passive_armor_reduction"                           "-8 -11 -15"
+      "armor_reduction_duration"                          "7"
     }
   }
 }
