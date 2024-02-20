@@ -118,17 +118,13 @@ function item_siege_mode:OnProjectileHit(target, location)
   local damage_table = {
     attacker = caster,
     damage_type = damageType or DAMAGE_TYPE_PHYSICAL,
-    damage_flags = bit.bor(DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+    damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
     ability = self,
   }
 
+  -- Calculate damage
   local splash_damage = caster:GetAverageTrueAttackDamage(nil) * attack_damage_percent * 0.01
-  if caster:IsRangedAttacker() then
-    damage_table.damage = bonus_damage + splash_damage
-  else
-    -- Melee casters don't apply splash
-    damage_table.damage = bonus_damage
-  end
+  damage_table.damage = bonus_damage + splash_damage
 
   -- find units around the target location
   local units = FindUnitsInRadius(

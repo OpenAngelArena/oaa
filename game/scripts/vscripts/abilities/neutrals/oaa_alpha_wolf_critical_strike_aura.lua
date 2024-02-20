@@ -100,16 +100,16 @@ if IsServer() then
     local chance = ability:GetSpecialValueFor("crit_chance")/100
 
     -- Using the modifier's stack to store the amount of prng failures
-    local prngMult = self:GetStackCount() + 1
+    local prngMult = math.abs(self:GetStackCount()) + 1
 
     if RandomFloat( 0.0, 1.0 ) <= ( PrdCFinder:GetCForP(chance) * prngMult )  then
       -- Reset failure count
-      self:SetStackCount( 0 )
+      self:SetStackCount(0)
 
       return ability:GetSpecialValueFor("crit_multiplier")
     else
       -- Increment failure count
-      self:SetStackCount( prngMult )
+      self:SetStackCount(0 - prngMult)
 
       return 0
     end

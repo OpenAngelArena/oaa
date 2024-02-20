@@ -183,34 +183,18 @@ function modifier_item_dagger_of_moriah_frostbite:DeclareFunctions()
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetModifierHealAmplify_PercentageTarget()
-  -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-  if self:GetParent():HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-    return 0
-  end
   return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetModifierHPRegenAmplify_Percentage()
-  -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-  if self:GetParent():HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-    return 0
-  end
   return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetModifierLifestealRegenAmplify_Percentage()
-  -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-  if self:GetParent():HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-    return 0
-  end
   return 0 - math.abs(self.heal_reduction)
 end
 
 function modifier_item_dagger_of_moriah_frostbite:GetModifierSpellLifestealRegenAmplify_Percentage()
-  -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-  if self:GetParent():HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
-    return 0
-  end
   return 0 - math.abs(self.heal_reduction)
 end
 
@@ -259,13 +243,10 @@ function modifier_item_dagger_of_moriah_sangromancy:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
--- Prevent stacking with Veil of Discord
--- function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
-  -- if hEntity:HasModifier("modifier_item_veil_of_discord_debuff") then
-    -- return true
-  -- end
-  -- return false
--- end
+-- Prevent stacking with Veil of Discord and Shiva's Guard
+function modifier_item_dagger_of_moriah_sangromancy:GetAuraEntityReject(hEntity)
+  return hEntity:HasModifier("modifier_item_veil_of_discord_debuff")
+end
 
 function modifier_item_dagger_of_moriah_sangromancy:OnCreated()
   --local spell = self:GetAbility()
@@ -347,11 +328,6 @@ if IsServer() then
 
     -- Don't affect buildings, wards and invulnerable units.
     if damaged_unit:IsTower() or damaged_unit:IsBarracks() or damaged_unit:IsBuilding() or damaged_unit:IsOther() or damaged_unit:IsInvulnerable() then
-      return
-    end
-
-    -- Disable stacking with Spirit Vessel (because Spirit Vessel has a better heal reduction)
-    if damaged_unit:HasModifier("modifier_spirit_vessel_oaa_debuff_with_charge") then
       return
     end
 
@@ -464,6 +440,7 @@ function modifier_item_dagger_of_moriah_sangromancy_effect:IsPurgable()
 end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:OnCreated()
+  self.magic_dmg_amp = 30
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.magic_dmg_amp = ability:GetSpecialValueFor("magic_dmg_amp")
@@ -475,14 +452,19 @@ modifier_item_dagger_of_moriah_sangromancy_effect.OnRefresh = modifier_item_dagg
 function modifier_item_dagger_of_moriah_sangromancy_effect:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_TOOLTIP,
   }
 end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:GetModifierIncomingDamage_Percentage(keys)
   if keys.damage_category == DOTA_DAMAGE_CATEGORY_SPELL and keys.damage_type == DAMAGE_TYPE_MAGICAL then
-    return self.magic_dmg_amp or 35
+    return self.magic_dmg_amp
   end
   return 0
+end
+
+function modifier_item_dagger_of_moriah_sangromancy_effect:OnTooltip()
+  return self.magic_dmg_amp
 end
 
 function modifier_item_dagger_of_moriah_sangromancy_effect:GetTexture()

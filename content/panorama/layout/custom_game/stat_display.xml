@@ -5,20 +5,19 @@
     <include src="file://{resources}/styles/custom_game/stat_display.css"/>
   </styles>
   <scripts>
-    <include src="file://{resources}/scripts/custom_game/util.js" />
     <include src="file://{resources}/scripts/custom_game/stat_display.js"/>
   </scripts>
   <Panel class="StatDisplay">
     <Panel class="StatDisplayContainer" id="OAAStatDisplay" hittest="false" hittestchildren="false">
       <Panel id="BCRow">
         <Panel class="StatDisplayHeaderContainer">
-          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Bottles"/>
+          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="#stat_display_bottles"/>
           <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
         </Panel>
       </Panel>
       <Panel id="BKRow">
         <Panel class="StatDisplayHeaderContainer">
-          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="Boss Kills"/>
+          <Label class="QuickStatLabel" id="QuickStatLabelHeader" text="#stat_display_boss_kills"/>
           <Label class="QuickStatLabel" id="QuickStatLabelValue" text="0" />
         </Panel>
       </Panel>

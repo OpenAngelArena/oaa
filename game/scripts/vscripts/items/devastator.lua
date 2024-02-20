@@ -272,11 +272,6 @@ function modifier_item_devastator_oaa_corruption_armor:GetModifierPhysicalArmorB
 end
 
 function modifier_item_devastator_oaa_corruption_armor:GetTexture()
-  --local ability = self:GetAbility()
-  --if ability and not ability:IsNull() then
-    --local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
-    --return baseIconName
-  --end
   return "item_desolator"
 end
 
@@ -351,11 +346,7 @@ function modifier_item_devastator_oaa_slow_movespeed:GetModifierMoveSpeedBonus_P
 end
 
 function modifier_item_devastator_oaa_slow_movespeed:GetTexture()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
-    return baseIconName
-  end
+  return "custom/devastator_1"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -400,9 +391,5 @@ function modifier_item_devastator_oaa_reduce_armor:GetModifierPhysicalArmorBonus
 end
 
 function modifier_item_devastator_oaa_reduce_armor:GetTexture()
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    local baseIconName = ability.BaseClass.GetAbilityTextureName(ability)
-    return baseIconName
-  end
+  return "custom/devastator_1"
 end

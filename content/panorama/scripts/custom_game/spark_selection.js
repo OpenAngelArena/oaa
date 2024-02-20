@@ -9,6 +9,12 @@ let currentSpark = null;
   }
   CustomNetTables.SubscribeNetTableListener('hero_selection', SparkSelection);
   ResetSparkDisplay();
+  const changeSparkButton = $('#ChangeSpark');
+  if (Game.IsHUDFlipped()) {
+    changeSparkButton.style.horizontalAlign = 'right';
+  } else {
+    changeSparkButton.style.horizontalAlign = 'left';
+  }
 })();
 
 if (typeof module !== 'undefined' && module.exports) {

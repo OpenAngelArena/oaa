@@ -57,11 +57,24 @@ function modifier_angels_halo_active:OnCreated(event)
     self.radius = event.radius
     ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_guardian_angel_halo_buff.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
     self:StartIntervalThink(1)
+  else
+    self.vision = 200
+    self.radius = 900
   end
 end
 
 function modifier_angels_halo_active:OnIntervalThink()
   local parent = self:GetParent()
+
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
+
+  -- If parent has another Angel's Halo in the inventory prevent stacking
+  if parent:HasModifier("modifier_angels_halo_passive") then
+    return
+  end
 
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
@@ -98,11 +111,19 @@ function modifier_angels_halo_active:DeclareFunctions()
 end
 
 function modifier_angels_halo_active:GetModifierMoveSpeedBonus_Constant()
+  -- If parent has another Angel's Halo in the inventory prevent stacking
+  if self:GetParent():HasModifier("modifier_angels_halo_passive") then
+    return 0
+  end
   return math.abs(self:GetStackCount())
 end
 
 function modifier_angels_halo_active:GetBonusDayVision()
-  return self.vision or 200
+  -- If parent has another Angel's Halo in the inventory prevent stacking
+  if self:GetParent():HasModifier("modifier_angels_halo_passive") then
+    return 0
+  end
+  return self.vision
 end
 
 -- aura stuff
@@ -120,7 +141,7 @@ function modifier_angels_halo_active:GetAuraSearchTeam()
 end
 
 function modifier_angels_halo_active:GetAuraRadius()
-  return self.radius or 900
+  return self.radius
 end
 
 function modifier_angels_halo_active:GetModifierAura()
@@ -179,6 +200,11 @@ end
 
 function modifier_angels_halo_passive:OnIntervalThink()
   local parent = self:GetParent()
+
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
 
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
