@@ -7,17 +7,17 @@
   {
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "3500"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sacred_skull_3"
 
     "ItemRequirements"
     {
-      "01"                                                "item_sacred_skull_2;item_upgrade_core_2"
+      "01"                                                "item_sacred_skull_2;item_upgrade_core_4"
     }
   }
 
@@ -30,24 +30,24 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "AbilityTextureName"                                  "custom/purpleskull_3"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"                                  "custom/purpleskull_5"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20"
+    "AbilityCooldown"                                     "0"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "sacred_skull"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8907"
-    "ItemShopTags"                                        "str;health_pool;mana_pool;boost_mana;armor;hard_to_tag"
+    "ItemCost"                                            "35129"
+    "ItemShopTags"                                        "health_pool;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 3;sacred skull 3"
 
@@ -58,16 +58,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "6 11 21 36 56"
-      "bonus_armor"                                       "2 3 5 8 12"
-      "bonus_health"                                      "500 600 750 950 1200"
-      "bonus_mana"                                        "500 600 750 950 1200"
-      "health_cost"                                       "15"
-      "min_mana_gain"                                     "170 220 320 470 670"
-      "spell_amp"                                         "20 40 60 80 100"
-      "passive_armor_reduction"                           "-5 -6 -8 -11 -15"
+      "bonus_armor"                                       "20 24 29"
+      "bonus_health"                                      "750 950 1200"
+      "cooldown_reduction"                                "20"
+      "passive_armor_reduction"                           "-8 -11 -15"
       "armor_reduction_duration"                          "7"
-      "active_duration"                                   "10"
     }
   }
 }
