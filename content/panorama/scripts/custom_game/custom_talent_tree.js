@@ -109,13 +109,8 @@ function CreateCustomHudTalentButton () {
   hudScene = hudButtonContainer.FindChildTraverse('talent_hud_scene');
 }
 
-function InitializeHeroTalents () {
-  // Prevent talent initialization multiple times if the last selected hero is the same
-  // For example spam clicking the hero would trigger this multiple times
-  if (lastSelectedUnitID === currentlySelectedUnitID) return;
-
-  const talentWindowChildren = talentWindow.Children();
-  const talentRowCount = talentWindow.GetChildCount(); // 5 rows for now, but the following code allows more
+function GetTalentNames (requiredLevel) {
+  const names = [];
   const normalTalents = [];
 
   // Filter out talents out of all abilities and add them to the normalTalents array
@@ -131,8 +126,42 @@ function InitializeHeroTalents () {
     }
   }
 
-  // Add talents to the talent tree.
   // Keep in mind that Ability10 (normalTalents[0]) is a right talent. Ability11 is left etc.
+  let rightTalentName = 'right';
+  let leftTalentName = 'left';
+  if (requiredLevel === '10') {
+    rightTalentName = normalTalents[0];
+    leftTalentName = normalTalents[1];
+  } else if (requiredLevel === '15') {
+    rightTalentName = normalTalents[2];
+    leftTalentName = normalTalents[3];
+  } else if (requiredLevel === '20') {
+    rightTalentName = normalTalents[4];
+    leftTalentName = normalTalents[5];
+  } else if (requiredLevel === '25') {
+    rightTalentName = normalTalents[6];
+    leftTalentName = normalTalents[7];
+  } else if (requiredLevel === '55') {
+    rightTalentName = normalTalents[8];
+    leftTalentName = normalTalents[9];
+  }
+
+  names.push(rightTalentName);
+  names.push(leftTalentName);
+
+  return names;
+}
+
+function InitializeHeroTalents () {
+  // Prevent talent initialization multiple times if the last selected hero is the same
+  // For example spam clicking the hero would trigger this multiple times
+  if (lastSelectedUnitID === currentlySelectedUnitID) return;
+
+  const talentWindowChildren = talentWindow.Children();
+  const talentRowCount = talentWindow.GetChildCount(); // 5 rows for now, but the following code allows more
+
+  // Add talents to the talent tree.
+
   for (let index = 1; index < talentRowCount; index++) {
     const talentRow = talentWindowChildren[index];
     const requiredLevel = talentRow.FindChildrenWithClassTraverse('talentLevel')[0].text;
@@ -147,24 +176,8 @@ function InitializeHeroTalents () {
     if (!leftTalent) {
       leftTalent = talentRow.FindChildrenWithClassTraverse('leftTalentSuper')[0];
     }
-    let rightTalentName = 'right';
-    let leftTalentName = 'left';
-    if (requiredLevel === '10') {
-      rightTalentName = normalTalents[0];
-      leftTalentName = normalTalents[1];
-    } else if (requiredLevel === '15') {
-      rightTalentName = normalTalents[2];
-      leftTalentName = normalTalents[3];
-    } else if (requiredLevel === '20') {
-      rightTalentName = normalTalents[4];
-      leftTalentName = normalTalents[5];
-    } else if (requiredLevel === '25') {
-      rightTalentName = normalTalents[6];
-      leftTalentName = normalTalents[7];
-    } else if (requiredLevel === '55') {
-      rightTalentName = normalTalents[8];
-      leftTalentName = normalTalents[9];
-    }
+    const rightTalentName = GetTalentNames(requiredLevel)[0];
+    const leftTalentName = GetTalentNames(requiredLevel)[1];
     // Localize talent tooltips (crashes the game to Desktop if the second argument (context panel) is undefined)
     // rightTalent.GetChild(0).text = $.Localize('#DOTA_Tooltip_Ability_' + rightTalentName, rightTalent.GetChild(0));
     if (rightTalentName) {
@@ -430,8 +443,21 @@ function LearnTalent (talent, minLevel) {
           // Get hero level
           const level = Entities.GetLevel(currentlySelectedUnitID);
           if (level >= minLevel && talent.BHasClass(cssTalentLearnable)) {
+            const talentNames = GetTalentNames(minLevel);
+            const isRight = talent.BHasClass('rightTalent');
+            const isLeft = talent.BHasClass('leftTalent');
+            const isAghs = talent.BHasClass('aghsTalent');
+            $.Msg(isRight, isLeft, isAghs);
+            let talentIndex;
+            if (isRight) {
+              talentIndex = Entities.GetAbilityByName(currentlySelectedUnitID, talentNames[0]);
+            } else if (isLeft) {
+              talentIndex = Entities.GetAbilityByName(currentlySelectedUnitID, talentNames[1]);
+            }
             // Send the event to server to learn the talent
-
+            if (!isAghs) {
+              GameEvents.SendCustomGameEventToServer('custom_learn_talent_event', { ability: talentIndex });
+            }
             // Remove the glow and mark as learned
             talent.RemoveClass(cssTalentLearnable);
             talent.AddClass(cssTalentLearned);
@@ -440,7 +466,7 @@ function LearnTalent (talent, minLevel) {
 
             MakeOtherTalentUnlearnable(talent);
 
-            AnimateTalentTree(); // keep this only if dota_player_learned_ability doesn't trigger it
+            // AnimateTalentTree(); // keep this only if dota_player_learned_ability doesn't trigger it
           }
         }
       }

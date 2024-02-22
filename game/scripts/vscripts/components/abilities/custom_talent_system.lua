@@ -5,6 +5,7 @@ end
 function CustomTalentSystem:Init()
   self.moduleName = "CustomTalentSystem"
   GameEvents:OnHeroInGame(partial(self.InitializeTalentTracker, self))
+  CustomGameEventManager:RegisterListener('custom_learn_talent_event', Dynamic_Wrap(CustomTalentSystem, 'LearnTalent'))
 end
 
 function CustomTalentSystem:InitializeTalentTracker(hero)
@@ -18,6 +19,59 @@ function CustomTalentSystem:InitializeTalentTracker(hero)
   end
 
   --end)
+end
+
+function CustomTalentSystem:LearnTalent(event)
+  local playerID = event.PlayerID
+  local talent_index = event.ability
+  local player = PlayerResource:GetPlayer(playerID)
+  if talent_index then
+    local talent = EntIndexToHScript(talent_index)
+    local name = talent:GetAbilityName()
+    local caster = talent:GetCaster()
+
+    -- If ability was already leveled, do nothing.
+    if talent:GetLevel() > 0 then
+      print('Ability '..name..' already learned')
+      return
+    end
+
+    -- Verify ability is actually a talent
+    if not string.find(name, "special_bonus_") or not talent:IsAttributeBonus() then
+      print('Ability '..name..' is not a talent!')
+      return
+    end
+
+    -- If the caster is not a real hero, do nothing
+    if not caster:IsRealHero() then
+      print('Tried to learn talent '..name..' Caster is not a real hero!')
+      return
+    end
+
+    -- Check if caster belongs to the player
+    if player and player:GetAssignedHero() ~= caster then
+      print('Tried to learn talent '..name..' Caster doesnt belong to player '..playerID)
+      return
+    end
+
+    -- Check caster's ability/skill points
+    if caster:GetAbilityPoints() <= 0 then
+      print('Tried to learn talent '..name..' Caster doesnt have enough skill points.')
+      return
+    end
+
+    -- Level up the talent
+    talent:SetLevel(1)
+
+    -- Spend ability/skill points
+    caster:SetAbilityPoints(caster:GetAbilityPoints() - 1)
+
+    local event_for_sending = {
+      PlayerID = playerID,
+      abilityname = name,
+    }
+    FireGameEvent("dota_player_learned_ability", event_for_sending)
+  end
 end
 
 -- Format:
