@@ -3,9 +3,9 @@
 //===============================================================================
 "DOTA_Tooltip_Ability_item_trumps_fists_1"                                      "Blade of Judecca"
 "DOTA_Tooltip_Ability_item_recipe_trumps_fists_1"                               "Blade of Judecca Recipe"
-"DOTA_Tooltip_Ability_item_trumps_fists_1_Description"                          "<h1>Active: Brand of Judecca</h1> Applies Frostburn, mutes (disables item usage) and reveals the enemy hero in the fog of war for %mute_duration% seconds.\n<h1>Passive: Frostburn</h1> Your attacks apply a debuff that deals pure damage to the affected enemy every time they gain health. Damage is equal to %heal_prevent_percent%%% of the gained health. Debuff lasts for %heal_prevent_duration% seconds."//<br><br>The heal reduction decays linearly with the duration.
+"DOTA_Tooltip_Ability_item_trumps_fists_1_Description"                          "<h1>Active: Brand of Judecca</h1> Applies Frostburn, mutes (disables item usage) and reveals the enemy hero in the fog of war for %mute_duration% seconds.\n<h1>Passive: Frostburn</h1> Your attacks apply a debuff that deals pure damage to the affected enemy every time they gain or restore health. Damage is equal to %heal_prevent_percent%%% of the gained health. Debuff lasts for %heal_prevent_duration% seconds."
 "DOTA_Tooltip_Ability_item_trumps_fists_1_Lore"                                 "The ancient frozen hatred within this sacred blade has the power to cease bloodflow to the extremities of its victims."
-"DOTA_Tooltip_Ability_item_trumps_fists_1_Note0"                                "Frostburn is not reducing healing, health regen and lifesteal, it's applying pure damage based on gained health."
+"DOTA_Tooltip_Ability_item_trumps_fists_1_Note0"                                "Frostburn is not reducing healing, health regen, lifesteal and spell lifesteal, it's applying pure damage based on health gained with heals, regen, lifesteal and spell lifesteal."
 "DOTA_Tooltip_Ability_item_trumps_fists_1_Note1"                                "Frostburn doesn't pierce debuff immunity and it's not dispellable."
 "DOTA_Tooltip_Ability_item_trumps_fists_1_Note2"                                "Frostburn debuff doesn't stack with Eye of Skadi debuff."
 "DOTA_Tooltip_Ability_item_trumps_fists_1_bonus_damage"                         "+$damage"
