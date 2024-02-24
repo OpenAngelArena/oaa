@@ -44,7 +44,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "34104"
+    "ItemCost"                                            "34004"
     "ItemShopTags"                                        "agi;int;attack_speed;move_speed;regen_mana;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "ynk 5;y&k 5;yk 5;yasha and kaya 5"
@@ -61,7 +61,7 @@
       "mana_regen_multiplier"                             "50 60 70 80 90"
       "movement_speed_percent_bonus"                      "12 14 16 18 20"
       "spell_amp"                                         "12 16 20 24 28"
-      "spell_lifesteal_amp"                               "30 32 34 36 38"
+      "spell_lifesteal_amp"                               "25 27 29 31 33"
     }
   }
 }

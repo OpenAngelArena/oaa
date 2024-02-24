@@ -58,7 +58,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "11827"
+    "ItemCost"                                            "11627"
     "ItemShopTags"                                        "int;attack_speed;damage;regen_mana;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bloodthorn 3"
@@ -78,7 +78,8 @@
       "silence_damage_percent"                            "60"
       "duration"                                          "6" // unused
       "spell_amp_debuff"                                  "35" // unused
-      "proc_damage"                                       "60 65 75 90 110"
+      "proc_damage"                                       "50 55 65 80 100"
+      "passive_proc_damage"                               "60 70 90 120 160"
       "proc_chance"                                       "40"
     }
   }

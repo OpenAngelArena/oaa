@@ -62,7 +62,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3600"
+    "ItemCost"                                            "3550"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "mh;meteor hammer"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -75,9 +75,9 @@
       "bonus_intellect"                                   "26 31 41 56 76" // Kaya (16); Diadem (6); Crown (4);
       "bonus_strength"                                    "12 17 22 27 32" // Diadem (6); Crown (4);
       "bonus_agility"                                     "12 17 22 27 32" // Diadem (6); Crown (4);
-      "spell_amp"                                         "12 16 20 24 28" // Kaya (8)
+      "spell_amp"                                         "12 16 20 24 28" // Kaya (10)
       "mana_regen_multiplier"                             "50 60 70 80 90" // Kaya (50)
-      "spell_lifesteal_amp"                               "24 26 28 30 32" // Kaya (24)
+      "spell_lifesteal_amp"                               "20 22 24 26 28" // Kaya (20)
 
       "burn_dps_boss"                                     "150 300 450 600 750"
       "burn_dps"                                          "70 170 270 370 470" // vanilla: 50

@@ -89,9 +89,9 @@
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies are leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies are leashed and have reduced healing, hp regen, lifesteal and spell lifesteal by %scepter_heal_prevent_percent%%%."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEAL REDUCTION:"
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEALTH RESTORATION REDUCTION:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_shard_description"             "Grants Laser ability: #{DOTA_Tooltip_ability_tinkerer_laser_oaa_Description}"
 
 // modifiers
@@ -111,7 +111,7 @@
 "DOTA_Tooltip_modifier_tinkerer_oil_spill_debuff_Description"                   "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%. If ignited, this unit will take %dMODIFIER_PROPERTY_TOOLTIP% damage."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff"                       "Keen Contraption (Scepter)"
-"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "Leashed and all healing, regeneration, lifesteal and spell lifesteal reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "Leashed and all health restoration reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff"                               "#{DOTA_Tooltip_modifier_tinker_laser_blind}"
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff_Description"                   "#{DOTA_Tooltip_modifier_tinker_laser_blind_Description}"

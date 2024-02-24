@@ -31,7 +31,7 @@ function chen_divine_favor_oaa:OnSpellStart()
     attacker = caster,
     damage_type = self:GetAbilityDamageType(),
     ability = self,
-    damage = self:GetSpecialValueFor("damage"),
+    damage = RandomFloat(self:GetSpecialValueFor("damage_min"), self:GetSpecialValueFor("damage_max")),
   }
 
   local radius = self:GetSpecialValueFor("effect_radius")
@@ -116,8 +116,13 @@ end
 
 function modifier_chen_divine_favor_shield_oaa:OnCreated()
   local ability = self:GetAbility()
-  if ability then
-    self.max_shield_hp = ability:GetSpecialValueFor("shield")
+  local parent = self:GetParent()
+  if ability and not ability:IsNull() then
+    if parent:IsHero() then
+      self.max_shield_hp = ability:GetSpecialValueFor("shield_heroes")
+    else
+      self.max_shield_hp = ability:GetSpecialValueFor("shield_creeps")
+    end
   end
   if IsServer() then
     self:SetStackCount(0 - self.max_shield_hp)

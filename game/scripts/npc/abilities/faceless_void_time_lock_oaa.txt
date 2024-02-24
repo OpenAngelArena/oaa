@@ -28,7 +28,7 @@
     "AbilityValues"
     {
       "duration"                                          "1.0" // in vanilla: min stun time is second_attack_delay + vanilla duration (0.5) + 0.1 =  1.0;
-      "duration_creep"                                    "2.0"
+      "duration_creep"                                    "1.0"
       "chance_pct"                                        "12 16 20 24 25 26"
       "min_damage" // it should be vanilla value x 2
       {
