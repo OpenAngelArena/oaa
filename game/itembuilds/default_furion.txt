@@ -16,19 +16,30 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_bloodthorn"
+      "item"      "item_gungir"
+      "item"      "item_spell_breaker_1"
       "item"      "item_greater_crit"
-      "item"      "item_devastator"
-      "item"      "item_sheepstick_4"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_bloodthorn"
     }
 
-    "#DOTA_Item_Build_Treants"
+    // "#DOTA_Item_Build_Treants"
+    // {
+      // "item"      "item_bloodthorn"
+      // "item"      "item_vladmirs_grimoire_1"
+      // "item"      "item_assault"
+      // "item"      "item_devastator_oaa_2"
+      // "item"      "item_lucience"
+    // }
+
+    "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_bloodthorn"
-      "item"      "item_helm_of_the_overlord"
-      "item"      "item_assault"
-      "item"      "item_devastator_oaa_2"
-      "item"      "item_lucience"
+      "item"      "item_ward_stack"
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_orchid"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_sheepstick_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -39,11 +50,16 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_devastator"
+      "item"      "item_hurricane_pike"
       "item"      "item_satanic"
       "item"      "item_silver_edge"
       "item"      "item_skadi"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_sphere"
+      "item"      "item_revenants_brooch_4"
+      "item"      "item_siege_mode"
+      "item"      "item_trumps_fists_1"
+      "item"      "item_rapier"
     }
   }
 }
