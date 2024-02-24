@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_bristleback"
   "Title"         "Recommended items for Bristleback"
 
@@ -27,13 +27,13 @@
       "item"      "item_black_king_bar_1" // prevents Break
     }
 
-    "#DOTA_Item_Build_Physical_Core" // Rightclick
+    "#DOTA_Item_Build_Physical_Core" // Rightclick and do more damage with spells
     {
       "item"      "item_assault"
-      "item"      "item_silver_edge"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_abyssal_blade_2"
+      "item"      "item_angels_demise"
       "item"      "item_devastator_oaa_2"
+      "item"      "item_sacred_skull"
+      "item"      "item_abyssal_blade_2"
     }
 
     "#DOTA_Item_Build_Tank_Core" // Standard Tank
@@ -53,6 +53,7 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_heavens_halberd"
+      "item"      "item_monkey_king_bar"
       "item"      "item_pipe"
       "item"      "item_radiance"
       "item"      "item_shield_staff"

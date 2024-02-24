@@ -18,6 +18,7 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_desolator"
+      "item"      "item_assault"
       "item"      "item_satanic"
       "item"      "item_greater_crit"
       "item"      "item_black_king_bar_1"
@@ -28,10 +29,11 @@
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_devastator"
+      "item"      "item_shivas_guard"
       "item"      "item_yasha_and_kaya"
+      //"item"      "item_ethereal_blade"
+      //"item"      "item_devastator"
       "item"      "item_dagger_of_moriah_1"
-      "item"      "item_sonic"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -48,8 +50,9 @@
       "item"      "item_sange_and_yasha"
       "item"      "item_silver_edge"
       "item"      "item_skadi"
-      "item"      "item_sheepstick_4"
       "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
+      "item"      "item_sonic"
     }
   }
 }
