@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35x"
   "hero"          "npc_dota_hero_phantom_assassin"
   "Title"         "Recommended items for Phantom Assassin"
 
@@ -18,13 +18,23 @@
       "item"      "item_small_cleaver_oaa"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core" // Standard PA build
     {
       "item"      "item_desolator"
-      "item"      "item_satanic"
-      "item"      "item_sange_and_yasha"
+      "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
+      "item"      "item_satanic"
       "item"      "item_abyssal_blade_2"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_mjollnir"
+      "item"      "item_spell_breaker_1"
+      "item"      "item_angels_demise"
+      "item"      "item_sacred_skull"
+      "item"      "item_giant_form"
+      "item"      "item_revenants_brooch_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -34,16 +44,11 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_bfury"
       "item"      "item_bloodthorn"
-      "item"      "item_manta"
-      "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
-      "item"      "item_silver_edge"
-      "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_giant_form"
-      "item"      "item_trumps_fists"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_trumps_fists_1"
       "item"      "item_rapier"
     }
   }
