@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_earthshaker"
   "Title"         "Recommended Items for Earthshaker"
 
@@ -16,19 +16,20 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_silver_edge"
       "item"      "item_heart_oaa_1"
-      "item"      "item_greater_power_treads"
+      "item"      "item_silver_edge"
+      "item"      "item_greater_crit"
+      "item"      "item_nullifier"
       "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_ward_stack"
-      "item"      "item_shield_staff"
+      "item"      "item_blink"
       "item"      "item_aether_lens"
-      "item"      "item_cyclone"
+      "item"      "item_wind_waker"
       "item"      "item_octarine_core"
+      "item"      "item_satanic_core"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -39,11 +40,16 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_blink"
-      "item"      "item_greater_crit"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_satanic"
+      "item"      "item_glimmer_cape"
+      "item"      "item_kaya_and_sange"
+      "item"      "item_lotus_orb"
+      "item"      "item_shield_staff"
+      "item"      "item_sphere"
+      "item"      "item_greater_power_treads"
+      "item"      "item_greater_travel_boots"
       "item"      "item_refresher_4"
+      "item"      "item_sheepstick_4"
+      "item"      "item_rapier"
     }
   }
 }
