@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_lina"
   "Title"         "Recommended items for Lina"
 
@@ -16,8 +16,9 @@
     {
       "item"      "item_gungir"
       "item"      "item_spell_breaker_1"
-      "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
+      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -48,7 +49,6 @@
       "item"      "item_refresher_4"
       "item"      "item_revenants_brooch_4"
       "item"      "item_sheepstick_4"
-      "item"      "item_siege_mode"
       "item"      "item_rapier"
     }
   }

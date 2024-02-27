@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_bristleback"
   "Title"         "Recommended items for Bristleback"
 
@@ -21,13 +21,13 @@
     "#DOTA_Item_Build_Core_Items" // Standard dota item progression
     {
       "item"      "item_satanic_core"
-      "item"      "item_lotus_orb"
+      "item"      "item_shivas_guard"
       "item"      "item_kaya_and_sange"
       "item"      "item_heart_oaa_1"
-      "item"      "item_black_king_bar_1" // prevents Break
+      "item"      "item_black_king_bar_1"
     }
 
-    "#DOTA_Item_Build_Physical_Core" // Rightclick and do more damage with spells
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_assault"
       "item"      "item_angels_demise"
@@ -38,9 +38,9 @@
 
     "#DOTA_Item_Build_Tank_Core" // Standard Tank
     {
+      "item"      "item_shield_staff"
       "item"      "item_crimson_guard"
       "item"      "item_spiked_mail_1"
-      "item"      "item_shivas_guard"
       "item"      "item_stoneskin"
       "item"      "item_martyrs_mail_1"
     }
@@ -53,10 +53,10 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_heavens_halberd"
+      "item"      "item_lotus_orb"
       "item"      "item_monkey_king_bar"
       "item"      "item_pipe"
       "item"      "item_radiance"
-      "item"      "item_shield_staff"
     }
   }
 }
