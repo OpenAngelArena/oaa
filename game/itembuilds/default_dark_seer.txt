@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_dark_seer"
   "Title"         "Recommended items for Dark Seer"
 
@@ -13,19 +13,27 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items" // get every game
+    "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_heart_oaa_1"
+      "item"      "item_harpoon"
       "item"      "item_blink"
+      "item"      "item_satanic_core"
     }
 
     "#DOTA_Item_Build_Support_Core" // standard tank-support
     {
       "item"      "item_guardian_greaves"
-      "item"      "item_crimson_guard"
+      "item"      "item_shield_staff"
       "item"      "item_octarine_core"
-      "item"      "item_lotus_orb"
+      "item"      "item_sheepstick_4"
+    }
+
+    "#DOTA_Item_Build_Illusions_Core" // Illusion oriented
+    {
+      "item"      "item_heart_oaa_1"
+      "item"      "item_bloodthorn"
+      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -35,22 +43,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodthorn"
       "item"      "item_heavens_halberd"
       "item"      "item_helm_of_the_overlord"
-      "item"      "item_kaya_and_sange"
+      "item"      "item_lotus_orb"
       "item"      "item_pipe"
-      "item"      "item_radiance"
       "item"      "item_shivas_guard"
       "item"      "item_sphere"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_wind_waker"
-      "item"      "item_aeon_disk_oaa_2"
       "item"      "item_lucience"
       "item"      "item_elixier_hybrid"
-      "item"      "item_refresher_4"
-      "item"      "item_sheepstick_4"
     }
   }
 }
