@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_death_prophet"
   "Title"         "Recommended items for Death Prophet"
 
@@ -8,7 +8,7 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_null_talisman"
+      "item"      "item_clarity"
       "item"      "item_clarity"
       "item"      "item_flask"
       "item"      "item_mango"
@@ -17,20 +17,11 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_cyclone"
       "item"      "item_kaya_and_sange"
       "item"      "item_shivas_guard"
+      "item"      "item_eternal_shroud"
       "item"      "item_ultimate_scepter"
-      "item"      "item_satanic_core"
-      "item"      "item_stoneskin"
-    }
-
-    "#DOTA_Item_Build_Support_Core"
-    {
-      "item"      "item_ward_stack"
-      "item"      "item_guardian_greaves"
-      "item"      "item_shield_staff"
-      "item"      "item_lotus_orb"
+      "item"      "item_sacred_skull"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -40,18 +31,14 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_assault"
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
-      "item"      "item_heavens_halberd"
-      "item"      "item_octarine_core"
-      "item"      "item_pipe"
-      "item"      "item_rod_of_atos"
+      "item"      "item_cyclone"
+      "item"      "item_satanic_core"
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_greater_travel_boots"
-      "item"      "item_dispel_orb_1"
-      "item"      "item_regen_crystal_1"
       "item"      "item_sheepstick_4"
+      "item"      "item_stoneskin"
     }
   }
 }

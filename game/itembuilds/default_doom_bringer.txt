@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_doom_bringer"
   "Title"         "Recommended items for Doom"
 
@@ -13,13 +13,25 @@
       "item"      "item_clarity"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
+      "item"      "item_hand_of_midas_1"
       "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Core_Items" // good every game for any role
+    {
       "item"      "item_octarine_core"
-      "item"      "item_overwhelming_blink"
-      "item"      "item_black_king_bar_1"
       "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Magical_Core" // do more damage with spells
+    {
+      "item"      "item_kaya"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_shivas_guard"
+      "item"      "item_satanic_core"
+      "item"      "item_greater_travel_boots"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -29,14 +41,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_ethereal_blade"
-      "item"      "item_kaya_and_sange"
-      "item"      "item_shivas_guard"
-      "item"      "item_assault"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_hand_of_midas_1"
+      "item"      "item_black_king_bar_1"
       "item"      "item_heart_oaa_1"
-      "item"      "item_satanic_core"
+      "item"      "item_lotus_orb"
+      "item"      "item_overwhelming_blink"
+      "item"      "item_wind_waker"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_sheepstick_4"
     }
   }
 }

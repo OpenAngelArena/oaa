@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_pudge"
   "Title"         "Recommended items for Pudge"
 
@@ -20,14 +20,18 @@
       "item"      "item_satanic_core"
       "item"      "item_shivas_guard"
       "item"      "item_heart_oaa_1"
+      "item"      "item_eternal_shroud"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_blink"
       "item"      "item_shield_staff"
-      "item"      "item_far_sight"
+      "item"      "item_aether_lens"
+      "item"      "item_glimmer_cape"
+      "item"      "item_blade_mail"
       "item"      "item_regen_crystal_1"
+      "item"      "item_martyrs_mail_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -47,7 +51,6 @@
       "item"      "item_dagger_of_moriah_1"
       "item"      "item_sheepstick_4"
       "item"      "item_stoneskin"
-      "item"      "item_martyrs_mail_1"
     }
   }
 }

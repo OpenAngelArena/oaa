@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_shredder"
   "Title"         "Recommended items for Timbersaw"
 
@@ -20,10 +20,10 @@
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_kaya_and_sange"
+      "item"      "item_satanic_core"
+      "item"      "item_shivas_guard"
+      "item"      "item_eternal_shroud"
       "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
-      "item"      "item_wind_waker"
-      "item"      "item_greater_travel_boots"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -31,7 +31,7 @@
       "item"      "item_lotus_orb"
       "item"      "item_shield_staff"
       "item"      "item_overwhelming_blink"
-      "item"      "item_shivas_guard"
+      "item"      "item_wind_waker"
       "item"      "item_heavens_halberd"
     }
 
@@ -43,10 +43,10 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_crimson_guard"
       "item"      "item_pipe"
-      "item"      "item_satanic_core"
+      "item"      "item_octarine_core"
       "item"      "item_sphere"
+      "item"      "item_greater_travel_boots"
       "item"      "item_sheepstick_4"
     }
   }
