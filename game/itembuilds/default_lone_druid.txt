@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_lone_druid"
   "Title"         "Recommended items for Lone Druid"
 
@@ -16,26 +16,33 @@
     {
       "item"      "item_orb_of_corrosion"
       "item"      "item_quelling_blade"
-      "item"      "item_bracer"
+    }
+
+    "#DOTA_Item_Build_Bear_Early"
+    {
+      "item"      "item_diffusal_blade"
+      "item"      "item_echo_sabre"
+      "item"      "item_mask_of_madness"
+      "item"      "item_maelstrom"
     }
 
     "#DOTA_Item_Build_Core_Items_Secondary"
     {
       "item"      "item_ultimate_scepter"
-      "item"      "item_harpoon"
       "item"      "item_greater_crit"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_gungir"
+      "item"      "item_bloodthorn"
       "item"      "item_abyssal_blade_2"
-      "item"      "item_greater_power_treads"
     }
 
     "#DOTA_Item_Build_Druid"
     {
-      "item"      "item_helm_of_the_overlord"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_assault"
       "item"      "item_aeon_disk_oaa_2"
       "item"      "item_greater_tranquil_boots"
-      "item"      "item_lucience"
+      "item"      "item_stoneskin"
+      "item"      "item_reduction_orb_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -48,17 +55,15 @@
       "item"      "item_black_king_bar_1"
       "item"      "item_guardian_greaves"
       "item"      "item_mjollnir"
+      "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
       "item"      "item_pipe"
       "item"      "item_radiance"
-      "item"      "item_satanic"
       "item"      "item_shivas_guard"
-      "item"      "item_silver_edge"
       "item"      "item_solar_crest"
+      "item"      "item_spell_breaker_1"
       "item"      "item_devastator_oaa_2"
-      "item"      "item_sheepstick_4"
-      "item"      "item_stoneskin"
-      "item"      "item_trumps_fists"
+      "item"      "item_trumps_fists_1"
     }
   }
 }

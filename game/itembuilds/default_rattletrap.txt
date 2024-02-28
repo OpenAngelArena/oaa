@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35c"
   "hero"          "npc_dota_hero_rattletrap"
   "Title"         "Recommended items for Clockwerk"
 
@@ -13,30 +13,23 @@
       "item"      "item_clarity"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Utility_Initiation"
     {
-      "item"      "item_spiked_mail_1"
-      "item"      "item_octarine_core"
-      "item"      "item_lotus_orb"
-      "item"      "item_ethereal_blade"
+      "item"      "item_blade_mail"
+      "item"      "item_orchid"
       "item"      "item_ultimate_scepter"
+      "item"      "item_shivas_guard"
+      "item"      "item_octarine_core"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_ward_stack"
       "item"      "item_spirit_vessel_oaa"
+      "item"      "item_cyclone"
       "item"      "item_shield_staff"
       "item"      "item_glimmer_cape"
-      "item"      "item_solar_crest"
+      "item"      "item_sheepstick_4"
     }
-
-    //"#DOTA_Item_Build_Physical_Core" // Right-Click Clockwerk
-    //{
-      //"item"      "item_harpoon"
-      //"item"      "item_nullifier"
-      //
-    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -46,19 +39,16 @@
     "#DOTA_Item_Build_Luxury" // Clockwerk is good with most items
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_boots_of_bearing"
-      "item"      "item_cyclone"
+      "item"      "item_dagon_oaa"
+      "item"      "item_eternal_shroud"
+      "item"      "item_harpoon"
       "item"      "item_heavens_halberd"
-      "item"      "item_meteor_hammer_1"
+      "item"      "item_lotus_orb"
       "item"      "item_nullifier"
-      "item"      "item_orchid"
       "item"      "item_pipe"
-      "item"      "item_radiance"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_lucience"
-      "item"      "item_sheepstick_4"
-      "item"      "item_silver_staff"
-      "item"      "item_trumps_fists"
+      "item"      "item_solar_crest"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_trumps_fists_1"
     }
   }
 }
