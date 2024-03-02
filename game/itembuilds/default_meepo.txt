@@ -1,0 +1,41 @@
+"itembuilds"
+{
+  "author"        "OAA 7.35c"
+  "hero"          "npc_dota_hero_meepo"
+  "Title"         "Recommended items for Meepo"
+
+  "Items"
+  {
+    "#DOTA_Item_Build_Starting_Items"
+    {
+      "item"      "item_tango"
+      "item"      "item_wraith_band"
+    }
+
+    "#DOTA_Item_Build_Core_Items"
+    {
+      "item"      "item_disperser"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_vladmirs_grimoire_1"
+      "item"      "item_sphere"
+      "item"      "item_greater_power_treads"
+      "item"      "item_dispel_orb_1"
+    }
+
+    "#DOTA_Item_Build_Shard"
+    {
+      "item"      "item_aghanims_shard"
+    }
+
+    "#DOTA_Item_Build_Luxury"
+    {
+      "item"      "item_bloodthorn"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_manta"
+      "item"      "item_skadi"
+      "item"      "item_swift_blink"
+      "item"      "item_lucience"
+      "item"      "item_sheepstick_4"
+    }
+  }
+}
