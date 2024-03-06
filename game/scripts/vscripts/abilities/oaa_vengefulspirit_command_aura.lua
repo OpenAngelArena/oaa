@@ -108,7 +108,7 @@ if IsServer() then
       return
     end
 
-    -- Stuff that shoudln't happen, here if this ability is put on other heroes
+    -- Stuff that shoudln't happen if this ability is put on other heroes
     if parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
       return
     end
