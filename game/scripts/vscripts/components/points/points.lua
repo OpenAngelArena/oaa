@@ -41,10 +41,10 @@ function PointsManager:Init ()
   GameEvents:OnHeroKilled(function (keys)
     local killed = keys.killed
     local killer = keys.killer
-    -- increment points
     if not killer or not killed then
       return
     end
+    -- increment points if valid killer and valid killed
     if killer:GetTeam() ~= killed:GetTeam() and not killed:IsReincarnating() and not killed:IsTempestDouble() and not killed:IsSpiritBearOAA() and killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
       self:AddPoints(killer:GetTeam())
     end

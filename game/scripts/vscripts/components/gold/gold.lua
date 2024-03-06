@@ -262,6 +262,7 @@ function modifier_oaa_passive_gpm:OnIntervalThink()
   end
   local parent = self:GetParent()
   if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    self:Destroy()
     return
   end
   Gold:PassiveGPM(parent)
