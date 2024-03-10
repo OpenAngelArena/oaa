@@ -68,6 +68,7 @@ function item_ghost_king_bar_1:OnSpellStart()
 
   -- Spend charges
   self:SetCurrentCharges(0)
+  caster.ghostKingBarChargesOAA = 0
 end
 
 item_ghost_king_bar_2 = item_ghost_king_bar_1
@@ -96,9 +97,11 @@ function modifier_item_ghost_king_bar_passives:GetAttributes()
 end
 
 function modifier_item_ghost_king_bar_passives:OnCreated()
+  self.interval = 0.1
+  self.counter = 0
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(self.interval)
     local parent = self:GetParent()
     if parent.ghostKingBarChargesOAA and parent.ghostKingBarChargesOAA ~= 0 then
       local item = self:GetAbility()
@@ -147,6 +150,24 @@ end
 function modifier_item_ghost_king_bar_passives:OnIntervalThink()
   if self:IsFirstItemInInventory() then
     self:SetStackCount(2)
+
+    -- Gaining charges over time
+    local ability = self:GetAbility()
+    local gain_charge_interval = ability:GetSpecialValueFor("charge_gain_timer")
+    local max_charges = ability:GetSpecialValueFor("max_charges")
+    local gain_charge_iteration = math.ceil(gain_charge_interval / self.interval)
+    if self.counter % gain_charge_iteration == 0 and self.counter ~= 0 then
+      -- Add a charge to the item
+      ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, max_charges))
+      -- Add a charge to the hero
+      local parent = self:GetParent()
+      parent.ghostKingBarChargesOAA = ability:GetCurrentCharges()
+      -- Reset counter just in case of overflow
+      self.counter = 0
+    end
+
+    -- Increase counter
+    self.counter = self.counter + 1
   else
     self:SetStackCount(1)
   end
@@ -268,13 +289,9 @@ if IsServer() then
       parent:GetTeamNumber()
     )
 
-    -- Reduce charge gain radius while in duels
-    local unitIsInRange = true
-    if Duels:IsActive() then
-      local charge_radius = ability:GetSpecialValueFor("charge_radius")
-      local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
-      unitIsInRange = distanceToUnit <= charge_radius
-    end
+    local charge_radius = ability:GetSpecialValueFor("charge_radius")
+    local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
+    local unitIsInRange = distanceToUnit <= charge_radius
 
     if filterResult == UF_SUCCESS and event.ability:ProcsMagicStick() and unitIsInRange then
       ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, ability:GetSpecialValueFor("max_charges")))
