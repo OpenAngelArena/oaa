@@ -37,9 +37,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "projectile_speed"                                  "2000"
-      "damage_bonus"
+      "damage_bonus" // affects skeletons too
       {
-        "value"                                           "15 25 35 45 90 135"
+        "value"                                           "15 25 35 45 65 85"
         "special_bonus_unique_clinkz_1"                   "+15"
       }
       "ground_duration"                                   "5"
