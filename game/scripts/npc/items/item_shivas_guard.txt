@@ -12,16 +12,16 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2050"
+    "ItemCost"                                            "1500" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_shivas_guard"
-    "ItemRequirements"
+    "ItemRequirements" //OAA
     {
-      "01"                                                "item_veil_of_discord;item_platemail"
+      "01"                                                "item_veil_of_discord;item_chainmail"
     }
   }
 
@@ -48,7 +48,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5175"
+    "ItemCost"                                            "3775" //OAA
     "ItemShopTags"                                        "int;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "shiva's guard;shivas guard;shiva"
@@ -63,7 +63,7 @@
       "bonus_strength"                                    "5 10 15 20 25" // Veil of Discord (4);
       "bonus_agility"                                     "5 10 15 20 25" // Veil of Discord (4);
       "bonus_hp_regen"                                    "5 8 11 14 17" // Veil of Discord (4);
-      "bonus_armor"                                       "14 15 17 20 24" //OAA, Platemail (10); Veil of Discord (4);
+      "bonus_armor"                                       "10 11 13 16 20" //OAA, Chain Mail (4); Veil of Discord (4);
       "aura_radius"                                       "1200"
       "aura_attack_speed"                                 "-45 -60 -80 -105 -135"
       "blast_damage"                                      "200 300 450 650 900"

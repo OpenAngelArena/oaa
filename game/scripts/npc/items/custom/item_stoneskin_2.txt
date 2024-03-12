@@ -54,7 +54,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35179"
+    "ItemCost"                                            "33779"
     "ItemShopTags"                                        "armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin armor 2"
@@ -72,7 +72,7 @@
     "AbilityValues"
     {
       "bonus_all_stats"                                   "20 25"
-      "bonus_armor"                                       "20 24"
+      "bonus_armor"                                       "16 20"
       "bonus_health_regen"                                "14 17"
       "bonus_status_resist"                               "20 22"
       // Aura stuff
@@ -82,7 +82,7 @@
       "spell_lifesteal_amp"                               "20"
       "aura_radius"                                       "1200"
       // Active stuff
-      "stone_armor"                                       "80 100"
+      "stone_armor"                                       "85 100"
       "stone_deflect_chance"                              "25"
       "stone_deflect_radius"
       {
@@ -90,7 +90,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       //"stone_move_speed"                                  "100"
-      "stone_mana_regen_amp"                              "80 100"
+      "stone_mana_regen_amp"                              "85 100"
       "duration"                                          "5.5"
     }
   }

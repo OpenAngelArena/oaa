@@ -68,11 +68,7 @@
       "bonus_mana_regen"                                  "5.5 6.5"
       "bonus_mana"                                        "700 950"
       "duration"                                          "6"
-      "radius"
-      {
-        "value"                                           "250"
-        "affected_by_aoe_increase"                        "1"
-      }
+      "radius"                                            "250"
       "aura_stickiness"                                   "0.1"
     }
   }
