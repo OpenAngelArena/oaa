@@ -1,63 +1,59 @@
 "DOTAAbilities"
 {
+  "item_recipe_urn_of_shadows"                            "REMOVE"
+  "item_urn_of_shadows"                                   "REMOVE"
+
   //=================================================================================================================
-  // Recipe: Silver Staff
+  // Recipe: Urn of Shadows
   //=================================================================================================================
-  "item_recipe_silver_staff"
+  "item_recipe_urn_of_shadows_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "item_recipe_urn_of_shadows"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "375"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_silver_staff"
+    "ItemResult"                                          "item_urn_of_shadows_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_spirit_vessel_3;item_upgrade_core_3"
+      "01"                                                "item_sobi_mask;item_ring_of_protection;item_circlet"
     }
   }
-
   //=================================================================================================================
-  // Silver Staff - based on Spirit Vessel and Silver Edge
+  // Urn of Shadows
   //=================================================================================================================
-  "item_silver_staff"
+  "item_urn_of_shadows_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/silver_staff.lua"
-    "AbilityTextureName"                                  "custom/dragonstaff_4"
+    "ScriptFile"                                          "items/spirit_vessel.lua"
+    "AbilityTextureName"                                  "item_urn_of_shadows"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCooldown"                                     "20"
-    "AbilitySharedCooldown"                               "silver_staff"
-    "AbilityCastRange"                                    "1000 1100"
-    "AbilityManaCost"                                     "75"
-
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "2"
-    "ItemBaseLevel"                                       "1"
+    "AbilityCastRange"                                    "750"
+    "AbilityCooldown"                                     "7.0"
+    "AbilitySharedCooldown"                               "urn"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15783"
+    "ItemCost"                                            "880"
+    "ItemShopTags"                                        "regen_mana;str;int;agi;armor"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "silver staff; break staff; dragon staff"
+    "ItemAliases"                                         "urn; urn of shadows"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -65,13 +61,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "1000 1250"
-      "bonus_mana_regen"                                  "3.25 4.25"
-      "bonus_all_stats"                                   "22 27"
-      "bonus_armor"                                       "8 12"
-      "base_damage"                                       "95 135"
-      "max_hp_damage"                                     "4 5"
-      "duration"                                          "4.0"
+      "bonus_mana_regen"                                  "1.4"
+      "bonus_all_stats"                                   "2"
+      "bonus_armor"                                       "2"
+      "soul_radius"                                       "1400"
+      "kill_charges"                                      "1"
+      "soul_heal_amount"                                  "30"
+      "soul_damage_amount"                                "25"
+      "duration"                                          "8.0"
     }
   }
 }

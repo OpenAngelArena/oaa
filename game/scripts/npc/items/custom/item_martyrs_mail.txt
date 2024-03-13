@@ -24,7 +24,6 @@
     "ItemRequirements"
     {
       "01"                                                "item_spiked_mail_4;item_upgrade_core_4"
-      "02"                                                "item_assault_4;item_upgrade_core_4"
     }
   }
 
@@ -50,7 +49,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "35004"
+    "ItemCost"                                            "34854"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "martyr;martyrs mail"
@@ -61,22 +60,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "160" // like Spiked Mail
-      "bonus_armor"                                       "14" // like AC
       "bonus_intellect"                                   "75" // like Spiked Mail
-      "bonus_attack_speed"                                "50" // like AC
+      "bonus_strength"                                    "75"
+      "bonus_armor"                                       "14" // Spiked Mail (16);
 
-      "martyr_duration"                                   "5.5"
+      "martyr_duration"                                   "6"
       "martyr_heal_aoe"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "martyr_heal_percent"                               "100"
-
-      "aura_attack_speed"                                 "50" // like AC
-      "aura_armor"                                        "15" // like AC
-      "aura_radius"                                       "1200"
 
       "death_heal_base"                                   "100"
       "death_heal_hp_percent"                             "50"
@@ -91,11 +85,13 @@
         "value"                                           "1800"
         "affected_by_aoe_increase"                        "1"
       }
+      "death_attack_damage"                               "180"
+      "death_attack_speed"                                "50"
+      "death_armor"                                       "15"
     }
 
     "precache"
     {
-      "particle"                                          "particles/items_fx/blademail.vpcf"
       "particle"                                          "particles/world_shrine/radiant_shrine_active_ray.vpcf"
     }
   }

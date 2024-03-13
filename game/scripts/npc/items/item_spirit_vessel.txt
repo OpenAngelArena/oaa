@@ -25,7 +25,7 @@
     "ItemResult"                                          "item_spirit_vessel_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_urn_of_shadows;item_crown;item_fluffy_hat"
+      "01"                                                "item_urn_of_shadows_oaa;item_crown;item_fluffy_hat"
     }
   }
   //=================================================================================================================
@@ -65,7 +65,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 1000 1750 2750" // vanilla (125);
+      "bonus_health"                                      "250 500 750 1000 1250" // vanilla (125);
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
       "bonus_all_stats"                                   "7 12 17 22 27" // Urn (2); Crown (4); vanilla (6);
       "bonus_armor"                                       "2 3 5 8 12"

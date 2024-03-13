@@ -28,10 +28,6 @@ function item_greater_guardian_greaves:OnSpellStart()
   -- Apply basic dispel to caster
   caster:Purge(false, true, false, false, false)
 
-  local function HasNoHealCooldown(hero)
-    return not hero:HasModifier("modifier_item_mekansm_noheal")
-  end
-
   local function ReplenishMana(hero)
     local manaReplenishAmount = self:GetSpecialValueFor("replenish_mana")
     hero:GiveMana(manaReplenishAmount)
@@ -44,18 +40,15 @@ function item_greater_guardian_greaves:OnSpellStart()
   end
 
   local function ReplenishHealth(hero)
-    local healAmount = self:GetSpecialValueFor("replenish_health")
+    local maxHealth = hero:GetMaxHealth()
+    local healPerMaxHealth = self:GetSpecialValueFor("max_health_pct_heal_amount") * 0.01
+    local healAmount = self:GetSpecialValueFor("replenish_health") + maxHealth * healPerMaxHealth
     hero:Heal(healAmount, self)
-    --hero:AddNewModifier(caster, self, "modifier_item_mekansm_noheal", {duration = self:GetCooldownTime() - 2})
 
     local particleHealName = "particles/items3_fx/warmage_recipient.vpcf"
     local particleHealNonHeroName = "particles/items3_fx/warmage_recipient_nonhero.vpcf"
 
-    SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
-
-    if hero ~= caster then
-      SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
-    end
+    SendOverheadEventMessage(hero:GetPlayerOwner(), OVERHEAD_ALERT_HEAL, hero, healAmount, caster:GetPlayerOwner())
 
     if hero:IsHero() then
       local particleHeal = ParticleManager:CreateParticle(particleHealName, PATTACH_ABSORIGIN_FOLLOW, hero)
@@ -69,10 +62,10 @@ function item_greater_guardian_greaves:OnSpellStart()
   end
 
   heroes = iter(heroes)
-  -- Give Mana to all heroes
+  -- Give Mana to all friendly units
   foreach(ReplenishMana, heroes)
-  -- Only Heal heroes without the Heal Cooldown modifier
-  foreach(ReplenishHealth, filter(HasNoHealCooldown, heroes))
+  -- Heal all friendly units (even if recently healed with Mekansm)
+  foreach(ReplenishHealth, heroes)
 
   local particleCastName = "particles/items3_fx/warmage.vpcf"
   local particleCast = ParticleManager:CreateParticle(particleCastName, PATTACH_ABSORIGIN, caster)

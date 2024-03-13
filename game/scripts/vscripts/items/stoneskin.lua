@@ -37,7 +37,7 @@ function item_stoneskin:OnProjectileHit(target, location)
     return
   end
 
-  local damage = self.deflect_damage or 0
+  local damage = self.deflect_damage or attacker:GetAverageTrueAttackDamage(nil)
 
   -- Initialize damage table
   local damage_table = {
@@ -244,6 +244,7 @@ function modifier_item_stoneskin_stone_armor:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_AVOID_DAMAGE,
+    MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE, -- GetModifierMPRegenAmplify_Percentage
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
@@ -273,7 +274,7 @@ end
 function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
   local parent = self:GetParent()
   local ability = self:GetAbility()
-  local chance = 40
+  local chance = 25
   local radius = 400
   if ability and not ability:IsNull() then
     chance = ability:GetSpecialValueFor("stone_deflect_chance")
@@ -306,7 +307,7 @@ function modifier_item_stoneskin_stone_armor:GetModifierAvoidDamage(event)
         Source = parent,
         vSourceLoc = parent:GetAbsOrigin(),
         Target = closest,
-        iMoveSpeed = attacker:GetProjectileSpeed() * 3/4,
+        iMoveSpeed = attacker:GetProjectileSpeed() * 1/2,
         bDodgeable = true,
         bProvidesVision = true,
         iVisionRadius = 250,
@@ -346,6 +347,16 @@ end
   -- end
   -- return self:GetAbility():GetSpecialValueFor("stone_status_resist")
 -- end
+
+function modifier_item_stoneskin_stone_armor:GetModifierMPRegenAmplify_Percentage()
+  if not self:GetAbility() then
+    if not self:IsNull() then
+      self:Destroy()
+    end
+    return 0
+  end
+  return self:GetAbility():GetSpecialValueFor("stone_mana_regen_amp")
+end
 
 function modifier_item_stoneskin_stone_armor:GetStatusEffectName()
   return "particles/status_fx/status_effect_earth_spirit_petrify.vpcf"
