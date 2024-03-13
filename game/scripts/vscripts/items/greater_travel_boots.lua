@@ -106,7 +106,8 @@ end
 function item_greater_travel_boots:OnChannelThink (delta)
   local caster = self:GetCaster()
   if not self.targetEntity:IsAlive() or caster:IsRooted() or caster:IsLeashedOAA() then
-    self:EndChannel(true)
+    self:EndChannel(true) -- stops the channel
+    self:OnChannelFinish(true) -- does the stuff if interrupted if EndChannel doesn't trigger it
   end
 end
 
@@ -118,20 +119,24 @@ function item_greater_travel_boots:OnChannelFinish(wasInterupted)
   -- End animation
   hCaster:RemoveGesture(ACT_DOTA_TELEPORT)
   -- End particle effects
-  ParticleManager:DestroyParticle(self.teleportFromEffect, false)
-  ParticleManager:DestroyParticle(self.teleportToEffect, false)
-  ParticleManager:ReleaseParticleIndex(self.teleportFromEffect)
-  ParticleManager:ReleaseParticleIndex(self.teleportToEffect)
+  if self.teleportFromEffect and self.teleportToEffect then
+    ParticleManager:DestroyParticle(self.teleportFromEffect, false)
+    ParticleManager:DestroyParticle(self.teleportToEffect, false)
+    ParticleManager:ReleaseParticleIndex(self.teleportFromEffect)
+    ParticleManager:ReleaseParticleIndex(self.teleportToEffect)
+  end
   -- End sounds
   hCaster:StopSound("Portal.Loop_Disappear")
   hCaster:StopSound("Hero_Tinker.MechaBoots.Loop")
-  self.targetEntity:StopSound("Portal.Loop_Appear")
+  if self.targetEntity then
+    self.targetEntity:StopSound("Portal.Loop_Appear")
+  end
 
   if wasInterupted then
     return -- do nothing
   end
 
-  hCaster:StartGesture(ACT_DOTA_TELEPORT_END)
+  hCaster:FadeGesture(ACT_DOTA_TELEPORT_END)
 
   EmitSoundOnLocationWithCaster(hCaster:GetOrigin(), "Portal.Hero_Disappear", hCaster)
 

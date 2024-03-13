@@ -105,7 +105,7 @@ if IsServer() then
       "modifier_item_silver_edge_windwalk",
       "modifier_item_sphere_target",                 -- Linken's Sphere transferred buff
       -- custom:
-      "modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
+      --"modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
       "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
       "modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff
       "modifier_item_dispel_orb_active",             -- Dispel Orb buff
@@ -121,7 +121,6 @@ if IsServer() then
       "modifier_item_vampire_active",                -- Vampire Fang active buff
       --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller
       --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
-      "modifier_shield_staff_barrier_buff",          -- Force Shield Staff buff
     }
 
     local undispellable_ability_buffs = {

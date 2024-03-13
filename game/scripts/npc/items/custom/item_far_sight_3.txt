@@ -55,8 +55,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "8007"
-    "ItemShopTags"                                        "hard_to_tag"
+    "ItemCost"                                            "8907"
+    "ItemShopTags"                                        "armor;regen_mana;mana_pool;hard_to_tag;see_invis"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "far sight"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -71,7 +71,7 @@
       "bonus_mana"                                        "300 400 550 750 1000"
       "bonus_mana_regen"                                  "3 3.25 3.75 4.5 5.5"
       "bonus_armor"                                       "4 5 7 10 14"
-      "bonus_to_worst_attribute"                          "10 15 25 40 60"
+      "bonus_to_worst_attribute"                          "12 17 27 42 62"
       "bonus_vision_range"                                "225 275 325 375 425"
       "bonus_cast_range"                                  "225 275 325 375 425"
       "reveal_radius"

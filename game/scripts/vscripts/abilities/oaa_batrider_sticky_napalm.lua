@@ -248,6 +248,7 @@ if IsServer() then
       ["item_radiance_4"] = true,
       ["item_radiance_5"] = true,
       ["item_urn_of_shadows"] = true,
+      ["item_urn_of_shadows_oaa"] = true,
       ["item_spirit_vessel"] = true,
       ["item_spirit_vessel_oaa"] = true,
       ["item_spirit_vessel_2"] = true,
