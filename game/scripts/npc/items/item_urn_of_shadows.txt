@@ -1,63 +1,59 @@
 "DOTAAbilities"
 {
-  "item_recipe_spirit_vessel"                             "REMOVE"
-  "item_spirit_vessel"                                    "REMOVE"
+  "item_recipe_urn_of_shadows"                            "REMOVE"
+  "item_urn_of_shadows"                                   "REMOVE"
 
   //=================================================================================================================
-  // Recipe: Spirit Vessel 1
+  // Recipe: Urn of Shadows
   //=================================================================================================================
-  "item_recipe_spirit_vessel_oaa"
+  "item_recipe_urn_of_shadows_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_1"
+    "AbilityTextureName"                                  "item_recipe_urn_of_shadows"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1200"
+    "ItemCost"                                            "375"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_spirit_vessel_oaa"
+    "ItemResult"                                          "item_urn_of_shadows_oaa"
     "ItemRequirements"
     {
-      "01"                                                "item_urn_of_shadows_oaa;item_crown;item_fluffy_hat"
+      "01"                                                "item_sobi_mask;item_ring_of_protection;item_circlet"
     }
   }
   //=================================================================================================================
-  // Spirit Vessel 1
+  // Urn of Shadows
   //=================================================================================================================
-  "item_spirit_vessel_oaa"
+  "item_urn_of_shadows_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/spirit_vessel.lua"
-    "AbilityTextureName"                                  "custom/spirit_vessel_1"
+    "AbilityTextureName"                                  "item_urn_of_shadows"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "AbilityCastRange"                                    "750 850 950 1050 1150"
+    "AbilityCastRange"                                    "750"
     "AbilityCooldown"                                     "7.0"
     "AbilitySharedCooldown"                               "urn"
 
-    // Spicy Parameters
-    //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
-    "ItemBaseLevel"                                       "1"
-
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2780"
+    "ItemCost"                                            "880"
+    "ItemShopTags"                                        "regen_mana;str;int;agi;armor"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "sv;spirit vessel"
+    "ItemAliases"                                         "urn; urn of shadows"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -65,18 +61,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "250 500 750 1000 1250" // vanilla (125);
-      "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
-      "bonus_all_stats"                                   "7 12 17 22 27" // Urn (2); Crown (4); vanilla (6);
-      "bonus_armor"                                       "2 3 5 8 12"
+      "bonus_mana_regen"                                  "1.4"
+      "bonus_all_stats"                                   "2"
+      "bonus_armor"                                       "2"
       "soul_radius"                                       "1400"
       "kill_charges"                                      "1"
-      "soul_heal_amount"                                  "45 60 85 120 165" // Urn (30); vanilla (40);
-      "soul_damage_amount"                                "35 45 65 95 135" // Urn (25); vanilla (35);
+      "soul_heal_amount"                                  "30"
+      "soul_damage_amount"                                "25"
       "duration"                                          "8.0"
-      "heal_reduction_with_charge"                        "45 50 55 60 65"
-      "heal_reduction_no_charge"                          "20 25 30 35 40"
-      "current_hp_as_dmg"                                 "4 4.5 5 5.5 6"
     }
   }
 }

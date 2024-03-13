@@ -1,7 +1,73 @@
+LinkLuaModifier("modifier_urn_of_shadows_oaa_buff", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_urn_of_shadows_oaa_debuff", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_passive", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_buff", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_debuff_with_charge", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spirit_vessel_oaa_debuff_no_charge", "items/spirit_vessel.lua", LUA_MODIFIER_MOTION_NONE)
+
+item_urn_of_shadows_oaa = class(ItemBaseClass)
+
+function item_urn_of_shadows_oaa:GetIntrinsicModifierName()
+  return "modifier_intrinsic_multiplexer"
+end
+
+function item_urn_of_shadows_oaa:GetIntrinsicModifierNames()
+  return {
+    "modifier_generic_bonus",
+    "modifier_spirit_vessel_oaa_passive",
+  }
+end
+
+function item_urn_of_shadows_oaa:CastFilterResultTarget(target)
+  local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
+  local current_charges = self:GetCurrentCharges()
+
+  if not (current_charges >= 1) then
+    return UF_FAIL_CUSTOM
+  end
+
+  return defaultFilterResult
+end
+
+function item_urn_of_shadows_oaa:GetCustomCastErrorTarget(target)
+  local current_charges = self:GetCurrentCharges()
+
+  if not (current_charges >= 1) then
+    return "#dota_hud_error_no_charges"
+  end
+end
+
+function item_urn_of_shadows_oaa:OnSpellStart()
+  local caster = self:GetCaster()
+  local target = self:GetCursorTarget()
+  local duration = self:GetSpecialValueFor("duration")
+
+  local particle_fx = ParticleManager:CreateParticle("particles/items2_fx/urn_of_shadows.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(particle_fx, 0, caster:GetAbsOrigin())
+  ParticleManager:SetParticleControl(particle_fx, 1, target:GetAbsOrigin())
+  ParticleManager:ReleaseParticleIndex(particle_fx)
+
+  local current_charges = self:GetCurrentCharges()
+  if not (current_charges >= 1) then
+    self:EndCooldown()
+    return -- no charges
+  end
+
+  if target:GetTeam() == caster:GetTeam() then
+    target:AddNewModifier(caster, self, "modifier_urn_of_shadows_oaa_buff", {duration = duration})
+  else
+    target:AddNewModifier(caster, self, "modifier_urn_of_shadows_oaa_debuff", {duration = duration})
+  end
+
+  -- Decrement charges
+  self:SetCurrentCharges(current_charges - 1)
+  caster.spiritVesselChargesOAA = current_charges - 1
+
+  -- Sound
+  target:EmitSound("DOTA_Item.UrnOfShadows.Activate")
+end
+
+---------------------------------------------------------------------------------------------------
 
 item_spirit_vessel_oaa = class(ItemBaseClass)
 
@@ -89,8 +155,6 @@ function modifier_spirit_vessel_oaa_passive:OnCreated()
     if item and not item:IsNull() then
       item:SetCurrentCharges(caster.spiritVesselChargesOAA)
     end
-    --self.charges = caster.spiritVesselChargesOAA
-    --caster.spiritVesselChargesOAA = nil
   end
 end
 
@@ -129,7 +193,6 @@ if IsServer() then
             else
               item:SetCurrentCharges(current_charges + 2*charges_per_kill)
             end
-            --self.charges = item:GetCurrentCharges()
             caster.spiritVesselChargesOAA = item:GetCurrentCharges()
           end
         end
@@ -166,6 +229,100 @@ function modifier_spirit_vessel_oaa_passive:OnDestroy()
       caster.spiritVesselChargesOAA = math.max(caster.spiritVesselChargesOAA, charges)
     end
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_urn_of_shadows_oaa_buff = class({})
+
+function modifier_urn_of_shadows_oaa_buff:IsDebuff()
+  return false
+end
+
+function modifier_urn_of_shadows_oaa_buff:IsHidden()
+  return false
+end
+
+function modifier_urn_of_shadows_oaa_buff:IsPurgable()
+  return true
+end
+
+function modifier_urn_of_shadows_oaa_buff:OnCreated()
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.health_regen = ability:GetSpecialValueFor("soul_heal_amount")
+  end
+end
+
+modifier_urn_of_shadows_oaa_buff.OnRefresh = modifier_urn_of_shadows_oaa_buff.OnCreated
+
+function modifier_urn_of_shadows_oaa_buff:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_EVENT_ON_TAKEDAMAGE,
+  }
+end
+
+if IsServer() then
+  function modifier_urn_of_shadows_oaa_buff:OnTakeDamage(event)
+    local parent = self:GetParent()
+    local attacker = event.attacker
+    local damaged_unit = event.unit
+    local damage = event.damage -- damage after reductions
+
+    -- Check if damaged unit exists
+    if not damaged_unit or damaged_unit:IsNull() then
+      return
+    end
+
+    -- Check if damaged unit has this modifier
+    if damaged_unit ~= parent then
+      return
+    end
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Ignore self damage
+    if parent == attacker then
+      return
+    end
+
+    -- Check if attacker is something weird
+    if attacker.GetUnitName == nil then
+      return
+    end
+
+    -- Check if attacker is on the neutral team or uncontrollable by the players
+    if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS or not attacker:IsControllableByAnyPlayer() then
+      return
+    end
+
+    -- Check if damage is negative or 0
+    if damage <= 0 then
+      return
+    end
+
+    self:Destroy()
+  end
+end
+
+function modifier_urn_of_shadows_oaa_buff:GetModifierConstantHealthRegen()
+  return self.health_regen or self:GetAbility():GetSpecialValueFor("soul_heal_amount")
+end
+
+function modifier_urn_of_shadows_oaa_buff:GetEffectName()
+  return "particles/items2_fx/urn_of_shadows_heal.vpcf"
+end
+
+function modifier_urn_of_shadows_oaa_buff:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_urn_of_shadows_oaa_buff:GetTexture()
+  return "item_urn_of_shadows"
 end
 
 ---------------------------------------------------------------------------------------------------
@@ -277,6 +434,71 @@ end
 
 function modifier_spirit_vessel_oaa_buff:GetTexture()
   return "item_spirit_vessel"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_urn_of_shadows_oaa_debuff = class({})
+
+function modifier_urn_of_shadows_oaa_debuff:IsDebuff()
+  return true
+end
+
+function modifier_urn_of_shadows_oaa_debuff:IsHidden()
+  return false
+end
+
+function modifier_urn_of_shadows_oaa_debuff:IsPurgable()
+  return true
+end
+
+function modifier_urn_of_shadows_oaa_debuff:GetEffectName()
+  return "particles/items2_fx/urn_of_shadows_damage.vpcf"
+end
+
+function modifier_urn_of_shadows_oaa_debuff:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_urn_of_shadows_oaa_debuff:OnCreated()
+  if not IsServer() then
+    return
+  end
+  self:OnRefresh()
+  self:OnIntervalThink()
+  self:StartIntervalThink(1)
+end
+
+function modifier_urn_of_shadows_oaa_debuff:OnRefresh()
+  if not IsServer() then
+    return
+  end
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    self.damage_per_second = ability:GetSpecialValueFor("soul_damage_amount")
+  end
+end
+
+function modifier_urn_of_shadows_oaa_debuff:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  local damageTable = {
+    victim = parent,
+    attacker = self:GetCaster(),
+    damage = self.damage_per_second,
+    damage_type = DAMAGE_TYPE_MAGICAL,
+    ability = self:GetAbility()
+  }
+
+  ApplyDamage(damageTable)
+end
+
+function modifier_urn_of_shadows_oaa_debuff:GetTexture()
+  return "item_urn_of_shadows"
 end
 
 ---------------------------------------------------------------------------------------------------
