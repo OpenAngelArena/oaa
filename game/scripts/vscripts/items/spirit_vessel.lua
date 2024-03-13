@@ -22,7 +22,7 @@ function item_urn_of_shadows_oaa:CastFilterResultTarget(target)
   local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
   local current_charges = self:GetCurrentCharges()
 
-  if not (current_charges >= 1) then
+  if current_charges < 1 then
     return UF_FAIL_CUSTOM
   end
 
@@ -32,7 +32,7 @@ end
 function item_urn_of_shadows_oaa:GetCustomCastErrorTarget(target)
   local current_charges = self:GetCurrentCharges()
 
-  if not (current_charges >= 1) then
+  if current_charges < 1 then
     return "#dota_hud_error_no_charges"
   end
 end
@@ -48,9 +48,9 @@ function item_urn_of_shadows_oaa:OnSpellStart()
   ParticleManager:ReleaseParticleIndex(particle_fx)
 
   local current_charges = self:GetCurrentCharges()
-  if not (current_charges >= 1) then
+  if current_charges < 1 then
     self:EndCooldown()
-    return -- no charges
+    return -- no charges, not possible to reach through normal means
   end
 
   if target:GetTeam() == caster:GetTeam() then
