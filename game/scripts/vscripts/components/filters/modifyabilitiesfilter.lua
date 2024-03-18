@@ -47,11 +47,16 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})
     end
+  elseif ability_name == "tidehunter_anchor_smash" and modifier_name == "modifier_tidehunter_anchor_smash" and victim:IsOAABoss() then
+    victim:AddNewModifier(caster, ability, "modifier_tidehunter_anchor_smash_oaa_boss", {duration = modifier_duration})
+    return false
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
-    caster:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
+    victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false
   elseif modifier_name == "modifier_item_revenants_brooch_active" then
-    caster:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
+    victim:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
+  elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
+    victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
   end
 
   return true

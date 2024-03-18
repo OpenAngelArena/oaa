@@ -12,6 +12,7 @@ if not BossProtectionFilter then
     batrider_flaming_lasso = true, -- pierces bkb
     beastmaster_primal_roar = true, -- pierces bkb
     brewmaster_storm_cyclone = true,
+    dawnbreaker_solar_guardian = true, -- pierce bkb
     death_prophet_silence = true,
     disruptor_static_storm = true, -- applied constantly in aoe
     doom_bringer_doom = true, -- pierces bkb or applied constantly in aoe
@@ -22,13 +23,14 @@ if not BossProtectionFilter then
     faceless_void_chronosphere = true, -- pierces bkb
     faceless_void_time_lock = true, -- pierces bkb
     faceless_void_time_lock_oaa = true, -- pierces bkb
+    --huskar_life_break = true, -- scepter taunt pierces bkb
     keeper_of_the_light_will_o_wisp = true,
     lion_voodoo = true,
     lone_druid_savage_roar = true,
+    lone_druid_savage_roar_bear = true,
     magnataur_reverse_polarity = true, -- pierces bkb
     magnataur_skewer = true, -- to prevent weird interactions
     medusa_stone_gaze = true, -- pierces bkb
-    morphling_adaptive_strike_str = true,
     naga_siren_ensnare = true, -- pierces bkb with scepter
     naga_siren_song_of_the_siren = true, -- applied constantly in aoe
     night_stalker_crippling_fear = true, -- applied constantly in aoe
@@ -46,6 +48,7 @@ if not BossProtectionFilter then
     slardar_bash_oaa = true, -- pierces bkb
     spirit_breaker_charge_of_darkness = true, -- pierces bkb
     spirit_breaker_greater_bash = true, -- pierces bkb
+    spirit_breaker_nether_strike = true, -- pierces bkb
     storm_spirit_electric_vortex = true,
     tiny_toss = true, -- to prevent weird interactions
     treant_overgrowth = true, -- pierces bkb
@@ -55,7 +58,6 @@ if not BossProtectionFilter then
     vengefulspirit_nether_swap = true, -- pierces bkb
     venomancer_latent_poison = true, -- pierces bkb
     warlock_rain_of_chaos = true, -- pierces bkb
-    windrunner_shackleshot = true,
     winter_wyvern_winters_curse = true, -- pierces bkb
   }
 
@@ -101,19 +103,12 @@ function BossProtectionFilter:ModifierGainedFilter(keys)
     return true
   end
 
-  local caster = EntIndexToHScript(keys.entindex_caster_const)
+  --local caster = EntIndexToHScript(keys.entindex_caster_const)
   local parent = EntIndexToHScript(keys.entindex_parent_const)
   local ability = EntIndexToHScript(keys.entindex_ability_const)
 
   local abilityName = ability:GetName()
   local modifierName = keys.name_const
-
-  -- Anchor Smash override
-  if parent:IsOAABoss() and abilityName == "tidehunter_anchor_smash" and modifierName == "modifier_tidehunter_anchor_smash" then
-    local duration = keys.duration
-    parent:AddNewModifier(caster, ability, "modifier_tidehunter_anchor_smash_oaa_boss", {duration = duration})
-    return false
-  end
 
   -- True Debuff Immunity
   local parentHasProtection = parent:HasModifier("modifier_boss_debuff_protection_oaa") or parent:HasModifier("modifier_anti_stun_oaa")

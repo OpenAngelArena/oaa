@@ -15,17 +15,15 @@ function modifier_faceless_void_time_dilation_degen_oaa:IsPurgable()
 end
 
 function modifier_faceless_void_time_dilation_degen_oaa:OnCreated()
+  self.heal_prevent_percent = -10
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.heal_prevent_percent = ability:GetSpecialValueFor("heal_prevent_percent")
-  else
-    self.heal_prevent_percent = -10
+    self.heal_prevent_percent = 0 - math.abs(ability:GetSpecialValueFor("heal_prevent_percent"))
   end
 end
 
-function modifier_faceless_void_time_dilation_degen_oaa:OnRefresh()
-  self:OnCreated()
-end
+modifier_faceless_void_time_dilation_degen_oaa.OnRefresh = modifier_faceless_void_time_dilation_degen_oaa.OnCreated
 
 function modifier_faceless_void_time_dilation_degen_oaa:DeclareFunctions()
   return {
