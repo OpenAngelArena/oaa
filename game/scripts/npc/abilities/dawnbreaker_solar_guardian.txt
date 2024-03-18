@@ -45,7 +45,7 @@
       }
       "base_damage" //OAA
       {
-        "value"                                           "30 70 110 230 430"
+        "value"                                           "30 70 110 230 350"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "base_heal" //OAA
@@ -56,7 +56,7 @@
       "pulse_interval"                                    "0.5"
       "land_damage" //OAA
       {
-        "value"                                           "150 225 300 525 900"
+        "value"                                           "200 400 600 1200 1800"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "land_stun_duration"                                "1.4 1.6 1.8 2.0 2.2"

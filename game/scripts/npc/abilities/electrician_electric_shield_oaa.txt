@@ -58,9 +58,9 @@
         "LinkedSpecialBonus"                              "special_bonus_electrician_electric_shield_damage"
       }
       "aura_interval"                                     "0.25"
-      "shard_shield_per_mana" // shield_per_mana + 1
+      "shard_shield_per_mana" // shield_per_mana + 0.5
       {
-        "value"                                           "1.75 1.95 2.15 2.35 2.65 2.95"
+        "value"                                           "1.25 1.45 1.65 1.85 2.15 2.45"
         "RequiresShard"                                   "1"
       }
       "shard_shield_damage_block"
