@@ -57,6 +57,8 @@ if IsServer() then
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_queenofpain_sonic_wave_damage",
+      "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
       "modifier_razor_static_link_debuff",
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
@@ -147,6 +149,7 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
       "modifier_phantom_assassin_blur_active",
