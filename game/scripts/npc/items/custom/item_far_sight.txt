@@ -37,6 +37,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sight.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/far_sight"
 
