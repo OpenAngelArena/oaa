@@ -103,6 +103,9 @@ local abilities_with_custom_talents = {
   winter_wyvern_cold_embrace = {
     heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
   },
+  wisp_overcharge = {
+    bonus_spell_amp = {"special_bonus_unique_wisp_1_oaa", "+"},
+  },
   zuus_thundergods_wrath = {
     AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},
   },

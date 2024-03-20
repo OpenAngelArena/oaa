@@ -66,6 +66,8 @@ LinkLuaModifier("modifier_windranger_scepter_oaa", "modifiers/modifyabilitiesfil
 LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyabilitiesfilter/revenants_brooch_mod.lua", LUA_MODIFIER_MOTION_NONE)
 -- Muerta Pierce The Veil penalties modifier
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
+-- Wraith Form penalty modifier
+LinkLuaModifier("modifier_wraith_form_penalty_oaa", "modifiers/modifyabilitiesfilter/wraith_form_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

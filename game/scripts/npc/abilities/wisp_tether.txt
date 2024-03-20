@@ -38,19 +38,19 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius"          
+      "radius"
       {
         "value"                                           "1000"
         "affected_by_aoe_increase"                        "1"
       }
-      "movespeed" //OAA
+      "movespeed"
       {
-        "value"                                           "10 12 14 16 18 20"
+        "value"                                           "6 8 10 12 14 16"
         "special_bonus_unique_wisp_3"                     "+6"
       }
       "latch_distance"                                    "700"
       "latch_speed"                                       "1000"
-      "tether_heal_amp"                                   "60 80 100 120 130 140"
+      "tether_heal_amp"                                   "70 80 90 100 110 120" //OAA
       "self_bonus"                                        "0"
       "slow"
       {
@@ -63,7 +63,7 @@
         "value"                                           "10"
         "RequiresShard"                                   "1"
       }
-      "damage"                                            "10 20 30 40 80 160"
+      "damage"                                            "15 25 35 45 90 180" //OAA
       "tick_rate"                                         "0.5"
     }
   }

@@ -32,22 +32,22 @@
       "hero_damage" //OAA
       {
         "value"                                           "30 50 70 90 180 360"
-        "special_bonus_unique_wisp"                       "+65"
+        "special_bonus_unique_wisp"                       "+60"
       }
       "revolution_time"                                   "5.0"
       "min_range"                                         "200"
-      "max_range"          
+      "max_range"
       {
         "value"                                           "650"
         "affected_by_aoe_increase"                        "1"
       }
       "hero_hit_radius"                                   "110"
-      "explode_radius"      
+      "explode_radius"
       {
         "value"                                           "360"
         "affected_by_aoe_increase"                        "1"
       }
-      "hit_radius"        
+      "hit_radius"
       {
         "value"                                           "150"
         "affected_by_aoe_increase"                        "1"
