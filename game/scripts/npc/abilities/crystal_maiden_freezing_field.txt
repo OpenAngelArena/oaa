@@ -41,7 +41,7 @@
       "attack_slow"                                       "-60 -80 -100 -120 -140" //OAA
       "slow_duration"                                     "1.0"
       "explosion_min_dist"                                "195"
-      "explosion_max_dist"
+      "explosion_max_dist" //OAA
       {
         "value"                                           "770"
         "affected_by_aoe_increase"                        "1"
