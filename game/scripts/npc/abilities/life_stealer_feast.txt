@@ -19,15 +19,15 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "hp_leech_percent"
+      "hp_leech_percent" //OAA
       {
-        "value"                                           "1.6 2.2 2.8 3.4 3.5 3.6"
-        "special_bonus_unique_lifestealer_3"              "+1.2"
+        "value"                                           "1.6 2.0 2.4 2.8 3.2 3.6"
+        "special_bonus_unique_lifestealer_3"              "+1.0"
       }
-      "hp_damage_percent"
+      "hp_damage_percent" //OAA
       {
-        "value"                                           "1 1.3 1.6 1.9 2.0 2.1"
-        "special_bonus_unique_lifestealer_3"              "+1.2"
+        "value"                                           "1 1.2 1.4 1.6 1.8 2.0"
+        "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

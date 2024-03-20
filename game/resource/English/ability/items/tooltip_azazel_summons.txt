@@ -13,7 +13,7 @@
 
 "DOTA_Tooltip_Ability_item_azazel_summon_farmer"                                "Azazel's Farmer"
 "DOTA_Tooltip_Ability_item_recipe_azazel_summon_farmer"                         "Azazel's Farmer Recipe"
-"DOTA_Tooltip_Ability_item_azazel_summon_farmer_Description"                    "<h1>Active: Summon</h1> Summons a servant specialized in farming creeps. Has average movement speed and weak defenses, but strong damage block and cleave attack. Lasts up to %summon_duration_tooltip% minutes, or until killed."
+"DOTA_Tooltip_Ability_item_azazel_summon_farmer_Description"                    "<h1>Active: Summon</h1> Summons a servant specialized in farming creeps. Has average move speed and weak defenses, but strong damage block and cleave attack. Lasts up to %summon_duration_tooltip% minutes, or until killed."
 "DOTA_Tooltip_Ability_item_azazel_summon_farmer_Note0"                          "You can only have one of Azazel's servants summoned at any time."
 "DOTA_Tooltip_Ability_item_azazel_summon_farmer_summon_health"                  "HEALTH:"
 "DOTA_Tooltip_Ability_item_azazel_summon_farmer_summon_damage"                  "DAMAGE:"
@@ -21,30 +21,30 @@
 
 "DOTA_Tooltip_Ability_item_azazel_summon_scout"                                 "Azazel's Scout"
 "DOTA_Tooltip_Ability_item_recipe_azazel_summon_scout"                          "Azazel's Scout Recipe"
-"DOTA_Tooltip_Ability_item_azazel_summon_scout_Description"                     "<h1>Active: Summon</h1> Summons a servant specialized in scouting the enemy undetected. Has fast movement speed and cannot attack, but has flying vision, true sight, permanent invisibility and 100%% magic resistance. <br><font color='#FF0000'>Costs 16 #{oaa_core_points}.</font>" // Lasts up to %summon_duration_tooltip% minutes, or until killed.
+"DOTA_Tooltip_Ability_item_azazel_summon_scout_Description"                     "<h1>Active: Summon</h1> Summons a servant specialized in scouting the enemy undetected. Has fast move speed and cannot attack, but has flying vision, true sight, permanent invisibility and 100%% magic resistance. <br><font color='#FF0000'>Costs 16 #{oaa_core_points}.</font>" // Lasts up to %summon_duration_tooltip% minutes, or until killed.
 "DOTA_Tooltip_Ability_item_azazel_summon_scout_Note0"                           "You can only have one of Azazel's servants summoned at any time."
 "DOTA_Tooltip_Ability_item_azazel_summon_scout_summon_health"                   "HEALTH:"
 "DOTA_Tooltip_Ability_item_azazel_summon_scout_summon_armor"                    "ARMOR:"
-"DOTA_Tooltip_Ability_item_azazel_summon_scout_summon_ms"                       "MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_item_azazel_summon_scout_summon_ms"                       "MOVE SPEED:"
 "DOTA_Tooltip_Ability_item_azazel_summon_scout_summon_vision"                   "VISION RADIUS:"
 
 "DOTA_Tooltip_Ability_item_azazel_summon_tank"                                  "Azazel's Tank"
 "DOTA_Tooltip_Ability_item_recipe_azazel_summon_tank"                           "Azazel's Tank Recipe"
-"DOTA_Tooltip_Ability_item_azazel_summon_tank_Description"                      "<h1>Active: Summon</h1> Summons a servant specialized in tanking bosses for you. Has low damage and movement speed, but high armor, high magic resistance and a lot of health. <br><font color='#FF0000'>Costs 1 #{oaa_core_points}.</font>" // Lasts up to %summon_duration_tooltip% minutes, or until killed.
+"DOTA_Tooltip_Ability_item_azazel_summon_tank_Description"                      "<h1>Active: Summon</h1> Summons a servant specialized in tanking bosses for you. Has low move speed and low damage, but high armor, high magic resistance and a lot of health. <br><font color='#FF0000'>Costs 1 #{oaa_core_points}.</font>" // Lasts up to %summon_duration_tooltip% minutes, or until killed.
 "DOTA_Tooltip_Ability_item_azazel_summon_tank_Note0"                            "You can only have one of Azazel's servants summoned at any time."
 "DOTA_Tooltip_Ability_item_azazel_summon_tank_summon_health"                    "HEALTH:"
 "DOTA_Tooltip_Ability_item_azazel_summon_tank_summon_armor"                     "ARMOR:"
-"DOTA_Tooltip_Ability_item_azazel_summon_tank_summon_ms"                        "MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_item_azazel_summon_tank_summon_ms"                        "MOVE SPEED:"
 "DOTA_Tooltip_Ability_item_azazel_summon_tank_summon_damage"                    "DAMAGE:"
 
 "DOTA_Tooltip_Ability_item_azazel_summon_fighter"                               "Azazel's Fighter"
 "DOTA_Tooltip_Ability_item_recipe_azazel_summon_fighter"                        "Azazel's Fighter Recipe"
-"DOTA_Tooltip_Ability_item_azazel_summon_fighter_Description"                   "<h1>Active: Summon</h1> Summons a servant specialized in fighting heroes. Has average movement speed but good damage, health and armor. Lasts up to %summon_duration_tooltip% minutes, or until killed. <br><font color='#FF0000'>Costs 8 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_azazel_summon_fighter_Description"                   "<h1>Active: Summon</h1> Summons a servant specialized in fighting heroes. Has average move speed but good damage, health and armor. Lasts up to %summon_duration_tooltip% minutes, or until killed. <br><font color='#FF0000'>Costs 8 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_azazel_summon_fighter_Note0"                         "You can only have one of Azazel's servants summoned at any time."
 "DOTA_Tooltip_Ability_item_azazel_summon_fighter_summon_health"                 "HEALTH:"
 "DOTA_Tooltip_Ability_item_azazel_summon_fighter_summon_damage"                 "DAMAGE:"
 "DOTA_Tooltip_Ability_item_azazel_summon_fighter_summon_armor"                  "ARMOR:"
-"DOTA_Tooltip_Ability_item_azazel_summon_fighter_summon_ms"                     "MOVEMENT SPEED:"
+"DOTA_Tooltip_Ability_item_azazel_summon_fighter_summon_ms"                     "MOVE SPEED:"
 
 "DOTA_Tooltip_Ability_item_azazel_summon_shrine"                                "Azazel's Shrine"
 "DOTA_Tooltip_Ability_item_azazel_summon_shrine_Description"                    "Summons a Shrine that can be used for vision or as a building that you can teleport to."

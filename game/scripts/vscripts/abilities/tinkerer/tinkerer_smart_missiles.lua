@@ -125,9 +125,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
     return false
   end
 
-  -- Check if target is already affected by "STUNNED" from this ability (and caster) to prevent being stunned by multishot missiles
-  local stunned_modifier = target:FindModifierByNameAndCaster("modifier_tinkerer_smart_missiles_stun", caster)
-  if stunned_modifier and data.multishot_bool == 1 then
+  -- Check if target is already affected by this ability (and caster) to prevent being affected by multishot missiles
+  local rocket_debuff = target:FindModifierByNameAndCaster("modifier_tinkerer_smart_missiles_stun", caster)
+  if rocket_debuff and data.multishot_bool == 1 then
     if not target:IsMagicImmune() then
       ApplyDamage(damage_table)
     end
@@ -137,7 +137,7 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local bonus_damage_max_range = self:GetSpecialValueFor("bonus_damage_max_range")
   local bonus_hp_damage_max = self:GetSpecialValueFor("bonus_hp_damage_max")
   local bonus_hp_damage_min = self:GetSpecialValueFor("bonus_hp_damage_min")
-  local stun_duration = self:GetSpecialValueFor("stun_duration")
+  local rocket_debuff_duration = self:GetSpecialValueFor("slow_duration")
   local rocket_vision = self:GetSpecialValueFor("rocket_vision")
   local rocket_explode_vision = self:GetSpecialValueFor("rocket_explode_vision")
   local vision_duration = self:GetSpecialValueFor("vision_duration")
@@ -166,12 +166,9 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
   local particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, target)
   ParticleManager:ReleaseParticleIndex(particle)
 
-  -- Status resistance fix
-  local actual_duration = target:GetValueChangedByStatusResistance(stun_duration)
-
-  -- Apply stun and damage - stun before the damage (Applying stun after damage is bad)
+  -- Apply slow and damage - slow before the damage (Applying slow after damage is bad)
   if not target:IsMagicImmune() then
-    target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = actual_duration})
+    target:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = rocket_debuff_duration})
     ApplyDamage(damage_table)
   end
 
@@ -204,11 +201,8 @@ function tinkerer_smart_missiles:OnProjectileHit_ExtraData(target, location, dat
 
   for _, enemy in pairs(enemies) do
     if enemy and not enemy:IsNull() and enemy ~= target and not enemy:IsMagicImmune() then
-      -- Status resistance fix
-      local enemy_duration = enemy:GetValueChangedByStatusResistance(stun_duration)
-
-      -- Apply Stun before damage (Applying stun after damage is bad)
-      enemy:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = enemy_duration})
+      -- Apply Slow before damage (Applying slow after damage is bad)
+      enemy:AddNewModifier(caster, self, "modifier_tinkerer_smart_missiles_stun", {duration = rocket_debuff_duration})
 
       -- Damage (make sure damage is based on the enemy's max hp and not the target's)
       damage_table.victim = enemy
@@ -242,34 +236,59 @@ function modifier_tinkerer_smart_missiles_stun:IsDebuff()
   return true
 end
 
-function modifier_tinkerer_smart_missiles_stun:IsStunDebuff()
-  return true
-end
+-- function modifier_tinkerer_smart_missiles_stun:IsStunDebuff()
+  -- return true
+-- end
 
 function modifier_tinkerer_smart_missiles_stun:IsPurgable()
   return true
 end
 
-function modifier_tinkerer_smart_missiles_stun:GetEffectName()
-  return "particles/generic_gameplay/generic_stunned.vpcf"
+function modifier_tinkerer_smart_missiles_stun:OnCreated()
+  local move_speed_slow = 100
+
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    move_speed_slow = ability:GetSpecialValueFor("move_speed_slow")
+  end
+
+  -- Resistances
+  -- if IsServer() then
+    -- Move speed slow is reduced with Slow Resistance
+    -- local parent = self:GetParent()
+    -- move_speed_slow = parent:GetValueChangedBySlowResistance(move_speed_slow)
+  -- end
+
+  self.move_speed_slow = move_speed_slow
 end
 
-function modifier_tinkerer_smart_missiles_stun:GetEffectAttachType()
-  return PATTACH_OVERHEAD_FOLLOW
-end
+modifier_tinkerer_smart_missiles_stun.OnRefresh = modifier_tinkerer_smart_missiles_stun.OnCreated
 
 function modifier_tinkerer_smart_missiles_stun:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
 end
 
-function modifier_tinkerer_smart_missiles_stun:GetOverrideAnimation()
-  return ACT_DOTA_DISABLED
+function modifier_tinkerer_smart_missiles_stun:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.move_speed_slow)
 end
 
-function modifier_tinkerer_smart_missiles_stun:CheckState()
-  return {
-    [MODIFIER_STATE_STUNNED] = true,
-  }
+function modifier_tinkerer_smart_missiles_stun:GetOverrideAnimation()
+  return ACT_DOTA_FLAIL -- ACT_DOTA_DISABLED
 end
+
+-- function modifier_tinkerer_smart_missiles_stun:GetEffectName()
+  -- return "particles/generic_gameplay/generic_stunned.vpcf"
+-- end
+
+-- function modifier_tinkerer_smart_missiles_stun:GetEffectAttachType()
+  -- return PATTACH_OVERHEAD_FOLLOW
+-- end
+
+-- function modifier_tinkerer_smart_missiles_stun:CheckState()
+  -- return {
+    -- [MODIFIER_STATE_STUNNED] = true,
+  -- }
+-- end

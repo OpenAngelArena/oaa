@@ -1,4 +1,6 @@
-modifier_tidehunter_anchor_smash_oaa_boss = class(ModifierBaseClass)
+---------------------------------------------------------------------------------------------------
+
+modifier_tidehunter_anchor_smash_oaa_boss = modifier_tidehunter_anchor_smash_oaa_boss or class({})
 
 function modifier_tidehunter_anchor_smash_oaa_boss:IsHidden()
   return false
@@ -13,13 +15,11 @@ function modifier_tidehunter_anchor_smash_oaa_boss:IsPurgable()
 end
 
 function modifier_tidehunter_anchor_smash_oaa_boss:OnCreated()
+  self.damage_reduction = -30
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-		self.damage_reduction	= ability:GetSpecialValueFor("damage_reduction_bosses")
-	end
-
-  if not self.damage_reduction or self.damage_reduction == 0 then
-    self.damage_reduction = -30
+    self.damage_reduction = 0 - math.abs(ability:GetSpecialValueFor("damage_reduction_bosses"))
   end
 end
 
@@ -32,7 +32,7 @@ function modifier_tidehunter_anchor_smash_oaa_boss:DeclareFunctions()
 end
 
 function modifier_tidehunter_anchor_smash_oaa_boss:GetModifierBaseDamageOutgoing_Percentage()
-	return self.damage_reduction
+  return self.damage_reduction
 end
 
 function modifier_tidehunter_anchor_smash_oaa_boss:GetTexture()

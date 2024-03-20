@@ -21,7 +21,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0.0"
     "AbilityCharges"                                      "2"
-    "AbilityChargeRestoreTime"                            "18 16 14 12 11 10" //OAA
+    "AbilityChargeRestoreTime"                            "15 14 13 12 11 10" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,9 +36,9 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "movement_speed_pct"                                "20 25 30 35 40 45"
+      "movement_speed_pct"                                "35 40 45 50 55 60" //OAA
       "duration"                                          "3.5 4.0 4.5 5.0 5.5 6.0"
-      "evasion"                                           "15 20 25 30 35 40"
+      "evasion"                                           "20 30 40 50 55 60" //OAA, passive evasion only near trees
       "bonus_active_evasion"
       {
         "value"                                           "0"
