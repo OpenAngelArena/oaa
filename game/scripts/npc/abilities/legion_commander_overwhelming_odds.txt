@@ -63,9 +63,9 @@
         "value"                                           "8"
         "RequiresShard"                                   "1"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "15"
+        "value"                                           "15 14 13 12 11 10"
         "special_bonus_unique_legion_commander_9"         "-2"
       }
       "duel_radius_bonus"
