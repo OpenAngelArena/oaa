@@ -45,7 +45,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "orchid"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "125"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -66,10 +66,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "15 20 30 45 65" // Orchid (12);
+      "bonus_intellect"                                   "10 15 25 40 60" // Orchid (10);
       "bonus_attack_speed"                                "100 105 110 115 120" // Orchid (40); Hyperstone (60);
       "bonus_damage"                                      "10 20 40 70 110" // Orchid (10);
-      "bonus_mana_regen"                                  "3.5 3.75 4.25 5.0 6.0" // Orchid (3);
+      "bonus_mana_regen"                                  "3.5 3.75 4.25 5.0 6.0" // Orchid (3.25);
       "bonus_health_regen"                                "6.5 9 12 15 18" // Orchid (6);
       "silence_duration"                                  "5"
       "silence_damage_percent"                            "60"

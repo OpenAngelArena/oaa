@@ -48,7 +48,7 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "15.0"
     "AbilitySharedCooldown"                               "orchid"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "125"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_intellect"                                   "15 20 30 45 65"
+      "bonus_intellect"                                   "10 15 25 40 60"
       "bonus_attack_speed"                                "100 105 110 115 120"
       "bonus_damage"                                      "10 20 40 70 110"
       "bonus_mana_regen"                                  "3.5 3.75 4.25 5.0 6.0"
