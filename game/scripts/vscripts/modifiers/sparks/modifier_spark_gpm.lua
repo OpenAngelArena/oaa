@@ -48,7 +48,7 @@ function modifier_spark_gpm:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  -- This modifier is not supposed to exist on illusions, Tempest Doubles, or Meepo clones
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
   if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
     self:StartIntervalThink(-1)
     self:Destroy()

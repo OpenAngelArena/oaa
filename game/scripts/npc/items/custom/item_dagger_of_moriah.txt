@@ -53,8 +53,8 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "18178"
-    "ItemShopTags"                                        "agi;str;int;mana_regen;hard_to_tag"
+    "ItemCost"                                            "16778"
+    "ItemShopTags"                                        "armor;agi;str;int;regen_health;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "moriah;dagger;dagger of moriah"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -65,7 +65,7 @@
     "AbilityValues"
     {
       "bonus_all_stats"                                   "20 25"
-      "bonus_armor"                                       "21 25"
+      "bonus_armor"                                       "16 20"
       "bonus_health_regen"                                "14 17"
       "bonus_mana_regen"                                  "0"
       "spell_amp_per_intellect"                           "0.08"

@@ -2,7 +2,7 @@
 // Stoneskin Armor
 //========================================================================================
 "DOTA_Tooltip_Ability_item_stoneskin"                                           "Stoneskin Armor"
-"DOTA_Tooltip_Ability_item_stoneskin_Description"                               "<h1>Active: Stone Form</h1> Grants %stone_armor% armor and %stone_deflect_chance%%% chance to deflect ranged attacks to any unit within %stone_deflect_radius% radius. Lasts %duration% seconds.\n<h1>Passive: Stone Skin Aura</h1> Amplifies healing, regeneration, lifesteal and spell lifesteal of nearby allies by %hp_regen_amp%%%. <br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_Ability_item_stoneskin_Description"                               "<h1>Active: Stone Form</h1> Grants %stone_armor% armor, %stone_mana_regen_amp% mana regen amplification and %stone_deflect_chance%%% chance to deflect ranged attacks to any unit within %stone_deflect_radius% radius. Lasts %duration% seconds.\n<h1>Passive: Stone Skin Aura</h1> Amplifies healing, regeneration, lifesteal and spell lifesteal of nearby allies by %hp_regen_amp%%%. <br><br>Radius: %aura_radius%"
 "DOTA_Tooltip_Ability_item_stoneskin_Lore"                                      "Massive and hefty rock armor bestows incredible defense on the user."
 "DOTA_Tooltip_Ability_item_stoneskin_Note0"                                     "Deflected attacks don't proc attack modifiers."
 "DOTA_Tooltip_Ability_item_stoneskin_Note1"                                     "Stone Skin Aura only amplifies received healing."
@@ -10,10 +10,6 @@
 "DOTA_Tooltip_Ability_item_stoneskin_bonus_armor"                               "+$armor"
 "DOTA_Tooltip_Ability_item_stoneskin_bonus_health_regen"                        "+$hp_regen"
 "DOTA_Tooltip_Ability_item_stoneskin_bonus_status_resist"                       "%+$status_resist"
-//"DOTA_Tooltip_Ability_item_stoneskin_hp_regen_amp"                              "%+Health Regen Amplification"
-//"DOTA_Tooltip_Ability_item_stoneskin_lifesteal_amp"                             "%+Lifesteal Amplification"
-//"DOTA_Tooltip_Ability_item_stoneskin_heal_amp"                                  "%+Heal Amplification"
-//"DOTA_Tooltip_Ability_item_stoneskin_spell_lifesteal_amp"                       "%+Spell Lifesteal Amplification"
 
 "DOTA_Tooltip_Ability_item_stoneskin_2"                                         "#{DOTA_Tooltip_Ability_item_stoneskin}"
 "DOTA_Tooltip_Ability_item_stoneskin_2_Description"                             "#{DOTA_Tooltip_Ability_item_stoneskin_Description}"
@@ -24,13 +20,9 @@
 "DOTA_Tooltip_Ability_item_stoneskin_2_bonus_armor"                             "#{DOTA_Tooltip_Ability_item_stoneskin_bonus_armor}"
 "DOTA_Tooltip_Ability_item_stoneskin_2_bonus_health_regen"                      "#{DOTA_Tooltip_Ability_item_stoneskin_bonus_health_regen}"
 "DOTA_Tooltip_Ability_item_stoneskin_2_bonus_status_resist"                     "#{DOTA_Tooltip_Ability_item_stoneskin_bonus_status_resist}"
-//"DOTA_Tooltip_Ability_item_stoneskin_2_hp_regen_amp"                            "#{DOTA_Tooltip_Ability_item_stoneskin_hp_regen_amp}"
-//"DOTA_Tooltip_Ability_item_stoneskin_2_lifesteal_amp"                           "#{DOTA_Tooltip_Ability_item_stoneskin_lifesteal_amp}"
-//"DOTA_Tooltip_Ability_item_stoneskin_2_heal_amp"                                "#{DOTA_Tooltip_Ability_item_stoneskin_heal_amp}"
-//"DOTA_Tooltip_Ability_item_stoneskin_2_spell_lifesteal_amp"                     "#{DOTA_Tooltip_Ability_item_stoneskin_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_modifier_item_stoneskin_stone_armor"                              "Stone Form"
-"DOTA_Tooltip_modifier_item_stoneskin_stone_armor_Description"                  "Bonus %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and a chance to deflect attack projectiles to any unit nearby."
+"DOTA_Tooltip_modifier_item_stoneskin_stone_armor_Description"                  "+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE%%% mana regen amp and a chance to deflect attack projectiles to any unit nearby."
 
 "DOTA_Tooltip_modifier_item_stoneskin_aura_effect"                              "Stone Skin Aura"
 "DOTA_Tooltip_modifier_item_stoneskin_aura_effect_Description"                  "Healing, regeneration, lifesteal and spell lifesteal amplified by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."

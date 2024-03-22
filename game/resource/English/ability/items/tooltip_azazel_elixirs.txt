@@ -3,7 +3,7 @@
 //======================================================================
 "DOTA_Tooltip_Ability_item_elixier_burst"                                       "Burst Elixir"
 "DOTA_Tooltip_Ability_item_recipe_elixier_burst"                                "#{DOTA_Tooltip_Ability_item_elixier_burst} Recipe"
-"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra movement speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixir. <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>"
+"DOTA_Tooltip_Ability_item_elixier_burst_Description"                           "<h1>Active: Imbibe</h1> For %total_duration% seconds, grants %bonus_ms% extra move speed.\n\nAlso grants you %bonus_as% bonus attack speed for %bonus_duration% seconds (up to a maximum of %bonus_attacks% attacks) when you first attack after using this Elixir. <br><font color='#FF0000'>Costs 2 #{oaa_core_points}.</font>"
 "DOTA_Tooltip_Ability_item_elixier_burst_Lore"                                  "A tangy concoction that grants a sudden burst of swiftness."
 "DOTA_Tooltip_Ability_item_elixier_burst_Note0"                                 "Buff is not lost on death and not purged by the Duel."
 
@@ -23,7 +23,7 @@
 
 // Modifiers
 "DOTA_Tooltip_modifier_elixier_burst_active"                                    "#{DOTA_Tooltip_Ability_item_elixier_burst} Movement"
-"DOTA_Tooltip_modifier_elixier_burst_active_Description"                        "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
+"DOTA_Tooltip_modifier_elixier_burst_active_Description"                        "Bonus %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% move speed."
 "DOTA_Tooltip_modifier_elixier_burst_trigger"                                   "#{DOTA_Tooltip_Ability_item_elixier_burst} Attack"
 "DOTA_Tooltip_modifier_elixier_burst_trigger_Description"                       "When you attack an enemy, you will gain bonus attack speed for the next few attacks."
 "DOTA_Tooltip_modifier_elixier_burst_bonus"                                     "#{DOTA_Tooltip_Ability_item_elixier_burst} Overpower"

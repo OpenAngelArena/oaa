@@ -81,8 +81,9 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "max_charges"                                       "25" // Holy Locket (20)
-      "charge_radius"                                     "1200" // only in duels, otherwise global
+      "max_charges"                                       "22" // Holy Locket (20)
+      "charge_radius"                                     "1800" // Holy Locket (1200)
+      "charge_gain_timer"                                 "10" // Holy Locket (10)
       "buff_magic_resistance"                             "15 17 19 21 23"
       "buff_status_resistance"                            "15 17 19 21 23"
       "buff_move_speed"                                   "15 17 19 21 23"

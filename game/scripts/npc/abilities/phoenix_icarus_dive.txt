@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "26" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -47,9 +47,9 @@
         "affected_by_aoe_increase"                        "1"
       }
       "burn_duration"                                     "4"
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
-        "value"                                           "15 35 55 75 150 300"
+        "value"                                           "30 45 60 75 150 300"
         "special_bonus_unique_phoenix_dive_damage"        "+20"
       }
       "burn_tick_interval"                                "0.2"

@@ -39,9 +39,9 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "base_shield"                                       "0"
-      "hero_shield"
+      "hero_shield" //OAA
       {
-        "value"                                           "50 100 150 200 300 600"
+        "value"                                           "100 150 200 250 350 650"
         "special_bonus_unique_pangolier_shield_crash_herostacks"  "+80"
       }
       "duration"                                          "10"

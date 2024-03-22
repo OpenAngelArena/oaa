@@ -39,15 +39,15 @@
       "boar_health"                                       "450 750 1050 1350 2700 5400"
       "boar_damage"
       {
-        "value"                                           "20 40 60 80 180 280"
+        "value"                                           "20 40 60 80 160 320"
         "special_bonus_unique_beastmaster_2"              "+60"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "boar_armor"                                        "0"
       "boar_move_speed"                                   "320 330 340 350 360 370"
       "boar_xp_bounty"                                    "60 70 80 90 180 360"
-      "boar_moveslow_tooltip"                             "10 18 26 34 42 50"
-      "boar_attackslow_tooltip"                           "10 18 26 34 68 136"
+      "boar_moveslow_tooltip"                             "10 20 30 40 50 60"
+      "boar_attackslow_tooltip"                           "10 30 50 70 90 110"
       "boar_poison_duration_tooltip"                      "3.0"
     }
   }

@@ -35,19 +35,19 @@
     {
       "AbilityChannelTime" //OAA, I thought having 2 different kvs that do the same thing is a thing of the past, I was wrong
       {
-        "value"                                           "1.3 1.7 2.1 2.5 2.75 3"
+        "value"                                           "1.4 1.7 2.0 2.3 2.6 2.9"
         "special_bonus_unique_lich_2"                     "+0.4"
       }
       "channel_duration" //OAA, Valve is dumb, having 2 different kvs that do the same thing
       {
-        "value"                                           "1.3 1.7 2.1 2.5 2.75 3"
+        "value"                                           "1.4 1.7 2.0 2.3 2.6 2.9"
         "special_bonus_unique_lich_2"                     "+0.4"
       }
       "destination"                                       "32 38 44 50 56 62"
       "mana_drain"                                        "12"
-      "aoe_scepter"
+      "aoe_scepter" //OAA
       {
-        "special_bonus_scepter"                           "+400"
+        "special_bonus_scepter"                           "+350"
         "affected_by_aoe_increase"                        "1"
       }
       "creep_duration_multiplier"                         "2"

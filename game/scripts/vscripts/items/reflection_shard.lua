@@ -14,6 +14,9 @@ function item_reflection_shard_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
 
+  -- Basic Dispel
+  caster:Purge(false, true, false, false, false)
+
   -- Sound
   caster:EmitSound("Hero_Antimage.Counterspell.Cast")
 
