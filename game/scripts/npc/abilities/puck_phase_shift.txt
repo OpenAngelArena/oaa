@@ -16,9 +16,6 @@
     "AbilityCastPoint"                                    "0"
     "AbilityChannelTime"                                  "1 1.75 2.5 3.25 3.25 3.25"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "0"
@@ -31,7 +28,7 @@
       "shard_attack_range_bonus"
       {
         "RequiresShard"                                   "1"
-        "value"                                           "200"
+        "value"                                           "0"
       }
       "shard_bonus_damage" //OAA, this applies to every attack, not just Phase Shift attack
       {
