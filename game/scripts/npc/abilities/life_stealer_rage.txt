@@ -29,10 +29,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_speed_bonus"
+      "movement_speed_bonus" //OAA
       {
-        "value"                                           "9 12 15 18 19 20"
-        "special_bonus_unique_lifestealer_2"              "+12"
+        "value"                                           "6 9 12 15 18 21"
+        "special_bonus_unique_lifestealer_2"              "+3"
       }
       "duration" //OAA
       {
