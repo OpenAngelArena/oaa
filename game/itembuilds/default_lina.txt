@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_lina"
   "Title"         "Recommended items for Lina"
 
@@ -15,10 +15,10 @@
     "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_gungir"
+      "item"      "item_hurricane_pike"
       "item"      "item_spell_breaker_1"
       "item"      "item_monkey_king_bar"
       "item"      "item_greater_crit"
-      "item"      "item_siege_mode"
     }
 
     "#DOTA_Item_Build_Magical_Core"
@@ -41,13 +41,13 @@
       "item"      "item_blink"
       "item"      "item_bloodthorn"
       "item"      "item_devastator"
-      "item"      "item_hurricane_pike"
       "item"      "item_satanic"
       "item"      "item_shivas_guard"
       "item"      "item_silver_edge"
       "item"      "item_sphere"
       "item"      "item_refresher_4"
       "item"      "item_revenants_brooch_4"
+      "item"      "item_siege_mode"
       "item"      "item_sheepstick_4"
       "item"      "item_rapier"
     }

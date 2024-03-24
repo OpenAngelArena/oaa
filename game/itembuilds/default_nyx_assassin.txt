@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_nyx_assassin"
   "Title"         "Recommended items for Nyx Assassin"
 
@@ -17,15 +17,6 @@
       "item"      "item_meteor_hammer_1"
     }
 
-    "#DOTA_Item_Build_Support_Core"
-    {
-      "item"      "item_far_sight"
-      "item"      "item_shield_staff"
-      "item"      "item_wind_waker"
-      "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
-    }
-
     "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_dagon_oaa"
@@ -33,6 +24,15 @@
       "item"      "item_shivas_guard"
       "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
+    }
+    
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_far_sight"
+      "item"      "item_shield_staff"
+      "item"      "item_wind_waker"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_octarine_core"
     }
 
     "#DOTA_Item_Build_Shard"
