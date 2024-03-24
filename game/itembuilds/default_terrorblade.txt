@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_terrorblade"
   "Title"         "Recommended items for Terrorblade"
 
@@ -13,13 +13,23 @@
       "item"      "item_wraith_band"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_manta"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_skadi"
       "item"      "item_greater_crit"
       "item"      "item_butterfly_oaa"
-      "item"      "item_vladmirs_grimoire_1"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_far_sight"
+      "item"      "item_glimmer_cape"
+      "item"      "item_ultimate_scepter"
+      "item"      "item_shield_staff"
+      "item"      "item_greater_tranquil_boots"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -38,7 +48,7 @@
       "item"      "item_sange_and_yasha"
       "item"      "item_satanic"
       "item"      "item_swift_blink"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_refresher_4"
     }
   }
 }
