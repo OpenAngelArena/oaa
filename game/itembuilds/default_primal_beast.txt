@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_primal_beast"
   "Title"         "Recommended items for Primal Beast"
 
@@ -11,13 +11,30 @@
       "item"      "item_boots"
     }
 
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_vanguard"
+      "item"      "item_blade_mail"
+      "item"      "item_radiance"
+    }
+
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_radiance"
       "item"      "item_heart_oaa_1"
-      "item"      "item_kaya"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_shivas_guard"
       "item"      "item_ultimate_scepter"
-      "item"      "item_greater_phase_boots"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah_1"
+    }
+
+    "#DOTA_Item_Build_Tank_Core"
+    {
+      "item"      "item_crimson_guard"
+      "item"      "item_satanic_core"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_eternal_shroud"
+      "item"      "item_stoneskin"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -25,26 +42,19 @@
       "item"      "item_aghanims_shard"
     }
 
-    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
-    {
-      "item"      "item_satanic_core"
-      "item"      "item_yasha_and_kaya"
-      "item"      "item_dagon_oaa"
-      "item"      "item_stoneskin"
-    }
-
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_armlet"
-      "item"      "item_black_king_bar_1"
+      "item"      "item_kaya_and_sange"
       "item"      "item_lotus_orb"
       "item"      "item_octarine_core"
       "item"      "item_overwhelming_blink"
       "item"      "item_shield_staff"
-      "item"      "item_shivas_guard"
-      "item"      "item_spiked_mail_1"
       "item"      "item_wind_waker"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_giant_form"
       "item"      "item_sonic"
+      "item"      "item_rapier"
     }
   }
 }
