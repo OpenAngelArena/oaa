@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_beastmaster"
   "Title"         "Recommended items for Beastmaster"
 
@@ -14,13 +14,18 @@
       "item"      "item_branches"
     }
 
-    "#DOTA_Item_Build_Magical_Core"
+    "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_radiance"
       "item"      "item_ultimate_scepter"
-      "item"      "item_shivas_guard"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
       "item"      "item_kaya"
+      "item"      "item_shivas_guard"
       "item"      "item_ethereal_blade"
+      "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
     }
 
@@ -51,9 +56,7 @@
       "item"      "item_heart_oaa_1"
       "item"      "item_heavens_halberd"
       "item"      "item_pipe"
-      "item"      "item_solar_crest"
       "item"      "item_greater_power_treads"
-      "item"      "item_greater_travel_boots"
       "item"      "item_heart_transplant"
       "item"      "item_sheepstick_4"
       "item"      "item_trumps_fists_1"

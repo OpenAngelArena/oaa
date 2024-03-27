@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_legion_commander"
   "Title"         "Recommended Items for Legion Commander"
 
@@ -18,11 +18,30 @@
       "item"      "item_blade_mail"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Utility_Initiation"
     {
-      "item"      "item_mjollnir"
+      "item"      "item_blink"
+      "item"      "item_harpoon"
       "item"      "item_assault"
       "item"      "item_heavens_halberd"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_nullifier"
+    }
+
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_dagon_oaa"
+      "item"      "item_ethereal_blade"
+      "item"      "item_angels_demise"
+      "item"      "item_satanic_core"
+      "item"      "item_octarine_core"
+      "item"      "item_heart_oaa_1"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -32,20 +51,18 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_angels_demise"
       "item"      "item_armlet"
-      "item"      "item_black_king_bar_1"
-      "item"      "item_blink"
-      "item"      "item_desolator"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_nullifier"
-      "item"      "item_sange_and_yasha"
+      "item"      "item_bloodthorn"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_gungir"
       "item"      "item_satanic"
+      "item"      "item_sange_and_yasha"
       "item"      "item_silver_edge"
+      "item"      "item_sphere"
       "item"      "item_ultimate_scepter"
-      "item"      "item_trumps_fists_1"
+      "item"      "item_greater_power_treads"
+      "item"      "item_devastator_oaa_2"
       "item"      "item_refresher_4"
-      "item"      "item_martyrs_mail_1"
     }
   }
 }

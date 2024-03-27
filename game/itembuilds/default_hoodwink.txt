@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_hoodwink"
   "Title"         "Recommended items for Hoodwink"
 
@@ -11,8 +11,6 @@
       "item"      "item_wraith_band"
       "item"      "item_clarity"
       "item"      "item_flask"
-      "item"      "item_mango"
-      "item"      "item_mango"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -22,21 +20,30 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_mjollnir"
+      "item"      "item_gungir"
+      "item"      "item_desolator"
       "item"      "item_monkey_king_bar"
       "item"      "item_greater_crit"
-      "item"      "item_satanic"
-      "item"      "item_siege_mode"
+      "item"      "item_spell_breaker_1"
     }
 
-    "#DOTA_Item_Build_Magical_Core"
+    "#DOTA_Item_Build_Magical_Core" // Aghanim Scepter oriented
     {
-      "item"      "item_gungir"
+      "item"      "item_kaya"
       "item"      "item_ethereal_blade"
-      "item"      "item_yasha_and_kaya"
       "item"      "item_ultimate_scepter"
-      "item"      "item_octarine_core"
+      "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
+      "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_spirit_vessel_oaa"
+      "item"      "item_shield_staff"
+      "item"      "item_satanic_core"
+      "item"      "item_wind_waker"
+      "item"      "item_greater_tranquil_boots"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -46,19 +53,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
       "item"      "item_blink"
-      "item"      "item_butterfly_oaa"
-      "item"      "item_desolator"
-      "item"      "item_diffusal_blade"
+      "item"      "item_disperser"
       "item"      "item_hurricane_pike"
+      "item"      "item_satanic"
       "item"      "item_skadi"
       "item"      "item_sphere"
       "item"      "item_greater_power_treads"
-      "item"      "item_greater_tranquil_boots"
-      "item"      "item_greater_travel_boots"
+      "item"      "item_siege_mode"
       "item"      "item_trumps_fists_1"
-      "item"      "item_vampire"
       "item"      "item_rapier"
     }
   }

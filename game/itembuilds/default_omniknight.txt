@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_omniknight"
   "Title"         "Recommended items for Omniknight"
 
@@ -15,11 +15,10 @@
     "#DOTA_Item_Build_Physical_Core" // shard build
     {
       "item"      "item_harpoon"
-      "item"      "item_overwhelming_blink"
       "item"      "item_kaya_and_sange"
       "item"      "item_heart_oaa_1"
-      "item"      "item_shivas_guard"
       "item"      "item_angels_demise"
+      "item"      "item_black_king_bar_1"
     }
 
     "#DOTA_Item_Build_Support_Core" // scepter + healing build
@@ -39,11 +38,12 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
       "item"      "item_glimmer_cape"
       "item"      "item_lotus_orb"
       "item"      "item_octarine_core"
+      "item"      "item_overwhelming_blink"
       "item"      "item_pipe"
+      "item"      "item_shivas_guard"
       "item"      "item_solar_crest"
       "item"      "item_aeon_disk_oaa_2"
       "item"      "item_giant_form"

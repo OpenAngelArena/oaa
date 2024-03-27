@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_doom_bringer"
   "Title"         "Recommended items for Doom"
 
@@ -22,6 +22,7 @@
     "#DOTA_Item_Build_Core_Items" // good every game for any role
     {
       "item"      "item_octarine_core"
+      "item"      "item_black_king_bar_1"
       "item"      "item_refresher_4"
     }
 
@@ -41,7 +42,6 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
       "item"      "item_heart_oaa_1"
       "item"      "item_lotus_orb"
       "item"      "item_overwhelming_blink"

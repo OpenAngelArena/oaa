@@ -1,35 +1,34 @@
 "itembuilds"
 {
   "author"        "OAA 7.35d"
-  "hero"          "npc_dota_hero_tinker"
-  "Title"         "Recommended items for Tinkerer"
+  "hero"          "npc_dota_hero_treant"
+  "Title"         "Recommended items for Treant Protector"
 
   "Items"
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_null_talisman"
-      "item"      "item_flask"
-      "item"      "item_clarity"
+      "item"      "item_boots"
+      "item"      "item_orb_of_vemon"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_far_sight"
       "item"      "item_shield_staff"
-      "item"      "item_octarine_core"
+      "item"      "item_ghost_king_bar_1"
+      "item"      "item_solar_crest"
       "item"      "item_wind_waker"
-      "item"      "item_arcane_blink"
+      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_meteor_hammer_1"
       "item"      "item_spirit_vessel_oaa"
-      "item"      "item_kaya"
-      "item"      "item_ethereal_blade"
       "item"      "item_shivas_guard"
+      "item"      "item_ethereal_blade"
+      "item"      "item_heart_oaa_1"
       "item"      "item_dagger_of_moriah_1"
-      "item"      "item_refresher_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -39,16 +38,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_black_king_bar_1"
-      "item"      "item_dagon_oaa"
-      "item"      "item_gungir"
-      "item"      "item_heavens_halberd"
+      "item"      "item_blink"
+      "item"      "item_crimson_guard"
+      "item"      "item_guardian_greaves"
       "item"      "item_lotus_orb"
-      "item"      "item_radiance"
+      "item"      "item_pipe"
       "item"      "item_satanic_core"
-      "item"      "item_sphere"
       "item"      "item_ultimate_scepter"
-      "item"      "item_greater_travel_boots"
+      "item"      "item_aeon_disk_oaa_2"
+      "item"      "item_lucience"
       "item"      "item_sheepstick_4"
     }
   }

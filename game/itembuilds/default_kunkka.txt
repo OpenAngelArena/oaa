@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_kunkka"
   "Title"         "Recommended Items for Kunkka"
 
@@ -25,10 +25,10 @@
 
     "#DOTA_Item_Build_Physical_Core"
     {
+      "item"      "item_armlet"
       "item"      "item_heart_oaa_1"
       "item"      "item_silver_edge"
       "item"      "item_greater_crit"
-      "item"      "item_nullifier"
       "item"      "item_giant_form"
       "item"      "item_rapier"
     }
@@ -40,11 +40,11 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_armlet"
       "item"      "item_black_king_bar_1"
       "item"      "item_blade_mail"
       "item"      "item_crimson_guard"
       "item"      "item_heavens_halberd"
+      "item"      "item_nullifier"
       "item"      "item_orchid"
       "item"      "item_sheepstick_4"
     }

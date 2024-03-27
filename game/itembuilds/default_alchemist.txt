@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_alchemist"
   "Title"         "Recommended items for Alchemist"
 
@@ -19,8 +19,8 @@
 
     "#DOTA_Item_Build_Physical_Core" // rightclick items good every game
     {
-      "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
+      "item"      "item_black_king_bar_1"
       "item"      "item_greater_crit"
       "item"      "item_abyssal_blade_2"
       "item"      "item_devastator_oaa_2"
@@ -50,7 +50,7 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_armlet"
-      "item"      "item_black_king_bar_1"
+      
       "item"      "item_blink"
       "item"      "item_bloodthorn"
       "item"      "item_heart_oaa_1"

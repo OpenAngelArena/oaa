@@ -1,6 +1,6 @@
 "itembuilds/default_electrician.txt"
 {
-  "author"        "OAA 7.35c"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_electrician"
   "Title"         "Recommended items for Chatterjee"
 
@@ -16,33 +16,36 @@
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_vanguard"
+      "item"      "item_blade_mail"
+      "item"      "item_radiance"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_aether_lens"
       "item"      "item_shield_staff"
-      "item"      "item_eternal_shroud"
-      "item"      "item_shivas_guard"
       "item"      "item_octarine_core"
+      "item"      "item_guardian_greaves"
       "item"      "item_ultimate_scepter"
+      "item"      "item_arcane_blink"
     }
 
-    "#DOTA_Item_Build_Spell_Lifesteal_Tank"
+    "#DOTA_Item_Build_Magical_Core"
     {
+      "item"      "item_kaya"
       "item"      "item_satanic_core"
-      "item"      "item_kaya_and_sange"
-      "item"      "item_stoneskin"
+      "item"      "item_shivas_guard"
+      "item"      "item_dagger_of_moriah_1"
+      "item"      "item_greater_travel_boots"
     }
 
-    "#DOTA_Item_Build_Physical_Core"
+    "#DOTA_Item_Build_Tank_Core"
     {
-      "item"      "item_radiance"
-      "item"      "item_gungir"
-      "item"      "item_disperser"
-      "item"      "item_angels_demise"
-      "item"      "item_spell_breaker_1"
-      "item"      "item_abyssal_blade_2"
+      "item"      "item_shield_staff"
+      "item"      "item_eternal_shroud"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_satanic_core"
+      "item"      "item_stoneskin"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -52,13 +55,11 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-
       "item"      "item_heart_oaa_1"
       "item"      "item_heavens_halberd"
       "item"      "item_pipe"
       "item"      "item_solar_crest"
       "item"      "item_sphere"
-      "item"      "item_spiked_mail_1"
       "item"      "item_wind_waker"
       "item"      "item_regen_crystal_1"
       "item"      "item_silver_staff"

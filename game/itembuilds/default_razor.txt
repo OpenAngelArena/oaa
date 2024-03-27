@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_razor"
   "Title"         "Recommended items for Razor"
 
@@ -13,22 +13,27 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_maelstrom"
+      "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
     {
       "item"      "item_greater_crit"
-      "item"      "item_satanic"
-      "item"      "item_skadi"
-      "item"      "item_octarine_core"
+      "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
-      "item"      "item_refresher_4"
+      "item"      "item_satanic"
+      "item"      "item_devastator_oaa_2"
     }
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_radiance"
       "item"      "item_shivas_guard"
-      "item"      "item_satanic_core"
       "item"      "item_kaya"
+      "item"      "item_satanic_core"
+      "item"      "item_greater_travel_boots"
       "item"      "item_sacred_skull"
     }
 
@@ -39,13 +44,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_bloodthorn"
       "item"      "item_butterfly_oaa"
-      "item"      "item_mjollnir"
-      "item"      "item_monkey_king_bar"
+      "item"      "item_manta"
       "item"      "item_sange_and_yasha"
-      "item"      "item_silver_edge"
       "item"      "item_ultimate_scepter"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_greater_power_treads"
+      "item"      "item_refresher_4"
       "item"      "item_trumps_fists_1"
     }
   }
