@@ -3,11 +3,11 @@
 //===============================================================================
 "DOTA_Tooltip_Ability_item_reduction_orb_1"                                     "Reduction Orb"
 "DOTA_Tooltip_Ability_item_recipe_reduction_orb_1"                              "Reduction Orb Recipe"
-"DOTA_Tooltip_Ability_item_reduction_orb_1_Description"                         "<h1>Active: Diamond Skin</h1> Applies %damage_reduction%%% damage reduction on yourself for %duration% seconds and heals for %damage_as_healing%%% of the damage blocked. <br>The heal can't be reduced, amplified or prevented."
+"DOTA_Tooltip_Ability_item_reduction_orb_1_Description"                         "<h1>Active: Diamond Skin</h1> Grants %damage_reduction%%% damage reduction buff for %duration% seconds. When the buff expires, you will be healed for %damage_as_healing%%% of the damage taken while the buff was active. <br>The heal can't be reduced, amplified or prevented."
 "DOTA_Tooltip_Ability_item_reduction_orb_1_Lore"                                "Super duper damage reduction."
 "DOTA_Tooltip_Ability_item_reduction_orb_1_bonus_health"                        "+$health"
 "DOTA_Tooltip_Ability_item_reduction_orb_1_bonus_magic_resistance"              "%+$spell_resist"
 "DOTA_Tooltip_Ability_item_reduction_orb_1_bonus_armor"                         "+$armor"
 
 "DOTA_Tooltip_modifier_item_reduction_orb_active"                               "Diamond Skin"
-"DOTA_Tooltip_modifier_item_reduction_orb_active_Description"                   "Blocking all damage. When it expires it will heal for the portion of the blocked damage."
+"DOTA_Tooltip_modifier_item_reduction_orb_active_Description"                   "Reducing damage. When it expires it will heal for the portion of the received damage."
