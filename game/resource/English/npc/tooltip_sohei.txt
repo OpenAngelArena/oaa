@@ -27,14 +27,16 @@
 "DOTA_Tooltip_Ability_sohei_polarizing_palm"                                    "Repulsive Palm"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_Description"                        "Pushes the target unit away from Sohei. Enemy units take damage based on Sohei's strength. Stuns the enemy unit if pushed into a tree, building, or cliff. If pushed unit is an enemy hero and it collides with another enemy hero, both heroes will be damaged and stunned. Pushed enemies that don't collide with anything are briefly slowed."
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_Lore"                               "Takuan's Ki can be repulsive and attractive."
-"DOTA_Tooltip_Ability_sohei_polarizing_palm_push_pull_length"                   "DISTANCE:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_push_pull_length"                   "PUSH DISTANCE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_damage"                             "BASE DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_strength_damage"                    "%STRENGTH DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_stun_duration"                      "COLLISION STUN DURATION:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_slow_duration"                      "SLOW DURATION:"
+"DOTA_Tooltip_Ability_sohei_polarizing_palm_move_speed_slow_pct"                "%SLOW:"
 "DOTA_Tooltip_Ability_sohei_polarizing_palm_shard_description"                  "Grants Ki Attraction ability that pulls units instead of pushing them. Ki Attraction doesn't stun but applies a debuff to enemies or a buff to allies that affects their damage output."
 
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body"                                  "Wholeness of Body"
-"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Description"                      "Grants debuff immunity and bonus magic resistance to the target ally for the duration. When the buff expires, the target will be healed for a base amount plus a percentage of the damage taken while the buff was active. Removes most debuffs and stuns on cast.\n\nDISPEL TYPE: Strong Dispel"
+"DOTA_Tooltip_Ability_sohei_wholeness_of_body_Description"                      "Grants bonus magic resistance to the target ally for the duration. When the buff expires, the target will be healed for a base amount plus a percentage of the damage taken while the buff was active. Removes most debuffs and stuns on cast.\n\nDISPEL TYPE: Strong Dispel"
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Lore"                             "Takuan can mend any illness or damage with his Ki energy."
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Note0"                            "Cannot be used while stunned."
 "DOTA_Tooltip_Ability_sohei_wholeness_of_body_Note1"                            "Heal per damage taken is based on damage before reductions."
@@ -84,13 +86,14 @@
 // "DOTA_Tooltip_Ability_sohei_quivering_palm_str_diff_multiplier"                "STR DIFFERENCE MULTIPLIER:"
 
 "DOTA_Tooltip_Ability_sohei_ki_attraction"                                      "Ki Attraction"
-"DOTA_Tooltip_Ability_sohei_ki_attraction_Description"                          "Pulls the target unit closer to Sohei. Enemy units take damage based on Sohei's strength. Affected enemies deal %enemy_damage_reduction%%% less damage for %duration% seconds and affected allies deal %ally_damage_amp%%% more damage."
+"DOTA_Tooltip_Ability_sohei_ki_attraction_Description"                          "Pulls the target unit closer to Sohei. Enemy units take damage based on Sohei's strength. Affected enemies deal less damage and affected allies deal more damage for the duration."
 "DOTA_Tooltip_Ability_sohei_ki_attraction_Lore"                                 "Ki is an energy, a power, a primal force and a way of life."
 "DOTA_Tooltip_Ability_sohei_ki_attraction_ally_damage_amp"                      "%ALLY DAMAGE AMP:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_enemy_damage_reduction"               "%ENEMY DAMAGE REDUCTION:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_duration"                             "DURATION:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_damage"                               "BASE DAMAGE:"
 "DOTA_Tooltip_Ability_sohei_ki_attraction_strength_damage"                      "%STRENGTH DAMAGE:"
+"DOTA_Tooltip_Ability_sohei_ki_attraction_pull_length"                          "PULL DISTANCE:"
 
 // modifiers
 //"DOTA_Tooltip_modifier_sohei_dash_charges"                                      "Dash Charges"
@@ -146,4 +149,4 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_8"                             "+{s:value} Flurry of Blows Attacks"
 "DOTA_Tooltip_Ability_special_bonus_unique_sohei_8_Description"                 "Increases Flurry of Blows duration by 1.8s as well."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_9"                             "+{s:value} Repulsive Palm Cast Range"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_9"                             "+{s:value}% Repulsive Palm Strength Damage"
