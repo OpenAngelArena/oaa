@@ -46,7 +46,6 @@ function HeroCosmetics:TestHeroArcana(keys)
       else
         hero:AddNewModifier(hero, nil, mod_name, {})
       end
-      return
     end
   end
 end
