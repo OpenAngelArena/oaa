@@ -4,22 +4,10 @@ if HeroCosmetics == nil then
   HeroCosmetics = class({})
 end
 
-function HeroCosmetics:Sohei (hero)
-  DebugPrint ( 'Starting Sohei Cosmetics' )
-
-  --hero.body = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/juggernaut/thousand_faces_hakama/thousand_faces_hakama.vmdl"})
-  --hero.hand = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/sohei/so_weapon.vmdl"})
-  --hero.head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/sohei/so_head.vmdl"})
-  --hero.cape = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/items/wraith_king/deadreborn_cape/deadreborn_cape.vmdl"})
-  -- lock to bone
-  --hero.body:FollowEntity(hero, true)
-  --hero.hand:FollowEntity(hero, true)
-  --hero.head:FollowEntity(hero, true)
-  --hero.cape:FollowEntity(hero, true)
-
-  --hero:AddNewModifier(hero, nil, 'modifier_animation_translate_permanent_string', {translate = 'walk'})
-  --hero:AddNewModifier(hero, nil, 'modifier_animation_translate_permanent_string', {translate = 'odachi'})
-  --hero:AddNewModifier(hero, nil, 'modifier_animation_translate_permanent_string', {translate = 'aggressive'})
+function HeroCosmetics:Init()
+  DebugPrint('HeroCosmetics module Initialization started!')
+  self.moduleName = "OAA hero cosmetics"
+  ChatCommand:LinkDevCommand("-testheroarcana", Dynamic_Wrap(HeroCosmetics, "TestHeroArcana"), HeroCosmetics)
 end
 
 function HeroCosmetics:ApplySelectedArcana (hero, arcana)
@@ -35,6 +23,30 @@ function HeroCosmetics:ApplySelectedArcana (hero, arcana)
     if arcana == 'RockElectrician' then
       --print('Applying Arcana RockElectrician')
       hero:AddNewModifier( hero, nil, 'modifier_arcana_rockelec', nil )
+    end
+  end
+end
+
+function HeroCosmetics:TestHeroArcana(keys)
+  local short_names = {
+    dbz = "modifier_arcana_dbz",
+    pepsi = "modifier_arcana_pepsi",
+    rockstar = "modifier_arcana_rockelec",
+  }
+  local text = keys.text
+  local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
+  local splitted = split(text, " ")
+  local name = splitted[2]
+  local extra = splitted[3]
+  if name then
+    if short_names[name] then
+      local mod_name = short_names[name]
+      if extra and extra == "remove" then
+        hero:RemoveModifierByName(mod_name)
+      else
+        hero:AddNewModifier(hero, nil, mod_name, {})
+      end
+      return
     end
   end
 end
