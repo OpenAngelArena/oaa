@@ -58,7 +58,7 @@ Layer0
 	TextureDetailMask "materials/models/heroes/electrician/electrician_base_refl.png"
 	TextureDiffuseWarpMask "materials/default/default_diffusemask.tga"
 	TextureMetalnessMask "materials/default/default_metalnessmask.tga"
-	TextureSelfIllumMask "[0.800000 0.800000 0.800000 0.000000]"
+	TextureSelfIllumMask "[0.900000 0.900000 0.900000 0.000000]"
 
 	//---- Mask 2 ----
 	TextureRimMask "materials/default/default_rimmask.tga"
@@ -74,7 +74,7 @@ Layer0
 	g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Specular ----
-	g_flSpecularExponent "32.000"
+	g_flSpecularExponent "1.000"
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
 
