@@ -12,17 +12,19 @@ local forbidden_modifiers = {
   "modifier_disruptor_kinetic_field",
 }
 
+--[[
 function sohei_polarizing_palm:GetCastRange(location, target)
   local caster = self:GetCaster()
   local default_range = self.BaseClass.GetCastRange(self, location, target)
 
-  local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
+  local talent = caster:FindAbilityByName("")
   if talent and talent:GetLevel() > 0 then
     return default_range + talent:GetSpecialValueFor("value")
   end
 
   return default_range
 end
+]]
 
 function sohei_polarizing_palm:CastFilterResultTarget(target)
   local caster = self:GetCaster()
@@ -400,8 +402,15 @@ if IsServer() then
     end
 
     local base_damage = ability:GetSpecialValueFor("damage")
-    local str_multiplier = ability:GetSpecialValueFor("strength_damage") / 100
-    local bonus_damage = str_multiplier * caster:GetStrength()
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+
+    -- Talent that increases strength multiplier
+    local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
+    if talent and talent:GetLevel() > 0 then
+      str_multiplier = str_multiplier + talent:GetSpecialValueFor("value")
+    end
+
+    local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
 
     local damage_table = {
       attacker = caster,

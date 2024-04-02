@@ -56,7 +56,11 @@
     "AbilityValues" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
     {
       "damage"                                            "90 160 230 300 600 1200"
-      "strength_damage"                                   "60 90 120 150 180 210"
+      "strength_damage"
+      {
+        "value"                                           "60 90 120 150 180 210"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sohei_9"
+      }
       "push_pull_length"                                  "400" // lower than Flurry of Blows radius
       "push_pull_speed"                                   "1200"
       "stun_duration"
