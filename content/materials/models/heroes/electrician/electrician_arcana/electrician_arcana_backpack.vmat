@@ -8,10 +8,6 @@ Layer0
 	F_USE_HERO_EFFECTS_PROXY 1
 	F_USE_STATUS_EFFECTS_PROXY 1
 
-	//---- Masks ----
-	F_MASKS_1 1
-	F_MASKS_2 1
-
 	//---- Blend To Full ----
 	g_flEnvMapBlendToFull "0.000"
 	g_flMetalnessBlendToFull "0.000"
@@ -54,18 +50,6 @@ Layer0
 	g_flBloomShift "0.000"
 	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
-	//---- Mask 1 ----
-	TextureDetailMask "materials/default/default_detailmask.tga"
-	TextureDiffuseWarpMask "materials/default/default_diffusemask.tga"
-	TextureMetalnessMask "materials/default/default_metalnessmask.tga"
-	TextureSelfIllumMask "materials/models/heroes/electrician/electrician_arcana/electrician_arcana_backpack_selfillum.png"
-
-	//---- Mask 2 ----
-	TextureRimMask "materials/default/default_rimmask.tga"
-	TextureSpecularExponent "materials/default/default_specexp.tga"
-	TextureSpecularMask "materials/default/default_specmask.tga"
-	TextureTintByBaseMask "materials/default/default_basetintmask.tga"
-
 	//---- Normal Map ----
 	TextureNormal "materials/default/default_normal.tga"
 
@@ -82,6 +66,14 @@ Layer0
 	{
 		"g_flOverbrightFactor" "1"
 		"TextureTranslucency" ""
+		"TextureDetailMask" "materials/default/default_detailmask.tga"
+		"TextureDiffuseWarpMask" "materials/default/default_diffusemask.tga"
+		"TextureMetalnessMask" "materials/default/default_metalnessmask.tga"
+		"TextureSelfIllumMask" "materials/models/heroes/electrician/electrician_arcana/electrician_arcana_backpack_selfillum.png"
+		"TextureRimMask" "materials/default/default_rimmask.tga"
+		"TextureSpecularExponent" "materials/default/default_specexp.tga"
+		"TextureSpecularMask" "materials/default/default_specmask.tga"
+		"TextureTintByBaseMask" "materials/default/default_basetintmask.tga"
 	}
 
 
