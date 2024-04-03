@@ -226,6 +226,7 @@ function GameMode:InitGameMode()
   InitModule(TeamVision)
   InitModule(CustomTalentSystem)
   InitModule(CustomWardButtons)
+  InitModule(HeroCosmetics)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)

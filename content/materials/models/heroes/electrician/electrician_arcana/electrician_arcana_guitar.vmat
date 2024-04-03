@@ -2,23 +2,80 @@
 
 Layer0
 {
-	shader "global_lit_simple.vfx"
+	shader "hero.vfx"
 
-	//---- Specular ----
-	F_SPECULAR 1
+	//---- Effect Proxies ----
+	F_USE_HERO_EFFECTS_PROXY 1
+	F_USE_STATUS_EFFECTS_PROXY 1
+
+	//---- Blend To Full ----
+	g_flEnvMapBlendToFull "0.000"
+	g_flMetalnessBlendToFull "0.000"
+	g_flReflectionsTintByBaseBlendToNone "0.000"
+	g_flSelfIllumBlendToFull "0.000"
+	g_flSpecularBlendToFull "0.000"
+	g_flSpecularExponentBlendToFull "0.000"
+
+	//---- Cloak ----
+	g_flCloakBlurAmount "0.005"
+	g_flCloakIntensity "0.850"
+	g_flCloakRefractAmount "0.100"
+	g_flMaterialCloakFactor "0.000"
+	g_vCloakColorTint "[1.000 1.000 1.000]"
 
 	//---- Color ----
-	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_flDiffuseModulationAmount "1.000"
+	g_flTexCoordRotation "0.000"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
 	TextureColor "materials/models/heroes/electrician/electrician_arcana/electrician_arcana_guitar_color.png"
 
-	//---- Self Illum ----
-	TextureSelfIllumMask "materials/models/heroes/electrician/electrician_arcana/electrician_arcana_guitar_selfillum.png"
+	//---- Detail 1 ----
+	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Detail 2 ----
+	g_flDetail2BlendFactor "0.000"
+	TextureDetail2 "materials/default/default_detail2.tga"
+
+	//---- Fresnel ----
+	g_flFresnelModulatesAlpha "0.000"
+	TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
+	TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
+	TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
+
+	//---- Lighting ----
+	g_flAmbientScale "1.000"
+	g_flBloomScale "0.000"
+	g_flBloomShift "0.000"
+	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Normal Map ----
+	TextureNormal "materials/default/default_normal.tga"
+
+	//---- Rim ----
+	g_flRimLightScale "1.000"
+	g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Specular ----
-	g_flSpecularBloom "0.000"
-	g_flSpecularIntensity "3.214"
-	TextureBloom "materials/default/default_bloom.tga"
-	TextureReflectance "materials/default/default_refl.tga"
+	g_flSpecularExponent "1.000"
+	g_flSpecularScale "3.214"
+	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	UnusedVariables
+	{
+		"TextureDetailMask" "materials/default/default_detailmask.tga"
+		"TextureDiffuseWarpMask" "materials/default/default_diffusemask.tga"
+		"TextureMetalnessMask" "materials/default/default_metalnessmask.tga"
+		"TextureSelfIllumMask" "materials/models/heroes/electrician/electrician_arcana/electrician_arcana_guitar_selfillum.png"
+		"TextureRimMask" "[1.000000 1.000000 1.000000 0.000000]"
+		"TextureSpecularExponent" "materials/default/default_specexp.tga"
+		"TextureSpecularMask" "materials/default/default_specmask.tga"
+		"TextureTintByBaseMask" "materials/default/default_basetintmask.tga"
+	}
+
+
+	VariableState
+	{
+	}
 }

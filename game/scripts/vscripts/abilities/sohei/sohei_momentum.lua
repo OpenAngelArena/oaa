@@ -77,16 +77,6 @@ if IsServer() then
     if not self:IsMomentumReady() then
       if spell:IsCooldownReady() and not parent:PassivesDisabled() then
         self:SetStackCount( self:GetStackCount() + ( self.parentOrigin - oldOrigin ):Length2D() )
-        if self:IsMomentumReady() then
-          local dbzArcana = parent:FindModifierByName("modifier_arcana_dbz")
-          local pepsiArcana = parent:FindModifierByName("modifier_arcana_pepsi")
-
-          if dbzArcana then
-            ParticleManager:SetParticleControl(dbzArcana.Glow, 2, Vector(30, 0, 0))
-          elseif pepsiArcana then
-            ParticleManager:SetParticleControl(pepsiArcana.Glow, 2, Vector(100, 0, 0))
-          end
-        end
       end
     end
   end
@@ -177,15 +167,6 @@ if IsServer() then
 
     -- Reset stack counter - Momentum attack landed
     self:SetStackCount(0)
-
-    -- Remove Arcana Glow particles
-    local dbzArcana = parent:FindModifierByName("modifier_arcana_dbz")
-    local pepsiArcana = parent:FindModifierByName("modifier_arcana_pepsi")
-    if dbzArcana then
-      ParticleManager:SetParticleControl(dbzArcana.Glow, 2, Vector(0, 0, 0))
-    elseif pepsiArcana then
-      ParticleManager:SetParticleControl(pepsiArcana.Glow, 2, Vector(0, 0, 0))
-    end
 
     --[[
     -- Knock the enemy back
