@@ -27,7 +27,7 @@ end
 
 function modifier_boss_killer_oaa:GetModifierTotalDamageOutgoing_Percentage(event)
   if event.target:IsOAABoss() then
-    return 85
+    return 50
   end
   return 0
 end

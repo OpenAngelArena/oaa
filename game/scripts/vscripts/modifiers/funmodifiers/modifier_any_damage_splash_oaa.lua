@@ -29,7 +29,7 @@ function modifier_any_damage_splash_oaa:DeclareFunctions()
 end
 
 function modifier_any_damage_splash_oaa:OnCreated()
-  self.splash_percent = 100
+  self.splash_percent = 75
   self.splash_radius = 300
 end
 
@@ -58,9 +58,9 @@ if IsServer() then
     end
 
     -- Ignore self damage
-    --if damaged_unit == attacker then
-      --return
-    --end
+    if damaged_unit == attacker then
+      return
+    end
 
     -- Check if entity is an item, rune or something weird
     if damaged_unit.GetUnitName == nil then

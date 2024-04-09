@@ -34,6 +34,7 @@ function modifier_sangromancer_oaa:OnCreated()
     "npc_dota_hero_storm_spirit",
     "npc_dota_hero_tusk",
     "npc_dota_hero_viper",
+    "npc_dota_hero_winter_wyvern",
     "npc_dota_hero_witch_doctor",
   }
 

@@ -172,7 +172,7 @@ if IsServer() then
       return
     end
 
-    -- Check if attacker is alive or silenced
+    -- Check if attacker is dead or silenced
     if not attacker:IsAlive() or attacker:IsSilenced() then
       return
     end

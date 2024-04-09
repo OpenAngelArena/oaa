@@ -17,7 +17,7 @@ function modifier_bottle_collector_oaa:RemoveOnDeath()
 end
 
 function modifier_bottle_collector_oaa:OnCreated()
-  self.damage_per_bottle_charge = 1
+  self.damage_per_bottle_charge = 1.5
   self.spell_amp_per_bottle_charge = 0.1
 
   if IsServer() then
@@ -111,13 +111,13 @@ if IsServer() then
       return
     end
 
-    bottle:SetCurrentCharges(math.ceil(old_charges / 2))
+    bottle:SetCurrentCharges(math.ceil(old_charges * 2/3))
 
     local death_location = parent:GetAbsOrigin()
     local newItem = CreateItem("item_infinite_bottle", nil, nil) -- CDOTA_Item
 
     newItem:SetPurchaseTime(0)
-    newItem:SetCurrentCharges(math.floor(old_charges / 2))
+    newItem:SetCurrentCharges(math.floor(old_charges * 1/3))
 
     CreateItemOnPositionSync(death_location, newItem) -- CDOTA_Item_Physical
     newItem:LaunchLoot(false, 300, 0.75, death_location + RandomVector(RandomFloat(50, 350)), nil)
