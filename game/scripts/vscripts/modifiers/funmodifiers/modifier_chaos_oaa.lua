@@ -53,18 +53,19 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_courier_kill_bonus_oaa",
     "modifier_diarrhetic_oaa",
     "modifier_drunk_oaa",
-    "modifier_duelist_oaa",
+    --"modifier_duelist_oaa",
     --"modifier_echo_strike_oaa",
     --"modifier_explosive_death_oaa",
     --"modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
-    --"modifier_hp_mana_switch_oaa",
+    "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     --"modifier_magus_oaa",
     --"modifier_no_cast_points_oaa",
     "modifier_pro_active_oaa",
     --"modifier_range_increase_oaa",
     "modifier_rend_oaa",
+    "modifier_rich_man_oaa",
     "modifier_roshan_power_oaa",
     "modifier_smurf_oaa",
     --"modifier_sorcerer_oaa",
@@ -72,6 +73,8 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_troll_switch_oaa",
   }
 
+  -- This table should contain ALL chaos modifiers
+  -- and ALL niche modifiers except Courier Hunter
   self.mid_game_modifiers = {
     "modifier_all_healing_amplify_oaa",
     "modifier_angel_oaa",
@@ -81,9 +84,9 @@ function modifier_chaos_oaa:OnCreated()
     --"modifier_aoe_radius_increase_oaa",
     "modifier_blood_magic_oaa",
     "modifier_bonus_armor_negative_magic_resist_oaa",
+    "modifier_boss_killer_oaa",
     "modifier_bottle_collector_oaa",
     "modifier_brawler_oaa",
-    "modifier_boss_killer_oaa",
     --"modifier_brute_oaa",
     "modifier_cursed_attack_oaa",
     --"modifier_debuff_duration_oaa",
@@ -91,9 +94,11 @@ function modifier_chaos_oaa:OnCreated()
     "modifier_drunk_oaa",
     "modifier_duelist_oaa",
     "modifier_echo_strike_oaa",
+    "modifier_explosive_death_oaa",
+    "modifier_glass_cannon_oaa",
     --"modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
-    --"modifier_hp_mana_switch_oaa",
+    "modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     --"modifier_magus_oaa",
     "modifier_mr_phys_weak_oaa",
@@ -113,56 +118,61 @@ function modifier_chaos_oaa:OnCreated()
     --"modifier_wisdom_oaa",
   }
 
+  -- This table should not contain chaos modifiers
+  -- but it should contain ALL good modifiers
   self.late_game_modifiers = {
     "modifier_all_healing_amplify_oaa",
-    "modifier_angel_oaa",
+    --"modifier_angel_oaa",
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
-    "modifier_blood_magic_oaa",
+    --"modifier_blood_magic_oaa",
     "modifier_boss_killer_oaa",
+    "modifier_bottle_collector_oaa",
     "modifier_brawler_oaa",
     "modifier_brute_oaa",
-    "modifier_cursed_attack_oaa",
+    --"modifier_cursed_attack_oaa",
     "modifier_debuff_duration_oaa",
-    "modifier_drunk_oaa",
+    --"modifier_drunk_oaa",
     "modifier_duelist_oaa",
     "modifier_echo_strike_oaa",
-    "modifier_glass_cannon_oaa",
+    "modifier_explosive_death_oaa",
+    --"modifier_glass_cannon_oaa",
     "modifier_ham_oaa",
     "modifier_hero_anti_stun_oaa",
-    "modifier_hp_mana_switch_oaa",
+    --"modifier_hp_mana_switch_oaa",
     "modifier_hybrid_oaa",
     "modifier_magus_oaa",
-    "modifier_mr_phys_weak_oaa",
+    --"modifier_mr_phys_weak_oaa",
     "modifier_nimble_oaa",
-    "modifier_no_brain_oaa",
+    --"modifier_no_brain_oaa",
     "modifier_no_cast_points_oaa",
     "modifier_octarine_soul_oaa",
-    "modifier_pro_active_oaa",
+    --"modifier_pro_active_oaa",
     "modifier_range_increase_oaa",
     "modifier_rend_oaa",
-    "modifier_roshan_power_oaa",
-    "modifier_smurf_oaa",
+    --"modifier_roshan_power_oaa",
+    --"modifier_smurf_oaa",
     "modifier_sorcerer_oaa",
     "modifier_speedster_oaa",
     "modifier_spell_block_oaa",
     "modifier_titan_soul_oaa",
-    "modifier_troll_switch_oaa",
+    --"modifier_troll_switch_oaa",
     "modifier_true_sight_strike_oaa",
     "modifier_wisdom_oaa",
   }
 
+  -- This table should contain only modifiers that are always good and without downsides
   self.already_had = {
     "modifier_any_damage_crit_oaa",
     "modifier_any_damage_splash_oaa",
     "modifier_aoe_radius_increase_oaa",
+    "modifier_bottle_collector_oaa",
     "modifier_brute_oaa",
     "modifier_debuff_duration_oaa",
     "modifier_echo_strike_oaa",
     "modifier_explosive_death_oaa",
     "modifier_ham_oaa",
-    "modifier_hp_mana_switch_oaa",
     "modifier_magus_oaa",
     "modifier_nimble_oaa",
     "modifier_no_cast_points_oaa",
@@ -189,6 +199,7 @@ function modifier_chaos_oaa:OnCreated()
     "npc_dota_hero_phoenix",
     "npc_dota_hero_pugna",
     "npc_dota_hero_shadow_demon",
+    "npc_dota_hero_sohei",
     "npc_dota_hero_treant",
     "npc_dota_hero_undying",
     "npc_dota_hero_warlock",
@@ -307,7 +318,7 @@ if IsServer() then
       end
 
       -- Add old modifier to already_had table
-      if not TableContains(self.already_had, mod) then
+      if not TableContains(self.already_had, mod) and mod ~= "modifier_courier_kill_bonus_oaa" and mod ~= "modifier_rich_man_oaa" then
         table.insert(self.already_had, mod)
       end
 
