@@ -103,7 +103,20 @@ if IsServer() then
     end
 
     if not bottle then
-      return
+      -- Check backpack too
+      for i = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local item = parent:GetItemInSlot(i)
+        if item then
+          if item:GetAbilityName() == "item_infinite_bottle" then
+            bottle = item
+            break
+          end
+        end
+      end
+      -- If no bottle even in backpack then don't continue
+      if not bottle then
+        return
+      end
     end
 
     local old_charges = bottle:GetCurrentCharges()
