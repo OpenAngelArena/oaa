@@ -77,7 +77,7 @@ if IsServer() then
       return
     end
 
-    -- Don't proc if passive is on cooldown
+    -- Don't proc if Echo Strike is on cooldown
     if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
       return
     end

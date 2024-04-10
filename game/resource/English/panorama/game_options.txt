@@ -61,6 +61,9 @@
 "game_option_universal"                                                         "Universal"
 "game_option_wealthy"                                                           "Wealthy"
 "game_option_bottle_collector"                                                  "Bottle Collector"
+"game_option_crimson_magic"                                                     "Crimson Magic"
+"game_option_ludo"                                                              "Ludo"
+"game_option_battlemage"                                                        "Battle Mage"
 
 "game_option_lifesteal_global"                                                  "All Units Hyper Lifesteal"
 "game_option_buyback"                                                           "Enabled Buyback"
@@ -116,6 +119,9 @@
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
 "game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning."
 "game_option_bottle_collector_description"                                      "Grants 1.5 attack damage and 0.1% spell amplification per Infinity Bottle charge. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)"
+"game_option_crimson_magic_description"                                         "Grants 0.008% spell amplification per point of HP."
+"game_option_ludo_description"                                                  "For those that get mad easily."
+"game_option_battlemage_description"                                            "Any spell or item damage instance will proc your attack. 1s cooldown."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
 "game_option_buyback_description"                                               "#{game_option_buyback}"
@@ -250,6 +256,12 @@
 "DOTA_Tooltip_modifier_sangromancer_oaa"                                        "#{game_option_sangromancer}"
 "DOTA_Tooltip_modifier_bottle_collector_oaa"                                    "#{game_option_bottle_collector}"
 "DOTA_Tooltip_modifier_bottle_collector_oaa_Description"                        "+%fMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage, +%fMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amplification. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)."
+"DOTA_Tooltip_modifier_crimson_magic_oaa"                                       "#{game_option_crimson_magic}"
+"DOTA_Tooltip_modifier_crimson_magic_oaa_Description"                           "0.008%% spell amp per point of HP. (%fMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell amp.)"
+"DOTA_Tooltip_modifier_ludo_oaa"                                                "#{game_option_ludo}"
+"DOTA_Tooltip_modifier_ludo_oaa_Description"                                    "Every hero has a different modifier. Modifier will change every 2 minutes. 5%% chance to change the modifier on hero kill and 5%% chance to change the modifier on respawn."
+"DOTA_Tooltip_modifier_battlemage_oaa"                                          "#{game_option_battlemage}"
+"DOTA_Tooltip_modifier_battlemage_oaa_Description"                              "#{game_option_battlemage_description}"
 
 "game_option_giant_description"                                                 "#{game_option_titan_soul_description} + #{game_option_brute_description} + #{game_option_aoe_radius_description}"
 "game_option_league_description"                                                "#{game_option_speedster_description} + #{game_option_quick_spells_description} + #{game_option_hyper_active_description}"
@@ -258,4 +270,4 @@
 "game_option_might_description"                                                 "#{game_option_brute_description} + #{game_option_smurf_description} + #{game_option_max_power_description} + #{DOTA_Tooltip_modifier_change_to_str_oaa_Description}"
 "game_option_magician_description"                                              "#{game_option_wisdom_description} + #{game_option_octarine_soul_description} + #{game_option_timeless_relic_description} + #{DOTA_Tooltip_modifier_change_to_int_oaa_Description}"
 "game_option_cunning_description"                                               "#{game_option_nimble_description} + #{game_option_speedster_description} + #{game_option_brawler_description} + #{DOTA_Tooltip_modifier_change_to_agi_oaa_Description}"
-"game_option_sangromancer_description"                                          "#{game_option_blood_magic_description} + #{game_option_wisdom_description} + #{game_option_timeless_relic_description} + #{game_option_explosive_death_description} + If your hero is bad with #{game_option_blood_magic} then you will get #{game_option_moriah_shield} instead: #{game_option_moriah_shield_description}"
+"game_option_sangromancer_description"                                          "#{game_option_blood_magic_description} + #{game_option_crimson_magic_description} + #{game_option_timeless_relic_description} + #{game_option_explosive_death_description} + If your hero is bad with #{game_option_blood_magic} then you will get #{game_option_moriah_shield} instead: #{game_option_moriah_shield_description}"
