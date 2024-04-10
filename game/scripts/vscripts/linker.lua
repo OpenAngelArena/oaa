@@ -180,3 +180,6 @@ LinkLuaModifier("modifier_change_to_str_oaa", "modifiers/funmodifiers/modifier_c
 LinkLuaModifier("modifier_change_to_int_oaa", "modifiers/funmodifiers/modifier_change_to_int_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sangromancer_oaa", "modifiers/funmodifiers/modifier_sangromancer_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bottle_collector_oaa", "modifiers/funmodifiers/modifier_bottle_collector_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_crimson_magic_oaa", "modifiers/funmodifiers/modifier_crimson_magic_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ludo_oaa", "modifiers/funmodifiers/modifier_ludo_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_battlemage_oaa", "modifiers/funmodifiers/modifier_battlemage_oaa.lua", LUA_MODIFIER_MOTION_NONE)
