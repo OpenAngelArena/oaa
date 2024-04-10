@@ -39,7 +39,6 @@ if IsServer() then
     local damaged_unit = event.unit
     local dmg_flags = event.damage_flags
     local damage = event.damage
-    local inflictor = event.inflictor
 
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
