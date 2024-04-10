@@ -212,8 +212,12 @@ if IsServer() then
   function modifier_ludo_oaa:ChangeModifier(hero)
     if self.last_mod then
       local mod = self.last_mod
-      if self.actual_mod and self.actual_mod:GetName() == mod then
-        self.actual_mod:Destroy()
+      if self.actual_mod and not self.actual_mod:IsNull() then
+        if self.actual_mod:GetName() == mod then
+          self.actual_mod:Destroy()
+        else
+          hero:RemoveModifierByName(self.actual_mod:GetName())
+        end
       else
         hero:RemoveModifierByName(mod)
       end

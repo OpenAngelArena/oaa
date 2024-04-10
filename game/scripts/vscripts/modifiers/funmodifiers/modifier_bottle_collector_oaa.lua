@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_bottle_collector_death_tracker_oaa", "modifiers/funmodifiers/modifier_bottle_collector_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_bottle_collector_oaa = class(ModifierBaseClass)
 
 function modifier_bottle_collector_oaa:IsHidden()
@@ -22,6 +24,9 @@ function modifier_bottle_collector_oaa:OnCreated()
 
   if IsServer() then
     self:StartIntervalThink(0.1)
+
+    local parent = self:GetParent()
+    parent:AddNewModifier(parent, nil, "modifier_bottle_collector_death_tracker_oaa", {})
   end
 end
 
@@ -61,7 +66,6 @@ function modifier_bottle_collector_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-    MODIFIER_EVENT_ON_DEATH,
   }
 end
 
@@ -73,8 +77,38 @@ function modifier_bottle_collector_oaa:GetModifierSpellAmplify_Percentage()
   return self.spell_amp_per_bottle_charge * math.abs(self:GetStackCount())
 end
 
+function modifier_bottle_collector_oaa:GetTexture()
+  return "item_bottle"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_bottle_collector_death_tracker_oaa = class(ModifierBaseClass)
+
+function modifier_bottle_collector_death_tracker_oaa:IsHidden()
+  return true
+end
+
+function modifier_bottle_collector_death_tracker_oaa:IsDebuff()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:IsPurgable()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:RemoveOnDeath()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
 if IsServer() then
-  function modifier_bottle_collector_oaa:OnDeath(event)
+  function modifier_bottle_collector_death_tracker_oaa:OnDeath(event)
     local parent = self:GetParent()
     local dead = event.unit
 
@@ -84,10 +118,6 @@ if IsServer() then
 
     -- Dead unit already deleted, don't continue to prevent errors
     if not parent or parent:IsNull() then
-      return
-    end
-
-    if math.abs(self:GetStackCount()) < 3 then
       return
     end
 
@@ -146,8 +176,4 @@ if IsServer() then
       end
     end)
   end
-end
-
-function modifier_bottle_collector_oaa:GetTexture()
-  return "item_bottle"
 end
