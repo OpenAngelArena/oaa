@@ -57,6 +57,11 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "precache"
+    {
+      "particle"                                          "particles/status_fx/status_effect_glow_white_over_time.vpcf"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
