@@ -35,6 +35,9 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
 
+  local gamemode = GameRules:GetGameModeEntity()
+  gamemode:SetFriendlyBuildingMoveToEnabled(true)
+
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )
     GameRules:LockCustomGameSetupTeamAssignment( true )
