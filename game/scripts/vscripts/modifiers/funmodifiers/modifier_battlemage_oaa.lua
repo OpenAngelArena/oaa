@@ -90,6 +90,16 @@ if IsServer() then
       -- return
     -- end
 
+    -- Don't proc if dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Don't proc if damaged unit isn't visible to attacker's team (fog of war or invisible)
+    if not attacker:CanEntityBeSeenByMyTeam(damaged_unit) then
+      return
+    end
+
     -- Don't proc if Battle Mage is on cooldown
     if attacker:HasModifier("modifier_battlemage_cooldown_oaa") then
       return
