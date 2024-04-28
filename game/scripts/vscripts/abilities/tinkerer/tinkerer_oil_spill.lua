@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_tinkerer_oil_spill_thinker", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tinkerer_oil_spill_debuff", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tinkerer_oil_spill_root", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
 
 tinkerer_oil_spill = class({})
 
@@ -85,10 +86,17 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     duration = duration + talent:GetSpecialValueFor("value")
   end
 
+  -- Check for Tar Spill Applies Root
+  local hasScepter = caster:HasScepter()
+  local root_duration = self:GetSpecialValueFor("scepter_root_duration")
+
   -- Apply debuff to enemies
   for _, enemy in pairs(oiled_enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
+      if hasScepter then
+        enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_root", {duration = root_duration})
+      end
     end
   end
 
@@ -273,6 +281,16 @@ function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
   }
 end
 
+function modifier_tinkerer_oil_spill_debuff:CheckState()
+  if self:GetParent():GetHealthPercent() <= 25 then
+    return {
+      [MODIFIER_STATE_SPECIALLY_DENIABLE] = true,
+    }
+  else
+    return {}
+  end
+end
+
 function modifier_tinkerer_oil_spill_debuff:GetModifierMoveSpeedBonus_Percentage()
   return 0 - math.abs(self.move_speed_slow)
 end
@@ -351,4 +369,26 @@ function modifier_tinkerer_oil_spill_debuff:OnDestroy()
     ParticleManager:DestroyParticle(self.burning_particle, false)
     ParticleManager:ReleaseParticleIndex(self.burning_particle)
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_tinkerer_oil_spill_root = class({})
+
+function modifier_tinkerer_oil_spill_root:IsHidden()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:IsDebuff()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:IsPurgable()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:CheckState()
+  return {
+    [MODIFIER_STATE_ROOTED] = true,
+  }
 end

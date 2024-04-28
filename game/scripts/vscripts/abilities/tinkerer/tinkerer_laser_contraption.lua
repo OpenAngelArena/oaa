@@ -265,8 +265,9 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
   local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
   if tar_spill and tar_spill:GetLevel() > 0 then
     -- Laser Contraption applies Tar Spill
-    local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
-    if talent and talent:GetLevel() > 0 then
+    -- local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
+    -- if talent and talent:GetLevel() > 0 then
+    if caster:HasScepter() then
       tar_spill:OnProjectileHit(nil, self.center)
     end
   end
@@ -278,7 +279,8 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   end
 
   local parent = self:GetParent()
-  local caster = self:GetCaster() or parent
+  local real_caster = self:GetCaster()
+  local caster = real_caster or parent
 
   if not parent or parent:IsNull() or not parent:IsAlive() then
     return
@@ -344,6 +346,43 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
 
   -- Sound
   --parent:EmitSound("Hero_Tinker.LaserImpact")
+
+  -- Heal Allies
+  local talent = real_caster:FindAbilityByName("special_bonus_unique_tinkerer_9")
+  if talent and talent:GetLevel() > 0 then
+    local heal_per_interval = self.dmg_per_interval
+    local allies = {}
+    if square_shape then
+      allies = FindUnitsInLine(
+        caster:GetTeamNumber(),
+        self.start_pos,
+        self.end_pos,
+        nil,
+        self.rad_or_width,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_NONE
+      )
+    else
+      allies = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        self.center,
+        nil,
+        self.rad_or_width,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+        DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+        FIND_ANY_ORDER,
+        false
+      )
+    end
+
+    for _, ally in pairs(allies) do
+      if ally and not ally:IsNull() then
+        ally:Heal(heal_per_interval, ability)
+      end
+    end
+  end
 end
 
 function modifier_tinkerer_laser_contraption_thinker:OnDestroy()
@@ -411,11 +450,11 @@ function modifier_tinkerer_laser_contraption_debuff:GetModifierSpellLifestealReg
   return self.heal_prevent_percent or self:GetAbility():GetSpecialValueFor("scepter_heal_prevent_percent")
 end
 
-function modifier_tinkerer_laser_contraption_debuff:CheckState()
-  return {
-    [MODIFIER_STATE_TETHERED] = true, -- leash
-  }
-end
+-- function modifier_tinkerer_laser_contraption_debuff:CheckState()
+  -- return {
+    -- [MODIFIER_STATE_TETHERED] = true, -- leash
+  -- }
+-- end
 
 ---------------------------------------------------------------------------------------------------
 

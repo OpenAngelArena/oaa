@@ -246,10 +246,12 @@ end
 
 function modifier_tinkerer_smart_missiles_stun:OnCreated()
   local move_speed_slow = 100
+  local attack_speed_slow = 100
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     move_speed_slow = ability:GetSpecialValueFor("move_speed_slow")
+    attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
   end
 
   -- Resistances
@@ -260,6 +262,7 @@ function modifier_tinkerer_smart_missiles_stun:OnCreated()
   -- end
 
   self.move_speed_slow = move_speed_slow
+  self.attack_speed_slow = attack_speed_slow
 end
 
 modifier_tinkerer_smart_missiles_stun.OnRefresh = modifier_tinkerer_smart_missiles_stun.OnCreated
@@ -267,12 +270,17 @@ modifier_tinkerer_smart_missiles_stun.OnRefresh = modifier_tinkerer_smart_missil
 function modifier_tinkerer_smart_missiles_stun:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
   }
 end
 
 function modifier_tinkerer_smart_missiles_stun:GetModifierMoveSpeedBonus_Percentage()
   return 0 - math.abs(self.move_speed_slow)
+end
+
+function modifier_tinkerer_smart_missiles_stun:GetModifierAttackSpeedBonus_Constant()
+  return 0 - math.abs(self.attack_speed_slow)
 end
 
 function modifier_tinkerer_smart_missiles_stun:GetOverrideAnimation()

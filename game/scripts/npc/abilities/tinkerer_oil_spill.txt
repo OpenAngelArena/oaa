@@ -20,6 +20,8 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
+    "HasScepterUpgrade"                                   "1"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700"
@@ -77,6 +79,11 @@
       }
       "burn_interval"                                     "0.25"
       "ignite_extra_duration"                             "3"
+      "scepter_root_duration"
+      {
+        "value"                                           "1.8"
+        "RequiresScepter"                                 "1"
+      }
     }
   }
 }
