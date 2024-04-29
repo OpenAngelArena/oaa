@@ -92,7 +92,7 @@
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Applies Tar Spill every 3 seconds. Trapped enemies have reduced healing, hp regen, lifesteal and spell lifesteal by %scepter_heal_prevent_percent%%%."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Applies Tar Spill every %scepter_tar_spill_interval% seconds. Trapped enemies have reduced healing, hp regen, lifesteal and spell lifesteal by %scepter_heal_prevent_percent%%%."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEALTH RESTORATION REDUCTION:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_shard_description"             "Grants Laser ability: #{DOTA_Tooltip_ability_tinkerer_laser_oaa_Description}"
@@ -140,3 +140,4 @@
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          "Keen Contraption Applies Tar Spill"
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_9"                          "Keen Contraption Heals Allies"
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_9_Description"              "Heals Tinkerer and his allies that are inside the contraption for {s:value}% of the damage."

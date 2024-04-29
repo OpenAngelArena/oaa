@@ -285,15 +285,6 @@ if IsServer() then
 
     return index(unit, unitsInBubble)
   end
-
-  -- function modifier_item_preemptive_bubble_block:PlayBlockEffect()
-    -- local parent = self:GetParent()
-    -- local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
-    -- local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
-    -- ParticleManager:ReleaseParticleIndex(blockEffect)
-
-    -- parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
-  -- end
 end
 
 ---------------------------------------------------------------------------------------------------

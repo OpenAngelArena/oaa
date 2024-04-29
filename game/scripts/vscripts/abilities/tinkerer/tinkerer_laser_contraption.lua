@@ -264,7 +264,7 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
 
   local tar_spill = caster:FindAbilityByName("tinkerer_oil_spill")
   if tar_spill and tar_spill:GetLevel() > 0 then
-    -- Laser Contraption applies Tar Spill
+    -- Keen Contraption applies Tar Spill
     -- local talent = caster:FindAbilityByName("special_bonus_unique_tinkerer_8")
     -- if talent and talent:GetLevel() > 0 then
     if caster:HasScepter() then
@@ -319,14 +319,16 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
     damage_type = DAMAGE_TYPE_MAGICAL,
   }
 
+  local tar_spill_interval = 3
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     damage_table.ability = ability
     damage_table.damage_type = ability:GetAbilityDamageType()
+    tar_spill_interval = ability:GetSpecialValueFor("scepter_tar_spill_interval")
   end
 
-  -- Talent that applies Tar Spill
-  local tar_spill_interval = 3
+  -- Keen Contraption Applies Tar Spill
   local tar_spill_iteration = math.ceil(tar_spill_interval / self.interval)
   if self.counter == 0 or self.counter % tar_spill_iteration == 0 then
     self:ApplyTarSpill()
@@ -350,7 +352,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnIntervalThink()
   -- Heal Allies
   local talent = real_caster:FindAbilityByName("special_bonus_unique_tinkerer_9")
   if talent and talent:GetLevel() > 0 then
-    local heal_per_interval = self.dmg_per_interval
+    local heal_per_interval = self.dmg_per_interval * talent:GetSpecialValueFor("value") * 0.01
     local allies = {}
     if square_shape then
       allies = FindUnitsInLine(
