@@ -217,30 +217,41 @@ end
 
 function modifier_item_preemptive_bubble_block:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_ABSORB_SPELL,
+    MODIFIER_PROPERTY_ABSORB_SPELL,
     MODIFIER_PROPERTY_AVOID_DAMAGE,
+    --MODIFIER_EVENT_ON_STATE_CHANGED, -- triggers too many times, and it doesnt trigger for everything
   }
 end
 
 if IsServer() then
   -- Spell block is done with modifier filter
-  -- function modifier_item_preemptive_bubble_block:GetAbsorbSpell(keys)
-    -- local ability = self:GetAbility()
-    -- local casted_ability = keys.ability
-    -- -- Don't block if we don't have required variables
-    -- if not ability or ability:IsNull() or not casted_ability or casted_ability:IsNull() then
-    --   return 0
-    -- end
-    -- local caster = casted_ability:GetCaster()
-    -- local casterIsAlly = caster:GetTeamNumber() == self:GetParent():GetTeamNumber()
+  function modifier_item_preemptive_bubble_block:GetAbsorbSpell(keys)
+    local parent = self:GetParent()
+    local ability = self:GetAbility()
+    local casted_ability = keys.ability
 
-    -- if casterIsAlly or IsUnitInBubble(caster, self.bubbleCenter, ability) then
-      -- return 0
-    -- else
-      -- self:PlayBlockEffect()
-      -- return 1
-    -- end
-  -- end
+    if not casted_ability or casted_ability:IsNull() then
+      return 0
+    end
+    local caster = casted_ability:GetCaster()
+    if not caster or caster:IsNull() then
+      print("Bubble Orb: casted spell doesnt have a caster")
+      return 0
+    end
+    local casterIsAlly = caster:GetTeamNumber() == parent:GetTeamNumber()
+
+    if casterIsAlly or IsUnitInBubble(caster, self.bubbleCenter, ability) then
+      return 0
+    else
+      -- Particle effect
+      local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
+      local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)
+      ParticleManager:ReleaseParticleIndex(blockEffect)
+      -- Sound effect
+      parent:EmitSound("DOTA_Item.LinkensSphere.Activate")
+      return 1
+    end
+  end
 
   function modifier_item_preemptive_bubble_block:GetModifierAvoidDamage(keys)
     local attacker = keys.attacker
