@@ -39,7 +39,8 @@
     {
       "radius"
       {
-        "value"                                           "400"
+        "value"                                           "350"
+        "special_bonus_unique_electrician_6"              "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" // original: 85/150/215/280
@@ -47,7 +48,7 @@
         "value"                                           "90 160 230 300 600 1200"
         "LinkedSpecialBonus"                              "special_bonus_unique_electrician_8"
       }
-      "mana_absorb_base"                                  "16 24 32 40 56 72" // original: 12/16/20/24
+      "mana_absorb_base"                                  "15 20 25 30 40 50" // original: 12/16/20/24
       "mana_absorb_percentage" // original: 8/10/12/14%
       {
         "value"                                           "8 10 12 14 16 18"
@@ -57,6 +58,7 @@
       "speed_absorb_non_heroes"                           "5"
       "duration"                                          "7"
       "bonus_mana_cap"                                    "300 400 500 600 1200 1800"
+      "illusion_dmg_multiplier"                           "2"
     }
 
     // Precache

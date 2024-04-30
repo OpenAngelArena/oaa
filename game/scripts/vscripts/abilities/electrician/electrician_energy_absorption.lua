@@ -6,17 +6,17 @@ LinkLuaModifier("modifier_electrician_bonus_mana_count", "abilities/electrician/
 
 --------------------------------------------------------------------------------
 
-function electrician_energy_absorption:GetCooldown(level)
-  local caster = self:GetCaster()
-  local base_cd = self.BaseClass.GetCooldown(self, level)
+-- function electrician_energy_absorption:GetCooldown(level)
+--   local caster = self:GetCaster()
+--   local base_cd = self.BaseClass.GetCooldown(self, level)
 
-  local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
-  if talent and talent:GetLevel() > 0 then
-    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
-  end
+--   local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_cooldown")
+--   if talent and talent:GetLevel() > 0 then
+--     return base_cd - math.abs(talent:GetSpecialValueFor("value"))
+--   end
 
-  return base_cd
-end
+--   return base_cd
+-- end
 
 function electrician_energy_absorption:OnSpellStart()
 	local caster = self:GetCaster()
@@ -56,6 +56,7 @@ function electrician_energy_absorption:OnSpellStart()
     local speed_absorb_creeps = self:GetSpecialValueFor("speed_absorb_non_heroes")
     local speed_absorb_heroes = self:GetSpecialValueFor("speed_absorb_heroes")
     local duration = self:GetSpecialValueFor("duration")
+    local illusion_multiplier = self:GetSpecialValueFor("illusion_dmg_multiplier")
 
     -- Talent that increases mana absorb
     local talent = caster:FindAbilityByName("special_bonus_electrician_energy_absorption_mana")
@@ -99,6 +100,8 @@ function electrician_energy_absorption:OnSpellStart()
         if not target:IsIllusion() then
           target:ReduceMana(mana_to_remove, self)
           mana_absorbed = mana_absorbed + mana_to_remove
+        elseif not target:IsStrongIllusionOAA() then
+          damage_table.damage = damage * illusion_multiplier
         end
 
         if target:IsRealHero() or target:IsOAABoss() then
