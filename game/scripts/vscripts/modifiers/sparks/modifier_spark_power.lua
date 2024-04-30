@@ -267,9 +267,9 @@ if IsServer() then
         self.damage_block_failures = 0
 
         if parent:IsRangedAttacker() and parent:IsHero() then
-          return block / 2
+          return block / 4
         else
-          return block
+          return block / 2
         end
       else
         -- Increment number of failures
@@ -306,9 +306,9 @@ function modifier_spark_power_effect:OnTooltip2()
     end
   end
   if parent:IsRangedAttacker() and parent:IsHero() then
-    return block / 2
+    return math.floor(block / 4)
   else
-    return block
+    return math.floor(block / 2)
   end
 end
 
