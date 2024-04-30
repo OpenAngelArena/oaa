@@ -300,7 +300,6 @@ function modifier_electrician_cleansing_shock_enemy:IsPurgable()
 end
 
 function modifier_electrician_cleansing_shock_enemy:OnCreated()
-  local parent = self:GetParent()
   local spell = self:GetAbility()
   local interval = spell:GetSpecialValueFor("speed_update_interval")
   local move_slow = spell:GetSpecialValueFor("move_slow")
