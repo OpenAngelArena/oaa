@@ -59,6 +59,12 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
   elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then
     victim:AddNewModifier(caster, ability, "modifier_wraith_form_penalty_oaa", {duration = modifier_duration})
+  elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
+    if victim ~= caster then
+      victim:AddNewModifier(caster, ability, "modifier_legion_duel_debuff_oaa", {duration = modifier_duration})
+    else
+      victim:AddNewModifier(caster, ability, "modifier_legion_duel_buff_oaa", {duration = modifier_duration})
+    end
   end
 
   return true
