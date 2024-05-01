@@ -53,8 +53,15 @@ function modifier_spark_midas:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  -- disable everything here for illusions or during duels / pre 0:00
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() or not Gold:IsGoldGenActive() then
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  -- during duels / pre 0:00
+  if not Gold:IsGoldGenActive() then
     return
   end
 

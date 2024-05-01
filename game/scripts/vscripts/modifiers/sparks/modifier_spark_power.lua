@@ -102,11 +102,14 @@ end
 function modifier_spark_power:OnIntervalThink()
   local parent = self:GetParent()
 
-  if parent:IsIllusion() then
-    return
-  end
-
   if IsServer() then
+    -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:StartIntervalThink(-1)
+      self:Destroy()
+      return
+    end
+
     -- Current damage values
     local base_damage_max = parent:GetBaseDamageMax()
     local base_damage_min = parent:GetBaseDamageMin()
@@ -135,8 +138,6 @@ function modifier_spark_power:OnIntervalThink()
     local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
     self:SetStackCount(bonus)
   end
-
-  --parent.power_spark_bonus = self:GetStackCount()
 end
 
 function modifier_spark_power:OnStackCountChanged(old_stacks)
