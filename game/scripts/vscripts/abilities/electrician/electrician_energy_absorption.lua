@@ -99,7 +99,7 @@ function electrician_energy_absorption:OnSpellStart()
         -- Don't remove mana from illusions to prevent weird interactions
         if not target:IsIllusion() then
           target:ReduceMana(mana_to_remove, self)
-          mana_absorbed = mana_absorbed + mana_to_remove         
+          mana_absorbed = mana_absorbed + mana_to_remove
         end
 
         -- Double damage against illusions
