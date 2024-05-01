@@ -140,7 +140,7 @@ function modifier_electrician_static_grip:OnCreated( event )
     -- Bonus damage talent
     local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
     if talent and talent:GetLevel() > 0 then
-      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
     end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
@@ -186,7 +186,7 @@ function modifier_electrician_static_grip:OnRefresh( event )
     -- Bonus damage talent
     local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
     if talent and talent:GetLevel() > 0 then
-      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
     end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
