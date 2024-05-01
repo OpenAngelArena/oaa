@@ -25,14 +25,15 @@ function modifier_spark_midas:GetTexture()
 end
 
 function modifier_spark_midas:OnCreated()
-  local parent = self:GetParent()
-
-  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
-    self:Destroy()
-  end
-
   if IsServer() then
+    local parent = self:GetParent()
+
+    -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:Destroy()
+      return
+    end
+
     self:StartIntervalThink(0.5)
     self.stack_count = 0
   end

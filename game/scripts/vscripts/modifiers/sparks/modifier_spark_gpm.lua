@@ -1,6 +1,7 @@
 modifier_spark_gpm = class(ModifierBaseClass)
 
 function modifier_spark_gpm:OnCreated()
+  if not IsServer() then return end
   self:StartIntervalThink(1)
 end
 

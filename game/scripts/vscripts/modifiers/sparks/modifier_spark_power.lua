@@ -74,9 +74,11 @@ function modifier_spark_power:OnCreated()
   local parent = self:GetParent()
 
   -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
-  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
-    self:Destroy()
-    return
+  if IsServer() then
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:Destroy()
+      return
+    end
   end
 
   -- Initialize with 0
