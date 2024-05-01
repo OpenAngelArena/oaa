@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Antimage Counterspell Ally (shard ability)
+  //=================================================================================================================
+  "antimage_counterspell_ally"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "600"
+    "AbilityCastPoint"                                    "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "3"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "45"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "duration"                                          "1.2"
+      "duration_illusion"                                 "4"
+      "outgoing_damage"                                   "-25"
+      "incoming_damage"                                   "150" //OAA
+    }
+  }
+}

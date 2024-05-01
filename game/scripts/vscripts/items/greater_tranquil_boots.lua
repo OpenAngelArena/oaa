@@ -289,9 +289,9 @@ function modifier_item_greater_tranquil_boots_passive:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_EVENT_ON_ATTACK_LANDED,
   }
 end
@@ -344,13 +344,13 @@ end
 	-- end
 -- end
 
-function modifier_item_greater_tranquil_boots_passive:GetModifierHPRegenAmplify_Percentage()
-  if self:GetStackCount() ~= 1 then
-    return 0
-  end
+-- function modifier_item_greater_tranquil_boots_passive:GetModifierHPRegenAmplify_Percentage()
+  -- if self:GetStackCount() ~= 1 then
+    -- return 0
+  -- end
 
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
-end
+  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
+-- end
 
 function modifier_item_greater_tranquil_boots_passive:GetModifierIncomingDamage_Percentage()
   if self:GetStackCount() ~= 1 then
@@ -360,13 +360,13 @@ function modifier_item_greater_tranquil_boots_passive:GetModifierIncomingDamage_
   return self.dmg_reduction or self:GetAbility():GetSpecialValueFor("tree_damage_reduction")
 end
 
-function modifier_item_greater_tranquil_boots_passive:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() ~= 1 then
-    return 0
-  end
+-- function modifier_item_greater_tranquil_boots_passive:GetModifierStatusResistanceStacking()
+  -- if self:GetStackCount() ~= 1 then
+    -- return 0
+  -- end
 
-  return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
-end
+  -- return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
+-- end
 
 function modifier_item_greater_tranquil_boots_passive:CheckState()
   return {
@@ -499,19 +499,19 @@ end
 
 function modifier_greater_tranquils_trees_buff:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+    --MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+    --MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
   }
 end
 
-function modifier_greater_tranquils_trees_buff:GetModifierHPRegenAmplify_Percentage()
-  if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
-    return 0
-  end
+-- function modifier_greater_tranquils_trees_buff:GetModifierHPRegenAmplify_Percentage()
+  -- if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
+    -- return 0
+  -- end
 
-  return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
-end
+  -- return self.hp_regen_amp or self:GetAbility():GetSpecialValueFor("tree_hp_regen_amp")
+-- end
 
 function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percentage()
   if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
@@ -521,13 +521,13 @@ function modifier_greater_tranquils_trees_buff:GetModifierIncomingDamage_Percent
   return self.dmg_reduction or self:GetAbility():GetSpecialValueFor("tree_damage_reduction")
 end
 
-function modifier_greater_tranquils_trees_buff:GetModifierStatusResistanceStacking()
-  if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
-    return 0
-  end
+-- function modifier_greater_tranquils_trees_buff:GetModifierStatusResistanceStacking()
+  -- if self:GetStackCount() ~= 1 or self:GetParent():HasModifier("modifier_item_greater_tranquil_boots_passive") then
+    -- return 0
+  -- end
 
-  return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
-end
+  -- return self.status_resist or self:GetAbility():GetSpecialValueFor("tree_status_resistance")
+-- end
 
 -- Flying Vision because Tree-vision needs wizardry
 function modifier_greater_tranquils_trees_buff:CheckState()

@@ -32,7 +32,7 @@
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "necromastery_max_souls"                          "11 14 17 20 22 24"
+        "necromastery_max_souls"                          "11 14 17 20 23 26"
       }
       "03"
       {
@@ -42,7 +42,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "necromastery_max_souls_scepter"                  "16 19 22 25 26 27" //OAA
+        "necromastery_max_souls_scepter"                  "16 19 22 25 28 31" //OAA, if it lags tone it down
         "RequiresScepter"                                 "1"
       }
       "05"

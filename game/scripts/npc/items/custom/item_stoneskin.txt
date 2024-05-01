@@ -46,7 +46,7 @@
     "AbilityCastRange"                                    "1200"
     "AbilitySharedCooldown"                               "stoneskin"
     "AbilityCooldown"                                     "20"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "0"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -77,12 +77,6 @@
       "bonus_armor"                                       "16 20"
       "bonus_health_regen"                                "14 17"
       "bonus_status_resist"                               "20 22"
-      // Aura stuff
-      "hp_regen_amp"                                      "20"
-      "heal_amp"                                          "20"
-      "lifesteal_amp"                                     "20"
-      "spell_lifesteal_amp"                               "20"
-      "aura_radius"                                       "1200"
       // Active stuff
       "stone_armor"                                       "85 100"
       "stone_deflect_chance"                              "25"
@@ -92,7 +86,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       //"stone_move_speed"                                  "100"
-      "stone_mana_regen_amp"                              "85 100"
       "duration"                                          "5.5"
     }
   }

@@ -326,7 +326,7 @@ if IsServer() then
       end
 
       -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs and damage to both heroes
-      if parent:IsRealHero() then
+      if parent:IsHero() then
         local heroes = FindUnitsInRadius(
           casterTeam,
           tickOrigin,
@@ -486,12 +486,13 @@ function modifier_sohei_polarizing_palm_slow:IsPurgable()
 end
 
 function modifier_sohei_polarizing_palm_slow:OnCreated()
-  --local parent = self:GetParent()
   local ability = self:GetAbility()
-  local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
+  local move_speed_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
+  local attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
 
   -- Move Speed Slow is reduced with Slow Resistance
-  self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
+  self.move_speed_slow = move_speed_slow --parent:GetValueChangedBySlowResistance(move_speed_slow)
+  self.attack_speed_slow = attack_speed_slow
 end
 
 function modifier_sohei_polarizing_palm_slow:OnRefresh()
@@ -501,9 +502,14 @@ end
 function modifier_sohei_polarizing_palm_slow:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
 function modifier_sohei_polarizing_palm_slow:GetModifierMoveSpeedBonus_Percentage()
-  return 0 - math.abs(self.slow)
+  return 0 - math.abs(self.move_speed_slow)
+end
+
+function modifier_sohei_polarizing_palm_slow:GetModifierAttackSpeedBonus_Constant()
+  return 0 - math.abs(self.attack_speed_slow)
 end

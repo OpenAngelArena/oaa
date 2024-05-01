@@ -32,10 +32,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_movement_speed"                               "-30 -40 -50 -60 -65 -70"
+      "slow_movement_speed"                               "-30 -40 -50 -60 -70 -80"
       "slow_duration"                                     "5"
       "damage"                                            "20 30 40 50 100 200"
-      "dominate_duration"                                 "30 60 90 120 150 180"
+      "dominate_duration"                                 "120" //OAA
       "enchant_health"  //OAA, this is bonus hp, not minimum hp
       {
         "value"                                           "200 400 600 800 1600 3200"
@@ -46,15 +46,15 @@
         "value"                                           "0"
         "special_bonus_unique_enchantress_enchant_armor"  "+10"
       }
-      "enchant_damage"
+      "enchant_damage" //OAA
       {
-        "value"                                           "0 25 50 75 150 300"
+        "value"                                           "15 35 55 75 150 300"
         "special_bonus_unique_enchantress_enchant_health_damage"  "+30%"
       }
       "level_req"                                         "6" //OAA
-      "max_creeps"
+      "max_creeps" //OAA
       {
-        "value"                                           "1"
+        "value"                                           "1 2 2 4 5 6"
         "special_bonus_scepter"                           "+1"
       }
     }

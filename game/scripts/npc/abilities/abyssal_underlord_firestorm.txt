@@ -50,10 +50,10 @@
         "CalculateSpellDamageTooltip"                     "1"
       }
       "wave_interval"                                     "1.0"
-      "burn_damage"
+      "burn_damage" //OAA
       {
-        "value"                                           "1.5 2 2.5 3 4 5"
-        "special_bonus_unique_underlord_4"                "+0.8"
+        "value"                                           "1.5 2 2.5 3 3.5 4"
+        "special_bonus_unique_underlord_4"                "+1.0"
       }
       "burn_interval"                                     "1.0"
       "burn_duration"                                     "2.0"

@@ -140,10 +140,11 @@ function modifier_electrician_static_grip:OnCreated( event )
     -- Bonus damage talent
     local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
     if talent and talent:GetLevel() > 0 then
-      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
     end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
+    self.width = spell:GetSpecialValueFor("damage_width")
 
     -- create the particle
     self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_POINT_FOLLOW, caster )
@@ -185,10 +186,11 @@ function modifier_electrician_static_grip:OnRefresh( event )
     -- Bonus damage talent
     local talent = caster:FindAbilityByName("special_bonus_electrician_static_grip_damage")
     if talent and talent:GetLevel() > 0 then
-      damage_per_second = damage_per_second + talent:GetSpecialValueFor("value")
+      damage_per_second = spell:GetSpecialValueFor("damage_per_second") * talent:GetSpecialValueFor("value")
     end
     self.damagePerInterval = damage_per_second * damageInterval
     self.damageType = spell:GetAbilityDamageType()
+    self.width = spell:GetSpecialValueFor("damage_width")
 
     -- play sound
     parent:EmitSound( "Hero_StormSpirit.ElectricVortex" )
@@ -234,14 +236,31 @@ if IsServer() then
       return
     end
 
-    ApplyDamage( {
-      victim = parent,
+    local enemies = FindUnitsInLine(
+      caster:GetTeamNumber(),
+      caster:GetAbsOrigin(),
+      parent:GetAbsOrigin(),
+      nil,
+      self.width,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+      DOTA_UNIT_TARGET_FLAG_NONE
+    )
+
+    local damage_table = {
       attacker = caster,
       damage = self.damagePerInterval,
       damage_type = self.damageType,
       damage_flags = DOTA_DAMAGE_FLAG_NONE,
       ability = spell,
-    } )
+    }
+
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        damage_table.victim = enemy
+        ApplyDamage(damage_table)
+      end
+    end
   end
 end
 

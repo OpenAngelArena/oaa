@@ -212,7 +212,7 @@ if IsServer() then
     end
 
     -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs to both heroes
-    if parent:IsRealHero() then
+    if parent:IsHero() then
       local heroes = FindUnitsInRadius(
         caster:GetTeamNumber(),
         tickOrigin,

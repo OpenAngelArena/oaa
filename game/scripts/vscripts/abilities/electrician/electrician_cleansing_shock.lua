@@ -21,15 +21,15 @@ function electrician_cleansing_shock:CastFilterResultTarget(target)
   return default_result
 end
 
-function electrician_cleansing_shock:GetManaCost(level)
-	local caster = self:GetCaster()
-  local base_mana_cost = self.BaseClass.GetManaCost(self, level)
-  if caster:HasScepter() then
-    return self:GetSpecialValueFor("mana_cost_scepter")
-  end
+-- function electrician_cleansing_shock:GetManaCost(level)
+	-- local caster = self:GetCaster()
+  -- local base_mana_cost = self.BaseClass.GetManaCost(self, level)
+  -- if caster:HasScepter() then
+    -- return self:GetSpecialValueFor("mana_cost_scepter")
+  -- end
 
-  return base_mana_cost
-end
+  -- return base_mana_cost
+-- end
 
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
@@ -116,7 +116,8 @@ function electrician_cleansing_shock:ApplyEffect( target )
     -- Check for mini-stun talent
     local talent = caster:FindAbilityByName("special_bonus_electrician_cleansing_shock_stun")
     if talent and talent:GetLevel() > 0 then
-      target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
+      local stun_duration = target:GetValueChangedByStatusResistance(talent:GetSpecialValueFor("value"))
+      target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
     end
 
     -- Check for current hp damage talent
@@ -125,9 +126,9 @@ function electrician_cleansing_shock:ApplyEffect( target )
       local damage_table = {
         attacker = caster,
         victim = target,
-        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_type = DAMAGE_TYPE_PURE,
         ability = self,
-        damage = target:GetHealth() * talent2:GetSpecialValueFor("value") * 0.01
+        damage = talent2:GetSpecialValueFor("base_dmg") + target:GetHealth() * talent2:GetSpecialValueFor("value") * 0.01
       }
 
       ApplyDamage(damage_table)
@@ -139,7 +140,7 @@ function electrician_cleansing_shock:ApplyEffect( target )
       local damage_table = {
         attacker = caster,
         victim = target,
-        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_type = DAMAGE_TYPE_PURE,
         ability = self,
         damage = summon_damage
       }
@@ -184,7 +185,7 @@ function electrician_cleansing_shock:FindBounceTarget( origin, radius )
   local caster = self:GetCaster()
   local casterTeam = caster:GetTeamNumber()
 
-	-- helperception
+	-- helper-ception
 	local function FindInTable( t, target )
 		for k, v in pairs( t ) do
 			if v == target then
@@ -299,18 +300,12 @@ function modifier_electrician_cleansing_shock_enemy:IsPurgable()
 end
 
 function modifier_electrician_cleansing_shock_enemy:OnCreated()
-  local parent = self:GetParent()
   local spell = self:GetAbility()
   local interval = spell:GetSpecialValueFor("speed_update_interval")
   local move_slow = spell:GetSpecialValueFor("move_slow")
   local attack_slow = spell:GetSpecialValueFor("attack_slow")
 
-  if IsServer() then
-    -- Attack speed slow is reduced with Status Resistance
-    self.attackSpeed = parent:GetValueChangedByStatusResistance(attack_slow)
-  else
-    self.attackSpeed = attack_slow
-  end
+  self.attackSpeed = attack_slow
 
   -- Move speed slow is reduced with Slow Resistance
   self.moveSpeed = move_slow --parent:GetValueChangedBySlowResistance(move_slow)

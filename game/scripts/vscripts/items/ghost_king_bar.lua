@@ -61,8 +61,9 @@ function item_ghost_king_bar_1:OnSpellStart()
   -- Trigger cd on all Holy Lockets and Magic Wands
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = caster:GetItemInSlot(i)
-    if item and item:GetName() == "item_holy_locket" then
-      item:StartCooldown(13*caster:GetCooldownReduction())
+    if item and (item:GetName() == "item_holy_locket" or item:GetName() == "item_magic_wand") then
+      local kv_cooldown = self:GetAbilityKeyValues().AbilityCooldown or 13
+      item:StartCooldown(kv_cooldown*caster:GetCooldownReduction())
     end
   end
 
@@ -280,7 +281,12 @@ if IsServer() then
     local ability = self:GetAbility()
     local unit = event.unit
 
-    -- Uncomment the flag stuff if you don't want to gain charges from every enemy and not just visible enemies
+    -- Check if parent is dead
+    if not parent or parent:IsNull() or not parent:IsAlive() then
+      return
+    end
+
+    -- Uncomment the flag stuff if you don't want to gain charges from every enemy but just from visible enemies
     local filterResult = UnitFilter(
       unit,
       DOTA_UNIT_TARGET_TEAM_ENEMY,

@@ -70,6 +70,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
+  night_stalker_crippling_fear = {
+    dps = {"special_bonus_unique_night_stalker_1_oaa", "+"},
+  },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},

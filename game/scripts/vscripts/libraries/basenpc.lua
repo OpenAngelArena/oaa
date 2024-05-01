@@ -141,7 +141,6 @@ if IsServer() then
       "modifier_juggernaut_blade_fury",
       "modifier_kunkka_ghost_ship_damage_absorb",
       "modifier_kunkka_ghost_ship_damage_delay",
-      "modifier_leshrac_diabolic_edict",        -- Removes only one instance
       "modifier_life_stealer_rage",
       "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
@@ -155,9 +154,9 @@ if IsServer() then
       "modifier_phantom_assassin_blur_active",
       "modifier_phoenix_supernova_hiding",
       "modifier_rattletrap_battery_assault",
-      "modifier_razor_eye_of_the_storm",        -- Removes only one instance
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
+      "modifier_skywrath_mage_shard_bonus_counter",
       "modifier_slark_shadow_dance",
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
@@ -170,6 +169,12 @@ if IsServer() then
       -- custom:
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
       "modifier_sohei_flurry_self",
+    }
+
+    local buffs_with_multiple_instances = {
+      "modifier_leshrac_diabolic_edict",
+      "modifier_razor_eye_of_the_storm",
+      "modifier_skywrath_mage_shard_bonus",
     }
 
     local undispellable_rune_modifiers = {
@@ -226,6 +231,10 @@ if IsServer() then
     RemoveTableOfModifiersFromUnit(self, undispellable_item_buffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_buffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_rune_modifiers)
+
+    for i = 1, #buffs_with_multiple_instances do
+      self:RemoveAllModifiersOfName(buffs_with_multiple_instances[i])
+    end
 
     -- Dispel bools
     local BuffsCreatedThisFrameOnly = false

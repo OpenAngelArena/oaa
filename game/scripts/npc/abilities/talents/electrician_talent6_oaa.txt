@@ -1,25 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Decreases Energy Absorption cooldown - unused
+  // Electrician: Energy Absorption bonus radius
   //=================================================================================================================
-  "special_bonus_electrician_energy_absorption_cooldown"
+  "special_bonus_unique_electrician_6"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "4"
-      }
-    }
   }
 }

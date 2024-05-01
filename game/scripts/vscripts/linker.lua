@@ -68,6 +68,9 @@ LinkLuaModifier("modifier_item_revenants_brooch_active_oaa", "modifiers/modifyab
 LinkLuaModifier("modifier_muerta_pierce_the_veil_penalty_oaa", "modifiers/modifyabilitiesfilter/muerta_ult_penalties.lua", LUA_MODIFIER_MOTION_NONE)
 -- Wraith Form penalty modifier
 LinkLuaModifier("modifier_wraith_form_penalty_oaa", "modifiers/modifyabilitiesfilter/wraith_form_penalties.lua", LUA_MODIFIER_MOTION_NONE)
+-- Legion Commander aghs additional effects
+LinkLuaModifier("modifier_legion_duel_buff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_legion_duel_debuff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)
