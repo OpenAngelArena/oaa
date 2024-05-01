@@ -20,6 +20,15 @@ function modifier_spark_cleave:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
+function modifier_spark_cleave:OnCreated()
+  local parent = self:GetParent()
+
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    self:Destroy()
+  end
+end
+
 function modifier_spark_cleave:GetTexture()
   return "custom/spark_cleave"
 end

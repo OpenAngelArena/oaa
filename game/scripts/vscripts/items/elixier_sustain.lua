@@ -157,7 +157,7 @@ if IsServer() then
     end
 
     -- Illusions are treated as creeps too
-    if not damaged_unit:IsRealHero() then
+    if not damaged_unit:IsRealHero() and not damaged_unit:IsStrongIllusionOAA() then
       if inflictor then
         lifesteal_pct = self.creep_spell_lifesteal
       else

@@ -73,7 +73,9 @@ end
 function modifier_spark_power:OnCreated()
   local parent = self:GetParent()
 
-  if parent:IsIllusion() then
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    self:Destroy()
     return
   end
 
@@ -234,7 +236,7 @@ if IsServer() then
     end
 
     local damage = self.bonus
-    if parent:IsIllusion() or not parent:IsHero() then
+    if not parent:IsRealHero() then
       damage = damage / 7
     end
     if damage > 0 then
@@ -290,7 +292,7 @@ function modifier_spark_power_effect:OnTooltip()
       damage = caster:GetModifierStackCount("modifier_spark_power", caster)
     end
   end
-  if parent:IsIllusion() or not parent:IsHero() then
+  if not parent:IsRealHero() then
     damage = damage / 7
   end
   return damage
