@@ -26,7 +26,7 @@
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "32"            // Physical protection.
+    "ArmorPhysical"                                       "37"            // Physical protection.
     "MagicalResistance"                                   "-25"           // Magical protection (percentage).
 
     // Attack
@@ -34,7 +34,7 @@
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"                                     "2500"       // Damage range min.
     "AttackDamageMax"                                     "2500"       // Damage range max.
-    "AttackRate"                                          "2.5"       // BAT
+    "AttackRate"                                          "1.7"       // BAT (this value isnt used unless Taunted)
     "BaseAttackSpeed"                                     "300"       // Attack Speed
     "AttackAnimationPoint"                                "0.3"       // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "150"       // Range within a target can be acquired.
@@ -42,7 +42,7 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "3000"  // Experience earn.
+    "BountyXP"                                            "4000"  // Experience earn.
     "BountyGoldMin"                                       "0"     // Gold earned min.
     "BountyGoldMax"                                       "0"     // Gold earned max.
 
@@ -60,16 +60,15 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"                                        "10000"     // Base health
+    "StatusHealth"                                        "20000"     // Base health
     "StatusHealthRegen"                                   "0"        // Health regeneration rate.
-    "StatusMana"                                          "5000"     // Base mana.
-    "StatusManaRegen"                                     "10"     // Mana regeneration rate.
+    "StatusMana"                                          "10000"     // Base mana.
+    "StatusManaRegen"                                     "20"     // Mana regeneration rate.
 
     // Creature data
     "Creature"
     {
-      // Makes it only have 50% remaining of applied crowd control
-      "DisableResistance"                                 "50.0"
+      "DisableResistance"                                 "65.0"
       "AttachWearables" // Default npc_dota_hero_alchemist
       {
         "1" // Alchemist's Goblin Head
