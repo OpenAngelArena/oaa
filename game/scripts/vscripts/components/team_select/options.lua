@@ -89,6 +89,7 @@ local bundles = {
   HMB06 = {"modifier_wisdom_oaa", "modifier_octarine_soul_oaa", "modifier_debuff_duration_oaa", "modifier_change_to_int_oaa"}, -- Magician
   HMB07 = {"modifier_brute_oaa", "modifier_smurf_oaa", "modifier_any_damage_crit_oaa", "modifier_change_to_str_oaa"}, -- Mighty
   HMB08 = {"modifier_sangromancer_oaa", "modifier_crimson_magic_oaa", "modifier_debuff_duration_oaa", "modifier_explosive_death_oaa"}, -- Sangromancer
+  HMB09 = {"modifier_titan_soul_oaa", "modifier_diarrhetic_oaa", "modifier_any_damage_splash_oaa", "modifier_explosive_death_oaa"}, -- Radioactive
 }
 
 function OAAOptions:Init ()

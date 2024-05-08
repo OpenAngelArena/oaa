@@ -20,7 +20,7 @@ end
 
 function modifier_bottle_collector_oaa:OnCreated()
   self.damage_per_bottle_charge = 1.5
-  self.spell_amp_per_bottle_charge = 0.1
+  self.spell_amp_per_bottle_charge = 0.35
 
   if IsServer() then
     self:StartIntervalThink(0.1)

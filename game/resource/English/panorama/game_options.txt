@@ -76,6 +76,7 @@
 "game_option_magician"                                                          "Magician"
 "game_option_cunning"                                                           "Cunning"
 "game_option_sangromancer"                                                      "Sangromancer"
+"game_option_radioactive"                                                       "Radioactive"
 
 "game_option_random_description"                                                "This modifier will be revealed when the game starts!"
 "game_option_lifesteal_description"                                             "75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
@@ -118,9 +119,9 @@
 "game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
 "game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning."
-"game_option_bottle_collector_description"                                      "Grants 1.5 attack damage and 0.1% spell amplification per Infinity Bottle charge. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)"
+"game_option_bottle_collector_description"                                      "Grants 1.5 attack damage and 0.35% spell amplification per Infinity Bottle charge. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)"
 "game_option_crimson_magic_description"                                         "Grants 0.008% spell amplification per point of HP."
-"game_option_ludo_description"                                                  "For those that get mad easily."
+"game_option_ludo_description"                                                  "Every hero has a different modifier. Modifier will change every 2 minutes. 5% chance to change the modifier on hero kill and 5% chance to change the modifier on respawn."
 "game_option_battlemage_description"                                            "Any spell or item damage instance will proc your attack. 1s cooldown."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
@@ -271,3 +272,4 @@
 "game_option_magician_description"                                              "#{game_option_wisdom_description} + #{game_option_octarine_soul_description} + #{game_option_timeless_relic_description} + #{DOTA_Tooltip_modifier_change_to_int_oaa_Description}"
 "game_option_cunning_description"                                               "#{game_option_nimble_description} + #{game_option_speedster_description} + #{game_option_brawler_description} + #{DOTA_Tooltip_modifier_change_to_agi_oaa_Description}"
 "game_option_sangromancer_description"                                          "#{game_option_blood_magic_description} + #{game_option_crimson_magic_description} + #{game_option_timeless_relic_description} + #{game_option_explosive_death_description} + If your hero is bad with #{game_option_blood_magic} then you will get #{game_option_moriah_shield} instead: #{game_option_moriah_shield_description}"
+"game_option_radioactive_description"                                           "#{game_option_titan_soul_description} + #{DOTA_Tooltip_modifier_diarrhetic_oaa_Description} + #{game_option_splasher_description} + #{game_option_explosive_death_description}"

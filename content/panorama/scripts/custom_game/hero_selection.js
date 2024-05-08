@@ -231,7 +231,8 @@ function handleOAASettingsChange (n, key, settings) {
     HMB05: '#game_option_cunning',
     HMB06: '#game_option_magician',
     HMB07: '#game_option_might',
-    HMB08: '#game_option_sangromancer'
+    HMB08: '#game_option_sangromancer',
+    HMB09: '#game_option_radioactive'
   };
 
   const bundleBool = settings.HEROES_MODS_BUNDLE !== 'HMBN';
