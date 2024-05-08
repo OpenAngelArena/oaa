@@ -19,16 +19,21 @@ function modifier_troll_switch_oaa:RemoveOnDeath()
 end
 
 function modifier_troll_switch_oaa:OnCreated()
+  local parent = self:GetParent()
   self.atkRange = 500
   self.projectileSpeed = 1100
-  self.bonus_health_per_lvl = 50
-  self.bonus_attack_speed_per_lvl = 5
+  self.bonus_health_per_lvl = 75
+  --self.bonus_attack_speed_per_lvl = 2
+  self.ms_bonus = 0
+
+  if parent:GetBaseMoveSpeed() < 300 then
+    self.ms_bonus = 25
+  end
 
   if not IsServer() then
     return
   end
 
-  local parent = self:GetParent()
   -- Check if parent has Berserkers Rage or True Form
   if not parent:HasAbility("troll_warlord_berserkers_rage") and not parent:HasAbility("lone_druid_true_form") then
     if parent:IsRangedAttacker() then
@@ -109,7 +114,8 @@ function modifier_troll_switch_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
     MODIFIER_PROPERTY_PROJECTILE_SPEED_BONUS,
     MODIFIER_PROPERTY_HEALTH_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    --MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
   }
 end
 
@@ -166,14 +172,18 @@ function modifier_troll_switch_oaa:GetModifierHealthBonus()
   return 0
 end
 
-function modifier_troll_switch_oaa:GetModifierAttackSpeedBonus_Constant()
-  local parent = self:GetParent()
-  local lvl = parent:GetLevel()
-  if math.abs(self:GetStackCount()) == 2 then
-    return self.bonus_attack_speed_per_lvl * lvl
-  end
+-- function modifier_troll_switch_oaa:GetModifierAttackSpeedBonus_Constant()
+  -- local parent = self:GetParent()
+  -- local lvl = parent:GetLevel()
+  -- if math.abs(self:GetStackCount()) == 2 then
+    -- return self.bonus_attack_speed_per_lvl * lvl
+  -- end
 
-  return 0
+  -- return 0
+-- end
+
+function modifier_troll_switch_oaa:GetModifierMoveSpeedBonus_Constant()
+  return self.ms_bonus
 end
 
 function modifier_troll_switch_oaa:GetTexture()

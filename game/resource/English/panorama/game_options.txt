@@ -76,6 +76,8 @@
 "game_option_magician"                                                          "Magician"
 "game_option_cunning"                                                           "Cunning"
 "game_option_sangromancer"                                                      "Sangromancer"
+"game_option_radioactive"                                                       "Radioactive"
+"game_option_jackofalltrades"                                                   "Jack-Of-All-Trades"
 
 "game_option_random_description"                                                "This modifier will be revealed when the game starts!"
 "game_option_lifesteal_description"                                             "75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
@@ -88,7 +90,7 @@
 "game_option_physical_immune_description"                                       "Immune to physical damage."
 "game_option_pro_active_description"                                            "50% cooldown reduction (10% for items and some abilities). Affected by permanent Break."
 "game_option_spell_block_description"                                           "Bonus 30% magic resist, bonus 30% status resist and 30% chance to block a single-targeted spell. Spell Block has a 10s cooldown."
-"game_option_attack_switch_description"                                         "Melee heroes become ranged and ranged heroes become melee. After the switch: Melee heroes gain 50 bonus hp per level and ranged heroes gain 5 bonus attack speed per level."
+"game_option_attack_switch_description"                                         "Melee heroes become ranged (with projectiles) and ranged heroes become melee. After the switch: Melee heroes gain 75 bonus hp per level." //and ranged heroes gain 2 bonus attack speed per level.
 "game_option_hyper_experience_description"                                      "Heroes gain 2x experience from all sources."
 "game_option_diarrhetic_description"                                            "Every 15 seconds, poops an observer or sentry ward and damages all enemies within 700 radius. Ward buttons cooldown reduced to 30 seconds."
 "game_option_rend_description"                                                  "Your attacks apply stacking armor reduction debuff. Each debuff reduces armor by 1."
@@ -118,9 +120,9 @@
 "game_option_speedster_description"                                             "Grants 50% movement speed, 25% attack speed, 30% cast speed and 100% turn speed."
 "game_option_universal_description"                                             "Changes primary attribute to Universal and grants 5% spell amplification, 5% healing amplification and your summons and illusions do 5% more damage and take 5% less damage. Heroes that were Universal originally benefit more from this modifier (25% instead of 5%)."
 "game_option_wealthy_description"                                               "Gives additional passive gold gain which increases over time, as well as bonus gold when respawning."
-"game_option_bottle_collector_description"                                      "Grants 1.5 attack damage and 0.1% spell amplification per Infinity Bottle charge. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)"
+"game_option_bottle_collector_description"                                      "Grants 1.5 attack damage and 0.35% spell amplification per Infinity Bottle charge. On Death, your bottle loses 1/3 the charges (a bottle with 1/3 the charges is dropped on the ground)"
 "game_option_crimson_magic_description"                                         "Grants 0.008% spell amplification per point of HP."
-"game_option_ludo_description"                                                  "For those that get mad easily."
+"game_option_ludo_description"                                                  "Every hero has a different modifier. Modifier will change every 2 minutes. 5% chance to change the modifier on hero kill and 5% chance to change the modifier on respawn."
 "game_option_battlemage_description"                                            "Any spell or item damage instance will proc your attack. 1s cooldown."
 
 "game_option_lifesteal_global_description"                                      "All creeps and heroes gain 75% lifesteal and spell lifesteal against heroes. 15% against creeps and illusions."
@@ -149,7 +151,7 @@
 "DOTA_Tooltip_modifier_spell_block_cooldown_oaa"                                "Spell Block Cooldown"
 "DOTA_Tooltip_modifier_spell_block_cooldown_oaa_Description"                    "Cannot block spells while having this debuff."
 "DOTA_Tooltip_modifier_troll_switch_oaa"                                        "#{game_option_attack_switch}"
-"DOTA_Tooltip_modifier_troll_switch_oaa_Description"                            "Switched attack capability. If melee, +50 HP per hero level and if ranged, +5 attack speed per hero level. (%dMODIFIER_PROPERTY_HEALTH_BONUS% HP and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed.)"
+"DOTA_Tooltip_modifier_troll_switch_oaa_Description"                            "Switched attack capability. If melee, +75 HP per hero level (%dMODIFIER_PROPERTY_HEALTH_BONUS% HP) and +25 move speed if your base move speed was lower than 300." // +2 attack speed per hero level. (%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed.)
 "DOTA_Tooltip_modifier_hyper_experience_oaa"                                    "#{game_option_hyper_experience}"
 "DOTA_Tooltip_modifier_hyper_experience_oaa_Description"                        "Gaining 2x experience from all sources."
 "DOTA_Tooltip_modifier_diarrhetic_oaa"                                          "#{game_option_diarrhetic}"
@@ -271,3 +273,5 @@
 "game_option_magician_description"                                              "#{game_option_wisdom_description} + #{game_option_octarine_soul_description} + #{game_option_timeless_relic_description} + #{DOTA_Tooltip_modifier_change_to_int_oaa_Description}"
 "game_option_cunning_description"                                               "#{game_option_nimble_description} + #{game_option_speedster_description} + #{game_option_brawler_description} + #{DOTA_Tooltip_modifier_change_to_agi_oaa_Description}"
 "game_option_sangromancer_description"                                          "#{game_option_blood_magic_description} + #{game_option_crimson_magic_description} + #{game_option_timeless_relic_description} + #{game_option_explosive_death_description} + If your hero is bad with #{game_option_blood_magic} then you will get #{game_option_moriah_shield} instead: #{game_option_moriah_shield_description}"
+"game_option_radioactive_description"                                           "#{DOTA_Tooltip_modifier_diarrhetic_oaa_Description} + #{game_option_titan_soul_description} + #{game_option_explosive_death_description} + #{game_option_splasher_description}"
+"game_option_jackofalltrades_description"                                       "+3 all stats per hero level. +0.05 attack damage per point of HP. +0.08% movement speed and +0.05% evasion per point of Agility. +0.008% spell amplification per point of mana. You have free-Pathing and every second you deal damage to enemies within 300 radius. Damage is 2/3 of all stats. Removes speed limits. + #{game_option_universal_description}"
