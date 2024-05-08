@@ -100,6 +100,27 @@ if IsServer() then
       return
     end
 
+    -- Check distance between the attacker and damaged unit
+    local attacker_loc = attacker:GetAbsOrigin()
+    local unit_loc = damaged_unit:GetAbsOrigin()
+    local distance = (attacker_loc - unit_loc):Length2D()
+    local inflictor = event.inflictor
+    local attack_range = attacker:GetAttackRange()
+    local vision_range = attacker:GetCurrentVisionRange()
+    local spell_cast_range = 0
+    if inflictor then
+      local base_cast_range = inflictor:GetCastRange(unit_loc, damaged_unit) -- it could return a weird result for global range abilities
+      local eff_cast_range = inflictor:GetEffectiveCastRange(unit_loc, damaged_unit) -- it could return a weird result for global range abilities
+      if base_cast_range and eff_cast_range and base_cast_range > 0 and eff_cast_range > 0 then
+        spell_cast_range = math.max(base_cast_range + attacker:GetCastRangeBonus(), eff_cast_range)
+      end
+    end
+    -- Cap the distance just to prevent some global stuff with Mage Slayer and similar
+    local max_distance = math.max(attack_range, vision_range, spell_cast_range) + 250
+    if distance > max_distance then
+      return
+    end
+
     -- Don't proc if Battle Mage is on cooldown
     if attacker:HasModifier("modifier_battlemage_cooldown_oaa") then
       return
