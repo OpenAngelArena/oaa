@@ -32,6 +32,12 @@ end
 if IsServer() then
   function modifier_diarrhetic_oaa:OnIntervalThink()
     local parent = self:GetParent()
+
+    -- Don't poop while dead
+    if not parent:IsAlive() then
+      return
+    end
+
     local position = parent:GetAbsOrigin()
     local team = parent:GetTeamNumber()
     local no_wards_nearby = true

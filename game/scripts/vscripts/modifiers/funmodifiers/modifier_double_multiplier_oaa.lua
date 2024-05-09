@@ -85,6 +85,7 @@ local affected_kvs = {
   AbilityCooldown = true,
   AbilityManaCost = true,
   AbilityCastRange = true,
+  cataclysm_cooldown = true,
 }
 
 local forbidden_kvs = {

@@ -77,6 +77,11 @@ if IsServer() then
       return
     end
 
+    -- Don't proc while dead (to prevent attacks infinitely proccing from corpses without cooldown)
+    if not attacker:IsAlive() then
+      return
+    end
+
     -- Don't proc if Echo Strike is on cooldown
     if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
       return
