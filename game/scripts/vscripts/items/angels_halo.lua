@@ -66,6 +66,11 @@ end
 function modifier_angels_halo_active:OnIntervalThink()
   local parent = self:GetParent()
 
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
+
   -- If parent has another Angel's Halo in the inventory prevent stacking
   if parent:HasModifier("modifier_angels_halo_passive") then
     return
@@ -196,6 +201,19 @@ end
 function modifier_angels_halo_passive:OnIntervalThink()
   local parent = self:GetParent()
 
+  -- Don't do anything if parent doesnt exist or it's dead (don't do damage on the corpse)
+  if not parent or parent:IsNull() or not parent:IsAlive() then
+    return
+  end
+
+  -- Prevent working on illusions (damage from each illusion would stack if allowed)
+  -- It's allowed to work on Tempest Doubles and Spirit Bears
+  if parent:IsIllusion() or parent:IsClone() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
@@ -212,7 +230,7 @@ function modifier_angels_halo_passive:OnIntervalThink()
     attacker = parent,
     damage = self.dmg,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, -- to prevent Sticky Napalm and similar stuff
+    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, -- to prevent Sticky Napalm dmg proc (for consistency with Radiance)
   }
 
   for _, enemy in pairs(enemies) do

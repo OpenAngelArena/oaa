@@ -33,7 +33,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_TOGGLE"
     "Model"                                               "models/props_gameplay/divine_rapier.vmdl"
 
     // Item Info
@@ -52,12 +52,15 @@
     "IsTempestDoubleClonable"                             "0"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
 
+    "AbilityCooldown"                                     "6"
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "bonus_spell_amp"                                   "35" //OAA
-      "bonus_damage"                                      "550" //OAA
+      "bonus_damage"                                      "550" //OAA, vanilla value + 300
+      "bonus_damage_base"                                 "150" //OAA
     }
   }
 }

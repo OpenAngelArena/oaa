@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_bane"
   "Title"         "Recommended items for Bane"
 
@@ -13,25 +13,27 @@
       "item"      "item_boots"
     }
 
-    "#DOTA_Item_Build_Support_Core"
-    {
-      "item"      "item_ward_stack"
-      "item"      "item_far_sight"
-      "item"      "item_shield_staff"
-      "item"      "item_glimmer_cape"
-    }
-
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_meteor_hammer_1"
       "item"      "item_radiance"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_ultimate_scepter"
+      "item"      "item_angels_demise"
+      "item"      "item_shivas_guard"
       "item"      "item_octarine_core"
-      "item"      "item_phylactery"
+      "item"      "item_refresher_4"
+    }
+
+    "#DOTA_Item_Build_Support_Core"
+    {
+      "item"      "item_ward_stack"
+      "item"      "item_far_sight"
+      "item"      "item_shield_staff"
+      "item"      "item_glimmer_cape"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -43,15 +45,14 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_guardian_greaves"
-      "item"      "item_heart_transplant"
-      "item"      "item_kaya_and_sange"
       "item"      "item_lotus_orb"
-      "item"      "item_shivas_guard"
       "item"      "item_solar_crest"
       "item"      "item_sphere"
       "item"      "item_bubble_orb_1"
+      "item"      "item_heart_transplant"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"
+      "item"      "item_trumps_fists_1"
     }
   }
 }

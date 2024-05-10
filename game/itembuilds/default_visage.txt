@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_visage"
   "Title"         "Recommended items for Visage"
 
@@ -17,11 +17,11 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_angels_demise"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_ultimate_scepter"
       "item"      "item_bloodthorn"
+      "item"      "item_angels_demise"
       "item"      "item_assault"
-      "item"      "item_lucience"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -35,14 +35,15 @@
       "item"      "item_shivas_guard"
       "item"      "item_guardian_greaves"
       "item"      "item_lotus_orb"
+      "item"      "item_lucience"
     }
 
     "#DOTA_Item_Build_Tank_Core"
     {
       "item"      "item_shield_staff"
-      "item"      "item_heart_oaa_1"
-      "item"      "item_regen_crystal_1"
-      "item"      "item_stoneskin"
+      "item"      "item_greater_tranquil_boots"
+      "item"      "item_enrage_crystal_1"
+      "item"      "item_reduction_orb_1"
     }
 
     "#DOTA_Item_Build_Luxury"

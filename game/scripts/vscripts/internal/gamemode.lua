@@ -21,8 +21,6 @@ function GameMode:_InitGameMode()
     GameRules:SetUseCustomHeroXPValues(true)
     -- Start custom XP system
 	end
-  GameRules:SetGoldPerTick(GOLD_PER_TICK)
-  GameRules:SetGoldTickTime(GOLD_TICK_TIME)
 
   GameRules:SetUseBaseGoldBountyOnHeroes(USE_STANDARD_HERO_GOLD_BOUNTY)
   GameRules:SetHeroMinimapIconScale( MINIMAP_ICON_SIZE )
@@ -36,6 +34,9 @@ function GameMode:_InitGameMode()
   GameRules:SetCustomGameEndDelay( GAME_END_DELAY )
   GameRules:SetCustomVictoryMessageDuration( VICTORY_MESSAGE_DURATION )
   GameRules:SetStartingGold( STARTING_GOLD )
+
+  local gamemode = GameRules:GetGameModeEntity()
+  gamemode:SetFriendlyBuildingMoveToEnabled(true)
 
   if SKIP_TEAM_SETUP then
     GameRules:SetCustomGameSetupAutoLaunchDelay( 0 )

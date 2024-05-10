@@ -13,7 +13,7 @@
 
 "DOTA_Tooltip_Ability_item_butterfly_oaa"                                       "#{DOTA_Tooltip_Ability_item_butterfly}"
 "DOTA_Tooltip_Ability_item_recipe_butterfly_oaa"                                "Butterfly Recipe"
-"DOTA_Tooltip_Ability_item_butterfly_oaa_Description"                           "<h1>Active: Flutter</h1> Grants %buff_ms_per_agility%%% movement speed for each point of Agility and %buff_evasion%%% evasion for %buff_duration% seconds."
+"DOTA_Tooltip_Ability_item_butterfly_oaa_Description"                           "<h1>Active: Flutter</h1> Grants %buff_ms_per_agility%%% move speed for each point of Agility and %buff_evasion%%% evasion for %buff_duration% seconds."
 "DOTA_Tooltip_Ability_item_butterfly_oaa_Lore"                                  "#{DOTA_Tooltip_ability_item_butterfly_Lore}"
 "DOTA_Tooltip_Ability_item_butterfly_oaa_Note0"                                 "#{DOTA_Tooltip_ability_item_butterfly_Note0}"
 "DOTA_Tooltip_Ability_item_butterfly_oaa_bonus_agility"                         "+$agi"
@@ -67,4 +67,4 @@
 "DOTA_Tooltip_Ability_item_butterfly_5_bonus_attack_speed_per_agility_pct"      "#{DOTA_Tooltip_Ability_item_butterfly_oaa_bonus_attack_speed_per_agility_pct}"
 
 "DOTA_Tooltip_modifier_item_butterfly_oaa_active"                               "#{DOTA_Tooltip_modifier_item_butterfly_extra}"
-"DOTA_Tooltip_modifier_item_butterfly_oaa_active_Description"                   "%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% evasion and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed."
+"DOTA_Tooltip_modifier_item_butterfly_oaa_active_Description"                   "%dMODIFIER_PROPERTY_EVASION_CONSTANT%%% evasion and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus move speed."

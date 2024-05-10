@@ -41,7 +41,7 @@
       }
       "spirits" //OAA
       {
-        "value"                                           "24"
+        "value"                                           "16 20 24"
         "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet"
       }
       "spirit_speed"                                      "525"
@@ -74,7 +74,7 @@
         "CalculateSpellDamageTooltip"                     "0"
       }
       "movement_base"                                     "12 16 20 24 28"
-      "movement_bonus"                                    "8 12 16 20 24"
+      "movement_bonus"                                    "4 8 12 16 20"
       "building_dmg_pct"                                  "200" //OAA, percentage bonus damage against bosses
     }
   }

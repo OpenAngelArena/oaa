@@ -17,7 +17,7 @@
     {
       "bonus_movement_speed_pct_night"
       {
-        "value"                                           "22 28 34 40 45 50"
+        "value"                                           "22 28 34 40 46 52"
         "special_bonus_unique_night_stalker_5"            "+0"
       }
       "bonus_attack_speed_night"
@@ -50,9 +50,9 @@
         "value"                                           "15"
         "RequiresShard"                                   "1"
       }
-      "shard_cast_range"
+      "shard_cast_range" //OAA
       {
-        "value"                                           "125"
+        "value"                                           "200"
         "RequiresShard"                                   "1"
       }
     }

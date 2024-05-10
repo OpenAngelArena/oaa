@@ -56,6 +56,7 @@ function modifier_item_sonic_passives:OnCreated()
   self.movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
   self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
   self.agi = ability:GetSpecialValueFor("bonus_agility")
+  self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
 end
 
 modifier_item_sonic_passives.OnRefresh = modifier_item_sonic_passives.OnCreated
@@ -65,6 +66,7 @@ function modifier_item_sonic_passives:DeclareFunctions()
     MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
   }
 end
 
@@ -78,6 +80,10 @@ end
 
 function modifier_item_sonic_passives:GetModifierBonusStats_Agility()
   return self.agi
+end
+
+function modifier_item_sonic_passives:GetModifierPreAttack_BonusDamage()
+  return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
 end
 
 ---------------------------------------------------------------------------------------------------

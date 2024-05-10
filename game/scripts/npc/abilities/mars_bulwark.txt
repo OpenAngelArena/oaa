@@ -20,7 +20,7 @@
       "physical_damage_reduction" //OAA
       {
         "value"                                           "40 47 54 61 68 75"
-        "special_bonus_unique_mars_bulwark_damage_reduction"  "+12"
+        "special_bonus_unique_mars_bulwark_damage_reduction"  "+15"
       }
       "forward_angle"                                     "140"
       "physical_damage_reduction_side"
@@ -35,14 +35,14 @@
         "special_bonus_unique_mars_bulwark_redirect_chance"  "+30"
       }
       "redirect_range"                                    "900"
-      "redirect_speed_penatly" // penatly x)
+      "redirect_speed_penatly" //OAA penatly x)
       {
-        "value"                                           "18"
+        "value"                                           "10"
         "special_bonus_unique_mars_bulwark_speed"         "-10"
       }
-      "redirect_close_range"
+      "redirect_close_range" //OAA, same as Mars attack range
       {
-        "value"                                           "200"
+        "value"                                           "250"
         "affected_by_aoe_increase"                        "1"
       }
       "attack_redirection_grace_distance"                 "0"
@@ -56,9 +56,9 @@
         "value"                                           "150"
         "RequiresScepter"                                 "1"
       }
-      "scepter_movement_slow_pct"
+      "scepter_movement_slow_pct" //OAA
       {
-        "value"                                           "30"
+        "value"                                           "20 25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
       "scepter_movement_slow_duration"
@@ -66,9 +66,9 @@
         "value"                                           "1.0"
         "RequiresScepter"                                 "1"
       }
-      "scepter_bonus_damage"
+      "scepter_bonus_damage" //OAA
       {
-        "value"                                           "75"
+        "value"                                           "60 65 70 75 150 225"
         "RequiresScepter"                                 "1"
       }
       "stationary_attack_delay"

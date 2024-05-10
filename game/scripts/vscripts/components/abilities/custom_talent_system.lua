@@ -87,6 +87,9 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
+  chaos_knight_reality_rift = {
+    armor_reduction = {"special_bonus_unique_chaos_knight_1_oaa", "+"},
+  },
   death_prophet_spirit_siphon = {
     damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
     AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
@@ -121,6 +124,9 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
+  night_stalker_crippling_fear = {
+    dps = {"special_bonus_unique_night_stalker_1_oaa", "+"},
+  },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
@@ -153,6 +159,9 @@ local abilities_with_custom_talents = {
   },
   winter_wyvern_cold_embrace = {
     heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
+  },
+  wisp_overcharge = {
+    bonus_spell_amp = {"special_bonus_unique_wisp_1_oaa", "+"},
   },
   zuus_thundergods_wrath = {
     AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},

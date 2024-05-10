@@ -40,8 +40,8 @@
     "AbilityValues"
     {
       "mana_cost"                                         "20"
-      "shield_per_mana"                                   "0.75 0.95 1.15 1.35 1.6 1.85"
-      "shield_damage_block"
+      "shield_per_mana"                                   "0.75 0.9 1.05 1.2 1.35 1.5"
+      "shield_damage_block" // original: 50% at all levels
       {
         "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
@@ -60,7 +60,7 @@
       "aura_interval"                                     "0.25"
       "shard_shield_per_mana"
       {
-        "value"                                           "1.9 2.1 2.3 2.5 2.75 3.0"
+        "value"                                           "0.75 0.9 1.05 1.2 1.35 1.5"
         "RequiresShard"                                   "1"
       }
       "shard_shield_damage_block"

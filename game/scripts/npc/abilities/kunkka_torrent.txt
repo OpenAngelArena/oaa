@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
+    "AbilityManaCost"                                     "80 90 100 110 120 130" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,13 +38,13 @@
       "stun_duration"
       {
         "value"                                           "1.6"
-        "special_bonus_unique_kunkka_7"                   "+30%"
+        "special_bonus_unique_kunkka_7"                   "+25%"
       }
       "delay"                                             "1.6"
       "torrent_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
-        "special_bonus_unique_kunkka_7"                   "+30%"
+        "special_bonus_unique_kunkka_7"                   "+25%"
       }
       "percent_instant"                                   "0"
       "damage_tick_interval"                              "0.2"

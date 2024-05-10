@@ -2,6 +2,7 @@ sohei_polarizing_palm = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_sohei_polarizing_palm_movement", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 LinkLuaModifier("modifier_sohei_polarizing_palm_stun", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sohei_polarizing_palm_slow", "abilities/sohei/sohei_polarizing_palm.lua", LUA_MODIFIER_MOTION_NONE)
 
 local forbidden_modifiers = {
   "modifier_enigma_black_hole_pull",
@@ -11,17 +12,19 @@ local forbidden_modifiers = {
   "modifier_disruptor_kinetic_field",
 }
 
+--[[
 function sohei_polarizing_palm:GetCastRange(location, target)
   local caster = self:GetCaster()
   local default_range = self.BaseClass.GetCastRange(self, location, target)
 
-  local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
+  local talent = caster:FindAbilityByName("")
   if talent and talent:GetLevel() > 0 then
     return default_range + talent:GetSpecialValueFor("value")
   end
 
   return default_range
 end
+]]
 
 function sohei_polarizing_palm:CastFilterResultTarget(target)
   local caster = self:GetCaster()
@@ -172,7 +175,7 @@ function sohei_polarizing_palm:OnSpellStart()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Polarizing Palm motion controller
+-- Repulsive Palm motion controller
 modifier_sohei_polarizing_palm_movement = class(ModifierBaseClass)
 
 function modifier_sohei_polarizing_palm_movement:IsDebuff()
@@ -251,6 +254,7 @@ if IsServer() then
     --FindClearSpaceForUnit(parent, parent_origin, false)
     ResolveNPCPositions(parent_origin, 128)
 
+    self:ApplySlow(parent, caster, ability)
     self:PolarizingPalmDamage(parent, caster, ability)
   end
 
@@ -267,7 +271,7 @@ if IsServer() then
     -- Check if an ally and if affected by nullifier
     local isParentNullified = parentTeam == casterTeam and parent:HasModifier("modifier_item_nullifier_mute")
     -- Check if enemy and if spell-immune or under dispel orb effect
-    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_preemptive_purge") or parent:IsMagicImmune())
+    local isParentDispelled = parentTeam ~= casterTeam and (parent:HasModifier("modifier_item_dispel_orb_active") or parent:IsMagicImmune())
 
     if isParentNullified or isParentDispelled then
       self:Destroy()
@@ -322,7 +326,7 @@ if IsServer() then
       end
 
       -- Check if another enemy hero is on a hero's knockback path, if yes apply debuffs and damage to both heroes
-      if parent:IsRealHero() then
+      if parent:IsHero() then
         local heroes = FindUnitsInRadius(
           casterTeam,
           tickOrigin,
@@ -380,6 +384,17 @@ if IsServer() then
     unit:EmitSound("Sohei.Momentum.Collision")
   end
 
+  function modifier_sohei_polarizing_palm_movement:ApplySlow(unit, caster, ability)
+    if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
+      return
+    end
+
+    local slow_duration = ability:GetSpecialValueFor("slow_duration")
+
+    -- Apply slow debuff
+    unit:AddNewModifier(caster, ability, "modifier_sohei_polarizing_palm_slow", {duration = slow_duration})
+  end
+
   function modifier_sohei_polarizing_palm_movement:PolarizingPalmDamage(unit, caster, ability)
     -- Damage only enemies without spell immunity
     if not unit or unit:IsMagicImmune() or unit:GetTeamNumber() == caster:GetTeamNumber() then
@@ -387,8 +402,15 @@ if IsServer() then
     end
 
     local base_damage = ability:GetSpecialValueFor("damage")
-    local str_multiplier = ability:GetSpecialValueFor("strength_damage") / 100
-    local bonus_damage = str_multiplier * caster:GetStrength()
+    local str_multiplier = ability:GetSpecialValueFor("strength_damage")
+
+    -- Talent that increases strength multiplier
+    local talent = caster:FindAbilityByName("special_bonus_unique_sohei_9")
+    if talent and talent:GetLevel() > 0 then
+      str_multiplier = str_multiplier + talent:GetSpecialValueFor("value")
+    end
+
+    local bonus_damage = str_multiplier * caster:GetStrength() * 0.01
 
     local damage_table = {
       attacker = caster,
@@ -404,7 +426,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
--- Stun debuff
+-- Repulsive Palm Stun debuff
 modifier_sohei_polarizing_palm_stun = class(ModifierBaseClass)
 
 function modifier_sohei_polarizing_palm_stun:IsHidden()
@@ -445,4 +467,49 @@ function modifier_sohei_polarizing_palm_stun:CheckState()
   return {
     [MODIFIER_STATE_STUNNED] = true,
   }
+end
+
+---------------------------------------------------------------------------------------------------
+-- Repulsive Palm Slow debuff
+modifier_sohei_polarizing_palm_slow = class(ModifierBaseClass)
+
+function modifier_sohei_polarizing_palm_slow:IsHidden()
+  return self:GetParent():HasModifier("modifier_sohei_polarizing_palm_stun")
+end
+
+function modifier_sohei_polarizing_palm_slow:IsDebuff()
+  return true
+end
+
+function modifier_sohei_polarizing_palm_slow:IsPurgable()
+  return true
+end
+
+function modifier_sohei_polarizing_palm_slow:OnCreated()
+  local ability = self:GetAbility()
+  local move_speed_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
+  local attack_speed_slow = ability:GetSpecialValueFor("attack_speed_slow")
+
+  -- Move Speed Slow is reduced with Slow Resistance
+  self.move_speed_slow = move_speed_slow --parent:GetValueChangedBySlowResistance(move_speed_slow)
+  self.attack_speed_slow = attack_speed_slow
+end
+
+function modifier_sohei_polarizing_palm_slow:OnRefresh()
+  self:OnCreated()
+end
+
+function modifier_sohei_polarizing_palm_slow:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+  }
+end
+
+function modifier_sohei_polarizing_palm_slow:GetModifierMoveSpeedBonus_Percentage()
+  return 0 - math.abs(self.move_speed_slow)
+end
+
+function modifier_sohei_polarizing_palm_slow:GetModifierAttackSpeedBonus_Constant()
+  return 0 - math.abs(self.attack_speed_slow)
 end

@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_item_dragon_scale_oaa_passive", "items/neutral/dragon_scale.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_dragon_scale_oaa_debuff", "items/neutral/dragon_scale.lua", LUA_MODIFIER_MOTION_NONE)
 
 item_dragon_scale_oaa = class(ItemBaseClass)
 
@@ -29,6 +30,7 @@ function modifier_item_dragon_scale_oaa_passive:OnCreated()
   if ability and not ability:IsNull() then
     self.armor = ability:GetSpecialValueFor("bonus_armor")
     self.hp_regen = ability:GetSpecialValueFor("bonus_hp_regen")
+    self.boss_dmg = ability:GetSpecialValueFor("bonus_boss_damage")
   end
 end
 
@@ -38,6 +40,7 @@ function modifier_item_dragon_scale_oaa_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
 end
@@ -67,8 +70,13 @@ if IsServer() then
       return
     end
 
-    -- Do nothing if damaged unit doesn't have this buff
-    if unit ~= parent or not ability then
+    -- Trigger only for this modifier
+    if unit ~= parent then
+      return
+    end
+
+    -- Don't trigger on illusions
+    if parent:IsIllusion() then
       return
     end
 
@@ -99,34 +107,92 @@ if IsServer() then
       return
     end
 
-    if not ability:IsCooldownReady() then
+    -- Check if item exists (if it's inside the inventory)
+    if not ability or ability:IsNull() then
       return
     end
 
-    local damage_type = DAMAGE_TYPE_MAGICAL --event.damage_type
+    local damage = event.damage
 
+    -- If damage is negative or 0, don't continue
+    if damage <= 0 then
+      return
+    end
+
+    -- Apply damage-over-time debuff
+    attacker:AddNewModifier(parent, ability, "modifier_item_dragon_scale_oaa_debuff", {duration = ability:GetSpecialValueFor("dragon_skin_debuff_duration")})
+  end
+end
+
+function modifier_item_dragon_scale_oaa_passive:GetModifierTotalDamageOutgoing_Percentage(event)
+  if event.target:IsOAABoss() then
+    return self.boss_dmg or self:GetAbility():GetSpecialValueFor("bonus_boss_damage")
+  end
+  return 0
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_item_dragon_scale_oaa_debuff = class(ModifierBaseClass)
+
+function modifier_item_dragon_scale_oaa_debuff:IsHidden()
+  return false
+end
+
+function modifier_item_dragon_scale_oaa_debuff:IsPurgable()
+  return true
+end
+
+function modifier_item_dragon_scale_oaa_debuff:IsDebuff()
+  return true
+end
+
+function modifier_item_dragon_scale_oaa_debuff:DestroyOnExpire()
+  return true
+end
+
+function modifier_item_dragon_scale_oaa_debuff:OnCreated()
+  local damage_per_second = 45
+  local interval = 1
+  local ability = self:GetAbility()
+  if ability and not ability:IsNull() then
+    damage_per_second = ability:GetSpecialValueFor("dragon_skin_damage")
+    interval = ability:GetSpecialValueFor("damage_interval")
+  end
+  self.damage_per_interval = damage_per_second*interval
+  self.damage_type = DAMAGE_TYPE_MAGICAL
+
+  if IsServer() then
+    self:OnIntervalThink()
+    self:StartIntervalThink(interval)
+  end
+end
+
+function modifier_item_dragon_scale_oaa_debuff:OnIntervalThink()
+  local parent = self:GetParent()
+  local ability = self:GetAbility()
+  local caster = self:GetCaster()
+  if caster and not caster:IsNull() then
     -- Create a damage table
     local damage_table = {
-      attacker = parent,
-      victim = attacker,
-      damage = ability:GetSpecialValueFor("afterburn_damage"),
-      damage_type = damage_type,
+      attacker = caster,
+      victim = parent,
+      damage = self.damage_per_interval,
+      damage_type = self.damage_type,
       damage_flags = bit.bor(DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
       ability = ability,
     }
 
-    -- Set overhead alert
-    local overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
-    if damage_type == DAMAGE_TYPE_PHYSICAL then
-      overhead_alert = OVERHEAD_ALERT_DAMAGE
-    elseif damage_type == DAMAGE_TYPE_MAGICAL then
-      overhead_alert = OVERHEAD_ALERT_BONUS_SPELL_DAMAGE
-    end
-
+    -- Apply damage on interval
     local damage_dealt = ApplyDamage(damage_table)
-    SendOverheadEventMessage(parent:GetPlayerOwner(), overhead_alert, attacker, damage_dealt, parent:GetPlayerOwner())
-
-    -- Start cooldown because of low interval dmg instances
-    ability:UseResources(false, false, false, true)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, parent, damage_dealt, nil)
   end
 end
+
+function modifier_item_dragon_scale_oaa_debuff:GetTexture()
+  return "item_dragon_scale"
+end
+
+-- function modifier_item_dragon_scale_oaa_debuff:GetEffectName()
+  -- return ""
+-- end

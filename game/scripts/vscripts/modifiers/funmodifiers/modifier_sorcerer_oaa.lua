@@ -117,6 +117,11 @@ if IsServer() then
       return
     end
 
+    -- Don't trigger on Meepo Clones, Tempest Doubles and Spirit Bears
+    if target:IsClone() or target:IsTempestDouble() or target:IsSpiritBearOAA() then
+      return
+    end
+
     -- Check if parent is dead
     if not parent:IsAlive() then
       return

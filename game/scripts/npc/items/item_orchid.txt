@@ -18,11 +18,11 @@
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "18.0"
     "AbilitySharedCooldown"                               "orchid"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "125"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3475"
+    "ItemCost"                                            "3275"
     "ItemShopTags"                                        "attack_speed;damage;regen_mana;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "orchid malevolence;silence"
@@ -35,9 +35,9 @@
     {
       "bonus_attack_speed"                                "40"
       "bonus_damage"                                      "10"
-      "bonus_mana_regen"                                  "3.5"
+      "bonus_mana_regen"                                  "3.25"
       "bonus_health_regen"                                "6.0"
-      "bonus_intellect"                                   "12"
+      "bonus_intellect"                                   "10"
       "silence_damage_percent"                            "30"
       "silence_duration"                                  "5"
     }

@@ -8,6 +8,13 @@ function item_vladmirs_grimoire_1:OnSpellStart()
   local caster = self:GetCaster()
   local ability = self
 
+  --local valid_caster = not caster:IsSpiritBearOAA() and not caster:IsTempestDouble()
+  local playerID = UnitVarToPlayerID(caster)
+  local real_hero
+  if playerID ~= -1 then
+    real_hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  end
+
   local units = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
@@ -30,13 +37,12 @@ function item_vladmirs_grimoire_1:OnSpellStart()
     local name = unit:GetUnitName()
     local valid_name = name ~= "npc_dota_custom_dummy_unit" and name ~= "npc_dota_elder_titan_ancestral_spirit" and name ~= "aghsfort_mars_bulwark_soldier" and name ~= "npc_dota_monkey_clone_oaa"
     local not_thinker = not unit:HasModifier("modifier_oaa_thinker") and not unit:IsPhantomBlocker()
-
     return not unit:IsCourier() and unit:HasMovementCapability() and not_thinker and valid_name -- and not unit:IsZombie()
   end
 
   iter(units)
     :filter(function (unit)
-      return unit ~= caster and CheckIfValid(unit) and unit:GetPlayerOwnerID() == caster:GetPlayerOwnerID()
+      return unit ~= caster and unit ~= real_hero and CheckIfValid(unit) and unit:GetPlayerOwnerID() == caster:GetPlayerOwnerID()
     end)
     :foreach(function (unit)
       -- Banish modifier
@@ -329,6 +335,16 @@ if IsServer() then
 
     -- Normal lifesteal should not work for spells and magic damage attacks
     if inflictor or event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+      return
+    end
+
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
       return
     end
 

@@ -87,7 +87,18 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
     local damage = params.damage
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
+      return
+    end
+
     local nHeroHeal = self.hero_spell_lifesteal
     local nCreepHeal = self.creep_spell_lifesteal
 
@@ -150,7 +161,7 @@ if IsServer() then
 
     -- Calculate the spell lifesteal (heal) amount
     local heal_amount = 0
-    if damaged_unit:IsRealHero() then
+    if damaged_unit:IsRealHero() or damaged_unit:IsStrongIllusionOAA() then
       heal_amount = damage * nHeroHeal / 100
     else
       -- Illusions are treated as creeps too

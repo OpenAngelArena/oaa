@@ -22,7 +22,7 @@ function modifier_diarrhetic_oaa:OnCreated()
   self.check_for_ward_radius = POOP_WARD_RADIUS
   self.duration = 4 * interval
   self.base_dmg = 100
-  self.max_hp_dmg = 20
+  self.max_hp_dmg = 25
 
   if IsServer() then
     self:StartIntervalThink(interval)
@@ -32,6 +32,12 @@ end
 if IsServer() then
   function modifier_diarrhetic_oaa:OnIntervalThink()
     local parent = self:GetParent()
+
+    -- Don't poop while dead
+    if not parent:IsAlive() then
+      return
+    end
+
     local position = parent:GetAbsOrigin()
     local team = parent:GetTeamNumber()
     local no_wards_nearby = true
@@ -75,7 +81,7 @@ if IsServer() then
       team,
       position,
       nil,
-      500,
+      700,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
       DOTA_UNIT_TARGET_FLAG_NONE,
@@ -91,9 +97,11 @@ if IsServer() then
 
     for _, enemy in pairs(enemies) do
       if enemy and not enemy:IsNull() then
-        damage_table.victim = enemy
-        damage_table.damage = self.base_dmg + self.max_hp_dmg * enemy:GetMaxHealth() * 0.01
-        ApplyDamage(damage_table)
+        if (enemy:IsOAABoss() and enemy:GetHealth() / enemy:GetMaxHealth() < 90/100) or not enemy:IsOAABoss() then
+          damage_table.victim = enemy
+          damage_table.damage = self.base_dmg + self.max_hp_dmg * enemy:GetMaxHealth() * 0.01
+          ApplyDamage(damage_table)
+        end
       end
     end
   end

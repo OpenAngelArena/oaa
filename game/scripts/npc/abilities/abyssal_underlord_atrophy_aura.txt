@@ -23,24 +23,24 @@
       "radius"                                            "1200" //OAA
       "damage_reduction_pct" //OAA
       {
-        "value"                                           "14 21 28 35 36 38"
+        "value"                                           "12 18 24 30 33 36"
         "special_bonus_unique_underlord_3"                "+15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "bonus_damage_from_creep"
       {
-        "value"                                           "2 4 6 8 16 32"
+        "value"                                           "3 5 7 9 18 36"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bonus_damage_from_hero"
       {
-        "value"                                           "30 35 40 45 90 180"
+        "value"                                           "30 35 40 45 55 75"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage_duration" //OAA
+      "bonus_damage_duration"
       {
-        "value"                                           "65"
+        "value"                                           "35 45 55 65 70 75"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

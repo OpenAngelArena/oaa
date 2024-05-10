@@ -52,14 +52,15 @@
 // "DOTA_Tooltip_ability_tinker_keen_teleport_Lore"                               "As Boush likes to say, 'There is nothing the arcane can accomplish that the curious mind cannot reproduce given time. And proper funding, of course.'"
 // "DOTA_Tooltip_ability_tinker_keen_teleport_Description"                        "After channeling for %abilitychanneltime%s teleport to a target friendly structure. Level 2 allows teleporting to friendly units and Level 3 to friendly heroes."
 
-"DOTA_Tooltip_ability_tinkerer_smart_missiles"                                  "Smart Missiles"
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a missile in that direction. The missile will damage neutral creeps during travel and explode on the first player-controlled unit, mini-stunning it and dealing bonus damage. The bonus damage is based on the unit's max health and the traveled distance of the missile. Smart Missiles provide vision."
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_Lore"                             "#{DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore}"
-"DOTA_Tooltip_Ability_tinkerer_smart_missiles_Note0"                            "Smart Missiles will explode on summoned units and Bosses."
+"DOTA_Tooltip_ability_tinkerer_smart_missiles"                                  "Smart Rockets"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_Description"                      "Target a location to shoot a rocket in that direction. The rocket will damage neutral creeps during travel and explode on the first player-controlled unit, slowing it briefly and dealing bonus damage. The bonus damage is based on the unit's max health and the traveled distance of the rocket. Rockets provide vision."
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_Lore"                             "The last contraption Boush was able to make was a retrofitted rocket launcher."
+"DOTA_Tooltip_Ability_tinkerer_smart_missiles_Note0"                            "Rockets will explode on summoned units and Bosses."
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_base_damage"                      "BASE DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_hp_damage_max"              "%MAX BONUS DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_hp_damage_min"              "%MIN BONUS DAMAGE:"
-"DOTA_Tooltip_ability_tinkerer_smart_missiles_stun_duration"                    "STUN DURATION:"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_slow_duration"                    "SLOW DURATION:"
+"DOTA_Tooltip_ability_tinkerer_smart_missiles_move_speed_slow"                  "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_ability_tinkerer_smart_missiles_bonus_damage_max_range"           "MAX BONUS DAMAGE RANGE:"
 
 "DOTA_Tooltip_ability_tinkerer_oil_spill"                                       "Tar Spill"
@@ -70,6 +71,8 @@
 "DOTA_Tooltip_ability_tinkerer_oil_spill_move_speed_slow"                       "%MOVE SPEED SLOW:"
 "DOTA_Tooltip_ability_tinkerer_oil_spill_attack_speed_slow"                     "%ATTACK SPEED SLOW:"
 "DOTA_Tooltip_ability_tinkerer_oil_spill_burn_dps"                              "BURN DAMAGE PER SECOND:"
+"DOTA_Tooltip_ability_tinkerer_oil_spill_scepter_description"                   "Roots enemies for %scepter_root_duration% seconds."
+"DOTA_Tooltip_ability_tinkerer_oil_spill_scepter_root_duration"                 "SCEPTER ROOT DURATION:"
 
 "DOTA_Tooltip_ability_tinkerer_laser_oaa"                                       "#{DOTA_Tooltip_ability_tinker_laser}"
 "DOTA_Tooltip_ability_tinkerer_laser_oaa_Description"                           "Fires an intense energy beam, blinding and damaging the target and all enemy units around it. Damage on the enemy is based on their current health."
@@ -89,9 +92,9 @@
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "DAMAGE PER SECOND:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies are leashed and have reduced healing/regen/lifesteal by %scepter_heal_prevent_percent%%%."
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Applies Tar Spill every %scepter_tar_spill_interval% seconds. Trapped enemies have reduced healing, hp regen, lifesteal and spell lifesteal by %scepter_heal_prevent_percent%%%."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_cast_range"            "SCEPTER CAST RANGE:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEAL REDUCTION:"
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_heal_prevent_percent"  "%SCEPTER HEALTH RESTORATION REDUCTION:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_shard_description"             "Grants Laser ability: #{DOTA_Tooltip_ability_tinkerer_laser_oaa_Description}"
 
 // modifiers
@@ -104,26 +107,26 @@
 // "DOTA_Tooltip_modifier_tinker_warp_grenade"                                    "Warp Flare"
 // "DOTA_Tooltip_modifier_tinker_warp_grenade_Description"                        "Cast range reduced by %dMODIFIER_PROPERTY_CAST_RANGE_BONUS_PERCENTAGE%%% and attack range reduced by %dMODIFIER_PROPERTY_ATTACK_RANGE_BONUS_PERCENTAGE%%% due to warp disorientation."
 
-"DOTA_Tooltip_modifier_tinkerer_smart_missiles_stun"                            "Smart Missile"
-"DOTA_Tooltip_modifier_tinkerer_smart_missiles_stun_Description"                "Stunned"
+"DOTA_Tooltip_modifier_tinkerer_smart_missiles_stun"                            "#{DOTA_Tooltip_ability_tinkerer_smart_missiles}"
+"DOTA_Tooltip_modifier_tinkerer_smart_missiles_stun_Description"                "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 "DOTA_Tooltip_modifier_tinkerer_oil_spill_debuff"                               "Covered In Tar"
 "DOTA_Tooltip_modifier_tinkerer_oil_spill_debuff_Description"                   "Move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE%%%. If ignited, this unit will take %dMODIFIER_PROPERTY_TOOLTIP% damage."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff"                       "Keen Contraption (Scepter)"
-"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "Leashed and all healing, regeneration, lifesteal and spell lifesteal reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
+"DOTA_Tooltip_modifier_tinkerer_laser_contraption_debuff_Description"           "All health restoration reduced by %dMODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE%%%."
 
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff"                               "#{DOTA_Tooltip_modifier_tinker_laser_blind}"
 "DOTA_Tooltip_modifier_tinkerer_laser_oaa_debuff_Description"                   "#{DOTA_Tooltip_modifier_tinker_laser_blind_Description}"
 
 // talents
-"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1"                          "+{s:multishot_count} Multishot Smart Missiles"
-"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1_Description"              "The extra missiles are launched in a cone shape, 30 degrees to the left and right of the original missile, and can hit the same target."
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1"                          "+{s:multishot_count} Multishot Rockets"
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_1_Description"              "The extra rockets are launched in a cone shape, 30 degrees to the left and right of the original rocket, and can hit the same target."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_2"                          "+{s:bonus_base_damage} Smart Missiles Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_2"                          "+{s:bonus_base_damage} Rocket Damage"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "Smart Missiles Explode On Impact"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3_Description"              "Smart Missiles will mini-stun and damage all enemies in a {s:bonus_explode_radius} radius around the hit unit."
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3"                          "Rockets Explode On Impact"
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_3_Description"              "Rockets will slow and damage all enemies in a {s:bonus_explode_radius} radius around the hit unit."
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_4"                          "+{s:value} Tar Spill Duration"
 
@@ -132,6 +135,9 @@
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_6"                          "+{s:value} Tar Spill Burn Damage"
 
 "DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7"                          "Tar Spill Amplifies Damage"
-"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by 20%."
+"DOTA_Tooltip_Ability_special_bonus_unique_tinkerer_7_Description"              "Amplifies all damage enemy take by {s:value}%."
 
 "DOTA_Tooltip_ability_special_bonus_unique_tinkerer_8"                          "Keen Contraption Applies Tar Spill"
+
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_9"                          "Keen Contraption Heals Allies"
+"DOTA_Tooltip_ability_special_bonus_unique_tinkerer_9_Description"              "Heals Tinkerer and his allies that are inside the contraption for {s:value}% of the damage."

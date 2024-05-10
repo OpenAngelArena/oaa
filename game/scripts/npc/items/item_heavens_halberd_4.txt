@@ -51,7 +51,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "16353"
+    "ItemCost"                                            "16303"
     "ItemShopTags"                                        "str;damage;evasion"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "heaven's halberd 4;halberd 4"
@@ -69,9 +69,9 @@
       "bonus_evasion"                                     "20 25 30 35 40"
       "bonus_strength"                                    "20 30 45 65 90"
       "disarm_range"                                      "4.0 4.5 5.0 5.5 6.0"
-      "disarm_melee"                                      "2.4 2.8 3.2 3.6 4.0"
-      "status_resistance"                                 "18 20 22 24 26"
-      "hp_regen_amp"                                      "22 24 26 28 30"
+      "disarm_melee"                                      "3.0 3.25 3.5 3.75 4.0"
+      "status_resistance"                                 "20 22 24 26 28"
+      "hp_regen_amp"                                      "25 27 29 31 33"
       "cooldown_tooltip"                                  "18 17 16 15 14"
     }
   }

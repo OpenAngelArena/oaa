@@ -43,7 +43,7 @@
         "value"                                           "21 20 19 18 17 16"
         "special_bonus_unique_disruptor_4"                "-10"
       }
-      "min_damage"                                        "25"
+      "min_damage"                                        "25 50 75 100 200 400" //OAA
       "max_damage" //OAA, Valve forgot '+' on special_bonus_unique_disruptor_9
       {
         "value"                                           "125 175 225 275 550 1100"

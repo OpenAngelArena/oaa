@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_shadow_demon"
   "Title"         "Recommended items for Shadow Demon"
 
@@ -15,7 +15,7 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_ward_stack"
+      "item"      "item_aether_lens"
       "item"      "item_blink"
       "item"      "item_ultimate_scepter"
       "item"      "item_octarine_core"
@@ -24,11 +24,10 @@
 
     "#DOTA_Item_Build_Magical_Core"
     {
-      "item"      "item_veil_of_discord"
+      "item"      "item_spirit_vessel_oaa"
       "item"      "item_ethereal_blade"
-      "item"      "item_phylactery"
       "item"      "item_kaya_and_sange"
-      "item"      "item_greater_travel_boots"
+      "item"      "item_shivas_guard"
       "item"      "item_dagger_of_moriah_1"
     }
 
@@ -39,13 +38,9 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_aether_lens"
       "item"      "item_glimmer_cape"
       "item"      "item_guardian_greaves"
       "item"      "item_heart_oaa_1"
-      "item"      "item_helm_of_the_overlord"
-      "item"      "item_shivas_guard"
-      "item"      "item_spirit_vessel_oaa"
       "item"      "item_aeon_disk_oaa_2"
       "item"      "item_refresher_4"
       "item"      "item_sheepstick_4"

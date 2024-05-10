@@ -39,7 +39,7 @@
       "backlash_damage"                                   "40.0" //OAA
       "bear_movespeed"
       {
-        "value"                                           "340 360 380 400 420 440"
+        "value"                                           "300 330 360 390 420 450"
         "special_bonus_unique_lone_druid_11"              "+25"
       }
       "bear_magic_resistance"
@@ -47,10 +47,10 @@
         "value"                                           "0"
         "special_bonus_unique_lone_druid_5"               "+40"
       }
-      "bonus_bear_hp"
+      "bonus_bear_hp" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_lone_druid_7"               "+1000"
+        "special_bonus_unique_lone_druid_7"               "+1500"
       }
       "bonus_bear_armor"
       {

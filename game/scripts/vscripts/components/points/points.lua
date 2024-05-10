@@ -26,7 +26,7 @@ function PointsManager:Init ()
     self.limitConstant = 10
   elseif HeroSelection.lowPlayerCount then
     scoreLimit = ONE_V_ONE_KILL_LIMIT
-    self.limitConstant = 10
+    self.limitConstant = 14
   end
 
   scoreLimit = self.limitConstant + scoreLimit * PlayerResource:SafeGetTeamPlayerCount()
@@ -41,10 +41,10 @@ function PointsManager:Init ()
   GameEvents:OnHeroKilled(function (keys)
     local killed = keys.killed
     local killer = keys.killer
-    -- increment points
     if not killer or not killed then
       return
     end
+    -- increment points if valid killer and valid killed
     if killer:GetTeam() ~= killed:GetTeam() and not killed:IsReincarnating() and not killed:IsTempestDouble() and not killed:IsSpiritBearOAA() and killed:GetTeam() ~= DOTA_TEAM_NEUTRALS then
       self:AddPoints(killer:GetTeam())
     end
@@ -219,14 +219,14 @@ function PointsManager:IncreaseLimit(limit_increase)
   if HeroSelection.is10v10 then
     standard_extend_amount = player_count * TEN_V_TEN_LIMIT_INCREASE
   elseif HeroSelection.lowPlayerCount then
-    standard_extend_amount = player_count * ONE_V_ONE_LIMIT_INCREASE
+    standard_extend_amount = math.min(ONE_V_ONE_LIMIT_INCREASE * player_count, 6)
   end
   if not limit_increase then
     extend_amount = standard_extend_amount
   elseif type(limit_increase) == "number" then
     extend_amount = limit_increase
   elseif limit_increase == "grendel" then
-    extend_amount = math.floor(standard_extend_amount/2)
+    extend_amount = math.max(math.floor(standard_extend_amount/2), 1)
   else
     print("limit_increase argument must be a number or 'grendel' string! When ommited it will use the standard value.")
   end
@@ -282,7 +282,7 @@ function PointsManager:RefreshLimit()
     extend_amount = TEN_V_TEN_LIMIT_INCREASE * current_player_count
   elseif HeroSelection.lowPlayerCount then
     base_limit = ONE_V_ONE_KILL_LIMIT
-    extend_amount = ONE_V_ONE_LIMIT_INCREASE * current_player_count
+    extend_amount = math.min(ONE_V_ONE_LIMIT_INCREASE * current_player_count, 6)
   end
   -- Expected score limit with changed number of players connected:
   -- Expected behavior: Disconnects should reduce player_count and reconnects should increase player_count.

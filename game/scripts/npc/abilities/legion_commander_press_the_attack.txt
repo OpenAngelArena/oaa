@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16.0 15.0 14.0 13.0 12.0 11.0"
+    "AbilityCooldown"                                     "15 13 11 9 8 7" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,10 +44,10 @@
         "value"                                           "30 40 50 60 80 110"
         "special_bonus_unique_legion_commander_6"         "+60"
       }
-      "radius"
+      "radius" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_legion_commander_5"         "+250"
+        "special_bonus_unique_legion_commander_5"         "+300"
         "affected_by_aoe_increase"                        "1"
       }
     }

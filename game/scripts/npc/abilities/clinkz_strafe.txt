@@ -31,16 +31,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "attack_speed_bonus"
+      "attack_speed_bonus" //OAA
       {
-        "value"                                           "100 140 180 220 260 300"
-        "special_bonus_unique_clinkz_7"                   "+40"
+        "value"                                           "120 140 160 180 200 220"
+        "special_bonus_unique_clinkz_7"                   "+80"
       }
       "duration"                                          "3.5"
       "attack_range_bonus"                                "200"
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "30 25 20 15 15 15"
+        "value"                                           "21 19 17 15 15 15"
         "special_bonus_unique_clinkz_4"                   "-9"
       }
       "strafe_skeleton_radius"                            "1200"

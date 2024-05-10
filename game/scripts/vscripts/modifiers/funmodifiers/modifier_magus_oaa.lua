@@ -172,7 +172,7 @@ if IsServer() then
       return
     end
 
-    -- Check if attacker is alive or silenced
+    -- Check if attacker is dead or silenced
     if not attacker:IsAlive() or attacker:IsSilenced() then
       return
     end
@@ -193,7 +193,7 @@ if IsServer() then
       return
     end
 
-    -- Don't proc if passive is on cooldown
+    -- Don't proc if Magus is on cooldown
     if attacker:HasModifier("modifier_magus_cooldown_oaa") then
       return
     end

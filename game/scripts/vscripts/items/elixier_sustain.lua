@@ -139,6 +139,16 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
+      return
+    end
+
     -- Ignore damage with no-spell-lifesteal flag
     if inflictor and bit.band(dmg_flags, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL) > 0 then
       return
@@ -157,7 +167,7 @@ if IsServer() then
     end
 
     -- Illusions are treated as creeps too
-    if not damaged_unit:IsRealHero() then
+    if not damaged_unit:IsRealHero() and not damaged_unit:IsStrongIllusionOAA() then
       if inflictor then
         lifesteal_pct = self.creep_spell_lifesteal
       else

@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "700"
+    "ItemCost"                                            "0"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -21,7 +21,7 @@
     "ItemResult"                                          "item_bloodstone"
     "ItemRequirements"
     {
-      "01"                                                "item_voodoo_mask;item_soul_booster"
+      "01"                                                "item_voodoo_mask;item_soul_booster;item_void_stone"
     }
   }
 
@@ -59,6 +59,7 @@
       "bonus_aoe"                                         "50" //OAA
       "bonus_health"                                      "500"
       "bonus_mana"                                        "500"
+      "bonus_mp_regen"                                    "3"
       "spell_lifesteal"                                   "28" //OAA
       "buff_duration"                                     "5" //OAA
       "lifesteal_multiplier"                              "2.5"

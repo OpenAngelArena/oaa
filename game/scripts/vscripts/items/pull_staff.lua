@@ -304,7 +304,7 @@ if IsServer() then
     for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
       local item = parent:GetItemInSlot(i)
       if item and item:GetName() == "item_echo_sabre" then
-        item:StartCooldown(6*parent:GetCooldownReduction())
+        item:StartCooldown(echo_strike_cd*parent:GetCooldownReduction())
       end
     end
 

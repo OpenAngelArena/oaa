@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_bottle_collector_death_tracker_oaa", "modifiers/funmodifiers/modifier_bottle_collector_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+
 modifier_bottle_collector_oaa = class(ModifierBaseClass)
 
 function modifier_bottle_collector_oaa:IsHidden()
@@ -17,11 +19,14 @@ function modifier_bottle_collector_oaa:RemoveOnDeath()
 end
 
 function modifier_bottle_collector_oaa:OnCreated()
-  self.damage_per_bottle_charge = 1
-  self.spell_amp_per_bottle_charge = 0.1
+  self.damage_per_bottle_charge = 1.5
+  self.spell_amp_per_bottle_charge = 0.35
 
   if IsServer() then
     self:StartIntervalThink(0.1)
+
+    local parent = self:GetParent()
+    parent:AddNewModifier(parent, nil, "modifier_bottle_collector_death_tracker_oaa", {})
   end
 end
 
@@ -61,7 +66,6 @@ function modifier_bottle_collector_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-    MODIFIER_EVENT_ON_DEATH,
   }
 end
 
@@ -73,8 +77,38 @@ function modifier_bottle_collector_oaa:GetModifierSpellAmplify_Percentage()
   return self.spell_amp_per_bottle_charge * math.abs(self:GetStackCount())
 end
 
+function modifier_bottle_collector_oaa:GetTexture()
+  return "item_bottle"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_bottle_collector_death_tracker_oaa = class(ModifierBaseClass)
+
+function modifier_bottle_collector_death_tracker_oaa:IsHidden()
+  return true
+end
+
+function modifier_bottle_collector_death_tracker_oaa:IsDebuff()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:IsPurgable()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:RemoveOnDeath()
+  return false
+end
+
+function modifier_bottle_collector_death_tracker_oaa:DeclareFunctions()
+  return {
+    MODIFIER_EVENT_ON_DEATH,
+  }
+end
+
 if IsServer() then
-  function modifier_bottle_collector_oaa:OnDeath(event)
+  function modifier_bottle_collector_death_tracker_oaa:OnDeath(event)
     local parent = self:GetParent()
     local dead = event.unit
 
@@ -84,10 +118,6 @@ if IsServer() then
 
     -- Dead unit already deleted, don't continue to prevent errors
     if not parent or parent:IsNull() then
-      return
-    end
-
-    if math.abs(self:GetStackCount()) < 3 then
       return
     end
 
@@ -103,7 +133,20 @@ if IsServer() then
     end
 
     if not bottle then
-      return
+      -- Check backpack too
+      for i = DOTA_ITEM_SLOT_7, DOTA_ITEM_SLOT_9 do
+        local item = parent:GetItemInSlot(i)
+        if item then
+          if item:GetAbilityName() == "item_infinite_bottle" then
+            bottle = item
+            break
+          end
+        end
+      end
+      -- If no bottle even in backpack then don't continue
+      if not bottle then
+        return
+      end
     end
 
     local old_charges = bottle:GetCurrentCharges()
@@ -111,13 +154,13 @@ if IsServer() then
       return
     end
 
-    bottle:SetCurrentCharges(math.ceil(old_charges / 2))
+    bottle:SetCurrentCharges(math.ceil(old_charges * 2/3))
 
     local death_location = parent:GetAbsOrigin()
     local newItem = CreateItem("item_infinite_bottle", nil, nil) -- CDOTA_Item
 
     newItem:SetPurchaseTime(0)
-    newItem:SetCurrentCharges(math.floor(old_charges / 2))
+    newItem:SetCurrentCharges(math.floor(old_charges * 1/3))
 
     CreateItemOnPositionSync(death_location, newItem) -- CDOTA_Item_Physical
     newItem:LaunchLoot(false, 300, 0.75, death_location + RandomVector(RandomFloat(50, 350)), nil)
@@ -133,8 +176,4 @@ if IsServer() then
       end
     end)
   end
-end
-
-function modifier_bottle_collector_oaa:GetTexture()
-  return "item_bottle"
 end

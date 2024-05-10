@@ -36,10 +36,10 @@
         "value"                                           "5.5 6.5 7.5 8 8.5"
         "RequiresScepter"                                 "1"
       }
-      "reward_damage"
+      "reward_damage" //OAA
       {
         "value"                                           "10 20 30 50 70"
-        "special_bonus_shard"                             "+8"
+        "special_bonus_shard"                             "+10"
       }
       "victory_range"                                     "600"
       "scepter_damage_reduction_pct"
@@ -52,9 +52,9 @@
         "value"                                           "50"
         "special_bonus_scepter"                           "-20"
       }
-      "shard_duel_damage_bonus"
+      "shard_duel_damage_bonus" //OAA
       {
-        "value"                                           "8"
+        "value"                                           "10"
         "RequiresShard"                                   "1"
       }
     }

@@ -60,7 +60,7 @@
       "bonus_magic_resistance"                            "5 6 7 8" // double for STR heroes
       "bonus_attack_speed"                                "30 35 40 45" // +5 per level, double for AGI heroes
       "bonus_spell_amp"                                   "6 8 10 12" // double for INT heroes
-      "bonus_damage"                                      "10 25 45 70" // double for Universal heroes
+      "bonus_damage"                                      "10 30 60 100" // double for Universal heroes
       "primary_attribute_multiplier"                      "2"
       "bonus_secondary_stats"                             "10 15 20 25" // +5 per level, Universal heroes get 1/2 of this as all stats
     }

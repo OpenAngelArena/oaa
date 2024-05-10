@@ -15,7 +15,6 @@ end
 function meepo_together_we_stand_oaa:OnUpgrade()
   local caster = self:GetCaster()
 
-  -- Don't allow illusions to have clones
   if caster:IsIllusion() then
     return
   end

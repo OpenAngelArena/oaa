@@ -107,7 +107,11 @@ function modifier_item_demon_stone_passive:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  if parent:IsIllusion() or not parent:IsHero() then
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    return
+  end
+
+  if parent.AddExperience == nil then
     return
   end
 

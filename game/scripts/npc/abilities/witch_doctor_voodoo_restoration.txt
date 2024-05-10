@@ -5,7 +5,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL" // Valve this spell doesnt do damage anymore
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
@@ -38,7 +38,7 @@
       "heal"
       {
         "value"                                           "20 30 40 50 100 200"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL" // Valve this spell doesnt do damage anymore
       }
       "heal_interval"                                     "0.33"
     }

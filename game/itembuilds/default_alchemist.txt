@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_alchemist"
   "Title"         "Recommended items for Alchemist"
 
@@ -12,13 +12,25 @@
       "item"      "item_bracer"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Physical_Core" // rightclick items good every game
+    {
+      "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
-      "item"      "item_mjollnir"
       "item"      "item_greater_crit"
-      "item"      "item_satanic"
+      "item"      "item_abyssal_blade_2"
+      "item"      "item_devastator_oaa_2"
+    }
+
+    "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
+    {
+      "item"      "item_assault"
+      "item"      "item_shivas_guard"
+      "item"      "item_sacred_skull"
     }
 
     "#DOTA_Item_Build_Alchemist"
@@ -37,15 +49,15 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_assault"
+      "item"      "item_armlet"
+      
       "item"      "item_blink"
       "item"      "item_bloodthorn"
-      "item"      "item_silver_edge"
       "item"      "item_heart_oaa_1"
-      "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
-      "item"      "item_abyssal_blade_2"
-      "item"      "item_devastator_oaa_2"
+      "item"      "item_satanic"
+      "item"      "item_silver_edge"
+      "item"      "item_spell_breaker_1"
     }
   }
 }

@@ -574,6 +574,7 @@ end
 function modifier_furion_wrath_of_nature_scepter_root_oaa:CheckState()
   return {
     [MODIFIER_STATE_ROOTED] = true,
+    [MODIFIER_STATE_DISARMED] = true,
   }
 end
 

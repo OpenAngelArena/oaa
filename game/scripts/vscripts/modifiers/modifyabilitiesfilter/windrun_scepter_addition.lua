@@ -15,17 +15,15 @@ function modifier_windranger_scepter_oaa:IsPurgable()
 end
 
 function modifier_windranger_scepter_oaa:OnCreated()
+  self.spell_amp = 35
+
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
     self.spell_amp = ability:GetSpecialValueFor("scepter_spell_amp")
-  else
-    self.spell_amp = 35
   end
 end
 
-function modifier_windranger_scepter_oaa:OnRefresh()
-  self:OnCreated()
-end
+modifier_windranger_scepter_oaa.OnRefresh = modifier_windranger_scepter_oaa.OnCreated
 
 function modifier_windranger_scepter_oaa:DeclareFunctions()
   return {

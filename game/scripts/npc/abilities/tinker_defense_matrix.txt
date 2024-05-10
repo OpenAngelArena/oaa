@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800" //OAA
+    "AbilityCastRange"                                    "700 750 800 850 900 950"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -44,7 +44,7 @@
       "cooldown_reduction" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_tinker_defense_matrix_cdr"  "+12"
+        "special_bonus_unique_tinker_defense_matrix_cdr"  "+20"
       }
     }
   }

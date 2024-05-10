@@ -48,6 +48,9 @@ local hero_mods = {
   HM38 = "modifier_universal_oaa",
   HM39 = "modifier_rich_man_oaa",
   HM40 = "modifier_bottle_collector_oaa",
+  HM41 = "modifier_crimson_magic_oaa",
+  HM42 = "modifier_ludo_oaa",
+  HM43 = "modifier_battlemage_oaa",
 }
 local boss_mods = {
   BMN  = false,
@@ -85,7 +88,9 @@ local bundles = {
   HMB05 = {"modifier_nimble_oaa", "modifier_speedster_oaa", "modifier_brawler_oaa", "modifier_change_to_agi_oaa"}, -- Cunning
   HMB06 = {"modifier_wisdom_oaa", "modifier_octarine_soul_oaa", "modifier_debuff_duration_oaa", "modifier_change_to_int_oaa"}, -- Magician
   HMB07 = {"modifier_brute_oaa", "modifier_smurf_oaa", "modifier_any_damage_crit_oaa", "modifier_change_to_str_oaa"}, -- Mighty
-  HMB08 = {"modifier_sangromancer_oaa", "modifier_wisdom_oaa", "modifier_debuff_duration_oaa", "modifier_explosive_death_oaa"}, -- Sangromancer
+  HMB08 = {"modifier_sangromancer_oaa", "modifier_crimson_magic_oaa", "modifier_debuff_duration_oaa", "modifier_explosive_death_oaa"}, -- Sangromancer
+  HMB09 = {"modifier_titan_soul_oaa", "modifier_diarrhetic_oaa", "modifier_any_damage_splash_oaa", "modifier_explosive_death_oaa"}, -- Radioactive
+  HMB10 = {"modifier_titan_soul_oaa", "modifier_brute_oaa", "modifier_nimble_oaa", "modifier_wisdom_oaa", "modifier_universal_oaa"}, -- Jack-Of-All-Trades
 }
 
 function OAAOptions:Init ()
@@ -331,6 +336,7 @@ function OAAOptions:TestHeroModifier(keys)
     anti_judecca = "modifier_all_healing_amplify_oaa",
     aoe_increase = "modifier_aoe_radius_increase_oaa",
     attack_range_switch = "modifier_troll_switch_oaa",
+    battlemage = "modifier_battlemage_oaa",
     blood_magic = "modifier_blood_magic_oaa",
     boss_killer = "modifier_boss_killer_oaa",
     bottle_collector = "modifier_bottle_collector_oaa",
@@ -338,6 +344,7 @@ function OAAOptions:TestHeroModifier(keys)
     brute = "modifier_brute_oaa",
     chaos = "modifier_chaos_oaa",
     courier_hunter = "modifier_courier_kill_bonus_oaa",
+    crimson_magic = "modifier_crimson_magic_oaa",
     cursed_attack = "modifier_cursed_attack_oaa",
     diar = "modifier_diarrhetic_oaa",
     drunk = "modifier_drunk_oaa",
@@ -353,6 +360,7 @@ function OAAOptions:TestHeroModifier(keys)
     hyper_lifesteal = "modifier_any_damage_lifesteal_oaa",
     hyper_xp = "modifier_hyper_experience_oaa",
     keeper_of_the_truth = "modifier_true_sight_strike_oaa",
+    ludo = "modifier_ludo_oaa",
     magus = "modifier_magus_oaa",
     max_power = "modifier_any_damage_crit_oaa",
     moriah_shield = "modifier_hp_mana_switch_oaa",
