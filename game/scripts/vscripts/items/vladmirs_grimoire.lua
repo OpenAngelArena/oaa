@@ -338,6 +338,16 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
+      return
+    end
+
     -- Calculate the lifesteal (heal) amount
     local lifesteal = ability:GetSpecialValueFor("lifesteal_aura")
     local heal_amount = damage * lifesteal / 100

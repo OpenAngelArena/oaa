@@ -123,7 +123,7 @@ if IsServer() then
 
     -- Calculate the lifesteal (heal) amount
     local heal_amount = 0
-    if damaged_unit:IsRealHero() then
+    if damaged_unit:IsRealHero() or damaged_unit:IsStrongIllusionOAA() then
       heal_amount = damage * self.hero_lifesteal / 100
     else
       -- Illusions are treated as creeps too

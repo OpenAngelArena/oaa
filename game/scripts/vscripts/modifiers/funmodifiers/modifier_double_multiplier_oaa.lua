@@ -86,6 +86,15 @@ local affected_kvs = {
   AbilityManaCost = true,
   AbilityCastRange = true,
   cataclysm_cooldown = true,
+  cooldown_scepter = true,
+  activation_cooldown = true, -- Bristleback Scepter, Spectre Shard
+  scepter_barrier_cooldown = true, -- OD Scepter
+  --shield_crash_cooldown = true, -- Shield Crash cd in Rolling Thunder
+  cooldown_reduction_on_kill = true, -- Sniper Assassinate
+  scepter_cooldown = true, -- Spirit Breaker Charge of Darkness
+  shard_cooldown = true, -- Storm Spirit Shard, Visage Shard
+  AbilityChargeRestoreTime = true,
+  charge_restore_time = true,
 }
 
 local forbidden_kvs = {
@@ -98,6 +107,7 @@ local forbidden_kvs = {
   --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change
   sandking_epicenter = {epicenter_radius_increment = true,},
   sandking_sand_storm = {scepter_explosion_radius_pct = true,},
+  phantom_assassin_blur = {scepter_cooldown = true,},
 }
 
 function modifier_double_multiplier_oaa:GetModifierOverrideAbilitySpecial(keys)

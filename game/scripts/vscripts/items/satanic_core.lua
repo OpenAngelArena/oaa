@@ -244,6 +244,11 @@ if IsServer() then
       return
     end
 
+    -- Don't give mana while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
     -- Check if damage is negative or 0
     if damage <= 0 then
       return

@@ -99,7 +99,7 @@ if IsServer() then
       -- Perform the second attack (can trigger attack modifiers)
       attacker:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 
-      -- Start cooldown by adding a modifier
+      -- Start cooldown by adding a modifier (cooldown is started after the attack so multiple procs in a row are allowed)
       attacker:AddNewModifier(attacker, nil, "modifier_echo_strike_cooldown_oaa", {duration = self.cooldown})
     end
   end

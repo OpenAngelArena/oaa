@@ -239,7 +239,7 @@ if IsServer() then
       return
     end
 
-    -- Trigger only for this modifier
+    -- Check if damaged unit has this modifier
     if damaged_unit ~= parent then
       return
     end

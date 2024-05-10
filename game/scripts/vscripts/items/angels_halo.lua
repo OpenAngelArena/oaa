@@ -11,11 +11,6 @@ end
 function item_angels_halo:OnSpellStart()
   local caster = self:GetCaster()
 
-  -- Prevent Tempest Double abuse
-  if caster:IsTempestDouble() then
-    return
-  end
-
   caster:EmitSound("DOTA_Item.FaerieSpark.Activate")
 
   local consumed_ms = self:GetSpecialValueFor("consumed_bonus_move_speed")
