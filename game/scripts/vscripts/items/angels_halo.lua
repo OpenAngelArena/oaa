@@ -206,6 +206,14 @@ function modifier_angels_halo_passive:OnIntervalThink()
     return
   end
 
+  -- Prevent working on illusions (damage from each illusion would stack if allowed)
+  -- It's allowed to work on Tempest Doubles and Spirit Bears
+  if parent:IsIllusion() or parent:IsClone() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
   local enemies = FindUnitsInRadius(
     parent:GetTeamNumber(),
     parent:GetAbsOrigin(),
@@ -222,7 +230,7 @@ function modifier_angels_halo_passive:OnIntervalThink()
     attacker = parent,
     damage = self.dmg,
     damage_type = DAMAGE_TYPE_MAGICAL,
-    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, -- to prevent Sticky Napalm and similar stuff
+    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION, -- to prevent Sticky Napalm dmg proc (for consistency with Radiance)
   }
 
   for _, enemy in pairs(enemies) do

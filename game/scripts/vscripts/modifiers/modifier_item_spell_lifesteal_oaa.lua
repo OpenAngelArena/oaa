@@ -87,7 +87,18 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
     local damage = params.damage
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
+      return
+    end
+
     local nHeroHeal = self.hero_spell_lifesteal
     local nCreepHeal = self.creep_spell_lifesteal
 

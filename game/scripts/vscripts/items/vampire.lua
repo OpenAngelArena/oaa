@@ -430,6 +430,11 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not parent:IsAlive() then
+      return
+    end
+
     self.procRecords[event.record] = nil
 
     if damage <= 0 or amount <= 0 then
@@ -455,7 +460,7 @@ if IsServer() then
       parentTeam
     )
 
-    if ufResult == UF_SUCCESS and parent:IsAlive() then
+    if ufResult == UF_SUCCESS then
       local lifesteal_amount = damage * amount * 0.01
       parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
 
