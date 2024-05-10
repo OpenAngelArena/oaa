@@ -98,7 +98,7 @@ if IsServer() then
     if damage <= 0 then
       return
     end
-    
+
     local nHeroHeal = self.hero_spell_lifesteal
     local nCreepHeal = self.creep_spell_lifesteal
 
