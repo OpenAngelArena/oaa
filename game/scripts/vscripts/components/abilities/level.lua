@@ -259,13 +259,14 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local ultimateReqs = {0, 0, 0, 37, 49}
 
   local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 26, 28, 30, 32, 34, 36, 38}
-  local medusaShieldReqs = {0, 0, 0, 0, 0, 28, 40}
+  local basicInnateAbilityReqs = {0, 0, 0, 0, 0, 28, 40}
+  local ultimateInnateAbilityReqs = {0, 0, 0, 0, 37, 49}
+
   -- Ability hero level requirements for abilities that don't follow the default pattern
   local exceptionAbilityReqs = {
     invoker_quas = invokerAbilityReqs,
     invoker_wex = invokerAbilityReqs,
     invoker_exort = invokerAbilityReqs,
-    medusa_mana_shield = medusaShieldReqs
   }
 
   local ability = hero:FindAbilityByName(abilityName)
@@ -275,7 +276,13 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
-  elseif abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+  elseif IsInnateCustom(abilityName) then
+    if abilityType == ABILITY_TYPE_ULTIMATE then
+      reqTable = ultimateInnateAbilityReqs
+    else
+      reqTable = basicInnateAbilityReqs
+    end
+  elseif abilityType == ABILITY_TYPE_ULTIMATE then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
     reqTable = ultimateReqs
   end
 
