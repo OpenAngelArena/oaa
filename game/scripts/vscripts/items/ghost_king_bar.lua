@@ -61,13 +61,15 @@ function item_ghost_king_bar_1:OnSpellStart()
   -- Trigger cd on all Holy Lockets and Magic Wands
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
     local item = caster:GetItemInSlot(i)
-    if item and item:GetName() == "item_holy_locket" then
-      item:StartCooldown(13*caster:GetCooldownReduction())
+    if item and (item:GetName() == "item_holy_locket" or item:GetName() == "item_magic_wand") then
+      local kv_cooldown = self:GetAbilityKeyValues().AbilityCooldown or 13
+      item:StartCooldown(kv_cooldown*caster:GetCooldownReduction())
     end
   end
 
   -- Spend charges
   self:SetCurrentCharges(0)
+  caster.ghostKingBarChargesOAA = 0
 end
 
 item_ghost_king_bar_2 = item_ghost_king_bar_1
@@ -96,9 +98,11 @@ function modifier_item_ghost_king_bar_passives:GetAttributes()
 end
 
 function modifier_item_ghost_king_bar_passives:OnCreated()
+  self.interval = 0.1
+  self.counter = 0
   self:OnRefresh()
   if IsServer() then
-    self:StartIntervalThink(0.1)
+    self:StartIntervalThink(self.interval)
     local parent = self:GetParent()
     if parent.ghostKingBarChargesOAA and parent.ghostKingBarChargesOAA ~= 0 then
       local item = self:GetAbility()
@@ -106,6 +110,24 @@ function modifier_item_ghost_king_bar_passives:OnCreated()
         item:SetCurrentCharges(parent.ghostKingBarChargesOAA)
       end
     end
+    -- Remove aura effect modifier from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
+    end
+
+    foreach(RemoveAuraEffect, units)
   end
 end
 
@@ -129,6 +151,24 @@ end
 function modifier_item_ghost_king_bar_passives:OnIntervalThink()
   if self:IsFirstItemInInventory() then
     self:SetStackCount(2)
+
+    -- Gaining charges over time
+    local ability = self:GetAbility()
+    local gain_charge_interval = ability:GetSpecialValueFor("charge_gain_timer")
+    local max_charges = ability:GetSpecialValueFor("max_charges")
+    local gain_charge_iteration = math.ceil(gain_charge_interval / self.interval)
+    if self.counter % gain_charge_iteration == 0 and self.counter ~= 0 then
+      -- Add a charge to the item
+      ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, max_charges))
+      -- Add a charge to the hero
+      local parent = self:GetParent()
+      parent.ghostKingBarChargesOAA = ability:GetCurrentCharges()
+      -- Reset counter just in case of overflow
+      self.counter = 0
+    end
+
+    -- Increase counter
+    self.counter = self.counter + 1
   else
     self:SetStackCount(1)
   end
@@ -225,6 +265,10 @@ function modifier_item_ghost_king_bar_passives:GetAuraSearchType()
   return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
 end
 
+-- function modifier_item_ghost_king_bar_passives:GetAuraEntityReject(hTarget)
+  -- return hTarget:HasModifier("modifier_item_headdress_aura")
+-- end
+
 -- Add charges when abilities are cast by visible enemies
 if IsServer() then
   function modifier_item_ghost_king_bar_passives:OnAbilityExecuted(event)
@@ -237,7 +281,12 @@ if IsServer() then
     local ability = self:GetAbility()
     local unit = event.unit
 
-    -- Uncomment the flag stuff if you don't want to gain charges from every enemy and not just visible enemies
+    -- Check if parent is dead
+    if not parent or parent:IsNull() or not parent:IsAlive() then
+      return
+    end
+
+    -- Uncomment the flag stuff if you don't want to gain charges from every enemy but just from visible enemies
     local filterResult = UnitFilter(
       unit,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -246,13 +295,9 @@ if IsServer() then
       parent:GetTeamNumber()
     )
 
-    -- Reduce charge gain radius while in duels
-    local unitIsInRange = true
-    if Duels:IsActive() then
-      local charge_radius = ability:GetSpecialValueFor("charge_radius")
-      local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
-      unitIsInRange = distanceToUnit <= charge_radius
-    end
+    local charge_radius = ability:GetSpecialValueFor("charge_radius")
+    local distanceToUnit = (parent:GetAbsOrigin() - unit:GetAbsOrigin()):Length2D()
+    local unitIsInRange = distanceToUnit <= charge_radius
 
     if filterResult == UF_SUCCESS and event.ability:ProcsMagicStick() and unitIsInRange then
       ability:SetCurrentCharges(math.min(ability:GetCurrentCharges() + 1, ability:GetSpecialValueFor("max_charges")))
@@ -263,7 +308,7 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_ghost_king_bar_aura_effect = class(ModifierBaseClass)
+modifier_item_ghost_king_bar_aura_effect = class({})
 
 function modifier_item_ghost_king_bar_aura_effect:IsHidden() -- needs tooltip
   return self:GetParent():HasModifier("modifier_item_headdress_aura")

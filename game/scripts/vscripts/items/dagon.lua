@@ -73,6 +73,7 @@ function item_dagon_oaa:OnSpellStart()
   end
 
   local isRealHero = target:IsRealHero() -- do this check before doing dmg to prevent doing check on a killed/deleted target
+  local isStrongIllu = target:IsStrongIllusionOAA()
 
   local damageDone = ApplyDamage({
     victim = target,
@@ -84,10 +85,10 @@ function item_dagon_oaa:OnSpellStart()
 
   -- healing time!
   local heal_amount = 0
-  if isRealHero then
+  if isRealHero or isStrongIllu then
     heal_amount = damageDone * (burst_heal_percent - hero_spell_lifesteal) / 100
   else
-    -- For ancients, bosses and strong illusions
+    -- For ancients and bosses
     heal_amount = damageDone * (burst_heal_percent - creep_spell_lifesteal) / 100
   end
   caster:HealWithParams(heal_amount, self, false, true, caster, true)
@@ -181,4 +182,8 @@ end
 
 function modifier_item_oaa_dagon_debuff:GetModifierMiss_Percentage()
   return self.blind_pct or self:GetAbility():GetSpecialValueFor("blind_pct")
+end
+
+function modifier_item_oaa_dagon_debuff:GetTexture()
+  return "item_dagon_5"
 end

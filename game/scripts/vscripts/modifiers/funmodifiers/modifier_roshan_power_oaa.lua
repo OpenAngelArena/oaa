@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_roshan_bash_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_roshan_bash_cooldown_oaa", "modifiers/funmodifiers/modifier_roshan_power_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_spell_block_cooldown_oaa", "modifiers/funmodifiers/modifier_spell_block_oaa.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Roshan's Body
@@ -25,8 +26,9 @@ function modifier_roshan_power_oaa:OnCreated()
   self.move_speed_override = 270
   self.spell_block_cd = 15
   self.bash_chance = 15
-  self.bash_duration = 1.65
+  self.bash_duration = 1.5
   self.bash_damage = 50
+  self.bash_cd = 2.3
   self.status_resist = 25
   --self.magic_resist = 55
   self.dmg_per_minute = 6
@@ -73,7 +75,7 @@ function modifier_roshan_power_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
     MODIFIER_PROPERTY_MODEL_CHANGE,
-    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
     MODIFIER_PROPERTY_ABSORB_SPELL,
     MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
@@ -112,7 +114,7 @@ function modifier_roshan_power_oaa:GetModifierAttackRangeBonus()
 end
 
 if IsServer() then
-  function modifier_roshan_power_oaa:GetModifierProcAttack_BonusDamage_Magical(event)
+  function modifier_roshan_power_oaa:GetModifierProcAttack_BonusDamage_Physical(event)
     local parent = self:GetParent()
 
     if parent:IsIllusion() then
@@ -126,7 +128,13 @@ if IsServer() then
       return 0
     end
 
+    -- Don't bash if on cooldown
+    if parent:HasModifier("modifier_roshan_bash_cooldown_oaa") then
+      return 0
+    end
+
     local chance = self.bash_chance
+    local cooldown = self.bash_cd
 
     if RandomInt(1, 100) <= chance then
       local duration = self.bash_duration
@@ -138,6 +146,9 @@ if IsServer() then
 
       target:EmitSound("Roshan.Bash")
 
+      -- Start cooldown by adding a modifier
+      parent:AddNewModifier(parent, nil, "modifier_roshan_bash_cooldown_oaa", {duration = cooldown})
+
       return damage
     end
     return 0
@@ -147,6 +158,7 @@ if IsServer() then
     local parent = self:GetParent()
     local casted_ability = event.ability
 
+    -- Don't block if we don't have required variables
     if not casted_ability or casted_ability:IsNull() then
       return 0
     end
@@ -158,8 +170,9 @@ if IsServer() then
       return 0
     end
 
-    -- No need to block if parent is invulnerable
-    if parent:IsInvulnerable() or parent:IsOutOfGame() then
+    -- Don't block if parent is an illusion
+    -- Some stuff pierce invulnerability (like Nullifier) so we need to block them too
+    if parent:IsIllusion() then
       return 0
     end
 
@@ -234,5 +247,29 @@ function modifier_roshan_bash_oaa:CheckState()
 end
 
 function modifier_roshan_bash_oaa:GetTexture()
+  return "roshan_bash"
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_roshan_bash_cooldown_oaa = class(ModifierBaseClass)
+
+function modifier_roshan_bash_cooldown_oaa:IsHidden()
+  return false
+end
+
+function modifier_roshan_bash_cooldown_oaa:IsDebuff()
+  return true
+end
+
+function modifier_roshan_bash_cooldown_oaa:IsPurgable()
+  return false
+end
+
+function modifier_roshan_bash_cooldown_oaa:RemoveOnDeath()
+  return true
+end
+
+function modifier_roshan_bash_cooldown_oaa:GetTexture()
   return "roshan_bash"
 end

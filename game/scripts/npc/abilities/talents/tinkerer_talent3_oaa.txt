@@ -1,25 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Smart Missiles bonus AoE
+  // Rockets Explode on Impact
   //=================================================================================================================
   "special_bonus_unique_tinkerer_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "special_bonus_undefined"
+    "BaseClass"                                           "special_bonus_base"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "explode_radius"                                  "350"
-      }
-    }
   }
 }

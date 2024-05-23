@@ -95,7 +95,7 @@ if IsServer() then
       return
     end
 
-    -- Trigger only for this modifier
+    -- Check if damaged unit has this modifier
     if damaged_unit ~= parent then
       return
     end
@@ -156,14 +156,15 @@ if IsServer() then
 
     local damaging_ability = event.inflictor
     local damage_type = event.damage_type
+    local return_damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
 
     -- Interaction with Debuff Immunity
     if attacker:IsDebuffImmune() then
-      -- Pure damage abilities
+      -- Pure damage abilities that don't pierce Debuff Immunity
       local ability_blacklist = {
-        "axe_counter_helix",
+        --"axe_counter_helix",
         --"axe_culling_blade",
-        "bane_brain_sap",
+        --"bane_brain_sap",
         "bane_enfeeble",
         --"bane_fiends_grip",
         "bloodseeker_bloodrage", -- shard
@@ -171,26 +172,26 @@ if IsServer() then
         --"doom_bringer_doom",
         "enchantress_impetus",
         --"enigma_black_hole",
-        "huskar_burning_spear", -- talent
-        "invoker_sun_strike",
+        --"huskar_burning_spear", -- talent
+        --"invoker_sun_strike",
         --"jakiro_macropyre", -- scepter
-        "leshrac_diabolic_edict",
+        --"leshrac_diabolic_edict",
         "meepo_ransack",
         --"nyx_assassin_vendetta",
         "omniknight_hammer_of_purity",
         "omniknight_purification",
-        "pudge_meat_hook",
+        --"pudge_meat_hook",
         --"queenofpain_sonic_wave",
-        "spectre_desolate",
-        "spectre_spectral_dagger",
-        "templar_assassin_psi_blades",
-        --"shredder_chakram",
-        --"shredder_chakram_2",
+        --"spectre_desolate",
+        --"spectre_spectral_dagger",
+        --"templar_assassin_psi_blades",
+        "shredder_chakram",
+        "shredder_chakram_2",
         "shredder_timber_chain",
         "shredder_whirling_death",
         "tinker_laser",
         "tinkerer_laser_oaa",
-        "warlock_golem_flaming_fists",
+        --"warlock_golem_flaming_fists",
         --"witch_doctor_death_ward_oaa",
         --"witch_doctor_voodoo_switcheroo_oaa",
       }
@@ -203,6 +204,8 @@ if IsServer() then
           end
         end
       end
+
+      return_damage_flags = bit.bor(DOTA_DAMAGE_FLAG_HPLOSS, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK)
     end
 
     -- Interaction with Spell Immunity
@@ -238,7 +241,7 @@ if IsServer() then
       victim = attacker,
       damage = new_damage,
       damage_type = damage_type, -- Same damage type as original damage
-      damage_flags = bit.bor(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK),
+      damage_flags = return_damage_flags,
       ability = ability,
     }
 
@@ -313,7 +316,7 @@ if IsServer() then
       return
     end
 
-    -- Trigger only for this modifier
+    -- Check if damaged unit has this modifier
     if damaged_unit ~= parent then
       return
     end

@@ -47,7 +47,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 750 800 850 900 950 1000 1050 1100"
 
-    "AbilityCooldown"                                     "29 24 20 17 15 14 13 12 11"
+    "AbilityCooldown"                                     "27 24 21 18 15 14 13 12 11"
     "AbilitySharedCooldown"                               "dagon"
 
     "AbilityManaCost"                                     "120 140 160 180 200 220 240 260 280"
@@ -55,6 +55,7 @@
     "MaxUpgradeLevel"                                     "9"
     "ItemBaseLevel"                                       "9"
 
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Item Info
@@ -74,14 +75,14 @@
       "spell_amp"                                         "0"
       "damage"                                            "400 500 600 700 800 950 1150 1400 1700"
       "current_hp_dmg"                                    "0 0 0 0 0 6 10 14 18"
-      "hero_spell_lifesteal"                              "11 12 13 14 15 17 19 21 23"
-      "creep_spell_lifesteal"                             "2.2 2.4 2.6 2.8 3.0 3.4 3.8 4.2 4.6"
+      "hero_spell_lifesteal"                              "12 13 14 15 16 18 20 22 24"
+      "creep_spell_lifesteal"                             "2.4 2.6 2.8 3.0 3.2 3.6 4.0 4.4 4.8"
       "burst_heal_percent"                                "75"
       "damage_delay"                                      "0"
       "blind_pct"                                         "100"
-      "blind_duration"                                    "3"
+      "blind_duration"                                    "0 0 0 0 0 3 3.5 4 4.5"
       "mana_cost_tooltip"                                 "120 140 160 180 200 220 240 260 280"
-      "cooldown_tooltip"                                  "29 24 20 17 15 14 13 12 11"
+      "cooldown_tooltip"                                  "27 24 21 18 15 14 13 12 11"
     }
 
     "precache"

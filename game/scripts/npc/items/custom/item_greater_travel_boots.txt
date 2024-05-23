@@ -35,7 +35,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/farming/greater_travel_boots.lua"
+    "ScriptFile"                                          "items/greater_travel_boots.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING"
@@ -55,6 +55,7 @@
     "ItemShopTags"                                        "teleport;move_speed"
     "ItemQuality"                                         "common"
     "ItemAliases"                                         "bot;boots of travel;greater boots of travel"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "4"
@@ -65,7 +66,7 @@
     "AbilityValues"
     {
       "bonus_movement_speed"                              "100 105 110 115"
-      "bonus_damage_during_duels"                         "18 26 34 42" // percentage bonus based on base (white) dmg
+      "bonus_damage_during_duels"                         "26 34 42 50" // percentage bonus based on base (white) dmg
       "bonus_spell_amp_during_duels"                      "16 20 24 28"
       "bonus_boss_damage"                                 "20 30 40 50"
     }

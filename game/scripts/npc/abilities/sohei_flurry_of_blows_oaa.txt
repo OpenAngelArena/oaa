@@ -22,7 +22,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.7" // old: 1.0
-    "AbilityCastRange"                                    "425"
+    "AbilityCastRange"                                    "450" // same as radius
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
     "AnimationPlaybackRate"                               "2.5"
 
@@ -49,7 +49,7 @@
     {
       "flurry_radius"
       {
-        "value"                                           "425"
+        "value"                                           "450"
         "LinkedSpecialBonus"                              "special_bonus_sohei_fob_radius"
         "affected_by_aoe_increase"                        "1"
       }
@@ -66,7 +66,7 @@
       "attack_interval"                                   "0.3"
       "bonus_damage"
       {
-        "value"                                           "50 50 50 100 150"
+        "value"                                           "50 50 50 75 125"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }

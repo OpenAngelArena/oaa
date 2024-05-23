@@ -27,7 +27,7 @@
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"                                       "28"      // Physical protection.
-    "MagicalResistance"                                   "-50"     // Magical protection (percentage).
+    "MagicalResistance"                                   "-25"     // Magical protection (percentage).
 
     // Attack
     //----------------------------------------------------------------
@@ -55,7 +55,7 @@
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
     "MovementSpeed"                                       "150"    // Speed
-    "MovementTurnRate"                                    "1.5"    // Turning rate.
+    "MovementTurnRate"                                    "0.5"    // Turning rate.
     "FollowRange"                                         "175"
 
     // Status
@@ -98,8 +98,6 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     // Vision

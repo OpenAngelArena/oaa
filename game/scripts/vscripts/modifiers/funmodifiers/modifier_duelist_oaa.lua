@@ -26,9 +26,9 @@ end
 
 function modifier_duelist_oaa:OnIntervalThink()
   if Duels:IsActive() then
-    self:SetStackCount(2)
+    self:SetStackCount(-1)
   else
-    self:SetStackCount(1)
+    self:SetStackCount(0)
   end
 end
 
@@ -40,14 +40,14 @@ function modifier_duelist_oaa:DeclareFunctions()
 end
 
 function modifier_duelist_oaa:GetModifierTotalDamageOutgoing_Percentage()
-  if self:GetStackCount() == 2 then
+  if self:GetStackCount() == -1 then
     return 35
   end
   return 0
 end
 
 function modifier_duelist_oaa:GetModifierIncomingDamage_Percentage()
-  if self:GetStackCount() == 1 then
+  if self:GetStackCount() ~= -1 then
     return -15
   end
   return 0

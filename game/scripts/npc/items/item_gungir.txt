@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "450"
+    "ItemCost"                                            "250"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -54,10 +54,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5650"
+    "ItemCost"                                            "5450"
     "ItemShopTags"                                        "damage;agi;str;int;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "gleipnir;gliepnir;glaypnir"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -66,7 +67,7 @@
     {
       "bonus_damage"                                      "30 40 60 90 130" // Maelstrom (25)
       "bonus_attack_speed"                                "30 35 40 45 50"
-      "chain_chance"                                      "30"
+      "chain_chance"                                      "25"
       "chain_damage"                                      "160 210 310 460 660" // Maelstrom (120)
       "chain_strikes"                                     "4"
       "chain_radius"                                      "650 750 850 950 1050"
@@ -80,8 +81,8 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
-      "active_damage"                                     "180 380 580 780 980"
-      "illusion_multiplier_pct"                           "150"
+      "active_damage"                                     "180 330 530 780 1080"
+      "illusion_multiplier_pct"                           "100" //OAA
     }
   }
 }

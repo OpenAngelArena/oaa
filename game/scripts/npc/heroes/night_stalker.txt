@@ -5,8 +5,16 @@
   //=================================================================================================================
   "npc_dota_hero_night_stalker"
   {
-    "Ability12"                                           "special_bonus_strength_20" // replaces special_bonus_unique_night_stalker_3
+    //"Ability10"                                           "special_bonus_unique_night_stalker_4"
+    //"Ability11"                                           "special_bonus_unique_night_stalker_7"
 
-    "Ability15"                                           "special_bonus_unique_night_stalker_3" // replaces special_bonus_strength_20
+    //"Ability12"                                           "special_bonus_unique_night_stalker_3"
+    //"Ability13"                                           "special_bonus_unique_night_stalker_hunter_status_resist"
+
+    //"Ability14"                                           "special_bonus_unique_night_stalker_6"
+    "Ability15"                                           "special_bonus_unique_night_stalker_1_oaa" // replaces special_bonus_strength_20
+
+    //"Ability16"                                           "special_bonus_unique_night_stalker_2"
+    //"Ability17"                                           "special_bonus_unique_night_stalker"
   }
 }

@@ -32,5 +32,5 @@ function modifier_glass_cannon_oaa:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_glass_cannon_oaa:GetTexture()
-  return "item_blades_of_attack"
+  return "item_nemesis_curse"
 end

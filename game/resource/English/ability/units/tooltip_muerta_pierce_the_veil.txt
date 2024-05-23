@@ -1,5 +1,5 @@
 //"DOTA_Tooltip_Ability_muerta_pierce_the_veil"                                   "Pierce the Veil"
-"DOTA_Tooltip_Ability_muerta_pierce_the_veil_Description"                       "Muerta transforms, becoming immune to physical damage. All of her attack damage is dealt as magical damage. Muerta gains phased movement.<font color='#FFA500'>Muerta doesn't gain bonus damage and has 25%% attack damage penalty.</font><br><br>Muerta can attack ethereal units, but deals no damage to targets with 100%% magic resistance.<br><br>DISPEL TYPE: Basic Dispel"
+"DOTA_Tooltip_Ability_muerta_pierce_the_veil_Description"                       "Muerta transforms, becoming immune to physical damage. All of her attack damage is dealt as magical damage. Muerta gains bonus attack damage and phased movement <font color='#FFA500'>but all damage output is reduced by %damage_penalty%%% (%damage_penalty_bosses%%% against Bosses).</font><br><br>Muerta can attack ethereal units, but deals no damage to targets with 100%% magic resistance.<br><br>DISPEL TYPE: Basic Dispel"
 //"DOTA_Tooltip_Ability_muerta_pierce_the_veil_Lore"                              "Muerta sheds her corporeal form, crossing the spirit veil and striking her enemies with the fury of the damned."
 //"DOTA_Tooltip_Ability_muerta_pierce_the_veil_transform_duration"                "TRANSFORM DURATION:"
 //"DOTA_Tooltip_Ability_muerta_pierce_the_veil_duration"                          "DURATION:"
@@ -8,6 +8,3 @@
 //"DOTA_Tooltip_ability_muerta_pierce_the_veil_Note0"                             "Muerta will dodge projectiles upon transformation."
 //"DOTA_Tooltip_ability_muerta_pierce_the_veil_Note1"                             "Muerta cannot attack buildings while transformed."
 //"DOTA_Tooltip_ability_muerta_pierce_the_veil_Note2"                             "Other ethereal effects will not stop Muerta from being able to attack."
-
-"DOTA_Tooltip_ability_muerta_hidden_ability_oaa"                                "#{DOTA_Tooltip_Ability_muerta_pierce_the_veil}"
-"DOTA_Tooltip_ability_muerta_hidden_ability_oaa_Description"                    "Muerta deals less damage during Pierce The Veil."

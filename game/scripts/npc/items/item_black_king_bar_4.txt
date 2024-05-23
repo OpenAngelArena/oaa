@@ -57,6 +57,7 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bkb 4;black king bar 4"
     "ItemSellable"                                        "1"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -67,7 +68,7 @@
       "bonus_damage"                                      "25 35 55 85 125"
       "duration"                                          "7"
       "model_scale"                                       "30"
-      "magic_resist"                                      "50 55 60 65 70"
+      "magic_resist"                                      "60 65 70 75 80"
     }
   }
 }

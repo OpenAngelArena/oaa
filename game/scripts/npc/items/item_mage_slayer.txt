@@ -11,7 +11,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "200"
+    "ItemCost"                                            "400"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -39,7 +39,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2625"
+    "ItemCost"                                            "2825"
     "ItemShopTags"                                        "hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "mage slayer;ms"
@@ -50,11 +50,11 @@
     {
       "bonus_magical_armor"                               "20" //OAA, Cloak (20);
       "bonus_attack_speed"                                "35" //OAA, Oblivion Staff (35);
-      "spell_amp_debuff"                                  "35" //OAA
+      "spell_amp_debuff"                                  "20" //OAA
       "bonus_mana_regen"                                  "2"
-      "duration"                                          "6"
+      "duration"                                          "3"
       "bonus_intellect"                                   "10" // Oblivion Staff (10);
-      "dps"                                               "20"
+      "dps"                                               "25"
     }
   }
 }

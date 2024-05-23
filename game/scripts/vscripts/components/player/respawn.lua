@@ -16,8 +16,10 @@ function RespawnManager:OnHeroKilled(keys)
   -- For Meepo when a clone dies and not a primary meepo
   if killed:IsClone() then
     -- Do everything again for the primary Meepo
+    -- this may cause OnHeroKilled code execute twice from Meepo Prime
+    -- but there is no harm
     keys.killed = killed:GetCloneSource()
-    self:OnHeroKilled(keys) -- TODO: Check if this can trigger for each clone when it dies
+    self:OnHeroKilled(keys)
   end
 
   if killed:IsTempestDouble() or killed:IsSpiritBearOAA() then

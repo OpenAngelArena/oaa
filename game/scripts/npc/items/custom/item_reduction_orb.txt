@@ -57,15 +57,20 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
+    "precache"
+    {
+      "particle"                                          "particles/status_fx/status_effect_glow_white_over_time.vpcf"
+    }
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_health"                                      "2450" // same as Regen Crystal max level
-      "bonus_armor"                                       "15"
-      "bonus_magic_resistance"                            "25"
-      "damage_reduction"                                  "100"
-      "duration"                                          "4.0"
+      "bonus_health"                                      "1750"
+      "bonus_armor"                                       "10"
+      "bonus_magic_resistance"                            "20"
+      "damage_reduction"                                  "80"
+      "duration"                                          "3.0"
       "damage_as_healing"                                 "25"
     }
   }

@@ -5,6 +5,10 @@ function modifier_rune_hill_tripledamage:IsHidden()
   return false
 end
 
+function modifier_rune_hill_tripledamage:IsDebuff()
+  return false
+end
+
 function modifier_rune_hill_tripledamage:IsPurgable()
   return false
 end
@@ -21,17 +25,18 @@ function modifier_rune_hill_tripledamage:OnIntervalThink()
     return
   end
 
-  if not Duels:IsActive() then
+  local parent = self:GetParent()
+
+  -- Remove itself if not in a duel or if parent somehow doesnt exist
+  if not Duels:IsActive() or not parent or parent:IsNull() then
     self:StartIntervalThink(-1)
     self:Destroy()
     return
   end
 
-  local parent = self:GetParent()
-
-  if parent:HasModifier("modifier_rune_doubledamage") then
-    parent:RemoveModifierByName("modifier_rune_doubledamage")
-  end
+  --if parent:HasModifier("modifier_rune_hill_doubledamage") then
+    --parent:RemoveModifierByName("modifier_rune_hill_doubledamage")
+  --end
 end
 
 function modifier_rune_hill_tripledamage:DeclareFunctions()

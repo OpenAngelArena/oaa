@@ -17,7 +17,7 @@
     "AbilityCooldown"                                     "14" //OAA
 
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "500" //OAA, Valve has it wrong
+    "AbilityCastRange"                                    "450" //OAA
 
     "AbilityManaCost"                                     "50"
 
@@ -34,12 +34,12 @@
       "02"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "4" //OAA
+        "duration"                                        "5" //OAA
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "500"
+        "radius"                                          "450" //OAA
       }
       "04"
       {
@@ -52,7 +52,7 @@
         "scepter_cooldown"                                "50"
         "RequiresScepter"                                 "1"
       }
-      "05"
+      "05" // not needed
       {
         "var_type"                                        "FIELD_FLOAT"
         "scepter_fade_duration"                           "0.5"

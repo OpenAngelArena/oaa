@@ -13,8 +13,6 @@ function Control( keys )
   --local ability_level = ability:GetLevel() - 1
 
   -- Little bonus for bots because they dont farm and mostly walk around doing nothing
-  caster:AddExperience(5,0,false,false)
-  caster:ModifyGold(5,false,0)
 
   position = caster:GetAbsOrigin()
   -- Hardcoded arenas coordinates, the top left corner and the bottom right corner

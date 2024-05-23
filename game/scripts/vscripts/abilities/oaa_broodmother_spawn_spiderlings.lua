@@ -109,6 +109,7 @@ if IsServer() then
     local hp_per_level = ability:GetSpecialValueFor("spiderling_hp_per_level")
     local base_armor = ability:GetSpecialValueFor("spiderling_base_armor")
     local armor_per_level = ability:GetSpecialValueFor("spiderling_armor_per_level")
+    local magic_resist_per_level = ability:GetSpecialValueFor("spiderling_magic_resist_per_level")
     local base_speed = ability:GetSpecialValueFor("spiderling_speed")
     local base_damage = ability:GetSpecialValueFor("spiderling_base_attack_damage")
     local damage_per_level = ability:GetSpecialValueFor("spiderling_attack_damage_per_level")
@@ -158,11 +159,13 @@ if IsServer() then
     local dmg_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_4_oaa")
 
     if hp_talent and hp_talent:GetLevel() > 0 then
-      base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
+      --base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
+      hp_per_level = hp_per_level + hp_talent:GetSpecialValueFor("value")
     end
 
     if dmg_talent and dmg_talent:GetLevel() > 0 then
-      base_damage = base_damage + dmg_talent:GetSpecialValueFor("value")
+      --base_damage = base_damage + dmg_talent:GetSpecialValueFor("value")
+      damage_per_level = damage_per_level + dmg_talent:GetSpecialValueFor("value")
     end
 
     local level = parent:GetLevel()
@@ -171,7 +174,8 @@ if IsServer() then
     -- Calculate stats
     local summon_hp = base_hp + (level - 1) * hp_per_level
     local summon_armor = base_armor + (level - 1) * armor_per_level
-    local summon_damage = base_damage + (level - 1) * damage_per_level
+    local summon_magic_resist = 20 + (level - 1) * magic_resist_per_level
+    local summon_damage = math.ceil(base_damage + (level - 1) * damage_per_level)
 
     for i = 1, summon_count do
       local summon = self:SpawnUnit(unit_name, parent, playerID, summon_position, false)
@@ -209,6 +213,9 @@ if IsServer() then
 
       -- ARMOR
       summon:SetPhysicalArmorBaseValue(summon_armor)
+
+      -- MAGIC RESIST
+      summon:SetBaseMagicalResistanceValue(summon_magic_resist)
 
       -- Movement speed
       summon:SetBaseMoveSpeed(base_speed)

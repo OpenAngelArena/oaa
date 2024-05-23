@@ -161,6 +161,10 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
 
+    if not spell or spell:IsNull() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -206,7 +210,8 @@ function modifier_item_vampire_active:GetModifierAura()
 end
 
 function modifier_item_vampire_active:GetAuraRadius()
-  if self:GetStackCount() == 1 then
+  -- Check if it's day time
+  if math.abs(self:GetStackCount()) == 1 then
     return 1
   else
     local ability = self:GetAbility()
@@ -249,7 +254,7 @@ function modifier_item_vampire_active:OnCreated()
     if not GameRules:IsDaytime() then
       self:SetStackCount(0)
     else
-      self:SetStackCount(1)
+      self:SetStackCount(-1)
     end
   end
 end
@@ -286,12 +291,12 @@ end
 
 function modifier_item_vampire_active:OnIntervalThink()
   if IsServer() then
-    -- Don't do damage during the night
+    -- Don't do self damage during the night
     if not GameRules:IsDaytime() then
       self:SetStackCount(0)
       return
     else
-      self:SetStackCount(1)
+      self:SetStackCount(-1)
     end
     local parent = self:GetParent()
     local spell = self:GetAbility()
@@ -328,7 +333,8 @@ function modifier_item_vampire_active:DeclareFunctions()
 end
 
 function modifier_item_vampire_active:GetModifierPreAttack_BonusDamage()
-  if self:GetStackCount() == 1 then
+  -- Check if it's day time
+  if math.abs(self:GetStackCount()) == 1 then
     return 0
   else
     local ability = self:GetAbility()
@@ -376,6 +382,10 @@ if IsServer() then
     local attacker = event.attacker
     local damaged_unit = event.unit
 
+    if not spell or spell:IsNull() then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -410,6 +420,7 @@ if IsServer() then
       return
     end
 
+    -- Check if attacker has this modifier
     if attacker ~= parent or not self.procRecords[event.record] then
       return
     end
@@ -419,13 +430,19 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not parent:IsAlive() then
+      return
+    end
+
     self.procRecords[event.record] = nil
 
     if damage <= 0 or amount <= 0 then
       return
     end
 
-    if event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK then
+    -- Normal lifesteal should not work for spells and magic damage attacks
+    if event.inflictor or event.damage_category ~= DOTA_DAMAGE_CATEGORY_ATTACK or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
       return
     end
 
@@ -443,7 +460,7 @@ if IsServer() then
       parentTeam
     )
 
-    if ufResult == UF_SUCCESS and parent:IsAlive() then
+    if ufResult == UF_SUCCESS then
       local lifesteal_amount = damage * amount * 0.01
       parent:HealWithParams(lifesteal_amount, spell, true, true, parent, false)
 

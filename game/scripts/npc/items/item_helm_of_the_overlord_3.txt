@@ -51,10 +51,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "11202"
+    "ItemCost"                                            "10727"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto 3;helm of the overlord 3;helm 3;overlord 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"

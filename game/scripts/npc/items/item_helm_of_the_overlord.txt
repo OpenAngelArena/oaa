@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "775"
+    "ItemCost"                                            "300"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -49,11 +49,12 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "6200"
+    "ItemCost"                                            "5725"
     "ItemShopTags"                                        "damage;armor;unique;hard_to_tag"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "hoto;helm of the overlord;helm;overlord"
-    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "MaxUpgradeLevel"                                     "5"
     "ItemBaseLevel"                                       "1"
@@ -74,12 +75,6 @@
       "creep_bonus_armor"                                 "7 9 11 13 15"
       "model_scale"                                       "20 30 40 50 60"
       "count_limit"                                       "1"
-      // "armor_aura"                                        "4.0 5.0 7.0 10.0 14.0"
-      // "mana_regen_aura"                                   "2.0 2.25 2.75 3.5 4.5"
-      // "lifesteal_aura"                                    "20 25 30 35 40"
-      // "creep_lifesteal_reduction_pct"                     "40"
-      // "damage_aura"                                       "18 26 34 42 50"
-      // "aura_radius"                                       "1200"
       "creep_ability_level_increase"                      "1"
     }
   }

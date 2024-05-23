@@ -11,7 +11,7 @@
 
 "DOTA_Tooltip_Ability_item_recipe_vladmirs_grimoire_1"                          "Vladmir's Grimoire Recipe"
 "DOTA_Tooltip_Ability_item_vladmirs_grimoire_1"                                 "Vladmir's Grimoire"
-"DOTA_Tooltip_Ability_item_vladmirs_grimoire_1_Description"                     "<h1>Active: Unsummon</h1>Teleports all units on the map under your control inside the grimoire keeping them safe. After %banish_duration% seconds, they will reappear in front of you. If you die before that happens, all units inside the grimoire will die.\n\n<h1>Passive: Vladmir's Grimoire Aura</h1>Grants %lifesteal_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, and %armor_aura% armor to nearby allies. Lifesteal from creeps doesn't have a penalty. Aura also grants %damage_reduction_against_bosses%%% damage reduction against bosses.<br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_Ability_item_vladmirs_grimoire_1_Description"                     "<h1>Active: Preserve</h1> Removes debuffs from all units under your control and banish them inside the grimoire for %banish_duration% seconds. When the banishment is over, they will reappear in front of you. If you die before that happens, all units inside the grimoire will die. Units inside the grimoire are invulnerable and don't bestow auras. <br><br>Radius: Global \n\n<h1>Passive: Vladmir's Grimoire Aura</h1> Grants %lifesteal_aura%%% lifesteal, %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, and %armor_aura% armor to nearby allies. Lifesteal from creeps doesn't have a penalty. Aura also grants %damage_reduction_against_bosses%%% damage reduction against bosses. Damage reduction is increased to %creep_damage_reduction_against_bosses%%% for non-hero units. <br><br>Radius: %aura_radius%"
 "DOTA_Tooltip_Ability_item_vladmirs_grimoire_1_Lore"                            "Book used for keeping thralls safe."
 "DOTA_Tooltip_ability_item_vladmirs_grimoire_1_bonus_all_stats"                 "+$all"
 "DOTA_Tooltip_ability_item_vladmirs_grimoire_1_bonus_health"                    "+$health"
@@ -50,4 +50,4 @@
 "DOTA_Tooltip_ability_item_vladmirs_grimoire_5_bonus_mana"                      "#{DOTA_Tooltip_ability_item_vladmirs_grimoire_1_bonus_mana}"
 
 "DOTA_Tooltip_modifier_item_vladmirs_grimoire_aura_effect"                      "#{DOTA_Tooltip_Ability_item_vladmirs_grimoire_1}"
-"DOTA_Tooltip_modifier_item_vladmirs_grimoire_aura_effect_Description"          "#{DOTA_Tooltip_modifier_item_vladmir_aura_Description} Taking %dMODIFIER_PROPERTY_TOOLTIP%%% less damage from Bosses."
+"DOTA_Tooltip_modifier_item_vladmirs_grimoire_aura_effect_Description"          "#{DOTA_Tooltip_modifier_item_vladmir_aura_Description} Taking %dMODIFIER_PROPERTY_TOOLTIP2%%% less damage from Bosses."

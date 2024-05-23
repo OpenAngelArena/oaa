@@ -14,7 +14,7 @@
 
 "DOTA_Tooltip_Ability_item_meteor_hammer_1"                                     "#{DOTA_Tooltip_Ability_item_meteor_hammer}"
 "DOTA_Tooltip_Ability_item_recipe_meteor_hammer_1"                              "#{DOTA_Tooltip_Ability_item_recipe_meteor_hammer}"
-"DOTA_Tooltip_ability_item_meteor_hammer_1_Description"                         "<h1>Active: Meteor Hammer</h1> CHANNELED - After a succesful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. Continues to deal damage over time to enemies for %burn_duration% seconds. Enemies are also slowed for %move_speed_slow_pct%%% for the duration of the burn.<br><br>Boss Impact Damage: %impact_damage_boss% <br>Boss Over Time Damage: %burn_dps_boss% <br><br>Non-Boss Impact Damage: %impact_damage% <br>Non-Boss Over Time Damage: %burn_dps% <br><br>Channel Duration: %AbilityChannelTime% seconds.<br>Landing Time: %land_time% seconds.<br>Cooldown: %cooldown_tooltip% seconds"
+"DOTA_Tooltip_ability_item_meteor_hammer_1_Description"                         "<h1>Active: Meteor Hammer</h1> CHANNELED - After a succesful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. Continues to deal damage over time to enemies for %burn_duration% seconds. Enemies are also slowed for %move_speed_slow_pct%%% for the duration of the burn.<br><br><font color='#FFA500'>Boss Impact Damage: %impact_damage_boss%</font> <br><font color='#FFA500'>Boss Over Time Damage: %burn_dps_boss%</font> <br><br>Non-Boss Impact Damage: %impact_damage% <br>Non-Boss Over Time Damage: %burn_dps% <br><br>Channel Duration: %AbilityChannelTime% seconds.<br>Landing Time: %land_time% seconds.<br>Cooldown: %cooldown_tooltip% seconds"
 "DOTA_Tooltip_ability_item_meteor_hammer_1_lore"                                "#{DOTA_Tooltip_ability_item_meteor_hammer_lore}"
 "DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_strength"                      "+$str"
 "DOTA_Tooltip_ability_item_meteor_hammer_1_bonus_intellect"                     "+$int"
@@ -68,7 +68,7 @@
 "DOTA_Tooltip_ability_item_meteor_hammer_5_spell_lifesteal_amp"                 "#{DOTA_Tooltip_ability_item_meteor_hammer_1_spell_lifesteal_amp}"
 
 "DOTA_Tooltip_modifier_item_meteor_hammer_oaa_dot"                              "#{DOTA_Tooltip_modifier_item_meteor_hammer_burn}"
-"DOTA_Tooltip_modifier_item_meteor_hammer_oaa_dot_Description"                  "Slowed and taking damage over time"
+"DOTA_Tooltip_modifier_item_meteor_hammer_oaa_dot_Description"                  "Taking magical damage, move speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 "DOTA_Tooltip_modifier_item_meteor_hammer_oaa_stun"                             "#{DOTA_Tooltip_Ability_item_meteor_hammer} Stun"
-"DOTA_Tooltip_modifier_item_meteor_hammer_oaa_stun_Description"                 "Stunned"
+"DOTA_Tooltip_modifier_item_meteor_hammer_oaa_stun_Description"                 "Stunned."

@@ -38,8 +38,8 @@
     {
       "lance_damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 840"
-        "special_bonus_unique_phantom_lancer_lance_damage"  "+75"
+        "value"                                           "70 140 210 280 560 1120"
+        "special_bonus_unique_phantom_lancer_lance_damage"  "+70"
       }
       "lance_speed"                                       "1000"
       "duration"                                          "3.75"
@@ -50,8 +50,8 @@
       "illusion_duration"                                 "2.0 4.0 6.0 8.0 8.0 8.0"
       "illusion_damage_out_pct"                           "-80 -78 -76 -74 -72 -70" //OAA
       "tooltip_illusion_damage"                           "20 22 24 26 28 30" //OAA
-      "illusion_damage_in_pct"                            "300 250 200 150 125 100" //OAA
-      "tooltip_illusion_total_damage_in_pct"              "400 350 300 250 225 200" //OAA
+      "illusion_damage_in_pct"                            "300 260 220 180 140 100" //OAA
+      "tooltip_illusion_total_damage_in_pct"              "400 360 320 280 240 200" //OAA
       "fake_lance_distance"                               "675"
       "scepter_bounce_radius"
       {

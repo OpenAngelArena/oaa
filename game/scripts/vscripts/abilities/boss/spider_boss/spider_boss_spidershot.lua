@@ -35,8 +35,10 @@ function spider_boss_spidershot:OnSpellStart(keys)
           local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, ball)
           ParticleManager:ReleaseParticleIndex(smoke)
 
-          ParticleManager:DestroyParticle(indicator, true)
-          ParticleManager:ReleaseParticleIndex(indicator)
+          if indicator then
+            ParticleManager:DestroyParticle(indicator, true)
+            ParticleManager:ReleaseParticleIndex(indicator)
+          end
 
           Timers:CreateTimer(explode_delay, function ()
             if ball and not ball:IsNull() then
@@ -88,8 +90,10 @@ function spider_boss_spidershot:OnSpellStart(keys)
           end
         end,
         onDiedCallback = function ()
-          ParticleManager:DestroyParticle(indicator, true)
-          ParticleManager:ReleaseParticleIndex(indicator)
+          if indicator then
+            ParticleManager:DestroyParticle(indicator, true)
+            ParticleManager:ReleaseParticleIndex(indicator)
+          end
 
           if ball and not ball:IsNull() then
             ball:AddNoDraw()

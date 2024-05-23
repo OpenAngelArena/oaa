@@ -24,7 +24,7 @@
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
     "AnimationPlaybackRate"                               "2.5"
-    "AbilityCastRange"                                    "500"
+    "AbilityCastRange"                                    "525" // higher than Flurry of Blows radius
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -38,12 +38,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "75"
-      "strength_damage"                                   "100"
+      "damage"                                            "150"
+      "strength_damage"                                   "150"
       "ally_damage_amp"                                   "15"
       "enemy_damage_reduction"                            "-15"
       "duration"                                          "4"
-      "pull_length"                                       "375"
+      "pull_length"                                       "400" // same as Repulsive/Polarizing Palm distance
       "pull_speed"                                        "1200"
     }
   }

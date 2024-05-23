@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Polarizing Palm talent: bonus cast range
+  // Repulsive Palm talent: bonus strength damage
   //=================================================================================================================
   "special_bonus_unique_sohei_9"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "150"
+        "value"                                           "40"
       }
     }
   }

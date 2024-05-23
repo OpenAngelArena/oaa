@@ -60,8 +60,8 @@
     "ItemCost"                                            "35379"
     "ItemShopTags"                                        "agi;str;int;hard_to_tag"
     "ItemQuality"                                         "epic"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "eb 5;ethereal blade 5;eblade 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -77,7 +77,7 @@
       "blast_movement_slow"                               "-80"
       "duration"                                          "4.0"
       "blast_agility_multiplier"                          "1.5"
-      "blast_damage_base"                                 "50 150 250 350 450"
+      "blast_damage_base"                                 "75 175 275 375 475"
       "duration_ally"                                     "4.0"
       "ethereal_damage_bonus"                             "-40 -45 -50 -55 -60"
       "projectile_speed"                                  "1275"

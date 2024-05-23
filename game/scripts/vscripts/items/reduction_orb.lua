@@ -110,32 +110,40 @@ end
 
 function modifier_item_reduction_orb_active:DeclareFunctions()
   return {
-    --MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    --MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
     MODIFIER_PROPERTY_MODEL_SCALE
   }
 end
 
---function modifier_item_reduction_orb_active:GetModifierIncomingDamage_Percentage(event)
+function modifier_item_reduction_orb_active:GetModifierIncomingDamage_Percentage(event)
+  if not IsServer() then
+    return
+  end
 
-  --self.endHeal = self.endHeal + event.original_damage * self.damageheal / 100
+  local damage_before = event.original_damage
+  if damage_before > 0 then
+    self.endHeal = self.endHeal + damage_before * self.damageheal / 100
+  end
 
-  --return self.damageReduction * -1
---end
+  return 0 - self.damageReduction
+end
 
+--[[
 function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event)
   if not IsServer() then
     return
   end
 
   local parent = self:GetParent()
-  local damage = math.max(event.original_damage, event.damage)
+  local damage_before = event.original_damage
+  local damage_after = event.damage
 
-  if damage > 0 then
-    self.endHeal = self.endHeal + damage * self.damageheal / 100
+  if damage_before > 0 then
+    self.endHeal = self.endHeal + damage_before * self.damageheal / 100
   end
 
-  local block_amount = damage * self.damageReduction / 100
+  local block_amount = damage_after * self.damageReduction / 100
 
   if block_amount > 0 then
     -- Visual effect
@@ -149,9 +157,18 @@ function modifier_item_reduction_orb_active:GetModifierTotal_ConstantBlock(event
 
   return block_amount
 end
+]]
 
 function modifier_item_reduction_orb_active:GetModifierModelScale()
-  return -40
+  return -30
+end
+
+function modifier_item_reduction_orb_active:GetStatusEffectName()
+  return "particles/status_fx/status_effect_glow_white_over_time.vpcf"
+end
+
+function modifier_item_reduction_orb_active:StatusEffectPriority()
+  return MODIFIER_PRIORITY_SUPER_ULTRA + 10000
 end
 
 function modifier_item_reduction_orb_active:GetTexture()

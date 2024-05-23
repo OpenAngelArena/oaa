@@ -74,19 +74,23 @@ function viper_viper_strike_oaa:OnProjectileHit_ExtraData( target, loc, data )
 		-- play the sound
 		target:EmitSound( "Hero_Viper.ViperStrike.Target" )
 
+    -- Check for 'Viper Strike Purges & Silences' talent
+    local talent = caster:FindAbilityByName("special_bonus_unique_viper_3_oaa")
+    if talent and talent:GetLevel() > 0 then
+      -- Basic Dispel for enemies
+      local RemovePositiveBuffs = true
+      local RemoveDebuffs = false
+      local BuffsCreatedThisFrameOnly = false
+      local RemoveStuns = false
+      local RemoveExceptions = false
+      target:Purge(RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+
+      -- apply the custom silence modifier
+      target:AddNewModifier(caster, self, "modifier_viper_viper_strike_silence", {duration = duration})
+    end
+
 		-- apply the standard viper strike modifier
-		target:AddNewModifier( caster, self, "modifier_viper_viper_strike_slow", {
-			duration = duration,
-		} )
-
-		-- apply the silence modifier if the talent is picked
-		local talent = caster:FindAbilityByName( "special_bonus_unique_viper_3_oaa" )
-
-		if talent and talent:GetLevel() > 0 then
-			target:AddNewModifier( caster, self, "modifier_viper_viper_strike_silence", {
-				duration = duration,
-			} )
-		end
+		target:AddNewModifier(caster, self, "modifier_viper_viper_strike_slow", {duration = duration})
 	end
 
 	-- due to the unique way the projectile part works

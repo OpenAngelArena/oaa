@@ -15,6 +15,14 @@ function item_shield_staff:GetIntrinsicModifierNames()
   }
 end
 
+local forbidden_modifiers = {
+  "modifier_enigma_black_hole_pull",
+  "modifier_faceless_void_chronosphere_freeze",
+  "modifier_legion_commander_duel",
+  "modifier_batrider_flaming_lasso",
+  "modifier_disruptor_kinetic_field",
+}
+
 --function item_shield_staff:CastFilterResultTarget(target)
   --local caster = self:GetCaster()
   --local defaultFilterResult = self.BaseClass.CastFilterResultTarget(self, target)
@@ -23,13 +31,6 @@ end
     --return UF_FAIL_CUSTOM
   --end
 
-  -- local forbidden_modifiers = {
-    -- "modifier_enigma_black_hole_pull",
-    -- "modifier_faceless_void_chronosphere_freeze",
-    -- "modifier_legion_commander_duel",
-    -- "modifier_batrider_flaming_lasso",
-    -- "modifier_disruptor_kinetic_field",
-  -- }
   -- for _, modifier in pairs(forbidden_modifiers) do
     -- if target:HasModifier(modifier) then
       -- return UF_FAIL_CUSTOM
@@ -60,6 +61,21 @@ end
     -- return "#oaa_hud_error_pull_staff_kinetic_field"
   -- end
 -- end
+
+function item_shield_staff:GetCooldown(level)
+  local cooldown = self.BaseClass.GetCooldown(self, level)
+
+  if IsServer() then
+    local target = self:GetCursorTarget()
+    for _, modifier in pairs(forbidden_modifiers) do
+      if target:HasModifier(modifier) then
+        return cooldown / 2
+      end
+    end
+  end
+
+  return cooldown
+end
 
 function item_shield_staff:OnSpellStart()
   local target = self:GetCursorTarget()
@@ -103,14 +119,6 @@ function item_shield_staff:OnSpellStart()
       barrierHP = self:GetSpecialValueFor("barrier_block"),
     })
   end
-
-  local forbidden_modifiers = {
-    "modifier_enigma_black_hole_pull",
-    "modifier_faceless_void_chronosphere_freeze",
-    "modifier_legion_commander_duel",
-    "modifier_batrider_flaming_lasso",
-    "modifier_disruptor_kinetic_field",
-  }
 
   -- If target has any of these debuffs, don't continue
   for _, modifier in pairs(forbidden_modifiers) do
@@ -403,7 +411,7 @@ function modifier_shield_staff_barrier_buff:IsDebuff()
 end
 
 function modifier_shield_staff_barrier_buff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_shield_staff_barrier_buff:IsPurgable()
@@ -419,7 +427,7 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
 
   if IsServer() then
     if event.barrierHP then
-      self:SetStackCount(event.barrierHP)
+      self:SetStackCount(0 - event.barrierHP)
     end
 
     -- Sound
@@ -440,12 +448,12 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     if event.report_max then
       return self.max_shield_hp
     else
-      return self:GetStackCount() -- current shield hp
+      return math.abs(self:GetStackCount()) -- current shield hp
     end
   else
     local parent = self:GetParent()
     local damage = event.damage
-    local barrier_hp = self:GetStackCount()
+    local barrier_hp = math.abs(self:GetStackCount())
 
     -- Don't react to damage with HP removal flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
@@ -460,8 +468,8 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     -- Don't block more than remaining hp
     local block_amount = math.min(damage, barrier_hp)
 
-    -- Reduce barrier hp
-    self:SetStackCount(barrier_hp - block_amount)
+    -- Reduce barrier hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - barrier_hp)
 
     if block_amount > 0 then
       -- Visual effect
@@ -474,7 +482,7 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     end
 
     -- Remove the barrier if hp is reduced to nothing
-    if self:GetStackCount() <= 0 then
+    if self:GetStackCount() >= 0 then
       self:Destroy()
     end
 
@@ -491,5 +499,5 @@ function modifier_shield_staff_barrier_buff:GetEffectAttachType()
 end
 
 function modifier_shield_staff_barrier_buff:GetTexture()
-  return "custom/force_staff_1"
+  return "item_force_staff"
 end

@@ -5,6 +5,7 @@
 
 LinkLuaModifier("modifier_azazel_summon_farmer_innate", "items/azazel_summon.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azazel_summon_scout_innate", "items/azazel_summon.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_azazel_summon_tank_innate", "items/azazel_summon.lua", LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -37,7 +38,9 @@ function azazel_summon:OnSpellStart()
 
   -- Level up any relevant abilities
   if string.find(summon_name, "farmer") then
-    azazel_summon:AddAbility("azazel_summon_farmer_innate"):SetLevel(self:GetLevel())
+    azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_farmer_innate", {dmg_block = self:GetSpecialValueFor("summon_damage_block")})
+  elseif string.find(summon_name, "tank") then
+    azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_tank_innate", {dmg_reduction = self:GetSpecialValueFor("damage_reduction_against_neutrals")})
   elseif string.find(summon_name, "scout") then
     azazel_summon:AddAbility("azazel_scout_permanent_invisibility"):SetLevel(1)
     azazel_summon:AddNewModifier(caster, self, "modifier_azazel_summon_scout_innate", {})
@@ -92,14 +95,6 @@ item_azazel_summon_fighter = azazel_summon
 
 --------------------------------------------------------------------------------
 
-azazel_summon_farmer_innate = class(AbilityBaseClass)
-
-function azazel_summon_farmer_innate:GetIntrinsicModifierName()
-  return "modifier_azazel_summon_farmer_innate"
-end
-
---------------------------------------------------------------------------------
-
 modifier_azazel_summon_farmer_innate = class(ModifierBaseClass)
 
 function modifier_azazel_summon_farmer_innate:IsHidden()
@@ -114,6 +109,12 @@ function modifier_azazel_summon_farmer_innate:IsPurgable()
   return false
 end
 
+function modifier_azazel_summon_farmer_innate:OnCreated(event)
+  if IsServer() then
+    self:SetStackCount(event.dmg_block)
+  end
+end
+
 function modifier_azazel_summon_farmer_innate:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
@@ -122,17 +123,55 @@ function modifier_azazel_summon_farmer_innate:DeclareFunctions()
 end
 
 function modifier_azazel_summon_farmer_innate:GetModifierPhysical_ConstantBlock()
-  return self:GetAbility():GetSpecialValueFor("damage_block")
+  return self:GetStackCount()
 end
 
 if IsServer() then
-  function modifier_azazel_summon_farmer_innate:OnAttackLanded(keys)
-    if keys.attacker == self:GetParent() and (not keys.target:IsBuilding()) then
-      local ability = self:GetAbility()
-      DoCleaveAttack(self:GetParent(), keys.target, ability, keys.damage * ability:GetSpecialValueFor("cleave_pct") * 0.01, ability:GetSpecialValueFor("cleave_start_radius"), ability:GetSpecialValueFor("cleave_end_radius"), ability:GetSpecialValueFor("cleave_length"), "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf")
+  function modifier_azazel_summon_farmer_innate:OnAttackLanded(event)
+    local parent = self:GetParent()
+    if event.attacker ~= parent then
+      return
     end
+
+    if not parent or parent:IsNull() then
+      return
+    end
+
+    if parent:IsIllusion() or parent:IsRangedAttacker() then
+      return
+    end
+
+    local target = event.target
+    if not target or target:IsNull() then
+      return
+    end
+
+    if target.GetUnitName == nil then
+      return
+    end
+
+    -- Don't affect buildings, wards and invulnerable units.
+    if target:IsTower() or target:IsBarracks() or target:IsBuilding() or target:IsOther() or target:IsInvulnerable() then
+      return
+    end
+
+    -- get the cleave parameters
+    local start_radius = 200
+    local end_radius = 360
+    local distance = 650
+    local percent = 50
+
+    -- get the attacker's damage
+    local damage = event.original_damage
+
+    -- get the damage modifier
+    local actual_damage = damage*percent*0.01
+
+    DoCleaveAttack(parent, target, nil, actual_damage, start_radius, end_radius, distance, "particles/items_fx/battlefury_cleave.vpcf")
   end
 end
+
+---------------------------------------------------------------------------------------------------
 
 modifier_azazel_summon_scout_innate = class(ModifierBaseClass)
 
@@ -194,3 +233,57 @@ function modifier_azazel_summon_scout_innate:CheckState()
     [MODIFIER_STATE_FORCED_FLYING_VISION] = true,
   }
 end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_azazel_summon_tank_innate = class(ModifierBaseClass)
+
+function modifier_azazel_summon_tank_innate:IsHidden()
+  return true
+end
+
+function modifier_azazel_summon_tank_innate:IsDebuff()
+  return false
+end
+
+function modifier_azazel_summon_tank_innate:IsPurgable()
+  return false
+end
+
+function modifier_azazel_summon_tank_innate:OnCreated(event)
+  if IsServer() then
+    self.dmg_reduction = event.dmg_reduction
+  end
+end
+
+function modifier_azazel_summon_tank_innate:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+  }
+end
+
+if IsServer() then
+  function modifier_azazel_summon_tank_innate:GetModifierTotal_ConstantBlock(event)
+    local attacker = event.attacker
+
+    if not attacker or attacker:IsNull() then
+      return 0
+    end
+
+    if attacker.IsBaseNPC == nil then
+      return 0
+    end
+
+    if not attacker:IsBaseNPC() then
+      return 0
+    end
+
+    -- Block damage from neutrals and always from bosses
+    if attacker:IsOAABoss() or attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+      return event.damage * self.dmg_reduction / 100
+    end
+
+    return 0
+  end
+end
+

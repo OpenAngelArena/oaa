@@ -228,7 +228,7 @@ function HeroProgression:ExperienceFilter(keys)
       local hero = player:GetAssignedHero()
 
       if hero:HasModifier("modifier_hyper_experience_oaa") and keys.reason_const ~= DOTA_ModifyXP_BonusExperience then
-        hero:AddExperience(experience * 2, DOTA_ModifyXP_BonusExperience, false, true)
+        hero:AddExperience(experience, DOTA_ModifyXP_BonusExperience, false, true)
       end
 
       return true

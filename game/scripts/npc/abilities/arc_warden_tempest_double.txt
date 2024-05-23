@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
 
     "MaxLevel"                                            "5"
@@ -36,7 +36,7 @@
       "penalty_distance"
       {
         "value"                                           "2000"
-        "affected_by_aoe_increase"                        "1" // Valve lmao
+        "affected_by_aoe_increase"                        "1"
       }
       "ignore_penalty_distance"
       {

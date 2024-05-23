@@ -198,25 +198,51 @@ local other_keywords = {
   dash_width = true,
 }
 
-local ignore_abilities = {
-  --arc_warden_flux = true,
+local ignored_abilities = {
+  arc_warden_flux = true,
   --monkey_king_wukongs_command_oaa = true,
-  --phantom_assassin_blur = true,
-  --spectre_desolate = true,
+  phantom_assassin_blur = true,
+  spectre_desolate = true,
+}
+
+local forbidden_kvs = {
+  ancient_apparition_ice_blast = {radius_grow = true,},
+  --dawnbreaker_celestial_hammer = {hammer_aoe_radius = true,},
+  grimstroke_soul_chain = {leash_radius_buffer = true,},
+  --legion_commander_overwhelming_odds = {duel_radius_bonus = true,}, -- uncomment if flat change
+  --leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,}, -- uncomment if flat change
+  lich_frost_nova = {aoe_damage = true,},
+  --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change
+  sandking_epicenter = {epicenter_radius_increment = true,},
+  sandking_sand_storm = {scepter_explosion_radius_pct = true,},
 }
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(keys)
-  if not keys.ability or not keys.ability_special_value or not aoe_keywords then
+  local ability = keys.ability
+  if not ability or not keys.ability_special_value then
     return 0
   end
 
-  if ignore_abilities[keys.ability:GetAbilityName()] or keys.ability:IsItem() then
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
     return 0
   end
 
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return 1
+  if ability:IsItem() then
+    return 0
+  end
+
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return 0
+    end
+  end
+
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return 1
+      end
     end
   end
 
@@ -228,10 +254,33 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecial(ke
 end
 
 function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialValue(keys)
-  local value = keys.ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
-  for keyword, _ in pairs(aoe_keywords) do
-    if string.find(keys.ability_special_value, keyword) then
-      return value * self.aoe_multiplier
+  local ability = keys.ability
+  if not keys.ability_special_value or not keys.ability_special_level then
+    return
+  end
+
+  local value = ability:GetLevelSpecialValueNoOverride(keys.ability_special_value, keys.ability_special_level)
+
+  if ignored_abilities and ignored_abilities[ability:GetAbilityName()] then
+    return value
+  end
+
+  if ability:IsItem() then
+    return value
+  end
+
+  if forbidden_kvs and forbidden_kvs[ability:GetAbilityName()] then
+    local t = forbidden_kvs[ability:GetAbilityName()]
+    if t[keys.ability_special_value] then
+      return value
+    end
+  end
+
+  if aoe_keywords then
+    for keyword, _ in pairs(aoe_keywords) do
+      if string.find(keys.ability_special_value, keyword) then
+        return value * self.aoe_multiplier
+      end
     end
   end
 
@@ -242,6 +291,6 @@ function modifier_item_spell_breaker_active:GetModifierOverrideAbilitySpecialVal
   return value
 end
 
---function modifier_item_spell_breaker_active:GetTexture()
-  --return "custom/spell_breaker_1"
---end
+function modifier_item_spell_breaker_active:GetTexture()
+  return "custom/spell_breaker_1"
+end

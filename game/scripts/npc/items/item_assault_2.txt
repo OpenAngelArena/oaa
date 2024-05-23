@@ -37,6 +37,7 @@
     "BaseClass"                                           "item_assault"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/assault_cuirass_2"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "AbilityCastRange"                                    "1200"
 
@@ -46,6 +47,7 @@
     "ItemShopTags"                                        "attack_speed;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ac 2;assault cuirass 2"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     //Spicy Parameters

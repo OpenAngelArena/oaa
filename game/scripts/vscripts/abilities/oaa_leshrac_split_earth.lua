@@ -183,7 +183,7 @@ end
 modifier_leshrac_split_earth_oaa_debuff = class(ModifierBaseClass)
 
 function modifier_leshrac_split_earth_oaa_debuff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_leshrac_split_earth_oaa_debuff:IsDebuff()

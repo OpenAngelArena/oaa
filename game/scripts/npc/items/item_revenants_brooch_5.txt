@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_revenants_brooch_5"
     "ItemRequirements"
     {
-      "01"                                                "item_nullifier_4;item_upgrade_core_4"
+      "01"                                                "item_revenants_brooch_4;item_upgrade_core_4"
     }
   }
 
@@ -44,6 +44,7 @@
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 5;brooch 5;revenants brooch 5;rb 5"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemBaseLevel"                                       "5"
@@ -54,9 +55,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 65 85 115 155"
+      "bonus_damage"                                      "55 75 115 175 255"
       "spell_lifesteal"                                   "12 14 16 18 20"
-      "manacost_per_hit"                                  "200"
+      "manacost_per_hit"                                  "175"
+      "negative_spell_amp_while_active"                   "-30 -30 -30 -30 0"
     }
   }
 }

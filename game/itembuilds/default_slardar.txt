@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_slardar"
   "Title"         "Recommended items for Slardar"
 
@@ -12,12 +12,27 @@
       "item"      "item_orb_of_venom"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Utility_Initiation" // Standard dota item progression
     {
-      "item"      "item_overwhelming_blink"
-      "item"      "item_heart_oaa_1"
-      "item"      "item_black_king_bar_1"
+      "item"      "item_blink"
       "item"      "item_ultimate_scepter"
+      "item"      "item_black_king_bar_1"
+      "item"      "item_assault"
+    }
+
+    "#DOTA_Item_Build_Physical_Core" // Rightclick
+    {
+      "item"      "item_harpoon"
+      "item"      "item_greater_phase_boots"
+      "item"      "item_silver_edge"
+      "item"      "item_greater_crit"
+      "item"      "item_devastator_oaa_2"
+    }
+
+    "#DOTA_Item_Build_Magical_Core" // Do more damage with spells
+    {
+      "item"      "item_shivas_guard"
+      "item"      "item_sacred_skull"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -27,15 +42,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
-      "item"      "item_spiked_mail_1"
-      "item"      "item_assault"
-      "item"      "item_skadi"
-      "item"      "item_devastator_oaa_2"
+      "item"      "item_heart_oaa_1"
+      "item"      "item_heavens_halberd"
       "item"      "item_satanic"
       "item"      "item_monkey_king_bar"
-      "item"      "item_silver_edge"
-      "item"      "item_heavens_halberd"
-      "item"      "item_harpoon"
+      "item"      "item_skadi"
+      "item"      "item_spell_breaker_1"
+      "item"      "item_spiked_mail_1"
     }
   }
 }

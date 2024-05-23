@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34b"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_nyx_assassin"
   "Title"         "Recommended items for Nyx Assassin"
 
@@ -10,7 +10,6 @@
     {
       "item"      "item_flask"
       "item"      "item_boots"
-      "item"      "item_magic_wand"
     }
 
     "#DOTA_Item_Build_For_Farming"
@@ -18,6 +17,15 @@
       "item"      "item_meteor_hammer_1"
     }
 
+    "#DOTA_Item_Build_Magical_Core"
+    {
+      "item"      "item_dagon_oaa"
+      "item"      "item_ethereal_blade"
+      "item"      "item_shivas_guard"
+      "item"      "item_greater_travel_boots"
+      "item"      "item_dagger_of_moriah_1"
+    }
+    
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_far_sight"
@@ -27,15 +35,6 @@
       "item"      "item_octarine_core"
     }
 
-    "#DOTA_Item_Build_Magical_Core"
-    {
-      "item"      "item_dagon_oaa"
-      "item"      "item_ethereal_blade"
-      "item"      "item_blink"
-      "item"      "item_greater_travel_boots"
-      "item"      "item_dagger_of_moriah_1"
-    }
-
     "#DOTA_Item_Build_Shard"
     {
       "item"      "item_aghanims_shard"
@@ -43,10 +42,11 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
+      "item"      "item_blink"
+      "item"      "item_devastator"
       "item"      "item_heart_oaa_1"
       "item"      "item_lotus_orb"
-      "item"      "item_phylactery"
-      "item"      "item_shivas_guard"
       "item"      "item_spirit_vessel_oaa"
       "item"      "item_greater_tranquil_boots"
       "item"      "item_bubble_orb_1"

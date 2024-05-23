@@ -86,10 +86,18 @@ function sohei_flurry_of_blows:OnSpellStart()
       ParticleManager:ReleaseParticleIndex(caster.flurry_ground_pfx)
     end
 
-    -- Default particle
-    caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, nil)
-    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
-    ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius+10, 0, 0))
+    local pepsiArcana = caster:HasModifier("modifier_arcana_pepsi")
+    if pepsiArcana then
+      -- Arcana particle
+      caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/arcana/pepsi/pepsi_flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
+      ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
+      ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius, 0, 0))
+    else
+      -- Default particle
+      caster.flurry_ground_pfx = ParticleManager:CreateParticle("particles/hero/sohei/flurry_of_blows_ground.vpcf", PATTACH_CUSTOMORIGIN, caster)
+      ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 0, target_loc)
+      ParticleManager:SetParticleControl(caster.flurry_ground_pfx, 10, Vector(radius+10, 0, 0))
+    end
 
     -- Disjoint projectiles
     ProjectileManager:ProjectileDodge(caster)

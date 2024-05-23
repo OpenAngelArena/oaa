@@ -23,7 +23,7 @@
     "ItemResult"                                          "item_revenants_brooch_4"
     "ItemRequirements"
     {
-      "01"                                                "item_revenants_brooch_3;item_upgrade_core_3"
+      "01"                                                "item_nullifier_3;item_upgrade_core_3"
     }
   }
 
@@ -40,10 +40,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17903"
+    "ItemCost"                                            "17378"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 4;brooch 4;revenants brooch 4;rb 4"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemBaseLevel"                                       "4"
@@ -54,9 +55,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 65 85 115 155"
+      "bonus_damage"                                      "55 75 115 175 255"
       "spell_lifesteal"                                   "12 14 16 18 20"
-      "manacost_per_hit"                                  "200"
+      "manacost_per_hit"                                  "175"
+      "negative_spell_amp_while_active"                   "-30 -30 -30 -30 0"
     }
   }
 }

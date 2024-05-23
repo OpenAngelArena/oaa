@@ -293,7 +293,9 @@ function DevCheats:SwitchHero(keys)
     for hero,_ in pairs(herolist) do
       if string.find(hero, splitted[2]) then
         PrecacheUnitByNameAsync(hero, function()
-          PlayerResource:ReplaceHeroWith(playerID, hero, Gold:GetGold(playerID), PlayerResource:GetTotalEarnedXP(playerID))
+          local old_gold = Gold:GetGold(playerID)
+          PlayerResource:ReplaceHeroWith(playerID, hero, 0, 0)
+          Gold:SetGold(playerID, old_gold) -- because ReplaceHeroWith doesn't work properly ofc
         end)
       end
     end

@@ -44,6 +44,7 @@
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "revenant 3;brooch 3;revenants brooch 3;rb 3"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     "ItemBaseLevel"                                       "3"
@@ -54,9 +55,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "55 65 85 115 155"
+      "bonus_damage"                                      "55 75 115 175 255"
       "spell_lifesteal"                                   "12 14 16 18 20"
-      "manacost_per_hit"                                  "200"
+      "manacost_per_hit"                                  "175"
+      "negative_spell_amp_while_active"                   "-30 -30 -30 -30 0"
     }
   }
 }

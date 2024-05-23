@@ -48,7 +48,7 @@
     "AbilityCastRange"                                    "800"
     "AbilityCooldown"                                     "20"
     "AbilitySharedCooldown"                               "judecca"
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "150"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
@@ -62,6 +62,7 @@
     "ItemShopTags"                                        "agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "trumps fists;covfefe;blade of judecca"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -70,8 +71,8 @@
     {
       "bonus_damage"                                      "37 42"
       "bonus_all_stats"                                   "0"
-      "bonus_health"                                      "1400 1700"
-      "bonus_mana"                                        "1100 1400"
+      "bonus_health"                                      "1450 1750"
+      "bonus_mana"                                        "1150 1450"
       "heal_prevent_percent"                              "55 65"
       "heal_prevent_duration"                             "3"
       "mute_duration"                                     "3 3.5"

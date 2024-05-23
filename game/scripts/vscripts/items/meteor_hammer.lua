@@ -284,6 +284,10 @@ function modifier_item_meteor_hammer_oaa_dot:IsPurgable()
   return not self:GetParent():IsOAABoss()
 end
 
+function modifier_item_meteor_hammer_oaa_dot:GetAttributes()
+  return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_meteor_hammer_oaa_dot:OnCreated()
   --local parent = self:GetParent()
   local ability = self:GetAbility()

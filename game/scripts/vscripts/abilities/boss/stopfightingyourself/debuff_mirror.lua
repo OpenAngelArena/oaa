@@ -43,7 +43,6 @@ function modifier_boss_stopfightingyourself_debuff_mirror:OnAttackLanded(keys)
 
     local blacklist = {
       "modifier_truesight",
-      "modifier_item_stoneskin_properties",
     }
     if contains(modifier:GetName(), blacklist) then
       return false

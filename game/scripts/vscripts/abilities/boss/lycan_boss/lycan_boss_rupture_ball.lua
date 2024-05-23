@@ -2,7 +2,7 @@
 lycan_boss_rupture_ball = class(AbilityBaseClass)
 
 function lycan_boss_rupture_ball:Precache(context)
-  PrecacheResource("particle", "particles/darkmoon_creep_warning.vpcf", context)
+  PrecacheResource("particle", "particles/warning/warning_particle_cone.vpcf", context)
   PrecacheResource("particle", "particles/lycanboss_ruptureball_gale.vpcf", context)
   PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_lycan.vsndevts", context)
   --PrecacheResource("soundfile", "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts", context)
@@ -19,11 +19,31 @@ function lycan_boss_rupture_ball:OnAbilityPhaseStart()
     -- Make the caster uninterruptible while casting this ability
     caster:AddNewModifier(caster, self, "modifier_anti_stun_oaa", {duration = delay + 0.1})
 
+    local width = math.max(self:GetSpecialValueFor("attack_width_end"), self:GetSpecialValueFor("attack_width_initial"))
+    local distance = self:GetSpecialValueFor("attack_distance")
+
+    local target
+    if self:GetCursorTarget() then
+      target = self:GetCursorTarget():GetOrigin()
+    else
+      target = self:GetCursorPosition()
+    end
+
+    local direction
+    if not target then
+      direction = caster:GetForwardVector()
+    else
+      direction = target - caster:GetAbsOrigin()
+      direction.z = 0.0
+      direction = direction:Normalized()
+    end
+
     -- Warning particle
-    self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, caster, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), true )
-    ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 150, 150, 150 ) )
-    ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 188, 26, 26 ) )
+    self.nPreviewFX = ParticleManager:CreateParticle("particles/warning/warning_particle_cone.vpcf", PATTACH_WORLDORIGIN, caster)
+    ParticleManager:SetParticleControl(self.nPreviewFX, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(self.nPreviewFX, 2, caster:GetAbsOrigin() + direction*(distance+width) + Vector(0, 0, 50))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 3, Vector(width, width, width))
+    ParticleManager:SetParticleControl(self.nPreviewFX, 4, Vector(255, 0, 0))
   end
 
 	return true

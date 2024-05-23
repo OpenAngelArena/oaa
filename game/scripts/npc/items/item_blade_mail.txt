@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "550"
+    "ItemCost"                                            "400" //OAA
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -52,7 +52,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "2100"
+    "ItemCost"                                            "1950" //OAA
     "ItemShopTags"                                        "damage;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"
@@ -62,8 +62,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "18"
-      "bonus_armor"                                       "7"
+      "bonus_damage"                                      "18" // Broadsword (15)
+      "bonus_armor"                                       "5" //OAA, Chainmail (4)
       "bonus_intellect"                                   "0"
       "duration"                                          "5.5"
       "passive_reflection_constant"                       "20"

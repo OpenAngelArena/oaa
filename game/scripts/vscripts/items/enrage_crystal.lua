@@ -18,7 +18,6 @@ function item_enrage_crystal_1:OnSpellStart()
   caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
   -- Sound
-  --caster:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
   caster:EmitSound("DOTA_Item.MinotaurHorn.Cast")
 
   -- Particle
@@ -170,5 +169,5 @@ function modifier_item_enrage_crystal_active:GetEffectName()
 end
 
 function modifier_item_enrage_crystal_active:GetTexture()
-  return "custom/enrage_crystal_1"
+  return "custom/enrage_crystal"
 end

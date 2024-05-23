@@ -10,7 +10,7 @@ HERO_SELECTION_WHILE_PAUSED = false
 -- available heroes
 local herolist = {}
 local lockedHeroes = {}
-local loadedHeroes = {}
+local loadedHeroes = {} -- marks the hero as precached
 local totalheroes = 0
 
 local cmtimer = nil
@@ -29,7 +29,7 @@ function HeroSelection:Init ()
 
   self.isCM = GetMapName() == "captains_mode"
   self.is10v10 = GetMapName() == "10v10" or GetMapName() == "oaa_bigmode"
-  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy"
+  self.isRanked = GetMapName() == "oaa_seasonal" or GetMapName() == "oaa_legacy" or GetMapName() == "tinymode"
   self.lowPlayerCount = GetMapName() == "1v1" or GetMapName() == "tinymode"
 
   local herolistFile = 'scripts/npc/herolist.txt'
@@ -121,6 +121,8 @@ function HeroSelection:Init ()
         DebugPrint("OnHeroInGame - Applying custom arcana for player "..tostring(playerId).." and hero "..hero_name..".")
         HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
       end
+      -- loadedHeroes is here to mark the spawned hero as already precached in case the player spawned in the wrong hero with 'vanilla random'
+      -- we can't fix the wrong hero here...
       loadedHeroes[hero_name] = true
     end
   end)
@@ -191,9 +193,20 @@ function HeroSelection:Init ()
       -- Check if player has a hero they didn't lock during the picking screen, change it to the locked hero
       if hero and hero_name ~= locked_hero_name and OAAOptions.settings.GAME_MODE ~= "ARDM" then
         local new_hero_name = locked_hero_name
-        if OAAOptions.settings.GAME_MODE == "AR" and HeroSelection:IsHeroDisabled(new_hero_name) then
-          new_hero_name = HeroSelection:RandomHero()
+        -- All Random mode special cases
+        if OAAOptions.settings.GAME_MODE == "AR" then
+          -- Locked hero is not allowed, check if actual hero is allowed, random a new one if it's not
+          if HeroSelection:IsHeroDisabled(hero_name) then
+            new_hero_name = HeroSelection:RandomHero()
+          else
+            new_hero_name = hero_name
+          end
         end
+
+        -- Change locked hero (For All Random mode)
+        lockedHeroes[playerid] = new_hero_name
+
+        -- Check if new_hero_name is already precached, change the hero to new_hero_name immediately if true
         if loadedHeroes[new_hero_name] then
           PlayerResource:ReplaceHeroWith(playerid, new_hero_name, 0, PlayerResource:GetTotalEarnedXP(playerid))
           Gold:SetGold(playerid, STARTING_GOLD) -- ReplaceHeroWith doesn't work properly ofc
@@ -204,6 +217,35 @@ function HeroSelection:Init ()
           end)
         end
       end
+    end
+  end)
+
+  GameEvents:OnHeroSwapped(function (keys)
+    local p1 = tonumber(keys.playerid1)
+    local p2 = tonumber(keys.playerid2)
+
+    if not p1 or not p2 or not PlayerResource:IsValidPlayerID(p1) or not PlayerResource:IsValidPlayerID(p2) then
+      print("Player IDs are not valid numbers. Thanks Valve")
+      return
+    end
+
+    local h1 = PlayerResource:GetSelectedHeroEntity(p1)
+    local h1_name
+    if h1 then
+      h1_name = h1:GetUnitName()
+    end
+    local h2 = PlayerResource:GetSelectedHeroEntity(p2)
+    local h2_name
+    if h2 then
+      h2_name = h2:GetUnitName()
+    end
+
+    -- Change locked heroes (we will assume that OnHeroSwapped triggers after a successful hero-swap)
+    if lockedHeroes[p1] ~= h1_name then
+      lockedHeroes[p1] = h1_name
+    end
+    if lockedHeroes[p2] ~= h2_name then
+      lockedHeroes[p2] = h2_name
     end
   end)
 
@@ -429,37 +471,31 @@ function HeroSelection:RankedManager (event)
     end
     local playerId = event.PlayerID
     local playercontroller = PlayerResource:GetPlayer(playerId) or PlayerResource:FindFirstValidPlayer()
+    local original_choice = choice
     if choice == 'random' then
-      choice = self:RandomHero()
+      if OAAOptions.settings.GAME_MODE == "SD" then
+        choice = self:SingleDraftRandom(playerId)
+      else
+        choice = self:RandomHero(playerId)
+      end
 
       -- Mark this player ID as a randomer
       if not selectedtable[playerId] then
         selectedtable[playerId] = {}
       end
       selectedtable[playerId].didRandom = "true"
-
-      -- Send the 'randomed' message to chat
-      local player_name = event.player_name or PlayerResource:GetPlayerName(playerId)
-      CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', {
-        player_name = player_name,
-        hero = choice,
-        picker_playerid = playerId
-      })
     elseif choice == 'forcerandom' then
-      choice = self:ForceRandomHero(playerId)
-      local previewHero = self:GetPreviewHero(playerId)
-      local data = {
-        player_name = PlayerResource:GetPlayerName(playerId),
-        hero = choice,
-        forced = 1,
-        picker_playerid = playerId
-      }
-      if choice == previewHero then
-        data.forced_pick = 1
-        CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
+      if OAAOptions.settings.GAME_MODE == "SD" then
+        choice = self:SingleDraftForceRandom(playerId)
       else
-        CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
+        choice = self:ForceRandomHero(playerId)
       end
+
+      -- Mark this player ID as a randomer
+      if not selectedtable[playerId] then
+        selectedtable[playerId] = {}
+      end
+      selectedtable[playerId].didRandom = "true"
     end
 
     DebugPrint('Picking step ' .. rankedpickorder.currentOrder)
@@ -479,6 +515,37 @@ function HeroSelection:RankedManager (event)
     rankedpickorder.currentOrder = rankedpickorder.currentOrder + 1
     HeroSelection:UpdateTable(playerId, choice)
     save()
+    -- Chat messages
+    if selectedtable[playerId].selectedhero ~= 'empty' then
+      local player_name = tostring(event.player_name or PlayerResource:GetPlayerName(playerId))
+      if original_choice == 'random' then
+        -- Send the 'randomed' message to chat
+        CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', {
+          player_name = player_name,
+          hero = choice,
+          picker_playerid = playerId
+        })
+      elseif original_choice == 'forcerandom' then
+        local previewHero = HeroSelection:GetPreviewHero(playerId)
+        local data = {
+          player_name = player_name,
+          hero = choice,
+          forced = 1,
+          picker_playerid = playerId
+        }
+        if choice == previewHero then
+          data.forced_pick = 1
+          -- Send the 'forced to pick' message to chat
+          CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
+        else
+          -- Send the 'forced to random' message to chat
+          CustomGameEventManager:Send_ServerToPlayer(playercontroller, 'oaa_random_hero_message', data)
+        end
+      else
+        local hero_name = tostring(event.hero_name) -- string but localized hero name not internal name
+        GameRules:SendCustomMessage(player_name.." picked "..hero_name, 0, 0)
+      end
+    end
     return self:RankedTimer(RANKED_PICK_TIME, "PICK")
   end
   if forcestop then
@@ -594,6 +661,29 @@ function HeroSelection:ChooseBans ()
           table.insert(rankedpickorder.bans, rankedpickorder.banChoices[playerID])
         end
       end)
+    elseif OAAOptions.settings.GAME_MODE == "SD" then
+      -- generate 3 hero choices for each player
+      local heroExclusions = {}
+      local singleDraftChoices = {}
+      PlayerResource:GetAllTeamPlayerIDs():each(function(PlayerID)
+        local strengthChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_STRENGTH', heroExclusions)
+        local agilityChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_AGILITY', heroExclusions)
+        local intellectChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_INTELLECT', heroExclusions)
+        local allChoice = HeroSelection:RandomHeroByAttribute('DOTA_ATTRIBUTE_ALL', heroExclusions)
+
+        heroExclusions[strengthChoice] = PlayerID
+        heroExclusions[agilityChoice] = PlayerID
+        heroExclusions[intellectChoice] = PlayerID
+        heroExclusions[allChoice] = PlayerID
+
+        singleDraftChoices[PlayerID] = {
+          DOTA_ATTRIBUTE_STRENGTH = strengthChoice,
+          DOTA_ATTRIBUTE_AGILITY = agilityChoice,
+          DOTA_ATTRIBUTE_INTELLECT = intellectChoice,
+          DOTA_ATTRIBUTE_ALL = allChoice
+        }
+      end)
+      CustomNetTables:SetTableValue('hero_selection', 'SDdata', singleDraftChoices)
     end
   end
 end
@@ -661,7 +751,6 @@ function HeroSelection:CMManager (event)
 
     elseif cmpickorder["currentstage"] <= cmpickorder["totalstages"] then
       --random if not selected
-      DebugPrintTable(event)
       if event.hero == "random" then
         event.hero = HeroSelection:RandomHero()
       elseif event.hero == "forcerandom" then
@@ -796,7 +885,7 @@ function HeroSelection:APTimer (time, message)
         if self.isCM then
           self:UpdateTable(playerId, cmpickorder[value.team.."picks"][1])
         else
-          self:UpdateTable(playerId, self:ForceRandomHero(playerId)) -- important for AR and ARDM
+          self:UpdateTable(playerId, "random") -- important for AR and ARDM
         end
       end
       self:SelectHero(playerId, selectedtable[playerId].selectedhero) -- important for every game mode
@@ -804,14 +893,19 @@ function HeroSelection:APTimer (time, message)
 
     -- Iterate over each player and update their hero table only if they haven't locked in a hero yet
     -- `lockedHeroes[playerId]` will not exist if `HeroSelection:SelectHero` (used in the loop above) didn't work or if
-    -- `selectedtable` doesn't have all the player slots -> that is possible only if 'StartSelection' didn't happen (ARDM for example)
-    -- `HeroSelection:SelectHero` will not work only if 'selectedtable[playerId].selectedhero' was `nil` or something invalid
+    -- `selectedtable` doesn't have all the player slots -> that is possible only if 'StartSelection' (inital 'UpdateTable') didn't happen (ARDM for example)
+    -- `HeroSelection:SelectHero` will not work only if 'selectedtable[playerId].selectedhero' was `nil` or something invalid ('empty')
     PlayerResource:GetAllTeamPlayerIDs():each(function (playerId)
       if not lockedHeroes[playerId] then
         if HeroSelection.isCM then
           HeroSelection:UpdateTable(playerId, cmpickorder[PlayerResource:GetTeam(playerId).."picks"][1])
         else
-          local hero = HeroSelection:ForceRandomHero(playerId)
+          local hero
+          if OAAOptions.settings.GAME_MODE == "SD" then
+            hero = HeroSelection:SingleDraftForceRandom(playerId)
+          else
+            hero = HeroSelection:ForceRandomHero(playerId)
+          end
           HeroSelection:UpdateTable(playerId, hero)
           HeroSelection:SelectHero(playerId, hero)
         end
@@ -848,6 +942,11 @@ function HeroSelection:SelectHero (playerId, hero)
     return
   end
 
+  if hero_name == "empty" then
+    DebugPrint("SelectHero - Selected hero is invalid for playerID: "..tostring(playerId))
+    return
+  end
+
   local player = PlayerResource:GetPlayer(playerId)
   if player then
     player:SetSelectedHero(hero_name)
@@ -855,7 +954,7 @@ function HeroSelection:SelectHero (playerId, hero)
 
   lockedHeroes[playerId] = hero_name
 
-  -- Precache the hero if player is disconnected
+  -- Precache the hero if player is disconnected, game will precache automatically if connected
   if not player then
     PrecacheUnitByNameAsync(hero_name, function()
       loadedHeroes[hero_name] = true
@@ -881,8 +980,9 @@ function HeroSelection:IsHeroDisabled (hero)
         return true
       end
     end
-  elseif self:IsHeroChosen(hero) then
-    return true
+    if hero ~= "empty" and self:IsHeroChosen(hero) then
+      return true
+    end
   end
   if not hero or hero == "npc_dota_hero_dummy_dummy" or hero == "empty" then
     return true
@@ -909,18 +1009,62 @@ function HeroSelection:ForceRandomHero (playerId)
   DebugPrint("ForceRandomHero - Started forced random for player " .. playerId .. " on team " .. team)
   if previewHero and not HeroSelection:IsHeroDisabled(previewHero) then
     DebugPrint("ForceRandomHero - Force picking highlighted hero")
-    selectedtable[playerId].didRandom = "true"
     return previewHero
   end
 
-  -- Mark this player ID as a randomer
-  if not selectedtable[playerId] then
-    selectedtable[playerId] = {}
-  end
-  selectedtable[playerId].didRandom = "true"
-
   DebugPrint("ForceRandomHero - Bad preview hero, falling back to normal random")
   return HeroSelection:RandomHero()
+end
+
+function HeroSelection:SingleDraftForceRandom(playerId)
+  local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+  local myChoices = singleDraftChoices[tostring(playerId)]
+  if not myChoices then
+    return self:ForceRandomHero(playerId)
+  end
+  local previewHero = HeroSelection:GetPreviewHero(playerId)
+  -- if they're forced to pick then we'll take preview hero instead
+  for attr, heroName in pairs(myChoices) do
+    if previewHero == heroName then
+      return heroName
+    end
+  end
+
+  -- otherwise random the hero
+  local randomIndex = RandomInt(1, 4)
+  local index = 1
+  for attr, heroName in pairs(myChoices) do
+    if index == randomIndex then
+      return heroName
+    end
+    index = index + 1
+  end
+
+  -- error case? how did this happen?
+  DebugPrint('Single Draft: Failed to FORCE random hero for player ' .. tostring(playerId))
+  return self:ForceRandomHero(playerId)
+end
+
+function HeroSelection:SingleDraftRandom(playerId)
+  local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+  local myChoices = singleDraftChoices[tostring(playerId)]
+  if not myChoices then
+    return self:RandomHero(playerId)
+  end
+
+  -- random the hero!
+  local randomIndex = RandomInt(1, 4)
+  local index = 1
+  for attr, heroName in pairs(myChoices) do
+    if index == randomIndex then
+      return heroName
+    end
+    index = index + 1
+  end
+
+  -- error case? how did this happen?
+  DebugPrint('Single Draft: Failed to random hero for player ' .. tostring(playerId))
+  return self:RandomHero(playerId)
 end
 
 function HeroSelection:GetPreviewHero (playerId)
@@ -935,10 +1079,32 @@ function HeroSelection:GetPreviewHero (playerId)
   return
 end
 
-function HeroSelection:RandomHero ()
+function HeroSelection:RandomHeroByAttribute (attribute, heroExclusions)
+  local attempts = 0
   while true do
+    attempts = attempts + 1
+    local choice = HeroSelection:RandomHero()
+    if not heroExclusions[choice] and herolist[choice] == attribute then
+      return choice
+    end
+
+    if attempts > 1000 then
+      return choice
+    end
+  end
+
+end
+
+function HeroSelection:RandomHero ()
+  local attempts = 0
+  while true do
+    attempts = attempts + 1
     local choice = HeroSelection:UnsafeRandomHero()
     if not self:IsHeroDisabled(choice) then
+      return choice
+    end
+
+    if attempts > 1000 then
       return choice
     end
   end
@@ -989,13 +1155,35 @@ end
 -- receive choice from players about their selection
 function HeroSelection:HeroSelected (event)
   local playerId = event.PlayerID
-  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random.")
   local hero = event.hero -- string but in a form npc_dota_hero_blah, can also be 'empty', 'random' or 'forcerandom'
+  DebugPrint("Player "..playerId.." pressed a button: Ban, Lock or Random: " .. tostring(hero))
 
   if not hero or hero == "empty" or (not HeroSelection.isCM and HeroSelection:IsHeroDisabled(hero)) then
     Debug:EnableDebugging()
     DebugPrint('Cheater...')
     return
+  end
+
+  if OAAOptions.settings.GAME_MODE == "SD" then
+    -- do SD check
+    local singleDraftChoices = CustomNetTables:GetTableValue('hero_selection', 'SDdata') or {}
+    local myChoices = singleDraftChoices[tostring(playerId)]
+    if myChoices then
+      local isAValidChoice = false
+
+      if hero == "random" or hero == "forcerandom" then
+        isAValidChoice = true
+      end
+      -- mark as valid when valid
+      for attr, heroName in pairs(myChoices) do
+        if heroName == hero then
+          isAValidChoice = true
+        end
+      end
+      if not isAValidChoice then
+        return
+      end
+    end
   end
 
   local player_name = tostring(event.player_name) -- tostring(PlayerResource:GetPlayerName(playerId)) doesn't work
@@ -1004,10 +1192,6 @@ function HeroSelection:HeroSelected (event)
   if rankedpickorder.phase == 'bans' then
     if IsInToolsMode() then
       GameRules:SendCustomMessage("Tools Mode: "..player_name.." nominated "..hero_name.." to be banned.", 0, 0)
-    end
-  elseif rankedpickorder.phase == 'picking' then
-    if hero ~= 'random' and hero ~= 'forcerandom' then
-      GameRules:SendCustomMessage(player_name.." picked "..hero_name, 0, 0)
     end
   end
 
@@ -1036,23 +1220,32 @@ end
 -- write new values to table
 function HeroSelection:UpdateTable (playerID, hero)
   local teamID = PlayerResource:GetTeam(playerID)
+  DebugPrint("UpdateTable - Called with: " .. tostring(playerID) .. " = " .. tostring(hero))
+
+  if not selectedtable[playerID] then
+    selectedtable[playerID] = {}
+  end
 
   if hero == "random" then
     DebugPrint("UpdateTable - Randoming a hero for playerID: "..tostring(playerID))
-    hero = self:RandomHero()
+    if OAAOptions.settings.GAME_MODE == "SD" then
+      hero = self:SingleDraftRandom(playerID)
+    else
+      hero = self:RandomHero(playerID)
+    end
 
     -- Mark this player ID as a randomer
-    if not selectedtable[playerID] then
-      selectedtable[playerID] = {}
-    end
     selectedtable[playerID].didRandom = "true"
   elseif hero == "forcerandom" then
     DebugPrint("UpdateTable - Force Randoming a hero for playerID: "..tostring(playerID))
-    if not selectedtable[playerID] then
-      selectedtable[playerID] = {}
+    if OAAOptions.settings.GAME_MODE == "SD" then
+      hero = self:SingleDraftForceRandom(playerID)
+    else
+      hero = self:ForceRandomHero(playerID)
     end
+
+    -- Mark this player ID as a randomer
     selectedtable[playerID].didRandom = "true"
-    hero = self:ForceRandomHero(playerID)
   end
 
   if lockedHeroes[playerID] then
@@ -1060,7 +1253,7 @@ function HeroSelection:UpdateTable (playerID, hero)
     hero = lockedHeroes[playerID]
   end
 
-  if selectedtable[playerID] and selectedtable[playerID].selectedhero == hero then
+  if selectedtable[playerID].selectedhero == hero then
     DebugPrint('UpdateTable - Player re-selected their hero again ' .. hero)
     return
   end
@@ -1085,16 +1278,13 @@ function HeroSelection:UpdateTable (playerID, hero)
       end
     end
     -- if they've already selected a hero then unselect it
-    if selectedtable[playerID] and selectedtable[playerID].selectedhero ~= "empty" then
+    if selectedtable[playerID].selectedhero ~= "empty" then
       table.insert(cmpickorder[teamID.."picks"], selectedtable[playerID].selectedhero)
     end
   end
 
   DebugPrint("UpdateTable - Updating select-table with a hero "..tostring(hero).." for playerID: "..tostring(playerID))
 
-  if not selectedtable[playerID] then
-    selectedtable[playerID] = {}
-  end
   selectedtable[playerID].selectedhero = hero
   selectedtable[playerID].team = teamID
   selectedtable[playerID].steamid = tostring(PlayerResource:GetSteamAccountID(playerID))
@@ -1137,7 +1327,12 @@ function HeroSelection:HeroRerandom(event)
   CustomNetTables:SetTableValue('hero_selection', 'rankedData', rankedpickorder)
 
   -- Re-random new hero
-  local new_hero = HeroSelection:RandomHero()
+  local new_hero
+  if OAAOptions.settings.GAME_MODE == "SD" then
+    new_hero = HeroSelection:SingleDraftRandom(playerId)
+  else
+    new_hero = HeroSelection:RandomHero(playerId)
+  end
 
   -- Nullify hero tables
   selectedtable[playerId].selectedhero = "empty"
@@ -1147,7 +1342,7 @@ function HeroSelection:HeroRerandom(event)
   -- Update hero table
   HeroSelection:UpdateTable(playerId, new_hero)
 
-  -- 'Re-random' message
+  -- Send the 'Re-random' message to chat
   local player = PlayerResource:GetPlayer(playerId) or PlayerResource:FindFirstValidPlayer()
   CustomGameEventManager:Send_ServerToPlayer(player, 'oaa_random_hero_message', {
     player_name = player_name,

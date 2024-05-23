@@ -16,8 +16,8 @@
 // "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration"                 "DURATION:"
 
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa"                              "#{DOTA_Tooltip_ability_witch_doctor_death_ward}"
-"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Description"                  "CHANNELED - Summons a deadly ward to attack enemy heroes within its attack range. Lasts a maximum of %abilitychanneltime% seconds. \n<font color='#FFA500'>Can attack hero creeps and bosses. Spell amplification can increase the damage.</font>"
-"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_scepter_description"          "#{DOTA_Tooltip_ability_witch_doctor_death_ward_scepter_description}"
+"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Description"                  "CHANNELED - Summons a deadly ward to attack enemy heroes within its attack range. Lasts a maximum of %abilitychanneltime% seconds. \n<font color='#FFA500'>Can attack hero creeps and Bosses but not normal creeps. Ward does not have bonus accuracy but scepter upgrade has True Strike. Spell amplification can increase the damage.</font>"
+"DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_scepter_description"          "Death Ward attacks have True Strike and bounce between nearby enemies."
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Lore"                         "#{DOTA_Tooltip_ability_witch_doctor_death_ward_Lore}"
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Note0"                        "#{DOTA_Tooltip_ability_witch_doctor_death_ward_Note0}"
 "DOTA_Tooltip_ability_witch_doctor_death_ward_oaa_Note1"                        "#{DOTA_Tooltip_ability_witch_doctor_death_ward_Note1}"
@@ -30,7 +30,6 @@
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa"                       "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo}"
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Description"           "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_Description}"
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Lore"                  "Death Ward without the Witch Doctor dance."
-"DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_Note0"                 "Voodoo Switcheroo is dispellable."
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_duration"              "#{DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_duration}"
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_damage"           "#{DOTA_Tooltip_ability_witch_doctor_death_ward_damage}"
 "DOTA_Tooltip_ability_witch_doctor_voodoo_switcheroo_oaa_ward_attack_range"     "#{DOTA_Tooltip_ability_witch_doctor_death_ward_attack_range_tooltip}"

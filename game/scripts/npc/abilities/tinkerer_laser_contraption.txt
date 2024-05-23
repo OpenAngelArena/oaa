@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinkerer: Keen Contraption - scepter increases cast range, applies leash and healing reduction
+  // Tinkerer: Keen Contraption
   //=================================================================================================================
   "tinkerer_laser_contraption"
   {
@@ -51,7 +51,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "9"
-      "delay"                                             "0.1"
       // "initial_damage"
       // {
         // "value"                                           "150 300 450 900 1350" // original: 200/300/400
@@ -59,15 +58,19 @@
       // }
       "damage_per_second"
       {
-        "value"                                           "100 200 300 600 900" // original: 75 125 175
+        "value"                                           "130 260 390 780 1170" // original: 75 125 175
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "damage_interval"
       {
-        "value"                                           "0.5"
+        "value"                                           "0.2"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
-      "attacks_to_destroy"                                "2"
+      "attacks_to_destroy"
+      {
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+1"
+      }
       "scepter_cast_range"
       {
         "value"                                           "1000"
@@ -75,7 +78,7 @@
       }
       "scepter_heal_prevent_percent"
       {
-        "value"                                           "-20 -25 -30 -35 -40"
+        "value"                                           "-25 -30 -35 -40 -45"
         "RequiresScepter"                                 "1"
       }
     }

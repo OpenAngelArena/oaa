@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_tinkerer_oil_spill_thinker", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_tinkerer_oil_spill_debuff", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tinkerer_oil_spill_root", "abilities/tinkerer/tinkerer_oil_spill.lua", LUA_MODIFIER_MOTION_NONE)
 
 tinkerer_oil_spill = class({})
 
@@ -85,10 +86,18 @@ function tinkerer_oil_spill:OnProjectileHit(target, location)
     duration = duration + talent:GetSpecialValueFor("value")
   end
 
+  -- Check for Tar Spill Applies Root
+  local hasScepter = caster:HasScepter()
+  local root_duration = self:GetSpecialValueFor("scepter_root_duration")
+
   -- Apply debuff to enemies
   for _, enemy in pairs(oiled_enemies) do
     if enemy and not enemy:IsNull() and not enemy:IsMagicImmune() then
       enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_debuff", {duration = duration})
+      if hasScepter then
+        local actual_root_duration = enemy:GetValueChangedByStatusResistance(root_duration)
+        enemy:AddNewModifier(caster, self, "modifier_tinkerer_oil_spill_root", {duration = actual_root_duration})
+      end
     end
   end
 
@@ -190,16 +199,12 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
     damage_amp = talent3:GetSpecialValueFor("value")
   end
 
-  -- Resistances and particle
+  -- Particle
   if IsServer() then
-    -- Move speed slow is reduced with Slow Resistance
-    -- move_speed_slow = parent:GetValueChangedBySlowResistance(move_speed_slow)
-    -- Attack speed slow is reduced with Status Resistance
-    attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
     self.oil_drip = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
   end
 
-  self.move_speed_slow = move_speed_slow
+  self.move_speed_slow = move_speed_slow -- parent:GetValueChangedBySlowResistance(move_speed_slow)
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
@@ -209,7 +214,6 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnRefresh()
-  local parent = self:GetParent()
   local caster = self:GetCaster()
 
   local move_speed_slow = 15
@@ -247,15 +251,7 @@ function modifier_tinkerer_oil_spill_debuff:OnRefresh()
     damage_amp = talent3:GetSpecialValueFor("value")
   end
 
-  -- Resistances
-  if IsServer() then
-    -- Move speed slow is reduced with Slow Resistance
-    -- move_speed_slow = parent:GetValueChangedBySlowResistance(move_speed_slow)
-    -- Attack speed slow is reduced with Status Resistance
-    attack_speed_slow = parent:GetValueChangedByStatusResistance(attack_speed_slow)
-  end
-
-  self.move_speed_slow = move_speed_slow
+  self.move_speed_slow = move_speed_slow -- parent:GetValueChangedBySlowResistance(move_speed_slow)
   self.attack_speed_slow = attack_speed_slow
   self.burn_dps = burn_dps
   self.burn_interval = burn_interval
@@ -271,6 +267,16 @@ function modifier_tinkerer_oil_spill_debuff:DeclareFunctions()
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
     MODIFIER_PROPERTY_TOOLTIP
   }
+end
+
+function modifier_tinkerer_oil_spill_debuff:CheckState()
+  if self:GetParent():GetHealthPercent() <= 25 then
+    return {
+      [MODIFIER_STATE_SPECIALLY_DENIABLE] = true,
+    }
+  else
+    return {}
+  end
 end
 
 function modifier_tinkerer_oil_spill_debuff:GetModifierMoveSpeedBonus_Percentage()
@@ -351,4 +357,26 @@ function modifier_tinkerer_oil_spill_debuff:OnDestroy()
     ParticleManager:DestroyParticle(self.burning_particle, false)
     ParticleManager:ReleaseParticleIndex(self.burning_particle)
   end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_tinkerer_oil_spill_root = class({})
+
+function modifier_tinkerer_oil_spill_root:IsHidden()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:IsDebuff()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:IsPurgable()
+  return true
+end
+
+function modifier_tinkerer_oil_spill_root:CheckState()
+  return {
+    [MODIFIER_STATE_ROOTED] = true,
+  }
 end

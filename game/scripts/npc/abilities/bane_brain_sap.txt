@@ -28,16 +28,16 @@
 
     "AbilityValues"
     {
-      "brain_sap_damage" //OAA
+      "brain_sap_damage"
       {
         "value"                                           "90 160 230 300 600 900"
-        "special_bonus_unique_bane_2"                     "+400"
+        "special_bonus_unique_bane_2"                     "+250"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "17 15 13 11 10 9"
-        "special_bonus_unique_bane_8"                     "-3"
-        "special_bonus_shard"                             "-3"
+        "value"                                           "14 13 12 11 11 11"
+        "special_bonus_unique_bane_8"                     "-2"
+        "special_bonus_shard"                             "-2"
       }
       "shard_radius"
       {

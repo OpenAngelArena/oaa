@@ -1,6 +1,7 @@
 modifier_spark_gpm = class(ModifierBaseClass)
 
 function modifier_spark_gpm:OnCreated()
+  if not IsServer() then return end
   self:StartIntervalThink(1)
 end
 
@@ -48,7 +49,7 @@ function modifier_spark_gpm:OnIntervalThink()
 
   local parent = self:GetParent()
 
-  -- This modifier is not supposed to exist on illusions, Tempest Doubles, or Meepo clones
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
   if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
     self:StartIntervalThink(-1)
     self:Destroy()
@@ -70,7 +71,7 @@ end
 function modifier_spark_gpm:CalculateGPM()
   local gpmChart = {500, 1000, 2000, 4000, 6000, 10000, 20000}
   local gpm = gpmChart[self:GetSparkLevel()]
-  if GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" then
+  if HeroSelection and HeroSelection.is10v10 then
     gpm = gpm * 1.5
   end
   return math.floor(gpm)

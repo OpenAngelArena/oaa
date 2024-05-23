@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_keeper_of_the_light"
   "Title"         "Recommended items for Keeper of the Light"
 
@@ -12,14 +12,13 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_Magical_Core"
     {
       "item"      "item_spirit_vessel_oaa"
-      "item"      "item_octarine_core"
+      "item"      "item_orchid"
       "item"      "item_ethereal_blade"
       "item"      "item_dagon_oaa"
-      "item"      "item_wind_waker"
-      "item"      "item_greater_travel_boots"
+      "item"      "item_octarine_core"
     }
 
     "#DOTA_Item_Build_Support_Core"
@@ -27,8 +26,8 @@
       "item"      "item_far_sight"
       "item"      "item_shield_staff"
       "item"      "item_ultimate_scepter"
-      "item"      "item_ghost_king_bar_1"
-      "item"      "item_glimmer_cape"
+      "item"      "item_wind_waker"
+      "item"      "item_greater_tranquil_boots"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -39,9 +38,12 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
-      "item"      "item_bloodthorn"
-      "item"      "item_devastator"
-      "item"      "item_regen_crystal_1"
+      "item"      "item_blink"
+      "item"      "item_glimmer_cape"
+      "item"      "item_kaya"
+      "item"      "item_solar_crest"
+      "item"      "item_aeon_disk_oaa_2"
+      "item"      "item_greater_travel_boots"
       "item"      "item_sheepstick_4"
     }
   }

@@ -33,7 +33,7 @@
         "value"                                           "18 17 16 15 14 13"
         "special_bonus_unique_snapfire_3"                 "-4"
       }
-      "projectile_speed"                                  "1100"
+      "projectile_speed"                                  "1200"
       "pre_hop_duration"                                  "0.0"
       "jump_duration"
       {
@@ -57,9 +57,9 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "impact_damage"
+      "impact_damage" //OAA
       {
-        "value"                                           "70 140 210 280 560 1120"
+        "value"                                           "90 160 230 300 600 1200"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "impact_stun_duration"                              "1.0 1.4 1.8 2.2 2.4 2.6"

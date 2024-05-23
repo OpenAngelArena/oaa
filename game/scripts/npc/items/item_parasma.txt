@@ -12,7 +12,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "0"
+    "ItemCost"                                            "400"
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -48,10 +48,11 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5575"
+    "ItemCost"                                            "5975"
     "ItemShopTags"                                        "int;hard_to_tag"
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "parasma; prasma; pasma; pirasma"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -60,13 +61,13 @@
     {
       "bonus_intellect"                                   "37 42 52 67 87" //OAA, Witch Blade (12); Mystic Staff (25);
       "bonus_attack_speed"                                "40 45 50 55 60" // Witch Blade (40);
-      "bonus_armor"                                       "6 7 9 12 16" //OAA, Witch Blade (6); old:
+      "bonus_armor"                                       "6 7 9 12 16" //OAA, Witch Blade (6);
       "bonus_mana_regen"                                  "1.5 1.75 2.25 3 4" // Witch Blade (1.5)
       "projectile_speed"                                  "300 350 400 450 500"
-      "int_damage_multiplier"                             "1"
+      "int_damage_multiplier"                             "0.75"
       "slow"                                              "25 30 35 40 45"
       "slow_duration"                                     "4"
-      "active_mres_reduction"                             "16 17 18 19 20" //OAA
+      "active_mres_reduction"                             "17 19 21 23 25" //OAA
       "passive_cooldown"                                  "4" // this is the duration of magic resist reduction debuff
     }
   }

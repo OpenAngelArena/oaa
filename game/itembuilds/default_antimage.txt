@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.33d"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_antimage"
   "Title"         "Recommended items for Anti-Mage"
 
@@ -21,22 +21,11 @@
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_manta"
-      "item"      "item_skadi"
-      "item"      "item_butterfly_oaa"
+      "item"      "item_bloodthorn"
+      "item"      "item_ultimate_scepter"
       "item"      "item_greater_crit"
-      "item"      "item_satanic"
       "item"      "item_abyssal_blade_2"
     }
-
-    //"#DOTA_Item_Build_Support_Core" // super annoying Anti-Mage
-    //{
-      //"item"      "item_glimmer_cape"
-      //"item"      "item_ultimate_scepter"
-      //"item"      "item_disperser"
-      //"item"      "item_bloodthorn"
-      //"item"      "item_heart_oaa_1"
-      //"item"      "item_pipe"
-    //}
 
     "#DOTA_Item_Build_Shard"
     {
@@ -45,14 +34,18 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
-      "item"      "item_diffusal_blade"
+      "item"      "item_butterfly_oaa"
+      "item"      "item_disperser"
       "item"      "item_heart_oaa_1"
       "item"      "item_monkey_king_bar"
+      "item"      "item_satanic"
+      "item"      "item_skadi"
       "item"      "item_sphere"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_vladmirs_grimoire_1"
       "item"      "item_devastator_oaa_2"
-      "item"      "item_trumps_fists"
+      "item"      "item_trumps_fists_1"
     }
   }
 }

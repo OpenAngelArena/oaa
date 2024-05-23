@@ -64,6 +64,7 @@ function modifier_magus_oaa:OnCreated()
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    life_stealer_consume = 1,                            -- self grief
     meepo_megameepo_fling = 1,                           -- self grief
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_primal_spring = 1,                       -- breaks ability
@@ -171,7 +172,7 @@ if IsServer() then
       return
     end
 
-    -- Check if attacker is alive or silenced
+    -- Check if attacker is dead or silenced
     if not attacker:IsAlive() or attacker:IsSilenced() then
       return
     end
@@ -192,7 +193,7 @@ if IsServer() then
       return
     end
 
-    -- Don't proc if passive is on cooldown
+    -- Don't proc if Magus is on cooldown
     if attacker:HasModifier("modifier_magus_cooldown_oaa") then
       return
     end
@@ -232,6 +233,9 @@ function modifier_magus_oaa:CastASpell(caster, target, lucky)
   local behavior = ability:GetBehavior()
   if type(behavior) == 'userdata' then
     behavior = tonumber(tostring(behavior))
+  end
+  if not behavior then
+    behavior = DOTA_ABILITY_BEHAVIOR_NONE
   end
   local real_target = target
   local isNoTarget = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) > 0
@@ -404,7 +408,7 @@ function modifier_magus_cooldown_oaa:IsHidden()
 end
 
 function modifier_magus_cooldown_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_magus_cooldown_oaa:IsPurgable()

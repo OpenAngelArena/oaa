@@ -32,27 +32,27 @@ function tinkerer_laser_oaa:OnHeroCalculateStatBonus()
   end
 end
 
-function tinkerer_laser_oaa:OnAbilityPhaseStart()
-  if not IsServer() then
-    return
-  end
+-- function tinkerer_laser_oaa:OnAbilityPhaseStart()
+  -- if not IsServer() then
+    -- return
+  -- end
 
-  local caster = self:GetCaster()
+  -- local caster = self:GetCaster()
 
-  -- Sound during casting
-  caster:EmitSound("Hero_Tinker.LaserAnim")
+  -- -- Sound during casting
+  -- caster:EmitSound("Hero_Tinker.LaserAnim")
 
-  return true
-end
+  -- return true
+-- end
 
-function tinkerer_laser_oaa:OnAbilityPhaseInterrupted()
-  if not IsServer() then
-    return
-  end
+-- function tinkerer_laser_oaa:OnAbilityPhaseInterrupted()
+  -- if not IsServer() then
+    -- return
+  -- end
 
-  -- Interrupt casting sound
-  self:GetCaster():StopSound("Hero_Tinker.LaserAnim")
-end
+  -- -- Interrupt casting sound
+  -- self:GetCaster():StopSound("Hero_Tinker.LaserAnim")
+-- end
 
 function tinkerer_laser_oaa:OnSpellStart()
   local caster = self:GetCaster()

@@ -1,5 +1,4 @@
 LinkLuaModifier("modifier_item_martyrs_mail_passive", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_martyrs_mail_passive_aura_effect", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_active", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_martyr_aura", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_martyrs_mail_death_buff", "items/martyrs_mail.lua", LUA_MODIFIER_MOTION_NONE)
@@ -17,7 +16,7 @@ function item_martyrs_mail_1:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local martyr_duration = self:GetSpecialValueFor( "martyr_duration" )
 
-	hCaster:EmitSound( "DOTA_Item.BladeMail.Activate" )
+	--hCaster:EmitSound("")
 	hCaster:AddNewModifier( hCaster, self, "modifier_item_martyrs_mail_martyr_active", { duration = martyr_duration } )
 end
 
@@ -26,7 +25,7 @@ end
 modifier_item_martyrs_mail_passive = class(ModifierBaseClass)
 
 function modifier_item_martyrs_mail_passive:IsHidden()
-	return true
+  return true
 end
 
 function modifier_item_martyrs_mail_passive:IsDebuff()
@@ -44,11 +43,9 @@ end
 function modifier_item_martyrs_mail_passive:OnCreated()
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
     self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
     self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_as = ability:GetSpecialValueFor("bonus_attack_speed")
-    self.aura_radius = ability:GetSpecialValueFor("aura_radius")
+    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
   end
 end
 
@@ -56,48 +53,23 @@ modifier_item_martyrs_mail_passive.OnRefresh = modifier_item_martyrs_mail_passiv
 
 function modifier_item_martyrs_mail_passive:DeclareFunctions()
   return {
-    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+    MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, -- GetModifierBonusStats_Strength
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, -- GetModifierBonusStats_Intellect
+    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, -- GetModifierPhysicalArmorBonus
     MODIFIER_EVENT_ON_DEATH,
   }
 end
 
-function modifier_item_martyrs_mail_passive:GetModifierPreAttack_BonusDamage()
-	return self.bonus_damage or self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_martyrs_mail_passive:GetModifierPhysicalArmorBonus()
-	return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
+function modifier_item_martyrs_mail_passive:GetModifierBonusStats_Strength()
+  return self.bonus_strength or self:GetAbility():GetSpecialValueFor("bonus_strength")
 end
 
 function modifier_item_martyrs_mail_passive:GetModifierBonusStats_Intellect()
-	return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
+  return self.bonus_intellect or self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
-function modifier_item_martyrs_mail_passive:GetModifierAttackSpeedBonus_Constant()
-  return self.bonus_as or self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-end
-
-function modifier_item_martyrs_mail_passive:IsAura()
-  return true
-end
-
-function modifier_item_martyrs_mail_passive:GetModifierAura()
-  return "modifier_item_martyrs_mail_passive_aura_effect"
-end
-
-function modifier_item_martyrs_mail_passive:GetAuraRadius()
-  return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
-end
-
-function modifier_item_martyrs_mail_passive:GetAuraSearchTeam()
-  return DOTA_UNIT_TARGET_TEAM_FRIENDLY
-end
-
-function modifier_item_martyrs_mail_passive:GetAuraSearchType()
-  return bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC)
+function modifier_item_martyrs_mail_passive:GetModifierPhysicalArmorBonus()
+  return self.bonus_armor or self:GetAbility():GetSpecialValueFor("bonus_armor")
 end
 
 if IsServer() then
@@ -228,9 +200,27 @@ function modifier_item_martyrs_mail_martyr_active:OnCreated()
   end
 
   self.martyr_heal_aoe = radius
+
+  if IsServer() then
+    local parent = self:GetParent()
+    if not self.particle then
+      self.particle = ParticleManager:CreateParticle("particles/items2_fx/martyrs_plate.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
+      ParticleManager:SetParticleControl(self.particle, 0, parent:GetAbsOrigin())
+      ParticleManager:SetParticleControlEnt(self.particle, 1, parent, PATTACH_POINT_FOLLOW, "attach_origin", parent:GetAbsOrigin(), true)
+      ParticleManager:SetParticleControl(self.particle, 2, Vector(parent:GetModelRadius()*1.1, 0, 0))
+    end
+  end
 end
 
 modifier_item_martyrs_mail_martyr_active.OnRefresh = modifier_item_martyrs_mail_martyr_active.OnCreated
+
+function modifier_item_martyrs_mail_martyr_active:OnDestroy()
+  if IsServer() and self.particle then
+    ParticleManager:DestroyParticle(self.particle, true)
+    ParticleManager:ReleaseParticleIndex(self.particle)
+    self.particle = nil
+  end
+end
 
 if IsServer() then
   function modifier_item_martyrs_mail_martyr_active:OnTakeDamage(event)
@@ -249,13 +239,13 @@ if IsServer() then
       return
     end
 
-    -- Trigger only for this modifier
+    -- Check if damaged unit has this modifier
     if damaged_unit ~= parent then
       return
     end
 
     -- Damage before reductions
-    local damage = event.original_damage
+    local damage = math.max(event.original_damage, event.damage)
 
     -- If damage is negative or 0, don't continue
     if damage <= 0 then
@@ -298,14 +288,6 @@ function modifier_item_martyrs_mail_martyr_active:CheckState()
   return {
     [MODIFIER_STATE_PASSIVES_DISABLED] = false,
   }
-end
-
-function modifier_item_martyrs_mail_martyr_active:GetEffectName()
-	return "particles/items_fx/blademail.vpcf"
-end
-
-function modifier_item_martyrs_mail_martyr_active:GetEffectAttachType()
-	return PATTACH_ABSORIGIN_FOLLOW
 end
 
 function modifier_item_martyrs_mail_martyr_active:GetTexture()
@@ -353,61 +335,6 @@ end
 
 ---------------------------------------------------------------------------------------------------
 
-modifier_item_martyrs_mail_passive_aura_effect = class(ModifierBaseClass)
-
-function modifier_item_martyrs_mail_passive_aura_effect:IsHidden()
-  return false
-end
-
-function modifier_item_martyrs_mail_passive_aura_effect:IsDebuff()
-  return false
-end
-
-function modifier_item_martyrs_mail_passive_aura_effect:IsPurgable()
-  return false
-end
-
-function modifier_item_martyrs_mail_passive_aura_effect:OnCreated()
-  self.armor = 15
-  self.attack_speed = 50
-  local ability = self:GetAbility()
-  if ability and not ability:IsNull() then
-    self.armor = ability:GetSpecialValueFor("aura_armor")
-    self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
-  end
-end
-
-modifier_item_martyrs_mail_passive_aura_effect.OnRefresh = modifier_item_martyrs_mail_passive_aura_effect.OnCreated
-
-function modifier_item_martyrs_mail_passive_aura_effect:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-  }
-end
-
-function modifier_item_martyrs_mail_passive_aura_effect:GetModifierPhysicalArmorBonus()
-	return self.armor
-end
-
-function modifier_item_martyrs_mail_passive_aura_effect:GetModifierAttackSpeedBonus_Constant()
-  return self.attack_speed
-end
-
---function modifier_item_martyrs_mail_passive_aura_effect:GetEffectName()
-	--return "particles/world_shrine/radiant_shrine_active_ray.vpcf"
---end
-
---function modifier_item_martyrs_mail_passive_aura_effect:GetEffectAttachType()
-	--return PATTACH_ABSORIGIN_FOLLOW
---end
-
-function modifier_item_martyrs_mail_passive_aura_effect:GetTexture()
-  return "custom/martyrs_mail"
-end
-
----------------------------------------------------------------------------------------------------
-
 modifier_item_martyrs_mail_death_buff = class(ModifierBaseClass)
 
 function modifier_item_martyrs_mail_death_buff:IsHidden()
@@ -423,12 +350,14 @@ function modifier_item_martyrs_mail_death_buff:IsPurgable()
 end
 
 function modifier_item_martyrs_mail_death_buff:OnCreated()
+  self.damage = 180
   self.armor = 15
   self.attack_speed = 50
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
-    self.armor = ability:GetSpecialValueFor("aura_armor")
-    self.attack_speed = ability:GetSpecialValueFor("aura_attack_speed")
+    self.damage = ability:GetSpecialValueFor("death_attack_damage")
+    self.armor = ability:GetSpecialValueFor("death_armor")
+    self.attack_speed = ability:GetSpecialValueFor("death_attack_speed")
   end
 end
 
@@ -436,13 +365,18 @@ modifier_item_martyrs_mail_death_buff.OnRefresh = modifier_item_martyrs_mail_dea
 
 function modifier_item_martyrs_mail_death_buff:DeclareFunctions()
   return {
+    MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
   }
 end
 
+function modifier_item_martyrs_mail_death_buff:GetModifierPreAttack_BonusDamage()
+  return self.damage
+end
+
 function modifier_item_martyrs_mail_death_buff:GetModifierPhysicalArmorBonus()
-	return self.armor
+  return self.armor
 end
 
 function modifier_item_martyrs_mail_death_buff:GetModifierAttackSpeedBonus_Constant()

@@ -52,7 +52,7 @@
     "ItemShopTags"                                        "damage;str;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "abyssal blade"
-    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
     // Special
@@ -60,7 +60,7 @@
     "AbilityValues"
     {
       "bonus_damage"                                      "10 20 40 70 110" //OAA
-      "bonus_health"                                      "220 320 470 670 920" //OAA, inherited from Skadi
+      "bonus_health"                                      "250 350 500 700 950" //OAA, inherited from Skadi
       "bonus_health_regen"                                "3 6 9 12 15" //OAA
       "block_damage_melee"                                "70 120 170 220 270"
       "block_damage_ranged"                               "35 70 105 140 175"

@@ -7,17 +7,17 @@
   {
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
+    "AbilityTextureName"                                  "custom/recipe/recipe_4"
 
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "1500"
+    "ItemCost"                                            "8000"
     "ItemShopTags"                                        ""
     "ItemRecipe"                                          "1"
     "ItemResult"                                          "item_sacred_skull_2"
 
     "ItemRequirements"
     {
-      "01"                                                "item_sacred_skull;item_upgrade_core"
+      "01"                                                "item_sacred_skull;item_upgrade_core_3"
     }
   }
 
@@ -30,26 +30,25 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/sacred_skull.lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/purpleskull_2"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityTextureName"                                  "custom/purpleskull_4"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "700"
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "0"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "sacred_skull"
 
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "5"
+    "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "2"
-    "UpgradesItems"                                       "item_sacred_skull_2;item_sacred_skull_3;item_sacred_skull_4"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "5406"
-    "ItemShopTags"                                        "damage;agi;str;int;regen_mana;hard_to_tag"
+    "ItemCost"                                            "18128"
+    "ItemShopTags"                                        "health_pool;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "ass 2;sacred skull 2"
 
@@ -60,19 +59,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_strength"                                    "6 11 21 36 56"
-      "bonus_armor"                                       "2 3 5 8 12"
-      "bonus_health"                                      "500 600 750 950 1200"
-      "bonus_mana"                                        "500 600 750 950 1200"
-      "health_cost"                                       "15"
-      "min_mana_gain"                                     "170 220 320 470 670"
-      "base_dmg"                                          "100 200 300 400 500"
-      "magic_dmg_per_current_mana"                        "0.125"
-      "phys_dmg_per_missing_mana"                         "0.5"
-      "effect_radius"                                     "700"
-      "active_bonus_aoe"                                  "75"
-      "active_bonus_cdr"                                  "5 7 9 11 13"
-      "duration"                                          "10"
+      "bonus_armor"                                       "19 22 26"
+      "bonus_health"                                      "750 950 1200"
+      "cooldown_reduction"                                "15"
+      "passive_armor_reduction"                           "-8 -11 -15"
+      "armor_reduction_duration"                          "7"
     }
   }
 }

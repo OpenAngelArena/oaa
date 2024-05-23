@@ -53,7 +53,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "9052"
-    "ItemShopTags"                                        "agi;int;str;armor;regen_health;regen_mana;mana_pool;hard_to_tag"
+    "ItemShopTags"                                        "agi;int;str;damage;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "dispel orb; purge crystal"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -67,7 +67,7 @@
       "bonus_agility"                                     "41 56 76" // inherited from Manta
       "bonus_intellect"                                   "22 27 32" // inherited from Manta
       "bonus_damage"                                      "55 85 125" // inherited from BKB
-      "magic_resist_while_silenced"                       "20 25 30"
+      "magic_resist_while_silenced"                       "26 28 30"
       "tick_interval"                                     "0.2"
       "duration"                                          "7.0"
     }

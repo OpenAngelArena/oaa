@@ -53,6 +53,7 @@
     "ItemShopTags"                                        "damage"
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemAliases"                                         "splash cannon 2;splash 2;siege 2;cannon 2"
 
     "MaxUpgradeLevel"                                     "2"
@@ -66,8 +67,6 @@
       "bonus_agility"                                     "47 67"
       "bonus_strength"                                    "27 32"
       "bonus_intellect"                                   "27 32"
-      "bonus_health"                                      "0"
-      "bonus_health_regen"                                "0"
       "bonus_attack_range"                                "180 190" // ranged only
       "passive_splash_radius"                             "250"
       "passive_splash_percent"                            "40"

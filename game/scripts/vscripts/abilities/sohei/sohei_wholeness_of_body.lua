@@ -26,13 +26,8 @@ function sohei_wholeness_of_body:OnSpellStart()
   target:Purge(false, true, false, true, true)
 
   -- Remove debuffs that are removed only with BKB/Spell Immunity/Debuff Immunity
-  caster:RemoveModifierByName("modifier_slark_pounce_leash")
-  caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
-
-  -- Immediate heal
-  --local heal_amount = self:GetSpecialValueFor("heal_immediate")
-  --target:Heal(heal_amount, self)
-  --SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, target, heal_amount, nil)
+  --caster:RemoveModifierByName("modifier_slark_pounce_leash")
+  --caster:RemoveModifierByName("modifier_invoker_deafening_blast_disarm")
 
   -- Applying the buff
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
@@ -145,7 +140,7 @@ function modifier_sohei_wholeness_of_body_buff:OnRefresh()
     self.post_heal_base = ability:GetSpecialValueFor("post_heal")
     self.dmg_taken_as_heal = ability:GetSpecialValueFor("damage_taken_as_heal") / 100
   else
-    self.magic_resistance = 50
+    self.magic_resistance = 60
     self.post_heal_base = 75
     self.dmg_taken_as_heal = 25 / 100
   end
@@ -207,10 +202,4 @@ if IsServer() then
 
     self.post_heal_from_dmg_taken = self.post_heal_from_dmg_taken + damage * self.dmg_taken_as_heal
   end
-end
-
-function modifier_sohei_wholeness_of_body_buff:CheckState()
-  return {
-    [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
-  }
 end

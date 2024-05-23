@@ -58,6 +58,24 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
     --casterIsInBubbles = reduce(operator.land, true, map(partial(UnitIsInSpecificBubble, caster), iter(bubbleModifiers)))
   --end
   if parentHasBubbleModifier and not casterIsAlly then
+    if caster.IsRealHero == nil then
+      -- Caster is something weird and it can't be found with FindUnitsInRadius
+      -- try to find the real caster
+      local owner = caster:GetOwner()
+      local playerID = UnitVarToPlayerID(caster)
+      local ownerID = UnitVarToPlayerID(owner)
+      if playerID ~= -1 then
+        caster = PlayerResource:GetSelectedHeroEntity(playerID)
+      elseif ownerID ~= -1 then
+        caster = PlayerResource:GetSelectedHeroEntity(ownerID)
+      end
+    elseif caster:IsPhantom() or caster:IsPhantomBlocker() or (not caster:IsCreep() and not caster:IsHero() and not caster:IsOther()) then
+      local playerID = UnitVarToPlayerID(caster)
+      if playerID ~= -1 then
+        caster = PlayerResource:GetSelectedHeroEntity(playerID)
+      end
+    end
+
     for _, bubbleModifier in pairs(bubbleModifiers) do
       if bubbleModifier and not bubbleModifier:IsNull() then
         if IsUnitInSpecificBubble(caster, bubbleModifier) then
@@ -71,10 +89,10 @@ function BubbleOrbFilter:ModifierGainedFilter(keys)
   if not parentHasBubbleModifier or casterIsAlly or casterIsInTheSameBubble then
     return true
   else
-    if not parent or parent:IsNull() or not parent:IsRealHero() then
+    if not parent or parent:IsNull() or parent.HasModifier == nil then
       return false
     end
-    if parent.last_bubble_blocked_modifier ~= keys.name_const and parent.last_bubble_blocked_ability ~= keys.entindex_ability_const then
+    if parent.last_bubble_blocked_modifier ~= keys.name_const and parent.last_bubble_blocked_ability ~= keys.entindex_ability_const and parent:IsRealHero() then
       -- Particle effect
       local blockEffectName = "particles/items_fx/immunity_sphere.vpcf"
       local blockEffect = ParticleManager:CreateParticle(blockEffectName, PATTACH_POINT_FOLLOW, parent)

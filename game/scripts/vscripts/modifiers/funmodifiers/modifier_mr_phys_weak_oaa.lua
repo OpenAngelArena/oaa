@@ -27,6 +27,9 @@ function modifier_mr_phys_weak_oaa:DeclareFunctions()
 end
 
 function modifier_mr_phys_weak_oaa:GetModifierIncomingDamage_Percentage(keys)
+  if self:GetParent():IsDebuffImmune() then
+    return 0
+  end
   if keys.damage_type == DAMAGE_TYPE_PHYSICAL then
     return 40
   end

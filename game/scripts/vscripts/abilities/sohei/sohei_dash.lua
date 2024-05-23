@@ -74,6 +74,21 @@ function sohei_dash:OnUnStolen()
 end
 ]]
 
+if IsClient() then
+  function sohei_dash:GetCastRange(location, target)
+    local caster = self:GetCaster()
+    local range = self:GetSpecialValueFor("dash_range")
+
+    -- Bonus dash range talent
+    local talent = caster:FindAbilityByName("special_bonus_sohei_dash_cast_range")
+    if talent and talent:GetLevel() > 0 then
+      range = range + talent:GetSpecialValueFor("value")
+    end
+
+    return range
+  end
+end
+
 function sohei_dash:OnSpellStart()
   local caster = self:GetCaster()
   local target_loc = self:GetCursorPosition()
@@ -544,7 +559,6 @@ function modifier_sohei_dash_slow:IsPurgable()
 end
 
 function modifier_sohei_dash_slow:OnCreated()
-  local parent = self:GetParent()
   local ability = self:GetAbility()
   local movement_slow = ability:GetSpecialValueFor("move_speed_slow_pct")
   local attack_slow = ability:GetSpecialValueFor("attack_speed_slow")
@@ -556,12 +570,7 @@ function modifier_sohei_dash_slow:OnCreated()
     attack_slow = attack_slow + talent:GetSpecialValueFor("value2")
   end
 
-  if IsServer() then
-    -- Attack Speed Slow is reduced with Status Resistance
-    self.attack_speed = parent:GetValueChangedByStatusResistance(attack_slow)
-  else
-    self.attack_speed = attack_slow
-  end
+  self.attack_speed = attack_slow
   -- Move Speed Slow is reduced with Slow Resistance
   self.slow = movement_slow --parent:GetValueChangedBySlowResistance(movement_slow)
 end

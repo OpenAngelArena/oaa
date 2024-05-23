@@ -31,7 +31,7 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "AbilityManaCost"                                     "50"
-    "AbilityCooldown"                                     "16"
+    "AbilityCooldown"                                     "15"
     "AbilitySharedCooldown"                               "sonic"
 
     "MaxUpgradeLevel"                                     "2"
@@ -42,6 +42,7 @@
     "ItemShopTags"                                        "agi;attack_speed;move_speed"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sonic"
+    "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
     "AbilityValues"
@@ -49,9 +50,10 @@
       "bonus_movement_speed"                              "75 80"
       "bonus_attack_speed"                                "40 45"
       "bonus_agility"                                     "55 75"
+      "bonus_damage"                                      "80 120"
       "active_speed_bonus"                                "35 40"
       "active_cast_speed"                                 "25 30"
-      "duration"                                          "6"
+      "duration"                                          "5"
     }
   }
 }

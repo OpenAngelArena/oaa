@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 17 17" //OAA
+    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,9 +36,9 @@
         "value"                                           "275"
         "affected_by_aoe_increase"                        "1"
       }
-      "pass_damage"
+      "pass_damage" //OAA
       {
-        "value"                                           "50"
+        "value"                                           "50 100 150 200 400 600"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "spirit_duration"                                   "10.0"
@@ -52,7 +52,7 @@
       }
       "damage_creeps"
       {
-        "value"                                           "3 7 11 15 18 21"
+        "value"                                           "3 7 11 15 19 23"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }

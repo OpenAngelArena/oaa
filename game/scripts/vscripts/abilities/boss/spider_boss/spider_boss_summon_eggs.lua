@@ -26,6 +26,7 @@ end
 function spider_boss_summon_eggs:OnAbilityPhaseInterrupted()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
+		ParticleManager:ReleaseParticleIndex( self.nPreviewFX )
 	end
 end
 
@@ -34,6 +35,7 @@ end
 function spider_boss_summon_eggs:OnSpellStart()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
+		ParticleManager:ReleaseParticleIndex( self.nPreviewFX )
 		self.spider_lifetime = self:GetSpecialValueFor( "spider_lifetime" )
     self.egg_spider_lifetime = self:GetSpecialValueFor( "egg_spider_lifetime" )
 

@@ -30,7 +30,7 @@ end
 
 function modifier_echo_strike_oaa:OnCreated(kv)
   self.chance = 25
-  self.cooldown = 0.5
+  self.cooldown = 0.8
   self.global = kv.isGlobal == 1
 
   if not self.global and IsServer() then
@@ -77,7 +77,12 @@ if IsServer() then
       return
     end
 
-    -- Don't proc if passive is on cooldown
+    -- Don't proc while dead (to prevent attacks infinitely proccing from corpses without cooldown)
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Don't proc if Echo Strike is on cooldown
     if attacker:HasModifier("modifier_echo_strike_cooldown_oaa") then
       return
     end
@@ -94,7 +99,7 @@ if IsServer() then
       -- Perform the second attack (can trigger attack modifiers)
       attacker:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 
-      -- Start cooldown by adding a modifier
+      -- Start cooldown by adding a modifier (cooldown is started after the attack so multiple procs in a row are allowed)
       attacker:AddNewModifier(attacker, nil, "modifier_echo_strike_cooldown_oaa", {duration = self.cooldown})
     end
   end
@@ -117,7 +122,7 @@ function modifier_echo_strike_cooldown_oaa:IsHidden()
 end
 
 function modifier_echo_strike_cooldown_oaa:IsDebuff()
-  return true
+  return false
 end
 
 function modifier_echo_strike_cooldown_oaa:IsPurgable()

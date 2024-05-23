@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_medusa"
   "Title"         "Recommended items for Medusa"
 
@@ -8,7 +8,6 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_wraith_band"
       "item"      "item_ring_of_basilius"
       "item"      "item_magic_wand"
     }
@@ -16,27 +15,26 @@
     "#DOTA_Item_Build_For_Farming"
     {
       "item"      "item_maelstrom"
+      "item"      "item_manta"
     }
 
     "#DOTA_Item_Build_Physical_Core"
     {
-      "item"      "item_manta"
       "item"      "item_butterfly_oaa"
       "item"      "item_skadi"
-      "item"      "item_greater_crit"
       "item"      "item_monkey_king_bar"
-      "item"      "item_siege_mode"
+      "item"      "item_angels_demise"
+      "item"      "item_greater_crit"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_phylactery"
-      "item"      "item_radiance"
-      "item"      "item_bloodstone"
+      "item"      "item_aether_lens"
       "item"      "item_ultimate_scepter"
+      "item"      "item_shield_staff"
       "item"      "item_octarine_core"
-      "item"      "item_eternal_shroud"
-      "item"      "item_sheepstick_4"
+      "item"      "item_guardian_greaves"
+      "item"      "item_arcane_blink"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -48,10 +46,15 @@
     {
       "item"      "item_black_king_bar_1"
       "item"      "item_bloodthorn"
+      "item"      "item_disperser"
+      "item"      "item_gungir"
+      "item"      "item_hurricane_pike"
       "item"      "item_sphere"
       "item"      "item_spiked_mail_1"
       "item"      "item_swift_blink"
-      "item"      "item_trumps_fists"
+      "item"      "item_devastator_oaa_2"
+      "item"      "item_siege_mode"
+      "item"      "item_trumps_fists_1"
       "item"      "item_rapier"
     }
   }
