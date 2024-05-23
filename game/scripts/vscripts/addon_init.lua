@@ -12,3 +12,4 @@ require("linker")
 if IsClient() then -- Load clientside utility lib
   require("libraries/basenpc")
 end
+require("libraries/abilities")
