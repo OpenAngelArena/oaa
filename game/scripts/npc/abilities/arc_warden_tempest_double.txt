@@ -19,20 +19,16 @@
     "AbilityCastPoint"                                    "0.15"
     "AbilityCastRange"                                    "700"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "46 44 42 40 38" //OAA
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration" //OAA
+      "AbilityCooldown"
       {
-        "value"                                           "18 20 22 24 26"
-        "special_bonus_unique_arc_warden_6"               "+10"
+        "value"                                           "100 90 80 70 60"
       }
-      "bounty"                                            "180 240 300 750 1500"
+      "duration"                                          "60"
+      "bounty"                                            "180 240 300 480 780"
       "penalty_distance"
       {
         "value"                                           "2000"
@@ -43,12 +39,7 @@
         "value"                                           "0"
         "special_bonus_unique_arc_warden_8"               "+1"
       }
-      "attack_damage_penalty"                             "50"
-      "tempest_double_cooldown_reduction" //OAA
-      {
-        "value"                                           "0"
-        "special_bonus_unique_arc_warden_7"               "+25"
-      }
+      "incoming_damage_penalty"                           "75"
     }
   }
 }
