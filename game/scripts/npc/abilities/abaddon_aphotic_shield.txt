@@ -34,25 +34,25 @@
     {
       "AbilityCooldown"
       {
-        "value"				"12 10 8 6 6 6"
-        "special_bonus_facet_abaddon_mephitic_shroud" "+2"
+        "value"                                           "12 10 8 6 6 6"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "+2"
       }
 
       "duration"
       {
-        "value"				"15.0"
-        "special_bonus_facet_abaddon_mephitic_shroud"	"+2"
+        "value"                                           "15.0"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "+2"
       }
       "radius"
       {
         "value"                                           "675"
-        "special_bonus_facet_abaddon_mephitic_shroud"	"=0"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "=0"
         "affected_by_aoe_increase"                        "1"
       }
       "damage_absorb" //OAA
       {
         "value"                                           "120 150 180 210 420 630"
-        "special_bonus_facet_abaddon_mephitic_shroud"		"+50%"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "+50%"
         "special_bonus_unique_abaddon"                    "+150"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
@@ -63,14 +63,14 @@
       }
       "absorb_to_damage"
       {
-        "value"			"0"
-        "special_bonus_facet_abaddon_mephitic_shroud"	"80"
+        "value"                                           "0"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "80"
       }
       "absorb_damage_aoe"
       {
-        "value"			"0"
-        "special_bonus_facet_abaddon_mephitic_shroud"	"675"
-        "affected_by_aoe_increase"			"1"
+        "value"                                           "0"
+        "special_bonus_facet_abaddon_mephitic_shroud"     "675"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }
