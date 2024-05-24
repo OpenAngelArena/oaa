@@ -14,18 +14,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "fade_delay"                                      "0.5" //OAA
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "0" //OAA
-      }
+      "fade_delay"                                        "0.1" //OAA
+      "movement_speed"                                    "0" //OAA
     }
   }
 }
