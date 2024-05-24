@@ -30,12 +30,12 @@
       "min_damage"
       {
         "value"                                           "15 20 25 30 60 120"
-        "LinkedSpecialBonus"                              "special_bonus_unique_viper_3"
+        "special_bonus_unique_viper_3"                    "+40"
       }
       "max_damage"
       {
         "value"                                           "35 65 95 125 250 500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_viper_3"
+        "special_bonus_unique_viper_3"                    "+40"
       }
       "max_duration"                                      "4"
       "radius"
