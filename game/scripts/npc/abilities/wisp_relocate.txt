@@ -26,17 +26,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "cast_delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "cast_delay"                                      "3.5 3.25 3.0 2.0 1.5"
+        "value"                                           "3.5 3.25 3.0 2.0 1.5"
       }
-      "02"
+      "return_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "return_time"                                     "12.0"
+        "value"                                           "12.0 12.0 12.0"
       }
     }
   }

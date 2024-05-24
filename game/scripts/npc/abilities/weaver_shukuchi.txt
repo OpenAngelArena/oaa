@@ -26,7 +26,7 @@
       "damage"
       {
         "value"                                           "100 130 160 190 380 760"
-        "special_bonus_unique_weaver_1"                   "+55"
+        "special_bonus_unique_weaver_1"                   "+60"
       }
       "speed"                                             "200 230 260 290 300 310" // unused?
       "radius"
@@ -39,12 +39,18 @@
       "AbilityCooldown"
       {
         "value"                                           "15 12 9 6 6 6"
-        "special_bonus_unique_weaver_6"                   "-2.5"
+        "special_bonus_unique_weaver_6"                   "-3"
       }
       "geminate_attack_mark_duration"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+4.6"
+      }
+      "min_movespeed_override"
+      {
+        "value"                                 "0"
+        "special_bonus_facet_weaver_skitterstep"                "+600"
+        "RequiresFacet"                     "weaver_skitterstep"
       }
       "shukuchi_attack_mark_radius"
       {
@@ -56,6 +62,16 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+0.2"
+      }
+      "slow_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_weaver_skitterstep"          "+0.3"
+      }
+      "slow_percent"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_weaver_skitterstep"          "+100"
       }
     }
   }

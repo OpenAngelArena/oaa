@@ -13,17 +13,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "burn_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_amount"                                     "30 40 50 65 85 110 140"
+        "value" "30 40 50 65 85 110 140"
       }
-      "02"
+        "burn_damage_conversion"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage_conversion"                          "50"
+        "value" "50"
       }
     }
   }

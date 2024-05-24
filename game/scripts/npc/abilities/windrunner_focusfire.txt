@@ -22,7 +22,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "40 35 30 20 10" //OAA
-    "AbilityDuration"                                     "20.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -32,13 +31,48 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_attack_speed"                                "350 425 500 575 650"
+      "AbilityDuration"               
+      {
+        "value"                                           "20.0"
+        "special_bonus_facet_windrunner_whirlwind"        "=8.0"          
+      }
+      "bonus_attack_speed"
+      {
+        "value"                                           "350 425 500 575 650"
+        "special_bonus_facet_windrunner_whirlwind"        "=0"             
+      }
+      "attacks_per_second"
+      {
+        "special_bonus_facet_windrunner_whirlwind"              "7 9 11 12 13"
+      }
       "focusfire_damage_reduction"
       {
         "value"                                           "-30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_windranger_8"
+        "special_bonus_unique_windranger_8"               "+12"
       }
       "focusfire_fire_on_the_move"                        "1"
+      "process_procs"
+      {
+        "value"                     "1"
+      }
+      "is_unfocused"
+      {
+        "value"     "0"
+        "special_bonus_facet_windrunner_whirlwind"          "=1"
+      }
+      "duration_increase_per_kill"
+      {
+        "value"     "0"
+        "special_bonus_unique_windranger_2"     "+2"
+        "RequiresFacet"     "windrunner_whirlwind"  
+      }
+      "cooldown_reduction_per_kill"
+      {
+        "value"     "0"
+        "special_bonus_unique_windranger_2"     "+18"
+        "RequiresFacet"     "windrunner_tailwind"   
+      }  
+      "unfocused_cancel_initial_cooldown"     "0.5"
     }
   }
 }

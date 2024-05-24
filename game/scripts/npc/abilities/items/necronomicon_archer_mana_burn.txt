@@ -27,17 +27,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "burn_amount"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_amount"                                     "125 175 225 350 500 750 1150"
+        "value" "125 175 225 350 500 750 1150"
       }
-      "02"
+        "burn_as_damage_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_as_damage_tooltip"                          "100"
+        "value" "100"
       }
     }
   }
