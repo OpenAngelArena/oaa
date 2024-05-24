@@ -64,8 +64,16 @@
       "cleave_damage_percent_creep"                       "40 45 50 55 60"
       "quelling_bonus"                                    "10"
       "quelling_bonus_ranged"                             "10"
-      "cleave_starting_width"                             "150"
-      "cleave_ending_width"                               "360"
+      "cleave_starting_width"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_ending_width"
+      {
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
+      }
       "cleave_distance"                                   "650"
       "upgraded_cleave_bonus"                             "25"
       "upgraded_damage_bonus"                             "15"

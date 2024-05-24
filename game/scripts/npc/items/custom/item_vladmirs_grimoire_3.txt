@@ -76,7 +76,11 @@
       "damage_reduction_against_bosses"                   "20 24 28 32 36"
       "creep_damage_reduction_against_bosses"             "40 48 56 64 72"
       "banish_duration"                                   "4"
-      "aura_radius"                                       "1200"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

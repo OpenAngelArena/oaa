@@ -17,7 +17,11 @@
 
     "AbilityValues"
     {
-      "radius"                                            "1200"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_attack_speed" //OAA
       {
         "value"                                           "5 10 25 40 55 70 85"
