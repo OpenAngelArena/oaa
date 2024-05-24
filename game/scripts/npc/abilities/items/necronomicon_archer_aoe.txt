@@ -16,16 +16,16 @@
     {
       "radius"
       {
-        "value" "1200"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
-        "ms_bonus"
+      "ms_bonus"
       {
-        "value" "5 7 9 11 13 15 17"
+        "value"                                           "5 7 9 11 13 15 17"
       }
-        "as_bonus"
+      "as_bonus"
       {
-        "value" "10 15 20 25 30 35" // Valve made a mistake with this right before removing Necronomicon
+        "value"                                           "10 15 20 25 30 35" // Valve made a mistake with this right before removing Necronomicon
       }
     }
   }

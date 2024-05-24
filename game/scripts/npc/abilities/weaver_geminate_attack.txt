@@ -24,23 +24,23 @@
     {
       "delay"
       {
-        "value" "0.25"
+        "value"                                           "0.25"
       }
-        "extra_attack"
+      "extra_attack"
       {
-        "value" "1"
-        "special_bonus_unique_weaver_5" "+1"
+        "value"                                           "1"
+        "special_bonus_unique_weaver_5"                   "+1"
       }
-        "bonus_damage"
+      "bonus_damage"
       {
-        "value" "5 25 40 55 70 140 210"
-        "special_bonus_unique_weaver_2" "+90"
+        "value"                                           "5 25 40 55 70 140 210"
+        "special_bonus_unique_weaver_2"                   "+90"
       }
-        "shard_beetle_search_range"
+      "shard_beetle_search_range"
       {
-        "value" "1200"
-        "affected_by_aoe_increase"  "1"
-        "RequiresShard" "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresShard"                                   "1"
       }
     }
   }

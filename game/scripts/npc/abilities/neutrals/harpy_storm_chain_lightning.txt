@@ -31,23 +31,23 @@
     {
       "initial_damage"//OAA
       {
-        "value" "100 150 300 600" 
+        "value"                                           "100 150 300 600" 
       }
-        "jump_range"
+      "jump_range"
       {
-        "value" "500"
+        "value"                                           "500"
       }
-        "jump_delay"
+      "jump_delay"
       {
-        "value" "0.25"
+        "value"                                           "0.25"
       }
-        "damage_percent_loss"
+      "damage_percent_loss"
       {
-        "value" "25.0 20.0 15.0 10.0"
+        "value"                                           "25.0 20.0 15.0 10.0"
       }
-        "max_targets"
+      "max_targets"
       {
-        "value" "4"
+        "value"                                           "4"
       }
     }
   }
