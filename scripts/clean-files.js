@@ -51,7 +51,7 @@ function cleanTooltipFile (file) {
   let lineNumber = 0;
 
   lineReader.on('line', (line) => {
-    before += line + '\n';
+    before += line + '\r\n';
     lineNumber++;
     // replace tabs
     line = line.replace(/\t/g, tab);
@@ -80,7 +80,7 @@ function cleanTooltipFile (file) {
       line = line.slice(0, indices[1] + 1) + stringRepeat(' ', padLenght - indices[1] - 2) + line.slice(indices[2]);
     }
 
-    result += line + '\n';
+    result += line + '\r\n';
   });
 
   lineReader.on('close', () => {
@@ -112,7 +112,7 @@ function cleanKVFile (file) {
   let error = false;
   let lineNumber = 0;
   lineReader.on('line', (line) => {
-    before += line + '\n';
+    before += line + '\r\n';
     lineNumber++;
     // replace tabs
     line = line.replace(/\t/g, tab);
@@ -148,7 +148,7 @@ function cleanKVFile (file) {
       }
     }
 
-    result += line + '\n';
+    result += line + '\r\n';
   });
 
   lineReader.on('close', () => {
@@ -193,7 +193,7 @@ function cleanItemBuildFile (file) {
   let lineNumber = 0;
   const spaceLength = 19;
   lineReader.on('line', (line) => {
-    before += line + '\n';
+    before += line + '\r\n';
     lineNumber++;
     // replace tabs
     line = line.replace(/\t/g, tab);
@@ -229,7 +229,7 @@ function cleanItemBuildFile (file) {
       }
     }
 
-    result += line + '\n';
+    result += line + '\r\n';
   });
 
   lineReader.on('close', () => {
