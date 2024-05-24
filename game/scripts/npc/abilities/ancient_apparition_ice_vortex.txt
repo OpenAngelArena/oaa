@@ -43,15 +43,13 @@
         "affected_by_aoe_increase"                        "1"
       }
       "drag_speed"                                        "40 50 60 70 70 70"
-      "movement_speed_pct"
+      "movement_speed_pct" // it says it doesnt slow on it's own, hmmmm
       {
         "value"                                           "-16 -19 -22 -25 -28 -31"
-        "special_bonus_unique_ancient_apparition_4"       "-5"
       }
       "spell_resist_pct"
       {
         "value"                                           "-16 -19 -22 -25 -28 -31"
-        "special_bonus_unique_ancient_apparition_4"       "-5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "vision_aoe" //OAA, same as radius
@@ -59,15 +57,10 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
+      "frost_stacks"                                      "1 2 3 4 5 6"
       "vortex_duration" // same as AbilityDuration
       {
         "value"                                           "6 8 10 12 12 12"
-      }
-      "shard_dps" // not shard
-      {
-        "value"                                           "12 18 24 30 60 90"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
-        "CalculateSpellDamageTooltip"                     "1"
       }
     }
   }
