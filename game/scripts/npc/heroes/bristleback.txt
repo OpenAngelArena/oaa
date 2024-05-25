@@ -6,7 +6,6 @@
   "npc_dota_hero_bristleback"
   {
     "Ability3"                                            "bristleback_bristleback_oaa" // replaces bristleback_bristleback
-    "Ability5"                                            "bristleback_scepter_oaa" // replaces generic_hidden
 
     //"Ability10"                                           "special_bonus_attack_speed_25"
     //"Ability11"                                           "special_bonus_mp_regen_150"
@@ -26,5 +25,39 @@
   // special_bonus_unique_bristleback_4 - "-{s:value} Goo Armor Per Stack"
   // special_bonus_unique_bristleback_5 - "+{s:bonus_AbilityCastRange} Goo Cast Range"
   // special_bonus_unique_bristleback_6 - "+{s:bonus_back_damage_reduction}%/{s:bonus_side_damage_reduction}% Bristleback Back/Side Damage Reduction"
+
+    "Facets"
+    {
+      "bristleback_berserk"
+      {
+        "Icon"                                            "damage"
+        "Color"                                           "Red"
+        "GradientID"                                      "0"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "bristleback_scepter_oaa"
+            "AbilityIndex"                                "4"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+      "bristleback_snot_rocket"
+      {
+        "Icon"                                            "snot"
+        "Color"                                           "Green"
+        "GradientID"                                      "3"
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "bristleback_bristleback"
+            "ReplaceAbility"                              "bristleback_bristleback_oaa"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+    }
   }
 }
