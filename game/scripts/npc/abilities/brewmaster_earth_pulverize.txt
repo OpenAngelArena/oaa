@@ -15,7 +15,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_building_damage"                             "80 140 200 320 440" // percentage bonus damage against bosses
+      "bonus_building_damage" // percentage bonus damage against bosses
+      {
+        "value"                                           "80 140 200 320 440"
+      }
     }
   }
 }
