@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -36,34 +36,50 @@
       "mana_burn"
       {
         "value"                                           "50 80 110 140 280 560"
-        "special_bonus_unique_clockwerk_8"                "+60"
       }
       "mana_burn_as_damage_pct"                           "50"
       "magic_barrier"
       {
-        "value"                                           "50 100 150 200 400 800"
+        "value"                                           "0"
       }
       "attacks_to_destroy"
       {
         "value"                                           "2"
         "special_bonus_unique_clockwerk_5"                "+2"
       }
-      "push_length"                                       "300"
+      "push_length"
+      {
+        "value"                                           "300"
+      }
       "push_duration"                                     "0.8"
-      "cogs_radius"                                       "215"
-      "trigger_distance"                                  "185"
+      "cogs_radius"
+      {
+        "value"                                           "215"
+        "special_bonus_facet_rattletrap_expanded_armature"  "+115"
+      }
+      "cogs_pullin"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_rattletrap_expanded_armature"  "+1"
+      }
+      "trigger_distance"
+      {
+        "value"                                           "185"
+        "special_bonus_facet_rattletrap_expanded_armature"  "-70"
+      }
       "extra_pull_buffer"                                 "-10"
       "bonus_armor"                                       "0"
       "leash"
       {
         "value"                                           "0"
-        "special_bonus_unique_clockwerk_2"                "+1"
       }
       "AbilityCooldown"
       {
         "value"                                           "15"
         "special_bonus_unique_clockwerk_9"                "-3"
       }
+      "projectile_distance"                               "1000"
+      "projectile_speed"                                  "1000"
     }
   }
 }
