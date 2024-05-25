@@ -38,10 +38,9 @@
         "value"                                           "4 6 8 10 12 14"
         "special_bonus_unique_broodmother_6"              "+3"
       }
-      "health_regen" //OAA
+      "health_regen"
       {
-        "value"                                           "2 6 10 14 22 34"
-        "special_bonus_unique_broodmother_web_hpregen"    "+8"
+        "value"                                           "0"
       }
       "bonus_movespeed"                                   "10 22 34 46 58 70"
       "AbilityChargeRestoreTime"
@@ -50,6 +49,10 @@
         "special_bonus_unique_broodmother_5"              "-7"
       }
       "bonus_turn_rate"                                   "0.2"
+      "degen"
+      {
+        "special_bonus_facet_broodmother_necrotic_webs"   "=10 =15 =20 =25 =30 =35"
+      }
     }
   }
 }

@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Broodmother: Incapacitating Bite
+  //=================================================================================================================
+  "broodmother_incapacitating_bite"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "miss_chance" //OAA
+      {
+        "value"                                           "30 40 50 60 65 70"
+        "special_bonus_unique_broodmother_4"              "+25"
+      }
+      "bonus_movespeed" //OAA
+      {
+        "value"                                           "-15 -20 -25 -30 -35 -40"
+        "special_bonus_unique_broodmother_4"              "-25"
+      }
+      "duration"                                          "2.0"
+      "attack_damage"
+      {
+        "value"                                           "2 4 6 8 16 32"
+        "special_bonus_unique_broodmother_2"              "+10"
+      }
+    }
+  }
+}
