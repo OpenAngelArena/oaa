@@ -36,7 +36,7 @@
       "tooltip_outgoing" //OAA
       {
         "value"                                           "70 100 130 190 250"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_7"
+        "special_bonus_unique_dark_seer_7"                "+20"
       }
       "replica_damage_incoming"                           "100 100 100 75 25"
       "tooltip_replica_total_damage_incoming"
@@ -55,7 +55,6 @@
       "slow_duration"
       {
         "value"                                           "1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dark_seer_12"
       }
       "scepter_length_multiplier" // unused
       {
