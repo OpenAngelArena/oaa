@@ -66,7 +66,8 @@ function modifier_item_stonework_pendant_passive:DeclareFunctions()
     MODIFIER_PROPERTY_HEALTH_BONUS,
     MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_MANA_BONUS,
-    MODIFIER_PROPERTY_SPELLS_REQUIRE_HP,
+    MODIFIER_PROPERTY_SPELLS_REQUIRE_HP, -- doesnt work properly, thx Valve
+    MODIFIER_EVENT_ON_ABILITY_EXECUTED, -- reinventing Health Cost
   }
 end
 
@@ -95,5 +96,38 @@ function modifier_item_stonework_pendant_passive:GetModifierManaBonus()
 end
 
 function modifier_item_stonework_pendant_passive:GetModifierSpellsRequireHP()
+  -- On Client: it shows mana cost x this number as health cost
+  -- On Server: it doesnt spend health for most spells, but at least it turns mana cost per second into health per second x this number for some spells
   return self.hp_cost_multiplier or self:GetAbility():GetSpecialValueFor("hp_cost_multiplier")
+end
+
+-- Reinventing Amplified Health Cost that is not affected by magic resist
+if IsServer() then
+  function modifier_item_stonework_pendant_passive:OnAbilityExecuted(event)
+    local parent = self:GetParent()
+
+    local cast_ability = event.ability
+    local caster = event.unit
+
+    -- Check if caster has this modifier
+    if caster ~= parent then
+      return
+    end
+
+    if not cast_ability then
+      return
+    end
+
+    local mana_cost = cast_ability:GetManaCost(-1)
+    local self_damage = mana_cost * self.hp_cost_multiplier
+    local damage_table = {
+      attacker = parent,
+      victim = parent,
+      damage = self_damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NON_LETHAL + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL + DOTA_DAMAGE_FLAG_NO_DAMAGE_MULTIPLIERS,
+      ability = cast_ability
+    }
+    ApplyDamage(damage_table)
+  end
 end
