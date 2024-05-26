@@ -45,12 +45,16 @@
       "pull_speed"                                        "30"
       "tick_rate"                                         "0.1"
       "duration"                                          "4.0"
-      "vision_radius"                                     "800"
+      "vision_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "pull_rotate_speed"                                 "0.25"
       "animation_rate"                                    "0.2"
       "scepter_pct_damage"
       {
-        "value"                                           "3.5"
+        "value"                                           "4"
         "RequiresScepter"                                 "1"
       }
       "scepter_radius"
