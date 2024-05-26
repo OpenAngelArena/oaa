@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Dragon Blood
+  // Dragon Knight: Wyrm's Wrath
   //=================================================================================================================
   "dragon_knight_dragon_blood"
   {
@@ -13,19 +13,90 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      // GREEN DRAGON
+      "is_green_dragon"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "4 7 10 13 19 28"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
+        "value"                                           "0"
+        "special_bonus_facet_dragon_knight_corrosive_dragon"  "+1"
       }
-      "02"
+      "corrosive_breath_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "4 7 10 13 19 28"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight"
+        "value"                                           "10 15 20 25 50 100"
+        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+      }
+      "corrosive_breath_duration"
+      {
+        "value"                                           "3"
+        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+      }
+      "corrosive_breath_armor_reduction"
+      {
+        "value"                                           "1 2 3 4 6 10"
+        "RequiresFacet"                                   "dragon_knight_corrosive_dragon"
+      }
+
+      // RED DRAGON
+      "is_red_dragon"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dragon_knight_fire_dragon"   "+1"
+      }
+      "cleave_starting_width"
+      {
+        "value"                                           "150"
+        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_ending_width" //OAA, Valve has double affected_by_aoe_increase
+      {
+        "value"                                           "260"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+      }
+      "cleave_distance" //OAA, Valve has double affected_by_aoe_increase
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+      }
+      "cleave_damage"
+      {
+        "value"                                           "20 30 40 50 60 70"
+        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+      }
+      "ranged_splash_damage_percent"
+      {
+        "value"                                           "50 60 70 80 90 100"
+        "RequiresFacet"                                   "dragon_knight_fire_dragon"
+      }
+
+      // BLUE DRAGON
+      "is_blue_dragon"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dragon_knight_frost_dragon"  "+1"
+      }
+      "frost_bonus_movement_speed"
+      {
+        "value"                                           "-14 -21 -28 -35 -42 -49"
+        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+      }
+      "frost_bonus_attack_speed"
+      {
+        "value"                                           "-14 -21 -28 -35 -49 -63"
+        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+      }
+      "frost_duration"
+      {
+        "value"                                           "3.0"
+        "RequiresFacet"                                   "dragon_knight_frost_dragon"
+      }
+      "frost_healing_reduction"
+      {
+        "value"                                           "14 21 28 35 42 49"
+        "RequiresFacet"                                   "dragon_knight_frost_dragon"
       }
     }
   }
