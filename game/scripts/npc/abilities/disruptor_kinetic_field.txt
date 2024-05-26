@@ -40,7 +40,10 @@
         "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
-      "formation_time"                                    "1"
+      "formation_time"
+      {
+        "value"                                           "1"
+      }
       "duration" //OAA
       {
         "value"                                           "2.6 3.2 3.8 4.4 4.7 5.0"
