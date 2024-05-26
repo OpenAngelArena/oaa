@@ -19,7 +19,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "18" //OAA
-    "AbilityDuration"                                     "12" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,11 +28,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "heal_duration"                                     "12" //OAA
       "heal_interval"                                     "0.5"
       "heal"
       {
         "value"                                           "4 8 12 16 32 64"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_5"
+        "special_bonus_unique_enchantress_5"              "+8"
       }
       "radius"
       {
@@ -43,12 +43,37 @@
       "wisp_count"
       {
         "value"                                           "8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_enchantress_2"
+        "special_bonus_unique_enchantress_2"              "+12"
       }
       "movespeed"
       {
         "value"                                           "0"
         "special_bonus_unique_enchantress_6"              "+30"
+      }
+      "overprotective_damage_threshold"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=250"
+      }
+      "overprotective_damage_reset_interval"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=7"
+      }
+      "overprotective_wisp_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=4"
+      }
+      "overprotective_wisp_count"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=1"
+      }
+      "overprotective_max_wisps"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_enchantress_overprotective_wisps"  "=4"
       }
     }
   }
