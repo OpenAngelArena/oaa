@@ -49,6 +49,9 @@ local abilities_with_custom_talents = {
   faceless_void_time_dilation = {
     radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
   },
+  faceless_void_time_zone = {
+    AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
+  },
   gyrocopter_flak_cannon = {
     radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
   },
