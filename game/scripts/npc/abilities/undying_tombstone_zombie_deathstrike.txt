@@ -19,28 +19,28 @@
     {
       "slow"
       {
-        "value" "-5"
+        "value"                                           "-5"
       }
       "health_threshold_pct"
       {
-        "value" "40"
+        "value"                                           "40"
       }
       "duration"
       {
-        "value" "2.5"
+        "value"                                           "2.5"
       }
       "bonus_move_speed"
       {
-        "value" "35 40 45 50 55 60"
+        "value"                                           "35 40 45 50 55 60"
       }
       "bonus_attack_speed"
       {
-        "value" "50 60 70 80 90 100"
+        "value"                                           "50 60 70 80 90 100"
       }
       "radius"
       {
-        "value" "1200"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

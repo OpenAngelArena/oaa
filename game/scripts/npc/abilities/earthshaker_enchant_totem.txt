@@ -47,11 +47,10 @@
         "value"                                           "950"
         "RequiresScepter"                                 "1"
       }
-      "aftershock_range" //OAA, should be the same as radius in earthshaker_aftershock
+      "AbilityCooldown"
       {
-        "value"                                           "350"
-        "LinkedSpecialBonus"                              "special_bonus_unique_earthshaker_5"
-        "affected_by_aoe_increase"                        "1"
+        "value"                                           "5.0"
+        "special_bonus_unique_earthshaker"                "-1.5"
       }
       "scepter_height"                                    "950"
       "scepter_height_arcbuffer"                          "100"
@@ -67,18 +66,63 @@
       {
         "value"                                           "150"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "scepter_cleave_ending_width"
       {
         "value"                                           "360"
         "RequiresScepter"                                 "1"
+        "affected_by_aoe_increase"                        "1"
       }
-      "scepter_cleave_distance"
+      "scepter_cleave_distance" //OAA, Valve has it wrong, cleave distances should not be upgraded with AOE increase
       {
         "value"                                           "650"
         "RequiresScepter"                                 "1"
       }
       "bonus_attack_range"                                "100"
+      "projectile_body_on_kill"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1"
+      }
+      "projectile_body_initial_impact_radius"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=225"
+      }
+      "projectile_body_speed"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1600"
+      }
+      "projectile_body_distance"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=1200"
+      }
+      "projectile_body_width_creep"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_width_hero"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_vision"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "projectile_body_damage_creep"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=50 =80 =110 =140 =280 =560"
+      }
+      "projectile_body_damage_hero"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=150 =250 =350 =450 =550 =650"
+      }
+      "projectile_body_damage_additional_percent_health"
+      {
+        "special_bonus_facet_earthshaker_slugger"         "=5"
+      }
     }
   }
 }
