@@ -15,37 +15,32 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "slow"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-5"
+        "value" "-5"
       }
-      "03"
+      "health_threshold_pct"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_threshold_pct"                            "40"
+        "value" "40"
       }
-      "04"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2.5"
+        "value" "2.5"
       }
-      "05"
+      "bonus_move_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_move_speed"                                "35 40 45 50 55 60"
+        "value" "35 40 45 50 55 60"
       }
-      "06"
+      "bonus_attack_speed"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_attack_speed"                              "50 60 70 80 90 100"
+        "value" "50 60 70 80 90 100"
       }
-      "07"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "value" "1200"
+        "affected_by_aoe_increase"  "1"
       }
     }
   }
