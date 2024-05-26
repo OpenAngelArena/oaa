@@ -13,22 +13,20 @@
 
     "MaxLevel"                                            "6"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "radius" //OAA, Valve has it wrong 
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200" //OAA, Valve has it wrong
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
-      "02"
+      "health_threshold"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_threshold"                                "100 200 300 400 800 1600"
+        "value"                                           "100 200 300 400 800 1600"
       }
-      "03"
+      "zombie_interval" // OAA, Valve has it wrong
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "zombie_interval"                                 "4.0 3.6 3.2 2.8 2.7 2.6" // OAA, Valve has it wrong
+        "value"                                           "4.0 3.6 3.2 2.8 2.7 2.6"
       }
     }
   }
