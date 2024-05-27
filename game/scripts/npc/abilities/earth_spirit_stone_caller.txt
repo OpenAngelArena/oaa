@@ -44,7 +44,7 @@
       "AbilityManaCost"
       {
         "value"                                           "0"
-        "special_bonus_facet_earth_spirit_stepping_stone"  "+15"
+        "special_bonus_facet_earth_spirit_stepping_stone"  "0"
       }
       "AbilityCooldown"
       {
@@ -55,6 +55,10 @@
       {
         "value"                                           "18"
         "special_bonus_facet_earth_spirit_stepping_stone"  "=4"
+      }
+      "is_stepping_stone"
+      {
+        "special_bonus_facet_earth_spirit_stepping_stone"  "=1"
       }
     }
   }
