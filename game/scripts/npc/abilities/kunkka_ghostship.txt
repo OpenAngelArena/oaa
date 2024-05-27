@@ -39,15 +39,18 @@
         "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
-      "movespeed_bonus"                                   "15 20 25 30 35" //OAA
+      "movespeed_bonus"                                   "15 20 25 30 35" //OAA, If changing this, update value in x marks for variant 1
       "buff_duration"                                     "10"
       "stun_duration"                                     "1.2"
       "ghostship_speed"                                   "650"
-      "ghostship_absorb"                                  "35"
+      "ghostship_absorb"
+      {
+        "value"                                           "35"  // If changing this, update value in x marks for variant 1
+        "special_bonus_unique_kunkka_rum"                 "+15"
+      }
       "AbilityCooldown" //OAA
       {
         "value"                                           "65 60 55 50 45"
-        "special_bonus_unique_kunkka_ghostship_cooldown"  "-15"
       }
     }
   }

@@ -32,8 +32,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "4.0"
-      "allied_duration"                                   "8.0"
+      "duration"                                          "3.0"
+      "allied_duration"                                   "6.0"
       "fow_range"                                         "400"
       "fow_duration"                                      "5.94"
       "ally_ms"
@@ -42,6 +42,23 @@
         "special_bonus_unique_kunkka_6"                   "+25"
       }
       "ally_armor"                                        "0"
+      "rum_allies_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_kunkka_grog"                 "+400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "buff_duration"          // rum buff, must be named buff_duration
+      {
+        "value"                                           "0"
+        "special_bonus_facet_kunkka_grog"                 "+3"
+      }
+      "movespeed_bonus"                                   "15"
+      "ghostship_absorb"
+      {
+        "value"                                           "35"
+        "special_bonus_unique_kunkka_rum"                 "+15"
+      }
     }
   }
 }
