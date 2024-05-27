@@ -10,14 +10,16 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/furion_wrath_of_nature_oaa.lua"
     "AbilityTextureName"                                  "furion_wrath_of_nature"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
 
     "HasScepterUpgrade"                                   "1"
 
@@ -27,7 +29,7 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
 
-    "AbilityCooldown"                                     "70"
+    "AbilityCooldown"                                     "65"
     "AbilityManaCost"                                     "130 160 190 220 250"
 
     // Special
@@ -36,7 +38,7 @@
     {
       "max_targets"                                       "18"
       "damage"                                            "150 220 290 430 710"
-      "jump_delay"                                        "0.25"
+      "jump_delay"                                        "0.15"
       "damage_percent_add"
       {
         "value"                                           "10"

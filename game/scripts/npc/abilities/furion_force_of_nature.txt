@@ -1,16 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Furion: Force of Nature, Nature's Call (OAA Rework) - unused
-  // OAA version that spawns stronger treants
+  // Nature's Prophet: Nature's Call
   //=================================================================================================================
-  "furion_force_of_nature_oaa"
+  "furion_force_of_nature"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "ability_lua"
-    "AbilityTextureName"                                  "furion_force_of_nature"
-    "ScriptFile"                                          "abilities/oaa_force_of_nature.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 
     "MaxLevel"                                            "6"
@@ -19,7 +15,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.5"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_3"
 
     "AbilityManaCost"                                     "120"
 
@@ -27,11 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
-      {
-        "value"                                           "30 29 28 27 26 25"
-        "special_bonus_unique_furion_6"                   "-10"
-      }
       "area_of_effect"
       {
         "value"                                           "150 225 300 375 450 525"
@@ -40,34 +30,45 @@
       "max_treants"
       {
         "value"                                           "2 3 4 5 6 7"
+        "special_bonus_facet_furion_ironwood_treant"      "=1 =1 =1 =1 =1 =1"
       }
-      "duration"                                          "50"
+      "siege_treants"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_furion_ironwood_treant"      "+1"
+      }
+      "treant_duration"                                   "50"
       "treant_health"
       {
         "value"                                           "550 650 750 850 1700 2550"
+        "special_bonus_facet_furion_ironwood_treant"      "=550 =750 =950 =1150 =2300 =3450"
         "special_bonus_unique_furion"                     "x3"
       }
-      "treant_damage"
+      "treant_damage_min"
       {
         "value"                                           "24 32 40 48 148 248"
+        "special_bonus_facet_furion_ironwood_treant"      "+50%"
         "special_bonus_unique_furion"                     "x3"
-        "CalculateSpellDamageTooltip"                     "0"
       }
-      "treant_armor"                                      "0"
-      "treant_move_speed"
+      "treant_damage_max"
+      {
+        "value"                                           "24 32 40 48 148 248"
+        "special_bonus_facet_furion_ironwood_treant"      "+50%"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treant_movespeed"
       {
         "value"                                           "300 320 340 360 380 400"
         "special_bonus_unique_furion_2"                   "+45"
       }
-      "treant_large_health" // treant_health x 2
+      "AbilityCooldown"
       {
-        "value"                                           "1100 1300 1500 1700 3400 5100"
-        "special_bonus_unique_furion"                     "x3"
+        "value"                                           "37 35 33 31 29 27"
+        "special_bonus_unique_furion_6"                   "-10"
       }
-      "treant_large_damage" // treant_damage x 2.5
+      "treewalking"
       {
-        "value"                                           "60 80 100 120 370 620"
-        "special_bonus_unique_furion"                     "x3"
+        "value"                                           "0"
       }
     }
   }

@@ -36,9 +36,9 @@ function furion_wrath_of_nature_oaa:OnSpellStart()
   caster:EmitSound("Hero_Furion.WrathOfNature_Cast")
 end
 
-function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
-  return "furion_force_of_nature_oaa"
-end
+--function furion_wrath_of_nature_oaa:GetAssociatedSecondaryAbilities()
+  --return "furion_force_of_nature_oaa"
+--end
 
 ---------------------------------------------------------------------------------------------------
 
@@ -192,7 +192,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitTarget(hTarget)
 
   -- Apply a scepter debuff before applying damage
   if bHasScepter and hTarget:IsRealHero() then
-    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
+    local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa") or caster:FindAbilityByName("furion_force_of_nature")
     if force_of_nature_ability and force_of_nature_ability:GetLevel() > 0 then
       hTarget:AddNewModifier(caster, force_of_nature_ability, "modifier_furion_wrath_of_nature_scepter_debuff", {duration = self.scepter_debuff_duration})
     end
@@ -296,7 +296,7 @@ function modifier_furion_wrath_of_nature_thinker_oaa:HitUnhitHeroes()
   )
 
   local ability = self:GetAbility() or caster:FindAbilityByName("furion_wrath_of_nature_oaa")
-  local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
+  local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa") or caster:FindAbilityByName("furion_force_of_nature")
   local bHasScepter = caster:HasScepter()
 
   local damage_table = {
@@ -371,7 +371,7 @@ if IsServer() then
       if not caster then
         return
       end
-      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa")
+      local force_of_nature_ability = caster:FindAbilityByName("furion_force_of_nature_oaa") or caster:FindAbilityByName("furion_force_of_nature")
 
       -- Rubick stole Wrath of Nature but he doesn't have Force of Nature for some reason
       if not force_of_nature_ability then
@@ -390,11 +390,34 @@ if IsServer() then
       local treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_damage", level-1)
       local treant_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_move_speed", level-1)
 
+      if treant_dmg == 0 then
+        treant_dmg = (force_of_nature_ability:GetLevelSpecialValueFor("treant_damage_min", level-1) + force_of_nature_ability:GetLevelSpecialValueFor("treant_damage_max", level-1)) / 2
+      end
+
+      if treant_speed == 0 then
+        treant_speed = force_of_nature_ability:GetLevelSpecialValueFor("treant_movespeed", level-1)
+      end
+
       local treantName = "npc_dota_furion_treant_" .. level
       if parent:IsRealHero() then
         treantName = "npc_dota_furion_treant_large_" .. level
-        treant_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_health", level-1)
-        treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage", level-1)
+        local large_treant_hp = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_health", level-1)
+        local large_treant_dmg = force_of_nature_ability:GetLevelSpecialValueFor("treant_large_damage", level-1)
+        local siege_treant = force_of_nature_ability:GetSpecialValueFor("siege_treants")
+        if large_treant_hp == 0 then
+          if siege_treant ~= 1 then
+            treant_hp = 2 * treant_hp
+          end
+        else
+          treant_hp = large_treant_hp
+        end
+        if large_treant_dmg == 0 then
+          if siege_treant ~= 1 then
+            treant_dmg = 2.5 * treant_dmg
+          end
+        else
+          treant_dmg = large_treant_dmg
+        end
       end
 
       -- Talent that increases health and damage of treants with a multiplier

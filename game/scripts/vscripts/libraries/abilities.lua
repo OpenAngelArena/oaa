@@ -58,3 +58,39 @@ function IsInnateCustom(ability)
   end
   return false
 end
+
+function IsUltimateAbilityCustom(ability)
+  local ability_name
+  if type(ability) == "string" then
+    ability_name = ability
+    if ability_name == "" then
+      return false
+    end
+  else
+    if not ability or ability:IsNull() then
+      print("IsUltimateAbilityCustom: Passed parameter does not exist!")
+      return false
+    end
+    if not ability.GetAbilityName then
+      print("IsUltimateAbilityCustom: Passed parameter is not an ability!")
+      return false
+    end
+    ability_name = ability:GetAbilityName()
+  end
+
+  local ability_data = GetAbilityKeyValuesByName(ability_name)
+  if not ability_data then
+    print("IsUltimateAbilityCustom: Ability "..ability_name.." does not exist!")
+    return false
+  end
+
+  if ability_data.AbilityType == nil then
+    return false
+  end
+
+  if ability_data.AbilityType == "DOTA_ABILITY_TYPE_ULTIMATE" then
+    return true
+  end
+
+  return false
+end
