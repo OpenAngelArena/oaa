@@ -111,6 +111,7 @@ local abilities_with_custom_talents = {
   },
   wisp_overcharge = {
     bonus_spell_amp = {"special_bonus_unique_wisp_1_oaa", "+"},
+    bonus_armor = {"special_bonus_unique_wisp_2_oaa", "+"},
   },
   zuus_thundergods_wrath = {
     AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},
