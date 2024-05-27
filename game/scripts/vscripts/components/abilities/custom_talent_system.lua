@@ -67,6 +67,9 @@ local abilities_with_custom_talents = {
   invoker_sun_strike = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
   },
+  keeper_of_the_light_illuminate = {
+    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "+"},
+  },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
   },
