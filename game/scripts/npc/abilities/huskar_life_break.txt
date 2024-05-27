@@ -46,14 +46,13 @@
       "health_damage"
       {
         "value"                                           "0.32 0.38 0.44 0.5 0.56"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar"
+        "special_bonus_unique_huskar"                     "+0.2"
       }
       "charge_speed"                                      "1200"
       "tooltip_health_damage"
       {
         "value"                                           "32 38 44 50 56"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar"
-        "LinkedSpecialBonusField"                         "value2"
+        "special_bonus_unique_huskar"                     "+20"
       }
       "tooltip_health_cost_percent"
       {
@@ -66,7 +65,7 @@
       "slow_duration_tooltip"
       {
         "value"                                           "3 4 5 6 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_4"
+        "special_bonus_unique_huskar_4"                   "+2"
       }
       "taunt_duration"
       {
@@ -77,6 +76,26 @@
       {
         "value"                                           "250"
         "RequiresScepter"                                 "1"
+      }
+      "splash_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_huskar_bloodbath"            "=500"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "huskar_bloodbath"
+      }
+      "life_break_heal_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_huskar_nothl_transfusion"    "=400"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresFacet"                                   "huskar_nothl_transfusion"
+      }
+      "life_break_heal_pct" //OAA, looks wrong
+      {
+        "value"                                           "0"
+        "special_bonus_facet_huskar_nothl_transfusion"    "100"
+        "RequiresFacet"                                   "huskar_nothl_transfusion"
       }
     }
   }

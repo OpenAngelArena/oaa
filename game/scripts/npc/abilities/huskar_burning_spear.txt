@@ -31,24 +31,22 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "health_cost"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "health_cost"                                     "3"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+        "value"                                           "4"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "02"
+      "burn_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "burn_damage"                                     "5 10 15 20 40 60"
-        "LinkedSpecialBonus"                              "special_bonus_unique_huskar_2"
+        "value"                                           "5 10 15 20 40 80"
+        "special_bonus_unique_huskar_2"                   "+4"
       }
-      "03"
+      "duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "duration"                                        "9"
+        "value"                                           "9"
+        "special_bonus_unique_huskar_5"                   "+6"
       }
     }
   }
