@@ -34,7 +34,7 @@
     "AbilityValues"
     {
       "attack_rate_multiplier"                            "1.5"
-      "bonus_damage"                                      "40 45 50 100 200"
+      "bonus_damage"                                      "25 30 35 70 140"
       "bonus_attack_speed"                                "40"
       "duration"
       {
@@ -49,7 +49,6 @@
       "AbilityCastRange"
       {
         "value"                                           "350"
-        "special_bonus_unique_juggernaut_omnislash_cast_range"  "+75"
       }
       "dispel"
       {
