@@ -33,6 +33,9 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
+  abyssal_underlord_pit_of_malice = {
+    pit_damage = {"special_bonus_unique_underlord_7_oaa", "%"},
+  },
   chaos_knight_reality_rift = {
     armor_reduction = {"special_bonus_unique_chaos_knight_1_oaa", "+"},
   },

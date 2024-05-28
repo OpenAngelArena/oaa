@@ -1,14 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Custom passive stuff - does not need to be leveled up
+  // Underlord: Custom passive stuff - does not need to be leveled up
   //=================================================================================================================
-  "dragon_knight_innates_oaa"
+  "abyssal_underlord_innates_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_dragon_knight_innates.lua"
+    //"ScriptFile"                                          "abilities/.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
   }
 }
