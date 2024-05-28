@@ -7,13 +7,13 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "DependentOnAbility"                                  "life_stealer_infest"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Infest) + 1
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -21,15 +21,16 @@
     {
       "hp_leech_percent" //OAA
       {
-        "value"                                           "1.6 2.0 2.4 2.8 3.2 3.6"
+        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
         "special_bonus_unique_lifestealer_3"              "+1.0"
       }
       "hp_damage_percent" //OAA
       {
-        "value"                                           "1 1.2 1.4 1.6 1.8 2.0"
+        "value"                                           "1.25 1.55 1.85 2.15 2.45 2.75"
         "special_bonus_unique_lifestealer_3"              "+1.0"
         "CalculateSpellDamageTooltip"                     "0"
       }
+      "creep_deny_percent"                                "75"
     }
   }
 }
