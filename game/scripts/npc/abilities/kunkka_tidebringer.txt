@@ -33,10 +33,10 @@
         "value"                                           "450 500 550 600 650 700 750"
         "affected_by_aoe_increase"                        "1"
       }
-      "cleave_distance" //OAA, Valve has it wrong? cleave_distance should not be affected by AoE increase
+      "cleave_distance"
       {
         "value"                                           "500 650 800 950 1100 1250 1400"
-        //"affected_by_aoe_increase"  "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_bonus"
       {

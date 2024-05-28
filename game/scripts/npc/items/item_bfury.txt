@@ -72,7 +72,11 @@
         "value"                                           "360"
         "affected_by_aoe_increase"                        "1"
       }
-      "cleave_distance"                                   "650"
+      "cleave_distance" //OAA
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "upgraded_cleave_bonus"                             "25" // unused
       "upgraded_damage_bonus"                             "15" // unused
     }
