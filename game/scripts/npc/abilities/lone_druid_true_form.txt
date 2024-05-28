@@ -25,19 +25,42 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "8 10 12 14 16"
+      "bonus_armor"
+      {
+        "value"                                           "8 10 12 14 16"
+      }
       "bonus_hp" //OAA
       {
         "value"                                           "500 1500 2500 5500 8500"
-        "special_bonus_unique_lone_druid_7"               "+1500"
+        "special_bonus_facet_lone_druid_unbearable"       "-100%"
+        "RequiresFacet"                                   "lone_druid_bear_with_me"
+        //"special_bonus_unique_lone_druid_7"               "+1500"
       }
-      "base_attack_time"                                  "0"
-      "duration"                                          "40"
+      "base_attack_time"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lone_druid_unbearable"       "0.1"
+        "RequiresFacet"                                   "lone_druid_unbearable"
+      }
+      "duration"
+      {
+        "value"                                           "40"
+      }
       "transformation_time"                               "1.933"
       "AbilityCooldown"
       {
         "value"                                           "100"
         "special_bonus_unique_lone_druid_8"               "-50%"
+      }
+      "transform_bear"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lone_druid_unbearable"       "1"
+      }
+      "entangling_claws_cooldown_reduction_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lone_druid_unbearable"       "75"
       }
     }
   }

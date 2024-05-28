@@ -7,21 +7,18 @@
   {
     "include_keys_from"                                   "npc_dota_lone_druid_bear1"
 
-    "ModelScale"                                          ".98"
+    "ModelScale"                                          ".92"
 
-    "ArmorPhysical"                                       "18"
-
-    //"AttackDamageMin"                                     "90"
-    //"AttackDamageMax"                                     "90"
+    "ArmorPhysical"                                       "12"
     "AttackRate"                                          "1.35"
 
-    "BountyXP"                                            "1200"
-    "BountyGoldMin"                                       "3600"
-    "BountyGoldMax"                                       "3600"
+    "BountyXP"                                            "900"
+    "BountyGoldMin"                                       "2400"
+    "BountyGoldMax"                                       "2400"
 
-    "MovementSpeed"                                       "450"
+    "MovementSpeed"                                       "420"
 
-    "StatusHealth"                                        "5500"
-    "StatusHealthRegen"                                   "21"
+    "StatusHealth"                                        "3100"
+    "StatusHealthRegen"                                   "15"
   }
 }
