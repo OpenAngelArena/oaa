@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Marci Sidekick
+  // Marci Bodyguard
   //=================================================================================================================
-  "marci_guardian"
+  "marci_bodyguard"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
@@ -28,12 +29,16 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45" //OAA
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "bodyguard_duration"
+      {
+        "value"                                           "6.0"
+      }
       "lifesteal_pct"
       {
         "value"                                           "10 15 20 25 30 35"
@@ -44,14 +49,13 @@
         "value"                                           "12 18 24 30 36 40"
         "special_bonus_unique_marci_guardian_damage"      "+20"
       }
-      "bonus_attack_range"                                "0"
-      "max_partner_distance"
-      {
-        "value"                                           "2500"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "max_partner_penalty"                               "50"
       "creep_lifesteal_reduction_pct"                     "40"
+      "bodyguard_attack_range_buffer"
+      {
+        "value"                                           "125"
+      }
+      "bonus_armor"                                       "4 6 8 10 14 18"
+      "counter_cooldown"                                  "0.45"
     }
   }
 }
