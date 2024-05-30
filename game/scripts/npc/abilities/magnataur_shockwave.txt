@@ -36,8 +36,8 @@
     {
       "shock_speed"
       {
-        "value"                                           "900"
-        "special_bonus_shard"                             "+300"
+        "value"                                           "1200"
+        "special_bonus_shard"                             "+400"
       }
       "shock_width"
       {
@@ -49,13 +49,13 @@
         "value"                                           "90 160 230 300 600 1200"
         "special_bonus_unique_magnus"                     "+300"
       }
-      "pull_duration"                                     "0.2"
       "movement_slow"                                     "75"
       "slow_duration"                                     "2"
+      "pull_duration"                                     "0.2"
       "pull_distance"                                     "150"
       "basic_slow_duration"
       {
-        "value"                                           "0.9"
+        "value"                                           "0.7 0.8 0.9 1.0 1.1 1.2"
         "special_bonus_unique_magnus_6"                   "+0.5"
       }
       "return_damage_pct"
