@@ -1,31 +1,26 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tidehunter: Kraken Shell
+  // Tiny: Craggy Exterior
   //=================================================================================================================
-  "tidehunter_kraken_shell"
+  "tiny_craggy_exterior"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE "
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_reduction"
-      {
-        "value"                                           "16 34 52 70 140 210"
-      }
-      "bonus_reduction_per_kill"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_tidehunter_kraken_swell"     "1 2 3 4 5 6"
-      }
+      "debuff_duration"                                   "5"
+      "damage"                                            "0"
+      "max_stacks"                                        "10"
+      "damage_reduction_per_stack"                        "2 3 4 5 6 7"
     }
   }
 }

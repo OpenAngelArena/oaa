@@ -38,14 +38,23 @@
       {
         "value"                                           "125 250 375 500 1000 1500"
         "special_bonus_unique_tinker_7"                   "+150"
+      }         
+      "status_resistance"
+      {
+        "value"                                           "10 20 30 40 50 60"
+        "special_bonus_unique_tinker_defense_matrix_status_resistance"  "+10"
       }
-      "status_resistance"                                 "10 20 30 40 50 60"
       "barrier_duration"                                  "15" // original: 20
-      "cooldown_reduction" //OAA
+      "cooldown_reduction"
       {
         "value"                                           "0"
-        "special_bonus_unique_tinker_defense_matrix_cdr"  "+20"
       }
+      "flicker_range"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tinker_translocator"         "+350"
+      }
+      "flicker_angle"                                     "90"
     }
   }
 }

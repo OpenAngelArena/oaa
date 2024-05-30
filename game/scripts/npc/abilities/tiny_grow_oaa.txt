@@ -23,17 +23,14 @@
       "bonus_armor"                                       "10 17 24 31 38" // for the tooltip
       "bonus_damage"
       {
-        "value"                                           "50 110 170 230 290" // for the tooltip
+        "value"                                           "60 120 180 240 300" // for the tooltip
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "tree_bonus_damage_pct"
+      "attack_speed_reduction" // for the tooltip
       {
-        "value"                                           "0" // for the tooltip
-        "special_bonus_unique_tiny_7"                     "+40"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "-30"
+        "special_bonus_unique_tiny_6"                     "+10"
       }
-      "attack_speed_reduction"                            "-30" // for the tooltip
       "toss_bonus_damage" // for the tooltip
       {
         "value"                                           "100 300 500 1100 1700"
