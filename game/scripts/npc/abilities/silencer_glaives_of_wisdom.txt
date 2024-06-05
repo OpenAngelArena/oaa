@@ -45,7 +45,11 @@
         "value"                                           "1 1 2 2 3 3"
         "special_bonus_shard"                             "+1"
       }
-      "int_steal_duration"                                "20 25 30 35 40 45"
+      "int_steal_duration"
+      {
+        "value"         "20 25 30 35 40 45"
+        "special_bonus_shard"       "+50"
+      }
       "bounce_range"
       {
         "value"                                           "0"
@@ -57,25 +61,15 @@
         "value"                                           "0"
         "special_bonus_unique_silencer_glaives_bounces"   "+1"
       }
-      "permanent_int_steal_range"
-      {
-        "value"                                           "925"
-      }
-      "permanent_int_steal_amount" //OAA
-      {
-        "value"                                           "2"
-        "special_bonus_shard"                             "+1"
-      }
       "stacks_for_silence"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+4"
+        "value"                                           "+4"
       }
       "silence_duration"
       {
-        "value"                                           "0"
-        "special_bonus_shard"                             "+1.75"
+        "value"                                           "+2.5"
       }
+      "debuff_linger_duration"                            "3 4 5 6 7 8"
     }
   }
 }
