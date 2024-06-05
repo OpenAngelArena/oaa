@@ -20,15 +20,35 @@
       "crit_chance" //OAA
       {
         "value"                                           "12"
-        "special_bonus_unique_phantom_assassin_2"         "+5"
+        "special_bonus_unique_phantom_assassin_2"   "+10"
+        "special_bonus_facet_phantom_assassin_methodical"       "=0"
+        "RequiresFacet"             "phantom_assassin_veiled_one"
       }
       "dagger_crit_chance" //OAA
       {
         "value"                                           "25"
-        "special_bonus_unique_phantom_assassin_2"         "+5"
+        "special_bonus_unique_phantom_assassin_2"   "+10"
+        "special_bonus_facet_phantom_assassin_methodical"       "=0"
+        "RequiresFacet"             "phantom_assassin_veiled_one"
       }
-      "crit_bonus"                                        "200 300 400 500 600" //OAA
-      "duration"                                          "6"
+      "crit_bonus" //OAA
+      {
+        "value"     "200 300 400 500 600"
+        "special_bonus_facet_phantom_assassin_methodical"       "+100"
+      }
+      "attacks_to_proc"
+      {
+        "special_bonus_facet_phantom_assassin_methodical"       "+6"
+        "special_bonus_unique_phantom_assassin_2"   "-1"
+        "RequiresFacet"             "phantom_assassin_methodical"
+      }
+      "attacks_to_proc_creeps"
+      {
+        "special_bonus_facet_phantom_assassin_methodical"       "+4"
+        "special_bonus_unique_phantom_assassin_2"   "-1"
+        "RequiresFacet"             "phantom_assassin_methodical"
+      }
+      "duration"                                          "6 8 10 12 14"
     }
   }
 }

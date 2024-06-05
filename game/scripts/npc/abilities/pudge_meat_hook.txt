@@ -29,6 +29,7 @@
       "damage"
       {
         "value"                                           "150 220 290 360 720 1440"
+        "special_bonus_facet_pudge_flayers_hook"          "-50%"
         "special_bonus_unique_pudge_7"                    "+140"
       }
       "hook_speed"                                        "1600.0"
@@ -45,6 +46,15 @@
       "vector_target_distance"
       {
         "value"                                           "0"
+      }
+      "distance_to_damage"
+      {
+        "special_bonus_facet_pudge_flayers_hook"          "12 18 24 30 36 42"              
+      }
+
+      "min_distance_damage"
+      {
+        "special_bonus_facet_pudge_flayers_hook"          "10"
       }
     }
   }
