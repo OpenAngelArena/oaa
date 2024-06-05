@@ -36,41 +36,35 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "purge_damage" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "purge_damage"                                    "300 600 900 1800 2700" //OAA
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_1"
+        "value" "300 600 900 1800 2700"
+        "special_bonus_unique_shadow_demon_1" "+150"
       }
-      "02"
+      "max_charges"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_charges"                                     "2"
-        "RequiresScepter"                                 "1"
+        "value" "2"
+        "RequiresScepter" "1"
       }
-      "03"
+      "charge_restore_time"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time"                             "60"
-        "RequiresScepter"                                 "1"
+        "value" "60"
+        "RequiresScepter" "1"
       }
-      "04"
+      "charge_restore_time_tooltip_scepter"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "charge_restore_time_tooltip_scepter"             "60"
-        "RequiresScepter"                                 "1"
+        "value" "60"
+        "RequiresScepter" "1"
       }
-      "05"
+      "max_slow" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "max_slow"                                        "80 85 90 95 100" //OAA
+        "value" "80 85 90 95 100"
       }
-      "06"
+      "min_slow"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "min_slow"                                        "20.0"
+        "value" "20"
       }
     }
   }
