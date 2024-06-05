@@ -19,7 +19,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "18 16 14 12 12 12" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -33,24 +32,61 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "prison_duration"                                   "1.75 2.5 3.25 4 4 4"
-      "damage"                                            "90 180 270 360 720 1440"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "18 16 14 12 12 12"
+      }
+      "prison_duration"
+      {
+        "value"                                           "1.75 2.5 3.25 4 4 4"               
+      }
+      "damage"
+      {
+        "value"                                           "90 180 270 360 720 1440"
+      }
+      "has_mana_steal"
+      {
+        "value"                                           "1"
+      }
       "mana_capacity_steal"
       {
-        "value"                                           "16 18 20 22 24 26"
-        "special_bonus_shard"                             "+5"
+        "value"                                           "16 19 22 25 28 31"
       }
-      "mana_capacity_duration"                            "30 40 50 60 70 80"
+      "mana_capacity_duration"
+      {
+        "value"                                           "30 40 50 60 70 80"
+      }
       "allied_movement_speed_pct"
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+70"
       }
-      "damage_radius"                                     "0"
+      "damage_radius"
+      {
+        "value"                     "0"
+        "affected_by_aoe_increase"  "1"
+        "special_bonus_shard"       "+300"
+        "RequiresShard"             "1"
+      }
       "AbilityCastRange"
       {
         "value"                                           "650"
         "special_bonus_unique_outworld_devourer_astral_castrange"  "+100"
+      }
+      "debuff_duration"   
+      {
+        "value"                         "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"      "+5"                
+      }
+      "percentage_damage"
+      {
+        "value"                         "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"      "0"             
+      }               
+      "percentage_heal"
+      {
+        "value"                         "0"
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"      "+100"              
       }
     }
   }

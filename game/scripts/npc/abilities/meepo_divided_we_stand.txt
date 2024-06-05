@@ -32,7 +32,10 @@
       "tooltip_share_percentage_scepter"                  "100" // unused
       "respawn"                                           "0.0"
       "tooltip_respawn"                                   "20" // unused
-      "magic_resist"                                      "10 15 20"
+      "magic_resist"
+      {
+        "value"                                           "10 15 20"              
+      }
       "tooltip_magic_resist"
       {
         "value"                                           "10 15 20"

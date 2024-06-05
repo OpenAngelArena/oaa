@@ -31,9 +31,21 @@
         "value"                                           "4 5 6 7 9 11"
         "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1_oaa"
       }
-      "aura_radius"                                       "1200"
-      "bonus_armor_per_stack"                             "2" // bonus armor reduction per stack
-      "kill_buff_duration"                                "20" // stack duration
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "bonus_armor_per_stack" // bonus armor reduction per stack
+      {
+        "value"                     "0"
+        "special_bonus_facet_nevermore_lasting_presence"    "+2"
+      }
+      "kill_buff_duration" // stack duration
+      {
+        "value"                     "0"
+        "special_bonus_facet_nevermore_lasting_presence"    "+60"
+      }
     }
   }
 }

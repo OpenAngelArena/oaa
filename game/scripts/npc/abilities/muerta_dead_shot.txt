@@ -45,7 +45,7 @@
       "speed"                                             "2000"
       "radius"
       {
-        "value"                                           "100"
+        "value"                                           "150"
         "affected_by_aoe_increase"                        "1"
       }
       "ricochet_radius_start"                             "115"
@@ -53,7 +53,7 @@
       "ricochet_distance_multiplier"                      "1.5"
       "ricochet_fear_duration"                            "0.8 0.95 1.1 1.25 1.4 1.55"
       "impact_slow_percent"                               "-100"
-      "impact_slow_duration"                              "0.5"
+      "impact_slow_duration"                              "1"
     }
   }
 }

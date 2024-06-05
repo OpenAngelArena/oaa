@@ -1,13 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Necrolyte's Ghost Shroud
+  // Naga Siren: Undertow
   //=================================================================================================================
-  "necrolyte_sadist"
+  "naga_siren_deluge"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
@@ -16,33 +17,31 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
+    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityCooldown"                                     "10"
 
-    // Cost
+    // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
-
     "AbilityValues"
     {
-      "duration"                                          "3 3.5 4 4.5 5.0 5.5"
-      "heal_bonus"
+      "damage"    
       {
-        "value"                                           "45 55 65 75 80 85"
-        "special_bonus_unique_necrophos_sadist_heal_bonus"  "+15"
+        "value"         "80 130 180 230 460 690"
+        "special_bonus_unique_naga_siren_2" "+30%"
       }
-      "movement_speed"
+      "radius"
       {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_unique_necrophos_3"                "+20"
+        "value"                     "300"
+        "affected_by_aoe_increase"  "1"
       }
-      "slow_aoe"
+      "duration"                  
       {
-        "value"                                           "750"
-        "affected_by_aoe_increase"                        "1"
+        "value"         "5"             
       }
-      "bonus_damage"                                      "-25"
-      "AbilityCooldown" //OAA
+      "debuff_duration"           "10"
+      "status_resistance"
       {
-        "value"                                           "22 20 18 16 15 14"
+        "value"                     "-11 -14 -17 -20 -23 -26"
       }
     }
   }

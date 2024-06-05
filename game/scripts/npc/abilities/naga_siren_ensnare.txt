@@ -42,12 +42,21 @@
       "AbilityCastRange" //OAA, Valve has the scepter bonus wrong
       {
         "value"                                           "500 525 550 575 600 625"
-        "special_bonus_scepter"                           "+60%"
+        "special_bonus_scepter"                           "+50%"
       }
       "can_target_magic_immune"
       {
         "value"                                           "0"
         "special_bonus_scepter"                           "+1"
+      }
+      "can_target_invulnerable"
+      {
+        "value"                         "1"
+      }
+      "does_break"
+      {
+        "value"                                         "0"
+        "special_bonus_unique_naga_siren_net_breaks"    "+1"
       }
     }
   }
