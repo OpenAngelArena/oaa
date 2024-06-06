@@ -9,37 +9,37 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCooldown"                                     "8.5 6.5 4.5 2.5 2.25 2"
+    "AbilityCooldown"                                     "10.5 8.5 6.5 4.5 2.5 2.25 2"
+
+    "AbilityCastRange"                                    "425"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "0.25"
+        "value"                                           "0.25"
       }
-      "02"
+      "extra_attack"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "tooltip_attack"                                  "1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_5"
+        "value"                                           "1"
+        "special_bonus_unique_weaver_5"                   "+1"
       }
-      "03"
+      "bonus_damage"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "25 40 55 70 140 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_weaver_2"
+        "value"                                           "5 25 40 55 70 140 210"
+        "special_bonus_unique_weaver_2"                   "+90"
       }
-      "04"
+      "shard_beetle_search_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_beetle_search_range"                       "1200"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
         "RequiresShard"                                   "1"
       }
     }

@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Axe - Coat of Blood (Innate)
+  //=================================================================================================================
+  "axe_coat_of_blood"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+    "MaxLevel"                                            "6" // same as Dependent ability (Culling Blade) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "axe_culling_blade"
+
+    "AbilityValues"
+    {
+      "armor_per_kill"                                    "0.4 0.6 0.8 1.0 1.2 1.4"
+      "culling_blade_multiplier"                          "2"    // only supports int values currently
+    }
+  }
+}

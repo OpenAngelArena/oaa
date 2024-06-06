@@ -33,20 +33,29 @@
     {
       "duration"
       {
-        "value"                                           "1.5 2.0 2.5 3.0 3.0 3.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_2"
+        "value"                                           "1.5 2.0 2.5 3.0 3.25 3.5"
+        "special_bonus_unique_ember_spirit_2"             "+1"
       }
       "radius"
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage_per_second"                                 "50 70 90 110 220 440"
+      "damage_per_second"
+      {
+        "value"                                           "50 70 90 110 220 440"
+        "special_bonus_unique_ember_spirit_chains_dps"    "+60"
+      }
       "tick_interval"                                     "0.5"
       "unit_count"
       {
         "value"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ember_spirit_7"
+        "special_bonus_facet_ember_spirit_chain_gang"     "+1"
+      }
+      "remnant_chains"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_ember_spirit_chain_gang"     "=1"
       }
     }
   }

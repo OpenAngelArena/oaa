@@ -20,19 +20,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "500"
-    "AbilityCastPoint"                                    "0.2"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 100 125 150 175 200"
+    "AbilityCastPoint"                                    "0.5"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "health_cost"                                       "75 100 125 150 175 200"
       "damage"
       {
-        "value"                                           "120 180 240 300 600 900"
+        "value"                                           "120 180 240 300 600 900" // special_bonus_unique_huskar_1_oaa
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
@@ -40,9 +37,9 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "disarm_duration"
+      "disarm_duration" // now silence duration
       {
-        "value"                                           "1.9 2.6 3.3 4.0 4.25 4.5"
+        "value"                                           "1.5 2 2.5 3 3.5 4"
         "special_bonus_unique_huskar_3"                   "+0.75"
       }
       "knockback_distance"                                "400"

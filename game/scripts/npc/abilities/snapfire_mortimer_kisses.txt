@@ -67,12 +67,12 @@
       "burn_damage" //OAA
       {
         "value"                                           "60 100 140 260 380"
+        "special_bonus_unique_snapfire_5"                 "+20"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct"
       {
         "value"                                           "15 20 25 30 35"
-        "special_bonus_unique_snapfire_4"                 "+20"
       }
       "burn_ground_duration"                              "3.0"
       "dist_change_speed"                                 "75"

@@ -24,10 +24,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "15.0"
+      "duration"                                          "15"
       "strike_damage"
       {
-        "value"                                           "50 75 100 125 250 500"
+        "value"                                           "25 50 75 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "tick_damage" //OAA
@@ -52,6 +52,14 @@
       {
         "value"                                           "21 20 19 18 17 16"
         "special_bonus_unique_venomancer_3"               "-5"
+      }
+      "explosion_damage"      
+      {
+        "special_bonus_shard"                             "300"
+      }
+      "explosion_stun_duration"   
+      {
+        "special_bonus_shard"                             "1.6"
       }
     }
   }

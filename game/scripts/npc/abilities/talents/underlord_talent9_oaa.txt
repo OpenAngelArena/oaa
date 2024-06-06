@@ -1,0 +1,14 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Custom Underlord talent: Dark Rift Bonus Damage
+  //=================================================================================================================
+  "special_bonus_unique_underlord_9_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_base"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+  }
+}

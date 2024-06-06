@@ -35,21 +35,50 @@
         "value"                                           "375"
         "affected_by_aoe_increase"                        "1"
       }
+      "duration"                                          "16"
+      "move_speed_slow_pct"                               "100"
+      "base_activation_delay"
+      {
+        "value"                                           "2.0"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
       "spark_damage_base"
       {
         "value"                                           "100 180 260 340 680 1020"
         "special_bonus_unique_arc_warden"                 "+35%"
+        "RequiresFacet"                                   "arc_warden_order"
       }
-      "base_activation_delay"                             "2.0"
-      "wraith_speed_base"                                 "400"
-      "duration"                                          "16"
+      "wraith_speed_base"
+      {
+        "value"                                           "400"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
+      "ministun_duration"
+      {
+        "value"                                           "0.4 0.5 0.6 0.7 0.8 0.9"
+        "RequiresFacet"                                   "arc_warden_order"
+      }
+      "tempest_activation_delay"
+      {
+        "value"                                           "1.0"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
       "spark_damage_tempest"
       {
         "value"                                           "75 140 205 270 540 810"
         "special_bonus_unique_arc_warden"                 "+35%"
+        "RequiresFacet"                                   "arc_warden_disorder"
       }
-      "tempest_activation_delay"                          "1.0"
-      "wraith_speed_tempest"                              "725"
+      "ministun_duration_tempest"
+      {
+        "value"                                           "0.6 0.8 1.0 1.2 1.4 1.6"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
+      "wraith_speed_tempest"
+      {
+        "value"                                           "725"
+        "RequiresFacet"                                   "arc_warden_disorder"
+      }
       "think_interval"                                    "0.2"
       "wraith_vision_radius"
       {
@@ -57,9 +86,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "wraith_vision_duration"                            "3.34"
-      "ministun_duration"                                 "0.4 0.5 0.6 0.7 0.8 0.9"
-      "ministun_duration_tempest"                         "0.6 0.8 1.0 1.2 1.3 1.4"
-      "move_speed_slow_pct"                               "100"
       "scepter_activation_delay"
       {
         "value"                                           "2.0"

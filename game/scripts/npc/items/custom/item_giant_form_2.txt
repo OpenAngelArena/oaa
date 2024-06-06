@@ -67,15 +67,27 @@
       "bonus_health_regen"                                "17 20"
       "bonus_attack_range_melee"                          "50 100" // doesn't work on ranged heroes
       "cleave_percent"                                    "55 60" // doesn't work on ranged heroes
-      "cleave_starting_width"                             "150"
-      "cleave_ending_width"                               "360"
-      "cleave_distance"                                   "650"
+      "cleave_starting_width"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_ending_width"
+      {
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_distance"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "giant_attack_damage"                               "150 200"
       "giant_primary_attribute_bonus"                     "55 75"
       "giant_attack_speed_reduction"                      "30" // percentage attack speed reduction
       "giant_splash_radius"
       {
-        "value"                                           "700"
+        "value"                                           "650"
         "affected_by_aoe_increase"                        "1"
       }
       "giant_splash_damage"                               "75 100" // splash percent, doesn't work on ranged heroes

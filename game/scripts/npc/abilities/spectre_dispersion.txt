@@ -21,8 +21,16 @@
         "value"                                           "8 12 16 20 21 22"
         "special_bonus_unique_spectre_5"                  "+5"
       }
-      "min_radius"                                        "300"
-      "max_radius"                                        "800"
+      "min_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "max_radius"
+      {
+        "value"                                           "800"
+        "affected_by_aoe_increase"                        "1"
+      }
       "activation_cooldown"
       {
         "value"                                           "0"
@@ -36,7 +44,7 @@
       "activation_bonus_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+100"
+        "special_bonus_shard"                             "+50"
       }
       "activation_duration"
       {

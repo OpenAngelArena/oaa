@@ -23,8 +23,16 @@
     "AbilityValues"
     {
       "AbilityCastRange"                                  "1200"
-      "AbilityCooldown"                                   "90"
-      "AbilityManaCost"                                   "150 200 250 300 350" //OAA
+      "AbilityCooldown"
+      {
+        "value"                                           "90"
+        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
+      }
+      "AbilityManaCost" //OAA
+      {
+        "value"                                           "150 200 250 300 350"
+        "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
+      }
       "radius"
       {
         "value"                                           "1200"
@@ -36,7 +44,7 @@
         "special_bonus_unique_medusa"                     "+1.5"
       }
       "slow"                                              "35"
-      "stone_duration"                                    "2 2.2 2.4 2.5 2.6"
+      "stone_duration"                                    "2 2.2 2.4 2.6 2.8"
       "face_duration"                                     "2.0"
       "vision_cone"                                       "0.08715"   // 85 degree cone
       "bonus_physical_damage" //OAA

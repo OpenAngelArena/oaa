@@ -33,11 +33,16 @@
       }
       "transformation_time"                               "0.35"
       "base_attack_time"                                  "1.5"
-      "bonus_range"                                       "340 360 380 400 420 440"
-      "tooltip_attack_range"                              "490 510 530 550 570 590"
+      "bonus_range"                                       "300 340 380 420 440 460"
+      "tooltip_attack_range"                              "450 490 530 570 590 610" //OAA Valve forgot??
       "bonus_damage"                                      "30 40 50 60 120 240"
       "speed_loss"                                        "0"
-      "metamorph_aura_tooltip"                            "1200"
+      "metamorph_aura_tooltip"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+
+      }
       "AbilityCooldown" // OAA
       {
         "value"                                           "100"

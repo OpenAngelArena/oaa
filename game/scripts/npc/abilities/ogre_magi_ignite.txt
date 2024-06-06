@@ -37,7 +37,7 @@
       "burn_damage"
       {
         "value"                                           "20 30 40 50 100 150"
-        "LinkedSpecialBonus"                              "special_bonus_unique_ogre_magi_4"
+        "special_bonus_unique_ogre_magi_4"                "+15"
       }
       "slow_movement_speed_pct"                           "-20 -23 -26 -29 -32 -35"
       "projectile_speed"                                  "1000"
@@ -46,6 +46,11 @@
       {
         "value"                                           "1400"
         "affected_by_aoe_increase"                        "1"
+      }
+      "required_level"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_ogre_magi_learning_curve"   "-1"
       }
     }
   }

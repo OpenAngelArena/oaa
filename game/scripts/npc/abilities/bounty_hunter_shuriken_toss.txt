@@ -25,22 +25,21 @@
     "AbilityCastRange"                                    "525" //OAA
     "AbilityCastPoint"                                    "0.3"
     "AbilityCooldown"                                     "5"
-    "AbilityManaCost"                                     "50 60 70 80 90 100"
+    "AbilityManaCost"                                     "65 70 75 80 85 90"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage" //OAA
+      "bonus_damage"
       {
-        "value"                                           "100 160 220 280 560 840"
-        "special_bonus_unique_bounty_hunter_2"            "+50"
+        "value"                                           "100 170 240 310 620 930"
+        "special_bonus_unique_bounty_hunter_2"            "+275"
       }
       "speed"                                             "1000"
       "bounce_aoe"
       {
         "value"                                           "1200"
-        //"affected_by_aoe_increase"                        "1"
       }
       "slow_duration" //OAA
       {
@@ -57,9 +56,17 @@
         "value"                                           "5"
         "RequiresScepter"                                 "1"
       }
+      "passthrough_damage"
+      {
+        "special_bonus_facet_bounty_hunter_shuriken"      "1"
+      }
+      "passthrough_width"
+      {
+        "special_bonus_facet_bounty_hunter_shuriken"      "175"
+        "affected_by_aoe_increase"                        "1"
+      }
       "cast_range"                                        "525" // OAA, same as AbilityCastRange
       "slow"                                              "100"
-      "attack_slow"                                       "100"
     }
   }
 }

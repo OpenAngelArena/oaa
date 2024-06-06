@@ -20,7 +20,7 @@
       "attack_speed" //OAA
       {
         "value"                                           "10 15 20 25 30 35"
-        "LinkedSpecialBonus"                              "special_bonus_unique_troll_warlord_5"
+        "special_bonus_unique_troll_warlord_5"            "+5"
       }
       "max_stacks" //OAA
       {
@@ -34,10 +34,14 @@
       }
       "base_chance"
       {
-        "value"                                           "20"
+        "value"                                           "18"
         "RequiresShard"                                   "1"
       }
-      "range_buffer"                                      "175"
+      "armor_per_stack"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_troll_warlord_insensitive"   "+1"
+      }
     }
   }
 }

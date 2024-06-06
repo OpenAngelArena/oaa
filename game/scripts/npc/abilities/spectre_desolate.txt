@@ -21,13 +21,18 @@
     {
       "bonus_damage" //OAA
       {
-        "value"                                           "21 34 47 60 86 112"
+        "value"                                           "20 35 50 65 95 125"
         "special_bonus_unique_spectre_2"                  "+15"
       }
       "radius"
       {
         "value"                                           "400"
         "special_bonus_unique_spectre_desolate_radius"    "-100"
+      }
+      "only_creep_allies_damage_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_spectre_forsaken"            "+50"
       }
     }
   }

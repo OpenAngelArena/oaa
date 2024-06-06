@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Tiny: Craggy Exterior
+  //=================================================================================================================
+  "tiny_craggy_exterior"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE "
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "debuff_duration"                                   "5"
+      "damage"                                            "0"
+      "max_stacks"                                        "10"
+      "damage_reduction_per_stack"                        "2 3 4 5 6 7"
+    }
+  }
+}

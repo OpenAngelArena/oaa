@@ -19,7 +19,6 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
@@ -35,11 +34,10 @@
       "blade_fury_radius"
       {
         "value"                                           "260"
-        "special_bonus_unique_juggernaut"                 "+100"
         "special_bonus_shard"                             "+100"
         "affected_by_aoe_increase"                        "1"
       }
-      "blade_fury_damage_per_tick" // old dps: 90 115 140 165 330 660 + 200 from the talent
+      "blade_fury_damage_per_tick" //OAA old dps: 90 115 140 165 330 660 + 200 from the talent
       {
         "value"                                           "45 50 55 60 70 85"
       }
@@ -61,6 +59,11 @@
       {
         "value"                                           "0"
         "special_bonus_shard"                             "+35"
+      }
+      "can_crit"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_juggernaut_bladestorm"       "+1"
       }
     }
   }

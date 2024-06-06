@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "target_crit_multiplier"                            "140 170 200 230 260"
+      "target_damage_amp"                                 "8 14 20 26 32"
       "bonus_gold_radius"
       {
         "value"                                           "1200"
@@ -52,7 +52,6 @@
       "duration"                                          "30.0"
       "gold_steal"                                        "0.3 0.4 0.5 0.6 0.7" // unused
       "bonus_move_speed_pct"                              "16 20 24 28 32"
-      "toss_crit_multiplier"                              "140 170 200 230 260"
     }
   }
 }

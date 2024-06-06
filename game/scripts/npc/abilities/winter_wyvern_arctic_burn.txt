@@ -28,22 +28,21 @@
     "AbilityValues"
     {
       "duration"                                          "7 8 9 10 11 12"
-      "attack_range_bonus"                                "350 400 450 500 550 600"
+      "attack_range_bonus"                                "300 325 350 375 400 425"
       "percent_damage"                                    "4 6 8 10 11 12"
-      "tick_rate"                                         "1.0"
+      "tick_rate"                                         "0.5"
       "damage_duration"
       {
         "value"                                           "5.0"
         "CalculateSpellDamageTooltip"                     "0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_6"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "special_bonus_unique_winter_wyvern_6"            "+3"
       }
       "move_slow"
       {
         "value"                                           "16 24 32 40 45 50"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_1"
+        "special_bonus_unique_winter_wyvern_1"            "+17"
       }
-      "night_vision_bonus"                                "400"
       "projectile_speed_bonus"                            "500"
       "tree_destruction_radius"
       {

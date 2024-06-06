@@ -37,10 +37,10 @@
       "electric_vortex_pull_distance"                     "180 220 260 300 340 380"
       "electric_vortex_pull_tether_range"                 "1200.0"
       "electric_vortex_self_slow"                         "-50"
-      "electric_vortex_self_slow_duration"                "0.9 1.3 1.7 2.1 2.4 2.7" //OAA
+      "electric_vortex_self_slow_duration"                "1.1 1.4 1.7 2.0 2.3 2.6" //OAA
       "AbilityDuration"
       {
-        "value"                                           "0.9 1.3 1.7 2.1 2.4 2.7"
+        "value"                                           "1.1 1.4 1.7 2.0 2.3 2.6"
         "special_bonus_unique_storm_spirit"               "+0.3"
       }
       "radius_scepter"
@@ -48,6 +48,11 @@
         "value"                                           "475"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
+      }
+      "enemy_overload_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_storm_spirit_shock_collar"   "=5"
       }
     }
   }

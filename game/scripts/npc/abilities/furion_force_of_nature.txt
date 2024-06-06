@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Nature's Prophet: Nature's Call
+  //=================================================================================================================
+  "furion_force_of_nature"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+
+    "MaxLevel"                                            "6"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "750"
+    "AbilityCastPoint"                                    "0.5"
+
+    "AbilityManaCost"                                     "120"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "area_of_effect"
+      {
+        "value"                                           "150 225 300 375 450 525"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "max_treants"
+      {
+        "value"                                           "2 3 4 5 6 7"
+        "special_bonus_facet_furion_ironwood_treant"      "=1 =1 =1 =1 =1 =1"
+      }
+      "siege_treants"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_furion_ironwood_treant"      "+1"
+      }
+      "treant_duration"                                   "50"
+      "treant_health" //OAA
+      {
+        "value"                                           "550 650 750 850 1700 2550"
+        "special_bonus_facet_furion_ironwood_treant"      "=750 =950 =1150 =1350 =2700 =5400"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treant_damage_min" //OAA
+      {
+        "value"                                           "24 32 40 48 148 248"
+        "special_bonus_facet_furion_ironwood_treant"      "+75%"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treant_damage_max" //OAA
+      {
+        "value"                                           "24 32 40 48 148 248"
+        "special_bonus_facet_furion_ironwood_treant"      "+75%"
+        "special_bonus_unique_furion"                     "x3"
+      }
+      "treant_movespeed" //OAA
+      {
+        "value"                                           "300 320 340 360 380 400"
+        "special_bonus_unique_furion_2"                   "+45"
+      }
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "34 33 32 31 30 29"
+        "special_bonus_unique_furion_6"                   "-10"
+      }
+      "treewalking"
+      {
+        "value"                                           "0"
+      }
+    }
+  }
+}

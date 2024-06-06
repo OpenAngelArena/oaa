@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "17003"
+    "ItemCost"                                            "17203"
     "ItemShopTags"                                        "str;agi;attack_speed;move_speed;unique"
     "ItemQuality"                                         "artifact"
     "ItemAliases"                                         "sny 4;s&y 4;sy 4;sange and yasha 4"
@@ -62,6 +62,7 @@
       "bonus_attack_speed"                                "15 20 25 30 35"
       "movement_speed_percent_bonus"                      "10 12 14 16 18"
       "hp_regen_amp"                                      "20 22 24 26 28"
+      "slow_resistance"                                   "20 22 24 26 28"
     }
   }
 }

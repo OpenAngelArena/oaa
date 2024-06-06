@@ -81,6 +81,7 @@ SPECIAL_BOTTLES = {
   [858631509] = {3,4,5,54}, -- Obby
   [256293935] = {3,4,5,9}, -- Woozi
   [151615799] = {4,5,60}, -- FrostKitten
+  [111521761] = {3,4,57}, -- Jandiss
 
   -- twitch donators 3
 

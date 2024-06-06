@@ -51,8 +51,10 @@
       "bounce_delay"                                      "0.1"
       "bounce_bonus_damage"
       {
-        "value"                                           "10 15 20 25 50 75"
+        "value"                                           "0"
         "CalculateSpellDamageTooltip"                     "1"
+        "special_bonus_facet_witch_doctor_headhunter"     "+35"
+        "RequiresFacet"                                   "witch_doctor_headhunter"
       }
       "creep_damage_pct"                                  "150"
     }

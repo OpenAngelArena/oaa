@@ -25,7 +25,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 225 250 275 300"
+    "AbilityManaCost"                                     "150 200 250 300 350"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,13 +38,15 @@
       }
       "damage_reduction"                                  "100 100 100 90 80"
       "damage_amplification"                              "30"
-      "bonus_attack_speed"                                "65 70 75 80 85" //OAA
-      "duration"
+      "bonus_attack_speed"
       {
-        "value"                                           "4.5 5 5.5 5.5 5.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_3"
+        "value"                                           "65"
+        "special_bonus_unique_winter_wyvern_3"            "+55"
       }
-      "early_out_timer"                                   "2.5 2.5 2.5 3.5 4.5"
+      "duration"                                          "2"
+      "max_duration"                                      "4.5 5 5.5 6.0 6.5" //OAA
+      "bonus_duration_per_hero"                           "2"
+      "bonus_duration_per_creep"                          "0.5"
     }
   }
 }

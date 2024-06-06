@@ -9,17 +9,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "6"
 
     "AbilityValues"
     {
       "explosion_delay"                                   ".2"
-      "explosion_radius"                                  "400"
-      "explosion_dmg"                                     "30 60 90 120 180 360 720"
+      "explosion_radius"
+      {
+        "value"                                           "400"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "explosion_dmg"                                     "25 70 115 160 205 410 615"
       "explosion_nonhero_reduce"                          "50"
 
-      "bonus_hp"                                          "0 50 100 150 250 500 1000"
-      "bonus_dmg"                                         "0 2 4 6 8 16 32"
+      "bonus_hp"                                          "0 80 160 240 320 640 1280"
+      "bonus_dmg"                                         "0 4 8 12 16 32 64"
       "bonus_movespeed"                                   "0 15 30 45 60 75 90"
     }
   }

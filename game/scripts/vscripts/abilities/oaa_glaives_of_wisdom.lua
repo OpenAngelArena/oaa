@@ -432,7 +432,7 @@ if IsServer() then
         end
       end
 
-      local bonusDamage = parent:GetIntellect() * bonusDamagePct
+      local bonusDamage = parent:GetIntellect(false) * bonusDamagePct
 
       local damageTable = {
         attacker = parent,

@@ -47,14 +47,13 @@
       "knockback_slow_duration"
       {
         "value"                                           "2.5"
-        "special_bonus_unique_mars_rebuke_slow"           "+0"
       }
       "activity_duration"                                 "2"
       "bonus_damage_vs_heroes"                            "10 15 20 25 50 100"
       "AbilityCooldown"
       {
         "value"                                           "16 14 12 10 9 8"
-        "special_bonus_unique_mars_rebuke_cooldown"       "-3"
+        "special_bonus_unique_mars_rebuke_cooldown"       "-2"
       }
     }
   }

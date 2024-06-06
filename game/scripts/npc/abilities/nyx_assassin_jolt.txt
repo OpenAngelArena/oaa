@@ -16,7 +16,7 @@
     // Unit Targeting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -25,25 +25,29 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "11 9 7 5 4 4" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100"
+    "AbilityManaCost"                                     "100 105 110 115 120 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "float_multiplier"
+      "AbilityCooldown" //OAA
       {
-        "value"                                           "3.5 4 4.5 5 5.5 6"
-        "special_bonus_unique_nyx_5"                      "+0.75"
+        "value"                                           "11 9 7 5 4 4"
+        "special_bonus_unique_nyx_jolt_cooldown"          "-3"
+      } 
+      "max_mana_as_damage_pct"        
+      {
+        "value"                                           "20 25 30 35"
       }
       "aoe"
       {
         "value"                                           "0"
-        "special_bonus_unique_nyx"                        "+300"
+        "special_bonus_unique_nyx"                        "+600"
+        "affected_by_aoe_increase"                        "1"
       }
       "damage_echo_duration"                              "15"
       "damage_echo_pct"                                   "15" //OAA

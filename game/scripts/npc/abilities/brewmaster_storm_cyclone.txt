@@ -28,17 +28,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration_hero"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_hero"                                   "5.0"
+        "value"                                           "3 4 5 5.5 6"
       }
-      "02"
+      "duration_unit"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration_unit"                                   "16"
+        "value"                                           "16"
       }
     }
   }

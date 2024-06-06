@@ -69,7 +69,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     local talent = hero:FindAbilityByName(leveled_up_ability)
-    if string.find(leveled_up_ability, "special_bonus_") and talent:IsAttributeBonus() then
+    if IsTalentCustom(leveled_up_ability) then
       -- Ability is a talent
 
       -- Check for hero level
@@ -215,7 +215,7 @@ function AbilityLevels:SetTalents(hero)
   local abilityTable = {}
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability and ability:IsAttributeBonus() and ability:GetName() ~= "special_bonus_attributes" and ability:GetName() ~= "attribute_bonus" then
+    if ability and IsTalentCustom(ability) then
       abilityTable[#abilityTable + 1] = ability
     end
   end
@@ -259,23 +259,29 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
   local ultimateReqs = {0, 0, 0, 37, 49}
 
   local invokerAbilityReqs = {0, 0, 0, 0, 0, 0, 0, 26, 28, 30, 32, 34, 36, 38}
-  local medusaShieldReqs = {0, 0, 0, 0, 0, 28, 40}
+  local basicInnateAbilityReqs = {0, 0, 0, 0, 0, 28, 40}
+  local ultimateInnateAbilityReqs = {0, 0, 0, 0, 37, 49}
+
   -- Ability hero level requirements for abilities that don't follow the default pattern
   local exceptionAbilityReqs = {
     invoker_quas = invokerAbilityReqs,
     invoker_wex = invokerAbilityReqs,
     invoker_exort = invokerAbilityReqs,
-    medusa_mana_shield = medusaShieldReqs
   }
 
   local ability = hero:FindAbilityByName(abilityName)
   local abilityLevel = ability:GetLevel()
-  local abilityType = ability:GetAbilityType()
   local reqTable = basicReqs
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
-  elseif abilityType == 1 then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+  elseif IsInnateCustom(abilityName) then
+    if IsUltimateAbilityCustom(abilityName) then
+      reqTable = ultimateInnateAbilityReqs
+    else
+      reqTable = basicInnateAbilityReqs
+    end
+  elseif IsUltimateAbilityCustom(abilityName) then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
     reqTable = ultimateReqs
   end
 

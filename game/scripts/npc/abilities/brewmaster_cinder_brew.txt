@@ -19,7 +19,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "850"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,14 +35,12 @@
       "duration"
       {
         "value"                                           "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "special_bonus_unique_brewmaster_5"               "+30%"
       }
-      "total_damage"
+      "total_ignite_damage"
       {
         "value"                                           "80 160 240 320 640 1280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_brewmaster_5"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+        "special_bonus_unique_brewmaster_5"               "+30%"
       }
       "movement_slow"                                     "24 28 32 36 40 44"
       "radius"
@@ -52,6 +49,49 @@
         "affected_by_aoe_increase"                        "1"
       }
       "extra_duration"                                    "3"
+      "projectile_speed"
+      {
+        "value"                                           "1600"
+        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=900"
+        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
+      }
+      "projectile_width"
+      {
+        "value"                                           "250"
+        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "+100"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "barrel_width"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=75"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "barrel_impact_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "50 75 100 125 250 500"
+        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "700"
+        "special_bonus_facet_brewmaster_roll_out_the_barrel"  "=950"
+        "RequiresFacet"                                   "brewmaster_roll_out_the_barrel"
+      }
+      "min_movement" //OAA, Valve has the wrong facet
+      {
+        "value"                                           "0"
+        "special_bonus_facet_brewmaster_drunken_master"   "-20"
+        "RequiresFacet"                                   "brewmaster_drunken_master"
+      }
+      "max_movement" //OAA, Valve has the wrong facet
+      {
+        "value"                                           "0"
+        "special_bonus_facet_brewmaster_drunken_master"   "50"
+        "RequiresFacet"                                   "brewmaster_drunken_master"
+      }
     }
   }
 }

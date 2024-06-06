@@ -38,15 +38,14 @@
       "radius"
       {
         "value"                                           "450"
-        "LinkedSpecialBonus"                              "special_bonus_unique_riki_4"
         "affected_by_aoe_increase"                        "1"
       }
       "attack_count"                                      "4"
       "damage_pct"                                        "40"
       "agility_pct"
       {
-        "value"                                           "70 80 90 100 105 110"
-        "special_bonus_unique_riki_2"                     "+30"
+        "value"                                           "30 50 70 90 110 130"
+        "special_bonus_unique_riki_2"                     "+50"
       }
       "scepter_duration"
       {
@@ -67,6 +66,11 @@
       {
         "value"                                           "0"
         "special_bonus_unique_riki_5"                     "+1"
+      }
+      "creep_agility_multiplier"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_riki_exterminator"           "=3"
       }
     }
   }

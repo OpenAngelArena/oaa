@@ -136,8 +136,8 @@ function modifier_tiny_grow_oaa:OnCreated()
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
+  self.ms = ability:GetSpecialValueFor("bonus_move_speed_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
-  self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 
   local parent = self:GetParent()
   -- Fix for illusions not getting 'modifier_tiny_grow'
@@ -161,8 +161,8 @@ function modifier_tiny_grow_oaa:OnRefresh()
   self.bonus_armor = ability:GetSpecialValueFor("bonus_armor_oaa")
   self.bonus_damage = ability:GetSpecialValueFor("bonus_damage_oaa")
   --self.attack_speed_reduction = ability:GetSpecialValueFor("attack_speed_reduction_oaa")
+  self.ms = ability:GetSpecialValueFor("bonus_move_speed_oaa")
   self.model_scale = ability:GetSpecialValueFor("model_scale_oaa")
-  --self.slow_resist = ability:GetSpecialValueFor("bonus_slow_resistance")
 end
 
 function modifier_tiny_grow_oaa:DeclareFunctions()
@@ -174,7 +174,7 @@ function modifier_tiny_grow_oaa:DeclareFunctions()
     MODIFIER_PROPERTY_MODEL_SCALE,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL,
     MODIFIER_PROPERTY_OVERRIDE_ABILITY_SPECIAL_VALUE,
-    --MODIFIER_PROPERTY_SLOW_RESISTANCE,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
     MODIFIER_EVENT_ON_ABILITY_EXECUTED,
   }
 end
@@ -210,6 +210,10 @@ end
   -- return 0 - math.abs(self.attack_speed_reduction)
 -- end
 
+function modifier_tiny_grow_oaa:GetModifierMoveSpeedBonus_Constant()
+  return self.ms or 0
+end
+
 function modifier_tiny_grow_oaa:GetModifierModelScale()
   return self.model_scale or 0
 end
@@ -243,11 +247,6 @@ function modifier_tiny_grow_oaa:GetModifierOverrideAbilitySpecialValue(keys)
   end
   return value
 end
-
-  -- Doesn't work, Thanks Valve
-  -- function modifier_tiny_grow_oaa:GetModifierSlowResistance()
-    -- return self.slow_resist or 0
-  -- end
 
 if IsServer() then
   function modifier_tiny_grow_oaa:OnAbilityExecuted(event)

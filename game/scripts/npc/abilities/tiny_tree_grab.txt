@@ -39,18 +39,16 @@
       "attack_count"
       {
         "value"                                           "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_6"
+        "special_bonus_shard"                             "=0"
       }
       "bonus_damage" // bonus base damage; not percentage!
       {
-        "value"                                           "14 21 28 35 70 105"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "10 20 30 40 80 120"
+        "special_bonus_unique_tiny_7"                     "+70"
       }
       "bonus_damage_buildings" // percentage bonus damage against bosses
       {
         "value"                                           "40 55 70 85 100 115"
-        "CalculateSpellDamageTooltip"                     "0"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "attack_range"                                      "350"
       "splash_width"

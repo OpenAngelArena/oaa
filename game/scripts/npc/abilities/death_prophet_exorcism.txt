@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "95" //OAA
+    "AbilityCooldown"                                     "120" //OAA
     "AbilityDuration"                                     "40"
 
     // Cost
@@ -42,13 +42,15 @@
       "spirits" //OAA
       {
         "value"                                           "16 20 24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_death_prophet"
+        "special_bonus_unique_death_prophet"              "+8"
       }
       "spirit_speed"                                      "525"
       "max_distance"                                      "2000"
       "give_up_distance"                                  "1200"
       "min_damage"                                        "62 82 102 162 262" //OAA
       "max_damage"                                        "67 87 107 167 267" //OAA
+      "hero_spirit_min_damage"                            "75 95 115 175 275" //OAA
+      "hero_spirit_max_damage"                            "80 100 120 180 280" //OAA
       "heal_percent"                                      "25"
       "average_damage"                                    "65 85 105 165 265" //OAA, important for tooltip
       "ghost_spawn_rate"                                  "0.35"
@@ -73,7 +75,6 @@
         "RequiresScepter"                                 "1"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "movement_base"                                     "12 16 20 24 28"
       "movement_bonus"                                    "4 8 12 16 20"
       "building_dmg_pct"                                  "200" //OAA, percentage bonus damage against bosses
     }

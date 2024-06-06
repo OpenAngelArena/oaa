@@ -46,7 +46,7 @@
         "value"                                           "18 32 46 60 120 240"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "interval"                                          "1"
+      "interval"                                          "1.0"
       "radius"
       {
         "value"                                           "600"
@@ -60,6 +60,16 @@
       "health_regen"
       {
         "special_bonus_unique_lich_1"                     "+50"
+      }
+      "bonus_duration_per_hero_killed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lich_growing_cold"           "+4"
+      }
+      "bonus_duration_per_creep_killed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lich_growing_cold"           "+1"
       }
     }
   }

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL" //OAA, Valve has extra empty space
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_CUSTOM"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_CUSTOM"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -40,7 +40,7 @@
       }
       "bonus_spell_damage_pct"
       {
-        "value"                                           "-30 -40 -50 -60 -70 -80"
+        "value"                                           "-20 -30 -40 -50 -60 -70"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
       "bonus_movement_speed"                              "-45 -50 -55 -60 -65 -70"

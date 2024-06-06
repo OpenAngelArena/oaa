@@ -35,28 +35,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "buff_duration"                                     "5"
+      "buff_duration"
+      {
+        "value"                                           "3"
+        "special_bonus_facet_grimstroke_inkstigate"       "+1"
+      }
       "movespeed_bonus_pct"
       {
         "value"                                           "20"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_6"
+        "special_bonus_unique_grimstroke_6"               "+12"
       }
       "radius"
       {
         "value"                                           "375"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_1"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_grimstroke_1"               "+150"
       }
       "max_damage"
       {
         "value"                                           "90 180 270 360 720 1440"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_5"
       }
       "max_stun"                                          "1.6 2.0 2.4 2.8 3.2 3.6" //OAA
       "damage_per_tick"                                   "5 8 11 14 28 56"
       "tick_rate"                                         "0.2"
       "tick_dps_tooltip"                                  "25 40 55 70 140 280" // damage_per_tick divided by tick_rate
       "max_threshold_duration"                            "2.5" // isn't this supposed to be slightly lower than buff_duration?
+      "can_end_early"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_inkstigate"       "+1"
+      }
       "shard_bonus_damage_pct"
       {
         "value"                                           "30"

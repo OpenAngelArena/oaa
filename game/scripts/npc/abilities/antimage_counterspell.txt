@@ -19,13 +19,9 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15 11 7 3 3 3"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "45"
+    "AbilityManaCost"                                     "50"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,12 +30,25 @@
       "magic_resistance"
       {
         "value"                                           "15 25 35 45 50 55"
-        "special_bonus_unique_antimage_4"                 "+20"
+        "special_bonus_unique_antimage_4"                 "+10"
       }
       "duration"                                          "1.2"
       "duration_illusion"                                 "4"
       "outgoing_damage"                                   "-25"
       "incoming_damage"                                   "150" //OAA
+      "castable_while_disabled"
+      {
+        "value"                                           "0"
+      }
+      "does_reflect"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_antimage_magebanes_mirror"   "=1"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "15 11 7 3 3 3"
+      }
     }
   }
 }

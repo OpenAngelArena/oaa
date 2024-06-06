@@ -7,8 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -18,42 +17,25 @@
     "RequiredLevel"                                       "1"
     "LevelsBetweenUpgrades"                               "2"
 
-    // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "900"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "22 18 14 10 10 10"
-    "AbilityManaCost"                                     "100 105 110 115 120 125"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "120 160 200 240 480 960"
-      "int_multiplier"
+      "damage_per_silence"            
       {
-        "value"                                           "1 1.5 2 2.5 3 3.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_4"
+        "value"         "20 30 40 50 100 200"
+        "special_bonus_unique_silencer_4"                   "+20"
       }
-      "debuff_duration"
+      "slow_per_silence"              
       {
-        "value"                                           "4"
-        "LinkedSpecialBonus"                              "special_bonus_unique_silencer_2"
+        "value"             "6 9 12 15 18 21"
+        "special_bonus_unique_silencer_4"                   "+5"
       }
-      "duration"                                          "3 4 5 6 6.5 7"
-      "scepter_radius"
+      "radius"                        
       {
-        "value"                                           "500"
-        "RequiresScepter"                                 "1"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "scepter_bonus_damage"
-      {
-        "value"                                           "0"
-        "RequiresScepter"                                 "1"
+        "value" "1200"
+        "affected_by_aoe_increase"  "1"
       }
     }
   }

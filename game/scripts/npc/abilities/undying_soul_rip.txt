@@ -40,7 +40,7 @@
       "damage_per_unit" //OAA
       {
         "value"                                           "20 30 40 50 100 150"
-        "LinkedSpecialBonus"                              "special_bonus_unique_undying_6"
+        "special_bonus_unique_undying_6"                  "+10"
       }
       "max_units"                                         "10"
       "radius"
@@ -49,6 +49,21 @@
         "affected_by_aoe_increase"                        "1"
       }
       "tombstone_heal"                                    "4 8 12 16 18 20"
+      "strength_share_percent"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_undying_ripped"              "+10"
+      }
+      "strength_share_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_undying_ripped"              "+10"
+      }
+      "strength_share_model_scale"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_undying_ripped"              "+15"
+      }
     }
   }
 }

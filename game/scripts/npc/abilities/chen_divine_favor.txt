@@ -32,15 +32,21 @@
     {
       "armor"                                             "0"
       "heal_rate"                                         "4 6 8 10 20 30" //OAA
-      "aura_radius"                                       "1200"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "special_bonus_scepter"                           "=-1"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "AbilityCastRange"                                  "1200"
       "duration"                                          "6"
       "teleport_delay"
       {
         "value"                                           "6"
         "special_bonus_unique_chen_3"                     "-2"
       }
-      "bonus_armor"                                       "9 12 15 18 24 33"
-      "heal_amp"                                          "20"
+      "bonus_armor"                                       "5 10 15 20 30 40"
+      "heal_amp"                                          "5 10 15 20 25 30"
       "creep_bonus"                                       "1"
     }
   }

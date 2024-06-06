@@ -68,7 +68,11 @@
       "bonus_mana_regen"                                  "1.75 2.0 2.5 3.25 4.25"
       "bonus_all_stats"                                   "7 12 17 22 27"
       "bonus_armor"                                       "2 3 5 8 12"
-      "soul_radius"                                       "1400"
+      "soul_radius"
+      {
+        "value"                                           "1400"
+        "affected_by_aoe_increase"                        "1"
+      }
       "kill_charges"                                      "1"
       "soul_heal_amount"                                  "45 60 85 120 165"
       "soul_damage_amount"                                "35 45 65 95 135"

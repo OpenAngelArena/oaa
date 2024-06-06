@@ -19,15 +19,50 @@
       "damage_per_mana" //OAA
       {
         "value"                                           "2.0 2.3 2.6 2.9 3.2 3.6 4.0"
-        "special_bonus_unique_medusa_6"                   "+1.7"
+        "special_bonus_unique_medusa_6"                   "+1.8"
       }
       "illusion_damage_per_mana"
       {
         "value"                                           "1 1.4 1.8 2.2 2.6 3.0 3.4"
-        "special_bonus_unique_medusa_6"                   "+0.9"
+        "special_bonus_unique_medusa_6"                   "+1"
       }
       "absorption_pct"                                    "98"
-      "bonus_mana"                                        "0 50 100 150 200 400 600"
+      "aspd_increase_smoothness"                          "0.015"
+      "aspd_increase_rate_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=3"
+      }
+      "aspd_increase_max_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=30"
+      }
+      "aspd_increase_buff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=15"
+      }
+      "aspd_increase_mana_cost_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=4"
+      }
+      "aspd_increase_max_aspd_time"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=10"
+      }
+      "attack_buff_cooldown"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=35"
+      }
+      "min_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_medusa_mana_pact"            "=3"
+      }
     }
   }
 }

@@ -1,48 +1,61 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Lifestealer: Open Wounds (shard ability)
+  // Lifestealer: Open Wounds
   //=================================================================================================================
   "life_stealer_open_wounds"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastRange"                                    "600"
+    "AbilityCastRange"                                    "300 400 500 600 700 800"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15"
+    "AbilityCooldown"                                     "18 17 16 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75"
+    "AbilityManaCost"                                     "75 80 85 90 95 100" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_steps"                                        "-50 -50 -40 -30 -20 -10 -10 -10"
-      "heal_percent"                                      "50"
-      "max_health_as_damage_pct"                          "2"
-      "damage_threshold"                                  "500"
+      "duration"                                          "7"
+      "slow_steps"
+      {
+        "value"                                           "-50 -50 -40 -30 -20 -10 -10 -10"
+        "special_bonus_unique_lifestealer_4"              "-15"
+      }
+      "heal_percent"
+      {
+        "value"                                           "20 30 40 50 60 70"
+        "special_bonus_unique_lifestealer_6"              "+25"
+      }
+      "max_health_as_damage_pct"                          "0"
       "spread_radius"
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "slow_tooltip"                                      "50"
-      "duration"                                          "7"
+      "slow_tooltip"
+      {
+        "value"                                           "50"
+        "special_bonus_unique_lifestealer_4"              "+15"
+      }
     }
   }
 
