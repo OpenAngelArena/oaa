@@ -333,13 +333,12 @@ if IsServer() then
     self:SendArrow(caster, position, direction, arrow_data)
 
     -- Multishot arrows talent
-    local talent2 = caster:FindAbilityByName("special_bonus_unique_mirana_2")
-    if talent2 and talent2:GetLevel() > 0 then
-      local arrow_multishot_angle = self:GetSpecialValueFor("arrow_multishot_angle")
-      local talent_arrow_count = talent2:GetSpecialValueFor("value")
+    local extraArrowCount = self:GetSpecialValueFor("extra_arrows")
+    if extraArrowCount > 0 then
+      local extra_arrows_angle = self:GetSpecialValueFor("extra_arrows_angle")
 
       -- Send amount of additional arrows specified by the talent
-      for i = 0, talent_arrow_count-1 do
+      for i = 0, extraArrowCount-1 do
         -- Angle multiplier to switch sides between right and left
         local angle_mult = 1;
         if i % 2 == 1 then
@@ -347,7 +346,7 @@ if IsServer() then
         end
 
         -- Arrows with indices 0,1 have same angle (also applies for 2,3 or 4,5...)
-        local angle = ( math.floor(i / 2) + 1 ) * arrow_multishot_angle * angle_mult
+        local angle = ( math.floor(i / 2) + 1 ) * extra_arrows_angle * angle_mult
 
         -- Rotate forward vector
         local direction_multishot = RotatePosition(Vector(0,0,0), QAngle(0, angle, 0), direction):Normalized()

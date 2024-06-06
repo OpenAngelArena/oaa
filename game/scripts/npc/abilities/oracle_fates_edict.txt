@@ -31,17 +31,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5"
+          "value" "3.5 4.0 4.5 5.0 5.25 5.5"
       }
-      "02"
+      "magic_damage_resistance_pct_tooltip"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "magic_damage_resistance_pct_tooltip"             "100"
+          "value" "100"
       }
     }
   }

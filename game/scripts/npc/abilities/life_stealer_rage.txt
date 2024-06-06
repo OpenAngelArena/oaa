@@ -23,26 +23,32 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "75 100 125 150 175 200"
+    "AbilityManaCost"                                     "80 100 120 140 160 180"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "movement_speed_bonus" //OAA
-      {
-        "value"                                           "6 9 12 15 18 21"
-        "special_bonus_unique_lifestealer_2"              "+3"
-      }
       "duration" //OAA
       {
-        "value"                                           "4.0 4.5 5.0 5.5 6.0 6.5"
+        "value"                                           "3.5 4.0 4.5 5.0 5.5 6.0"
         "special_bonus_unique_lifestealer"                "+1.0"
+      }
+      "magic_resist"
+      {
+        "value"                                           "80"
+      }
+      "status_resist"
+      {
+        "value"                                           "0"
+      }
+      "debuff_immunity"
+      {
+        "value"                                           "1"
       }
       "bonus_armor"
       {
         "value"                                           "0"
-        "special_bonus_unique_lifestealer_rage_armor"     "+7"
       }
     }
   }

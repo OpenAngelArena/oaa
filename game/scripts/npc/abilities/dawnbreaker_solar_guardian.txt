@@ -24,10 +24,6 @@
     "AbilityCastPoint"                                    "0.1"
     "AbilityChannelTime"                                  "1.7"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "80" //OAA
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "150 200 250 300 350"
@@ -36,11 +32,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "80"
+        "special_bonus_unique_dawnbreaker_solar_guardian_cooldown"  "-20"
+      }
       "airtime_duration"                                  "0.8"
       "radius"
       {
         "value"                                           "500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_solar_guardian_radius"
+        "special_bonus_unique_dawnbreaker_solar_guardian_radius"  "+150"
         "affected_by_aoe_increase"                        "1"
       }
       "base_damage" //OAA

@@ -1,25 +1,21 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Nature's Attendants Wisps
+  // Leshrac: Defilement
   //=================================================================================================================
-  "special_bonus_unique_enchantress_2"
+  "leshrac_defilement"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "7" //OAA
-        "ad_linked_abilities"                             "enchantress_natures_attendants"
-      }
+      "aoe_per_int"                                       "0.2" //OAA
     }
   }
 }

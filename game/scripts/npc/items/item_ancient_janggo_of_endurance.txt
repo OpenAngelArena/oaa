@@ -61,7 +61,11 @@
       "bonus_attack_speed_pct"                            "45"
       "bonus_movement_speed_pct"                          "15" //OAA
       "duration"                                          "6"
-      "radius"                                            "1200"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "charges_tooltip"                                   "8"
     }
   }

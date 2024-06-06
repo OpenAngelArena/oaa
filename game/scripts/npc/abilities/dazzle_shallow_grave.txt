@@ -32,22 +32,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "3.5 4.0 4.5 5.0 5.25 5.5" //OAA
+        "value"                                           "3.5 4 4.5 5.0 5.25 5.5"
       }
-      "02" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
+      "fx_halo_height" // used to place the halo in the particles at the right height so that it hits the ground right when the effect expires
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "fx_halo_height"                                  "190 240 300 350"
+        "value"                                           "190 240 300 350"
       }
-      "03"
+      "heal_amplify" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_amplify"                                    "3 4 5 6 7 8" //OAA
+        "value"                                           "3 4 5 6 7 8"
       }
     }
   }

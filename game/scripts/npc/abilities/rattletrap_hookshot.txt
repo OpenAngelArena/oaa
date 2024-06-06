@@ -40,6 +40,17 @@
         "value"                                           "175"
         "affected_by_aoe_increase"                        "1"
       }
+      "stun_radius_ally"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_rattletrap_hookup"           "=300"
+      }
+      "cooldown_refund_ally"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_rattletrap_hookup"           "75"
+      }
       "duration"                                          "1.2 1.4 1.6 1.8 2.0"
       "speed"                                             "4000 5000 6000 7000 7500"
       "damage"                                            "75 275 475 1075 1675" //OAA

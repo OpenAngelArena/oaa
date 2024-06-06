@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ember Spirit: Flame Guard
+  // Ember Spirit: Flame Guard (Innate)
   //=================================================================================================================
   "ember_spirit_flame_guard"
   {
@@ -12,11 +12,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "7"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500" // OAA, same as radius
+    "AbilityCastRange"                                    "500" // OAA, same as active_radius
     "AbilityCastPoint"                                    "0"
 
     // Time
@@ -31,26 +31,36 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "20" //OAA
-      "radius"
+      "duration"                                          "18" //OAA
+      "passive_radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "tick_interval"                                     "0.2"
+      "passive_damage_per_second"
+      {
+        "value"                                           "10 15 20 25 30 60 120"
+        "special_bonus_unique_ember_spirit_3"             "+100%"
+      }
+      "blind_pct"                                         "50" // unused
+      "linger_duration"                                   "0.5"
+      "active_radius"
       {
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
+      "active_damage_per_second"
+      {
+        "value"                                           "15 25 35 45 55 110 220"
+        "special_bonus_unique_ember_spirit_3"             "+100%"
+      }
+      "shield_pct_absorb"                                 "70"
       "absorb_amount" //OAA
       {
-        "value"                                           "95 230 365 500 1000 2000"
-        "special_bonus_unique_ember_spirit_1"             "+500"
+        "value"                                           "30 60 120 240 480 960 1920"
+        "special_bonus_unique_ember_spirit_1"             "+480"
       }
-      "tick_interval"                                     "0.2"
-      "damage_per_second" //OAA
-      {
-        "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_ember_spirit_3"             "+100"
-      }
-      "blind_pct"                                         "50" // unused
-      "shield_pct_absorb"                                 "70"
-      "linger_duration"                                   "0.5"
     }
   }
 }

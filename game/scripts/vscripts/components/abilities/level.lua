@@ -69,7 +69,7 @@ function AbilityLevels:CheckAbilityLevels (keys)
   local leveled_up_ability = keys.abilityname
   if leveled_up_ability then
     local talent = hero:FindAbilityByName(leveled_up_ability)
-    if string.find(leveled_up_ability, "special_bonus_") and talent:IsAttributeBonus() then
+    if IsTalentCustom(leveled_up_ability) then
       -- Ability is a talent
 
       -- Check for hero level
@@ -215,7 +215,7 @@ function AbilityLevels:SetTalents(hero)
   local abilityTable = {}
   for abilityIndex = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(abilityIndex)
-    if ability and ability:IsAttributeBonus() and ability:GetName() ~= "special_bonus_attributes" and ability:GetName() ~= "attribute_bonus" then
+    if ability and IsTalentCustom(ability) then
       abilityTable[#abilityTable + 1] = ability
     end
   end
@@ -271,18 +271,17 @@ function AbilityLevels:GetRequiredLevel (hero, abilityName)
 
   local ability = hero:FindAbilityByName(abilityName)
   local abilityLevel = ability:GetLevel()
-  local abilityType = ability:GetAbilityType()
   local reqTable = basicReqs
 
   if exceptionAbilityReqs[abilityName] then -- Ability doesn't follow default requirement pattern
     reqTable = exceptionAbilityReqs[abilityName]
   elseif IsInnateCustom(abilityName) then
-    if abilityType == ABILITY_TYPE_ULTIMATE then
+    if IsUltimateAbilityCustom(abilityName) then
       reqTable = ultimateInnateAbilityReqs
     else
       reqTable = basicInnateAbilityReqs
     end
-  elseif abilityType == ABILITY_TYPE_ULTIMATE then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
+  elseif IsUltimateAbilityCustom(abilityName) then -- Ability is DOTA_ABILITY_TYPE_ULTIMATE
     reqTable = ultimateReqs
   end
 

@@ -36,12 +36,14 @@
       }
       "strike_crit_mult"
       {
-        "value"                                           "135 165 195 225 255 285"
+        "value"                                           "120 140 160 180 220 260"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
+        "special_bonus_unique_monkey_king_10"             "55"
       }
-      "AbilityCooldown" //OAA
+      "strike_flat_damage"                                "20 40 60 80 160 240"
+      "AbilityCooldown"
       {
-        "value"                                           "25 24 23 22 20 18"
+        "value"                                           "24 21 18 15 14 13"
       }
       "strike_radius"
       {

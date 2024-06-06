@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot about this
@@ -31,33 +31,60 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "speed"                                             "900.0" //OAA
+      "speed" //OAA
+      {
+        "value"                                           "900.0"
+      }
       "radius" //OAA
       {
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "pass_damage"                                       "110 190 270 430 590" //OAA
-      "damage_per_second"                                 "50 75 100 175 250" //OAA
+      "pass_damage" //OAA
+      {
+        "value"                                           "110 190 270 430 590"
+        "special_bonus_facet_shredder_second_chakram"     "-30%"
+      }
+      "damage_per_second" //OAA
+      {
+        "value"                                           "50 75 100 175 250"
+        "special_bonus_facet_shredder_second_chakram"     "-30%"
+      }
+      "damage_penalty_tooltip"                            "30" //OAA
       "slow" //OAA
       {
         "value"                                           "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_4"
+        "special_bonus_unique_timbersaw_4"                "+4"
       }
-      "damage_interval"                                   "0.5" //OAA
-      "break_distance"                                    "2000.0" //OAA
-      "mana_per_second"                                   "14 22 30 38 46" //OAA
-      "pass_slow_duration"                                "0.5" //OAA
-      "slow_health_percentage"                            "5" //OAA
+      "damage_interval" //OAA
+      {
+        "value"                                           "0.5"
+      }
+      "break_distance" //OAA
+      {
+        "value"                                           "2000.0"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "mana_per_second" //OAA
+      {
+        "value"                                           "14 22 30 38 46"
+      }
+      "pass_slow_duration" //OAA
+      {
+        "value"                                           "0.5"
+      }
+      "slow_health_percentage" //OAA
+      {
+        "value"                                           "5"
+      }
       "scepter_bonus_damage"
       {
         "value"                                           "20"
-        "RequiresScepter"                                 "1"
       }
       "second_chakram"
       {
         "value"                                           "0"
-        "special_bonus_unique_timbersaw"                  "+1"
+        "special_bonus_facet_shredder_second_chakram"     "+1"
       }
     }
   }

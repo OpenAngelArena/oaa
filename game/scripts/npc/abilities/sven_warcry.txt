@@ -33,12 +33,11 @@
       "movespeed"
       {
         "value"                                           "10 14 18 22 26 30"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_6"
       }
       "bonus_armor"
       {
         "value"                                           "6 9 12 15 18 21"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_7"
+        "special_bonus_unique_sven_7"                     "+10"
       }
       "radius"
       {
@@ -48,7 +47,7 @@
       "duration"
       {
         "value"                                           "10"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sven_5"
+        "special_bonus_unique_sven_5"                     "+4"
       }
       "shard_passive_armor" //OAA
       {
@@ -64,6 +63,19 @@
       {
         "value"                                           "1200"
         "RequiresShard"                                   "1"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "base_barrier_amount"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sven_heavy_plate"            "=50 =100 =150 =200 =300 =400"
+        "RequiresFacet"                                   "sven_heavy_plate"
+      }
+      "barrier_per_strength"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sven_heavy_plate"            "=0"
+        "RequiresFacet"                                   "sven_heavy_plate"
       }
     }
   }

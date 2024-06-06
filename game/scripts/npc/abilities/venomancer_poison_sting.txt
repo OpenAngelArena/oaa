@@ -10,27 +10,32 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "6 9 12 15 15 15"
+      "duration"                                          "3 6 9 12 15 15 15"
       "damage" //OAA
       {
-        "value"                                           "10 20 30 40 80 120"
+        "value"                                           "5 10 20 30 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "movement_speed"
       {
-        "value"                                           "-8 -10 -12 -14 -16 -18"
-        "special_bonus_unique_venomancer_2"               "-6"
+        "value"                                           "-3 -6 -9 -12 -15 -18 -21"
+        "special_bonus_unique_venomancer_2"               "-5"
       }
       "hp_regen_reduction"
       {
         "value"                                           "0"
         "special_bonus_unique_venomancer_poisonsting_regen_reduction"  "+15"
+      }
+      "bonus_dmg_per_debuff_pct"
+      {
+        "special_bonus_scepter"                           "15"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
     }
   }

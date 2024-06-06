@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "3.5"
     "AbilityDuration"                                     "12.0"
 
     // Cost
@@ -44,10 +43,42 @@
         "affected_by_aoe_increase"                        "1"
       }
       "static_remnant_delay"                              "0.75"
+      "AbilityCooldown"
+      {
+        "value"                                           "3.5"
+        "special_bonus_unique_storm_spirit_8"             "-1.25"
+      }
       "static_remnant_damage"
       {
         "value"                                           "120 180 240 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_storm_spirit_5"
+        "special_bonus_unique_storm_spirit_5"             "+60"
+      }
+      "is_point_targeted"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_storm_spirit_static_slide"   "+1"
+      }
+      "AbilityCastRange"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_storm_spirit_static_slide"   "800"
+      }
+      "static_remnant_travel_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_storm_spirit_static_slide"   "325"
+      }
+      "static_remnant_vision_radius_day"
+      {
+        "value"                                           "500"
+        "special_bonus_facet_storm_spirit_static_slide"   "=100"
+        "affected_by_aoe_increase"  "1"
+      }
+      "static_remnant_vision_radius_night"
+      {
+        "value"                                           "500"
+        "special_bonus_facet_storm_spirit_static_slide"   "=100"
+        "affected_by_aoe_increase"  "1"
       }
     }
   }

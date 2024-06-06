@@ -21,7 +21,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "140 135 130 125 120" //OAA
+    "AbilityCooldown"                                     "140 135 130 125 120" //OAA, special_bonus_unique_faceless_void_2_oaa
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,10 +34,13 @@
       "radius"
       {
         "value"                                           "500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void_2"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_faceless_void_2"            "+140"
       }
-      "duration"                                          "3.75 4.25 4.75 5.0 5.25"
+      "duration"
+      {
+        "value"                                           "3.75 4.25 4.75 5.0 5.25"
+      }
       "vision_radius"
       {
         "value"                                           "475"
@@ -46,7 +49,7 @@
       "bonus_attack_speed"
       {
         "value"                                           "0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_faceless_void"
+        "special_bonus_unique_faceless_void"              "+80"
       }
     }
   }

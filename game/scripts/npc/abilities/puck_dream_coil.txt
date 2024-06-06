@@ -38,13 +38,12 @@
       "stun_duration"                                     "0.5"
       "coil_initial_damage" //OAA
       {
-        "value"                                           "150 300 450 900 1350"
+        "value"                                           "175 325 475 950 1425"
         "special_bonus_unique_puck_coil_damage"           "+175"
       }
       "coil_stun_duration"
       {
-        "value"                                           "1.4 1.9 2.4 2.9 3.4"
-        "special_bonus_unique_puck_4"                     "+0.8"
+        "value"                                           "1.5 2.0 2.5 3.0 3.5"
       }
       "coil_break_damage" //OAA
       {

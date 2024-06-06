@@ -29,7 +29,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "19 18 17 16 15 14"
     "AbilityDuration"                                     "3.11"
 
     // Damage.
@@ -51,21 +50,53 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCooldown"
+      {
+        "value"                                           "19 18 17 16 15 14"             
+        "special_bonus_unique_mirana_3"                   "-2"
+      }
       "arrow_speed"                                       "900"
-      "arrow_width"                                       "115"
+      "arrow_width"
+      {
+        "value"                                           "115"
+      }
       "arrow_range"                                       "2500" // vanilla: 3000
       "arrow_max_stunrange"                               "2500" // vanilla: 1500
       "arrow_min_stun"                                    "0.01"
       "arrow_max_stun"                                    "3.5 4 4.5 5 5 5" // vanilla: 2.6 3.4 4.2 5.0
       "arrow_bonus_damage"                                "150 160 170 180 280 380"
+
+      // OAA configuration values for arrow
+      "arrow_vision_duration"                             "3" // Duration of vision after hitting
+      "arrow_multishot_angle"                             "25" // for Multishot talent
+      "arrow_start_distance"                              "51"
+
       "arrow_vision" // Radius around the arrow while flying and after hitting
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
-      "arrow_vision_duration"                             "3" // Duration of vision after hitting
-      "arrow_multishot_angle"                             "25" // for Multishot talent
-      "arrow_start_distance"                              "51"
+      "scepter_radius"        
+      {
+          "value"                                         "500"
+          "RequiresScepter"                               "1"
+          "affected_by_aoe_increase"                      "1"
+      }
+      "scepter_starstorm_target_pct"      
+      {
+          "value"                                         "75"
+          "RequiresScepter"                               "1"
+      }
+      "extra_arrows"
+      {
+          "value"                                         "0"
+          "special_bonus_unique_mirana_2"                 "+2"
+      }
+      "extra_arrows_angle"
+      {
+          "value"                                         "0"
+          "special_bonus_unique_mirana_2"                 "+25"
+      }
       "arrow_pierce_count"
       {
         "value"                                           "0 1 1 2 2 3"

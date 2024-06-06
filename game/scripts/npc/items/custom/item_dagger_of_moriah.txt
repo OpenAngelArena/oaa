@@ -70,7 +70,11 @@
       "bonus_mana_regen"                                  "0"
       "spell_amp_per_intellect"                           "0.08"
       // Active stuff
-      "radius"                                            "1200"
+      "radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "magic_dmg_amp"                                     "30 35"
       "heal_reduction_duration"                           "3"
       "heal_reduction_percent"                            "45 50"

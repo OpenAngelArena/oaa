@@ -48,15 +48,13 @@
       "requiem_slow_duration"
       {
         "value"                                           "0.7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
+        "special_bonus_unique_nevermore_6"                "+0.25"
       }
       "requiem_slow_duration_max"
       {
         "value"                                           "2.15"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_6"
-        "LinkedSpecialBonusField"                         "value2"
+        "special_bonus_unique_nevermore_6"                "+0.95"
       }
-      "requiem_reduction_radius"                          "700"
       "requiem_soul_conversion"                           "1"
       "requiem_line_width_start"
       {

@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
@@ -20,8 +20,8 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "350"
-    "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "150"
+    "AbilityCastPoint"                                    "0"
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "13 12 11 10 10 10"
-        "special_bonus_unique_omniknight_3"               "-6"
+        "special_bonus_unique_omniknight_3"               "-5"
       }
       "base_damage" //OAA this is damage based on Omniknight's base damage (strength)
       {
@@ -46,17 +46,13 @@
         "special_bonus_unique_omniknight_4"               "+75"
       }
       "bonus_damage"                                      "50 80 110 140 200 320" //OAA this is actually base damage of the spell
-      "duration"                                          "5"
-      "movement_slow"                                     "14 22 30 38 46 54"
       "heal_pct"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "30"
       }
       "attack_cooldown"
       {
         "value"                                           "-1"
-        "special_bonus_shard"                             "6"
       }
     }
   }

@@ -12,12 +12,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "value" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "30" //OAA
+        "value"                                           "25"
         "ad_linked_abilities"                             "elder_titan_earth_splitter"
       }
     }

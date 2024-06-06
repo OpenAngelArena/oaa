@@ -63,7 +63,11 @@
       "aura_health_regen"                                 "2.5"
       "aura_armor"                                        "3"
       "aura_mana_regen"                                   "1.5"
-      "aura_radius"                                       "1200"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
       "aura_health_regen_bonus"                           "14.5"
       "aura_mana_regen_bonus"                             "5"
       "aura_armor_bonus"                                  "8"

@@ -49,6 +49,10 @@ function modifier_serpent_ward_global_aura_emitter:GetModifierAura()
   return "modifier_serpent_ward_global_aura_effect"
 end
 
+function modifier_serpent_ward_global_aura_emitter:GetAuraDuration()
+  return 60
+end
+
 function modifier_serpent_ward_global_aura_emitter:GetAuraSearchTeam()
   return DOTA_UNIT_TARGET_TEAM_FRIENDLY
 end
@@ -108,31 +112,32 @@ function modifier_serpent_ward_global_aura_effect:GetModifierBaseAttack_BonusDam
     return 0
   end
 
-  -- Check if caster has Aghanim Shard
-  if not caster:HasShardOAA() then
-    return 0
-  end
-
   if parent.GetUnitName == nil then
     return 0
   end
 
   -- Check parent name
-  if parent:GetUnitName() ~= "npc_dota_shadow_shaman_ward_3" then
+  if string.sub(parent:GetUnitName(), 1, 28) ~= "npc_dota_shadow_shaman_ward_" then
     return 0
   end
 
   local mass_serpent_wards_custom = caster:FindAbilityByName("shadow_shaman_mass_serpent_ward_oaa")
-  local mass_serpent_wards_vanilla = caster:FindAbilityByName("shadow_shaman_mass_serpent_ward")
-  if not mass_serpent_wards_custom or not mass_serpent_wards_vanilla then
+  if not mass_serpent_wards_custom then
     return 0
   end
 
-  if mass_serpent_wards_vanilla:GetLevel() < 3 or mass_serpent_wards_custom:GetLevel() <= 3 then
-    return 0
+  local bonusDamage = mass_serpent_wards_custom:GetSpecialValueFor("damage_tooltip")
+  local hasMegaWardsEnabled = mass_serpent_wards_custom:GetSpecialValueFor("is_mega_ward") == 1
+  local megaWardMultiplier = mass_serpent_wards_custom:GetSpecialValueFor("mega_ward_multiplier_tooltip")
+
+  if hasMegaWardsEnabled then
+    if parent.isMegaWard then
+      return bonusDamage
+    end
+    return bonusDamage / megaWardMultiplier
   end
 
-  return mass_serpent_wards_custom:GetSpecialValueFor("damage_tooltip") - mass_serpent_wards_vanilla:GetSpecialValueFor("damage_tooltip")
+  return bonusDamage
 end
 
 if IsServer() then

@@ -12,12 +12,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "value" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "80" //OAA
+        "value"                                           "80"
         "ad_linked_abilities"                             "storm_spirit_static_remnant"
       }
     }

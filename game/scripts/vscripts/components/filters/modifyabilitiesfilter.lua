@@ -62,8 +62,8 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
   elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
     if victim ~= caster then
       victim:AddNewModifier(caster, ability, "modifier_legion_duel_debuff_oaa", {duration = modifier_duration})
-    else
-      victim:AddNewModifier(caster, ability, "modifier_legion_duel_buff_oaa", {duration = modifier_duration})
+    -- else
+      -- victim:AddNewModifier(caster, ability, "modifier_legion_duel_buff_oaa", {duration = modifier_duration})
     end
   end
 

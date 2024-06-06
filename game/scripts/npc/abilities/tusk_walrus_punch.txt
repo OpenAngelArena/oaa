@@ -37,19 +37,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "50"
+      "bonus_damage"                                      "50 75 100 150 200"
       "crit_multiplier"
       {
-        "value"                                           "200 275 350 425 500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tusk"
+        "value"                                           "200 250 300 350 400"
+        "special_bonus_unique_tusk"                       "+75"
       }
       "air_time"
       {
         "value"                                           "1.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tusk_7"
+        "special_bonus_unique_tusk_7"                     "+0.5"      
       }
-      "slow_duration"                                     "2.0 2.5 3.0 3.5 4.0" //OAA
-      "move_slow"                                         "40"
       "push_length"                                       "1000"
     }
   }

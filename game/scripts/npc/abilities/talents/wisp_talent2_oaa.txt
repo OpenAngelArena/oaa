@@ -1,12 +1,13 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Bonus Shrapnel Damage
+  // Custom Io/Wisp talent: Overcharge bonus armor
   //=================================================================================================================
-  "special_bonus_unique_sniper_1"
+  "special_bonus_unique_wisp_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_undefined"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -17,8 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "48" //OAA
-        "ad_linked_abilities"                             "sniper_shrapnel"
+        "value"                                           "18"
       }
     }
   }

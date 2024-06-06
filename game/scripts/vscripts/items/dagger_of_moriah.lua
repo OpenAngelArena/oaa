@@ -61,7 +61,7 @@ function modifier_item_dagger_of_moriah_passive:OnRefresh()
   end
 
   if parent:IsRealHero() then
-    self.int = parent:GetIntellect()
+    self.int = parent:GetIntellect(false)
   end
 
   if IsServer() then
@@ -91,7 +91,7 @@ function modifier_item_dagger_of_moriah_passive:OnIntervalThink()
 
   local parent = self:GetParent()
   if parent:IsRealHero() then
-    self.int = parent:GetIntellect()
+    self.int = parent:GetIntellect(false)
   end
 
   if IsServer() and parent:IsRealHero() then

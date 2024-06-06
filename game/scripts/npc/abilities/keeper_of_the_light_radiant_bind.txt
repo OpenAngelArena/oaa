@@ -13,15 +13,11 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "1"
+    "MaxLevel"                                            "5"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +33,25 @@
     {
       "duration"                                          "6"
       "slow"                                              "10"
-      "magic_resistance"                                  "35"
+      "magic_resistance"                                  "25 30 35 40 45" //OAA
       "stun_duration"
       {
         "value"                                           "0"
-        "special_bonus_unique_keeper_of_the_light_10"     "+1.5"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "14"
+        "special_bonus_shard"                             "=0"
+      }
+      "AbilityChargeRestoreTime"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=14"
+      }
+      "AbilityCharges"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "=2"
       }
     }
   }

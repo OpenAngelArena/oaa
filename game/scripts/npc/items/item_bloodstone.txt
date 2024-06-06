@@ -32,7 +32,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     //"AbilityTextureName"                                  "custom/bloodstone"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA
 

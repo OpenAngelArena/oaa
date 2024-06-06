@@ -1,0 +1,14 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Underlord: Custom passive stuff - does not need to be leveled up
+  //=================================================================================================================
+  "abyssal_underlord_innates_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    //"ScriptFile"                                          "abilities/.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+  }
+}

@@ -24,7 +24,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityChargeRestoreTime"                            "35"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,10 +33,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "slow_movement_speed"
+      "AbilityChargeRestoreTime"      
+      {
+        "value"                                           "35"
+        "special_bonus_unique_sniper_2"                   "-25"
+      }
+      "slow_movement_speed" //OAA facet should be 2x slow value
       {
         "value"                                           "-12 -18 -24 -30 -36 -42"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_5"
+        "special_bonus_facet_sniper_scattershot"          "=-24 =-36 =-48 =-60 =-72 =-84"
+        "special_bonus_unique_sniper_5"                   "-10"
       }
       "radius"
       {
@@ -47,15 +52,22 @@
       "shrapnel_damage"
       {
         "value"                                           "25 40 55 70 140 280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_1"
+        "special_bonus_facet_sniper_scattershot"          "x4"
       }
-      "duration"                                          "10.0"
+      "duration"
+      {
+        "value"                                           "10.0"
+        "special_bonus_facet_sniper_scattershot"          "=1"
+      }
       "damage_delay"                                      "1.2"
-      "slow_duration"                                     "2.0"
+      "slow_duration"
+      {
+        "value"                                           "2"
+        "special_bonus_facet_sniper_scattershot"          "=2"
+      }
       "AbilityCharges"
       {
         "value"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_sniper_2"
       }
     }
   }

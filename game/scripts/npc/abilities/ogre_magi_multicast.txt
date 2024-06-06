@@ -16,22 +16,38 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "multicast_2_times"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_2_times"                               "75"
+        "value"     "75"
+        // Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
+        "special_bonus_facet_ogre_magi_fat_chance" "+0"
       }
-      "02"
+
+      "multicast_3_times" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_3_times"                               "0 15 20 25 30" //OAA
+        "value"     "0 15 20 25 30"
+        // Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
+        "special_bonus_facet_ogre_magi_fat_chance" "+0"
       }
-      "03"
+
+      "multicast_4_times" //OAA, Ogre can get ~40% from STR
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "multicast_4_times"                               "0 0 5 5 5" //OAA, Ogre can get ~40% from STR
+        "value"     "0 0 5 5 5"
+        // Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
+        "special_bonus_facet_ogre_magi_fat_chance" "+0"
+      }
+
+      "strength_mult"
+      {
+        "value"                     "0"
+        "special_bonus_facet_ogre_magi_fat_chance"  "=0.05"
+      }
+      "required_level"
+      {
+        "value"                                           "6"
+        "special_bonus_facet_ogre_magi_learning_curve"   "-1"
       }
     }
   }

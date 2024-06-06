@@ -70,12 +70,12 @@ function modifier_octarine_soul_oaa:GetModifierPercentageCooldown(keys)
   if ability and (self.ignore_abilities[ability:GetName()] or ability:IsItem()) then
     return 0
   else
-    return self.cdr_per_int * parent:GetIntellect()
+    return self.cdr_per_int * parent:GetIntellect(false)
   end
 end
 
 function modifier_octarine_soul_oaa:OnTooltip()
-  return self.cdr_per_int * self:GetParent():GetIntellect()
+  return self.cdr_per_int * self:GetParent():GetIntellect(false)
 end
 
 function modifier_octarine_soul_oaa:GetTexture()
