@@ -36,10 +36,10 @@
     {
       "movespeed"                                         "100"
       "duration"                                          "2 2.3 2.6 2.9 3.2 3.5"
-      "damage_amp"
+      "damage_amp"                
       {
-        "value"                                           "10 15 20 25 25 25"
-        "special_bonus_unique_shadow_shaman_hex_damage_amp"  "+10"
+        "value"                                           "0"
+        "special_bonus_unique_shadow_shaman_hex_damage_amp"     "0"
       }
       "can_target_allies"
       {
@@ -75,7 +75,6 @@
       "ally_chicken_movement_speed_bonus_pct"
       {
         "value"                                     "0"
-        "special_bonus_facet_shadow_shaman_cluster_cluck"   "+10"
       }
       "tooltip_damage_incoming_total_pct"
       {

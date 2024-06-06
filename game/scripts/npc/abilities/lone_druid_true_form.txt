@@ -34,12 +34,12 @@
         "value"                                           "500 1500 2500 5500 8500"
         "special_bonus_facet_lone_druid_unbearable"       "-100%"
         "RequiresFacet"                                   "lone_druid_bear_with_me"
-        //"special_bonus_unique_lone_druid_7"               "+1500"
+        //"special_bonus_unique_lone_druid_7"               "+1000"
       }
-      "base_attack_time"
+      "attack_speed_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_lone_druid_unbearable"       "0.1"
+        "special_bonus_facet_lone_druid_unbearable"       "+10"
         "RequiresFacet"                                   "lone_druid_unbearable"
       }
       "duration"

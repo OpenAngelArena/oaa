@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Mirana Solar Blessings
+  //=================================================================================================================
+  "mirana_solar_flare"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.5"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "125"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "AbilityCooldown" //OAA
+      {
+          "value"         "120 110 100 95 90"
+          "special_bonus_unique_mirana_4"         "-20"               
+      }
+      "smoothness"                        "0.015"
+      "increase_rate"                     "10 15 20 30 40"
+      "day_vision_multiplier"             "3"
+      "ally_pct"                          "50"
+      "duration"                          "18"
+      "max_damage_time"                   "8"
+      "evasion"       
+      {
+          "value"         "0"
+          "special_bonus_unique_mirana_5"     "+20"
+      }
+    }
+  }
+}
