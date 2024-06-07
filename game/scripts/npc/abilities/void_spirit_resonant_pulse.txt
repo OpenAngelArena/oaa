@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "15" //OAA
+    "AbilityCooldown"                                     "18"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -44,9 +44,9 @@
         "value"                                           "60 105 150 195 390 585"
         "special_bonus_unique_void_spirit_4"              "+70"
       }
-      "buff_duration" //OAA
+      "buff_duration"
       {
-        "value"                                           "15.0"
+        "value"                                           "10"
         "RequiresFacet"                                   "void_spirit_sanctuary"
       }
       "base_absorb_amount" //OAA
@@ -69,7 +69,7 @@
       }
       "charge_restore_time"
       {
-        "value"                                           "15"
+        "value"                                           "18"
         "RequiresScepter"                                 "1"
       }
       "silence_duration_scepter"

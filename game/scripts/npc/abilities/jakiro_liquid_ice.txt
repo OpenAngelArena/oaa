@@ -21,7 +21,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 12 8 4 4 4"
+    "AbilityCooldown"                                     "13 10 7 4 4 4"
     "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
@@ -35,11 +35,11 @@
       }
       "damage"
       {
-        "value"                                           "20 30 40 50 100 200"
+        "value"                                           "10 15 20 25 50 100"
       }
       "bonus_instance_damage_from_other_abilities"
       {
-        "value"                                           "10 15 20 25 50 100"
+        "value"                                           "15 20 25 30 60 120"
         "special_bonus_unique_jakiro_4"                   "+10"
       }
       "pct_health_damage"

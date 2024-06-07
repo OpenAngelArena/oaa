@@ -41,12 +41,12 @@
       }
       "lifesteal_pct"
       {
-        "value"                                           "10 15 20 25 30 35"
+        "value"                                           "12 18 24 30 33 36"
         "special_bonus_unique_marci_guardian_lifesteal"   "+10"
       }
       "bonus_damage"
       {
-        "value"                                           "12 18 24 30 36 40"
+        "value"                                           "12 18 24 30 36 42"
         "special_bonus_unique_marci_guardian_damage"      "+20"
       }
       "creep_lifesteal_reduction_pct"                     "40"
@@ -54,7 +54,7 @@
       {
         "value"                                           "125"
       }
-      "bonus_armor"                                       "4 6 8 10 14 18"
+      "bonus_armor"                                       "4 7 10 13 16 19"
       "counter_cooldown"                                  "0.45"
     }
   }
