@@ -27,10 +27,6 @@
     "AbilityCastPoint"                                    "0.5"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_2"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDuration"                                     "3.11"
-
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDamage"                                       "60 150 240 330 660 990"
@@ -52,7 +48,7 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "19 18 17 16 15 14"             
+        "value"                                           "19 18 17 16 15 14"
         "special_bonus_unique_mirana_3"                   "-2"
       }
       "arrow_speed"                                       "900"
@@ -68,34 +64,21 @@
 
       // OAA configuration values for arrow
       "arrow_vision_duration"                             "3" // Duration of vision after hitting
-      "arrow_multishot_angle"                             "25" // for Multishot talent
+      "extra_arrows"
+      {
+        "value"                                         "0"
+        "special_bonus_unique_mirana_2"                 "+2"
+      }
+      "extra_arrows_angle"
+      {
+        "value"                                         "0"
+        "special_bonus_unique_mirana_2"                 "+25"
+      }
       "arrow_start_distance"                              "51"
-
       "arrow_vision" // Radius around the arrow while flying and after hitting
       {
         "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
-      }
-      "scepter_radius"        
-      {
-          "value"                                         "500"
-          "RequiresScepter"                               "1"
-          "affected_by_aoe_increase"                      "1"
-      }
-      "scepter_starstorm_target_pct"      
-      {
-          "value"                                         "75"
-          "RequiresScepter"                               "1"
-      }
-      "extra_arrows"
-      {
-          "value"                                         "0"
-          "special_bonus_unique_mirana_2"                 "+2"
-      }
-      "extra_arrows_angle"
-      {
-          "value"                                         "0"
-          "special_bonus_unique_mirana_2"                 "+25"
       }
       "arrow_pierce_count"
       {

@@ -128,11 +128,7 @@ if IsServer() then
           local damage_delay = particle_delay + 0.57
           local star_damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
           local secondary_star_damage_reduction = starfall_ability:GetSpecialValueFor("secondary_starfall_damage_percent")
-          -- Check for Starfall bonus damage talent
-          -- local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
-          -- if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
-            -- star_damage = star_damage + 250
-          -- end
+
           damage_table.damage = star_damage*secondary_star_damage_reduction*0.01
           damage_table.ability = starfall_ability
           damage_table.damage_type = DAMAGE_TYPE_MAGICAL
@@ -201,13 +197,7 @@ if IsServer() then
 
     if starfall_ability:GetLevel() > 0 then
       local damage = starfall_ability:GetLevelSpecialValueFor("damage", starfall_ability:GetLevel()-1)
-      local radius = starfall_ability:GetSpecialValueFor("starfall_radius") or data.arrow_vision
-
-      -- Check for Starfall bonus damage talent
-      -- local starfall_damage_talent = caster:FindAbilityByName("special_bonus_unique_mirana_7")
-      -- if starfall_damage_talent and starfall_damage_talent:GetLevel() > 0 then
-        -- damage = damage + 250
-      -- end
+      local radius = math.min(starfall_ability:GetSpecialValueFor("starfall_radius"), starfall_ability:GetSpecialValueFor("starfall_secondary_radius"))
 
       local candidates = FindUnitsInRadius(
         caster:GetTeamNumber(),
@@ -359,20 +349,6 @@ if IsServer() then
       end
     end
   end
-end
-
---------------------------------------------------------------------------------
-
-function mirana_arrow_oaa:GetCooldown( level )
-  local base_cd = self.BaseClass.GetCooldown( self, level )
-
-  -- Talent that reduces cooldown
-  local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_mirana_3")
-  if talent and talent:GetLevel() > 0 then
-    return base_cd - math.abs(talent:GetSpecialValueFor("value"))
-  end
-
-  return base_cd
 end
 
 --------------------------------------------------------------------------------
