@@ -16,7 +16,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
+    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
     "AbilityCooldown"                                     "0.0"
@@ -51,7 +51,7 @@
       "bonus_turn_rate"                                   "0.2"
       "degen"
       {
-        "special_bonus_facet_broodmother_necrotic_webs"   "=10 =15 =20 =25 =30 =35"
+        "special_bonus_facet_broodmother_necrotic_webs"   "=15 =20 =25 =30 =35 =40"
       }
     }
   }
