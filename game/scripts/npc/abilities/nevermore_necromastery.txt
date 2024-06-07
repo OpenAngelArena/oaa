@@ -18,34 +18,34 @@
     {
       "necromastery_damage_per_soul"  
       {
-        "value"                 "1 3 4 5 6 7"
-        "CalculateSpellDamageTooltip"   "0"
-        "special_bonus_unique_nevermore_1"          "+2"
+        "value"                                           "1 3 4 5 6 7"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_unique_nevermore_1"                "+2"
       }
       "necromastery_max_souls"        
       {
-        "value"                     "20"
-        "special_bonus_scepter"     "+5"
+        "value"                                           "20"
+        "special_bonus_scepter"                           "+5"
       }
-      "souls_per_kill"                "1"
-      "necromastery_soul_release"     "0.7"
-      "attack_range_bonus" "0"
+      "souls_per_kill"                                    "1"
+      "necromastery_soul_release"                         "0.7"
+      "attack_range_bonus"                                "0"
       "shard_souls_per_kill" 
       {
-        "value"             "2"
-        "RequiresShard"         "1"
+        "value"                                           "2"
+        "RequiresShard"                                   "1"
       }
       "shard_crit_pct"         
       {
-        "value"             "190"
-        "RequiresShard"         "1"
+        "value"                                           "190"
+        "RequiresShard"                                   "1"
       }   
       "shard_fear_duration"        
       {
-        "value"             "0.4"
-        "RequiresShard"         "1"
+        "value"                                           "0.4"
+        "RequiresShard"                                   "1"
       }
-      "soul_release_tooltip"          "30.0"
+      "soul_release_tooltip"                              "30.0"
     }
   }
 

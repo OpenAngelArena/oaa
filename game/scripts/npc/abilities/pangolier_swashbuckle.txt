@@ -33,8 +33,8 @@
     {
       "AbilityCooldown" //OAA
       {   
-          "value"             "16 14 12 10 8 8"
-          "special_bonus_unique_pangolier_4"  "-2.5"
+        "value"                                           "16 14 12 10 8 8"
+        "special_bonus_unique_pangolier_4"                "-2.5"
       }
       "dash_range"                                        "400 500 600 700 800 900"
       "range"
@@ -49,8 +49,8 @@
       }
       "attack_damage"
       {
-        "value"             "0"
-        "special_bonus_unique_pangolier_3"  "+15"
+        "value"                                           "0"
+        "special_bonus_unique_pangolier_3"                "+15"
       }
       "dash_speed"                                        "2000"
       "attack_interval"                                   "0.1"
@@ -68,7 +68,7 @@
       {
         "value"                                           "3"
       }
-      "procs_onhit_effects"           "1"
+      "procs_onhit_effects"                               "1"
     }
   }
 }

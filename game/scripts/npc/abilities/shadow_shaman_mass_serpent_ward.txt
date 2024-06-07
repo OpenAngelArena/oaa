@@ -37,48 +37,48 @@
     {
       "ward_count"
       {
-        "value"                         "10"    // if changing this, change mega_ward_multiplier_tooltip
+        "value"                                           "10"    // if changing this, change mega_ward_multiplier_tooltip
       }
       "bonus_damage"
       {
-        "special_bonus_unique_shadow_shaman_4" "+20"
+        "special_bonus_unique_shadow_shaman_4"            "+20"
       }
       "bonus_attack_range"
       {
-        "special_bonus_unique_shadow_shaman_8" "+140"
+        "special_bonus_unique_shadow_shaman_8"            "+140"
       }
-      "duration"                      "45.0 45.0 45.0"
-      "spawn_radius"                  "150"
+      "duration"                                          "45.0 45.0 45.0"
+      "spawn_radius"                                      "150"
       "hits_to_destroy_tooltip"
       {
-        "value"                     "2"
-        "special_bonus_unique_shadow_shaman_1"      "50%"
+        "value"                                           "2"
+        "special_bonus_unique_shadow_shaman_1"            "50%"
       }
       "ward_health"
       {
-        "value"                     "4"
-        "special_bonus_unique_shadow_shaman_1"      "+2"
+        "value"                                           "4"
+        "special_bonus_unique_shadow_shaman_1"            "+2"
       }
       "is_mega_ward"
       {
-        "value"                     "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"    "+1"
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "+1"
       }
       "mega_ward_multiplier_tooltip"
       {
-        "value"                     "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"    "=10"
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
       }
       "mega_ward_health_tooltip"
       {
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"    "=7.5"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=7.5"
       }
       "mega_ward_health_reduction_pct"
       {
-        "value"                 "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"        "=25"
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=25"
       }
-      "mega_ward_model_scale_multiplier"          "2.3 3.0 3.5"
+      "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5"
     }
   }
 }
