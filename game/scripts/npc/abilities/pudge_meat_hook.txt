@@ -15,7 +15,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -38,7 +37,7 @@
         "special_bonus_facet_pudge_flayers_hook"          "+15%"
       }
       "hook_width"                                        "100"
-      "hook_distance"
+      "AbilityCastRange"
       {
         "value"                                           "1300"
         "special_bonus_facet_pudge_flayers_hook"          "+15%"
