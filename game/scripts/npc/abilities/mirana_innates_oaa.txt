@@ -8,10 +8,16 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    //"ScriptFile"                                          "abilities/oaa_mirana_innates.lua"
+    "ScriptFile"                                          "abilities/oaa_mirana_arrow.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
     "MaxLevel"                                            "1"
     "Innate"                                              "1"
+
+    "AbilityValues"
+    {
+      "bonus_damage_per_stack"                            "20"
+      "bonus_range_per_stack"                             "25"
+    }
   }
 }

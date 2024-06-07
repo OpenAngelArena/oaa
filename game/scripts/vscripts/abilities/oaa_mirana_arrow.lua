@@ -27,8 +27,7 @@ if IsServer() then
       spawn_origin = position
     end
 
-    local info =
-    {
+    local info = {
       Ability = self,
       EffectName = "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf",
       vSpawnOrigin = spawn_origin,
@@ -41,7 +40,7 @@ if IsServer() then
       iUnitTargetTeam = self:GetAbilityTargetTeam(),
       iUnitTargetType = self:GetAbilityTargetType(),
       iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, --DOTA_UNIT_TARGET_FLAG_NONE
-      bDeleteOnHit = true,
+      bDeleteOnHit = true, -- basically does nothing
       vVelocity = direction * arrow_data.arrow_speed,
       bProvidesVision = true,
       iVisionRadius = arrow_data.arrow_vision,
@@ -109,6 +108,14 @@ if IsServer() then
 
         -- Damage arrow_base_damage with damage based on traveled distance
         local damage = data.arrow_bonus_damage * dist_mult + data.arrow_base_damage
+
+        -- Increase Innate Counter
+        if dist_mult == 1 and target:IsRealHero() and not target:IsOAABoss() and not target:IsClone() then
+          local innate_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
+          if innate_mod then
+            innate_mod:IncrementStackCount()
+          end
+        end
 
         -- Damage table
         local damage_table = {
@@ -295,15 +302,27 @@ if IsServer() then
       arrow_range = talent1:GetSpecialValueFor("projectile_range")
     end
 
+    -- Bonuses from innate
+    local bonus_dmg = 0
+    local bonus_range = 0
+    local innate_mod = caster:FindModifierByName("modifier_mirana_custom_effects_oaa")
+    if innate_mod then
+      local innate_ability = innate_mod:GetAbility()
+      if innate_ability then
+        bonus_dmg = innate_ability:GetSpecialValueFor("bonus_damage_per_stack") * innate_mod:GetStackCount()
+        bonus_range = innate_ability:GetSpecialValueFor("bonus_range_per_stack") * innate_mod:GetStackCount()
+      end
+    end
+
     local arrow_data = {
       arrow_start_distance = self:GetSpecialValueFor( "arrow_start_distance" ), -- Arrow start distance from caster
       arrow_speed = self:GetSpecialValueFor( "arrow_speed" ), -- Arrow travel speed
       arrow_width = self:GetSpecialValueFor( "arrow_width" ), -- Arrow width
-      arrow_range = arrow_range, -- Maximum arrow range
+      arrow_range = arrow_range + bonus_range, -- Maximum arrow range
       arrow_min_stun = self:GetSpecialValueFor( "arrow_min_stun" ), -- Minimum stun duration
       arrow_max_stun = self:GetSpecialValueFor( "arrow_max_stun" ), -- Maximum stun duration
       arrow_max_stunrange = self:GetSpecialValueFor( "arrow_max_stunrange" ), -- Range for maximum stun
-      arrow_bonus_damage = self:GetSpecialValueFor( "arrow_bonus_damage" ), -- Maximum bonus damage
+      arrow_bonus_damage = self:GetSpecialValueFor( "arrow_bonus_damage" ) + bonus_dmg, -- Maximum bonus damage
       arrow_base_damage = self:GetAbilityDamage(), -- Base damage
       arrow_damage_type = self:GetAbilityDamageType(),
       arrow_vision = self:GetSpecialValueFor( "arrow_vision" ), -- Arrow vision radius
@@ -405,4 +424,39 @@ function modifier_mirana_arrow_stun_oaa:CheckState()
   return {
     [MODIFIER_STATE_STUNNED] = true,
   }
+end
+
+---------------------------------------------------------------------------------------------------
+
+mirana_innates_oaa = class(AbilityBaseClass)
+
+LinkLuaModifier("modifier_mirana_custom_effects_oaa", "abilities/oaa_mirana_arrow.lua", LUA_MODIFIER_MOTION_NONE)
+
+function mirana_innates_oaa:Spawn()
+  if IsServer() then
+    local caster = self:GetCaster()
+    if not caster:HasModifier("modifier_mirana_custom_effects_oaa") then
+      caster:AddNewModifier(caster, self, "modifier_mirana_custom_effects_oaa", {})
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_mirana_custom_effects_oaa = class(ModifierBaseClass)
+
+function modifier_mirana_custom_effects_oaa:IsHidden()
+  return false
+end
+
+function modifier_mirana_custom_effects_oaa:IsDebuff()
+  return false
+end
+
+function modifier_mirana_custom_effects_oaa:IsPurgable()
+  return false
+end
+
+function modifier_mirana_custom_effects_oaa:RemoveOnDeath()
+  return false
 end
