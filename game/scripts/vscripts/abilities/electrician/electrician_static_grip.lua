@@ -241,7 +241,7 @@ if IsServer() then
         local ignoreInvis = false
         local useProjectile = false -- only ranged units need a projectile
         local fakeAttack = false
-        local neverMiss = false -- should it never miss? i kind of want it to....
+        local neverMiss = true -- should it never miss? i kind of want it to....
 
         caster:PerformAttack(parent, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
       end
