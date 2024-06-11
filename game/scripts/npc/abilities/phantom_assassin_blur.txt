@@ -14,10 +14,10 @@
 
     "MaxLevel"                                            "6"
 
-    "AbilityCooldown"                                     "14" //OAA
+    "AbilityCooldown"                                     "45" //OAA
 
     "AbilityCastPoint"                                    "0.4"
-    "AbilityCastRange"                                    "450" //OAA
+    "AbilityCastRange"                                    "625 550 475 400 375 350"
 
     "AbilityManaCost"                                     "50"
 
@@ -31,11 +31,6 @@
       "scepter_cooldown"
       {
         "value"                                           "50"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_fade_duration" 
-      {
-        "value"                                           "0.5"
         "RequiresScepter"                                 "1"
       }
       "break_on_attack"

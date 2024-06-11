@@ -175,7 +175,6 @@ function modifier_death_ward_oaa:OnCreated()
   ParticleManager:SetParticleControlEnt(self.ward_particle, 0, parent, PATTACH_POINT_FOLLOW, "attach_attack1", parent:GetAbsOrigin(), true)
   ParticleManager:SetParticleControl(self.ward_particle, 2, parent:GetAbsOrigin())
 
-  local owner = self:GetCaster()
   local ability = self:GetAbility()
 
   local attack_range_bonus = ability:GetSpecialValueFor("bonus_attack_range")
