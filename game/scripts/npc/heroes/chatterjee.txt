@@ -25,27 +25,27 @@
     "Ability10"                                           "special_bonus_unique_electrician_6"
     "Ability11"                                           "special_bonus_mp_regen_150"
 
-    "Ability12"                                           "special_bonus_electrician_static_grip_damage"
+    "Ability12"                                           "special_bonus_unique_electrician_static_grip_damage"
     "Ability13"                                           "special_bonus_unique_electrician_8"
 
     "Ability14"                                           "special_bonus_unique_electrician_electric_shield_damage"
     "Ability15"                                           "special_bonus_electrician_cleansing_shock_stun"
 
-    "Ability16"                                           "special_bonus_electrician_static_grip_non_channel"
+    "Ability16"                                           "special_bonus_unique_electrician_static_grip_attacks"
     "Ability17"                                           "special_bonus_unique_electrician_9"
 
     "Facets"
     {
-      "electrician_direct_current"
+      "electrician_kinetic_grip"
       {
-        "Icon"        "area_of_effect"
-        "Color"       "Blue"
+        "Icon"          "speed"
+        "Color"         "Blue"
         "GradientID"    "1"
       }
       "electrician_alternating_current"
       {
-        "Icon"        "barrier"
-        "Color"       "Gray"
+        "Icon"          "barrier"
+        "Color"         "Gray"
         "GradientID"    "3"
       }
     }
@@ -53,13 +53,14 @@
     // 1 - special_bonus_electrician_energy_absorption_mana - Energy Absorption bonus mana absorbed - unused
     // 2 - special_bonus_electrician_cleansing_shock_stun - Cleansing Shock Mini-Stuns
     // 3 - special_bonus_electrician_cleansing_shock_pierce - Cleansing Shock Pierces Spell Immunity - unused
-    // 4 - special_bonus_electrician_static_grip_damage - Static Grip bonus damage
+    // 4 - special_bonus_unique_electrician_static_grip_damage - Static Grip bonus damage
     // 5 - special_bonus_unique_electrician_electric_shield_damage - Electric Shield bonus damage
     // 6 - special_bonus_unique_electrician_6 - Energy Absorption bonus radius
-    // 7 - special_bonus_electrician_static_grip_non_channel - Static Grip Pseudo Channel
+    // 7 - special_bonus_unique_electrician_static_grip_attacks - Static Grip attacks
     // 8 - special_bonus_unique_electrician_8 - Energy Absorption bonus damage
     // 9 - special_bonus_unique_electrician_9 - Cleansing Shock Deals Damage
     // special_bonus_spell_lifesteal_15
+    // unused - special_bonus_electrician_static_grip_non_channel - Static Grip Pseudo Channel
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------

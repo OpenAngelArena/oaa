@@ -280,6 +280,11 @@ if IsServer() then
     if IsServer() then
       local parent = self:GetParent()
       local ability = self:GetAbility();
+
+      if not parent or parent:IsNull() or not ability or ability:IsNull() then
+        return 0
+      end
+
       local manaRefundPercent = ability:GetSpecialValueFor("mana_pct_refund") / 100
 
       if manaRefundPercent > 0 then
@@ -290,6 +295,13 @@ if IsServer() then
           parent:GiveMana(manaCost * manaRefundPercent)
         end
       end
+
+      -- asyncronously recast shield
+      Timers:CreateTimer(FrameTime(), function()
+        if self.auto_cast_modifier and self.auto_cast_modifier.CheckCastShield and not self.auto_cast_modifier:IsNull() then
+          self.auto_cast_modifier:CheckCastShield()
+        end
+      end)
     end
 
     -- destroy the shield particles
@@ -299,11 +311,6 @@ if IsServer() then
     end
     -- play end sound
     self:GetParent():EmitSound("Hero_Razor.StormEnd")
-
-    -- syncronously recast shield
-    if self.auto_cast_modifier and self.auto_cast_modifier.CheckCastShield and not self.auto_cast_modifier:IsNull() then
-      self.auto_cast_modifier:CheckCastShield()
-    end
   end
 
 --------------------------------------------------------------------------------
@@ -312,6 +319,11 @@ if IsServer() then
     local parent = self:GetParent()
     local caster = self:GetCaster()
     local spell = self:GetAbility()
+
+    if not parent or parent:IsNull() or not spell or spell:IsNull() or not caster or caster:IsNull() then
+      return 0
+    end
+
     local parentOrigin = parent:GetAbsOrigin()
 
     local units = FindUnitsInRadius(
@@ -354,6 +366,10 @@ end
 function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(event)
   local parent = self:GetParent()
   local ability = self:GetAbility()
+
+  if not parent or parent:IsNull() or not ability or ability:IsNull() then
+    return 0
+  end
 
   if IsClient() then
     -- Shield numbers (visual only)

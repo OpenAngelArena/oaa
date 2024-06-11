@@ -73,10 +73,12 @@
 
 // talents
 "DOTA_Tooltip_Ability_special_bonus_electrician_energy_absorption_mana"         "+{s:value}% Energy Absorption Max Mana Absorbed"
-"DOTA_Tooltip_Ability_special_bonus_electrician_static_grip_damage"             "+{s:value_tooltip}% Static Grip Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_electrician_static_grip_damage"      "+{s:bonus_damage_per_second}% Static Grip Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_electric_shield_damage"  "+{s:bonus_aura_damage} Electric Shield Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_6"                       "+{s:bonus_radius} Energy Absorption Radius"
 "DOTA_Tooltip_Ability_special_bonus_electrician_cleansing_shock_stun"           "+{s:value}s Cleansing Shock Mini-Stun"
+"DOTA_Tooltip_Ability_special_bonus_unique_electrician_static_grip_attacks"     "Static Grip Attacks"
+"DOTA_Tooltip_Ability_special_bonus_unique_electrician_static_grip_attacks_Description"     "Enemies affected by Static Grip are attacked at a rate equal to {s:bonus_attack_speed_pct}% of Chatterjee's attack rate. Attacks are not limited to Chatterjee's attack range."
 "DOTA_Tooltip_Ability_special_bonus_electrician_static_grip_non_channel"        "Static Grip Pseudo Channel"
 "DOTA_Tooltip_Ability_special_bonus_electrician_static_grip_non_channel_Description"  "Chatterjee can act freely during Static Grip but silences and stuns still stop Static Grip."
 "DOTA_Tooltip_Ability_special_bonus_electrician_cleansing_shock_pierce"         "Cleansing Shock Pierces Spell Immunity"
@@ -86,10 +88,10 @@
 
 "DOTA_Tooltip_facet_electrician_alternating_current"                            "Alternating Current"
 "DOTA_Tooltip_facet_electrician_alternating_current_Description"                "Adds a {s:bonus_AbilityCooldown} cooldown to Electric Shield and scaling duration, but adds shield damage to Chatterjee's attacks."
-"DOTA_Tooltip_Facet_electrician_direct_current"                                 "Direct Current"
-"DOTA_Tooltip_Facet_electrician_direct_current_Description"                     "Enhances Electric Shield's defensive cabilities and allows it to be auto-cast. Chatterjee cannot auto-cast Electric Shield while stunned or silenced and must be able to afford the mana cost."
+"DOTA_Tooltip_Facet_electrician_kinetic_grip"                                   "Kinetic Grip"
+"DOTA_Tooltip_Facet_electrician_kinetic_grip_Description"                       "Chatterjee can act freely during Static Grip but silences and stuns still stop Static Grip."
 
-"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_direct_current"          "Can be auto-cast, has increased survivability. Auto-cast will not work while stunned, silenced, or out of mana"
+"DOTA_Tooltip_Ability_electrician_static_grip_Facet_electrician_kinetic_grip"   "Can act freely during Static Grip, silences and stuns will stop Static Grip."
 "DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"     "Sets cooldown to %bonus_AbilityCooldown%, adds shield damage to auto attacks."
 
 "DOTA_Tooltip_Ability_electrician_battery_powered"                              "Battery Powered"

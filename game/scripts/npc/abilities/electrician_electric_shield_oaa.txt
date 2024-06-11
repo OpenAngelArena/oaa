@@ -45,13 +45,12 @@
       "shield_per_mana"
       {
         "value"                                           "0.75 0.9 1.05 1.2 1.35 1.5"
-        "special_bonus_facet_electrician_direct_current"  "+0.1"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "shield_damage_block" // original: 50% at all levels
       {
         "value"                                           "10 18 26 34 42 50"
         "CalculateSpellDamageTooltip"                     "0"
-        "special_bonus_facet_electrician_direct_current"  "+10"
       }
       "shield_duration"
       {
@@ -83,8 +82,7 @@
       "aura_interval"                                     "0.25"
       "is_toggleable"
       {
-        "value"                                           "0"
-        "special_bonus_facet_electrician_direct_current"  "=1"
+        "value"                                           "1"
       }
     }
 
