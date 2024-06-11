@@ -81,10 +81,10 @@
     // Attributes
     //-------------------------------------------------------------------------------------------------------------
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_ALL"
-    "AttributeBaseStrength"                               "20"
-    "AttributeStrengthGain"                               "2.5"
+    "AttributeBaseStrength"                               "24"
+    "AttributeStrengthGain"                               "2.6"
     "AttributeBaseAgility"                                "13"
-    "AttributeAgilityGain"                                "1.4"
+    "AttributeAgilityGain"                                "1.5"
     "AttributeBaseIntelligence"                           "25"
     "AttributeIntelligenceGain"                           "1.8"
 
@@ -97,7 +97,7 @@
 
     // Status
     //-------------------------------------------------------------------------------------------------------------
-    "StatusHealth"                                        "100"
+    "StatusHealth"                                        "200"
     "StatusHealthRegen"                                   "0.5"
     "StatusMana"                                          "75"
     "StatusManaRegen"                                     "0.5"
