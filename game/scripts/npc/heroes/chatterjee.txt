@@ -18,32 +18,49 @@
     "Ability1"                                            "electrician_static_grip"
     "Ability2"                                            "electrician_electric_shield"
     "Ability3"                                            "electrician_energy_absorption"
-    "Ability4"                                            "generic_hidden"
+    "Ability4"                                            "electrician_battery_powered"
     "Ability5"                                            "generic_hidden"
     "Ability6"                                            "electrician_cleansing_shock"
 
     "Ability10"                                           "special_bonus_unique_electrician_6"
     "Ability11"                                           "special_bonus_mp_regen_150"
 
-    "Ability12"                                           "special_bonus_electrician_static_grip_damage"
+    "Ability12"                                           "special_bonus_unique_electrician_static_grip_damage"
     "Ability13"                                           "special_bonus_unique_electrician_8"
 
-    "Ability14"                                           "special_bonus_electrician_electric_shield_damage"
+    "Ability14"                                           "special_bonus_unique_electrician_electric_shield_damage"
     "Ability15"                                           "special_bonus_electrician_cleansing_shock_stun"
 
-    "Ability16"                                           "special_bonus_electrician_static_grip_non_channel"
+    "Ability16"                                           "special_bonus_unique_electrician_static_grip_attacks"
     "Ability17"                                           "special_bonus_unique_electrician_9"
+
+    "Facets"
+    {
+      "electrician_kinetic_grip"
+      {
+        "Icon"          "speed"
+        "Color"         "Blue"
+        "GradientID"    "1"
+      }
+      "electrician_alternating_current"
+      {
+        "Icon"          "barrier"
+        "Color"         "Gray"
+        "GradientID"    "3"
+      }
+    }
 
     // 1 - special_bonus_electrician_energy_absorption_mana - Energy Absorption bonus mana absorbed - unused
     // 2 - special_bonus_electrician_cleansing_shock_stun - Cleansing Shock Mini-Stuns
     // 3 - special_bonus_electrician_cleansing_shock_pierce - Cleansing Shock Pierces Spell Immunity - unused
-    // 4 - special_bonus_electrician_static_grip_damage - Static Grip bonus damage
-    // 5 - special_bonus_electrician_electric_shield_damage - Electric Shield bonus damage
+    // 4 - special_bonus_unique_electrician_static_grip_damage - Static Grip bonus damage
+    // 5 - special_bonus_unique_electrician_electric_shield_damage - Electric Shield bonus damage
     // 6 - special_bonus_unique_electrician_6 - Energy Absorption bonus radius
-    // 7 - special_bonus_electrician_static_grip_non_channel - Static Grip Pseudo Channel
+    // 7 - special_bonus_unique_electrician_static_grip_attacks - Static Grip attacks
     // 8 - special_bonus_unique_electrician_8 - Energy Absorption bonus damage
     // 9 - special_bonus_unique_electrician_9 - Cleansing Shock Deals Damage
     // special_bonus_spell_lifesteal_15
+    // unused - special_bonus_electrician_static_grip_non_channel - Static Grip Pseudo Channel
 
     // Armor
     //-------------------------------------------------------------------------------------------------------------
@@ -66,9 +83,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AttributePrimary"                                    "DOTA_ATTRIBUTE_ALL"
     "AttributeBaseStrength"                               "23"
-    "AttributeStrengthGain"                               "2.4"
+    "AttributeStrengthGain"                               "2.6"
     "AttributeBaseAgility"                                "13"
-    "AttributeAgilityGain"                                "1.0"
+    "AttributeAgilityGain"                                "1.5"
     "AttributeBaseIntelligence"                           "25"
     "AttributeIntelligenceGain"                           "1.8"
 
@@ -82,9 +99,9 @@
     // Status
     //-------------------------------------------------------------------------------------------------------------
     "StatusHealth"                                        "200"
-    "StatusHealthRegen"                                   "1.0"
+    "StatusHealthRegen"                                   "0.5"
     "StatusMana"                                          "75"
-    "StatusManaRegen"                                     "0.0"
+    "StatusManaRegen"                                     "0.5"
 
     // Team
     //-------------------------------------------------------------------------------------------------------------

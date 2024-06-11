@@ -8,6 +8,7 @@ function DevCheats:Init()
   ChatCommand:LinkDevCommand("-help", Dynamic_Wrap(DevCheats, "Help"), self)
   ChatCommand:LinkDevCommand("-list", Dynamic_Wrap(DevCheats, "Help"), self)
   ChatCommand:LinkDevCommand("-print_modifiers", Dynamic_Wrap(DevCheats, "PrintModifiers"), self)
+  ChatCommand:LinkDevCommand("-print_abilities", Dynamic_Wrap(DevCheats, "PrintAbilities"), self)
   ChatCommand:LinkDevCommand("-addbots", Dynamic_Wrap(DevCheats, "AddBots"), self)
   ChatCommand:LinkDevCommand("-nofog", Dynamic_Wrap(DevCheats, "DisableFog"), self)
   ChatCommand:LinkDevCommand("-fog", Dynamic_Wrap(DevCheats, "EnableFog"), self)
@@ -43,6 +44,18 @@ function DevCheats:PrintModifiers(keys)
   end
 
   foreach(PrintModifier, modifiers)
+end
+
+function DevCheats:PrintAbilities(keys)
+  local playerID = keys.playerid
+  local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+
+  for a = 0, hero:GetAbilityCount() - 1 do
+    local ability = hero:GetAbilityByIndex(a)
+    if ability and not ability:IsNull() then
+      print(ability:GetAbilityName())
+    end
+  end
 end
 
 -- Print list of available commands to chat
