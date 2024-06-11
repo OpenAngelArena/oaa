@@ -54,9 +54,21 @@ end
 -- this is seemingly the only thing that gets called before OnSpellStart for this kind
 -- of spell, at least as far as non-hacks go
 function electrician_electric_shield:CastFilterResult()
+  local caster = self:GetCaster()
+
+  -- currently being nullified / demonically purged
+  if caster:HasModifier("modifier_item_nullifier_mute") or caster:HasModifier("modifier_shadow_demon_purge_slow") then
+    return UF_FAIL_CUSTOM
+  end
+
 	self.recordCost = true
 	return UF_SUCCESS
 end
+
+function electrician_electric_shield:GetCustomCastError()
+  return "#electrician_cannot_activate_shield_while_nullified"
+end
+
 
 --------------------------------------------------------------------------------
 
@@ -162,9 +174,14 @@ function modifier_electrician_electric_shield_auto_caster:CheckCastShield()
     return 0.1
   end
 
-  ability.recordCost = true
+  -- logic for not casting at dumb times is in CastFilterResult
+  local filterResult = ability:CastFilterResult()
   ability:GetManaCost(-1)
-  ability:CastAbility()
+
+  if filterResult == UF_SUCCESS then
+    ability:CastAbility()
+  end
+
   return 0.1
 end
 
@@ -185,7 +202,7 @@ function modifier_electrician_electric_shield:IsHidden()
 end
 
 function modifier_electrician_electric_shield:IsPurgable()
-  return false
+  return true
 end
 
 --------------------------------------------------------------------------------
