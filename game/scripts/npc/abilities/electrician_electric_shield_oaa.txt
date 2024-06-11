@@ -37,8 +37,8 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "16"
-        "special_bonus_facet_electrician_direct_current"  "=0.5"
+        "value"                                                "0.5"
+        "special_bonus_facet_electrician_alternating_current"  "=16"
       }
       // max mana pool % to convert into shield at a time
       "mana_cost"                                         "20"
@@ -55,8 +55,8 @@
       }
       "shield_duration"
       {
-        "value"                                           "6 7 8 9 11 13"
-        "special_bonus_facet_electrician_direct_current"  "=12"
+        "value"                                                "12"
+        "special_bonus_facet_electrician_alternating_current"  "=6 =7 =8 =9 =11 =13"
       }
       "aura_radius"
       {

@@ -85,12 +85,12 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_9_Description"           "Damage is equal to {s:base_dmg} + {s:value}% of target's current health. Damage type is PURE."
 
 "DOTA_Tooltip_facet_electrician_alternating_current"                            "Alternating Current"
-"DOTA_Tooltip_facet_electrician_alternating_current_Description"                "Adds a cooldown to Electric Shield, but adds shield damage to Chatterjee's attacks."
+"DOTA_Tooltip_facet_electrician_alternating_current_Description"                "Adds a {s:bonus_AbilityCooldown} cooldown to Electric Shield and scaling duration, but adds shield damage to Chatterjee's attacks."
 "DOTA_Tooltip_Facet_electrician_direct_current"                                 "Direct Current"
 "DOTA_Tooltip_Facet_electrician_direct_current_Description"                     "Enhances Electric Shield's defensive cabilities and allows it to be auto-cast. Chatterjee cannot auto-cast Electric Shield while stunned or silenced and must be able to afford the mana cost."
 
-"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_direct_current"          "Can be auto-cast, has increased survivability"
-"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"     "Increased cooldown, adds shield damage to auto attacks."
+"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_direct_current"          "Can be auto-cast, has increased survivability. Auto-cast will not work while stunned, silenced, or out of mana"
+"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"     "Sets cooldown to %bonus_AbilityCooldown%, adds shield damage to auto attacks."
 
 "DOTA_Tooltip_Ability_electrician_battery_powered"                              "Battery Powered"
 "DOTA_Tooltip_Ability_electrician_battery_powered_Description"                  "Chatterjee's maximum mana can never be below her maximum health."
