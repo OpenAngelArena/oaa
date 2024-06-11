@@ -13,7 +13,6 @@ function electrician_electric_shield:GetIntrinsicModifierName()
 end
 
 function electrician_electric_shield:GetBehavior()
-  local caster = self:GetCaster()
   local isToggleable = self:GetSpecialValueFor("is_toggleable") > 0
 
   -- Shard that makes Electric Shield toggle
@@ -359,7 +358,6 @@ function modifier_electrician_electric_shield:GetModifierIncomingDamageConstant(
   if IsClient() then
     -- Shield numbers (visual only)
     local max_mana = parent:GetMaxMana()
-    local current_mana = parent:GetMana()
 
     local max_mana_cost = max_mana * ability:GetSpecialValueFor("mana_cost") * 0.01
     local damage_per_mana = ability:GetSpecialValueFor("shield_per_mana")
