@@ -34,7 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_tick_rate"                                  "0.5" //OAA, this tick rate is used for scepter burrowstrikes too
+      "damage_tick_rate"                                  "0.2"
       "sand_storm_radius"
       {
         "value"                                           "300 350 400 450 500 550"
@@ -59,7 +59,7 @@
       "sand_storm_max_distance_from_caster"
       {
         "special_bonus_facet_sand_king_dust_devil"        "+2500"
-      }               
+      }
       "sand_storm_move_speed_bonus_when_outside_radius"
       {
         "special_bonus_facet_sand_king_dust_devil"        "+30"
