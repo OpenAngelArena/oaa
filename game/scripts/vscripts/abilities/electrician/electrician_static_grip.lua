@@ -7,8 +7,6 @@ LinkLuaModifier( "modifier_electrician_static_grip_debuff_tracker", "abilities/e
 --------------------------------------------------------------------------------
 
 function electrician_static_grip:GetChannelTime()
-  local caster = self:GetCaster()
-
   -- facet that makes Static Grip non-channel (pseudo-channel)
   local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
 
@@ -24,8 +22,6 @@ function electrician_static_grip:GetChannelTime()
 end
 
 function electrician_static_grip:GetBehavior()
-  local caster = self:GetCaster()
-
   -- facet that makes Static Grip non-channel (pseudo-channel)
   local isPsuedochannel = self:GetSpecialValueFor("psuedochannel") == 1
   if isPsuedochannel then
@@ -177,7 +173,6 @@ function modifier_electrician_static_grip:OnRefresh( event )
 
   if IsServer() then
     local parent = self:GetParent()
-    local caster = self:GetCaster()
 
     -- grab ability specials
     local damageInterval = spell:GetSpecialValueFor( "damage_interval" )
