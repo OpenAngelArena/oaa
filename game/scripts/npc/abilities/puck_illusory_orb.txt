@@ -34,8 +34,8 @@
       "max_distance"                                      "1950"
       "orb_speed"
       {
-        "value"                 "550 550 550 550 600 650"
-        "special_bonus_facet_puck_curveball"            "+200"
+        "value"                                           "550 550 550 550 600 650"
+        "special_bonus_facet_puck_curveball"              "+200"
       }
       "orb_vision"
       {
@@ -52,46 +52,46 @@
       {
         "value"                                           "11 10 9 8 7 6"
       }
-      "warning_sound_time"                    "0.25"
+      "warning_sound_time"                                "0.25"
       "curve_orb"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "=1"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "=1"
       }
       "curve_orb_duration_multiplier"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "=100"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "=100"
       }
       "curve_orb_max_acceleration"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "=0.0015"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "=0.0015"
       }
       "curve_orb_pullback_bonus_launch_speed"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "0.25"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "0.25"
       }
       "curve_strength"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "0.6"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "0.6"
       }
       "orb_particle_offset_z"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "80.0"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "80.0"
       }
       "vector_reticle_distance"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "300.0"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "300.0"
       }
       "vector_reticle_radius"
       {
-        "value"                             "0"
-        "special_bonus_facet_puck_curveball"            "50.0"
+        "value"                                           "0"
+        "special_bonus_facet_puck_curveball"              "50.0"
       }
     }
   }

@@ -59,24 +59,24 @@
       "rotation_direction"                                "-1"
       "kill_check_radius"
       {
-        "affected_by_aoe_increase"  "1"
-        "value"                     "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"  "+200"
+        "affected_by_aoe_increase"                        "1"
+        "value"                                           "0"
+        "special_bonus_facet_muerta_dance_of_the_dead"    "+200"
       }
       "kill_radius_expansion"
       {
-        "affected_by_aoe_increase"  "1"
-        "value"                     "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"  "+100"
+        "affected_by_aoe_increase"                        "1"
+        "value"                                           "0"
+        "special_bonus_facet_muerta_dance_of_the_dead"    "+100"
       }
       "kill_radius_expansion_speed"
       {
-        "value"                     "0"
-        "special_bonus_facet_muerta_dance_of_the_dead"  "+0.25"
+        "value"                                           "0"
+        "special_bonus_facet_muerta_dance_of_the_dead"    "+0.25"
       }
       "hp_regen_pct"
       {
-        "special_bonus_unique_muerta_calling_hp_regen"  "+1.5"
+        "special_bonus_unique_muerta_calling_hp_regen"    "+1.5"
       }
     }
   }

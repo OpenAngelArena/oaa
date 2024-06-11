@@ -40,11 +40,11 @@
       }
       "AbilityCooldown"                   
       {
-        "value"                     "22 20 18 16 15 14"
+        "value"                                           "22 20 18 16 15 14"
       }
       "AbilityCharges"                    
       {
-        "value"                                                 "0"
+        "value"                                           "0"
         "special_bonus_unique_silencer_arcane_curse_charges"  "2"
       } 
       "radius"
@@ -59,7 +59,7 @@
         "value"                                           "0"
         "special_bonus_unique_silencer_arcane_curse_undispellable"  "+1"
       }
-      "silence_duration"      "2"
+      "silence_duration"                                  "2"
     }
   }
 }

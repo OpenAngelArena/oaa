@@ -26,60 +26,60 @@
     {
       "max_illusions" //OAA
       {
-          "value"                     "4"
+        "value"                                           "4"
       }
-      "proc_chance_pct"       "40 45 50 55 60"
-      "illusion_proc_chance_pct"      "8"     
-      "illusion_duration"         "8"
+      "proc_chance_pct"                                   "40 45 50 55 60"
+      "illusion_proc_chance_pct"                          "8"     
+      "illusion_duration"                                 "8"
       "illusion_damage_out_pct" //OAA
       {
-          "value"                         "-60 -50 -40 -30 -20"
-          "CalculateSpellDamageTooltip"   "0"
-          "special_bonus_facet_phantom_lancer_divergence"     "+6"
+        "value"                                           "-60 -50 -40 -30 -20"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_facet_phantom_lancer_divergence"   "+6"
       }
       "tooltip_illusion_damage" //OAA
       {
-          "value"                         "40 50 60 70 80"
-          "CalculateSpellDamageTooltip"   "0"
-          "special_bonus_facet_phantom_lancer_divergence"     "+6"
-          "special_bonus_unique_phantom_lancer_6" "+10"
+        "value"                                           "40 50 60 70 80"
+        "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_facet_phantom_lancer_divergence"   "+6"
+        "special_bonus_unique_phantom_lancer_6"           "+10"
       }
       "illusion_damage_in_pct" //OAA
       {
-          "value"                         "400 375 350 300 200"
-          "CalculateSpellDamageTooltip"   "0"
+        "value"                                           "400 375 350 300 200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
       "tooltip_total_illusion_damage_in_pct" //OAA
       {
-          "value"                         "500 475 450 400 300"
-          "CalculateSpellDamageTooltip"   "0"
+        "value"                                           "500 475 450 400 300"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "illusion_from_illusion_duration"   "4"
+      "illusion_from_illusion_duration"                   "4"
       "shard_bonus_illusions" 
       {
-          "value"                     "0"
-          "RequiresShard"             "1"
+        "value"                                           "0"
+        "RequiresShard"                                   "1"
       }
       "invis_duration"
       {
-          "value"                     "8"
-          "RequiresScepter"           "1"
+        "value"                                           "8"
+        "RequiresScepter"                                 "1"
       }
       "invis_movespeed"
       {
-          "value"                     "15"
-          "RequiresScepter"           "1"
+        "value"                                           "15"
+        "RequiresScepter"                                 "1"
       }
       "uncontrollable_illusions"
       {
-          "value"                     "0"
-          "special_bonus_facet_phantom_lancer_divergence" "+1"
+        "value"                                           "0"
+        "special_bonus_facet_phantom_lancer_divergence"   "+1"
       }
       "new_target_radius"
       {
-          "value"                     "0"
-          "special_bonus_facet_phantom_lancer_divergence" "+700"
-          "RequiresFacet"         "2"
+        "value"                                           "0"
+        "special_bonus_facet_phantom_lancer_divergence"   "+700"
+        "RequiresFacet"                                   "2"
       }
     }
   }

@@ -37,11 +37,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_pct"                "100"
+      "damage_pct"                                        "100"
       "AbilityCooldown"               
       {   
-        "value"         "90 85 80 75 70"
-        "special_bonus_unique_pangolier_5"  "-16"
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_pangolier_5"                "-16"
       }
       "cast_time_tooltip"                                 "1.2"
       "tick_interval"                                     "0.05"
@@ -80,8 +80,8 @@
       "duration"
       {
         "value"                                           "10"
-        "special_bonus_unique_pangolier_6"  "+2"
-        "special_bonus_facet_pangolier_thunderbolt" "-2"
+        "special_bonus_unique_pangolier_6"                "+2"
+        "special_bonus_facet_pangolier_thunderbolt"       "-2"
       }
       "jump_recover_time"                                 "0.25"
       "shield_crash_cooldown"                             "9 6 3 2.5 2"
