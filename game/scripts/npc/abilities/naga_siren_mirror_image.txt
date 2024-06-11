@@ -27,33 +27,33 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "illusion_duration"         "26"
+      "illusion_duration"                                 "26"
       "outgoing_damage"
       {
-        "value"                 "-75 -70 -65 -60 -50 -30"
-        "special_bonus_unique_naga_siren_4" "+10"
+        "value"                                           "-75 -70 -65 -60 -50 -30"
+        "special_bonus_unique_naga_siren_4"               "+10"
       }
       "outgoing_damage_tooltip"   
       {
-        "value"                 "25 30 35 40 50 70"
-        "special_bonus_unique_naga_siren_4" "+10"
+        "value"                                           "25 30 35 40 50 70"
+        "special_bonus_unique_naga_siren_4"               "+10"
       }
       "incoming_damage" //OAA
       {
-        "value"             "250 205 160 115 70 25"
-        "special_bonus_unique_naga_siren_3" "-50"
+        "value"                                           "250 205 160 115 70 25"
+        "special_bonus_unique_naga_siren_3"               "-50"
       }
       "tooltip_incoming_damage_total_pct" //OAA
       {
-        "value"                 "350 305 260 215 170 125"
-        "special_bonus_unique_naga_siren_3" "-50"
+        "value"                                           "350 305 260 215 170 125"
+        "special_bonus_unique_naga_siren_3"               "-50"
       }
       "images_count"              
       {
-        "value"                 "3"
-        "special_bonus_unique_naga_siren" "+1"
+        "value"                                           "3"
+        "special_bonus_unique_naga_siren"                 "+1"
       }
-      "invuln_duration"           "0.5"
+      "invuln_duration"                                   "0.5"
     }
   }
 }

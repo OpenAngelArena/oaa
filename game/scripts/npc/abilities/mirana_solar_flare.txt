@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Mirana Solar Blessings
+  // Mirana: Solar Flare
   //=================================================================================================================
   "mirana_solar_flare"
   {
@@ -19,9 +19,6 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
@@ -32,19 +29,19 @@
     {
       "AbilityCooldown" //OAA
       {
-          "value"         "120 110 100 95 90"
-          "special_bonus_unique_mirana_4"         "-20"               
+        "value"                                           "90 85 80 75 70"
+        "special_bonus_unique_mirana_4"                   "-20"
       }
-      "smoothness"                        "0.015"
-      "increase_rate"                     "10 15 20 30 40"
-      "day_vision_multiplier"             "3"
-      "ally_pct"                          "50"
-      "duration"                          "18"
-      "max_damage_time"                   "8"
-      "evasion"       
+      "smoothness"                                        "0.015"
+      "increase_rate"                                     "10 15 20 30 40"
+      "day_vision_multiplier"                             "3"
+      "ally_pct"                                          "50"
+      "duration"                                          "18"
+      "max_damage_time"                                   "8"
+      "evasion" //OAA
       {
-          "value"         "0"
-          "special_bonus_unique_mirana_5"     "+20"
+        "value"                                           "0"
+        "special_bonus_unique_mirana_5"                   "+25"
       }
     }
   }

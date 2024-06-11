@@ -34,24 +34,24 @@
     {
       "AbilityDuration"
       {
-        "value"                 "4.5 5.25 6.0 6.5 7.0"
-        "special_bonus_facet_silencer_reverberating_silence"    "=0"
+        "value"                                           "4.5 5.25 6.0 6.5 7.0"
+        "special_bonus_facet_silencer_reverberating_silence"  "=0"
       }  
       "apply_twice"
       {
-        "special_bonus_facet_silencer_reverberating_silence" "1"
+        "special_bonus_facet_silencer_reverberating_silence"  "1"
       }
       "first_duration"
       {
-        "special_bonus_facet_silencer_reverberating_silence" "3 3.5 4 4.5 5"
+        "special_bonus_facet_silencer_reverberating_silence"  "3 3.5 4 4.5 5"
       }
       "second_duration"
       {
-        "special_bonus_facet_silencer_reverberating_silence" "1.5 1.75 2 2 2"
+        "special_bonus_facet_silencer_reverberating_silence"  "1.5 1.75 2 2 2"
       }
       "applies_curse"
       {
-        "special_bonus_scepter"     "+1"
+        "special_bonus_scepter"                           "+1"
       }
     }
   }

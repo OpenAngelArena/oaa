@@ -18,9 +18,6 @@
     "AbilityCastRange"                                    "0"
     "AbilityCastPoint"                                    "0.5"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "125"
@@ -32,15 +29,15 @@
       "AbilityCooldown" //OAA
       {
         "value"                                           "120 110 100 95 90"
-        "special_bonus_unique_mirana_4"                   "-20"               
+        "special_bonus_unique_mirana_4"                   "-20"
       }
       "fade_delay"                                        "2.5 2.25 2.0 1.75 1.5" //OAA
       "duration"                                          "11" //OAA
       "bonus_movement_speed"                              "9 12 15 18 21"
-      "evasion"
+      "evasion" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_mirana_5"                   "+20"
+        "special_bonus_unique_mirana_5"                   "+25"
       }
     }
   }
