@@ -18,7 +18,7 @@
 "DOTA_Tooltip_Ability_electrician_electric_shield_shield_duration"              "DURATION:"
 "DOTA_Tooltip_Ability_electrician_electric_shield_aura_radius"                  "SHOCK RADIUS:"
 "DOTA_Tooltip_Ability_electrician_electric_shield_aura_damage"                  "SHOCK DAMAGE PER SECOND:"
-"DOTA_Tooltip_Ability_electrician_electric_shield_shard_description"            "Electric Shield can be toggled on/off. Mana is spent when caster takes damage and not on activation. Electric Shield becomes undispellable and has infinite duration."
+"DOTA_Tooltip_Ability_electrician_electric_shield_shard_description"            "When Electric Shield expires or is reapplied, refunds the cost of %mana_pct_refund%%% of the remaining shield."
 //"DOTA_Tooltip_Ability_electrician_electric_shield_shard_shield_per_mana"        "SHARD SHIELD HP PER MANA:"
 //"DOTA_Tooltip_Ability_electrician_electric_shield_shard_shield_damage_block"    "%SHARD SHIELD DAMAGE BLOCK:"
 
@@ -74,7 +74,7 @@
 // talents
 "DOTA_Tooltip_Ability_special_bonus_electrician_energy_absorption_mana"         "+{s:value}% Energy Absorption Max Mana Absorbed"
 "DOTA_Tooltip_Ability_special_bonus_electrician_static_grip_damage"             "+{s:value_tooltip}% Static Grip Damage"
-"DOTA_Tooltip_Ability_special_bonus_electrician_electric_shield_damage"         "+{s:value} Electric Shield Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_electrician_electric_shield_damage"  "+{s:bonus_aura_damage} Electric Shield Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_6"                       "+{s:bonus_radius} Energy Absorption Radius"
 "DOTA_Tooltip_Ability_special_bonus_electrician_cleansing_shock_stun"           "+{s:value}s Cleansing Shock Mini-Stun"
 "DOTA_Tooltip_Ability_special_bonus_electrician_static_grip_non_channel"        "Static Grip Pseudo Channel"
@@ -83,3 +83,14 @@
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_8"                       "+{s:value} Energy Absorption Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_9"                       "Cleansing Shock Deals Damage"
 "DOTA_Tooltip_Ability_special_bonus_unique_electrician_9_Description"           "Damage is equal to {s:base_dmg} + {s:value}% of target's current health. Damage type is PURE."
+
+"DOTA_Tooltip_facet_electrician_alternating_current"                            "Alternating Current"
+"DOTA_Tooltip_facet_electrician_alternating_current_Description"                "Adds a cooldown to Electric Shield, but adds shield damage to Chatterjee's attacks."
+"DOTA_Tooltip_Facet_electrician_direct_current"                                 "Direct Current"
+"DOTA_Tooltip_Facet_electrician_direct_current_Description"                     "Enhances Electric Shield's defensive cabilities and allows it to be auto-cast. Chatterjee cannot auto-cast Electric Shield while stunned or silenced and must be able to afford the mana cost."
+
+"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_direct_current"          "Can be auto-cast, has increased survivability"
+"DOTA_Tooltip_Ability_electrician_electric_shield_Facet_electrician_alternating_current"     "Increased cooldown, adds shield damage to auto attacks."
+
+"DOTA_Tooltip_Ability_electrician_battery_powered"                              "Battery Powered"
+"DOTA_Tooltip_Ability_electrician_battery_powered_Description"                  "Chatterjee's maximum mana can never be below her maximum health."

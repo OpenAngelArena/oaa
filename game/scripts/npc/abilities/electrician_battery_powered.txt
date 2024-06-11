@@ -1,0 +1,17 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Electrician: Battery Powered
+  //=================================================================================================================
+  "electrician_battery_powered"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "ScriptFile"                                          "abilities/electrician/electrician_battery_powered.lua"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
+    "MaxLevel"                                            "1"
+  }
+}
