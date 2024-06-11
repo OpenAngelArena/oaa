@@ -15,7 +15,7 @@ function modifier_wraith_form_penalty_oaa:IsPurgable()
 end
 
 function modifier_wraith_form_penalty_oaa:OnCreated()
-  self.dmg_penalty = -30
+  self.dmg_penalty = -25
 
   local ability = self:GetAbility()
   if ability and not ability:IsNull() then
