@@ -17,7 +17,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0"
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "45 50 55 60 65 70"
     "AbilityCooldown"                                     "10"
 
     // Special
@@ -26,22 +26,22 @@
     {
       "damage"    
       {
-        "value"         "80 130 180 230 460 690"
-        "special_bonus_unique_naga_siren_2" "+30%"
+        "value"                                           "80 140 200 260 520 780"
+        "special_bonus_unique_naga_siren_2"               "+30%"
       }
       "radius"
       {
-        "value"                     "300"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
       }
       "duration"                  
       {
-        "value"         "5"             
+        "value"                                           "5"             
       }
-      "debuff_duration"           "10"
+      "debuff_duration"                                   "10"
       "status_resistance"
       {
-        "value"                     "-11 -14 -17 -20 -23 -26"
+        "value"                                           "-20"
       }
     }
   }

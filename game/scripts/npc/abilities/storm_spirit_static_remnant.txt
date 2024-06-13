@@ -50,7 +50,7 @@
       }
       "static_remnant_damage"
       {
-        "value"                                           "120 180 240 300 600 1200"
+        "value"                                           "100 160 220 280 560 1120"
         "special_bonus_unique_storm_spirit_5"             "+60"
       }
       "is_point_targeted"
@@ -72,13 +72,13 @@
       {
         "value"                                           "500"
         "special_bonus_facet_storm_spirit_static_slide"   "=100"
-        "affected_by_aoe_increase"  "1"
+        "affected_by_aoe_increase"                        "1"
       }
       "static_remnant_vision_radius_night"
       {
         "value"                                           "500"
         "special_bonus_facet_storm_spirit_static_slide"   "=100"
-        "affected_by_aoe_increase"  "1"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

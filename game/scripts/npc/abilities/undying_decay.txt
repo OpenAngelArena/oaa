@@ -23,7 +23,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "13 10 7 4 4 4"
-    "AbilityDuration"                                     "40" //OAA, same as decay_duration, Valve has it wrong
+    "AbilityDuration"                                     "35" //OAA, same as decay_duration, Valve has it wrong
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@
       }
       "decay_duration"
       {
-        "value"                                           "40"
+        "value"                                           "35"
       }
       "radius"
       {

@@ -21,7 +21,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastRange"                                    "750" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -43,6 +42,11 @@
         "value"                                           "750"
         "special_bonus_unique_marci_lunge_range"          "+100"
       }
+      "AbilityCastRange" //OAA
+      {
+        "value"                                           "750"
+        "special_bonus_unique_marci_lunge_range"          "+100"
+      }
       "landing_radius"
       {
         "value"                                           "275"
@@ -50,7 +54,7 @@
       }
       "impact_damage"
       {
-        "value"                                           "70 150 230 310 620 1240"
+        "value"                                           "80 160 240 320 640 1280"
       }
       "debuff_duration"
       {

@@ -22,9 +22,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "14 12 10 8 7 6" //OAA
 
-    // Damage.
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "95 110 125 140 155 170"
@@ -33,26 +30,26 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "blast_speed"               "1200"
+      "blast_speed"                                       "1200"
       "blast_stun_duration"
       {
-        "value"                 "1.0 1.2 1.4 1.6 1.7 1.8"
-        "special_bonus_unique_wraith_king_11" "+1"
+        "value"                                           "1.0 1.2 1.4 1.6 1.7 1.8"
+        "special_bonus_unique_wraith_king_11"             "+1"
       }
       "blast_dot_duration"
       {
-        "value"                 "2.0"
+        "value"                                           "2.0"
       }
-      "blast_slow"                "-20"
-      "damage"                    
+      "blast_slow"                                        "-20"
+      "damage"
       {
-        "value"     "75 90 105 120 240 480"
-        "special_bonus_unique_wraith_king_3"    "+20%"
+        "value"                                           "75 90 105 120 240 480"
+        "special_bonus_unique_wraith_king_3"              "+20%"
       }
       "blast_dot_damage"
       {
-        "value"                 "20 40 60 80 160 320"
-        "special_bonus_unique_wraith_king_3"    "+20%"
+        "value"                                           "20 40 60 80 160 320"
+        "special_bonus_unique_wraith_king_3"              "+20%"
       }
     }
   }

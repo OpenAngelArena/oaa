@@ -29,7 +29,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "trance_duration"                                   "6.5"
+      "trance_duration"
+      {
+        "value"                                           "6.5"
+        "special_bonus_unique_troll_warlord_battle_trance_movespeed"  "+1.5"
+      }
       "AbilityCooldown"
       {
         "value"                                           "90 80 70 60 50"
@@ -44,10 +48,6 @@
       "movement_speed"
       {
         "value"                                           "25 30 35 40 45"
-      }
-      "slow_resistance"
-      {
-        "special_bonus_unique_troll_warlord_battle_trance_movespeed"  "+50"
       }
       "range"        
       {

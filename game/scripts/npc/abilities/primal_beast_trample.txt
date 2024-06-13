@@ -58,32 +58,32 @@
       }
       "proc_attack_modifiers"
       {
-        "value"             "0"
+        "value"                                           "0"
       }
       "bonus_movespeed_pct_self"
       {
-        "value"                 "0"
-        "special_bonus_facet_primal_beast_romp_n_stomp"         "=4"
-        "RequiresFacet"             "light_footed"
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_romp_n_stomp"   "=4"
+        "RequiresFacet"                                   "light_footed"
       }
       "bonus_movespeed_pct_allies"
       {
-        "value"             "0"
-        "special_bonus_facet_primal_beast_romp_n_stomp" "=0"
-        "RequiresFacet"             "light_footed"
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_romp_n_stomp"   "=0"
+        "RequiresFacet"                                   "light_footed"
       }
       "aura_radius"
       {
-        "value"                         "0"
-        "affected_by_aoe_increase"  "1"
-        "special_bonus_facet_primal_beast_romp_n_stomp"         "=1200"
-        "RequiresFacet"             "light_footed"
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_primal_beast_romp_n_stomp"   "=1200"
+        "RequiresFacet"                                   "light_footed"
       }
       "bonus_movespeed_pct_extra"
       {
-        "value"             "0"
-        "special_bonus_facet_primal_beast_romp_n_stomp" "=6"
-        "RequiresFacet"             "light_footed"
+        "value"                                           "0"
+        "special_bonus_facet_primal_beast_romp_n_stomp"   "=6"
+        "RequiresFacet"                                   "light_footed"
       }
     }
   }

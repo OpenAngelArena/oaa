@@ -30,36 +30,35 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "leap_speed"                "800"
+      "leap_speed"                                        "800"
       // this should belong to Spring ability but for how it gets called it's simpler to have Tree Jump own it
-      "spring_leap_speed"         "1300"
-      "give_up_distance"              "1850"
+      "spring_leap_speed"                                 "1300"
+      "give_up_distance"                                  "1850"
       "ground_jump_distance"
       {
-        "value"                                 "800"
-        "special_bonus_unique_monkey_king_7"    "+450"
+        "value"                                           "800"
+        "special_bonus_unique_monkey_king_7"              "+450"
       }
       "perched_jump_distance"
       {
-        "value"                     "800"
-        "special_bonus_unique_monkey_king_7"    "+450"
+        "value"                                           "800"
+        "special_bonus_unique_monkey_king_7"              "+450"
       }
-      "jump_damage_cooldown"          "3.0"
-      "perched_day_vision"            "700"
-      "perched_night_vision"          "500"
-      "perched_spot_height"           "192.0"
-      "unperched_stunned_duration"    "4.0"
-      "top_level_height"              "500"
+      "jump_damage_cooldown"                              "3.0"
+      "perched_day_vision"                                "700"
+      "perched_night_vision"                              "500"
+      "perched_spot_height"                               "192.0"
+      "unperched_stunned_duration"                        "4.0"
+      "top_level_height"                                  "500"
       "impact_damage_tooltip"
       {
-        "value"                     "140 210 280 350 700 1400"
+        "value"                                           "140 210 280 350 700 1400"
       }
-      "impact_movement_slow_tooltip"  "20 40 60 80 85 90"
-      "range"             "800"
-      "fullhp_cdreduce"
+      "impact_movement_slow_tooltip"                      "20 40 60 80 85 90"
+      "range"                                             "800"
+      "no_cooldown_hp_threshold"
       {
-        "value"                     "0"
-        "special_bonus_facet_monkey_king_simian_stride" "100"
+        "special_bonus_facet_monkey_king_simian_stride"   "90"
       }
     }
   }

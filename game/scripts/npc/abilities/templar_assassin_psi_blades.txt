@@ -22,7 +22,7 @@
       "bonus_attack_range"    
       {
         "value"                                           "0 50 100 150 200 250 300"
-        "special_bonus_unique_templar_assassin_8"         "+120"
+        "special_bonus_unique_templar_assassin_8"         "+100"
       }
       "attack_spill_range"    
       {
@@ -38,11 +38,11 @@
       "spill_slow_duration"
       {
         "value"                                           "0.0"
-        "special_bonus_facet_templar_assassin_voidblades" "+3.0"
+        "special_bonus_facet_templar_assassin_voidblades"  "+3.0"
       }
       "spill_movement_slow_pct"
       {
-        "special_bonus_facet_templar_assassin_voidblades" "5 10 15 20 25"
+        "special_bonus_facet_templar_assassin_voidblades"  "5 10 15 20 25"
       }
     }
   }
