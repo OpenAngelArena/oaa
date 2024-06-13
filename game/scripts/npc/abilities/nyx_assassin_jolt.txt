@@ -36,12 +36,12 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "11 9 7 5 4 4"
+        "value"                                           "11 10 9 8 7 6"
         "special_bonus_unique_nyx_jolt_cooldown"          "-3"
       } 
-      "max_mana_as_damage_pct"        
+      "max_mana_as_damage_pct" //OAA
       {
-        "value"                                           "20 25 30 35"
+        "value"                                           "15"
       }
       "aoe"
       {
