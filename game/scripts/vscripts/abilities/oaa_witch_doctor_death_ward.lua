@@ -324,13 +324,17 @@ if IsServer() then
       if not ability or ability:IsNull() then
         return
       end
-      local remainingTargets = ability:GetSpecialValueFor("initial_target_count") - 1
+      local remainingTargets = ability:GetSpecialValueFor("initial_target_count")
 
       local targets_flags = bit.bor(DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE, DOTA_UNIT_TARGET_FLAG_NO_INVIS, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE)
 
       -- Find closest target and fire a projectile from it
       local enemies = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, parent:GetAttackRange(), ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), targets_flags, FIND_CLOSEST, false)
       for _, enemy in ipairs(enemies) do
+        remainingTargets = remainingTargets - 1
+        if remainingTargets < 1 then
+          break
+        end
         if enemy ~= target then
           local useCastAttackOrb = false
           local processProcs = true
@@ -345,10 +349,6 @@ if IsServer() then
           -- fortunately this doesn't then call OnAttackStart
           -- so we don't need to worry about recursion
           attacker:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
-          remainingTargets = remainingTargets - 1
-          if remainingTargets == 0 then
-            break
-          end
         end
       end
 
