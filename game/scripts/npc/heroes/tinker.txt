@@ -22,7 +22,7 @@
     "Ability15"                                           "special_bonus_unique_tinkerer_7" // replaces special_bonus_unique_tinker_5
 
     "Ability16"                                           "special_bonus_unique_tinkerer_2" // replaces special_bonus_unique_tinker
-    "Ability17"                                           "special_bonus_unique_tinker_defense_matrix_cdr" // replaces special_bonus_unique_tinker_rearm_magic_resistance
+    "Ability17"                                           "special_bonus_unique_tinker_defense_matrix_status_resistance" // replaces special_bonus_unique_tinker_rearm_magic_resistance
 
     // special_bonus_unique_tinkerer_1 - Smart Rockets Multishot - unused
     // special_bonus_unique_tinkerer_2 - Smart Rockets bonus damage
@@ -38,6 +38,28 @@
     //"Ability25"                                           ""
 
     //"AbilityTalentStart"                                  "10"
+
+    "Facets"
+    {
+      // replace repair bots
+      "tinker_repair_bots"
+      {
+        "Icon"                                            "summons"
+        "Color"                                           "Gray"
+        "GradientID"                                      "3"
+
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "tinker_march_of_the_machines"
+            "ReplaceAbility"                              "tinkerer_oil_spill"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+    }
+
 
     "ArmorPhysical"                                       "3"
     "MagicalResistance"                                   "25"
