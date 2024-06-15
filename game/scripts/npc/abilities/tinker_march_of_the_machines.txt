@@ -42,21 +42,21 @@
         "special_bonus_unique_tinkerer_7"               "-10"
       }
 
-      "radius"        
+      "radius"
       {
         "value"                                         "900"
         "affected_by_aoe_increase"                      "1"
       }
-      "collision_radius"                                "50"
+      "collision_radius"                                "100"
       "splash_radius"                                   "150"
 
       "duration" // OAA
       {
         "value"                                         "6.0"
-        "special_bonus_unique_tinkerer_5"               "+1.0"
+        "special_bonus_unique_tinkerer_5"               "+2.0"
       }
       "speed"                                           "400"
-      "machines_per_sec"                                "24"
+      "machines_per_sec"                                "36"
       "distance"                                        "1800"
 
       "damage" // OAA
