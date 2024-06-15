@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  "sniper_keen_scope_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "ScriptFile"                                          "abilities/oaa_sniper_keen_scope.lua"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "sniper_assassinate"
+
+    "AbilityValues"
+    {
+      "bonus_range"
+      {
+        "value"                                           "160 240 320 400 450 500"
+        "special_bonus_facet_sniper_automatic_weaponry"   "=0"
+      }
+      "bat_reduction"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sniper_automatic_weaponry"   "=0.1 =0.2 =0.3 =0.4 =0.5 =0.6"
+      }
+    }
+  }
+}
