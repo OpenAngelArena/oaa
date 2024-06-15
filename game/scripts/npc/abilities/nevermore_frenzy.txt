@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Nevermore Frenzy
+  //=================================================================================================================
+  "nevermore_frenzy"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+
+    // Stats        
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "16.0"
+    "AbilityManaCost"                                     "75"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "bonus_attack_speed"    
+      {
+        "value"         "40 50 60 70 80 90"
+        "special_bonus_unique_nevermore_4"  "+30"
+      }
+      "cast_speed_pct"        
+      {
+        "value"                                                 "100"
+        "special_bonus_unique_nevermore_frenzy_castspeed"       "+40"
+      }
+      "cast_speed_pct_tooltip"
+      {
+        "value"                                                 "0"
+        "special_bonus_unique_nevermore_frenzy_castspeed"       "=140"
+      }
+      "duration"              "8"
+      "soul_cost"             "5"
+    }
+  }
+
+}
