@@ -53,7 +53,9 @@ function DevCheats:PrintAbilities(keys)
   for a = 0, hero:GetAbilityCount() - 1 do
     local ability = hero:GetAbilityByIndex(a)
     if ability and not ability:IsNull() then
-      print(ability:GetAbilityName())
+      print(tostring(a) .. ': ' .. ability:GetAbilityName())
+    else
+      print(tostring(a) .. ': empty')
     end
   end
 end
