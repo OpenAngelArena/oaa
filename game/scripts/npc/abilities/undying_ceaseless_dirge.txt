@@ -1,0 +1,16 @@
+"DOTAAbilities"
+{
+  "undying_ceaseless_dirge"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityCooldown"                                     "480"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
+
+    "AbilityValues"
+    {
+      "respawn_delay"                                     "2.0"
+    }
+  }
+}
