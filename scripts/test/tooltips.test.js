@@ -42,14 +42,15 @@ test('lists item paths', function (t) {
 test('can parse item', function (t) {
   const index = ~~(Math.random() * itemPaths.length);
   const path = itemPaths[index];
-  console.log('Running parsing tests against', path);
   t.ok(path);
-
-  luaEntitiesUtil.parseFile(path, function (err, data) {
-    t.notOk(err);
-    t.ok(data);
-    t.end();
+  t.test('Running parsing tests against ' + path, function (t) {
+    luaEntitiesUtil.parseFile(path, function (err, data) {
+      t.notOk(err);
+      t.ok(data);
+      t.end();
+    });
   });
+  t.end();
 });
 
 test('there are no missing tooltips', function (t) {
