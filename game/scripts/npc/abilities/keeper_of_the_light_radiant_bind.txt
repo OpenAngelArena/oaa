@@ -7,13 +7,14 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
     "MaxLevel"                                            "5"
+    "LinkedAbility"                                       "keeper_of_the_light_spirit_form" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
