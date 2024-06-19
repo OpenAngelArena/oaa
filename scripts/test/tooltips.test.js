@@ -42,7 +42,7 @@ test('lists item paths', function (t) {
 test('can parse item', function (t) {
   const index = ~~(Math.random() * itemPaths.length);
   const path = itemPaths[index];
-  console.log('Running tests with', path);
+  console.log('Running parsing tests against', path);
   t.ok(path);
 
   luaEntitiesUtil.parseFile(path, function (err, data) {
