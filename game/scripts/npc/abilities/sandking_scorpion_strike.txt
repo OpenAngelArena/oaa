@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Scorpion Strike
+  //=================================================================================================================
+  "sandking_scorpion_strike"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "MaxLevel"                                            "6"
+    "RequiredLevel"                                       "1"
+    "LevelsBetweenUpgrades"                               "2"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "200"
+    "FightRecapLevel"                                     "1"
+    "AbilityCastPoint"                                    "0.4"
+    "AbilityManaCost"                                     "30"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "14.0 11.0 8.0 5.0 4.5 4.0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"        
+      {
+        "value"         "225 255 285 315 345 375"
+        "affected_by_aoe_increase"  "1"
+      }
+      "inner_radius"
+      {
+        "value"         "125"
+        "affected_by_aoe_increase"  "1"
+      }
+      "inner_radius_bonus_damage_pct"             "40"
+      "attack_damage"             
+      {
+        "value"                                                             "40 80 120 160 200 240"
+        "special_bonus_unique_sand_king_scorpion_strike_damage"         "+50"
+      }
+      "debuff_duration"               "4 5 6 7 8 9"
+      "strike_slow"               
+      {
+        "value"                 "10 12 14 16 18 20"
+        "special_bonus_unique_sand_king_3"  "+12"
+      }
+    }
+  }
+}
