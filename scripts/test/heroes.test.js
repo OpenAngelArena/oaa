@@ -78,7 +78,9 @@ test('test', function (t) {
               const tipLine = closeAbilitySlot ? `... Did you mean ${closeAbilitySlot}?` : '';
               t.ok(foundAbilitySlot, `${abilityName} depends on ${abilityDependentOnAbility} but ${heroName} doesn't have that ability ${tipLine}`);
               if (abilityMaxLevel && dependAbilityMaxLevel) {
-                t.equal(Number(abilityMaxLevel), Number(dependAbilityMaxLevel) + 1, `${abilityName} has ${abilityMaxLevel} max level, expected ${Number(dependAbilityMaxLevel) + 1} because it depends on ${abilityDependentOnAbility} which has ${dependAbilityMaxLevel} max level`);
+                const abilityIsInnate = !!(abilities[abilityName]?.values.Innate || dotaAbilities[abilityName]?.values.Innate);
+                const desiredLevel = Number(dependAbilityMaxLevel) + (abilityIsInnate ? 1 : 0);
+                t.equal(Number(abilityMaxLevel), desiredLevel, `${abilityName} has ${abilityMaxLevel} max level, expected ${desiredLevel} because it depends on ${abilityDependentOnAbility} which has ${dependAbilityMaxLevel} max level`);
               }
             }
           });
