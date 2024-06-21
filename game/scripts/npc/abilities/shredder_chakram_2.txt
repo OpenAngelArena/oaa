@@ -42,7 +42,7 @@
       }
       "pass_damage" //OAA
       {
-        "value"                                           "110 190 270 430 590"
+        "value"                                           "110 175 240 370 500"
         "special_bonus_facet_shredder_second_chakram"     "-30%"
       }
       "damage_per_second" //OAA
@@ -84,6 +84,7 @@
       "second_chakram"
       {
         "value"                                           "0"
+        "special_bonus_facet_shredder_second_chakram"     "+1"
       }
     }
   }

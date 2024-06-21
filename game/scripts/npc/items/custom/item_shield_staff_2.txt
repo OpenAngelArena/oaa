@@ -45,7 +45,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCooldown"                                     "19 18 17 16 15"
+    "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "force"
     "AbilityManaCost"                                     "150"
 
@@ -131,7 +131,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 800 1200 1600 2000"
+        "barrier_block"                                   "300 600 900 1200 1500"
       }
       "13"
       {
