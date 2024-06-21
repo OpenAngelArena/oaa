@@ -77,7 +77,7 @@ function InjectBottomAbilityDotsStyle () {
         margin: '3px 1.2px 3px 1.2px',
         border: null,
         'border-radius': null,
-        'box-shadow': null,
+        'box-shadow': null
       },
       default: {
         width: null,

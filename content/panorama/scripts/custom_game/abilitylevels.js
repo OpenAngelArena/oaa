@@ -19,7 +19,6 @@ function DisplayAbilityLevelError (data) {
 }
 
 function CheckLevelUpBubbles (data) {
-
   const canLevelUp = data.canLevelUp;
 
   const abilitiesPanel = FindDotaHudElement('abilities');
