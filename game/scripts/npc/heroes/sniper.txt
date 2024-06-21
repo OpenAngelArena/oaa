@@ -5,15 +5,15 @@
   //=================================================================================================================
   "npc_dota_hero_sniper"
   {
-    "Ability5"                              "sniper_keen_scope_oaa" // replaces sniper_keen_scope
+    "Ability5"                                            "sniper_keen_scope_oaa" // replaces sniper_keen_scope
 
     "Facets"
     {
       "sniper_automatic_weaponry"
       {
-        "Icon"                            "multi_arrow"
-        "Color"                           "Blue"
-        "GradientID"                      "1"
+        "Icon"                                            "multi_arrow"
+        "Color"                                           "Blue"
+        "GradientID"                                      "1"
       }
     }
   }

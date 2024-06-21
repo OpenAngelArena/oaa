@@ -7,54 +7,53 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "HasShardUpgrade"             "1"
-    "AbilityDraftPreAbility"    "visage_summon_familiars_stone_form"
-    "MaxLevel"            "7"
-    "RequiredLevel"         "-1"
-    "Innate"            "1"
-    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
+
     "AbilityValues"
     {
       "max_layers"
       {
-        "value" "4"
+        "value"                                           "4"
       }
       "damage_reduction"
       {
-        "value" "4 8 12 16 20 24 28"
+        "value"                                           "4 8 12 16 20 24 28"
       }
       "recovery_time"
       {
-        "value" "7 6 5 4 3 3 3"
+        "value"                                           "7 6 5 4 3 3 3"
       }
       "minimum_damage"
       {
-        "value" "40 40 50 60 70 90 130"
+        "value"                                           "40 40 50 60 70 90 130"
       }
       "radius"
       {
-        "affected_by_aoe_increase"  "1"
-        "value" "900"
+        "affected_by_aoe_increase"                        "1"
+        "value"                                           "900"
       }
       "max_damage_reduction"
       {
-        "value" "80"
+        "value"                                           "80"
       }
       "shard_hp_restoration_pct"
       {
-        "value" "25"
-        "RequiresShard" "1"
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
       }
       "shard_cooldown"
       {
-        "value" "65"
-        "RequiresShard" "1"
+        "value"                                           "65"
+        "RequiresShard"                                   "1"
       }
       "shard_manacost"
       {
-        "value" "125"
-        "RequiresShard" "1"
+        "value"                                           "125"
+        "RequiresShard"                                   "1"
       }
     }
   }
