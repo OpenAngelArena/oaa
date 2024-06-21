@@ -7,10 +7,9 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                   "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitDamageType"                             "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"                                 "SPELL_IMMUNITY_ENEMIES_NO"
-    "AbilitySound"                                      "Hero_Tinker.March_of_the_Machines"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "1"
@@ -18,19 +17,16 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                  "300"
-    "AbilityCastPoint"                                  "0.53"
-
-    // Time   
-    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "300"
+    "AbilityCastPoint"                                    "0.53"
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                     "0"
+    "AbilityDamage"                                       "0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                   "90 110 130 150 190 230"
+    "AbilityManaCost"                                     "90 110 130 150 190 230"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,47 +34,41 @@
     {
       "AbilityCooldown" // OAA
       {
-        "value"                                         "25.0 23.0 21.0 19.0 15.0 10.0"
-        "special_bonus_unique_tinkerer_7"               "-5"
+        "value"                                           "25.0 23.0 21.0 19.0 15.0 10.0"
+        "special_bonus_unique_tinkerer_7"                 "-5"
       }
-
       "radius"
       {
-        "value"                                         "900"
-        "affected_by_aoe_increase"                      "1"
+        "value"                                           "900"
+        "affected_by_aoe_increase"                        "1"
       }
-      "collision_radius"                                "100" // OAA
-      "splash_radius"                                   "150"
-
+      "collision_radius"                                  "100" // OAA
+      "splash_radius"                                     "150"
       "duration" // OAA
       {
-        "value"                                         "6.0"
-        "special_bonus_unique_tinkerer_5"               "+2.0"
+        "value"                                           "6.0"
+        "special_bonus_unique_tinkerer_5"                 "+2.0"
       }
-      "speed"                                           "400"
-      "machines_per_sec"                                "36" // OAA
-      "distance"                                        "1800"
-
+      "speed"                                             "400"
+      "machines_per_sec"                                  "36" // OAA
+      "distance"                                          "1800"
       "damage" // OAA
       {
         // originally "17 26 35 44", 9 -> 9 -> 9
         // double scaling for OAA levels, +18 +18
-        "value"                                         "17 26 35 44 62 80"
-        "special_bonus_unique_tinkerer_6"               "20%"
+        "value"                                           "17 26 35 44 62 80"
+        "special_bonus_unique_tinkerer_6"                 "20%"
       }
-
       "heal_per_second"
       {
-        "value"                                         "0"
-        "special_bonus_facet_tinker_repair_bots"        "+15 +20 +25 +30 +40 +50"
+        "value"                                           "0"
+        "special_bonus_facet_tinker_repair_bots"          "+15 +20 +25 +30 +40 +50"
       }
-
       "heal_duration"
       {
-        "value"                                         "0"
-        "special_bonus_facet_tinker_repair_bots"        "+4"
+        "value"                                           "0"
+        "special_bonus_facet_tinker_repair_bots"          "+4"
       }
     }
-    "AbilityCastAnimation"                              "ACT_DOTA_CAST_ABILITY_3"
   }
 }

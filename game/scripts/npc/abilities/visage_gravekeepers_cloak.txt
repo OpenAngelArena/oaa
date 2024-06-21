@@ -7,54 +7,56 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "HasShardUpgrade"             "1"
-    "AbilityDraftPreAbility"    "visage_summon_familiars_stone_form"
-    "MaxLevel"            "7"
-    "RequiredLevel"         "-1"
-    "Innate"            "1"
-    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
+    "Innate"                                              "1"
+
     "AbilityValues"
     {
-      "max_layers"
+      "max_layers" //OAA
       {
-        "value" "4"
+        "value"                                           "4"
+        "special_bonus_unique_visage_oaa_6"               "+4"
       }
       "damage_reduction"
       {
-        "value" "4 8 12 16 20 24 28"
+        "value"                                           "4 8 12 16 20 24 28"
       }
-      "recovery_time"
+      "recovery_time" //OAA
       {
-        "value" "7 6 5 4 3 3 3"
+        "value"                                           "7 6 5 4 3 3 3"
+        "special_bonus_unique_visage_oaa_5"               "-1.5"
       }
-      "minimum_damage"
+      "minimum_damage" //OAA
       {
-        "value" "40 40 50 60 70 90 130"
+        "value"                                           "40 40 50 60 70 90 130"
+        "special_bonus_unique_visage_oaa_1"               "+70"
       }
       "radius"
       {
-        "affected_by_aoe_increase"  "1"
-        "value" "900"
+        "affected_by_aoe_increase"                        "1"
+        "value"                                           "900"
       }
       "max_damage_reduction"
       {
-        "value" "80"
+        "value"                                           "80"
       }
       "shard_hp_restoration_pct"
       {
-        "value" "25"
-        "RequiresShard" "1"
+        "value"                                           "25"
+        "RequiresShard"                                   "1"
       }
-      "shard_cooldown"
+      "shard_cooldown" //OAA
       {
-        "value" "65"
-        "RequiresShard" "1"
+        "value"                                           "35"
+        "RequiresShard"                                   "1"
       }
       "shard_manacost"
       {
-        "value" "125"
-        "RequiresShard" "1"
+        "value"                                           "125"
+        "RequiresShard"                                   "1"
       }
     }
   }

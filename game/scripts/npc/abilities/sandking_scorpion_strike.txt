@@ -19,7 +19,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "200"
-    "FightRecapLevel"                                     "1"
     "AbilityCastPoint"                                    "0.4"
     "AbilityManaCost"                                     "30"
 
@@ -33,25 +32,25 @@
     {
       "radius"        
       {
-        "value"         "225 255 285 315 345 375"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "225 255 285 315 345 375"
+        "affected_by_aoe_increase"                        "1"
       }
       "inner_radius"
       {
-        "value"         "125"
-        "affected_by_aoe_increase"  "1"
+        "value"                                           "125"
+        "affected_by_aoe_increase"                        "1"
       }
-      "inner_radius_bonus_damage_pct"             "40"
+      "inner_radius_bonus_damage_pct"                     "40"
       "attack_damage"             
       {
-        "value"                                                             "40 80 120 160 200 240"
-        "special_bonus_unique_sand_king_scorpion_strike_damage"         "+50"
+        "value"                                           "40 80 120 160 200 240"
+        "special_bonus_unique_sand_king_scorpion_strike_damage"  "+50"
       }
-      "debuff_duration"               "4 5 6 7 8 9"
+      "debuff_duration"                                   "4 5 6 7 8 9"
       "strike_slow"               
       {
-        "value"                 "10 12 14 16 18 20"
-        "special_bonus_unique_sand_king_3"  "+12"
+        "value"                                           "10 12 14 16 18 20"
+        "special_bonus_unique_sand_king_3"                "+12"
       }
     }
   }
