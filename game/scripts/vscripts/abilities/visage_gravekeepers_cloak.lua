@@ -151,7 +151,6 @@ if IsServer() then
   end
 
   function modifier_visage_gravekeepers_cloak_oaa:IncreaseStacks()
-    local parent = self:GetParent()
     local ability = self:GetAbility()
     local stackCount = self:GetStackCount()
     local max_layers = ability:GetSpecialValueFor("max_layers")
