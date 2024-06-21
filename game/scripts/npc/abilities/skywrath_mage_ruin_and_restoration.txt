@@ -1,0 +1,24 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Necrolyte's Sadist
+  //=================================================================================================================
+  "skywrath_mage_ruin_and_restoration"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                                      "6"
+    "Innate"                                                        "1"
+    "DependentOnAbility"                                            "skywrath_mage_mystic_flare"
+
+    "AbilityValues"
+    {
+      "spell_lifesteal"
+      {
+        "value"                                                     "20 30 40 50 60 70"
+        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"       "+15"
+      }
+    }
+  }
+}
