@@ -26,6 +26,6 @@
 "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura"                      "#{DOTA_Tooltip_ability_visage_gravekeepers_cloak}"
 "DOTA_Tooltip_modifier_visage_gravekeepers_cloak_oaa_aura_Description"          "#{DOTA_Tooltip_modifier_visage_gravekeepers_cloak_secondary_Description}"
 
-"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_1"                        "+{s:value} Gravekeeper's Cloak Min Damage"
-"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_5"                        "-{s:value}s Gravekeeper's Cloak Recovery Time"
-"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_6"                        "+{s:value} Gravekeeper's Cloak Stacks"
+"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_1"                        "+{s:bonus_minimum_damage} Gravekeeper's Cloak Min Damage"
+"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_5"                        "-{s:bonus_recovery_time}s Gravekeeper's Cloak Recovery Time"
+"DOTA_Tooltip_ability_special_bonus_unique_visage_oaa_6"                        "+{s:bonus_max_layers} Gravekeeper's Cloak Stacks"

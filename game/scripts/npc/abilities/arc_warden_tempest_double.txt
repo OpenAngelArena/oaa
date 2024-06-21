@@ -23,9 +23,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, restarts the ability cooldown if the Tempest Double is killed by enemies
       {
-        "value"                                           "100 90 80 70 60"
+        "value"                                           "60"
       }
       "duration"                                          "60"
       "bounty"                                            "180 240 300 480 780"
@@ -39,7 +39,7 @@
         "value"                                           "0"
         "special_bonus_unique_arc_warden_8"               "+1"
       }
-      "incoming_damage_penalty"                           "75" //OAA
+      "incoming_damage_penalty"                           "60"
     }
   }
 }

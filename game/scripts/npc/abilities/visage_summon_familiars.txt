@@ -15,22 +15,22 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"                                    "0 0 0 0 0"
+    "AbilityCastPoint"                                    "0"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "130 120 110 100 90"
+    "AbilityCooldown"                                     "90" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "150 150 150 150 150"
+    "AbilityManaCost"                                     "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "familiar_hp"                                       "500 700 900 1500 2500"
-      "familiar_armor"                                    "2 4 6 8 10"
+      "familiar_hp"                                       "500 700 900 1500 2500" //OAA
+      "familiar_armor"                                    "2 4 6 8 10" //OAA
       "familiar_attack_range"
       {
         "value"                                           "180"
@@ -46,16 +46,16 @@
         "value"                                           "100"
         "special_bonus_facet_visage_faithful_followers"   "=70"
       }
-      "bonus_movement_speed"
+      "bonus_movement_speed" // Valve is dumb
       {
         "value"                                           "0"
       }
-      "familiar_attack_damage"
+      "familiar_attack_damage" //OAA
       {
         "value"                                           "30 75 120 255 390"
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "bonus_damage"
+      "bonus_damage" // Valve is dumb
       {
         "value"                                           "0"
         "special_bonus_unique_visage_7"                   "+6"
