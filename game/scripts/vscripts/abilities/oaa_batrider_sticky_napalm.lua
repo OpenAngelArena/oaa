@@ -71,7 +71,7 @@ function batrider_sticky_napalm_oaa:OnSpellStart()
   end
 
   -- "Provides 450 radius flying vision at the targeted point upon cast for 2 seconds."
-  AddFOWViewer(caster:GetTeamNumber(), point, radius, 2, false)
+  --AddFOWViewer(caster:GetTeamNumber(), point, radius, 2, false)
 end
 
 function batrider_sticky_napalm_oaa:OnUnStolen()

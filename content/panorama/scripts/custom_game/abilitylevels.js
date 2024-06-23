@@ -6,6 +6,7 @@
   GameEvents.Subscribe('ability_level_error', DisplayAbilityLevelError);
   GameEvents.Subscribe('check_level_up', CheckLevelUpBubbles);
   // Handle unit selection changes clientside because server can't get a player's selected units
+  GameEvents.Subscribe('dota_player_update_query_unit', CheckLevelUpOnSelectionChange);
   GameEvents.Subscribe('dota_player_update_selected_unit', CheckLevelUpOnSelectionChange);
 }());
 
@@ -31,6 +32,7 @@ function CheckLevelUpBubbles (data) {
         levelDot.style['box-shadow'] = null;
       });
       if (requiredLevel === -1 || data.level < requiredLevel) {
+        abilityPanel.RemoveClass('could_level_up');
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpLight').style.opacity = 0;
         abilityPanel.FindChildTraverse('LevelUpBurstFXContainer').style.visibility = 'collapse';
@@ -39,6 +41,7 @@ function CheckLevelUpBubbles (data) {
           levelDot.style.border = '0px none black';
           levelDot.style['border-radius'] = '1px';
           levelDot.style['box-shadow'] = 'none';
+          levelDot.style['background-image'] = 'none';
         }
       } else {
         abilityPanel.FindChildTraverse('LevelUpTab').style.opacity = null;

@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Pudge: Flesh Heap (Innate)
+  //=================================================================================================================
+  "pudge_innate_graft_flesh"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "pudge_dismember"
+
+    "AbilityValues"
+    {
+      "flesh_heap_strength_buff_amount"
+      {
+        "value"                                           "1.4 1.6 1.8 2.0 2.2 2.4"
+        "special_bonus_unique_pudge_1"                    "x1.5"
+      }
+      "flesh_heap_range"
+      {
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

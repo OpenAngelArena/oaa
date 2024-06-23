@@ -7,8 +7,9 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "MaxLevel"                                            "6" // same as Dependent ability (Reincarnation) + 1
     "Innate"                                              "1"
-    "HasScepterUpgrade"                                   "1"
+
     "DependentOnAbility"                                  "skeleton_king_reincarnation"
+
     "AbilityValues"
     {
       "vampiric_aura"
@@ -17,9 +18,9 @@
         "special_bonus_unique_wraith_king_2"              "+10"
       }
       "creep_lifesteal_reduction_pct"                     "40"
-      "duration"
+      "duration" //OAA
       {
-        "value"                                           "3.5 4 4.5 5 5.5 6"
+        "value"                                           "2.5 3 3.5 4 4.5 5"
         "special_bonus_scepter"                           "+1"
       }
       "scepter_attack_speed"

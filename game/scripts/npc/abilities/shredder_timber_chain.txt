@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shredder: Timber Chain
+  // Timbersaw: Timber Chain
   //=================================================================================================================
   "shredder_timber_chain"
   {
@@ -49,7 +49,7 @@
         "value"                                           "2200 2400 2600 2800 3000 3200"
         "special_bonus_unique_timbersaw_3"                "+75%"
       }
-      "damage"                                            "70 120 170 220 440 880" //OAA
+      "damage"                                            "60 110 160 210 420 840" //OAA
       "tree_splinter_count"
       {
         "value"                                           "0"
@@ -62,7 +62,7 @@
         "special_bonus_facet_shredder_shredder"           "700"
         "RequiresFacet"                                   "shredder_shredder"
         "affected_by_aoe_increase"                        "1"
-      }                   
+      }
       "tree_splinter_width"
       {
         "value"                                           "0"

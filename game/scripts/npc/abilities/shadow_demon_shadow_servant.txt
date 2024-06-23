@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Shadow Demon: Shadow Servant
+  //=================================================================================================================
+  "shadow_demon_shadow_servant"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "7"
+    "DependentOnAbility"                                  "shadow_demon_disruption"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "illusion_outgoing_damage"                          "-80 -75 -70 -65 -60 -50 -35"
+      "illusion_outgoing_damage_tooltip"                  "20 25 30 35 40 50 65"
+      "radius"
+      {
+        "value"                                           "1500"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "illusion_incoming_damage"                          "100"
+      "illusion_incoming_damage_tooltip"                  "200"
+    }
+  }
+}

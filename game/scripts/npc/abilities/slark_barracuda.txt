@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Slark: Barracuda (Innate)
+  //=================================================================================================================
+  "slark_barracuda"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "slark_shadow_dance"
+
+    "AbilityValues"
+    {
+      "bonus_movement_speed"                              "6 24 36 48 60 72"
+      "bonus_regen"
+      {
+        "value"                                           "10 70 100 130 230 430"
+        "special_bonus_unique_slark_8"                    "+50"
+      }
+      "linger_search_radius"
+      {
+        "special_bonus_facet_slark_dark_reef_renegade"    "1000"
+      }
+      "linger_duration"
+      {
+        "special_bonus_facet_slark_dark_reef_renegade"    "0.5 1 1.5 2 2.5 3"
+      }
+      "activation_delay"                                  "0.5"
+      "neutral_disable"                                   "0.0" //OAA
+    }
+  }
+}

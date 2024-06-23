@@ -24,21 +24,21 @@
     {
       "bonus_attack_speed"    
       {
-        "value"         "40 50 60 70 80 90"
-        "special_bonus_unique_nevermore_4"  "+30"
+        "value"                                           "40 50 60 70 80 90"
+        "special_bonus_unique_nevermore_4"                "+30"
       }
       "cast_speed_pct"        
       {
-        "value"                                                 "100"
-        "special_bonus_unique_nevermore_frenzy_castspeed"       "+40"
+        "value"                                           "100"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "+40"
       }
       "cast_speed_pct_tooltip"
       {
-        "value"                                                 "0"
-        "special_bonus_unique_nevermore_frenzy_castspeed"       "=140"
+        "value"                                           "0"
+        "special_bonus_unique_nevermore_frenzy_castspeed"  "=140"
       }
-      "duration"              "8"
-      "soul_cost"             "5"
+      "duration"                                          "8"
+      "soul_cost"                                         "5"
     }
   }
 
