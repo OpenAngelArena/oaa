@@ -17,7 +17,7 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCooldown"                                     "28 27 26 25 24 23" //OAA
+    "AbilityCooldown"                                     "30 28 26 24 23 22" //OAA
     "AbilityManaCost"                                     "80 85 90 95 100 105" //OAA
 
     // Special
@@ -36,7 +36,7 @@
       "creep_lifesteal_reduction_pct"                     "40"
       "duration"
       {
-        "value"                                           "8 10 12 14 15 16"
+        "value"                                           "8 10 12 14 14 14"
         "special_bonus_shard"                             "+2"
       }
       "bat_bonus"
