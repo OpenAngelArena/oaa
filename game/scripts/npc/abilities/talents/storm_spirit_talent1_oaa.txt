@@ -1,30 +1,24 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tidehunter: Kraken Shell
+  // Custom Storm Spirit talent: Bonus Overload Damage
   //=================================================================================================================
-  "tidehunter_kraken_shell"
+  "special_bonus_unique_storm_spirit_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "special_bonus_undefined"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ATTRIBUTES"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
+    "AbilitySpecial"
     {
-      "damage_reduction"
+      "01"
       {
-        "value"                                           "15 35 55 75 150 225"
-      }
-      "bonus_reduction_per_kill"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_tidehunter_kraken_swell"     "1 2 3 4 5 6"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "125"
       }
     }
   }
