@@ -38,10 +38,10 @@
         "value"                                           "35"
         "special_bonus_unique_sniper_2"                   "-30"
       }
-      "slow_movement_speed" //OAA facet should be 2x slow value
+      "slow_movement_speed"
       {
         "value"                                           "-12 -18 -24 -30 -36 -42"
-        "special_bonus_facet_sniper_scattershot"          "=-24 =-36 =-48 =-60 =-72 =-84"
+        "special_bonus_facet_sniper_scattershot"          "=-30 =-45 =-60 =-75 =-90 =-105"
         "special_bonus_unique_sniper_5"                   "-10"
       }
       "radius"

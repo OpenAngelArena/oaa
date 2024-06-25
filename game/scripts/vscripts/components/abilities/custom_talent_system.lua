@@ -79,9 +79,6 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
-  night_stalker_crippling_fear = {
-    dps = {"special_bonus_unique_night_stalker_1_oaa", "+"},
-  },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
@@ -105,6 +102,9 @@ local abilities_with_custom_talents = {
   spectre_haunt_single = {
     illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
     tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
+  },
+  storm_spirit_overload = {
+    overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},
   },
   ursa_fury_swipes = {
     bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},

@@ -43,7 +43,7 @@
       }
       "sand_storm_damage" //OAA
       {
-        "value"                                           "25 45 65 85 170 340"
+        "value"                                           "25 50 75 100 200 400"
         "special_bonus_unique_sand_king_2"                "+35"
       }
       "fade_delay"
@@ -62,7 +62,7 @@
       }
       "sand_storm_move_speed_bonus_when_outside_radius"
       {
-        "special_bonus_facet_sand_king_dust_devil"        "+30"
+        "special_bonus_facet_sand_king_dust_devil"        "+55"
       }
       "scepter_explosion_radius_pct" // Burrowstrike spine radius: percentage of sand_storm_radius (10%)
       {

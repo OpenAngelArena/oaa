@@ -51,9 +51,10 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
+      "slow_step_pct_of_max"                              "70 80 90 100 100 100"
       "slow_tooltip"
       {
-        "value"                                           "50"
+        "value"                                           "35 40 45 50 55 60"
         "special_bonus_unique_lifestealer_4"              "+15"
       }
     }
