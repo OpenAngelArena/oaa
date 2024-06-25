@@ -44,7 +44,7 @@
     "AbilityCastRange"                                    "1400 1450 1500 1550 1600"
     "AbilityOvershootCastRange"                           "1120 1160 1200 1240 1280" // 4/5 of AbilityCastRange
     "AbilityCastPoint"                                    "0.0"
-    "AbilityCooldown"                                     "7.0"
+    "AbilityCooldown"                                     "9.0 8.5 8.0 8.5 7.0"
     "AbilityManaCost"                                     "0"
     "AbilitySharedCooldown"                               "blink"
 
@@ -70,7 +70,7 @@
       "blink_damage_cooldown"                             "3.0 2.75 2.5 2.25 2.0"
       "blink_range_clamp"                                 "1120 1160 1200 1240 1280"
       "bonus_intellect"                                   "25 30 40 55 75"
-      "heal_amount"                                       "200 300 500 800 1200"
+      "heal_amount"                                       "250 350 550 850 1250"
       "mana_amount"                                       "100 200 325 475 650"
     }
   }

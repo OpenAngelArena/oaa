@@ -35,7 +35,7 @@
       }
       "mana_burn"
       {
-        "value"                                           "50 80 110 140 280 560"
+        "value"                                           "35 70 105 140 280 560"
       }
       "mana_burn_as_damage_pct"                           "50"
       "magic_barrier"
@@ -73,10 +73,10 @@
       {
         "value"                                           "0"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA
       {
         "value"                                           "15"
-        "special_bonus_unique_clockwerk_9"                "-3"
+        "special_bonus_unique_clockwerk_9"                "-2"
       }
       "projectile_distance"                               "1000"
       "projectile_speed"                                  "1000"
