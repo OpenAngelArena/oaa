@@ -111,21 +111,15 @@ function modifier_nyx_assassin_innate_mana_burn_oaa:OnTakeDamage(event)
 
   -- as 0-1 percent
   local manaPercent = ability:GetSpecialValueFor("mana_pct") / 100
-  local manaBefore = damaged_unit:GetMana()
-  local manaAfter = math.floor(manaBefore * (1 - manaPercent))
-
-  -- don't play sound effect or show particles if non mana was burnt
-  if manaAfter == manaBefore then
-    return
-  end
+  local manaCurrent = damaged_unit:GetMana()
+  local manaToBurn = manaCurrent * manaPercent
 
   local nFXIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf", PATTACH_ABSORIGIN_FOLLOW, damaged_unit)
   -- ParticleManager:SetParticleControlEnt(nFXIndex, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetOrigin(), false)
   ParticleManager:ReleaseParticleIndex(nFXIndex)
 
-  -- nyx_assassin_mana_burn
   damaged_unit:EmitSound("Hero_NyxAssassin.ManaBurn.Target")
-  damaged_unit:SetMana(manaAfter)
+  damaged_unit:ReduceMana(manaToBurn, ability)
 end
 
 ---------------------------------------------------------------------------------------------------
