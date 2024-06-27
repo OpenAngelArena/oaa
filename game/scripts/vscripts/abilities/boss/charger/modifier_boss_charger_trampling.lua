@@ -17,7 +17,7 @@ function modifier_boss_charger_trampling:IsPurgable()
   return true
 end
 
-function modifier_boss_charger_trampling:OnCreated (keys)
+function modifier_boss_charger_trampling:OnCreated()
   self:StartIntervalThink(0.01)
 end
 
