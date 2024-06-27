@@ -91,7 +91,7 @@ if IsServer() then
 
   function modifier_boss_slime_split_passive:OnIntervalThink()
     local parent = self:GetParent()
-    local ability = self:GetAbility()
+    --local ability = self:GetAbility()
     self.readyToDie = true
     self:StartIntervalThink(-1)
     if not parent or parent:IsNull() then
