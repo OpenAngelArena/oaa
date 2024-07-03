@@ -20,16 +20,16 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_reset_time"
+      "bonus_reset_time" //OAA
       {
         "value"                                           "8 12 16 20 24 28"
-        "special_bonus_unique_ursa_4"                     "+15"
+        "special_bonus_unique_ursa_4"                     "+6"
       }
       "bonus_reset_time_roshan"                           "10"
-      "damage_per_stack"
+      "damage_per_stack" //OAA
       {
         "value"                                           "13 21 29 37 53 69"
-        "special_bonus_unique_ursa"                       "+10"
+        "special_bonus_unique_ursa"                       "+16"
       }
       "stun_stack_count"
       {

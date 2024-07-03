@@ -34,7 +34,7 @@
       "static_remnant_radius"
       {
         "value"                                           "235"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "static_remnant_damage_radius"
       {
@@ -48,10 +48,10 @@
         "value"                                           "3.5"
         "special_bonus_unique_storm_spirit_8"             "-1.25"
       }
-      "static_remnant_damage"
+      "static_remnant_damage" //OAA
       {
         "value"                                           "100 160 220 280 560 1120"
-        "special_bonus_unique_storm_spirit_5"             "+60"
+        "special_bonus_unique_storm_spirit_5"             "+80"
       }
       "is_point_targeted"
       {
