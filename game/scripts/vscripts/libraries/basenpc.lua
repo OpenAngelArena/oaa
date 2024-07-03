@@ -314,9 +314,13 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -335,7 +339,7 @@ if CDOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
     }
 
     -- Check for Leash immunities first (Sonic for example)
@@ -362,6 +366,18 @@ if CDOTA_BaseNPC then
         end
       end
 
+      -- Time Zone always pierces debuff immunity
+      local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+      if time_zone then
+        local caster = time_zone:GetCaster()
+        if caster then
+          -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+          if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+            return true
+          end
+        end
+      end
+
       return false
     end
 
@@ -381,6 +397,18 @@ if CDOTA_BaseNPC then
         end
       end
     end
+
+    local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+    if time_zone then
+      local caster = time_zone:GetCaster()
+      if caster then
+        -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+        if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+          return true
+        end
+      end
+    end
+
     return false
   end
 end
@@ -415,9 +443,13 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -436,7 +468,7 @@ if C_DOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
     }
 
     -- Check for Leash immunities first (Sonic for example)
