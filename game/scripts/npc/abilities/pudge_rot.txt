@@ -24,6 +24,7 @@
       "rot_radius"
       {
         "value"                                           "250"
+        "special_bonus_scepter"                           "+200"
         "affected_by_aoe_increase"                        "1"
       }
       "rot_tick"                                          "0.2"
@@ -35,17 +36,7 @@
       "rot_damage"
       {
         "value"                                           "30 60 90 120 240 480"
-      }
-      "scepter_rot_damage_bonus" //OAA
-      {
-        "value"                                           "75 80 85 90 95 100"
-        "RequiresScepter"                                 "1"
-      }
-      "scepter_rot_radius_bonus"
-      {
-        "value"                                           "200"
-        "RequiresScepter"                                 "1"
-        // "affected_by_aoe_increase" explicitly removed here so scepter aoe increase doesn't double dip with base radius increase
+        "special_bonus_scepter"                           "+90"
       }
       "scepter_rot_regen_reduction_pct" //OAA
       {

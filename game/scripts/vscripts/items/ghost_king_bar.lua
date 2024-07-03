@@ -15,7 +15,7 @@ function item_ghost_king_bar_1:OnSpellStart()
   -- Apply Basic Dispel
   caster:Purge(false, true, false, false, false)
 
-  -- Apply Ghost King Bar buff to caster (but only if he doesnt have spell immunity)
+  -- Apply Ghost King Bar buff to caster (but only if they dont have spell immunity)
   if not caster:IsMagicImmune() then
     caster:AddNewModifier(caster, self, "modifier_item_ghost_king_bar_active", {duration = self:GetSpecialValueFor("duration")})
   end
@@ -484,11 +484,17 @@ if IsServer() then
 end
 
 function modifier_item_ghost_king_bar_active:CheckState()
-  return {
+  local state = {
     [MODIFIER_STATE_ATTACK_IMMUNE] = true,
     [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_DISARMED] = true,
   }
+
+  -- Check for Muerta innate
+  if not self:GetParent():HasModifier("modifier_muerta_supernatural") then
+    state[MODIFIER_STATE_DISARMED] = true
+  end
+
+  return state
 end
 
 function modifier_item_ghost_king_bar_active:GetStatusEffectName()

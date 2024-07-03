@@ -198,6 +198,11 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50}
     -- Bad levels give ability points but they shouldn't
 
+    -- Extra skill point when Meepo picks More Meepo facet
+    if hero:GetUnitName() == "npc_dota_hero_meepo" and hero:GetHeroFacetID() == 1 and level == 50 then
+      return true
+    end
+
     -- get 1 point on levels: 28, 31, 34, 37, 40, 43, 46, 49
     return math.fmod(level, 3) == 1
   else

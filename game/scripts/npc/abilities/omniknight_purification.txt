@@ -32,12 +32,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "heal"
+      "heal" //OAA
       {
         "value"                                           "90 160 230 300 600 900"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "CalculateSpellDamageTooltip"                     "1"
-        "special_bonus_unique_omniknight_1"               "+160"
+        "special_bonus_unique_omniknight_1"               "+300"
       }
       "radius"
       {

@@ -61,7 +61,7 @@ g_UnitPrecache = {
   "npc_dota_boss_simple_2", -- Bear boss
   "npc_dota_boss_shielder",
   "npc_dota_boss_charger",
-  "npc_dota_boss_charger_pillar",
+  "npc_dota_boss_pillar_charger_oaa",
   "npc_dota_boss_carapace", -- Weaver boss
   "npc_dota_boss_slime",
   "npc_dota_boss_swiper",  -- Sven boss
