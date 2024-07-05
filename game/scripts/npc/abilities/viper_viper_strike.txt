@@ -1,15 +1,12 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Viper: Viper Strike (OAA rework)
+  // Viper: Viper Strike
   //=================================================================================================================
-  "viper_viper_strike_oaa"
+  "viper_viper_strike"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_viper_strike.lua"
-    "AbilityTextureName"                                  "viper_viper_strike"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -25,33 +22,32 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "700 800 900 900 900"
     "AbilityCastPoint"                                    "0.2"
-    "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "50 40 30 30 30"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "100 150 200 250 300"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "6"
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "70 120 170 320 570"
         "special_bonus_unique_viper_2"                    "+80"
       }
       "bonus_movement_speed"                              "-60 -70 -80 -80 -80"
       "bonus_attack_speed"                                "-80 -120 -160 -200 -240"
-      "talent_mana_cost_reduction"                        "50" // for talent: special_bonus_unique_viper_8
-      "talent_cooldown_reduction"                         "50"// for talent: special_bonus_unique_viper_8
+      "AbilityCooldown"
+      {
+        "value"                                           "50 40 30 30 30"
+        "special_bonus_unique_viper_8"                    "-50%"
+      }
+      "AbilityManaCost"
+      {
+        "value"                                           "100 150 200 250 300"
+        "special_bonus_unique_viper_8"                    "-50%"
+      }
       "projectile_speed"                                  "1500"
-      //"max_charges"                                       "2"
-      //"charge_restore_time"                               "30.0"
+      "max_charges"                                       "2"
+      "charge_restore_time"                               "30.0"
       "does_break"
       {
         "value"                                           "1"

@@ -71,6 +71,8 @@ LinkLuaModifier("modifier_wraith_form_penalty_oaa", "modifiers/modifyabilitiesfi
 -- Legion Commander aghs additional effects
 LinkLuaModifier("modifier_legion_duel_buff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_legion_duel_debuff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
+-- Viper Strike Purges and Silences talent
+LinkLuaModifier("modifier_viper_viper_strike_silence", "abilities/oaa_viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

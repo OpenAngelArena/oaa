@@ -481,6 +481,11 @@ if IsServer() then
       if linger_time == 0 then
         self:StartIntervalThink(-1)
         self:SetDuration(0.01, false)
+      elseif self.remaining then
+        if self:GetRemainingTime() <= 0.01 then
+          self:StartIntervalThink(-1)
+          self.remaining = nil
+        end
       else
         self.remaining = self:GetRemainingTime()
         self:SetDuration(linger_time, false)
