@@ -43,13 +43,13 @@
       }
       "sand_storm_damage" //OAA
       {
-        "value"                                           "25 50 75 100 200 400"
-        "special_bonus_unique_sand_king_2"                "+35"
+        "value"                                           "25 50 75 100 200 350"
+        "special_bonus_unique_sand_king_2"                "+25"
       }
-      "fade_delay"
+      "fade_delay" //OAA
       {
         "value"                                           "-1"
-        "special_bonus_facet_sand_king_sandshroud"        "=0.7"
+        "special_bonus_facet_sand_king_sandshroud"        "=1.0"
       }
       "sand_storm_move_speed_pct"
       {
