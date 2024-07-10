@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "200 350 500 650 800" //OAA
+    "AbilityManaCost"                                     "200 400 600 800 1000"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -40,9 +40,9 @@
       }
       "golem_hp" //OAA
       {
-        "value"                                           "1500 3250 5000 10400 15800"
+        "value"                                           "1500 3000 4500 9000 13500"
       }
-      "golem_dmg"                                         "100 200 300 600 900" //OAA
+      "golem_dmg"                                         "100 200 300 600 1100" //OAA
       "golem_armor"                                       "10 20 30 40 50" //OAA
       "golem_movement_speed"                              "320 340 360 380 400"
       "golem_health_regen"                                "30 60 90 120 150" //OAA
@@ -53,17 +53,17 @@
         "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "golem_hp_scepter" //OAA
+      "golem_hp_scepter" //OAA, same as golem_hp
       {
-        "value"                                           "1400 3200 5000 10400 15800"
+        "value"                                           "1500 3000 4500 9000 13500"
         "RequiresScepter"                                 "1"
       }
-      "golem_dmg_scepter" //OAA, golem_dmg x 0.75
+      "golem_dmg_scepter" //OAA
       {
-        "value"                                           "82 165 250 495 750"
+        "value"                                           "80 160 240 480 720"
         "RequiresScepter"                                 "1"
       }
-      "golem_gold_bounty_scepter"
+      "golem_gold_bounty_scepter" // same as golem_gold_bounty
       {
         "value"                                           "100 150 200 500 1000"
         "RequiresScepter"                                 "1"
