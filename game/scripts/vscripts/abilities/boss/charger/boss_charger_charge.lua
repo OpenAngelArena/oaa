@@ -209,7 +209,7 @@ end
 function modifier_boss_charger_charge:EndCharge()
   local caster = self:GetCaster()
 
-  --caster:InterruptMotionControllers(true) -- Charges is immune to motion controllers so this is not needed
+  --caster:InterruptMotionControllers(true) -- Charger boss is immune to motion controllers so this is not needed
   FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
   self:StartIntervalThink(-1)
   self:Destroy()

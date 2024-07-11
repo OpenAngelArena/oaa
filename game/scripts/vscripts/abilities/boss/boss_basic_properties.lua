@@ -180,6 +180,36 @@ if IsServer() then
         end
       end
 
+      if attacker:HasModifier("modifier_creep_siege") then
+        local ability = attacker:FindAbilityByName("creep_siege")
+        if ability then
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct
+          end
+        end
+      end
+
+      -- if attacker:HasModifier("modifier_creep_piercing") then
+        -- local ability = attacker:FindAbilityByName("creep_piercing")
+        -- if ability then
+          -- local damage_increase_pct = ability:GetSpecialValueFor("creep_damage_bonus")
+          -- if damage_increase_pct and damage_increase_pct > 0 then
+            -- return damage_increase_pct
+          -- end
+        -- end
+      -- end
+
+      if attacker:HasModifier("modifier_primal_beast_colossal") then
+        local ability = attacker:FindAbilityByName("primal_beast_colossal")
+        if ability then
+          local damage_increase_pct = ability:GetSpecialValueFor("bonus_building_damage")
+          if damage_increase_pct and damage_increase_pct > 0 then
+            return damage_increase_pct
+          end
+        end
+      end
+
       return 0
     end
 

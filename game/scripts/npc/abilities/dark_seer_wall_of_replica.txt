@@ -32,7 +32,11 @@
     "AbilityValues"
     {
       "duration"                                          "30.0"
-      "replica_damage_outgoing"                           "-30 0 30 90 150" //OAA
+      "replica_damage_outgoing" //OAA
+      {
+        "value"                                           "-30 0 30 90 150"
+        "special_bonus_unique_dark_seer_7"                "+20"
+      }
       "tooltip_outgoing" //OAA
       {
         "value"                                           "70 100 130 190 250"
@@ -61,7 +65,7 @@
         "value"                                           "2"
         "RequiresScepter"                                 "1"
       }
-      "wall_damage"                                       "25 40 55 100 145"
+      "wall_damage"                                       "25 50 75 150 225" //OAA
     }
   }
 }

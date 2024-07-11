@@ -24,10 +24,10 @@
       "health_bonus_pct"                                  "0"
       "share_damage"                                      "0"
       "tick_interval"                                     "0.5"
-      "manahealthboost"
+      "manahealthboost" //OAA
       {
         "value"                                           "0"
-        "special_bonus_facet_warlock_golem"               "+90"              
+        "special_bonus_facet_warlock_golem"               "+50"
       }   
       "manaboost_scale_mult"                              ".25"
     }

@@ -34,11 +34,11 @@
     "AbilityValues"
     {
       "attack_rate_multiplier"                            "1.5"
-      "bonus_damage"                                      "25 30 35 70 140"
+      "bonus_damage"                                      "0" //OAA
       "bonus_attack_speed"                                "40"
       "duration" //OAA
       {
-        "value"                                           "3 3.125 3.25 3.375 3.5"
+        "value"                                           "2.5 2.625 2.75 2.875 3"
         "special_bonus_unique_juggernaut_omnislash_duration"  "+1"
       }
       "omni_slash_radius" //OAA
