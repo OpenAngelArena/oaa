@@ -30,27 +30,27 @@
         "value"                                           "3"
         "special_bonus_unique_sniper_4"                   "+1"
       }
-      "slow"                      
+      "slow"
       {
-        "value"                                           "65"                
+        "value"                                           "65"
       }
       "headshot_chance"                                   "100"
       "active_attack_range_bonus"
       {
-        "value"                                           "200"               
+        "value"                                           "200" // special_bonus_unique_sniper_6_oaa
       }
-      "bonus_armor"       
+      "bonus_armor"
       {
         "value"                                           "5 10 15 20 25 30"
         "special_bonus_unique_sniper_take_aim_armor"      "+15"
-      }    
+      }
       "does_root"
       {
-        "value"                                           "0"         
+        "value"                                           "0"
       }
       "require_target"
       {
-        "value"                                           "0"             
+        "value"                                           "0"
       }
       "no_reveal"
       {
