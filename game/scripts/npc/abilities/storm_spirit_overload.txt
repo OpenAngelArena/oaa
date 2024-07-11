@@ -32,7 +32,7 @@
       "overload_damage" //OAA special_bonus_unique_storm_spirit_1_oaa
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50 75 100 125 250 375"
+        "value"                                           "40 60 80 100 200 300"
       }
       "shard_activation_radius"
       {
@@ -40,9 +40,9 @@
         "affected_by_aoe_increase"                        "1"
         "RequiresShard"                                   "1"
       }
-      "shard_activation_charges"
+      "shard_activation_charges" //OAA
       {
-        "value"                                           "3"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
       "shard_activation_duration"
