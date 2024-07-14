@@ -259,7 +259,7 @@ end
 -- Set player inventory to pre-defined loadouts
 function DevCheats:GiveLoadout(keys)
   local loadouts = {
-    ['tank'] = {"item_heart_oaa_5", "item_stoneskin_2", "item_reduction_orb_1", "item_pipe_5"},
+    ['tank'] = {"item_heart_oaa_5", "item_stoneskin_2", "item_eternal_shroud_5", "item_pipe_5"},
     ['damage'] = {"item_greater_crit_5", "item_devastator_oaa_5", "item_mjollnir_5", "item_monkey_king_bar_5"},
   }
   local text = string.lower(keys.text)
