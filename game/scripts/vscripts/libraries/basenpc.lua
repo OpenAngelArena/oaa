@@ -114,7 +114,7 @@ if IsServer() then
       "modifier_item_heart_oaa_active",              -- Heart active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
-      "modifier_item_reduction_orb_active",          -- Reduction Orb buff
+      --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
       "modifier_item_regen_crystal_active",          -- Regen Crystal buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff

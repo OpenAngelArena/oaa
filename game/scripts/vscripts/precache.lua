@@ -25,7 +25,7 @@ g_ItemPrecache = {
   "item_martyrs_mail_1",
   --"item_meteor_hammer_1",
   --"item_pull_staff",
-  "item_reduction_orb_1",
+  --"item_reduction_orb_1",
   "item_reflection_shard_1",
   --"item_reflex_core",
   "item_regen_crystal_1",
