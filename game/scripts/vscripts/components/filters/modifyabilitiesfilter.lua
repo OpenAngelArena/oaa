@@ -74,6 +74,11 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
       -- Viper Strike Silences
       victim:AddNewModifier(caster, ability, "modifier_viper_viper_strike_silence", {duration = modifier_duration})
     end
+  -- elseif modifier_name == "modifier_mars_arena_of_blood_leash" then
+    -- local facet = caster:GetHeroFacetID()
+    -- if tostring(facet) == "2" then
+      -- return false
+    -- end
   end
 
   return true
