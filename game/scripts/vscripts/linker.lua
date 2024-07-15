@@ -73,6 +73,8 @@ LinkLuaModifier("modifier_legion_duel_buff_oaa", "modifiers/modifyabilitiesfilte
 LinkLuaModifier("modifier_legion_duel_debuff_oaa", "modifiers/modifyabilitiesfilter/duel_scepter_addition.lua", LUA_MODIFIER_MOTION_NONE)
 -- Viper Strike Purges and Silences talent
 LinkLuaModifier("modifier_viper_viper_strike_silence", "abilities/oaa_viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
+-- Mars custom facet
+LinkLuaModifier("modifier_mars_arena_of_blood_leash_oaa", "modifiers/modifyabilitiesfilter/mars_blood_sport_facet_replacement.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Custom Wards Buttons
 LinkLuaModifier("modifier_ward_invisibility", "modifiers/modifier_ward_invisibility.lua", LUA_MODIFIER_MOTION_NONE)

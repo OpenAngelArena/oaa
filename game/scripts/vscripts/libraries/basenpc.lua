@@ -340,6 +340,7 @@ if CDOTA_BaseNPC then
       "modifier_tidehunter_anchor_clamp",
       -- custom:
       --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
@@ -469,6 +470,7 @@ if C_DOTA_BaseNPC then
       "modifier_tidehunter_anchor_clamp",
       -- custom:
       --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
