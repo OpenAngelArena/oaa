@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Stolen Valor
+  //=================================================================================================================
+  "stolen_valor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"                                                  "85588"
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/dire_tower_boss/stolen_valor.lua"
+    "AbilityTextureName"                                  "alchemist_goblins_greed"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "summon_duration"                                   "20"
+      }
+    }
+  }
+
+}

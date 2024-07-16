@@ -1,0 +1,110 @@
+"DOTAUnits"
+{
+  "npc_dota_creature_dire_tower_boss"
+  {
+    // Script
+    "vscripts"                                            "units/ai_dire_tower_boss.lua"
+
+    // General
+    //----------------------------------------------------------------
+    "Model"                                               "models/props_structures/dire_tower002.vmdl"
+    "BaseClass"                                           "npc_dota_creature"
+    "SoundSet"                                            "Tower.Fire"
+    "Level"                                               "1"
+    "ModelScale"                                          "1.5"
+    "ConsideredHero"                                      "1"
+    "IsAncient"                                           "1"
+    "IsBossMonster"                                       "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "275"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "dire_tower_boss_summon_wave"
+    "Ability2"                                            "boss_basic_properties_oaa"
+    "Ability3"                                            "boss_regen"
+    "Ability4"                                            "creep_siege"
+    "Ability5"                                            "dire_tower_boss_glyph"
+
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "37"        // Physical protection.
+    "MagicalResistance"                                   "-50"       // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"                                     "900"    // Damage range min.
+    "AttackDamageMax"                                     "1250"    // Damage range max.
+    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "BaseAttackSpeed"                                     "110"
+    "AttackRate"                                          "0.9"   // Speed of attack.
+    "AttackAnimationPoint"                                "0.6"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"                              "700"   // Range within a target can be acquired.
+    "AttackRange"                                         "800"   // Range within a target can be attacked.
+    "ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
+    "ProjectileSpeed"                                      "750"   // Speed of projectile.
+
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "4000"  // Experience earn.
+    "BountyGoldMin"                                       "0"     // Gold earned min.
+    "BountyGoldMax"                                       "0"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER"
+    "RingRadius"                                          "100"
+    "HealthBarOffset"                                     "500"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"                                       "0"
+    "MovementTurnRate"                                    "1.0"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "10000"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "5000"
+    "StatusManaRegen"                                     "20"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    
+    
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Creature Data
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "DisableResistance"                                 "100"
+    }
+
+    "precache"
+    {
+      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
+      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
+      "particle"                                          "particles/test_particle/generic_attack_charge.vpcf"
+      "particle"                                          "particles/test_particle/dungeon_generic_blast.vpcf"
+      "particle"                                          "particles/test_particle/omniknight_wildaxe.vpcf"
+      "particle"                                          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf"
+      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
+      "particle"                                          "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf"
+    }
+  }
+}

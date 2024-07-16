@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // DireTowerBoss: Summon Wave
+  //=================================================================================================================
+  "dire_tower_boss_summon_wave"
+  {
+    //"ID"                                                  "8448"
+    "BaseClass"                                           "ability_lua"
+    "AbilityTextureName"                                  "lycan_summon_wolves"
+    //OBBNOTE: replace textures ^^
+    "ScriptFile"                                          "abilities/boss/dire_tower_boss/dire_tower_boss_summon_wave.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityCastAnimation"                                "ACT_DOTA_VICTORY"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0.4"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "25.0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                                        "FIELD_FLOAT"
+        "wave_duration"                                   "35"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_melee_spawn"                                 "3"
+      }
+      "03"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_ranged_spawn"                                "1"
+      }
+      "04"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "num_siege_spawn"                                 "1"
+      }
+    }
+  }
+}
