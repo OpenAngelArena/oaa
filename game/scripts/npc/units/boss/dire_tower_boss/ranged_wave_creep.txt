@@ -16,15 +16,14 @@
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
-    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "creep_piercing"
-    "Ability2"                                            "stolen_valor"
-    "Ability3"                                            "boss_regen"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
+    "Ability3"                                            ""
     "Ability4"                                            ""
 
     // Armor
@@ -76,8 +75,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
+
+
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
     "PathfindingSearchDepthScale"                         "0.1"
@@ -98,14 +97,13 @@
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
-    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "creep_piercing"
-    "Ability2"                                            "stolen_valor"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
     "Ability3"                                            "boss_regen"
     "Ability4"                                            ""
 
@@ -180,14 +178,13 @@
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
-    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "1"
 
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "creep_piercing"
-    "Ability2"                                            "stolen_valor"
+    "Ability2"                                            "dire_tower_boss_creeps_stolen_valor"
     "Ability3"                                            "boss_regen"
     "Ability4"                                            ""
 
@@ -262,7 +259,6 @@
     "IsNeutralUnitType"                                   "1"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
-    "IsBossMonster"                                       "1"
     "CanBeDominated"                                      "0"
     "UseNeutralCreepBehavior"                             "1"
 

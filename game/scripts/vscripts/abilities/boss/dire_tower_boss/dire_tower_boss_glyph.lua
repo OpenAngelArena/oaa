@@ -4,12 +4,9 @@ dire_tower_boss_glyph = class(AbilityBaseClass)
 
 --------------------------------------------------------------------------------
 
-
 function dire_tower_boss_glyph:OnSpellStart()
   local caster = self:GetCaster()
 
   caster:AddNewModifier( caster, self, "modifier_dire_tower_boss_glyph", { duration = self:GetSpecialValueFor( "glyph_duration" ) } )
-  caster:EmitSound("")
-
-
+  --caster:EmitSound("") -- TODO
 end

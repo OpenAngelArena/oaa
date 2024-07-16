@@ -1,17 +1,14 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // DireTowerBoss: Summon Wave
+  // DireTowerBoss: Summon Wave - summons lane creeps to defend the caster
   //=================================================================================================================
   "dire_tower_boss_summon_wave"
   {
-    //"ID"                                                  "8448"
     "BaseClass"                                           "ability_lua"
-    "AbilityTextureName"                                  "lycan_summon_wolves"
-    //OBBNOTE: replace textures ^^
     "ScriptFile"                                          "abilities/boss/dire_tower_boss/dire_tower_boss_summon_wave.lua"
+    "AbilityTextureName"                                  "creep_siege"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityCastAnimation"                                "ACT_DOTA_VICTORY"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -19,7 +16,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "25.0"
+    "AbilityCooldown"                                     "25"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -27,28 +24,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "wave_duration"                                   "35"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_melee_spawn"                                 "3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_ranged_spawn"                                "1"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "num_siege_spawn"                                 "1"
-      }
+      "wave_duration"                                     "35"
+      "num_melee_spawn"                                   "3"
+      "num_ranged_spawn"                                  "1"
+      "num_siege_spawn"                                   "1"
     }
   }
 }

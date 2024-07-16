@@ -1,64 +1,59 @@
 "DOTAUnits"
 {
+  //=================================================================================
+  // Dire Safelane Tower boss
+  //=================================================================================
   "npc_dota_creature_dire_tower_boss"
   {
-    // Script
-    "vscripts"                                            "units/ai_dire_tower_boss.lua"
-
     // General
     //----------------------------------------------------------------
-    "Model"                                               "models/props_structures/dire_tower002.vmdl"
     "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/props_structures/dire_tower002.vmdl"
+    "vscripts"                                            "units/ai_dire_tower_boss.lua"
     "SoundSet"                                            "Tower.Fire"
-    "Level"                                               "1"
+    "Level"                                               "30"
     "ModelScale"                                          "1.5"
     "ConsideredHero"                                      "1"
     "IsAncient"                                           "1"
     "IsBossMonster"                                       "1"
 
-    "MinimapIcon"                                         "minimap_roshancamp"
-    "MinimapIconSize"                                     "275"
-
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                                            "dire_tower_boss_summon_wave"
-    "Ability2"                                            "boss_basic_properties_oaa"
-    "Ability3"                                            "boss_regen"
-    "Ability4"                                            "creep_siege"
-    "Ability5"                                            "dire_tower_boss_glyph"
-
+    "Ability2"                                            "dire_tower_boss_glyph"
+    "Ability3"                                            "boss_basic_properties_oaa"
+    "Ability4"                                            "boss_regen"
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"                                       "37"        // Physical protection.
-    "MagicalResistance"                                   "-50"       // Magical protection.
+    "ArmorPhysical"                                       "32"        // Physical protection.
+    "MagicalResistance"                                   "-25"       // Magical protection.
 
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"                                  "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"                                     "900"    // Damage range min.
-    "AttackDamageMax"                                     "1250"    // Damage range max.
-    "AttackDamageType"                                    "DAMAGE_TYPE_ArmorPhysical"
+    "AttackDamageMin"                                     "1500"    // Damage range min.
+    "AttackDamageMax"                                     "1500"    // Damage range max.
     "BaseAttackSpeed"                                     "110"
     "AttackRate"                                          "0.9"   // Speed of attack.
     "AttackAnimationPoint"                                "0.6"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"                              "700"   // Range within a target can be acquired.
-    "AttackRange"                                         "800"   // Range within a target can be attacked.
+    "AttackRange"                                         "1200"   // Range within a target can be attacked.
     "ProjectileModel"                                     "particles/base_attacks/ranged_tower_bad.vpcf"
-    "ProjectileSpeed"                                      "750"   // Speed of projectile.
-
+    "ProjectileSpeed"                                     "750"   // Speed of projectile.
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                                            "4000"  // Experience earn.
+    "BountyXP"                                            "3000"  // Experience earn.
     "BountyGoldMin"                                       "0"     // Gold earned min.
     "BountyGoldMax"                                       "0"     // Gold earned max.
 
     // Bounds
     //----------------------------------------------------------------
     "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER"
-    "RingRadius"                                          "100"
-    "HealthBarOffset"                                     "500"
+    "ProjectileCollisionSize"                             "50"
+    "RingRadius"                                          "100" //120
+    "HealthBarOffset"                                     "500" //280
 
     // Movement
     //----------------------------------------------------------------
@@ -71,7 +66,7 @@
     "StatusHealth"                                        "10000"
     "StatusHealthRegen"                                   "0"
     "StatusMana"                                          "5000"
-    "StatusManaRegen"                                     "20"
+    "StatusManaRegen"                                     "10"
 
     // Vision
     //----------------------------------------------------------------
@@ -81,9 +76,17 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                                            "DOTA_TEAM_NEUTRALS"
-    
-    
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "AttackRangeActivityModifiers"
+    {
+      "attack_normal_range"                               "0"
+      "attack_long_range"                                 "500"
+    }
 
     // Creature Data
     //----------------------------------------------------------------
@@ -92,19 +95,7 @@
       "DisableResistance"                                 "100"
     }
 
-    "precache"
-    {
-      "soundfile"                                         "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts"
-      "particle"                                          "particles/test_particle/ogre_melee_smash.vpcf"
-      "particle"                                          "particles/test_particle/generic_attack_charge.vpcf"
-      "particle"                                          "particles/test_particle/dungeon_generic_blast.vpcf"
-      "particle"                                          "particles/test_particle/omniknight_wildaxe.vpcf"
-      "particle"                                          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
-      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_cast.vpcf"
-      "particle"                                          "particles/units/heroes/hero_omniknight/omniknight_purification_hit.vpcf"
-      "particle"                                          "particles/darkmoon_creep_warning.vpcf"
-      "particle"                                          "particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_pushrocks.vpcf"
-    }
+    "MinimapIcon"                                         "minimap_tower90"
+    "MinimapIconSize"                                     "320"
   }
 }
