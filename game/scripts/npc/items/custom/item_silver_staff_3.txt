@@ -1,42 +1,42 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Recipe: Silver Staff 2
+  // Recipe: Silver Staff 3
   //=================================================================================================================
-  "item_recipe_silver_staff_2"
+  "item_recipe_silver_staff_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_datadriven"
     "Model"                                               "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
+    "AbilityTextureName"                                  "custom/recipe/recipe_5"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "8000"
+    "ItemCost"                                            "17000"
     "ItemShopTags"                                        ""
 
     // Recipe
     //-------------------------------------------------------------------------------------------------------------
     "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_silver_staff_2"
+    "ItemResult"                                          "item_silver_staff_3"
     "ItemRequirements"
     {
-      "01"                                                "item_silver_staff;item_upgrade_core_3"
+      "01"                                                "item_silver_staff_2;item_upgrade_core_4"
     }
   }
 
   //=================================================================================================================
-  // Silver Staff 2
+  // Silver Staff 3
   //=================================================================================================================
-  "item_silver_staff_2"
+  "item_silver_staff_3"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/silver_staff.lua"
-    "AbilityTextureName"                                  "custom/dragonstaff_4"
+    "AbilityTextureName"                                  "custom/dragonstaff_5"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -51,13 +51,13 @@
     // Spicy Parameters
     //-------------------------------------------------------------------------------------------------------------
     "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
+    "ItemBaseLevel"                                       "3"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "15783"
+    "ItemCost"                                            "32784"
     "ItemQuality"                                         "rare"
-    "ItemAliases"                                         "silver staff 2; break staff 2; dragon staff 2"
+    "ItemAliases"                                         "silver staff 3; break staff 3; dragon staff 3"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
 
