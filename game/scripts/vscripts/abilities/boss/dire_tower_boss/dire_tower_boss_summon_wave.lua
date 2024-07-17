@@ -1,27 +1,6 @@
 
 dire_tower_boss_summon_wave = class(AbilityBaseClass)
 
---------------------------------------------------------------------------------
-
-function dire_tower_boss_summon_wave:OnAbilityPhaseStart()
-  if IsServer() then
-    local nSound = RandomInt( 1, 3 )
-    local caster = self:GetCaster()
-    if nSound == 1 then
-      --caster:EmitSound("") -- TODO
-    end
-    if nSound == 2 then
-      --caster:EmitSound("") -- TODO
-    end
-    if nSound == 3 then
-      --caster:EmitSound("") -- TODO
-    end
-  end
-  return true
-end
-
---------------------------------------------------------------------------------
-
 function dire_tower_boss_summon_wave:OnSpellStart()
   local caster = self:GetCaster()
   caster:EmitSound("LycanBoss.SummonWolves")
@@ -51,10 +30,10 @@ function dire_tower_boss_summon_wave:OnSpellStart()
   end
 
   local caster_loc = caster:GetAbsOrigin()
+
   for i = 0, nMeleeSpawns - 1 do
     if #caster.DIRE_TOWER_BOSS_SUMMONED_UNITS + 1 < caster.DIRE_TOWER_BOSS_MAX_SUMMONS then
       local vSpawnPoint = caster_loc + Vector( RandomInt( -450, 450 ), RandomInt( -450, 450 ), 0 )
-      local waveNumber = caster.nCAST_SUMMON_WAVE_ROUND
       local meleeCreepName = "npc_dota_creature_melee_wave" .. waveNumber .. "_creep"
       local hMelee = CreateUnitByName( meleeCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hMelee then
