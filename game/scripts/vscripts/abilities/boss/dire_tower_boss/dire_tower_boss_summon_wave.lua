@@ -38,7 +38,17 @@ function dire_tower_boss_summon_wave:OnSpellStart()
     --ParticleManager:ReleaseParticleIndex(index)
   --end
 
-  --OBBNOTE: this spawns in a particle for each unit!
+  local function AttackTarget(attacker, target)
+    if attacker and target then
+      ExecuteOrderFromTable({
+        UnitIndex = attacker:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
+        TargetIndex = target:entindex()
+        --Position = target:GetAbsOrigin(),
+        Queue = false,
+      })
+    end
+  end
 
   local caster_loc = caster:GetAbsOrigin()
   for i = 0, nMeleeSpawns - 1 do
@@ -50,9 +60,12 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       if hMelee then
         hMelee:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hMelee:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
-        hMelee:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
+        hMelee:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hMelee )
         --boss_summon_particles(hMelee)
+        if caster.minion_target then
+          AttackTarget(hMelee, caster.minion_target)
+        end
       end
     end
   end
@@ -65,9 +78,12 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       if hRanged then
         hRanged:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hRanged:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
-        hRanged:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
+        hRanged:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hRanged )
         --boss_summon_particles(hRanged)
+        if caster.minion_target then
+          AttackTarget(hRanged, caster.minion_target)
+        end
       end
     end
   end
@@ -80,9 +96,12 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       if hSiege then
         hSiege:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hSiege:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
-        hSiege:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
+        hSiege:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hSiege )
         --boss_summon_particles(hSiege)
+        if caster.minion_target then
+          AttackTarget(hSiege, caster.minion_target)
+        end
       end
     end
   end
