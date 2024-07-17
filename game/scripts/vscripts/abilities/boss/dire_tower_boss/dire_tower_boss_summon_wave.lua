@@ -86,6 +86,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
           AttackTarget(unit, caster.minion_target)
         end
       end
+    end
   end)
 end
 
