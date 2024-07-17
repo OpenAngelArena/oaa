@@ -30,6 +30,46 @@ function modifier_radiant_creeps_passives_oaa:IsPurgable()
   return false
 end
 
+function modifier_radiant_creeps_passives_oaa:OnCreated()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
+  local parent = self:GetParent()
+
+  local tower = parent.tower
+
+  if not tower or tower:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  if not tower:IsAlive() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  if parent:CanEntityBeSeenByMyTeam(tower) then
+    ExecuteOrderFromTable({
+      UnitIndex = parent:entindex(),
+      OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+      TargetIndex = tower:entindex(),
+      Queue = false,
+    })
+  else
+    ExecuteOrderFromTable({
+      UnitIndex = parent:entindex(),
+      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      Position = tower:GetAbsOrigin(),
+      Queue = false,
+    })
+  end
+end
+
 function modifier_radiant_creeps_passives_oaa:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,

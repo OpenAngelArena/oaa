@@ -73,13 +73,7 @@ if IsServer() then
         summon:SetInitialGoalEntity(attacker:GetInitialGoalEntity())
         if tower then
           if tower.IsOAABoss and tower:IsOAABoss() then
-            ExecuteOrderFromTable({
-              UnitIndex = summon:entindex(),
-              OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-              TargetIndex = tower:entindex(),
-              --Position = tower:GetAbsOrigin(),
-              Queue = false,
-            })
+            summon.tower = tower
           end
         end
       end

@@ -41,10 +41,8 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hMelee:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hMelee:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hMelee )
+        hMelee:SetOwner(caster)
         --boss_summon_particles(hMelee)
-        if caster.minion_target then
-          AttackTarget(hMelee, caster.minion_target)
-        end
       end
     end
   end
@@ -59,10 +57,8 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hRanged:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hRanged:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hRanged )
+        hRanged:SetOwner(caster)
         --boss_summon_particles(hRanged)
-        if caster.minion_target then
-          AttackTarget(hRanged, caster.minion_target)
-        end
       end
     end
   end
@@ -77,13 +73,20 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hSiege:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hSiege:SetAggroTarget(caster:GetAggroTarget())
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hSiege )
+        hSiege:SetOwner(caster)
         --boss_summon_particles(hSiege)
-        if caster.minion_target then
-          AttackTarget(hSiege, caster.minion_target)
-        end
       end
     end
   end
+
+  Timers:CreateTimer(0.1, function()
+    if caster then
+      for _, unit in pairs(caster.DIRE_TOWER_BOSS_SUMMONED_UNITS) do
+        if caster.minion_target then
+          AttackTarget(unit, caster.minion_target)
+        end
+      end
+  end)
 end
 
 --------------------------------------------------------------------------------
