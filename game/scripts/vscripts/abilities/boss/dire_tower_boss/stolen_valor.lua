@@ -76,7 +76,7 @@ if IsServer() then
             ExecuteOrderFromTable({
               UnitIndex = summon:entindex(),
               OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-              TargetIndex = tower:entindex()
+              TargetIndex = tower:entindex(),
               --Position = tower:GetAbsOrigin(),
               Queue = false,
             })

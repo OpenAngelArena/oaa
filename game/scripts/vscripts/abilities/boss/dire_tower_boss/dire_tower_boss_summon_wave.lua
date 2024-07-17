@@ -43,7 +43,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       ExecuteOrderFromTable({
         UnitIndex = attacker:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-        TargetIndex = target:entindex()
+        TargetIndex = target:entindex(),
         --Position = target:GetAbsOrigin(),
         Queue = false,
       })

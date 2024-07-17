@@ -78,7 +78,7 @@ function DireTowerBossThink()
       ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-        TargetIndex = nearest_enemy:entindex()
+        TargetIndex = nearest_enemy:entindex(),
         --Position = nearest_enemy:GetAbsOrigin(),
         Queue = false,
       })
