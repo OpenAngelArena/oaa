@@ -125,7 +125,7 @@ if IsServer() then
 end
 
 function modifier_dire_tower_boss_glyph:GetEffectName()
-  return "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+  return "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf" -- TODO: change to actual dota Glyph particle
 end
 
 function modifier_dire_tower_boss_glyph:GetEffectNameAttachType()

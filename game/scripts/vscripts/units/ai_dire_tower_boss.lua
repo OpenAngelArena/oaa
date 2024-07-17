@@ -139,7 +139,7 @@ function DireTowerBossThink()
 
     -- Find the target for the minions if there is no attackable unit within tower attack range
     -- this is to make minions less idle
-    if not thisEntity.aggro_target then
+    if not thisEntity.aggro_target and not thisEntity.minion_target then
       thisEntity.minion_target = FindNearestAttackableUnit(thisEntity) -- inital and fallback value
       local snipers = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity.spawn_position, nil, 2.5*thisEntity.attack_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
       if #snipers ~= 0 then
@@ -191,6 +191,7 @@ function DireTowerBossThink()
     -- Go into the idle state
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
+    -- TODO: Issue stop attacking command
     thisEntity.state = SIMPLE_AI_STATE_IDLE
   end
 
@@ -202,6 +203,7 @@ function CastSummonWave()
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = thisEntity.hSummonWaveAbility:entindex(),
+    Queue = false,
   })
   thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = thisEntity.nCAST_SUMMON_WAVE_ROUND
   return 0.6
@@ -212,6 +214,7 @@ function CastGlyph()
     UnitIndex = thisEntity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = thisEntity.hGlyphAbility:entindex(),
+    Queue = false,
   })
   return 0.7
 end

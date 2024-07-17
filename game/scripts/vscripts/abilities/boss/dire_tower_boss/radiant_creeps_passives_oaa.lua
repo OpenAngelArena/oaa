@@ -39,7 +39,7 @@ end
 function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
   local parent = self:GetParent()
 
-  local tower = parent.tower
+  local tower = parent.tower -- TODO: Find nearest dire tower boss since this clearly does not work
 
   if not tower or tower:IsNull() then
     self:StartIntervalThink(-1)

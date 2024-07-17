@@ -47,7 +47,7 @@ if IsServer() then
 
     local attacker = event.attacker
     local vSpawnPoint = parent:GetAbsOrigin()
-    local tower = parent:GetOwner()
+    local tower = parent:GetOwner() -- it seems this does not work
 
     -- Sound
     attacker:EmitSound("Roshan.Bash")
@@ -73,7 +73,7 @@ if IsServer() then
         summon:SetInitialGoalEntity(attacker:GetInitialGoalEntity())
         if tower then
           if tower.IsOAABoss and tower:IsOAABoss() then
-            summon.tower = tower
+            summon.tower = tower -- it seems this does not work
           end
         end
       end

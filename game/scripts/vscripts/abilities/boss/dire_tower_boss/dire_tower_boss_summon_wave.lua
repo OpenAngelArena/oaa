@@ -18,14 +18,22 @@ function dire_tower_boss_summon_wave:OnSpellStart()
   --end
 
   local function AttackTarget(attacker, target)
-    if attacker and target then
-      ExecuteOrderFromTable({
-        UnitIndex = attacker:entindex(),
-        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-        TargetIndex = target:entindex(),
-        --Position = target:GetAbsOrigin(),
-        Queue = false,
-      })
+    if attacker and not attacker:IsNull() and target and not target:IsNull() then
+      if attacker:CanEntityBeSeenByMyTeam(target) then
+        ExecuteOrderFromTable({
+          UnitIndex = attacker:entindex(),
+          OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+          TargetIndex = target:entindex(),
+          Queue = false,
+        })
+      else
+        ExecuteOrderFromTable({
+          UnitIndex = attacker:entindex(),
+          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+          Position = target:GetAbsOrigin(),
+          Queue = false,
+        })
+      end
     end
   end
 
@@ -80,7 +88,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
   end
 
   Timers:CreateTimer(0.1, function()
-    if caster then
+    if caster and not caster:IsNull() then
       for _, unit in pairs(caster.DIRE_TOWER_BOSS_SUMMONED_UNITS) do
         if caster.minion_target then
           AttackTarget(unit, caster.minion_target)
