@@ -1,13 +1,24 @@
 //=============================================================================
 // Dire Safelane Tower abilities
 //=============================================================================
-"dota_tooltip_ability_dire_tower_boss_glyph"                                    "Glyph Multishot"
+"dota_tooltip_ability_dire_tower_boss_glyph"                                    "Glyph of Fortification"
 "dota_tooltip_ability_dire_tower_boss_glyph_Description"                        "Tower gains 100%% damage reduction and multishot for the duration."
 "dota_tooltip_ability_dire_tower_boss_glyph_glyph_duration"                     "DURATION:"
 "dota_tooltip_ability_dire_tower_boss_glyph_splitshot_units"                    "MULTISHOT ADDITIONAL TARGETS:"
 
+"dota_tooltip_modifier_dire_tower_boss_glyph"                                   "Glyph of Fortification"
+"dota_tooltip_modifier_dire_tower_boss_glyph_Description"                       "Impervious to damage and hitting multiple units."
+
 "dota_tooltip_ability_dire_tower_boss_summon_wave"                              "Summon Dire Creeps"
 "dota_tooltip_ability_dire_tower_boss_summon_wave_description"                  "Tower summons creeps to defend it. Every time the tower loses 1 third of its health, tower will summon stronger creeps."
+"dota_tooltip_ability_dire_tower_boss_summon_wave_Lore"                         "Obby"
 
 "dota_tooltip_ability_dire_tower_boss_creeps_stolen_valor"                      "Stolen Valor"
 "dota_tooltip_ability_dire_tower_boss_creeps_stolen_valor_Description"          "Upon death this creep will become Radiant and attack the Dire Safelane Tower if possible."
+"dota_tooltip_ability_dire_tower_boss_creeps_stolen_valor_Lore"                 "Obby"
+
+"dota_tooltip_ability_dire_tower_boss_passives"                                 ""
+"dota_tooltip_ability_dire_tower_boss_passives_description"                     ""
+
+"dota_tooltip_ability_radiant_creeps_passives_oaa"                              ""
+"dota_tooltip_ability_radiant_creeps_passives_oaa_description"                  ""

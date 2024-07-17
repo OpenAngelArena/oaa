@@ -5,7 +5,7 @@
     "BaseClass"                                           "ability_lua"
     "ScriptFile"                                          "abilities/boss/boss_out_of_game.lua"
     "AbilityTextureName"                                  "mirana_invis"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "1"

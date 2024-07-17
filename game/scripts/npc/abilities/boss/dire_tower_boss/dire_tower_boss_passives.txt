@@ -1,26 +1,18 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Stolen Valor - Changes the team of the owner when killed
+  // Dire Tower Boss - Hidden passives
   //=================================================================================================================
-  "dire_tower_boss_creeps_stolen_valor"
+  "dire_tower_boss_passives"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/boss/dire_tower_boss/stolen_valor.lua"
-    "AbilityTextureName"                                  "alchemist_goblins_greed"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ScriptFile"                                          "abilities/boss/dire_tower_boss/dire_tower_boss_passives.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "1"
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityValues"
-    {
-      "summon_duration"                                   "20"
-    }
   }
 
 }
