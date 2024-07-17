@@ -38,7 +38,6 @@ end
 
 if IsServer() then
   function modifier_radiant_creeps_passives_oaa:GetModifierTotal_ConstantBlock(event)
-    local parent = self:GetParent()
     local ability = self:GetAbility()
     if not ability or ability:IsNull() then
       return 0
