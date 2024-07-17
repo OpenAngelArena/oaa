@@ -60,9 +60,6 @@ if IsServer() then
         hMelee:AddNewModifier(attacker, ability, "modifier_phased", {duration = FrameTime()})
         hMelee:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
         -- TODO: -- order them to attack the tower boss
-        -- if attacker.zone then
-          -- attacker.zone:AddEnemyToZone( hMelee )
-        -- end
       end
     elseif string.find(unitName, "npc_dota_creature_ranged") then
       local hRanged = CreateUnitByName( "npc_dota_creature_ranged_stolen_creep" , vSpawnPoint, true, attacker, attacker, attacker:GetTeamNumber() )
@@ -71,9 +68,6 @@ if IsServer() then
         hRanged:AddNewModifier(attacker, ability, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hRanged:AddNewModifier(attacker, ability, "modifier_phased", {duration = FrameTime()})
         hRanged:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
-        -- if attacker.zone then
-          -- attacker.zone:AddEnemyToZone( hRanged )
-        -- end
       end
     elseif string.find(unitName, "npc_dota_creature_siege") then
       local hSiege = CreateUnitByName( "npc_dota_creature_siege_stolen_creep" , vSpawnPoint, true, attacker, attacker, attacker:GetTeamNumber() )
@@ -82,9 +76,6 @@ if IsServer() then
         hSiege:AddNewModifier(attacker, ability, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hSiege:AddNewModifier(attacker, ability, "modifier_phased", {duration = FrameTime()})
         hSiege:SetInitialGoalEntity( attacker:GetInitialGoalEntity() )
-        -- if attacker.zone then
-          -- attacker.zone:AddEnemyToZone( hSiege )
-        -- end
       end
     else
       print("Unknown unit type.")

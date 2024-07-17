@@ -32,7 +32,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
   local summon_duration = self:GetSpecialValueFor("wave_duration")
   local waveNumber = caster.nCAST_SUMMON_WAVE_ROUND
 
-  --local function lycan_boss_summon_wolves_particles(unit)
+  --local function boss_summon_particles(unit)
     --local spawn_particle = "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf"
     --local index = ParticleManager:CreateParticle(spawn_particle, PATTACH_ABSORIGIN_FOLLOW, unit)
     --ParticleManager:ReleaseParticleIndex(index)
@@ -52,10 +52,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hMelee:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hMelee:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hMelee )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hMelee )
-        end
-        --lycan_boss_summon_wolves_particles(hMelee)
+        --boss_summon_particles(hMelee)
       end
     end
   end
@@ -70,10 +67,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hRanged:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hRanged:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hRanged )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hRanged )
-        end
-        --lycan_boss_summon_wolves_particles(hRanged)
+        --boss_summon_particles(hRanged)
       end
     end
   end
@@ -88,10 +82,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
         hSiege:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hSiege:SetInitialGoalEntity( caster:GetInitialGoalEntity() )
         table.insert( caster.DIRE_TOWER_BOSS_SUMMONED_UNITS, hSiege )
-        if caster.zone then
-          caster.zone:AddEnemyToZone( hSiege )
-        end
-        --lycan_boss_summon_wolves_particles(hSiege)
+        --boss_summon_particles(hSiege)
       end
     end
   end
