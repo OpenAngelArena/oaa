@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shredder: Timber Chain
+  // Timbersaw: Timber Chain
   //=================================================================================================================
   "shredder_timber_chain"
   {
@@ -18,7 +18,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCastRange"                                    "750 900 1050 1200 1350 1500"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -36,17 +35,65 @@
       {
         "value"                                           "90"
       }
-      "range"
+      "AbilityCastRange"
       {
         "value"                                           "750 900 1050 1200 1350 1500"
-        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_3"
+        "special_bonus_unique_timbersaw_3"                "+75%"
       }
       "radius"
       {
         "value"                                           "225"
       }
-      "speed"                                             "2200 2400 2600 2800 3000 3200"
-      "damage"                                            "70 120 170 220 440 880" //OAA
+      "speed"
+      {
+        "value"                                           "2200 2400 2600 2800 3000 3200"
+        "special_bonus_unique_timbersaw_3"                "+75%"
+      }
+      "damage"                                            "60 110 160 210 420 840" //OAA
+      "tree_splinter_count"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "10"
+        "RequiresFacet"                                   "shredder_shredder"
+      }
+      "tree_splinter_distance"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "700"
+        "RequiresFacet"                                   "shredder_shredder"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "tree_splinter_width"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "100"
+        "RequiresFacet"                                   "shredder_shredder"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "tree_splinter_speed"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "1600"
+        "RequiresFacet"                                   "shredder_shredder"
+      }
+      "tree_splinter_damage"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "20 40 60 80 160 320"
+        "RequiresFacet"                                   "shredder_shredder"
+      }
+      "tree_splinter_slow_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "0.75"
+        "RequiresFacet"                                   "shredder_shredder"
+      }
+      "tree_splinter_slow_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shredder_shredder"           "30 40 50 60 70 80"
+        "RequiresFacet"                                   "shredder_shredder"
+      }
     }
   }
 

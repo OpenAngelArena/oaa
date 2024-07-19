@@ -17,15 +17,24 @@
     {
       "proc_chance"                                       "25" //OAA
       "mana_restore"                                      "25 30 35 40 45 50" //OAA
-      "mana_capacity_steal"                               "5"
-      "mana_capacity_duration"                            "30 40 50 60 70 80"
-      "shard_bonus_mana"                                  "300" // unused?
-      "shard_mana_duration"                               "10" // unused?
-
+      "mana_increase"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_obsidian_destroyer_obsidian_decimator"  "4"
+      }
+      "mana_increase_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_obsidian_destroyer_obsidian_decimator"  "10"
+      }
+      "mana_as_ms"
+      {
+        "special_bonus_unique_outworld_devourer_3"        "=1.5"
+      }
       "scepter_barrier_threshold"                         "20"
       "scepter_barrier_duration"                          "15"
       "scepter_barrier_cooldown"                          "40" //OAA
-      "scepter_max_mana_barrier_pct"                      "75"
+      "scepter_max_mana_barrier_pct"                      "70"
     }
   }
 }

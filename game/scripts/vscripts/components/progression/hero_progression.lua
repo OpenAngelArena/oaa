@@ -198,6 +198,11 @@ function HeroProgression:ShouldGetAnAbilityPoint(hero, level)
     -- bad_levels = {27, 29, 30, 32, 33, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 50}
     -- Bad levels give ability points but they shouldn't
 
+    -- Extra skill point when Meepo picks More Meepo facet
+    if hero:GetUnitName() == "npc_dota_hero_meepo" and hero:GetHeroFacetID() == 1 and level == 50 then
+      return true
+    end
+
     -- get 1 point on levels: 28, 31, 34, 37, 40, 43, 46, 49
     return math.fmod(level, 3) == 1
   else
@@ -228,7 +233,15 @@ function HeroProgression:ExperienceFilter(keys)
       local hero = player:GetAssignedHero()
 
       if hero:HasModifier("modifier_hyper_experience_oaa") and keys.reason_const ~= DOTA_ModifyXP_BonusExperience then
-        hero:AddExperience(experience * 2, DOTA_ModifyXP_BonusExperience, false, true)
+        hero:AddExperience(experience, DOTA_ModifyXP_BonusExperience, false, true)
+      end
+
+      -- Invoker innate
+      local mastermind = hero:FindAbilityByName("invoker_mastermind")
+      if mastermind and keys.reason_const ~= DOTA_ModifyXP_BonusExperience then
+        local xpPercent = mastermind:GetSpecialValueFor("xp_on_deny_percent")
+        local xpToGive = math.floor(experience * xpPercent * 0.01)
+        hero:AddExperience(xpToGive, DOTA_ModifyXP_BonusExperience, false, true)
       end
 
       return true

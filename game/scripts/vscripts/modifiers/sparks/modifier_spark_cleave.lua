@@ -20,6 +20,38 @@ function modifier_spark_cleave:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
+function modifier_spark_cleave:OnCreated()
+  local parent = self:GetParent()
+
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if IsServer() then
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:Destroy()
+      return
+    end
+    -- If Tempest Doubles or Clones bypass the code above
+    -- Check again after a delay
+    self:StartIntervalThink(0.1) -- 3 frames delay should be enough
+  end
+end
+
+function modifier_spark_cleave:OnIntervalThink()
+  if not IsServer() then
+    return
+  end
+
+  local parent = self:GetParent()
+
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
+
+  self:StartIntervalThink(-1)
+end
+
 function modifier_spark_cleave:GetTexture()
   return "custom/spark_cleave"
 end

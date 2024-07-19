@@ -36,11 +36,11 @@ ABANDON_NEEDED = 3                        -- how many total abandons you need be
 
 -- kill limits
 NORMAL_KILL_LIMIT = 3                     -- Starting KILL_LIMIT = 16 + NORMAL_KILL_LIMIT x number of players: 5v5 - 46; 4v4 - 40; 3v3 - 34; 2v2 - 28; 1v1 - 22;
-ONE_V_ONE_KILL_LIMIT = 6                  -- Starting KILL_LIMIT = 10 + ONE_V_ONE_KILL_LIMIT x number of players: 1v1 - 22; 2v2 - 34; 3v3 - 46; solo - 16;
+ONE_V_ONE_KILL_LIMIT = 3                  -- Starting KILL_LIMIT = 14 + ONE_V_ONE_KILL_LIMIT x number of players: 1v1 - 20; 2v2 - 26; 3v3 - 32; 4v4 - 38; solo - 17;
 TEN_V_TEN_KILL_LIMIT = 4                  -- Starting KILL_LIMIT = 10 + TEN_V_TEN_KILL_LIMIT x number of players: 6v6 - 58; 8v8 - 74; 10v10 - 90;
 KILL_LIMIT_INCREASE = 1                   -- Extend amount = KILL_LIMIT_INCREASE x number of players: 5v5 - 10; 4v4 - 8;
 TEN_V_TEN_LIMIT_INCREASE = 1              -- Extend amount = TEN_V_TEN_LIMIT_INCREASE x number of players: 10v10 - 20; 8v8 - 16; 6v6 - 12;
-ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = ONE_V_ONE_LIMIT_INCREASE x number of players: 1v1 - 4; solo - 2;
+ONE_V_ONE_LIMIT_INCREASE = 2              -- Extend amount = min(ONE_V_ONE_LIMIT_INCREASE x number of players, 6): 1v1 - 4; 2v2 - 6; 3v3 - 6; 4v4 - 6; solo - 2;
 
 -- poop wards
 POOP_WARD_DURATION = 360
@@ -109,7 +109,7 @@ CAPTURE_LENTGH = 20                     -- amount of time for 1 hero to capture 
 CAPTURE_POINT_RADIUS = 300
 
 -- Bosses
-BOSS_RESPAWN_TIMER = 120                -- time after boss death before spawning the next tier boss
+BOSS_RESPAWN_TIMER = 180                -- time after boss death before spawning the next tier boss
 BOSS_RESPAWN_START = 180                -- time for the first boss spawn
 BOSS_LEASH_SIZE = 1200                  -- number of units a boss will walk before starting to head back
 BOSS_AGRO_FACTOR = 15                   -- boss must take (tier * n) damage before agro
@@ -315,6 +315,12 @@ CUSTOM_TEAM_PLAYER_COUNT = {}           -- If we're not automatically setting th
 if GetMapName() == "10v10" or GetMapName() == "oaa_bigmode" then
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 10
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 10
+elseif GetMapName() == "1v1" then
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 1
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 1
+elseif GetMapName() == "tinymode" then
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 4
+  CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 4
 else
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_GOODGUYS] = 5
   CUSTOM_TEAM_PLAYER_COUNT[DOTA_TEAM_BADGUYS]  = 5

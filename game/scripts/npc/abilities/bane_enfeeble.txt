@@ -39,7 +39,6 @@
       "heal_reduction"
       {
         "value"                                           "0"
-        "special_bonus_unique_bane_6"                     "+50"
       }
       "cast_reduction"
       {
@@ -47,10 +46,10 @@
         "special_bonus_unique_bane_11"                    "+20"
       }
       "duration"                                          "9"
-      "enfeeble_tick_damage" //OAA
+      "enfeeble_tick_damage"
       {
         "value"                                           "12 18 24 30 60 90"
-        "special_bonus_unique_bane_10"                    "+25"
+        "special_bonus_unique_bane_10"                    "+13"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "enfeeble_heal_pct"

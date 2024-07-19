@@ -34,7 +34,7 @@
     {
       "damage_per_second"
       {
-        "value"                                           "30 60 90 120 240 360"
+        "value"                                           "25 50 75 100 200 300"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "radius"
@@ -48,7 +48,11 @@
         "special_bonus_unique_batrider_1"                 "+4.5"
       }
       "tick_interval"                                     "0.5"
-      "tree_radius"                                       "100"
+      "tree_radius"
+      {
+        "value"                                           "100"
+        "affected_by_aoe_increase"                        "1"
+      }
       "bonus_slow_resistance"                             "0"
     }
   }

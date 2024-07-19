@@ -14,6 +14,9 @@ function item_reflection_shard_1:OnSpellStart()
   local caster = self:GetCaster()
   local duration = self:GetSpecialValueFor("duration")
 
+  -- Basic Dispel
+  caster:Purge(false, true, false, false, false)
+
   -- Sound
   caster:EmitSound("Hero_Antimage.Counterspell.Cast")
 
@@ -139,10 +142,11 @@ end
 function modifier_item_reflection_shard_active:DeclareFunctions()
   return {
     --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
-    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
     --MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
     MODIFIER_PROPERTY_ABSORB_SPELL,
     --MODIFIER_PROPERTY_REFLECT_SPELL,
+    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
   }
 end
 
@@ -150,9 +154,9 @@ end
   -- return 1
 -- end
 
-function modifier_item_reflection_shard_active:GetAbsoluteNoDamageMagical()
-  return 1
-end
+-- function modifier_item_reflection_shard_active:GetAbsoluteNoDamageMagical()
+  -- return 1
+-- end
 
 -- function modifier_item_reflection_shard_active:GetAbsoluteNoDamagePure()
   -- return 1
@@ -190,6 +194,26 @@ if IsServer() then
     end)
 
     return 1
+  end
+
+  function modifier_item_reflection_shard_active:GetModifierTotal_ConstantBlock(event)
+    local ability = self:GetAbility()
+    local attacker = event.attacker
+
+    -- Check if attacker and ability exist
+    if not attacker or attacker:IsNull() or not ability or ability:IsNull() then
+      return 0
+    end
+
+    local dmg_after_reductions = event.damage
+    local damage_category = event.damage_category
+
+    -- Block only spell damage
+    if damage_category ~= DOTA_DAMAGE_CATEGORY_SPELL then
+      return 0
+    end
+
+    return dmg_after_reductions
   end
 end
 

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_riki"
   "Title"         "Recommended items for Riki"
 
@@ -13,12 +13,19 @@
       "item"      "item_flask"
     }
 
+    "#DOTA_Item_Build_For_Farming"
+    {
+      "item"      "item_ultimate_scepter"
+      "item"      "item_bfury"
+    }
+
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_diffusal_blade"
       "item"      "item_butterfly_oaa"
-      "item"      "item_swift_blink"
-      "item"      "item_greater_crit"
+      "item"      "item_angels_demise"
+      "item"      "item_devastator_oaa_2"
+      "item"      "item_giant_form"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -29,17 +36,17 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_black_king_bar_1"
+      "item"      "item_greater_crit"
       "item"      "item_manta"
       "item"      "item_mjollnir"
       "item"      "item_monkey_king_bar"
       "item"      "item_nullifier"
       "item"      "item_satanic"
       "item"      "item_skadi"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_swift_blink"
       "item"      "item_abyssal_blade_2"
-      "item"      "item_devastator_oaa_2"
-      "item"      "item_giant_form"
-      "item"      "item_trumps_fists"
+      "item"      "item_revenants_brooch_4"
+      "item"      "item_trumps_fists_1"
       "item"      "item_rapier"
     }
   }

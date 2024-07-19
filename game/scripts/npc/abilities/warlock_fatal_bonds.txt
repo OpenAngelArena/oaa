@@ -28,10 +28,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 110 120 130 140 150" //OAA
 
-    // Cast Range
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1000"
-
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
@@ -39,24 +35,17 @@
       "count"
       {
         "value"                                           "6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_warlock_9"
       }
       "damage_share_percentage"
       {
         "value"                                           "12 16 20 24 26 28"
-        "LinkedSpecialBonus"                              "special_bonus_unique_warlock_5"
+        "special_bonus_unique_warlock_5"                  "+4"
       }
-      "duration"                                          "19 21 23 25 27 29"
+      "duration"                                          "18"
       "search_aoe"
       {
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
-      }
-      "imp_duration"                                      "15"
-      "imp_level"
-      {
-        "value"                                           "1 2 3 4 5 6"
-        "special_bonus_shard"                             "+1"
       }
     }
   }

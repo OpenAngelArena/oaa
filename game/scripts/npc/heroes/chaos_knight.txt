@@ -5,6 +5,8 @@
   //=================================================================================================================
   "npc_dota_hero_chaos_knight"
   {
-    // special_bonus_truestrike
+    "Ability14"                                           "special_bonus_unique_chaos_knight_1_oaa" // replaces special_bonus_unique_chaos_knight_3
+
+    "Ability17"                                           "special_bonus_unique_chaos_knight_3" // replaces special_bonus_unique_chaos_knight_4
   }
 }

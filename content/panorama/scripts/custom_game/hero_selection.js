@@ -221,6 +221,9 @@ function handleOAASettingsChange (n, key, settings) {
     HM38: '#game_option_universal',
     HM39: '#game_option_wealthy',
     HM40: '#game_option_bottle_collector',
+    HM41: '#game_option_crimson_magic',
+    HM42: '#game_option_ludo',
+    HM43: '#game_option_battlemage',
     HMB01: '#game_option_giant',
     HMB02: '#game_option_league',
     HMB03: '#game_option_turbo',
@@ -228,7 +231,9 @@ function handleOAASettingsChange (n, key, settings) {
     HMB05: '#game_option_cunning',
     HMB06: '#game_option_magician',
     HMB07: '#game_option_might',
-    HMB08: '#game_option_sangromancer'
+    HMB08: '#game_option_sangromancer',
+    HMB09: '#game_option_radioactive',
+    HMB10: '#game_option_jackofalltrades'
   };
 
   const bundleBool = settings.HEROES_MODS_BUNDLE !== 'HMBN';

@@ -50,12 +50,12 @@
       }
       "damage_pct"
       {
-        "value"                                           "1.5"
+        "value"                                           "1.4"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
       }
       "shard_max_health_dmg" //OAA
       {
-        "value"                                           "15 20 25 30 60 90"
+        "value"                                           "20 25 30 35 45 55"
         "RequiresShard"                                   "1"
       }
     }

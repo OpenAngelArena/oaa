@@ -66,7 +66,7 @@
     {
       "bonus_health"                                      "350 700 1050 1400 1750"
       "bonus_health_regen"                                "12 15 18 21 24"
-      "bonus_armor"                                       "8 9 11 14 18"
+      "bonus_armor"                                       "7 8 10 13 17"
       "block_damage_melee"                                "75 125 175 225 275"
       "block_damage_ranged"                               "50 85 120 155 190"
       "block_chance"                                      "75"
@@ -79,7 +79,7 @@
       "block_damage_active"                               "70 120 170 220 270"
       "block_chance_active"                               "100"
       "tooltip_reapply_time"                              "20"
-      "strength_pct"                                      "50"
+      "max_hp_pct"                                        "2.5"
     }
   }
 }

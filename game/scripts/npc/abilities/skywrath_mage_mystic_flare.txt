@@ -43,9 +43,9 @@
       "damage" //OAA
       {
         "value"                                           "800 1250 1700 3050 4400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_skywrath_5"
+        "special_bonus_unique_skywrath_5"                 "+400"
       }
-      "damage_interval"                                   "0.1"
+      "damage_interval"                                   "0.2" //OAA
       "scepter_radius"
       {
         "value"                                           "700"

@@ -26,8 +26,7 @@
       "attack_count"
       {
         "value"                                           "3"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_attack_count"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_SUBTRACT"
+        "special_bonus_unique_dawnbreaker_luminosity_attack_count"  "-1"
       }
       "heal_radius" //OAA
       {
@@ -39,11 +38,25 @@
       "bonus_damage"
       {
         "value"                                           "125 150 175 200 225 250"
-        "LinkedSpecialBonus"                              "special_bonus_unique_dawnbreaker_luminosity_crit"
+        "special_bonus_unique_dawnbreaker_luminosity_crit"  "+50"
       }
       "proc_cooldown"                                     "0.00"
       "allied_healing_pct"                                "90" //OAA
-      "cooldown_reduction"                                "0.5 1 1.5 2" // unused
+      "cooldown_reduction"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_solar_charged"   "1"
+      }
+      "attackspeed_bonus_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_solar_battery"   "+50"
+      }
+      "movespeed_bonus_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_dawnbreaker_solar_battery"   "+20"
+      }
     }
   }
 }

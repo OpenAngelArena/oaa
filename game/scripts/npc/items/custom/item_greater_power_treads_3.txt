@@ -35,7 +35,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/farming/greater_power_treads.lua"
+    "ScriptFile"                                          "items/greater_power_treads.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityTextureName"                                  "custom/greater_power_treads_3"
 
@@ -60,7 +60,7 @@
       "bonus_magic_resistance"                            "5 6 7 8"
       "bonus_attack_speed"                                "30 35 40 45"
       "bonus_spell_amp"                                   "6 8 10 12"
-      "bonus_damage"                                      "10 25 45 70"
+      "bonus_damage"                                      "10 30 60 100"
       "primary_attribute_multiplier"                      "2"
       "bonus_secondary_stats"                             "10 15 20 25"
     }

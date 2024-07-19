@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_leshrac"
   "Title"         "Recommended Items for Leshrac"
 
@@ -14,19 +14,20 @@
 
     "#DOTA_Item_Build_Core_Items"
     {
-      "item"      "item_bloodstone"
-      "item"      "item_kaya_and_sange"
-      "item"      "item_ultimate_scepter"
+      "item"      "item_kaya"
+      "item"      "item_satanic_core"
       "item"      "item_shivas_guard"
+      "item"      "item_ultimate_scepter"
       "item"      "item_wind_waker"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
-      "item"      "item_guardian_greaves"
-      "item"      "item_shield_staff"
       "item"      "item_aether_lens"
+      "item"      "item_shield_staff"
+      "item"      "item_guardian_greaves"
       "item"      "item_octarine_core"
+      "item"      "item_sheepstick_4"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -45,7 +46,6 @@
       "item"      "item_sphere"
       "item"      "item_greater_travel_boots"
       "item"      "item_dagger_of_moriah_1"
-      "item"      "item_sheepstick_4"
     }
   }
 }

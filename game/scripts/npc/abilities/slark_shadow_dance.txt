@@ -21,7 +21,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120"
+    "AbilityManaCost"                                     "100"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -30,17 +30,9 @@
       "duration"
       {
         "value"                                           "4 4.25 4.5 4.75 5.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_slark_3"
+        "special_bonus_unique_slark_3"                    "+1"
       }
-      "fade_time"                                         "0.0"
-      "bonus_movement_speed"                              "24 36 48 60 72"
-      "bonus_regen"
-      {
-        "value"                                           "60 90 120 240 480"
-        "special_bonus_unique_slark_8"                    "+50"
-      }
-      "activation_delay"                                  "0.5"
-      "neutral_disable"                                   "0.0" //OAA
+      "fade_time"                                         "0"
     }
   }
 }

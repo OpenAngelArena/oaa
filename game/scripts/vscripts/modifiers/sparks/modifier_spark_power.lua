@@ -73,8 +73,12 @@ end
 function modifier_spark_power:OnCreated()
   local parent = self:GetParent()
 
-  if parent:IsIllusion() then
-    return
+  -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+  if IsServer() then
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:Destroy()
+      return
+    end
   end
 
   -- Initialize with 0
@@ -98,11 +102,14 @@ end
 function modifier_spark_power:OnIntervalThink()
   local parent = self:GetParent()
 
-  if parent:IsIllusion() then
-    return
-  end
-
   if IsServer() then
+    -- This modifier is not supposed to exist on illusions, Tempest Doubles, Meepo clones or Spirit Bears
+    if parent:IsIllusion() or parent:IsTempestDouble() or parent:IsClone() or parent:IsSpiritBearOAA() then
+      self:StartIntervalThink(-1)
+      self:Destroy()
+      return
+    end
+
     -- Current damage values
     local base_damage_max = parent:GetBaseDamageMax()
     local base_damage_min = parent:GetBaseDamageMin()
@@ -131,8 +138,6 @@ function modifier_spark_power:OnIntervalThink()
     local bonus = math.ceil(3188/61 + (4166 * current_average_base_damage - 7312 * starting_average_base_damage)/8723)
     self:SetStackCount(bonus)
   end
-
-  --parent.power_spark_bonus = self:GetStackCount()
 end
 
 function modifier_spark_power:OnStackCountChanged(old_stacks)
@@ -234,7 +239,7 @@ if IsServer() then
     end
 
     local damage = self.bonus
-    if parent:IsIllusion() or not parent:IsHero() then
+    if not parent:IsRealHero() then
       damage = damage / 7
     end
     if damage > 0 then
@@ -267,9 +272,9 @@ if IsServer() then
         self.damage_block_failures = 0
 
         if parent:IsRangedAttacker() and parent:IsHero() then
-          return block / 2
+          return block / 4
         else
-          return block
+          return block / 2
         end
       else
         -- Increment number of failures
@@ -290,7 +295,7 @@ function modifier_spark_power_effect:OnTooltip()
       damage = caster:GetModifierStackCount("modifier_spark_power", caster)
     end
   end
-  if parent:IsIllusion() or not parent:IsHero() then
+  if not parent:IsRealHero() then
     damage = damage / 7
   end
   return damage
@@ -306,9 +311,9 @@ function modifier_spark_power_effect:OnTooltip2()
     end
   end
   if parent:IsRangedAttacker() and parent:IsHero() then
-    return block / 2
+    return math.floor(block / 4)
   else
-    return block
+    return math.floor(block / 2)
   end
 end
 

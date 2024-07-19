@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Invoker: Mastermind (Innate)
+  //=================================================================================================================
+  "invoker_mastermind"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+    "MaxLevel"                                            "1"
+    "Innate"                                              "1"
+    "AbilityValues"
+    {
+      "xp_on_deny_percent"                                "15" //OAA
+    }
+  }
+}

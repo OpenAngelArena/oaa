@@ -31,12 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA
       {
-        "value"                                           "16.0"
-        "special_bonus_unique_doom_7"                     "+3"
+        "value"                                           "12 13 14 15 16"
       }
-      "damage"
+      "damage" //OAA
       {
         "value"                                           "30 50 70 110 150"
         "special_bonus_unique_doom_5"                     "+30"
@@ -61,6 +60,10 @@
         "value"                                           "0"
         "special_bonus_scepter"                           "+250"
         "affected_by_aoe_increase"                        "1"
+      }
+      "applies_dispel_to_self"
+      {
+        "special_bonus_scepter"                           "0"
       }
     }
   }

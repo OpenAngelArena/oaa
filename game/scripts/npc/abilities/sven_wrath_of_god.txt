@@ -1,0 +1,16 @@
+"DOTAAbilities"
+{
+  "sven_wrath_of_god"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"                                            "1" //OAA
+
+    "AbilityValues"
+    {
+      "bonus_damage_per_str"                              "0.4" //OAA
+      "base_damage_reduction"                             "20"
+    }
+  }
+}

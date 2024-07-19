@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+  "skeleton_king_spectral_blade"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
+
+    "MaxLevel"                                            "6"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "cursed_damage_pct"                                 "50"
+      "cursed_damage"
+      {
+        "value"                                           "15 30 45 60 75 90"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
+      }
+      "curse_cooldown"                                    "18 16 14 12 11 10"
+      "curse_cooldown_creep"                              "6"
+      "curse_delay"                                       "3"
+    }
+  }
+}

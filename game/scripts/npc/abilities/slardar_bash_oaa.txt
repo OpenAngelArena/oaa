@@ -31,12 +31,11 @@
       "bonus_damage"
       {
         "value"                                           "50 100 150 200 400 600"
-        "special_bonus_unique_slardar_2"                  "+50"
+        "special_bonus_unique_slardar_2"                  "+40"
       }
       "duration"                                          "1.1"
       "duration_creep"                                    "1.1"
       "creep_dmg_multiplier"                              "2"
-      "water_damage"                                      "8 16 24 32 64 96" // bonus dmg in the river, puddles etc.
     }
   }
 }

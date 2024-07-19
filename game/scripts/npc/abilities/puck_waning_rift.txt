@@ -33,7 +33,7 @@
       "radius"
       {
         "value"                                           "400"
-        "special_bonus_unique_puck_rift_radius"           "+250"
+        "special_bonus_unique_puck_rift_radius"           "+300"
         "affected_by_aoe_increase"                        "1"
       }
       "silence_duration"
@@ -49,7 +49,39 @@
       "max_distance"
       {
         "value"                                           "400"
-        "special_bonus_unique_puck_rift_radius"           "+250"
+        "special_bonus_unique_puck_rift_radius"           "+300"
+      }
+      "push_pull_enabled"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_puck_jostling_rift"          "=1"
+      }
+      "knock_distance"
+      {
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +175 +200"
+        "RequiresFacet"                                   "puck_jostling_rift"
+      }
+      "knock_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_puck_jostling_rift"          "0.3"
+        "RequiresFacet"                                   "puck_jostling_rift"
+      }
+      
+      "pull_distance"
+      {
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_puck_jostling_rift"          "+75 +100 +125 +150 +175 +200"
+        "RequiresFacet"                                   "puck_jostling_rift"
+      }
+      "pull_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_puck_jostling_rift"          "0.3"
+        "RequiresFacet"                                   "puck_jostling_rift"
       }
     }
   }

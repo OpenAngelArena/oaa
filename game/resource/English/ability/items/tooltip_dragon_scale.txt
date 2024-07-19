@@ -1,8 +1,20 @@
 //===================================================================
 // Dragon Scale (OAA version)
 //===================================================================
+// "DOTA_Tooltip_Ability_item_dragon_scale"                                       "Dragon Scale"
+// "DOTA_Tooltip_Ability_item_dragon_scale_Description"                           "<h1>Passive: Afterburn</h1> Causes attacks to burn the enemy, dealing %damage_per_sec% damage per second for %duration% seconds. Affects buildings."
+// "DOTA_Tooltip_Ability_item_dragon_scale_Lore"                                  "The remains of a dragon always outvalue the wealth of even the most prodigious hoard."
+// "DOTA_Tooltip_Ability_item_dragon_scale_bonus_armor"                           "+$armor"
+// "DOTA_Tooltip_Ability_item_dragon_scale_bonus_hp_regen"                        "+$hp_regen"
+// "DOTA_Tooltip_modifier_dragon_scale_burn"                                      "Afterburn"
+// "DOTA_Tooltip_modifier_dragon_scale_burn_Description"                          "Taking damage every second"
+
 "DOTA_Tooltip_Ability_item_dragon_scale_oaa"                                    "#{DOTA_Tooltip_Ability_item_dragon_scale}"
-"DOTA_Tooltip_Ability_item_dragon_scale_oaa_Description"                        "<h1>Passive: Afterburn</h1> Every time you are damaged, you return %afterburn_damage% magic damage to the attacker."
+"DOTA_Tooltip_Ability_item_dragon_scale_oaa_Description"                        "<h1>Passive: Dragon Skin</h1> Burns any enemy that damaged you. Enemy attackers will take %dragon_skin_damage% magic damage per second for %dragon_skin_debuff_duration% seconds."
 "DOTA_Tooltip_Ability_item_dragon_scale_oaa_Lore"                               "#{DOTA_Tooltip_Ability_item_dragon_scale_Lore}"
 "DOTA_Tooltip_Ability_item_dragon_scale_oaa_bonus_armor"                        "+$armor"
 "DOTA_Tooltip_Ability_item_dragon_scale_oaa_bonus_hp_regen"                     "+$hp_regen"
+"DOTA_Tooltip_Ability_item_dragon_scale_oaa_bonus_boss_damage"                  "%+<font color='#FFA500'>Damage Amplification against Bosses</font>"
+
+"DOTA_Tooltip_modifier_item_dragon_scale_oaa_debuff"                            "#{DOTA_Tooltip_Ability_item_dragon_scale}"
+"DOTA_Tooltip_modifier_item_dragon_scale_oaa_debuff_Description"                "#{DOTA_Tooltip_modifier_dragon_scale_burn_Description}"

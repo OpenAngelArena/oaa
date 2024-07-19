@@ -7,72 +7,45 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "OnCastbar"                                           "0"
-    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
-    "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
     "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
-    "LevelsBetweenUpgrades"                               "2"
+    "RequiredLevel"                                       "-1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "necromastery_damage_per_soul" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "necromastery_damage_per_soul"                    "1 2 3 4 5 6"
-        "LinkedSpecialBonus"                              "special_bonus_unique_nevermore_1"
+        "value"                                           "1 3 4 5 6 7"
         "CalculateSpellDamageTooltip"                     "0"
+        "special_bonus_unique_nevermore_1"                "+1"
       }
-      "02"
+      "necromastery_max_souls"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "necromastery_max_souls"                          "11 14 17 20 22 24"
+        "value"                                           "20"
+        "special_bonus_scepter"                           "+5"
       }
-      "03"
+      "souls_per_kill"                                    "1"
+      "necromastery_soul_release"                         "0.7"
+      "attack_range_bonus"                                "0"
+      "shard_souls_per_kill"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "necromastery_soul_release"                       "0.7"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "necromastery_max_souls_scepter"                  "16 19 22 25 26 27" //OAA
-        "RequiresScepter"                                 "1"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_range_bonus"                              "0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_souls_per_kill"                            "2"
+        "value"                                           "2"
         "RequiresShard"                                   "1"
       }
-      "07"
+      "shard_crit_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_crit_pct"                                  "190"
+        "value"                                           "190"
         "RequiresShard"                                   "1"
       }
-      "08"
+      "shard_fear_duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_fear_duration"                             "0.4"
+        "value"                                           "0.4"
         "RequiresShard"                                   "1"
       }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "soul_release_tooltip"                            "30.0"
-      }
+      "soul_release_tooltip"                              "30.0"
     }
   }
 

@@ -1,0 +1,105 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Visage: Summon Familiars
+  //=================================================================================================================
+  "visage_summon_familiars"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
+    "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "MaxLevel"                                            "5"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"                                    "0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "90" //OAA
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "150"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "familiar_hp"                                       "500 700 900 1500 2500" //OAA
+      "familiar_armor"                                    "2 4 6 8 10" //OAA
+      "familiar_attack_range"
+      {
+        "value"                                           "180"
+        "special_bonus_facet_visage_faithful_followers"   "+170"
+      }
+      "familiar_base_movespeed"
+      {
+        "value"                                           "430"
+        "special_bonus_facet_visage_faithful_followers"   "+40"
+      }
+      "familiar_bounty"
+      {
+        "value"                                           "100"
+        "special_bonus_facet_visage_faithful_followers"   "=70"
+      }
+      "bonus_movement_speed" // Valve is dumb
+      {
+        "value"                                           "0"
+      }
+      "familiar_attack_damage" //OAA
+      {
+        "value"                                           "30 75 120 255 390"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "bonus_damage" // Valve is dumb
+      {
+        "value"                                           "0"
+        "special_bonus_unique_visage_7"                   "+6"
+        "CalculateSpellDamageTooltip"                     "0"
+      }
+      "familiar_count"
+      {
+        "value"                                           "2"
+        "special_bonus_unique_visage_6"                   "+1"
+      }
+      "armor_reduction_per_hit"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_visage_1"                   "+1"
+      }
+      "armor_reduction_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_visage_1"                   "+10"
+      }
+      // uncontrollable familiars info
+      "in_formation"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_visage_faithful_followers"   "+1"
+      }
+      "back_distance"                                     "75"
+      "side_distance"                                     "75"
+      "return_distance"
+      {
+        "value"                                           "1200"
+      }
+      "recall_duration"                                   "4"
+      "max_distance"
+      {
+        "value"                                           "3500"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "attack_range_buffer"                               "200"
+      "additional_target_search_radius"
+      {
+        "value"                                           "300"
+        "affected_by_aoe_increase"                        "1"
+      }
+    }
+  }
+}

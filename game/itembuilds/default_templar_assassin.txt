@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.34e"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_templar_assassin"
   "Title"         "Recommended items for Templar Assassin"
 
@@ -8,16 +8,17 @@
   {
     "#DOTA_Item_Build_Starting_Items"
     {
-      "item"      "item_wraith_band"
       "item"      "item_blight_stone"
+      "item"      "item_flask"
+      "item"      "item_clarity"
     }
 
     "#DOTA_Item_Build_Core_Items"
     {
       "item"      "item_desolator"
+      "item"      "item_hurricane_pike"
       "item"      "item_greater_crit"
-      "item"      "item_swift_blink"
-      "item"      "item_satanic"
+      "item"      "item_monkey_king_bar"
       "item"      "item_black_king_bar_1"
     }
 
@@ -29,13 +30,13 @@
     "#DOTA_Item_Build_Luxury"
     {
       "item"      "item_arcane_blink"
-      "item"      "item_bloodthorn"
-      "item"      "item_hurricane_pike"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_silver_edge"
+      "item"      "item_gungir"
+      "item"      "item_nullifier"
+      "item"      "item_radiance"
+      "item"      "item_satanic"
+      "item"      "item_swift_blink"
       "item"      "item_ultimate_scepter"
-      "item"      "item_sheepstick_4"
-      "item"      "item_siege_mode"
+      "item"      "item_trumps_fists_1"
       "item"      "item_rapier"
     }
   }

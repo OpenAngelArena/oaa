@@ -18,7 +18,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "16 15 14 13 13 13" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,8 +30,8 @@
     {
       "illusion_1_damage_out_pct"                         "-100"
       "illusion_1_damage_in_pct"                          "0"
-      "illusion_2_damage_out_pct"                         "-80 -70 -60 -50 -40 -30" //OAA
-      "illusion_2_damage_in_pct"                          "500 450 400 350 300 250" //OAA
+      "illusion_2_damage_out_pct"                         "-80 -78 -76 -74 -72 -70" //OAA
+      "illusion_2_damage_in_pct"                          "500 460 420 380 340 300" //OAA
       "target_aoe"
       {
         "value"                                           "325"
@@ -48,9 +48,13 @@
       "illusion_2_amount"
       {
         "value"                                           "1"
-        "special_bonus_unique_phantom_lancer_doppel_illusion2_amt"  "+1"
       }
       "cast_range_tooltip"                                "575 600 625 650 675 700" //OAA
+      "hp_missing_per_extra_illusion_pct"                 
+      {
+        "value"                                           "0"
+        "special_bonus_facet_phantom_lancer_convergence"  "25"
+      }
     }
   }
 }

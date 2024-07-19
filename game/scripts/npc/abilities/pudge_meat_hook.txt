@@ -15,7 +15,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1300"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -29,11 +28,20 @@
       "damage"
       {
         "value"                                           "150 220 290 360 720 1440"
-        "special_bonus_unique_pudge_7"                    "+140"
+        "special_bonus_facet_pudge_flayers_hook"          "=80 =120 =160 =200 =400 =800"
+        "special_bonus_unique_pudge_7"                    "+150"
       }
-      "hook_speed"                                        "1600.0"
+      "hook_speed"
+      {
+        "value"                                           "1600.0"
+        "special_bonus_facet_pudge_flayers_hook"          "+0"
+      }
       "hook_width"                                        "100"
-      "hook_distance"                                     "1300"
+      "AbilityCastRange"
+      {
+        "value"                                           "1300"
+        "special_bonus_facet_pudge_flayers_hook"          "+15%"
+      }
       "vision_radius"                                     "500"
       "vision_duration"                                   "4.0"
       "reveal_duration"                                   "00"
@@ -45,6 +53,19 @@
       "vector_target_distance"
       {
         "value"                                           "0"
+      }
+      "distance_to_damage"
+      {
+        "special_bonus_facet_pudge_flayers_hook"          "12 18 24 30 36 42"              
+      }
+
+      "min_distance_damage"
+      {
+        "special_bonus_facet_pudge_flayers_hook"          "10"
+      }
+      "self_stun_duration_percent"
+      {
+        "value"                                           "65"
       }
     }
   }

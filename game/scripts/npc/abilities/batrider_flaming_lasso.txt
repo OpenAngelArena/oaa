@@ -41,7 +41,7 @@
       "break_distance"                                    "425"
       "damage" //OAA, total damage
       {
-        "value"                                           "100 300 500 900 1700" // if they change it to dps put 45 87 130 256 465
+        "value"                                           "200 400 600 1000 1800"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "grab_radius_scepter"
@@ -54,7 +54,7 @@
       "AbilityCooldown"
       {
         "value"                                           "90 75 60 60 60"
-        "special_bonus_unique_batrider_6"                 "-10"
+        "special_bonus_unique_batrider_6"                 "-7"
       }
       "tick_rate"                                         "0.5"
     }

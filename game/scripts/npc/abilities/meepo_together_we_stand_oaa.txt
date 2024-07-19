@@ -21,18 +21,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_dmg_reduction_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_dmg_reduction_pct"                         "4 6 8"
+        "value"                                           "4 6 8"
+        "special_bonus_facet_meepo_more_meepo"            "-1"
       }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "700"
-      }
+      "aura_radius"                                       "700" // affected_by_aoe_increase wouldnt work because Clones cant get items
     }
   }
 }

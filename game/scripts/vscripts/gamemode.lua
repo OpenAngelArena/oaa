@@ -33,8 +33,6 @@ require('libraries/math')
 require('libraries/chatcommand')
 -- extension functions to PlayerResource
 require('libraries/playerresource')
--- Extensions to CDOTA_BaseNPC
-require('libraries/basenpc')
 -- Extensions to CDOTA_BaseNPC_Hero
 require('libraries/basehero')
 -- Pseudo-random distribution C constant calculator
@@ -109,8 +107,6 @@ end
 ]]
 function GameMode:OnHeroInGame(hero)
   --DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
-  -- This line for example will set the starting gold of every hero to 500 unreliable gold
-  --hero:SetGold(500, false)
 
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   -- local item = CreateItem("item_example_item", hero, hero)
@@ -228,6 +224,7 @@ function GameMode:InitGameMode()
   InitModule(TeamVision)
   InitModule(CustomTalentSystem)
   InitModule(CustomWardButtons)
+  InitModule(HeroCosmetics)
 
   -- Increase maximum owned item limit
   Convars:SetInt('dota_max_physical_items_purchase_limit', 64)

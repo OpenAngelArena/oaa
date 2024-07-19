@@ -46,21 +46,38 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "ward_damage"
+      "damage"
       {
-        "value"                                           "70 105 140 210 350"
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_5"
+        "value"                                           "75 100 125 175 225"
+        "special_bonus_unique_witch_doctor_5"             "+45"
+        "special_bonus_facet_witch_doctor_cleft_death"    "=45 =70 =95 =150 =200"
+        "CalculateSpellDamageTooltip"                     "0"
       }
-      "ward_attack_range"
+      "attack_range_tooltip"
       {
         "value"                                           "600"
-        "LinkedSpecialBonus"                              "special_bonus_unique_witch_doctor_1"
+        "special_bonus_unique_witch_doctor_1"             "+75"
       }
-      "scepter_bounce_radius"
+      "bonus_attack_range"
+      {
+        "value"                                           "0"
+        "special_bonus_unique_witch_doctor_1"             "+75"
+      }
+      "bounce_radius"
       {
         "value"                                           "650"
         "RequiresScepter"                                 "1"
         "affected_by_aoe_increase"                        "1"
+      }
+      "scepter_lifesteal"
+      {
+        "value"                                           "10"
+        "RequiresScepter"                                 "1"
+      }
+      "initial_target_count"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_witch_doctor_cleft_death"    "+1"
       }
       "duration"                                          "3"
       "ward_attack_speed_penalty"                         "-40"

@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA 7.35x"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_monkey_king"
   "Title"         "Recommended items for Monkey King"
 
@@ -13,14 +13,20 @@
       "item"      "item_flask"
     }
 
-    "#DOTA_Item_Build_Core_Items"
+    "#DOTA_Item_Build_For_Farming"
     {
+      "item"      "item_small_cleaver_oaa"
       "item"      "item_maelstrom"
-      "item"      "item_greater_crit"
-      "item"      "item_satanic"
-      "item"      "item_sange_and_yasha"
-      "item"      "item_skadi"
+      "item"      "item_radiance"
+    }
+
+    "#DOTA_Item_Build_Physical_Core"
+    {
+      "item"      "item_gungir"
       "item"      "item_black_king_bar_1"
+      "item"      "item_monkey_king_bar"
+      "item"      "item_greater_crit"
+      "item"      "item_devastator_oaa_2"
     }
 
     "#DOTA_Item_Build_Shard"
@@ -30,15 +36,17 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_bloodthorn"
+      "item"      "item_butterfly_oaa"
       "item"      "item_disperser"
-      "item"      "item_manta"
-      "item"      "item_mjollnir"
-      "item"      "item_monkey_king_bar"
-      "item"      "item_silver_edge"
+      "item"      "item_harpoon"
+      "item"      "item_nullifier"
+      "item"      "item_skadi"
+      "item"      "item_spell_breaker_1"
       "item"      "item_ultimate_scepter"
       "item"      "item_abyssal_blade_2"
       "item"      "item_giant_form"
-      "item"      "item_sheepstick_4"
+      "item"      "item_trumps_fists_1"
       "item"      "item_rapier"
     }
   }

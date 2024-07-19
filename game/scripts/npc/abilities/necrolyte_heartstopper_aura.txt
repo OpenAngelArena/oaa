@@ -17,21 +17,17 @@
 
     "AbilityValues"
     {
-      "aura_radius"                                       "800"
+      "aura_radius"
+      {
+        "value"                                           "800"       
+        "affected_by_aoe_increase"                        "1"
+      }
       "aura_damage"
       {
         "value"                                           "0.6 1.2 1.8 2.4 3.0 3.6"
         "special_bonus_unique_necrophos_2"                "+0.5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
         "CalculateSpellDamageTooltip"                     "0"
-      }
-      "health_regen"                                      "4 5 6 7 8 9"
-      "mana_regen"                                        "4 5 6 7 8 9"
-      "hero_multiplier"                                   "6"
-      "regen_duration"
-      {
-        "value"                                           "7"
-        "special_bonus_unique_necrophos_heartstopper_regen_duration"  "+2"
       }
       "heal_reduction_pct"
       {

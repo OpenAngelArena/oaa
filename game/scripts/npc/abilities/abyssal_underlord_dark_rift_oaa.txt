@@ -24,13 +24,8 @@
 
     "HasScepterUpgrade"                                   "1"
 
-    "AbilityCastRange"                                    "1400"
     "AbilityCastPoint"                                    "1.65"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "100 95 90 85 80"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,22 +35,37 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "1400"
+        "special_bonus_facet_abyssal_underlord_summons"   "=50000"
+      }
+      "AbilityCooldown"
+      {
+        "value"                                           "100 95 90 85 80"
+        "special_bonus_scepter"                           "-10"
+        "special_bonus_facet_abyssal_underlord_summons"   "-40"
+      }
       "radius"
       {
         "value"                                           "430"
+        "special_bonus_facet_abyssal_underlord_summons"   "+180"
         "affected_by_aoe_increase"                        "1"
       }
-      "stun_duration"                                     "2.5 2.75 3.0 3.25 3.5"
-      "damage"                                            "300 500 700 1300 1900"
-      "minimum_range"                                     "0"
-      "cooldown_scepter"
+      "stun_duration"
       {
-        "value"                                           "90 85 80 75 70"
-        "RequiresScepter"                                 "1"
+        "value"                                           "2.5 2.75 3.0 3.25 3.5"
+        "special_bonus_facet_abyssal_underlord_summons"   "=0.1"
       }
+      "damage"
+      {
+        "value"                                           "250 450 650 1250 1850"
+        "special_bonus_unique_underlord_9_oaa"            "+450"
+      }
+      "minimum_range"                                     "0"
       "damage_reduction"
       {
-        "value"                                           "30"
+        "value"                                           "35"
         "RequiresScepter"                                 "1"
       }
       "bonus_ms"
@@ -70,7 +80,7 @@
       }
     }
 
-    "Precache"
+    "precache"
     {
       "particle"                                          "particles/units/heroes/heroes_underlord/abyssal_underlord_dark_rift_portal.vpcf"
     }

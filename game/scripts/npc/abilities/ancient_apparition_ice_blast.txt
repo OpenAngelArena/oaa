@@ -62,11 +62,7 @@
         "value"                                           "7"
         "special_bonus_unique_ancient_apparition_ice_vortex_duration"  "+5"
       }
-      "dot_damage" //OAA
-      {
-        "value"                                           "12.0 22.0 32.0 52.0 72.0"
-        "CalculateSpellDamageTooltip"                     "1"
-      }
+      "frost_stacks"                                      "2"
       "speed"                                             "1500"
       "kill_pct" //OAA
       {
@@ -78,7 +74,16 @@
         "value"                                           "0"
         "special_bonus_shard"                             "+60"
       }
-      "target_sight_radius"                               "500"
+      "cold_feet_aoe"
+      {
+        "special_bonus_facet_ancient_apparition_exposure"  "200 350 500 550 600"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "target_sight_radius"
+      {
+        "value"                                           "500"
+        "affected_by_aoe_increase"                        "1"
+      }
     }
   }
 }

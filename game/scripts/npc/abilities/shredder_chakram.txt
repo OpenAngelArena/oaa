@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Shredder: Chakram
+  // Timbersaw: Chakram
   //=================================================================================================================
   "shredder_chakram"
   {
@@ -40,27 +40,36 @@
         "value"                                           "200"
         "affected_by_aoe_increase"                        "1"
       }
-      "pass_damage"                                       "110 200 290 470 830" //OAA
-      "damage_per_second"                                 "50 100 150 250 350" //OAA
+      "pass_damage" //OAA
+      {
+        "value"                                           "110 175 240 370 500"
+      }
+      "damage_per_second"
+      {
+        "value"                                           "50 75 100 175 250"
+      }
       "slow"
       {
         "value"                                           "5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_timbersaw_4"
+        "special_bonus_unique_timbersaw_4"                "+5"
       }
       "damage_interval"                                   "0.5"
-      "break_distance"                                    "2000.0"
+      "break_distance"
+      {
+        "value"                                           "2000.0"
+        "affected_by_aoe_increase"                        "1"
+      }
       "mana_per_second"                                   "14 22 30 38 46"
       "pass_slow_duration"                                "0.5"
       "slow_health_percentage"                            "5"
       "castpoint_scepter"
       {
-        "value"                                           "0.1"
+        "value"                                           "0.15"
         "RequiresScepter"                                 "1"
       }
       "second_chakram"
       {
         "value"                                           "0"
-        "special_bonus_unique_timbersaw"                  "+1"
       }
     }
   }

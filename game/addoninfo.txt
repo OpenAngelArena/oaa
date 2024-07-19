@@ -8,6 +8,7 @@
 		"oaa_legacy",
 		"oaa_bigmode",
 		"tinymode",
+		"10v10",
 	]
 	IsPlayable = 1
 	PenaltiesEnabled = false
@@ -40,7 +41,7 @@
 		},
 		{
 			map = "tinymode"
-			MaxPlayers = 6
+			MaxPlayers = 8
 		},
 	]
 	HideInTools = false

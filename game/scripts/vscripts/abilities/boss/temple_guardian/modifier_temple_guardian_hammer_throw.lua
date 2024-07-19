@@ -129,7 +129,10 @@ end
 
 function modifier_temple_guardian_hammer_throw:OnDestroy()
   if IsServer() then
-    UTIL_Remove( self.hHammer )
+    if self.hHammer then
+      UTIL_Remove( self.hHammer )
+      self.hHammer = false
+    end
     if self.nFXIndex then
       ParticleManager:DestroyParticle( self.nFXIndex, true )
       ParticleManager:ReleaseParticleIndex( self.nFXIndex )

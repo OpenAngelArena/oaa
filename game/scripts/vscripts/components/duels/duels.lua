@@ -196,8 +196,12 @@ function Duels:CheckDuelStatus (event)
 
   local hero = event.killed
 
-  if hero:IsTempestDouble() then
+  if hero:IsTempestDouble() or hero:IsSpiritBearOAA() then
     return
+  end
+
+  if hero:IsClone() then
+    hero = hero:GetCloneSource()
   end
 
   if hero:IsReincarnating() then

@@ -64,6 +64,7 @@ function modifier_magus_oaa:OnCreated()
     keeper_of_the_light_spirit_form_illuminate_end = 1,  -- self grief
     kunkka_return = 1,                                   -- self grief
     life_stealer_infest = 1,                             -- self grief and maybe instant kill, DOTA_UNIT_TARGET_TEAM_CUSTOM
+    life_stealer_consume = 1,                            -- self grief
     meepo_megameepo_fling = 1,                           -- self grief
     meepo_petrify = 1,                                   -- invulnerability
     monkey_king_primal_spring = 1,                       -- breaks ability
@@ -75,6 +76,7 @@ function modifier_magus_oaa:OnCreated()
     muerta_parting_shot = 1,                             -- buggy
     night_stalker_hunter_in_the_night = 1,               -- instant kill
     oracle_false_promise = 1,                            -- invulnerability
+    pangolier_gyroshell_stop = 1,                        -- self grief
     phantom_lancer_doppelwalk = 1,                       -- invulnerability and lag
     phoenix_icarus_dive_stop = 1,                        -- self grief
     phoenix_sun_ray_stop = 1,                            -- self grief
@@ -171,7 +173,7 @@ if IsServer() then
       return
     end
 
-    -- Check if attacker is alive or silenced
+    -- Check if attacker is dead or silenced
     if not attacker:IsAlive() or attacker:IsSilenced() then
       return
     end
@@ -192,7 +194,7 @@ if IsServer() then
       return
     end
 
-    -- Don't proc if passive is on cooldown
+    -- Don't proc if Magus is on cooldown
     if attacker:HasModifier("modifier_magus_cooldown_oaa") then
       return
     end

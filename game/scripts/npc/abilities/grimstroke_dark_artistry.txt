@@ -35,26 +35,83 @@
         "value"                                           "160"
         "affected_by_aoe_increase"                        "1"
       }
-      "projectile_speed"                                  "2000"
       "damage"
       {
         "value"                                           "100 160 220 280 560 1120"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
+        "special_bonus_unique_grimstroke_2"               "+75%"
       }
       "bonus_damage_per_target"
       {
-        "value"                                           "20 30 40 50 100 150"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_2"
-        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_PERCENTAGE_ADD"
+        "value"                                           "20 30 40 50 100 200"
+        "special_bonus_facet_grimstroke_fine_art"         "+0 +5 +10 +15 +20 +25"
+        "special_bonus_unique_grimstroke_2"               "+75%"
       }
       "movement_slow_pct"                                 "50 60 70 80 85 90"
-      "slow_duration"                                     "1.75"
+      "slow_duration"
+      {
+        "value"                                           "1.75"
+      }
       "vision_duration"                                   "2.0"
-      "abilitycastrange"
+      "AbilityCastRange"
       {
         "value"                                           "1400"
-        "LinkedSpecialBonus"                              "special_bonus_unique_grimstroke_3"
+        "special_bonus_unique_grimstroke_3"               "+70%"
+      }
+      "projectile_speed"
+      {
+        "value"                                           "2000"
+        "special_bonus_unique_grimstroke_3"               "+70%"
+      }
+      "vector_stroke"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "=1"
+      }
+      "vector_min_cos_facing_angle"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "-0.99"
+      }
+      "vector_strength"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "0.6"
+      }
+      "vector_max_travel_time_multiplier"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "=5"
+      }
+      "vector_acceptable_radian_to_snap_velocity"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "0.25"
+      }
+      "vector_distance_to_start_force_turning"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "=100"
+      }
+      "vector_deg_turn_divisor"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "=1.3"
+      }
+      "vector_deg_turn_max"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "=60"
+      }
+      "vector_reticle_distance"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "400.0"
+      }
+      "vector_reticle_radius"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_grimstroke_fine_art"         "140.0"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

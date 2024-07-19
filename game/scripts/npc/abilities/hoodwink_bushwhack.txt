@@ -34,16 +34,15 @@
       "trap_radius"
       {
         "value"                                           "265"
-        "special_bonus_unique_hoodwink_bushwhack_radius"  "+135"
         "affected_by_aoe_increase"                        "1"
       }
-      "debuff_duration"                                   "1.4 1.6 1.8 2.0 2.1 2.2"
+      "debuff_duration"                                   "1.4 1.6 1.8 2.0 2.2 2.4"
       "projectile_speed"                                  "1300"
-      "total_damage"
+      "total_damage" //OAA
       {
         "value"                                           "90 180 270 360 720 1440"
         "CalculateSpellDamageTooltip"                     "1"
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_bushwhack_damage"
+        "special_bonus_unique_hoodwink_bushwhack_damage"  "+180"
       }
       "animation_rate"                                    "0.3"
       "visual_height"                                     "50"

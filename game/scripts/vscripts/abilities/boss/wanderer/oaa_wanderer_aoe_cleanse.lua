@@ -118,7 +118,6 @@ function wanderer_aoe_cleanse:OnSpellStart()
     if ward and not ward:IsNull() then
       if ward.HasModifier and ward.IsInvulnerable then
         if not ward:HasModifier("modifier_item_buff_ward") and not ward:IsInvulnerable() then
-          --ward:Kill(self, caster)
           caster:PerformAttack(ward, false, true, true, false, false, false, true)
         end
       end

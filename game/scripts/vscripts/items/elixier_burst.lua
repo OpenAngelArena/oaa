@@ -55,7 +55,7 @@ function modifier_elixier_burst_active:GetEffectAttachType()
 end
 
 function modifier_elixier_burst_active:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_active:OnCreated(keys)
@@ -95,7 +95,7 @@ function modifier_elixier_burst_trigger:RemoveOnDeath()
 end
 
 function modifier_elixier_burst_trigger:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_trigger:OnCreated(keys)
@@ -148,7 +148,7 @@ function modifier_elixier_burst_bonus:GetEffectAttachType()
 end
 
 function modifier_elixier_burst_bonus:GetTexture()
-  return "custom/elixier_burst_2"
+  return "custom/elixier_burst"
 end
 
 function modifier_elixier_burst_bonus:OnCreated(keys)

@@ -36,10 +36,50 @@
     {
       "movespeed"                                         "100"
       "duration"                                          "2 2.3 2.6 2.9 3.2 3.5"
-      "damage_amp"
+      "damage_amp"                
       {
-        "value"                                           "10 15 20 25 25 25"
-        "special_bonus_unique_shadow_shaman_hex_damage_amp"  "+10"
+        "value"                                           "0"
+        "special_bonus_unique_shadow_shaman_hex_damage_amp"  "0"
+      }
+      "can_target_allies"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=1"
+      }
+      "ally_invuln_duration"
+      {
+        "value"                                           "0.0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=0.1"
+      }
+      "ally_voodoo_duration"
+      {
+        "value"                                           "0.0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=2.0"
+      }
+      "ally_invuln_vision_radius"
+      {
+        "value"                                           "0"
+        "affected_by_aoe_increase"                        "1"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=1000"
+      }
+      "ally_chicken_images_count"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "+3"
+      }
+      "ally_chicken_images_take_damage_percent"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=200"
+      }
+      "ally_chicken_movement_speed_bonus_pct"
+      {
+        "value"                                           "0"
+      }
+      "tooltip_damage_incoming_total_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_shaman_cluster_cluck"  "=300"
       }
     }
   }

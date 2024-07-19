@@ -64,9 +64,9 @@
       "bonus_damage"                                      "55 75 115 175 255"
       "bonus_armor"                                       "8 9 11 14 18"
       "bonus_regen"                                       "6 9 12 15 18"
-      "mute_duration"                                     "4.0 4.25 4.5 4.75 5.0"
-      "projectile_speed"                                  "700 800 900 1000 1100"
-      "slow_pct"                                          "80"
+      "mute_duration"                                     "4.0"
+      "projectile_speed"                                  "700 900 1100 1300 1500"
+      "slow_pct"                                          "10 15 20 25 30"
       "slow_interval_duration"                            "0.5"
     }
   }

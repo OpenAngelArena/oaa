@@ -16,11 +16,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "max_stacks"                                        "4" //OAA
+      "max_stacks"                                        "4 6 8 10 10 10"
       "debuff_duration"                                   "4.0"
-      "slow_per_stack"                                    "4 6 8 10 12 14" //OAA
-      "status_resist_per_stack"                           "3 4 5 6 7 8"
-      "chemical_rage_bonus"                               "1.5"
+      "slow_per_stack"                                    "4 5 6 7 8 9"
+      "attack_damage_per_stack"                           "3 4 5 6 7 9" // base damage reduction
     }
   }
 }

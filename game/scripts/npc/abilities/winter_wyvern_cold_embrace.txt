@@ -33,7 +33,7 @@
       "heal_additive"
       {
         "value"                                           "40 45 50 55 110 220"
-        "LinkedSpecialBonus"                              "special_bonus_unique_winter_wyvern_5"
+        "special_bonus_unique_winter_wyvern_5"            "+25"
       }
       "heal_percentage"                                   "2.25 3 3.75 4.5 4.75 5.5"
       "shard_cooldown_reduction"
@@ -43,7 +43,7 @@
       }
       "shard_splinter_range"
       {
-        "value"                                           "1200"
+        "value"                                           "1150"
         "RequiresShard"                                   "1"
         "affected_by_aoe_increase"                        "1"
       }

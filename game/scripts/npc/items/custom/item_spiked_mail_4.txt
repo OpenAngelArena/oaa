@@ -56,7 +56,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "14"
-    "ItemCost"                                            "18003"
+    "ItemCost"                                            "17903"
     "ItemShopTags"                                        "damage;armor;int;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "sm 4;spiked mail 4;spikedmail 4"
@@ -66,38 +66,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "20 40 70 110 160"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_intellect"                                 "25 30 40 55 75"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "7 8 10 13 17"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "5.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "passive_reflection_pct"                          "20"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "active_reflection_pct"                           "85 90 95 100 105"
-      }
+      "bonus_damage"                                      "25 45 75 115 165"
+      "bonus_intellect"                                   "25 30 40 55 75"
+      "bonus_armor"                                       "6 7 9 12 16"
+      "duration"                                          "5.5"
+      "passive_reflection_pct"                            "20"
+      "active_reflection_pct"                             "85 90 95 100 105"
     }
   }
 }

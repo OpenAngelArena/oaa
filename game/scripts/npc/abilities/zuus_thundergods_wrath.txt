@@ -17,7 +17,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120"
+    "AbilityCooldown"                                     "130"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -40,15 +40,19 @@
       "sight_duration"                                    "3.0"
       "damage" //OAA
       {
-        "value"                                           "300 425 550 925 1300"
+        "value"                                           "300 550 800 1175 1550"
         "special_bonus_unique_zeus_4"                     "+250"
       }
-      "damage_pct" //OAA
+      "growing_delay"
       {
-        "value"                                           "6 7 8 9 10"
+        "value"                                           "0"
+        "special_bonus_facet_zuus_divine_rampage"         ".2"
       }
-      "second_strike_delay"                               "0.75" // unused
-      "second_strike_damage_percent"                      "50" // unused
+      "grow_kill_amp"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_zuus_divine_rampage"         "15"
+      }
     }
   }
 }

@@ -8,6 +8,13 @@ function item_vladmirs_grimoire_1:OnSpellStart()
   local caster = self:GetCaster()
   local ability = self
 
+  --local valid_caster = not caster:IsSpiritBearOAA() and not caster:IsTempestDouble()
+  local playerID = UnitVarToPlayerID(caster)
+  local real_hero
+  if playerID ~= -1 then
+    real_hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  end
+
   local units = FindUnitsInRadius(
     caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
@@ -30,13 +37,12 @@ function item_vladmirs_grimoire_1:OnSpellStart()
     local name = unit:GetUnitName()
     local valid_name = name ~= "npc_dota_custom_dummy_unit" and name ~= "npc_dota_elder_titan_ancestral_spirit" and name ~= "aghsfort_mars_bulwark_soldier" and name ~= "npc_dota_monkey_clone_oaa"
     local not_thinker = not unit:HasModifier("modifier_oaa_thinker") and not unit:IsPhantomBlocker()
-
     return not unit:IsCourier() and unit:HasMovementCapability() and not_thinker and valid_name -- and not unit:IsZombie()
   end
 
   iter(units)
     :filter(function (unit)
-      return unit ~= caster and CheckIfValid(unit) and unit:GetPlayerOwnerID() == caster:GetPlayerOwnerID()
+      return unit ~= caster and unit ~= real_hero and CheckIfValid(unit) and unit:GetPlayerOwnerID() == caster:GetPlayerOwnerID()
     end)
     :foreach(function (unit)
       -- Banish modifier
@@ -89,6 +95,28 @@ end
 
 function modifier_item_vladmirs_grimoire_passive:OnCreated()
   self:OnRefresh()
+  if IsServer() then
+    local parent = self:GetParent()
+
+    -- Remove aura effect modifier from units in radius to force refresh
+    local units = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      parent:GetAbsOrigin(),
+      nil,
+      self:GetAuraRadius(),
+      self:GetAuraSearchTeam(),
+      self:GetAuraSearchType(),
+      DOTA_UNIT_TARGET_FLAG_NONE,
+      FIND_ANY_ORDER,
+      false
+    )
+
+    local function RemoveAuraEffect(unit)
+      unit:RemoveModifierByName(self:GetModifierAura())
+    end
+
+    foreach(RemoveAuraEffect, units)
+  end
 end
 
 function modifier_item_vladmirs_grimoire_passive:OnRefresh()
@@ -150,9 +178,9 @@ function modifier_item_vladmirs_grimoire_passive:GetAuraRadius()
   return self.aura_radius or self:GetAbility():GetSpecialValueFor("aura_radius")
 end
 
-function modifier_item_vladmirs_grimoire_passive:GetAuraEntityReject(hTarget)
-  return hTarget:HasModifier("modifier_item_imba_vladmir_blood_aura")
-end
+-- function modifier_item_vladmirs_grimoire_passive:GetAuraEntityReject(hTarget)
+  -- return hTarget:HasModifier("modifier_item_vladmir_aura")
+-- end
 
 function modifier_item_vladmirs_grimoire_passive:GetModifierAura()
   return "modifier_item_vladmirs_grimoire_aura_effect"
@@ -163,8 +191,7 @@ end
 modifier_item_vladmirs_grimoire_aura_effect = class({})
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsHidden()
-  local parent = self:GetParent()
-  return parent:HasModifier("modifier_item_vladmir_aura")
+  return self:GetParent():HasModifier("modifier_item_vladmir_aura")
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsDebuff()
@@ -308,6 +335,16 @@ if IsServer() then
 
     -- Normal lifesteal should not work for spells and magic damage attacks
     if inflictor or event.damage_category == DOTA_DAMAGE_CATEGORY_SPELL or event.damage_type ~= DAMAGE_TYPE_PHYSICAL then
+      return
+    end
+
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
       return
     end
 

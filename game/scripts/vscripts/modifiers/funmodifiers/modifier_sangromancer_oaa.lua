@@ -17,6 +17,10 @@ function modifier_sangromancer_oaa:RemoveOnDeath()
 end
 
 function modifier_sangromancer_oaa:OnCreated()
+  if not IsServer() then
+    return
+  end
+
   local parent = self:GetParent()
   local bad_blood_magic_heroes = {
     "npc_dota_hero_ancient_apparition",
@@ -34,6 +38,7 @@ function modifier_sangromancer_oaa:OnCreated()
     "npc_dota_hero_storm_spirit",
     "npc_dota_hero_tusk",
     "npc_dota_hero_viper",
+    "npc_dota_hero_winter_wyvern",
     "npc_dota_hero_witch_doctor",
   }
 

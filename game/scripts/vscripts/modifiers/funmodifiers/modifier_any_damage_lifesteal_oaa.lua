@@ -111,9 +111,19 @@ if IsServer() then
       return
     end
 
+    -- Don't heal while dead
+    if not attacker:IsAlive() then
+      return
+    end
+
+    -- Check damage if 0 or negative
+    if damage <= 0 then
+      return
+    end
+
     -- Calculate the lifesteal (heal) amount
     local heal_amount = 0
-    if damaged_unit:IsRealHero() then
+    if damaged_unit:IsRealHero() or damaged_unit:IsStrongIllusionOAA() then
       heal_amount = damage * self.hero_lifesteal / 100
     else
       -- Illusions are treated as creeps too

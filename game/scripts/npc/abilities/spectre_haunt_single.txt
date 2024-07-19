@@ -38,6 +38,11 @@
       "illusion_damage_incoming"                          "100 100 100 75 25"
       "tooltip_illusion_total_damage_incoming"            "200 200 200 175 125"
       "attack_delay"                                      "0"
+      "destroy_if_target_is_dead"
+      {
+        "value"                                           "1"
+        "special_bonus_facet_spectre_twist_the_knife"     "=0"
+      }
     }
   }
 }

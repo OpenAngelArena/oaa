@@ -18,7 +18,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.0"
 
     // Time
@@ -27,12 +26,17 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 100 110 120 130 140"
+    "AbilityManaCost"                                     "95 110 125 140 155 170"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "600"
+        "special_bonus_unique_tiny_4"                     "+200"
+      }
       "radius"
       {
         "value"                                           "325 340 355 370 385 400"
@@ -43,12 +47,15 @@
       "tick_count"                                        "5"
       "stun_duration"                                     "0.3"
       "projectile_speed"                                  "1200"
-      "avalanche_damage"
+      "avalanche_damage" //OAA
       {
         "value"                                           "80 160 240 320 640 1280"
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny"
+        "special_bonus_unique_tiny"                       "+160"
       }
-      "toss_multiplier"                                   "2.5" //OAA
+      "toss_damage_bonus_pct" //OAA
+      {
+        "value"                                           "150"
+      }
     }
   }
 

@@ -31,8 +31,7 @@
     {
       "AbilityCooldown"
       {
-        "value"                                           "15 14 13 12 12 12"
-        "special_bonus_unique_bloodseeker"                "-2.5"
+        "value"                                           "15 14 13 12 11 10"
       }
       "radius"
       {
@@ -42,8 +41,18 @@
       "silence_duration"                                  "3 4 5 6 6.5 7"
       "damage"
       {
-        "value"                                           "110 180 250 320 640 1280"
+        "value"                                           "115 190 265 340 680 1360"
         "special_bonus_unique_bloodseeker_2"              "+120"
+      }
+      "heal"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_1"                           "50"
+      }
+      "strong_dispel_count"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_1"                           "3"
       }
       "delay"                                             "2.6"
       "delay_plus_castpoint_tooltip"                      "2.9"

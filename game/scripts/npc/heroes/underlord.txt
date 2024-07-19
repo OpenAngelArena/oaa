@@ -1,0 +1,52 @@
+"DOTAHeroes"
+{
+  //=================================================================================================================
+  // HERO: Underlord
+  //=================================================================================================================
+  "npc_dota_hero_abyssal_underlord"
+  {
+    "Ability5"                                            "abyssal_underlord_cancel_dark_rift_oaa" // replaces generic_hidden
+    "Ability6"                                            "abyssal_underlord_dark_rift_oaa" // replaces abyssal_underlord_dark_portal
+
+    "Ability10"                                           "special_bonus_unique_underlord_7_oaa" // replaces special_bonus_unique_underlord_7
+
+    "Ability17"                                           "special_bonus_unique_underlord_9_oaa" // replaces special_bonus_unique_underlord_9
+
+  // special_bonus_unique_underlord - "+{s:value}s Pit of Malice Root"
+  // special_bonus_unique_underlord_2 - "+{s:value} Firestorm Wave Damage"
+  // special_bonus_unique_underlord_3 - "+{s:value}% Atrophy Aura Attack Damage Reduction"
+  // special_bonus_unique_underlord_4 - "+{s:value}% Firestorm Burn Damage"
+  // special_bonus_unique_underlord_5 - "-{s:value}s Firestorm Cooldown"
+  // special_bonus_unique_underlord_6 - "+{s:value} Pit of Malice AoE"
+  // special_bonus_unique_underlord_7 - "+{s:value} Firestorm Wave Count"             - shard does this
+  // special_bonus_unique_underlord_8 - "+{s:value} Firestorm Radius"
+  // special_bonus_unique_underlord_9 - "+{s:value}% Atrophy Allied Hero Bonus"
+
+    "Facets"
+    {
+      "abyssal_underlord_demons_reach"
+      {
+        "Icon"                                            "area_of_effect"
+        "Color"                                           "Green"
+        "GradientID"                                      "0"
+      }
+
+      "abyssal_underlord_summons"
+      {
+        "Icon"                                            "teleport"
+        "Color"                                           "Blue"
+        "GradientID"                                      "3"
+
+        "Abilities"
+        {
+          "Ability1"
+          {
+            "AbilityName"                                 "abyssal_underlord_innates_oaa"
+            "ReplaceAbility"                              "abyssal_underlord_cancel_dark_rift_oaa"
+            "AutoLevelAbility"                            "false"
+          }
+        }
+      }
+    }
+  }
+}

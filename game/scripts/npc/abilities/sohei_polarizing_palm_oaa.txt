@@ -26,7 +26,7 @@
     "AbilityCastPoint"                                    "0.3"
     "AbilityCastAnimation"                                "ACT_DOTA_OVERRIDE_ABILITY_2"
     "AnimationPlaybackRate"                               "2.5"
-    "AbilityCastRange"                                    "450"
+    "AbilityCastRange"                                    "450" // same as Flurry of Blows radius
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
@@ -56,14 +56,21 @@
     "AbilityValues" // if needed create variables: trees_radius, buildings_radius, blockers_radius, heroes_radius
     {
       "damage"                                            "90 160 230 300 600 1200"
-      "strength_damage"                                   "60 90 120 150 180 210"
-      "push_pull_length"                                  "300 325 350 375 400 450"
+      "strength_damage"
+      {
+        "value"                                           "60 90 120 150 180 210"
+        "LinkedSpecialBonus"                              "special_bonus_unique_sohei_9"
+      }
+      "push_pull_length"                                  "400" // lower than Flurry of Blows radius
       "push_pull_speed"                                   "1200"
       "stun_duration"
       {
-        "value"                                           "1.0 1.2 1.4 1.6 1.8 2.0"
+        "value"                                           "1.2 1.4 1.6 1.8 2.0 2.2"
         "LinkedSpecialBonus"                              "special_bonus_sohei_stun"
       }
+      "slow_duration"                                     "0.6"
+      "move_speed_slow_pct"                               "100"
+      "attack_speed_slow"                                 "100"
     }
   }
 }

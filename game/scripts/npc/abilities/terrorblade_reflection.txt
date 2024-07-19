@@ -22,15 +22,18 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityManaCost"
+      {
+        "value"                                           "35 40 45 50 55 60"
+      }
       "AbilityCooldown" //OAA
       {
-        "value"                                           "19 18 17 16 15 14"
+        "value"                                           "17 16 15 14 13 12"
         "special_bonus_unique_terrorblade_2"              "-4"
       }
       "illusion_duration"
@@ -39,12 +42,12 @@
       }
       "illusion_outgoing_damage"
       {
-        "value"                                           "-45 -30 -15 0 30 75"
+        "value"                                           "-60 -40 -20 0 40 80"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "illusion_outgoing_tooltip"
       {
-        "value"                                           "55 70 85 100 130 175"
+        "value"                                           "40 60 80 100 140 180"
         "special_bonus_unique_terrorblade_6"              "+10"
       }
       "move_slow"
@@ -59,8 +62,16 @@
       }
       "range"
       {
-        "value"                                           "500"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
+      }
+      "is_global"
+      {
+        "value"                                           "0"
+      }
+      "requires_vision"
+      {
+        "value"                                           "0"
       }
     }
   }

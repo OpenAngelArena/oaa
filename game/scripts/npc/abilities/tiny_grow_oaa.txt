@@ -10,7 +10,6 @@
     "AbilityTextureName"                                  "tiny_grow"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilitySound"                                        "Tiny.Grow"
 
     "MaxLevel"                                            "5"
     "RequiredLevel"                                       "6"
@@ -23,23 +22,20 @@
       "bonus_armor"                                       "10 17 24 31 38" // for the tooltip
       "bonus_damage"
       {
-        "value"                                           "50 110 170 230 290" // for the tooltip
+        "value"                                           "60 120 180 240 300" // for the tooltip
         "CalculateSpellDamageTooltip"                     "0"
       }
-      "tree_bonus_damage_pct"
+      "attack_speed_reduction" // for the tooltip
       {
-        "value"                                           "0" // for the tooltip
-        "special_bonus_unique_tiny_7"                     "+40"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
-        "CalculateSpellDamageTooltip"                     "0"
+        "value"                                           "-30"
+        "special_bonus_unique_tiny_6"                     "+10"
       }
-      "attack_speed_reduction"                            "-30" // for the tooltip
       "toss_bonus_damage" // for the tooltip
       {
         "value"                                           "100 300 500 1100 1700"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
       }
-      "slow_resistance"                                   "15 30 45 50 55" // for the tooltip
+      "move_speed"                                        "10 20 30 40 50" // for the tooltip
 
       "bonus_armor_oaa"                                   "0 0 0 7 14" // bonus_armor - bonus_armor(at lvl 3)
       "bonus_damage_oaa"                                  "0 0 0 60 120" // bonus_damage - bonus_damage(at lvl 3)
@@ -48,7 +44,7 @@
       //"attack_speed_reduction_oaa"                        "0 0 0 10 20" // attack_speed_reduction - attack_speed_reduction(at lvl 3)
       "model_scale_oaa"                                   "0 0 0 20 40"
       "bonus_toss_damage_oaa"                             "0 0 0 600 1200" // toss_bonus_damage - toss_bonus_damage(at lvl 3)
-      "bonus_slow_resistance"                             "0 0 0 5 10" // slow_resistance - slow_resistance(at lvl 3)
+      "bonus_move_speed_oaa"                              "0 0 0 10 20" // move_speed - move_speed(at lvl 3)
     }
   }
 }

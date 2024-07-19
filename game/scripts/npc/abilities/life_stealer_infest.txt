@@ -63,7 +63,7 @@
       "AbilityCastRange"
       {
         "value"                                           "150"
-        "special_bonus_scepter"                           "+350"
+        "special_bonus_scepter"                           "+250"
       }
       "attack_rate_enemy"
       {
@@ -74,6 +74,11 @@
       {
         "value"                                           "60 55 50 45 40"
         "special_bonus_scepter"                           "=20"
+      }
+      "open_wounds_duration_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_shard"                             "+50"
       }
     }
   }

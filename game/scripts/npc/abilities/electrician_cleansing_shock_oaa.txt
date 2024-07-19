@@ -33,7 +33,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "25 35 45 55 65"
+    "AbilityManaCost"                                     "25 30 35 40 45"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -53,18 +53,18 @@
       }
       "bounces_scepter"
       {
-        "value"                                           "1 2 3 4 5"
+        "value"                                           "1 3 5 7 9"
         "RequiresScepter"                                 "1"
       }
       "summon_illusion_damage_scepter" // original: 700/850/1000
       {
-        "value"                                           "300 500 700 1300 1900"
-        "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
+        "value"                                           "400 600 800 1000 1200"
+        "DamageTypeTooltip"                               "DAMAGE_TYPE_PURE"
         "RequiresScepter"                                 "1"
       }
       "mana_cost_scepter"
       {
-        "value"                                           "0"
+        "value"                                           "25 30 35 40 45"
         "RequiresScepter"                                 "1"
       }
     }

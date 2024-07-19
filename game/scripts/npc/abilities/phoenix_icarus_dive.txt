@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "26" //OAA
+    "AbilityCooldown"                                     "16 15 14 13 12 11" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
       "dash_length"
       {
         "value"                                           "1100 1200 1300 1400 1500 1600"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_4"
+        "special_bonus_unique_phoenix_4"                  "+1000"
       }
       "dash_width"
       {
@@ -47,16 +47,16 @@
         "affected_by_aoe_increase"                        "1"
       }
       "burn_duration"                                     "4"
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
-        "value"                                           "15 35 55 75 150 300"
+        "value"                                           "30 45 60 75 150 300"
         "special_bonus_unique_phoenix_dive_damage"        "+20"
       }
       "burn_tick_interval"                                "0.2"
       "slow_movement_speed_pct"
       {
         "value"                                           "16 19 22 25 28 31"
-        "LinkedSpecialBonus"                              "special_bonus_unique_phoenix_6"
+        "special_bonus_unique_phoenix_6"                  "+25"
       }
       "dive_duration"                                     "2.0"
     }

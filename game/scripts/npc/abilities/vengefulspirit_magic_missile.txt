@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "12 11 10 9 8 8" //OAA
+    "AbilityCooldown"                                     "13 12 11 10 9 8" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,18 +35,27 @@
     "AbilityValues"
     {
       "magic_missile_speed"                               "1350"
-      "magic_missile_stun"                                "1.4 1.5 1.6 1.7 1.8 1.9"
+      "magic_missile_stun"
+      {
+        "value"                                           "1.1 1.3 1.5 1.7 1.8 1.9"
+        "special_bonus_unique_vengeful_spirit_1"          "+0.3"              
+      }
       "magic_missile_damage" //OAA
       {
-        "value"                                           "90 180 270 360 720 1440"
-        "special_bonus_unique_vengeful_spirit_1"          "+400"
+        "value"                                           "85 170 255 340 680 1360"
+        "special_bonus_unique_vengeful_spirit_1"          "+300"
       }
       "AbilityCastRange"
       {
         "value"                                           "650"
-        "special_bonus_unique_vengeful_spirit_missile_castrange"  "+125"
+        "special_bonus_unique_vengeful_spirit_missile_castrange"  "+100"
       }
       "bounce_range_pct"                                  "75"
+      "damage_per_lasthit"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_vengefulspirit_avenging_missile"  "+0.75"
+      }
     }
   }
 }

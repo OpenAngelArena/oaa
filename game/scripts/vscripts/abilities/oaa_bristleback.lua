@@ -68,6 +68,37 @@ function bristleback_bristleback_oaa:OnHeroCalculateStatBonus()
   end
 end
 
+--[[
+function bristleback_bristleback_oaa:OnProjectileHit(target, location)
+  local caster = self:GetCaster()
+
+  if not target or target:IsInvulnerable() then
+    return true
+  end
+
+  -- Check for Viscous Nasal Goo ability
+  local goo = caster:FindAbilityByName("bristleback_viscous_nasal_goo")
+
+  if not goo then
+    return true
+  end
+
+  local hero_duration = goo:GetSpecialValueFor("goo_duration")
+  local creep_duration = goo:GetSpecialValueFor("goo_duration_creep")
+
+  -- Apply built-in modifier
+  if target:IsHero() then
+    target:AddNewModifier(caster, goo, "modifier_bristleback_viscous_nasal_goo", {duration = hero_duration})
+  else
+    target:AddNewModifier(caster, goo, "modifier_bristleback_viscous_nasal_goo", {duration = creep_duration})
+  end
+
+  target:EmitSound("Hero_Bristleback.ViscousGoo.Target")
+
+  return true
+end
+]]
+
 ---------------------------------------------------------------------------------------------------
 
 modifier_bristleback_oaa = class(ModifierBaseClass)
@@ -184,6 +215,50 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
 
   -- Don't release Quill Sprays on illusions
   if not parent:IsIllusion() then
+    --[[
+    local facet = parent:GetHeroFacetID()
+    if tostring(facet) == "2" then
+      -- Check for Viscous Nasal Goo ability
+      local goo = parent:FindAbilityByName("bristleback_viscous_nasal_goo")
+      if goo and goo:GetLevel() ~= 0 then
+        -- If the amount of damage taken since the last Goo proc is equal to or exceeds what's defined as the threshold, release Goo.
+        if parent.quill_threshold_counter_oaa >= ability:GetSpecialValueFor("quill_release_threshold") and ability:IsCooldownReady() then
+          local goo_radius = ability:GetSpecialValueFor("goo_radius")
+          local projectile_name = "particles/units/heroes/hero_bristleback/bristleback_viscous_nasal_goo.vpcf"
+          local projectile_speed = goo:GetSpecialValueFor("goo_speed")
+
+          local info = {
+            Source = parent,
+            Ability = ability,
+            EffectName = projectile_name,
+            iMoveSpeed = projectile_speed,
+            bDodgeable = true,
+          }
+          local enemies = FindUnitsInRadius(
+            parent:GetTeamNumber(),
+            parent:GetAbsOrigin(),
+            nil,
+            goo_radius,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            bit.bor(DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_BASIC),
+            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+            FIND_ANY_ORDER,
+            false
+          )
+          for _, enemy in pairs(enemies) do
+            if enemy and not enemy:IsNull() then
+              info.Target = enemy
+              ProjectileManager:CreateTrackingProjectile(info)
+            end
+          end
+          -- Start cooldown for Bristleback passive (OAA unique)
+          ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+          -- Reset the damage counter
+          parent.quill_threshold_counter_oaa = 0
+        end
+      end
+    else
+    ]]
     -- Check for Quill Spray ability
     local quill_spray_ability = parent:FindAbilityByName("bristleback_quill_spray")
     if quill_spray_ability and quill_spray_ability:GetLevel() ~= 0 then
@@ -197,6 +272,7 @@ function modifier_bristleback_oaa:GetModifierTotal_ConstantBlock(keys)
         parent.quill_threshold_counter_oaa = 0
       end
     end
+    --end
   end
 
   return blocked_damage

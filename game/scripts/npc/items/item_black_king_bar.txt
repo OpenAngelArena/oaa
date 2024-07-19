@@ -40,7 +40,7 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/black_king_bar.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityTextureName"                                  "custom/black_king_bar"
+    "AbilityTextureName"                                  "custom/black_king_bar_1"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
@@ -71,7 +71,7 @@
       "bonus_damage"                                      "25 35 55 85 125"
       "duration"                                          "7"
       "model_scale"                                       "30"     // Percentage over model scale
-      "magic_resist"                                      "50 55 60 65 70"
+      "magic_resist"                                      "60 65 70 75 80"
     }
   }
 }

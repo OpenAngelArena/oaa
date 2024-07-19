@@ -25,31 +25,39 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_speed"                                       "25 30 35 40 45 50"
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "20 19 18 17 16 15"
+        "special_bonus_unique_slardar_7"                  "-2"
+      }
+      "bonus_speed"                                       "10 20 30 40 50 60"
       "duration"                                          "10"
-      "river_speed"                                       "18"
-      "puddle_regen"
+      "speed_burst_percent"
       {
-        "value"                                           "2 4 6 8 12 18"
-        "special_bonus_scepter"                           "+22"
+        "value"                                           "0"
+        "special_bonus_facet_slardar_leg_day"             "+8"
+        "RequiresFacet"                                   "slardar_leg_day"
       }
-      "puddle_armor"
+      "speed_burst_duration"
       {
-        "value"                                           "1 2 3 4 6 9"
-        "special_bonus_scepter"                           "+11"
+        "value"                                           "0"
+        "special_bonus_facet_slardar_leg_day"             "5.0"
       }
-      "puddle_status_resistance"
+      "speed_burst_max_duration"
       {
-        "value"                                           "40"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_facet_slardar_leg_day"             "2.0"
       }
-      "river_speed_tooltip"                               "18" // Valve gave up on calculating total bonus move speed on the river
+      "slow_resistance_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_slardar_leg_day"             "=100"
+      }
     }
   }
 }

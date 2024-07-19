@@ -9,10 +9,14 @@
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_damage_tooltip"          "ATTACK DAMAGE:"
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_attack_range_tooltip"    "ATTACK RANGE:"
 // "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip"  "HITS TO DESTROY:"
-// "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip_creeps"  "CREEP HITS TO DESTROY:"
+// "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_ward_health"             "CREEP HITS TO DESTROY:"
 
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa"                      "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward}"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_Description"          "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description}\n<font color='#FFA500'>Wards do full damage to heroes and bonus magic damage against Bosses.</font>"
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_Facet_shadow_shaman_massive_serpent_ward"  "Summons a single massive Serpent Ward with %bonus_mega_ward_multiplier_tooltip%x damage and bounty values and %mega_ward_health_tooltip%x health."
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Facet_shadow_shaman_massive_serpent_ward"  " "
+
+
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_scepter_description"  "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_scepter_description}"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_Lore"                 "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Lore}"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_duration"             "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_duration}"
@@ -20,4 +24,4 @@
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_bonus_damage_against_bosses"  "%<font color='#FFA500'>WARD BONUS DAMAGE AGAINST BOSSES:</font>"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_attack_range_tooltip"  "WARD ATTACK RANGE:"
 "DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_hits_to_destroy_tooltip"  "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip}"
-"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_hits_to_destroy_tooltip_creeps"  "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_hits_to_destroy_tooltip_creeps}"
+"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_oaa_ward_health"          "#{DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_ward_health}"

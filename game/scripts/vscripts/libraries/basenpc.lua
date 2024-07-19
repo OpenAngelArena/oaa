@@ -57,6 +57,8 @@ if IsServer() then
       "modifier_invoker_deafening_blast_disarm",
       "modifier_maledict",
       "modifier_obsidian_destroyer_astral_imprisonment_prison",
+      "modifier_queenofpain_sonic_wave_damage",
+      "modifier_queenofpain_sonic_wave_knockback",
       "modifier_razor_eye_of_the_storm_armor",  -- Eye of the Storm stacks
       "modifier_razor_static_link_debuff",
       "modifier_sand_king_caustic_finale_orb",  -- Caustic Finale initial debuff
@@ -105,14 +107,14 @@ if IsServer() then
       "modifier_item_silver_edge_windwalk",
       "modifier_item_sphere_target",                 -- Linken's Sphere transferred buff
       -- custom:
-      "modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
+      --"modifier_eternal_shroud_oaa_barrier",         -- Eternal Shroud active buff
       "modifier_item_butterfly_oaa_active",          -- Butterfly active buff
       "modifier_item_dagger_of_moriah_sangromancy",  -- Dagger of Moriah active buff
       "modifier_item_dispel_orb_active",             -- Dispel Orb buff
       "modifier_item_heart_oaa_active",              -- Heart active buff
       --"modifier_item_heart_transplant_buff",       -- Heart Transplant buff
       "modifier_item_martyrs_mail_martyr_active",    -- Martyr's Mail buff
-      "modifier_item_reduction_orb_active",          -- Reduction Orb buff
+      --"modifier_item_reduction_orb_active",          -- Reduction Orb buff
       "modifier_item_reflex_core_invulnerability",   -- Reflex Core buff
       "modifier_item_regen_crystal_active",          -- Regen Crystal buff
       "modifier_satanic_core_unholy",                -- Satanic Core buff
@@ -121,7 +123,6 @@ if IsServer() then
       "modifier_item_vampire_active",                -- Vampire Fang active buff
       --"modifier_pull_staff_active_buff",           -- Pull Staff motion controller
       --"modifier_shield_staff_active_buff",         -- Force Shield Staff motion controller
-      "modifier_shield_staff_barrier_buff",          -- Force Shield Staff buff
     }
 
     local undispellable_ability_buffs = {
@@ -140,7 +141,6 @@ if IsServer() then
       "modifier_juggernaut_blade_fury",
       "modifier_kunkka_ghost_ship_damage_absorb",
       "modifier_kunkka_ghost_ship_damage_delay",
-      "modifier_leshrac_diabolic_edict",        -- Removes only one instance
       "modifier_life_stealer_rage",
       "modifier_lone_druid_true_form_battle_cry",
       "modifier_luna_eclipse",
@@ -148,14 +148,15 @@ if IsServer() then
       "modifier_mirana_moonlight_shadow",
       "modifier_nyx_assassin_spiked_carapace",
       "modifier_nyx_assassin_vendetta",
+      "modifier_omniknight_martyr",
       "modifier_oracle_false_promise_timer",
       "modifier_pangolier_shield_crash_buff",
       "modifier_phantom_assassin_blur_active",
       "modifier_phoenix_supernova_hiding",
       "modifier_rattletrap_battery_assault",
-      "modifier_razor_eye_of_the_storm",        -- Removes only one instance
       "modifier_razor_static_link_buff",
       "modifier_skeleton_king_reincarnation_scepter_active", -- Wraith King Wraith Form
+      "modifier_skywrath_mage_shard_bonus_counter",
       "modifier_slark_shadow_dance",
       "modifier_templar_assassin_refraction_absorb",
       "modifier_templar_assassin_refraction_damage",
@@ -168,6 +169,12 @@ if IsServer() then
       -- custom:
       "modifier_alpha_invisibility_oaa_buff",   -- Neutral Alpha Wolf invisibility buff
       "modifier_sohei_flurry_self",
+    }
+
+    local buffs_with_multiple_instances = {
+      "modifier_leshrac_diabolic_edict",
+      "modifier_razor_eye_of_the_storm",
+      "modifier_skywrath_mage_shard_bonus",
     }
 
     local undispellable_rune_modifiers = {
@@ -224,6 +231,10 @@ if IsServer() then
     RemoveTableOfModifiersFromUnit(self, undispellable_item_buffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_ability_buffs)
     RemoveTableOfModifiersFromUnit(self, undispellable_rune_modifiers)
+
+    for i = 1, #buffs_with_multiple_instances do
+      self:RemoveAllModifiersOfName(buffs_with_multiple_instances[i])
+    end
 
     -- Dispel bools
     local BuffsCreatedThisFrameOnly = false
@@ -303,9 +314,13 @@ if CDOTA_BaseNPC then
 
   function CDOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -324,7 +339,8 @@ if CDOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)
@@ -351,6 +367,18 @@ if CDOTA_BaseNPC then
         end
       end
 
+      -- Time Zone always pierces debuff immunity
+      local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+      if time_zone then
+        local caster = time_zone:GetCaster()
+        if caster then
+          -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+          if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+            return true
+          end
+        end
+      end
+
       return false
     end
 
@@ -370,6 +398,18 @@ if CDOTA_BaseNPC then
         end
       end
     end
+
+    local time_zone = self:FindModifierByName("modifier_faceless_void_time_zone_effect")
+    if time_zone then
+      local caster = time_zone:GetCaster()
+      if caster then
+        -- modifier_faceless_void_time_zone_effect affect both allies and enemies so we check for team
+        if self:GetTeamNumber() ~= caster:GetTeamNumber() then
+          return true
+        end
+      end
+    end
+
     return false
   end
 end
@@ -404,9 +444,13 @@ if C_DOTA_BaseNPC then
 
   function C_DOTA_BaseNPC:IsStrongIllusionOAA()
     local strong_illus = {
-      "modifier_chaos_knight_phantasm_illusion",
+      --"modifier_chaos_knight_phantasm_illusion",
       "modifier_vengefulspirit_hybrid_special",
-      "modifier_chaos_knight_phantasm_illusion_shard",
+      --"modifier_chaos_knight_phantasm_illusion_shard",
+      "modifier_chaos_knight_phantasmagoria",
+      "modifier_morphling_replicate_illusion",
+      --"modifier_morphling_replicate_morphed_illusions_effect",
+      "modifier_grimstroke_scepter_buff",
     }
     for _, v in pairs(strong_illus) do
       if self:HasModifier(v) then
@@ -425,7 +469,8 @@ if C_DOTA_BaseNPC then
       "modifier_slark_pounce_leash",
       "modifier_tidehunter_anchor_clamp",
       -- custom:
-      "modifier_tinkerer_laser_contraption_debuff",
+      --"modifier_tinkerer_laser_contraption_debuff",
+      "modifier_mars_arena_of_blood_leash_oaa",
     }
 
     -- Check for Leash immunities first (Sonic for example)

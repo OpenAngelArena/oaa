@@ -1,64 +1,55 @@
 LinkLuaModifier("modifier_boss_slime_split_passive", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
-
---------------------------------------------------------------------------------
+LinkLuaModifier("modifier_boss_slime_invulnerable_oaa", "abilities/boss/slime/boss_slime_split.lua", LUA_MODIFIER_MOTION_NONE)
 
 boss_slime_split = class(AbilityBaseClass)
-
---------------------------------------------------------------------------------
 
 function boss_slime_split:GetIntrinsicModifierName()
 	return "modifier_boss_slime_split_passive"
 end
 
-------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 modifier_boss_slime_split_passive = class(ModifierBaseClass)
 
-
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_split_passive:GetModifierModelChange()
-	return "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+function modifier_boss_slime_split_passive:IsHidden()
+  return true
 end
 
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_split_passive:DeclareFunctions()
-  return {
-    MODIFIER_PROPERTY_MODEL_CHANGE,
-    MODIFIER_PROPERTY_MIN_HEALTH,
-    MODIFIER_EVENT_ON_DEATH,
-    MODIFIER_PROPERTY_MODEL_SCALE,
-    MODIFIER_EVENT_ON_TAKEDAMAGE
-  }
+function modifier_boss_slime_split_passive:IsDebuff()
+  return false
 end
 
-------------------------------------------------------------------------------------
-
-function modifier_boss_slime_split_passive:GetPriority()
-  return MODIFIER_PRIORITY_SUPER_ULTRA
+function modifier_boss_slime_split_passive:IsPurgable()
+  return false
 end
-
-------------------------------------------------------------------------------------
 
 function modifier_boss_slime_split_passive:RemoveOnDeath()
 	return true
 end
 
-------------------------------------------------------------------------------------
+function modifier_boss_slime_split_passive:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_MIN_HEALTH, -- GetMinHealth
+    MODIFIER_PROPERTY_MODEL_CHANGE, -- GetModifierModelChange
+    MODIFIER_PROPERTY_MODEL_SCALE, -- GetModifierModelScale
+    MODIFIER_EVENT_ON_TAKEDAMAGE, -- OnTakeDamage
+    MODIFIER_EVENT_ON_DEATH, -- OnDeath
+  }
+end
 
 function modifier_boss_slime_split_passive:GetMinHealth()
-	if self.readyToDie then return nil end
-	return 1.0
+  if not self.readyToDie then
+    return 1
+  end
 end
 
-------------------------------------------------------------------------------------
+function modifier_boss_slime_split_passive:GetModifierModelChange()
+  return "models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+end
 
 function modifier_boss_slime_split_passive:GetModifierModelScale()
-	return 150.0
+  return 150
 end
-
-------------------------------------------------------------------------------------
 
 if IsServer() then
   function modifier_boss_slime_split_passive:OnTakeDamage(event)
@@ -91,7 +82,7 @@ if IsServer() then
           OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
           AbilityIndex = shakeAbility:entindex(),
         })
-        parent:AddNewModifier(parent, shakeAbility, "modifier_invulnerable", {})
+        parent:AddNewModifier(parent, shakeAbility, "modifier_boss_slime_invulnerable_oaa", {})
         -- Do stuff after a delay
         self:StartIntervalThink(shakeAbility:GetChannelTime())
       end
@@ -100,19 +91,35 @@ if IsServer() then
 
   function modifier_boss_slime_split_passive:OnIntervalThink()
     local parent = self:GetParent()
+    --local ability = self:GetAbility()
     self.readyToDie = true
     self:StartIntervalThink(-1)
-    parent:RemoveModifierByName("modifier_invulnerable")
+    if not parent or parent:IsNull() then
+      return
+    end
+    parent:RemoveModifierByName("modifier_boss_slime_invulnerable_oaa")
+    parent:AddNoDraw()
+    if parent.SetClones then
+      parent:SetClones(
+        self:CreateClone(parent:GetAbsOrigin() + Vector( 100,0,0)),
+        self:CreateClone(parent:GetAbsOrigin() + Vector(-100,0,0))
+      )
+    end
     Timers:CreateTimer(function()
       if parent and not parent:IsNull() then
-        parent:Kill(nil, parent)
+        --parent:Kill(ability, parent) -- crashes
+        parent:ForceKillOAA(false)
       end
     end)
   end
 
-  function modifier_boss_slime_split_passive:OnDeath(keys)
+  -- Needed for deaths not caused by ForceKill, OnDeath ignores ForceKill deaths
+  function modifier_boss_slime_split_passive:OnDeath(event)
     local caster = self:GetParent()
-    if keys.unit:entindex() == caster:entindex() then
+    if not caster then
+      return
+    end
+    if event.unit == caster then
       if caster.SetClones then
         caster:SetClones(
           self:CreateClone(caster:GetAbsOrigin() + Vector( 100,0,0)),
@@ -124,8 +131,6 @@ if IsServer() then
   end
 end
 
-------------------------------------------------------------------------------------
-
 function modifier_boss_slime_split_passive:CreateClone(origin)
   local caster = self:GetParent()
   local unitName = caster:GetUnitName()
@@ -134,8 +139,58 @@ function modifier_boss_slime_split_passive:CreateClone(origin)
   for i = DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_6 do
     local item = caster:GetItemInSlot(i)
     if item then
-      clone:AddItem(CreateItem(item:GetName(), clone, clone))
+      --clone:AddItem(CreateItem(item:GetName(), clone, clone))
+      clone:AddItemByName(item:GetName())
     end
   end
   return clone
+end
+
+---------------------------------------------------------------------------------------------------
+
+modifier_boss_slime_invulnerable_oaa = class(ModifierBaseClass)
+
+function modifier_boss_slime_invulnerable_oaa:IsHidden()
+  return true
+end
+
+function modifier_boss_slime_invulnerable_oaa:IsDebuff()
+  return false
+end
+
+function modifier_boss_slime_invulnerable_oaa:IsPurgable()
+  return false
+end
+
+function modifier_boss_slime_invulnerable_oaa:DeclareFunctions()
+  return {
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+    MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
+  }
+end
+
+function modifier_boss_slime_invulnerable_oaa:GetAbsoluteNoDamageMagical()
+  return 1
+end
+
+function modifier_boss_slime_invulnerable_oaa:GetAbsoluteNoDamagePhysical()
+  return 1
+end
+
+function modifier_boss_slime_invulnerable_oaa:GetAbsoluteNoDamagePure()
+  return 1
+end
+
+function modifier_boss_slime_invulnerable_oaa:CheckState()
+  return {
+    [MODIFIER_STATE_ATTACK_IMMUNE] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    [MODIFIER_STATE_UNSELECTABLE] = true,
+  }
 end

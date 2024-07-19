@@ -34,48 +34,54 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "tick_interval"                                     "0.1"
+      "total_damage"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "tick_interval"                                   "0.1"
+        "value"                                           "70 140 210 280 560 1120"
+        "special_bonus_unique_shadow_shaman_6"            "+170"
       }
-      "02"
+      "channel_time"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "total_damage"                                    "75 150 225 300 600 1200"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_6"
+        "value"                                           "2.4 3.0 3.6 4.2 4.5 4.8"
+        "special_bonus_unique_shadow_shaman_2"            "+1.0"
       }
-      "03"
+      "shard_bonus_cast_range"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "channel_time"                                    "2.4 3.0 3.6 4.2 4.5 4.8"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_shaman_2"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_cast_range"                          "75"
+        "value"                                           "75"
         "RequiresShard"                                   "1"
       }
-      "05"
+      "shard_ward_count"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_ward_count"                                "4"
+        "value"                                           "4"
         "RequiresShard"                                   "1"
       }
-      "06" // Valve Spring Breaking
+      "shard_ward_spawn_distance"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_ward_duration"                             "6"
+        "value"                                           "100"
         "RequiresShard"                                   "1"
       }
-      "06"
+      "ward_linger_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_ward_spawn_distance"                       "100"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=1.5"
+      }
+      "bonus_targets"
+      {
+        "value"                                           "0"
+      }
+      "bonus_targets_search_range"
+      {
+        "value"                                           "0"
+      }
+      "bonus_target_channel_time_pct"
+      {
+        "value"                                           "0"                 // currently, damage done is calculated using base channel time, so 60% duration = 60% damage
+      }
+      "heal_percentage"
+      {
+        "value"                                           "100"
       }
     }
   }

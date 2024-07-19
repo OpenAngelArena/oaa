@@ -21,7 +21,6 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityDuration"                                     "2.75"
-    "AbilityCooldown"                                     "23 22 21 20 19 18" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -39,21 +38,31 @@
       "disruption_duration"
       {
         "value"                                           "2.75"
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_5"
       }
       "illusion_duration"                                 "11 12 13 14 16 18"
       "illusion_outgoing_damage"                          "-80.0 -70.0 -60.0 -50.0 -30.0 0.0"
       "illusion_outgoing_tooltip"                         "20.0 30.0 40.0 50.0 70.0 100.0"
-      "illusion_flat_damage"                              "40 50 60 70 90 130"
+      "illusion_flat_damage"                              "30 40 50 60 80 120"
       "illusion_incoming_damage"                          "200 175 150 125 75 25" //OAA
       "tooltip_total_illusion_incoming_damage"            "300 275 250 225 175 125" //OAA
+      "AbilityCooldown" //OAA
+      {
+        "value"                                           "23 22 21 20 19 18"
+        "special_bonus_unique_shadow_demon_7"             "=0.25"
+      }
       "AbilityCharges"
       {
         "value"                                           ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_shadow_demon_7"
+        "special_bonus_unique_shadow_demon_7"             "+2"
       }
+      "AbilityChargeRestoreTime"                          "23 22 21 20 19 18" //OAA
       "illusion_bounty_base"                              "0"
       "illusion_bounty_growth"                            "2"
+      "can_cast"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_shadow_demon_disruption_cast"  "+1"
+      }
     }
   }
 }

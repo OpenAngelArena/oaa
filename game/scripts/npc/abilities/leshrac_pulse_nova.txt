@@ -33,18 +33,18 @@
       "mana_cost_per_second"                              "30 50 70 90 110" //OAA
       "radius"
       {
-        "value"                                           "525"
+        "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
       "damage" //OAA
       {
-        "value"                                           "100 150 200 350 600"
-        "LinkedSpecialBonus"                              "special_bonus_unique_leshrac_3"
+        "value"                                           "90 140 190 340 490"
+        "special_bonus_unique_leshrac_3"                  "+50"
       }
-      "damage_resistance"
+      "damage_resistance" //OAA
       {
         "value"                                           "0"
-        "special_bonus_unique_leshrac_4"                  "+20"
+        "special_bonus_unique_leshrac_4"                  "+10"
       }
       "bonus_movespeed"
       {

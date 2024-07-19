@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120 110 100 95 90"
+    "AbilityCooldown"                                     "120 110 100 90 80"
     "AbilityDuration"                                     "5.5"
 
     // Cost
@@ -54,7 +54,7 @@
       "damage_per_impact" //OAA
       {
         "value"                                           "180 360 540 1080 1620"
-        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+60"
+        "special_bonus_unique_snapfire_mortimer_kisses_impact_damage"  "+180"
       }
       "duration_tooltip"                                  "5.5"
       "projectile_vision"
@@ -67,12 +67,12 @@
       "burn_damage" //OAA
       {
         "value"                                           "60 100 140 260 380"
+        "special_bonus_unique_snapfire_5"                 "+20"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "move_slow_pct"
       {
         "value"                                           "15 20 25 30 35"
-        "special_bonus_unique_snapfire_4"                 "+20"
       }
       "burn_ground_duration"                              "3.0"
       "dist_change_speed"                                 "75"

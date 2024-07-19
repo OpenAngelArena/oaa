@@ -109,6 +109,7 @@ if IsServer() then
     local hp_per_level = ability:GetSpecialValueFor("spiderling_hp_per_level")
     local base_armor = ability:GetSpecialValueFor("spiderling_base_armor")
     local armor_per_level = ability:GetSpecialValueFor("spiderling_armor_per_level")
+    local magic_resist_per_level = ability:GetSpecialValueFor("spiderling_magic_resist_per_level")
     local base_speed = ability:GetSpecialValueFor("spiderling_speed")
     local base_damage = ability:GetSpecialValueFor("spiderling_base_attack_damage")
     local damage_per_level = ability:GetSpecialValueFor("spiderling_attack_damage_per_level")
@@ -158,11 +159,13 @@ if IsServer() then
     local dmg_talent = parent:FindAbilityByName("special_bonus_unique_broodmother_4_oaa")
 
     if hp_talent and hp_talent:GetLevel() > 0 then
-      base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
+      --base_hp = base_hp + hp_talent:GetSpecialValueFor("value")
+      hp_per_level = hp_per_level + hp_talent:GetSpecialValueFor("value")
     end
 
     if dmg_talent and dmg_talent:GetLevel() > 0 then
-      base_damage = base_damage + dmg_talent:GetSpecialValueFor("value")
+      --base_damage = base_damage + dmg_talent:GetSpecialValueFor("value")
+      damage_per_level = damage_per_level + dmg_talent:GetSpecialValueFor("value")
     end
 
     local level = parent:GetLevel()
@@ -171,7 +174,8 @@ if IsServer() then
     -- Calculate stats
     local summon_hp = base_hp + (level - 1) * hp_per_level
     local summon_armor = base_armor + (level - 1) * armor_per_level
-    local summon_damage = base_damage + (level - 1) * damage_per_level
+    local summon_magic_resist = 20 + (level - 1) * magic_resist_per_level
+    local summon_damage = math.ceil(base_damage + (level - 1) * damage_per_level)
 
     for i = 1, summon_count do
       local summon = self:SpawnUnit(unit_name, parent, playerID, summon_position, false)
@@ -209,6 +213,9 @@ if IsServer() then
 
       -- ARMOR
       summon:SetPhysicalArmorBaseValue(summon_armor)
+
+      -- MAGIC RESIST
+      summon:SetBaseMagicalResistanceValue(summon_magic_resist)
 
       -- Movement speed
       summon:SetBaseMoveSpeed(base_speed)
@@ -262,8 +269,8 @@ end
 function modifier_broodmother_giant_spiderling_passive:OnCreated()
   self.bonus_ms = 18
   self.bonus_hp_regen = 3
-  self.hp_percent_low = 1
-  self.hp_percent_high = 100
+  --self.hp_percent_low = 1
+  --self.hp_percent_high = 100
 
   if not IsServer() then
     return
@@ -275,7 +282,7 @@ function modifier_broodmother_giant_spiderling_passive:OnCreated()
     local ability_level = ability:GetLevel()
     if ability_level > 0 then
       self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
-      self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+      --self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
     end
   end
 
@@ -295,7 +302,7 @@ function modifier_broodmother_giant_spiderling_passive:OnRefresh()
   local ability_level = ability:GetLevel()
   if ability_level > 0 then
     self.bonus_ms = ability:GetLevelSpecialValueFor("bonus_movespeed", ability_level-1)
-    self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
+    --self.bonus_hp_regen = ability:GetLevelSpecialValueFor("heath_regen", ability_level-1)
   end
 end
 
@@ -313,11 +320,11 @@ function modifier_broodmother_giant_spiderling_passive:OnIntervalThink()
   local parent = self:GetParent()
   local web_radius = ability:GetSpecialValueFor("radius")
   local origin = parent:GetAbsOrigin()
-  local hp_percent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
+  --local hp_percent = (parent:GetHealth() / parent:GetMaxHealth()) * 100
 
-  local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
+  --local multiplier = (hp_percent - self.hp_percent_low)/(self.hp_percent_high - self.hp_percent_low)
   local webs = Entities:FindAllByClassnameWithin("npc_dota_broodmother_web", origin, web_radius)
-  local condition = (#webs > 0) and (multiplier > 0)
+  local condition = (#webs > 0) --and (multiplier > 0)
   -- If parent is near a web, apply web buffs
   if condition then
     self:SetStackCount(1)
@@ -329,30 +336,30 @@ end
 function modifier_broodmother_giant_spiderling_passive:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+    --MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     --MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
   }
 end
 
 function modifier_broodmother_giant_spiderling_passive:GetModifierMoveSpeedBonus_Percentage()
   if self:GetStackCount() == 1 then
-    local multiplier = 1
-    if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
-      multiplier = math.min(((self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)) + 0.5, 1)
-    end
-    return self.bonus_ms * multiplier
+    --local multiplier = 1
+    --if self.hp_percent_high and self.hp_percent_low and (self.hp_percent_high - self.hp_percent_low > 0) then
+      --multiplier = math.min(((self:GetParent():GetHealthPercent() - self.hp_percent_low) / (self.hp_percent_high - self.hp_percent_low)) + 0.5, 1)
+    --end
+    return self.bonus_ms --* multiplier
   end
 
   return 0
 end
 
-function modifier_broodmother_giant_spiderling_passive:GetModifierConstantHealthRegen()
-	if self:GetStackCount() == 1 then
-    return self.bonus_hp_regen
-  end
+-- function modifier_broodmother_giant_spiderling_passive:GetModifierConstantHealthRegen()
+	-- if self:GetStackCount() == 1 then
+    -- return self.bonus_hp_regen
+  -- end
 
-  return 0
-end
+  -- return 0
+-- end
 
 -- function modifier_broodmother_giant_spiderling_passive:GetModifierIgnoreMovespeedLimit()
   -- if self:GetStackCount() == 1 then

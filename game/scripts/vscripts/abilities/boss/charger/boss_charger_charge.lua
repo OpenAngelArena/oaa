@@ -42,12 +42,49 @@ function modifier_boss_charger_charge:IsHidden()
   return false
 end
 
+function modifier_boss_charger_charge:OnCreated()
+  if not IsServer() then
+    return
+  end
+
+  self.draggedHeroes = {}
+  self.glanced = {}
+
+  local ability = self:GetAbility()
+  local cursorPosition = ability:GetCursorPosition()
+  local caster = self:GetCaster()
+  local origin = caster:GetAbsOrigin()
+  local direction = (cursorPosition - origin):Normalized()
+
+  direction.z = 0
+
+  self.direction = direction
+  self.distance_traveled = 0
+  self.speed = ability:GetSpecialValueFor("speed")
+  self.max_distance = ability:GetSpecialValueFor("distance")
+  self.debuff_duration = ability:GetSpecialValueFor("debuff_duration")
+  self.hero_stun_duration = ability:GetSpecialValueFor("hero_stun_duration")
+  self.hero_pillar_damage = ability:GetSpecialValueFor("hero_pillar_damage")
+  self.glancing_damage = ability:GetSpecialValueFor("glancing_damage")
+  self.glancing_duration = ability:GetSpecialValueFor("glancing_duration")
+  self.glancing_width = ability:GetSpecialValueFor("glancing_width")
+
+  self:StartIntervalThink(0.01)
+end
+
 function modifier_boss_charger_charge:OnIntervalThink()
   if not IsServer() then
     return
   end
 
   local caster = self:GetCaster()
+  local ability = self:GetAbility()
+
+  if not caster or caster:IsNull() then
+    self:StartIntervalThink(-1)
+    self:Destroy()
+    return
+  end
 
   if self.distance_traveled >= self.max_distance then
     return self:EndCharge()
@@ -70,22 +107,24 @@ function modifier_boss_charger_charge:OnIntervalThink()
   )
 
   for _, v in pairs(glance_candidates) do
-    if v and not v:IsNull() and not self.glanced[v:entindex()] then
-      self.glanced[v:entindex()] = true
+    if v and not v:IsNull() then
+      if not self.glanced[v:entindex()] then
+        self.glanced[v:entindex()] = true
 
-      if not v:IsMagicImmune() and not v:IsDebuffImmune() then
-        -- Slow debuff
-        v:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_glanced", {duration = self.glancing_duration})
+        if not v:IsMagicImmune() and not v:IsDebuffImmune() then
+          -- Slow debuff
+          v:AddNewModifier(caster, ability, "modifier_boss_charger_glanced", {duration = self.glancing_duration})
 
-        -- Damage
-        ApplyDamage({
-          victim = v,
-          attacker = caster,
-          damage = self.glancing_damage,
-          damage_type = DAMAGE_TYPE_PHYSICAL,
-          damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-          ability = self:GetAbility()
-        })
+          -- Damage
+          ApplyDamage({
+            victim = v,
+            attacker = caster,
+            damage = self.glancing_damage,
+            damage_type = DAMAGE_TYPE_PHYSICAL,
+            damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+            ability = ability
+          })
+        end
       end
     end
   end
@@ -103,7 +142,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
   )
 
   local function isTower (tower)
-    return tower:GetUnitName() == "npc_dota_boss_charger_pillar"
+    return tower:GetUnitName() == "npc_dota_boss_pillar_charger_oaa"
   end
 
   local function isValidTarget (unit)
@@ -125,11 +164,12 @@ function modifier_boss_charger_charge:OnIntervalThink()
   if targets:length() > 0 then
     targets:each(function (target)
       if not target:IsRealHero() then
-        target:Kill(self:GetAbility(), caster)
+        --target:Kill(ability, caster) -- crashes
+        target:ForceKillOAA(false)
         return
       end
       if not target:HasModifier('modifier_boss_charger_trampling') then
-        target:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_trampling", {})
+        target:AddNewModifier(caster, ability, "modifier_boss_charger_trampling", {})
         table.insert(self.draggedHeroes, target)
         caster:EmitSound("Boss_Charger.Charge.HeroImpact")
       end
@@ -138,13 +178,14 @@ function modifier_boss_charger_charge:OnIntervalThink()
   if towers:length() > 0 then
     -- we hit a tower!
     local tower = towers:head()
-    tower:Kill(self:GetAbility(), caster)
+    --tower:Kill(ability, caster) -- crashes
+    tower:ForceKillOAA(false)
 
     if #self.draggedHeroes > 0 then
       iter(self.draggedHeroes):each(function (hero)
         if not hero:IsMagicImmune() and not hero:IsDebuffImmune() then
           local actual_duration = hero:GetValueChangedByStatusResistance(self.hero_stun_duration)
-          hero:AddNewModifier(caster, self:GetAbility(), "modifier_boss_charger_hero_pillar_debuff", {duration = actual_duration})
+          hero:AddNewModifier(caster, ability, "modifier_boss_charger_hero_pillar_debuff", {duration = actual_duration})
 
           ApplyDamage({
             victim = hero,
@@ -152,7 +193,7 @@ function modifier_boss_charger_charge:OnIntervalThink()
             damage = self.hero_pillar_damage,
             damage_type = DAMAGE_TYPE_PHYSICAL,
             damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
-            ability = self:GetAbility()
+            ability = ability
           })
         end
       end)
@@ -168,41 +209,10 @@ end
 function modifier_boss_charger_charge:EndCharge()
   local caster = self:GetCaster()
 
-  caster:InterruptMotionControllers(true)
+  --caster:InterruptMotionControllers(true) -- Charger boss is immune to motion controllers so this is not needed
   FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
   self:StartIntervalThink(-1)
   self:Destroy()
-  return 0
-end
-
-function modifier_boss_charger_charge:OnCreated(keys)
-  if not IsServer() then
-    return
-  end
-
-  self.draggedHeroes = {}
-  self.glanced = {}
-
-  local ability = self:GetAbility()
-  local cursorPosition = ability:GetCursorPosition()
-  local caster = self:GetCaster()
-  local origin = caster:GetAbsOrigin()
-  local direction = (cursorPosition - origin):Normalized()
-
-  direction.z = 0
-
-  self.direction = direction
-  self.speed = ability:GetSpecialValueFor( "speed" )
-  self.distance_traveled = 0
-  self.max_distance = ability:GetSpecialValueFor( "distance" )
-  self.debuff_duration = ability:GetSpecialValueFor( "debuff_duration" )
-  self.hero_stun_duration = ability:GetSpecialValueFor( "hero_stun_duration" )
-  self.hero_pillar_damage = ability:GetSpecialValueFor( "hero_pillar_damage" )
-  self.glancing_damage = ability:GetSpecialValueFor( "glancing_damage" )
-  self.glancing_duration = ability:GetSpecialValueFor( "glancing_duration" )
-  self.glancing_width = ability:GetSpecialValueFor( "glancing_width" )
-
-  self:StartIntervalThink(0.01)
 end
 
 ---------------------------------------------------------------------------------------------------

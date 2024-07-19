@@ -35,10 +35,6 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     end
     if caster:HasScepter() and not victim:HasModifier("modifier_oaa_requiem_allowed") then
       local max_duration = ability:GetSpecialValueFor("requiem_slow_duration_max") + 1.5 * (ability:GetSpecialValueFor("requiem_radius") / ability:GetSpecialValueFor("requiem_line_speed"))
-      local talent = caster:FindAbilityByName("special_bonus_unique_nevermore_6")
-      if talent and talent:GetLevel() > 0 then
-        max_duration = max_duration + talent:GetSpecialValueFor("value2")
-      end
       victim:AddNewModifier(caster, ability, "modifier_oaa_requiem_allowed", {duration = math.min(max_duration, 6.5), immune_time = 2})
     end
   elseif ability_name == "faceless_void_time_dilation" and modifier_name == "modifier_faceless_void_time_dilation_slow" then
@@ -47,11 +43,42 @@ function ModifyAbilitiesFilter:ModifierFilter(keys)
     if not victim:HasModifier("modifier_elder_titan_natural_order_correction_oaa") and ability:GetLevel() > 4 and not victim:IsOAABoss() then
       victim:AddNewModifier(caster, ability, "modifier_elder_titan_natural_order_correction_oaa", {})
     end
+  elseif ability_name == "tidehunter_anchor_smash" and modifier_name == "modifier_tidehunter_anchor_smash" and victim:IsOAABoss() then
+    victim:AddNewModifier(caster, ability, "modifier_tidehunter_anchor_smash_oaa_boss", {duration = modifier_duration})
+    return false
   elseif modifier_name == "modifier_windrunner_windrun_invis" then
-    caster:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
+    victim:AddNewModifier(caster, ability, "modifier_windranger_scepter_oaa", {duration = modifier_duration})
     return false
   elseif modifier_name == "modifier_item_revenants_brooch_active" then
-    caster:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
+    victim:AddNewModifier(caster, ability, "modifier_item_revenants_brooch_active_oaa", {})
+  elseif modifier_name == "modifier_muerta_pierce_the_veil_buff" then
+    victim:AddNewModifier(caster, ability, "modifier_muerta_pierce_the_veil_penalty_oaa", {duration = modifier_duration})
+  elseif modifier_name == "modifier_skeleton_king_reincarnation_scepter_active" then
+    victim:AddNewModifier(caster, ability, "modifier_wraith_form_penalty_oaa", {duration = modifier_duration})
+  elseif modifier_name == "modifier_legion_commander_duel" and caster:HasScepter() then
+    if victim ~= caster then
+      victim:AddNewModifier(caster, ability, "modifier_legion_duel_debuff_oaa", {duration = modifier_duration})
+    -- else
+      -- victim:AddNewModifier(caster, ability, "modifier_legion_duel_buff_oaa", {duration = modifier_duration})
+    end
+  elseif ability_name == "viper_viper_strike" and modifier_name ~= "modifier_viper_viper_strike_silence" then
+    local talent = caster:FindAbilityByName("special_bonus_unique_viper_3_oaa")
+    if talent and talent:GetLevel() > 0 then
+      -- Basic Dispel for enemies
+      local RemovePositiveBuffs = true
+      local RemoveDebuffs = false
+      local BuffsCreatedThisFrameOnly = false
+      local RemoveStuns = false
+      local RemoveExceptions = false
+      victim:Purge(RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+      -- Viper Strike Silences
+      victim:AddNewModifier(caster, ability, "modifier_viper_viper_strike_silence", {duration = modifier_duration})
+    end
+  elseif modifier_name == "modifier_mars_arena_of_blood_leash" and victim ~= caster then
+    local facet = caster:GetHeroFacetID()
+    if tostring(facet) == "2" then
+      victim:AddNewModifier(caster, ability, "modifier_mars_arena_of_blood_leash_oaa", {})
+    end
   end
 
   return true

@@ -12,6 +12,9 @@ function HeroKillXP:Init()
 end
 
 function HeroKillXP:HeroSpawnNoXP(hero)
+  if hero:IsClone() or hero:IsTempestDouble() or hero:IsSpiritBearOAA() then
+    return
+  end
   hero:SetCustomDeathXP(0)
 end
 

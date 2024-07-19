@@ -78,6 +78,7 @@ function modifier_duel_rune_hill:OnIntervalThink()
 
   local unit = self:GetParent()
 
+  -- Spirit Bear can get duel runes
   if unit:IsClone() or unit:IsTempestDouble() or unit:IsInvulnerable() or unit:IsOutOfGame() then
     return
   end

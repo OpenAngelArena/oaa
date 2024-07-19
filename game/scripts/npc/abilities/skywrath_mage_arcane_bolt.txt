@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "95 95 95 95 140 190"
+    "AbilityManaCost"                                     "90 100 110 120 130 140" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,23 +48,11 @@
         "value"                                           "700"
         "affected_by_aoe_increase"                        "1"
       }
-      "lifesteal_duration"                                "5"
-      "lifesteal_amt"
-      {
-        "value"                                           "20 30 40 50 55 60"
-        "special_bonus_unique_skywrath_arcane_bolt_lifesteal"  "+25"
-      }
       "total_bolt_count"
       {
         "value"                                           "1"
-        "special_bonus_scepter"                           "+2"
+        "special_bonus_shard"                             "+1"
       }
-      // "scepter_radius"
-      // {
-        // "value"                                           "700"
-        // "RequiresScepter"                                 "1"
-        // "affected_by_aoe_increase"                        "1"
-      // }
     }
   }
 }

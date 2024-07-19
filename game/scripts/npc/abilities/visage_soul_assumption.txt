@@ -34,10 +34,10 @@
     {
       "bolt_speed"                                        "1000"
       "soul_base_damage"                                  "20"
-      "soul_charge_damage"
+      "soul_charge_damage" //OAA
       {
         "value"                                           "70 70 70 70 120 210"
-        "LinkedSpecialBonus"                              "special_bonus_unique_visage_4"
+        "special_bonus_unique_visage_4"                   "+40"
       }
       "stack_limit"                                       "3 4 5 6 7 8"
       "stack_duration"                                    "6.0"

@@ -58,16 +58,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_damage"                                      "65 85 115 155 205"
+      "bonus_damage"                                      "65 85 125 185 265"
       "bonus_health_regen"                                "7.5 11 14 17 20"
       "bonus_mana_regen"                                  "2.75 3.0 3.5 4.25 5.25"
-      "cleave_damage_percent"                             "70 90 110 130 150"
-      "cleave_damage_percent_creep"                       "40 60 80 100 120"
+      "cleave_damage_percent"                             "70 75 80 85 90"
+      "cleave_damage_percent_creep"                       "40 45 50 55 60"
       "quelling_bonus"                                    "10"
       "quelling_bonus_ranged"                             "10"
-      "cleave_starting_width"                             "150"
-      "cleave_ending_width"                               "360"
-      "cleave_distance"                                   "650"
+      "cleave_starting_width"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_ending_width"
+      {
+        "value"                                           "360"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "cleave_distance"
+      {
+        "value"                                           "650"
+        "affected_by_aoe_increase"                        "1"
+      }
       "upgraded_cleave_bonus"                             "25"
       "upgraded_damage_bonus"                             "15"
     }

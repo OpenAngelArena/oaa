@@ -9,27 +9,30 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "7"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
       "duration"                                          "4.0"
-      "bonus_attack_speed"                                "8 16 24 32 40 48"
+      "bonus_attack_speed"
+      {
+        "value"                                           "3 6 14 22 30 38 46"
+        "special_bonus_unique_viper_6"                    "+20"
+      }
       "bonus_magic_resistance"
       {
-        "value"                                           "10 15 20 25 30 35"
-        "special_bonus_unique_viper_6"                    "+15"
+        "value"                                           "5 10 15 20 25 30 35"
       }
       "damage"
       {
-        "value"                                           "8 16 24 32 64 96"
-        "special_bonus_unique_viper_1"                    "+18"
+        "value"                                           "3 6 14 22 30 60 90"
+        "special_bonus_unique_viper_1"                    "+20"
       }
       "max_range"
       {
-        "value"                                           "1400"
+        "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
       "effect_multiplier_distance"
@@ -40,8 +43,18 @@
       }
       "effect_multiplier"
       {
-        "value"                                           "2"
+        "value"                                           "4"
         "RequiresScepter"                                 "1"
+      }
+      "nethertoxin_bonus_pct"     
+      {
+        "value"                                           "0"
+        "special_bonus_facet_viper_caustic_bath"          "=100"
+      }
+      "nethertoxin_bonus_pct_max_duration_tooltip"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_viper_caustic_bath"          "=4.0"
       }
     }
   }

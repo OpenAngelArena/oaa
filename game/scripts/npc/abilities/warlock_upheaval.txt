@@ -22,11 +22,11 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "70 80 90 100 110 120"
+    "AbilityManaCost"                                     "100"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "800"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,16 +34,24 @@
     {
       "aoe"
       {
-        "value"                                           "500 550 600 650 700 750"
-        "special_bonus_unique_warlock_upheaval_aoe"       "+65"
+        "value"                                           "575 600 625 650 675 700"
+        "special_bonus_unique_warlock_upheaval_aoe"       "+50"
         "affected_by_aoe_increase"                        "1"
       }
       "slow_per_second"                                   "11 14 17 20 23 26"
       "duration"                                          "3.0"
       "max_slow"                                          "70 80 90 100 100 100" //OAA
       "aspd_per_second"                                   "10" // Valve forgot special_bonus_unique_warlock_10
+      "base_damage"           
+      {
+        "special_bonus_unique_warlock_3"                  "=40"
+      }
       "damage_per_second"                                 "10" // min dps
-      "max_damage"                                        "35 60 85 110 220 440" // max dps
+      "max_damage"
+      {   
+        "value"                                           "35 60 85 110 220 440"
+        "special_bonus_unique_warlock_3"                  "+40"
+      }
       "damage_tick_interval"
       {
         "value"                                           "1"
@@ -52,7 +60,6 @@
       "AbilityCooldown"                                   "30 29 28 27 26 25" //OAA
       "imps_interval"                                     "3 3 2 2 1.5 1" //OAA
       "minor_imp_duration"                                "15"
-      "major_imp_duration"                                "40"
     }
   }
 }

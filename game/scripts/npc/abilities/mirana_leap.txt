@@ -15,12 +15,12 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
-    "AbilityCharges"                                      "3"
-    "AbilityChargeRestoreTime"                            "31 30 29 28 27 26" //OAA
+    "AbilityCharges"                                      "2"
+    "AbilityChargeRestoreTime"                            "30 25 20 15 14 13" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "40 45 50 55 60 65" //OAA
+    "AbilityManaCost"                                     "50 55 60 65 70 75" //OAA
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@
     {
       "leap_distance"
       {
-        "value"                                           "575"
+        "value"                                           "650"
         "special_bonus_unique_mirana_6"                   "+125"
       }
       "min_jump_distance"                                 "200"
@@ -40,7 +40,7 @@
         "value"                                           "25 50 75 100 150 300"
         "special_bonus_unique_mirana_1"                   "+100"
       }
-      "leap_bonus_duration"                               "4"
+      "leap_bonus_duration"                               "5" // special_bonus_unique_mirana_3_oaa
       "shard_radius"
       {
         "value"                                           "300"

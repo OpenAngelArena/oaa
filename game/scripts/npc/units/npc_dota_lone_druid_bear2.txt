@@ -9,19 +9,16 @@
 
     "ModelScale"                                          ".72"
 
-    "ArmorPhysical"                                       "4" // OAA
+    "ArmorPhysical"                                       "3" // OAA
+    "AttackRate"                                          "1.75"
 
-    //"AttackDamageMin"                                     "30" // OAA
-    //"AttackDamageMax"                                     "30" // OAA
-    "AttackRate"                                          "1.65"
+    "BountyXP"                                            "300"
+    "BountyGoldMin"                                       "300"
+    "BountyGoldMax"                                       "300"
 
-    "BountyXP"                                            "400"
-    "BountyGoldMin"                                       "600"
-    "BountyGoldMax"                                       "600"
+    "MovementSpeed"                                       "300"
 
-    "MovementSpeed"                                       "360"
-
-    "StatusHealth"                                        "1500" // OAA
-    "StatusHealthRegen"                                   "7" // OAA
+    "StatusHealth"                                        "1100" // OAA
+    "StatusHealthRegen"                                   "5" // OAA
   }
 }

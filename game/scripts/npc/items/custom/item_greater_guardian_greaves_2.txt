@@ -36,7 +36,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_lua"
-    "ScriptFile"                                          "items/farming/greater_guardian_greaves.lua"
+    "ScriptFile"                                          "items/greater_guardian_greaves.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityTextureName"                                  "custom/greater_guardian_greaves_2"
 
@@ -66,15 +66,19 @@
     "AbilityValues"
     {
       "bonus_movement"                                    "55 60 65 70"
-      "bonus_armor"                                       "5 7 10 14"
+      "bonus_armor"                                       "5 6 7 8"
       "mana_regen"                                        "1.75 2.25 3 4"
-      "aura_health_regen"                                 "6 9 12 15"
+      "aura_health_regen"                                 "4 5 6 7"
       "aura_armor"                                        "4 5 6 7"
       "aura_mana_regen"                                   "1.75 2.25 3 4"
-      "aura_radius"                                       "1200"
-      "aura_health_regen_bonus"                           "15 18 21 24"
-      "aura_mana_regen_bonus"                             "6 7 8 9"
-      "aura_armor_bonus"                                  "10 11 12 13"
+      "aura_radius"
+      {
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "aura_health_regen_bonus"                           "18 21 24 27"
+      "aura_mana_regen_bonus"                             "5.25 5.75 6.5 7.5"
+      "aura_armor_bonus"                                  "9 11 14 18"
       "aura_bonus_threshold"                              "25"
       "replenish_health"                                  "450 650 950 1350"
       "replenish_mana"                                    "300 425 575 750"
@@ -83,7 +87,7 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "max_health_pct_heal_amount"                        "0"
+      "max_health_pct_heal_amount"                        "8"
     }
   }
 }

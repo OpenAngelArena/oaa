@@ -23,7 +23,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "70" //OAA
+    "AbilityCooldown"                                     "80 75 70 70 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,23 +37,22 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "radius" //OAA
+      "radius"
       {
-        "value"                                           "450"
-        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_8"
+        "value"                                           "550"
         "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_disruptor_8"                "+150"
       }
       "pulses" // OAA, 1 second <=> 4 pulses, Valve bad at math or forgot about it
       {
         "value"                                           "24"
-        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
-        "LinkedSpecialBonusField"                         "value2"
+        "special_bonus_unique_disruptor_7"                "+6"
       }
       "damage_max"                                        "200 350 500 950 1400" //OAA
       "duration"
       {
         "value"                                           "6.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_disruptor_7"
+        "special_bonus_unique_disruptor_7"                "+1.5"
       }
     }
   }

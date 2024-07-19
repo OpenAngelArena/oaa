@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Dragon Knight: Elder Dragon Form (OAA rework)
+  // Dragon Knight: Elder Dragon Form (OAA rework) - unused
   //=================================================================================================================
   "dragon_knight_elder_dragon_form_oaa"
   {
@@ -43,8 +43,8 @@
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_7"
       }
       "bonus_attack_damage"                               "0"
-      "corrosive_breath_damage"                           "25 30 35 70 70"
-      "corrosive_breath_duration"                         "5.0"
+      "corrosive_breath_damage"                           "25 35 45 90 90"
+      "corrosive_breath_duration"                         "3.0"
       "splash_radius"
       {
         "value"                                           "350"
@@ -57,12 +57,12 @@
       }
       "frost_bonus_movement_speed"
       {
-        "value"                                           "0 0 -40 -60 -60"
+        "value"                                           "0 0 -30 -45 -60"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "frost_bonus_attack_speed"
       {
-        "value"                                           "0 0 -40 -80 -80"
+        "value"                                           "0 0 -60 -90 -90"
         "LinkedSpecialBonus"                              "special_bonus_unique_dragon_knight_5"
       }
       "frost_duration"                                    "0 0 3"
@@ -73,7 +73,7 @@
       }
       "model_scale"                                       "0 0 0 30 30"
       // changing 5th value will have effect for this kv:
-      "magic_resistance"                                  "0 0 0 25 30"
+      "magic_resistance"                                  "0 0 0 20 30"
       // original kvs:
       "rage_chance"                                       "40" // unused
       "rage_duration"                                     "2.0" // unused

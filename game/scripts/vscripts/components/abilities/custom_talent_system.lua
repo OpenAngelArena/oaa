@@ -33,6 +33,12 @@ end
 -- % - increases the base value by the talent value (e.g. 20% increase of base value)
 
 local abilities_with_custom_talents = {
+  abyssal_underlord_pit_of_malice = {
+    pit_damage = {"special_bonus_unique_underlord_7_oaa", "%"},
+  },
+  chaos_knight_reality_rift = {
+    armor_reduction = {"special_bonus_unique_chaos_knight_1_oaa", "+"},
+  },
   death_prophet_spirit_siphon = {
     damage_pct = {"special_bonus_unique_death_prophet_1_oaa", "+"},
     AbilityChargeRestoreTime = {"special_bonus_unique_death_prophet_5_oaa", "+"},
@@ -45,6 +51,9 @@ local abilities_with_custom_talents = {
   },
   faceless_void_time_dilation = {
     radius = {"special_bonus_unique_faceless_void_1_oaa", "+"},
+  },
+  faceless_void_time_zone = {
+    AbilityCooldown = {"special_bonus_unique_faceless_void_2_oaa", "+"},
   },
   gyrocopter_flak_cannon = {
     radius = {"special_bonus_unique_gyrocopter_1_oaa", "+"},
@@ -60,6 +69,9 @@ local abilities_with_custom_talents = {
   },
   invoker_sun_strike = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
+  },
+  keeper_of_the_light_illuminate = {
+    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "+"},
   },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},
@@ -91,14 +103,18 @@ local abilities_with_custom_talents = {
     illusion_damage_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
     tooltip_outgoing = {"special_bonus_unique_spectre_4_oaa", "+"},
   },
-  ursa_fury_swipes = {
-    bonus_reset_time = {"special_bonus_unique_ursa_1_oaa", "+"},
+  storm_spirit_overload = {
+    overload_damage = {"special_bonus_unique_storm_spirit_1_oaa", "+"},
   },
   windrunner_powershot = {
     powershot_damage = {"special_bonus_unique_windranger_1_oaa", "+"},
   },
   winter_wyvern_cold_embrace = {
     heal_percentage = {"special_bonus_unique_winter_wyvern_1_oaa", "+"},
+  },
+  wisp_overcharge = {
+    bonus_spell_amp = {"special_bonus_unique_wisp_1_oaa", "+"},
+    bonus_armor = {"special_bonus_unique_wisp_2_oaa", "+"},
   },
   zuus_thundergods_wrath = {
     AbilityCooldown = {"special_bonus_unique_zeus_1_oaa", "+"},

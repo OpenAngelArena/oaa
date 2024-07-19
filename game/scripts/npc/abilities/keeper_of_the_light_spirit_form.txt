@@ -12,10 +12,14 @@
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     "MaxLevel"                                            "5"
+    "RequiredLevel"                                       "6"
+    "LevelsBetweenUpgrades"                               "6"
+
+    //"LinkedAbility"                                       "keeper_of_the_light_radiant_bind"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "85"
+    "AbilityCooldown"                                     "85 80 75 70 70" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -23,28 +27,19 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "duration"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "40.0"
-        "LinkedSpecialBonus"                              "special_bonus_unique_keeper_of_the_light_11"
+        "value"                                           "40.0"
+        "special_bonus_unique_keeper_of_the_light_11"     "+15"
       }
-      "02"
+      "movement_speed"                                    "15 20 25 30 35"
+      "cast_range"                                        "125 225 325 425 525" //OAA
+      "illuminate_heal" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "movement_speed"                                  "15 20 25 30 35"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "125 225 325 425 525" //OAA
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "illuminate_heal"                                 "50 65 80 125 170" //OAA
+        "value"                                           "50 65 80 125 170"
+        "special_bonus_shard"                             "+30"
       }
     }
   }

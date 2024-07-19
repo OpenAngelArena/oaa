@@ -184,7 +184,8 @@ function modifier_item_regen_crystal_active:OnIntervalThink()
   -- Heal amount per interval
   local heal_amount = heal_per_second * self.heal_interval
 
-  parent:Heal(heal_amount, ability)
+  -- Heal that cant be reduced or amped
+  parent:HealWithParams(heal_amount, ability, false, false, parent, false)
 end
 
 function modifier_item_regen_crystal_active:OnDestroy()
@@ -222,5 +223,5 @@ function modifier_item_regen_crystal_active:GetEffectAttachType()
 end
 
 function modifier_item_regen_crystal_active:GetTexture()
-  return "custom/regen_crystal_1"
+  return "custom/regen_crystal"
 end

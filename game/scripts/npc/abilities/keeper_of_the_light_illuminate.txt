@@ -35,7 +35,7 @@
       "total_damage" //OAA
       {
         "value"                                           "185 290 395 500 1000 2000"
-        "special_bonus_unique_keeper_of_the_light"        "+250"
+        "special_bonus_unique_keeper_of_the_light"        "+500"
       }
       "max_channel_time"                                  "3"
       "radius"
@@ -44,7 +44,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "range"                                             "1550"
-      "speed"                                             "900"
+      "speed"                                             "900" // special_bonus_unique_keeper_of_the_light_1_oaa
       "vision_radius"
       {
         "value"                                           "800"

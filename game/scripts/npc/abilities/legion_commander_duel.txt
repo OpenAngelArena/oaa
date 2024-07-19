@@ -19,7 +19,6 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "200 250 300 350 400"
     "AbilityCastPoint"                                    "0.3"
 
     // Cost
@@ -30,31 +29,42 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "3.75 4.5 5.25 6 6.75"
-      "duration_scepter"
+      "duration"
       {
-        "value"                                           "5.5 6.5 7.5 8 8.5"
-        "RequiresScepter"                                 "1"
+        "value"                                           "3.75 4.5 5.25 6 6.75"
+        "special_bonus_scepter"                           "+2.25"
       }
-      "reward_damage"
+      "AbilityCastRange"
+      {
+        "value"                                           "200 250 300 350 400"
+      }
+      "reward_damage" //OAA
       {
         "value"                                           "10 20 30 50 70"
-        "special_bonus_shard"                             "+8"
+        "special_bonus_shard"                             "+10"
       }
-      "victory_range"                                     "600"
-      "scepter_damage_reduction_pct"
+      "assist_reward_damage"
       {
-        "value"                                           "50"
-        "RequiresScepter"                                 "1"
+        "value"                                           "0"
+        "special_bonus_facet_legion_commander_spoils_of_war"  "5 10 15 20 25"
       }
+      "debuff_immunity"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+1"
+      }
+      "damage_reduction_pct"
+      {
+        "value"                                           "0"
+      }
+      //"victory_range"                                     "600"
       "AbilityCooldown" //OAA
       {
         "value"                                           "50"
-        "special_bonus_scepter"                           "-20"
       }
-      "shard_duel_damage_bonus"
+      "shard_duel_damage_bonus" //OAA
       {
-        "value"                                           "8"
+        "value"                                           "10"
         "RequiresShard"                                   "1"
       }
     }

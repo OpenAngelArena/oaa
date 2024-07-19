@@ -11,6 +11,7 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
     "MaxLevel"                                            "6"
 
@@ -25,7 +26,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_range"                                       "125 200 275 350 425 500"
+      "bonus_range"                                       "75 150 225 300 375 450"
       "acorn_shot_damage"
       {
         "value"                                           "55 90 125 160 320 480"
@@ -33,23 +34,33 @@
       }
       "base_damage_pct"
       {
-        "value"                                           "75"
+        "value"                                           "75" // special_bonus_unique_hoodwink_1_oaa
         "CalculateSpellDamageTooltip"                     "0"
       }
       "bounce_count"
       {
         "value"                                           "2 3 4 5 6 7"
-        "LinkedSpecialBonus"                              "special_bonus_unique_hoodwink_acorn_shot_bounces"
+        "special_bonus_unique_hoodwink_acorn_shot_bounces"  "+2"
       }
       "bounce_range"
       {
         "value"                                           "525"
         "affected_by_aoe_increase"                        "1"
       }
-      "debuff_duration"                                   "0.45"
+      "debuff_duration"                                   "0.35"
       "slow"                                              "100"
       "bounce_delay"                                      "0.1"
       "projectile_speed"                                  "2200"
+      "can_bounce_off_of_trees"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
+      }
+      "bounces_after_tree_bounce"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_hoodwink_treebounce_trickshot"  "+1"
+      }
     }
   }
 }

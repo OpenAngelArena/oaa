@@ -1,6 +1,6 @@
 "itembuilds"
 {
-  "author"        "OAA"
+  "author"        "OAA 7.35d"
   "hero"          "npc_dota_hero_undying"
   "Title"         "Recommended items for Undying"
 
@@ -20,13 +20,23 @@
       "item"      "item_ultimate_scepter"
       "item"      "item_heart_oaa_1"
       "item"      "item_shivas_guard"
+      "item"      "item_octarine_core"
     }
 
     "#DOTA_Item_Build_Support_Core"
     {
       "item"      "item_guardian_greaves"
+      "item"      "item_ghost_king_bar_1"
       "item"      "item_shield_staff"
-      "item"      "item_lotus_orb"
+      "item"      "item_vladmirs_grimoire_1"
+    }
+
+    "#DOTA_Item_Build_Tank_Core"
+    {
+      "item"      "item_shield_staff"
+      "item"      "item_crimson_guard"
+      "item"      "item_spiked_mail_1"
+      "item"      "item_eternal_shroud"
       "item"      "item_stoneskin"
     }
 
@@ -37,14 +47,13 @@
 
     "#DOTA_Item_Build_Luxury"
     {
+      "item"      "item_angels_demise"
       "item"      "item_black_king_bar_1"
-      "item"      "item_crimson_guard"
-      "item"      "item_ghost_king_bar_1"
-      "item"      "item_pipe"
-      "item"      "item_harpoon"
-      "item"      "item_solar_crest"
-      "item"      "item_spiked_mail_1"
       "item"      "item_far_sight"
+      "item"      "item_harpoon"
+      "item"      "item_lotus_orb"
+      "item"      "item_pipe"
+      "item"      "item_solar_crest"
       "item"      "item_greater_tranquil_boots"
       "item"      "item_lucience"
       "item"      "item_refresher_4"

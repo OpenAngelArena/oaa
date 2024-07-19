@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Electrician: Cleansing Shock current hp dmg
+  // Electrician: Cleansing Shock current hp dmg (Pure dmg)
   //=================================================================================================================
   "special_bonus_unique_electrician_9"
   {
@@ -18,7 +18,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "8"
+        "value"                                           "6"
+      }
+      "02"
+      {
+        "var_type"                                        "FIELD_INTEGER"
+        "base_dmg"                                        "100"
       }
     }
   }

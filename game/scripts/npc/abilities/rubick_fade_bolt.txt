@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "120 130 140 150 160 170"
+    "AbilityManaCost"                                     "110 120 130 140 150 160"
 
     // Cast Range
     //-------------------------------------------------------------------------------------------------------------
@@ -48,9 +48,9 @@
       "attack_damage_reduction" //OAA
       {
         "value"                                           "20 25 30 35 40 45"
-        "LinkedSpecialBonus"                              "special_bonus_unique_rubick_2"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
+        "special_bonus_unique_rubick_2"                   "+12"
       }
       "duration"                                          "10.0"
       "radius"

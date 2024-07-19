@@ -23,15 +23,15 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14 13 12 11 11 11" //OAA
+    "AbilityCooldown"                                     "14 13 12 11 10 9" //OAA
 
     // Damage
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "100 180 260 340 680 1360"
+    "AbilityDamage"                                       "120 200 280 360 720 1440"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "130"
+    "AbilityManaCost"                                     "120"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@
       "destination_fx_radius" // proportional to distance_offset
       {
         "value"                                           "183"
-        "affected_by_aoe_increase"                        "1"   
+        "affected_by_aoe_increase"                        "1"
       }
       "portals_per_ring"                                  "6"
       "angle_per_ring_portal"                             "60"
@@ -53,7 +53,7 @@
       "damage_radius" // proportional to distance_offset
       {
         "value"                                           "275"
-        "affected_by_aoe_increase"                        "1"   
+        "affected_by_aoe_increase"                        "1"
       }
       "has_outer_ring"
       {

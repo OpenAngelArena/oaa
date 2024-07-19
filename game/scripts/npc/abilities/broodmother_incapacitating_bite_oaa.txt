@@ -22,7 +22,7 @@
     "RequiredLevel"                                       "6"
     "LevelsBetweenUpgrades"                               "6"
 
-    "AbilityCastRange"                                    "900"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
     "AbilityCastAnimation"                                "ACT_DOTA_CAST_ABILITY_1"
     "AbilityCooldown"                                     "15"
@@ -32,7 +32,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "300 500 700 1300 1900"
+      "base_damage"                                       "300 450 600 1050 1800"
       "max_hp_percent_dmg"                                "3 4 5 5 5"
       "duration"                                          "2.0 2.5 3.0 3.5 4.0"
       "projectile_speed"                                  "1200"

@@ -21,7 +21,6 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.1"
-    "AbilityCastRange"                                    "750" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -37,11 +36,16 @@
         "special_bonus_shard"                             "-3"
       }
       "move_speed"                                        "1900" //OAA
-      "min_jump_distance"                                 "150"
+      "min_jump_distance"                                 "0"
       "max_jump_distance" //OAA
       {
         "value"                                           "750"
-        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_range"
+        "special_bonus_unique_marci_lunge_range"          "+100"
+      }
+      "AbilityCastRange" //OAA
+      {
+        "value"                                           "750"
+        "special_bonus_unique_marci_lunge_range"          "+100"
       }
       "landing_radius"
       {
@@ -50,12 +54,11 @@
       }
       "impact_damage"
       {
-        "value"                                           "70 150 230 310 620 1240"
-        "LinkedSpecialBonus"                              "special_bonus_unique_marci_lunge_damage"
+        "value"                                           "80 160 240 320 640 1280"
       }
       "debuff_duration"
       {
-        "value"                                           "0.8 1.1 1.4 1.7 1.8 1.9"
+        "value"                                           "0.8 1.1 1.4 1.7 2.0 2.3"
         "special_bonus_unique_marci_grapple_stun_duration"  "+0.75"
       }
       "min_lob_travel_time"                               "0.1"

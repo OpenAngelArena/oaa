@@ -27,32 +27,27 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "initial_damage"//OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "initial_damage"                                  "100 150 300 600" //OAA
+        "value"                                           "100 150 300 600" 
       }
-      "02"
+      "jump_range"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "jump_range"                                      "500"
+        "value"                                           "500"
       }
-      "03"
+      "jump_delay"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "jump_delay"                                      "0.25"
+        "value"                                           "0.25"
       }
-      "04"
+      "damage_percent_loss"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "damage_percent_loss"                             "25.0 20.0 15.0 10.0"
+        "value"                                           "25.0 20.0 15.0 10.0"
       }
-      "05"
+      "max_targets"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_targets"                                     "4"
+        "value"                                           "4"
       }
     }
   }

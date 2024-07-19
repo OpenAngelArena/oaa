@@ -40,12 +40,12 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    //"SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "850"
-    "AbilityCooldown"                                     "19 18 17 16 15"
+    "AbilityCooldown"                                     "18"
     "AbilitySharedCooldown"                               "force"
     "AbilityManaCost"                                     "150"
 
@@ -131,7 +131,7 @@
       "12"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "barrier_block"                                   "400 800 1200 1600 2000"
+        "barrier_block"                                   "300 600 900 1200 1500"
       }
       "13"
       {

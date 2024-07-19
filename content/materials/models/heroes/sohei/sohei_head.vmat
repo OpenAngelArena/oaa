@@ -4,8 +4,9 @@ Layer0
 {
 	shader "hero.vfx"
 
-	//---- Translucency ----
-	F_ALPHA_TEST 1
+	//---- Effect Proxies ----
+	F_USE_HERO_EFFECTS_PROXY 1
+	F_USE_STATUS_EFFECTS_PROXY 1
 
 	//---- Blend To Full ----
 	g_flEnvMapBlendToFull "0.000"
@@ -28,6 +29,14 @@ Layer0
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
 	TextureColor "materials/models/heroes/sohei/sohei_head_color.png"
+
+	//---- Detail 1 ----
+	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Detail 2 ----
+	g_flDetail2BlendFactor "0.000"
+	TextureDetail2 ""
 
 	//---- Fresnel ----
 	g_flFresnelModulatesAlpha "0.000"
@@ -53,7 +62,15 @@ Layer0
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
 
-	//---- Translucency ----
-	g_flAlphaTestReference "0.700"
-	TextureTranslucency "materials/default/default_trans.tga"
+	UnusedVariables
+	{
+		"g_flOverbrightFactor" "1"
+		"g_flAlphaTestReference" "0.7"
+		"TextureTranslucency" "materials/default/default_trans.tga"
+	}
+
+
+	VariableState
+	{
+	}
 }

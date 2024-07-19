@@ -21,16 +21,16 @@
       "chance"
       {
         "value"                                           "33.33"
-        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_5"
+        "special_bonus_unique_chaos_knight_5"             "+10"
       }
       "crit_min"                                          "125"
       "crit_max"                                          "140 175 210 245 280 315"
       "lifesteal" //OAA
       {
         "value"                                           "30 40 50 60 70 80"
-        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_6"
+        "special_bonus_unique_chaos_knight_6"             "+30"
       }
-      "creep_multiplier"                                  "1.9"
+      "creep_multiplier"                                  "2.0"
       "creep_lifesteal_reduction_pct"                     "70"
     }
   }

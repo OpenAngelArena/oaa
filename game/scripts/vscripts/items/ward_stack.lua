@@ -81,8 +81,18 @@ function item_ward_stack:OnSpellStart ()
     duration = self:GetSpecialValueFor(wardType .. '_duration')
   })
 
-  ward:SetDayTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
-  ward:SetNightTimeVisionRange(self:GetSpecialValueFor(wardType .. '_radius'))
+  local visionRadius = self:GetSpecialValueFor(wardType .. '_radius')
+
+  -- Io/Wisp Innate
+  if wardType == "observer" then
+    local sightseer = caster:FindAbilityByName("wisp_sight_seer")
+    if sightseer then
+      visionRadius = visionRadius + sightseer:GetSpecialValueFor("bonus_vision")
+    end
+  end
+
+  ward:SetDayTimeVisionRange(visionRadius)
+  ward:SetNightTimeVisionRange(visionRadius)
 
   caster[wardType .. 'Count'] = caster[wardType .. 'Count'] - 1
   if caster[wardType .. 'Count'] == 0 then

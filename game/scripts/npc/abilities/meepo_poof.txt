@@ -31,7 +31,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCastPoint"                                  "1.5 1.5 1.5 1.5 1.0 0.75"
+      "cast_duration"
+      {
+        "value"                                           "1.5"
+        "special_bonus_unique_meepo_poof_cast_point"      "-1"
+      }
       "radius"
       {
         "value"                                           "400"
@@ -39,7 +43,7 @@
       }
       "poof_damage"
       {
-        "value"                                           "60 90 120 150 300 600"
+        "value"                                           "50 80 110 140 280 560"
         "special_bonus_unique_meepo_2"                    "+50"
       }
     }

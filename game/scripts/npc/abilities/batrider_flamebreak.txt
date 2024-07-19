@@ -38,12 +38,12 @@
         "value"                                           "25 50 75 100 200 400"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "damage_per_second"
+      "damage_per_second" //OAA
       {
         "value"                                           "10 20 30 40 80 120"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "damage_duration"
+      "damage_duration" //OAA
       {
         "value"                                           "5"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
@@ -51,7 +51,7 @@
       }
       "explosion_radius"
       {
-        "value"                                           "500"
+        "value"                                           "450"
         "affected_by_aoe_increase"                        "1"
       }
       "collision_radius"
@@ -60,7 +60,7 @@
         "affected_by_aoe_increase"                        "1"
       }
       "stun_duration"                                     "0.5"
-      "speed"                                             "1400"
+      "speed"                                             "1700"
       "knockback_distance"
       {
         "value"                                           "250"

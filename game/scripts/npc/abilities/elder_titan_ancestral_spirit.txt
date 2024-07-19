@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Ancestral Spirit
+  // Elder Titan: Ancestral Spirit (Innate)
   //=================================================================================================================
   "elder_titan_ancestral_spirit"
   {
@@ -12,25 +12,28 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "1"
+    "MaxLevel"                                            "7"
+    "RequiredLevel"                                       "-1"
     "LevelsBetweenUpgrades"                               "2"
 
-    "AbilityCastRange"                                    "1200"
     "AbilityCastPoint"                                    "0.4"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "20 19 18 17 16 15" //OAA
+    "AbilityCooldown"                                     "21 20 19 18 17 16 15" //OAA
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "80 90 100 110 120 130"
+    "AbilityManaCost"                                     "70 80 90 100 110 120 130"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
+      "AbilityCastRange"
+      {
+        "value"                                           "1200"
+      }
       "radius"
       {
         "value"                                           "275"
@@ -38,37 +41,47 @@
       }
       "pass_damage" //OAA
       {
-        "value"                                           "50 100 150 200 400 600"
+        "value"                                           "50 100 150 200 250 500 1000"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "spirit_duration"                                   "10.0"
-      "buff_duration"                                     "10.0"
+      "spirit_duration"
+      {
+        "value"                                           "10.0"
+      }
+      "buff_duration"
+      {
+        "value"                                           "10.0"
+      }
       "speed"                                             "900"
+      "controllable"
+      {
+        "value"                                           "1"
+      }
       "move_pct_creeps"                                   "1.5"
       "move_pct_heroes"
       {
-        "value"                                           "5 6 7 8 9 10"
+        "value"                                           "4 5 6 7 8 9 10"
         "special_bonus_unique_elder_titan_bonus_spirit_speed"  "+2"
       }
       "damage_creeps"
       {
-        "value"                                           "3 7 11 15 19 23"
+        "value"                                           "3 3 7 11 15 19 23"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "damage_heroes" //OAA
       {
-        "value"                                           "20 40 60 80 100 120"
+        "value"                                           "10 20 40 60 80 100 120"
         "special_bonus_unique_elder_titan"                "+25"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "armor_creeps"                                      "0.5"
-      "armor_heroes"                                      "1.5 3 4.5 6 7.5 9"
+      "armor_heroes"                                      "1 1.5 3 4.5 6 7.5 9"
       "move_pct_cap"                                      "40"
       "scepter_magic_immune_per_hero" //OAA
       {
-        "value"                                           "1.2 1.3 1.4 1.5 1.6 1.7"
+        "value"                                           "1.0 1.2 1.3 1.4 1.5 1.6 1.7"
         "RequiresScepter"                                 "1"
       }
     }

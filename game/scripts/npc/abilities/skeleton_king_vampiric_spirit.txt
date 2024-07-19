@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  "skeleton_king_vampiric_spirit"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"                                            "6" // same as Dependent ability (Reincarnation) + 1
+    "Innate"                                              "1"
+
+    "DependentOnAbility"                                  "skeleton_king_reincarnation"
+
+    "AbilityValues"
+    {
+      "vampiric_aura"
+      {
+        "value"                                           "20 30 40 50 60 70"
+        "special_bonus_unique_wraith_king_2"              "+10"
+      }
+      "creep_lifesteal_reduction_pct"                     "40"
+      "duration" //OAA
+      {
+        "value"                                           "2.5 3 3.5 4 4.5 5"
+        "special_bonus_scepter"                           "+1"
+      }
+      "scepter_attack_speed"
+      {
+        "value"                                           "30 45 60 75 90 105"
+      }
+      "scepter_move_speed_pct"
+      {
+        "value"                                           "10 15 20 25 30 35"
+      }
+      "scepter_respawn_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "10"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_aura_radius" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_scepter"                           "+900"
+        "affected_by_aoe_increase"                        "1"
+        "RequiresScepter"                                 "1"
+      }
+      "scepter_damage_penalty" //OAA
+      {
+        "value"                                           "25"
+        "RequiresScepter"                                 "1"
+      }
+    }
+  }
+}

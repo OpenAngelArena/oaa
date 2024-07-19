@@ -20,12 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "500"
     "AbilityCastPoint"                                    "0.4"
-
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "13 12 11 10 10 10"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -33,51 +28,41 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "chaos_bolt_speed"                                  "700"
+      "stun_min" //OAA
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "chaos_bolt_speed"                                "700"
+        "value"                                           "1.25 1.5 1.75 2 2.25 2.5"
+        "special_bonus_unique_chaos_knight_3"             "+0.8"
       }
-      "02"
+      "stun_max" //OAA
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_min"                                        "1.25 1.5 1.75 2 2.25 2.5"
-        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_3"
+        "value"                                           "1.75 2.25 2.75 3.25 3.75 4.25"
+        "special_bonus_unique_chaos_knight_3"             "+0.8"
       }
-      "03"
+      "damage_min"                                        "90 120 150 180 360 720"
+      "damage_max"                                        "150 230 310 390 780 1560"
+      "fake_bolt_distance"                                "675"
+      "AbilityCastRange"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "stun_max"                                        "1.75 2.25 2.75 3.25 3.75 4.25"
-        "LinkedSpecialBonus"                              "special_bonus_unique_chaos_knight_3"
+        "value"                                           "500"
+        "special_bonus_shard"                             "+0"
       }
-      "04"
+      "AbilityCooldown"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_min"                                      "90 120 150 180 360 720"
+        "value"                                           "13 12 11 10 10 10"
+        "special_bonus_unique_chaos_knight_8"             "-3"
       }
-      "05"
+      "illusion_duration"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage_max"                                      "150 210 270 330 660 1320"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=6.0"
       }
-      "06"
+      "illusion_damage_reduction_pct"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "fake_bolt_distance"                              "675"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_bonus_cast_range"                          "150"
-        "RequiresShard"                                   "1"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_illusion_duration"                         "6.0"
-        "RequiresShard"                                   "1"
+        "value"                                           "0"
+        "special_bonus_shard"                             "=30"
       }
     }
   }

@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "110 120 130 140 150 160"
+    "AbilityManaCost"                                     "110 125 140 155 170 185"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -42,6 +42,7 @@
       "radius"
       {
         "value"                                           "275"
+        "special_bonus_facet_tiny_crash_landing"          "=450"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_damage_pct"                                  "0"
@@ -53,7 +54,27 @@
       "AbilityCharges"
       {
         "value"                                           ""
-        "LinkedSpecialBonus"                              "special_bonus_unique_tiny_2"
+        "special_bonus_unique_tiny_2"                     "+2"
+      }
+      "land_movement_slow"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tiny_crash_landing"          "15 20 25 30 35 40"
+      }
+      "land_attack_slow"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tiny_crash_landing"          "10 20 30 40 50 60"
+      }
+      "bonus_land_damage_pct"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tiny_crash_landing"          "25 30 35 40 45 50"
+      }
+      "land_debuff_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_tiny_crash_landing"          "=2.5"
       }
     }
   }

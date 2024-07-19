@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Clinkz: Bone and Arrow (Innate)
+  //=================================================================================================================
+  "clinkz_bone_and_arrow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Skeleton Walk) + 1
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "clinkz_wind_walk"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "0"
+    "AbilityCastPoint"                                    "0.0"
+
+    // Time
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"                                     "0.0"
+    "AbilityChargeRestoreTime"                            "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "0"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "skeleton_duration"
+      {
+        "value"                                           "15 20 25 30 35 40"
+      }
+      "skeleton_health"
+      {
+        "value"                                           "8"
+        "special_bonus_scepter"                           "+4"
+      }
+      "skeleton_health_tooltip"
+      {
+        "value"                                           "2"
+        "special_bonus_scepter"                           "+1"
+      }
+      "skeleton_building_damage_reduction"                "25"
+      "attack_rate"                                       "1.6"
+      "damage_percent" //OAA
+      {
+        "value"                                           "20 22 24 26 28 30"
+      }
+    }
+  }
+}

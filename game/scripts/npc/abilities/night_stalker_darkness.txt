@@ -18,21 +18,21 @@
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
-    "AbilityCooldown"                                     "120" //OAA
+    "AbilityCooldown"                                     "110" //OAA
     "AbilityManaCost"                                     "125 175 225 275 325"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"
+      "duration" //OAA
       {
         "value"                                           "30.0"
-        "special_bonus_unique_night_stalker_7"            "+8"
+        "special_bonus_unique_night_stalker_7"            "+6"
       }
       "bonus_damage" //OAA
       {
-        "value"                                           "50 100 150 300 550"
+        "value"                                           "50 125 200 350 650"
         "special_bonus_unique_night_stalker_3"            "+50"
         "CalculateSpellDamageTooltip"                     "0"
       }

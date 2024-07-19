@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tinkerer: Keen Contraption - scepter increases cast range, applies leash and healing reduction
+  // Tinkerer: Keen Contraption
   //=================================================================================================================
   "tinkerer_laser_contraption"
   {
@@ -51,7 +51,6 @@
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "9"
-      "delay"                                             "0.1"
       // "initial_damage"
       // {
         // "value"                                           "150 300 450 900 1350" // original: 200/300/400
@@ -82,6 +81,7 @@
         "value"                                           "-25 -30 -35 -40 -45"
         "RequiresScepter"                                 "1"
       }
+      "scepter_tar_spill_interval"                        "3"
     }
   }
 }

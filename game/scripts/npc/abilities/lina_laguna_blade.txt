@@ -19,7 +19,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCastPoint"                                    "0.45"
+    "AbilityCastPoint"                                    "0.3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,28 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"                                            "500 850 1200 2250 3300" //OAA
+      "damage" //OAA
+      {
+        "value"                                           "500 900 1300 2500 3700"
+        "LinkedSpecialBonus"                              "lina_slow_burn"
+        "LinkedSpecialBonusField"                         "impact_damage_pct"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+      }
+      "burn_damage_tooltip" //OAA
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lina_dot"                    "=500 =900 =1300 =2500 =3700"
+        "LinkedSpecialBonus"                              "lina_slow_burn"
+        "LinkedSpecialBonusField"                         "burn_percent_tooltip"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_MULTIPLY"
+      }
+      "burn_duration_tooltip"
+      {
+        "value"                                           "0"
+        "LinkedSpecialBonus"                              "lina_slow_burn"
+        "LinkedSpecialBonusField"                         "burn_duration"
+        "LinkedSpecialBonusOperation"                     "SPECIAL_BONUS_ADD"
+      }
       "damage_delay"                                      "0.25"
       "AbilityCooldown" //OAA
       {
@@ -39,13 +60,25 @@
       "pierce_immunity"
       {
         "value"                                           "0"
-        "special_bonus_unique_lina_7"                     "+1"
       }
-      "supercharge_duration"                              "5"
+      "supercharge_duration"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_lina_supercharge"            "+5"
+        "RequiresFacet"                                   "lina_supercharge"
+      }
       "supercharge_stacks"
       {
-        "value"                                           "10"
-        "special_bonus_unique_lina_supercharge_stacks"    "+5"
+        "value"                                           "0"
+        "special_bonus_facet_lina_supercharge"            "+12"
+      }
+      "barrier_pct"
+      {
+        "special_bonus_unique_lina_7"                     "125"
+      }
+      "barrier_duration"
+      {
+        "special_bonus_unique_lina_7"                     "15"
       }
     }
   }

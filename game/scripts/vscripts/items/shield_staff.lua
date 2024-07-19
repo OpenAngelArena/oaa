@@ -72,6 +72,11 @@ function item_shield_staff:GetCooldown(level)
         return cooldown / 2
       end
     end
+
+    -- If target is leashed, reduce cd
+    if target:IsLeashedOAA() then
+      return cooldown / 2
+    end
   end
 
   return cooldown
@@ -125,6 +130,11 @@ function item_shield_staff:OnSpellStart()
     if target:HasModifier(modifier) then
       return
     end
+  end
+
+  -- If target is leashed, don't continue
+  if target:IsLeashedOAA() then
+    return
   end
 
   -- Remove particles of the previous shield staff instance in case of refresher
@@ -411,7 +421,7 @@ function modifier_shield_staff_barrier_buff:IsDebuff()
 end
 
 function modifier_shield_staff_barrier_buff:IsHidden()
-  return true
+  return false
 end
 
 function modifier_shield_staff_barrier_buff:IsPurgable()
@@ -427,7 +437,7 @@ function modifier_shield_staff_barrier_buff:OnCreated(event)
 
   if IsServer() then
     if event.barrierHP then
-      self:SetStackCount(event.barrierHP)
+      self:SetStackCount(0 - event.barrierHP)
     end
 
     -- Sound
@@ -448,12 +458,12 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     if event.report_max then
       return self.max_shield_hp
     else
-      return self:GetStackCount() -- current shield hp
+      return math.abs(self:GetStackCount()) -- current shield hp
     end
   else
     local parent = self:GetParent()
     local damage = event.damage
-    local barrier_hp = self:GetStackCount()
+    local barrier_hp = math.abs(self:GetStackCount())
 
     -- Don't react to damage with HP removal flag
     if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
@@ -468,8 +478,8 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     -- Don't block more than remaining hp
     local block_amount = math.min(damage, barrier_hp)
 
-    -- Reduce barrier hp
-    self:SetStackCount(barrier_hp - block_amount)
+    -- Reduce barrier hp (using negative stacks to not show them on the buff)
+    self:SetStackCount(block_amount - barrier_hp)
 
     if block_amount > 0 then
       -- Visual effect
@@ -482,7 +492,7 @@ function modifier_shield_staff_barrier_buff:GetModifierIncomingDamageConstant(ev
     end
 
     -- Remove the barrier if hp is reduced to nothing
-    if self:GetStackCount() <= 0 then
+    if self:GetStackCount() >= 0 then
       self:Destroy()
     end
 
@@ -499,5 +509,5 @@ function modifier_shield_staff_barrier_buff:GetEffectAttachType()
 end
 
 function modifier_shield_staff_barrier_buff:GetTexture()
-  return "custom/force_staff_1"
+  return "item_force_staff"
 end

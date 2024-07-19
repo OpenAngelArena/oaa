@@ -7,7 +7,7 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE" //OAA
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -31,13 +31,12 @@
       "spawn_count"
       {
         "value"                                           "3"
-        "special_bonus_unique_enigma"                     "+5"
+        "special_bonus_unique_enigma"                     "+4"
       }
       "split_attack_count"                                "6"
       "eidelon_max_health" //OAA
       {
         "value"                                           "180 220 260 300"
-        "special_bonus_unique_enigma_7"                   "+200"
       }
       "life_extension"                                    "2.0"
       "eidelon_base_damage"                               "20 30 40 50" //OAA
@@ -59,7 +58,11 @@
       "allied_damage_pct"                                 "45"
       "self_modelscale"                                   "-40"
       "spawn_offset"                                      "100"
-      "current_health_pct"                                "4"
+      "current_health_pct"                                "3"
+      "eidolon_xp_bounty"                                 "10"
+      "eidolon_gold_bounty_min"                           "14"
+      "eidolon_gold_bounty_max"                           "20"
+      "non_splitting_bounty_reduction"                    "50"
     }
   }
 }

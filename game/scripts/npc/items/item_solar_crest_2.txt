@@ -35,7 +35,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_solar_crest"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
@@ -65,7 +65,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bonus_armor"                                       "4 7 11 16 22"
+      "bonus_armor"                                       "5 6 8 11 15"
       "bonus_all_stats"                                   "5 10 15 20 25"
       "self_movement_speed"                               "25 30 35 40 45"
       "bonus_mana"                                        "300 400 550 750 1000"
