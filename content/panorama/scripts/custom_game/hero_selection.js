@@ -1020,7 +1020,7 @@ function UpdateBottlePassArcana (heroName) {
   const playerID = Game.GetLocalPlayerID();
   $('#ArcanaSelection').RemoveAndDeleteChildren();
 
-  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician') {
+  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician' && heroName !== 'npc_dota_hero_marci') {
     $('#ArcanaPanel').SetHasClass('HasArcana', false);
     return;
   }
