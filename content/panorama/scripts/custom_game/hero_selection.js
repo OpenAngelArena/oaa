@@ -1083,6 +1083,22 @@ function UpdateBottlePassArcana (heroName) {
           radio.checked = selectedArcana === radio.setName;
         }
       }
+    } else if (heroName === 'npc_dota_hero_marci') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultMarciSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
+
+      for (const index2 in arcanas) {
+        if (arcanas[index2] === 'MaidMarci') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'MaidMarciSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'MaidMarci';
+          radio.checked = selectedArcana === radio.setName;
+        }
+      }
     }
     SelectArcana();
   });

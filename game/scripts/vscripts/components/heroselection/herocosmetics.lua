@@ -24,6 +24,11 @@ function HeroCosmetics:ApplySelectedArcana (hero, arcana)
       --print('Applying Arcana RockElectrician')
       hero:AddNewModifier( hero, nil, 'modifier_arcana_rockelec', nil )
     end
+  elseif hero:GetUnitName() == 'npc_dota_hero_marci' then
+    if arcana == 'MaidMarci' then
+      --print('Applying Arcana MaidMarci')
+      hero:AddNewModifier( hero, nil, 'modifier_arcana_maid', nil )
+    end
   end
 end
 
@@ -32,6 +37,7 @@ function HeroCosmetics:TestHeroArcana(keys)
     dbz = "modifier_arcana_dbz",
     pepsi = "modifier_arcana_pepsi",
     rockstar = "modifier_arcana_rockelec",
+    maid = "modifier_arcana_maid",
   }
   local text = keys.text
   local hero = PlayerResource:GetSelectedHeroEntity(keys.playerid)
