@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // DireTowerBoss: Glyph - Grants invincibility and multishot to the caster
+  // DireTowerBoss: Glyph - Grants invincibility, attack speed, and multishot to the caster
   //=================================================================================================================
   "dire_tower_boss_glyph"
   {
@@ -32,6 +32,7 @@
       "glyph_duration"                                    "4.5"
       "splitshot_units"                                   "7"
       "splitshot_bonus_range"                             "200"
+      "bonus_attack_speed"                                "110"
     }
   }
 }

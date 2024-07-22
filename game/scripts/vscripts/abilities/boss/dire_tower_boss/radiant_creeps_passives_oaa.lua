@@ -31,38 +31,44 @@ function modifier_radiant_creeps_passives_oaa:IsPurgable()
 end
 
 function modifier_radiant_creeps_passives_oaa:OnCreated()
-  local parent = self:GetParent()
-  local origin = parent:GetAbsOrigin()
-  local enemies = FindUnitsInRadius(
-    parent:GetTeamNumber(),
-    origin,
-    nil,
-    FIND_UNITS_EVERYWHERE,
-    DOTA_UNIT_TARGET_TEAM_ENEMY,
-    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-    FIND_ANY_ORDER,
-    false
-  )
+  if IsServer() then
+    local parent = self:GetParent()
+    local origin = parent:GetAbsOrigin()
+    local enemies = FindUnitsInRadius(
+      parent:GetTeamNumber(),
+      origin,
+      nil,
+      FIND_UNITS_EVERYWHERE,
+      DOTA_UNIT_TARGET_TEAM_ENEMY,
+      DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      FIND_ANY_ORDER,
+      false
+    )
 
-  -- Find the closest tower or boss
-  local closest_boss
-  local closest_distance = 20000
-  for _, enemy in pairs(enemies) do
-    if enemy and not enemy:IsNull() then
-      if enemy:IsOAABoss() then
-        local distance = (origin - enemy:GetAbsOrigin()):Length2D()
-        if distance < closest_distance then
-          closest_distance = distance
-          closest_boss = enemy
+    -- Find the closest tower or boss
+    local closest_boss
+    local closest_tower
+    local closest_boss_distance = 20000
+    local closest_tower_distance = 20000
+    for _, enemy in pairs(enemies) do
+      if enemy and not enemy:IsNull() then
+        if enemy:IsOAABoss() and enemy:GetUnitName() ~= "npc_dota_boss_grendel" then
+          local distance = (origin - enemy:GetAbsOrigin()):Length2D()
+          if distance < closest_boss_distance then
+            closest_boss_distance = distance
+            closest_boss = enemy
+          end
+          if distance < closest_tower_distance and enemy:GetUnitName() == "npc_dota_creature_dire_tower_boss" then
+            closest_tower_distance = distance
+            closest_tower = enemy
+          end
         end
       end
     end
-  end
 
-  self.tower = closest_boss
+    self.tower = closest_tower or closest_boss
 
-  if IsServer() then
     self:StartIntervalThink(0.1)
   end
 end
@@ -130,7 +136,7 @@ if IsServer() then
       return 0
     end
 
-    local dmg_reduction = 80
+    local dmg_reduction = ability::GetSpecialValueFor("dmg_reduction")
 
     -- Block damage from bosses
     if attacker:IsOAABoss() then

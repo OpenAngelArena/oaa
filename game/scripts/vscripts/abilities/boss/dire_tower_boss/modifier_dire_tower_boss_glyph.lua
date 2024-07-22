@@ -9,15 +9,18 @@ function modifier_dire_tower_boss_glyph:IsHidden() -- needs tooltip
 end
 
 function modifier_dire_tower_boss_glyph:OnCreated()
+  local ability = self:GetAbility()
   if IsServer() then
-    self.count = self:GetAbility():GetSpecialValueFor( "splitshot_units" )
-    self.bonus_range = self:GetAbility():GetSpecialValueFor( "splitshot_bonus_range" )
+    self.count = ability:GetSpecialValueFor("splitshot_units")
+    self.bonus_range = ability:GetSpecialValueFor("splitshot_bonus_range")
   end
+  self.attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_dire_tower_boss_glyph:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+    MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     MODIFIER_EVENT_ON_ATTACK,
     MODIFIER_EVENT_ON_TAKEDAMAGE,
   }
@@ -25,6 +28,10 @@ end
 
 function modifier_dire_tower_boss_glyph:GetModifierIncomingDamage_Percentage()
   return -100 -- Set the incoming damage percentage to 0 (0% damage taken)
+end
+
+function modifier_dire_tower_boss_glyph:GetModifierAttackSpeedBonus_Constant()
+  return self.attack_speed
 end
 
 if IsServer() then
@@ -60,13 +67,13 @@ if IsServer() then
       radius,
       DOTA_UNIT_TARGET_TEAM_ENEMY,
       DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-      DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
       FIND_ANY_ORDER,
       false
     )
 
-    local useCastAttackOrb = false
-    local processProcs = false
+    local useCastAttackOrb = true
+    local processProcs = true
     local skipCooldown = true
     local ignoreInvis = true
     local useProjectile = true
@@ -124,7 +131,7 @@ if IsServer() then
 end
 
 function modifier_dire_tower_boss_glyph:GetEffectName()
-  return "particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf" -- TODO: change to actual dota Glyph particle
+  return "particles/items_fx/glyph.vpcf" -- TODO: Fix this particle
 end
 
 function modifier_dire_tower_boss_glyph:GetEffectNameAttachType()

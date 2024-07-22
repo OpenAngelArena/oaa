@@ -10,7 +10,6 @@ function Spawn( entityKeyValues )
   thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS = {}
   thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS = 20
   thisEntity.nCAST_SUMMON_WAVE_ROUND = 1
-  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = 1
 
   thisEntity.hSummonWaveAbility = thisEntity:FindAbilityByName( "dire_tower_boss_summon_wave" )
   thisEntity.hGlyphAbility = thisEntity:FindAbilityByName( "dire_tower_boss_glyph" )
@@ -94,10 +93,6 @@ function DireTowerBossThink()
       -- Issue an attack command on the nearast unit that is attackable and assign it as aggro_target.
       AttackNearestTarget(thisEntity)
       thisEntity.state = SIMPLE_AI_STATE_AGGRO
-    else
-      thisEntity.aggro_target = nil
-      thisEntity.minion_target = nil
-      thisEntity.state = SIMPLE_AI_STATE_TEMP
     end
   elseif thisEntity.state == SIMPLE_AI_STATE_AGGRO then
     -- Check if aggro_target exists
@@ -111,16 +106,10 @@ function DireTowerBossThink()
       if not aggro_target:IsAlive() or aggro_target:IsAttackImmune() or aggro_target:IsInvulnerable() or aggro_target:IsOutOfGame() then
         thisEntity.aggro_target = nil
       end
-      -- Check if aggro_target is out of aggro range
-      if (aggro_target:GetAbsOrigin() - thisEntity.spawn_position):Length2D() >= thisEntity.attack_range then
-        -- Check aggro_target attack range, if its less than aggro range
-        if aggro_target:GetAttackRange() < thisEntity.attack_range then
-          thisEntity.aggro_target = nil
-        end
-      end
       -- Check HP of the boss
       if current_hp_pct > aggro_hp_pct then
         thisEntity.aggro_target = nil
+        thisEntity.minion_target = nil
       end
       -- Check if boss is stuck or idle because actual aggro target doesn't exist.
       if not thisEntity:GetAggroTarget() or thisEntity:IsIdle() then
@@ -175,16 +164,19 @@ function DireTowerBossThink()
       return CastGlyph()
     end
 
-    -- Check that the children we have in our list are still valid
-    for i, hSummonedUnit in ipairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
-      if hSummonedUnit:IsNull() or (not hSummonedUnit:IsAlive()) then
-        table.remove( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS, i )
+    -- Check how many of the summoned units are actually alive
+    local count = 0
+    for i, hSummonedUnit in pairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
+      if hSummonedUnit and not hSummonedUnit:IsNull() then
+        if hSummonedUnit:IsAlive() then
+          count = count + 1
+        end
       end
     end
 
     -- Have we hit our minion limit?
-    if #thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS < thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS and (thisEntity.aggro_target or thisEntity.minion_target) then
-      if thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then -- thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS ~= thisEntity.nCAST_SUMMON_WAVE_ROUND
+    if count < thisEntity.DIRE_TOWER_BOSS_MAX_SUMMONS and (thisEntity.aggro_target or thisEntity.minion_target) then
+      if thisEntity.hSummonWaveAbility and thisEntity.hSummonWaveAbility:IsFullyCastable() then
         return CastSummonWave()
       end
     end
@@ -192,8 +184,14 @@ function DireTowerBossThink()
     -- Go into the idle state
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
-    -- TODO: Issue stop attacking command, maybe not needed
+    thisEntity:Interrupt()
+    thisEntity:Stop()
+    thisEntity:Hold()
     thisEntity.state = SIMPLE_AI_STATE_IDLE
+    -- Check HP of the boss
+    if current_hp_pct > aggro_hp_pct then
+      thisEntity.minion_target = nil
+    end
   end
 
   return 1
@@ -206,7 +204,6 @@ function CastSummonWave()
     AbilityIndex = thisEntity.hSummonWaveAbility:entindex(),
     Queue = false,
   })
-  thisEntity.nCAST_SUMMON_WAVE_ROUND_PREVIOUS = thisEntity.nCAST_SUMMON_WAVE_ROUND
   return 0.6
 end
 
