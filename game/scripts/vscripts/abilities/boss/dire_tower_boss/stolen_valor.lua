@@ -38,22 +38,39 @@ end
 
 if IsServer() then
   function modifier_dire_tower_boss_creeps_stolen_valor:OnDeath(event)
-    local parent = self:GetParent() -- Get the unit that has this modifier attached
+    local parent = self:GetParent()
 
-    if event.unit ~= parent then return end
+    -- Check if killed unit has this modifier
+    if event.unit ~= parent then
+      return
+    end
+
+    local attacker = event.attacker
+
+    -- Check if attacker exists
+    if not attacker or attacker:IsNull() then
+      return
+    end
+
+    -- Dont do anything if parent denied itself somehow
+    if attacker == parent then
+      return
+    end
+
+    -- Don't do anything if parent is denied by other units on its team somehow
+    if attacker:GetTeamNumber() == parent:GetTeamNumber() then
+      return
+    end
 
     local ability = self:GetAbility()
     local summon_duration = ability:GetSpecialValueFor("summon_duration")
-
-    local attacker = event.attacker
     local vSpawnPoint = parent:GetAbsOrigin()
-    local tower = parent:GetOwner() -- it seems this does not work
+    local unitName = parent:GetUnitName()
 
     -- Sound
     attacker:EmitSound("Roshan.Bash")
 
-    local unitName = parent:GetUnitName()
-    local newUnitName = nil
+    local newUnitName
     if string.find(unitName, "npc_dota_creature_melee") then
       newUnitName = "npc_dota_creature_melee_stolen_creep"
     elseif string.find(unitName, "npc_dota_creature_ranged") then
@@ -71,11 +88,6 @@ if IsServer() then
         summon:AddNewModifier(attacker, ability, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         summon:AddNewModifier(attacker, ability, "modifier_phased", {duration = FrameTime()})
         summon:SetInitialGoalEntity(attacker:GetInitialGoalEntity())
-        if tower then
-          if tower.IsOAABoss and tower:IsOAABoss() then
-            summon.tower = tower -- it seems this does not work
-          end
-        end
       end
     end
   end

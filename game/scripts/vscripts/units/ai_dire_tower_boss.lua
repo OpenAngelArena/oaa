@@ -77,9 +77,9 @@ function DireTowerBossThink()
     if nearest_enemy then
       ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET, -- DOTA_UNIT_ORDER_ATTACK_MOVE
-        TargetIndex = nearest_enemy:entindex(),
-        --Position = nearest_enemy:GetAbsOrigin(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE, --DOTA_UNIT_ORDER_ATTACK_TARGET,
+        --TargetIndex = nearest_enemy:entindex(),
+        Position = nearest_enemy:GetAbsOrigin(),
         Queue = false,
       })
     end
@@ -139,7 +139,7 @@ function DireTowerBossThink()
 
     -- Find the target for the minions if there is no attackable unit within tower attack range
     -- this is to make minions less idle
-    if not thisEntity.aggro_target and not thisEntity.minion_target then
+    if not thisEntity.minion_target then
       thisEntity.minion_target = FindNearestAttackableUnit(thisEntity) -- inital and fallback value
       local snipers = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity.spawn_position, nil, 2.5*thisEntity.attack_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
       if #snipers ~= 0 then
@@ -153,6 +153,7 @@ function DireTowerBossThink()
               local distance = (loc - thisEntity.spawn_position):Length2D()
               if distance >= thisEntity.attack_range and distance < 2*thisEntity.attack_range then
                 thisEntity.minion_target = enemy
+                break
               end
             end
           end
@@ -191,7 +192,7 @@ function DireTowerBossThink()
     -- Go into the idle state
     thisEntity:SetIdleAcquire(false)
     thisEntity:SetAcquisitionRange(0)
-    -- TODO: Issue stop attacking command
+    -- TODO: Issue stop attacking command, maybe not needed
     thisEntity.state = SIMPLE_AI_STATE_IDLE
   end
 

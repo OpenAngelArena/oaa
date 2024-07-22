@@ -77,7 +77,6 @@ if IsServer() then
     for _, enemy in pairs(enemies) do
       if enemy and enemy ~= target then
 
-        --parent:PerformAttack(target, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
         parent:PerformAttack(enemy, useCastAttackOrb, processProcs, skipCooldown, ignoreInvis, useProjectile, fakeAttack, neverMiss)
 
         count = count + 1

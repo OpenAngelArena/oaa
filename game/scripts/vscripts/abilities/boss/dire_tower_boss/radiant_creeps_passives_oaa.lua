@@ -31,6 +31,37 @@ function modifier_radiant_creeps_passives_oaa:IsPurgable()
 end
 
 function modifier_radiant_creeps_passives_oaa:OnCreated()
+  local parent = self:GetParent()
+  local origin = parent:GetAbsOrigin()
+  local enemies = FindUnitsInRadius(
+    parent:GetTeamNumber(),
+    origin,
+    nil,
+    FIND_UNITS_EVERYWHERE,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    FIND_ANY_ORDER,
+    false
+  )
+
+  -- Find the closest tower or boss
+  local closest_boss
+  local closest_distance = 20000
+  for _, enemy in pairs(enemies) do
+    if enemy and not enemy:IsNull() then
+      if enemy:IsOAABoss() then
+        local distance = (origin - enemy:GetAbsOrigin()):Length2D()
+        if distance < closest_distance then
+          closest_distance = distance
+          closest_boss = enemy
+        end
+      end
+    end
+  end
+
+  self.tower = closest_boss
+
   if IsServer() then
     self:StartIntervalThink(0.1)
   end
@@ -39,7 +70,7 @@ end
 function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
   local parent = self:GetParent()
 
-  local tower = parent.tower -- TODO: Find nearest dire tower boss since this clearly does not work
+  local tower = self.tower
 
   if not tower or tower:IsNull() then
     self:StartIntervalThink(-1)
@@ -68,6 +99,9 @@ function modifier_radiant_creeps_passives_oaa:OnIntervalThink()
       Queue = false,
     })
   end
+
+  -- Stop thinking after issuing an order
+  self:StartIntervalThink(-1)
 end
 
 function modifier_radiant_creeps_passives_oaa:DeclareFunctions()

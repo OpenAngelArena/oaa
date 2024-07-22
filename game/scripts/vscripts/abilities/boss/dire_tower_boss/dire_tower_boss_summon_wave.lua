@@ -89,8 +89,8 @@ function dire_tower_boss_summon_wave:OnSpellStart()
 
   Timers:CreateTimer(0.1, function()
     if caster and not caster:IsNull() then
-      for _, unit in pairs(caster.DIRE_TOWER_BOSS_SUMMONED_UNITS) do
-        if caster.minion_target then
+      if caster.DIRE_TOWER_BOSS_SUMMONED_UNITS then
+        for _, unit in pairs(caster.DIRE_TOWER_BOSS_SUMMONED_UNITS) do
           AttackTarget(unit, caster.minion_target)
         end
       end
