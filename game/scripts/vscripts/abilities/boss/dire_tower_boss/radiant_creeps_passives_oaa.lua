@@ -136,7 +136,7 @@ if IsServer() then
       return 0
     end
 
-    local dmg_reduction = ability::GetSpecialValueFor("dmg_reduction")
+    local dmg_reduction = ability:GetSpecialValueFor("dmg_reduction")
 
     -- Block damage from bosses
     if attacker:IsOAABoss() then
