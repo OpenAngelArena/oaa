@@ -45,6 +45,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       local meleeCreepName = "npc_dota_creature_melee_wave" .. waveNumber .. "_creep"
       local hMelee = CreateUnitByName( meleeCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hMelee then
+        hMelee:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
         hMelee:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hMelee:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hMelee:SetAggroTarget(caster:GetAggroTarget())
@@ -61,6 +62,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       local rangedCreepName = "npc_dota_creature_ranged_wave" .. waveNumber .. "_creep"
       local hRanged = CreateUnitByName( rangedCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hRanged then
+        hRanged:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
         hRanged:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hRanged:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hRanged:SetAggroTarget(caster:GetAggroTarget())
@@ -77,6 +79,7 @@ function dire_tower_boss_summon_wave:OnSpellStart()
       local siegeCreepName = "npc_dota_creature_siege_wave" .. waveNumber .. "_creep"
       local hSiege = CreateUnitByName( siegeCreepName, vSpawnPoint, true, caster, caster, caster:GetTeamNumber() )
       if hSiege then
+        hSiege:AddNewModifier(caster, self, "modifier_phased", {duration = FrameTime()}) -- for unstucking
         hSiege:AddNewModifier(caster, self, "modifier_kill", {duration = summon_duration})
         hSiege:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = summon_duration + MANUAL_GARBAGE_CLEANING_TIME})
         hSiege:SetAggroTarget(caster:GetAggroTarget())

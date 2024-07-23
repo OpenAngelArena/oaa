@@ -164,11 +164,17 @@ function DireTowerBossThink()
       return CastGlyph()
     end
 
+    for i, hSummonedUnit in ipairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
+      if hSummonedUnit:IsNull() or (not hSummonedUnit:IsAlive()) then
+        table.remove( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS, i )
+      end
+    end
+
     -- Check how many of the summoned units are actually alive
     local count = 0
-    for i, hSummonedUnit in pairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
-      if hSummonedUnit and not hSummonedUnit:IsNull() then
-        if hSummonedUnit:IsAlive() then
+    for _, v in pairs( thisEntity.DIRE_TOWER_BOSS_SUMMONED_UNITS ) do
+      if v and not v:IsNull() then
+        if v:IsAlive() then
           count = count + 1
         end
       end
