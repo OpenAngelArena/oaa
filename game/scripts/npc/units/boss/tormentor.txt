@@ -1,0 +1,88 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // Tormentor boss
+  //=================================================================================
+  "npc_dota_creature_tormentor_boss"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature"
+    "Model"                                               "models/props_gameplay/divine_sentinel/divine_sentinel_cube.vmdl"
+    "vscripts"                                            "units/ai_tormentor_boss.lua"
+    "SoundSet"                                            "Roshan"
+    "ModelScale"                                          "1.0"
+    "Level"                                               "30"
+    "IsAncient"                                           "1"
+    "ConsideredHero"                                      "1"
+    "IsBossMonster"                                       "1"
+    "CanBeDominated"                                      "0"
+    "UseNeutralCreepBehavior"                             "0"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                                            "tormentor_boss_unyielding_shield_oaa"
+    "Ability2"                                            "tormentor_boss_reflect_oaa"
+    "Ability3"                                            "tormentor_boss_radiance_oaa"
+    "Ability4"                                            "boss_basic_properties_oaa"
+    "Ability5"                                            "boss_regen"
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"                                       "28"
+    "MagicalResistance"                                   "-25"
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"                                  "DOTA_UNIT_CAP_NO_ATTACK"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                                            "2000"
+    "BountyGoldMin"                                       "0"
+    "BountyGoldMax"                                       "0"
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"                                      "DOTA_HULL_SIZE_TOWER" // DOTA_HULL_SIZE_HERO
+    "RingRadius"                                          "110"
+    "HealthBarOffset"                                     "400"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"                                       "0"
+    "MovementTurnRate"                                    "1.0"
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"                                        "2500"
+    "StatusHealthRegen"                                   "0"
+    "StatusMana"                                          "3750"
+    "StatusManaRegen"                                     "5"
+
+    // Creature data
+    "Creature"
+    {
+      // Makes it only have 50% remaining of applied crowd control
+      "DisableResistance"                                 "50.0"
+    }
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"                                  "1400"
+    "VisionNighttimeRange"                                "1400"
+
+    // Inventory
+    //----------------------------------------------------------------
+    "HasInventory"                                        "1"
+
+    "MinimapIcon"                                         "minimap_roshancamp"
+    "MinimapIconSize"                                     "450"
+  }
+}

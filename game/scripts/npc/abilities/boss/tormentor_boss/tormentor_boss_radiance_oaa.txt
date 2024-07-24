@@ -1,0 +1,23 @@
+"DOTAAbilities"
+{
+  "tormentor_boss_radiance_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/boss/tormentor_boss/tormentor_radiance.lua"
+    "AbilityTextureName"                                  "miniboss_radiance"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "MaxLevel"                                            "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "aura_radius"                                       "1200"
+      "aura_damage"                                       "90"
+      "aura_interval"                                     "0.2"
+    }
+  }
+}
