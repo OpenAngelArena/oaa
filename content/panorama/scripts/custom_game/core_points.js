@@ -24,7 +24,7 @@ function ShowCorePointsOnSelected () {
   const modifier = 'modifier_core_points_counter_oaa';
   const cpLabel = $('#CorePointsText');
   // Show core points only if selected unit is on player's team
-  if (HasModifier(currentlySelectedUnit, modifier) && Entities.GetTeamNumber(currentlySelectedUnit) !== Players.GetTeam(Players.GetLocalPlayer())) {
+  if (HasModifier(currentlySelectedUnit, modifier) && Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(Players.GetLocalPlayer())) {
     $.Schedule(0.03, function () {
       const corePoints = GetStackCount(currentlySelectedUnit, modifier);
       cpLabel.text = corePoints;
