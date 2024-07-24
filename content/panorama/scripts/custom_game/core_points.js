@@ -6,7 +6,6 @@
 function OnCorePointsChanged (args) {
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
   if (currentlySelectedUnit !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
-  const modifier = 'modifier_core_points_counter_oaa';
   const cpLabel = $('#CorePointsText');
   const corePoints = args.cp;
   if (typeof corePoints === 'number' || typeof corePoints === 'string') {
