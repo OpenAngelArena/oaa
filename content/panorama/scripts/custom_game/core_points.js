@@ -2,27 +2,29 @@
 
 'use strict';
 
-// this should trigger when a player gains or loses core points and only if currently selected unit is player's hero
+// this happens for every core points change
 function OnCorePointsChanged (args) {
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
+  // If currently selected unit is not the player's hero then don't continue
   if (currentlySelectedUnit !== Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) return;
   const cpLabel = $('#CorePointsText');
   const corePoints = args.cp;
   if (typeof corePoints === 'number' || typeof corePoints === 'string') {
     cpLabel.text = corePoints;
   } else {
+    // Received argument is invalid, do stuff below
     ShowCorePointsOnSelected();
   }
 }
 
-// this should trigger when a player selects any unit
+// this happens when a player selects any unit
 function ShowCorePointsOnSelected () {
   const currentlySelectedUnit = Players.GetLocalPlayerPortraitUnit();
-  // If selected unit is invalid don't continue
+  // If currently selected unit is invalid then don't continue
   if (!Entities.IsValidEntity(currentlySelectedUnit)) return;
   const modifier = 'modifier_core_points_counter_oaa';
   const cpLabel = $('#CorePointsText');
-  // Show core points only if selected unit is on player's team
+  // Show core points only if currently selected unit has the modifier and if it is on the player's team
   if (HasModifier(currentlySelectedUnit, modifier) && Entities.GetTeamNumber(currentlySelectedUnit) === Players.GetTeam(Players.GetLocalPlayer())) {
     $.Schedule(0.03, function () {
       const corePoints = GetStackCount(currentlySelectedUnit, modifier);
