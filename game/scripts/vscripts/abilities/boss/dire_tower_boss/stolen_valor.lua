@@ -2,6 +2,12 @@ dire_tower_boss_creeps_stolen_valor = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_dire_tower_boss_creeps_stolen_valor", "abilities/boss/dire_tower_boss/stolen_valor.lua", LUA_MODIFIER_MOTION_NONE)
 
+function dire_tower_boss_creeps_stolen_valor:Precache(context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_radiant_ranged/radiant_ranged.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl", context)
+end
+
 function dire_tower_boss_creeps_stolen_valor:GetIntrinsicModifierName()
   return "modifier_dire_tower_boss_creeps_stolen_valor"
 end
@@ -68,7 +74,7 @@ if IsServer() then
     local unitName = parent:GetUnitName()
 
     -- Sound
-    attacker:EmitSound("Roshan.Bash")
+    attacker:EmitSound("Dire_Tower_Boss.StolenValor")
 
     local newUnitName
     if string.find(unitName, "npc_dota_creature_melee") then

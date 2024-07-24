@@ -1,10 +1,21 @@
 
 dire_tower_boss_summon_wave = class(AbilityBaseClass)
 
+function dire_tower_boss_summon_wave:Precache(context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_melee/creep_bad_flagbearer_mega.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl", context)
+  PrecacheResource("model", "models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.vmdl", context)
+end
+
 function dire_tower_boss_summon_wave:OnSpellStart()
   local caster = self:GetCaster()
-  caster:EmitSound("LycanBoss.SummonWolves")
-  -- -- TODO: find better sound
+
+  -- Sound
+  caster:EmitSound("Dire_Tower_Boss.Summon.Cast")
+
   local nMeleeSpawns = self:GetSpecialValueFor("num_melee_spawn")
   local nRangedSpawns = self:GetSpecialValueFor("num_ranged_spawn")
   local nSiegeSpawns = self:GetSpecialValueFor("num_siege_spawn")

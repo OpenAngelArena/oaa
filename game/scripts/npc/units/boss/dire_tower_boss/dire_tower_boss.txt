@@ -10,7 +10,7 @@
     "BaseClass"                                           "npc_dota_creature"
     "Model"                                               "models/props_structures/dire_tower002.vmdl"
     "vscripts"                                            "units/ai_dire_tower_boss.lua"
-    "SoundSet"                                            "Tower.Fire"
+    "SoundSet"                                            "Dire_Tower_Boss"
     "Level"                                               "30"
     "ModelScale"                                          "1.0"
     "ConsideredHero"                                      "1"
@@ -90,6 +90,12 @@
       "attack_long_range"                                 "500"
     }
 
+    "precache"
+    {
+      "particle"                                          "particles/base_attacks/ranged_tower_bad.vpcf"
+      "soundfile"                                         "soundevents/bosses/dire_tower_boss.vsndevts"
+    }
+
     // Creature Data
     //----------------------------------------------------------------
     "Creature"
@@ -98,6 +104,6 @@
     }
 
     "MinimapIcon"                                         "minimap_tower90"
-    "MinimapIconSize"                                     "320"
+    "MinimapIconSize"                                     "420"
   }
 }

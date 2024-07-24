@@ -2,6 +2,11 @@ dire_tower_boss_passives = class(AbilityBaseClass)
 
 LinkLuaModifier("modifier_dire_tower_boss_passives", "abilities/boss/dire_tower_boss/dire_tower_boss_passives.lua", LUA_MODIFIER_MOTION_NONE)
 
+function dire_tower_boss_passives:Precache(context)
+  PrecacheResource("particle", "particles/dire_fx/dire_tower002_destruction.vpcf", context)
+  PrecacheResource("model", "models/props_structures/dire_tower002_destruction.vmdl", context)
+end
+
 function dire_tower_boss_passives:GetIntrinsicModifierName()
   return "modifier_dire_tower_boss_passives"
 end
@@ -81,7 +86,7 @@ if IsServer() then
     end
 
     -- Sound
-    parent:EmitSound("Building_DireTower.Destruction")
+    parent:EmitSound("Dire_Tower_Boss.Destruction")
 
     -- Model
     parent:SetOriginalModel("models/props_structures/dire_tower002_destruction.vmdl")

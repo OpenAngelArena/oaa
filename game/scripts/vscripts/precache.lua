@@ -66,6 +66,7 @@ g_UnitPrecache = {
   "npc_dota_boss_slime",
   "npc_dota_boss_swiper",  -- Sven boss
   "npc_dota_boss_spiders", -- Alchemist boss
+  "npc_dota_creature_dire_tower_boss",
   "npc_dota_creature_magma_boss",
   "npc_dota_magma_boss_volcano",
   "npc_dota_creature_ogre_tank_boss",
@@ -144,4 +145,5 @@ g_SoundPrecache = {
   "soundevents/bosses/charger.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
   "soundevents/bosses/magma_boss.vsndevts",
+  "soundevents/bosses/dire_tower_boss.vsndevts",
 }
