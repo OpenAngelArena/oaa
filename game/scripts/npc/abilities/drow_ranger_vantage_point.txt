@@ -1,26 +1,19 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Nyx Assassin: Mana Burn (Facet)
+  // Drow Ranger: Vantage Point (Facet)
   //=================================================================================================================
-  "nyx_assassin_innate_mana_burn_oaa"
+  "drow_ranger_vantage_point"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                                           "ability_lua"
-    "ScriptFile"                                          "abilities/oaa_nyx_assassin_innate_mana_burn.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
-
-    "MaxLevel"                                            "6"
-    "RequiredLevel"                                       "-1"
-
-    "DependentOnAbility"                                  "nyx_assassin_vendetta"
-
+    "MaxLevel"                                            "1"
     "AbilityValues"
     {
-      "mana_pct"                                          "15 18 21 24 27 30"
-      "damage_threshold"                                  "100"
+      "damage_bonus"                                      "10" //OAA
+      "bonus_miss_chance"                                 "0"
     }
   }
 }

@@ -30,7 +30,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "1 2 3 4 5 5" // original: 1/2/3/4
-    "AbilityChargeRestoreTime"                            "4"
+    "AbilityChargeRestoreTime"                            "8 7 6 5 4 4"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@
       "rocket_range"                                      "3000"
       "rocket_vision"
       {
-        "value"                                           "400"
+        "value"                                           "350"
         "affected_by_aoe_increase"                        "1"
       }
       "bonus_hp_damage_max"                               "8"
@@ -72,7 +72,11 @@
         "special_bonus_unique_tinkerer_3"                 "+350"
         "affected_by_aoe_increase"                        "1"
       }
-      "rocket_explode_vision"                             "400"
+      "rocket_explode_vision"
+      {
+        "value"                                           "350"
+        "affected_by_aoe_increase"                        "1"
+      }
       "vision_duration"                                   "1.5"
     }
   }
