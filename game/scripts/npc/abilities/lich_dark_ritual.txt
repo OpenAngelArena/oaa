@@ -13,7 +13,9 @@
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_BASIC"
     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+
     "MaxLevel"                                            "6"
+
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "400"
@@ -29,7 +31,6 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    // I USED >100% HEALTH CONVERSION TO MANA. HOPE IT DOESNT BREAK. :)
     "AbilitySpecial"
     {
       "01"

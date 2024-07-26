@@ -79,6 +79,12 @@ local abilities_with_custom_talents = {
   mirana_leap = {
     leap_bonus_duration = {"special_bonus_unique_mirana_3_oaa", "+"},
   },
+  muerta_dead_shot = {
+    impact_slow_duration = {"special_bonus_unique_muerta_1_oaa", "+"},
+  },
+  muerta_pierce_the_veil = {
+    AbilityCooldown = {"special_bonus_unique_muerta_2_oaa", "+"},
+  },
   queenofpain_shadow_strike = {
     duration_heal = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},
     duration_damage = {"special_bonus_unique_queen_of_pain_4_oaa", "+"},

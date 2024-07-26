@@ -5,6 +5,16 @@
   //=================================================================================================================
   "npc_dota_hero_muerta"
   {
+    //"Ability10"                                           "special_bonus_unique_muerta_dead_shot_range"
+    //"Ability11"                                           "special_bonus_unique_muerta_calling_hp_regen"
 
+    //"Ability12"                                           "special_bonus_unique_muerta_dead_shot_damage"
+    //"Ability13"                                           "special_bonus_unique_muerta_gunslinger_bonus_damage"
+
+    "Ability14"                                           "special_bonus_unique_muerta_1_oaa" // replaces special_bonus_unique_muerta_dead_shot_charges
+    //"Ability15"                                           "special_bonus_unique_muerta_the_calling_num_revenants"
+
+    //"Ability16"                                           "special_bonus_unique_muerta_gunslinger_double_shot_chance"
+    "Ability17"                                           "special_bonus_unique_muerta_2_oaa" // replaces special_bonus_magic_resistance_25
   }
 }

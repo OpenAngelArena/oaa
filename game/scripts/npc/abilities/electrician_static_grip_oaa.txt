@@ -38,7 +38,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "channel_time"                                      "1.75 2.25 2.75 3.25 3.75 4.25"
+      "channel_time"                                      "1.75 2.25 2.75 3.25 3.35 3.45"
       "damage_interval"
       {
         "value"                                           "0.25"
@@ -46,8 +46,8 @@
       }
       "damage_per_second"
       {
-        "value"                                                 "50 60 70 80 160 240"
-        "special_bonus_unique_electrician_static_grip_damage"   "25%"
+        "value"                                           "50 60 70 80 160 240"
+        "special_bonus_unique_electrician_static_grip_damage"  "25%"
       }
       "pull_speed"                                        "140"
       "pull_buffer"                                       "150"
