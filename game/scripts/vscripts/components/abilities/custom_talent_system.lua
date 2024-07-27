@@ -71,7 +71,10 @@ local abilities_with_custom_talents = {
     damage = {"special_bonus_unique_invoker_2_oaa", "+"},
   },
   keeper_of_the_light_illuminate = {
-    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "+"},
+    speed = {"special_bonus_unique_keeper_of_the_light_1_oaa", "%"},
+  },
+  life_stealer_open_wounds = {
+    AbilityCooldown = {"special_bonus_unique_lifestealer_1_oaa", "+"},
   },
   mars_arena_of_blood = {
     spear_damage = {"special_bonus_unique_mars_2_oaa", "+"},

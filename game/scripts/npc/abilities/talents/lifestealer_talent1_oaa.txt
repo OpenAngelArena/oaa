@@ -1,9 +1,9 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Clinkz talent: Modifies cooldown of Strafe - unused
+  // Custom Lifestealer talent: Open Wounds cooldown
   //=================================================================================================================
-  "special_bonus_clinkz_strafe_cooldown"
+  "special_bonus_unique_lifestealer_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -17,8 +17,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "-2"
       }
     }
   }
