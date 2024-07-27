@@ -1,12 +1,16 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // Sniper: Custom Keen Scope (Innate)
+  //=================================================================================================================
   "sniper_keen_scope_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "ability_lua"
-    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "ScriptFile"                                          "abilities/oaa_sniper_keen_scope.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
     "RequiredLevel"                                       "-1"
     "Innate"                                              "1"
     "MaxLevel"                                            "6"
@@ -17,12 +21,19 @@
       "bonus_range"
       {
         "value"                                           "160 240 320 400 450 500"
-        "special_bonus_facet_sniper_automatic_weaponry"   "=-100"
+        "special_bonus_facet_sniper_automatic_weaponry"   "=0 =0 =0 =0 =0 =0" // not typing -100 because the tooltip does not show the minus sign so it's confusing
       }
       "bat_reduction"
       {
         "value"                                           "0"
         "special_bonus_facet_sniper_automatic_weaponry"   "=0.2 =0.25 =0.3 =0.35 =0.4 =0.45"
+        "RequiresFacet"                                   "sniper_automatic_weaponry"
+      }
+      "attack_range_reduction"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_sniper_automatic_weaponry"   "100"
+        "RequiresFacet"                                   "sniper_automatic_weaponry"
       }
     }
   }

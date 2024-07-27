@@ -28,7 +28,7 @@
     "AbilityValues"
     {
       "duration"                                          "7 8 9 10 11 12"
-      "attack_range_bonus"                                "275 300 325 350 375 400"
+      "attack_range_bonus"                                "275 300 325 350 360 370"
       "percent_damage"                                    "4 6 8 10 11 12"
       "tick_rate"                                         "0.5"
       "damage_duration"
@@ -47,7 +47,7 @@
       "tree_destruction_radius"
       {
         "value"                                           "175"
-        "affected_by_aoe_increase"                        "1" 
+        "affected_by_aoe_increase"                        "1"
       }
       "attack_point"                                      "0.1"
       "max_attacks"                                       "5"
