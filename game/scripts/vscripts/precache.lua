@@ -25,7 +25,7 @@ g_ItemPrecache = {
   "item_martyrs_mail_1",
   --"item_meteor_hammer_1",
   --"item_pull_staff",
-  "item_reduction_orb_1",
+  --"item_reduction_orb_1",
   "item_reflection_shard_1",
   --"item_reflex_core",
   "item_regen_crystal_1",
@@ -66,6 +66,7 @@ g_UnitPrecache = {
   "npc_dota_boss_slime",
   "npc_dota_boss_swiper",  -- Sven boss
   "npc_dota_boss_spiders", -- Alchemist boss
+  "npc_dota_creature_dire_tower_boss",
   "npc_dota_creature_magma_boss",
   "npc_dota_magma_boss_volcano",
   "npc_dota_creature_ogre_tank_boss",
@@ -144,4 +145,5 @@ g_SoundPrecache = {
   "soundevents/bosses/charger.vsndevts",
   "soundevents/bosses/game_sounds_dungeon_enemies.vsndevts",
   "soundevents/bosses/magma_boss.vsndevts",
+  "soundevents/bosses/dire_tower_boss.vsndevts",
 }
