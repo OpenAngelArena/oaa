@@ -117,7 +117,7 @@ function HeroSelection:Init ()
         return
       end
       DebugPrint("OnHeroInGame - Hero "..hero_name.." spawned for the first time.")
-      if hero_name == "npc_dota_hero_electrician" or hero_name == "npc_dota_hero_sohei" or hero_name == "npc_dota_hero_marci" then
+      if hero_name == "npc_dota_hero_electrician" or hero_name == "npc_dota_hero_sohei" or hero_name == "npc_dota_hero_marci" or hero_name == "npc_dota_hero_phoenix" then
         DebugPrint("OnHeroInGame - Applying custom arcana for player "..tostring(playerId).." and hero "..hero_name..".")
         HeroCosmetics:ApplySelectedArcana(hero, HeroSelection:GetSelectedArcanaForPlayer(playerId)[hero_name])
       end
@@ -341,7 +341,7 @@ function HeroSelection:BuildBottlePass()
           special_bottles[playerID] = { SteamId = steamid, PlayerId = playerID, Bottles = SPECIAL_BOTTLES[steamid]}
           HeroSelection.SelectedBottle[playerID] = SPECIAL_BOTTLES[steamid][#(SPECIAL_BOTTLES[steamid])]
         end
-        special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei', 'MaidMarci'}}
+        special_arcanas[playerID] = { SteamId = steamid, PlayerId = playerID, Arcanas = {'DBZSohei', 'RockElectrician', 'PepsiSohei', 'MaidMarci', 'GryphonPhoenix'}}
       end
     end
   end

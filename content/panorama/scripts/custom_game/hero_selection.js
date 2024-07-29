@@ -1020,7 +1020,8 @@ function UpdateBottlePassArcana (heroName) {
   const playerID = Game.GetLocalPlayerID();
   $('#ArcanaSelection').RemoveAndDeleteChildren();
 
-  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician' && heroName !== 'npc_dota_hero_marci') {
+  //  && heroName !== 'npc_dota_hero_marci' removed for now
+  if (heroName !== 'npc_dota_hero_sohei' && heroName !== 'npc_dota_hero_electrician' && heroName !== 'npc_dota_hero_phoenix') {
     $('#ArcanaPanel').SetHasClass('HasArcana', false);
     return;
   }
@@ -1096,6 +1097,22 @@ function UpdateBottlePassArcana (heroName) {
           radio.BLoadLayoutSnippet('ArcanaRadio');
           radio.hero = heroName;
           radio.setName = 'MaidMarci';
+          radio.checked = selectedArcana === radio.setName;
+        }
+      }
+    } else if (heroName === 'npc_dota_hero_phoenix') {
+      radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'DefaultPhoenixSet');
+      radio.BLoadLayoutSnippet('ArcanaRadio');
+      radio.hero = heroName;
+      radio.setName = 'DefaultSet';
+      radio.checked = selectedArcana === radio.setName;
+
+      for (const index2 in arcanas) {
+        if (arcanas[index2] === 'GryphonPhoenix') {
+          radio = $.CreatePanel('RadioButton', $('#ArcanaSelection'), 'GryphonPhoenixSet');
+          radio.BLoadLayoutSnippet('ArcanaRadio');
+          radio.hero = heroName;
+          radio.setName = 'GryphonPhoenix';
           radio.checked = selectedArcana === radio.setName;
         }
       }

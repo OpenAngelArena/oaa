@@ -5,6 +5,16 @@
   //=================================================================================================================
   "npc_dota_hero_phoenix"
   {
+    "precache"
+    {
+      "model"                                             "models/heroes/phoenix/gryphon/phoenix_griffin.vmdl"
+      "model"                                             "models/heroes/phoenix/gryphon/eggy.vmdl"
+      "particle"                                          "particles/hero/phoenix/phoenix/gryphon_sunray.vpcf"
+      "particle"                                          "particles/hero/phoenix/phoenix/gryphon_sunray_beam.vpcf"
+      "particle"                                          "particles/hero/phoenix/phoenix/gryphon_sunray_core.vpcf"
+      "particle"                                          "particles/hero/phoenix/phoenix/gryphon_sunray_fire.vpcf"
+      "particle"                                          "particles/hero/phoenix/phoenix/gryphon_sunray_wave.vpcf"
+    }
     "AttributeStrengthGain"                               "3.6" // 3.3
   }
 }

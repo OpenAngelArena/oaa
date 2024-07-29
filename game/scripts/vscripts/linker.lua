@@ -106,6 +106,7 @@ LinkLuaModifier("modifier_arcana_dbz", "modifiers/modifier_arcana_dbz.lua", LUA_
 LinkLuaModifier("modifier_arcana_rockelec", "modifiers/modifier_arcana_rockelec.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arcana_pepsi", "modifiers/modifier_arcana_pepsi.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arcana_maid", "modifiers/modifier_arcana_maid.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arcana_gryphon", "modifiers/modifier_arcana_gryphon.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Global item modifiers:
 LinkLuaModifier("modifier_generic_bonus", "modifiers/modifier_generic_bonus.lua", LUA_MODIFIER_MOTION_NONE)
