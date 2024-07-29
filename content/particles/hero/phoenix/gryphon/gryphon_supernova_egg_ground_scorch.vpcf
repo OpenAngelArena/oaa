@@ -1,0 +1,133 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 3
+	m_flConstantRadius = 450.0
+	m_ConstantColor = [ 255, 255, 255, 80 ]
+	m_nConstantSequenceNumber1 = 1
+	m_nGroupID = 1
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_CreateWithinSphereTransform"
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 5.0
+			}
+			m_nOutputField = 1
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.588235
+			}
+			m_nOutputField = 7
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.5
+			}
+			m_nOutputField = 16
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = [ 0.0, 0.0, 500.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 500.0 ]
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 211, 248, 255 ]
+			m_ColorMax = [ 187, 209, 255 ]
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.15
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_nField = 16
+			m_Rate = -4.0
+		},
+		{
+			_class = "C_OP_OscillateScalarSimple"
+			m_Rate = 0.5
+			m_Frequency = 1.75
+			m_flOscAdd = 0.0
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nField = 16
+			m_Rate = 0.1
+			m_flEndTime = 99999.0
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderProjected"
+			m_bFlipHorizontal = true
+			m_vecProjectedMaterials = 
+			[
+				{
+					m_hMaterial = resource:"materials/particle/dark_willow/dark_willow_ground_crack.vmat"
+				},
+			]
+		},
+	]
+}

@@ -1,0 +1,145 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_flConstantRadius = 1.25
+	m_ConstantColor = [ 255, 162, 79, 255 ]
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 8.0, 229.0, 96.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = [ 230, 123, 1, 255 ]
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_nOutputField = 1
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_nOutputField = 7
+		},
+		{
+			_class = "C_INIT_CreateWithinSphereTransform"
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_SetControlPointsToParticle"
+			m_nFirstControlPoint = 3
+			m_bSetOrientation = true
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_ground.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_lava.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_warp.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_dust.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_light.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_halo.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_air.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_flare.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_ring_start.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_halo_edge.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hero/phoenix/gryphon/gryphon_supernova_egg_halo_start.vpcf"
+		},
+	]
+}
