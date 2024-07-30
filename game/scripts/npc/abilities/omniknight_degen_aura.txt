@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Guardian Angel) + 1
     "Innate"                                              "1"
     "DependentOnAbility"                                  "omniknight_guardian_angel"
 
