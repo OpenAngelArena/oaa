@@ -250,6 +250,7 @@ function modifier_tinkerer_laser_contraption_thinker:OnCreated(kv)
   -- Start thinking
   self:OnIntervalThink()
   self:StartIntervalThink(dmg_interval)
+  self:ApplyMarchOfTheMachines()
 end
 
 function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
@@ -269,6 +270,25 @@ function modifier_tinkerer_laser_contraption_thinker:ApplyTarSpill()
     -- if talent and talent:GetLevel() > 0 then
     if caster:HasScepter() then
       tar_spill:OnProjectileHit(nil, self.center)
+    end
+  end
+end
+
+function modifier_tinkerer_laser_contraption_thinker:ApplyMarchOfTheMachines()
+  if not IsServer() then
+    return
+  end
+
+  local caster = self:GetCaster()
+  if not caster or caster:IsNull() then
+    return
+  end
+
+  local march = caster:FindAbilityByName("tinker_march_of_the_machines")
+  if march and march:GetLevel() > 0 then
+    if caster:HasScepter() then
+      caster:SetCursorPosition(self.center)
+      march:OnSpellStart()
     end
   end
 end
