@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Tar Spill amplifies damage
+  // Tar Spill amplifies damage / March of the Machines cooldown
   //=================================================================================================================
   "special_bonus_unique_tinkerer_7"
   {
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "18"
+        "value"                                           "17"
       }
     }
   }
