@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Antimage Mana Break
+  // Anti-Mage: Mana Break (Innate)
   //=================================================================================================================
   "antimage_mana_break"
   {
@@ -11,9 +11,10 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
 
+    "Innate"                                              "1"
+
     "MaxLevel"                                            "7"
     "RequiredLevel"                                       "-1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -11,10 +11,11 @@
     "ScriptFile"                                          "abilities/oaa_sniper_keen_scope.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 
-    "RequiredLevel"                                       "-1"
     "Innate"                                              "1"
-    "MaxLevel"                                            "6" // same as Dependent ability (Assassinate) + 1
     "DependentOnAbility"                                  "sniper_assassinate"
+
+    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "6" // same as Dependent ability (Assassinate) + 1
 
     "AbilityValues"
     {
