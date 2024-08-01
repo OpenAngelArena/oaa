@@ -10,7 +10,7 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "DisplayAdditionalHeroes"                             "1"
 
-    "MaxLevel"                                            "7"
+    "MaxLevel"                                            "6"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
@@ -28,21 +28,21 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "bear_hp"                                           "800 1100 1500 1900 2300 3100 5500" //OAA
-      "bear_regen_tooltip"                                "4 5 7 9 11 15 21" //OAA
+      "bear_hp"                                           "1100 1500 1900 2300 3100 5500" //OAA
+      "bear_regen_tooltip"                                "5 7 9 11 15 21" //OAA
       "bear_bat"
       {
-        "value"                                           "1.85 1.75 1.65 1.55 1.45 1.35 1.25"
+        "value"                                           "1.75 1.65 1.55 1.45 1.35 1.25"
         //"special_bonus_unique_lone_druid_10"              "-0.1"
       }
-      "bear_armor"                                        "2 3 4 5 6 12 18" //OAA
+      "bear_armor"                                        "3 4 5 6 12 18" //OAA
       "backlash_damage" //OAA
       {
         "value"                                           "40.0"
       }
       "bear_movespeed"
       {
-        "value"                                           "300 300 330 360 390 420 450"
+        "value"                                           "300 330 360 390 420 450"
         "special_bonus_unique_lone_druid_11"              "+30"
       }
       "bear_magic_resistance"
@@ -61,6 +61,11 @@
       }
       "damage_gain_per_druid_level"                       "5"
       "hp_gain_per_druid_level"                           "90"
+      "bear_attack_leash_range"
+      {
+        "value"                                           "1100"
+        "special_bonus_facet_lone_druid_unbearable"       "+500"
+      }
     }
   }
 }

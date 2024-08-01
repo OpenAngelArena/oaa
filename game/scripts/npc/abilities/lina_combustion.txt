@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lina Combustion(Innate)
+  //=================================================================================================================
+  "lina_combustion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "damage_threshold"                                  "150"
+      "damage"                                            "10 30 50 70 140 210"
+      "damage_illusions"                                  "10 15 20 25 50 75"
+      "damage_aoe"
+      {
+          "value"                                         "400"
+          "affected_by_aoe_increase"                      "1"
+      }
+      "duration"                                          "6"
+    }
+  }
+}

@@ -89,13 +89,10 @@
         "value"                                           "0"
         "special_bonus_facet_huskar_nothl_transfusion"    "=400"
         "affected_by_aoe_increase"                        "1"
-        "RequiresFacet"                                   "huskar_nothl_transfusion"
       }
-      "life_break_heal_pct" //OAA, looks wrong
+      "life_break_heal_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_huskar_nothl_transfusion"    "100"
-        "RequiresFacet"                                   "huskar_nothl_transfusion"
       }
     }
   }

@@ -21,57 +21,11 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "bounces"                                           "2 3 4 5 6 7"
+      "bounces"                                           "3 4 5 6 7 8"
       "damage_reduction_percent"
       {
         "value"                                           "50 45 40 35 25 15"
         "special_bonus_unique_luna_7"                     "-8"
-      }
-      "rotating_glaives_duration"
-      {
-        "value"                                           "7"
-      }
-      "rotating_glaives"
-      {
-        "value"                                           "3"
-        "special_bonus_shard"                             "+1"
-      }
-      "rotating_glaives_collision_damage"
-      {
-        "value"                                           "20"
-        "special_bonus_shard"                             "+20"
-      }
-      "rotating_glaives_damage_reduction"
-      {
-        "value"                                           "0"
-        "special_bonus_facet_luna_lunar_orbit"            "10 15 20 25 25 25"
-        "RequiresFacet"                                   "luna_lunar_orbit"
-      }
-      "rotating_glaives_hit_radius"
-      {
-        "value"                                           "115"
-        "affected_by_aoe_increase"                        "1"
-      }
-      "rotating_glaives_movement_radius"
-      {
-        "value"                                           "175"
-        "RequiresFacet"                                   "luna_lunar_orbit"
-      }
-      "unclamp_max_radius"
-      {
-        "value"                                           "0"
-      }
-      "rotating_glaives_speed"
-      {
-        "value"                                           "160"
-      }
-      "AbilityCooldown" //OAA
-      {
-        "value"                                           "30 28 26 24 22 20"
-      }
-      "AbilityManaCost"
-      {
-        "value"                                           "75"
       }
     }
   }
