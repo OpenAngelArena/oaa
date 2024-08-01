@@ -63,7 +63,7 @@
       "attack_range_tooltip"
       {
         "value"                                           "650"
-        "special_bonus_unique_shadow_shaman_8"            "+140"
+        "special_bonus_unique_shadow_shaman_8"            "+160"
       }
       "scepter_range"
       {
@@ -73,13 +73,13 @@
       "hits_to_destroy_tooltip"
       {
         "value"                                           "2"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "650%"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "900%"
         "special_bonus_unique_shadow_shaman_1"            "50%"
       }
       "ward_health"
       {
         "value"                                           "4"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "650%"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "900%"
         "special_bonus_unique_shadow_shaman_1"            "50%"
       }
 
@@ -95,12 +95,12 @@
       }
       "mega_ward_health_tooltip"
       {
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=7.5"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=10"
       }
       "mega_ward_health_reduction_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=25"
+        "special_bonus_facet_shadow_shaman_massive_serpent_ward"  "=0"
       }
 
       "mega_ward_model_scale_multiplier"                  "2.3 3.0 3.5 3.7 3.9"

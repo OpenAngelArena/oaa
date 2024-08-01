@@ -20,11 +20,11 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.4"
-    "AbilityManaCost"                                     "30"
+    "AbilityManaCost"                                     "35 40 45 50 55 60"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "14.0 11.0 8.0 5.0 4.5 4.0"
+    "AbilityCooldown"                                     "15.0 12.0 9.0 6.0 5.0 4.0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -43,14 +43,14 @@
       "inner_radius_bonus_damage_pct"                     "40"
       "attack_damage"
       {
-        "value"                                           "40 80 120 160 240 320"
-        "special_bonus_unique_sand_king_scorpion_strike_damage"  "+50"
+        "value"                                           "35 70 105 140 210 280"
+        "special_bonus_unique_sand_king_scorpion_strike_damage"  "+40"
       }
       "debuff_duration"                                   "4 5 6 7 8 9"
       "strike_slow"
       {
         "value"                                           "10 12 14 16 18 20"
-        "special_bonus_unique_sand_king_3"                "+12"
+        "special_bonus_unique_sand_king_3"                "+8"
       }
     }
   }

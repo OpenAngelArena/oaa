@@ -29,7 +29,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "30 40 50 60 70 80"
+    "AbilityManaCost"                                     "30 35 40 45 50 55"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,15 +37,16 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "13 12 11 10 10 10"
-        "special_bonus_unique_omniknight_3"               "-5"
+        "value"                                           "13 10 7 4 4 4"
+        //"special_bonus_unique_omniknight_3"               "-5"
+        //note: AbilityChargeRestoreTime uses these values when it grants the charge
       }
       "base_damage" // this is damage based on Omniknight's base damage
       {
-        "value"                                           "55 80 105 130 155 180"
+        "value"                                           "55 70 85 100 130 160"
         "special_bonus_unique_omniknight_4"               "+75"
       }
-      "bonus_damage"                                      "55 80 105 130 180 230" // this is actually base damage of the spell
+      "bonus_damage"                                      "50 70 90 110 150 190" // this is actually base damage of the spell
       "heal_pct"
       {
         "value"                                           "0"

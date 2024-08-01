@@ -48,7 +48,7 @@
         "value"                                           "-14 -21 -28 -35 -42 -50"
       }
       "illusion_duration"                                 "2.0 4.0 6.0 8.0 8.0 8.0"
-      "illusion_damage_out_pct"                           "-80 -78 -76 -74 -72 -70" //OAA
+      "illusion_damage_out_pct"                           "-85 -83 -81 -79 -77 -75" //OAA
       "tooltip_illusion_damage"                           "20 22 24 26 28 30" //OAA
       "illusion_damage_in_pct"                            "300 260 220 180 140 100" //OAA
       "tooltip_illusion_total_damage_in_pct"              "400 360 320 280 240 200" //OAA
@@ -61,7 +61,7 @@
       }
       "scepter_bonus_illusion_damage"
       {
-        "value"                                           "30"
+        "value"                                           "20"
         "RequiresScepter"                                 "1"
       }
       "scepter_total_hits"

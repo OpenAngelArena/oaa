@@ -12,6 +12,10 @@
       "int_per_one_cdr"                                   "6" //OAA
       "one_percent_tooltip"                               "1"
       "max_cdr"                                           "30" //OAA
+      "item_cooldown_tooltip"
+      {
+        "dynamic_value"                                   "true"
+      }
     }
   }
 }

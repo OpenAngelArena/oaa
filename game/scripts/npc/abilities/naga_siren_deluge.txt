@@ -36,12 +36,15 @@
       }
       "duration"                  
       {
-        "value"                                           "5"             
+        "value"                                           "3"
       }
-      "debuff_duration"                                   "10"
       "status_resistance"
       {
-        "value"                                           "-20"
+        "value"                                           "-35"
+      }
+      "max_movement_speed"
+      {
+        "value"                                           "225"
       }
     }
   }

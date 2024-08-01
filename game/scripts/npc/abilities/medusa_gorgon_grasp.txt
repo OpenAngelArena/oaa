@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Medusa: Gorgon's Grasp
+  //=================================================================================================================
+  "medusa_gorgon_grasp"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
+
+    "MaxLevel"                                            "6"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"                                    "625"
+    "AbilityCastPoint"                                    "0.4"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"                                     "40 60 80 100 120 140"
+    "AbilityCooldown"                                     "24 22 20 18 17 16" //OAA
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "150"
+        "affected_by_aoe_increase"                        "1"
+      }
+
+      "radius_grow"                                       "50"
+
+      "delay"                                             "1"
+      "volley_interval"                                   ".25"
+      "volley_spread_pct"                                 "170"
+      "volley_count"              
+      {
+        "value"                                           "3"
+        "special_bonus_special_bonus_unique_medusa_gorgons_grasp_volleys"           "1"
+      }
+
+      "duration"                                          "0.8 1.2 1.6 2.0 2.2 2.4"
+      "damage"                                            "30 70 110 150 300 600"
+      "damage_pers"                                       "100"
+      "damage_interval"                                   ".2"
+    }
+  }
+}

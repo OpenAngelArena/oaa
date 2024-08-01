@@ -30,7 +30,7 @@
       }
       "AbilityManaCost" //OAA
       {
-        "value"                                           "150 200 250 300 350"
+        "value"                                           "200 250 300 350 400"
         "special_bonus_unique_medusa_stone_gaze_cooldown"  "-50%"
       }
       "radius"
@@ -51,7 +51,7 @@
       {
         "value"                                           "35 40 45 50 55"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
-        "special_bonus_unique_medusa_8"                   "+8"
+        "special_bonus_unique_medusa_8"                   "+10"
       }
       "speed_boost"                                       "50"
     }
