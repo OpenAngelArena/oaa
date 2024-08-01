@@ -1,9 +1,9 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Clinkz talent: Modifies cooldown of Strafe - unused
+  // Custom Muerta Talent: Pierce The Veil Cooldown Reduction
   //=================================================================================================================
-  "special_bonus_clinkz_strafe_cooldown"
+  "special_bonus_unique_muerta_2_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -17,8 +17,8 @@
     {
       "01"
       {
-        "var_type"                                        "FIELD_FLOAT"
-        "value"                                           "7"
+        "var_type"                                        "FIELD_INTEGER"
+        "value"                                           "-10"
       }
     }
   }

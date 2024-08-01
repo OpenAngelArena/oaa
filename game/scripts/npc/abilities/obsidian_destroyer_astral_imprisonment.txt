@@ -17,9 +17,6 @@
 
     "MaxLevel"                                            "6"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
@@ -38,7 +35,7 @@
       }
       "prison_duration"
       {
-        "value"                                           "1.75 2.5 3.25 4 4 4"               
+        "value"                                           "1.75 2.5 3.25 4 4 4"
       }
       "damage"
       {
@@ -73,20 +70,20 @@
         "value"                                           "650"
         "special_bonus_unique_outworld_devourer_astral_castrange"  "+100"
       }
-      "debuff_duration"   
+      "debuff_duration"
       {
         "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+5"                
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+5"
       }
       "percentage_damage"
       {
         "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"             
-      }               
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "0"
+      }
       "percentage_heal"
       {
         "value"                                           "0"
-        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"              
+        "special_bonus_facet_obsidian_destroyer_overwhelming_devourer"  "+100"
       }
     }
   }

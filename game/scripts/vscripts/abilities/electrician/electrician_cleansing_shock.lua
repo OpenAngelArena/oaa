@@ -21,16 +21,6 @@ function electrician_cleansing_shock:CastFilterResultTarget(target)
   return default_result
 end
 
--- function electrician_cleansing_shock:GetManaCost(level)
-	-- local caster = self:GetCaster()
-  -- local base_mana_cost = self.BaseClass.GetManaCost(self, level)
-  -- if caster:HasScepter() then
-    -- return self:GetSpecialValueFor("mana_cost_scepter")
-  -- end
-
-  -- return base_mana_cost
--- end
-
 function electrician_cleansing_shock:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()

@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Elder Titan: Ancestral Spirit (Innate)
+  // Elder Titan: Astral Spirit (Innate)
   //=================================================================================================================
   "elder_titan_ancestral_spirit"
   {
@@ -12,9 +12,10 @@
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
     "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
 
+    "Innate"                                              "1"
+
     "MaxLevel"                                            "7"
     "RequiredLevel"                                       "-1"
-    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCastPoint"                                    "0.4"
 

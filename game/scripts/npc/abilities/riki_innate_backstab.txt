@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Riki: Cloak and Dagger
+  // Riki: Backstab (Innate)
   //=================================================================================================================
   "riki_innate_backstab"
   {
@@ -9,14 +9,17 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 
-    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+    "DependentOnAbility"                                  "riki_backstab"
+
+    "MaxLevel"                                            "6" // same as Dependent ability (Cloak and Dagger) + 1
     "RequiredLevel"                                       "-1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage_multiplier"             
+      "damage_multiplier"
       {
         "value"                                           "0.4 0.8 1.2 1.6 2.0 2.4"
         "special_bonus_unique_riki_1"                     "+0.3"
@@ -29,7 +32,7 @@
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 150 250 350 450 550"
       }
-      "bonus_xp_assist"               
+      "bonus_xp_assist"
       {
         "value"                                           "0"
         "special_bonus_facet_riki_contract_killer"        "25 100 100 100 100 100"

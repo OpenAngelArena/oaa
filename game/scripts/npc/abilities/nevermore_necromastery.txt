@@ -1,13 +1,15 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Ability: Nevermore Necromastery
+  // Shadow Fiend: Necromastery (Innate)
   //=================================================================================================================
   "nevermore_necromastery"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+    "Innate"                                              "1"
 
     "MaxLevel"                                            "6"
     "RequiredLevel"                                       "-1"

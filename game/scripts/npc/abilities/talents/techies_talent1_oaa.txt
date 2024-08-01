@@ -1,9 +1,9 @@
-﻿"DOTAAbilities"
+"DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom Batrider talent: Sticky Napalm bonus radius
+  // Custom Techies Talent: Sticky Bomb Damage
   //=================================================================================================================
-  "special_bonus_unique_batrider_7_oaa"
+  "special_bonus_unique_techies_1_oaa"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -18,7 +18,7 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50"
+        "value"                                           "240"
       }
     }
   }
