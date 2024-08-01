@@ -108,7 +108,7 @@ local forbidden_kvs = {
   --leshrac_split_earth_oaa = {shard_extra_radius_per_instance = true,}, -- uncomment if flat change
   lich_frost_nova = {aoe_damage = true,},
   --pudge_rot = {scepter_rot_radius_bonus = true,}, -- uncomment if flat change
-  sandking_epicenter = {epicenter_radius_increment = true,},
+  sandking_epicenter = {epicenter_radius_increment = true, scepter_explosion_radius_pct = true,},
   sandking_sand_storm = {scepter_explosion_radius_pct = true,},
 }
 

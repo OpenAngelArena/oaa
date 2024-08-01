@@ -21,9 +21,6 @@
     "AbilityCastRange"                                    "750"
     "AbilityCastPoint"                                    "0.1"
 
-    // Time
-    //-------------------------------------------------------------------------------------------------------------
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100 150 200 250 300"
@@ -34,7 +31,7 @@
     {
       "AbilityCooldown" //OAA
       {
-        "value"                                           "60"
+        "value"                                           "75 70 65 60 55"
         "special_bonus_unique_puck"                       "-10"
       }
       "coil_duration"                                     "6.0"
@@ -52,7 +49,7 @@
       "coil_break_damage" //OAA
       {
         "value"                                           "200 400 600 1200 2200"
-        "special_bonus_unique_puck_coil_damage"           "+175"
+        "special_bonus_unique_puck_coil_damage"           "+200"
       }
       "coil_radius"
       {

@@ -28,7 +28,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "60 70 80 90 190 290"
+    "AbilityManaCost"                                     "60 70 80 90 180 270"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -37,10 +37,10 @@
       "electric_vortex_pull_distance"                     "180 220 260 300 340 380"
       "electric_vortex_pull_tether_range"                 "1200.0"
       "electric_vortex_self_slow"                         "-50"
-      "electric_vortex_self_slow_duration"                "1.1 1.4 1.7 2.0 2.3 2.6" //OAA
+      "electric_vortex_self_slow_duration"                "1.1 1.4 1.7 2.0 2.1 2.2" //OAA
       "AbilityDuration"
       {
-        "value"                                           "1.1 1.4 1.7 2.0 2.3 2.6"
+        "value"                                           "1.1 1.4 1.7 2.0 2.1 2.2"
         "special_bonus_unique_storm_spirit"               "+0.2"
       }
       "radius_scepter"
