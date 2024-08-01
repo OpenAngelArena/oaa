@@ -23,7 +23,7 @@ function item_elixier_sustain:OnSpellStart()
   buff.hero_spell_lifesteal = self:GetSpecialValueFor("bonus_spell_lifesteal")
 
   -- Consume the item
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 --------------------------------------------------------------------------------

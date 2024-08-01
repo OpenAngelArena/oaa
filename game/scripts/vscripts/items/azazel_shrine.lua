@@ -33,7 +33,7 @@ function item_azazel_summon_shrine:OnSpellStart()
     return
   end
 
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 --------------------------------------------------------------------------

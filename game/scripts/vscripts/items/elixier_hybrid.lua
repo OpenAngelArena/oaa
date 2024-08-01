@@ -24,7 +24,7 @@ function item_elixier_hybrid:OnSpellStart()
   buff.physical_damage = self:GetSpecialValueFor("bonus_physical_damage")
 
   -- Consume the item
-  self:SpendCharge()
+  self:SpendCharge(0.1)
 end
 
 --------------------------------------------------------------------------------
