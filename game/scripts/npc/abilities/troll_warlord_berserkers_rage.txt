@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Troll Warlord: Berserker's Rage (Innate)
+  // Troll Warlord: Berserker's Rage
   //=================================================================================================================
   "troll_warlord_berserkers_rage"
   {
@@ -29,16 +29,16 @@
         "special_bonus_unique_troll_warlord"              "+8"
       }
       "bonus_range"                                       "350"
-      "base_attack_time"                                  "1.4"
+      "base_attack_time"                                  "1.4" // this is probably not needed here
       "ensnare_chance"                                    "20"
       "ensnare_duration"                                  "0.8 1.2 1.6 2.0 2.1 2.2"
       "maim_chance"                                       "20"
       "maim_duration"                                     "0.8 1.2 1.6 2.0 2.1 2.2"
-      "maim_slow"                                         "8 16 24 32 36 40"    
+      "maim_slow"                                         "8 16 24 32 36 40"
       "maim_attack_slow"                                  "8 16 24 32 36 40"    //note:currently unused in code, just tooltips.
-      "maim_damage"       
+      "maim_damage"
       {
-        "value"                                           "5 10 15 20"
+        "value"                                           "5 10 15 20 40 60"
         "CalculateSpellDamageTooltip"                     "0"
       }
     }

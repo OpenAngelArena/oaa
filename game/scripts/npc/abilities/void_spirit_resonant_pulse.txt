@@ -50,12 +50,13 @@
       }
       "base_absorb_amount" //OAA
       {
-        "value"                                           "75 100 125 150 300 600"
+        "value"                                           "80 120 160 200 400 800" // physical shield (vanilla: 25/50/75/100)
+        "special_bonus_facet_void_spirit_sanctuary"       "=75 =100 =125 =150 =300 =600" // all dmg shield (vanilla: 25/50/75/100)
       }
       "absorb_per_hero_hit" //OAA
       {
-        "value"                                           "60 80 100 120 240 480"
-        "special_bonus_facet_void_spirit_sanctuary"       "+15 +20 +25 +30 +60 +120"
+        "value"                                           "60 80 100 120 240 360" // physical shield (vanilla: 35/50/65/80)
+        "special_bonus_facet_void_spirit_sanctuary"       "=70 =90 =110 =130 =260 =390" // all dmg shield (vanilla: 50/70/90/110)
       }
       "is_all_barrier"
       {

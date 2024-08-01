@@ -5,6 +5,7 @@
   //=================================================================================================================
   "npc_dota_hero_abyssal_underlord"
   {
+    "Ability4"                                            "generic_hidden" // replaces abyssal_underlord_raid_boss
     "Ability5"                                            "abyssal_underlord_cancel_dark_rift_oaa" // replaces generic_hidden
     "Ability6"                                            "abyssal_underlord_dark_rift_oaa" // replaces abyssal_underlord_dark_portal
 
@@ -12,15 +13,17 @@
 
     "Ability17"                                           "special_bonus_unique_underlord_9_oaa" // replaces special_bonus_unique_underlord_9
 
-  // special_bonus_unique_underlord - "+{s:value}s Pit of Malice Root"
-  // special_bonus_unique_underlord_2 - "+{s:value} Firestorm Wave Damage"
-  // special_bonus_unique_underlord_3 - "+{s:value}% Atrophy Aura Attack Damage Reduction"
-  // special_bonus_unique_underlord_4 - "+{s:value}% Firestorm Burn Damage"
-  // special_bonus_unique_underlord_5 - "-{s:value}s Firestorm Cooldown"
-  // special_bonus_unique_underlord_6 - "+{s:value} Pit of Malice AoE"
-  // special_bonus_unique_underlord_7 - "+{s:value} Firestorm Wave Count"             - shard does this
-  // special_bonus_unique_underlord_8 - "+{s:value} Firestorm Radius"
-  // special_bonus_unique_underlord_9 - "+{s:value}% Atrophy Allied Hero Bonus"
+    // special_bonus_unique_underlord - Pit of Malice Root
+    // special_bonus_unique_underlord_2 - Firestorm Wave Damage
+    // special_bonus_unique_underlord_3 - % Atrophy Aura Attack Damage Reduction/Gain
+    // special_bonus_unique_underlord_4 - % Firestorm Burn Damage
+    // special_bonus_unique_underlord_5 - Firestorm Cooldown
+    // special_bonus_unique_underlord_6 - Pit of Malice Slows
+    // special_bonus_unique_underlord_7 - Invading Force Movement Bonus/Damage Reduction       - not usable
+    // special_bonus_unique_underlord_8 - Firestorm Radius
+    // special_bonus_unique_underlord_9 - Fiend's Gates deals DPS in a radius                  - not usable
+    // special_bonus_unique_underlord_7_oaa - % Pit of Malice Damage
+    // special_bonus_unique_underlord_9_oaa - Dark Rift Damage
 
     "Facets"
     {
