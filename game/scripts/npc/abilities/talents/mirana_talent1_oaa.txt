@@ -13,20 +13,10 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "cast_range"                                      "0"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        // Cannot be 0 because is used to calculate lifetime of the arrow
-        // Destroyed on map border hit
-        "projectile_range"                                "50000"          // 45000 is enough even if the map size is 32k x 32k
-      }
+      "cast_range"                                        "0"
+      "projectile_range"                                  "46000" // 45000 is enough even if the map size is 32k x 32k
     }
   }
 }

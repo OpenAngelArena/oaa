@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Custom KOTL talent: Illuminate Bonus Speed percent increase
+  // Custom KOTL talent: Illuminate % Bonus Speed
   //=================================================================================================================
   "special_bonus_unique_keeper_of_the_light_1_oaa"
   {
@@ -13,13 +13,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "value"                                           "50"
-      }
+      "value"                                             "50"
     }
   }
 }

@@ -109,15 +109,7 @@ function modifier_nevermore_dark_lord_oaa_armor_debuff:OnCreated()
     return
   end
 
-  local armor_reduction = ability:GetSpecialValueFor("armor_reduction")
-
-  -- Talent that improves armor reduction
-  local talent = caster:FindAbilityByName("special_bonus_unique_nevermore_1_oaa")
-  if talent and talent:GetLevel() > 0 then
-    armor_reduction = math.abs(armor_reduction) + math.abs(talent:GetSpecialValueFor("value"))
-  end
-
-  self.armor_reduction = armor_reduction
+  self.armor_reduction = ability:GetSpecialValueFor("armor_reduction")
   self.armor_reduction_per_stack = ability:GetSpecialValueFor("bonus_armor_per_stack")
 
   --self.magic_resistance = 0
