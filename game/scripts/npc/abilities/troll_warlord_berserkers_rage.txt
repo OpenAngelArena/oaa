@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
   //=================================================================================================================
-  // Troll Warlord: Berserker's Rage
+  // Troll Warlord: Berserker's Rage (Innate)
   //=================================================================================================================
   "troll_warlord_berserkers_rage"
   {
@@ -10,9 +10,10 @@
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
+    "Innate"                                              "1"
+
     "MaxLevel"                                            "7"
     "RequiredLevel"                                       "-1"
-    "LevelsBetweenUpgrades"                               "2"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

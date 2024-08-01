@@ -255,7 +255,6 @@ if IsServer() then
     -- grab ability specials
     local damageInterval = spell:GetSpecialValueFor("aura_interval")
     local damage_per_second = spell:GetSpecialValueFor("aura_damage")
-    -- Bonus damage talent
 
     self.shieldRate = spell:GetSpecialValueFor("shield_damage_block") * 0.01
     self.damageRadius =  spell:GetSpecialValueFor("aura_radius")

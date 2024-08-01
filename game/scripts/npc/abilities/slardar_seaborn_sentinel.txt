@@ -6,7 +6,7 @@
   "slardar_seaborn_sentinel"
   {
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"                                            "6"
+    "MaxLevel"                                            "6" // same as Dependent ability (Corrosive Haze) + 1
     "Innate"                                              "1"
 
     "DependentOnAbility"                                  "slardar_amplify_damage"

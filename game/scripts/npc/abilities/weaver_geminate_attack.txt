@@ -1,5 +1,8 @@
 "DOTAAbilities"
 {
+  //=================================================================================================================
+  // Weaver: Geminate Attack (Innate)
+  //=================================================================================================================
   "weaver_geminate_attack"
   {
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_BREAK_DISABLES"
@@ -9,10 +12,10 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PHYSICAL"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
+    "Innate"                                              "1"
+
     "MaxLevel"                                            "7"
     "RequiredLevel"                                       "-1"
-    "Innate"                                              "1"
-    "LevelsBetweenUpgrades"                               "2"
 
     "AbilityCooldown"                                     "10.5 8.5 6.5 4.5 2.5 2.25 2"
 

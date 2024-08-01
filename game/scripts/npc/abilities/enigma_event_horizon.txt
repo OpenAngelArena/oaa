@@ -1,0 +1,27 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Enigma: Event Horizon (Facet)
+  //=================================================================================================================
+  "enigma_event_horizon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "MaxLevel"                                            "6" //OAA
+
+    "DependentOnAbility"                                  "enigma_black_hole" //OAA
+
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "600"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "speed_bonus"                                       "15 16 17 18 19 20" //OAA
+      "vision_cone"                                       "0.08715"
+    }
+  }
+}

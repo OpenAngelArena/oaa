@@ -11,6 +11,7 @@
     "AbilityType"                                         "DOTA_ABILITY_TYPE_ULTIMATE" //OAA
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE" //OAA
     "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ALLIES_YES"
 
@@ -19,10 +20,10 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"                                    "0.3"
+    "AbilityCastRange"                                    "300"
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "300"
     "AbilityCooldown"                                     "110 100 90 85 80" //OAA
 
     // Cost

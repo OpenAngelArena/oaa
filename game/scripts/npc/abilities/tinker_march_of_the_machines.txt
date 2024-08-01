@@ -26,7 +26,7 @@
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "90 110 130 150 190 230"
+    "AbilityManaCost"                                     "90 110 130 150 170 190"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -34,8 +34,8 @@
     {
       "AbilityCooldown" // OAA
       {
-        "value"                                           "25.0 23.0 21.0 19.0 15.0 10.0"
-        "special_bonus_unique_tinkerer_7"                 "-5"
+        "value"                                           "25.0 23.0 21.0 19.0 17.0 15.0"
+        "special_bonus_unique_tinkerer_7"                 "-6"
       }
       "radius"
       {
@@ -47,7 +47,7 @@
       "duration" // OAA
       {
         "value"                                           "6.0"
-        "special_bonus_unique_tinkerer_5"                 "+2.0"
+        "special_bonus_unique_tinkerer_5"                 "+1.0"
       }
       "speed"                                             "400"
       "machines_per_sec"                                  "24 27 30 33 36 36" // OAA
