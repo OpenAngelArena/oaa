@@ -232,11 +232,13 @@ function AbilityLevels:GetTalentModifier(name)
     special_bonus_spell_immunity = "modifier_special_bonus_spell_immunity",
     special_bonus_haste = "modifier_special_bonus_haste",
     special_bonus_truestrike = "modifier_special_bonus_truestrike",
-    --special_bonus_unique_morphling_4 = "modifier_special_bonus_unique_morphling_4",
     special_bonus_unique_warlock_1 = "modifier_special_bonus_unique_warlock_1",
     special_bonus_unique_warlock_2 = "modifier_special_bonus_unique_warlock_2",
+    special_bonus_unique_warlock_4 = "modifier_warlock_rain_of_chaos_death_trigger",
     special_bonus_unique_undying_3 = "modifier_undying_tombstone_death_trigger",
-    --special_bonus_unique_undying_reincarnation = "modifier_special_bonus_reincarnation",
+    special_bonus_reincarnation_200 = "modifier_special_bonus_reincarnation",
+    special_bonus_reincarnation_250 = "modifier_special_bonus_reincarnation",
+    special_bonus_reincarnation_300 = "modifier_special_bonus_reincarnation",
   }
 
   if exceptionBonuses[name] then

@@ -33,7 +33,7 @@ function sohei_wholeness_of_body:OnSpellStart()
   target:AddNewModifier(caster, self, "modifier_sohei_wholeness_of_body_buff", {duration = self:GetSpecialValueFor("duration")})
 
   -- Knockback talent
-  -- local talent = caster:FindAbilityByName("special_bonus_sohei_wholeness_knockback")
+  -- local talent = caster:FindAbilityByName("special_bonus_unique_sohei_6_oaa")
   -- if talent and talent:GetLevel() > 0 then
     -- local position = target:GetAbsOrigin()
     -- local radius = talent:GetSpecialValueFor("value")

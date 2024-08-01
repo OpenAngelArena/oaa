@@ -132,22 +132,22 @@
 "DOTA_Tooltip_modifier_sohei_ki_attraction_buff_Description"                    "Outgoing damage increased by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
 // talents
-"DOTA_Tooltip_Ability_special_bonus_sohei_stun"                                 "+{s:value}s Repulsive Palm Stun"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_1_oaa"                         "+{s:bonus_stun_duration}s Repulsive Palm Stun"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_slow"                            "+{s:value}%/{s:value2} Dash Move/Attack Speed Slow"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_2_oaa"                         "+{s:bonus_move_speed_slow_pct}%/{s:bonus_attack_speed_slow} Dash Move/Attack Speed Slow"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_dash_cast_range"                      "+{s:value} Dash Range"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_3_oaa"                         "+{s:bonus_dash_range} Dash Range"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_fob_radius"                           "+{s:value} Flurry of Blows AoE"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_4_oaa"                         "+{s:bonus_flurry_radius} Flurry of Blows AoE"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_5"                             "+{s:value}% Momentum Crit"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_5_oaa"                         "+{s:bonus_crit_damage}% Momentum Crit"
 
-"DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback"                  "Wholeness of Body Knockback"
-"DOTA_Tooltip_Ability_special_bonus_sohei_wholeness_knockback_Description"      "Whenever Wholeness of Body is applied, push all nearby enemies with Ki Strike knockback."
+//"DOTA_Tooltip_Ability_special_bonus_unique_sohei_6_oaa"                         "Wholeness of Body Knockback"
+//"DOTA_Tooltip_Ability_special_bonus_unique_sohei_6_oaa_Description"             "Whenever Wholeness of Body is applied, push all nearby enemies with Ki Strike knockback."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_7"                             "+{s:value} Dash Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_7_oaa"                         "+{s:bonus_damage} Dash Damage"
 
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8"                             "+{s:value} Flurry of Blows Attacks"
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8_Description"                 "Increases Flurry of Blows duration by 1.8s as well."
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8_oaa"                         "+{s:bonus_max_attacks} Flurry of Blows Attacks"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_8_oaa_Description"             "Increases Flurry of Blows duration by {s:bonus_max_duration}s as well."
 
-"DOTA_Tooltip_Ability_special_bonus_unique_sohei_9"                             "+{s:value}% Repulsive Palm Strength Damage"
+"DOTA_Tooltip_Ability_special_bonus_unique_sohei_9_oaa"                         "+{s:bonus_strength_damage}% Repulsive Palm Strength Damage"
