@@ -74,12 +74,17 @@ function modifier_tormentor_reflect_oaa:OnCreated()
 		death = "particles/neutral_fx/miniboss_death_dire.vpcf",
 	}
 
-	-- This delay is required because the tormentor team is not set yet when the modifier is created
-	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("delay"), function()
-		self.shield_pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].shield, PATTACH_ABSORIGIN_FOLLOW, self.parent)
-
-		self:SetHasCustomTransmitterData(true)
-	end, FrameTime())
+  -- This delay is required because the tormentor team is not set yet when the modifier is created
+  local modifier = self
+  GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("delay"), function()
+    if modifier and not modifier:IsNull() then
+      local parent = modifier.parent
+      if parent and not parent:IsNull() then
+        modifier.shield_pfx = ParticleManager:CreateParticle(modifier.pfx_name[parent.tormentorTeam].shield, PATTACH_ABSORIGIN_FOLLOW, parent)
+      end
+      modifier:SetHasCustomTransmitterData(true)
+    end
+  end, 1)
 end
 
 function modifier_tormentor_reflect_oaa:AddCustomTransmitterData()
@@ -222,8 +227,10 @@ if IsServer() then
 
     if unit ~= self.parent then return end
 
-    ParticleManager:DestroyParticle(self.shield_pfx, true)
-    ParticleManager:ReleaseParticleIndex(self.shield_pfx)
+    if self.shield_pfx then
+      ParticleManager:DestroyParticle(self.shield_pfx, true)
+      ParticleManager:ReleaseParticleIndex(self.shield_pfx)
+    end
 
     local pfx = ParticleManager:CreateParticle(self.pfx_name[self.parent.tormentorTeam].death, PATTACH_ABSORIGIN_FOLLOW, self.parent)
     ParticleManager:SetParticleControl(pfx, 0, self.parent:GetAbsOrigin())
