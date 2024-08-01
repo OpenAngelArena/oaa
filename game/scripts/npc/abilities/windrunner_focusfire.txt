@@ -70,7 +70,12 @@
       {
         "value"                                           "0"
         "special_bonus_unique_windranger_2"               "+18"
-        "RequiresFacet"                                   "windrunner_tailwind"
+        "RequiresFacet"                                   "windrunner_focusfire"
+      }
+      "bonus_range"
+      {
+        "value"                                           "0"
+        "special_bonus_facet_windrunner_whirlwind"        "+150"
       }
       "unfocused_cancel_initial_cooldown"                 "0.5"
     }
