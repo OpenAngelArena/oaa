@@ -162,7 +162,6 @@ end
 
 function modifier_tinkerer_oil_spill_debuff:OnCreated()
   local parent = self:GetParent()
-  local caster = self:GetCaster()
 
   local move_speed_slow = 15
   local attack_speed_slow = 15
@@ -196,8 +195,6 @@ function modifier_tinkerer_oil_spill_debuff:OnCreated()
 end
 
 function modifier_tinkerer_oil_spill_debuff:OnRefresh()
-  local caster = self:GetCaster()
-
   local move_speed_slow = 15
   local attack_speed_slow = 15
   local burn_dps = 30

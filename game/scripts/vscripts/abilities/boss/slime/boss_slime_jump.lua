@@ -40,8 +40,8 @@ end
 ------------------------------------------------------------------------------------
 
 function boss_slime_jump:OnAbilityPhaseStart()
-  local target = self:GetCursorPosition()
-  local radius = self:GetSpecialValueFor("radius")
+  --local target = self:GetCursorPosition()
+  --local radius = self:GetSpecialValueFor("radius")
 
   --DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
 
