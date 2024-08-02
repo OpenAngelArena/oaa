@@ -22,7 +22,7 @@
         "value"                                           "15 25 35 45 55 65"
         "special_bonus_unique_troll_warlord_2"            "+25"
       }
-      "bonus_armor"
+      "bonus_armor" //OAA, Valve has var_type FIELD_INTEGER
       {
         "value"                                           "2 3 4 5 6 7"
         "special_bonus_unique_troll_warlord"              "+8"

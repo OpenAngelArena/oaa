@@ -39,7 +39,6 @@ function specialsToValues (file) {
 
   let result = '';
   let before = '';
-  let error = false;
   lineReader.on('line', (line) => {
     before += line + '\r\n';
 
@@ -48,11 +47,11 @@ function specialsToValues (file) {
     line = line.replace('AbilitySpecial', 'AbilityValues');
 
     result += line + '\r\n';
-    result = result.replace(/^(\s*\r\n){2,}/, '')
+    result = result.replace(/^(\s*\r\n){2,}/, '');
   });
 
   lineReader.on('close', () => {
-    if (!error && !checkEqual(before, result)) {
+    if (!checkEqual(before, result)) {
       fs.writeFile(file, result, { encoding: 'utf8' }, function (err) {
         if (err) {
           return console.error(chalk.red(err));
