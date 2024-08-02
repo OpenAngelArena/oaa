@@ -46,9 +46,13 @@
       "max_damage" //OAA, Valve forgot '+' on special_bonus_unique_disruptor_9
       {
         "value"                                           "100 160 220 280 560 1120"
-        "special_bonus_unique_disruptor_9"                "+275"
+        "special_bonus_unique_disruptor_9"                "+280"
       }
-      "max_distance"                                      "1400"
+      "damage_to_distance_pct"                    
+      {
+        "value"                                           "20 25 30 35 40 45"
+        "special_bonus_unique_disruptor_9"                "+10"
+      }
     }
   }
 }

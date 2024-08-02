@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Antimage Persecutor
+  //=================================================================================================================
+  "antimage_persectur"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+    "MaxLevel"                                            "6"
+    "Innate"                                              "1"
+
+    "AbilityValues"
+    {
+      "move_slow_min"
+      {
+        "value"                                           "12.5 15.0 17.5 20 22.5 25"
+        "special_bonus_unique_antimage_5"                 "+5"
+      }
+      "move_slow_max"
+      {
+        "value"                                           "25 30 35 40 45 50"
+        "special_bonus_unique_antimage_5"                 "+10"
+      }
+      "mana_threshold"                                    "50"
+      "slow_duration"                                     "0.75"
+      "zero_tooltip"                                      "0"
+    }
+  }
+}
