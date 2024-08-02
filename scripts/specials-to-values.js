@@ -3,18 +3,6 @@ const path = require('path');
 const chalk = require('chalk');
 const readline = require('readline');
 
-const tab = '  ';
-const padLenght = 59;
-const padLenghtTooltips = 81;
-
-function stringRepeat (string, num) {
-  let result = '';
-  for (let i = 0; i < num; i++) {
-    result += string;
-  }
-  return result;
-}
-
 const walk = function (directoryName, action) {
   fs.readdir(directoryName, function (err, files) {
     if (err) {
@@ -52,10 +40,8 @@ function specialsToValues (file) {
   let result = '';
   let before = '';
   let error = false;
-  let lineNumber = 0;
   lineReader.on('line', (line) => {
     before += line + '\r\n';
-    lineNumber++;
 
     line = line.replace(/.*"var_type".*/, '');
 

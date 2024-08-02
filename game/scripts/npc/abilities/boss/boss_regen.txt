@@ -15,38 +15,14 @@
 
     "AbilityCooldown"                                     "5.0"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "regen_interval"                                  "0.1"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "3.3"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "degen_duration"                                  "2.0"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "degen_interval"                                  "0.5"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "health_degen_rate"                               "1.0"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "pauses_during_duel"                              "1"
-      }
+      "regen_interval"                                    "0.1"
+      "health_regen_rate"                                 "3.3"
+      "degen_duration"                                    "2.0"
+      "degen_interval"                                    "0.5"
+      "health_degen_rate"                                 "1.0"
+      "pauses_during_duel"                                "1"
     }
   }
 }

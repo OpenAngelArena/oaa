@@ -6,7 +6,6 @@
     "ScriptFile"                                          "abilities/dev_attack.lua"
     "AbilityTextureName"                                  "custom/shoopdawhoop"
     "MaxLevel"                                            "1"
-    "AbilityType"                                         "DOTA_ABILITY_TYPE_BASIC"
 
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -15,18 +14,10 @@
     "AbilityUnitDamageType"                               "DAMAGE_TYPE_PURE"
     "SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_YES"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "timetokill"                                      "2"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "radius"                                          "700"
-      }
+      "timetokill"                                        "2"
+      "radius"                                            "700"
     }
 
     "precache"

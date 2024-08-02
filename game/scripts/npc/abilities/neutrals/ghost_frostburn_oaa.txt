@@ -27,23 +27,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-25"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-25"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "heal_prevent_duration"                           "2.5"
-      }
+      "heal_prevent_percent"                              "-25"
+      "attack_speed_slow"                                 "-25"
+      "heal_prevent_duration"                             "2.5"
     }
   }
 }

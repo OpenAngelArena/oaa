@@ -15,43 +15,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "spawn_radius"                                    "250"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_hp_percentage"                             "75"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_dmg_percentage"                            "75"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_xp_percentage"                             "75"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "shard_gold_percentage"                           "50"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "shard_duration"                                  "60.0"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "number_of_splits"                                "2"
-      }
+      "spawn_radius"                                      "250"
+      "shard_hp_percentage"                               "75"
+      "shard_dmg_percentage"                              "75"
+      "shard_xp_percentage"                               "75"
+      "shard_gold_percentage"                             "50"
+      "shard_duration"                                    "60"
+      "number_of_splits"                                  "2"
     }
   }
 }

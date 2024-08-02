@@ -18,22 +18,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "crit_chance"                                       "20"
+      "crit_multiplier"                                   "200"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_chance"                                     "20"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "crit_multiplier"                                 "200"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "1200"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

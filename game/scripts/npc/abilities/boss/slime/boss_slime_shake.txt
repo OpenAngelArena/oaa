@@ -8,7 +8,7 @@
     "BaseClass"                                           "ability_lua"
     "AbilityTextureName"                                  "abyssal_underlord_firestorm"
     "ScriptFile"                                          "abilities/boss/slime/boss_slime_shake.lua"
-    "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
+
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
@@ -20,64 +20,30 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "800"
     "AbilityCastPoint"                                    "0.5"
-    "AbilityChannelTime"                                  "5.0"
+    "AbilityCastAnimation"                                "ACT_DOTA_IDLE"
+
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    // "AbilityCooldown"               "10"
+    "AbilityCooldown"                                     "10"
+    "AbilityChannelTime"                                  "5.0"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    // "AbilityManaCost"               "0"
+    "AbilityManaCost"                                     "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance"                                          "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "800"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_min_size"                             "64"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_max_size"                             "128"
-      }
-      "05"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "1000"
-      }
-      "06"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow"                                            "-50"
-      }
-      "07"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "slow_duration"                                   "3.0"
-      }
-      "08"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "projectile_count"                                "12"
-      }
-      "09"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "delay"                                           "1.25"
-      }
+      "chance"                                            "50" // chance for other abilities to proc/start this ability
+      "radius"                                            "800"
+      "projectile_min_size"                               "64"
+      "projectile_max_size"                               "128"
+      "damage"                                            "1000" // pure
+      "slow"                                              "-50"
+      "slow_duration"                                     "3.0"
+      "projectile_count"                                  "12"
+      "delay"                                             "1.25"
     }
   }
 }

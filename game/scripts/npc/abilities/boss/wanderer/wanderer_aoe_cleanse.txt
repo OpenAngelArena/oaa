@@ -29,23 +29,11 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "damage"                                          "1500"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "max_hp_percent"                                  "50"
-      }
+      "radius"                                            "450"
+      "damage"                                            "1500" // physical
+      "max_hp_percent"                                    "50" // physical
     }
   }
 }

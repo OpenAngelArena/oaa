@@ -23,27 +23,15 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "move_speed_slow"                                   "-40"
+      "attack_speed_slow"                                 "-45"
+      "heal_prevent_percent"                              "-25"
+      "radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "move_speed_slow"                                 "-40"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "attack_speed_slow"                               "-45"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "heal_prevent_percent"                            "-25"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "radius"                                          "450"
+        "value"                                           "450"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

@@ -17,22 +17,14 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
+      "bonus_status_resistance"                           "50"
+      "aura_bonus_armor"                                  "5"
+      "aura_radius"
       {
-        "var_type"                                        "FIELD_INTEGER"
-        "bonus_status_resistance"                         "50"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_bonus_armor"                                "5"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "aura_radius"                                     "1200"
+        "value"                                           "1200"
+        "affected_by_aoe_increase"                        "1"
       }
     }
   }

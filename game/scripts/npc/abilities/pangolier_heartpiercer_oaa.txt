@@ -20,28 +20,12 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "chance_pct"                                      "17"
-      }
-      "02"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "duration"                                        "2 3 4 5 6 7"
-      }
-      "03"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "slow_pct"                                        "-35 -40 -45 -50 -60 -70"
-      }
-      "04"
-      {
-        "var_type"                                        "FIELD_FLOAT"
-        "debuff_delay"                                    "2.0"
-      }
+      "chance_pct"                                        "17"
+      "duration"                                          "2 3 4 5 6 7"
+      "slow_pct"                                          "-35 -40 -45 -50 -60 -70"
+      "debuff_delay"                                      "2.0"
     }
   }
 }

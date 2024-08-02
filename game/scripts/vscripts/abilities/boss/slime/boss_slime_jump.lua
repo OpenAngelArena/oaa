@@ -43,7 +43,7 @@ function boss_slime_jump:OnAbilityPhaseStart()
   local target = self:GetCursorPosition()
   local radius = self:GetSpecialValueFor("radius")
 
-  DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
+  --DebugDrawCircle(target + Vector(0,0,32), Vector(255,0,0), 55, radius, false, self:GetCastPoint())
 
   return true
 end
@@ -66,12 +66,16 @@ function boss_slime_jump:OnSpellStart()
   local projectileTable = {
     onLandedCallback = function ()
       local shakeAbility = caster:FindAbilityByName("boss_slime_shake")
-      if shakeAbility and RandomInt(1, 100) > shakeAbility:GetSpecialValueFor("chance") then
-        ExecuteOrderFromTable({
-          UnitIndex = caster:entindex(),
-          OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-          AbilityIndex = shakeAbility:entindex(),
-        })
+      if shakeAbility then
+        if RandomInt(1, 100) > shakeAbility:GetSpecialValueFor("chance") and shakeAbility:IsFullyCastable() then
+          caster:Stop()
+          ExecuteOrderFromTable({
+            UnitIndex = caster:entindex(),
+            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+            AbilityIndex = shakeAbility:entindex(),
+            Queue = false,
+          })
+        end
       end
 
       local smoke = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_blast_off_fire_smallmoketrail.vpcf", PATTACH_POINT, caster)

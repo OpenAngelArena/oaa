@@ -17,13 +17,9 @@
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"                                        "FIELD_INTEGER"
-        "maximum_attack_speed"                            "300"
-      }
+      "maximum_attack_speed"                              "300"
     }
   }
 }
