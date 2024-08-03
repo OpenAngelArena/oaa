@@ -175,7 +175,7 @@ if IsServer() then
       attacker = caster,
       damage = ability:GetSpecialValueFor("max_damage"),
       damage_type = ability:GetAbilityDamageType(),
-      --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+      --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
       ability = ability
     }
 
@@ -257,7 +257,7 @@ function modifier_boss_swiper_reapers_rush_active:OnIntervalThink()
     attacker = caster,
     damage = ability:GetSpecialValueFor("min_damage"),
     damage_type = ability:GetAbilityDamageType(),
-    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+    --damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK,
     ability = ability
   }
 

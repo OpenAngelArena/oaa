@@ -185,7 +185,7 @@ if IsServer() then
     elseif damage_type == DAMAGE_TYPE_MAGICAL then
       damage_table.damage = self.physical_damage
       damage_table.damage_type = DAMAGE_TYPE_PHYSICAL
-      damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+      damage_table.damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
       overhead_alert = OVERHEAD_ALERT_DAMAGE
     end
 

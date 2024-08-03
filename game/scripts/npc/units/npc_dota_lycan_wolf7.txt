@@ -1,14 +1,14 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Lycan Wolf 6
+  // Lycan Wolf 7
   //=================================================================================
-  "npc_dota_lycan_wolf6"
+  "npc_dota_lycan_wolf7"
   {
     "include_keys_from"                                   "npc_dota_lycan_wolf1"
 
-    "Level"                                               "6"
-    "ModelScale"                                          "1.1"
+    "Level"                                               "7"
+    "ModelScale"                                          "1.2"
 
     // Abilities
     //----------------------------------------------------------------
@@ -21,8 +21,8 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackDamageMin"                                     "280" // Damage range min.
-    "AttackDamageMax"                                     "280" // Damage range max.
+    "AttackDamageMin"                                     "380" // Damage range min.
+    "AttackDamageMax"                                     "380" // Damage range max.
     "AttackRate"                                          "0.7" // BAT
 
     // Bounty
