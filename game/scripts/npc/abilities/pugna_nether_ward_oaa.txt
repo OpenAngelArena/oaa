@@ -57,7 +57,7 @@
       "mana_restore_pct"
       {
         "value"                                           "0"
-        "special_bonus_facet_pugna_siphoning_ward"        "+30"                
+        "special_bonus_facet_pugna_siphoning_ward"        "+30"
       }
       "attacks_to_destroy"
       {
@@ -74,8 +74,8 @@
         "value"                                           "150"
         "special_bonus_shard"                             "=350"
       }
-      "nether_ward_gold_bounty"                           "20 40 60 80"
-      "self_restoration_range"                    
+      "nether_ward_gold_bounty"                           "20 40 60 80 80 80"
+      "self_restoration_range"
       {
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"

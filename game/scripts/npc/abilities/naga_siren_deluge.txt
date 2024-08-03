@@ -24,9 +24,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage"    
+      "damage"
       {
-        "value"                                           "80 140 200 260 520 780"
+        "value"                                           "80 140 200 260 520 1040"
         "special_bonus_unique_naga_siren_2"               "+30%"
       }
       "radius"
@@ -34,7 +34,7 @@
         "value"                                           "300"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration"                  
+      "duration"
       {
         "value"                                           "3"
       }

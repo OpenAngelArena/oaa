@@ -23,10 +23,6 @@
     "AbilityCastRange"                                    "150"
     "AbilityCastPoint"                                    "0"
 
-    // Damage
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"                                       "0"
-
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "30 35 40 45 50 55"
@@ -41,12 +37,12 @@
         //"special_bonus_unique_omniknight_3"               "-5"
         //note: AbilityChargeRestoreTime uses these values when it grants the charge
       }
-      "base_damage" // this is damage based on Omniknight's base damage
+      "base_damage" //OAA this is damage based on Omniknight's base damage
       {
-        "value"                                           "55 70 85 100 130 160"
+        "value"                                           "55 80 105 130 155 180"
         "special_bonus_unique_omniknight_4"               "+75"
       }
-      "bonus_damage"                                      "50 70 90 110 150 190" // this is actually base damage of the spell
+      "bonus_damage"                                      "55 80 105 130 260 390" //OAA this is actually base damage of the spell
       "heal_pct"
       {
         "value"                                           "0"
