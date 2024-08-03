@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Lone Druid: Bear Necessities (Facet)
+  //=================================================================================================================
+  "lone_druid_bear_necessities"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
+
+    "MaxLevel"                                            "6"
+    "DependentOnAbility"                                  "lone_druid_true_form"
+
+    "AbilityValues"
+    {
+      "item_slots"                                        "3"
+      "bonus_stat_percent"                                "50 60 70 80 85 90"
+    }
+  }
+}

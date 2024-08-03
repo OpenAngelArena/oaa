@@ -1,0 +1,30 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Elder Titan: World Builder (Innate) - custom ability
+  //=================================================================================================================
+  "elder_titan_innate_oaa"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                                           "ability_lua"
+    "ScriptFile"                                          "abilities/oaa_elder_titan_innate.lua"
+    "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+
+    "Innate"                                              "1"
+
+    "RequiredLevel"                                       "-1"
+    "MaxLevel"                                            "1"
+
+    "AbilityValues"
+    {
+      "radius"
+      {
+        "value"                                           "175"
+        "affected_by_aoe_increase"                        "1"
+      }
+      "starting_dmg_per_strength"                         "1"
+      "dmg_increase_per_second"                           "5"
+    }
+  }
+}

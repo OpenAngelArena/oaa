@@ -48,24 +48,21 @@
       "rotating_glaives_speed"
       {
         "value"                                           "160"
-        "special_bonus_shard"                             "+50%"  // also change tooltip value below
+        "special_bonus_shard"                             "+50%" // also change tooltip value below
       }
       "rotating_glaives_shard_speed_bonus_tooltip"
       {
         "value"                                           "0"
-        "special_bonus_shard"                             "+50"   // TOOLTIP ONLY, change value above too
+        "special_bonus_shard"                             "+50" // TOOLTIP ONLY, change value above too
       }
-
       "AbilityCooldown" //OAA
       {
         "value"                                           "25 24 23 22 21 20"
       }
-
       "AbilityManaCost"
       {
         "value"                                           "65 70 75 80 85 90"
       }
-
       "rotating_glaives_damage_reduction"
       {
         "value"                                           "0"
